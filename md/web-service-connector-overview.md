@@ -19,25 +19,26 @@ When you configure a process that uses this connector, you must [manage the jar 
 
 ## Input
 
-| Input type  | Description  | Type  | 
-| ----------- | ------------ | ----- | 
-| Target NS  | Target NS (URL)  | String  | 
-| Service name  | Name of web service  | String  | 
-| Port name  | Web service port name  | String  | 
-| Request  | Request entity  | String  | 
-| End point address  | URL  | String  | 
-| Binding  | Specify protocol and data format  | String  | 
-| Password  | Password of user authorized to access  | String  | 
-| Service NS  | Target namespace (URL)  | String  | 
-| Service name  | Name of web service  | String  |
-| Port name  | Web service port name  | String  |
-| End point address  | URL  | String  |
-| Binding  | Specify protocol and data format  | String  | 
+| Input type        | Description                           | Type   |
+| ----------------- | ------------------------------------- | ------ |
+| Target NS         | Target NS (URL)                       | String |
+| Service name      | Name of web service                   | String |
+| Port name         | Web service port name                 | String |
+| Request           | Request entity                        | String |
+| End point address | URL                                   | String |
+| Binding           | Specify protocol and data format      | String |
+| Password          | Password of user authorized to access | String |
+| Service NS        | Target namespace (URL)                | String |
+| Service name      | Name of web service                   | String |
+| Port name         | Web service port name                 | String |
+| End point address | URL                                   | String |
+| Binding           | Specify protocol and data format      | String |
 
 ## Output
-| Output type  | Description  | Type  |
-| ------------ | ------------ | ----- |
-| Response  | Result of execution  | Source  |
+
+| Output type | Description         | Type   |
+| ----------- | ------------------- | ------ |
+| Response    | Result of execution | Source |
 
 ## Result
 

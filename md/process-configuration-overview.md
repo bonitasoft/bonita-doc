@@ -4,8 +4,8 @@ The Bonita Studio provides dedicated tooling to configure the different artefact
 
 There are two reasons for configuring a process:
 
-* Configuring a process for testing
-* Configuring a process before deployment
+- Configuring a process for testing
+- Configuring a process before deployment
 
 Before you can run a process from Bonita Studio for testing, you must configure it. The configuration is partly set implicitly by the Deployment and Web 
 preferences set as [Bonita Studio preferences](bonita-bpm-studio-preferences.md) and is partly set explicitly by 

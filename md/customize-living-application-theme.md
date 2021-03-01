@@ -12,10 +12,10 @@ Each application can have its own theme.
 
 ## Prerequisites
 
-* An Internet connection to fetch Maven and NPM repositories
-	* If the Internet access is behind a proxy follow the proxy settings from the [maven-frontend-plugin](https://github.com/eirslett/frontend-maven-plugin#proxy-settings)
-* Maven basic knowledge
-* CSS basic knowledge
+- An Internet connection to fetch Maven and NPM repositories
+  - If the Internet access is behind a proxy follow the proxy settings from the [maven-frontend-plugin](https://github.com/eirslett/frontend-maven-plugin#proxy-settings)
+- Maven basic knowledge
+- CSS basic knowledge
 
 ## Create a theme project
 
@@ -54,10 +54,11 @@ myCustomTheme
 | pom.xml //Maven project descriptor
 ```
 
-This project is using [Sass](https://sass-lang.com/) to easily create and customize a Bootstrap *3.3.7* theme.
+This project is using [Sass](https://sass-lang.com/) to easily create and customize a Bootstrap _3.3.7_ theme.
 To compile the scss it relies on [Node](https://nodejs.org/en/) and [NPM](https://www.npmjs.com/). See the package.json file below for more details.
 
 `package.json`
+
 ```json
 {
   "name": "myCustomTheme", 
@@ -77,11 +78,12 @@ To compile the scss it relies on [Node](https://nodejs.org/en/) and [NPM](https:
 }
 ```
 
-By default, a _build_ npm script is defined. It runs `node-sass` to compile the `src/scss/main.scss` file. The build command includes the bootstrap-sass stylesheets in order to have clean `@import` statements in the _*.scss_ files.
-In addition, *postcss-cli* and *autoprefixer* are used to add vendor prefixes for a better browser compatibility.
+By default, a _build_ npm script is defined. It runs `node-sass` to compile the `src/scss/main.scss` file. The build command includes the bootstrap-sass stylesheets in order to have clean `@import` statements in the _\*.scss_ files.
+In addition, _postcss-cli_ and _autoprefixer_ are used to add vendor prefixes for a better browser compatibility.
 
 The maven descriptor is responsible for running the npm build and package the result as a Theme custom page archive. See the pom.xml file below for more details.  
 `pom.xml`
+
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -189,6 +191,7 @@ The `artifactId`, `name` and `description` are used to define the theme metadata
 ### SCSS source files
 
 `src/scss/main.scss`
+
 ```css
 //Bonita variables
 @import "bonita_variables";
@@ -198,15 +201,18 @@ The `artifactId`, `name` and `description` are used to define the theme metadata
 
 @import "bonita_pager";
 ```
+
 The main.scss is the aggregation of 3 imports:
-* `@import "bonita_variables";` imports the content of `src/scss/_bonita_variables.scss` file.
-* `@import "bootstrap";` imports the bootstrap-sass stylesheet. You may look its content in `node_modules/bootstratp-sass/assets/stylesheets/_bootstrap.scss`.
-* `@import "bonita_pager";` imports the content of `src/scss/_bonita_pager.scss` file, a custom style for Bootstrap pager used by the Bonita theme. 
+
+- `@import "bonita_variables";` imports the content of `src/scss/_bonita_variables.scss` file.
+- `@import "bootstrap";` imports the bootstrap-sass stylesheet. You may look its content in `node_modules/bootstratp-sass/assets/stylesheets/_bootstrap.scss`.
+- `@import "bonita_pager";` imports the content of `src/scss/_bonita_pager.scss` file, a custom style for Bootstrap pager used by the Bonita theme. 
 
 When using Sass, you can split your stylesheets into _partials_. This is a great way to modularize your CSS and help keep things easier to maintain. A partial is simply a Sass file named with a leading underscore. You might name it something like `_partial.scss`. The underscore lets Sass know that the file is only a partial file and that it should not be generated into a CSS file. Sass partials are used with the `@import` directive like in our `src/scss/main.scss`. 
 Note that the `@import` order is important.
 
 `src/scss/_bonita_variables.scss`
+
 ```css
 /Predifined variables can be found here (need to run a build first):
 //${project.basedir}/node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variable.scss
@@ -323,14 +329,15 @@ $panel-danger-heading-bg: $brand-danger;
 //Glyphicons fonts
 $icon-font-path: "./fonts/"; // path relative to the theme.css file in the dist folder
 ```
-All the variables defined in this file are used by *bootstrap-sass*. You can look at the following scss file `node_modules/bootstratp-sass/assets/stylesheets/bootstrap/_variable.scss` to discover all available variables.
+
+All the variables defined in this file are used by _bootstrap-sass_. You can look at the following scss file `node_modules/bootstratp-sass/assets/stylesheets/bootstrap/_variable.scss` to discover all available variables.
 
 ::: info
 **Note:** Only variables declared with the `!default` flag can be overridden.
 :::
 
 Sass and SCSS have lots of other interesting features that you could use. Check [Sass documentation](https://sass-lang.com/documentation) to known more.
-                                                                          
+
 ## Building, Deploying, and Previewing a theme
 
 During the development phase, you can preview your theme using the provided test page in `test/index.html`.
@@ -342,7 +349,8 @@ If your theme is already associated to a living application, you can just `deplo
 
 If you are upgrading from a previous Bonita version you may already have a theme.css file packaged in a custom page archive.  
 The easiest way of integrating your theme as a new theme project is:
- 1. Create a new theme
- 1. Extract the _theme.css_ file from your theme custom page .zip archive
- 1. Replace the content of the _main.scss_ file with the content of the extracted _theme.css_ file
- 1. Retrieve all the related assets if any and copy them in the `dist` folder accordingly
+
+1. Create a new theme
+2. Extract the _theme.css_ file from your theme custom page .zip archive
+3. Replace the content of the _main.scss_ file with the content of the extracted _theme.css_ file
+4. Retrieve all the related assets if any and copy them in the `dist` folder accordingly

@@ -1,4 +1,5 @@
 # Bonita actor filter archetype
+
 A set of best of breed tools to develop and test custom actor filters independently of the Bonita Studio. 
 
 ## Create a custom actor filter
@@ -8,9 +9,9 @@ We provide a maven archetype to help you to bootstrap an actor filter project. T
 
 ### Prerequisite
 
- 1. Java 8 must be installed: [https://adoptopenjdk.net/index.html](https://adoptopenjdk.net/index.html)
- 2. Maven must be installed: [https://maven.apache.org/install.html](https://maven.apache.org/install.html)
- 3. Actor filter development requires some software development skills. The archetype offers the possibility to develop the connector in _Java_, _Groovy_ or _Kotlin_. Make sure that you are comfortable with at least one of those three languages. 
+1. Java 8 must be installed: <https://adoptopenjdk.net/index.html>
+2. Maven must be installed: <https://maven.apache.org/install.html>
+3. Actor filter development requires some software development skills. The archetype offers the possibility to develop the connector in _Java_, _Groovy_ or _Kotlin_. Make sure that you are comfortable with at least one of those three languages. 
 
 ### Generate the project using the maven archetype
 
@@ -20,47 +21,49 @@ To create your actor filter project, prompt a terminal and enter the following c
 ::: warning
 **Warning:** Make sure that you are not executing the command from an existing maven project.
 :::
+
 ```
 mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-actorfilter-archetype -DarchetypeVersion=1.0.0
 ```
+
 You'll then have to specify interactively the properties of your project: 
 
 - **groupId:** the group id of your connector.
 - **artifactId:** the artifact id of your filter
-    - Must match the following regex: `^[a-zA-Z0-9\-]+$`
-    - Example: _my-custom-filter_
+  - Must match the following regex: `^[a-zA-Z0-9\-]+$`
+  - Example: _my-custom-filter_
 - **version:** the version of your connector _(default value: 1.0-SNAPSHOT)_
-Follow the [maven naming convention guide](http://maven.apache.org/guides/mini/guide-naming-conventions.html)
+  Follow the [maven naming convention guide](http://maven.apache.org/guides/mini/guide-naming-conventions.html)
 - **package** the package in which the connector source files will be created _(default value: the group id of the connector)_
 - **bonitaVersion:** the targeted Bonita version
-    - A Bonita connector project depends on _org.bonitasoft.engine:bonita-common_. To avoid potential conflicts / errors at runtime, you should use the Bonita version of your runtime environment.
+  - A Bonita connector project depends on _org.bonitasoft.engine:bonita-common_. To avoid potential conflicts / errors at runtime, you should use the Bonita version of your runtime environment.
 - **className:** the class name of your connector 
-    - Must match the following regex: `^[a-zA-Z_$][a-zA-Z\d_$]+$` (A Java classname valid identifier)
-    - Example: _MyCustomFilter_
+  - Must match the following regex: `^[a-zA-Z_$][a-zA-Z\d_$]+$` (A Java classname valid identifier)
+  - Example: _MyCustomFilter_
 - **language**: the language used in the connector project. Available values:
-    - java
-    - groovy
-    - kotlin
+  - java
+  - groovy
+  - kotlin
 
 A folder named _[your artifact id]_ is created, with your Bonita actor filter project, ready to use.
 
 ⚠️ You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
-
 
 ### Actor filter developpment
 
 In this section we'll look into the different components of an actor filter project, and how you should use them to develop your filter.
 
 #### Definition
-An actor filter is first defined by its **definition**.  It is an XML file located in _src/main/resources-filtered/[artifactId].def_ by default.   
+
+An actor filter is first defined by its **definition**.  It is an XML file located in _src/main/resources-filtered/[artifactId].def_ by default.  
 A definition defines the inputs of a filter. It can be seen as a black box. The definition explicits what will be passed to the filter. Then, implementations of this definition can be created, they just need to respect the inputs contract of the definition.  
 
 The connector definition XSD is available in _schemas/connector-definition-descriptor.xsd_, you can import it in a IDE to get completion. 
 
-
 ![Connector definition xsd overview](images/connector-def-xsd-overview.png)
 
 Example: 
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <definition:ConnectorDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1">
@@ -85,6 +88,7 @@ Example:
   
 </definition:ConnectorDefinition>
 ```
+
 `definition-id` and `definition-version` are properties defined in the `pom.xml`.
 
 ##### Actor filter Inputs
@@ -92,23 +96,23 @@ Example:
 The inputs of an actor filter are defined in the definition. Those inputs are valued by processes, and are retrieved by the implementation classes of the actor filter to execute the business logic.  
 A actor filter input: 
 
- - Has a name
- - Has a type
- - Has an optional default value
- - Can be mandatory 
+- Has a name
+- Has a type
+- Has an optional default value
+- Can be mandatory 
 
 ##### Pages and widgets
 
 A definition includes _pages_ and _widgets_.  Those elements define the UI that will appear in the Bonita Studio to configure the actor filter.  
 
- - A widget is bound to an input
- - A page contains a set of widgets
+- A widget is bound to an input
+- A page contains a set of widgets
 
 The idea is to create pages for related inputs, so the person who will configure the actor filter will easily understand what he has to do.
 
  All the available widgets are defined in the XSD. You must reference the widget type in the tag to create a specific widget: 
 
-``` xml 
+```xml
 <widget  xsi:type="definition:[WIDGET TYPE]"  id="[WIDGET ID]"  inputName="[CORRESPONDING INPUT]"/>
 ```
 
@@ -117,7 +121,7 @@ The input name is used to bind this widget to one of the connector inputs.
 
 Some widgets can require additional informations. For example, if you want to create a select widget with a set of item to select, you will have to do something like that: 
 
-``` xml
+```xml
 <widget xsi:type="definition:Select" id="choiceWidget" inputName="choice">
     <items>Choice 1</items>
     <items>Choice 2</items>
@@ -131,6 +135,7 @@ An _actor filter implementation_ implements a definition. A definition defines a
 Several implementations can be created for a given definition.
 
 An actor filter implementation is made of two elements: 
+
 - An xml file used to explicit the definition implemented, the dependencies required and the name of the implementation class
 - A set of Java based classes, constituting the implementation sources
 
@@ -142,6 +147,7 @@ The connector definition XSD is available in _schemas/connector-implementation-d
 ![Connector implementation xsd overview](images/connector-impl-xsd-overview.png)
 
 Example: 
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <implementation:connectorImplementation xmlns:implementation="http://www.bonitasoft.org/ns/connector/implementation/6.0">
@@ -157,6 +163,7 @@ ${impl-dependencies}
 
 </implementation:connectorImplementation>
 ```
+
 `impl-id`, `impl-version`, `definition-id`, `definition-version` and `impl-main-class` are properties defined in the `pom.xml`.  
 `impl-dependencies` is replaced at build time using `src\script\dependencies-as-var.groovy` script.
 
@@ -164,8 +171,8 @@ ${impl-dependencies}
 
 The implementation sources contain all the logic of the actor filter:
 
- - The validation of the inputs
- - The execution of the business logic to filter the users for a given actor.
+- The validation of the inputs
+- The execution of the business logic to filter the users for a given actor.
 
 The archetype offers the possibility to generate the default sources in Java, Groovy or Kotlin. The build result will always be a Java archive (jar), no matters the langage selected.
 
@@ -177,9 +184,11 @@ An actor filter project is built using Maven, and especially the [maven assembly
 
 By default, a zip archives is built containing all the definitions and implementations found in the project.
 By importing this archive in a Bonita Studio you will import all the definitions and implementations created in the project
- 
+
 To build the actor filter project, type the following command at the root of the project : 
+
 ```
 ./mvnw clean package
 ```
+
 The built archive can be found in here `target/[artifact id]-[artifact version].zip` after the build.

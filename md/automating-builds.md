@@ -14,8 +14,9 @@ This way of building artifacts is deprecated. Use [Bonita Continuous Delivery ad
 
 ::: warning
 **Warning:**
-* The solution described here relies on the `Workspace API`/`BonitaStudioBuilder`, which has been deprecated since Bonita 7.7.0. Instead, we strongly encourage you to use the LA builder included in the tooling suite of [*Bonita Continuous Delivery* add-on](https://documentation.bonitasoft.com/bcd/3.1/) add-on. One added-value is that LA builder does not need a studio to be installed.
-:::
+
+- The solution described here relies on the `Workspace API`/`BonitaStudioBuilder`, which has been deprecated since Bonita 7.7.0. Instead, we strongly encourage you to use the LA builder included in the tooling suite of [_Bonita Continuous Delivery_ add-on](https://documentation.bonitasoft.com/bcd/3.1/) add-on. One added-value is that LA builder does not need a studio to be installed.
+  :::
 
 ## Overview
 
@@ -28,9 +29,9 @@ This is because the Bonita Studio `workspace` directory should be removed before
 
 To use `BonitaStudioBuilder`, you need the following:
 
-* Bonita Studio (the same version as the Bonita repository). This must be a dedicated Bonita Studio and repository used only for your `BonitaStudioBuilder`, because the tool removes the content of the repository.
-* A window manager
-* Java 1.8
+- Bonita Studio (the same version as the Bonita repository). This must be a dedicated Bonita Studio and repository used only for your `BonitaStudioBuilder`, because the tool removes the content of the repository.
+- A window manager
+- Java 1.8
 
 After Bonita Studio is installed, the `BonitaStudioBuilder` scripts are in the `workspace_api_scripts` folder. 
 There are scripts for Windows (`.bat`), Linux (`.sh`), and MacOS (`_Mac.sh`).
@@ -49,9 +50,9 @@ The folder where the generated bar and zip files will be stored.
 `processes`
 The list of the processes in the repository for which bar files are required. 
 For each process, specify the process identifier and, optionally, the version. 
-If you do not specify the version, the latest version is used.   
-Format: _process_,_version;_process_,_version_...  
-Example: `-process=TravelRequest,1.5;Expenses;LeaveRequest,1.0`_
+If you do not specify the version, the latest version is used.  
+Format: _process_,_version;\_process_,_version_...  
+Example: `-process=TravelRequest,1.5;Expenses;LeaveRequest,1.0`\_
 
 `buildAllProcesses`
 If enabled, bar files are built for the latest version of each process in the repository.
@@ -84,6 +85,7 @@ To run the script:
 1. Check out the project to a directory in the Studio path.
 2. Delete the content of the `workspace` directory in your Bonita Studio installation.
 3. Run the script. For example:
+
 ```bash
 ./BonitaStudioBuilder.sh -repoPath=/home/myBonitaRepoCheckedOut
 -outputFolder=/home/bonita/myArtefacts -buildAll -migrate 

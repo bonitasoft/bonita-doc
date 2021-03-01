@@ -17,18 +17,19 @@ This version of Bonita introduces user validation: when a user name and password
 ## APIs
 
 Bonita Engine has the following Java APIs:
-| | |
-|:-|:-|
-| Identity API | Manages information about an organization, that is, the set of users who can act in processes. Handles creation, modification, and deletion of organizations, groups, roles, memberships, and users.|  
-| Organization API | Import or export an organization.|  
-| Process API | Handles actions related to processes (deploy, enable, start, disable, delete), executes activities, updates process data, search for a retrieve process entities.|  
-| Login API | Logs in to the engine in a platform and creates a session.|  
-| Monitoring API | Retrieves information about current activity, such as the number of users logged in, or the number of processes currently being executed.|  
-| Log API | provides access to business logs, for searching and to retrieve information about current or archived processes.|  
-| Platform command API | Creates, starts, stops platform.|  
-| Document API | Manages documents that are attached to a process instance.|  
-| Theme API | Manages the Look & Feel of the Bonita Portal web and mobile interfaces and forms.|  
-| Tenant Management API | Used to pause service in a tenant for maintenance, to resume service, and to check whether a tenant is paused. Available in Teamwork, Efficiency, Performance and Enterprise editions.|  
+
+|                       |                                                                                                                                                                                                      |
+| :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Identity API          | Manages information about an organization, that is, the set of users who can act in processes. Handles creation, modification, and deletion of organizations, groups, roles, memberships, and users. |
+| Organization API      | Import or export an organization.                                                                                                                                                                    |
+| Process API           | Handles actions related to processes (deploy, enable, start, disable, delete), executes activities, updates process data, search for a retrieve process entities.                                    |
+| Login API             | Logs in to the engine in a platform and creates a session.                                                                                                                                           |
+| Monitoring API        | Retrieves information about current activity, such as the number of users logged in, or the number of processes currently being executed.                                                            |
+| Log API               | provides access to business logs, for searching and to retrieve information about current or archived processes.                                                                                     |
+| Platform command API  | Creates, starts, stops platform.                                                                                                                                                                     |
+| Document API          | Manages documents that are attached to a process instance.                                                                                                                                           |
+| Theme API             | Manages the Look & Feel of the Bonita Portal web and mobile interfaces and forms.                                                                                                                    |
+| Tenant Management API | Used to pause service in a tenant for maintenance, to resume service, and to check whether a tenant is paused. Available in Teamwork, Efficiency, Performance and Enterprise editions.               |
 
 There is also a Web API, which is for internal use only, and a Command API,
 which is primarily for internal use.
@@ -48,9 +49,9 @@ EJB communication protocol is removed in 7.10.
 
 The Bonita Engine APIs can be accessed locally or remotely, in the following modes:
 
-* Local: the client accesses the server directly in local mode
-* EJB3: the client accesses a remote server using EJB3 mode (deprecated, removed in 7.10)
-* HTTP: the client accesses a remote server via HTTP
+- Local: the client accesses the server directly in local mode
+- EJB3: the client accesses a remote server using EJB3 mode (deprecated, removed in 7.10)
+- HTTP&#x3A; the client accesses a remote server via HTTP
 
 ![Diagram of API access options](images/images-6_0/dev_overview_api_access.png)
 
@@ -81,6 +82,7 @@ After the platform has been created and initialized, use the TenantAPIAccessor t
 
 The following example shows how to retrieve the LoginAPI, then use it to log in and create a session, then retrieve for API for that session. 
 The platform has already been created and initialized and the Engine is started.
+
 ```java
 final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
 APISession session = loginAPI.login(userName, password);
@@ -88,6 +90,7 @@ ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(session);
 ```
 
 When the application has finished processing, log out to delete the session:
+
 ```java
 loginAPI.logout(session);
 ```

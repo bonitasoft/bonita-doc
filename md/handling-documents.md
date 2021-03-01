@@ -16,8 +16,8 @@ In a process operation, you might want to set / update the value of a document d
 The script should return a _DocumentValue_ .  
 **N.B**: _All the following exemples deal with single document data. For multiple document data, just adapt the scripts to return a list  of DocumentInput instead of a document input._  
 
-
 #### Create a new document
+
 The following groovy scripts create a new document from an existing contract input / url / file.
 
 ```groovy
@@ -41,8 +41,7 @@ def DocumentValue createNewDocument(File file) throws IOException {
     def mimeType = Files.probeContentType(file.toPath())
     new DocumentValue(file.bytes, mimeType, file.name)
 }
-```  
-
+```
 
 #### Update the value of an existing document if a new content is provided
 
@@ -75,8 +74,7 @@ def DocumentValue optionalUpdateDocument(long documentId, File file) throws IOEx
         ? new DocumentValue(documentId, file.bytes, Files.probeContentType(file.toPath()), file.name)
         : new DocumentValue(documentId)
 }
-```  
-
+```
 
 ## Create a case with documents
 
@@ -121,8 +119,7 @@ def createCaseWithDocument(String processDefinitionName,
     // ----- start process instance -----
     processAPI.startProcess(processDefinitionId, operations, listExpressionsContext);
 }
-```  
-
+```
 
 ## Attach a document to a case
 
@@ -148,7 +145,6 @@ def attachNewDocumentVersionToCase(ProcessAPI processAPI, long processInstanceId
     processAPI.attachNewDocumentVersion(processInstanceId, documentName, document.name, mimeType, document.bytes)
 }
 ```
-
 
 ## Delete documents of archived cases based on archive date
 

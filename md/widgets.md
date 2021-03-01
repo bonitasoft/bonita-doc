@@ -1,10 +1,10 @@
-# UI Designer Embedded widgets  
+# UI Designer Embedded widgets
 
 The UI Designer provides a set of default widgets that you can use or customize to design a page or form.
 
 ## Difference between page and form
 
-The UI Designer is a tool for creating pages and forms to use in a BPM application.   
+The UI Designer is a tool for creating pages and forms to use in a BPM application.  
 A form is mapped to process instantiation or to a human task and must fulfill a [contract](contracts-and-contexts.md). To gather the inputs that will be sent to the contract, it embeds input fields and a submit button. A page is not mapped to any part of a process, it displays business information and gives access to forms or action buttons that send information to the process. Besides this, there is no difference between a page and a form, so the procedure for designing them is the same. This documentation uses the term _page_ for both pages and forms, unless otherwise stated.
 
 ## Page structure
@@ -17,12 +17,12 @@ Each widget in the palette has a description. To show a widget description, just
 
 From the properties panel header, the "Widget actions" menu provides a list of actions for the selected widget.
 
-* Use **view** menu option to view the code of the standard widget in the widget editor.
+- Use **view** menu option to view the code of the standard widget in the widget editor.
   From there, you can clone this widget (to modify or extend it) by clicking on **Save as**. This will create a custom widget that you can modify as needed.
 
-* Use **edit** menu option to edit the widget in the widget editor (custom widget only).
+- Use **edit** menu option to edit the widget in the widget editor (custom widget only).
 
-* Use the **switch** menu option to replace a widget by another one and keep the current configuration.
+- Use the **switch** menu option to replace a widget by another one and keep the current configuration.
 
 Image below shows wizard of switch widget behaviour
 
@@ -31,11 +31,11 @@ Image below shows wizard of switch widget behaviour
 :::
 
 ![widget_switch_mapping](images/widget_switch_mapping.png)
- 
+
 In this wizard, select or type the widget to switch to, then click **Show properties**.
 
 Whenever possible, properties in the source widgets are mapped with same properties in the target widget.
- 
+
  You can edit that or map more, then click on **Switch**.                    
 
 When the switch is completed, you still may have to set properties from the properties panel.
@@ -100,23 +100,23 @@ There is also an option to remove the animation when the modal container appears
 
 You can add a little padding between the modal container content and its borders by typing `modal-body` in the CSS classes property. For a more structured content, you can add different plain containers inside the modal container, and specify any of the following `CSS classes` for each container, depending on its location in the modal:
 
-* modal-header, which creates a horizontal line underneath the element
-* modal-body
-* modal-footer, which creates a horizontal line on top of the element
+- modal-header, which creates a horizontal line underneath the element
+- modal-body
+- modal-footer, which creates a horizontal line on top of the element
 
 A modal container cannot be located in another container.
-We recommend to drop all modal containers at the bottom of the whiteboard, for clarity.
+We recommend dropping all modal containers at the bottom of the whiteboard, for clarity.
 To embed a pop-in into another pop-in at runtime, drop the first modal container at the bottom, drop the second modal container below the first one, and drop the button that opens the second pop-in within the first modal container.
 
 ## Input widgets
 
 Use an input widget to enable a user to provide input. In addition to the general widget properties, all input widgets have the following:
 
-* A Required property which prevents button from being clicked when put inside a form container
-* A Read-only/disabled property which prevents the user from modifying the value
-* A Label (which can be hidden)
-* A property to specify whether input is mandatory
-* A Value property that is used to capture the value entered by the user.
+- A Required property which prevents button from being clicked when put inside a form container
+- A Read-only/disabled property which prevents the user from modifying the value
+- A Label (which can be hidden)
+- A property to specify whether input is mandatory
+- A Value property that is used to capture the value entered by the user.
 
 The sections below describe the available input widgets.
 
@@ -124,10 +124,10 @@ The sections below describe the available input widgets.
 
 Use the input widget on a form or page. There are four types of input:
 
-* text: a free-form text field
-* email: an email address
-* number: a decimal or integer number
-* password: like text but each character is replaced by an asterisk.
+- text: a free-form text field
+- email: an email address
+- number: a decimal or integer number
+- password: like text but each character is replaced by an asterisk.
 
 ### Text area and rich text area widgets
 
@@ -160,7 +160,7 @@ The selected values are captured through the **Selected values** property.
 
 ### Radio buttons widget
 
-Use a radio button widget to create a set of radio buttons for the available values, from which the user picks one value.   
+Use a radio button widget to create a set of radio buttons for the available values, from which the user picks one value.  
 To define the **available values**, you can provide a comma-separated list for simple values (for example: red, green, blue), or bind to a variable that holds an array of values.  
 If the values are JavaScript objects, you can also specify a **displayed key** that identifies the attribute to be used to label the radio buttons and a **returned key** so **selected value** will return only a specific key rather that the whole corresponding object.
 
@@ -174,11 +174,12 @@ Use a Date picker widget to display a calendar from which the user can select a 
 To select a date and a time (e.g., to schedule a meeting), use the Date time picker widget instead.
 
 The Date picker widget supports the following types for its **Value** property as input:  
-* [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) String variables (with or without time information)
-* Date objects
-* Long number values (Milliseconds since epoch)  
-However, the output of the widget is always a Javascript Date object. So it will change the type of the variable bound to the widget **Value** to a Date object when the user selects a date. This is required in order to ensure backward compatibility for pages designed with older UI Designer versions.    
-When sent in the JSON body of a request, the Date object is serialized into an ISO 8601 formatted String variable with the time set to midnight UTC (e.g., 2016-12-31T00:00:00.000Z).
+
+- [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) String variables (with or without time information)
+- Date objects
+- Long number values (Milliseconds since epoch)  
+  However, the output of the widget is always a Javascript Date object. So it will change the type of the variable bound to the widget **Value** to a Date object when the user selects a date. This is required in order to ensure backward compatibility for pages designed with older UI Designer versions.  
+  When sent in the JSON body of a request, the Date object is serialized into an ISO 8601 formatted String variable with the time set to midnight UTC (e.g., 2016-12-31T00:00:00.000Z).
 
 You can configure the displayed **date format** using a pattern, using `yyyy` for year, `MM` for Month, `dd` for day.  
 Use the `Today` button to select automatically and quickly the current day.
@@ -242,10 +243,10 @@ Note: The LocalStorage entry will automatically be deleted when the form is fina
 
 Use a display widget for information that the user can read on a page. This includes titles, paragraphs, and text. For each, you can specify the text and its alignment. There are several types of display widgets:
 
-* File viewer, to display a preview of files, either Bonita documents, or external documents. Users can also download the file thanks to this widget.
-* Link, to embed an HTML link for navigation to an external site.
-* Title, for headings. You can set the level from 1 to 6\.
-* Text, for chunks of text. Text supports basic HTML tags such a paragraph, list or image...
+- File viewer, to display a preview of files, either Bonita documents, or external documents. Users can also download the file thanks to this widget.
+- Link, to embed an HTML link for navigation to an external site.
+- Title, for headings. You can set the level from 1 to 6.
+- Text, for chunks of text. Text supports basic HTML tags such a paragraph, list or image...
 
 ### Table widget
 
@@ -261,21 +262,21 @@ Note: table widget only supports text values. HTML content passed in table data 
 
 An extended table widget that provides column sorting, filtering, and paging in addition to the standard table widget facilities.
 
-Set the **Data source** to _Bonita API_ to populate the data table with records from a Bonita REST API.   
+Set the **Data source** to _Bonita API_ to populate the data table with records from a Bonita REST API.  
 Then enter a REST API URL in the **URL** property. Use the **API request parameters** property to pass additional parameters to the request.  
 Supported parameters are described in the [REST API Overview](rest-api-overview.md) and in the REST API documentation for the relevant resource.  
 You do not need to specify paging parameters (such as `?p=0&c=10`), because the data table handles paging automatically when you use a Bonita API data source.  
 The value of the **Page size** property controls how many rows are displayed in a table view, and automatically adds buttons to show subsequent pages of the table.
 **:fa-exclamation-triangle:** The column keys must not be a number, or start with a number
 
-
 **Warning:** If your Data source is a **Rest Api Extension** and you need pagination, you need to provide the Content-Range header in the response, so the Data Table will handle the pagination.
 In order to do that you can use the method withContentRange in the responseBuilder variable of you Rest Api Extension, something like:
+
 ```groovy
 return buildResponse(responseBuilder.withContentRange(p, c, totalNumberOfElements), HttpServletResponse.SC_OK, new JsonBuilder(result).toString())
 ```
 
-Alternatively, you can set the **Data source** to _Variable_ and use a variable definition to point ot the table content.   
+Alternatively, you can set the **Data source** to _Variable_ and use a variable definition to point ot the table content.  
 Note that if you use a Variable datasource and an External API variable, the paging of the table content is not handled automatically.
 
 #### Sort
@@ -284,7 +285,7 @@ The _Sortable columns_ property enables to list the columns which allow a sorted
 Each element of this property has to match an element of the _Columns key_ property to figure out which table column can be sorted upon.
 
 When a data table is displayed (including in the Preview), the user can click on a column heading to reorder the table rows by this column.  
-Some fields do not support sorting but still display the sort button which is a known limitation.   
+Some fields do not support sorting but still display the sort button which is a known limitation.  
 The ordering applies to the visible rows in the table, not to the entire table.
 
 The sort is backend when datasource is **Bonita API**. It is frontend, otherwise.
@@ -308,8 +309,8 @@ Note: it is only possible to filter on attributes that are searchable in the RES
 
 Use an image widget to display an image. The image widget is able to display images from local assets or an image from a URL:
 
-* To use an image asset in the image widget, set the **Source type** property to _Asset_, and then enter the image name in the **Asset name** input field.
-* To use an online image in the image widget, set the **Source type** property to _URL_, and then enter the image URL in the **URL** input field.
+- To use an image asset in the image widget, set the **Source type** property to _Asset_, and then enter the image name in the **Asset name** input field.
+- To use an online image in the image widget, set the **Source type** property to _URL_, and then enter the image URL in the **URL** input field.
 
 _**Note**_: Applies from _7.0.2_
 
@@ -320,14 +321,14 @@ For information, see the [Angular chart documentation](http://jtblin.github.io/a
 
 The widget can display several styles of chart:
 
-* For a single set of data points:
-  * Bar
-  * Line
-  * Radar
-* For one or more sets of data points:
-  * Pie
-  * Doughnut
-  * Polar area
+- For a single set of data points:
+  - Bar
+  - Line
+  - Radar
+- For one or more sets of data points:
+  - Pie
+  - Doughnut
+  - Polar area
 
 Provide each set of data for display in a JSON array, containing numerical values.  
 You can enter a single array directly in the Value property, or bind it to any variable that provides an array.  
@@ -356,4 +357,3 @@ You can add rich text area inputs for end users to create text to be exported in
 It can be prefilled with an HTML template.
 
 A options toolbar exposed to end users can be customized and localized with the usual [localization mechanism](multi-language-pages.md) (localization.json file).
-

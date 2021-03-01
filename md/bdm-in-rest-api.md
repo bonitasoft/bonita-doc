@@ -4,6 +4,7 @@ Learn best practices when developing a [REST API Extension](rest-api-extensions.
 Special attention is paid on performance matters.
 
 ## First use case
+
 Image below shows the BDM model used for the first use-case:
 
 ![BDM model used](images/bdm_model_for_rest_api_01.png)
@@ -17,9 +18,10 @@ Below is an example of a REST API extension groovy script that accesses the Busi
 
 ::: info
 **Good practices** are:
-* If lazy loaded objects are not necessary in the response, ONLY extract the information needed. This avoids costly loading of unnecessary objects.
-* If lazy loaded objects should always be returned in the response, consider changing the relation from ['lazy' to 'eager'](define-and-deploy-the-bdm.md#lazy_eager_loading)
-in the model.
+
+- If lazy loaded objects are not necessary in the response, ONLY extract the information needed. This avoids costly loading of unnecessary objects.
+- If lazy loaded objects should always be returned in the response, consider changing the relation from ['lazy' to 'eager'](define-and-deploy-the-bdm.md#lazy_eager_loading)
+  in the model.
 :::
 
 ```groovy
@@ -117,7 +119,6 @@ Note that Wheels are not returned, only necessary information is fetched.
 As a result, performance is efficient
 :::
 
-
 ## Troubleshooting bad practices
 
 ::: warning
@@ -132,32 +133,33 @@ So, if a large number of Business Data is returned and if you have lazy loaded f
 For example, if you don't follow the code sample above and write something like:
 
 ```groovy
-        def currentModel = "DeLorean"
-        // Fetch the cars that match the search criteria:
-        List<Car> cars = carDAO.findByModel(currentModel, p as int, c as int)
-        def result = [ "cars" : cars ]
-        return buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(result).toString())
+    def currentModel = "DeLorean"
+    // Fetch the cars that match the search criteria:
+    List<Car> cars = carDAO.findByModel(currentModel, p as int, c as int)
+    def result = [ "cars" : cars ]
+    return buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(result).toString())
 ```
 
 The returned result will contain, for each car, the fields persistenceId, buildYear and color, allowing you to use these in your application(s).  
 However, assuming you want to retrieve 10 cars of the "Delorean" model, this code will execute a total of **41** "Select" database queries
-* 1 query to get the cars,
-* then 4 queries per car to fetch each one of the *wheel* fields to build the JSON response (so 40 queries).
-  
-In comparison, the code following good practises only performs **a single Select database query**.
 
+- 1 query to get the cars,
+- then 4 queries per car to fetch each one of the _wheel_ fields to build the JSON response (so 40 queries).
+
+In comparison, the code following good practises only performs **a single Select database query**.
 :::
 
 ## Other use cases
 
 The rest api extension example previously described in this page advices to:
-* create a custom data structure for the response
-* copy only selected fields from the BDM object into this custom data structure
+
+- create a custom data structure for the response
+- copy only selected fields from the BDM object into this custom data structure
 
 In some cases, you may want to return the entire BDM object structure in the response:
-* because it eases parsing the REST API Json result to build an Object
-* for maintenance reasons, when adding a new field to a BDM object, you may avoid to have to modify the Rest API extension code to include this new field
 
+- because it eases parsing the REST API Json result to build an Object
+- for maintenance reasons, when adding a new field to a BDM object, you may avoid to have to modify the Rest API extension code to include this new field
 
 ### Returning the whole object without its lazy loaded fields
 
@@ -219,14 +221,15 @@ class CarManagement implements RestApiController {
 ### Returning the whole object with an API link load in the lazy fields
 
 The idea is to create a custom Json serializer.  
-A custom Json serializer is a class which extends *com.fasterxml.jackson.databind.JsonSerializer*. There is a method *serialize* to implement, which has the responsability to serialize the input model into Json.  
-The custom Json serializer has to come with an other class, an object mapper,  which extends *com.fasterxml.jackson.databind.ObjectMapper*.  
-This mapper registers a simple module (*com.fasterxml.jackson.databind.module.SimpleModule*), which has to contain the custom serializer.  
+A custom Json serializer is a class which extends _com.fasterxml.jackson.databind.JsonSerializer_. There is a method _serialize_ to implement, which has the responsability to serialize the input model into Json.  
+The custom Json serializer has to come with an other class, an object mapper,  which extends _com.fasterxml.jackson.databind.ObjectMapper_.  
+This mapper registers a simple module (_com.fasterxml.jackson.databind.module.SimpleModule_), which has to contain the custom serializer.  
 At the end, in your rest API endpoint, you interact with the mapper.
 
 Here is an implementation example for the object Car which has four lazy attributes of type Wheel:  
 
 The serializer takes a Car in input, and build a Json object for it. The wheels are replaced with links to an other Rest API extension with the car ID and the wheel number in parameter. Calling this API will return the wheel. This is a classic lazy behavior.
+
 ```groovy
 /***********************
  ***** SERIALIZER ******

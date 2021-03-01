@@ -9,11 +9,12 @@ Usually, when leaving for a vacation, you set your mail account up with an out o
 You will design a process using Bonita:  
 First, draw the wireframe of the process in Bonita Studio.  
 The process consists of a :
-* a start event
-* a human task asking for the user to check the email content which will be send, the dates of its vacation and whether it wants to test the mail before submitting it to the mail server.
-* a service task sending the mail to the user
-* a service task which sends the out of office mail message to the mail server
-* an end event
+
+- a start event
+- a human task asking for the user to check the email content which will be send, the dates of its vacation and whether it wants to test the mail before submitting it to the mail server.
+- a service task sending the mail to the user
+- a service task which sends the out of office mail message to the mail server
+- an end event
 
 The process will look like this:
 
@@ -22,10 +23,11 @@ The process will look like this:
 Conditions are set on the transition out of the _Check Email content_ task allowing to know which path to use.
 
 We create a **Business Data Model** to hold the user informations :
-* _startDate_: leave date start as a **DATE**
-* _endDate_: leave date end as a **DATE**
-* _title_: the mail title as a **STRING**
-* _body_: the mail body as a **STRING** with a _length_ of 2048
+
+- _startDate_: leave date start as a **DATE**
+- _endDate_: leave date end as a **DATE**
+- _title_: the mail title as a **STRING**
+- _body_: the mail body as a **STRING** with a _length_ of 2048
 
 ![Out of office message business model](images/rta-mail/rta-mail-template-ooom-bdm.png) <!--{.img-responsive}-->
 
@@ -86,8 +88,9 @@ And the operation pane will look like this:
 #### Out transistion
 
 This task has two possible transition :
-* the transition to the _Send test email_ is condition if the local variable **test** is true
-* the transition to the _Send Message to Mail Server_ is condition if the **default flow**
+
+- the transition to the _Send test email_ is condition if the local variable **test** is true
+- the transition to the _Send Message to Mail Server_ is condition if the **default flow**
 
 ### Send test email service task
 
@@ -95,19 +98,20 @@ This task allow to send a test email to the process instance initiator for him t
 
 Therefore, we will use the **EMAIL (SMTP) Connector** on the task out step.  
 The connector properties will be :
-* The _to_ and _from_ properties of the connector will use groovy script to retrieve the appropriate address:
+
+- The _to_ and _from_ properties of the connector will use groovy script to retrieve the appropriate address:
   ```groovy
   BonitaUsers.getProcessInstanceInitiatorProfessionalContactInfo(apiAccessor,processInstanceId).email;
   ```
-* The _Subject_ will use a groovy script too to retrieve the business variable property:
+- The _Subject_ will use a groovy script too to retrieve the business variable property:
   ```groovy
   outOfOfficeMessage.title
   ```
-* The _Message_ will use a groovy script too to retrieve the business variable property:
+- The _Message_ will use a groovy script too to retrieve the business variable property:
   ```groovy
   outOfOfficeMessage.body
   ```
-Once this task is completed, a new _Check email content_ human task is available.o
+  Once this task is completed, a new _Check email content_ human task is available.o
 
 ### Send message to mail server
 
@@ -122,25 +126,28 @@ It will look like this:
 ![Out of office message - Check email content - form](images/rta-mail/rta-mail-template-ooom-check-mail-initial-form.png) <!--{.img-responsive}-->
 
 For a better usability, we can  :
-* rename _Start Date_ to _Start_
-* rename _End Date_ to _End_
-* have both date widget on the same line
-* change the checkbox _Test_ to a select box :
-  * add a **select** widget below the checkbox
-  * create a _nextStepChoice_ JSON variable defining the different choices :
+
+- rename _Start Date_ to _Start_
+- rename _End Date_ to _End_
+- have both date widget on the same line
+- change the checkbox _Test_ to a select box :
+
+  - add a **select** widget below the checkbox
+  - create a _nextStepChoice_ JSON variable defining the different choices :
     ```json
     [
         {"name": "Receive a test email in my mailbox", "value": true},
         {"name": "Send mail message to mail server", "value": false}
     ]
     ```
-  * set the following properties to the **select** widget:
-    * _Label hidden_ to `true`
-    * _Available values_ to `nextStepChoices`
-    * _Displayed key_ to `name`
-    * _Returned key_ to `value`
-    * _Value_ to `formInput.test`
-    It will look like this:
+  - set the following properties to the **select** widget:
+
+    - _Label hidden_ to `true`
+    - _Available values_ to `nextStepChoices`
+    - _Displayed key_ to `name`
+    - _Returned key_ to `value`
+    - _Value_ to `formInput.test`
+      It will look like this:
 
     ![Out of office message - Check email content - select properties](images/rta-mail/rta-mail-template-ooom-check-mail-select-properties.png) <!--{.img-responsive}-->
 
@@ -149,6 +156,7 @@ We use an _External API_ variable named **outOfOfficeMessage** which uses the **
 
 We bind the attributes of **outOfOfficeMessage** to fill the **formInput** variable that is already bound to inputs.  
 Change the **formInput** type to _Javascript Expression_ and set the _value_ to:
+
 ```javascript
 return {
   "outOfOfficeMessageInput" : {
@@ -168,11 +176,12 @@ The variable pane will look like this:
 We will take advantage of the **Rich text area** widget to have a nice way to visualize the mail body.  
 
 Add a **Rich text area** widget below the _title_ **input** widget:
-* set the value to `formInput.outOfOfficeMessageInput.body` (the same as the _body_ **input** widget)
-* set the _Label_ property to `Body`
-* set the _Required_ property to `yes`
-* set the _Style toolbar_ property to `p, ul, ol`
-* set the _Miscellaneous toolbar_ property to `html, insertImage, insertLink, undo, redo, clear`
+
+- set the value to `formInput.outOfOfficeMessageInput.body` (the same as the _body_ **input** widget)
+- set the _Label_ property to `Body`
+- set the _Required_ property to `yes`
+- set the _Style toolbar_ property to `p, ul, ol`
+- set the _Miscellaneous toolbar_ property to `html, insertImage, insertLink, undo, redo, clear`
 
 Click on preview. And the form will look like:
 

@@ -2,9 +2,9 @@
 
 In Bonita, it is a prerequisite to be comfortable with Java when implementing advanced behaviors in your processes, the below article aims at helping with Groovy, the scripting language used by Bonita.
 Groovy has been chosen as the scripting language because it is :
-* Concise, readable and have an expressive syntax, easy to learn for Java developers
-* Seamlessly and transparently integrates and interoperates with Java and any third-party libraries
 
+- Concise, readable and have an expressive syntax, easy to learn for Java developers
+- Seamlessly and transparently integrates and interoperates with Java and any third-party libraries
 
 ## From Java to Groovy
 
@@ -14,13 +14,13 @@ For a complete description, please have a look at the reference documentation [h
 
 Text literals are represented in the form of chain of characters called strings. Groovy lets you instantiate _java.lang.String_ objects, as well as GStrings (_groovy.lang.GString_) which are also called interpolated strings in other programming languages.
 
-* Single quoted strings are a series of characters surrounded by single quotes:  
+- Single quoted strings are a series of characters surrounded by single quotes:  
 
 ```groovy
 'a single quoted string'
 ```
 
-* Triple single quoted strings are a series of characters surrounded by triplets of single quotes and are multiline: 
+- Triple single quoted strings are a series of characters surrounded by triplets of single quotes and are multiline: 
 
 ```groovy
 def aMultilineString = '''line one
@@ -28,7 +28,7 @@ line two
 line three'''
 ```
 
-* Double quoted strings are a series of characters surrounded by double quotes: 
+- Double quoted strings are a series of characters surrounded by double quotes: 
 
 ```groovy
 "a double quoted string"
@@ -38,7 +38,7 @@ line three'''
 Double quoted strings are plain _java.lang.String_ if there's no interpolated expression, but are _groovy.lang.GString_ instances if interpolation is present. 
 :::
 
-* String interpolation  
+- String interpolation  
 
 Any Groovy expression can be interpolated in all string literals, apart from single and triple single quoted strings. Interpolation is the act of replacing a placeholder in the string with its value upon evaluation of the string. The placeholder expressions are surrounded by `${}` or prefixed with `$` for dotted expressions. The expression value inside the placeholder is evaluated to its string representation when the GString is passed to a method taking a String as argument by calling `toString()` on that expression.
 
@@ -101,7 +101,7 @@ More about Closures in Groovy [here](http://docs.groovy-lang.org/docs/groovy-2.4
 
 ### Operators
 
-* Identity operator
+- Identity operator
 
 In Groovy, using `==` to test equality is different from using the same operator in Java. In Groovy, it is calling equals. If you want to compare reference equality, you should use is like in the following example:
 
@@ -112,8 +112,7 @@ assert list1 == list2 // using ==, we test object equality
 assert !list1.is(list2) //	but using 'is', we can check that references are distinct
 ```
 
-
-* Safe navigation operator `?.` to Avoid NullPointerException:
+- Safe navigation operator `?.` to Avoid NullPointerException:
 
 Suppose we have a simple model like this:
 
@@ -152,7 +151,7 @@ Groovy adds the safe navigation operator to shorten all this to:
 println company?.address?.street?.name
 ```
 
-* The Elvis operator `:?` to shorten ternary expression
+- The Elvis operator `:?` to shorten ternary expression
 
 ```groovy
 def sampleText
@@ -170,13 +169,14 @@ More about Operators in Groovy [here](http://docs.groovy-lang.org/docs/groovy-2.
 ### Groovy truth
 
 Groovy decides whether an expression is true or false by applying the rules given below.  
-* Boolean expressions : True if the corresponding Boolean value is `true`.  
-* Collections and Arrays: Non-empty Collections and arrays are true.  
-* Matchers: True if the Matcher has at least one match.  
-* Maps: Non-empty Maps are evaluated to true.  
-* Strings: Non-empty Strings, GStrings and CharSequences are coerced to true.  
-* Numbers: Non-zero numbers are true.  
-* Object References: Non-null object references are coerced to true.
+
+- Boolean expressions : True if the corresponding Boolean value is `true`.  
+- Collections and Arrays: Non-empty Collections and arrays are true.  
+- Matchers: True if the Matcher has at least one match.  
+- Maps: Non-empty Maps are evaluated to true.  
+- Strings: Non-empty Strings, GStrings and CharSequences are coerced to true.  
+- Numbers: Non-zero numbers are true.  
+- Object References: Non-null object references are coerced to true.
 
 More about Groovy Truth [here](http://groovy-lang.org/semantics.html#Groovy-Truth).  
 
@@ -257,21 +257,21 @@ Here is the UserAppDAO interface generated for the UserApp object:
 
 ```java
 public interface AppUserDAO extends BusinessObjectDAO {
-    public AppUser findByPersistenceId(Long persistenceId);
+    AppUser findByPersistenceId(Long persistenceId);
 
-    public List<AppUser> findByFirstName(String firstName, int startIndex, int maxResults);
+    List<AppUser> findByFirstName(String firstName, int startIndex, int maxResults);
 
-    public List<AppUser> findByLastName(String lastName, int startIndex, int maxResults);
+    List<AppUser> findByLastName(String lastName, int startIndex, int maxResults);
 
-    public List<AppUser> find(int startIndex, int maxResults);
+    List<AppUser> find(int startIndex, int maxResults);
 
-    public Long countForFindByFirstName(String firstName);
+    Long countForFindByFirstName(String firstName);
 
-    public Long countForFindByLastName(String lastName);
+    Long countForFindByLastName(String lastName);
 
-    public Long countForFind();
+    Long countForFind();
 
-    public AppUser newInstance(String firstName, String lastName);
+    AppUser newInstance(String firstName, String lastName);
 }
 ```
 
@@ -294,16 +294,19 @@ if (!userInput?.address) { // As Address is not mandatory it can be null
 	return null
 }
 def addressVar = user.address ?: new com.company.model.Address() // Retrieve the existing address or create a new one
+
 addressVar.street = { //Use a Closure to resolve the street value
-	if (!userInput?.address?.street) { // Street is mandatory so it can't be null here, protected by a contract constraint, null-check statement is generated anyway
-		return null
-	}
+    if (!userInput?.address?.street) { // Street is mandatory so it can't be null here, protected by a contract constraint, null-check statement is generated anyway
+        return null
+    }
 	def streetVar = addressVar.street ?: new com.company.model.Street() // Retrieve the existing street or create a new one
 	// Assign contract values, note that nullsafe navigators are used even if we know that userInput.address is not null here
 	streetVar.name = userInput?.address?.street?.name 
 	streetVar.number = userInput?.address?.street?.number
 	streetVar.additionalInfo = userInput?.address?.street?.additionalInfo
-	return streetVar}() //execute the Closure to assign  the Street value to address
+	return streetVar
+}() //execute the Closure to assign  the Street value to address
+
 addressVar.postalCode = userInput?.address?.postalCode
 addressVar.city = userInput?.address?.city
 return addressVar // Return the edited (or new) address
@@ -353,8 +356,7 @@ def customInfo1Value = apiAccessor.identityAPI
                  ?.getValue()
 ```
 
-
 ## References
 
-* [Groovy 2.4.16 official documentation](http://docs.groovy-lang.org/docs/groovy-2.4.16/html/documentation/)
-* [Groovy Goodness by MrHaki](https://mrhaki.blogspot.com/search/label/Groovy%3AGoodness)
+- [Groovy 2.4.16 official documentation](http://docs.groovy-lang.org/docs/groovy-2.4.16/html/documentation/)
+- [Groovy Goodness by MrHaki](https://mrhaki.blogspot.com/search/label/Groovy%3AGoodness)

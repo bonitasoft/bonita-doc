@@ -16,7 +16,7 @@ All these types of information are not displayed in standard information tabs bu
 
 ## Define custom user information
 
-In the Organization menu \> Manage organizations \> Organization users, the second tab **User information management** offers a summary of the default information and allows to create custom user information. Use "Add" to create your own, with a name and an optional description.
+In the Organization menu > Manage organizations > Organization users, the second tab **User information management** offers a summary of the default information and allows to create custom user information. Use "Add" to create your own, with a name and an optional description.
 
 1. In Bonita Studio, go to **Organization** in the cool bar
 2. Click on _**Manage**_ in the dropdown menu
@@ -37,15 +37,15 @@ If the value is changed in Bonita Portal by the admin, and the filter value does
 
 ## Add custom user information values for each user
 
-In the Organization menu \> Manage organizations \> Organization users, the first tab **List of users** shows detail information for each user on the right hand-side panel, spread over five tabs:
+In the Organization menu > Manage organizations > Organization users, the first tab **List of users** shows detail information for each user on the right hand-side panel, spread over five tabs:
 
-* General (Title, First and last name, Job title)
-* Membership (Group/role)
-* Personal (Email, phone, website, address etc.)
-* Business card (Email, phone, website, address etc.)
-* Custom 
+- General (Title, First and last name, Job title)
+- Membership (Group/role)
+- Personal (Email, phone, website, address etc.)
+- Business card (Email, phone, website, address etc.)
+- Custom 
 
-To add custom user information values for a user, select a user in the **List of users**, click on the **_Custom_** tab, and enter the value for each relevant information. You also see a link **Manage custom information**, to go back and manage the list of custom user information.   
+To add custom user information values for a user, select a user in the **List of users**, click on the **_Custom_** tab, and enter the value for each relevant information. You also see a link **Manage custom information**, to go back and manage the list of custom user information.  
 Note: this value can be changed by a user with the Admin profile in the Bonita Portal. See [How to edit Custom information for a single user](custom-user-information-in-bonita-bpm-portal.md)
 
 ## Set an actor filter on custom user information
@@ -53,10 +53,11 @@ Note: this value can be changed by a user with the Admin profile in the Bonita P
 A task or a lane is linked to an actor. An actor is mapped to a list of users. An actor filter applies to the set of users mapped to the actor. The actor filter configuration can be added to an actor at lane or human task level.
 
 When all relevant users have their Custom User Information set, you can add an actor filter:
+
 1. In a process diagram, select a lane or a task
-2. In the **Details** panel, Go to **General** \> **Actors** and select an actor to apply the filter (actors are defined at pool level)
+2. In the **Details** panel, Go to **General** > **Actors** and select an actor to apply the filter (actors are defined at pool level)
 3. At **Actor filter** level, click _**Set**_
-4. In the Actor filters window \> Categories, click on _**Organization**_ and choose  _**Users with Custom information**_
+4. In the Actor filters window > Categories, click on _**Organization**_ and choose  _**Users with Custom information**_
 5. Click on _**Next**_
 6. Enter a name and a description for the filter configuration
 7. Click on _**Next**_

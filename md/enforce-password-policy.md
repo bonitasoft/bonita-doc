@@ -12,17 +12,18 @@ By default, no password policy is set for users of Bonita. It is therefore highl
 
 There are three options:
 
-* Leave the default setting as is: "non-protected".
-* Apply our ready-to-use policy to a tenant. This requires a password to contain the following:
-  * at least 10 characters long
-  * at least 2 special characters
-  * at least 2 upper case characters
-  * at least 2 lower case characters
-  * at least 3 digits
+- Leave the default setting as is: "non-protected".
+- Apply our ready-to-use policy to a tenant. This requires a password to contain the following:
+  - at least 10 characters long
+  - at least 2 special characters
+  - at least 2 upper case characters
+  - at least 2 lower case characters
+  - at least 3 digits
 
 To apply this policy edit **initial** configuration in `<TOMCAT_HOME>/setup/platform_conf/initial/platform_portal/security-config.properties` if you have never started the platform yet, and **current** configuration in
 `<TOMCAT_HOME>/setup/platform_conf/current/platform_portal/security-config.properties` if the platform has been already started using the [platform setup tool](BonitaBPM_platform_setup.md) and change `DefaultPasswordValidator` to `RobustnessPasswordValidator`.
-* Create a custom password policy by following the tutorial below.
+
+- Create a custom password policy by following the tutorial below.
 
 ## How to create a custom password policy
 
@@ -41,6 +42,7 @@ Here are the steps to add a custom password validator:
 
 1. Open Maven, and create a new Maven Project. This will create a pom.xml
 2. Add a new dependency in your pom.xml to get toolkit-view (x.y.z is the Bonita version number).
+
 ```xml
 <dependencies>
       <dependency>
@@ -54,17 +56,17 @@ Here are the steps to add a custom password validator:
 ::: warning
 **Note:** As this artifact is not available in public repositories, you
 have to follow this given procedure (example given for the x.y.z version):
-* retrieve the console-common-x.y.z.jar from a Bonita distribution or live
-instance (in the bonita.war or in the exploded war)
-* retrieve poms from the github repository
-  * bonita-console: https://github.com/bonitasoft/bonita-web/blob/x.y.z/pom.xml
-  * console-common: https://github.com/bonitasoft/bonita-web/blob/x.y.z/common/pom.xml
-* manually put the jars and pom in your local repository or deploy them
-into your repository manager
-  * bonita-console pom.xml file in <M2_REPO>/org/bonitasoft/console/bonita-console/x.y.z
-  * console-common pom.xml and jar files in <M2_REPO>/org/bonitasoft/console/console-common/x.y.z
-:::
 
+- retrieve the console-common-x.y.z.jar from a Bonita distribution or live
+  instance (in the bonita.war or in the exploded war)
+- retrieve poms from the github repository
+  - bonita-console: <https://github.com/bonitasoft/bonita-web/blob/x.y.z/pom.xml>
+  - console-common: <https://github.com/bonitasoft/bonita-web/blob/x.y.z/common/pom.xml>
+- manually put the jars and pom in your local repository or deploy them
+  into your repository manager
+  - bonita-console pom.xml file in &lt;M2_REPO>/org/bonitasoft/console/bonita-console/x.y.z
+  - console-common pom.xml and jar files in &lt;M2_REPO>/org/bonitasoft/console/console-common/x.y.z
+    :::
 
 3. Create your class, eg. `PasswordLengthValidator` with a name for the package, eg. `org.bonitasoft.ext.password.validator`.
 
@@ -101,14 +103,15 @@ public class PasswordLengthValidator extends AbstractStringValidator {
 7. Start it by typing: `cd bin`then `./catalina.sh run`
 8. Copy your JAR archive in the folder `webapps/bonita/WEB-INF/lib`
 9. Modify all `security-config.properties` files to add your new password validator. e.g. 
-```
+
+```properties
 # content of the file
 security.password.validator org.bonitasoft.ext.password.validator.PasswordLengthValidator
 ```
 
 10. Start your bundle again
-`cd bin` and then `./catalina.sh run`
+    `cd bin` and then `./catalina.sh run`
 11. Create a new user and check that your password policy has been set. 
-To check that the validation is correct, you can type a password to force an error. An exception will be displayed listing all the non-filled criteria.
+    To check that the validation is correct, you can type a password to force an error. An exception will be displayed listing all the non-filled criteria.
 
 If the password complies with the criteria in the new password policy, no exception error message will be displayed.

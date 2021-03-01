@@ -8,14 +8,14 @@ Monitoring gives information relative to a process ongoing execution.
 
 This is only available to the Administrator and Process Manager profile.
 
-Go to **Process management \> Monitoring** for Administrator and **Monitoring** for Process Manager.
+Go to **Process management > Monitoring** for Administrator and **Monitoring** for Process Manager.
 
 The **Monitor open cases** page is displayed, with the following summary information:
 
-* Number of cases with failure
-* Number of healthy cases
-* Number of open cases
-* A table of open cases
+- Number of cases with failure
+- Number of healthy cases
+- Number of open cases
+- A table of open cases
 
 You can filter the table to show only a specified process, or process and version. You can also filter it by case state.
 

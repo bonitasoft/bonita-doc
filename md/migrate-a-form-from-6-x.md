@@ -11,7 +11,7 @@ The most efficient sequence for migrating a process and its forms to benefit fro
 
 1. BDM: create your [business data model](define-and-deploy-the-bdm.md). If you already have a BDM from 6.x, no change is needed.
 2. Business data: if you have created a new BDM, populate your business data database by importing it from where it was previously stored (process data or external data).  
-You can do so with a process that uses a connector to retrieve external data and an operation using the REST API to store the business objects.
+   You can do so with a process that uses a connector to retrieve external data and an operation using the REST API to store the business objects.
 3. Process: check that the process runs with the business data, and update it if necessary.
 4. Contracts: define [contracts](contracts-and-contexts.md) based on your business data, for process instantiation and for each human task.
 5. Forms: generate the forms from the contracts into the UI Designer, then update them as needed. 
