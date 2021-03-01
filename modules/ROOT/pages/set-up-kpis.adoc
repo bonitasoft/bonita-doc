@@ -1,24 +1,3 @@
-= KPI (Key Performance Indicator) configuration
-:description: Discover how to create KPIs through the Bonita Studio feature and through a database connector to integrate them in your business processes.
-
-Discover how to create KPIs through the Bonita Studio feature and through a database connector to integrate them in your business processes.
-
-[NOTE]
-====
-
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
-====
-
-== Create a KPI using the Bonita Studio KPI feature
-
-This implementation option is preferred if you do not wish to manipulate database connection settings and SQL queries manually when writing your KPI data.
-The Bonita Studio assists you in setting your connection and automatically generates the SQL insertion queries for you.
-
-Keep in mind that this implementation option has some drawbacks:
-
-* You can only insert one row at a time. There is no dynamic multi-row insert.
-* You do not benefit from pooled database connections. This has an impact on performance.
-
 In order to use the KPI feature, you need to:
 
 . Create a KPI definition
@@ -29,31 +8,31 @@ In order to use the KPI feature, you need to:
 
 When creating a KPI definition, you must specify its database connection settings and its structure.
 
-. In Bonita Studio, open the *KPI* menu and select _**Create KPI*_*.
+. In Bonita Studio, open the *KPI* menu and select *_Create KPI_*.
 . Fill in the database JDBC connection settings:
- .. Choose the _Driver template_ that matches your reporting database type:
-
+.. Choose the _Driver template_ that matches your reporting database type:
++
 image::images/images-6_0/generic_driver.png[JDBC driver templates]
-
-. Click on the *_Apply template_* button. This pre-fills the _Driver class name_ and _JDBC URL_ fields.
-. Update the configuration with your database name, user name, and password:
-
++
+.. Click on the *_Apply template_* button. This pre-fills the _Driver class name_ and _JDBC URL_ fields.
+.. Update the configuration with your database name, user name, and password:
++
 image::images/images-6_0/createKPI_step4.png[JDBC connection settings]
-
++
 . Click on *_Test connection_* to validate your settings.
 . Click on *_Next_*.
 . Fill in the KPI definition page
- .. Provide a name for the KPI definition. This is used as a reference for the Bonita Studio developers.
- .. Click on the *_Fetch tables_* button to select the table to which you wish to attach this KPI. This pre-fills the KPI fields based on your database structure. Alternatively, you can type the name of the database table.
- .. Optionally, specify a description (for documentation purpose only).
- .. Add/remove or update your KPI fields by specifying:
-  *** the name (database column name)
-  *** the SQL type as defined in the database
-  *** whether the values should be surrounded with quotes in the SQL insertion query
-
+.. Provide a name for the KPI definition. This is used as a reference for the Bonita Studio developers.
+.. Click on the *_Fetch tables_* button to select the table to which you wish to attach this KPI. This pre-fills the KPI fields based on your database structure. Alternatively, you can type the name of the database table.
+.. Optionally, specify a description (for documentation purpose only).
+.. Add/remove or update your KPI fields by specifying:
+*** the name (database column name)
+*** the SQL type as defined in the database
+*** whether the values should be surrounded with quotes in the SQL insertion query
++
 image::images/images-6_0/editKPI.png[KPI fields]
-
-. Click on *_Create_*.
++
+.. Click on *_Create_*.
 
 === Attach a KPI definition to a task or a pool
 
@@ -71,14 +50,14 @@ Follow these instructions to attach a KPI:
 . Review your database connection settings and test your connection (these are imported from your KPI definition so they should be correct).
 . Click on *_Next_*.
 . Fill in the Advanced configuration page
- .. Make sure the *Database table* name is correct (this field is preloaded from your KPI Definition so it should be correct).
- .. Select the *Error behavior* if KPI generation fails: you can either put the process into an error state, or ignore the failure.
- .. Pick a KPI insertion event relative to the object to which you are attaching the KPI (task or pool).
- .. Select an *Edition mode* for the insertion query. *Graphical mode* benefits from the mapping that you have provided in the KPI definition, *Manual mode* will let you write an SQL query.
+.. Make sure the *Database table* name is correct (this field is preloaded from your KPI Definition so it should be correct).
+.. Select the *Error behavior* if KPI generation fails: you can either put the process into an error state, or ignore the failure.
+.. Pick a KPI insertion event relative to the object to which you are attaching the KPI (task or pool).
+.. Select an *Edition mode* for the insertion query. *Graphical mode* benefits from the mapping that you have provided in the KPI definition, *Manual mode* will let you write an SQL query.
 . Assuming that you have chosen the *Graphical mode* and clicked on *_Next_*, then configure the KPI field mapping.
 . Add as many rows as there are KPI fields in your Definition. For each row:
- .. Expand the drop-down menu and choose a KPI field from your Definition.
- .. Specify its value with an expression (a constant, a parameter, or a variable).
+.. Expand the drop-down menu and choose a KPI field from your Definition.
+.. Specify its value with an expression (a constant, a parameter, or a variable).
 . Click on *_Finish_*.
 
 === Configure the JDBC driver as a process dependency
