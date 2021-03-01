@@ -170,6 +170,23 @@ Setting a high `queueCapacity` limit means that more work can be queued, but can
 It is essential to ensure that the queue never becomes full (`queueCapacity` is never reached).  
 If the queue becomes full, the application restarts in order to force the engine to generate all work from the database. This means that work is lost.
 
+##### SQLServer-specific work configuration
+
+When Bonita platform is under high volumetry on work execution and database transaction, sometimes when one work commits its data and next transaction tries to access it, this information is not yet visible.
+
+This issue happens only when using Bonita and BDM XA resources ( **XAMultipleResource** ) and because the **transaction isolation level** is configured as **ALLOW_SNAPSHOT_ISOLATION** and **READ_COMMITTED_SNAPSHOT**. These isolation levels are mandatory to avoid a deadlock.
+
+To avoid the issue described above, by default, a **100 ms work execution delay** is added when the database is **SQL Server** and if the **previous transaction has multiple XA Resources ( Bonita + BDM )**.
+This small execution delay allows database to handle the commit and update the information out of the isolated level, so next request out of the write transaction can get the updated data.
+The **work execution delay** is configured in [`bonita-tenant-community-custom.properties`](BonitaBPM_platform_setup.md).
+
+```properties
+
+# Add a delay on work when the transaction that registers the work has multiple XA Resources
+# This is an SQL Server specific property to ensure all data commit are visible when the next work is executed.
+bonita.tenant.work.sqlserver.delayOnMultipleXAResource=100
+```
+
 <a id="connector_service"/>
 
 #### Connector service
