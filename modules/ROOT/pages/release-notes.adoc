@@ -227,10 +227,12 @@ In order to build business archives without having a constraint on a GUI, the pr
 * BS-18657 Data truncation error when migrating from v7.6.3 to v7.7.0
 
 ==== Fixes in Studio component
+
 * BS-18660 The bonita la builder doesn't build connectors jar correctly
 * BS-18673 Saving changes in BDM will install an empty Access Control and block permissions if bdm_access_control.xml has no rules
 
 ==== Fixes in Web component
+
 * BS-18427 The task stays in pending state for a while before it fails and no error is visible in the Portal
 * BS-18437 ASSIGN button: popup displays NOT IMPLEMENTED when a PROCESS MANAGER is not ADMINISTRATOR
 * BS-18585 'Location' header not allowed by RESTlet in REST API extension
@@ -245,10 +247,12 @@ In order to build business archives without having a constraint on a GUI, the pr
 * BS-18575 "-Djava.security.egd=file:/dev/./urandom" option missing from setup/tomcat-templates/setenv.sh
 
 ==== Fixes in Studio component
+
 * BS-18576 Can not import .bos file in 7.7.x Teamwork edition Studio
 * BS-18589 LA-Builder groovy script compilation fails due to classpath issues
 
 ==== Fixes in Web component
+
 * BS-16976	FileNotFoundException/IOException issues when accessing/deploying custom pages/REST API extensions
 * BS-18570	Cannot retrive theme.css from a custom page into a portal profile
 
@@ -263,14 +267,17 @@ In order to build business archives without having a constraint on a GUI, the pr
 * BS-18445 Webservice connector fails in buildResponseDocumentBody with error: HIERARCHY_REQUEST_ERR: An attempt was made to insert a node where it is not permitted
 
 ==== Fixes in Studio component
+
 * BS-18445 Webservice connector fails in buildResponseDocumentBody with error: HIERARCHY_REQUEST_ERR: An attempt was made to insert a node where it is not permitted.
 * BS-18467 Database connector wizard does not filter unaccessible connector outputs in scripting mode
 
 ==== Fixes in UI Designer component
+
 * BS-18431 The LA-Builder hang for ever on UID page generation error
 * BS-18472 Rename fragment does not rename frament into Forms
 
 ==== Fixes in Web component
+
 * BS-17975 As Sam, I want the Tomcat bundle to start in less than 7 minutes on my Docker env
 * BS-17880 Importing organization with expired session fails with misleading error message
 * BS-18366 Started by System displayed in the cases list page if user have an empty Lastname or empty firstname
@@ -284,10 +291,10 @@ In order to build business archives without having a constraint on a GUI, the pr
 * BS-17536 Quartz elements associated with boundary event from a sub process are not deleted when parent process instance is deleted
 * BS-17553 Exception, or a stack trace, or an incident are generated when an interruptive boundary timer is triggering during connector execution at ON_ENTER
 * BS-18448 Engine failed to start with a ClassNotFoundException after migration when a BDM 's BO defines fields with date or datetime types
-+
+
 ==== Fixes in UI Designer component
 * BS-18442 Cannot import form in UID in Windows when it contains chinese characters
-+
+
 ==== Fixes in Web component
 * BS-18374 User membership cannot be removed because memberships have no pagination
 
