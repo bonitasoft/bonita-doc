@@ -92,59 +92,82 @@ This is how to do this in iReport:
 
 When the HTML form rendering parameter and component are ready, you need to set the report properties to configure the widgets that your report will integrate.
 
-All widgets share the following mandatory properties (`XXX` is replaced by a number used to identify the widget):+++<table>++++++<tbody>++++++<tr>++++++<td>+++Property+++</td>+++
-                +++<td>+++Mandatory+++</td>+++
-                +++<td>+++Description+++</td>++++++</tr>+++
-        +++<tr>++++++<td>+++BONITA_FORM_+++<em>+++XXX+++</em>+++_ID+++</td>+++
-                +++<td>+++Yes+++</td>+++
-                +++<td>+++Base name of the report parameter that will be updated with the widget value.+++<br>++++++</br>+++
-                        Special rules apply depending on the widget type (see next parameter):+++<br>++++++</br>+++
-                        +++<ul>++++++<li>+++For a +++<strong>+++SELECT+++</strong>+++ widget, the parameter name is the same as the base name.+++<br>++++++</br>+++
-                                        Example: if +++<code>+++BONITA_FORM_1_ID+++</code>+++ is set to +++<code>+++p_country+++</code>+++ then, the report parameter should be named +++<code>+++p_country+++</code>+++.+++</li>+++
-                                +++<li>+++For a +++<strong>+++DATE+++</strong>+++ widget, the value will be saved to a parameter with the +++<strong>+++_from+++</strong>+++ suffix.+++<br>++++++</br>+++
-                                        Example: if +++<code>+++BONITA_FORM_2_ID+++</code>+++ is set to +++<code>+++p_birthday+++</code>+++, then the report parameter should be named +++<code>+++p_birthday_from+++</code>+++.+++</li>+++
-                                +++<li>+++For a +++<strong>+++DATE_RANGE+++</strong>+++ widget, the values will be saved to two parameters: one with a +++<strong>+++_from+++</strong>+++ suffix and one with a +++<strong>+++_to+++</strong>+++ suffix.+++<br>++++++</br>+++
-                                        Example: if +++<code>+++BONITA_FORM_3_ID+++</code>+++ is set to +++<code>+++p_period+++</code>+++, then the two report parameters should be named +++<code>+++p_period_from+++</code>+++ and +++<code>+++p_period_to+++</code>+++.+++</li>++++++</ul>++++++</td>++++++</tr>+++
-        +++<tr>++++++<td>+++BONITA_FORM_+++<em>+++XXX+++</em>+++_WIDGET+++</td>+++
-                +++<td>+++Yes+++</td>+++
-                +++<td>+++Widget type. Can be one of the following:
-                        +++<ul>++++++<li>++++++<code>+++SELECT+++</code>+++ for a drop down allowing a single selection+++</li>+++
-                                +++<li>++++++<code>+++DATE+++</code>+++ for a date picker+++</li>+++
-                                +++<li>++++++<code>+++DATE_RANGE+++</code>+++ for a date range picker with a start date and an end date+++</li>++++++</ul>++++++</td>++++++</tr>+++
-        +++<tr>++++++<td>+++BONITA_FORM_+++<em>+++XXX+++</em>+++_LABEL+++</td>+++
-                +++<td>+++Yes+++</td>+++
-                +++<td>+++Widget label+++</td>++++++</tr>++++++</tbody>++++++</table>+++
+All widgets share the following mandatory properties (`XXX` is replaced by a number used to identify the widget):
 
-The *SELECT* widget has the following extra properties:+++<table>++++++<tbody>++++++<tr>++++++<td>+++Property+++</td>+++
-    +++<td>+++Mandatory+++</td>+++
-    +++<td>+++Description+++</td>++++++</tr>+++
-  +++<tr>++++++<td>+++BONITA_FORM_+++<em>+++XXX+++</em>+++_AVAILABLE_VALUES+++</td>+++
-    +++<td rowspan="2" style="vertical-align: middle;">+++Yes: one of these two properties is required+++</td>+++
-    +++<td>+++Static list of available values defined in a JSON format.+++<br>++++++</br>+++
-      Example: +++<code>+++[{"id":"FR","label":"France"}, {"id":"US","label":"United States of America"}, {"id":"ES","label":"Spain"}]+++</code>++++++</td>++++++</tr>+++
-  +++<tr>++++++<td>+++BONITA_FORM_+++<em>+++XXX+++</em>+++_QUERY+++</td>+++
-    +++<td>+++Query that dynamically retrieves the list of available values from the Bonita database.+++</td>++++++</tr>+++
-  +++<tr>++++++<td>+++BONITA_FORM_+++<em>+++XXX+++</em>+++_HAS_ALL+++</td>+++
-    +++<td>+++No+++</td>+++
-    +++<td>+++Set this to +++<code>+++TRUE+++</code>+++ if you wish to dynamically add an "All" item to the list of available values. Otherwise, ignore this property.+++</td>++++++</tr>+++
-  +++<tr>++++++<td>+++BONITA_FORM_+++<em>+++XXX+++</em>+++_HAS_ALL_VALUE+++</td>+++
-    +++<td>+++Only if the "All" item is active+++</td>+++
-    +++<td>+++Specifies the value returned when the "All" item is selected.+++</td>++++++</tr>++++++</tbody>++++++</table>+++
+|===
+|Property | Mandatory | Description
+
+|BONITA_FORM_XXX_ID
+|Yes
+a| 
+Base name of the report parameter that will be updated with the widget value. +
+Special rules apply depending on the widget type (see next parameter):
+
+* For a SELECT widget, the parameter name is the same as the base name.
+Example: if BONITA_FORM_1_ID is set to p_country then, the report parameter should be named p_country.
+* For a DATE widget, the value will be saved to a parameter with the _from suffix.
+Example: if BONITA_FORM_2_ID is set to p_birthday, then the report parameter should be named p_birthday_from.
+* For a DATE_RANGE widget, the values will be saved to two parameters: one with a _from suffix and one with a _to suffix.
+Example: if BONITA_FORM_3_ID is set to p_period, then the two report parameters should be named p_period_from and p_period_to.
+
+|BONITA_FORM_XXX_WIDGET	
+|Yes
+a|
+Widget type. Can be one of the following:
+
+* SELECT for a drop down allowing a single selection
+* DATE for a date picker
+* DATE_RANGE for a date range picker with a start date and an end date
+
+|BONITA_FORM_XXX_LABEL	
+|Yes
+|Widget label
+|===
+
+The *SELECT* widget has the following extra properties:
+
+|===
+|Property | Mandatory | Description
+
+|BONITA_FORM_XXX_AVAILABLE_VALUES
+|Yes: one of these two properties is required	
+a| 
+Static list of available values defined in a JSON format. Example: +
+`[{"id":"FR","label":"France"}, {"id":"US","label":"United States of America"}, {"id":"ES","label":"Spain"}]`
+
+|BONITA_FORM_XXX_QUERY	
+|
+| Query that dynamically retrieves the list of available values from the Bonita database.
+
+
+|BONITA_FORM_XXX_HAS_ALL		
+|No
+|Set this to `TRUE` if you wish to dynamically add an "All" item to the list of available values. Otherwise, ignore this property.
+
+|BONITA_FORM_XXX_HAS_ALL_VALUE			
+|Only if the "All" item is active
+|Specifies the value returned when the "All" item is selected.
+|===
 
 Specifies the value returned when the "All" item is selected.
 
-The *DATE* and *DATE_RANGE* widgets have the following extra properties:+++<table>++++++<tbody>++++++<tr>++++++<td>+++Property+++</td>+++
-    +++<td>+++Mandatory+++</td>+++
-    +++<td>+++Description+++</td>++++++</tr>+++
-  +++<tr>++++++</tr>++++++<tr>++++++<td>+++BONITA_FORM_+++<em>+++XXX+++</em>+++_INITIAL_VALUE+++</td>+++
-    +++<td rowspan="2" style="vertical-align: middle;">+++Yes:  one of these two properties is required+++</td>+++
-    +++<td>+++Static initial value defined in the ISO format for the **DATE** widget+++<br>++++++</br>+++
-        Example: +++<code>+++2015-01-28+++</code>++++++<br>++++++</br>+++
-        Static initial values for `_from` and `_to` parameters in the ISO format separated by ` - ` for the **DATE\_RANGE** widget+++<br>++++++</br>+++
-        Example: +++<code>+++2015-01-28 - 2015-02-28+++</code>++++++</td>++++++</tr>+++
-  +++<tr>++++++<td>+++BONITA_FORM_+++<em>+++XXX+++</em>+++_QUERY+++</td>+++
-    +++<td>+++Query that dynamically retrieves the initial value from the Bonita database.+++</td>++++++</tr>++++++</tbody>++++++</table>+++
+The *DATE* and *DATE_RANGE* widgets have the following extra properties:
 
+|===
+|Property | Mandatory | Description
+
+|BONITA_FORM_XXX_INITIAL_VALUE
+|Yes: one of these two properties is required	
+a| 
+Static initial value defined in the ISO format for the **DATE** widget
+Example: `2015-01-28`
+Static initial values for `_from` and `_to` parameters in the ISO format separated by `-` for the **DATE\_RANGE** widget
+Example: `2015-01-28 - 2015-02-28`
+
+|BONITA_FORM_XXX_QUERY		
+|
+| Query that dynamically retrieves the initial value from the Bonita database.
+|===
 For a *DATE_RANGE* widget, if you name the associated parameter `p_date` then `p_date_from` and `p_date_to` initial
 value will automatically be set to `one week before today` and `today` respectively. Setting an initial value to this
 parameter using BONITA_FORM_XXX_INITIAL_VALUE will not be taken in account.
