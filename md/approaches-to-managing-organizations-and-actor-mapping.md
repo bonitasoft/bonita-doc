@@ -30,15 +30,15 @@ In Bonita Portal, [define the roles and memberships](role.md) used in the actor 
 ## Maintain organization manually
 
 For smaller organizations that do not use LDAP, or if you are using the Community edition, you can maintain your organization manually.
-Typically, you [manage an organization manually using Bonita Studio](organization-management-in-bonita-bpm-studio.md), and then [import it into Bonita Portal](import-export-an-organization.md).   
+Typically, you [manage an organization manually using Bonita Studio](organization-management-in-bonita-bpm-studio.md), and then [import it into Bonita Portal](import-export-an-organization.md).  
 This means that the organization management and actor mapping are carried out in the same tool, from a single set of data.
 
 Alternatively, you can initialize the organization in Bonita Studio with just the elements needed for actor mapping. Then export this to Bonita Portal and [manage the users in the Bonita Portal](manage-a-user.md).
 
 ## Other considerations
 
-* If you are specifying actor mapping in Bonita Studio, you do not need to duplicate the whole organization structure in Bonita Studio, only the elements that are used in actor mapping.  
-However, you can choose to have the whole structure in the Studio. In this way, you can manage all the information in one place, then load it into Bonita Portal using the organization export/import features.
-* It is possible to map an actor to an individual user. This is not generally recommended, but in rare cases it can be useful, typically for solving a problem or escalating an issue.
-* When deciding how to map actors for a process, you also need to take into account the [actor filters](actor-filtering.md) that are specified in the process definition.
-* If you are using the LDAP synchronizer, consider using [LDAP authentication](active-directory-or-ldap-authentication.md).
+- If you are specifying actor mapping in Bonita Studio, you do not need to duplicate the whole organization structure in Bonita Studio, only the elements that are used in actor mapping.  
+  However, you can choose to have the whole structure in the Studio. In this way, you can manage all the information in one place, then load it into Bonita Portal using the organization export/import features.
+- It is possible to map an actor to an individual user. This is not generally recommended, but in rare cases it can be useful, typically for solving a problem or escalating an issue.
+- When deciding how to map actors for a process, you also need to take into account the [actor filters](actor-filtering.md) that are specified in the process definition.
+- If you are using the LDAP synchronizer, consider using [LDAP authentication](active-directory-or-ldap-authentication.md).

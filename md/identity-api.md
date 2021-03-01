@@ -13,6 +13,7 @@ Additional information about a user (personal and professional). Both resources 
 The user ID (a long value).
 
 ### Representation
+
 ```json
 {
   "id":"user ID",
@@ -35,19 +36,19 @@ The user ID (a long value).
 
 The methods used for this resource are:
 
-* POST - Create a user's contact information
-* GET - Read a user's contact information
-* PUT - Update a user's contact information
+- POST - Create a user's contact information
+- GET - Read a user's contact information
+- PUT - Update a user's contact information
 
 ### Create contact information
 
-* **URL**  
+- **URL**  
   `/API/identity/professionalcontactdata`  
   or  
   `/API/identity/personalcontactdata`  
-* **Method**  
+- **Method**  
   `POST`
-* **Request Payload**  
+- **Request Payload**  
   A partial representation of a user's contact information in JSON including the user ID (mandatory)
   ```json
   {
@@ -63,10 +64,10 @@ The methods used for this resource are:
     "email":"walter.bates@acme.com"
   }
   ```
-* **Success Response**  
+- **Success Response**  
   The full JSON representation of the user's contact information that was created
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "id":"4",
@@ -84,21 +85,21 @@ The methods used for this resource are:
       "room":""
     }
     ```
-* **Error Response**
-  * **Code**: 403 if contact information for this user already exists
+- **Error Response**
+  - **Code**: 403 if contact information for this user already exists
 
 ### Read a user's contact information
 
-* **URL**  
+- **URL**  
   `/API/identity/professionalcontactdata/:userId`  
   or  
   `/API/identity/personalcontactdata/:userId`  
-* **Method**  
+- **Method**  
   `GET`
-* **Success Response**  
+- **Success Response**  
   A user's contact information in JSON
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "id":"4",
@@ -116,18 +117,18 @@ The methods used for this resource are:
       "room":""
     }
     ```
-* **Error Response**
-  * **Code**: 404 if no user with this ID is found
+- **Error Response**
+  - **Code**: 404 if no user with this ID is found
 
 ### Update a user's contact information
 
-* **URL**  
+- **URL**  
   `/API/identity/professionalcontactdata/:userId`  
   or  
   `/API/identity/personalcontactdata/:userId`  
-* **Method**  
+- **Method**  
   `PUT`
-* **Request Payload**  
+- **Request Payload**  
   A partial representation of a user's contact information in JSON with at least the mandatory "name" attribute
   ```json
   {
@@ -142,8 +143,8 @@ The methods used for this resource are:
     "email":"walter.bates@acme.com"
   }
   ```
-* **Error Response**
-  * **Code**: 404 if no user with this ID is found
+- **Error Response**
+  - **Code**: 404 if no user with this ID is found
 
 ## Group
 
@@ -176,19 +177,19 @@ The ID of the group (a long value).
 
 The methods used for this resource are:
 
-* POST - Create a group
-* GET - Read a group or search for a group
-* PUT - Update a group
-* DELETE - Remove a group
+- POST - Create a group
+- GET - Read a group or search for a group
+- PUT - Update a group
+- DELETE - Remove a group
 
 ### Create a group
 
-* **URL**  
+- **URL**  
   `/API/identity/group`  
-* **Method**  
+- **Method**  
   `POST`
-* **Data Params**  
-* **Request Payload**  
+- **Data Params**  
+- **Request Payload**  
   A partial representation of a group in JSON with at least the mandatory "name" attribute
   ```json
   {
@@ -198,10 +199,10 @@ The methods used for this resource are:
     "description":"Human resources department"
   }
   ```
-* **Success Response**  
+- **Success Response**  
   The full JSON representation of the group that was created
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "id":"14",
@@ -215,19 +216,19 @@ The methods used for this resource are:
       "last_update_date":"2014-12-02 16:19:28.925"
     }
     ```
-* **Error Response**
-  * **Code**: 403 if a group with the same name and parent already exists
+- **Error Response**
+  - **Code**: 403 if a group with the same name and parent already exists
 
 ### Read a group
 
-* **URL**  
+- **URL**  
   `/API/identity/group/:groupId`  
-* **Method**  
+- **Method**  
   `GET`
-* **Success Response**  
+- **Success Response**  
   A group in JSON
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "id":"14",
@@ -241,34 +242,37 @@ The methods used for this resource are:
       "last_update_date":"2014-12-02 16:19:28.925"
     }
     ```
-* **Error Response**
-  * **Code**: 404 if no group with this ID is found
+- **Error Response**
+  - **Code**: 404 if no group with this ID is found
 
 ### Search for a group
 
-* **URL**  
+- **URL**  
   `/API/identity/group`  
   _Example_: `/API/identity/group?p=0&c=100&f=parent_path%3d/acme&d=parent_group_id&o=name%20ASC`
-* **Method**  
+- **Method**  
   `GET`
-* **Data Params**  
+- **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available to search form mappings.  
   It is possible to filter on the following attributes:
-  * `name=<group_name>`
-  * `displayName=<group_displayName>`
-  * `parent\_path=<path_of_parent_group>`
+
+  - `name=<group_name>`
+  - `displayName=<group_displayName>`
+  - `parent\_path=<path_of_parent_group>`
 
   It is possible to order by the value of the following attributes:
-  * `o=id ASC` ou `o=id DESC`)
-  * `o=name ASC` ou `o=name DESC`
-  * `o=displayName ASC` ou `o=displayName DESC`
+
+  - `o=id ASC` ou `o=id DESC`)
+  - `o=name ASC` ou `o=name DESC`
+  - `o=displayName ASC` ou `o=displayName DESC`
 
   It is also possible to retrieve the parent group ID.
-  * `d=<parent_group_id>`
-* **Success Response**  
+
+  - `d=<parent_group_id>`
+- **Success Response**  
   A list of groups in JSON
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     [
       {
@@ -301,11 +305,11 @@ The methods used for this resource are:
 
 ### Update a group
 
-* **URL**  
+- **URL**  
   `/API/identity/group/:groupId`  
-* **Method**  
+- **Method**  
   `PUT`
-* **Request Payload**  
+- **Request Payload**  
   A partial representation of a group in JSON with at least the mandatory "name" attribute
   ```json
   {
@@ -313,10 +317,10 @@ The methods used for this resource are:
     "displayName":"Humman resources"
   }
   ```
-* **Success Response**  
+- **Success Response**  
   The full JSON representation of the group that was updated
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "id":"14",
@@ -331,21 +335,21 @@ The methods used for this resource are:
       "last_update_date":"2014-12-03 17:18:27.542"
     }
     ```
-* **Error Response**
-  * **Code**: 
+- **Error Response**
+  - **Code**: 
     403 if another group with the same name and parent already exists  
     404 if no group with this ID is found
 
 ### Delete a group
 
-* **URL**  
+- **URL**  
   `/API/identity/group/:groupId`  
-* **Method**  
+- **Method**  
   `DELETE`
-* **Success Response**  
-  * **Code**: 200
-* **Error Response**
-  * **Code**: 404 if no group with this ID is found
+- **Success Response**  
+  - **Code**: 200
+- **Error Response**
+  - **Code**: 404 if no group with this ID is found
 
 ## Membership
 
@@ -355,7 +359,7 @@ Manage membership of users. There is a membership when a user belongs to a group
 
 ### Identifier
 
-A compound identifier constructed from user\_id/group\_id/role\_id where each id is a long value.
+A compound identifier constructed from user_id/group_id/role_id where each id is a long value.
 
 ### Representation
 
@@ -373,21 +377,21 @@ A compound identifier constructed from user\_id/group\_id/role\_id where each id
 
 The methods used for this resource are:
 
-* POST - Create a membership
-* GET - Search for memberships of a user
-* DELETE - Remove a membership
-* DELETE - Remove a membership
+- POST - Create a membership
+- GET - Search for memberships of a user
+- DELETE - Remove a membership
+- DELETE - Remove a membership
 
 ### Create a membership
 
 This action creates (assigns) a membership to a user.
 
-* **URL**  
+- **URL**  
   `/API/identity/membership`  
-* **Method**  
+- **Method**  
   `POST`
-* **Request Payload**  
-  A partial representation of a membership object with the mandatory "user\_id", "group\_id" and "role\_id" attributes
+- **Request Payload**  
+  A partial representation of a membership object with the mandatory "user_id", "group_id" and "role_id" attributes
   ```json
   {
     "user_id":"4",
@@ -395,10 +399,10 @@ This action creates (assigns) a membership to a user.
     "role_id":"1"
   }
   ```
-* **Success Response**  
+- **Success Response**  
   The full JSON representation of the membership that was created
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "assigned_date":"2014-12-02 17:57:09.315",
@@ -408,37 +412,40 @@ This action creates (assigns) a membership to a user.
       "user_id":"4"
     }
     ```
-* **Error Response**
-  * **Code**: 403 if a membership already exists
+- **Error Response**
+  - **Code**: 403 if a membership already exists
 
 ### Search memberships of a user
 
 This action search memberships of a user.
 
-* **URL**  
+- **URL**  
   `/API/identity/membership`  
-* **Method**  
+- **Method**  
   `GET`
-* **Data Params**  
+- **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   **Required** 
-  * filter is mandatory: `user_id=<id of the user>`
+
+  - filter is mandatory: `user_id=<id of the user>`
 
   It is possible to use the deploy option to retrieve the value of elements specified by an attribute value. For example, if you specify `d=group_id`, the result will contain the group details in place of the group id.
-  * group `d=group_id`
-  * role `d=role_id`
-  * user `d=user_id`
-  * user that created the membership `d=assigned_by_user_id`
+
+  - group `d=group_id`
+  - role `d=role_id`
+  - user `d=user_id`
+  - user that created the membership `d=assigned_by_user_id`
 
   It is possible to order by the value of the following attributes:
-  * `o=ROLE_NAME_ASC` or `o=ROLE_NAME_DESC`
-  * `o=GROUP_NAME_ASC` or `o=GROUP_NAME_DESC`
-  * `o=ASSIGNED_DATE_ASC` or `o=ASSIGNED_DATE_DESC`
+
+  - `o=ROLE_NAME_ASC` or `o=ROLE_NAME_DESC`
+  - `o=GROUP_NAME_ASC` or `o=GROUP_NAME_DESC`
+  - `o=ASSIGNED_DATE_ASC` or `o=ASSIGNED_DATE_DESC`
 
   _Example_: Get the memberships for the user with id 125, and return the role details associated with each membership: `/API/identity/membership?p=0&c=10&f=user\_id%3d125&d=role\_id`
-* **Success Response**  
-  * **Code**: 200
-  * **Payload**:  
+- **Success Response**  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     [
       {
@@ -464,12 +471,12 @@ This action search memberships of a user.
 
 Delete a membership of a user using the group id and role id.
 
-* **URL**  
+- **URL**  
   `/API/identity/membership/:userId/:groupId/:roleId`  
-* **Method**  
+- **Method**  
   `DELETE`
-* **Success Response**  
-  * **Code**: 200
+- **Success Response**  
+  - **Code**: 200
 
 ## Role
 
@@ -482,6 +489,7 @@ The role of a user in a group
 The ID of the role (a long value).
 
 ### Representation
+
 ```json
 {
   "id":"role ID",
@@ -499,18 +507,18 @@ The ID of the role (a long value).
 
 The methods used for this resource are:
 
-* POST - Create a role
-* GET - Read a role or search for a role
-* PUT - Update a role
-* DELETE - Remove a role
+- POST - Create a role
+- GET - Read a role or search for a role
+- PUT - Update a role
+- DELETE - Remove a role
 
 ### Create a role
 
-* **URL**  
+- **URL**  
   `/API/identity/role`  
-* **Method**  
+- **Method**  
   `POST`
-* **Request Payload**  
+- **Request Payload**  
   A partial representation of a role in JSON with at least the mandatory "name" attribute
   ```json
   {
@@ -520,10 +528,10 @@ The methods used for this resource are:
     "description":"manager of the department"
   }
   ```
-* **Success Response**  
+- **Success Response**  
   The full JSON representation of the role that was created
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "creation_date":"2014-12-01 18:51:54.791",
@@ -536,19 +544,19 @@ The methods used for this resource are:
       "last_update_date":"2014-12-01 18:51:54.791"
     }
     ```
-* **Error Response**
-  * **Code**: 403 if a role with the same name already exists
+- **Error Response**
+  - **Code**: 403 if a role with the same name already exists
 
 ### Read a role
 
-* **URL**  
+- **URL**  
   `/API/identity/role/:roleId`  
-* **Method**  
+- **Method**  
   `GET`
-* **Success Response**  
+- **Success Response**  
   A role in JSON
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "creation_date":"2014-12-01 15:17:24.736",
@@ -561,29 +569,31 @@ The methods used for this resource are:
       "last_update_date":"2014-12-01 15:17:24.736"
     }
     ```
-* **Error Response**
-  * **Code**: 404 if no role with this ID is found
+- **Error Response**
+  - **Code**: 404 if no role with this ID is found
 
 ### Search for a role
 
-* **URL**  
+- **URL**  
   `/API/identity/role`  
   _Example_: `/API/identity/role?p=0&c=100&o=displayName ASC`
-* **Method**  
+- **Method**  
   `GET`
-* **Data Params**  
+- **Data Params**  
   It is possible to filter on the following attributes
-  * `name=<role_name>`
-  * `displayName=<role_displayName>`
+
+  - `name=<role_name>`
+  - `displayName=<role_displayName>`
 
   It is possible to order by the value of the following attributes
-  * id: `o=id ASC` or `o=id DESC`
-  * name: `o=name ASC` or `o=name DESC`
-  * displayName: `o=displayName ASC` or `o=displayName DESC`
-* **Success Response**  
+
+  - id: `o=id ASC` or `o=id DESC`
+  - name: `o=name ASC` or `o=name DESC`
+  - displayName: `o=displayName ASC` or `o=displayName DESC`
+- **Success Response**  
   A list of roles in JSON
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     [
       {
@@ -611,11 +621,11 @@ The methods used for this resource are:
 
 ### Update a role
 
-* **URL**  
+- **URL**  
   `/API/identity/role/:roleId`  
-* **Method**  
+- **Method**  
   `PUT`
-* **Request Payload**  
+- **Request Payload**  
   A partial representation of a role in JSON with at least the mandatory "name" attribute
   ```json
   {
@@ -623,10 +633,10 @@ The methods used for this resource are:
     "displayName":"Department manager"
   }
   ```
-* **Success Response**  
+- **Success Response**  
   The full JSON representation of the role that was updated
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "creation_date":"2014-12-01 18:51:54.791",
@@ -639,21 +649,21 @@ The methods used for this resource are:
       "last_update_date":"2014-12-01 18:59:59.361"
     }
     ```
-* **Error Response**
-  * **Code**: 
+- **Error Response**
+  - **Code**: 
     403 : if a role with the same name already exists  
     404 : if no role with this ID is found
 
 ### Delete a role
 
-* **URL**  
+- **URL**  
   `/API/identity/role/:roleId`  
-* **Method**  
+- **Method**  
   `DELETE`
-* **Success Response**  
-  * **Code**: 200
-* **Error Response**
-  * **Code**: 404 if no role with this ID is found
+- **Success Response**  
+  - **Code**: 200
+- **Error Response**
+  - **Code**: 404 if no role with this ID is found
 
 ## User
 
@@ -663,7 +673,7 @@ Used to manage information about users.
 
 ### Representation
 
-Returns a JSON representation of user details. The "manager\_id" and "professional\_data" are omitted unless they are
+Returns a JSON representation of user details. The "manager_id" and "professional_data" are omitted unless they are
 requested in the payload.
 
 ```json
@@ -719,19 +729,19 @@ requested in the payload.
 
 The methods used for this resource are:
 
-* POST - Create a user
-* GET - Read a user details or search for a group of users
-* PUT - Update a user
-* DELETE - Remove a user
+- POST - Create a user
+- GET - Read a user details or search for a group of users
+- PUT - Update a user
+- DELETE - Remove a user
 
 ### Create a user
 
-* **URL**  
+- **URL**  
   `/API/identity/user`  
-* **Method**  
+- **Method**  
   `POST`
-* **Request Payload**  
-A partial representation of a user in JSON
+- **Request Payload**  
+  A partial representation of a user in JSON
   ```json
   {
     "userName":"New.User",
@@ -745,11 +755,11 @@ A partial representation of a user in JSON
     "manager_id":"3"
   }
   ```
-* **Success Response**  
+- **Success Response**  
   The full JSON representation of the user that was created  
   After creation, the user is in inactive state.
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "last_connection":"",
@@ -771,19 +781,19 @@ A partial representation of a user in JSON
 
 ### Read a user details
 
-* **URL**  
+- **URL**  
   `/API/identity/user/:userId`  
   _Example_:  Get details of a specified user including professional and manager information : `/API/identity/user/21?d=professional\_data&d=manager\_id`
-* **Method**  
+- **Method**  
   `GET`
-* **Data Params**  
+- **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
-  * `d=professional_data` - include professionnal data in response
-  * `d=manager_id` - include details of user's manager in response
-* **Success Response**  
+  - `d=professional_data` - include professionnal data in response
+  - `d=manager_id` - include details of user's manager in response
+- **Success Response**  
   The full JSON representation of the user
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "last_connection":"",
@@ -835,19 +845,19 @@ A partial representation of a user in JSON
 
 ### Search for a group of users
 
-* **URL**  
+- **URL**  
   `/API/identity/user`  
   _Example_:  Search for users with names that contain "will", filter to keep only enabled users, and order the result by last name.:  `/API/identity/user?p=0&c=10&o=lastname%20ASC&s=will&f=enabled%3dtrue`
-* **Method**  
+- **Method**  
   `GET`
-* **Data Params**  
+- **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
-  * `d=professional\_data - include professionnal data in response
-  * `d=manager\_id - include details of user's manager in response
-* **Success Response**  
+  - \`d=professional_data - include professionnal data in response
+  - \`d=manager_id - include details of user's manager in response
+- **Success Response**  
   A JSON array of users
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     [
       {
@@ -886,11 +896,11 @@ A partial representation of a user in JSON
 
 ### Update a user
 
-* **URL**  
+- **URL**  
   `API/identity/user/:userId`  
-* **Method**  
+- **Method**  
   `PUT`
-* **Request Payload**  
+- **Request Payload**  
   A JSON representation of the user, with the new information.  
   _Example_:  Update user details including professional and manager information: `/API/identity/user/4` 
   ```json
@@ -913,8 +923,8 @@ A partial representation of a user in JSON
     "enabled":"false"
   }
   ```
-* **Success Response**  
-  * **Code**: 200
+- **Success Response**  
+  - **Code**: 200
 
 ### Remove a user
 
@@ -922,9 +932,10 @@ A partial representation of a user in JSON
 Use this method with caution: some artifacts like applications, cases or users may present display problems in the Bonita Portal if the referenced user was deleted.  
 Note that you can disable a user instead of deleting it. To do so, use the `UPDATE` method and set the attribute 'enabled' to false
 :::
-* **URL**  
+
+- **URL**  
   `/API/identity/user/:userId`  
-* **Method**  
+- **Method**  
   `DELETE`
-* **Success Response**  
-  * **Code**: 200
+- **Success Response**  
+  - **Code**: 200

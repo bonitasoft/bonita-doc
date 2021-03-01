@@ -3,11 +3,12 @@
 Each tenant has an administrator (also known as the **tenant technical user**) with a tenant-specific username and password.
 
 ## How it works
+
 When the platform is created, default values of the administrator username and password, for the default tenant, are defined in the file
 `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_engine/bonita-tenant-community-custom.properties`, by the following properties:
 
-* userName defines the username (default value `install`)
-* userPassword defines the password (default value `install`)
+- userName defines the username (default value `install`)
+- userPassword defines the password (default value `install`)
 
 If you modify these values before the first start of the platform, the new values will be the default values for all tenants that will be
 created in the future, including the default tenant.
@@ -15,12 +16,12 @@ created in the future, including the default tenant.
 When you create a tenant, or when the default tenant is created on the first start of the platform, the tenant administrator is created
 with the default username and password, unless you specify new values.
 
-For an already existing tenant, you can change these tenant-specific credentials by updating the *userName* and *userPassword* properties in the file
+For an already existing tenant, you can change these tenant-specific credentials by updating the _userName_ and _userPassword_ properties in the file
 
 `<WEBSERVER_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/bonita-tenant-community-custom.properties`
 
-
 ## Important notice (only for default tenant)
+
 The engine and the portal can be installed on different machines / Tomcat installations. For that reason, the portal has its own configuration file
 that define the tenant technical user credentials, in order to communicate with the (potentially remote) engine.
 

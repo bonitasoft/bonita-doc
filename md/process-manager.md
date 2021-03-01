@@ -1,4 +1,4 @@
-# Bonita portal Process manager profile 
+# Bonita portal Process manager profile
 
 Users can be assigned as manager for processes. Then, users mapped to the Process manager profile will be able to manage those processes.
 
@@ -12,20 +12,20 @@ The Process manager shares some management responsibilities with the administrat
 
 For the processes they manage, a process manager can:
 
-* Perform actions on tasks:
-  * Assign or unassign a task
-  * Replay a failed task
-  * View tasks
-  * Do a task for another user
-* Perform actions on cases:
-  * Delete a case
-  * View cases
-  * Edit case variables
-  * Add a comment
-  * Start a case for another user 
-* Performs actions on processes:
-  * Enable or disable a process
-  * Edit process configuration (update a connector, actor mapping, Process manager mapping, or parameter value)
+- Perform actions on tasks:
+  - Assign or unassign a task
+  - Replay a failed task
+  - View tasks
+  - Do a task for another user
+- Perform actions on cases:
+  - Delete a case
+  - View cases
+  - Edit case variables
+  - Add a comment
+  - Start a case for another user 
+- Performs actions on processes:
+  - Enable or disable a process
+  - Edit process configuration (update a connector, actor mapping, Process manager mapping, or parameter value)
 
 ## Assign a Process manager to a process
 
@@ -52,7 +52,7 @@ You can also assign a profile to a group, role, or membership.
 To assign a process to a user who has the Process manager profile:
 
 1. Log in to Bonita Portal as Administrator or as a Process manager of the process.
-2. Go to **BPM** \> **Processes** if you use the Administrator profile or **Processes** if you use the Process manager profile.
+2. Go to **BPM** > **Processes** if you use the Administrator profile or **Processes** if you use the Process manager profile.
 3. Select the process and click **_More..._**. The number of Process managers currently assigned to the process is shown in the Process manager mapping table.
 4. To add a user, click the _**Plus sign or Pencil button**_ in the **_User_** column. A popup shows a list of the users who are currently process managers for this process.
 5. Click **_Select users _**. A list of users with the Process manager profile is displayed.

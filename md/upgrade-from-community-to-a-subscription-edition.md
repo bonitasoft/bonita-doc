@@ -4,9 +4,10 @@ Upgrading means moving from a Bonita Community edition environment to any Bonita
 edition environment.
 
 ## To Check before upgrading
-* An upgrade can only be performed on a single Bonita version. You cannot migrate to a new version at the same time as you upgrade to Subscription edition.  
+
+- An upgrade can only be performed on a single Bonita version. You cannot migrate to a new version at the same time as you upgrade to Subscription edition.  
   Eg. You can only upgrade from **Bonita 7.3.3 Community** edition to **Bonita 7.3.3 Subscription** edition. You **cannot** upgrade from **Bonita 7.3.3 Community** to **Bonita 7.4.0 Subscription**.
-* After it is applied, an upgrade cannot be undone.
+- After it is applied, an upgrade cannot be undone.
 
 An upgrade is performed in two phases.
 
@@ -42,17 +43,16 @@ To upgrade a Bonita platform from Community edition to a Subscription edition, f
 4. Run `<bonita-community>/setup/setup(.sh/.bat) pull` to fetch your current Community configuration in `<bonita-community>/setup/platform_conf/current` and copy this last in a different folder, we will call this new folder `bonita-community-configuration`.
 5. [Backup your Bonita platform and databases](back-up-bonita-bpm-platform.md).
 6. Update the configuration using the [Platform setup tool](BonitaBPM_platform_setup.md#configure_tool) in `bonita-subscription`:
-    1. Create the folder `<bonita-subscription>/setup/platform_conf/current`, we will call it `bonita-subscription-configuration`.
-    3. Copy the content of the `<bonita-subscription>/setup/platform_conf/initial` to `bonita-subscription-configuration`.
-    4. In the `bonita-subscription-configuration`, reapply the modifications for all the folders but the one named `tenants` (use `bonita-community-configuration` as a reference).
-    5. Create the folder `<bonita-subscription-configuration>/tenants`.
-    6. For each folder contained in `<bonita-community-configuration>/tenants`.
-        1. We will call this folder `bonita-community-configuration-tenant`.
-        2. Create one folder with the same name as `bonita-community-configuration-tenant` in `<bonita-subscription-configuration>/tenants`, we will call it `bonita-subscription-configuration-tenant`.
-        3. Copy all folders with prefix `tenant_template_` from `bonita-subscription-configuration` to `bonita-subscription-configuration-tenant` and remove the prefix in their names.
-        4. In the `bonita-subscription-configuration-tenant`, reapply the modifications (user `bonita-community-configuration-tenant` as a reference).
-    7. Run `<bonita-subscription>/setup/setup(.sh/.bat) push` to push the migrated configuration `bonita-subscription-configuration` in database.
+   1. Create the folder `<bonita-subscription>/setup/platform_conf/current`, we will call it `bonita-subscription-configuration`.
+   2. Copy the content of the `<bonita-subscription>/setup/platform_conf/initial` to `bonita-subscription-configuration`.
+   3. In the `bonita-subscription-configuration`, reapply the modifications for all the folders but the one named `tenants` (use `bonita-community-configuration` as a reference).
+   4. Create the folder `<bonita-subscription-configuration>/tenants`.
+   5. For each folder contained in `<bonita-community-configuration>/tenants`.
+      1. We will call this folder `bonita-community-configuration-tenant`.
+      2. Create one folder with the same name as `bonita-community-configuration-tenant` in `<bonita-subscription-configuration>/tenants`, we will call it `bonita-subscription-configuration-tenant`.
+      3. Copy all folders with prefix `tenant_template_` from `bonita-subscription-configuration` to `bonita-subscription-configuration-tenant` and remove the prefix in their names.
+      4. In the `bonita-subscription-configuration-tenant`, reapply the modifications (user `bonita-community-configuration-tenant` as a reference).
+   6. Run `<bonita-subscription>/setup/setup(.sh/.bat) push` to push the migrated configuration `bonita-subscription-configuration` in database.
 7. Start the migrated platform using the `start-bonita` script located in `bonita-subscription`.
 
 The Upgrade is now finished, you can verify that you are now running a subscription edition in the portal user interface, the dialog displayed from the top right "Settings / About" menu should indicate the correct Subscription edition.
-

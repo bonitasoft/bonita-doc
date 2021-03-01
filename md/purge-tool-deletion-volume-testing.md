@@ -8,7 +8,6 @@ Tests were run on Intel Core i7 10th Gen, 8 CPU cores, 16 Gb of RAM.
 Database running inside a docker container.  
 Purge tool run from the same machine.
 
-
 ## PostgreSQL 11.x
 
 Remove 1 160 800 archived cases (corresponds to 6 964 800 lines in the database)  
@@ -16,7 +15,7 @@ Total Time: 71m30s
 
 ### Execution
 
-```
+```log
 ╰─$ bin/bonita-purge-tool 6547377706517145159 1537600000000                                          
   ____              _ _                                         _              _
  |  _ \            (_) |                                       | |            | |
@@ -60,28 +59,28 @@ y
 2020-02-21 19:31:17.366  INFO 8946 -[main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
 ```
 
-
 ## MYSQL (5.5.X)
 
 Remove 137 603 archived cases (corresponds to 825 618 lines in the database)  
 Total Time: 25 minutes
 
-
 ### Configuration ( mysql.cnf )
-```
+
+```properties
 max_connections = 200   
 key_buffer_size = 512M
 innodb_buffer_pool_size = 5500M
 innodb_buffer_pool_instances=8
 125 Gb in the database
-```  
+```
+
 chunk size :  500 k 
-  
-### Initial data volume 
+
+### Initial data volume
 
 125 Gb in the database
 
-```sql   
+```sql
 SELECT
 	table_name,
 	table_rows,
@@ -266,7 +265,7 @@ DATA_INSTANCE           5               28408
 
 ### Execution
 
-```
+```log
 ╰─$ bin/bonita-purge-tool 5488089572307653177 1584631356000                                                                                                                                            2 ↵
   ____              _ _                                         _              _
  |  _ \            (_) |                                       | |            | |
@@ -319,7 +318,6 @@ y
 2020-03-19 17:29:13,055 INFO  If you try to access them you will get a not found error. This is the expected behaviour.
 2020-03-19 17:29:13,055 INFO  Execution completed in 3970120 ms
 ```
-
 
 ## MS SQL Server
 

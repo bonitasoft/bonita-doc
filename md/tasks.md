@@ -3,19 +3,20 @@
 A task is an element of a process. It defines an action to be performed (automatic or human).
 
 ## Prerequisites
+
 To manage a task as follows, you need to be logged on Bonita with the **Administrator** profile or the **Process Manager** profile.
 
 ## Assign a task
 
 A task can be assigned and reassigned if necessary to another user.
 
-1. Go to **BPM** \> **Tasks**
+1. Go to **BPM** > **Tasks**
 2. Click on a **task in the list of tasks**
 3. Click _**Assign**_
 
 ## Unassign a task
 
-1. Go to **BPM** \> **Tasks**
+1. Go to **BPM** > **Tasks**
 2. Click on a **task in the list of tasks**
 3. Click _**Unassign**_
 
@@ -23,7 +24,7 @@ A task can be assigned and reassigned if necessary to another user.
 
 With the Efficiency, Performance and Enterprise editions, an Administrator can do a task for another user. This is useful for unblocking a case if the assigned user cannot perform a task.
 
-1. Go to **BPM** \> **Tasks** and view the list of pending Human tasks.
+1. Go to **BPM** > **Tasks** and view the list of pending Human tasks.
 2. Select the relevant task in the list and click **Do for**.
 3. In the popup, a list of users elligible to do the task is displayed.
 4. Select the user for whom you want to do the task, and click **_Do it_**.
@@ -34,7 +35,7 @@ The task is done as though the selected user has done it.
 
 If a failed task does not impact subsequent task in a process, the Administrator can skip it. This means that the task does not have to be done successfully for the following steps to become available.
 
-1. Go to **BPM** \> **Tasks**.
+1. Go to **BPM** > **Tasks**.
 2. Go to **Failed**.
 3. Click on a Task.
 4. Click _**More**_.
@@ -47,7 +48,7 @@ The task is moved from Failed to Done.
 
 This feature is available with the Enterprise or the Performance edition.
 
-1. Go to **BPM** \> **Tasks**.
+1. Go to **BPM** > **Tasks**.
 2. Go to **Failed**.
 3. Click on a _**Task**_
 4. In **technical details**, the details of the failure are displayed
@@ -67,7 +68,7 @@ Normally, a user will start a case of a process. The case might not start as exp
 
 In this case the Admin can check the failure on a connector:
 
-1. Logged in as Admin, go to **BPM** \> **Tasks** \> **Failed**
+1. Logged in as Admin, go to **BPM** > **Tasks** > **Failed**
 2. On the Failed page, in the section Technical details, this shows the Connector has failed.
 3. Click on **More**
 
@@ -84,5 +85,5 @@ In this case the Admin can check the failure on a connector:
 
 There are 2 options:
 
-* Either click the **Skip** button, to skip over the task where the connector failed. This will make the Failed message disappear on the Connector, and display Resolved instead.
-* Fix the problem then click **Replay**.
+- Either click the **Skip** button, to skip over the task where the connector failed. This will make the Failed message disappear on the Connector, and display Resolved instead.
+- Fix the problem then click **Replay**.

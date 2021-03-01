@@ -19,6 +19,6 @@ You need to create the appropriate tables and columns to store the reporting dat
 
 When creating your reporting database, follow these best practices to ensure quick read/write operations:
 
-* Avoid relational structures, in order to reduce the number of joins when querying data. Prefer flat table structures, because data duplication is generally not a concern.
-* Do not use transactions as these can slow down read/write operations.
-* Only perform select/insert operations and no update/delete.
+- Avoid relational structures, in order to reduce the number of joins when querying data. Prefer flat table structures, because data duplication is generally not a concern.
+- Do not use transactions as these can slow down read/write operations.
+- Only perform select/insert operations and no update/delete.

@@ -7,14 +7,15 @@ A contract defines the data expected from the user to start a process (instantia
 As our contract information will be used to set business variable values, we can use a wizard that will generate the contract based on the business variable. This wizard sets the business variable default value and generates task operations.
 
 Create the contract for process instantiation:
+
 1. Select the process pool
-1. At the bottom of the Bonita Studio window go to the **Execution > Contract > Inputs** tab
-1. Click on the **Add from data...** button
-1. Leave the default options selected (_Business variable_, _Instantiate_, _claim_, _claimInput_)
-1. Click on the **Next** button
-1. Select only the _description_ (uncheck _answer_, _satisfactionLevel_)
-1. Click on **Finish**
-1. You can ignore the information message and click on **OK** button
+2. At the bottom of the Bonita Studio window go to the **Execution > Contract > Inputs** tab
+3. Click on the **Add from data...** button
+4. Leave the default options selected (_Business variable_, _Instantiate_, _claim_, _claimInput_)
+5. Click on the **Next** button
+6. Select only the _description_ (uncheck _answer_, _satisfactionLevel_)
+7. Click on **Finish**
+8. You can ignore the information message and click on **OK** button
 
    ![Declare process instantiation contract](images/getting-started-tutorial/declare-contracts/declare-process-instantiation-contract.gif)<!--{.img-responsive .img-thumbnail}-->
 
@@ -23,14 +24,15 @@ You now have a contract named _claimedInput_ of type "COMPLEX" with one attribut
 :::
 
 Now let's create the contract for the user task _Review and answer claim_:
+
 1. Select the task _Review and answer claim_
-1. At the bottom of the Bonita Studio window go to **Execution > Contract > Inputs** tab
-1. Click on the **Add from data...** button
-1. Select Data: _Business variable_, Action: _Edit_, and leave other options with their default values
-1. Click on the **Next** button
-1. Select only the _answer_ (uncheck _description_, _satisfactionLevel_)
-1. Click on the **Finish** button
-1. You can ignore the information and warning messages and click on the **OK** button
+2. At the bottom of the Bonita Studio window go to **Execution > Contract > Inputs** tab
+3. Click on the **Add from data...** button
+4. Select Data: _Business variable_, Action: _Edit_, and leave other options with their default values
+5. Click on the **Next** button
+6. Select only the _answer_ (uncheck _description_, _satisfactionLevel_)
+7. Click on the **Finish** button
+8. You can ignore the information and warning messages and click on the **OK** button
 
    ![Declare user task contract](images/getting-started-tutorial/declare-contracts/declare-user-task-contract.gif)<!--{.img-responsive .img-thumbnail}-->
 
@@ -39,7 +41,8 @@ We now have a contract for the step. This contract does not create a new claim b
 :::
 
 Create the contract for _Read the answer and rate it_ task:
+
 1. Do exactly as you did for _Review and answer claim_ task 
-1. Select _satisfactionLevel_ as the attribute to use in the contract
+2. Select _satisfactionLevel_ as the attribute to use in the contract
 
 You can now click on the Bonita Studio **Run** button to deploy and execute this updated version. You will see that you get auto-generated forms based on the contract. In the overview form, you will see the data being stored in the business variable. Note that a form will not display previously captured data. We will address that in the [next chapter](create-web-user-interfaces.md).

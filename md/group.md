@@ -3,6 +3,7 @@
 To easily manipulate users with the same rights, it is possible to group them together.
 
 ## Prerequisites
+
 To manage a group, you need to be logged on Bonita with the **Administrator** profile.
 
 ## How to create a group

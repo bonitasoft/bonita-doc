@@ -5,9 +5,10 @@ Build a profile to customize the user's environment, define page listing and who
 ## Definition
 
 ### Fonctional
+
 Profiles work as permissions to give access to:
-+- [Living Applications](applications.md)
-+- Navigation (menus) of Bonita Portal
+- [Living Applications](applications.md)
+- Navigation (menus) of Bonita Portal
 
 A profile is made of a name, a description, and a mapping with the organization entities. 
 When the profile is used to access a Portal menu, Portal menu entries must be defined in the profile too.  
@@ -17,9 +18,11 @@ All profiles can use the default profiles **Administrator** and **User**.
 Performance and Efficiency users can also use the default profile **Process Manager**, and can create custom profiles.
 
 ### Technical
+
 Technically, a **profile** is an XML file.  
 Profiles are packaged in **files of profiles**.  
 A **file of profiles** is an XML file containing one or more profiles.  
+
 ```xml
 <!-- file of profiles -->
 <profiles>
@@ -31,6 +34,7 @@ A **file of profiles** is an XML file containing one or more profiles.
 	</profile>
 </profiles>
 ```
+
 However, profiles in a given file of profiles are totally **independent**.  
 
 Default profiles (Administrator, Process Manager, and User) belong to the file `default_profiles.xml`. 
@@ -58,15 +62,15 @@ The profile graphical UI provided is bound to the xml source, so you can use it 
 You can switch from the graphical UI to the xml source at any moment, using the tabs _Editor_ and _Source_ at the bottom of the editor.  
 A toolbar is embedded to the editor, use it to:  
 
- - **Add** a profile to this file of profiles: you can add a new profile or duplicate an existing one from your current project
- - **Save** this file of profiles **As** an other file of profiles (useful to duplicate the whole file)
- - **Deploy** this file of profiles (i.e all the profiles in this file)
- ⚠  For _development_ purposes, it also deploys their referenced pages used as portal menu entries, but if those resources use REST API Extensions, you have to deploy those manually. In _production_ environment, you still need to import pages, and REST API Extensions manually **before** to import the file of profiles.   
- - **Rename** this file of profiles
- - **Export** this file of profiles (download the .xml)
- - **Delete** this file of profiles from your current workspace
- - **Manage** the Organization: add users / groups / roles to the organization in order to map them to this profile
- - **Restore** the default file of profiles to its initial state (_only available for the file_ `default_profile.xml`) 
+- **Add** a profile to this file of profiles: you can add a new profile or duplicate an existing one from your current project
+- **Save** this file of profiles **As** an other file of profiles (useful to duplicate the whole file)
+- **Deploy** this file of profiles (i.e all the profiles in this file)
+  ⚠  For _development_ purposes, it also deploys their referenced pages used as portal menu entries, but if those resources use REST API Extensions, you have to deploy those manually. In _production_ environment, you still need to import pages, and REST API Extensions manually **before** to import the file of profiles.   
+- **Rename** this file of profiles
+- **Export** this file of profiles (download the .xml)
+- **Delete** this file of profiles from your current workspace
+- **Manage** the Organization: add users / groups / roles to the organization in order to map them to this profile
+- **Restore** the default file of profiles to its initial state (_only available for the file_ `default_profile.xml`) 
 
 Using the graphical editor, you can set all the parameters of your profile.
 
@@ -82,9 +86,8 @@ Pages proposed are those provided by default in Bonita Portal and those created 
 The Applications section provides a quick access to the applications mapped to this profile.  
 To map a new application to this profile, you have to open the application and then choose this profile in the profile field of the [application descriptor editor](applicationCreation.md)
 
-
 ## Enable a profile
 
-To enable a profile, it must be installed onto the portal.   
+To enable a profile, it must be installed onto the portal.  
 For development purposes, the Studio can **deploy** profiles onto the portal for you (_only for Performance and Efficiency editions_).  
 On a production environment, it is done via the **Organization > Profiles** menu of the **Administrator** Portal.

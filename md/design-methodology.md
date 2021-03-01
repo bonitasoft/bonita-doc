@@ -15,14 +15,14 @@ Bonita will not help you to define the objectives for a project, but it will hel
 
 Defining the application scope means defining the people who use it and their usage patterns, the information concerned, the level of security needed, and connections to external systems.
 
-* Application or process: Is the process completely automatic with no human users? Does the process interact with other processes that have human users?   
-If there is no human interaction, there is no need to create an application.
-* People: Who owns the application? Who owns the processes in the application? Who uses the application and processes? Who are the key
-users? Who just needs to know the application exists? When and how is it used? Is it used frequently, on a schedule, in emergencies? Is
-it used by just one person or by many people at the same time?
-* Information: What business information does the application need, and what information does it deliver? What are the expected results of the processes, and of the application?
-* Security: What kind of controls are needed for people using the application? Is a simple login sufficient?
-* Connections: What connections to external systems are needed? Does the application need to access information in a database, to send email, or to use some other business application? Do these external systems have APIs accessible by Java?
+- Application or process: Is the process completely automatic with no human users? Does the process interact with other processes that have human users?  
+  If there is no human interaction, there is no need to create an application.
+- People: Who owns the application? Who owns the processes in the application? Who uses the application and processes? Who are the key
+  users? Who just needs to know the application exists? When and how is it used? Is it used frequently, on a schedule, in emergencies? Is
+  it used by just one person or by many people at the same time?
+- Information: What business information does the application need, and what information does it deliver? What are the expected results of the processes, and of the application?
+- Security: What kind of controls are needed for people using the application? Is a simple login sufficient?
+- Connections: What connections to external systems are needed? Does the application need to access information in a database, to send email, or to use some other business application? Do these external systems have APIs accessible by Java?
 
 ## Drawing the process diagram
 
@@ -30,8 +30,8 @@ Using Bonita Studio, you can quickly sketch out the process flow, and create a d
 
 Things to think about:
 
-* Most business processes have a single start and a single end, but it is possible to have multiple starts and ends.
-* If there are activities that happen in parallel, use symmetric gates to map out the beginning and end of the parallel phases of the process.
+- Most business processes have a single start and a single end, but it is possible to have multiple starts and ends.
+- If there are activities that happen in parallel, use symmetric gates to map out the beginning and end of the parallel phases of the process.
 
 There is no requirement to create a diagram for an application, because it is not executable in the same way as a process.  
 However, you should create a specification so that you can get agreement from the application owner and key users. One option is to use the Bonita Studio to create a diagram showing the usage patterns.  
@@ -41,14 +41,14 @@ This diagram would not be executable, and should not be exported as a /bar file,
 
 In the development phase of each process in an application, there are several aspects to define:
 
-* Data. Define the inputs and outputs of each step. Define the data model, sourcing and storage, and data types. 
-* Step details. Make sure each step is the correct type, and has a descriptive name. 
-* Transition and flow details. Make sure all transitions have a descriptive label. Make sure there is always a default path at each branch in the process. If the process contains a loop on a step, make sure there is a maximum number of iterations defined.
-* Connectors. Attach connectors to the relevant steps. Note that it can be more efficient to split steps with both user activity and connector activity into two steps, a human task for the user and a system task for the connector. Configure each connector. 
-* Actors. Define the actor for each step, applying an actor filter where necessary.
-* Monitoring: Specify the key performance indicators (KPIs) to be collected. These will enable you to monitor the application using a business activity monitoring (BAM) application. Make sure that the KPIs will provide the data required to monitor the objectives you defined for the process.
-* Exception handling: Plan for how errors and unexpected events will be handled. Consider whether it is necessary to stop the case or process, or whether the case can take an alternate path. Decide whether to use event sub-processes.
-* Process maintainability. Add annotations to explain the process. Make sure all elements have descriptive labels. Generate the process document and check it.
+- Data. Define the inputs and outputs of each step. Define the data model, sourcing and storage, and data types. 
+- Step details. Make sure each step is the correct type, and has a descriptive name. 
+- Transition and flow details. Make sure all transitions have a descriptive label. Make sure there is always a default path at each branch in the process. If the process contains a loop on a step, make sure there is a maximum number of iterations defined.
+- Connectors. Attach connectors to the relevant steps. Note that it can be more efficient to split steps with both user activity and connector activity into two steps, a human task for the user and a system task for the connector. Configure each connector. 
+- Actors. Define the actor for each step, applying an actor filter where necessary.
+- Monitoring: Specify the key performance indicators (KPIs) to be collected. These will enable you to monitor the application using a business activity monitoring (BAM) application. Make sure that the KPIs will provide the data required to monitor the objectives you defined for the process.
+- Exception handling: Plan for how errors and unexpected events will be handled. Consider whether it is necessary to stop the case or process, or whether the case can take an alternate path. Decide whether to use event sub-processes.
+- Process maintainability. Add annotations to explain the process. Make sure all elements have descriptive labels. Generate the process document and check it.
 
 ## Designing the application
 
@@ -76,8 +76,8 @@ When testing is complete, the processes are ready to be deployed in Bonita Porta
 
 ## Specifying the organization
 
-Before you can run a process in production, you need to define your organization with entries for all process users, groups, and roles. You also need to map the process actors to the real people who will carry out process steps.   
-You can [manage your organization in Bonita Portal](organization-in-bonita-bpm-portal-overview.md) for a production system.   
+Before you can run a process in production, you need to define your organization with entries for all process users, groups, and roles. You also need to map the process actors to the real people who will carry out process steps.  
+You can [manage your organization in Bonita Portal](organization-in-bonita-bpm-portal-overview.md) for a production system.  
 While you are in the testing phase, you can [manage the organization in Bonita Studio](organization-management-in-bonita-bpm-studio.md).
 
 ## Monitoring and improvement

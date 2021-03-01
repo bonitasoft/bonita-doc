@@ -1,6 +1,6 @@
 # Log files
-Studio log file is related to development activities, while Engine log file is related to process testing.
 
+Studio log file is related to development activities, while Engine log file is related to process testing.
 
 ::: info
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
@@ -17,12 +17,12 @@ To access the Studio log file, choose **Bonita Studio log** from the **Help** me
 
 For Bonita Studio, you can set the level of logging. Edit the `config.ini` in the Studio root configuration directory and set the value of `eclipse.log.level` to ERROR, WARNING, INFO, or ALL.
 
-| | |
-|:-|:-|
-| ERROR | Only error messages are logged| 
-| WARNING | Only error and warning messages are logged| 
-| INFO | Error, warning, and Info message are logged (this is the default)| 
-| ALL | All messages are logged, including debug information| 
+|         |                                                                   |
+| :------ | :---------------------------------------------------------------- |
+| ERROR   | Only error messages are logged                                    |
+| WARNING | Only error and warning messages are logged                        |
+| INFO    | Error, warning, and Info message are logged (this is the default) |
+| ALL     | All messages are logged, including debug information              |
 
 ## Engine log file
 

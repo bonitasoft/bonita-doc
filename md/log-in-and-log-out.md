@@ -10,17 +10,17 @@ Note: to avoid login problems, make sure you empty your browser cache [Empty you
 
 If for example, you receive an email with a link to start a case or a task in the Bonita Portal, you will need to log in.
 
-* Enter the login page url, `http://`_`hostname:port`_`/bonita/`, to get to the login page as a user. The default port number is 8080\.
-* In the user field, enter the **login**, and the **password** for this user.
-* Click on the _**Login button**_.
+- Enter the login page url, `http://hostname:port/bonita/`, to get to the login page as a user. The default port number is 8080.
+- In the user field, enter the **login**, and the **password** for this user.
+- Click on the _**Login button**_.
 
 ## How to log out and log back in as another user
 
-* Go to the _**Tool bar**_ at the top of the interface.
-* Go to **username** menu (your username in the top right of the screen) and choose _**Logout**_.
-* This will log you out and then display the **login form**.
-* In the user field, enter the **name** of a different user, enter the **password** for this user.
-* Click on the _**Login button**_.
+- Go to the _**Tool bar**_ at the top of the interface.
+- Go to **username** menu (your username in the top right of the screen) and choose _**Logout**_.
+- This will log you out and then display the **login form**.
+- In the user field, enter the **name** of a different user, enter the **password** for this user.
+- Click on the _**Login button**_.
 
 Logging out will send the user back to the login page.
 

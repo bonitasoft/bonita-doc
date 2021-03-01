@@ -66,7 +66,7 @@ This is useful if you have accidentally loaded a Look & Feel that contains error
 1. Use the REST client to [log in](rest-api-overview.md) as a registered user of the Engine.
 2. Create a PUT request of the form `http://localhost:8080/bonita/API/portal/theme/default`, specifying the relevant hostname and port number.
 3. In the request body, specify `{"type":"portal"}` to restore the web Look & Feel, or
-`{"type":"mobile"}` to restore the mobile Look & Feel.
+   `{"type":"mobile"}` to restore the mobile Look & Feel.
 4. Send the request. This will restore the default Look & Feel.
 
 The next time you load a Portal page, the default Look & Feel is used.

@@ -22,18 +22,20 @@ You are now ready to start the installation process.
 To run the installer for Windows, macOS or Linux, double-click on the file you downloaded.
 
 The installer will guide you through a very basic installation configuration:
+
 1. Select installation language: this will be used for the installation process
-1. Welcome message: click on **Next** button
-1. License agreement: you need to accept this to continue
-1. Installation directory: the default one should be fine
-1. Confirmation that installation is about to start: click on "Next" button
-1. Actual installation: wait a little bit
-1. You'll see a confirmation message that offers the option to start Bonita Studio. Choose to start Bonita Studio and click on **Finish** button
-1. A "thank you for downloading" page will be displayed in your web browser. You can close it
+2. Welcome message: click on **Next** button
+3. License agreement: you need to accept this to continue
+4. Installation directory: the default one should be fine
+5. Confirmation that installation is about to start: click on "Next" button
+6. Actual installation: wait a little bit
+7. You'll see a confirmation message that offers the option to start Bonita Studio. Choose to start Bonita Studio and click on **Finish** button
+8. A "thank you for downloading" page will be displayed in your web browser. You can close it
 
 ![Bonita Studio installer last screen](images/getting-started-tutorial/installation/studio-installation-installer-08-last-screen.png)<!--{.img-responsive .img-thumbnail}-->
 
 Bonita Studio is now installed. Default installation folders are:
+
 - Windows: `C:\BonitaStudioCommunity-x.y.z`
 - macOS: `/Applications/BonitaStudioCommunity-x.y.z`
 - Linux: `/home/<username>/BonitaStudioCommunity-x.y.z`
@@ -57,8 +59,6 @@ In order to make sure that everything is properly installed, click on the **Port
 
 ![Bonita Portal display in a web browser](images/getting-started-tutorial/installation/web-browser-display-portal.png)<!--{.img-responsive .img-thumbnail}-->
 
-
-
 Also click on the **UI Designer** button ![UI Designer icon](images/getting-started-tutorial/installation/ui-designer-icon.png) in the toolbar. This will display a pop-up window that you can ignore:
 
 ![UI Designer first launch pop-up window](images/getting-started-tutorial/installation/ui-designer-launch-pop-up.png)<!--{.img-responsive .img-thumbnail}-->
@@ -66,7 +66,6 @@ Also click on the **UI Designer** button ![UI Designer icon](images/getting-star
 And then the UI Designer should be opened in your web browser:
 
 ![UI Designer, on first launch, displayed in a web browser](images/getting-started-tutorial/installation/ui-designer-first-start.png)<!--{.img-responsive .img-thumbnail}-->
-
 
 ## Ready to move on
 

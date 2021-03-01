@@ -1,16 +1,16 @@
-#  Pages
+# Pages
 
 Page resources are intended for use in applications or to customize Bonita portal. See how to
 use it and make it available to users. 
 
 ## Custom page usage examples
 
-* Add a welcome page, with dashboards showing activity in Bonita and related external applications.
-* Provide a process owner with a dashboard showing the activity of open cases of the process.
-* Provide a busy user with a filtered view of the task list.
-* Provide an administrator with a multi-attribute search facility.
-* Integrate a page from an external application.
-* Make a report available to users who do not have the Administrator profile.
+- Add a welcome page, with dashboards showing activity in Bonita and related external applications.
+- Provide a process owner with a dashboard showing the activity of open cases of the process.
+- Provide a busy user with a filtered view of the task list.
+- Provide an administrator with a multi-attribute search facility.
+- Integrate a page from an external application.
+- Make a report available to users who do not have the Administrator profile.
 
 Pages are [exported. imported, modified, and deleted](resource-management.md) as resources in Bonita Portal. 
 
@@ -24,18 +24,19 @@ A custom page is displayed inside an iframe to prevent conflicts between the por
 This also reduces the risk of migration issues, for example if a custom page uses the version of JQuery provided with Bonita Portal and it is updated.
 
 ### PageController interface
+
 ```java
 public interface PageController {
 
-/**
-* Let the custom page parse request for specific attribute handling.
-*
-* @param request the HTTP servlet request intended to be used as in a servlet
-* @param response the HTTP servlet response intended to be used as in a servlet
-* @param pageResourceProvider provide access to the resources contained in the custom page zip
-* @param pageContext provide access to the data relative to the context in which the custom page is displayed
-*/
-public void doGet(HttpServletRequest request, HttpServletResponse response, PageResourceProvider pageResourceProvider, PageContext pageContext);
+    /**
+    * Let the custom page parse request for specific attribute handling.
+    *
+    * @param request the HTTP servlet request intended to be used as in a servlet
+    * @param response the HTTP servlet response intended to be used as in a servlet
+    * @param pageResourceProvider provide access to the resources contained in the custom page zip
+    * @param pageContext provide access to the data relative to the context in which the custom page is displayed
+    */
+    void doGet(HttpServletRequest request, HttpServletResponse response, PageResourceProvider pageResourceProvider, PageContext pageContext);
 }
 ```
 
@@ -58,19 +59,18 @@ description=Organization viewer page. You cannot modify the organization from th
 resources=[GET|identity/user, GET|identity/personalcontactdata, GET|identity/professionalcontactdata, GET|identity/role, GET|identity/group, GET|identity/membership, GET|customuserinfo/user, GET|customuserinfo/definition, GET|customuserinfo/value] 
 ```
 
-
 ## Custom page examples
 
 Two custom page examples are available in the Bonita Portal. Both examples show how to:
 
-* Get the Bonita CSS
-* Write simple HTML code
-* Get session information, including the locale
-* Get resources from the custom page definition
-* Call the Engine Java APIs (in the Groovy example) or the Web REST APIs (in the.md example)
-* Write a clickable link to an external page
-* Write a clickable link to a portal page
-* Write locale-specific messages
+- Get the Bonita CSS
+- Write simple HTML code
+- Get session information, including the locale
+- Get resources from the custom page definition
+- Call the Engine Java APIs (in the Groovy example) or the Web REST APIs (in the.md example)
+- Write a clickable link to an external page
+- Write a clickable link to a portal page
+- Write locale-specific messages
 
 **Groovy example page** defines a custom page using Groovy. 
 **HTML example page** defines a custom page using only HTML. 
@@ -82,13 +82,16 @@ On the [Customer Portal](https://customer.bonitasoft.com/), there is also an exa
 
 ## Reuse Bonita Portal content
 
-You can reuse pages from the Bonita Portal in your custom pages. For example, in a page that gives details of a case history, you could include the live case status diagram to show the current status. For example, for case 1 of process definition 8270554088248243867, include these lines in your custom page definition:
+You can reuse pages from the Bonita Portal in your custom pages. For example, in a page that gives details of a case history, you could include the live case status diagram to show the current status. For example, for case 1 of process definition [`8270554`](https://github.com/bonitasoft/bonita-doc/commit/8270554088248243867), include these lines in your custom page definition:
+
 ```groovy
 def idProcess = "8270554088248243867";
 def idCase = "1";
 out.write("""<iframe src=../portal.js/#/admin/monitoring/${idProcess}-${idCase}" style="width:100%; height:100%"></iframe>""");
 ```
+
 This displays the case diagram exactly as it appears in the standard Bonita Portal page. You can modify the view to hide the Portal **Back** button by adding `?diagramOnly` to the URL:
+
 ```groovy
 out.write("""<iframe src=../portal.js/#/admin/monitoring/${idProcess}-${idCase}?diagramOnly}" style="width:100%; height:100%"></iframe>""");
 ```

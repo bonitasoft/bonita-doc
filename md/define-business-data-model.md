@@ -3,6 +3,7 @@
 The Bonita platform provides a means to define, manipulate and store your business data. This data management service will create Java objects to allow data manipulation, database tables for storage, and all operations required to get the data from your process into the database and vice versa.
 
 Data management involves several steps:
+
 - Create the Business Data Model (BDM). This is the definition of the types of data you will deal with in your processes and applications.
 - Declare business variables in the process definition. Variables are used to make the link between your process definition and the data it needs to create, read, update, and delete. Data can be created as part of process execution (on start or on a task) but processes can also read and update data created by other processes and of course can choose to delete data.
 - Define process and task contracts. Contracts define the information process accepts from the user submitting the form.
@@ -10,21 +11,20 @@ Data management involves several steps:
 In this chapter we will focus on the creation of the Business Data Model (BDM) only. Declaration of business variables is part of the next chapter.
 
 In Bonita Studio, create a BDM:
+
 1. Go to **Development > Business Data Model > Define...** menu
 
-  ![Define business data model menu](images/getting-started-tutorial/define-business-data-model/define-business-data-model-menu.png)<!--{.img-responsive .img-thumbnail}-->
-  
-1. Click on **Add** button
-1. Type the object name _Claim_ (objects name must always start with an uppercase letter)
-1. In the **Attributes** tab, click on **Add** button
-1. Add 3 attributes (attributes name must always start with a lowercase letter):
-  1. _description_ of type _STRING_ and _mandatory_ (check the checkbox in the **mandatory** column)
-  1. _answer_ of type _STRING_, _optional_
-  1. _satisfactionLevel_ of type _INTEGER_, _optional_
-  
-  ![Create business object with attributes](images/getting-started-tutorial/define-business-data-model/create-business-object-with-attributes.gif)<!--{.img-responsive .img-thumbnail}-->
-  
-1. Click on **Finish** button
+   ![Define business data model menu](images/getting-started-tutorial/define-business-data-model/define-business-data-model-menu.png)<!--{.img-responsive .img-thumbnail}-->
+2. Click on **Add** button
+3. Type the object name _Claim_ (objects name must always start with an uppercase letter)
+4. In the **Attributes** tab, click on **Add** button
+5. Add 3 attributes (attributes name must always start with a lowercase letter):
+6. _description_ of type _STRING_ and _mandatory_ (check the checkbox in the **mandatory** column)
+7. _answer_ of type _STRING_, _optional_
+8. _satisfactionLevel_ of type _INTEGER_, _optional_
+
+   ![Create business object with attributes](images/getting-started-tutorial/define-business-data-model/create-business-object-with-attributes.gif)<!--{.img-responsive .img-thumbnail}-->
+9. Click on **Finish** button
 
 ::: info
 **Mandatory** on a object attribute means that the object cannot be created with an empty value. If the **mandatory** option is not checked, it means that an object can be created with an empty value, for the attribute "not mandatory" (i.e. optional). In our example, the _answer_ attribute is optional because at process start it will be empty. Later in the process execution, an employee will provide an answer and doing so will be mandatory (but this will not be enforced by BDM definition).
@@ -36,6 +36,7 @@ When you edit the BDM in Bonita Studio, it is always recommended to reset the da
 
 ::: info
 When you click on the "Finish" button three different operations are performed:
+
 - BDM definition is saved in your project (under **Business Data Model** category)
 - Java classes are generated, compiled, packaged and the resulting jar file is added to your project (under **Java dependencies** category)
 - Tables are created in the Bonita Studio embedded test database
