@@ -19,7 +19,7 @@ In Community, Teamwork, Efficiency, and Performance editions
 Bonita BPM comes with more than 80 xref:connectivity-overview.adoc[standard connectors] to the major information system components: major databases (Oracle, Microsoft, Postgres, etc.), SOAP Webservice, Salesforce, Email, etc.
 A new connector enables you to provide new connectivity capabilities for processes.
 To xref:connectors-overview.adoc[implement a new connector], you need to provide some XML description files and a
-Java class respecting the http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html[Connector interface].
+Java class respecting the http://documentation.bonitasoft.com/javadoc/api/{varVersion}/index.html[Connector interface].
 Connectors can be implemented directly from Bonita BPM Studio.
 
 === Actor filters
@@ -28,14 +28,14 @@ In Community, Teamwork, Efficiency, and Performance editions
 
 Bonita BPM comes with a set of xref:actor-filtering.adoc[standard actor filters] that can be used to reduce the list of candidates for process tasks.
 A new actor filter enables you to provide new filtering capabilities to processes. To xref:creating-an-actor-filter.adoc[implement a new actor filter],
-you need to provide some XML description files and a Java class respecting the http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html[UserFilter interface].
+you need to provide some XML description files and a Java class respecting the http://documentation.bonitasoft.com/javadoc/api/{varVersion}/index.html[UserFilter interface].
 Actor filters can be implemented directly from Bonita BPM Studio.
 
 === Engine API
 
 In Community, Teamwork, Efficiency, and Performance editions
 
-The http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html[Bonita BPM Engine APIs] enable you to:
+The http://documentation.bonitasoft.com/javadoc/api/{varVersion}/index.html[Bonita BPM Engine APIs] enable you to:
 
 * start and stop the engine
 * design, install, configure and interact with processes
@@ -74,7 +74,7 @@ You can then use your custom widget in pages, forms, and (for Subscription editi
 
 In Community, Teamwork, Efficiency, and Performance editions
 
-Included in the http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html[Engine APIs] are methods to import and export various items.
+Included in the http://documentation.bonitasoft.com/javadoc/api/{varVersion}/index.html[Engine APIs] are methods to import and export various items.
 These methods manipulate files with formats that are versioned. Newer versions of the file format are designed to be backward compatible with earlier versions. The following items have import and export API methods:
 
 * organization (users, groups, roles)

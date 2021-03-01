@@ -199,7 +199,7 @@ Dynamic task assignment using `getPossibleUsersOfPendingHumanTask` re-evaluates 
 It is useful if your organization changes after a process instance is started and you need to modify the list of users who can perform a task
 
 If there is any Actor Filter specified for the given task, dynamic task assignment does not have any effect. +
-In such case, there is another http://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/api/ProcessRuntimeAPI.html#updateActorsOfUserTask(long)[method] that can be used as a separate call to force the re-execution of the actor filter and thus update the list of possible users.
+In such case, there is another http://documentation.bonitasoft.com/javadoc/api/{varVersion}/org/bonitasoft/engine/api/ProcessRuntimeAPI.html#updateActorsOfUserTask(long)[method] that can be used as a separate call to force the re-execution of the actor filter and thus update the list of possible users.
 
 Finally, it executes the task for the fist user on the list. This "execute for" feature is not available in the Community and Teamwork editions.
 
