@@ -32,9 +32,9 @@ To add and use this asset:
 . In the *Variables* panel, add a new String variable called "name".
 . Create a JavaScript expression that calls the "hi" function.
 . Add an input widget linked to the "name" variable and a text widget linked to the hi variable.
-
++
 image::images/images-6_0/jsasset.png[JS asset]
-
++
 . Click on the preview button. You will see a page containing the welcome message. The name will change when you change the value of the name variable.
 
 === CSS assets
@@ -58,9 +58,9 @@ For example, you can create a file mycss.css with this content:
 . Drag a widget text onto the whiteboard.
 . Select this widget.
 . In the property panel add your CSS class
-
++
 image::images/images-6_0/cssasset.png[CSS asset]
-
++
 . Click on the preview button. You will see white text on a gray background.
 
 === Image assets
