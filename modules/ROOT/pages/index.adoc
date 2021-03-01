@@ -13,7 +13,7 @@ You can find here links to download old versions of the Bonita documentation.
 //=== 7.4 - https://www.heyImTheLink.com[Download 7.4 documentation]
 //
 //
-//=== 7.3 - https://www.heyImTheLink.com[Download 7.3 documentation]
+=== 7.3 - https://github.com/bonitasoft/bonita-doc/releases/download/7.3_archived/documentation-bonita-7.3_asciidoctor.zip[Download 7.3 documentation]
 
 
 //== PDF
