@@ -59,8 +59,7 @@ A business object definition consists of the following:
 
 Business objects can be combined using <<compos,composition or aggregation>> relationships. They are managed using standard create, read, update, delete actions. A business object can be read directly using the http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html[Engine Java API] specifying the Java DAO, or using the xref:bdm-api.adoc[REST API]. To read a business object in a Groovy expression, use the DAO. A business object can be updated only in a process, using an operation.
 
-[discrete]
-==== Multiple
+=== Multiple
 
 In some processes, user interfaces or system activities might need to handle multiple instances of a business object. Use cases include the ability to modify data on mass (for example, approving several leave requests from a list in a user form), and initializing a set of data coming from an external system (for example, loading a list of products from an external datasource and saving each of them in a business object instance).
 
@@ -71,15 +70,13 @@ To support handling of multiple instances of a business objects:
 . Set the list of business object instances in an operation using `takes value of` with a right operand that consists of a list of existing (possibly modified) and new business object instances.
 . Delete all instances from a list of business object instances with an `Is Deleted` operation.
 
-[discrete]
-==== Unique constraint
+=== Unique constraint
 
 An SQL UNIQUE constraint is a single field or a combination of fields that uniquely defines an entry in a database. A unique constraint on a single field means that every entry has a different value for this field. A unique constraint for a combination of fields means that this combination is unique, even though some of the component field values might be common or null.
 
 You can specify a unique constraint for an attribute, to require that every value of the attribute is unique. This means that you can use this attribute in data queries knowing that it is not possible for two entries to have the same value.
 
-[discrete]
-==== Queries
+=== Queries
 
 https://en.wikipedia.org/wiki/Java_Persistence_Query_Language[JPQL] queries are used to get information about data objects stored in the database. A set of default queries is defined automatically for each object in the BDM. You can also create custom queries.
 
@@ -99,8 +96,7 @@ To call a query, use the DAO instance. For a Groovy expression, there is a provi
 
 Example: When handling business objects in a form, you want to reload business objects from a query and use a Groovy script to repopulate the form accordingly. Suppose that a form shows a list of contracts that can be filtered according to the choice of client in a selection widget. When the user selects a client, this triggers the execution of a business object query, `Contracts.findByClient()`. A script parses the resulting list of Contracts and repopulates the contract list widget. This scenario requires DAO objects to be called from a Groovy script expression.
 
-[discrete]
-==== Indexes
+=== Indexes
 
 The purpose of an index is to retrieve data more rapidly. You can specify indexes on business objects to optimize performance of application. For example, for a process to modify purchase orders with an instantiation form used to search for the appropriate purchase order, define an index on purchase order number.
 
@@ -112,8 +108,7 @@ In a production environment, indexes are built when a tenant starts or after a n
 
 [#compos]
 
-[discrete]
-==== Composition and aggregation
+=== Composition and aggregation
 
 Composition and aggregation are two ways in which you can define a composite business object that includes relationships with other business objects in the BDM.
 
@@ -124,13 +119,11 @@ Example: A Purchase Order object consists of a set of primitive attribute variab
 
 [WARNING]
 ====
-
 In Bonita, a composition relationship is unique: A given object can only be used in one composition relationship. For exemple, you cannot use the same object _Wheel_ in composition for an object _Car_ and an object _Bike_. You will have to use an object _WheelCar_ and an object _WheelBike_.
 ====
 
 [WARNING]
 ====
-
 In Bonita, in an aggregation relationship, a child must exist when creating its parent. When creating a parent, you must refer to an existing child to value an attribute with an aggregation relationship.
 ====
 
@@ -149,8 +142,7 @@ When you create a process that uses a business object with a composition or aggr
 
 [#lazy_eager_loading]
 
-[discrete]
-==== Loading
+=== Loading
 
 There are two options for loading complex business objects, *lazy* or *eager*.
 With lazy loading, the parent object instance is loaded, but child object instances are loaded only when they are needed.
@@ -161,8 +153,7 @@ the object relationship properties. This means that the specified object and all
 relationships are loaded. +
 There is an overhead for the additional data load and maintenance of the information in memory, but there is a saving in data access time because the data is already loaded.
 
-[discrete]
-==== Multi-instantiation using business object variables in a list
+=== Multi-instantiation using business object variables in a list
 
 The list can be a multiple business data variable, a multivalued process variable, or any type of list.
 
@@ -228,15 +219,13 @@ image::images/studio_bdm_relationship.png[BDM model relationship]
 
 There are two ways to export a business data model: in a ZIP file for deployment, or in a BOS file for sharing with other Bonita Studios.
 
-[discrete]
-==== Export the BDM for deployment
+=== Export the BDM for deployment
 
 To deploy the BDM, you export it as a ZIP file from Bonita Studio and then import it into Bonita Portal.
 
 [WARNING]
 ====
-
-:fa-exclamation-triangle: *Warning:* Before deploying the business data model, you must xref:pause-and-resume-bpm-services.adoc[pause] the BPM services, so that the update can be performed without affecting ongoing processes.
+Before deploying the business data model, you must xref:pause-and-resume-bpm-services.adoc[pause] the BPM services, so that the update can be performed without affecting ongoing processes.
 *Important:* You are recommended xref:back-up-bonita-bpm-platform.adoc[Back up your platform] and database before deploying a new BDM in case of problems during the update.
 ====
 
@@ -258,8 +247,7 @@ Follow these steps:
 
 WARNING: the database model is automatically updated when you deploy a new BDM. Avoid changing the database schema manually as it may jeopardize the persistence of business objects and cause errors at process runtime.
 
-[discrete]
-==== Export the BDM to share with another Bonita Studio
+=== Export the BDM to share with another Bonita Studio
 
 The `bdm.zip` exported from the Bonita Studio *Development* menu is designed for import into the Portal, and cannot be imported into another Bonita Studio. Instead, create a `.bos` file, as follows:
 
@@ -272,8 +260,7 @@ The resulting `.bos` file can be imported into any Bonita Studio with a Subscrip
 
 WARNING: Bonita Studio can contain only one business data model. When you import a `.bos` file that contains a business data model, it overwrites the model that is already in the Studio.
 
-[discrete]
-==== View the BDM
+=== View the BDM
 
 The BDM ZIP file contains a business object model file, `bom.xml`. You can open this file in a text editor to view the BDM definition.
 
@@ -311,8 +298,7 @@ l.leaveType = 'Test'" returnType="java.lang.Double">
 
 When you design a process, you specify the variables to be used in the process. These can include variables that are instances of business objects defined in the BDM. You xref:specify-data-in-a-process-definition.adoc[define a business object variable] in Bonita Studio in a similar way to defining other process variables.
 
-[discrete]
-==== persistenceID
+=== persistenceID
 
 Each object created in the database has a unique read-only ID called a persistenceID. For each new persistenceID created, the number is incremented. The persistenceID is invisible to the end user in Bonita Portal. A developer can recover this Id by using the method `getPersistenceID`.
 
@@ -325,8 +311,7 @@ After it is declared in the process, a business object instance can be adapted b
 
 [#initBDM]
 
-[discrete]
-==== Initialize BDM attributes from process instantiation contract inputs
+=== Initialize BDM attributes from process instantiation contract inputs
 
 In the contract definition panel of the Studio (*Details* panel, *Execution* tab, *Contract* pane), you can import contract inputs from a BDM definition using the *Add from data...* button. It creates a complex input mapping the BDM class attributes (if an attribute is not a primitive Java element, another complex input is created and it goes on).By selecting *Auto-generate the initialization script*, the default value of the selected business data will be automatically initialized with an auto-generated script when clicking on finish.
 
@@ -356,8 +341,7 @@ var leaveRequest = new com.company.model.LeaveRequest();
         return leaveRequest;
 ----
 
-[discrete]
-==== Initialize BDM attributes from contract inputs in task operations
+=== Initialize BDM attributes from contract inputs in task operations
 
 In the case where a business object has to be initialized from task level inputs, you can set contract inputs from the *Add from data...* action like in <<initBDM,previous section>> and generate automatically operations by selectionning *Auto-generate the initialization script*. The operations will be generated for business data attributes you selected. You can manage it inside the *Details* panel, *Execution* tab, *Operations* pane.
 
@@ -367,15 +351,13 @@ In the first select box, choose the variable of type _com.company.model.LeaveReq
 
 Then, click on the _*pencil*_ button to open the _*Edit Expression*_ editor. Choose the _*Script*_ expression type and enter the same code snippet than the one above to have a new BDM _com.company.model.LeaveRequest_ instance set with the contract inputs.
 
-[discrete]
-==== Business Objects and connectors
+=== Business Objects and connectors
 
 You can use business data in a Java program by using the DAO. DAO gives _*read*_ access to business objects.
 
 [WARNING]
 ====
-
-*:fa-exclamation-triangle: Warning*: In a connector, code is executed outside a transaction, so retrieving or updating business data by DAO is not supported.
+In a connector, code is executed outside a transaction, so retrieving or updating business data by DAO is not supported.
 ====
 
 You can however manipulate the business object outside the connector, and use business objects as connector input or output:
@@ -384,17 +366,14 @@ You can however manipulate the business object outside the connector, and use bu
 * For a _*create*_ or _*update*_, return the new or updated business object as output of the connector.
 Then use the business object (which is stored only in memory at this point) in an *operation* to update the business object in the business database, persisting the change.
 
-[discrete]
-==== BDM and custom REST APIs
+=== BDM and custom REST APIs
 
 Be aware that a poor implementation of a custom REST API accessing BDM objects can lead to poor performance results. See the xref:bdm-in-rest-api.adoc[best practice] on this matter.
 
-[discrete]
-==== Handle BDM database schema manually
+=== Handle BDM database schema manually
 
 [WARNING]
 ====
-
 This section is for advanced usage. You should fully understand the database changes made when you update the Business Data Model before considering using
 this alternative.
 ====
