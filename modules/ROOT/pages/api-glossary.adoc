@@ -58,5 +58,5 @@ Use to represent an instance of a none start event, user task, call activity, mu
 
 For a complete description of the different elements, check out the following pages:
 
-* on the engine side, the http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html[Javadoc] page
+* on the engine side, the http://documentation.bonitasoft.com/javadoc/api/{varVersion}/index.html[Javadoc] page
 * on the web site, the xref:_rest-api.adoc[REST API page] page

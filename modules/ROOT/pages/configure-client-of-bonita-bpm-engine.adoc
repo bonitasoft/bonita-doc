@@ -28,7 +28,7 @@ In order to be able to start the portal with a remote engine the following syste
 
 === Configure Client using programmatic configuration
 
-You can configure the connection to the engine directly using `org.bonitasoft.engine.util.APITypeManager`, please refer to the http://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/util/APITypeManager.html[Javadoc].
+You can configure the connection to the engine directly using `org.bonitasoft.engine.util.APITypeManager`, please refer to the http://documentation.bonitasoft.com/javadoc/api/{varVersion}/org/bonitasoft/engine/util/APITypeManager.html[Javadoc].
 
 Here is an example of programmatic configuration to an engine
 
@@ -73,7 +73,7 @@ You will need to specify at least `org.bonitasoft.engine.ejb.naming.reference` t
 [IMPORTANT]
 ====
 
-Deprecated, use the programmatic way instead, see http://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/util/APITypeManager.html[APITypeManager].
+Deprecated, use the programmatic way instead, see http://documentation.bonitasoft.com/javadoc/api/{varVersion}/org/bonitasoft/engine/util/APITypeManager.html[APITypeManager].
 ====
 
 This is a legacy way to configure the connection to the remote engine.
