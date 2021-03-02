@@ -16,26 +16,26 @@ Logged on with the Administrator profile, you have rights to manage roles as fol
 == Assign a role to a user
 
 . Go to the *Organization* menu and choose *Users*. The list of users in the organization will be displayed.
-. Click on a _*User*_.
-. Click on _*More*_
-. In *Memberships*, click _*Add*_.
+. Click on a *_User_*.
+. Click on *_More_*
+. In *Memberships*, click *_Add_*.
 . Choose the group and role for the user.
-. Click _*Add*_.
+. Click *_Add_*.
 
 == Edit a role
 
 . Go to the *Organization* menu and choose *Roles*.
 . Click a checkbox to select a role.
-. Click _*Edit*_.
+. Click *_Edit_.
 . In the popup window, update the role information.
-. Click _*Save*_.
+. Click *_Save_*.
 
 == Delete a role
 
 . Go to the *Organization* menu and choose *Roles*.
 . Click a checkbox to select a role.
-. Click _*Delete*_.
-. In the popup window, click _*Delete*_.
+. Click *_Delete_*.
+. In the popup window, click *_Delete_*.
 
 == More information about a role
 
