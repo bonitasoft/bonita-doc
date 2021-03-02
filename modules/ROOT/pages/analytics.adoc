@@ -119,10 +119,10 @@ Optionally, a properties file can be added if the report is localized in differe
 ==== Install a report created in the standard Jasper format.
 
 . Go to *Analytics*.
-. Click the _*Install*_ button in the top left corner of the screen.
+. Click the *_Install_* button in the top left corner of the screen.
 . Name the report.
 . Select to your Jasper file (.zip) on your disk drive.
-. Click _*Install*_.
+. Click *_Install_*.
 
 [discrete]
 ==== Result
@@ -135,16 +135,16 @@ A report in the Bonita Portal can be exported as a .pdf file.
 
 . Go to *Analytics*.
 . Select the report that you want to export. This can be one of the default reports, or a custom report that you have installed.
-. Click the _*More*_ button.
-. Click the _*Export*_ button.
+. Click the *_More_* button.
+. Click the *_Export_* button.
 . Specify where the report PDF file will be saved.
-. Click _*OK*_.
+. Click *_OK_*.
 
 == Manage Japanese PDF reports
 
 Japanese language support for reports is not provided by default.
 In order to display the Japanese translations in the default PDF reports, you need to download the Japanese translation `my_report_ja_jp.properties` file from http://translate.bonitasoft.org/[Crowdin].
 If the tenant is deployed and your report has been displayed, open the directory of the report in the Bonita Home folder
-(`bonita/client/tenants/`_`yourTenantId`_`/work/reports/`_`yourReport`_).
+(`bonita/client/tenants/_yourTenantId_/work/reports/_yourReport_`). +
 Then add your "ja_jp.properties" translation files to this directory.
 If your report has never been displayed, go to your deployed war or ear > `WEB-INF\classes` then edit your report zip file to add the Japanese properties file.
