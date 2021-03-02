@@ -188,8 +188,7 @@ This section explains how to migrate a platform that uses one of the Bonita bund
 
 15. Unzip the target bundle version into a directory. In the steps below, this directory is called `bonita-target-version`.
 
-16.  [Configure the bundle to use the migrated database](database-configuration.md).
-
+16. [Configure the bundle to use the migrated database](database-configuration.md).  
     Do not recreate the database and use the setup tool of the `bonita-target-version` Edit the `bonita-target-version/setup/database.properties` file to point to the  migrated database.
 
 17. Reapply configuration made to the platform, using the setup tool of the `bonita-target-version`
