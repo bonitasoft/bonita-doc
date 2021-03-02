@@ -22,9 +22,9 @@ Both Windows and Mac have default security settings that will prevent execution 
 *Note for users of macOS 10.12.x and above* : There is an known issue on macOS Sierra and Java about the slowness of   java.net.InetAddress getLocalHost() which results in a slowness of the Bonita Studio (find more info on https://thoeni.io/post/macos-sierra-java/[thoeni] or https://plumbr.eu/blog/java/macos-sierra-problems-with-java-net-inetaddress-getlocalhost[plumbr]). To resolve this issue you shoud add your computer name to your /etc/hosts file : In a terminal, edit your `/etc/hosts` with sudo privilege, add your computer name to the local IP addresses `127.0.0.1 localhost <mycomputername.local>` and `::1 localhost <mycomputername.local>` (To find your macOS computer name, look at https://support.apple.com/kb/PH25076[Apple support dedicated page]).
 
 *Notes for users of macOS Catalina 10.15 and above*:
+
 [IMPORTANT]
 ====
-
 Only version 7.7.5 and upwards are compatible
 ====
 Only *installed JDK* are accepted by the macOS _gatekeeper_. +
@@ -155,10 +155,10 @@ This information applies to the Subscription editions. No license is needed for 
 
 When you launch Bonita Studio for the first time, you need to install a license:
 
-. Click _*Copy to clipboard*_ to copy the request key from the pop-up
+. Click *_Copy to clipboard_* to copy the request key from the pop-up
 . Use the generated request key to request a license on the https://customer.bonitasoft.com/license/request[Customer portal]
-. _*Check*_ your email box (after a few minutes) and open the email from _no-reply@bonitasoft.com_
-. _*Download*_ the attached file (.lic)
+. *_Check_* your email box (after a few minutes) and open the email from _no-reply@bonitasoft.com_
+. *_Download_* the attached file (.lic)
 . Go back to your Bonita Studio, click _*Install license...*_, and select your .lic file.
 
 [#enable_cache]
