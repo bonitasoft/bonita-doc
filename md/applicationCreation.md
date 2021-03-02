@@ -1,6 +1,6 @@
 # Application descriptor
-Define your Bonita application descriptor.
 
+Define your Bonita application descriptor.
 
 ## Overview
 
@@ -8,7 +8,7 @@ In Bonita 7.5, we introduced the possibility to manage application descriptors f
 It accounts for an additional step to ease the management of [Living Applications](applications.md) in Bonita, since our objective is to offer a unique application deployment artifact, managed from the Studio.  
 Then, all resources used by applications will be centralized and shared by the Bonita development suite: Bonita Studio and the UI Designer.  
 
-## Definition 
+## Definition
 
 Basically, an **application descriptor** is an XML file. It represents the skeleton of an application, as it contains references to resources installed in Bonita Portal and used by a given application.  
 An application descriptor must be imported onto the portal (**Administrator** profile), in the **Applications** tab, to enable the application.  
@@ -17,6 +17,7 @@ For development purposes, the Studio can **deploy** applications descriptors ont
 
 Application descriptors are packaged in **application files**.  
 An **application file** is an XML file containing one or more application descriptors.  
+
 ```xml
 <!--  Application File -->
 <applications>
@@ -28,7 +29,7 @@ An **application file** is an XML file containing one or more application descri
 	</application>
 </applications>
 ```
-	
+
 However, application descriptors in a given application file are totally **independent**.  
 The purpose of grouping application descriptors in one file is to manage together applications with the same company purpose, each of them dedicated to a different user profile.  
 For example, the four leave management applications for employees, managers, Human Resources officers, and Administrators should be managed together, therefore grouped in the same application file.  
@@ -43,12 +44,12 @@ Here is the application descriptor graphical UI provided. It is bound to the XML
 You can switch from the graphical UI to the xml source at any moment, using the tabs _Editor_ and _Source_ at the bottom of the editor.  
 A toolbar is embedded to the editor, use it to:  
 
- - **Add** an application descriptor to this application file
- - **Deploy** this application file (i.e all the application descriptors in this file).  
- ⚠  For _development_ purposes, it also deploys their referenced pages and layout, but if those resources use REST API Extensions, you have to deploy those manually. In _production_ environment, you still need to deploy pages, layouts and REST API Extensions manually **before** to deploy the application descriptor.   
- - **Rename** this application file
- - **Export** this application file (download the .xml)
- - **Delete** this application file from your current workspace
+- **Add** an application descriptor to this application file
+- **Deploy** this application file (i.e all the application descriptors in this file).  
+  ⚠  For _development_ purposes, it also deploys their referenced pages and layout, but if those resources use REST API Extensions, you have to deploy those manually. In _production_ environment, you still need to deploy pages, layouts and REST API Extensions manually **before** to deploy the application descriptor.   
+- **Rename** this application file
+- **Export** this application file (download the .xml)
+- **Delete** this application file from your current workspace
 
 ![Application Descriptor Editor](images/applicationDescriptors/applicationDescriptorEditor_v2.png)
 

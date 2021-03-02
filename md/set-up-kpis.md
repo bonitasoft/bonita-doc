@@ -13,8 +13,8 @@ The Bonita Studio assists you in setting your connection and automatically gener
 
 Keep in mind that this implementation option has some drawbacks:
 
-* You can only insert one row at a time. There is no dynamic multi-row insert.
-* You do not benefit from pooled database connections. This has an impact on performance.
+- You can only insert one row at a time. There is no dynamic multi-row insert.
+- You do not benefit from pooled database connections. This has an impact on performance.
 
 In order to use the KPI feature, you need to:
 
@@ -26,39 +26,40 @@ In order to use the KPI feature, you need to:
 
 When creating a KPI definition, you must specify its database connection settings and its structure.
 
-1. In Bonita Studio, open the **KPI** menu and select _**Create KPI*_*.
+1. In Bonita Studio, open the **KPI** menu and select \_\*\_Create KPI\_\_\*.
 2. Fill in the database JDBC connection settings:
    1. Choose the _Driver template_ that matches your reporting database type:  
 
 ![JDBC driver templates](images/images-6_0/generic_driver.png)
 
-   2. Click on the **_Apply template_** button. This pre-fills the _Driver class name_ and _JDBC URL_ fields.
-   3. Update the configuration with your database name, user name, and password:  
+2. Click on the **_Apply template_** button. This pre-fills the _Driver class name_ and _JDBC URL_ fields.
+3. Update the configuration with your database name, user name, and password:  
 
 ![JDBC connection settings](images/images-6_0/createKPI_step4.png)
 
-   4. Click on **_Test connection_** to validate your settings.
-   5. Click on **_Next_**.
+4. Click on **_Test connection_** to validate your settings.
 
-3. Fill in the KPI definition page
+5. Click on **_Next_**.
+
+6. Fill in the KPI definition page
    1. Provide a name for the KPI definition. This is used as a reference for the Bonita Studio developers.
    2. Click on the **_Fetch tables_** button to select the table to which you wish to attach this KPI. This pre-fills the KPI fields based on your database structure. Alternatively, you can type the name of the database table.
    3. Optionally, specify a description (for documentation purpose only).
    4. Add/remove or update your KPI fields by specifying:
-     * the name (database column name)
-     * the SQL type as defined in the database
-     * whether the values should be surrounded with quotes in the SQL insertion query
+   - the name (database column name)
+   - the SQL type as defined in the database
+   - whether the values should be surrounded with quotes in the SQL insertion query
 
 ![KPI fields](images/images-6_0/editKPI.png)
 
-   5. Click on **_Create_**.
+5. Click on **_Create_**.
 
 ### Attach a KPI definition to a task or a pool
 
 Once you have specified a KPI definition, you may to attach it multiple times and at different levels:
 
-* _Pool level_ - This generates KPI data either at process start or end
-* _Task level_ - This generates KPI data either at task start or end
+- _Pool level_ - This generates KPI data either at process start or end
+- _Task level_ - This generates KPI data either at task start or end
 
 Follow these instructions to attach a KPI:
 
@@ -94,8 +95,8 @@ Your process is now ready to be deployed. Reporting data will be generated in th
 
 This implementation option is better for performance and flexibility reasons:
 
-* It enables dynamic multi-row insertions, because you can use Groovy scripts to transform data and generate complex queries.
-* It benefits from pooled database connections for improved performances.
+- It enables dynamic multi-row insertions, because you can use Groovy scripts to transform data and generate complex queries.
+- It benefits from pooled database connections for improved performances.
 
 The disadvantage with this implementation option is that it requires basic SQL knowledge because you have to write insertion queries manually.
 

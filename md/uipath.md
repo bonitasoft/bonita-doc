@@ -38,9 +38,8 @@ Add an item in a specific UiPath queue
 
 Specify information for the new queue item
 
-
-|Name|Description|Type|Example|
-|---|---|---|---|
+| Name       | Description                                                                                                                                         | Type   | Example          |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ----------------|
 |Queue name|The name of the queue into which the item will be added.|string| |
 |Reference|An optional, user-specified value for queue item identification (128 characters max).|string| |
 |Priority|Sets the processing importance for a given item.|choice| High,Normal,Low|
@@ -51,9 +50,8 @@ Specify information for the new queue item
 
 Key/value pairs containing custom data (complex type will be serialized in a JSON string)
 
-
-|Name|Description|Type|Example|
-|---|---|---|---|
+| Name         | Description | Type  | Example |
+| ------------ | ----------- | ----- | -------|
 |queueContent|Key,Value|array| |
 
 ## UiPath - Get job
@@ -77,9 +75,8 @@ Start UiPath jobs
 
 Configure job parameters. 
 
-
-|Name|Description|Type|Example|
-|---|---|---|---|
+| Name                               | Description                                                                                                                                                   | Type    | Example                 |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -----------------------|
 |Process name|The UiPath process name to execute|string| |
 |Process version|If empty, current process release will be used.|string| |
 |Strategy|States which robots from the environment are being run by the process.|choice| All,Specific,JobsCount|
@@ -90,7 +87,6 @@ Configure job parameters.
 
 Input parameters to be passed to job execution.
 
-
-|Name|Description|Type|Example|
-|---|---|---|---|
+| Name           | Description | Type  | Example |
+| -------------- | ----------- | ----- | -------|
 |inputArguments|Key,Value|array| |

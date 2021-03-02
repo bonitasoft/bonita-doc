@@ -7,6 +7,7 @@ Examples on how to create and edit users, to search for users data, through Boni
 This example shows you how to create a new user and assign the user to a profile. 
 
 **Create a new user** by calling the createUser method:
+
 ```groovy
 // First of all, let's log in on the engine:
 org.bonitasoft.engine.api.APIClient apiClient = new APIClient()
@@ -18,6 +19,7 @@ System.out.println("New user created: " + user)
 ```
 
 Alternatively, you can create a more complex user object as follows:
+
 ```groovy
 // create complex user 
 UserCreator creator = new UserCreator("john", "bpm")
@@ -29,6 +31,7 @@ final User user2 = identityAPI.createUser(creator)
 ```
 
 Now add the user to a Bonita Portal profile. A user who does not have a profile cannot log in to Bonita Portal.
+
 ```groovy
 // The user must now be registered in a profile. Let's choose the existing "User" profile:
 org.bonitasoft.engine.api.ProfileAPI orgProfileAPI = apiClient.getProfileAPI()
@@ -57,6 +60,7 @@ This example shows how to add a user to a group.
 
 The user, group, and role are already defined, and each one is specified by ID.
 Note that it is not possible to add a user without a role.
+
 ```groovy
 final IdentityAPI identityAPI = apiClient.getIdentityAPI()
 UserMembership membership = identityAPI.addUserMembership(userId, groupId, roleId)
@@ -67,6 +71,7 @@ UserMembership membership = identityAPI.addUserMembership(userId, groupId, roleI
 This example shows how to get a list of users in a specified group in the organization.
 
 The group is specified by groupID. The search options specify that a maximum of 100 items are listed, starting with the first one.
+
 ```groovy
 final IdentityAPI identityAPI = apiClient.getIdentityAPI()
 final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100)
@@ -79,6 +84,7 @@ final SearchResult<User> userResults = identityAPI.searchUsers(builder.done())
 This example shows how to get a list of the users who have the specified role in the specified group in the organization.
 
 The group is specified by groupID. The role is specified by roleID. The search options specify that a maximum of 100 items are listed, starting with the first one.
+
 ```groovy
 final IdentityAPI identityAPI = apiClient.getIdentityAPI()
 final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100)
@@ -92,6 +98,7 @@ final SearchResult<User> userResults = identityAPI.searchUsers(builder.done())
 You can use the `getUserWithProfessionalDetails` method to retrieve a user and their professional contact data for a user.
 
 This example shows how to get a user and the email address.
+
 ```groovy
 // Get the professional email address of a user
 UserWithContactData proUser = apiClient.getIdentityAPI().getUserWithProfessionalDetails(user.getId())
@@ -101,6 +108,7 @@ proUser.getContactData().getEmail()
 ## Search for users
 
 The following example is a client application that accesses the Engine in HTTP mode to search for 20 users and display their names and identifiers. 
+
 ```groovy
 package org.bonitasoft.example
 
@@ -141,6 +149,7 @@ It shows how to get the list of pending tasks, and then for each task, how to as
 To **get the pending tasks** for a given user, call the getPendingHumanTaskInstances method.
 In this example, the first page of the current logged user's tasks are retrieved ordered by priority. 
 Each page contains up to 20 tasks.
+
 ```groovy
 // get the pending tasks for the current logged in user
 final List<HumanTaskInstance> pendingTasks = 
@@ -152,6 +161,7 @@ System.out.println("Pending tasks for user " + session.getUserName() + ": " + pe
 Note that this does not return tasks that are already assigned to the user.
 
 Then loop through the list of tasks. For each task, **assign the task** to the user and **execute the task**:
+
 ```groovy
 // assign and execute pending tasks
 for (final HumanTaskInstance pendingTask : pendingTasks) {
@@ -183,6 +193,7 @@ If there is any Actor Filter specified for the given task, dynamic task assignme
 In such case, there is another [method](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/api/ProcessRuntimeAPI.html#updateActorsOfUserTask(long)) that can be used as a separate call to force the re-execution of the actor filter and thus update the list of possible users.
 
 Finally, it executes the task for the fist user on the list. This "execute for" feature is not available in the Community and Teamwork editions.
+
 ```groovy
 // Create a process definition containing a human task, step1
 // Step1 is performed by actor expert adjusted by an actor filter

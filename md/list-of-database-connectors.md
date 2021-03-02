@@ -1,4 +1,5 @@
 # List of default relational database connectors
+
 A complete list of all database connectors available in Bonita for the major relational database vendors (e.g. Oracle, MySQL, PostgreSQL...).
 
 This page lists the database connectors provided with Bonita. For some connectors there are special considerations, included in a section below.
@@ -7,20 +8,20 @@ If you are configuring a connector to a database that is the same type of databa
 
 Here is the list of database connectors. The links take you to sections of this page giving dedicated best practice information.
 
-* Ingres 10.1
-* [MySQL 5.5](#mysql)
-* [Teradata 14](#teradata)
-* Informix 11
-* DB2 9.7
-* [HSQL 2.2](#hsql)
-* [Microsoft SQL Server](#mssql)
-* PostgreSQL 8.4 or 9.2
-* h2 1.3
-* Oracle 10G or 11G
-* JDBC 4
-* AS 400
-* [Sybase ASE 15](#sysbase)
-* Datasource db query
+- Ingres 10.1
+- [MySQL 5.5](#mysql)
+- [Teradata 14](#teradata)
+- Informix 11
+- DB2 9.7
+- [HSQL 2.2](#hsql)
+- [Microsoft SQL Server](#mssql)
+- PostgreSQL 8.4 or 9.2
+- h2 1.3
+- Oracle 10G or 11G
+- JDBC 4
+- AS 400
+- [Sybase ASE 15](#sysbase)
+- Datasource db query
 
 To [configure a database connector](database-connector-configuration.md), follow the instructions in the wizard.
 
@@ -48,7 +49,6 @@ Allows only one connection per destination at a time
 
 #### Microsoft SQL Server
 
-
 **Supported versions**: This connector supports SQL Server 2008, 2012, 2014 and 2016.
 
 **Language encoding**: MS SQL Server uses only one encoding at a time. To avoid errors when creating the database, please do the following when using alternative languages:
@@ -74,9 +74,9 @@ When you configure the connector, use this port number in the URL. For example: 
 
 Two driver jar files are available, and the Driver and URL values to specify in the configuration wizard depend on which jar you use:
 
-* For `jconn4.jar`:  
-Driver: `com.sybase.jdbc4.jdbc.SybDriver`  
-URL: `jdbc:sybase:Tds:`_`host:port/database`_
-* For `jtds-1.3.1.jar`:  
-Driver: `net.sourceforge.jtds.jdbc.Driver`  
-URL: `jdbc:jtds:sybase://`_`host:port/database`_
+- For `jconn4.jar`:  
+  Driver: `com.sybase.jdbc4.jdbc.SybDriver`  
+  URL: `jdbc:sybase:Tds:`_`host:port/database`_
+- For `jtds-1.3.1.jar`:  
+  Driver: `net.sourceforge.jtds.jdbc.Driver`  
+  URL: `jdbc:jtds:sybase://`_`host:port/database`_

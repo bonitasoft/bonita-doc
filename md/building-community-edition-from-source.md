@@ -5,7 +5,6 @@ Bonita is an opensource Digital Process Automation platform, you can therefore b
 All source code of Bonita is available from the [Bonitasoft GitHub organization](https://github.com/bonitasoft). Each Bonita component has
 a dedicated repository (e.g. [Engine repository](https://github.com/bonitasoft/bonita-engine)).
 
-
 # Building Bonita
 
 ## Manual Bonita build
@@ -19,6 +18,7 @@ that are built earlier in the sequence, so the build order must be respected. Fo
 To simplify the build process, you can use the solution provided in the [Build Bonita](https://github.com/Bonitasoft-Community/Build-Bonita) GitHub project.
 
 Follow the `README` file to get instructions about
-* the build procedure
-* eventual limitations
-* eventual additional prerequisites
+
+- the build procedure
+- eventual limitations
+- eventual additional prerequisites

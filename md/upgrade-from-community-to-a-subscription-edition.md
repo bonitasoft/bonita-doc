@@ -4,9 +4,10 @@ Upgrading means moving from a Bonita Community edition environment to any Bonita
 edition environment.
 
 ## To Check before upgrading
-* An upgrade can only be performed on a single Bonita version. You cannot migrate to a new version at the same time as you upgrade to Subscription edition.  
+
+- An upgrade can only be performed on a single Bonita version. You cannot migrate to a new version at the same time as you upgrade to Subscription edition.  
   Eg. You can only upgrade from **Bonita 7.3.3 Community** edition to **Bonita 7.3.3 Subscription** edition. You **cannot** upgrade from **Bonita 7.3.3 Community** to **Bonita 7.4.0 Subscription**.
-* After it is applied, an upgrade cannot be undone.
+- After it is applied, an upgrade cannot be undone.
 
 An upgrade is performed in two phases.
 
@@ -37,16 +38,16 @@ A Bonita platform upgrade can only be performed on the same database vendor (E.g
 To upgrade a Bonita platform from Community edition to a Subscription edition, follow these steps:
 
 1. Download and unzip the Bonita Subscription bundle (to retrieve the bonita.war Web App later) 
-1. Retrieve a [Subscription license](licenses.md) file
-1. Run `<bonita-community>/setup/setup(.sh/.bat) pull` to fetch your current Community configuration in `<bonita-community>/setup/platform_conf/current`
-1. Create license folder `<bonita-community>/setup/platform_conf/licenses/`
-1. Copy your license file into this newly-created folder
-1. Push your new license in the database: `<bonita-community>/setup/setup(.sh/.bat) push`
-1. Stop Bonita Community platform with `<bonita-community>/stop-bonita(.sh/.bat)` script
-1. Remove Bonita Community Web App from `<bonita-community>/server/webapps`: both `bonita.war` and the auto-extracted folder with the same name `bonita/`
-1. Copy the Bonita Subscription Web App where the Community version was: `<bonita-community>/server/webapps/bonita.war`
-1. (Optionally rename the `<bonita-community>` folder with a name that does not contain the word `community`, for clarity)
-1. Start the upgraded Bonita Platform using `<bonita-community>/start-bonita(.sh/.bat)` script
+2. Retrieve a [Subscription license](licenses.md) file
+3. Run `<bonita-community>/setup/setup(.sh/.bat) pull` to fetch your current Community configuration in `<bonita-community>/setup/platform_conf/current`
+4. Create license folder `<bonita-community>/setup/platform_conf/licenses/`
+5. Copy your license file into this newly-created folder
+6. Push your new license in the database: `<bonita-community>/setup/setup(.sh/.bat) push`
+7. Stop Bonita Community platform with `<bonita-community>/stop-bonita(.sh/.bat)` script
+8. Remove Bonita Community Web App from `<bonita-community>/server/webapps`: both `bonita.war` and the auto-extracted folder with the same name `bonita/`
+9. Copy the Bonita Subscription Web App where the Community version was: `<bonita-community>/server/webapps/bonita.war`
+10. (Optionally rename the `<bonita-community>` folder with a name that does not contain the word `community`, for clarity)
+11. Start the upgraded Bonita Platform using `<bonita-community>/start-bonita(.sh/.bat)` script
 
 The Upgrade is now finished, you can verify that you are now running a subscription edition in the portal user interface, the dialog displayed from the top right "Settings / About" menu should indicate the correct Subscription edition.
 

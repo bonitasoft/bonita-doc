@@ -31,9 +31,12 @@ Configuration for the retry is available in the `bonita-tenant-community-custom.
 [setup tool](BonitaBPM_platform_setup.md)
 
 ```properties
-# number of times the works will be retried in case of issues that can be retried
+# Retry mechanism: retry the works when they fail because of an error that is transient
+# maximum number of times a work will be retried before setting it as failed
 bonita.tenant.work.maxRetry=10
+# delay in millis before retrying the work
 bonita.tenant.work.retry.delay=1000
+# factor to multiply the delay with, between two subsequent retries
 bonita.tenant.work.retry.factor=2
 ```
 
@@ -48,10 +51,10 @@ The [Work execution audit](work-execution-audit.md) allows to be informed when t
 
 Starting from 2021.1 version, a specific mechanism is responsible to recover from incidents like database or network outage.
 
-This mechanism will periodically scan the database to retrieve elements that were not executed and re-execute them.
+At startup, the platform restart all elements that were being executed, then the **recovery mechnism** scan **every 2 hours** 
+the database and re-execute elements that should have being executed and were **not updated during the last hour**.
 
-Only elements that were **not updated during the last hour** are recovered. By default, the recovery runs every 2 hours.
-Also, in cluster environment, only one node is responsible to run the recovery at any given time.
+In cluster environment, only one node is responsible to run the recovery at any given time.
 
 ### Configuration
 
@@ -59,15 +62,22 @@ Also, in cluster environment, only one node is responsible to run the recovery a
 Configuration for the recovery is available in the `bonita-tenant-community-custom.properties` and can be updated using the
 [setup tool](BonitaBPM_platform_setup.md)
 
-```properties
+The default values of those properties should work for everyone. If the recovery task takes more than a few minutes, 
+you might want to change these values to run the recovery less often. Take a look at the metrics section to understand how
+to measure that.
 
-# configuration of the recovery mechanism (how works are recreated if lost)
+```properties
+# Recovery Mechanism: recreate works when they are lost due to incidents
+# All following configuration should work for everyone, it can be changed only to do performance tuning in limit-cases
 # Avoid verifying elements recently modified, by default no elements updated during the last hour is considered (ISO-8601 duration format).
 bonita.tenant.recover.consider_elements_older_than=PT1H
 # Duration after the end of the previous execution before a new one is started. By default recovery runs every 2 hours (ISO-8601 duration format)
 bonita.tenant.recover.delay_between_recovery=PT2H
-
 ```
+
+`bonita.tenant.recover.delay_between_recovery` is the time between two scans of the database and also the time before the first scan after startup.
+
+
 
 ### Monitoring
 
@@ -94,10 +104,15 @@ The recovery mechanism produce `INFO` and`DEBUG` logs each time the recovery is 
 New metrics are available to monitor when the recovery runs and how many elements it recovers. It can help to identify 
 period of times when there are incidents like database outage.
 
+There is four metrics related to the recovery:
+
+`bonita.bpmengine.recovery.duration`
+`bonita.bpmengine.recovery.execution`
+`bonita.bpmengine.recovery.recovered.total`
+`bonita.bpmengine.recovery.recovered.last`
 
 Here is an example of metrics published using the Prometheus publisher, more info on how to activate this publisher
  in [Bonita Runtime Monitoring](runtime-monitoring.md)
- 
 ```
 # HELP bonita_bpmengine_recovery_duration_seconds_max duration of recovery task
 # TYPE bonita_bpmengine_recovery_duration_seconds_max gauge

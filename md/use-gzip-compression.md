@@ -16,10 +16,11 @@ compressionMinSize="X"
 noCompressionUserAgents="Y"
 compressableMimeType="Z"
 ```
-| Property | Description | Example |
-|:-|:-|:-|
-| compression | Activates or deactivates gzip compression. | on |
-| compressionMinSize | The minimum size of resources to be compressed. It is not useful to compress resources that are already small. | 2048 (default value) |
+
+| Property                | Description                                                                                                    | Example            |
+| :---------------------- | :------------------------------------------------------------------------------------------------------------- | :----------------- |
+| compression             | Activates or deactivates gzip compression.                                                                     | on                 |
+| compressionMinSize      | The minimum size of resources to be compressed. It is not useful to compress resources that are already small. | 2048               (default value) |
 | noCompressionUserAgents | The User Agents for which compressions is not to be used. Some older browseers do not support compression. | gozilla, traviata |
 | compressableMimeType | The MIME types of the resources to be compressed. We recommend that all text files be compressed. | text/html,text/xml |
 
@@ -27,6 +28,7 @@ If you use the Tomcat bundle, the file to edit is `BUNDLE_HOME/server/conf/serve
 If you use a different package, use the corresponding path; for example on Ubuntu the file is located in `/etc/tomcat8/server.xml`.
 
 Connector configuration:
+
 ```xml
 <Connector port="8080" protocol="HTTP/1.1"
            connectionTimeout="20000"

@@ -20,13 +20,14 @@ You will need to first install the organization file into Bonita Studio and re-e
 :::
 
 To install an organization:
+
 1. Go to _Organization_ > _Install/Export_.
 2. Click on _Click here to choose your file_. The xml file will be displayed in the import file field.
 3. Click on _Install_.
 4. Click on _Save_.
 
 ## How to export an organization
-1. Go to _Organization_>_Install/Export_.
+1. Go to _Organization_ > _Install/Export_.
 2. Click on _Export_.
 
 This will export an organization from Bonita Portal. Users, groups and roles will be exported in a file in .xml format.

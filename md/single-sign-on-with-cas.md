@@ -34,15 +34,13 @@ The method [`getRequestURL ot HttpServletRequest`](https://docs.oracle.com/javae
 
 If you need more fine tuning or if you cannot update the reverse proxy configuration, you can consult the official documentation for [Tomcat](https://tomcat.apache.org/connectors-doc/common_howto/proxy.html).
 
-
 ## Configure Bonita Engine and Tomcat for CAS
-
 
 1. The CAS implementation relies on JAAS, and is defined in the BonitaAuthentication module of the JAAS configuration file.  
    Set the Java system property `java.security.auth.login.config` in the Tomcat startup script to point to the JAAS configuration file, [`BUNDLE_HOME/server/conf/jaas-standard.cfg`](BonitaBPM_platform_setup.md). 
 
    For example, on Linux, edit `BUNDLE_HOME/setup/tomcat-templates/setenv.sh`, uncomment the line that defines `SECURITY_OPTS`, and insert the variable `SECURITY_OPTS` in the line `CATALINA_OPTS=..`. 
- 
+
    The `BUNDLE_HOME/server/conf/jaas-standard.cfg` file contains the following (replace `ip_address:port` with the relevant IP addresses and port numbers, in two places): 
    ```
    BonitaAuthentication-1 {
@@ -59,50 +57,55 @@ If you need more fine tuning or if you cannot update the reverse proxy configura
        cacheTimeout="480";
    };
    ```
+
    ::: warning
    **Warning**: module names must be unique (from the example above, BonitaAuthentication-1 is the module name). Therefore, remove the unecessary ones
    :::
- 
+
    The JAAS configuration file, `jaas-standard.cfg`, is sorted by sets of authentication modules. For Bonita, each set matches a tenant configuration and the name is prefixed with _BonitaAuthentication-`<tenant-id>`_. Make sure there is a set of authentication modules for each tenant in your platform. For each tenant, set the CAS service to point to the application login page and set `casServerUrlPrefix` to point to the CAS server.
 
 2. In the `CasLoginModule` configuration, check that the `principalGroupName` property is set to `CallerPrincipal`.  
    This is required to retrieve the username from the Bonita application.
    Bonita uses the CAS LoginModule in the JASIG implementation, so see the CAS LoginModule section of the [Jasig documentation](https://wiki.jasig.org/display/CASC/JAAS+Integration) for more information.
+
 3. Copy `cas-client-core-x.x.x.jar` from `BonitaSubscription-x.x.x/tools/cas-x.x.x-module/org/jasig/cas/main` into the `BUNDLE_HOME/server/lib` directory.
+
 4. Copy `commons-logging-x.x.x.jar` from `BonitaSubscription-x.x.x/tools//BonitaSubscription-x.x.x-LDAP-Synchronizer/lib` into the `BUNDLE_HOME/server/lib` directory.
 5. Update `bonita-tenant-sp-custom.properties` from `setup/platform_conf/initial/tenant_template_engine/` if platform has not been initialized yet or `setup/platform_conf/current/tenants/[TENANT_ID]/tenant_engine/` and `setup/platform_conf/current/tenant_template_engine/`.
-::: info
-If the platform has already been initialized, every update to the configuration files under `setup/platform_conf/current` must be done using the `setup` tool:  
+   ::: info
+   If the platform has already been initialized, every update to the configuration files under `setup/platform_conf/current` must be done using the `setup` tool:  
+
 - `setup pull`  
 - edit configuration file(s)  
 - `setup push`
-:::
-   1. Remove the comment flags from these lines:
-      `authentication.service.ref.name=jaasAuthenticationService`
-   2. **Optionally**, to enable [guest user access](guest-user), uncomment this lines:
-      ```
-      authenticator.delegate=casAuthenticatorDelegate
-      authentication.delegate.cas.server.url.prefix=http://ip_address:port
-      authentication.delegate.cas.service.url=http://ip_address:port/bonita/loginservice
-      ```
-      Specify the relevant IP address and port number.
+  :::
+  1. Remove the comment flags from these lines:
+     `authentication.service.ref.name=jaasAuthenticationService`
+  2. **Optionally**, to enable [guest user access](guest-user), uncomment this lines:
+     ```
+     authenticator.delegate=casAuthenticatorDelegate
+     authentication.delegate.cas.server.url.prefix=http://ip_address:port
+     authentication.delegate.cas.service.url=http://ip_address:port/bonita/loginservice
+     ```
+     Specify the relevant IP address and port number.
       Please note that Guest user access with this configuration has been validated with version 4.2 of CAS server and Bonita 7.10.1.
 
 #### Configure the Bonita Portal for CAS SSO
 
 1. For each tenant, edit `authenticationManager-config.properties` to enable the CASRemoteAuthenticationManager and its properties.
-Edit the `authenticationManager-config.properties` located in `platform_conf/initial/tenant_template_portal` for not initialized platform or `platform_conf/current/tenant_template_portal` and `platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
-::: info
-If the platform has already been initialized, every update to the configuration files under `setup/platform_conf/current` must be done using the `setup` tool:  
-- `setup pull`
-- edit configuration file(s)  
-- `setup push`
-:::
+   Edit the `authenticationManager-config.properties` located in `platform_conf/initial/tenant_template_portal` for not initialized platform or `platform_conf/current/tenant_template_portal` and `platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
+   ::: info
+    If the platform has already been initialized, every update to the configuration files under `setup/platform_conf/current` must be done using the `setup` tool:  
+
+    - `setup pull`
+    - edit configuration file(s)  
+    - `setup push`
+  :::
 
 Make sure that `auth.AuthenticationManager` property is set to `org.bonitasoft.console.common.server.auth.impl.jaas.cas.CASRemoteAuthenticationManagerImpl`
 Uncomment `Cas.serverUrlPrefix` and `Cas.bonitaServiceURL` properties as shown below (specify the relevant IP addresses and ports):
 
-```
+```properties
 #auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.standard.StandardAuthenticationManagerImplExt
 #auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.oauth.OAuthAuthenticationManagerImplExt
 # OAuth.serviceProvider = LinkedIn
@@ -140,6 +143,7 @@ If you are using CAS, when users log out of Bonita Portal, they log out of CAS. 
 To do this, set the `logout.link.hidden=true` option in `authenticationManager-config.properties` located in `platform_conf/initial/tenant_template_portal` for not initialized platform or `platform_conf/current/tenant_template_portal` and `platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
 ::: info
 If the platform has already been initialized, every update to the configuration files under `setup/platform_conf/current` must be done using the `setup` tool:
+
 - `setup pull`
 - edit configuration file(s)
 - `setup push`
@@ -175,11 +179,11 @@ CAS is a browser-oriented protocol (based on http automatic redirection, cookies
 <a id="restricted_cas_urls"/>
 The default `AuthenticationFilter` that manages CAS authentication applies only to the following pages: 
 
-* /portal
-* /mobile/\*
-* /portal.js/\*
-* /apps/\*
-* /services/\*
+- /portal
+- /mobile/\*
+- /portal.js/\*
+- /apps/\*
+- /services/\*
 
 REST API are not part of them, but if an http session already exists thanks to cookies, REST API can be used.
 
@@ -188,8 +192,8 @@ It allows to retrieve authentication tickets to authenticate to **Bonita Portal*
 
 For detailed information about the procedure to install Restful access on your CAS SSO server, see the following links:
 
-* [CAS SSO RESTful API](http://apereo.github.io/cas/4.2.x/index.html)
-* [Bonita REST API](rest-api-overview.md)
+- [CAS SSO RESTful API](http://apereo.github.io/cas/4.2.x/index.html)
+- [Bonita REST API](rest-api-overview.md)
 
 ::: info
 **Note:** All calls issued to get the TGT or ST are made to the CAS SSO server.
@@ -200,17 +204,18 @@ For detailed information about the procedure to install Restful access on your C
 The Ticket Granting Ticket is an exposed resource. It has a unique URL.
 
 ##### **Request for a Ticket Granting Ticket Resource**
-| | |
-|:-|:-|
-| Request URL | `http://www.your_cas_server_url/cas/v1/tickets` |
-| Request Method | POST |
-| Form Data | Username: walter.bates  <br/> Password: bpm |
+
+|                |                                                 |
+| :------------- | :---------------------------------------------- |
+| Request URL    | `http://www.your_cas_server_url/cas/v1/tickets` |
+| Request Method | POST                                            |
+| Form Data      | Username: walter.bates  <br/> Password: bpm     |
 
 ##### **Response for a Ticket Granting Ticket Resource**
 
-| | |
-|:-|:-|
-| Response |201 created <br/> <br/>`Location: http://www.your_cas_server_url/cas/v1/tickets/{TGT}` |
+|          |                                                                                        |
+| :------- | :------------------------------------------------------------------------------------- |
+| Response | 201 created <br/> <br/>`Location: http://www.your_cas_server_url/cas/v1/tickets/{TGT}` |
 
 Take the TGT response and paste it in the url of the ST request, below
 
@@ -218,19 +223,19 @@ Take the TGT response and paste it in the url of the ST request, below
 
 ##### **Request for a Service Ticket**
 
-| | |
-|:-|:-|
-| Request URL | `http://www.your_cas_server_url/cas/v1/tickets/{TGT}`| 
-| Request Method | POST| 
-| Form Data | service={form encoded parameter for the service url}| 
+|                |                                                       |
+| :------------- | :---------------------------------------------------- |
+| Request URL    | `http://www.your_cas_server_url/cas/v1/tickets/{TGT}` |
+| Request Method | POST                                                  |
+| Form Data      | service={form encoded parameter for the service url}  |
 
 For instance, in a **Bonita Portal** deployed on Tomcat bundle on a server with IP `192.168.1.9`, `service url` can be `http://192.168.1.9:8080/bonita/portal/homepage`. Its form encoded value would be `http%3A%2F%2F192.168.1.9%3A8080%2Fbonita%2Fportal%2Fhomepage`.
 
 ##### **Response for a Service (ST)**
 
-| | |
-|:-|:-|
-| Response |200 OK <br/> <br/> {ST}|
+|          |                         |
+| :------- | :---------------------- |
+| Response | 200 OK <br/> <br/> {ST} |
 
 Take the ST response and paste it in the url of the Bonita Engine login request, below
 
@@ -246,27 +251,27 @@ Prefer GET over POST to authenticate because experience has shown that in some s
 
 The form encoded parameter URL used as service in the previous step must be used as access point because it will be sent to the CAS server to check ticket validation. 
 
-| | |
-|:-|:-|
-| Request URL | `{service url}` | 
-| Request Method | GET | 
-| HTTP Params | ticket={ST} | 
+|                |                 |
+| :------------- | :-------------- |
+| Request URL    | `{service url}` |
+| Request Method | GET             |
+| HTTP Params    | ticket={ST}     |
 
 ##### **Authentication to Bonita Engine** with POST
 
 Use a Bonita Portal SSO protected URL for this action.
 
-| | |
-|:-|:-|
-| Request URL | `<bonita portal url>` | 
-| Request Method | POST | 
-| Form Data | service={form encoded parameter for the service url}&ticket={ST} | 
+|                |                                                                  |
+| :------------- | :--------------------------------------------------------------- |
+| Request URL    | `<bonita portal url>`                                            |
+| Request Method | POST                                                             |
+| Form Data      | service={form encoded parameter for the service url}&ticket={ST} |
 
 ##### **Response for a Service (ST)**
 
-| | |
-|:-|:-|
-| Response | 200 OK|
+|          |        |
+| :------- | :----- |
+| Response | 200 OK |
 
 You are now logged into Bonita Portal and REST API calls will succeed.
 
@@ -275,4 +280,3 @@ Cookies must be enabled in REST client side for authentication to persist across
 Therefore, calling web application root context may not work (e.g. `/bonita` by default) because session cookie seems not to be set on all web server configurations.
 **Use a protected URL to authenticate to Bonita Portal when using the ticket parameter with POST method.**
 :::
-

@@ -15,7 +15,7 @@ To define an event subprocess:
 3. Select the + symbol in the event subprocess element to expand the process drawing space. You can expand it further if necessary, by dragging the lower right corner of the event subprocess outline.
 4. Add a start event. This must be a start message, start timer, or start error.
 5. Configure the start event with the condition that triggers the event subprocess. 
-For example, to handle an error case, configure a start error event that is triggered by a error thrown by an end error event on a task.
+   For example, to handle an error case, configure a start error event that is triggered by a error thrown by an end error event on a task.
 6. Add the steps needed in the subprocess.
 7. Add an end event.
 

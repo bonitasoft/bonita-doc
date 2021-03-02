@@ -13,10 +13,10 @@ Here is a view of the Monitoring page
 Go to _BPM_> _Monitoring_ for Administrator and _Monitoring_ for Process Manager.
 The **Monitor open cases** page is displayed, with the following summary information:
 
-* Number of cases with failure
-* Number of healthy cases
-* Number of open cases
-* A table of open cases
+- Number of cases with failure
+- Number of healthy cases
+- Number of open cases
+- A table of open cases
 
 You can filter the table to show only a specified process, or process and version. You can also filter it by process activation state.
 

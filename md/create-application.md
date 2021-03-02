@@ -27,7 +27,6 @@ To create an application, you have to define:
 1. Type the page name _claimsList_ in the column **Application page** 
 1. Enter _dashboard_ in the column **Token**
 
-
    ![Application deployment](images/getting-started-tutorial/create-application/create-application.gif)<!--{.img-responsive .img-thumbnail}-->
 
 ::: info
@@ -35,6 +34,7 @@ The look & feel can be fully customized by modifying the [layout](layouts.md) an
 :::
 
 The application is ready to be used. Now you need to deploy it in Bonita Portal:
+
 1. Click on the **Deploy** icon ![deploy icon](images/getting-started-tutorial/create-application/deploy-icon.png)
 1. Click on **Select all** to make sure everything is deployed: test organization, business data model, process definition, application page
 1. Make sure that **Clean BDM database before deployment** is not checked as you want to keep your data for testing
@@ -47,10 +47,12 @@ Congratulations! You have successfully created your first process and your first
 
 ::: info
 Verify that the application has been created in Bonita Portal.
+
 1. Click on the Portal icon ![Portal icon](images/getting-started-tutorial/create-application/portal-icon.png) in the Bonita Studio coolbar.
 1. In the upper right corner of the window, click on the **User** drop down menu
 1. Select **Administrator**
 1. Click on the **Applications** tab
+
 You will see the application _Claims_ that you have just deployed listed in the **Applications list**. If you click on the URL, _My Dashboard_ page will be displayed in your brower.
 :::
 

@@ -5,7 +5,8 @@ This page describes the steps to create and customize the databases for Bonita E
 ## Database usage
 
 Bonita uses an RDBMS (Relational DataBase Management System) for the following purposes:
- - One database schema is required by Bonita Engine to store information about deployed process definitions, process configurations, history of process execution, users, as well as Bonita Platform configuration information. 
+
+- One database schema is required by Bonita Engine to store information about deployed process definitions, process configurations, history of process execution, users, as well as Bonita Platform configuration information. 
 - We recommend that you configure a different database schema if your project uses [business data](define-and-deploy-the-bdm.md).
 
 Bonita supports MySQL, PostgreSQL, Microsoft SQL Server, and Oracle RDBMSs.
@@ -25,6 +26,7 @@ To use Bonita on another RDBMS, please use a [bundle](_basic-bonita-platform-ins
 :::
 
 Here are the steps to follow. They are the same for the engine database and the business data database:
+
 1. Create the database
 2. Customize RDBMS to make it work with Bonita    
 3. Add the JDBC driver to the bundle if the database is proprietary
@@ -43,7 +45,7 @@ Bonita provides out of the box the Jdbc drivers for H2, PostgreSQL, Microsoft SQ
 
 #### Oracle Database
 
-*Warning*: Bonita 7.10.+ is compatible with Oracle 12.2.0.x and Oracle 19c (19.3.0.0).
+_Warning_: Bonita 7.10.+ is compatible with Oracle 12.2.0.x and Oracle 19c (19.3.0.0).
 
 <a id="database_creation" />
 
@@ -55,9 +57,9 @@ To do so, you need a RDBMS user account that has sufficient privileges (i.e. pri
 
 Also, note that the owner of the new schemas must own the following privileges:
 
-* CREATE TABLE
-* CREATE INDEX
-* SELECT, INSERT, UPDATE, DELETE on created TABLE
+- CREATE TABLE
+- CREATE INDEX
+- SELECT, INSERT, UPDATE, DELETE on created TABLE
 
 :::info
 CREATE TABLE and CREATE INDEX privileges are not required after first start in normal use.  
@@ -66,10 +68,10 @@ If the same SQL user is used with the [migration tool](migrate-from-an-earlier-v
 
 To create the database(s), we recommend that you refer to your RDBMS documentation:
 
-* [PostgreSQL](https://www.postgresql.org/docs/11/app-createdb.html)
-* [Oracle database](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/creating-and-configuring-an-oracle-database.html#GUID-FE07A9CD-3BD4-46E8-BA24-289FD50FDFE8)
-* [SQL Server](https://technet.microsoft.com/en-us/library/dd207005(v=sql.110).aspx)
-* [MySQL](https://dev.mysql.com/doc/refman/8.0/en/database-use.html)
+- [PostgreSQL](https://www.postgresql.org/docs/11/app-createdb.html)
+- [Oracle database](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/creating-and-configuring-an-oracle-database.html#GUID-FE07A9CD-3BD4-46E8-BA24-289FD50FDFE8)
+- [SQL Server](https://technet.microsoft.com/en-us/library/dd207005(v=sql.110).aspx)
+- [MySQL](https://dev.mysql.com/doc/refman/8.0/en/database-use.html)
 
 <a id="utf8_requirement"/>
 Your database(s) must be configured to use the UTF-8 character set. 
@@ -84,7 +86,7 @@ The same goes for the user used to connect to the business data database, if it 
 
 #### PostgreSQL
 
-Configure the database to use UTF-8\.
+Configure the database to use UTF-8.
 
 Edit `postgresql.conf` and set a non-zero value for `max_prepared_transactions`. The default value, 0, disables prepared transactions, which is not compatible with Bonita Engine.  
 The value should be at least as large as the value set for `max_connections` (default is typically 100).  
@@ -104,11 +106,12 @@ Bonita Engine uses datasources that handle global transactions that span resourc
 The procedure below is used to create the settings to enable Bonita Engine to connect to the Oracle database.
 
 It is assumed in the procedure that:
-   * Oracle product is already installed and running
-   * An 'Oracle' OS user is already created
-   * A database already exists
-   * The environment is already set:
-```
+- Oracle product is already installed and running
+- An 'Oracle' OS user is already created
+- A database already exists
+- The environment is already set:
+
+```properties
   ORACLE_HOME=/u01/app/oracle/product/19.3.0/dbhome_1
   ORACLE_SID=...
 ```
@@ -163,11 +166,16 @@ You can refer to [MSDN](https://msdn.microsoft.com/en-us/library/aa342335(v=sql.
 Here is the list of steps to perform (as an example, the database name BONITA is used):
 
 1. Download the zip package of [Microsoft SQL Server JDBC Driver 6.0](https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=11774) and unzip it. 
+
 2. Copy the `sqljdbc_xa.dll` from `%JDBC_DRIVER_INSTALL_ROOT%\sqljdbc_6.0\enu\xa\x64\` (x64 for 64 bit version of Windows, x86 for 32 bit version of Windows) to `%SQLSERVER_INSTALL_ROOT%\MSSQL13.<instance_name>\MSSQL\Binn\.`
+
 3. Copy/paste the content of `install.sql` file (located in `%JDBC_DRIVER_INSTALL_ROOT%\sqljdbc\6.0\enu\xa`) to SQL Server Management Studio's Query Editor.
+
 4. Execute the query in the Query Editor.
-5. To confirm successful execution of the script, open the "Object Explorer" and go to: **Master** \> **Programmability** \> **Extended Stored Procedures**.   
+
+5. To confirm successful execution of the script, open the "Object Explorer" and go to: **Master** > **Programmability** > **Extended Stored Procedures**.  
    You should have 12 new procedures, each with a name starting with `dbo.xp.sqljdbc_xa_`.
+
 6. Assign the new role 'SqlJDBCXAUser' to the user who owns the Bonita Engine database (`bonitadev` in our example). To do so, execute the following commands in SQL editor:
    ```sql
    USE master;
@@ -180,16 +188,26 @@ Here is the list of steps to perform (as an example, the database name BONITA is
    GO
    ```
 
-7. In the Windows "Start" menu, select **Administrative Tools**-\> **Services**.
+7. In the Windows "Start" menu, select **Administrative Tools**-> **Services**.
+
 8. In the "Services" window, make sure that the **Distributed Transaction Coordinator** service is set to start automatically. If it's not yet started, start it.
+
 9. Make sure that the other services it depends on, namely "Remote Procedure Call" and "Security Accounts Manager", are also set to start automatically.
-10. Run the `dcomcnfg` command, or go to the "Start" menu, then Administrative Tools \> Component Services.
-11. In the left navigation pane, navigate to **Component Services** \> **Computers** \> **My Computer** \> **Distributed Transaction Coordinator**.
+
+10. Run the `dcomcnfg` command, or go to the "Start" menu, then Administrative Tools > Component Services.
+
+11. In the left navigation pane, navigate to **Component Services** > **Computers** > **My Computer** > **Distributed Transaction Coordinator**.
+
 12. Select and right-click on _**Local DTC**_ and then _**Properties**_.
+
 13. Click on _**Security**_ tab. Ensure that the checkbox for **Enable XA Transactions** is checked.
+
 14. Click _**Apply**_, then click _**OK**_
+
 15. Then stop and restart SQLServer to ensure it syncs up with the MS DTC changes.
+
 16. Create the BONITA database: `CREATE DATABASE BONITA GO`.
+
 17. Set `bonitadev` as owner of BONITA database (use, for example, 'Microsoft SQL Management Studio')
 
 ##### Recommended configuration for lock management
@@ -202,12 +220,13 @@ ALTER DATABASE BONITA SET ALLOW_SNAPSHOT_ISOLATION ON
 ALTER DATABASE BONITA SET READ_COMMITTED_SNAPSHOT ON
 ALTER DATABASE BONITA SET MULTI_USER
 ```
+
 See [MSDN](https://msdn.microsoft.com/en-us/library/ms175095(v=sql.110).aspx).
 
 #### Recommended configuration for in-doubt xact resolution
 
 Run the script below to avoid that the SQL Server changes the status of databases to SUSPECT during database server startup when in-doubt XA transactions are found.  
-The value 2 in the block below means *presume abort*.  
+The value 2 in the block below means _presume abort_.  
 To minimize the possibility of extended down time, an administrator might choose to configure this option to presume abort, as shown in the following example
 
 ```sql
@@ -226,7 +245,6 @@ GO
 ```
 
 See [in-doubt xact resolution Server Configuration Option](https://msdn.microsoft.com/en-us/library/ms179586%28v%3Dsql.110%29.aspx).
-
 
 #### MySQL
 

@@ -7,8 +7,9 @@ Bonita can be configured to perform user authentication against an LDAP server s
 :::
 
 **Important notes:**  
-* This documentation applies to an existing and working Bonita installation (see the [installation instructions](bonita-bpm-installation-overview.md)).
-* In order to have functioning Active Directory/LDAP authentication, the user login (username) must exist both in the LDAP directory and in the Bonita database (user password is checked against the LDAP server but user information is read from Bonita database).  We recommend that you use the [LDAP synchronizer](ldap-synchronizer.md) to create Bonita users in a Bonita database.
+
+- This documentation applies to an existing and working Bonita installation (see the [installation instructions](bonita-bpm-installation-overview.md)).
+- In order to have functioning Active Directory/LDAP authentication, the user login (username) must exist both in the LDAP directory and in the Bonita database (user password is checked against the LDAP server but user information is read from Bonita database).  We recommend that you use the [LDAP synchronizer](ldap-synchronizer.md) to create Bonita users in a Bonita database.
 
 ## Overview
 
@@ -19,20 +20,20 @@ specific Login Module](http://docs.oracle.com/javase/8/docs/jre/api/security/jaa
 
 In order to configure LDAP successfully, make sure you have the following information:
 
-* LDAP server type: Active Directory (AD), Apache Directory Server, or OpenLDAP
-* LDAP server address
-* LDAP listening port (e.g. 389 by default)
-* Is it possible to build the user distinguished name with user name that the user specifies when logging in?  
-For example, if the user name is: `john.smith` and the user DN is: `CN=John	Smith,CN=Users,DC=MyDomain,DC=com`, it's not possible to build the DN dynamically.  But it's possible to do so if the DN is: `uid=john.smith,ou=people,dc=example,dc=com`.  
-If it's not possible to build the DN using the user name you will need the following extra information:
-  * The DN of the LDAP entry under which all users are located (e.g. `CN=Users,DC=MyDomain,DC=com`)
-  * The user entry objectClass (the most restrictive one). E.g. usually `user` on AD, `inetOrgPerson`
-or `organizationalPerson` for other LDAP servers.
-  * The user entry attribute used for authentication (e.g. `userPrincipalName` on AD, value: `john.smith@mydomain.com`
-or `uid` on other LDAP servers, value: `john.smith`)
-* Does the LDAP server allow anonymous search?
-* Does the LDAP server allow search for all users that can possibly log in?
-* If search can only be performed by a limited number of "technical" accounts you will need the user name and password of such an account.
+- LDAP server type: Active Directory (AD), Apache Directory Server, or OpenLDAP
+- LDAP server address
+- LDAP listening port (e.g. 389 by default)
+- Is it possible to build the user distinguished name with user name that the user specifies when logging in?  
+  For example, if the user name is: `john.smith` and the user DN is: `CN=John	Smith,CN=Users,DC=MyDomain,DC=com`, it's not possible to build the DN dynamically.  But it's possible to do so if the DN is: `uid=john.smith,ou=people,dc=example,dc=com`.  
+  If it's not possible to build the DN using the user name you will need the following extra information:
+  - The DN of the LDAP entry under which all users are located (e.g. `CN=Users,DC=MyDomain,DC=com`)
+  - The user entry objectClass (the most restrictive one). E.g. usually `user` on AD, `inetOrgPerson`
+    or `organizationalPerson` for other LDAP servers.
+  - The user entry attribute used for authentication (e.g. `userPrincipalName` on AD, value: `john.smith@mydomain.com`
+    or `uid` on other LDAP servers, value: `john.smith`)
+- Does the LDAP server allow anonymous search?
+- Does the LDAP server allow search for all users that can possibly log in?
+- If search can only be performed by a limited number of "technical" accounts you will need the user name and password of such an account.
 * If SSL security is required, ldaps server address FQDN, port and the certificate if provided
 
 ## Create a JAAS configuration file
@@ -49,11 +50,11 @@ It's important to identify which `LdapLoginModule` attributes you need to set.
 This will be at least one of `authIdentity`, `userFilter`, `tryFirstPass`, `java.naming.security.principal` or `java.naming.security.credentials`.
 Based on the information described in the "Before you start" section, you can identify which of the following cases applies:
 
-* If you can build the user DN by directly injecting the user name =\> set only the `authIdentity` attribute
-* If you cannot build the DN and anonymous search is allowed =\> set only the `userFilter` attribute
-* If you cannot build the DN and anonymous search is disallowed and authenticated users can search =\> set the `userFilter` and `authIdentity` attributes
-* If you cannot build the DN and anonymous search is disallowed and authenticated users cannot search =\> set the `userFilter`,
-`authIdentity`, `tryFirstPass`, `java.naming.security.principal` and `java.naming.security.credentials` attributes
+- If you can build the user DN by directly injecting the user name => set only the `authIdentity` attribute
+- If you cannot build the DN and anonymous search is allowed => set only the `userFilter` attribute
+- If you cannot build the DN and anonymous search is disallowed and authenticated users can search => set the `userFilter` and `authIdentity` attributes
+- If you cannot build the DN and anonymous search is disallowed and authenticated users cannot search => set the `userFilter`,
+  `authIdentity`, `tryFirstPass`, `java.naming.security.principal` and `java.naming.security.credentials` attributes
 
 #### Values for LdapLoginModule attributes
 
@@ -90,6 +91,7 @@ Set this to `true` if SSL is required, `false` otherwise.
 
 The JAAS configuration file follows the [default JVM syntax](http://docs.oracle.com/javase/8/docs/api/javax/security/auth/login/Configuration.html).  
 Here is an example of JAAS configuration file:  
+
 ```
 BonitaAuthentication-1 {
   com.sun.security.auth.module.LdapLoginModule sufficient
@@ -97,7 +99,7 @@ BonitaAuthentication-1 {
   authIdentity="uid={USERNAME},ou=people,dc=example,dc=com"
   useSSL=false;
 };
- ```
+```
 
 We recommend that you name your JAAS configuration file `jaas.cfg` and that you add the file under `<BUNDLE_HOME>/server/conf` folder.
 
@@ -110,8 +112,8 @@ order to activate Active Directory/LDAP authentication the service implementatio
 
 You will need to perform following changes:
 
-* Comment out the `authenticationService` line
-* Add this new line: `authentication.service.ref.name=jaasAuthenticationService`
+- Comment out the `authenticationService` line
+- Add this new line: `authentication.service.ref.name=jaasAuthenticationService`
 
 #### Configure JAAS
 
@@ -130,12 +132,12 @@ If you're using the [`tomcat bundle`](tomcat-bundle.md) installation, you need t
 
 ##### For Windows
 
-* Edit this file: `<BUNDLE_HOME>/setup/tomcat-templates/setenv.bat`
-* Locate the line that starts: `rem set SECURITY_OPTS`
-* Uncomment it, i.e. remove "rem" keyword and set property value to: `%CATALINA_HOME%\conf\jaas.cfg`
-* Locate the line that starts: `set CATALINA_OPTS=`
-* Add the tag `%SECURITY_OPTS%` after the tag `%PLATFORM_SETUP%`
-* Push into database the changes: `.\setup.bat push`
+- Edit this file: `<BUNDLE_HOME>/setup/tomcat-templates/setenv.bat`
+- Locate the line that starts: `rem set SECURITY_OPTS`
+- Uncomment it, i.e. remove "rem" keyword and set property value to: `%CATALINA_HOME%\conf\jaas.cfg`
+- Locate the line that starts: `set CATALINA_OPTS=`
+- Add the tag `%SECURITY_OPTS%` after the tag `%PLATFORM_SETUP%`
+- Push into database the changes: `.\setup.bat push`
 
 #### Configure SSL (optional)
 
@@ -182,6 +184,7 @@ Windows: set SSL_OPTS="-Djavax.net.ssl.trustStore=pathToTruststore -Djavax.net.s
 ##### Search allowed for all users
 
 In this example, the user name is john.smith:
+
 ```
 BonitaAuthentication-1 {
   com.sun.security.auth.module.LdapLoginModule sufficient
@@ -193,7 +196,8 @@ BonitaAuthentication-1 {
 };
 ```
 
-In this example, the user name is john.smith@mydomain.com:
+In this example, the user name is [john.smith@mydomain.com](mailto:john.smith@mydomain.com):
+
 ```
 BonitaAuthentication-1 {
   com.sun.security.auth.module.LdapLoginModule sufficient
@@ -208,6 +212,7 @@ BonitaAuthentication-1 {
 ##### Search allowed only for a technical users
 
 In this example, the user name is john.smith:
+
 ```
 BonitaAuthentication-1 {
   com.sun.security.auth.module.LdapLoginModule sufficient
@@ -247,8 +252,8 @@ On Active Directory, a common error code is:
 `LDAP: error code 49 - 80090308: LdapErr: DSID-0C0903A9, comment: AcceptSecurityContext error, data 52e, v1db1`.
 This error code can have several root causes:
 
-* The user doesn't exist in AD: in the JAAS configuration, verify the user filter and validate it using a tool such as
-Apache Directory Studio.
-* The username doesn't include the domain name: in the JAAS configuration, make sure that the `authIdentity` value
-includes the domain name.
-* The user password provided is not correct.
+- The user doesn't exist in AD: in the JAAS configuration, verify the user filter and validate it using a tool such as
+  Apache Directory Studio.
+- The username doesn't include the domain name: in the JAAS configuration, make sure that the `authIdentity` value
+  includes the domain name.
+- The user password provided is not correct.

@@ -21,7 +21,6 @@ A _reschedule_ happens when a work can't be executed right now because some othe
 
 Enable the logger called `BONITA_WORK_AUDIT.EXECUTION` in the logger configuration.
 
-
 ### Activate and configure the work execution audit
 
 The audit is activated by default, it can be deactivated or reactivated here:

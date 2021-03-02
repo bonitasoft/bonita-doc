@@ -14,14 +14,14 @@ To switch between _Open cases_ and _Archived cases_ cases, use the tabs.
 
 To open the case details page, click on a case id or the _Ellipsis_ icon, or to open the process details page, click on the process name.
 You can change the view to see only the information that you need:
-* View the cases of a specified process, by selecting the process name, or name and version, from the dropdown lists.
-* Search keys are also available as additional columns. In this way, you can use search keys for adding business information to your cases. It is also possible to search on search keys values.
-* Filter the cases by state, by choosing "With failures" or "All" from the _State_ dropdown list. 
-The _Failed tasks_ column shows the number of failed tasks. A connector failure at a task is counted as a task failure.  
+- View the cases of a specified process, by selecting the process name, or name and version, from the dropdown lists.
+- Search keys are also available as additional columns. In this way, you can use search keys for adding business information to your cases. It is also possible to search on search keys values.
+- Filter the cases by state, by choosing "With failures" or "All" from the _State_ dropdown list. 
+  The _Failed tasks_ column shows the number of failed tasks. A connector failure at a task is counted as a task failure.  
 Connector failures on case start or end are shown by an exclamation point (!).
-* Add or remove a column in the table, by selecting or deselecting it in the _Columns_ menu.
-* Change the column order, by vertically dragging and dropping the column name in the _Columns_ menu.
-* Sort the table in ascending or descending order of one of the columns, by clicking arrow beside the column header. 
+- Add or remove a column in the table, by selecting or deselecting it in the _Columns_ menu.
+- Change the column order, by vertically dragging and dropping the column name in the _Columns_ menu.
+- Sort the table in ascending or descending order of one of the columns, by clicking arrow beside the column header. 
 
 If the table is already sorted by the column you select, the first click reverses the sort order.  
 If the table is currently sorted by some other column, clicking the header sorts by this column in ascending order. 

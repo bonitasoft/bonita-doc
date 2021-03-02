@@ -1,17 +1,20 @@
 # Import and export a process
+
 How to import and export processes in Bonita Studio.
 
 ## Import a process diagram into Bonita Studio
 
 To import a diagram:
 
-* From a .bos archive (a diagram from another Bonita studio)
+- From a .bos archive (a diagram from another Bonita studio)
+
 1. Choose **_Import_** -> **_BOS archive_** from the **_Diagram_** menu or click **_Import_** in the Cool bar.
 2. Specify the archive to be imported.
 3. Manage eventual conflicts
 4. Click **_Import_**, the .bos archive is imported, a new diagram is created.  
 
-* From an other format
+- From an other format
+
 1. Choose **_Import_** -> **_other_** from the **_Diagram_** menu.
 2. Select the input format.
 3. Specify the file to be imported.
@@ -19,8 +22,8 @@ To import a diagram:
 
 You can import diagrams that were exported from the following tools:
 
-* Bonita
-* BPMN 2.0
+- Bonita
+- BPMN 2.0
 
 ### What is supported or compatible?
 
@@ -33,11 +36,11 @@ If the format to be imported is BPMN 2.0 compatible, any of the BPMN 2.0 element
 imported is **not displayed **in the **BPMN elements** menu, it is not supported by Bonita, so Bonita Studio will _interpret_ the element and create the _closest BPMN element_
 that is supported. The following specific changes are made for all import formats:
 
-* If a task in an imported process is **not recognised**, Bonita Studio will create an abstract task for it by default.
-* A task format can be **redimensioned** (Height/width) when it is imported.
-* If a multiple event is **not recognised**, Bonita Studio takes the first element in order that it can interpret.
-* If a gateway is **not supported**, it will be interpreted by default as an AND gateway.
-* If there are **multiple pools **in a \*.bar file, they will all be imported into a single process diagram.
+- If a task in an imported process is **not recognised**, Bonita Studio will create an abstract task for it by default.
+- A task format can be **redimensioned** (Height/width) when it is imported.
+- If a multiple event is **not recognised**, Bonita Studio takes the first element in order that it can interpret.
+- If a gateway is **not supported**, it will be interpreted by default as an AND gateway.
+- If there are **multiple pools **in a \*.bar file, they will all be imported into a single process diagram.
 
 The following sections list restrictions for specific import formats.
 
@@ -62,14 +65,14 @@ You can export files related to elements of the processes in the Bonita Studio p
 
 You can export the following:
 
-* Application resources
-* Business Data Model
-* Configurations
-* Dependencies
-* Diagrams
-* Environments
-* Organizations
-* XSD files
+- Application resources
+- Business Data Model
+- Configurations
+- Dependencies
+- Diagrams
+- Environments
+- Organizations
+- XSD files
 
 To create a .bos archive:
 
@@ -89,7 +92,7 @@ To create the business archive:
 1. Choose **_Build..._** from the **_Server_** menu.
 2. Select the process to be exported.
 3. Specify whether you want to export a configuration with the process. Exporting a configuration will export all the information and other items that you 
-configured, including connectors and dependencies.
+   configured, including connectors and dependencies.
 4. Specify the location where the .bar file will be created. The filename is determined by the process name and cannot be changed at this stage.
 5. Click **_Finish_**. The business archive is created.
 

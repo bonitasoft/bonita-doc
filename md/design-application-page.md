@@ -9,21 +9,23 @@ A Bonita application is the answer. The first step to build such an application 
 :::
 
 For this example, we will build a basic page that displays, in a table, all the claims that have been submitted. To create a new page:
+
 1. Click on the **UI Designer** icon ![UI Designer icon](images/getting-started-tutorial/design-application-page/ui-designer.png) in the Bonita Studio tool bar
-1. Ignore the information message pop up window
-1. Click on  **Create**
-1. Make sure that **Application page** is selected
-1. Type the name: _claimsList_
-1. Click on **Create**
+2. Ignore the information message pop up window
+3. Click on  **Create**
+4. Make sure that **Application page** is selected
+5. Type the name: _claimsList_
+6. Click on **Create**
 
    ![Creation of an application page](images/getting-started-tutorial/design-application-page/creation-of-an-application-page.gif)<!--{.img-responsive .img-thumbnail}-->
 
 On the new page, using the [data management](data-management.md) capabilities, the UI Designer can automatically create [variables](variables.md) to retrieve business data and generate the user interface:
+
 1. At the top left corner of the UI Designer, click on  **Data model** ![Data model button](images/getting-started-tutorial/design-application-page/data-model.png)
-1. In the list of business objects, select the _Claim_ object and drag and drop it into the empty space of the page
+2. In the list of business objects, select the _Claim_ object and drag and drop it into the empty space of the page
 1. In the popup window, change **Variable name** from _claim_ to _claims_
 1. In **Additionnal queries**, select _find_
-1. Click on **Save**
+3. Click on **Save**
 
    ![Declare claims page variable](images/getting-started-tutorial/design-application-page/declare-claims-page-variable.gif)<!--{.img-responsive .img-thumbnail}-->
 

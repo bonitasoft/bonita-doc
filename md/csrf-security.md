@@ -30,17 +30,16 @@ If you are using Bonita Portal there is no impact.
 
 If you have developed an external application or some custom pages using the REST API to communicate with bonita, you need to send the `X-Bonita-API-Token` header in all requests other that GET. There are 2 ways of doing this:
 
-* Using the `X-Bonita-API-Token` cookie:
-  * Retrieve the `X-Bonita-API-Token` cookie value (you can retrieve it once and store it in a variable if you don't want to read the cookie each time you perform a call).
-  * In each API request, add a header named `X-Bonita-API-Token` whose value is the token.
+- Using the `X-Bonita-API-Token` cookie:
+  - Retrieve the `X-Bonita-API-Token` cookie value (you can retrieve it once and store it in a variable if you don't want to read the cookie each time you perform a call).
+  - In each API request, add a header named `X-Bonita-API-Token` whose value is the token.
 
-* Using the session API resource
-  * Send an initial request to the session API resource (`/API/system/session/unusedId`).
-  * Retrieve the `X-Bonita-API-Token` from the response header and store it.
-  * In all future API requests, add a header named `X-Bonita-API-Token` containing the stored token.
+- Using the session API resource
+  - Send an initial request to the session API resource (`/API/system/session/unusedId`).
+  - Retrieve the `X-Bonita-API-Token` from the response header and store it.
+  - In all future API requests, add a header named `X-Bonita-API-Token` containing the stored token.
 
 The `X-Bonita-API-Token` is valid for the whole client session.
-
 
 ## How do I disable it?
 
@@ -50,9 +49,7 @@ But if you need to, the deactivation of the CSRF protection can be done in the f
 The default version of this file is located in `setup/platform_conf/initial/platform_portal`. In order to change the configuration on an installation whose platform has already been initialized, use the [platform setup tool](BonitaBPM_platform_setup.md) to retrieve the current configuration and update the file in `setup/platform_conf/current/platform_portal`. Then use the tool again to save your changes into to the database.
 
 When CSRF protection is enables, this file contains this line: 
-`
-security.csrf.enabled true
-`
+`security.csrf.enabled true`
 
 To disable the CSRF protection, edit the configuration file and change the `security.csrf.enabled ` value to **false**.
 
@@ -64,17 +61,15 @@ Activating the addition of the secure flag can be done in the file `security-con
 The default version of this file is located in `setup/platform_conf/initial/platform_portal`. In order to change the configuration on an installation whose platform has already been initialized, use the [platform setup tool](BonitaBPM_platform_setup.md) to retrieve the current configuration and update the file in `setup/platform_conf/current/platform_portal`. Then use the tool again to save your changes into to the database.
 
 When the secure flag is not active, this file contains this line: 
-`
-security.csrf.cookie.secure false
-`
+`security.csrf.cookie.secure false`
 
 To activate the addition of the secure flag, edit the configuration file and change the `security.csrf.cookie.secure ` value to **true**.
 
 [User authentication overview](user-authentication-overview.md)
 [Read more about CSRF attacks](http://www.acunetix.com/websitesecurity/csrf-attacks)
 
-
 ## How to Migrate your pages to 7.4.0 or greater when CSRF security is enabled
+
 To use a UI page or form that was created in lower version than 7.4, you need to re-import this old page in actual UI designer. If you don't update your page, any API call in your outdated version will be failed because `X-Bonita-API-Token` will be absent in the response header. 
 Follow this few steps to update your page or form:
 

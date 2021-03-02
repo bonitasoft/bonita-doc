@@ -6,14 +6,14 @@ The notion of contract is available at two levels: process instantiation and hum
 
 As an example, a Leave Request Process could declare the following contract:
 
-* Inputs:
-  * Start Date
-  * End Date
-  * Leave type
-* Constraints:
-  * End Date after Start Date
-  * Start Date in the future
-  * Leave type in ("Annual Leave", "Unpaid Leave")
+- Inputs:
+  - Start Date
+  - End Date
+  - Leave type
+- Constraints:
+  - End Date after Start Date
+  - Start Date in the future
+  - Leave type in ("Annual Leave", "Unpaid Leave")
 
 ## Contract purpose and value
 
@@ -32,9 +32,7 @@ In the Leave Request Process example, the contract inputs and the constraints wo
 
   ![](images/images-6_0/contractDoc.PNG)
 
-
   ![](images/images-6_0/ConstraintsDoc.PNG)
-
 
 Stacktrace example in case of contract violation:
   ![](images/images-6_0/constraintError.PNG)
@@ -43,21 +41,21 @@ Supported input types:
 
 1. **Boolean:** accepts true or false values
 2. **complex:** a tree structure that is equivalent to a key-value map where keys are fixed (e.g. if an input named user with children attributes firstname and lastname)
-3. **date:** a date respecting the following pattern : yyyy-MM-dd or yyyy-MM-ddTHH:mm:ss or yyyy-MM-ddTHH:mm:ssZ or yyyy-MM-ddTHH:mm:ss.SSSz (ISO\_8601)
+3. **date:** a date respecting the following pattern : yyyy-MM-dd or yyyy-MM-ddTHH:mm:ss or yyyy-MM-ddTHH:mm:ssZ or yyyy-MM-ddTHH:mm:ss.SSSz (ISO_8601)
 4. **decimal:** a decimal value (e.g. 5.128)
 5. **file:** a document
 6. **integer:** a numeric value (e.g. 4)
 7. **long:** a long value (e.g. 3 000 000 000). Can be used at pool-level only (not at task-level). In called processes, this is helpful to receive IDs from call activities.
-7. **text:** a string
+8. **text:** a string
 
 Check **_multiple_** to specify that the input is a list of its primary type (for example, a list of integers).
 
 ::: info
 **:fa-info-circle:**  The type `long` can be used in a POST with JSON without precision lost. However, it is important to keep in mind that while manipulating numbers in javascript the max `integer` is 2^53-1 which is a smaller subset of Java max `long` type (2^63-1). Example:
 
- * If your value is in JavaScript safe integer range: Text widget (number) > JavaScript number > JSON number > Contract java.lang.Long
- * If value is out of JavaScript safe integer range: Text widget (text) > JavaScript String > JSON String > Contract java.lang.Long
-:::
+- If your value is in JavaScript safe integer range: Text widget (number) > JavaScript number > JSON number > Contract java.lang.Long
+- If value is out of JavaScript safe integer range: Text widget (text) > JavaScript String > JSON String > Contract java.lang.Long
+  :::
 
 **Constraints**
 
@@ -70,15 +68,18 @@ When is the contract validated ?
 Whatever means is used to submit information to process or human task, the system will validate the contract. If the contract is not satisfied, an exception is thrown and the process or human task is untouched. Information can be submitted by Java API call, REST API call, Bonita form, or an external system including a third-party form.
 
 Example of a stacktrace when a constraint fails:
-```
+
+```log
 2019-03-19 11:28:09.088 +0100 AVERTISSEMENT: org.bonitasoft.engine.bpm.contract.validation.ContractConstraintsValidator THREAD_ID=64 | HOSTNAME=*** | TENANT_ID=1 | Constraint [mandatory_invoiceInput_customer] on input(s) [invoiceInput] is not valid
 2019-03-19 11:28:09.200 +0100 INFOS: org.restlet.Component.BonitaSPRestletApplication Error while validating constraints
 Explanations:
 Customer is mandatory for Invoice
 ```
+
 Example of HTTP response when a constraint fails:
-```
-status: 400
+
+_status: 400_
+```json
 {
 	"exception":"class org.bonitasoft.engine.bpm.contract.ContractViolationException",
 	"message":"Error while validating constraints",
@@ -87,7 +88,6 @@ status: 400
 ```
 
 When generating a Form from a contract, a Text widget is created to display errors on submit.
-
 
 **Best practice:** Define the contract prior to creating your forms. This will save you time during development phase as auto-generated forms enable you to submit information and validate that your contract definition is stable. After the contract is defined, you can go to UI Designer using top-right pencil icon of the Details panel. It will generate a form with the appropriate widget for each contract input to enable the user to provide the expected value.
 
@@ -98,17 +98,17 @@ Currently, context is the same for a human task and its process instance. All th
 
 Limitation : there is currently no way to customize which business data or document are public in Community edition. When using an Enterprise edition, you may want to use the [BDM Access Control](bdm-access-control.md) to protect data access.
 
-
 ## <a name="form-generation"/> Form generation
 
 When creating a contract input from a Data (Add from Data...) you can select the edition mode.  
 In `Create` mode, the generated contract input is meant to instantiate new Data instance.  
 In `Edit` mode, additional `persistenceId_string` input are generated to ensure edition of existing data instances. When generating a Form, additional variables are created in the UID page to retrieve existing data from the Task context and bind create a proper databinding. There is some known limitations if the data has _lazy_ relations:  
-* If the _lazy_ field is not contained in a repeatable container (no multiple parent in the object hierarchy): Another UID variable (External API) is generated to retrieve the _lazy_ relation.
-* If the _lazy_ field is contained in a repeatable container (there is a multiple parent in the object hierarchy or the data is multiple): This kind of fields are unselected by default when generating the contract. We cannot retrieve the values from the context for those relations and a consistent _edition_ form generation is not possible. The current workarounds to handle this use case are:
-	* Change the relation loading mode to _eager_ (Always load related objects option) instead of _lazy_ (Only load related objects when needed)
-	* Use UID [fragments](fragments.md) (Enterprise edition only). Keep in mind that it may lead to performance issues as each lazy instance will generate an HTTP request.
-	* Use a [Rest API Extension](api-extensions.md). Instead of reusing the Task context, create your own endpoint that will serve all the needed data in one HTTP request.
+
+- If the _lazy_ field is not contained in a repeatable container (no multiple parent in the object hierarchy): Another UID variable (External API) is generated to retrieve the _lazy_ relation.
+- If the _lazy_ field is contained in a repeatable container (there is a multiple parent in the object hierarchy or the data is multiple): This kind of fields are unselected by default when generating the contract. We cannot retrieve the values from the context for those relations and a consistent _edition_ form generation is not possible. The current workarounds to handle this use case are:
+  - Change the relation loading mode to _eager_ (Always load related objects option) instead of _lazy_ (Only load related objects when needed)
+  - Use UID  [fragments](fragments.md) (Enterprise edition only). Keep in mind that it may lead to performance issues as each lazy instance will generate an HTTP request.
+  - Use a  [Rest API Extension](api-extensions.md). Instead of reusing the Task context, create your own endpoint that will serve all the needed data in one HTTP request.
 
 In `Edit` mode, you have the possibility to generate read only widgets for attributes related to the contract but not in the contract.  
 The following example describes the logic: 
@@ -121,8 +121,8 @@ Elements in red are the attributes considered as _related to a contract input_. 
 The rules are the following:  
 An attribute is considered as _related to a contract input_ if: 
 
-* This attribute is not used as a contract input
-* The parent of this attribute has at least one child used as a contract input
+- This attribute is not used as a contract input
+- The parent of this attribute has at least one child used as a contract input
 
 If a simple attribute is considered as _related to a contract input_, then a read only widget can be generated for this attribute.  
 If a complex attribute is considered as _related to a contract input_, then a read only widget can be generated for all the simple children of this attribute.  
