@@ -139,12 +139,13 @@ This section explains how to migrate a platform that uses one of the Bonita bund
 
 3. Unzip the migration tool zip file into a directory. In the steps below, this directory is called `bonita-migration`.
 
-4. If you use Oracle, add the JDBC driver for your database to `bonita-migration/lib`. This is the same driver as you have installed in your web server `lib` directory. You must upgrade to  [Oracle 12c (12.2.x.y)](migrate-from-an-earlier-version-of-bonita-bpm.md#oracle12) in order to migrate to 7.9+. 
+4. If you use Oracle, there is already the driver for 19.3.0.0 oracle version in the `bonita-migration/lib`. add the JDBC driver for your database to `bonita-migration/lib`. This is the same driver as you have installed in your web server `lib` directory. You must upgrade to  [Oracle 12c (12.2.x.y)](migrate-from-an-earlier-version-of-bonita-bpm.md#oracle12) in order to migrate to 7.9+. 
 
-5. If you use Oracle or Microsoft SQL Server, add the JDBC driver for your database type to `bonita-migration/lib`. This is the same driver as you have installed in
-   your web server `lib` directory. **Warning**: For Oracle, make sure you double check that you use the official driver version that match your Database version. The correct driver is mandatory for a smooth migration:  [Follow instructions for Oracle driver download.](database-configuration.md#proprietary_jdbc_drivers)
+**Warning**: make sure you double check that you use the official driver version that match your Database version. The correct driver is mandatory for a smooth migration:  [Follow instructions for Oracle driver download.](database-configuration.md#proprietary_jdbc_drivers)
+Particularly, if you use Oracle 12.2.0.x.y and are migrating to 7.9.n or to 7.10.n, then remove the existing `ojdbc8-19.3.0.0.jar` file, and add the specific JDBC driver to `bonita-migration/lib`.   
 
-    If you use Oracle 12.2.0.x.y and are migrating to 7.9.n or to 7.10.n, then add the JDBC driver to `bonita-migration/lib`. This is the same driver as you have installed in your web server `lib` directory.   
+
+5. If you use Oracle or Microsoft SQL Server, add the JDBC driver for your database type to `bonita-migration/lib`. This is the same driver as you have installed in your web server `lib` directory. 
 
 6. Configure the database properties needed by the migration script, by editing `bonita-migration/Config.properties`.
    Specify the following information:
