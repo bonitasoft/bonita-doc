@@ -326,7 +326,7 @@ Skip this section and jump directly to **Upgrade Oracle database server** sectio
 
 ### Download the specific jdbc driver for the Oracle 12c (12.2.0.x.y) or 19c (19.3.0.0)
 
-**Beware**: two different jdbc driver jar files may share the same name (ojdbc8.jar for example).
+**Beware**: two different jdbc driver jar files may share the same name (ojdbc8.jar).
 
 Each file however is specific to the Oracle DB server version installed.
 Please make sure to download the appropriate one:
