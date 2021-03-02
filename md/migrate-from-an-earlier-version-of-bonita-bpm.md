@@ -145,7 +145,7 @@ This section explains how to migrate a platform that uses one of the Bonita bund
 Particularly, if you use Oracle 12.2.0.x.y and are migrating to 7.9.n or to 7.10.n, then remove the existing `ojdbc8-19.3.0.0.jar` file, and add the specific JDBC driver to `bonita-migration/lib`.   
 
 
-5. If you use Oracle or Microsoft SQL Server, add the JDBC driver for your database type to `bonita-migration/lib`. This is the same driver as you have installed in your web server `lib` directory. 
+5. If you use Microsoft SQL Server, add the JDBC driver for your database type to `bonita-migration/lib`. This is the same driver as you have installed in your web server `lib` directory. 
 
 6. Configure the database properties needed by the migration script, by editing `bonita-migration/Config.properties`.
    Specify the following information:
@@ -197,7 +197,9 @@ Particularly, if you use Oracle 12.2.0.x.y and are migrating to 7.9.n or to 7.10
     To suppress the confirmation questions, so that the migration can run unattended, set the ` (-Dauto.accept=true)` system
     property.
     When the migration script is finished, a message is displayed showing the new platform version, and the time taken for the migration.
-    The `bonita_home` and the database have been migrated.
+    The database have been migrated.
+
+**Warning**: Do not use the old application server: a new one needs to be installed with the Bonita binaries that match the target version.
 
 15. Unzip the target bundle version into a directory. In the steps below, this directory is called `bonita-target-version`.
 
@@ -422,8 +424,7 @@ Please make sure to download the appropriate one:
 * Oracle 12c (12.2.0.x.y) : Driver ojdbc8.jar [Oracle Database 12.2.0.1 JDBC Driver & UCP Downloads](https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html) ( make sure it is the official driver by checking the SHA1 Checksum: 60f439fd01536508df32658d0a416c49ac6f07fb )
 * Oracle 19c (19.3.0.0) : Driver ojdbc8.jar [Oracle Database 19c (19.3) JDBC Driver & UCP Downloads](https://www.oracle.com/database/technologies/appdev/jdbc-ucp-19c-downloads.html) ( make sure it is the official driver by checking the SHA1 Checksum: 967c0b1a2d5b1435324de34a9b8018d294f8f47b )
 
-**Note I**: Starting from 7.11 the oracle driver for Oracle 19c is already included into the pre-set zipped Tomcat downloadable from our customer portal.
-**Note II**: The migration tool already include the oracle driver for Oracle 19c.
+**Note I**: The migration tool already include the oracle driver for Oracle 19c (19.3.0.0) in the `bonita-migration/lib` directory. If your are not using Oracle 19c (19.3.0.0) you need to replace it.
 
 ### Check the Bonita 7.8.4 server starts with the Oracle database server 12c (12.2.0.x.y) or 19c (19.3.0.0)
 
