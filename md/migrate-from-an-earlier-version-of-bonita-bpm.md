@@ -155,9 +155,9 @@ This section explains how to migrate a platform that uses one of the Bonita bund
 7. If you use a custom Look & Feel,  [export](managing-look-feel.md) it, and then  [restore the default Look & Feel](managing-look-feel.md).
 8. If you use a Business data model that requires to be redeployed (see  [above](#bdm_redeploy)), you can pause the tenant so that as a tenant admin, you'll be able to redeploy the BDM on a paused tenant once migration is done.
   
-  ::: warn
-  **IMPORTANT:** Do **not** [pause the BPM services](pause-and-resume-bpm-services.md) before you stop the application server. It will cause problems. 
-  :::
+   ::: warn
+   **IMPORTANT:** Do **not** [pause the BPM services](pause-and-resume-bpm-services.md) before you stop the application server. It will cause problems. 
+   :::
 
 9. Stop the application server.
 10. **IMPORTANT:**
