@@ -6,7 +6,7 @@ The example is developed using Maven, and is a Java program to list the failed t
 == Getting started
 
 You need to be familiar with building a Maven project with Bonita BPM as a dependency. You also need to be familiar with using the Bonita BPM Engine APIs. If this is not the case, follow this xref:getting-started-with-the-bonita-bpm-engine-apis.adoc[tutorial].
-The xref:engine-api-overview.adoc[Engine API overview] contains a list of the APIs with a short description of each one. For details of the methods available in the Bonita BPM Engine APIs, see the http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html[Javadoc].
+The xref:engine-api-overview.adoc[Engine API overview] contains a list of the APIs with a short description of each one. For details of the methods available in the Bonita BPM Engine APIs, see the http://documentation.bonitasoft.com/javadoc/api/{varVersion}/index.html[Javadoc].
 
 This example uses the Bonita BPM Engine Java APIs but there is also a xref:rest-api-overview.adoc[REST API].
 

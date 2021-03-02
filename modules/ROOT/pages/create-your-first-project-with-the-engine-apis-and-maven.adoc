@@ -17,7 +17,7 @@ In order to use the client APIs, you need to add a dependency to the `bonita-cli
 [source,xml]
 ----
 <properties>
-   <bonita.bpm.version>${varVersion}.0</bonita.bpm.version>
+   <bonita.bpm.version>{varVersion}.0</bonita.bpm.version>
    ...
 </properties>
 

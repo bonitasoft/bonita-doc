@@ -27,7 +27,7 @@ The Engine can be installed on a Java Virtual Machine (JVM), in any web/Java EE 
 == APIs
 
 This section contains a summary of the Bonita BPM Engine APIs. For details of the APIs, the methods and related objects, see the
-http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html[Javadoc].
+http://documentation.bonitasoft.com/javadoc/api/{varVersion}/index.html[Javadoc].
 | | |
 |:-|:-|
 | Identity API | Manages information about an organization, that is, the set of users who can act in processes. Handles creation, modification, and deletion of organizations, groups, roles, memberships, and users.| +

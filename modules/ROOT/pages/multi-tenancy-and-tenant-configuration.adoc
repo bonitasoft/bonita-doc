@@ -42,7 +42,7 @@ There is also a default tenant _portal_ configuration directory, located in: `cu
 
 == Tenant creation
 
-A tenant can be created using the Java PlatformAPI (see the http://documentation.bonitasoft.com/javadoc/api/${varVersion}/com/bonitasoft/engine/api/PlatformAPI.html[Engine Javadoc]) or the xref:platform-api.adoc[platform REST API].
+A tenant can be created using the Java PlatformAPI (see the http://documentation.bonitasoft.com/javadoc/api/{varVersion}/com/bonitasoft/engine/api/PlatformAPI.html[Engine Javadoc]) or the xref:platform-api.adoc[platform REST API].
 
 NOTE: If xref:define-and-deploy-the-bdm.adoc[business objects] will be deployed in the newly created tenant do not forget to xref:database-configuration.adoc[create the business data database and configure specific data sources].
 This must be done for each tenant that will use the xref:define-and-deploy-the-bdm.adoc[Business Data] feature.
@@ -219,7 +219,7 @@ Example for Bonita BPM Portal mobile version and tenant 2: +
 
 === Bonita APIs
 
-Use the http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html[PlatformAPI] to perform operations on tenants.
+Use the http://documentation.bonitasoft.com/javadoc/api/{varVersion}/index.html[PlatformAPI] to perform operations on tenants.
 
 Example: retrieving a tenant from its name and log into it
 
