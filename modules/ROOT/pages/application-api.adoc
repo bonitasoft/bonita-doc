@@ -220,6 +220,8 @@ A JSON array of application
 }]
 ----
 +
+
+
 == Application Theme
 
 [discrete]
