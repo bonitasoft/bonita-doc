@@ -104,6 +104,7 @@ If you are using apache-tomcat load-balancer whith mod_jk, make sure that jvmRou
 
 . Check that the log file contains messages of the following form:
 +
+[source,log]
 ----
  March 22, 2016 5:07:07 PM INFO: com.hazelcast.cluster.ClusterService [10.0.5.3]:5701 [myBPMCluster]
 
