@@ -9,7 +9,7 @@ By default, pages designed with the UI Designer are deployed in an [application]
 
 ## Apply a Boostrap CSS theme
 
-Many Bootstrap CSS themes are available (for example at [https://bootswatch.com/](https://bootswatch.com/)). 
+Many Bootstrap CSS themes are available (for example at <https://bootswatch.com/>). 
 
 To apply a Bootstrap theme, download it and add it to your page or form as a [CSS asset](assets.md). To see the result, preview your page. Applying a Bootstrap theme as a CSS asset will override the application theme.
 

@@ -22,9 +22,9 @@ variable is a read. If you want to write to the variable, use a bidirectional bo
 
 Examples:
 
-* Define a condition for widget visibility, _userAge \> 18_
-* Define table headers as the value of a variable: _myArrayVariable_
-* Apply a filter to the value of a variable: _selectedUser | json_
+- Define a condition for widget visibility, _userAge > 18_
+- Define table headers as the value of a variable: _myArrayVariable_
+- Apply a filter to the value of a variable: _selectedUser | json_
 
 ### Bidirectional bond - ![Dynamic icon](images/images-6_0/UID-property-bond-chain.png)
 
@@ -51,16 +51,16 @@ You can set a different value for the width property for each device type. Selec
 
 ![Device type selection](images/images-6_0/pb-resolution.png)
 
-Example: A form has three fields, First name, Last name, and Membership number.   
-On a mobile device, you want the fields to occupy the maxiumum width of the screen, each one of a separate line.   
-On a tablet device, you want the first name and last name to be on the same line but the membership number to be on the line below.   
+Example: A form has three fields, First name, Last name, and Membership number.  
+On a mobile device, you want the fields to occupy the maxiumum width of the screen, each one of a separate line.  
+On a tablet device, you want the first name and last name to be on the same line but the membership number to be on the line below.  
 For laptop and desktop devices, you want all three fields to be in the same line. Set the width properties as follows:
 
-| | Mobile  | Tablet  | Laptop  | Desktop  |
-| --- | :----: | :----: | :-----: | :-----: |
-| First name  | 12  | 6  | 4  | 4  |
-| Last name  | 12  | 6  | 4  | 4  |
-| Membership number  | 12  |12  | 4  | 4  |
+|                   | Mobile | Tablet | Laptop | Desktop |
+| ----------------- | :----: | :----: | :----: | :-----: |
+| First name        |   12   |    6   |    4   |    4    |
+| Last name         |   12   |    6   |    4   |    4    |
+| Membership number |   12   |   12   |    4   |    4    |
 
 When you preview the form for each of the device types, you see the following:
 
@@ -74,7 +74,7 @@ When you preview the form for each of the device types, you see the following:
 
 ### CSS classes
 
-For each widget, you can associate one or more CSS classes (use a space-separated list for multiple classes).   
+For each widget, you can associate one or more CSS classes (use a space-separated list for multiple classes).  
 By default, the [Bootstrap](http://getbootstrap.com/) CSS library is available so you can add any CSS class that it contains.
 
 ### Hidden
@@ -103,4 +103,4 @@ On Bonita cloud, the webapp uses the ROOT context and doesn't have a name.
 
 ## Migrate a page from 7.0.0 and 7.0.1
 
-In Bonita 7.0, property values were all dynamic. Pages and forms that were created with 7.0 and are already deployed will continue to work with 7.1\. You should note that when you import a 7.0.0 or 7.0.1 page or form into 7.0.x later versions or the 7.1 Bonita Studio or UI designer, widgets properties stay dynamic.
+In Bonita 7.0, property values were all dynamic. Pages and forms that were created with 7.0 and are already deployed will continue to work with 7.1. You should note that when you import a 7.0.0 or 7.0.1 page or form into 7.0.x later versions or the 7.1 Bonita Studio or UI designer, widgets properties stay dynamic.

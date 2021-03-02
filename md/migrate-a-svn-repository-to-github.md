@@ -1,4 +1,4 @@
-# How to migrate a SVN repository to Github 
+# How to migrate a SVN repository to Github
 
 ::: info
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
@@ -8,20 +8,20 @@ This page explains how to migrate a **SVN** repository and its history to a **Gi
 
 ## Prerequistes
 
-* Ubuntu
-* awk : ```sudo apt-get install awk```
-* subversion: ```sudo apt-get install subversion```
-* git: ```sudo apt-get install git``` (tested with git 2.17.1)
-* [git-svn](https://git-scm.com/docs/git-svn): ```sudo apt-get install git-svn```
+- Ubuntu
+- awk : `sudo apt-get install awk`
+- subversion: `sudo apt-get install subversion`
+- git: `sudo apt-get install git` (tested with git 2.17.1)
+- [git-svn](https://git-scm.com/docs/git-svn): `sudo apt-get install git-svn`
 
 ## Migration steps
 
 ### Retrieve the list of all Subversion committers
 
 A first step will be to retrieve the committers list of the repository.  
-Checkout a copy of the repository to migrate in a location of your choice: ```svn checkout <svn-repository-url>```  
+Checkout a copy of the repository to migrate in a location of your choice: `svn checkout <svn-repository-url>`  
 Then run the following command from the locally checkouted repository to retrieve the svn committers:  
-```svn log -q | awk -F '|' '/^r/ {sub("^ ", "", $2); sub(" $", "", $2); print $2" = "$2" <"$2">"}' | sort -u > authors-transform.txt```  
+`svn log -q | awk -F '|' '/^r/ {sub("^ ", "", $2); sub(" $", "", $2); print $2" = "$2" <"$2">"}' | sort -u > authors-transform.txt`  
 
 In Git, the commit author needs to have a name and email listed. So update `authors-transform.txt` accordingly.  
 
@@ -38,7 +38,7 @@ Note: `<bonita-repo-name>` should have `trunk`, `branches`, `tags` children fold
 
 Add a .gitignore in `~/temp` with the following content
 
-```
+```ini
 bin
 .classpath
 /src-providedGroovy
@@ -87,4 +87,5 @@ You can now clone this git repository in Bonita Studio.
 ## References
 
 For a more advanced migration read the following article  
-* [https://john.albin.net/git/convert-subversion-to-git](https://john.albin.net/git/convert-subversion-to-git)
+
+- <https://john.albin.net/git/convert-subversion-to-git>

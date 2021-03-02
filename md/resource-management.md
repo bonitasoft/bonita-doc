@@ -12,11 +12,13 @@ Here is a view of the page:
 
 A resource is deployed in Bonita Portal to create the User Interface of a Living Application: it can be a page, a layout, a theme, a REST API extension, or a form that will be used by several processes so it is better to store it at platform level than within the process .bar file.  
 
-A resources is packaged as a .zip archive that contains a `page.properties` file, a resources directory and an index file.  
+A resource is packaged as a .zip archive that contains a `page.properties` file, a resources directory and an index file.  
+
 * The `page.properties` file contains the metadata for the page.
 
 For example: 
-```
+
+```properties
 #The name must start with 'custompage_'
 name=custompage_layout
 displayName=Application layout page
@@ -25,12 +27,12 @@ resources=[GET|living/application,GET|living/application-page,GET|living/applica
 contentType=layout
 ```
 
-* The `resources` directory contains all the public files of your resource (for example `index.md`, images, Javascript files, CSS files).  
+- The `resources` directory contains all the public files of your resource (for example `index.md`, images, Javascript files, CSS files).  
 
-* Except for REST API extensions, the zip archive must contain at least one of the following files:
-   * An `index.html` file in the `resources` directory
-   * An `Index.groovy` class at the root of the archive with, optionally, libraries
-   * A `resources/theme.css` file for applications themes
+- Except for REST API extensions, the zip archive must contain at least one of the following files:
+   - An `index.html` file in the `resources` directory
+   - An `Index.groovy` class at the root of the archive with, optionally, libraries
+   - A `resources/theme.css` file for applications themes
 
 If a resource contains both `Index.groovy` and `index.html`, the Groovy class takes precedence.  
 
@@ -45,7 +47,8 @@ You can find examples of the default resources in [`resources-permissions-mappin
 When a user is given access to a page/layout because they are in a profile that contains it or that is mapped to an application that contains the page/layout, then this user is granted, upon login, the permissions associated to these REST resources (see [REST API authorizations](rest-api-authorization.md) for more details).  
 
 The following example shows the permissions defined for a page that enables a user to view but not update organization information:
-```
+
+```properties
 #The name must start with 'custompage_'
 name=custompage_orgViewer
 displayName=Organization viewer
@@ -108,6 +111,7 @@ The resource is edited.
 ## Delete a Resource
 
 To delete a resource:
+
 1. Go to _Resources_. You will see the list of all resources, and a filter for each type of resource ("Page", "Form", "Layout", "Theme" and "REST API extension").
 2. Check the checkboxes of the pages you want to delete.
 3. Click on _Delete_.

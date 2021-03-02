@@ -7,25 +7,27 @@ The Platform REST API allows to manage Bonita Platform and platform level resour
 The Platform API resources require a platform session.
 In order to get one, log in as the platform administrator using the platform login service. The username and password are in bonita-platform-community-custom.properties file.
 
-* **URL**
+- **URL**
   `/platformloginservice`
-* **Method**
+- **Method**
   `POST`
-* **Success Response**
-  * **Code**: 200
-  * **Request parameters**:
+- **Success Response**
+  - **Code**: 200
+  - **Request parameters**:
+
 ```
 username=platformAdmin
 password=platform
 ```
 
 In order to logout use the platform logout service as follow:
-* **URL**
+
+- **URL**
   `/platformlogoutservice`
-* **Method**
+- **Method**
   `POST`
-* **Success Response**
-  * **Code**: 200
+- **Success Response**
+  - **Code**: 200
 
 ## Platform
 
@@ -38,6 +40,7 @@ Handle the platform. This requires a platform session. Log in using the platform
 _unusedid_, the id is not used because there is only one platform
 
 #### Representation
+
 ```json
 {
   "createdBy":"_the user name of the platform administrator_",
@@ -48,25 +51,26 @@ _unusedid_, the id is not used because there is only one platform
   "version":"_the current version of the platform_"
 }
 ```
+
 #### Methods
 
 The methods used for this resource are:
 
-* GET - get the current platform
-* POST - create the platform
-* PUT - start or stop the platform
-* DELETE - destroy the platform
+- GET - get the current platform
+- POST - create the platform
+- PUT - start or stop the platform
+- DELETE - destroy the platform
 
 #### Get the platform
 
-* **URL**  
+- **URL**  
   `/API/platform/platform/unusedid`  
-* **Method**  
+- **Method**  
   `GET`
-* **Success Response**  
+- **Success Response**  
   The platform in JSON
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "createdBy":"platformAdmin",
@@ -82,11 +86,11 @@ The methods used for this resource are:
 
 Start or stop the current node, that is, start or stop all services of the current JVM.
 
-* **URL**  
+- **URL**  
   `/API/platform/platform/unusedid`  
-* **Method**  
+- **Method**  
   `PUT`
-* **Request Payload**  
+- **Request Payload**  
   Start current node :
   ```json
   {
@@ -99,8 +103,8 @@ Start or stop the current node, that is, start or stop all services of the curre
     "state":"start"
   }
   ```
-* **Success Response**  
-  * **Code**: 200
+- **Success Response**  
+  - **Code**: 200
 
 ## Tenant
 
@@ -113,6 +117,7 @@ Handle the tenants (Enterprise and Performance editions only). This requires a p
 The id of the tenant
 
 #### Representation
+
 ```json
 {
   "id":"_id of the tenant_",
@@ -128,21 +133,21 @@ The id of the tenant
 
 The methods used for this resource are:
 
-* GET - get or search tenants
-* POST - create a tenant
-* PUT - update the tenant and activate or deactivate it
-* DELETE - delete a tenant
+- GET - get or search tenants
+- POST - create a tenant
+- PUT - update the tenant and activate or deactivate it
+- DELETE - delete a tenant
 
 #### Get a tenant
 
-* **URL**  
+- **URL**  
   `/API/platform/tenant/:id`  
-* **Method**  
+- **Method**  
   `GET`
-* **Success Response**  
+- **Success Response**  
   The platform in JSON
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "id":"1",
@@ -160,11 +165,11 @@ The methods used for this resource are:
 
 Create a new tenant on the platform.
 
-* **URL**  
+- **URL**  
   `/API/platform/tenant`  
-* **Method**  
+- **Method**  
   `POST`
-* **Request Payload**  
+- **Request Payload**  
   tenant parameters as JSON
   ```json
   {
@@ -174,10 +179,10 @@ Create a new tenant on the platform.
     "password":"bpm"
   }
   ```
-* **Success Response**  
+- **Success Response**  
   the created tenant as JSON
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "password":"",
@@ -195,11 +200,11 @@ Create a new tenant on the platform.
 
 Attributes of the tenant can be changed, and it can be activated or deactivated at the same time.
 
-* **URL**  
+- **URL**  
   `/API/platform/tenant/id`  
-* **Method**  
+- **Method**  
   `PUT`
-* **Request Payload**  
+- **Request Payload**  
   Attributes to change as JSON
   ```json
   {
@@ -207,10 +212,10 @@ Attributes of the tenant can be changed, and it can be activated or deactivated 
     "state":"DEACTIVATED"
   }
   ```
-* **Success Response**  
+- **Success Response**  
   The updated tenant as JSON
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "password":"",
@@ -228,12 +233,12 @@ Attributes of the tenant can be changed, and it can be activated or deactivated 
 
 A tenant can only be deleted if it is in DEACTIVATED state.
 
-* **URL**  
+- **URL**  
   `/API/platform/tenant/id`  
-* **Method**  
+- **Method**  
   `DELETE`
-* **Success Response**  
-  * **Code**: 200
+- **Success Response**  
+  - **Code**: 200
 
 <a id="license"/>
 
@@ -243,7 +248,7 @@ A tenant can only be deleted if it is in DEACTIVATED state.
 
 Handle the license information. This requires a platform session. Log in using the platform login service.
 
-This Web REST API is available in Subscription editions only, since version 7.1\.
+This Web REST API is available in Subscription editions only, since version 7.1.
 
 #### Identifier
 
@@ -274,18 +279,18 @@ empty
 
 The methods used for this resource are:
 
-* GET - get subscription license information
+- GET - get subscription license information
 
 #### Get subscription license information
 
-* **URL**  
+- **URL**  
   `/API/platform/license`  
-* **Method**  
+- **Method**  
   `GET`
-* **Success Response**  
+- **Success Response**  
   The license information in JSON
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "licenseStartDate": "2015-08-31",

@@ -14,9 +14,8 @@ Some elements, such as tasks and gateways, can have multiple outputs connecting 
 
 To configure a transition, select it in the process diagram and go to the Details panel, General tab. You can configure the following:
 
-* The name and a description of the transition. The name is used to label the transition in the diagram.
-* The condition under which this transition is taken. There are three ways to specify this:
-
+- The name and a description of the transition. The name is used to label the transition in the diagram.
+- The condition under which this transition is taken. There are three ways to specify this:
 
 ## Condition expression
 

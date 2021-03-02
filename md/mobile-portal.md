@@ -14,7 +14,7 @@ The following applies to Bonita Mobile Portal.
 
 Add `/mobile` after Bonita in the URL
 
-For example: [http://localhost:8080/bonita/mobile](http://localhost:8080/bonita/mobile)
+For example: <http://localhost:8080/bonita/mobile>
 
 ## Login
 

@@ -1,17 +1,15 @@
 # UI Designer overview
 
-
 The UI Designer is a wysiwyg development environment for creating pages and forms for a Bonita application.
-
 
 ## Usage
 
 It is a web-based tool that is launched from Bonita Studio.  
 A page is defined in HTML extended by the AngularJS JavaScript framework. Use the UI Designer to create and update pages for business applications, forms to start process instances or execute human tasks, and application layouts that apply to all pages of an application.
 
-* Create pages directly in the Bonita UI designer.
-* Start form design in Bonita Studio from the appropriate [contract](contracts-and-contexts.md).
-* Create [layouts](layouts.md) by duplicating the default layout available in the Bonita Portal resources and then updating it.
+- Create pages directly in the Bonita UI designer.
+- Start form design in Bonita Studio from the appropriate [contract](contracts-and-contexts.md).
+- Create [layouts](layouts.md) by duplicating the default layout available in the Bonita Portal resources and then updating it.
 
 You can import an existing page, form, or layout to edit, or duplicate existing ones.
 
@@ -36,8 +34,9 @@ There is a set of [standard widgets](widgets.md). If these do not meet your need
 There are also some structure widgets called containers, which you can use to structure a page. 
 
 There are different types of containers:
-* The plain container is invisible to page users. It is useful during page development as a way to manipulate or configure multiple widgets or iterate over elements to display.
-* The tab container is used to create tabs in a region of a page. The tabs are visible to page users, who can switch between tabs by clicking the tab name.
+
+- The plain container is invisible to page users. It is useful during page development as a way to manipulate or configure multiple widgets or iterate over elements to display.
+- The tab container is used to create tabs in a region of a page. The tabs are visible to page users, who can switch between tabs by clicking the tab name.
 
 Once a container is added to the page, it contains a row. Therefore, widgets can be dropped in a container row or directly on a whiteboard row. In this example, you can see a container with four rows.
 
@@ -59,13 +58,13 @@ Open the **Development** menu then choose **Open UI Designer**, or click the UI 
 
 Select a human task or a pool, go to the **Details** panel, **Execution** tab. Then go to the relevant form mapping tab:
 
-* **_Instantiation form_** for a form to start a process instance
-* **_Form_** for a form on a human task
+- **_Instantiation form_** for a form to start a process instance
+- **_Form_** for a form on a human task
 
 With the form type set to **UI Designer**, you can select a form from the dropdown list and click the pencil icon to edit it, or you can choose **Create a new form**. This is the way to go to create forms as the Studio will auto-generate a form based on the process instantiation or task execution [contract](contracts-and-contexts.md).
 
 You can also create a customized **overview form**, to display a summary of the case to the users, either in a case details page, or in the tasklist, to give some context to the task to do.  
-To do so, go to the pool **Details** panel, **Execution** tab, and click **_Overview page**.  
+To do so, go to the pool **Details** panel, **Execution** tab, and click **\_Overview page**.  
 With the form type set to **UI Designer**, you can select a form from the dropdown list and click the pencil icon to edit it, or you can choose **Create a new form**.
 
 ## Integration with Bonita Platform
@@ -100,10 +99,11 @@ Pages which have been created with a version of bonita older than 7.7.0 have a U
 
 With version 7.7 and the improvements made for the collaboration features, the Id of created artifacts is now more human readable and understandable. This Id is now equal of the name. 
 For pages only, if the id is already taken by another page, it is suffixed with a number (same behavior as in operating system file browsers).
- 
+
 For example:
-* Create a new page named "myPageExample".
-* Create another page with the name "myPageExample".
+
+- Create a new page named "myPageExample".
+- Create another page with the name "myPageExample".
 
 Following the second creation, when you are redirected to the editor, you can see in the URL that the id is in fact `myPageExample1`.
 However, it is a good practice to use a unique name for your page.
@@ -117,10 +117,9 @@ If you want to benefit from readable Ids for your existing artifacts, you need t
 If your project is under version control and you rename an artifact, you could loose the history of the artifact's resources depending on your version control system. If you use git, "git-log --follow" allows you to keep track of moved files.
 :::
 
----
+* * *
 
 ## ![troubleshooting-icon](images/troubleshooting.png) Troubleshooting
-
 
 ### My UI Designer is broken and return a 404 error or a blank page
 
@@ -144,10 +143,12 @@ The UI Designer has a log file that you can consult, either from the Studio Menu
 ![Open UI Designer log from the Studio](images/ui-designer-troubleshooting/uid-logs.png)<!--{.img-responsive}-->  
 Or from your file system here: `STUDIO_HOME/workspace/.metadata/.plugins/org.bonitasoft.studio.designer/.extract/logs/ui-designer.log`.  
 When reading the log file, you see this kind of error:  
-```Could not load component, unexpected structure in the file [timelineWidget.json]```
+`Could not load component, unexpected structure in the file [timelineWidget.json]`
 
 Here is the full stack trace:  
-```16:32:41 [localhost-startStop-1] ERROR o.s.w.c.ContextLoader - Context initialization failed  
+
+```log
+16:32:41 \[localhost-startStop-1] ERROR o.s.w.c.ContextLoader - Context initialization failed
 org.bonitasoft.web.designer.repository.exception.NotFoundException: Could not load component, unexpected structure in the file [timelineWidget.json]  
 [...] 
 Wrapped by: org.bonitasoft.web.designer.rendering.GenerationException: Build error for timelineWidget.json  
@@ -180,6 +181,7 @@ The error message may vary depending on the Bonita version
 
 If you extended the Input standard widget, and called it SmartInput.
 You should have the following files in your <ProjectDir>/web_widgets directory:
+
 ```
 customSmartInput (the custom widget directory)
 	customSmartInput.ctrl.js
@@ -190,6 +192,7 @@ customSmartInput (the custom widget directory)
 
 If you created a page called SmartPage:
 You should have the following files in your <ProjectDir>/web_pages directory (the content may vary if you added some assets):
+
 ```
 SmartPage (the page directory)
     SmartPage.json	assets/
@@ -203,6 +206,7 @@ SmartPage (the page directory)
 
 If you created a fragment called SmartFragment:
 You should have the following files in your <ProjectDir>/web_fragments directory:
+
 ```
 SmartFragment (the fragment directory)
 	SmartFragment.js
@@ -210,74 +214,81 @@ SmartFragment (the fragment directory)
 ```
 
 ##### Error messages
+
 ###### Custom widget
+
 - Custom widget missing 
-    -  7.10 7.11 7.12
-        ```
-        NotFoundException: Could not load component, unexpected structure in the file [customSmartInput.json]
-        ```
-* Custom widget template file missing
-    * 7.10
-        ```
-        NotFoundException: Could not load component, unexpected structure in the file [customSmartInput.json]
-        ```
-    * 7.11 7.12
-        ```
-        NotFoundException: Template not found for [customSmartInput.tpl.html]
-        ```
-* Custom widget json file missing
-    * 7.10 7.11 7.12
-        ```
-        NotFoundException: Could not load component, unexpected structure in the file [customSmartInput.json]
-        ```
-* Custom widget json file syntax error
-    * 7.10
-        ```
-        Unexpected exception while processing file /Applications/BonitaStudioSubscription-7.10.5.app/Contents/Eclipse/workspace/MyProject/web_widgets/customSmartInput/customSmartInput.json
-        com.fasterxml.jackson.core.JsonParseException: Unexpected character
-        ```
-    * 7.11 7.12
-        ```
-        com.fasterxml.jackson.core.JsonParseException: Unexpected character
-        ```    
-* Custom widget controller file missing
-    * 7.10
-        ```
-        NotFoundException: Could not load component, unexpected structure in the file [customSmartInput.json]
-        ```    
-    * 7.11 7.12
-        ```
-        NotFoundException: Controller not found for [customSmartInput.ctrl.js]
-        ```    
-* Custom widget js file missing
-    * No error, file is re-generated
+  - 7.10 7.11 7.12
+    ```
+    NotFoundException: Could not load component, unexpected structure in the file [customSmartInput.json]
+    ```
+
+
+- Custom widget template file missing
+  - 7.10
+    ```
+    NotFoundException: Could not load component, unexpected structure in the file [customSmartInput.json]
+    ```
+  - 7.11 7.12
+    ```
+    NotFoundException: Template not found for [customSmartInput.tpl.html]
+    ```
+- Custom widget json file missing
+  - 7.10 7.11 7.12
+    ```
+    NotFoundException: Could not load component, unexpected structure in the file [customSmartInput.json]
+    ```
+- Custom widget json file syntax error
+  - 7.10
+    ```
+    Unexpected exception while processing file /Applications/BonitaStudioSubscription-7.10.5.app/Contents/Eclipse/workspace/MyProject/web_widgets/customSmartInput/customSmartInput.json
+    com.fasterxml.jackson.core.JsonParseException: Unexpected character
+    ```
+  - 7.11 7.12
+    ```
+    com.fasterxml.jackson.core.JsonParseException: Unexpected character
+    ```
+- Custom widget controller file missing
+  - 7.10
+    ```
+    NotFoundException: Could not load component, unexpected structure in the file [customSmartInput.json]
+    ```
+  - 7.11 7.12
+    ```
+    NotFoundException: Controller not found for [customSmartInput.ctrl.js]
+    ```
+- Custom widget js file missing
+  - No error, file is re-generated
 
 ###### Fragment
-* Entire fragment folder is missing
-    * Same error for all versions  
-        ```
-        NotFoundException: File not found: [SmartFragment.json]
-        ```    
-* Fragment json file missing
-    * Same error for all versions
-        ```
-        NotFoundException: File not found: [SmartFragment.json]
-        ```    
-* Fragment js file missing
-    * No error, file is automatically re-generated
- 
+
+- Entire fragment folder is missing
+  - Same error for all versions  
+    ```
+    NotFoundException: File not found: [SmartFragment.json]
+    ```
+- Fragment json file missing
+  - Same error for all versions
+    ```
+    NotFoundException: File not found: [SmartFragment.json]
+    ```
+- Fragment js file missing
+  - No error, file is automatically re-generated
 
 #### Solution
 
 In the case of a missing file, there are several ways to fix this error:
 
 ##### 1. You are NOT using Git
-* Option A: You have a backup of your repository and you can add the missing file in your repository again.
-* Option B: If it's default widget, you can find the file in your local studio workspace and add it to your repository.
+
+- Option A: You have a backup of your repository and you can add the missing file in your repository again.
+- Option B: If it's default widget, you can find the file in your local studio workspace and add it to your repository.
 
 ##### 2. You ARE using Git
+
 Here are some examples of common mistakes:
-* You didn't pull the correct branch, you need to do the right pull. 
-* You have a merge conflict, you need to fix that conflict. 
-* Somebody removed a file by error
-    * You can retrieve the file from a previous commit.
+
+- You didn't pull the correct branch, you need to do the right pull. 
+- You have a merge conflict, you need to fix that conflict. 
+- Somebody removed a file by error
+  - You can retrieve the file from a previous commit.

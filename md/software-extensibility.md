@@ -6,7 +6,6 @@ Bonita provides a rich set of features by default. These features are designed t
 However, if a project has a need that was not anticipated and cannot be met by the default features, Bonita has been designed to be extensible. 
 This page lists the extension points that are available.
 
-
 <a id="stable_extension_points"/>
 
 ## Stable extension points
@@ -39,9 +38,9 @@ In Community, Teamwork, Efficiency, Performance and Enterprise editions
 
 The [Bonita Engine APIs](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html) enable you to:
 
-* start and stop the engine
-* design, install, configure and interact with processes
-* manage users
+- start and stop the engine
+- design, install, configure and interact with processes
+- manage users
 
 ProcessBuilder and Business Objects DAO are examples of APIs that can be leveraged in your development. They will remain stable in time.
 
@@ -78,10 +77,10 @@ In Community, Teamwork, Efficiency, Performance and Enterprise editions
 Included in the [Engine APIs](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html) are methods to import and export various items. 
 These methods manipulate files with formats that are versioned. Newer versions of the file format are designed to be backward compatible with earlier versions. The following items have import and export API methods:
 
-* organization (users, groups, roles)
-* parameters
-* custom pages
-* connectors
+- organization (users, groups, roles)
+- parameters
+- custom pages
+- connectors
 
 ### Authentication service
 
@@ -129,44 +128,45 @@ It is also possible to use this same mechanism to customize the portal terminolo
 
 The following elements may be used as extension points but there is no guarantee of stability across versions. No changes are planned, but we reserve the right to change make incompatible changes in any future version.
 
-* **Portal URLs and Forms URLs**. Some customer projects have used hard-coded or forged URLs to access specific pages of Bonita Portal or forms, to fit in with specific technology or navigation constraints. 
-While such URLs have so far been quite stable, there is no guarantee that they will not change across Bonita versions. 
-Recommendation: if your project relies on such URLs, make URL generation configurable so that you can easily change it if required after a Bonita upgrade.
-* **Forms HTML templates**. It is possible to modify the HTML page template, HTML process template, or HTML portal template to customize the appearance and behavior of forms. 
-There is no guarantee that these templates will not change across Bonita versions. 
-If a form uses some Javascript code based on an element in the HTML Document Object Model, the element may be moved, modified or removed in a future version so the Javascript will no longer work.
-* **Authorization Rule Mapping**. It is possible to modify authorization rules mapping applied to start a process, display process overview or execute a task. 
-You can customize this mapping by defining your own bean and override property. See [Authorization Rule Mapping](custom-authorization-rule-mapping.md)   
-* **BonitaStudioBuilder**
-Bonita Entreprise editions include a script, BonitaStudioBuilder (also known as the Workspace API), for building a bar file from a process in a project. This intended to be used for automating process builds in a continuous integration and testing environment. You can use the BonitaStudioBuilder to build a bar file for processes stored in a project. 
-WorkspaceAPI is deprecated since Bonita 7.7.0. Instead, we strongly encourage you to use the *LA builder* included in the tooling suite of [*Bonita Continuous Delivery* add-on](https://documentation.bonitasoft.com/bcd/2.0/). One added-value is that LA builder does not need a Studio to be installed.
- 
+- **Portal URLs and Forms URLs**. Some customer projects have used hard-coded or forged URLs to access specific pages of Bonita Portal or forms, to fit in with specific technology or navigation constraints. 
+  While such URLs have so far been quite stable, there is no guarantee that they will not change across Bonita versions. 
+  Recommendation: if your project relies on such URLs, make URL generation configurable so that you can easily change it if required after a Bonita upgrade.
+- **Forms HTML templates**. It is possible to modify the HTML page template, HTML process template, or HTML portal template to customize the appearance and behavior of forms. 
+  There is no guarantee that these templates will not change across Bonita versions. 
+  If a form uses some Javascript code based on an element in the HTML Document Object Model, the element may be moved, modified or removed in a future version so the Javascript will no longer work.
+- **Authorization Rule Mapping**. It is possible to modify authorization rules mapping applied to start a process, display process overview or execute a task. 
+  You can customize this mapping by defining your own bean and override property. See [Authorization Rule Mapping](custom-authorization-rule-mapping.md)   
+- **BonitaStudioBuilder**
+  Bonita Entreprise editions include a script, BonitaStudioBuilder (also known as the Workspace API), for building a bar file from a process in a project. This intended to be used for automating process builds in a continuous integration and testing environment. You can use the BonitaStudioBuilder to build a bar file for processes stored in a project. 
+  WorkspaceAPI is deprecated since Bonita 7.7.0. Instead, we strongly encourage you to use the _LA builder_ included in the tooling suite of [_Bonita Continuous Delivery_ add-on](https://documentation.bonitasoft.com/bcd/2.0/). One added-value is that LA builder does not need a Studio to be installed.
+   
+
 Only the elements listed on this page are intended to be used as extension points. For other elements, there is no guarantee of stability, and a high probability of changes across versions. 
 For example, the following should not be considered to be extension points:
 
-* **Engine Services** (other than those listed in this page). The Engine is structured as an aggregation of several services. 
-This provides clear isolation of responsibility and eases maintenance. The interfaces, configuration files, and existence of services are not guaranteed across versions.
+- **Engine Services** (other than those listed in this page). The Engine is structured as an aggregation of several services. 
+  This provides clear isolation of responsibility and eases maintenance. The interfaces, configuration files, and existence of services are not guaranteed across versions.
 
 ## Backward compatibility
 
 In Bonita 7.x, we ensure backward compatibility of the following:
 
-* Engine API (except items marked as deprecated)
-* Web REST API (except items marked as deprecated)
-* Authentication Service (from 6.3.0 onwards)
-* XML file format for the following:
-  * event handlers
-  * BonitaStudioBuilder (also known as the Workspace API)
-  * actor filters
-  * connectors
-  * form validators
-  * import and export exchange files
+- Engine API (except items marked as deprecated)
+- Web REST API (except items marked as deprecated)
+- Authentication Service (from 6.3.0 onwards)
+- XML file format for the following:
+  - event handlers
+  - BonitaStudioBuilder (also known as the Workspace API)
+  - actor filters
+  - connectors
+  - form validators
+  - import and export exchange files
 
 We cannot ensure backward compatibility for the following:
 
-* Portal Look & Feel definition structure
-* Custom Pages definition structure
-* Custom data types definition structure
-* URLs
-* Forms definition structure and HTML templates
-* bonita home folder structure and content (removed since 7.3)
+- Portal Look & Feel definition structure
+- Custom Pages definition structure
+- Custom data types definition structure
+- URLs
+- Forms definition structure and HTML templates
+- bonita home folder structure and content (removed since 7.3)

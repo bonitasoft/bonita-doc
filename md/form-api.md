@@ -8,11 +8,11 @@ Form Rest APIs allow to map a form to a process or a task.
 
 This resource specifies the mapping of a form to a process or a task. The mapping indicates the technology used to create the form, in the "target" attribute. Possible values are:
 
-* `URL` - an external URL
-* `INTERNAL` - a custom page ID
-* `LEGACY` - means that the old form application is used for old processes
-* `UNDEFINED` - when the form is not present in the definition but is required
-* `NONE` - when there is no form needed for the process instantiation or task execution
+- `URL` - an external URL
+- `INTERNAL` - a custom page ID
+- `LEGACY` - means that the old form application is used for old processes
+- `UNDEFINED` - when the form is not present in the definition but is required
+- `NONE` - when there is no form needed for the process instantiation or task execution
 
 Having any UNDEFINED mapping prevents the process from being resolved.
 
@@ -41,28 +41,29 @@ The ID of the form mapping (a long value).
 
 The methods used for this resource are:
 
-* GET - Search for a form mapping
-* PUT - Update a form mapping
+- GET - Search for a form mapping
+- PUT - Update a form mapping
 
 ### Search a form mapping
 
 Request URL
-* **URL**  
+
+- **URL**  
   `/API/form/mapping`  
   _Example_: `/API/form/mapping?p=0&c=10&f=processDefinitionId=7281286536417002543&f=type=TASK`
-* **Method**  
+- **Method**  
   `GET`
-* **Data Params**  
+- **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available to search form mappings.  
   The following filters can be applied while searching form mappings:
-  * `f=processDefinitionId={long}` - get form mappings of a specific process definition
-  * `f=type=PROCESS_START` - get the process start form mapping. Example: `http://localhost:8080/bonita/API/form/mapping?c=1&p=0&f=processDefinitionId=123456&f=type=PROCESS_START`
-  * `f=type=PROCESS_OVERVIEW` - get the process overview form mapping. Example: `http://localhost:8080/bonita/API/form/mapping?c=10&p=0&f=processDefinitionId=123456&f=type=PROCESS_OVERVIEW`
-  * `f=type=TASK` - get the task form mapping. Example: `http://localhost:8080/bonita/API/form/mapping?c=10&p=0&f=processDefinitionId=123456&f=type=TASK`
-* **Success Response**  
+  - `f=processDefinitionId={long}` - get form mappings of a specific process definition
+  - `f=type=PROCESS_START` - get the process start form mapping. Example: `http://localhost:8080/bonita/API/form/mapping?c=1&p=0&f=processDefinitionId=123456&f=type=PROCESS_START`
+  - `f=type=PROCESS_OVERVIEW` - get the process overview form mapping. Example: `http://localhost:8080/bonita/API/form/mapping?c=10&p=0&f=processDefinitionId=123456&f=type=PROCESS_OVERVIEW`
+  - `f=type=TASK` - get the task form mapping. Example: `http://localhost:8080/bonita/API/form/mapping?c=10&p=0&f=processDefinitionId=123456&f=type=TASK`
+- **Success Response**  
   JSON representation of an array of form mappings
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     [
       {
@@ -94,17 +95,16 @@ Request URL
 
 ### Update a form mapping (Efficiency, Performance and Enterprise Editions)
 
-* **URL**  
+- **URL**  
   `/API/form/mapping/:id`  
-* **Method**  
+- **Method**  
   `PUT`
-* **Request Payload**  
+- **Request Payload**  
   JSON representation of the form mapping attribute to update - `{"pageId": (long)}` or `{"url": (string)}` or `{}` to set the mapping type to NONE
   ```json
   {
     "url": "http://myformapp.com/form"
   }
   ```
-* **Success Response**  
-  * **Code**: 200
-
+- **Success Response**  
+  - **Code**: 200

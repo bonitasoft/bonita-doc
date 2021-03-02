@@ -35,22 +35,22 @@ Simple, the ID of the object (a long value)
 
 The methods used for this resource are:
 
-* POST - Add a new custom page
-* GET - Read or search a custom page
-* PUT - Update a custom page
-* DELETE - Remove a custom page
+- POST - Add a new custom page
+- GET - Read or search a custom page
+- PUT - Update a custom page
+- DELETE - Remove a custom page
 
 #### Retrieve a Custom Page
 
 Use a GET method to retrieve information about a custom page.
 
-* **URL**  
+- **URL**  
   `/API/portal/page/:pageId`  
-* **Method**  
+- **Method**  
   `GET`
-* **Success Response**  
-  * **Code**: 200
-  * **Payload**:  
+- **Success Response**  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "id":"1",
@@ -73,21 +73,20 @@ Use the POST method to create a new custom page. To add a new custom page, there
 1. Upload the page content using the pageUpload servlet. This returns a temporary file name.
 2. Call this API with the temporary file name, as in the example below.
 
-
-* **URL**  
+- **URL**  
   `/API/portal/page`
   Example: Add the custom page that was given the temporary name `tmp_2181700538398444744.zip`. The original name was `bonita-angular-dashboard.zip`.
-* **Method**  
+- **Method**  
   `POST`  
-* **Request Payload**  
+- **Request Payload**  
   ```json
   {
     "pageZip":"tmp_113096560980259488.zip:bonita-angular-dashboard.zip"
   }
   ```
-* **Success Response**  
-  * **Code**: 200
-  * **Payload**:  
+- **Success Response**  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "id":"103",
@@ -108,55 +107,55 @@ Use the POST method to create a new custom page. To add a new custom page, there
 Use the PUT method to update an existing custom page.
 To update a custom page, upload the new page content using the pageUpload servlet, which returns a temporary file name, and then call this API with the temporary file name.
 
-
-* **URL**  
+- **URL**  
   `/API/portal/page/:pageId`  
-  _Example_: Update the custom page with id = 103\. The new uploaded file was given the temporary name `tmp_4338264789005487499.zip`. The original name was `new-bonita-angular-dashboard.zip`.
-* **Method**  
+  _Example_: Update the custom page with id = 103. The new uploaded file was given the temporary name `tmp_4338264789005487499.zip`. The original name was `new-bonita-angular-dashboard.zip`.
+- **Method**  
   `PUT`
-* **Request Payload**  
+- **Request Payload**  
   ```json
   {
     "pageZip":"tmp_4338264789005487499.zip:new-bonita-angular-dashboard.zip"
   }
   ```
-* **Success Response**  
-  * **Code**: 200
+- **Success Response**  
+  - **Code**: 200
 
 #### Search custom pages
 
 Use a GET method with filters and search terms to search for custom pages.
 
-* **URL**  
+- **URL**  
   `/API/portal/page?p={page}&c={count}&o={orders}&f={filters}&s={search}&d={deploy}`  
-* **Method**  
+- **Method**  
   `GET`
-* **Data Params**  
+- **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   You can filter on:
-  * `createdBy={user_id}`: retrieve only the pages created by the specified user ID.
-  For example, to retrieve the custom pages created by the user with id 1: `http://localhost:8080/bonita/API/portal/page?p=0&c=10&f=createdBy%3d1`.
-  * `contentType={contentType}`: retrieve only the resources of requested type. This filter is available since v7.0\.
-  For example, to retrieve the theme resources: `http://localhost:8080/bonita/API/portal/page?p=0&c=10&f=contentType%3Dtheme`.
+
+  - `createdBy={user_id}`: retrieve only the pages created by the specified user ID.
+    For example, to retrieve the custom pages created by the user with id 1: `http://localhost:8080/bonita/API/portal/page?p=0&c=10&f=createdBy%3d1`.
+  - `contentType={contentType}`: retrieve only the resources of requested type. This filter is available since v7.0.
+    For example, to retrieve the theme resources: `http://localhost:8080/bonita/API/portal/page?p=0&c=10&f=contentType%3Dtheme`.
 
   You can search on:
-  * `displayName` or `description`: search for custom pages with a `displayName` or `description` that starts with the specified string.
-  For example, to find the pages with `displayName` starting with `New`: `http://localhost:8080/bonita/API/portal/page?p=0&c=10&s=New`
-  
-* **Success Response**  
+
+  - `displayName` or `description`: search for custom pages with a `displayName` or `description` that starts with the specified string.
+    For example, to find the pages with `displayName` starting with `New`: `http://localhost:8080/bonita/API/portal/page?p=0&c=10&s=New`
+- **Success Response**  
   An array of custom page objects
-  * **Code**: 200
+  - **Code**: 200
 
 #### Delete a custom page
 
 Use the DELETE method to delete an existing custom page
 
-* **URL**  
+- **URL**  
   `/API/portal/page/:pageId`  
-* **Method**  
+- **Method**  
   `DELETE`
-* **Success Response**  
-  * **Code**: 200
+- **Success Response**  
+  - **Code**: 200
 
 ## Profile
 
@@ -188,22 +187,22 @@ Simple, the ID of the object (a long value)
 
 The methods used for this resource are:
 
-* POST - Add a new profile
-* GET - Read or search a profile
-* PUT - Update a profile
-* DELETE - Remove a profile
+- POST - Add a new profile
+- GET - Read or search a profile
+- PUT - Update a profile
+- DELETE - Remove a profile
 
 #### Retrieve a Profile
 
 Use a GET method to retrieve information about a profile.
 
-* **URL**  
+- **URL**  
   `/API/portal/profile/:profileId`  
-* **Method**  
+- **Method**  
   `GET`
-* **Success Response**  
-  * **Code**: 200
-  * **Payload**:  
+- **Success Response**  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "id":"1",
@@ -222,20 +221,20 @@ Use a GET method to retrieve information about a profile.
 
 Use the POST method to create a new profile.
 
-* **URL**  
+- **URL**  
   `/API/portal/profile`  
-* **Method**  
+- **Method**  
   `POST`
-* **Request Payload**  
+- **Request Payload**  
   ```json
     {
       "name":"MyCustomProfile",
       "description":"This is my custom profile"
     }
   ```
-* **Success Response**  
-  * **Code**: 200
-  * **Payload**:  
+- **Success Response**  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "id":"101",
@@ -254,11 +253,11 @@ Use the POST method to create a new profile.
 
 Use the PUT method to update an existing profile.
 
-* **URL**  
+- **URL**  
   `/API/portal/profile/:profileId`  
-* **Method**  
+- **Method**  
   `PUT`
-* **Request Payload**  
+- **Request Payload**  
   ```json
   {
     "id":"101",
@@ -266,41 +265,42 @@ Use the PUT method to update an existing profile.
     "description":"This is my updated custom profile"
   }
   ```
-* **Success Response**  
-  * **Code**: 200
+- **Success Response**  
+  - **Code**: 200
 
 #### Search profiles
 
 Use a GET method with filters and search terms to search for profiles.
 
-* **URL**  
+- **URL**  
   `/API/portal/profile?p={page}&c={count}&o={orders}&f={filters}&s={search}&d={deploy}`  
-* **Method**  
+- **Method**  
   `GET`
-* **Data Params**  
+- **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   You can filter on:
-  * `name={exact_profile_name}`: retrieve only the profiles with the specified name. For example, retrieve the profile with `name=Administrator`: `/API/portal/profile?p=0&c=10&f=name%3dAdministrator`
-  *  `hasNavigation={true|false}`: retrieve the profiles with (or without) attached navigation pages (profile entries): `/API/portal/profile?p=0&c=10&f=hasNavigation=true`
-	
+
+  - `name={exact_profile_name}`: retrieve only the profiles with the specified name. For example, retrieve the profile with `name=Administrator`: `/API/portal/profile?p=0&c=10&f=name%3dAdministrator`
+  - `hasNavigation={true|false}`: retrieve the profiles with (or without) attached navigation pages (profile entries): `/API/portal/profile?p=0&c=10&f=hasNavigation=true`
+
   You can search on:
-  * name: search all profiles which name starts with the search string. For example, name starting with Adm: `/API/portal/profile?p=0&c=10&s=Adm`
- 
-* **Success Response**  
-  * **Code**: 200
-  * **Payload**:  
-  An array of profile objects
+
+  - name: search all profiles which name starts with the search string. For example, name starting with Adm: `/API/portal/profile?p=0&c=10&s=Adm`
+- **Success Response**  
+  - **Code**: 200
+  - **Payload**:  
+    An array of profile objects
 
 #### Delete a profile
 
 Use the DELETE method to delete an existing profile
 
-* **URL**  
+- **URL**  
   `/API/portal/profile/`  
-* **Method**  
+- **Method**  
   `DELETE`
-* **Success Response**  
-  * **Code**: 200
+- **Success Response**  
+  - **Code**: 200
 
 ## ProfileEntry
 
@@ -333,22 +333,22 @@ Simple, the ID of the object (a long value)
 
 The methods used for this resource are:
 
-* POST - Add a new profileEntry
-* GET - Read or search a profileEntry
-* PUT - Update a profileEntry
-* DELETE - Remove a profileEntry
+- POST - Add a new profileEntry
+- GET - Read or search a profileEntry
+- PUT - Update a profileEntry
+- DELETE - Remove a profileEntry
 
 #### Retrieve a profileEntry
 
 Use a GET method to retrieve information about a profileEntry
 
-* **URL**  
+- **URL**  
   `/API/portal/profileEntry/:profileEntryId`  
-* **Method**  
+- **Method**  
   `GET`
-* **Success Response**  
-  * **Code**: 200
-  * **Payload**:  
+- **Success Response**  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "id":"1",
@@ -368,12 +368,12 @@ Use a GET method to retrieve information about a profileEntry
 
 Use the POST method to create a new profileEntry.
 
-* **URL**  
+- **URL**  
   `API/portal/profileEntry`  
-* **Method**  
+- **Method**  
   `POST`
-* **Request Payload**  
-  Example: Add the profileEntry with page token = tasklistingadmin with a display name = "Test menu" and associate it with the profile = 102\.
+- **Request Payload**  
+  Example: Add the profileEntry with page token = tasklistingadmin with a display name = "Test menu" and associate it with the profile = 102.
   ```json
   {
     "page":"tasklistingadmin",
@@ -415,9 +415,9 @@ Use the POST method to create a new profileEntry.
     "isCustom":"false"
   }
   ```
-* **Success Response**  
-  * **Code**: 200
-  * **Payload**:  
+- **Success Response**  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "id":"101",
@@ -437,58 +437,60 @@ Use the POST method to create a new profileEntry.
 
 Use the PUT method to update an existing profileEntry.
 
-* **URL**  
+- **URL**  
   `API/portal/profileEntry/:profileEntryId`  
-* **Method**  
+- **Method**  
   `PUT`
-* **Request Payload**  
+- **Request Payload**  
   ```json
   {
     "name":"Test menu updated"
   }
   ```
-* **Success Response**  
-  * **Code**: 200
+- **Success Response**  
+  - **Code**: 200
 
 #### Search profileEntry items
 
 Use a GET method with filters and search terms to search for profileEntry items.
 
-* **URL**  
+- **URL**  
   `/API/portal/profileEntryEntry?p={page}&c={count}&o={orders}&f={filters}&s={search}&d={deploy}`  
-* **Method**  
+- **Method**  
   `GET`
-* **Data Params**  
+- **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   You can filter on:
-  * `page={exact_pageToken}`: retrieve only the profileEntry items with the specified tokenName. For example, retrieve the profileEntry with page name = tasklistinguser: `/API/portal/profileEntry?p=0&c=10&f=page%3dtasklistinguser`.
-  * `name={exact_page_name}`: retrieve only the profileEntry items with the specified pageName. For example, retrieve the profileEntry with page name = Tasks: `/API/portal/profileEntry?p=0&c=10&f=name%3dTasks`.
-  * `parentId={parent_id}`: retrieve only the profileEntry items with the specified parent\_id. For example, retrieve the profileEntry with parent\_id = 1: `/API/portal/profileEntry?p=0&c=10&f=parent_id%3d1`.
+
+  - `page={exact_pageToken}`: retrieve only the profileEntry items with the specified tokenName. For example, retrieve the profileEntry with page name = tasklistinguser: `/API/portal/profileEntry?p=0&c=10&f=page%3dtasklistinguser`.
+  - `name={exact_page_name}`: retrieve only the profileEntry items with the specified pageName. For example, retrieve the profileEntry with page name = Tasks: `/API/portal/profileEntry?p=0&c=10&f=name%3dTasks`.
+  - `parentId={parent_id}`: retrieve only the profileEntry items with the specified parent_id. For example, retrieve the profileEntry with parent_id = 1: `/API/portal/profileEntry?p=0&c=10&f=parent_id%3d1`.
 
   You can search on:
-  * `name`: search all profileEntry definitions with name starting with the search string. 
-  For example, to find entries with name starting with Manage: `/API/portal/profileEntry?p=0&c=10&s=Manage`.
-* **Success Response**  
+
+  - `name`: search all profileEntry definitions with name starting with the search string. 
+    For example, to find entries with name starting with Manage: `/API/portal/profileEntry?p=0&c=10&s=Manage`.
+- **Success Response**  
   An array of profileEntry objects
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
 
 #### Delete a profileEntry
 
 Use the DELETE method to delete an existing profileEntry
 
-* **URL**  
+- **URL**  
   `/API/portal/profileEntry/:profileEntryId`  
-* **Method**  
+- **Method**  
   `DELETE`
-* **Success Response**  
-  * **Code**: 200
+- **Success Response**  
+  - **Code**: 200
 
 ## ProfileMember
 
 #### Description
 
-A profileMember represents the association between the organization and profiles. In an organization we have three member\_types = USER, GROUP and ROLE. You can assign a profile to a user by specifying a role, group, or specific user. 
+A profileMember represents the association between the organization and profiles. In an organization we have three member_types = USER, GROUP and ROLE. You can assign a profile to a user by specifying a role, group, or specific user. 
 
 #### Identifier
 
@@ -510,20 +512,20 @@ Simple, the ID of the object (a long value)
 
 The methods used for this resource are:
 
-* POST - Add a new profileMember
-* GET - Search a profileMember
-* DELETE - Remove a profileMember
+- POST - Add a new profileMember
+- GET - Search a profileMember
+- DELETE - Remove a profileMember
 
 #### Add a new profileMember
 
 Use the POST method to create a new profileMember.
 
-* **URL**  
+- **URL**  
   `API/portal/profileMember`  
-* **Method**  
+- **Method**  
   `POST`
-* **Request Payload**  
-  Example 1: Add a member\_type = USER to the profile with id = 2\.
+- **Request Payload**  
+  Example 1: Add a member_type = USER to the profile with id = 2.
   ```json
   {
     "profile_id":"2",
@@ -531,7 +533,7 @@ Use the POST method to create a new profileMember.
     "user_id":"101"
   }
   ```
-  Example 2: Add a member\_type = GROUP to the profile with id = 2\.
+  Example 2: Add a member_type = GROUP to the profile with id = 2.
   ```json
   {
     "profile_id":"2",
@@ -539,9 +541,9 @@ Use the POST method to create a new profileMember.
     "group_id":"8"
   }
   ```
-* **Success Response**  
-  * **Code**: 200
-  * **Payload**:  
+- **Success Response**  
+  - **Code**: 200
+  - **Payload**:  
     Example 1 response ;
     ```json
     {
@@ -567,34 +569,36 @@ Use the POST method to create a new profileMember.
 
 Use a GET method with filters and search terms to search for profileMembers.
 
-* **URL**  
+- **URL**  
   `/API/portal/profileMemberEntry?p={page}&c={count}&o={orders}&f={filters}&d={deploy}`  
-* **Method**  
+- **Method**  
   `GET`
-* **Data Params**  
+- **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   There is a mandatory filter on:
-  * `member_type=`. For example, retrieve the profileMembers of type user: `/API/portal/profileMember?p=0&c=10&f=member_type%3duser`
+
+  - `member_type=`. For example, retrieve the profileMembers of type user: `/API/portal/profileMember?p=0&c=10&f=member_type%3duser`
 
   You can also filter also on: 
-  * `profile_id={profile_id}`: retrieve only the profileMembers related to the specified profile\_id. `/API/portal/profileMember?p=0&c=10&f=member_type%3duser&f=profile_id%3d1`
-  * `user_id={user_id}`: retrieve only the profileMembers related to the specified user\_id. `API/portal/profileMember?p=0&c=10&f=member_type%3duser&f=profile_id%3d1&f=user_id%3d101`
-  * `role_id={role_id}`: retrieve only the profileMembers related to the specified role\_id. `API/portal/profileMember?p=0&c=10&f=member_type%3drole&f=profile_id%3d1&f=role_id%3d101`
-  * `group_id={group_id}`: retrieve only the profileMembers related to the specified group\_id. `API/portal/profileMember?p=0&c=10&f=member_type%3dgroup&f=profile_id%3d1&f=group_id%3d101`
-* **Success Response**  
+
+  - `profile_id={profile_id}`: retrieve only the profileMembers related to the specified profile_id. `/API/portal/profileMember?p=0&c=10&f=member_type%3duser&f=profile_id%3d1`
+  - `user_id={user_id}`: retrieve only the profileMembers related to the specified user_id. `API/portal/profileMember?p=0&c=10&f=member_type%3duser&f=profile_id%3d1&f=user_id%3d101`
+  - `role_id={role_id}`: retrieve only the profileMembers related to the specified role_id. `API/portal/profileMember?p=0&c=10&f=member_type%3drole&f=profile_id%3d1&f=role_id%3d101`
+  - `group_id={group_id}`: retrieve only the profileMembers related to the specified group_id. `API/portal/profileMember?p=0&c=10&f=member_type%3dgroup&f=profile_id%3d1&f=group_id%3d101`
+- **Success Response**  
   An array of profileMember objects
-  * **Code**: 200
+  - **Code**: 200
 
 #### Delete a profileMember
 
 Use the DELETE method to delete an existing profileMember.
 
-* **URL**  
+- **URL**  
   `/API/portal/profileMember/:profileMemberId`  
-* **Method**  
+- **Method**  
   `DELETE`
-* **Success Response**  
-  * **Code**: 200
+- **Success Response**  
+  - **Code**: 200
 
 ## Theme
 
@@ -610,18 +614,18 @@ Simple, the ID of the object (a long value)
 
 The methods used for this resource are:
 
-* POST - Change the theme
-* PUT - Restore the default theme
+- POST - Change the theme
+- PUT - Restore the default theme
 
 #### Change a theme
 
 Use the method POST for applying a new theme. Two types are permitted: `portal` and `mobile`.
 
-* **URL**  
+- **URL**  
   `/API/portal/theme`  
-* **Method**  
+- **Method**  
   `POST`
-* **Request Payload**  
+- **Request Payload**  
   Example 1: Change the portal theme by applying the definition in an already uploaded zip file.
   ```json
   {
@@ -636,18 +640,18 @@ Use the method POST for applying a new theme. Two types are permitted: `portal` 
     "zipFilePathmobile":"tmp_5691887787551776477.zip"
   }
   ```
-* **Success Response**  
-  * **Code**: 200
+- **Success Response**  
+  - **Code**: 200
 
 #### Restore a default theme
 
 Use the method PUT method for restoring the default theme. Two types are permitted: `portal` and `mobile`
 
-* **URL**  
+- **URL**  
   `/API/portal/theme/unusedId`  
-* **Method**  
+- **Method**  
   `PUT`
-* **Request Payload**  
+- **Request Payload**  
   Example 1: Restore the default portal theme.
   ```json
   {
@@ -660,5 +664,5 @@ Use the method PUT method for restoring the default theme. Two types are permitt
     "type":"mobile"
   }
   ```
-* **Success Response**  
-  * **Code**: 200
+- **Success Response**  
+  - **Code**: 200

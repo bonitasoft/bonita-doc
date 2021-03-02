@@ -8,9 +8,9 @@ The Bonita Platform has two components: the development environment, Bonita Stud
 
 Bonita Studio contains all the elements needed to develop and compile a Bonita application. It is a graphical environment for creating processes, applications, data models, and users views (pages and forms). It contains three major design tools: 
 
-* the whiteboard, for drawing a process flow diagram and defining the detail of steps, transitions, decision points and other process elements
-* the Development menu, to extend the Studio capabilities and create your data models
-* the UI Designer, which is used to create application pages and process forms
+- the whiteboard, for drawing a process flow diagram and defining the detail of steps, transitions, decision points and other process elements
+- the Development menu, to extend the Studio capabilities and create your data models
+- the UI Designer, which is used to create application pages and process forms
 
 Bonita Studio is the development tool for the Business Analyst and Application Developer. Back-end java developers work in Bonita Studio and collaborate with front-end developers working in the UI Designer.
 
@@ -54,7 +54,7 @@ You will also find lots of familiar features, which continue to work as they did
 
 **Tell me about the documentation.**
 
-We're continually updating the documentation.   
+We're continually updating the documentation.  
 There are four main information categories: Application and process design, Installation, Portal administration, and Development. 
 
 **Tell me about using Bonita.** 

@@ -1,4 +1,5 @@
-# Connector’s development and testing toolkit 
+# Connector’s development and testing toolkit
+
 A set of best of breed tools to develop and test custom connectors independently of the Bonita Studio. 
 
 ::: warning

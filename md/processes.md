@@ -5,10 +5,13 @@ This page explains what a user with the _Administrator_ or _Process Manager_ pro
 Those users can: install, enable and edit processes, categories, forms, entities mapped to actors and process manager, parameters, and connectors.
 
 Here is a view of the Process list page:
+
 ![Process list in Administrator Application](images/UI2021.1/admin-application-process-list.png)<!--{.img-responsive}-->
 
 ## Install a new process
+
 This feature is only available for the _Administrator_ profile.
+
 1. Go to _BPM_ > _Processes_ 
 3. Click on the _Install_ button on the top left of the page
 4. Click to browse to the .bar file to import
@@ -23,16 +26,18 @@ This is necessary for a .bar that has not been deployed. A process that was deve
 However, for future maintenance of the process definition, you are recommended to update all your process .bar files to the latest version each time you update your platform.
 
 ## Resolve a process
+
 Resolving a process means completing the configuration in Bonita Portal and making sure that all dependencies are met. A process has to be resolved before it can be enabled. 
 To resolve a process, you must complete the configuration of the actor mappings, parameters, forms, and connectors defined for the process.
 
-* **Actors**: Every actor in a process must be mapped to at least one user, group, role or membership.
-* **Parameters**: Every parameter defined in a process must have a value.
-* **Connectors**: Every connector definition in a process must have a corresponding implemenetation (Class name).
-* **Forms**: Every form defined in a process must be mapped to a page or a URL.
-* Also, every business variable used in the process should have a corresponding model. 
+- **Actors**: Every actor in a process must be mapped to at least one user, group, role or membership.
+- **Parameters**: Every parameter defined in a process must have a value.
+- **Connectors**: Every connector definition in a process must have a corresponding implemenetation (Class name).
+- **Forms**: Every form defined in a process must be mapped to a page or a URL.
+- Also, every business variable used in the process should have a corresponding model. 
 
 To resolve a process for actors, parameters, connectors, and forms:
+
 1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers),
 2. Click on a process.The _Configuration_ section of the right panel shows whether there are items to be resolved. 
 3. Click on _More_ button.
@@ -40,6 +45,7 @@ To resolve a process for actors, parameters, connectors, and forms:
 5. Modify your configuration for each element displayed.
 
 To resolve a process for business variables:
+
 1. Logout
 2. Login with the [technical user credentials](tenant_admin_credentials.md)
 3. [Pause the BPM services](pause-and-resume-bpm-services.md)
@@ -47,6 +53,7 @@ To resolve a process for business variables:
 5. Come back to _BPM_/_Processes_ and check the status.
 
 ## Enable a process
+
 1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers)
 2. Click on the _Resolved_ filter
 3. Select the process
@@ -60,6 +67,7 @@ To resolve a process for business variables:
 :::
 
 ## Disable a process
+
 Disabling a process blocks the creation of new cases. This does not impact existing cases, where tasks can still be executed.
 1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers)
 2. Click on the _Enabled_ filter
@@ -73,6 +81,7 @@ Disabling a process blocks the creation of new cases. This does not impact exist
 :::
 
 ## Delete a process
+
 ::: info
 **Note:** A process must be disabled before it can be deleted.
 :::
@@ -92,6 +101,7 @@ This feature should only be used on non-production environments.
 You can also delete the process in the _More details_ view of a disabled process by clicking on the _Delete_ button, then click on the _Delete_ button to confirm in the modal window.
 
 ## Create a category for a process
+
 1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers),
 2. Select a process in the list
 3. Click on the _More_ button
@@ -102,6 +112,7 @@ You can also delete the process in the _More details_ view of a disabled process
 After you created a category and added it to the process, you can add other processes to the category.
 
 ## Add a category to a process
+
 1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers)
 2. Select a process in the list
 3. Click on the _More_ button
@@ -111,6 +122,7 @@ After you created a category and added it to the process, you can add other proc
 7. Click on the _Save_ button
 
 ## Start a case for another user
+
 This feature is available with the Enterprise, Performance, and Efficiency editions.  
 To start a case for another user:
 1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers)
@@ -123,26 +135,32 @@ For example, if a you start a case for user A and a subsequent task is to be don
 
 All of what follows belong to the [Live update feature](live-update.md) and are only available in for the Enterprise, Performance, and Efficiency editions.
 
-
 ## Edit the actor mapping
+
 You need to map organization entities to an actor. To do so:
+
 1. Go to _BPM_>_Processes_ (Administrators) or _Processes_ (Process Managers)
 2. Select a process in the list.
 3. Click on the _More_ button.
-4. Click on _Actors_ in the left menu.
+4. Click on _Actors_ in the left menu. 
+   
 To add entities:
-5. Click the _+_ button in the user, group, role or membership column of the actor line.
-6. In the opened modal window, click on the dropdown list to select one or several entities. The list displays the first five elements, then a number is displayed representing the other selected entities.
+
+1. Click the _+_ button in the user, group, role or membership column of the actor line.
+2. In the opened modal window, click on the dropdown list to select one or several entities. The list displays the first five elements, then a number is displayed representing the other selected entities.
+
 To remove entities:
-7. In the opened modal window, there is a list of the entities already mapped with the actor. Click on the _X_ button next to an entity, or click on _Remove all_. A list appears filled with the entities you are about to remove. 
+
+1. In the opened modal window, there is a list of the entities already mapped with the actor. Click on the _X_ button next to an entity, or click on _Remove all_. A list appears filled with the entities you are about to remove. 
    You can **undo** a removal by clicking on the _X_ button next to the entity or by clicking _Enable all_ 
-7. Click on the _Apply_ button.
+2. Click on the _Apply_ button.
 
 ::: info
 **Note:** Only the first 200 actors are displayed in the dropdown.
 ::: 
 
 ## Define one or more Process managers
+
 There are two stages to define a Process Manager:
 
 1. Map organization entities to access the _Process Manager_ Portal to view information related to the processes they will be _Process Managers_ of.
@@ -168,6 +186,7 @@ There are two stages to define a Process Manager:
 
 
 ## Modify a parameter
+
 1. Go to  _BPM_> _Processes_
 2. Select a process
 3. Click on the _More_ button
@@ -176,6 +195,7 @@ There are two stages to define a Process Manager:
 6. Click on the _Tick_ button to validate your change or _X_ to dismiss your change.
 
 ## Edit a connector implementation
+
 1. Go to _BPM_>_Processes_
 2. Click on the _More_ button
 3. Click on _Connectors_ in the left menu
@@ -184,6 +204,7 @@ There are two stages to define a Process Manager:
 6. Click on _Save_ to import the new implementation.
 
 ## Upload a new form
+
 1. Go to _BPM_>_Processes_
 2. Click on the _More_ button
 3. Click on _Forms_ in the left menu
@@ -194,6 +215,7 @@ There are two stages to define a Process Manager:
 8. Click on _Confirm_.
 
 ## Edit an existing form
+
 1. Go to _BPM_>_Processes_
 2. Click on the _More_ button
 3. Click on _Forms_ in the left menu
@@ -204,6 +226,7 @@ There are two stages to define a Process Manager:
 8. Click on _Confirm_.
 
 ## Change the instantiation or tasks forms or the overview page
+
 1. Go to _BPM_>_Processes_
 2. Click on the _More_ button
 3. Click on _Forms_ in the left menu.
@@ -216,6 +239,7 @@ There are two stages to define a Process Manager:
 :::
 
 ## Edit a script content
+
 1. Go to _BPM_>_Processes_
 2. Click on the _More_ button
 3. Click on _Scripts_ in the left menu. A script content tree is displayed.

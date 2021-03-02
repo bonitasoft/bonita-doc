@@ -3,11 +3,12 @@
 How the information about your Bonita processes is recorded, and how to configure what is recorded. 
 
 ## Foreword
+
 There are three ways to record the information of a process:
 
-* Archive: used by a business analyst or process administrator using Bonita Portal, during the production phase, to trace the running of the process instances in their life cycle. Records who did what and when.
-* Technical log: used by an application developer for troubleshooting, debugging and process tuning.
-* Queriable log: used by a database administrator extracting information related to business actions that is stored in the internal database to be retrieved by a database request.
+- Archive: used by a business analyst or process administrator using Bonita Portal, during the production phase, to trace the running of the process instances in their life cycle. Records who did what and when.
+- Technical log: used by an application developer for troubleshooting, debugging and process tuning.
+- Queriable log: used by a database administrator extracting information related to business actions that is stored in the internal database to be retrieved by a database request.
 
 You can configure the information that is recorded in the archive and the logs.
 
@@ -19,8 +20,8 @@ By default, all the information is archived but in the Enterprise and Performanc
 
 Recommended configuration (Enterprise and Performance only):
 
-* To keep all the user activity, set all the flowNode types to true.
-* To maximize the overall performance of the system and reduce the disk space used by the database, set all the values to false. Completed tasks will not be visible.
+- To keep all the user activity, set all the flowNode types to true.
+- To maximize the overall performance of the system and reduce the disk space used by the database, set all the values to false. Completed tasks will not be visible.
 
 Between these two extreme cases, you can [customize archiving](configurable-archive.md) to your exact need.
 
@@ -31,9 +32,9 @@ Bonita Engine uses SLF4J to log. The default implementation embedded in the Tomc
 You can [configure the log level](logging.md). The log level can be set on several categories in the `logging.properties` file. Some categories are very specific to a particular issue. 
 For example:
 
-* If you have an issue related to the database access, it might be interesting to change the level of `org.hibernate.level` from the default, `WARNING`, to `FINE`.
-* When debugging cache issues, change the level of `net.sf.ehcache.level`.
-* For the process execution, the relevant properties are `org.bonitasoft.level` and (for Subscription editions) `com.bonitasoft.level`.
+- If you have an issue related to the database access, it might be interesting to change the level of `org.hibernate.level` from the default, `WARNING`, to `FINE`.
+- When debugging cache issues, change the level of `net.sf.ehcache.level`.
+- For the process execution, the relevant properties are `org.bonitasoft.level` and (for Subscription editions) `com.bonitasoft.level`.
 
 ## Queriable log
 

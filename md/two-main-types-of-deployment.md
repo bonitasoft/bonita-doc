@@ -3,16 +3,18 @@
 Discover the two main types of deployments of a Bonita Platform.
 
 There are two main types of deployment
-* Bonita Portal + Bonita Engine on the same application server: this is the usual deployment and the default one when
-using a Bonita bundle
-* Bonita Portal and Bonita Engine running on two different application servers
+
+- Bonita Portal + Bonita Engine on the same application server: this is the usual deployment and the default one when
+  using a Bonita bundle
+- Bonita Portal and Bonita Engine running on two different application servers
 
 ::: warning
 The deployment of Bonita Portal and Bonita Engine running on two different application servers is **deprecated**.
-It will not be supported starting from **Bonita version 2021.2**.   
+It will not be supported starting from **Bonita version 2021.2**.  
 :::
 
 ## Foreword
+
 It is highly recommended using the provided Tomcat or WildFly bundles in order to carry out these deployments
 successfully.
 
@@ -25,14 +27,14 @@ To perform this setup, you can use the [prepackaged bundle](tomcat-bundle.md) or
 
 **Advantages**
 
-* simple (single webapp and application server)
-* works out of the box
-* you can access the embedded Bonita Engine API (or the Bonita Portal REST API) through HTTP if you need an external application to access it
-* improved performance
+- simple (single webapp and application server)
+- works out of the box
+- you can access the embedded Bonita Engine API (or the Bonita Portal REST API) through HTTP if you need an external application to access it
+- improved performance
 
 **Drawbacks**
 
-* may not be adapted to some architecture constraints
+- may not be adapted to some architecture constraints
 
 ## Bonita Engine on a remote application server
 
@@ -46,13 +48,12 @@ Access to the portal can be de-activated by server or webapp configuration if ne
 
 **Advantages**
 
-* may be adapted to some architecture and network constraints (DMZ)
+- may be adapted to some architecture and network constraints (DMZ)
 
 **Drawbacks**
 
-* more complex than the first deployment option (two application servers instead of one)
-* impact on performance (serialization + network overhead)
-
+- more complex than the first deployment option (two application servers instead of one)
+- impact on performance (serialization + network overhead)
 
 ### Configuring the Bonita Runtime
 
@@ -65,9 +66,9 @@ and use the setup tool to configure Bonita
 
 #### Bonita Portal 
 In this deployment, we will configure the Bonita Engine Client used by the Bonita Portal, by setting JVM System Properties for the following elements :
-* set the Engine Client to use the HTTP protocol
-* set the url to the Engine
-* set username and password that match credentials configured for the platform admin (see the [Tomcat bundle](tomcat-bundle.md) configuration page)
+- set the Engine Client to use the HTTP protocol
+- set the url to the Engine
+- set username and password that match credentials configured for the platform admin (see the [Tomcat bundle](tomcat-bundle.md) configuration page)
 In addition, all database datasources will be disabled
 
 For more details, please read [configuring the connection to a remote engine](configure-client-of-bonita-bpm-engine.md#client_config)
@@ -82,9 +83,9 @@ Remove the content of the `setup` directory as the setup tool in not used on the
 
 Configure the Engine Client by setting system properties in the `<bonita-installation-directory>/server/bin/setenv.(bat|sh)` file
 We suggest to define a `ENGINE_OPTS` variable and add its content to the `CATALINA_OPTS` variable, and remove `ARJUNA_OPTS`
-    
 On Linux (setenv.sh)
-```
+
+```bash
 ENGINE_OPTS="-Dorg.bonitasoft.engine.api-type=HTTP -Dorg.bonitasoft.engine.api-type.server.url=http://localhost:8080"
 ENGINE_OPTS="${ENGINE_OPTS} -Dorg.bonitasoft.engine.api-type.application.name=bonita -Dorg.bonitasoft.engine.api-type.connections.max=20"
 ENGINE_OPTS="${ENGINE_OPTS} -Dorg.bonitasoft.platform.username=platformAdmin -Dorg.bonitasoft.platform.password=platform"
@@ -94,7 +95,8 @@ export CATALINA_OPTS
 ```
 
 On Windows (setenv.bat)
-```
+
+```bash
 set ENGINE_OPTS="-Dorg.bonitasoft.engine.api-type=HTTP" "-Dorg.bonitasoft.engine.api-type.server.url=http://localhost:8080"
 set ENGINE_OPTS=%ENGINE_OPTS% "-Dorg.bonitasoft.engine.api-type.application.name=bonita -Dorg.bonitasoft.engine.api-type.connections.max=20"
 set ENGINE_OPTS=%ENGINE_OPTS% "-Dorg.bonitasoft.platform.username=platformAdmin" "-Dorg.bonitasoft.platform.password=platform"
@@ -107,6 +109,7 @@ Edit the `WEB-INF/web.xml` file in the `<bonita-installation-directory>/server/w
 following lines to disable Engine resources
 
 Community Edition only: listener starting the Engine
+
 ```xml
 <listener> 
     <listener-class>org.bonitasoft.engine.api.internal.servlet.EngineInitializerListener</listener-class> 
@@ -114,6 +117,7 @@ Community Edition only: listener starting the Engine
 ```
 
 Subscription Edition only: listener starting the Engine
+
 ```xml
 <listener> 
     <listener-class>com.bonitasoft.engine.api.internal.servlet.EngineInitializerListenerSP</listener-class> 
@@ -121,6 +125,7 @@ Subscription Edition only: listener starting the Engine
 ```
 
 HTTP Engine API Configuration
+
 ```xml
     <servlet>
         <servlet-name>HttpAPIServlet</servlet-name>

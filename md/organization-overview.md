@@ -7,10 +7,9 @@ There are two stages to specify who will perform a step in a process:
 1. When the process is designed, the designer designates an _actor_ for the step. An actor is a placeholder that defines the theoretical user who will perform the step.
 2. Before a process is deployed, the actors are mapped to the real _users_ in an organization.
 
-
 ## Actors and users
 
-When you define a process, you define who will carry out a step in the process by specifying an actor. For example, if a step can be done by any member of the HR team, you could call the actor _hr_, or if a step can only be done by the sales team manager in Europe, you could call the actor _sales\_mgr\_europe_.
+When you define a process, you define who will carry out a step in the process by specifying an actor. For example, if a step can be done by any member of the HR team, you could call the actor _hr_, or if a step can only be done by the sales team manager in Europe, you could call the actor _sales_mgr_europe_.
 
 A user is a person who has a username and a password in a Bonita organization, and can therefore perform steps in a process.
 Before you deploy a process, you need to [map the process actors](actors.md). This mapping defines who can carry out steps in the process. 
@@ -47,11 +46,11 @@ All the users who participate in a process must be in the same Bonita organizati
 
 The Bonita model for managing an organization assumes that you use the same organization information for other tools and that it is stored in an LDAP directory. Bonita has three tools you can use to manage your organization information:
 
-* [LDAP synchronizer](ldap-synchronizer.md) (in the Enterprise, Performance, Efficiency, and Teamwork editions of Bonita), for keeping the Bonita organization synchronized with your external LDAP directory. Synchronization is one-way, from LDAP to Bonita. You can run the synchronizer once to load the organization then manage it within Bonita Portal, or you can run the synchronizer on a schedule and manage the organization externally.
-* **Bonita Portal**, for managing organization information in production within Bonita. You can manage users, groups, and roles. You can also import or export the organization information.
-* **Bonita Studio**, for creating your initial organization definition, which must be imported into Bonita Portal prior to production, and for managing organization information while you test a process in development. Bonita Studio contains an example organization, called ACME.
-This organization contains a small number of users, who belong to different groups with realistic roles. You can use this sample organization to test a process that you develop.   
-You can modify the ACME organization and you can create other organizations.
+- [LDAP synchronizer](ldap-synchronizer.md) (in the Enterprise, Performance, Efficiency, and Teamwork editions of Bonita), for keeping the Bonita organization synchronized with your external LDAP directory. Synchronization is one-way, from LDAP to Bonita. You can run the synchronizer once to load the organization then manage it within Bonita Portal, or you can run the synchronizer on a schedule and manage the organization externally.
+- **Bonita Portal**, for managing organization information in production within Bonita. You can manage users, groups, and roles. You can also import or export the organization information.
+- **Bonita Studio**, for creating your initial organization definition, which must be imported into Bonita Portal prior to production, and for managing organization information while you test a process in development. Bonita Studio contains an example organization, called ACME.
+  This organization contains a small number of users, who belong to different groups with realistic roles. You can use this sample organization to test a process that you develop.  
+  You can modify the ACME organization and you can create other organizations.
 
 ## Custom user information
 
@@ -64,7 +63,7 @@ This [custom information is defined in Bonita Studio](custom-user-information-in
 
 The custom user information is saved in the Organization schema and published so it can be used in Bonita Portal.
 
-The **Users with Custom information** actor filter is provided by default, and can be applied to an actor.   
+The **Users with Custom information** actor filter is provided by default, and can be applied to an actor.  
 It uses the custom information added to a user to map users to perform tasks in Bonita Portal.
 When the process is deployed in Bonita Portal in a production environment, the filter definition is static, so it cannot be changed.
 However, the value associated with a filter definition can be modified by a user with an admin profile.  

@@ -2,7 +2,6 @@
 
 How to create and modify UI artifacts to build powerful applications with Bonita UI Designer.
 
-
 ## Artifacts overview
 
 Design Bonita custom pages, layouts, forms, custom widgets and fragments in UI Designer.
@@ -14,7 +13,6 @@ Design Bonita custom pages, layouts, forms, custom widgets and fragments in UI D
 [Fragments](fragments.md) aim at being reused in other pages of your application.
 
 [Widgets](widgets.md) are used or customized to design your page or form
-
 
 ## Design a page, layout, form, or fragment
 

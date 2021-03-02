@@ -8,8 +8,8 @@ of warnings and errors indicating things to correct in the diagram. Click on a r
 
 You can test some process components individually:
 
-* Connectors: go to **_Test connector..._** in the **_Development_** menu.
-* Expressions: use the **_Evaluate_** feature of the Expression editor.
+- Connectors: go to **_Test connector..._** in the **_Development_** menu.
+- Expressions: use the **_Evaluate_** feature of the Expression editor.
 
 You can run the process locally, launching it from Bonita Studio without first deploying it to Bonita Portal. 
 You must [create a test organization](configure-a-test-organization.md)

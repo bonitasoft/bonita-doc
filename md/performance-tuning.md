@@ -16,35 +16,35 @@ To understand these recommendations in detail, read the sections below.
 
 Two key definitions:
 
-* The maximum possible number of parallel threads that could be required at any given time is the sum of:
-     * the number of workers 
-     * the number of scheduler threads
-     * the number of external API calls
+- The maximum possible number of parallel threads that could be required at any given time is the sum of:
+  - the number of workers 
+  - the number of scheduler threads
+  - the number of external API calls
 
-* The processing capacity is the desired number of parallel threads, and is the sum of:
-     * the number of workers
-     * a percentage of the number of concurrent scheduler threads
-     * a percentage of the number of concurrent external API calls
+- The processing capacity is the desired number of parallel threads, and is the sum of:
+  - the number of workers
+  - a percentage of the number of concurrent scheduler threads
+  - a percentage of the number of concurrent external API calls
 
 Performance tuning checklist of best practises:
 
-* [Access Engine APIs](#engine_access) in Local mode whenever possible.
-* Make sure that the [network](#hardware) between your client and the Bonita Engine server is fast if you [access the APIs remotely](#remote).
-* Install your [Database](#db) on a powerful [machine](#hardware) (hardware that meets your DB vendor requirements: sufficient memory, powerful CPU, and fast I/O).
-* Make sure that the [network](#hardware) between your Bonita Engine server and your database server is very fast.
-* Set the [Work service](#work_service) threadpool and [Connector service](#connector_service) threadpool to a size according to the usage of your processes.
-* Set the maximum [DB connections](#db_connections) for the bonitaDS [datasource](#datasource_settings) to the desired processing capacity number of parallel threads.
-* Configure a suitable [sequence manager](#seq_mgr) range size for your typical process designs and expected volume. 
-* Make sure that the maximum [DB connections](#db_connections) for sequenceManagerDS [datasource](#datasource_settings) is more than 1 and is appropriate for the SequenceManager range size configuration.
-* Tune the [application cache](#app_cache) to your hardware capabilities (if you have more memory available, increase the cache size).
-* Set the basic [JVM options](#jvm) to make it fast and well-sized.
-* Optimize your [database configuration](#db) for your most frequent usage (read or write) and the level of robustness that you want.
-* Configure your [transaction manager](#tm) for the level of robustness that you want.
-* Tune the [log levels](#logs) of Bonita Engine and all its dependencies.
-* Design your [processes](#process_design) following the best practises.
-* Add a reasonable number of well-developed [event handlers](#event_handlers).
-* Tuned the Bonita Engine [cron jobs](#cron) for your needs.
-* If your database is PostgreSQL, follow [our recommendations](#postgresql-performance-tuning).
+- [Access Engine APIs](#engine_access) in Local mode whenever possible.
+- Make sure that the [network](#hardware) between your client and the Bonita Engine server is fast if you [access the APIs remotely](#remote).
+- Install your [Database](#db) on a powerful [machine](#hardware) (hardware that meets your DB vendor requirements: sufficient memory, powerful CPU, and fast I/O).
+- Make sure that the [network](#hardware) between your Bonita Engine server and your database server is very fast.
+- Set the [Work service](#work_service) threadpool and [Connector service](#connector_service) threadpool to a size according to the usage of your processes.
+- Set the maximum [DB connections](#db_connections) for the bonitaDS [datasource](#datasource_settings) to the desired processing capacity number of parallel threads.
+- Configure a suitable [sequence manager](#seq_mgr) range size for your typical process designs and expected volume. 
+- Make sure that the maximum [DB connections](#db_connections) for sequenceManagerDS [datasource](#datasource_settings) is more than 1 and is appropriate for the SequenceManager range size configuration.
+- Tune the [application cache](#app_cache) to your hardware capabilities (if you have more memory available, increase the cache size).
+- Set the basic [JVM options](#jvm) to make it fast and well-sized.
+- Optimize your [database configuration](#db) for your most frequent usage (read or write) and the level of robustness that you want.
+- Configure your [transaction manager](#tm) for the level of robustness that you want.
+- Tune the [log levels](#logs) of Bonita Engine and all its dependencies.
+- Design your [processes](#process_design) following the best practises.
+- Add a reasonable number of well-developed [event handlers](#event_handlers).
+- Tuned the Bonita Engine [cron jobs](#cron) for your needs.
+- If your database is PostgreSQL, follow [our recommendations](#postgresql-performance-tuning).
 
 <a id="engine_access"/>
 
@@ -85,16 +85,18 @@ technologies like PHP, .Net or Javascript (in that case, you need to develop you
 
 ::: warning
 We do not guarantee to keep the http protocol stable, so we strongly recommend that you use
-  * the standard bonita-client library
-  * the same version for both the client and the server
-:::
+
+- the standard bonita-client library
+- the same version for both the client and the server
+  :::
 
 This mode can be easily used inside a web container like Tomcat or Jetty.
 
 The bonita-client library
-  * sends data over the network using the HTTP protocol using the [Apache HttpComponents](http://hc.apache.org/index.html).
-open source library
-  * uses a maximum of 20 connections. To change this value refer to the page [Configure connection to Bonita Engine](configure-client-of-bonita-bpm-engine.md).
+
+- sends data over the network using the HTTP protocol using the [Apache HttpComponents](http://hc.apache.org/index.html).
+  open source library
+- uses a maximum of 20 connections. To change this value refer to the page [Configure connection to Bonita Engine](configure-client-of-bonita-bpm-engine.md).
 
 Data sent is serialized using a Java library called XStream. This serialization also has a cost.
 
@@ -113,8 +115,8 @@ Before you read this, make sure you are familiar with the engine [execution sequ
 
 There are two main entry points for load on the engine:
 
-* **API calls** coming from outside the engine
-* **Engine-generated calls** for internal processing, specifically the **Work service** and the **Scheduler service**
+- **API calls** coming from outside the engine
+- **Engine-generated calls** for internal processing, specifically the **Work service** and the **Scheduler service**
 
 The Bonita Engine is an asynchronous BPM process engine.
 This means that every thread that deals with process execution applies the following rule: do the minimum that makes sense in the current transaction to get to a stable state, and then continue in another transaction inside another thread.  
@@ -131,8 +133,8 @@ If you are running your own application, you have one thread if your applicaiton
 
 If you are running Bonita Engine inside a container, the maximum number of client threads is defined by a parameter of the container. For example:
 
-* **Apache Tomcat** `maxThreads` set in _`Tomcat_folder`_`/conf/server.xml`.    
-     Default value 20\. 
+- **Apache Tomcat** `maxThreads` set in _`Tomcat_folder`_`/conf/server.xml`.  
+     Default value 20. 
      See the [Tomcat documentation](http://tomcat.apache.org/tomcat-8.5-doc/) for information about the `maxThreads` parameter.
 
 <a id="work_service"/>
@@ -144,7 +146,8 @@ This is one of the key configurations to optimize, because even though there are
 A thread from the pool of the work service is known as a worker.
 
 The work service is configured in [`bonita-tenant-community-custom.properties`](BonitaBPM_platform_setup.md).
-```
+
+```properties
 bonita.tenant.work.terminationTimeout=30
 bonita.tenant.work.corePoolSize=25
 bonita.tenant.work.maximumPoolSize=25
@@ -191,13 +194,14 @@ bonita.tenant.work.sqlserver.delayOnMultipleXAResource=100
 
 #### Connector service
 
-The connector service executes connectors. To improve tenant isolation (and to protect against denial-of-service attacks), the default implementation of the connector service has its own thread pool and requires executes connectors in a separate thread from the worker.   
+The connector service executes connectors. To improve tenant isolation (and to protect against denial-of-service attacks), the default implementation of the connector service has its own thread pool and requires executes connectors in a separate thread from the worker.  
 The configuration of the thread pool of this service is independent of the configuration of the work service.
 If you have processes that use a lot of connectors, then you can have more threads to execute connectors. See [Connector execution](connectors-execution.md) page for details on how connectors are executed.
 
 The Connector service is configured in `bonita-tenant-community-custom.properties` and `bonita-tenant-sp-custom.properties` (cf [platform setup](BonitaBPM_platform_setup))
 
 Community:
+
 ```properties
 bonita.tenant.connector.queueCapacity=10000
 bonita.tenant.connector.corePoolSize=5
@@ -206,9 +210,11 @@ bonita.tenant.connector.keepAliveTimeSeconds=100
 ```
 
 Subscription only:
+
 ```properties
 bonita.tenant.connector.timeout=300
 ```
+
 For details of these parameters, see [Work service](#work_service).
 
 In addition, connectors longer that 10 seconds produces a log at *warning* level named : `org.bonitasoft.engine.core.connector.impl.ConnectorExecutionTimeLogger`.
@@ -238,7 +244,8 @@ The Bonita Engine Scheduler service uses the Quartz Scheduler. Quartz takes the 
 
 The Scheduler service configuration is in `bonita-platform-community-custom.properties`.
 You can configure:
-```
+
+```properties
 bonita.platform.scheduler.quartz.threadpool.size=5
 bonita.platform.scheduler.batchsize=1000
 ```
@@ -249,8 +256,8 @@ bonita.platform.scheduler.batchsize=1000
 
 Two datasources are defined:
 
-* bonitaSequenceManagerDS is used for distributing ID requests
-* bonitaDS is used for everything else
+- bonitaSequenceManagerDS is used for distributing ID requests
+- bonitaDS is used for everything else
 
 Note that the sum of the maximum values configured for bonitaDS and bonitaSequenceManagerDS should be less than or equal to the maximum number of simultaneous connections allowed to your database.
 
@@ -274,9 +281,9 @@ You need to configure the maximum pool size for datasources (the following paths
 
 For Tomcat, edit file `setup/tomcat-templates/bonita.xml`:
 
-* For bonitaSequenceManagerDS, set `maxTotal=”yourvalue”`.
-* For RawBonitaDS, set `maxTotal=”yourvalue”`.
-* If necessary, for the Business Data feature, do the same for the datasources 'RawBusinessDataDS' and 'NotManagedBizDataDS'.
+- For bonitaSequenceManagerDS, set `maxTotal=”yourvalue”`.
+- For RawBonitaDS, set `maxTotal=”yourvalue”`.
+- If necessary, for the Business Data feature, do the same for the datasources 'RawBusinessDataDS' and 'NotManagedBizDataDS'.
 
 <a id="volume"/>
 
@@ -294,7 +301,7 @@ This implementation allows fast delivery of IDs and a single point of usage insi
 The sequence manager keeps in memory a range of reserved IDs by table.  
 This range size is configurable by sequence so that it can be adapted to the volume you have.  
 The bigger a range is, the less frequently the sequence manager will have to query the database for a new range, because it is managed in memory for as long as possible.  
-However, all the IDs that are reserved in memory are lost when the JVM is shut down, so the number should not be too big or you might reach Long.MAX\_VALUE too quickly.
+However, all the IDs that are reserved in memory are lost when the JVM is shut down, so the number should not be too big or you might reach Long.MAX_VALUE too quickly.
 
 The sequence manager allows you to set the range size for each sequence and a default range size value, which is applied to any sequence that does not have a specific range defined. If you want to tune these values, you have to understand the correlation between them.  
 For example, if you have an average of 20 steps in your process, then it would be reasonable to set the ActivityInstance range size 
@@ -315,18 +322,21 @@ It is possible to modify the cache settings in those files for each kind of obje
 
 Before going into production, we encourage to finely tune the "Level-2" object cache in a pre-prod environment:
 
-* activate Hibernate cache statistics by setting to **true** the parameter **bonita.platform.persistence.generate_statistics** in file **bonita-platform-community-custom.properties**
-* activate logs at INFO level:
-```
+- activate Hibernate cache statistics by setting to **true** the parameter **bonita.platform.persistence.generate_statistics** in file **bonita-platform-community-custom.properties**
+- activate logs at INFO level:
+
+```xml
 <logger name="org.bonitasoft.engine.persistence" level="INFO"/>
 <logger name="com.bonitasoft.engine.persistence" level="INFO"/>
 ```
-* run load tests to simulate a production environment
-* analyse the "2nd Level Cache Ratio" log messages generated, combined with the "soft-locked cache entry was expired" **warnings messages** to change the configuration in file **bonita-tenant-hibernate-cache.xml**.  
-For instance, if on entity **org.bonitasoft.engine.core.document.model.impl.SDocumentImpl**, the "soft-locked cache entry was expired" warnings message occurs, it means the size of the **maxElementsInMemory** parameter must be increased, provided it is a reasonable memory size and provided the "2nd Level Cache Ratio" is not low for this element. If the "2nd Level Cache Ratio" is low or even 0, it means the cache is never used to read several times the same entity, which means the **timeToLiveSeconds** parameter should be increased, or that the cache should be completely deactivated for this entity.
+
+- run load tests to simulate a production environment
+- analyse the "2nd Level Cache Ratio" log messages generated, combined with the "soft-locked cache entry was expired" **warnings messages** to change the configuration in file **bonita-tenant-hibernate-cache.xml**.  
+  For instance, if on entity **org.bonitasoft.engine.core.document.model.impl.SDocumentImpl**, the "soft-locked cache entry was expired" warnings message occurs, it means the size of the **maxElementsInMemory** parameter must be increased, provided it is a reasonable memory size and provided the "2nd Level Cache Ratio" is not low for this element. If the "2nd Level Cache Ratio" is low or even 0, it means the cache is never used to read several times the same entity, which means the **timeToLiveSeconds** parameter should be increased, or that the cache should be completely deactivated for this entity.
 
 Below is an example of a "soft-locked cache entry was expired" warning message:
-```
+
+```log
 WARNING: Cache org.bonitasoft.engine.core.process.instance.model.impl.SFlowNodeInstanceImpl Key org.bonitasoft.engine.core.process.instance.model.impl.SFlowNodeInstanceImpl#org.bonitasoft.engine.persistence.PersistentObjectId@25505ff 
 Lockable : null
 A soft-locked cache entry was expired by the underlying Ehcache. If this happens regularly you should consider increasing the cache timeouts and/or capacity limits   
@@ -338,24 +348,25 @@ A soft-locked cache entry was expired by the underlying Ehcache. If this happens
 
 Bonita Engine uses an application cache to store specific objects. The default implementation of this service relies on EhCache. It is configured in these files:
 
-* `bonita-platform-community-custom.properties`
-* `bonita-tenant-community-custom.properties`
-* `bonita-platform-sp-cluster-custom.properties`
-* `bonita-tenant-sp-cluster-custom.properties`
+- `bonita-platform-community-custom.properties`
+- `bonita-tenant-community-custom.properties`
+- `bonita-platform-sp-cluster-custom.properties`
+- `bonita-tenant-sp-cluster-custom.properties`
 
 The following cache configurations can be defined:
-| Configuration | Purpose| 
-|:-|:-|
-| connectorCacheConfig | stores connector implementations for a given connector definition| 
-| processDefCacheConfig | stores process definition objects| 
-| userFilterCacheConfig | stores user filter implementations for a given user filter definition| 
-| migrationPlanCacheConfig | not yet used| 
-| breakpointCacheConfig | not yet used| 
-| groovyScriptCacheConfig | stores compiled versions of Groovy scripts| 
-| synchroServiceCacheConfig | used by the benchmark test infrastructure (and has no meaning outside of it)| 
-| transientDataCacheConfig | stores transient data| 
-| platformCacheConfig | used to store platform object, which contains general platform information such as the version, or start date| 
-| parameterCacheConfig | stores process parameters| 
+
+| Configuration             | Purpose                                                                                                       |
+| :------------------------ | :------------------------------------------------------------------------------------------------------------ |
+| connectorCacheConfig      | stores connector implementations for a given connector definition                                             |
+| processDefCacheConfig     | stores process definition objects                                                                             |
+| userFilterCacheConfig     | stores user filter implementations for a given user filter definition                                         |
+| migrationPlanCacheConfig  | not yet used                                                                                                  |
+| breakpointCacheConfig     | not yet used                                                                                                  |
+| groovyScriptCacheConfig   | stores compiled versions of Groovy scripts                                                                    |
+| synchroServiceCacheConfig | used by the benchmark test infrastructure (and has no meaning outside of it)                                  |
+| transientDataCacheConfig  | stores transient data                                                                                         |
+| platformCacheConfig       | used to store platform object, which contains general platform information such as the version, or start date |
+| parameterCacheConfig      | stores process parameters                                                                                     |
 
 <a id="jvm"/>
 
@@ -380,8 +391,8 @@ Almost everything (API call, internal processing using workers, jobs scheduling,
 Two elements are critical: network latency, as in most cases your database is located on another server, and the I/O of your hard drives.  
 In case of issues, you should monitor these two elements and consider improvements. For example:
 
-* locate your database in the same datacenter as the Bonita Engine, using gigabit network connections
-* use SSD hard drives, and RAID configuration with striping
+- locate your database in the same datacenter as the Bonita Engine, using gigabit network connections
+- use SSD hard drives, and RAID configuration with striping
 
 Network connectivity also impacts access to the engine APIs when you are not using local access, that is, 
 if you are using [HTTP](#http), [REST](#rest).
@@ -439,7 +450,7 @@ It is now possible to track the duration of actions in a connector using a new t
 This service can impact performance so is disabled by default.  
 It is configured by editing the following parameters in `bonita-tenant-community-custom.properties`.  
 
-```
+```properties
 ## Time tracker
 #bonita.tenant.timetracker.startTracking=false
 #bonita.tenant.timetracker.maxSize=1000
@@ -451,8 +462,10 @@ It is configured by editing the following parameters in `bonita-tenant-community
 #bonita.tenant.timetracker.memory.activateAtStart=false
 #bonita.tenant.timetracker.memory.maxSize=1000000
 ```
+
 To activate connector time tracking: 
-1. Uncomment all the previous lines except ```## Time tracker```.
+
+1. Uncomment all the previous lines except `## Time tracker`.
 2. Change the value of `startTracking` from `false` to `true`.
 
 The other parameters can be left at their default value, left commented, or set to the desired value. What each of them does:
@@ -466,7 +479,6 @@ The other parameters can be left at their default value, left commented, or set 
 7. `memory.maxSize` maximum amount of records saved in memory. If the maximum number of records is reached before the scheduled flush, the older ones are discared. To avoid the loss of information, a number sufficiently big in comparison with `flushIntervalInSeconds` should be chosen
 
 The non-relevant options will be ignored at execution. Note that `memory` and `csv` can both be activated at the same time.
-
 
 ## Process design, event handlers, and cron jobs
 
@@ -494,13 +506,14 @@ Bonita Engine uses the [Scheduler service](engine-architecture-overview.md) to t
 
 The Bonita Scheduler service implementation uses the Quartz Scheduler. Some quartz properties can be modified to fine tune quartz jobs execution. These properties can be found in `bonita-platform-community-custom.properties`.
 
-```
+```properties
 org.quartz.jobStore.misfireThreshold
 org.quartz.jobStore.maxMisfiresToHandleAtATime
 org.quartz.jobStore.acquireTriggersWithinLock
 org.quartz.scheduler.batchTriggerAcquisitionMaxCount
 org.quartz.scheduler.batchTriggerAcquisitionFireAheadTimeWindow
 ```
+
 Details on these properties can be found in [the Quartz documentation](http://www.quartz-scheduler.org/documentation/).
 
 They are not read subsequently, so changing the values in `bonita-tenant-community-custom.properties` after the Engine has been started has no effect on Quartz.
@@ -513,8 +526,9 @@ For value definition, and information about how to update the Quartz trigger tab
 Here is Bonita advice to finely tune PostgreSQL database server performance.
 
 In this example, we assume you have:
-* 12Gb of RAM
-* fast SSD storage
+
+- 12Gb of RAM
+- fast SSD storage
 
 Update **memory** configuration in file `postgresql.conf` (typically `/etc/postgresql/11/main/postgresql.conf`) with the
 following values:

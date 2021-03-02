@@ -23,6 +23,7 @@ The Organization .xml file can also be exported from Bonita Portal, modified by 
 See [Custom User Information in Bonita Studio](custom-user-information-in-bonita-bpm-studio.md)
 
 ## View / Edit custom information for a user
+
 1. Go to _Organization_/_Users_.
 1. Click on a user.
 1. Click on _More_.

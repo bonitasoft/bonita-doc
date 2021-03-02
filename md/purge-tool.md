@@ -15,18 +15,15 @@ This tool is not available publicly. Use [Bonita Customer Portal](https://custom
 This tool can be run on a Bonita runtime environment in a version greater than or equal to 7.7.0.  
 Bonita runtime environment should be shut down when running this tool, i.e. Bonita server should be stopped.
 
-
 ## Configuration
 
 Once [downloaded Bonita Purge Tool](https://customer.bonitasoft.com/download/request), unzip it somewhere and go into the main directory.  
 Enter your database configuration properties in the file `application.properties`
 
-
 ## Run Bonita Purge Tool
 
 This command will delete all archived process instances belonging to the process identified by **PROCESS_DEFINITION_ID**,
 that are finished since at least **OLDEST_DATE_TIMESTAMP**.
-
 
 example (Unix):
 
@@ -54,7 +51,6 @@ Unfinished process instances and process instances that finished after that date
 Its format is a standard Java timestamp since [EPOCH](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Instant.html#EPOCH) (in milliseconds).
 You can use websites such as [Epoch Converter](https://www.epochconverter.com/) to format such a timestamp.
 
-
 ## Deletion strategy
 
 You need to have in mind 2 precepts to understand how this tool works:
@@ -70,17 +66,18 @@ both `process_instance` and `arch_process_instance` tables while we avoid removi
 For example, once all `arch_process_instance` rows matching the conditions (processDefinitionId and timestamp) have been deleted
 and when the tool deletes the `arch_data_instance` rows, the tool only needs to query the `arch_process_instance` table.
 
-    DELETE FROM ARCH_DATA_INSTANCE a WHERE
-    a.CONTAINERTYPE = 'PROCESS_INSTANCE'
-    AND a.tenantId = 1
-    AND NOT EXISTS (
-        SELECT id FROM ARCH_PROCESS_INSTANCE b
-        WHERE a.CONTAINERID = b.SOURCEOBJECTID
-        AND b.tenantId = 1);
+```sql
+DELETE FROM ARCH_DATA_INSTANCE a WHERE
+a.CONTAINERTYPE = 'PROCESS_INSTANCE'
+AND a.tenantId = 1
+AND NOT EXISTS (
+    SELECT id FROM ARCH_PROCESS_INSTANCE b
+    WHERE a.CONTAINERID = b.SOURCEOBJECTID
+    AND b.tenantId = 1);
+```
 
 This strategy allows this tool to be more robust, it can be stopped at any given time, relaunching it will continue the deletion from where it stopped.
 However, this means that the time required to execute a purge will be the same when deleting a few elements or a lot of elements.
-
 
 ## Database deletion volume testing reference
 
