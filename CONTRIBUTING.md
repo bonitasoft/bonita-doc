@@ -128,7 +128,7 @@ Now starting from the visualization of the _taxonomy.md_ page, we can browse to 
 During markdown to HTML conversion, some predefined variables located in the [variables.json file](scripts/variables.json) are replaced.
 
 For instance, the `varVersion` variable matches the current documentation version.
-To reference this variable, use the `${varVersion}` notation in _.md_ files.
+To reference this variable, use the `{varVersion}` notation in _.md_ files.
 
 #### Markdown titles
 
