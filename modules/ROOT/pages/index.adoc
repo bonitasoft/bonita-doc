@@ -91,5 +91,5 @@ xref:http://www.bonitasoft.com/for-you-to-read/bpm-library/best-practices-contin
 
 [.card.card-index]
 --
-xref:http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html[[.card-title]#Javadoc# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+xref:http://documentation.bonitasoft.com/javadoc/api/{varVersion}/index.html[[.card-title]#Javadoc# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
 --
