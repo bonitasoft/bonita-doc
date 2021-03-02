@@ -46,9 +46,9 @@ Instructions below explain how to add a language to Bonita Portal. Steps below i
 . Go to http://translate.bonitasoft.org/[Bonita translation project].
 . Select the language you are interested in.
 . Make sure you click on the "Toggle Hidden Files" button image:images/crowdin_toggle_hidden_files.png[Toggle hidden files button] to see already fully translated files.
-. Browse the file tree to `+${varVersion}.x/bonita-web/portal+` folder.
+. Browse the file tree to `+{varVersion}.x/bonita-web/portal+` folder.
 . For each file in the folder: open it and in the *_File_* menu click on *_Download_*. Each `.po/.pot` file has a language indicator and a locale indicator. For example, the files for the Brazilian Portuguese language end with `pt_BR.po`.
-. For Subscription editions, you also need to get the files from `+${varVersion}.x/bonita-web-sp/portal+` folder.
+. For Subscription editions, you also need to get the files from `+{varVersion}.x/bonita-web-sp/portal+` folder.
 
 [discrete]
 ==== Install the files and configure java

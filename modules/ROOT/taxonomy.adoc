@@ -225,7 +225,7 @@
   *** xref:engine-api-overview.adoc[Engine API overview]
   *** xref:create-your-first-project-with-the-engine-apis-and-maven.adoc[Create your first project with the Engine APIs and Maven]
   *** xref:configure-client-of-bonita-bpm-engine.adoc[Configure connection to Bonita Engine]
-  *** http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html[Javadoc]
+  *** http://documentation.bonitasoft.com/javadoc/api/{varVersion}/index.html[Javadoc]
   *** xref:_examples.adoc[Examples]
    **** xref:manage-a-process.adoc[Manage a process]
    **** xref:handle-a-failed-activity.adoc[Handle a failed activity]
