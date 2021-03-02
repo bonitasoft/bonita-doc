@@ -376,7 +376,7 @@ The methods used for this resource are:
 [discrete]
 ==== Get the named business data reference defined in the case
 
-Get the named business data reference (\{businessDataName} string) defined in the case (\{caseId} long).
+Get the named business data reference ({businessDataName} string) defined in the case ({caseId} long).
 
 * *URL* +
 `http://../API/bdm/businessDataReference/:caseId/:businessDataName` +
