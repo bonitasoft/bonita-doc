@@ -6,7 +6,7 @@ You need to be logged on Bonita with the Administrator profile or the Process Ma
 
 ## Add a comment to a case
 
-1. Go to **BPM** \> **Cases**
+1. Go to **BPM** > **Cases**
 2. Click a _**Case id**_ or _**ellipsis**_ icon.
 3. Enter a comment in the **comment field**
 4. Click _**Add comment**_
@@ -17,7 +17,7 @@ This feature is available with the Efficiency, Performance and Enterprise editio
 
 To start a case for another user:
 
-1. Go to **BPM** \> **Processes**.
+1. Go to **BPM** > **Processes**.
 2. Select the process and click **_Start for_**.
 3. In the popup, specify the user for whom you are starting the case. Only valid users for the case are displayed.
 4. Click **_Start_**.
@@ -27,23 +27,23 @@ For example, if a you start a case for user A and a subsequent task is to be don
 
 ## View status of cases
 
-To view the open or archived cases, go to **BPM** \> **Cases**. The case table is displayed, showing the open cases. 
+To view the open or archived cases, go to **BPM** > **Cases**. The case table is displayed, showing the open cases. 
 To switch between **Open cases** and **Archived cases** cases, use the tabs.
 
 In a row in the table, you can click a case id or the ellipsis icon to open the case details page, or click the process name to open the process details page. 
 
 You can change the view to see only the information that you need:
 
-* View the cases of a specified process, by selecting the process name, or name and version, from the dropdown lists.
-* Search indexes are also available as additional columns. In this way, you can use search indexes for adding business information to your cases. It is also possible to search on search indexes values.
-* Filter the cases by state, by choosing **With failures** or **All** from the **State** dropdown list. 
-The **Failed tasks** column shows the number of failed tasks and tasks where a connector has failed when starting or ending a case. A connector failure at a task is counted as a task failure. 
-Connector failures on case start or end are shown by an exclamation point (!).
-* Add or remove a column in the table, by selecting or deselecting it in the **Columns** menu.
-* Change the column order, by dragging and dropping the column name in the **Columns** menu.
-* Sort the table in ascending or descending order of one of the columns, by clicking arrow beside the column header. 
-If the table is already sorted by the column you select, the first click reverses the sort order. If the table is currently sorted by some other column, clicking the header sorts by this column in ascending order. 
-You can then click on the arrow to reverse the sort order. 
+- View the cases of a specified process, by selecting the process name, or name and version, from the dropdown lists.
+- Search indexes are also available as additional columns. In this way, you can use search indexes for adding business information to your cases. It is also possible to search on search indexes values.
+- Filter the cases by state, by choosing **With failures** or **All** from the **State** dropdown list. 
+  The **Failed tasks** column shows the number of failed tasks and tasks where a connector has failed when starting or ending a case. A connector failure at a task is counted as a task failure. 
+  Connector failures on case start or end are shown by an exclamation point (!).
+- Add or remove a column in the table, by selecting or deselecting it in the **Columns** menu.
+- Change the column order, by dragging and dropping the column name in the **Columns** menu.
+- Sort the table in ascending or descending order of one of the columns, by clicking arrow beside the column header. 
+  If the table is already sorted by the column you select, the first click reverses the sort order. If the table is currently sorted by some other column, clicking the header sorts by this column in ascending order. 
+  You can then click on the arrow to reverse the sort order. 
 
 These changes to the view are stored in your browser [Local Storage](https://en.wikipedia.org/wiki/Web_storage#Local_and_session_storage): If you navigate away from the page then go back, the view will be as you configured it. If you reload the page, or close and reopen the same browser, your stored changes will be reapplied. If you want to go back to the default view settings, clear your browser cache and local storage.
 

@@ -12,9 +12,9 @@ We strongly recommend that you add only appropriate handlers and carefully code 
 An event is a change to any object in the database (user, activity, processDefinition,... ).
 You can create an event handler to track any change to any object in the database and take the appropriate action. For example:
 
-* Catch PROCESSINSTANCE\_CREATED to detect that a process instance has started, and notify the process supervisor.
-* Catch FLOWNODE\_INSTANCE\_CREATED to detect that a human task is available, and send email to all the users elligible to perform it.
-* Catch HIDDEN\_TASK\_CREATED to detect that a service task becomes available, and start an external system that is required to complete the task.
+- Catch PROCESSINSTANCE_CREATED to detect that a process instance has started, and notify the process supervisor.
+- Catch FLOWNODE_INSTANCE_CREATED to detect that a human task is available, and send email to all the users elligible to perform it.
+- Catch HIDDEN_TASK_CREATED to detect that a service task becomes available, and start an external system that is required to complete the task.
 
 At the end of this page there is a list of all the events.
 
@@ -29,6 +29,7 @@ This example shows an event handler that detects changes in the state of activit
 ### create a maven project for event handler jar
 
 pom.xml :
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -72,6 +73,7 @@ pom.xml :
 Create a class that implements `SHandler<SEvent>`.
 
 src/main/java/org/bonitasoft/example/EventHandlerExample.java:
+
 ```java
 package org.bonitasoft.example;
 
@@ -117,12 +119,13 @@ public class EventHandlerExample implements SHandler<SEvent> {
 
 ### Deploy jar
 
-* Build event-handle-example-1.0-SNAPSHOT.jar using `mvn clean install` maven command.
-* Copy event-handle-example-1.0-SNAPSHOT.jar in webapps/bonita/WEB-INF/lib/ folder (for tomcat bundle)
+- Build event-handle-example-1.0-SNAPSHOT.jar using `mvn clean install` maven command.
+- Copy event-handle-example-1.0-SNAPSHOT.jar in webapps/bonita/WEB-INF/lib/ folder (for tomcat bundle)
 
 ### Register an event handler
 
 An event handler is registered on an event by adding an entry to the appropriate map. The list of handlers registered can be extended in the [`bonita-tenant-sp-custom.xml`](BonitaBPM_platform_setup.md) file:
+
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
@@ -150,10 +153,11 @@ An event handler is registered on an event by adding an entry to the appropriate
 
 Restart web server and run a basic process and check bonita log file in folder tomcat/logs:
 
-    INFOS: THREAD_ID=78 | HOSTNAME=gt | ExampleHandler: event PROCESSINSTANCE_STATE_UPDATED - asks if we are interested in handling this event instance
-    ...
-    INFOS: THREAD_ID=78 | HOSTNAME=gt | ExampleHandler: executing event PROCESSINSTANCE_STATE_UPDATED
-
+```log
+INFOS: THREAD_ID=78 | HOSTNAME=gt | ExampleHandler: event PROCESSINSTANCE_STATE_UPDATED - asks if we are interested in handling this event instance
+...
+INFOS: THREAD_ID=78 | HOSTNAME=gt | ExampleHandler: executing event PROCESSINSTANCE_STATE_UPDATED
+```
 
 ## Filter an event
 
@@ -161,6 +165,7 @@ An event handler contains a filter, `isInterested`, which detects the relevant i
 The example below shows how to use the State Id of a flow node to filter for a particular state (in this case, failed).
 Flownode State Ids are defined in the subclasses of `org.bonitasoft.engine.core.process.instance.api.states.FlowNodeState`.
 There is no exhaustive list; the set of states is extensible without notice.
+
 ```groovy
 public boolean isInterested(SEvent event) {
     boolean isInterested = false;
@@ -186,27 +191,28 @@ Event handlers are recursive, that is, if an event handler itself modifies somet
 ## Event list
 
 This is a snapshot of the events used in the Engine.
-| | |
-|:-|:-|
-| Service | Events| 
-| ActivityInstanceServiceImpl | ACTIVITYINSTANCE\_CREATED, HUMAN\_TASK\_INSTANCE\_ASSIGNEE\_UPDATED, ACTIVITYINSTANCE\_STATE\_UPDATED, ACTIVITY\_INSTANCE\_TOKEN\_COUNT\_UPDATED, HIDDEN\_TASK\_CREATED, HIDDEN\_TASK\_DELETED, PENDINGACTIVITYMAPPING\_CREATED, PENDINGACTIVITYMAPPING\_DELETED| 
-| ActorMappingServiceImpl | ACTOR\_CREATED, ACTOR\_DELETED, ACTOR\_UPDATED, ACTOR\_MEMBER\_CREATED, ACTOR\_MEMBER\_DELETED| 
-| CategoryServiceImpl | CATEGORY\_CREATED, CATEGORY\_DELETED, CATEGORY\_UPDATED| 
-| CommandServiceImpl | COMMAND\_CREATED, COMMAND\_DELETED, COMMAND\_UPDATED| 
-| SCommentServiceImpl | COMMENT\_CREATED, COMMENT\_DELETED| 
-| ConnectorInstanceServiceImpl | CONNECTOR\_INSTANCE\_CREATED, CONNECTOR\_INSTANCE\_DELETED, CONNECTOR\_INSTANCE\_STATE\_UPDATED, CONNECTOR\_INSTANCE\_UPDATED| 
-| DependencyServiceImpl | DEPENDENCY\_CREATED, DEPENDENCYMAPPING\_CREATED, DEPENDENCY\_DELETED, DEPENDENCYMAPPING\_DELETED, DEPENDENCY\_UPDATED, DEPENDENCYMAPPING\_UPDATED| 
-| DocumentMappingServiceImpl | DOCUMENTMAPPING\_CREATED, DOCUMENTMAPPING\_DELETED, DOCUMENTMAPPING\_UPDATED| 
-| SEventInstanceServiceImpl | EVENT\_INSTANCE\_CREATED, EVENT\_TRIGGER\_INSTANCE\_CREATED, EVENT\_TRIGGER\_INSTANCE\_DELETED, MESSAGE\_INSTANCE\_CREATED, MESSAGE\_INSTANCE\_DELETED, MESSAGE\_INSTANCE\_UPDATED| 
-| ExternalIdentityMappingServiceImpl | EXTERNAL\_IDENTITY\_MAPPING\_CREATED, EXTERNAL\_IDENTITY\_MAPPING\_DELETED| 
-| FlowNodeInstanceServiceImpl | FLOWNODE\_INSTANCE\_DELETED| 
-| GatewayInstanceServiceImpl | GATEWAYINSTANCE\_CREATED, GATEWAYINSTANCE\_HITBYS\_UPDATED, GATEWAYINSTANCE\_STATE\_UPDATED| 
-| IdentityServiceImpl | GROUP\_CREATED, GROUP\_DELETED, GROUP\_UPDATED, METADATA\_CREATED, METADATA\_DELETED, METADATA\_UPDATED, METADATAVALUE\_CREATED, METADATAVALUE\_DELETED, METADATAVALUE\_UPDATED, ROLE\_UPDATED, ROLE\_CREATED, ROLE\_DELETED, USER\_UPDATED, USER\_CREATED, USER\_DELETED, USER\_CONTACT\_INFO\_UPDATED, USER\_CONTACT\_INFO\_CREATED, USER\_CONTACT\_INFO\_DELETED, USERMEMBERSHIP\_UPDATED, USERMEMBERSHIP\_CREATED, USERMEMBERSHIP\_DELETED| 
-| JobServiceImpl | JOB_DESCRIPTOR\_CREATED, JOB_DESCRIPTOR\_DELETED, JOB_PARAMETER\_CREATED, JOB_PARAMETER\_DELETED, JOB_LOG\_CREATED, JOB_LOG\_DELETED|
-| JobWrapper | JOB\_COMPLETED, JOB\_EXECUTING| 
-| ProcessDefinitionServiceImpl | PROCESSDEFINITION\_CREATED, PROCESSDEFINITION\_DELETED, PROCESSDEFINITION\_DEPLOY\_INFO\_UPDATED, PROCESSDEFINITION\_IS\_DISABLED\_UPDATED, PROCESSDEFINITION\_IS\_ENABLED\_UPDATED, PROCESSDEFINITION\_IS\_RESOLVED\_UPDATED| 
-| ProcessInstanceServiceImpl | PROCESS\_INSTANCE\_CATEGORY\_STATE\_UPDATED, PROCESSINSTANCE\_CREATED, PROCESSINSTANCE\_DELETED, PROCESSINSTANCE\_STATE\_UPDATED, PROCESSINSTANCE\_UPDATED|
-| ProfileServiceImpl | PROFILE\_CREATED, PROFILE\_DELETED, PROFILE\_UPDATED, ENTRY\_PROFILE\_CREATED, ENTRY\_PROFILE\_DELETED, ENTRY\_PROFILE\_UPDATED, PROFILE\_MEMBER\_DELETED| 
-| ReportingServiceImpl | REPORT\_CREATED, REPORT\_DELETED| 
-| SupervisorMappingServiceImpl | SUPERVISOR\_CREATED, SUPERVISOR\_DELETED| 
-| ThemeServiceImpl | THEME\_CREATED, THEME\_DELETED, THEME\_UPDATED| 
+
+|                                    |                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| :--------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Service                            | Events                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ActivityInstanceServiceImpl        | ACTIVITYINSTANCE_CREATED, HUMAN_TASK_INSTANCE_ASSIGNEE_UPDATED, ACTIVITYINSTANCE_STATE_UPDATED, ACTIVITY_INSTANCE_TOKEN_COUNT_UPDATED, HIDDEN_TASK_CREATED, HIDDEN_TASK_DELETED, PENDINGACTIVITYMAPPING_CREATED, PENDINGACTIVITYMAPPING_DELETED                                                                                                                                                                     |
+| ActorMappingServiceImpl            | ACTOR_CREATED, ACTOR_DELETED, ACTOR_UPDATED, ACTOR_MEMBER_CREATED, ACTOR_MEMBER_DELETED                                                                                                                                                                                                                                                                                                                             |
+| CategoryServiceImpl                | CATEGORY_CREATED, CATEGORY_DELETED, CATEGORY_UPDATED                                                                                                                                                                                                                                                                                                                                                                |
+| CommandServiceImpl                 | COMMAND_CREATED, COMMAND_DELETED, COMMAND_UPDATED                                                                                                                                                                                                                                                                                                                                                                   |
+| SCommentServiceImpl                | COMMENT_CREATED, COMMENT_DELETED                                                                                                                                                                                                                                                                                                                                                                                    |
+| ConnectorInstanceServiceImpl       | CONNECTOR_INSTANCE_CREATED, CONNECTOR_INSTANCE_DELETED, CONNECTOR_INSTANCE_STATE_UPDATED, CONNECTOR_INSTANCE_UPDATED                                                                                                                                                                                                                                                                                                |
+| DependencyServiceImpl              | DEPENDENCY_CREATED, DEPENDENCYMAPPING_CREATED, DEPENDENCY_DELETED, DEPENDENCYMAPPING_DELETED, DEPENDENCY_UPDATED, DEPENDENCYMAPPING_UPDATED                                                                                                                                                                                                                                                                         |
+| DocumentMappingServiceImpl         | DOCUMENTMAPPING_CREATED, DOCUMENTMAPPING_DELETED, DOCUMENTMAPPING_UPDATED                                                                                                                                                                                                                                                                                                                                           |
+| SEventInstanceServiceImpl          | EVENT_INSTANCE_CREATED, EVENT_TRIGGER_INSTANCE_CREATED, EVENT_TRIGGER_INSTANCE_DELETED, MESSAGE_INSTANCE_CREATED, MESSAGE_INSTANCE_DELETED, MESSAGE_INSTANCE_UPDATED                                                                                                                                                                                                                                                |
+| ExternalIdentityMappingServiceImpl | EXTERNAL_IDENTITY_MAPPING_CREATED, EXTERNAL_IDENTITY_MAPPING_DELETED                                                                                                                                                                                                                                                                                                                                                |
+| FlowNodeInstanceServiceImpl        | FLOWNODE_INSTANCE_DELETED                                                                                                                                                                                                                                                                                                                                                                                           |
+| GatewayInstanceServiceImpl         | GATEWAYINSTANCE_CREATED, GATEWAYINSTANCE_HITBYS_UPDATED, GATEWAYINSTANCE_STATE_UPDATED                                                                                                                                                                                                                                                                                                                              |
+| IdentityServiceImpl                | GROUP_CREATED, GROUP_DELETED, GROUP_UPDATED, METADATA_CREATED, METADATA_DELETED, METADATA_UPDATED, METADATAVALUE_CREATED, METADATAVALUE_DELETED, METADATAVALUE_UPDATED, ROLE_UPDATED, ROLE_CREATED, ROLE_DELETED, USER_UPDATED, USER_CREATED, USER_DELETED, USER_CONTACT_INFO_UPDATED, USER_CONTACT_INFO_CREATED, USER_CONTACT_INFO_DELETED, USERMEMBERSHIP_UPDATED, USERMEMBERSHIP_CREATED, USERMEMBERSHIP_DELETED |
+| JobServiceImpl                     | JOB_DESCRIPTOR_CREATED, JOB_DESCRIPTOR_DELETED, JOB_PARAMETER_CREATED, JOB_PARAMETER_DELETED, JOB_LOG_CREATED, JOB_LOG_DELETED                                                                                                                                                                                                                                                                                      |
+| JobWrapper                         | JOB_COMPLETED, JOB_EXECUTING                                                                                                                                                                                                                                                                                                                                                                                        |
+| ProcessDefinitionServiceImpl       | PROCESSDEFINITION_CREATED, PROCESSDEFINITION_DELETED, PROCESSDEFINITION_DEPLOY_INFO_UPDATED, PROCESSDEFINITION_IS_DISABLED_UPDATED, PROCESSDEFINITION_IS_ENABLED_UPDATED, PROCESSDEFINITION_IS_RESOLVED_UPDATED                                                                                                                                                                                                     |
+| ProcessInstanceServiceImpl         | PROCESS_INSTANCE_CATEGORY_STATE_UPDATED, PROCESSINSTANCE_CREATED, PROCESSINSTANCE_DELETED, PROCESSINSTANCE_STATE_UPDATED, PROCESSINSTANCE_UPDATED                                                                                                                                                                                                                                                                   |
+| ProfileServiceImpl                 | PROFILE_CREATED, PROFILE_DELETED, PROFILE_UPDATED, ENTRY_PROFILE_CREATED, ENTRY_PROFILE_DELETED, ENTRY_PROFILE_UPDATED, PROFILE_MEMBER_DELETED                                                                                                                                                                                                                                                                      |
+| ReportingServiceImpl               | REPORT_CREATED, REPORT_DELETED                                                                                                                                                                                                                                                                                                                                                                                      |
+| SupervisorMappingServiceImpl       | SUPERVISOR_CREATED, SUPERVISOR_DELETED                                                                                                                                                                                                                                                                                                                                                                              |
+| ThemeServiceImpl                   | THEME_CREATED, THEME_DELETED, THEME_UPDATED                                                                                                                                                                                                                                                                                                                                                                         |

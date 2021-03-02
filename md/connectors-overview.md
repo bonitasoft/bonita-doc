@@ -1,8 +1,9 @@
 # Overview of connector development features
+
 Description of the structure, definition, implementation and test of custom connectors in Bonita.
 
 A connector is an element in a process that accesses an external system to read or write information. If the [default connectors in Bonita](_connectivity.md) are not suitable, you can implement your own connector. 
-In the Bonita Enterprise, Performance, Efficiency, and Teamwork editions, you are recommended to use the [connector development toolkit](connector-development-toolkit.md) to create new connectors.
+It's recommended to use the [maven connector archetype](connector-archetype.md) to create new connector project.
 Otherwise, you can define a new connector definition or implementation in Bonita Studio,
 using the wizards started from the **Development** menu, **Connectors** submenu.
 
@@ -31,13 +32,13 @@ the connector definition and the connector implementation.
 The Java class must implement the `org.bonitasoft.engine.connector.Connector` class. This defines the
 following methods:
 
-* `setInputParameters` to retrieve configuration parameters
-* `validateInputParameters` to check that the configuration of the
-connector is well defined
-* `execute` to execute the connector and returns a map containing
-all outputs 
-* `connect` to create the connector
-* `disconnect` to end the connection
+- `setInputParameters` to retrieve configuration parameters
+- `validateInputParameters` to check that the configuration of the
+  connector is well defined
+- `execute` to execute the connector and returns a map containing
+  all outputs 
+- `connect` to create the connector
+- `disconnect` to end the connection
 
 **Note:** All the connector outputs must be set in the implementation; otherwise, the connector execution will fail. The connector outputs must be serializable.
 
@@ -67,13 +68,14 @@ reported.
 You need to [import a connector](#Importing_a_connector) into Bonita Studio before you can test it. 
 
 ## Configuring
+
 and deploying a process with a connector
 
 There are two stages to configuring a connector:
 
 1. When you add a connector to a pool or task, you configure the connector behavior.
 2. When you configure a process for deployment, you specify the definition and implementation of each connector it contains. You must
-also specify any connector dependencies as process dependencies.
+   also specify any connector dependencies as process dependencies.
 
 After the
 connector has been specified in the configuration, when you build

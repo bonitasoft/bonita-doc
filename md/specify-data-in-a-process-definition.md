@@ -6,9 +6,9 @@ This page explains how to handle data (variables and documents) in a process, in
 
 You can define a variable at process, task, or form level:
 
-* A process variable is available throughout the life of a process. Process variables can be uses to store data for transition conditions, and identifiers for business data stored in an external database. They are typically items of data which affect the path of the process, or are used at several steps of the process, but which become redundant, once the process instance has completed.
-* A task variable is available for the task and its outgoing transitions. It can be used to pass data to a connector in the same step. Activity variables are similar to Process variables, but exist only within the life of a process instance activity.
-* A form variable is available only in the form, and is used to store data used in the form. You can also use form variables with connectors that are associated with the form.
+- A process variable is available throughout the life of a process. Process variables can be uses to store data for transition conditions, and identifiers for business data stored in an external database. They are typically items of data which affect the path of the process, or are used at several steps of the process, but which become redundant, once the process instance has completed.
+- A task variable is available for the task and its outgoing transitions. It can be used to pass data to a connector in the same step. Activity variables are similar to Process variables, but exist only within the life of a process instance activity.
+- A form variable is available only in the form, and is used to store data used in the form. You can also use form variables with connectors that are associated with the form.
 
 See also:  
 [Data types and defining a variable](data-handling-overview.md)  
@@ -19,10 +19,10 @@ See also:
 
 Best practice:
 
-* Use XREFbusiness data for information that is shared between applications or processes.
-* For external data that is stored in a database or other information system, use a connector to read or write the data when required, and use transient form variables to hold the value temporarily while it is displayed or updated in a form. \*\*\*check still true for Page Designer\*\*\*
-* Define a variable at the lowest level possible, using a process variable only when required for the process flow.
-* Use the minimum number of variables possible; having an unnecessarily large set of variables has an impact on performance. 
+- Use XREFbusiness data for information that is shared between applications or processes.
+- For external data that is stored in a database or other information system, use a connector to read or write the data when required, and use transient form variables to hold the value temporarily while it is displayed or updated in a form. \*\*\*check still true for Page Designer\*\*\*
+- Define a variable at the lowest level possible, using a process variable only when required for the process flow.
+- Use the minimum number of variables possible; having an unnecessarily large set of variables has an impact on performance. 
 
 There are also a number of variables that are provided by default in a process, such as the id of the current user. They are available through the [expression editor](expressions-and-scripts.md).
 
@@ -32,13 +32,13 @@ A variable can be transient or persistent. A transient variable is stored only i
 
 It is possible to update the value of a transient variable in a task, but this is not recommended. The value of a transient variable in a task is not preserved when the app server restarts. The value is reset to the initial value. When deciding whether to use a transient or persistent variable, consider whether the the variable is used in an operation. In particular, if a operation script does several things, one of which is to update a transient variable and the app server restarts after the script has run but before the end of the task, the transient variable is reset but the other changes made by the script survive the restart.
 
-* Task variables can be transient or persistent.
-* Form variables are transient.
+- Task variables can be transient or persistent.
+- Form variables are transient.
 
 Best practice:
 
-* Use transient variables to store information temporarily in a process step or form.
-* Do not update the value of a transient variable.
+- Use transient variables to store information temporarily in a process step or form.
+- Do not update the value of a transient variable.
 
 If the value of a transient variable is updated, this triggers a warning message in the log. You can deactivate these warnings by editing `logging.properties` and uncommenting the relvant section of the file.
 
@@ -57,14 +57,14 @@ You can also use data stored in external information system components, such as 
 
 When you define a variable, you specify a name and the data type. Optionally, you can specify a default value or a list of available values.
 
-* [Data types](#data_types)
-* [Variable naming](#variable_naming)
-* [Define a simple data type variable](#define_simple_variable)
-* [Define a Java object variable](#define_java_object)
-* [Define an XML variable](#define_xml)
-* [Define a variable as a list of options](#define_list_of_options)
-* [Define the default value](#define_initial_value)
-* [Define the available values](#define_available_values)
+- [Data types](#data_types)
+- [Variable naming](#variable_naming)
+- [Define a simple data type variable](#define_simple_variable)
+- [Define a Java object variable](#define_java_object)
+- [Define an XML variable](#define_xml)
+- [Define a variable as a list of options](#define_list_of_options)
+- [Define the default value](#define_initial_value)
+- [Define the available values](#define_available_values)
 
 <a id="data_types"/>
 
@@ -80,7 +80,7 @@ You can also define additional [complex data types](create-a-complex-data-type.m
 
 ### Variable naming
 
-You are recommended to use meaningful names for variables. This make process debugging and maintenance easier, particularly if more than one person is working on a process. It can be useful to use a system of prefixes to identify the context in which a variable is used, or the task it is associated with. For example, you could label all transient data variables with the prefix trans\_, or you could label variables defined on a task called getData with the prefix task\_getData\_. 
+You are recommended to use meaningful names for variables. This make process debugging and maintenance easier, particularly if more than one person is working on a process. It can be useful to use a system of prefixes to identify the context in which a variable is used, or the task it is associated with. For example, you could label all transient data variables with the prefix trans\_, or you could label variables defined on a task called getData with the prefix task_getData\_. 
 [Java language keywords](http://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html) cannot be used as variable names.
 
 <a id="define_simple_variable"/>
@@ -93,7 +93,7 @@ The simple data types are Boolean, date, integer, long, double, and text. To def
 2. Select the process pool or the step where you want the variable.
 3. Go to the **Details** panel, **General** view, **Data** pane. A list of the variables already defined is displayed.
 4. Choose if you want to add Process data or Business data. Click **_Add..._**.
-Note: if you add Business data, only add it at the pool/lane level. See this tutorial as a guide for the next steps[How to add Business data to a process](define-and-deploy-the-bdm.md).
+   Note: if you add Business data, only add it at the pool/lane level. See this tutorial as a guide for the next steps[How to add Business data to a process](define-and-deploy-the-bdm.md).
 5. Specify a name for the variable. The name must be unique within the scope of the variable. For easier process maintenance, it is a good idea to make all variable names unique within the process, even though this is not strictly necessary for variables defined in a step.
 6. Optionally, add a description of the variable.
 7. Select the data type from the drop down list.
@@ -132,7 +132,7 @@ When you configure the process, add the JAR file that contains the data type def
 
 ### Define an XML variable
 
-An XML variable has a data type that is defined by an XML schema file.   
+An XML variable has a data type that is defined by an XML schema file.  
 Before you define the variable, you must [create the XML schema](create-a-complex-data-type.md) that contains the data type definition.  
 The data type definition is stored in an XML schema (XSD) file that belongs to a namespace.
 

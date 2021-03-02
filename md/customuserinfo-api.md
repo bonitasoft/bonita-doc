@@ -3,6 +3,7 @@
 The Custom user info Rest API allows to manage the custom information of the Bonita's users.
 
 ## Definition
+
 ### Description
 
 Manage the custom user definitions.
@@ -24,22 +25,22 @@ Simple, the ID of the object (a long value)
 ### Methods
 
 The methods used for this resource are:
-* GET
-* POST
-* PUT
-* DELETE
+
+- GET
+- POST
+- DELETE
 
 #### Add a new definition
 
 Use the method POST to add a new definition.
 
-* **URL**  
+- **URL**  
   `http://localhost:8080/bonita/API/customuserinfo/definition`  
   _Example_: Add a definition called `skill`.
-* **Method**  
+- **Method**  
   `POST`
-* **Data Params**  
-* **Request Payload**  
+- **Data Params**  
+- **Request Payload**  
   JSON representation of definition, without id
   ```json
   {
@@ -47,9 +48,9 @@ Use the method POST to add a new definition.
     "description": "code slayer"
   }
   ```
-* **Success Response**  
-  * **Code**: 200
-  * **Payload**:  
+- **Success Response**  
+  - **Code**: 200
+  - **Payload**:  
     JSON representation of complete definition including generated id  
     ```json
     {
@@ -63,31 +64,31 @@ Use the method POST to add a new definition.
 
 Use the DELETE method to delete an existing definition.
 
-* **URL**  
+- **URL**  
   `http://localhost:8080/bonita/API/customuserinfo/definition/`  
-* **Method**  
+- **Method**  
   `DELETE`
-  
+
 #### List the custom user information
 
 Use a GET method to search for definitions.
 
 There are no filters, and no search terms. All the definitions are returned.
 
-* **URL**  
+- **URL**  
   `/API/customuserinfo/definition`  
-* **Method**  
+- **Method**  
   `GET`
-* **Data Params**  
-  * c: number of result per page
-  * p: page number
-* **Success Response**  
-  * **Code**: 200
-  * **Payload**:  
+- **Data Params**  
+  - c: number of result per page
+  - p: page number
+- **Success Response**  
+  - **Code**: 200
+  - **Payload**:  
     An array of definition objects
 
-
 ## Value
+
 ### Description
 
 Manage the value of the custom user definitions.
@@ -109,33 +110,51 @@ Simple, the ID of the object (a long value)
 ### Methods
 
 The methods used for this resource are:
-* GET
-* POST
-* PUT
-* DELETE
+
+- GET
+- PUT
 
 #### Associate definitions to users
 
 Use a PUT method to associate users with custom information.
 
-* **URL**  
+- **URL**  
   `http://localhost:8080/bonita/API/customuserinfo/value/:userId/:definitionId`  
-  _Example_: Associate the user with id = 1 with the definition with id = 2\. `http://localhost:8080/bonita/API/customuserinfo/value/1/2`
-* **Method**  
+  _Example_: Associate the user with id = 1 with the definition with id = 2. `http://localhost:8080/bonita/API/customuserinfo/value/1/2`
+- **Method**  
   `PUT`
-* **Request Payload**  
+- **Request Payload**  
   ```json
   {
     "value":"customUserInfoValue"
   }
   ```
-* **Success Response**  
-  * **Code**: 200
+- **Success Response**  
+  - **Code**: 200
+
+#### Search custom user info
+
+Use a GET method to search for custom user information associated to a specific user.
+
+- **URL**  
+  `/API/customuserinfo/value`  
+  _Example_: http://localhost:8080/bonita/API/customuserinfo/value?c=10&p=0&f=definitionId=1
+- **Method**  
+  `GET`
+- **Data Params** (Required)   
+  - c: number of result per page
+  - p: page number
+  - f : filter to apply on results with the format `f={filter\_name}={filter\_value}`  
+    _possible filter names_: userId, value, definitionId (the filter value being the custom user information definition ID)
+- **Success Response**  
+  An array of customuserinfo/value objects
+  - **Code**: 200
 
 ## User
+
 ### Description
 
-Manage the custom user info associated to specified users
+Manage the custom user info associated to a specific user
 
 ### Identifier
 
@@ -158,26 +177,23 @@ Simple, the ID of the object (a long value)
 ### Methods
 
 The methods used for this resource are:
-* GET
-* POST
-* PUT
-* DELETE
+
+- GET
 
 #### Search custom user info
 
-Use a GET method to search for custom user information.
+Use a GET method to search for custom user information associated to a specific user.
 
-* **URL**  
+- **URL**  
   `/API/customuserinfo/user`  
   _Example_: http://localhost:8080/bonita/API/customuserinfo/user?c=10&p=0&f=userId=1
-* **Method**  
+- **Method**  
   `GET`
-* **Data Params** (Required)   
-  * c: number of result per page
-  * p: page number
-  * f : filter to apply on results with the format `f={filter\_name}={filter\_value}`  
-    _Example_: `f=userId=id`
-* **Success Response**  
+- **Data Params** (Required)   
+  - c: number of result per page
+  - p: page number
+  - f : filter to apply on results with the format `f={filter\_name}={filter\_value}`  
+    the filter userId is mandatory `f=userId=id`
+- **Success Response**  
   An array of customuserinfo/user objects
-  * **Code**: 200
-
+  - **Code**: 200

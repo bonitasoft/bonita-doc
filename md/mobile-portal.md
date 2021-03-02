@@ -18,7 +18,7 @@ Bonita Subscription Pack edition
 
 Add `/mobile` after Bonita in the URL
 
-For example: [http://localhost:8080/bonita/mobile](http://localhost:8080/bonita/mobile)
+For example: <http://localhost:8080/bonita/mobile>
 
 ## Profile
 
@@ -26,9 +26,9 @@ Only the user profile is available.
 
 ## Mobile language
 
-* How do I change the language of the mobile interface
-* You need to change the language in the Bonita Portal first
-[see Languages](languages.md)
+- How do I change the language of the mobile interface
+- You need to change the language in the Bonita Portal first
+  [see Languages](languages.md)
 
 ## Navigation
 

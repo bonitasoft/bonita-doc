@@ -9,9 +9,10 @@ This tutorial explains how to customize authorization rule mapping.
 Authorization rule is a java bean that must implement `getId` and `isAllowed` methods.
 
 Authorization Rule Mapping is a set of rules used to allow connected user to access [page and form](page-and-form-development-overview.md). An empty list grants access to user. A non empty list allows access if all rules return true to their `isAllowed` method. Those rules grant or not access to the connected user for:
-  * use a page or form to start a process
-  * display process overview
-  * use a page or form to execute a task
+
+- use a page or form to start a process
+- display process overview
+- use a page or form to execute a task
 
 The tutorial can be used with Bonita Community edition, and uses features that are available in all editions.
 
@@ -25,7 +26,7 @@ The following elements may be used as extension points but could be subject to c
 
 In this example, Custom authorization rule is a maven-based java project that need a `maven` dependency on `bonita-server` maven artifact.
 
-* `pom.xml`
+- `pom.xml`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -63,7 +64,7 @@ In this example, Custom authorization rule is a maven-based java project that ne
 </project>
 ```
 
-* create CustomRule class that implements `org.bonitasoft.engine.page.AuthorizationRule`
+- create CustomRule class that implements `org.bonitasoft.engine.page.AuthorizationRule`
 
 ```java
 package org.bonitasoft.example.authorization;
@@ -107,7 +108,7 @@ public class CustomRule extends AuthorizationRuleWithParameters implements Autho
 
 ```
 
-* create CustomAuthorizationRuleMapping class that implements `org.bonitasoft.engine.core.form.AuthorizationRuleMapping`
+- create CustomAuthorizationRuleMapping class that implements `org.bonitasoft.engine.core.form.AuthorizationRuleMapping`
 
 ```java
 package org.bonitasoft.example.authorization;
@@ -137,23 +138,23 @@ public class CustomAuthorizationRuleMapping implements AuthorizationRuleMapping 
 
 ```
 
-* build maven jar
+- build maven jar
 
-```
+```bash
 mvn clean install
 ```
 
 ### Configure engine with new rules
 
-* copy jar into `webapps/bonita/WEB-INF/lib/` folder (for default tomcat bundle)
+- copy jar into `webapps/bonita/WEB-INF/lib/` folder (for default tomcat bundle)
 
-* pull current engine configuration using platform setup tool
+- pull current engine configuration using platform setup tool
 
-```
+```bash
  ./setup/setup.sh pull  
 ```
 
-* add customRule bean registration in `platform_conf/current/tenants/TENANT_ID/tenant_engine/bonita-tenant-custom.xml`
+- add customRule bean registration in `platform_conf/current/tenants/TENANT_ID/tenant_engine/bonita-tenant-custom.xml`
 
 ```xml
  <bean id="customRule" class="org.bonitasoft.example.authorization.CustomRule">
@@ -164,32 +165,32 @@ mvn clean install
  
 ```
 
-* add customAuthorizationRuleMapping bean registration in `platform_conf/current/tenants/TENANT_ID/tenant_engine/bonita-tenant-custom.xml`
+- add customAuthorizationRuleMapping bean registration in `platform_conf/current/tenants/TENANT_ID/tenant_engine/bonita-tenant-custom.xml`
 
 ```xml
  <bean id="customAuthorizationRuleMapping"
           class="org.bonitasoft.example.authorization.CustomAuthorizationRuleMapping"/>
 ```
 
-* uncomment to declare customAuthorizationRuleMapping in `platform_conf/current/tenants/TENANT_ID/tenant_engine/bonita-tenant-community-custom.properties`
+- uncomment to declare customAuthorizationRuleMapping in `platform_conf/current/tenants/TENANT_ID/tenant_engine/bonita-tenant-community-custom.properties`
 
-```
+```properties
 bonita.tenant.authorization.rule.mapping=customAuthorizationRuleMapping
 ```
 
+- push current engine configuration using platform setup tool
 
-* push current engine configuration using platform setup tool
-
-```
+```bash
  ./setup/setup.sh push  
 ```
 
-* restart server
+- restart server
 
-```
+```bash
 ./stop-bonita.sh
 ./start-bonita.sh
 ```
+
 ::: info
 You can find a complete implementation example of page mapping authorization rule and configuration in [this project on GitHub](https://github.com/bonitasoft/bonita-page-authorization-rules).
 :::

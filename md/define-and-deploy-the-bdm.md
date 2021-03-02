@@ -1,4 +1,3 @@
-
 # Define and deploy the Business Data Model (BDM)
 
 This page explains how to define, deploy, and export Business Data Model (BDM) and how these objects can be used in processes.
@@ -19,10 +18,10 @@ You are recommended to use business data instead of process data for any data th
 
 To design your BDM, you need to consider the following:
 
-* In a BDM, you create predefined business object definitions that represent key concepts which are manipulated by your processes. For example, Orders, Invoices, and Leave requests are be shared by all processes when running in the Bonita Engine during production.
-* A BDM is composed of simple and complex business objects, and the composition and aggregation relationships between them.
-* There is one BDM for a tenant, so it must include all the objects needed. Updating a model must be done with care, so that the changes do not cause problems for deployed processes or applications.
-* Business objects are instantiated at diagram or process level, not at task or form level.
+- In a BDM, you create predefined business object definitions that represent key concepts which are manipulated by your processes. For example, Orders, Invoices, and Leave requests are be shared by all processes when running in the Bonita Engine during production.
+- A BDM is composed of simple and complex business objects, and the composition and aggregation relationships between them.
+- There is one BDM for a tenant, so it must include all the objects needed. Updating a model must be done with care, so that the changes do not cause problems for deployed processes or applications.
+- Business objects are instantiated at diagram or process level, not at task or form level.
 
 The [BDM specification](#bdm_spec) explains the details of what you must configure in a BDM. Use Bonita Studio to [define a BDM](#define_bdm).
 
@@ -44,17 +43,17 @@ A BDM is a structured hierarchy of business objects. It is identified by a packa
 
 A business object definition consists of the following:
 
-* An object name. This must be a Java class name, because a business object is implemented as a Java class. The fully-qualified object name must be unique.
-* Attributes. These are the components of the object. There can be any number of attributes. For each attribute, you can specify:
-  * A name
-  * The data type
-  * The length, when relevant for the data type
-  * Whether it is mandatory
-  * Whether the object can contain multiple instances
-  * Any unique constraints
-* A set of default queries, created automatically, and optionally some custom queries
-* Indexes for some attributes (optional)
-* A `persistenceId`, created automatically
+- An object name. This must be a Java class name, because a business object is implemented as a Java class. The fully-qualified object name must be unique.
+- Attributes. These are the components of the object. There can be any number of attributes. For each attribute, you can specify:
+  - A name
+  - The data type
+  - The length, when relevant for the data type
+  - Whether it is mandatory
+  - Whether the object can contain multiple instances
+  - Any unique constraints
+- A set of default queries, created automatically, and optionally some custom queries
+- Indexes for some attributes (optional)
+- A `persistenceId`, created automatically
 
 Business objects can be combined using [composition or aggregation](#compos) relationships. They are managed using standard create, read, update, delete actions. A business object can be read directly using the [Engine Java API](http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html) specifying the Java DAO, or using the [REST API](bdm-api.md). To read a business object in a Groovy expression, use the DAO. A business object can be updated only in a process, using an operation.
 
@@ -81,9 +80,9 @@ You can specify a unique constraint for an attribute, to require that every valu
 
 The default queries are `find` and `find_by` queries. There are three types:
 
-* based on unique constraints (which returns a single result)
-* based on simple attributes (with = criterion)
-* based on Select All (which returns all Business data on the Business Object)
+- based on unique constraints (which returns a single result)
+- based on simple attributes (with = criterion)
+- based on Select All (which returns all Business data on the Business Object)
 
 To create a custom query, use the query tab of the Expression editor to write a query script. You can use one of the default queries as an example. A custom query can be on multiple attributes. Only SELECT queries are supported.
 
@@ -111,8 +110,8 @@ In a production environment, indexes are built when a tenant starts or after a n
 
 Composition and aggregation are two ways in which you can define a composite business object that includes relationships with other business objects in the BDM.
 
-* In a composition relationship, a child object cannot exist independently of the parent. The composite business object contains attributes that are business objects. It can also contain attributes with simple data types. For example, a room object that is a child of a house object cannot exist if there is no house object.
-* In an aggregation relationship, a child object can exist independently of the parent. The composite business object refers to other business objects, as well as containing simple attributes.
+- In a composition relationship, a child object cannot exist independently of the parent. The composite business object contains attributes that are business objects. It can also contain attributes with simple data types. For example, a room object that is a child of a house object cannot exist if there is no house object.
+- In an aggregation relationship, a child object can exist independently of the parent. The composite business object refers to other business objects, as well as containing simple attributes.
 
 Example: A Purchase Order object consists of a set of primitive attribute variables (such as PO number, client, creation date), and a set of order item objects. The order items have no meaning outside the order, so have a composition relationship with the purchase order. An order item contains a product object and a simple attribute for quantity. The product object has an existence outside the order item (it is used in the product catalog), so has an aggregation relationship with the order item.
 
@@ -132,10 +131,10 @@ A composed object is automatically saved to the database using an appropriate sc
 
 When you create a process that uses a business object with a composition or aggregation relationship, treat the object as a typical business object, with the following exceptions:
 
-* A composite object cannot be automatically mapped to page widgets or groups of widgets.
-* To set the value of a composite object, either use a Groovy expression or directly assign the value to the child object from an existing class instance.
-* You can use getter and setter methods in process or activity operations to set the composed objects as a single instance or as a `java.util.list` for a list of instances.
-* If your process uses a query from a Groovy expression or uses DAO objects from a client Java application, load the complete composite objects including the child objects.
+- A composite object cannot be automatically mapped to page widgets or groups of widgets.
+- To set the value of a composite object, either use a Groovy expression or directly assign the value to the child object from an existing class instance.
+- You can use getter and setter methods in process or activity operations to set the composed objects as a single instance or as a `java.util.list` for a list of instances.
+- If your process uses a query from a Groovy expression or uses DAO objects from a client Java application, load the complete composite objects including the child objects.
 
 <a id="lazy_eager_loading" />
 
@@ -185,10 +184,9 @@ To modify a new or existing object:
    4. If the attribute is mandatory, check the box in the **Mandatory** column.
    5. If the attribute is of type String, set the attribute length in the field below the attribute list.
    6. If the attribute is of type of a BDM object, set type the **Relationship** (Aggregation or Composition) and the loading configuration (for `lazy`, select
-    `Only load related objects when needed`, for `eager`, select `Always load related objects`)  
+      `Only load related objects when needed`, for `eager`, select `Always load related objects`)  
 
 ![BDM model relationship](images/studio_bdm_relationship.png)
-
 
 4. In the **Unique constraints** tab, specify the attributes and sets of attributes that have a uniqueness constraint.
    1. Click **_Add_** to add a constraint. The constraint is added to the list with a temporary name.
@@ -229,7 +227,7 @@ To deploy the BDM, you export it as a ZIP file from Bonita Studio and then impor
 Follow these steps:
 
 1. In Bonita Studio, open the **Development menu** in the cool bar.
-2. Click **Business Data Model** \> **Export**.
+2. Click **Business Data Model** > **Export**.
 3. Select a destination folder.
 4. Click **Export**. A file called `bdm.zip` is written to the folder that you specified.
 5. Log in to Bonita Portal as the technical user.
@@ -262,6 +260,7 @@ Warning: Bonita Studio can contain only one business data model. When you import
 The BDM ZIP file contains a business object model file, `bom.xml`. You can open this file in a text editor to view the BDM definition.
 
 Example contents of the `bom.xml` file:
+
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <businessObjectModel>
@@ -299,8 +298,8 @@ Each object created in the database has a unique read-only ID called a persisten
 
 When you declare a persisted business object instance in a process, there are two ways you can initialize it:
 
-* as a new instance: it is created automatically at runtime when the process is instantiated, with the structure defined for the object in the BDM (for example, a process designed to manage employee leave requests will create a new instance of the Leave Request business object). The initial value of each BDM attribute can be set via a groovy script. This way, you may set the process instantiation contract inputs to attributes. Go to [Update BDM attributes from contract inputs](#initBDM) for more information.
-* as an existing instance: the data is loaded by identifying a business object instance that already exists (for example, a process designed to let employees modify unapproved leave requests will modify an existing instance of the Leave Request business object).
+- as a new instance: it is created automatically at runtime when the process is instantiated, with the structure defined for the object in the BDM (for example, a process designed to manage employee leave requests will create a new instance of the Leave Request business object). The initial value of each BDM attribute can be set via a groovy script. This way, you may set the process instantiation contract inputs to attributes. Go to [Update BDM attributes from contract inputs](#initBDM) for more information.
+- as an existing instance: the data is loaded by identifying a business object instance that already exists (for example, a process designed to let employees modify unapproved leave requests will modify an existing instance of the Leave Request business object).
 
 After it is declared in the process, a business object instance can be adapted by reading or modifying its data attributes. The Engine will handle the persistence of the modification.
 
@@ -314,17 +313,18 @@ If you select **No, thanks. I'll manually define how to use the contract**, you 
 
 For instance, with the above _com.company.model.LeaveRequest_ class, using the **Add from data...** action in the **Details** panel, **Execution** tab, **Contract** pane will create the following complex input :
 
-* leaveRequestInput : COMPLEX
-  * startDate : DATE
-  * endDate: DATE
-  * returnDate: DATE
-  * daysOff: DECIMAL
-  * leaveType: TEXT
-  * approved: BOOLEAN
-Then, you need to go back to the process variable list (**Details** panel, **Data** tab, **Parameters** pane) and add a new variable of type _com.company.model.LeaveRequest_ or edit an existing one of the _com.company.model.LeaveRequest_ type and click on the _**Pencil**_ to open the Groovy script editor.
+- leaveRequestInput : COMPLEX
+  - startDate : DATE
+  - endDate: DATE
+  - returnDate: DATE
+  - daysOff: DECIMAL
+  - leaveType: TEXT
+  - approved: BOOLEAN
+    Then, you need to go back to the process variable list (**Details** panel, **Data** tab, **Parameters** pane) and add a new variable of type _com.company.model.LeaveRequest_ or edit an existing one of the _com.company.model.LeaveRequest_ type and click on the _**Pencil**_ to open the Groovy script editor.
 
 Enter the following code snippet to have a new BDM _com.company.model.LeaveRequest_ instance set with the contract inputs:
-```
+
+```groovy
 var leaveRequest = new com.company.model.LeaveRequest();
         leaveRequest.setStartDate(leaveRequestInput.getStartDate());
         leaveRequest.setEndDate(leaveRequestInput.getEndDate());
@@ -355,9 +355,9 @@ You can use business data in a Java program by using the DAO. DAO gives _**read*
 
 You can however manipulate the business object outside the connector, and use business objects as connector input or output:
 
-* For a _**read**_, retrieve the business object with an expression (for example, `employeeDAO.findByFirstNameAndLastName("William","Jobs")`. Then use the object as input to the connector.
-* For a _**create**_ or _**update**_, return the new or updated business object as output of the connector.
-Then use the business object (which is stored only in memory at this point) in an **operation** to update the business object in the business database, persisting the change.
+- For a _**read**_, retrieve the business object with an expression (for example, `employeeDAO.findByFirstNameAndLastName("William","Jobs")`. Then use the object as input to the connector.
+- For a _**create**_ or _**update**_, return the new or updated business object as output of the connector.
+  Then use the business object (which is stored only in memory at this point) in an **operation** to update the business object in the business database, persisting the change.
 
 #### BDM and custom REST APIs
 
@@ -371,7 +371,7 @@ this alternative.
 :::
 
 You can use an alternative database `SchemaManager` implementation. A `SchemaManager` is responsible for updating the BDM Database schema, according to the changes you have made to your
-Business Data Model. As our third-party persistence layer *Hibernate* does not support all type of schema updates, you may want to use a SchemaManager that does **not** update the database
+Business Data Model. As our third-party persistence layer _Hibernate_ does not support all type of schema updates, you may want to use a SchemaManager that does **not** update the database
 tables directly, but rather let you (or your Database Administrator) update the database "manually".
 
 For that, you can use the alternative we provide, by uncommenting the following lines in file `platform_conf/current/tenants/[TENANT_ID]/tenant_engine//bonita-tenants-custom.xml` using [setup tool](BonitaBPM_platform_setup.md#update_platform_conf).
@@ -389,36 +389,45 @@ With this alternative, you should carefully update the database before deploying
 
 Errors you can get if you:
 
-* use a business object without updating the database schema:
-```
+- use a business object without updating the database schema:
+
+```log
 15-May-2018 12:04:12.106 ERROR [http-nio-52162-exec-8] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions Table "BUSINESSOBJECT1" not found; SQL statement:
 insert into BUSINESSOBJECT1 (persistenceId, ATTRIBUT1, ATTRIBUT2, ATTRIBUT3, persistenceVersion) values (null, ?, ?, ?, ?) [42102-175]
 15-May-2018 12:04:12.113 GRAVE [http-nio-52162-exec-8] org.restlet.resource.ServerResource.doCatch Exception or error caught in server resource
  org.bonitasoft.engine.exception.BonitaRuntimeException: USERNAME=walter.bates | org.bonitasoft.engine.commons.exceptions.SRetryableException: javax.persistence.PersistenceException: org.hibernate.exception.SQLGrammarException: could not prepare statement
 ```
-* extend the length of a business object attribute without updating the database column:
-```
+
+- extend the length of a business object attribute without updating the database column:
+
+```log
 15-May-2018 16:09:28.066 WARN [http-nio-52162-exec-4] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions SQL Error: 22001, SQLState: 22001
 15-May-2018 16:09:28.067 ERROR [http-nio-52162-exec-4] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions Value too long for column "ATTRIBUT1 VARCHAR_IGNORECASE(20)": "CAST(STRINGDECODE('   30     caract\u00e8res__________') AS VARCHAR_IGNORECASE) (30)"; SQL statement:
 insert into BUSINESSOBJECT1 (persistenceId, ADDEDCOLUMN, ATTRIBUT1, ATTRIBUT2, NEWBOOLEAN, persistenceVersion, RENAMEDCOLUMN) values (null, ?, ?, ?, ?, ?, ?) [22001-175]
 15-May-2018 16:09:28.075 GRAVE [http-nio-52162-exec-4] org.restlet.resource.ServerResource.doCatch Exception or error caught in server resource
  org.bonitasoft.engine.exception.BonitaRuntimeException: USERNAME=walter.bates | org.bonitasoft.engine.commons.exceptions.SRetryableException: javax.persistence.PersistenceException: org.hibernate.exception.DataException: could not execute statement
 ```
-* change the type of a business object attribute without updating the database column:
-```
+
+- change the type of a business object attribute without updating the database column:
+
+```log
 15-May-2018 17:00:08.083 WARN [http-nio-52162-exec-5] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions SQL Error: 22018, SQLState: 22018
 15-May-2018 17:00:08.084 ERROR [http-nio-52162-exec-5] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions Data conversion error converting "'now is a String' (BUSINESSOBJECT1: NEWBOOLEAN BOOLEAN)"; SQL statement:
 insert into BUSINESSOBJECT1 (persistenceId, ADDEDCOLUMN, ATTRIBUT1, ATTRIBUT2, NEWBOOLEAN, persistenceVersion, RENAMEDCOLUMN) values (null, ?, ?, ?, ?, ?, ?) -- (NULL, ?1, ?2, ?3, ?4, ?5, ?6) [22018-175]
 15-May-2018 17:00:08.085 GRAVE [http-nio-52162-exec-5] org.restlet.resource.ServerResource.doCatch Exception or error caught in server resource
  org.bonitasoft.engine.exception.BonitaRuntimeException: USERNAME=walter.bates | org.bonitasoft.engine.commons.exceptions.SRetryableException: javax.persistence.PersistenceException: org.hibernate.exception.DataException: could not execute statement
 ```
-* change a relation between two business objects without updating the database / constraints:
-```
+
+- change a relation between two business objects without updating the database / constraints:
+
+```log
 [...]
 Caused by: groovy.lang.MissingMethodException: No signature of method: com.company.model.Invoice.addToLines() is applicable for argument types: (com.company.model.InvoiceLine) values: [com.company.model.InvoiceLine@623c31c]
 ```
-* remove a composition relation without removing the foreign key in database:
-```
+
+- remove a composition relation without removing the foreign key in database:
+
+```log
 16-May-2018 10:25:01.030 WARN [http-nio-52162-exec-10] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions SQL Error: 23502, SQLState: 23502
 16-May-2018 10:25:01.030 ERROR [http-nio-52162-exec-10] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions NULL not allowed for column "INVOICE_PID"; SQL statement:
 insert into INVOICELINE (persistenceId, persistenceVersion, TITLE) values (null, ?, ?) [23502-175]

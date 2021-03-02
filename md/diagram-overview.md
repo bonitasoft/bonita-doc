@@ -2,7 +2,7 @@
 
 A diagram is the representation in the Bonita studio of a group of processes (BPMN pools). A diagram saved, deployed all pools in one action
 
-A diagram has a name and a version number. You can [change the diagram name](bonita-bpm-studio-hints-and-tips.md) and you can [update the version number](bonita-bpm-studio-hints-and-tips.md) whenever you want to indicate a major change in the diagram. A pool also has a version number that can be updated manually.   
+A diagram has a name and a version number. You can [change the diagram name](bonita-bpm-studio-hints-and-tips.md) and you can [update the version number](bonita-bpm-studio-hints-and-tips.md) whenever you want to indicate a major change in the diagram. A pool also has a version number that can be updated manually.  
 There is no link between the diagram version and the pool version.
 
 ### How to create a new diagram

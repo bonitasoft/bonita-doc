@@ -6,7 +6,6 @@ Queriable logger provides information about important events that happened in th
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
-
 ## Purpose
 
 The queriable logger service provides information about important events in the Bonita Platform that are not directly related to execution of a process. The log includes information about administration operations such as deployment of a new process definition, commands, reporting, actor mapping, Portal Look & Feel themes, and organization and user management.
@@ -19,6 +18,7 @@ The information available from the queriable log is primarily for the platform a
 ## Usage
 
 Here is an example of how to search for log message about a specific activity:
+
 ```groovy
 final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100);
 builder.filter(LogSearchDescriptor.ACTION_SCOPE, aTaskId);
@@ -28,10 +28,10 @@ final LogAPI logAPI = TenantAPIAccessor.getLogAPI(session);
 final SearchResult<Log> searchedLogs = logAPI.searchLogs(builder.done());
 for (Log log : searchedLogs.getResult()) {
      // Print the detailed user creation message:
-System.out.println(log.getMessage());
+    System.out.println(log.getMessage());
 }
 ```
 
 ## Implementation details
 
-The queriable logger service stores log message in the Bonita Engine back-end database using the Hibernate library. The [interface](https://github.com/bonitasoft/bonita-engine/blob/master/services/bonita-log/bonita-log-api/src/main/java/org/bonitasoft/engine/services/QueriableLoggerService.java) and the [implementation](https://github.com/bonitasoft/bonita-engine/tree/master/services/bonita-log/bonita-log-impl/src/main/java/org/bonitasoft/engine/services/impl) of the service are available from the source code repository on [GitHub](https://github.com/bonitasoft/).
+The queriable logger service stores log message in the Bonita Engine back-end database using the Hibernate library. The [interface](https://github.com/bonitasoft/bonita-engine/blob/master/services/bonita-log/src/main/java/org/bonitasoft/engine/services/QueriableLoggerService.java) and the [implementation](https://github.com/bonitasoft/bonita-engine/tree/master/services/bonita-log/src/main/java/org/bonitasoft/engine/services/impl) of the service are available from the source code repository on [GitHub](https://github.com/bonitasoft/).

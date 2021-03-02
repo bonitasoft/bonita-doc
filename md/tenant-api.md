@@ -7,34 +7,34 @@
 Show status or install or update the Business Data Model.
 
 #### Methods
- * GET - Read BDM status.
- * POST - Add or update Business Data Model
 
+- GET - Read BDM status.
+- POST - Add or update Business Data Model
 
 #### Get BDM status
 
 Make this call to get the status the BDM.
 
-* **URL**  
+- **URL**  
   `/API/tenant/bdm`  
-* **Method**  
+- **Method**  
   `Get`
-* **Success Response**
-    * Code: 200
-    * Payload:      
-  ```json
-  {
-        "id": "309",
-        "name": "client_bdm.zip",
-        "type": "BDM",
-        "state": "INSTALLED",
-        "lastUpdatedBy": "-1 ",
-        "lastUpdateDate": "2018-01-17T17:05:36.671Z"
-  }
-  ```   
- ::: info
- **Note:** `lastUpdatedBy"` value is always -1 because only the tenant_technical_user can install BDM.
- :::   
+- **Success Response**
+  - Code: 200
+  - Payload:      
+    ```json
+    {
+          "id": "309",
+          "name": "client_bdm.zip",
+          "type": "BDM",
+          "state": "INSTALLED",
+          "lastUpdatedBy": "-1 ",
+          "lastUpdateDate": "2018-01-17T17:05:36.671Z"
+    }
+    ```
+    ::: info
+    **Note:** `lastUpdatedBy"` value is always -1 because only the tenant_technical_user can install BDM.
+    :::   
 
 #### Install or update a BDM
 
@@ -46,40 +46,41 @@ Need to be done in two successive steps:
  ::: warning
  **Note:** To do this, your tenant services need to be paused.
  :::
- 
+
 ##### Upload a BDM file
 
-* **URL**  
+- **URL**  
   `/portal/fileUpload`  
-* **Method**  
+- **Method**  
   `POST` 
-* **Required headers**   
+- **Required headers**  
   `Content-Type: multipart/form-data`
-* **Success Response**
-    * Code: 200    
-    * Request Payload
-   ```
-   tmp_uploaded_bdm.zip
-   ``` 
+- **Success Response**
+  - Code: 200    
+  - Request Payload
+    ```
+    tmp_uploaded_bdm.zip
+    ```
 
- 
 ##### Install/Update a file previously uploaded
-* **URL**  
-  `/API/tenant/bdm`  
-* **Method**  
-  `POST`
-* **Success Response**
-    * Code: 200    
-    * Request Payload
-   ```
-   {
-        fileUpload: "tmp_uploaded_bdm.zip"
-   }   
-   ``` 
- ::: info
- **Note:** Use the file name returned in the first step to perform the second step.
- :::
 
- ::: warning
- **Note:** In Efficiency, Performance and Enterprise editions, if you have an access control file installed on your tenant, you need to delete    it before installing or updating your BDM.
- :::
+- **URL**  
+  `/API/tenant/bdm`  
+- **Method**  
+  `POST`
+- **Success Response**
+
+  - Code: 200    
+  - Request Payload
+    ```json
+    {
+         fileUpload: "tmp_uploaded_bdm.zip"
+    }   
+    ```
+    ::: info
+    **Note:** Use the file name returned in the first step to perform the second step.
+    :::
+
+  ::: warning
+  **Note:** In Efficiency, Performance and Enterprise editions, if you have an access control file installed on your tenant, you need to delete    it before installing or updating your BDM.
+  :::

@@ -8,10 +8,11 @@ A resource is typed and can be one of the following:
 
 A resource is a zip archive, and must contains a `page.properties` file, a resources directory and an index file.
 
-* The `page.properties` file contains the metadata for the page.
+- The `page.properties` file contains the metadata for the page.
 
 For example: 
-```
+
+```properties
 #The name must start with 'custompage_'
 name=custompage_layout
 displayName=Application layout page
@@ -20,11 +21,11 @@ resources=[GET|living/application,GET|living/application-page,GET|living/applica
 contentType=layout
 ```
 
-* The `resources` directory contains all the public files of your resource (for example `index.md`, images, Javascript files, CSS files). 
+- The `resources` directory contains all the public files of your resource (for example `index.md`, images, Javascript files, CSS files). 
 
-* The zip archive must contain at least one of the following index files:
-   * An `index.html` file in the `resources` directory
-   * An `Index.groovy` class at the root of the archive with, optionally, libraries
+- The zip archive must contain at least one of the following index files:
+  - An `index.html` file in the `resources` directory
+  - An `Index.groovy` class at the root of the archive with, optionally, libraries
 
 If a resource contains both `Index.groovy` and `index.html`, the Groovy class takes precedence.
 
@@ -37,7 +38,8 @@ For each REST resource accessed in other resources, specify the authorization ne
 You can find examples of the default resources in [`resources-permissions-mapping.properties`](BonitaBPM_platform_setup.md).
 
 The following example shows the permissions defined for a page that enables a user to view but not update organization information:
-```
+
+```properties
 #The name must start with 'custompage_'
 name=custompage_orgViewer
 displayName=Organization viewer
@@ -80,6 +82,7 @@ After a resource is added to the portal, it can be used in an [application](appl
 :::
 
 <a id="modify"/>
+
 ## Modify a resource
 
 To modify a resource in the portal, you upload a zip archive containing the new version.

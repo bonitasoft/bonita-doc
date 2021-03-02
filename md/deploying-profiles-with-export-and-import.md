@@ -7,13 +7,14 @@ Profile artifacts should be managed in the bonita studio during development. But
 :::
 
 ## Overview
+
 When you export a profile, it includes the following:
 
-* The profile definition (name and description).
-* The mapping of the profile to the organization. This defines the users, groups, roles, and memberships that have the profile.
-* The mapping of the profile to pages. This defines the pages that someone who is using this profile can see in the portal. 
-A custom profile can include standard pages and custom pages.
-You cannot change the mapping of a standard profile to pages.
+- The profile definition (name and description).
+- The mapping of the profile to the organization. This defines the users, groups, roles, and memberships that have the profile.
+- The mapping of the profile to pages. This defines the pages that someone who is using this profile can see in the portal. 
+  A custom profile can include standard pages and custom pages.
+  You cannot change the mapping of a standard profile to pages.
 
 You can export and import the default profiles that are provided as standard in Bonita, as a way to export and import the mapping of those profiles to elements in the organization.
 
@@ -35,9 +36,9 @@ An XML file, `Profile_Data.xml`, is exported.
 When you import a profile, you import the mapping of the profile to the organization and to pages. For the import to be successful, the organization and any custom pages must already be loaded. 
 If you are setting up a new production environment by importing all the data, import it in the following order:
 
-* organization
-* custom pages
-* profiles
+- organization
+- custom pages
+- profiles
 
 To import profiles:
 
@@ -52,5 +53,5 @@ A popup reports the status of the import. It shows the number of profiles succes
 
 Notes:
 
-* A Process manager profile does not include the list of apps assigned to a given process manager. After the Process manager profile is imported, you need to [assign a process manager to an app](process-manager.md).
-* The standard profiles defined in Bonita have the flag _isDefault_ set to _True_ in the XML file. Do not change the setting of _isDefault_ for any profile, or you will get an error message on import.
+- A Process manager profile does not include the list of apps assigned to a given process manager. After the Process manager profile is imported, you need to [assign a process manager to an app](process-manager.md).
+- The standard profiles defined in Bonita have the flag _isDefault_ set to _True_ in the XML file. Do not change the setting of _isDefault_ for any profile, or you will get an error message on import.
