@@ -17,7 +17,7 @@ Be careful, your organization will be merged with existing data.
 
 . Go to Organization > Import/Export.
 . Click *_Click here to choose your file_*. The xml file will be displayed in the import file field.
-. Click _*Import_*.
+. Click *_Import_*.
 . Click *_Save_*.
 
 == How to export an organization
