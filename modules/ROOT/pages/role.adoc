@@ -28,7 +28,7 @@ Logged on with the Administrator profile, you have rights to manage roles as fol
 . Click a checkbox to select a role.
 . Click *_Edit_.
 . In the popup window, update the role information.
-. Click *_Save_.
+. Click *_Save_*.
 
 == Delete a role
 
