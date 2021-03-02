@@ -16,7 +16,7 @@ To import an organization in .xml format, that has already been exported from Bo
 Be careful, your organization will be merged with existing data.
 
 . Go to Organization > Import/Export.
-. Click *-Click here to choose your file*_. The xml file will be displayed in the import file field.
+. Click *_Click here to choose your file_*. The xml file will be displayed in the import file field.
 . Click _*Import_*.
 . Click *_Save_*.
 
