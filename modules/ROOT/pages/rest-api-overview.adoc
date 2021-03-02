@@ -83,7 +83,7 @@ It is possible for an extension to interact with the engine (via the API) or wit
 |  |
 
 | Request URL
-| `+http://.../API/{API_name]/{resource_name]/+`
+| `+http://.../API/{API_name}/{resource_name}/+`
 
 | Request Method
 | POST
@@ -101,7 +101,7 @@ It is possible for an extension to interact with the engine (via the API) or wit
 |  |
 
 | Request URL
-| `+http://.../API/{API_name]/{resource_name}/{id}+`
+| `+http://.../API/{API_name}/{resource_name}/{id}+`
 
 | Request Method
 | GET
