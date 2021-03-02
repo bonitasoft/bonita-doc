@@ -331,7 +331,7 @@ Skip this section and jump directly to **Upgrade Oracle database server** sectio
 Each file however is specific to the Oracle DB server version installed.
 Please make sure to download the appropriate one:
 * Oracle 12c (12.2.0.x.y) : Driver ojdbc8.jar [Oracle Database 12.2.0.1 JDBC Driver & UCP Downloads](https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html) ( make sure it is the official driver by checking the SHA1 Checksum: 60f439fd01536508df32658d0a416c49ac6f07fb )
-* Oracle 19c (19.3.0.0) : [Oracle Database 19c (19.3) JDBC Driver & UCP Downloads](https://www.oracle.com/database/technologies/appdev/jdbc-ucp-19c-downloads.html)
+* Oracle 19c (19.3.0.0) : Driver ojdbc8.jar [Oracle Database 19c (19.3) JDBC Driver & UCP Downloads](https://www.oracle.com/database/technologies/appdev/jdbc-ucp-19c-downloads.html) ( make sure it is the official driver by checking the SHA1 Checksum: 967c0b1a2d5b1435324de34a9b8018d294f8f47b )
 
 ### Check the Bonita 7.8.4 server starts with the Oracle database server 12c (12.2.0.x.y) or 19c (19.3.0.0)
 
