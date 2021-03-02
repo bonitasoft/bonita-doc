@@ -190,7 +190,6 @@ To change style of your components in the HTML rendered reports, add CSS classes
 
 [NOTE]
 ====
- +
 If a JRTX file has been packaged inside the imported zip file, it will not be used to style HTML generated reports. +
 Using the global CSS look'n'feel of the Bonita Portal allows to have a consistent look'n'feel between HTML reports and Bonita Portal.
 ====
