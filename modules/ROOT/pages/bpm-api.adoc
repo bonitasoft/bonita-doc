@@ -3888,7 +3888,7 @@ Process design can be retrived client side.
 * *Method* +
 `GET`
 * *Success Response* +
-The process design object. The JSON returned is a representation of the http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html[DesignProcessDefinition] instance of the given process id.
+The process design object. The JSON returned is a representation of the http://documentation.bonitasoft.com/javadoc/api/{varVersion}/index.html[DesignProcessDefinition] instance of the given process id.
  ** *Code*: 200
 
 [#instantiate_process]
