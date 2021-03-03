@@ -58,7 +58,7 @@ all the tricky configuration part is handled automatically by Bonita Runtime at 
 
 From version 2021.2, JAAS Authentication is only available in Enterprise edition.  
 If you are updating from a 2021.1 or earlier version, in Community edition, you will need to [change your configuration](BonitaBPM_platform_setup.md) file `authenticationManager-config.properties`
-and remove the JAAS configuration to use another Configuration Manager (an implementation of your own, for instance).
+and remove the JAAS configuration to use another Authentication Manager (an implementation of your own, for instance).
 
 ## Technical updates
 ### Libraries
