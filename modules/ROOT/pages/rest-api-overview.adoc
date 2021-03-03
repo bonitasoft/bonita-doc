@@ -57,7 +57,7 @@ It is possible for an extension to interact with the engine (via the API) or wit
 |  |
 
 | Request URL
-| `+http://.../API/\{API_name}/\{resource_name}/+`
+| `+http://.../API/{API_name}/{resource_name}/+`
 
 | Request Method
 | POST
@@ -75,7 +75,7 @@ It is possible for an extension to interact with the engine (via the API) or wit
 |  |
 
 | Request URL
-| `+http://.../API/\{API_name}/\{resource_name}/\{id}+`
+| `+http://.../API/{API_name}/{resource_name}/{id}+`
 
 | Request Method
 | GET
@@ -106,7 +106,7 @@ The order of the identifier parts for each resource type is given in the table a
 |  |
 
 | Request URL
-| `+http://.../API/\{API_name}/\{resource_name}/\{id_part1}/\{id_part2}+`
+| `+http://.../API/{API_name}/{resource_name}/{id_part1}/{id_part2}+`
 
 | Request Method
 | GET
@@ -123,7 +123,7 @@ Example `+http://.../API/identity/membership/5/12/24+`
 |  |
 
 | Request URL
-| `+http://.../API/\{API_name}/\{resource_name}/\{id}+`
+| `+http://.../API/{API_name}/{resource_name}/{id}+`
 
 | Request Method
 | PUT
@@ -145,7 +145,7 @@ Response: the corresponding item in JSON with new values where you requested a m
 |  |
 
 | Request URL
-| `+http://.../API/\{API_name}/\{resource_name}/\{id_part1}/\{id_part2}+`
+| `+http://.../API/{API_name}/{resource_name}/{id_part1}/{id_part2}+`
 
 | Request Method
 | PUT
@@ -168,7 +168,7 @@ Use the DELETE request to remove multiple resources.
 |  |
 
 | Request URL
-| `+http://.../API/\{API_name}/\{resource_name}/+`
+| `+http://.../API/{API_name}/{resource_name}/+`
 
 | Request Method
 | DELETE
@@ -199,7 +199,7 @@ The available filters are the attributes of the item plus some specific filters 
 |  |
 
 | Request URL
-| `+http://.../API/\{API_name}/\{resource_name}?p=\{page}&c=\{count}&o=\{order}&s=\{query}&f=\{filter_name}=\{filter_value}&f=...+`
+| `+http://.../API/{API_name}/{resource_name}?p={page}&c={count}&o={order}&s={query}&f={filter_name}={filter_value}&f=...+`
 
 | Request Method
 | GET
@@ -286,7 +286,7 @@ The `Registration` process has a process definition id equal to `609024682951522
  $  curl -b saved_cookies.txt -X POST --url 'http://localhost:8080/bonita/API/bpm/case' \
  --header 'Content-Type: application/json' \
  --header 'X-Bonita-API-Token: 2f86dcab-9b54-45e6-8eb1-f82c2a2f8e25' \
- -d '\{"processDefinitionId":"6090246829515228480"}'
+ -d '{"processDefinitionId":"6090246829515228480"}'
  {
    "id": "1003",
    "end_date": "",
