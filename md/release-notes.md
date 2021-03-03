@@ -1,7 +1,7 @@
 # Release notes
 
 ::: info
-**Note:** The 7.13 is currently work in progress (WIP). The 7.13.0 GA is planned on June 2021.
+**Note:** The 2021.2 is currently work in progress (WIP). The 2021.2 GA is planned on June 2021.
 :::
 
 ## New values added
@@ -53,6 +53,12 @@ default log level for `com.bonitasoft` and `org.bonitasoft` change from `WARNING
 
 From this release, upgrade from Community to Subscription is made [a lot easier](upgrade-from-community-to-a-subscription-edition.md#bonita-platform-upgrade):
 all the tricky configuration part is handled automatically by Bonita Runtime at server startup.
+
+#### JAAS authentication is now Enterprise
+
+From version 2021.2, JAAS Authentication is only available in Enterprise edition.  
+If you are updating from a 2021.1 or earlier version, in Community edition, you will need to [change your configuration](BonitaBPM_platform_setup.md) file `authenticationManager-config.properties`
+and remove the JAAS configuration to use another Authentication Manager (an implementation of your own, for instance).
 
 ## Technical updates
 ### Libraries
