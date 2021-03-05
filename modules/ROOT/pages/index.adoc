@@ -14,7 +14,8 @@ xref:release-notes.adoc[[.card-title]#Release note {varVersion}# [.card-body]#pa
 
 [.card.card-index]
 --
-xref:release-notes.adoc#_bonita_home_removal[[.card-title]#Bonita home removal for easier configuration# []#]
+xref:release-notes.adoc#_bonita_home_removal[[.card-title]#Bonita home removal for easier configuration# [.card-body]#pass:q[]#]
+--
 --
 
 [.card.card-index]
