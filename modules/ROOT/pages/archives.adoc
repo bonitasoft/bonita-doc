@@ -3,34 +3,18 @@
 
 You can find here links to download old versions of the Bonita documentation.
 
-//== HTML
-//
-//[NOTE]
-//====
-//Short description on how to use the HTML zip. Good luck Nath.
-//====
-//
-//=== 7.4 - https://www.heyImTheLink.com[Download 7.4 documentation]
-//
-//
-=== 7.3 - https://github.com/bonitasoft/bonita-doc/releases/download/7.3_archived/documentation-bonita-7.3_asciidoctor.zip[Download 7.3 documentation]
+// TODO
+// Do we want to add a short description about how to use the HTML zip and PDF
 
+== 7.x
 
-//== PDF
-//
-//[NOTE]
-//====
-//Short description on how to use the PDF. Good luck Nath.
-//====
-
-== 7.2, 7.1, 7.0
-
-https://documentation-legacy.bonitasoft.com[Go to legacy documentation site].
+* https://github.com/bonitasoft/bonita-doc/releases/download/7.3_archived/documentation-bonita-7.3_asciidoctor.zip[Bonita BPM 7.3]
+* Bonita BPM 7.0 to 7.2: Coming soon
 
 
 == 6.x
 
-https://documentation-legacy.bonitasoft.com[Go to legacy documentation site].
+Coming soon
 
 
 == 5.x
