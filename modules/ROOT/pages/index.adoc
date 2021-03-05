@@ -9,61 +9,61 @@ Click on the *links* below to find useful information quickly, or xref:taxonomy.
 
 [.card.card-index]
 --
-xref:release-notes.adoc[[.card-title]#Release note {varVersion}# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+xref:release-notes.adoc[[.card-title]#Release note {varVersion}# [.card-body]#pass:q[]#]
 --
 
 [.card.card-index]
 --
-xref:release-notes.adoc#_bonita_home_removal[[.card-title]#Bonita home removal for easier configuration# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+xref:release-notes.adoc#_bonita_home_removal[[.card-title]#Bonita home removal for easier configuration# []#]
 --
 
 [.card.card-index]
 --
-xref:release-notes.adoc#_user_task_list_re_design[[.card-title]#User task list redesign for better efficiency# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+xref:release-notes.adoc#_user_task_list_re_design[[.card-title]#User task list redesign for better efficiency# [.card-body]#pass:q[]#]
 --
 
 [.card.card-index]
 --
-xref:release-notes.adoc#_new_ui_designer_widgets[[.card-title]#New UI Designer widgets: File viewer and Rich text area# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+xref:release-notes.adoc#_new_ui_designer_widgets[[.card-title]#New UI Designer widgets: File viewer and Rich text area# [.card-body]#pass:q[]#]
 --
 
 [.card.card-index]
 --
-xref:release-notes.adoc#_ui_designer_usability_improvements[[.card-title]#UI Designer usability improvements# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+xref:release-notes.adoc#_ui_designer_usability_improvements[[.card-title]#UI Designer usability improvements# [.card-body]#pass:q]#]
 --
 
 [.card-section]
 == Getting started
 [.card.card-index]
 --
-xref:getting-started-tutorial.adoc[[.card-title]#Getting started tutorial# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+xref:getting-started-tutorial.adoc[[.card-title]#Getting started tutorial# [.card-body]#pass:q[]#]
 --
 
 [.card.card-index]
 --
-xref:diagram-overview.adoc[[.card-title]#Process diagram overview# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+xref:diagram-overview.adoc[[.card-title]#Process diagram overview# [.card-body]#pass:q[]#]
 --
 
 [.card.card-index]
 --
-xref:key-concepts.adoc[[.card-title]#Key concepts# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+xref:key-concepts.adoc[[.card-title]#Key concepts# [.card-body]#pass:q[]#]
 --
 [.card.card-index]
 --
-xref:ui-designer-overview.adoc[[.card-title]#UI designer overview# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+xref:ui-designer-overview.adoc[[.card-title]#UI designer overview# [.card-body]#pass:q[]#]
 --
 [.card.card-index]
 --
-xref:bonita-bpm-studio-installation.adoc[[.card-title]#Bonita BPM Studio installation# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+xref:bonita-bpm-studio-installation.adoc[[.card-title]#Bonita BPM Studio installation# [.card-body]#pass:q[]#]
 --
 
 [.card.card-index]
 --
-xref:tomcat-bundle.adoc[[.card-title]#Basic Bonita BPM platform installation# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+xref:tomcat-bundle.adoc[[.card-title]#Basic Bonita BPM platform installation# [.card-body]#pass:q[]#]
 --
 [.card.card-index]
 --
-xref:create-your-first-project-with-the-engine-apis-and-maven.adoc[[.card-title]#Create your first project with the Engine APIs and Maven# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+xref:create-your-first-project-with-the-engine-apis-and-maven.adoc[[.card-title]#Create your first project with the Engine APIs and Maven# [.card-body]#pass:q[]#]
 --
 
 [.card-section]
@@ -71,25 +71,25 @@ xref:create-your-first-project-with-the-engine-apis-and-maven.adoc[[.card-title]
 
 [.card.card-index]
 --
-xref:http://www.bonitasoft.com/how-we-do-it/downloads[[.card-title]#Download Bonita BPM software# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+xref:http://www.bonitasoft.com/how-we-do-it/downloads[[.card-title]#Download Bonita BPM software# [.card-body]#pass:q[]#]
 --
 
 [.card.card-index]
 --
-xref:http://www.bonitasoft.com/how-we-do-it/downloads[[.card-title]#BPMN standard# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+xref:http://www.bonitasoft.com/how-we-do-it/downloads[[.card-title]#BPMN standard# [.card-body]#pass:q[]#]
 --
 
 [.card.card-index]
 --
-xref:http://www.bonitasoft.com/for-you-to-read/bpm-library/ultimate-guide-bpmn[[.card-title]#The Ultimate Guide to BPMN2# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+xref:http://www.bonitasoft.com/for-you-to-read/bpm-library/ultimate-guide-bpmn[[.card-title]#The Ultimate Guide to BPMN2# [.card-body]#pass:q[]#]
 --
 
 [.card.card-index]
 --
-xref:http://www.bonitasoft.com/for-you-to-read/bpm-library/best-practices-continuous-integration-bonita-bpm[[.card-title]#Best Practices for Continuous Integration with Bonita BPM# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+xref:http://www.bonitasoft.com/for-you-to-read/bpm-library/best-practices-continuous-integration-bonita-bpm[[.card-title]#Best Practices for Continuous Integration with Bonita BPM# [.card-body]#pass:q[]#]
 --
 
 [.card.card-index]
 --
-xref:http://documentation.bonitasoft.com/javadoc/api/{varVersion}/index.html[[.card-title]#Javadoc# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+xref:http://documentation.bonitasoft.com/javadoc/api/7.3/index.html[[.card-title]#Javadoc# [.card-body]#pass:q[]#]
 --
