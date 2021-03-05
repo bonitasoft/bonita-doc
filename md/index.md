@@ -2,6 +2,10 @@
 
 Learn how to use the Bonita Platform and all of its components.
 
+::: info
+![videos](images/tv.png)  Discover what is new in Bonita 2021.1 thanks to these short videos in [English](https://www.youtube.com/playlist?list=PLvvoQatxaHOOcS6mu3PUFmVFd1lItLaXs), [French](https://www.youtube.com/playlist?list=PLvvoQatxaHOPWv6rMQPNIxzZjW6BNg75K), or [Spanish](https://www.youtube.com/playlist?list=PLvvoQatxaHOMepAeo0jDrIR9hHfzK1NPn)!
+:::
+
 Click on the **links** below to find useful information quickly, or [browse the whole content tree](taxonomy.md), or use the **table of contents** to go straight to the information you want to read.
 
 <div class="col-md-4">
