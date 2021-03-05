@@ -2,7 +2,7 @@
 
 Welcome to the Bonita BPM documentation website.
 
-Click on the *links* below to find useful information quickly, or xref:taxonomy.adoc[browse the whole content tree], or use the *table of contents* to go straight to the information you want to read.
+Click on the *links* below to find useful information quickly, use taxonomy, or use the *table of contents* to go straight to the information you want to read.
 
 [.card-section]
 == Highlight
