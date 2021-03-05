@@ -52,7 +52,7 @@ To configure Bonita for OIDC:
     1. Download a Subscription edition bundle from the customer portal
     1. [Configure](_basic-bonita-platform-installation) it as needed
     1. Run it a first time, so that the first default tenant is created (TENANT_ID = 1)
-    1. Stop it before modifying the configuration files below
+    1. Stop it and run `setup[.sh][.bat] pull` to retrieve current configuration before modifying the configuration files below
 2. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
    edit the `authenticationManager-config.properties` as follows:
     ```
@@ -198,12 +198,12 @@ Your IdP should declare an OIDC Service Provider named (or whose client Id is) `
   this URL is used by the server to communicate directly with Bonita service provider (to push revocation policies for example))
     "clientAuthenticatorType": "client-secret", (can also be `client secret jwt`, `private key jwt`, etc... depending on your use case and security policies)
     "redirectUris": [
-      "http://localhost:8080/*" (those are the valid redirect URLs)
+      "http://my.company.domain:8080/*" (those are the valid redirect URLs)
     ],
     "bearerOnly": false,
     "publicClient": true,
     "consentRequired": false, (or true if you want the users to have to consent if a third party app uses Bonita REST API for example)
-    "standardFlowEnabled": true,, (or false depending on your use case (if you need to use the implicit flow for example))
+    "standardFlowEnabled": true, (or false depending on your use case (if you need to use the implicit flow for example))
     "implicitFlowEnabled": false, (or true depending on your use case)
     "directAccessGrantsEnabled": true, (or false if you don't want to use the Resource Owner Credentials Grant type to access the REST API)
     "frontchannelLogout": true,
@@ -313,4 +313,4 @@ For example, using a Keyclaok server as OIDC provider, with a realm named `bonit
 #### Authorization Code or Implicit Grant
 
 Those scenarios work the same way as when you login on Bonita portal/apps except it is the client application that needs to use Bonita REST API which needs to trigger the authentication process by calling the OIDC provider authorisation endpoint with Bonita OIDC client as `client_id`. The rest of the scenario is similar to what is described in the OIDC Authorization Code Flow schema.  
-Once you obtained the Access token, you can make your REST API request in a normal way, just adding a header `Authoritation` with value `Bearer <Access token>` (replace the placeholder <Access token> with the token returned by the OIDC provider and make sure to keep the whitespace after `Bearer`).
+Once you obtained the Access token, you can make your REST API request in a normal way, just adding a header `Authorization` with value `Bearer <Access token>` (replace the placeholder <Access token> with the token returned by the OIDC provider and make sure to keep the whitespace after `Bearer`).
