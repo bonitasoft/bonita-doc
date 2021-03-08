@@ -424,7 +424,7 @@ Please make sure to download the appropriate one:
 * Oracle 12c (12.2.0.x.y) : Driver ojdbc8.jar [Oracle Database 12.2.0.1 JDBC Driver & UCP Downloads](https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html) ( make sure it is the official driver by checking the SHA1 Checksum: 60f439fd01536508df32658d0a416c49ac6f07fb )
 * Oracle 19c (19.3.0.0) : Driver ojdbc8.jar [Oracle Database 19c (19.3) JDBC Driver & UCP Downloads](https://www.oracle.com/database/technologies/appdev/jdbc-ucp-19c-downloads.html) ( make sure it is the official driver by checking the SHA1 Checksum: 967c0b1a2d5b1435324de34a9b8018d294f8f47b )
 
-**Note I**: The migration tool already include the oracle driver for Oracle 19c (19.3.0.0) in the `bonita-migration/lib` directory. If your are not using Oracle 19c (19.3.0.0) you need to replace it.
+**Note I**: The migration tool already includes the oracle driver for Oracle 19c (19.3.0.0) in the `bonita-migration/lib` directory. If your are not using Oracle 19c (19.3.0.0) you need to replace it.
 
 ### Check the Bonita 7.8.4 server starts with the Oracle database server 12c (12.2.0.x.y) or 19c (19.3.0.0)
 
