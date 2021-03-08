@@ -132,23 +132,25 @@ so it is not possible to be precise about the time that will be required. Howeve
 
 This section explains how to migrate a platform that uses one of the Bonita bundles.
 
-1. Download the target version bundle and the migration tool for your Edition from the
-    [Bonitasoft site](http://www.bonitasoft.com/downloads-v2) for Bonita Community edition
+1. Download the target version bundle and the migration tool for your Edition from the [Bonitasoft site](http://www.bonitasoft.com/downloads-v2) for Bonita Community edition
    or from the  [Customer Portal](https://customer.bonitasoft.com/download/request) for Bonita Subscription Pack editions.
 
 2. Check your current RDBMS version is compliant with the versions supported by the target version of Bonita (see  [above](#rdbms_requirements))
 
 3. Unzip the migration tool zip file into a directory. In the steps below, this directory is called `bonita-migration`.
 
-4. If you use Oracle, add the JDBC driver for your database to `bonita-migration/lib`. This is the same driver as you have installed in your web server `lib` directory. You must upgrade to  [Oracle 12c (12.2.x.y)](migrate-from-an-earlier-version-of-bonita-bpm.md#oracle12) in order to migrate to 7.9+. 
+4. If you use Oracle, there is already the driver for 19.3.0.0 oracle version in the `bonita-migration/lib`. add the JDBC driver for your database to `bonita-migration/lib`. This is the same driver as you have installed in your web server `lib` directory. You must upgrade to  [Oracle 12c (12.2.x.y)](migrate-from-an-earlier-version-of-bonita-bpm.md#oracle12) in order to migrate to 7.9+. 
 
-5. If you use Oracle or Microsoft SQL Server, add the JDBC driver for your database type to `bonita-migration/lib`. This is the same driver as you have installed in
-   your web server `lib` directory. **Warning**: For Oracle, make sure you double check that you use the official driver version that match your Database version. The correct driver is mandatory for a smooth migration:  [Follow instructions for Oracle driver download.](database-configuration.md#proprietary_jdbc_drivers)
+**Warning**: make sure you double check that you use the official driver version that match your Database version. The correct driver is mandatory for a smooth migration:  [Follow instructions for Oracle driver download.](database-configuration.md#proprietary_jdbc_drivers)
+Particularly, if you use Oracle 12.2.0.x.y and are migrating to 7.9.n or to 7.10.n, then remove the existing `ojdbc8-19.3.0.0.jar` file, and add the specific JDBC driver to `bonita-migration/lib`.   
+
+
+5. If you use Microsoft SQL Server, add the JDBC driver for your database type to `bonita-migration/lib`. This is the same driver as you have installed in your web server `lib` directory. 
 
 6. Configure the database properties needed by the migration script, by editing `bonita-migration/Config.properties`.
    Specify the following information:
 
-   | Property       | Description                                                      | Example                                                    |
+    | Property       | Description                                                      | Example                                                    |
    |:-              |:-                                                                |:-                                                          |
    | bonita.home    | The location of the existing bonita_home. Required only until 7.3| `/opt/BPMN/bonita` (Linux) or `C:\\BPMN\\bonita` (Windows) |
    | db.vendor      | The database vendor                                              | postgres                                                   |
@@ -196,7 +198,9 @@ This section explains how to migrate a platform that uses one of the Bonita bund
     To suppress the confirmation questions, so that the migration can run unattended, set the ` (-Dauto.accept=true)` system
     property.
     When the migration script is finished, a message is displayed showing the new platform version, and the time taken for the migration.
-    The `bonita_home` and the database have been migrated.
+    The database have been migrated.
+
+**Warning**: Do not use the old application server: a new one needs to be installed with the Bonita binaries that match the target version.
 
 15. Unzip the target bundle version into a directory. In the steps below, this directory is called `bonita-target-version`.
 
@@ -389,11 +393,52 @@ please follow this procedure:
 
 ## Migrating to Bonita 7.9+ using Oracle
 
-Bonita 7.9+ supports Oracle 12c (12.2.x.y) version. To migrate to Bonita 7.9+ when using Oracle,
-please follow this procedure:
+Bonita 7.9+ supports Oracle 12c (12.2.0.x.y) and Oracle 19c (19.3.0.0) versions: this is a requirement change.
 
-- ensure your Bonita platform is shut down
-- in a first step, run Bonita migration tool to update Bonita platform to version 7.8.4, following the procedure above
+The Oracle database server change needs to be done before using the Bonita migration tool from 7.8.4 to 7.9.0.
+
+### Migrate to 7.8.4
+
+Skip this section and jump directly to **Upgrade Oracle database server** section if the 7.8.4 is already the version in use.
+
+* shut down the Bonita platform 
+* run Bonita migration tool to update Bonita platform to version 7.8.4, following the migration procedure [above](#migrate)
+
+### Upgrade Oracle database server
+
+* shut down the Bonita platform
+* upgrade the Oracle database server to the version 12c (it must be 12.2.0.x.y) or 19c (it must be 19.3.0.0)
+
+### Configure the Oracle database server
+
+* configure the Oracle database server, in particular activate the XA transactions management: see the *Oracle Database* section in the [Database creation and configuration for Bonita engine and BDM](database-configuration) page
+* install the missing Oracle components
+* execute the SQL scripts to *install* XA management elements
+* execute the SQL requests to GRANT the proper rights to the Oracle users; for both Bonita BPM and BDM schemas
+
+### Download the specific jdbc driver for the Oracle 12c (12.2.0.x.y) or 19c (19.3.0.0)
+
+**Beware**: two different jdbc driver jar files may share the same name (ojdbc8.jar).
+
+Each file however is specific to the Oracle DB server version installed.
+Please make sure to download the appropriate one:
+* Oracle 12c (12.2.0.x.y) : Driver ojdbc8.jar [Oracle Database 12.2.0.1 JDBC Driver & UCP Downloads](https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html) ( make sure it is the official driver by checking the SHA1 Checksum: 60f439fd01536508df32658d0a416c49ac6f07fb )
+* Oracle 19c (19.3.0.0) : Driver ojdbc8.jar [Oracle Database 19c (19.3) JDBC Driver & UCP Downloads](https://www.oracle.com/database/technologies/appdev/jdbc-ucp-19c-downloads.html) ( make sure it is the official driver by checking the SHA1 Checksum: 967c0b1a2d5b1435324de34a9b8018d294f8f47b )
+
+**Note I**: The migration tool already includes the oracle driver for Oracle 19c (19.3.0.0) in the `bonita-migration/lib` directory. If your are not using Oracle 19c (19.3.0.0) you need to replace it.
+
+### Check the Bonita 7.8.4 server starts with the Oracle database server 12c (12.2.0.x.y) or 19c (19.3.0.0)
+
+* download and install a Bonita 7.8.4 server
+* setup the Bonita 7.8.4 server to use the Oracle 12c (12.2.0.x.y) or 19c (19.3.0.0) database
+* request and install a temporary 7.8 license in the Bonita server
+* start the Bonita 7.8.4 server
+* check you can successfully log into the portal
+
+### Migrate to 7.9+
+
+- shut down the Bonita platform 
+- run the migration tool to migrate the platform to 7.9+, following the migration procedure [above](#migrate)
 - then upgrade your Oracle database server to the version 12c (it must be 12.2.x.y)
 - in a second step, run the migration tool again to migrate the platform to 7.9.0 or newer
 - once done, you can restart your updated Bonita platform
