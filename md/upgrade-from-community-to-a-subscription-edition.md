@@ -43,7 +43,7 @@ To upgrade a Bonita platform from Community edition to a Subscription edition, f
 4. Create license folder `<bonita-community>/setup/platform_conf/licenses/`
 5. Copy your license file into this newly-created folder
 6. Push your new license in the database: `<bonita-community>/setup/setup(.sh/.bat) push`
-7. Stop Bonita Community platform with `<bonita-community>/stop-bonita(.sh/.bat)` script
+7. Stop Bonita Community platform with `<bonita-community>/stop-bonita(.sh/.bat)` script. **Do not remove the WAR file before stopping Tomcat, or many errors would be issued in the log**
 8. Remove Bonita Community Web App from `<bonita-community>/server/webapps`: both `bonita.war` and the auto-extracted folder with the same name `bonita/`
 9. Copy the Bonita Subscription Web App where the Community version was: `<bonita-community>/server/webapps/bonita.war`
 10. (Optionally rename the `<bonita-community>` folder with a name that does not contain the word `community`, for clarity)
