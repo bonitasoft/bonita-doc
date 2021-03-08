@@ -12,6 +12,7 @@ processes (number of processes instances, number of current users, operations an
 
 Hardware required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Portal)
 
+[width="30%"]
 |===
 | Type | Minimum | Recommended
 
@@ -32,6 +33,7 @@ Hardware required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Port
 
 Software required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Portal).
 
+[width="30%"]
 |===
 |  | Version
 
@@ -96,15 +98,15 @@ Software required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Port
 | 11.0.x
 |===
 
-Notes:
-
+NOTE:
 . Bonita BPM can be executed on Java 8. All development artifacts (connectors, REST API extensions, etc) must be compiled with Java 8 byte code (target version).
 . Your database must be configured to use the UTF-8 character set.
 . MySQL must be configured with innoDB storage engine. Even if the 5.5.x line is recommended, tests have shown that Bonita BPM  can run with MySQL 5.6.x and 5.7.x (please make tests prior to using these versions, especially when using exotic encoding/charset). Note that Bonita BPM does not work with MySQL 8.x
 . There is a known issue between Bitronix (the transaction manager shipped by Bonitasoft for the Tomcat bundle and inside the Deploy bundle for Tomcat) and Microsoft SQL Server JDBC driver
 (refer to: https://msdn.microsoft.com/en-us/library/aa342335.aspx[MSDN note], http://bitronix-transaction-manager.10986.n7.nabble.com/Failed-to-recover-SQL-Server-Restart-td148.html[Bitronix note]).
 Therefore, using Bitronix as a transaction manager with SQL Server does not work and is not supported. To use SQL Server database requires that you use the WildFly bundle provided by Bonitasoft.
-*Note*: This limitation disappears in the 7.9 release.
+
+NOTE: This limitation disappears in the 7.9 release.
 . Oracle must be configured using AL32UTF8 character set to store properly all _Char_ data
 . Chrome version 60.0.3112 introduced an incompatibility impacting the functionality of Bonita BPM Portal. So from that Chrome version onwards, once Bonita BPM Platform is installed, apply the following procedure to resolve this issue:
 
