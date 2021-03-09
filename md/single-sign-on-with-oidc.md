@@ -137,11 +137,11 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
     {
       "realm": "master",
       "auth-server-url": "http://localhost:9090/auth",
-      "auth-path": "/realms/{realm-name}/protocol/openid-connect/auth",
-      "token-path": "/realms/{realm-name}/protocol/openid-connect/token",
-      "token-service-logout-path": "/realms/{realm-name}/protocol/openid-connect/logout",
-      "token-audience-path": "/realms/{realm-name}",
-      "jwks-path": "/realms/{realm-name}/protocol/openid-connect/certs",
+      "auth-path": "{auth-server-url}/realms/{realm-name}/protocol/openid-connect/auth",
+      "token-path": "{auth-server-url}/realms/{realm-name}/protocol/openid-connect/token",
+      "token-service-logout-path": "{auth-server-url}/realms/{realm-name}/protocol/openid-connect/logout",
+      "token-audience-path": "{auth-server-url}/realms/{realm-name}",
+      "jwks-path": "{auth-server-url}/realms/{realm-name}/protocol/openid-connect/certs",
       "resource": "bonita",
       "ssl-required": "external",
       "principal-attribute": "preferred_username",
@@ -152,12 +152,12 @@ For example on linux, you can use the command ssh-keygen, then go to “cd ~/.ss
     }
     ```
     + The property `realm` is only required if you use a Keycloak server as OIDC provider or if you want to benefit from the templating in the `*-path` properties ({realm-name} will be replaced with the realm value). If you use a Keycloak server, make sure you set it with the name of the realm in which your Bonita OIDC client is/will be created.
-    + `auth-server-url` is the base URL of the OIDC provider server. All other service endpoints are derived from this.
-    + `auth-path` needs to be set with the path of your OIDC provider Authorization endpoint. It is prefixed with the value of `auth-server-url` to build the request URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
-    + `token-path` needs to be set with the path of your OIDC provider Token endpoint. It is prefixed with the value of `auth-server-url` to build the request URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
-    + `token-service-logout-path` needs to be set with the path of your OIDC provider Logout endpoint. It is prefixed with the value of `auth-server-url` to build the request URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
-    + `token-audience-path` needs to be set with the path of the URL that will be used as audience in the ID token (`aud` claim). It is prefixed with the value of `auth-server-url` to build the request URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
-    + `jwks-path` needs to be set with the path of your OIDC provider JSON Web Key Set endpoint. It is prefixed with the value of `auth-server-url` to build the request URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
+    + `auth-server-url` is the base URL of the OIDC provider server. All other service endpoints URL values can reuse this base URL with the placeholder`{auth-server-url}`.
+    + `auth-path` needs to be set with the URL of your OIDC provider Authorization endpoint. It can be prefixed with `{auth-server-url}` to only indicate the path of the service or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
+    + `token-path` needs to be set with the URL of your OIDC provider Token endpoint. It can be prefixed with `{auth-server-url}` to only indicate the path of the service or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
+    + `token-service-logout-path` needs to be set with the URL of your OIDC provider Logout endpoint. It can be prefixed with `{auth-server-url}` to only indicate the path of the service or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
+    + `token-audience-path` needs to be set with the URL of the URL that will be used as audience in the ID token (`aud` claim). It can be prefixed with `{auth-server-url}` to only indicate the path of the service or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
+    + `jwks-path` needs to be set with the URL of your OIDC provider JSON Web Key Set endpoint. It can be prefixed with `{auth-server-url}` to only indicate the path of the service or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
     + `resource` is the OIDC client Id given to your Bonita installation. You can change it if you want but you need to provide it to your OIDC provider.
     + the `ssl-required` property value may need to be changed if Bonita Portal and the IdP are not both accessed via HTTPS. Possible values for this property are: `all`, `external`, and `none`. For `all`, all requests must come in via HTTPS. For `external`, only non-private IP addresses must come over via HTTPS. For `none`, no requests are required to come over via HTTPS.
     + the `principal-attribute` value indicates the OIDC ID Token attribute (`preferred_username`, `sub`, `email`, `name`, etc...) to use to be considered as user identifier in the client application. It should match the Bonita username
