@@ -150,7 +150,7 @@ Particularly, if you use Oracle 12.2.0.x.y and are migrating to 7.9.n or to 7.10
 6. Configure the database properties needed by the migration script, by editing `bonita-migration/Config.properties`.
    Specify the following information:
 
-    | Property       | Description                                                      | Example                                                    |
+   | Property       | Description                                                      | Example                                                    |
    |:-              |:-                                                                |:-                                                          |
    | bonita.home    | The location of the existing bonita_home. Required only until 7.3| `/opt/BPMN/bonita` (Linux) or `C:\\BPMN\\bonita` (Windows) |
    | db.vendor      | The database vendor                                              | postgres                                                   |
@@ -165,15 +165,15 @@ Particularly, if you use Oracle 12.2.0.x.y and are migrating to 7.9.n or to 7.10
    Also, if you are migrating to Bonita 7.9+, you must upgrade your database server to MySQL 8.0, see [Migrating to Bonita 7.9+ using MySQL](#mysql8) specific procedure below.
    :::
    
-1. If you use a custom Look & Feel,  [export](managing-look-feel.md) it, and then  [restore the default Look & Feel](managing-look-feel.md).
-1. If you use a Business data model that requires to be redeployed (see  [above](#bdm_redeploy)), you can pause the tenant so that as a tenant admin, you'll be able to redeploy the BDM on a paused tenant once migration is done.
+7. If you use a custom Look & Feel, [export](managing-look-feel.md) it, and then [restore the default Look & Feel](managing-look-feel.md).
+8. If you use a Business data model that requires to be redeployed (see  [above](#bdm_redeploy)), you can pause the tenant so that as a tenant admin, you'll be able to redeploy the BDM on a paused tenant once migration is done.
   
     ::: warning
     **IMPORTANT:** Do **not** [pause the BPM services](pause-and-resume-bpm-services.md) before you stop the application server. It will cause problems. 
     :::
     
-1. Stop the application server.
-1. **IMPORTANT:**
+9. Stop the application server.
+10. **IMPORTANT:**
    [Back up your platform](back-up-bonita-bpm-platform.md) and database in case of problems during migration.
 
 11. Go to the directory containing the migration tool.
