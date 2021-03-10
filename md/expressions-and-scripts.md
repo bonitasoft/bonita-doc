@@ -14,70 +14,10 @@ Note that the expression editor cannot be used in the UI Designer, which has a d
 The expression editor is used throughout Bonita Studio to create and modify expressions or scripts.  
 To start the expression editor, click the crayon icon next to the field where you want to enter an expression. 
 
-There are different types of expression:
+There are different two types of expression:
 
-- _Script_: the result of the script sets the value of the expression.
-- _Comparison_: compares the value of a variable, parameter, or constant using the operators !, ==, !=, <, >:, <:= or >=.
-- _Constant_: sets the expression to a constant (fixed) value.
-- _Java_: Select Java methods to set the value of your expression
-- _Contract Input_: Select a element of your contract.
-- _Query_: Use a query from your BDM.
-- _Parameter_: sets the expression to the value of the parameter at the time the expression is evaluated.
-- _Variable_: sets the expression to the value of the variable at the time the expression is evaluated.
-
-The types available differ depending on the context of the expression. For example, comparison expressions are available only for transitions.
-
-
-### Comparison
-Comparison are only available for transitions and can only use parameters, constants and variable. A comparison either return true or false.
-
-::: info
-You can press on Ctrl + Space to access the auto-complete feature.
-:::
-
-The following operators are available:
-* "==": equals to 
-* "!": Is not
-* "!=": Different from
-* "\>" and "<" : greater than and small than 
-* "\>=" and "<=:" greater or equal than and small or equal than
-
-You can not combine several comparison (no AND and OR operators).
-
-Example 1:
-Do transition only if myParameter value is "test"
-
-```groovy
-myParameter1 == "test" 	
-```
-
-### Constant
-When your expression needs to return a static value, you can use the constant. This can be quite useful when testing. However using parameters is more convenient if the static needs to be updates.
-
-Make sure to clear define the expected returned value (drop-down field at the bottom of the expression editor).
-
-Constant formating based on expected returned value:
-|Expected return value                      |Possible Values|
-|-----------------------------------------------------|-------------------------------------------------------|
-|Boolean                                              |True/true or False/false                               |
-|String                                               |Any character - quotes "" or '' are not need           |
-|Long                                                 |Any whole number positve or negative                   |
-|Integer                                              |Any positive whole number                              |
-|Double & Float                                       |Fractional number e.g. 3.5 (, is not supported)        |
-
-
-### Contract Input
-In operation you can directly get the value from your contract. This is pratical in operation to use the value from contract (from your form).
-
-### Query
-Allows you use queries defined in your BDM. It is a great way to get a specific object in an operation.
-
-### Variable
-Process variables and data can be directly used as values for your expression.
-
-### Parameters
-You can also directly select the value of a parameters.
-Using parameter can be easily updated in the portal (in the Enterprise edition) and can have different values based on the environment (Production, Qualification...)
+* _Script_: the result of the script sets the value of the expression.
+* _Query_: Use a query from your BDM.
 
 ### Scripts
 
@@ -134,7 +74,6 @@ Initialize a business data from an ID
 ```groovy
 def questionnaireVar = questionnaireDAO.findByPersistenceId(editquestionnaireInput.persistenceId_string.toLong())
 ```
-
 
 #### User defined functions
 
