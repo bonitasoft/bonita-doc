@@ -12,12 +12,12 @@ Two protocol bindings are defined, one using WSDL and SOAP and another using RES
 
 Bonita Studio contains the following CMIS connectors:
 
-* Upload a new version
-* Upload a document
-* Create a folder
-* Delete a document version
-* Delete a folder
-* Delete a document
+- Upload a new version
+- Upload a document
+- Create a folder
+- Delete a document version
+- Delete a folder
+- Delete a document
 
 Note: If you have processes that use CMIS connectors from previous versions, these connectors will no longer work. You need to update the configuration of each connector, including any scripts that construct the URLs used.
 
@@ -32,53 +32,71 @@ If this configuration is not set, new versions of documents will overwrite previ
 ## Example: How to upload a document
 
 1. In the Connector list window:
-  * Select the CMS/CMIS connector category.
-  * Select the _**Upload a document**_ connector.
-  * Click _**Next**_.
+
+- Select the CMS/CMIS connector category.
+- Select the _**Upload a document**_ connector.
+- Click _**Next**_.
+
 2. In the General window:
-  * Enter a name.
-  * Click _**Next**_.
+
+- Enter a name.
+- Click _**Next**_.
+
 3. In the Server window, enter the information necessary to connect to the repository:
-  * Username and password
-  * Repository name (for example _Main Repository_)
-  * Binding type: webservices (or atompub)
-  * The URL (server address) for the atompub binding if it is used
-  * If using webservices, there are four new URLs:
-    * RepositoryService, for example _https://localhost:12345/alfresco/cmis/RepositoryService?wsdl_
-    * RepositoryService endpoint
-    * ObjectService, for example _https://localhost:12345/alfresco/cmis/ObjectService?wsdl_
-    * ObjectService endpoint
-  * Click _**Next**_.
+
+- Username and password
+- Repository name (for example _Main Repository_)
+- Binding type: webservices (or atompub)
+- The URL (server address) for the atompub binding if it is used
+- If using webservices, there are four new URLs:
+  - RepositoryService, for example _https://localhost:12345/alfresco/cmis/RepositoryService?wsdl_
+  - RepositoryService endpoint
+  - ObjectService, for example _https://localhost:12345/alfresco/cmis/ObjectService?wsdl_
+  - ObjectService endpoint
+- Click _**Next**_.
+
 4. In the Document window:
-  * Enter the Document name of the document to upload.
-  * Enter the relative or absolute path to the **Parent folder** that contains the document.
-  * Enter the **Destination name** to be assigned to the document after it is uploaded.
-  * Click _**Next**_.
+
+- Enter the Document name of the document to upload.
+- Enter the relative or absolute path to the **Parent folder** that contains the document.
+- Enter the **Destination name** to be assigned to the document after it is uploaded.
+- Click _**Next**_.
+
 5. In the Output operations window:
-  * You can store the returned `document_id` in a variable.
-  * Click _**Finish**_.
+
+- You can store the returned `document_id` in a variable.
+- Click _**Finish**_.
 
 ## Example: Creating a folder on Alfresco
 
 This example presents the creation of a folder on a local installation of Alfresco 5.0 with a CMIS connector configured with AtomPub.
 
 1. In the Connector list window:
-  * Select the CMS/CMIS connector category.
-  * Select the _**Create a folder**_ connector.
-  * Click _**Next**_.
+
+- Select the CMS/CMIS connector category.
+- Select the _**Create a folder**_ connector.
+- Click _**Next**_.
+
 2. In the General window:
-  * Enter a name.
-  * Click _**Next**_.
+
+- Enter a name.
+- Click _**Next**_.
+
 3. In the Server window, enter the information necessary to connect to the repository:
-  * Username and password
-  * Repository name: -default-
-  * Binding type: atompub
-  * URL: http://localhost:8080/alfresco/api/-default-/public/cmis/versions/1.1/atom/
-  * Click _**Next**_.
+
+- Username and password
+- Repository name: -default-
+- Binding type: atompub
+- URL: http://localhost:8080/alfresco/api/-default-/public/cmis/versions/1.1/atom/
+- Click _**Next**_.
+
 4. In the Folder window, enter the location and name of the folder you wish to create:
-  * Parent folder: / (root folder)
-  * Folder name: bonita
-  * Click _**Next**_.
+
+- Parent folder: / (root folder)
+- Folder name: bonita
+- Click _**Next**_.
+
 5. In the Output operations window:
-  * You can store the returned `folder_id` in a variable.
-  * Click _**Finish**_.
+
+- You can store the returned `folder_id` in a variable.
+- Click _**Finish**_.

@@ -1,38 +1,51 @@
-# BDM Management in Bonita Portal
-Processes using Business Objects with persisted data need to run with a Business Data Model deployed in the Bonita Portal.
+# Business Data Management
 
-## Manage your BDM
+This page explains what a user with the _Administrator_ profile in Bonita Portal or in the [Bonita Administrator Application](admin-application-overview.md) can see and do about Business Data Model (BDM) and BDM Access Control.
 
-Only one model can be deployed at a time in the Portal, so make sure it contains the Business object definition used in all processes that will run within this tenant.
+Processes using Business Objects with persisted data need to run with a Business Data Model deployed in Bonita Portal.  
+On top of that, it is possible to define access rights on some attributes of business objects based on the user profile. This file is also managed in Bonita Portal.
 
-The Business objects must match the structure used by the deployed processes. Make sure that when modifying the Business Model, the process is modified accordingly.
+Here is a view of the page:
+![BDM in UI](images/UI2021.1/bdm-management.png)<!--{.img-responsive}-->
 
 
-1. To import the Business Data Model created in Bonita  Studio, first [export the Business Data Model](define-and-deploy-the-bdm.md) from Bonita  Studio where it was designed.
-2. In the Bonita  Portal, log in as the technical user (default login 'install', default password 'install').
-3. Go to the **BPM Services** menu.
-4. Click on **Pause** to [pause](pause-and-resume-bpm-services.md) the tenant.
+## Manage the BDM
 
-::: info
-**:fa-info-circle: Note:** The deployment of a Business Data Model requires pausing the service during the operation, so that the update can be performed without affecting ongoing processes. 
- For Enterprise, Efficiency and Performance editions, you must have no [access control](#installAccessControl) file installed in order to be able to install or update the Business Data Model.
+::: warning
+Only one model can be deployed at a time in Bonita Portal, so make sure it contains the Business Object definitions used in all processes that will run within this tenant.
+The Business Objects must match the structure used by the deployed processes. Make sure that when modifying the Business Data Model, the processes are modified accordingly.
 :::
 
-5. When services are paused, go to the **BDM** menu.
-6. A page called **Business Data Model definition** is displayed.
-7. Click on install button and choose the file containing the Business Data Model exported from Bonita Studio, and click on _**install**_ button in the popup.
-8. A warning is displayed:
+::: info
+The deployment of a Business Data Model requires pausing the service during the operation, so that the update can be performed without affecting ongoing processes. 
+For Enterprise, Efficiency and Performance editions, you must have no [access control](#installAccessControl) file installed in order to be able to install or update the Business Data Model.
+:::
 
+To do so:
+1. Log in as the technical user (default login 'install', default password 'install', or refer to the internal documentation if modified as it should be).
+1. Go to the _BPM Services_ menu.
+1. Click on the _Pause_ button to [pause](pause-and-resume-bpm-services.md) the tenant.
+
+Then, you can install or update the BDM.
+::: warning
+Please note that existing business database tables will be modified definitively. This action cannot be reversed.  
+:::
+1. It is highly recommended to back up the database before proceeding.
+1. [Export the Business Data Model](define-and-deploy-the-bdm.md) from Bonita Studio where it was designed.
+1. Go to the _BDM_ menu.
+1. Click on the _Install_ button 
+1. Choose the file containing the Business Data Model exported from Bonita Studio
+1. Click on the _Install_ button in the popup.
+1. A warning is displayed:
 ::: warning
 **:fa-exclamation-triangle: Warning:** The Business Data Model will now be installed.
 :::
-
-Please note that existing business database tables will be modified definitively. This action cannot be reversed. It is highly recommended to back up the database before proceeding.
-9. The Portal will load the file, retrieve the object definition and enable processes to use them at runtime. The portal will also create or update the database schema (set of tables, columns, indexes...)
-in the business database, so as to store business objects appropriately when modified by processes. 
-10. The Business Data Model will now be installed.
-11. Go to the **BPM Services** menu.
-12. Click on **Resume** to [resume tenant activity](pause-and-resume-bpm-services.md).
+Bonita Portal will load the file, retrieve the object definitions and enable processes to use them at runtime.  
+It will also create or update the database schema (set of tables, columns, indexes...) in the business database, so as to store business objects appropriately when modified by processes. 
+The Business Data Model will now be installed. BPM services can be resumed.  
+ To do so:
+1. Go to the _BPM Services_ menu.
+1. Click on the _Resume_ button to [resume tenant activity](pause-and-resume-bpm-services.md).
 
 ::: warning
 **:fa-exclamation-triangle: Warning:**  Since business continually evolves, you may need to make some changes to a BDM already in production.
@@ -41,25 +54,25 @@ In such cases, you will have to implement the change on your own, through carefu
 This limitation is well known and will be addressed in a future Bonita version.
 :::
 
-::: info
-**Note:** For Enterprise, Efficiency and Performance editions only.
-:::
-
 <a id="installAccessControl"/>
-
-It is possible to define Business Data Model access control rules in Bonita Studio and import them in Bonita Portal.  
-The Access control rules must match the Business Data model.
-
-1. To import the BDM access control rules created in Bonita Studio, first [export the Access Control file](bdm-access-control.md) from Bonita Studio where it was designed.
-2. In the Bonita Portal, log in as the technical user (default login 'install', default password 'install') or as a user with the administrator profile.
-3. As the tenant technical user or as an administrator, go to the **BDM** menu.
-4. A page with a section **Business Data Model access control** is displayed.
-5. Click **_Install_** to open import popup and choose the file containing the Business Data Model access control definition exported from Bonita Studio, and click on _**Install**_.
-6. A successful import message will be displayed.
-
-Please note that a delay is required after the import for the engine to process the access control and for the filtering to be effective.
+## Manage BDM Access Control
 
 ::: info
-**:fa-info-circle: Note:** Contrary to the BDM definition, the deployment of a Business Data Model access control file doesn't require pausing the BPM services during the operation. 
+**Note:** For Enterprise, Performance, and Efficiency editions only.
 :::
 
+It is possible to define BDM Access Control rules in Bonita Studio and import them in Bonita Portal.  
+The Access Control rules must match the Business Data model.  
+
+::: info
+**:fa-info-circle: Note:** Contrary to the BDM definition, the deployment of a BDM Access Control file does not require pausing the BPM services during the operation. 
+:::
+1. [Export the BDM Access Control file](bdm-access-control.md) from Bonita Studio where it was designed.
+1. In Bonita Portal, log in as a user with the _Administrator_ profile, or as the Technical user
+1. Go to the _BDM_ menu
+1. Click on the _Install_ button to open install popup
+1. Choose the file containing the BDM Access Control definition exported from Bonita Studio
+1. Click on the _Install_ button
+1. A successful import message will be displayed.
+
+Please note that a delay is required after the installation, for Bonita Engine to process the access control and for the filtering to be effective.

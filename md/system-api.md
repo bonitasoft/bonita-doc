@@ -9,6 +9,7 @@ Get informations on the current session and on localisation/translation.
 List the available locales.
 
 #### Representation
+
 ```json
 {
   "name":"_Name of the language_",
@@ -20,20 +21,20 @@ List the available locales.
 
 The methods used for this resource are:
 
-* GET - list available locales
+- GET - list available locales
 
 #### List available locales
 
-* **URL**  
+- **URL**  
   `/API/system/i18nlocale`  
-* **Method**  
+- **Method**  
   `GET`
-* **Data Params**  
+- **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
-* **Success Response**  
+- **Success Response**  
   The list of locales as JSON
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     [
       {
@@ -70,23 +71,23 @@ Get the translations for the specified locale.
 
 The methods used for this resource are:
 
-* GET - the translations for the specified locale
+- GET - the translations for the specified locale
 
 #### List available translations
 
 Returns all translations of the product. If a locale is specified in the filter, that translation for that locale are returned. if no locale is specified, the translations in English are returned.
 
-* **URL**  
+- **URL**  
   `/API/system/i18ntranslation`  
-* **Method**  
+- **Method**  
   `GET`
-* **Data Params**  
+- **Data Params**  
   [Standard search parameters](rest-api-overview.md#resource_search) are available.  
   _Example_: `/API/system/i18ntranslation?p=0&c=2&f=locale%3dde` 
-* **Success Response**  
+- **Success Response**  
   The list of translations as JSON
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     [
       {
@@ -126,18 +127,18 @@ _unusedid_, the id is not used, the current session is always returned
 
 The methods used for this resource are:
 
-* GET - get the current session
+- GET - get the current session
 
 #### Get the current session
 
-* **URL**  
+- **URL**  
   `/API/system/session/unusedid`  
-* **Method**  
+- **Method**  
   `GET`
-* **Success Response**  
+- **Success Response**  
   The session in JSON
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "user_id":"12",
@@ -160,6 +161,7 @@ Pause and resume tenant services in order to do maintenance on a tenant.
 _unusedid_, the id is not used, the current tenant is always returned
 
 #### Representation
+
 ```json
 {
   "paused":"_true if the tenant is paused, false otherwise_",
@@ -171,18 +173,19 @@ _unusedid_, the id is not used, the current tenant is always returned
 
 The methods used for this resource are:
 
-* GET - get the current tenant
-* PUT - pause or resume the tenant
+- GET - get the current tenant
+- PUT - pause or resume the tenant
 
 #### Get the current tenant
-* **URL**  
+
+- **URL**  
   `/API/system/tenant/unusedid`  
-* **Method**  
+- **Method**  
   `GET`
-* **Success Response**  
+- **Success Response**  
   The tenant id with its status in JSON
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "paused":"false",
@@ -192,11 +195,11 @@ The methods used for this resource are:
 
 #### Pause or resume the current tenant
 
-* **URL**  
+- **URL**  
   `/API/system/tenant/:tenantId`  
-* **Method**  
+- **Method**  
   `PUT`
-* **Request Payload**  
+- **Request Payload**  
   ```json
   {
     "paused":"true"
@@ -208,6 +211,5 @@ The methods used for this resource are:
     "paused":"false"
   }
   ```
-* **Success Response**  
-  * **Code**: 200 
-
+- **Success Response**  
+  - **Code**: 200 

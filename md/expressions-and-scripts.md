@@ -15,11 +15,9 @@ The expression editor is used throughout Bonita Studio to create and modify expr
 To start the expression editor, click the crayon icon next to the field where you want to enter an expression. 
 
 There are different two types of expression:
+
 * _Script_: the result of the script sets the value of the expression.
 * _Query_: Use a query from your BDM.
-
-
-The types available differ depending on the context of the expression. For example, comparison expressions are available only for transitions
 
 ### Scripts
 
@@ -50,10 +48,11 @@ All the variables are displayed in a searchable tree next to the script. To add 
 The execution context contains variables that are relevant to the current state of the system when evaluating this expression.
 
 The provided variables are:
-* `activityInstanceId`: the identifier of the activity instance (not available for a process-level expression)
-* `processDefinitionId`: the identifier of the process
-* `processInstanceId`: the identifier of the process instance
-* `rootProcessInstanceId`: for a called process or an event subprocess, the identifier of the root process (note that if there are multiple layers of called processes or subprocesses, this is the root of the hierarchy, not the parent called process or subprocesses)
+
+- `activityInstanceId`: the identifier of the activity instance (not available for a process-level expression)
+- `processDefinitionId`: the identifier of the process
+- `processInstanceId`: the identifier of the process instance
+- `rootProcessInstanceId`: for a called process or an event subprocess, the identifier of the root process (note that if there are multiple layers of called processes or subprocesses, this is the root of the hierarchy, not the parent called process or subprocesses)
 
 The provided variables list also contains a special variable, apiAccessor. This enables you to construct API calls in a script using autocompletion. For example, to get the number of overdue open tasks, choose `apiAccessor` from the list of provided variable, then add the `processAPI`, and then add `getNumberOfOverdueOpenTasks`.
 
@@ -66,13 +65,13 @@ Here are some examples.
 Example 1:
 Do transition only if the change cost of my BDM object "Change request" is lower than 300.
 
-```
+```groovy
 return itemChangeRequest.changeCost <= 300
 ```
 
 Example 2:
 Initialize a business data from an ID
-```
+```groovy
 def questionnaireVar = questionnaireDAO.findByPersistenceId(editquestionnaireInput.persistenceId_string.toLong())
 ```
 
@@ -81,53 +80,56 @@ def questionnaireVar = questionnaireDAO.findByPersistenceId(editquestionnaireInp
 If a same piece of script code is needed in different locations you might want to define it once and reused it in order to avoid duplication.
 
 In order to reuse some Groovy code you need to:
-* Create a Groovy class that will be stored as part of your project in Bonita Studio
-* Declare in the Groovy class one or several methods to store your code
-* Configure your process(es) dependencies to include the required Groovy script file(s)
-* In the expression editor, select the **Script** type and as part of your code call the method(s) declared previously
+
+- Create a Groovy class that will be stored as part of your project in Bonita Studio
+- Declare in the Groovy class one or several methods to store your code
+- Configure your process(es) dependencies to include the required Groovy script file(s)
+- In the expression editor, select the **Script** type and as part of your code call the method(s) declared previously
 
 ##### Create Groovy class
 
 To create a groovy class:
-* Right click on **My Project** from the **Project explorer** tree view, then **New** > **Groovy class...**.
-* Enter a name for the new Groovy class (e.g. `MyClass`) and optionally for the package name (e.g. `com.mypackage`).
-* Click on **Finish** button. This will open the Groovy script editor. 
+
+- Right click on **My Project** from the **Project explorer** tree view, then **New** > **Groovy class...**.
+- Enter a name for the new Groovy class (e.g. `MyClass`) and optionally for the package name (e.g. `com.mypackage`).
+- Click on **Finish** button. This will open the Groovy script editor. 
 
 Note that the newly created Groovy script file is stored as part of your project.
 
 ##### Declares methods
 
 In the previously created Groovy class you can declares methods (static or not). For example:
+
 ```groovy
 package com.mypackage
 
 class MyClass {
-	
 	static def myMethod(String input) {
 		return "Hello ${input}"
 	}
-
 }
 ```
 
 ##### Configure process dependencies
 
 If you plan to use a Groovy method, for example to process the output of a connector, you first need to add the Groovy script file as a dependency of your process:
-* Select your process pool
-* In **Server** menu select **Configure**
-* Select **Java dependencies**
-* In the tree view, under **Groovy scripts**, select the file(s) that define the method(s) you want to use (e.g. `com/mypackage/MyClass.groovy`)
-* Click on **Finish** button
+
+- Select your process pool
+- In **Server** menu select **Configure**
+- Select **Java dependencies**
+- In the tree view, under **Groovy scripts**, select the file(s) that define the method(s) you want to use (e.g. `com/mypackage/MyClass.groovy`)
+- Click on **Finish** button
 
 ##### Use a Groovy method
 
 In order to call a Groovy method from a script defined using the expression editor you need to:
-* Add the import statement at the beginning of the script. E.g.: `import com.mypackage.MyClass`
-* Call the method (optionally instantiate the class if method is not static): `MyClass.myMethod("test")`
+
+- Add the import statement at the beginning of the script. E.g.: `import com.mypackage.MyClass`
+- Call the method (optionally instantiate the class if method is not static): `MyClass.myMethod("test")`
 
 Update of process dependencies and package import can be automatically done when using code completion (this is trigger by default with the shortcut ctrl+space).
 
-Note that the Groovy script will be embedded in the process deployment file (*.bar). If you update the Groovy script content you will need to redeploy the process in order to benefit from the modification.
+Note that the Groovy script will be embedded in the process deployment file (\*.bar). If you update the Groovy script content you will need to redeploy the process in order to benefit from the modification.
 
 
 #### Log messages in a Groovy script

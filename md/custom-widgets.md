@@ -8,12 +8,12 @@ After creation, custom widgets are available in the palette to design pages, app
 
 In UI Designer editor, custom widgets are composed of:
 
-* A description that briefly describes the widget
-* Properties exposed by the widget
-* A template that describe the widget HTML markup
-* A controller that describe the widget logic
-* Some assets if the widget uses external JavaScript libraries, CSS definitions, or images
-* AngularJS modules declaration if the widget uses services or directives that are not built in to the AngularJS framework
+- A description that briefly describes the widget
+- Properties exposed by the widget
+- A template that describe the widget HTML markup
+- A controller that describe the widget logic
+- Some assets if the widget uses external JavaScript libraries, CSS definitions, or images
+- AngularJS modules declaration if the widget uses services or directives that are not built in to the AngularJS framework
 
 Custom widget implementation is based on the AngularJS framework.  
 When you open the custom widget editor to create a new custom widget, a simple example is displayed to show the basic uses of these concepts.
@@ -35,12 +35,12 @@ A property is constant, dynamic, a bidirectional bond, or an interpolation. You 
 
 A property has a _name_ which can be referenced in the controller or the template, a _label_ which will be printed in the properties panel in an editor, a _default_ value, and a type. There are several property types:
 
-* **text** user specifies the property value with some text
-* **choice** user chooses the property value from a list that you define
-* **html** user specifies the property value with some text that can contain basic HTML tags
-* **integer** property value is an integer
-* **boolean** property value is a Boolean
-* **collection** property value is an array
+- **text** user specifies the property value with some text
+- **choice** user chooses the property value from a list that you define
+- **html** user specifies the property value with some text that can contain basic HTML tags
+- **integer** property value is an integer
+- **boolean** property value is a Boolean
+- **collection** property value is an array
 
 Each of these types will allow the front-end developer to bind the property value to a variable. 
 
@@ -54,11 +54,12 @@ The [Multi-language pages](multi-language-pages.md) tutorial explains how to man
 
 You can use this mechanism in your custom widgets to process content to translate. There are two ways to use the localization: either the _uiTranslate_ angular filter or _ui-translate_ directive:
 
-* Use the _uiTranslate_ filter in custom widgets for dynamic content to be translated
-* Use the _ui-translate_ directive in custom widgets for static content to be translated
+- Use the _uiTranslate_ filter in custom widgets for dynamic content to be translated
+- Use the _ui-translate_ directive in custom widgets for static content to be translated
 
 #### For instance, with a custom link widget :
-```
+
+```html
 <div>
     <a title="{{ properties.title | uiTranslate }}" ui-translate>Submit</a>
 </div>
@@ -80,7 +81,8 @@ Following the [`ui.bootstrap` documentation](https://angular-ui.github.io/bootst
 You can now use the _carousel_ and _slide_ directives in your template. Here is a simple example of the template and controller for a carousel.
 
 Template:
-``` html
+
+```html
 <div uib-carousel>
       <div uib-slide ng-repeat="slide in slides track by $index" index="$index" >
         <img ng-src="{{slide.url}}" style="margin:auto;" alt="{{slide.alt | uiTranslate}}">
@@ -92,7 +94,7 @@ Template:
 If you want use _carousel_ and _slide_ directives in the same page as widgets that import `ui-bootstrap-tpls-0.13.0.min.js` as asset, 
 please use this syntax for _carousel_ and _slide_ directives in your template.
 
-``` html
+```html
 <uib-carousel>
       <uib-slide ng-repeat="slide in slides" >
         <img ng-src="{{slide.url}}" style="margin:auto;" alt="{{slide.alt | uiTranslate}}">
@@ -101,6 +103,7 @@ please use this syntax for _carousel_ and _slide_ directives in your template.
 ```
 
 Controller:
+
 ```javascript
 function ($scope) {
       $scope.slides = [

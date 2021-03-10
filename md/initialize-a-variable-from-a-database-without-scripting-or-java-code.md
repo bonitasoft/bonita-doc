@@ -13,10 +13,10 @@ To configure the database connector to initialize the variable, add the connecto
 Then complete the following instructions:
 
 1. In the Output operations definition screen, check Graphical mode, then specify the structure of the output result that corresponds to the data you specified in the query builder:
-  * single value if you selected one cell to initialize a single-valued variable
-  * 1 row x n columns if you selected all or part of a row to initialize a list variable
-  * n rows x 1 column if you selected all or part of a column to initialize a list variable
-  * n rows x n columns if you selected items from more than one row and more than one column to initialize a table (list of lists)
+   - single value if you selected one cell to initialize a single-valued variable
+   - 1 row x n columns if you selected all or part of a row to initialize a list variable
+   - n rows x 1 column if you selected all or part of a column to initialize a list variable
+   - n rows x n columns if you selected items from more than one row and more than one column to initialize a table (list of lists)
 2. Then click **Next**.
 3. Specify the name of the variable being initialized. The variable type must be compatible with the structure you specified. 
 4. Then click **_Finish_**.

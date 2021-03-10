@@ -11,10 +11,11 @@ First things first, draw the wireframe of the process. In Bonita Studio, since t
 
 Then, define a business object that will hold the leave requests data when the process instances are ongoing, and store it when the instances are archived:
 In Bonita Studio menu, go to **Development** > **Business Data Model** > **Manage** option, and add a business object named _LeaveRequest_, with 4 attributes:
-* _startDate_: first working day taken as vacation
-* _endDate_: last working day taken as vacation
-* _nbDays_: number of working days taken as vacation
-* _type_: leave type (annual leave, anticipated leave,...)
+
+- _startDate_: first working day taken as vacation
+- _endDate_: last working day taken as vacation
+- _nbDays_: number of working days taken as vacation
+- _type_: leave type (annual leave, anticipated leave,...)
 
 To allow this business object to be instantiated in each process instance, create a business variable in the process:
 At pool level, in the **Data** panel, define a **business variable** named _leaveRequest_. For **business object**, choose **LeaveRequest**.
@@ -24,10 +25,11 @@ In the **Execution** pane > **Contract** tab, click the **Add from data...** but
 A complex contract input is created, mapped on the _leaveRequest_ business variable.
 
 Each entry of the contract is bound to a business object property:
-* _startDate_ as a **DATE**
-* _endDate_ as a **DATE**
-* _nbDays_ as an **INTEGER**
-* _type_ as **TEXT**
+
+- _startDate_ as a **DATE**
+- _endDate_ as a **DATE**
+- _nbDays_ as an **INTEGER**
+- _type_ as **TEXT**
 
 ... as shown here:
 
@@ -40,10 +42,10 @@ For more information about process, business data management and contract, check
 To generate an instantiation form that complies with the contract (where the user will start a new request), go to the **Instantiation Form** tab, and click on the pen icon. This will take you to an open form in the UI Designer.
 By default, this form contains a **form container** with 4 **widgets** matching the contract:
 
-* a **date picker** widget for the start date
-* a **date picker** widget for the end date
-* an **input** widget expecting a number for the number of days
-* an **input** widget expecting text for the type
+- a **date picker** widget for the start date
+- a **date picker** widget for the end date
+- an **input** widget expecting a number for the number of days
+- an **input** widget expecting text for the type
 
 ... as shown here: 
 
@@ -54,6 +56,7 @@ You can check what it will look like once deployed by clicking on **Preview**, a
 ![Generated form preview](images/GeneratedForm-preview.png)
 
 ## Basic contract validation and constraints
+
 You can notice that:
 
 - Every field label is followed with a red star showing that those fields are required (by the contract).
@@ -78,11 +81,12 @@ This variable holds the validation state of the inputs, selects and textareas of
 
 Here is an extract from the [AngularJS documentation site](https://docs.angularjs.org/guide/forms) that explains the purpose of this feature.
 
->From an AngularJS point of view, a form is a collection of controls for the purpose of grouping related controls together.
+> From an AngularJS point of view, a form is a collection of controls for the purpose of grouping related controls together.
 >
->Form and controls provide validation services, so that the user can be notified of invalid input before submitting a form. This provides a better user experience than server-side validation alone because the user gets instant feedback on how to correct the error.
+> Form and controls provide validation services, so that the user can be notified of invalid input before submitting a form. This provides a better user experience than server-side validation alone because the user gets instant feedback on how to correct the error.
 
 A control in AngularJS exposes properties for a given input, select or textarea and associates it with a CSS class:
+
 - $dirty (CSS class _ng-dirty_): the control has been interacted with
 - $pristine (CSS class _ng-pristine_): the control hasn't been interacted with yet
 - $valid (CSS class _ng-valid_): the model is valid
@@ -118,7 +122,7 @@ In the same way, to show the user which inputs are valid, edit the CSS file to a
    outline: 0;
    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 4px rgba(102,233,102,.6);
    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 4px rgba(102,233,102,.6);
- }
+ }
 ```
 
 In the UI Designer preview, the form looks like it is shown here:
@@ -135,8 +139,8 @@ Since the HTML form element has no border, the CSS classes added have no impact 
 For debug purposes, you can add a panel at the top of the form to list all errors in the form:
 From the UI Designer home page, create a **fragment**. Set _errorPanel_ as the fragment name. In the **Variable** panel at the bottom, create one variable, of type **exposed: yes**, called _errors_. Create two other variables, of type **exposed: no**: 
 
- * errorRequired: it allows to tell if in the form, some required data are missing.
- * errorDate: it allows to tell if in the form, some dates are invalid.
+- errorRequired: it allows to tell if in the form, some required data are missing.
+- errorDate: it allows to tell if in the form, some dates are invalid.
 
 These two variables are instantiated with JavaScript expressions using $form.$error. 
 Therefore, for **Type**, select **JavaScript expression**.
@@ -164,14 +168,14 @@ These two variables will contain the list of invalid widget names.
 Currently, these widget names are not usable directly because they are automatically generated. 
 Therefore, from the palette on the left, drag and drop two **text** widgets in this fragment whiteboard, with the following text: 
 
- * Some required data is missing.
- * Some dates are invalid.
+- Some required data is missing.
+- Some dates are invalid.
 
 To put the text and the background in red, add the bootstrap's _text-danger_ and _bg-danger_ CSS classes in the **CSS classes** property for both widgets. 
 To hide these fields when no error are detected, go to the **Hide** property of each widget, click on **f(x)** to make them evaluated as expressions, and add respectively: 
 
- * _!errorRequired || errorRequired.length === 0_
- * _!errorDate || errorDate.length === 0_
+- _!errorRequired || errorRequired.length === 0_
+- _!errorDate || errorDate.length === 0_
 
 ... as shown here:
 
@@ -195,27 +199,28 @@ In the palette on the left, select **Fragments**, and then drag and drop the fra
 
 The user usually selects one option of leave type and does not type free text. A predefined list of such values could be:
 
- * Annual leave
- * Anticipated annual leave
- * Unpaid
- * Other
+- Annual leave
+- Anticipated annual leave
+- Unpaid
+- Other
 
 To implement such a list, remove the generated input widget for **type** and add a **select** widget with the following properties:
 
- * Label: _Type_
- * Required: _yes_
- * Placeholder: _type_
- * Available values: _Annual leave, Anticipated annual leave, Unpaid, Other_
- * Value: _formOutput.typeContract_
+- Label: _Type_
+- Required: _yes_
+- Placeholder: _type_
+- Available values: _Annual leave, Anticipated annual leave, Unpaid, Other_
+- Value: _formOutput.typeContract_
 
 ## Custom validation
 
 ### Use contract response for server side validation
 
 At this stage, you have added some simple control over the different inputs. You will now learn about more advanced validation checks. For example, let's express those three rules: 
- * The start date must be earlier or the same than the end date
- * The number of days must be greater than zero
- * The leave type must be one of Annual leave, Anticipated annual leave, Unpaid, or Other.
+
+- The start date must be earlier or the same than the end date
+- The number of days must be greater than zero
+- The leave type must be one of Annual leave, Anticipated annual leave, Unpaid, or Other.
 
 For the second requirement, you have already set a control on the input
 For the last requirement: you have already changed the widget type from **input** to **select**.  
@@ -248,8 +253,9 @@ Setting a start date older than an end date will produce the following screen (g
 ### Use frontend validation
 
 Let's add two more constraints to the leave request form :
- * _nbDays_ must be more than 0 and less than a value retrieved externally (number of days the user has left)
- * _type_ with value Other displays a _comment_ field limited to 100 characters (the Human Resources officer needs to know what type of leave this is)
+
+- _nbDays_ must be more than 0 and less than a value retrieved externally (number of days the user has left)
+- _type_ with value Other displays a _comment_ field limited to 100 characters (the Human Resources officer needs to know what type of leave this is)
 
 #### Number input value control
 
@@ -285,7 +291,7 @@ Now assume that in the studio Business Data Model, a new _comment_ attribute has
 This _comment_ must be filled when the leave type is _Other_. 
 
 To display this comment, add a **textarea** widget to the right of the type widget.  
-To only display the widget when the type _Other_ is selected, change the **Hidden** property of this textarea to an expression (click **f(x)**) and set it to `formInput.leaveRequest.type !== 'Other'`   
+To only display the widget when the type _Other_ is selected, change the **Hidden** property of this textarea to an expression (click **f(x)**) and set it to `formInput.leaveRequest.type !== 'Other'`  
 To make it required when it is displayed, change the **Required** property to an expression and set it to `formInput.leaveRequest.type === 'Other'` 
 
 In the **Label** property, type `Comment`  and in the **Value** property, type `formInput.leaveRequest.comment`, as shown here:.

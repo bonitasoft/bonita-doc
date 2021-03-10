@@ -1,4 +1,5 @@
 # Bonita connector archetype
+
 A set of best of breed tools to develop and test custom connectors independently of the Bonita Studio. 
 
 ## Create a custom connector
@@ -8,9 +9,9 @@ We provide a maven archetype to help you to bootstrap a connector project. The s
 
 ### Prerequisite
 
- 1. Java 8 must be installed: [https://adoptopenjdk.net/index.html](https://adoptopenjdk.net/index.html)
- 2. Maven must be installed: [https://maven.apache.org/install.html](https://maven.apache.org/install.html)
- 3. Connector development requires some software development skills. The archetype offers the possibility to develop the connector in _Java_, _Groovy_ or _Kotlin_. Make sure that you are comfortable with at least one of those three languages. 
+1. Java 8 must be installed: <https://adoptopenjdk.net/index.html>
+2. Maven must be installed: <https://maven.apache.org/install.html>
+3. Connector development requires some software development skills. The archetype offers the possibility to develop the connector in _Java_, _Groovy_ or _Kotlin_. Make sure that you are comfortable with at least one of those three languages. 
 
 ### Generate the project using the maven archetype
 
@@ -20,48 +21,49 @@ To create your connector project, prompt a terminal and enter the following comm
 ::: warning
 **Warning:** Make sure that you are not executing the command from an existing maven project.
 :::
-```
+
+```bash
 mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-connector-archetype
 ```
+
 You'll then have to specify interactively the properties of your project: 
 
 - **groupId:** the group id of your connector.
 - **artifactId:** the artifact id of your connector
-	- Must match the following regex: `^[a-zA-Z0-9\-]+$`
+  - Must match the following regex: `^[a-zA-Z0-9\-]+$`
     - Example: _myConnector-1_
 - **version:** the version of your connector _(default value: 1.0-SNAPSHOT)_
-Follow the [maven naming convention guide](http://maven.apache.org/guides/mini/guide-naming-conventions.html)
+  Follow the [maven naming convention guide](http://maven.apache.org/guides/mini/guide-naming-conventions.html)
 - **package** the package in which the connector source files will be created _(default value: the group id of the connector)_
 - **bonitaVersion:** the targeted Bonita version
-    - A Bonita connector project depends on _org.bonitasoft.engine:bonita-common_. To avoid potential conflicts / errors at runtime, you should use the Bonita version of your runtime environment.
+  - A Bonita connector project depends on _org.bonitasoft.engine:bonita-common_. To avoid potential conflicts / errors at runtime, you should use the Bonita version of your runtime environment.
 - **className:** the class name of your connector 
-    - Must match the following regex: `^[a-zA-Z_$][a-zA-Z\d_$]+$` (A Java classname valid identifier)
-    - Example: _MyConnector1_
+  - Must match the following regex: `^[a-zA-Z_$][a-zA-Z\d_$]+$` (A Java classname valid identifier)
+  - Example: _MyConnector1_
 - **language**: the language used in the connector project. Available values:
-    - java
-    - groovy
-    - kotlin
+  - java
+  - groovy
+  - kotlin
 
 A folder named _[your artifact id]_ is created, with your Bonita connector project, ready to use.
 
 ⚠️ You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
-
 
 ### Connector developpment
 
 In this section we'll look into the different components of a connector project, and how you should use them to develop your connector.
 
 #### Definition
-A connector is first defined by its **definition**.  It is an XML file located in _src/main/resources/[artifactId].def_ by default.   
+
+A connector is first defined by its **definition**.  It is an XML file located in _src/main/resources/[artifactId].def_ by default.  
 A connector definition defines the inputs and the outputs of a connector. It can be seen as a black box. The definition explicits what will be passed to the connector, and what is expected as output. Then, implementations of this definition can be created, they just need to respect the inputs / outputs contract of the definition.  
 
 The connector definition XSD is available in _schemas/connector-definition-descriptor.xsd_, you can import it in a IDE to get completion. 
 
-
 ![Connector definition xsd overview](images/connector-def-xsd-overview.png)
 
-
 Example: 
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <definition:ConnectorDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1">
@@ -95,31 +97,31 @@ Example:
 The inputs of a connector are defined in the definition. Those inputs are valued by processes, and are retrieved by the implementation classes of the connector to execute the business logic.  
 A connector input: 
 
- - Has a name
- - Has a type
- - Has an optional default value
- - Can be mandatory 
+- Has a name
+- Has a type
+- Has an optional default value
+- Can be mandatory 
 
 ##### Connector Outputs
 
 The outputs of a connector are defined in the definition. Those outputs are valued by the implementation classes of the connector, and are used by processes.  
 A connector output:
 
- - Has a name
- - Has a type
+- Has a name
+- Has a type
 
 ##### Pages and widgets
 
 A connector definition includes _pages_ and _widgets_.  Those elements define the UI that will appear in the Bonita Studio to configure the connector.  
 
- - A widget is bound to an input
- - A page contains a set of widgets
+- A widget is bound to an input
+- A page contains a set of widgets
 
 The idea is to create pages for related inputs, so the person who will configure the connector will easily understand what he has to do. 
 
  All the available widgets are defined in the XSD. You must reference the widget type in the tag to create a specific widget: 
 
-``` xml 
+```xml
 <widget  xsi:type="definition:[WIDGET TYPE]"  id="[WIDGET ID]"  inputName="[CORRESPONDING INPUT]"/>
 ```
 
@@ -128,7 +130,7 @@ The input name is used to bind this widget to one of the connector inputs.
 
 Some widgets can require additional informations. For example, if you want to create a select widget with a set of item to select, you will have to do something like that: 
 
-``` xml
+```xml
 <widget xsi:type="definition:Select" id="choiceWidget" inputName="choice">
     <items>Choice 1</items>
     <items>Choice 2</items>
@@ -147,6 +149,7 @@ A _connector implementation_ implements a connector definition. A definition def
 Several implementations can be created for a given definition. A connector implementation can be updated at runtime in a Bonita bundle, as long as it implements the same definition.  
 
 A connector implementation is made of two elements: 
+
 - An xml file used to explicit the definition implemented, the dependencies required and the location of the implementation sources
 - A set of Java based classes, constituting the implementation sources
 
@@ -158,6 +161,7 @@ The connector definition XSD is available in _schemas/connector-implementation-d
 ![Connector implementation xsd overview](images/connector-impl-xsd-overview.png)
 
 Example: 
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <implementation:connectorImplementation xmlns:implementation="http://www.bonitasoft.org/ns/connector/implementation/6.0">
@@ -178,15 +182,16 @@ $Dependencies$
 
 The implementation sources contain all the logic of the connector:
 
- - The validation of the inputs
- - The connection / disconnection to any external system _(if required)_
- - The execution of the business logic and the  creation of the outputs
+- The validation of the inputs
+- The connection / disconnection to any external system _(if required)_
+- The execution of the business logic and the  creation of the outputs
 
 The archetype offers the possibility to generate the default sources in Java, Groovy or Kotlin. The build result will always be a Java archive (jar), no matters the langage selected.
 
 The entry point of the implementation sources must extend the class _`org.bonitasoft.engine.connector.AbstractConnector`_.
 
 Example (_Groovy_): 
+
 ```groovy
 package myGroupId
 
@@ -251,8 +256,9 @@ The methods _connect_ and _disconnect_ can be used to open and close a connectio
 
 #### Build a connector project
 
-A connector project is built using Maven, and especially the [maven assembly plugin](https://maven.apache.org/plugins/maven-assembly-plugin/).   
+A connector project is built using Maven, and especially the [maven assembly plugin](https://maven.apache.org/plugins/maven-assembly-plugin/).  
 The root _pom.xml_ file has the following parent: 
+
 ```xml
 <parent>
     <groupId>org.bonitasoft.connectors</groupId>
@@ -260,17 +266,19 @@ The root _pom.xml_ file has the following parent:
     <version>1.0.0</version>
 </parent>
 ```
+
 This parent contains the logic that make the replacements in the implementation xml file at build time.
 
 By default, a zip archives is built containing all the definitions and implementations found in the project.
 By importing this archive in a Bonita Studio you will import all the definitions and implementations created in the project
 
 To build the connector project, type the following command at the root of the project : 
-```
+
+```bash
 ./mvnw clean install
 ```
-The built archive can be found in here `target/[artifact id]-[artifact version].zip` after the build.
 
+The built archive can be found in here `target/[artifact id]-[artifact version].zip` after the build.
 
 ## Example
 
@@ -278,25 +286,26 @@ In this example, we are going to create a connector to communicate with the [Sta
 
 This connector will be implemented using: 
 
- - [Groovy](https://groovy-lang.org/): _A programming language based on the JVM_
- - [Spock](http://spockframework.org/): _A test framework for Groovy applications_
- - [Retrofit](https://square.github.io/retrofit/): _A library which allows to create typed http clients_
+- [Groovy](https://groovy-lang.org/): _A programming language based on the JVM_
+- [Spock](http://spockframework.org/): _A test framework for Groovy applications_
+- [Retrofit](https://square.github.io/retrofit/): _A library which allows to create typed http clients_
 
 ### 1 - Generate project and retrieve dependencies
+
 The first step is to generate  the maven project using the archetype:
 
-```
+```bash
 mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-connector-archetype
 ```
 
-* **groupId**: com.company.connector
-* **artifactId**: connector-starwars
-* **version**: 1.0.0-SNAPSHOT
-* **package**: com.company.connector
-* **bonitaVersion**: _[Your Bonita version]_ (ex: 7.10.4)
-* **className**: ConnectorStarWars
-* **language**: groovy
-* **wrapper**: true
+- **groupId**: com.company.connector
+- **artifactId**: connector-starwars
+- **version**: 1.0.0-SNAPSHOT
+- **package**: com.company.connector
+- **bonitaVersion**: _[Your Bonita version]_ (ex: 7.10.4)
+- **className**: ConnectorStarWars
+- **language**: groovy
+- **wrapper**: true
 
 The generated project has the following skeleton:  
 
@@ -345,6 +354,7 @@ Add the following properties and dependencies to the existing ones in the pom.xm
 ```
 
 If you are interested by test coverage, you can add the following jacoco configuration: 
+
 ```xml
 <plugin>
     <groupId>org.jacoco</groupId>
@@ -368,16 +378,17 @@ If you are interested by test coverage, you can add the following jacoco configu
 </plugin>
 ```
 
-### 2 - Define connector inputs 
+### 2 - Define connector inputs
 
 The connector inputs are defined in the connector definition.  
 Open the file _src/main/resources/connector-starwars.def_  
 We are first going to create two inputs for the connector: 
 
- - An input **_name_**, which will contain the name of a star wars character
- - An input **_url_**, which will contain the API server url (so if the API server URL changes in the future, the service will still be usable).
+- An input **_name_**, which will contain the name of a star wars character
+- An input **_url_**, which will contain the API server url (so if the API server URL changes in the future, the service will still be usable).
 
 Remove the default input from the definition, and add the two following inputs: 
+
 ```xml
 <input mandatory="true" name="name" type="java.lang.String"/>
 <input mandatory="true" name="url" type="java.lang.String" defaultValue="http://swapi.dev/"/>
@@ -386,6 +397,7 @@ Remove the default input from the definition, and add the two following inputs:
 Then we are going to create a _page_ and two _widgets_ for those inputs. _Pages_ and _widgets_ are used by the Bonita Studio to create a User Interface from the connector definition. 
 
 Replace the default page by the following one: 
+
 ```xml
 <page id="starWarsPage"> 
     <!-- 
@@ -401,7 +413,7 @@ Replace the default page by the following one:
 For each page and widget , a name and a description must be added  in the property file, else the Studio is unable to display the element.  
 Open the file _src/main/resources/connector-starwars.properties_ and replace the content for the default page and widgets by the following: 
 
-```
+```properties
 starWarsPage.pageTitle=Star Wars connector - configuration page
 starWarsPage.pageDescription=Indicate a Star Wars character name, and the service base URl if required.
 nameWidget.label=Character name
@@ -419,11 +431,12 @@ We will first create a data model, and then a retrofit service typed with this m
 
 The model should match the API response structure, else some custom convertors are required.  
 Here is an example of an API call and the response: 
+
 ```
 GET /api/people/?search=yoda
 ```
 
-``` json
+```json
 {
     "count": 1, 
     "next": null, 
@@ -446,9 +459,8 @@ GET /api/people/?search=yoda
 
 Our model will contain two Classes : 
 
- - **_PersonResponse_**, which will represent the raw response, and only contain the result list.
- - **_Person_**, which will represent an element of the result list.
-
+- **_PersonResponse_**, which will represent the raw response, and only contain the result list.
+- **_Person_**, which will represent an element of the result list.
 
 Create a new package _model_ in the package _com.company.connector_, and add those two classes in this package: 
 
@@ -507,6 +519,7 @@ interface StarWarsService {
     def Call<PersonResponse> person(@Query("search") String name)
 }
 ```
+
 This service declares a single GET endpoint on _api/people_, with a query parameter _search_. 
 
 ### 4 - Define connector output
@@ -517,33 +530,32 @@ Open the file _src/main/resources/connector-starwars.def_, and replace the defau
 
 ```xml
 <output name="person" type="com.company.connector.model.Person"/>
-``` 
+```
 
-_note:_ The type of a connector output must be ***serializable***.
+_note:_ The type of a connector output must be **_serializable_**.
 
 ### 5 - Implement and test connector logic
 
 The main class of the connector has already been created during the project generation. This class is in charge of: 
 
- - Performing validation on connector inputs
- - Connecting / disconnecting to any external service
- - Executing the connector logic (call the API in our case)
- - Setting connector outputs
+- Performing validation on connector inputs
+- Connecting / disconnecting to any external service
+- Executing the connector logic (call the API in our case)
+- Setting connector outputs
 
 The main class of a connector is referenced in the implementation. In our case, it's the class _ConnectorStarWars_.  
 Open the file _src/main/groovy/com.company.connector.ConnectorStarWars.groovy_, and the associated test file _src/test/groovy/com.company.connector.ConnectorStarWarsTest.groovy_
 
 We will complete and test this class in three steps: 
 
- 1. Input validation
- 2. Retrofit service creation 
- 3. API call 
+1. Input validation
+2. Retrofit service creation 
+3. API call 
 
 #### Input validation
 
 We will only validate that the two mandatory String inputs are provided by the user.  
 Complete the method _validateInputParameters_ with the following content:
-
 
 ```groovy
     def static final NAME_INPUT = "name"
@@ -569,7 +581,7 @@ Complete the method _validateInputParameters_ with the following content:
 
 Add the following tests in the test class, to validate the behavior when an input is incorrect: 
 
-``` groovy
+```groovy
     def should_throw_exception_if_mandatory_input_is_missing() {
         given: 'Connector with missing input'
         def connector = new ConnectorStarWars()
@@ -606,7 +618,7 @@ Add the following tests in the test class, to validate the behavior when an inpu
     }
 ```
 
-#### Retrofit service creation 
+#### Retrofit service creation
 
 In the class _ConnectorStarWars_, replace the method _connect_ by the following one. We do not need to implement the disconnect method, as there is no authentication.
 Creating the service in the _connect_ method  ensure that the service will be created once (and only once) before the logic execution.
@@ -674,7 +686,7 @@ class StarWarsServiceTest extends Specification {
 }
 ```
 
-#### API call 
+#### API call
 
 We are finally going to perform the API call to retrieve details on a Star Wars character, and then put those details in the related connector output.  
 In the class _ConnectorStarWars_,  replace the method _executeBusinessLogic_ by the following one.
@@ -804,7 +816,7 @@ def should_handle_server_error() {
 The implementation of the connector is finished.  
 You can build the connector using the following command line at the root of the project: 
 
-```
+```bash
 ./mvnw clean package
 ```
 

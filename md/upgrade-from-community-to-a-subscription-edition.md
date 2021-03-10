@@ -4,9 +4,10 @@ Upgrading means moving from a Bonita Community edition environment to any Bonita
 edition environment.
 
 ## To Check before upgrading
-* An upgrade can only be performed on a single Bonita version. You cannot migrate to a new version at the same time as you upgrade to Subscription edition.  
+
+- An upgrade can only be performed on a single Bonita version. You cannot migrate to a new version at the same time as you upgrade to Subscription edition.  
   Eg. You can only upgrade from **Bonita 7.3.3 Community** edition to **Bonita 7.3.3 Subscription** edition. You **cannot** upgrade from **Bonita 7.3.3 Community** to **Bonita 7.4.0 Subscription**.
-* After it is applied, an upgrade cannot be undone.
+- After it is applied, an upgrade cannot be undone.
 
 An upgrade is performed in two phases.
 
@@ -31,28 +32,25 @@ while benefiting from the Subscription edition features.
 The upgrade procedure is quite simple and only requires a limited service downtime (less than an hour for basic configurations).
 
 ::: warning
-A Bonita platform upgrade can only be performed on the same database type.
+A Bonita platform upgrade can only be performed on the same database vendor (E.g. PostgreSQL) and on the same Bonita version (E.g. Bonita 2021.2 (=_7.13_))
 :::
 
 To upgrade a Bonita platform from Community edition to a Subscription edition, follow these steps:
 
-1. [Install the Subscription Bundle](bonita-bpm-installation-overview.md) but do not start it. We will call this installation folder `bonita-subscription`.
-2. Configure the Subscription installation to use your existing database editing the file `<bonita-subscription>/setup/database.properties`. Beware of [backslash characters](BonitaBPM_platform_setup.md#backslash_support).
-3. Shut down the Community server being migrated using the `stop-bonita` script, we will call this installation folder `bonita-community`.
-4. Run `<bonita-community>/setup/setup(.sh/.bat) pull` to fetch your current Community configuration in `<bonita-community>/setup/platform_conf/current` and copy this last in a different folder, we will call this new folder `bonita-community-configuration`.
-5. [Backup your Bonita platform and databases](back-up-bonita-bpm-platform.md).
-6. Update the configuration using the [Platform setup tool](BonitaBPM_platform_setup.md#configure_tool) in `bonita-subscription`:
-    1. Create the folder `<bonita-subscription>/setup/platform_conf/current`, we will call it `bonita-subscription-configuration`.
-    3. Copy the content of the `<bonita-subscription>/setup/platform_conf/initial` to `bonita-subscription-configuration`.
-    4. In the `bonita-subscription-configuration`, reapply the modifications for all the folders but the one named `tenants` (use `bonita-community-configuration` as a reference).
-    5. Create the folder `<bonita-subscription-configuration>/tenants`.
-    6. For each folder contained in `<bonita-community-configuration>/tenants`.
-        1. We will call this folder `bonita-community-configuration-tenant`.
-        2. Create one folder with the same name as `bonita-community-configuration-tenant` in `<bonita-subscription-configuration>/tenants`, we will call it `bonita-subscription-configuration-tenant`.
-        3. Copy all folders with prefix `tenant_template_` from `bonita-subscription-configuration` to `bonita-subscription-configuration-tenant` and remove the prefix in their names.
-        4. In the `bonita-subscription-configuration-tenant`, reapply the modifications (user `bonita-community-configuration-tenant` as a reference).
-    7. Run `<bonita-subscription>/setup/setup(.sh/.bat) push` to push the migrated configuration `bonita-subscription-configuration` in database.
-7. Start the migrated platform using the `start-bonita` script located in `bonita-subscription`.
+1. Download and unzip the Bonita Subscription bundle (to retrieve the bonita.war Web App later) 
+2. Retrieve a [Subscription license](licenses.md) file
+3. Run `<bonita-community>/setup/setup(.sh/.bat) pull` to fetch your current Community configuration in `<bonita-community>/setup/platform_conf/current`
+4. Create license folder `<bonita-community>/setup/platform_conf/licenses/`
+5. Copy your license file into this newly-created folder
+6. Push your new license in the database: `<bonita-community>/setup/setup(.sh/.bat) push`
+7. Stop Bonita Community platform with `<bonita-community>/stop-bonita(.sh/.bat)` script. **Do not remove the WAR file before stopping Tomcat, or many errors would be issued in the log**
+8. Remove Bonita Community Web App from `<bonita-community>/server/webapps`: both `bonita.war` and the auto-extracted folder with the same name `bonita/`
+9. Copy the Bonita Subscription Web App where the Community version was: `<bonita-community>/server/webapps/bonita.war`
+10. (Optionally rename the `<bonita-community>` folder with a name that does not contain the word `community`, for clarity)
+11. Start the upgraded Bonita Platform using `<bonita-community>/start-bonita(.sh/.bat)` script
 
 The Upgrade is now finished, you can verify that you are now running a subscription edition in the portal user interface, the dialog displayed from the top right "Settings / About" menu should indicate the correct Subscription edition.
 
+Once you have started Bonita Subscription platform at least once, you can pull your Subscription configuration (`<install>/setup/setup(.sh/.bat) pull`)
+and change the Subscription-specific configuration files to match your needs. See [Bonita platform setup tool](BonitaBPM_platform_setup.md) for details about
+how to apply configuration changes.

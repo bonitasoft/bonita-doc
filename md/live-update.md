@@ -1,46 +1,48 @@
 # Live update
 
-Some process definition information can be live updated from Administrator profile.
+This page defines what is called "Live update" and details the process information that can be live-updated from the Administrator profile.
 
 ::: info
 **Note:** For Enterprise, Performance and Efficiency editions only.
 :::
 
+## Definition
+Sometimes, in Non-Production or even Production Runtimes, there is a need for quickly changing the content of a page or the pages linked to an application. And sometimes, there is no time to modify the sources and go through the whole validation cycle.  
+To save this situation before all changes are made in the project sources, validated as they should, and deployed in a new project version, here comes Bonita "Live Update".
+Live update is the procedure by which the Administrator can modify elements of an application on a Runtime environment (Production or Non-Production environments).
+
+::: warning
+This procedure should only be used to recover from an error encountered after the deployment and when there is no time to go through the normal release cycle: from the project sources through all the testing environments and then to the target environment.  
+Once such a procedure has been used, the development team should quickly report the change made on the Runtime in the source files, to insure the correct maintenance of the project, and tag a new project version.
+:::
+
 ## Parameters
-
-#### How to modify a parameter in Administrator view  
-
-**Note:** In versions 7.0.x, this feature is only available for Bonita Enterprise and Performance editions. Starting from version 7.1.0, this feature is available for Bonita Enterprise, Performance and Efficiency editions. 
-
-1. Go to Process management
-2. Select a process and click on the _**More...**_
-3. Select Parameters on the left side menu
+In Bonita Portal, with the _Administrator_ profile, or in the Bonita Administrator Application:
+1. Go to _BPM_> _Processes_
+2. Select a process and click on the _More..._ button
+3. Select _Parameters_ on the left side menu
 4. A table of parameters is displayed
-5. In the **Value** column, click on the parameter value you want to edit
+5. In the _Value_ column, click on the parameter value you want to edit
 6. Edit the process variable
-7. Click _**✔**_ button to save it
+7. Click on the _**✔**_ button to save it
 
-## Connectors
-
-#### How to edit connector implementation in Administrator view  
-
-**Note:** In versions 7.0.x, this feature is only available for Bonita Enterprise and Performance editions. Starting from version 7.1.0, this feature is available for Bonita Enterprise, Performance and Efficiency editions. 
-
-1. Go to Process management
-2. Select a process and click on the _**More...**_
+## Connector implementations
+1. Go to _BPM_> _Processes_
+2. Select a process and click on the _More..._ button
 3. Select Connectors on the left side menu
-4. In the connector definitions table, in the actions column, click on the _**pencil button**_
+4. In the connector definitions table, in the actions column, click on the _pencil_ button
 5. Browse to a .zip file containing the new connector implementation
-6. Click on _**Save**_ to import the new implementation.
+6. Click on _Save_ to import the new implementation.
+
 
 ## Forms
 
-#### How to add/edit a form or a page of a process in Administrator view
+<a id="form-list"/>
 
-**Note:** For Bonita Enterprise, Performance and Efficiency editions. 
-
-1. Go to Process management
-2. Select a process and click on the _**More...**_
+### Form list
+This is the list of forms that can be mapped to a task, the case overview, or the process instantiation.
+1. Go to _BPM_> _Processes_
+2. Select a process and click on the _More..._
 3. Select Forms on the left side menu
 4. Select Form List tab
 5. In the table, in the actions column, click on the _**pencil button**_ or the _**plus sign button**_
@@ -48,46 +50,51 @@ Some process definition information can be live updated from Administrator profi
 7. Click on _**Next**_ to check the permissions associated with the uploaded page/form.
 8. Click on _**Confirm**_ to import the new page/form.
 
-#### How to update the form/page mapping of a task, process overview or process instantiation in Administrator view
+<a id="form-mapping"/>
 
-**Note:** For Bonita Enterprise, Performance and Efficiency editions.
-
-1. Go to Process management
-2. Select a process and click on the _**More...**_
+### Form mapping of a task, case overview, or process instantiation
+This is the actual mapping between a form in the list and a process element.
+1. Go to _BPM_> _Processes_
+2. Select a process and click on the _More..._ button
 3. Select Forms on the left side menu
 4. In the table, click on the current mapping name of the task you want to update
 5. Enter the name of the already uploaded page/form or a URL that will handle the task submission
 6. Click _**✔**_ button to save it
 
+## Pages
+### Page update
+1. Go to _Resources_
+2. Select a page and click on _Edit_
+3. Select your file
+4. Click on _Next_
+5. Review the permissions to confirm the update
+
+<a id="cache-busting"/>
+
+### Cache busting
+Cache busting is the mechanism used in Bonita to refresh the cache for users when a page created with the UI Designer is updated.
+
+Cache busting has been introduced in Bonita 7.6, along with a new [cache policy](cache-configuration-and-policy.md).  
+It allows end users to benefit from custom page update without the need to empty the browser cache.  
+When you export a page or a layout from the UI Designer, we suffix the resources filenames with a hash.  
+If the page is updated, the resources filenames will change, and the browser will download it from the server, and not from the cache.
+
+If you do not use the UI Designer to edit and export your custom page, do not forget to manually trigger the cache busting mechanism.  
+It means that, as a developer, you must make sure to either change the file names of the modified resources (javaScript, CSS, images, etc...)
+ or add a query parameter (e.g. ?version=2) to the URLs used in the HTML to access those resources, so that the web-browser will not use the
+ version it has in cache but the new file instead.  
+Without this cache busting, end users will not benefit from the latest custom page changes, unless they empty their browser cache.
+
 ## Scripts
-
-#### How to edit a script of a process in Administrator view
-
-**Note:** For Bonita Enterprise, Performance and Efficiency editions.
-
-1. Go to Process management
-2. Select a process and click on the _**More...**_
+The _Scripts_ section of the process "More details" page allows to update a _TYPE\_READ\_ONLY\_SCRIPT_ Expression or a _TYPE\_CONSTANT_ Expression when associated to a Groovy script connector.
+1. Go to _BPM_> _Processes_
+2. Select a process and click on the _More..._ button
 3. Select Scripts on the left side menu
 4. In the displayed tree, find the script you want to update or enter the script name in the înput field
-5. Click on the _**pencil Button**_ in front of the script name
+5. Click on the _pencil_ button in front of the script name
 6. Edit the script in the displayed editor
-7. Click on _**Save**_ to update the script contents.
-
-The Scripts section of the process more details page allows to update a _TYPE\_READ\_ONLY\_SCRIPT_ Expression or a _TYPE\_CONSTANT_ Expression when associated to a Groovy script connector
+7. Click on _Save_ to update the script content.
 
 ::: warning
-**:fa-exclamation-triangle: Warning:** The script dependencies are fixed, i.e. when the process is implemented the developer designed the script to use some variables and/or parameters. The live update capability cannot go against this design and only allows to change the script content. If the new script tries to use more variables, it will lead to execution errors. To change the script dependencies (data available in the script execution context), the process definition must be updated and a newer version of the process deployed.
+The script dependencies are fixed, i.e., when the process is implemented, the developer design the script to use some variables and/or parameters. The Live update capability cannot go against this design and only allows to change the script content. If the new script tries to use more variables, it will lead to execution errors. To change the script dependencies (data available in the script execution context), the process definition must be updated and a newer version of the process deployed.
 :::
-
-<a id="cache_busting"/>
-
-## Cache busting
-
-Cache busting has been introduced in Bonita 7.6, along with a new [cache policy](cache-configuration-and-policy.md).
-It allows end users to benefit from custom page update without the need to empty the browser cache.
-When you export a page or a layout from the UI Designer, we suffix the resource filename with a hash. 
-If the page is updated, the resource filename will change, and the browser will download it from the server, and not from the cache.
-
-If you don't use the UI Designer to edit and export your custom page, don't forget to manually trigger the cache busting mechanism. It means that, as a developer, you must make sure to either change the file names of the modified resources (javacsript, CSS, images, etc...) or add a query parameter (e.g. ?version=2) to the URLs used in the HTML to access those resources. This way the web-browser will not use the version it has in cache but the new file instead. 
-Without this cache busting, end users won't benefit from the latest custom page changes, unless they empty their browser cache.
-

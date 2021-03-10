@@ -1,59 +1,53 @@
-# Cases
+# Administrator Case list
 
-How to manage cases in the Bonita Portal.
+This page explains what a user with the _Administrator_ or _Process Manager_ profiles in Bonita Portal, or an _Administrator_ in Bonita Administrator Application can see and do about cases (the process instances).  
 
-You need to be logged on Bonita with the Administrator profile or the Process Manager profile, in order to manage a case.
+Those users can view a list of open or archived cases, as well as cases with failures, access the case details and overview, the pending tasks for this case, the process definition of this case, and write a comment in open cases.
 
-## Add a comment to a case
+Here is a view of the page:
+![Admin Case list](images/UI2021.1/admin-case-list.png)<!--{.img-responsive}-->
 
-1. Go to **BPM** \> **Cases**
-2. Click a _**Case id**_ or _**ellipsis**_ icon.
-3. Enter a comment in the **comment field**
-4. Click _**Add comment**_
+## View the status of cases
 
-## Start a case for another user
+To view the open or archived cases, go to _BPM_>_Cases_. The case table is displayed, showing the open cases. 
+To switch between _Open cases_ and _Archived cases_ cases, use the tabs.
 
-This feature is available with the Efficiency, Performance and Enterprise editions.
-
-To start a case for another user:
-
-1. Go to **BPM** \> **Processes**.
-2. Select the process and click **_Start for_**.
-3. In the popup, specify the user for whom you are starting the case. Only valid users for the case are displayed.
-4. Click **_Start_**.
-
-The case is started as though the specified user had started it. 
-For example, if a you start a case for user A and a subsequent task is to be done by the manager of the user, it is assigned to user A's manager, not to your manager.
-
-## View status of cases
-
-To view the open or archived cases, go to **BPM** \> **Cases**. The case table is displayed, showing the open cases. 
-To switch between **Open cases** and **Archived cases** cases, use the tabs.
-
-In a row in the table, you can click a case id or the ellipsis icon to open the case details page, or click the process name to open the process details page. 
-
+To open the case details page, click on a case id or the _Ellipsis_ icon, or to open the process details page, click on the process name.
 You can change the view to see only the information that you need:
-
-* View the cases of a specified process, by selecting the process name, or name and version, from the dropdown lists.
-* Search keys are also available as additional columns. In this way, you can use search keys for adding business information to your cases. It is also possible to search on search keys values.
-* Filter the cases by state, by choosing **With failures** or **All** from the **State** dropdown list. 
-The **Failed tasks** column shows the number of failed tasks and tasks where a connector has failed when starting or ending a case. A connector failure at a task is counted as a task failure. 
+- View the cases of a specified process, by selecting the process name, or name and version, from the dropdown lists.
+- Search keys are also available as additional columns. In this way, you can use search keys for adding business information to your cases. It is also possible to search on search keys values.
+- Filter the cases by state, by choosing "With failures" or "All" from the _State_ dropdown list. 
+  The _Failed tasks_ column shows the number of failed tasks. A connector failure at a task is counted as a task failure.  
 Connector failures on case start or end are shown by an exclamation point (!).
-* Add or remove a column in the table, by selecting or deselecting it in the **Columns** menu.
-* Change the column order, by dragging and dropping the column name in the **Columns** menu.
-* Sort the table in ascending or descending order of one of the columns, by clicking arrow beside the column header. 
-If the table is already sorted by the column you select, the first click reverses the sort order. If the table is currently sorted by some other column, clicking the header sorts by this column in ascending order. 
+- Add or remove a column in the table, by selecting or deselecting it in the _Columns_ menu.
+- Change the column order, by vertically dragging and dropping the column name in the _Columns_ menu.
+- Sort the table in ascending or descending order of one of the columns, by clicking arrow beside the column header. 
+
+If the table is already sorted by the column you select, the first click reverses the sort order.  
+If the table is currently sorted by some other column, clicking the header sorts by this column in ascending order. 
 You can then click on the arrow to reverse the sort order. 
 
-These changes to the view are stored in your browser [Local Storage](https://en.wikipedia.org/wiki/Web_storage#Local_and_session_storage): If you navigate away from the page then go back, the view will be as you configured it. If you reload the page, or close and reopen the same browser, your stored changes will be reapplied. If you want to go back to the default view settings, clear your browser cache and local storage.
+These changes to the view are stored in your browser [Local Storage](https://en.wikipedia.org/wiki/Web_storage#Local_and_session_storage): If you navigate away from the page then go back, the view will be as you configured it.  
+If you reload the page, or close and reopen the same browser, your stored changes will be reapplied.  
+If you want to go back to the default view settings, clear your browser cache and local storage.
 
-From this table, you can delete a cases, or several cases. Select the cases you want to delete, and click **_Delete_**. Confirm in the popup that you want to delete the selected cases.
+From this table, you can delete a case or several cases. Select the cases you want to delete, and click on _Delete_. Confirm in the popup that you want to delete the selected cases.
 
-if you are using the Enterprise, Performance or Efficiency edition, you can also open a diagram of a case, by clicking on the picture icon for the case. 
-On the diagram, colored flags on the steps show the number of step instances in the possible states. Click **_Show key_** to see an explanation of the display. 
-Remember that a failure at a step does not necessarily mean that the case has failed entirely, but it might indicate that some action is needed, perhaps to replay a connector.
+if you are using the Enterprise, Performance or Efficiency edition, you can also open the diagram of a case (case visualization), by clicking on the _Picture_ icon for the case. 
+On the diagram, colored flags on the steps show the number of step instances in the possible states. Click on _Show key_ to see an explanation of the display. 
+Remember that a failure at a step does not necessarily mean that the case has failed entirely, but it might indicate that some action is needed, perhaps to [replay a connector](tasks.md#toc5).
 
-The process diagram is constructed from the deployed process definition. This means that some details visible in Bonita Studio, such as comments, are not available.
+The process diagram is constructed from the deployed process definition. This means that some details visible in Bonita Studio, such as annotations, are not available.
 
-Note: if a process was deployed from a bar file created in Bonita Studio 6.3 or earlier, the diagram display is not available. This is because some details of the .bar structure have changed. 
+::: info
+**Note**: if a process was deployed from a .bar file created in Bonita Studio 6.3 or earlier, the diagram display is not available. This is because some details of the .bar structure have changed. 
 To see the diagram for such a process, export the process definition from Bonita Studio 6.3 as a .bos file, import it into Bonita Studio 6.4 or later, generate a new .bar file, and deploy it.
+:::
+
+## Add a comment to a case
+1. Go to _BPM_>_Cases_
+2. Click a Case id or tyhe _Ellipsis_ icon.
+3. Enter a comment in the _Comment_ field.
+4. Click on _Add comment_
+
+

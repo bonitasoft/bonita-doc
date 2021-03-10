@@ -34,7 +34,8 @@ For the Bonita Runtime embedded in the Bonita Studio, the JUL configuration file
 `workspace/tomcat/conf`. After editing this file, restart Bonita by going to the **Server** menu and selecting the **Restart web server** option.
 
 Here is an example of the JUL configuration for the logger used in the [example below](#your_log):
-```
+
+```properties
 # Set log level to "finest" for newly created connector
 org.mycompany.connector.level = FINEST
 # Set log level to "finest" for Groovy script
@@ -50,24 +51,27 @@ To change the Bonita Studio log level (usually to debug Studio), go to the Studi
 When you write Groovy scripts or Java code to be included in a process (for example, to create a new connector implementation), logging is usually required. The recommended option is to use [SLF4J](http://www.slf4j.org/) in order to log messages. SLF4J is included in the Bonita dependencies so you can use it without adding extra dependencies. However, to get completion for SLF4J classes during development you need to add the slf4j-api jar file temporarily to your process dependencies (click **_Configure_** then choose **Application dependencies**).
 
 This is an example of how to log debug information in a Groovy script. Note that we recommend that you use a logger name that starts with "org.bonitasoft", so that the default Bonita logging configuration is applied to your logger. Also, ending your logger name with a name similar to the Groovy script will be helpful to identify source of the message.
+
 ```groovy
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 Logger logger = LoggerFactory.getLogger("org.bonitasoft.groovy.script.my_int_init_script");
 logger.debug("Set initial value of process variable using Groovy script");
 return Integer.valueOf(3 + 5);
 ```
 
 This is an example of how to use logging in a connector:
+
 ```groovy
 private static final Logger LOGGER = LoggerFactory.getLogger(SumImpl.class); 
 
 @Override 
 protected void executeBusinessLogic() throws ConnectorException {
-LOGGER.debug("Trying to sum {} and {}.", getIntegerA(), getIntegerB());
-int sum = getIntegerA() + getIntegerB(); 
-LOGGER.debug("The sum is: {}", sum);
-setSum(sum);
+    LOGGER.debug("Trying to sum {} and {}.", getIntegerA(), getIntegerB());
+    int sum = getIntegerA() + getIntegerB(); 
+    LOGGER.debug("The sum is: {}", sum);
+    setSum(sum);
 }
 ```
 
@@ -77,8 +81,8 @@ setSum(sum);
 
 In Bonita Studio you have access to two log files:
 
-* The Studio log file includes information about Studio execution. Look at this file if you see incorrect behavior of the Studio. To view the file, go to the **Help** menu and choose **Show Studio log**. The file is located in the `workspace/.metadata` folder and is named `.log`. 
-* The Engine and Portal log file receives all log messages produced by the Bonita Platform embedded in the Studio. When you test your processes by running them from the Studio you will find valuable debugging information in this file. To view the file, go to the **Help** menu and choose **Show Engine log**. The file is located in `workspace/tomcat/log` and is named `bonita-yyyy-mm-dd.log`.
+- The Studio log file includes information about Studio execution. Look at this file if you see incorrect behavior of the Studio. To view the file, go to the **Help** menu and choose **Show Studio log**. The file is located in the `workspace/.metadata` folder and is named `.log`. 
+- The Engine and Portal log file receives all log messages produced by the Bonita Platform embedded in the Studio. When you test your processes by running them from the Studio you will find valuable debugging information in this file. To view the file, go to the **Help** menu and choose **Show Engine log**. The file is located in `workspace/tomcat/log` and is named `bonita-yyyy-mm-dd.log`.
 
 ### Bonita Runtime
 

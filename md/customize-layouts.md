@@ -11,18 +11,19 @@ Keep in mind that any layout is composed by tree containers: layout-header, layo
 
 Prerequisites to customize a layout:
 
-* Basic knowledge of Java script
-* Basic knowledge of AngularJS
-* Basic knowledge of Bootstrap
-* Basic knowledge of the UI Designer
-* An existing living application (to test the modified layout)
+- Basic knowledge of Java script
+- Basic knowledge of AngularJS
+- Basic knowledge of Bootstrap
+- Basic knowledge of the UI Designer
+- An existing living application (to test the modified layout)
 
-The following example shows how to add a new widget into the layout.    
+The following example shows how to add a new widget into the layout.  
 The example sections show how to:
-* Export the layout from Bonita Portal
-* Import the layout into the UI Designer
-* Modify the layout
-* Apply the customized layout onto a living application.
+
+- Export the layout from Bonita Portal
+- Import the layout into the UI Designer
+- Modify the layout
+- Apply the customized layout onto a living application.
 
 ## Export a layout from Bonita Portal
 
@@ -96,10 +97,10 @@ To take advantage of this improvement if your customized layout has been created
 3. Import the _Default layout_ in the UI Designer
 4. Open your _CustomLayout_7.5.x_ 
 5. If any of the custom widgets _livingApplicationMenu_ or _livingApplicationIFrame_ has been modified,  
-you will need to merge your modifications and the modifications of the new version of those widgets, namely _livingApplicationMenuV3_ and _livingApplicationIFrameV3_.  
+   you will need to merge your modifications and the modifications of the new version of those widgets, namely _livingApplicationMenuV3_ and _livingApplicationIFrameV3_.  
 
 Note 1: To help this merge, you can generate a diff, between two version of the default layout by using Git.
-If you don't already have [Git](https://git-scm.com/), you will need to install it, then clone the repository "https://github.com/bonitasoft/bonita-distrib.git".
+If you don't already have [Git](https://git-scm.com/), you will need to install it, then clone the repository "<https://github.com/bonitasoft/bonita-distrib.git">.
 At the root level, run the following command:  "git diff 7.5.0 7.6.0 -- ./community/resources/layout-page/src/main/resources"
 
 Note 2: A good practice would be to rename those merged widgets into something like _myCustomizedMenuV3_ and _myCustomizedIFrameV3_)
@@ -110,4 +111,3 @@ Note 2: A good practice would be to rename those merged widgets into something l
 9. In Bonita portal, edit the layout and import the newly exported layout  
 10. Confirm all messages  
 11. Validate that your application has a layout that fits your requirements and the new menu behaviour. 
-

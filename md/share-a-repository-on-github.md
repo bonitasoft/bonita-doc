@@ -1,10 +1,10 @@
-# How to share a project on Github 
+# How to share a project on Github
 
 ::: info
 **Note:** For Enterprise, Performance, Efficiency, and Teamwork editions only.
 :::
 
-This page explains how to push an existing Bonita project on [GitHub](https://github.com/) to share it with teammates.   
+This page explains how to push an existing Bonita project on [GitHub](https://github.com/) to share it with teammates.  
 For more information on Git integration in Bonita Studio, you can read the [reference documentation page](workspaces-and-repositories.md#git).
 
 ## Create an empty GitHub repository
@@ -21,8 +21,8 @@ Then you will be able to [create a repository](https://help.github.com/articles/
 1. Open a Bonita Studio. 
 2. Go to Team > Git > Share with Git  
 3. Click on "Share".  
-  You can share the current project or create a new project and share it.   
-  In all cases, the local Git repository is initialized, and a .gitignore file is created.  
+   You can share the current project or create a new project and share it.  
+   In all cases, the local Git repository is initialized, and a .gitignore file is created.  
 4. Enter a commit message for the initial commit. If it is the first time you use Git, a dialog will prompt to ask for an identity (mail and name). This identity will be stored in the Git configuration and can be updated in preferences afterward. All your commits will be authored with this identity. Note that this is your Git identity, different from your GitHub credentials.  
 5. Click on "Commit and Push".  
 6. To push the project on the GitHub remote:  
@@ -49,8 +49,8 @@ You may also use the ssh authentication mechanism if you do not want to use http
 
 1. Create a new diagram and save it.
 2. A new Git Staging view is now accessible. From this view you can manage the `status` of your repository:
-    * You can see the **unstaged changes**: the files in this section have changed but not been updated yet, which means that they are unstaged. That is, if we commit right now, nothing will happen. You have to stage a file before you can commit it.
-    * Below are the **staged changes**: you can add files from the unstaged changes in the staged changes by clicking on the add button (+). Only staged changes will be part of the next commit. You can remove a staged change by clicking on the remove button (-).
+   - You can see the **unstaged changes**: the files in this section have changed but not been updated yet, which means that they are unstaged. That is, if we commit right now, nothing will happen. You have to stage a file before you can commit it.
+   - Below are the **staged changes**: you can add files from the unstaged changes in the staged changes by clicking on the add button (+). Only staged changes will be part of the next commit. You can remove a staged change by clicking on the remove button (-).
 3. Add the new process to the staged changes
 4. Type a commit message in the right panel of the Git Staging view
 5. Click on Commit
@@ -66,4 +66,3 @@ You may also use the ssh authentication mechanism if you do not want to use http
 1. Make a change on the diagram and save it
 2. Go to Team > Git > Commit...
 3. Enter a commit message and click on `Commit and Push`
-

@@ -15,14 +15,18 @@ Bonita will not help you to define the objectives for a project, but it will hel
 
 Defining the application scope means defining the people who use it and their usage patterns, the information concerned, the level of security needed, and connections to external systems.
 
-* Application or process: Is the process completely automatic with no human users? Does the process interact with other processes that have human users?   
-If there is no human interaction, there is no need to create an application.
-* People: Who owns the application? Who owns the processes in the application? Who uses the application and processes? Who are the key
-users? Who just needs to know the application exists? When and how is it used? Is it used frequently, on a schedule, in emergencies? Is
-it used by just one person or by many people at the same time?
-* Information: What business information does the application need, and what information does it deliver? What are the expected results of the processes, and of the application?
-* Security: What kind of controls are needed for people using the application? Is a simple login sufficient?
-* Connections: What connections to external systems are needed? Does the application need to access information in a database, to send email, or to use some other business application? Do these external systems have APIs accessible by Java?
+- Application or process: Is the process completely automatic with no human users? Does the process interact with other processes that have human users?  
+  If there is no human interaction, there is no need to create an application.
+- People: Who owns the application? Who owns the processes in the application? Who uses the application and processes? Who are the key
+  users? Who just needs to know the application exists? When and how is it used? Is it used frequently, on a schedule, in emergencies? Is
+  it used by just one person or by many people at the same time?
+- Information: what information does it deliver? What are the expected results of the processes, and of the application?  
+There are three main kinds of applications based on the information they deliver, and the choice made may impact the processes:
+  * Tasklist applications: all processes mixed, users do tasks by priority. Bonita Portal and Bonita Applications deliver such a user experience. You can use them as they are, or customize Bonita Applications to make them closer to the users' needs. We will see how below.
+  * Business centered-applications. The processes help managing the lifecycle of business objects instances, like a request. Users needs to act on specific requests at a given time, and to do so, they need to filter the requests list and have actions linked to the requests to make their status evolve. These are business-specific and need to be developed as Living Applications.  
+  * Case Management applications. The process is not as structured as in full BPM, users are experts who can decide whether to do some tasks, the best time to do a task, or to create tasks during the lifetime of a case. The case is mainly made of business data, created when the case starts, edited during the case lifetime, stored after the case ends.
+- Security: What kind of controls are needed for people using the application? Is a simple login sufficient?
+- Connections: What connections to external systems are needed? Does the application need to access information in a database, to send email, or to use some other business application? Do these external systems have APIs accessible by Java?
 
 ## Drawing the process diagram
 
@@ -30,8 +34,8 @@ Using Bonita Studio, you can quickly sketch out the process flow, and create a d
 
 Things to think about:
 
-* Most business processes have a single start and a single end, but it is possible to have multiple starts and ends.
-* If there are activities that happen in parallel, use symmetric gates to map out the beginning and end of the parallel phases of the process.
+- Most business processes have a single start and a single end, but it is possible to have multiple starts and ends.
+- If there are activities that happen in parallel, use symmetric gates to map out the beginning and end of the parallel phases of the process.
 
 There is no requirement to create a diagram for an application, because it is not executable in the same way as a process.  
 However, you should create a specification so that you can get agreement from the application owner and key users. One option is to use the Bonita Studio to create a diagram showing the usage patterns.  
@@ -41,21 +45,81 @@ This diagram would not be executable, and should not be exported as a /bar file,
 
 In the development phase of each process in an application, there are several aspects to define:
 
-* Data. Define the inputs and outputs of each step. Define the data model, sourcing and storage, and data types. 
-* Step details. Make sure each step is the correct type, and has a descriptive name. 
-* Transition and flow details. Make sure all transitions have a descriptive label. Make sure there is always a default path at each branch in the process. If the process contains a loop on a step, make sure there is a maximum number of iterations defined.
-* Connectors. Attach connectors to the relevant steps. Note that it can be more efficient to split steps with both user activity and connector activity into two steps, a human task for the user and a system task for the connector. Configure each connector. 
-* Actors. Define the actor for each step, applying an actor filter where necessary.
-* Monitoring: Specify the key performance indicators (KPIs) to be collected. These will enable you to monitor the application using a business activity monitoring (BAM) application. Make sure that the KPIs will provide the data required to monitor the objectives you defined for the process.
-* Exception handling: Plan for how errors and unexpected events will be handled. Consider whether it is necessary to stop the case or process, or whether the case can take an alternate path. Decide whether to use event sub-processes.
-* Process maintainability. Add annotations to explain the process. Make sure all elements have descriptive labels. Generate the process document and check it.
+- Data. Define the inputs and outputs of each step. Define the data model, sourcing and storage, and data types. 
+- Step details. Make sure each step is the correct type, and has a descriptive name. 
+- Transition and flow details. Make sure all transitions have a descriptive label. Make sure there is always a default path at each branch in the process. If the process contains a loop on a step, make sure there is a maximum number of iterations defined.
+- Connectors. Attach connectors to the relevant steps. Note that it can be more efficient to split steps with both user activity and connector activity into two steps, a human task for the user and a system task for the connector. Configure each connector. 
+- Actors. Define the actor for each step, applying an actor filter where necessary.
+- Monitoring: Specify the key performance indicators (KPIs) to be collected. These will enable you to monitor the application using a business activity monitoring (BAM) application. Make sure that the KPIs will provide the data required to monitor the objectives you defined for the process.
+- Exception handling: Plan for how errors and unexpected events will be handled. Consider whether it is necessary to stop the case or process, or whether the case can take an alternate path. Decide whether to use event sub-processes.
+- Process maintainability. Add annotations to explain the process. Make sure all elements have descriptive labels. Generate the process document and check it.
 
-## Designing the application
+## Designing the application 
 
 When the application definition and process definitions are complete, you will have defined what interaction users have with application pages and with each process task. Create the pages and forms needed. 
 
-Use the Bonita Studio UI designer to create pages and forms by manipulating widgets.  
-You can add, remove, and reorder widgets, and you can change the appearance of a form.
+### From a Bonita application
+Each application is devoted to a special business need:
+1. Bonita Administrator Application for the management, monitoring and operations of Bonita Runtime 
+1. Bonita User Application for task execution
+1. Adaptive Case Management example for Case Management. Note that this example is only available for the Enterprise edition.
+
+To customize an application to your needs:
+1. From Bonita Studio's Welcome page, in the "Resources" tile, download the application that suits your needs. 
+In the studio "Project explorer" pane, you will find all resources of the application: descriptor, layout, theme, custom widgets, as well as some pages.
+Our pages have been developed with different frameworks over time.
+- Pages developed with the UI Designer appear in the Project explorer, they can be edited in the UI Designer
+- Pages developed with AngularJS are embedded in the Development Suite Tomcat and can be found in the Resources page of Bonita Portal / the Bonita Administrator Application. Those pages have been "wrapped" from Bonita Portal to be used as custom pages. They cannot be edited in the UI Designer.
+- Pages developed with React are embedded in the Development Suite Tomcat and can be found in the Resources page of Bonita Portal / the Bonita Administrator Application. Those pages cannot be edited in the UI Designer but they can be modified using an IDE (Integrated Development Environment) if needed.
+2. Duplicate the application descriptor and rename your copy
+3. Delete the pages you do not need, add the pages you need, keep the pages that fit the target use  
+4. You can customize the pages created with the UI Designer. To do so:
+    1. From the project explorer pane, double-click on the page to open it in the UI Designer
+    2. Make it yours
+    3. We recommend that you save it under another name, in case you need the original version at some point
+
+::: info
+Note: While both the Bonita User Application and the Bonita Administrator Application are supported by Bonitasoft in their original versions, any customization of yours cannot be supported, as Bonitasoft cannot garantee the content of your custom development.  
+Similarly, the Adaptive Case Management example, which can only be used after it is customized, is not supported.
+However, our team of Professional Services consultants can assist you in the customization phase.
+:::
+
+#### List of Bonita Applications customizable pages
+
+##### Bonita User Application
+In this application, you can customize:
+  * Bonita User Case List `UserCaseListBonitaV_`
+  * Bonita User Case Details `UserCaseDetailsBonitaV_` 
+
+#### Bonita Administrator Application
+In this application, you can customize:
+  * Bonita Admin Process List `adminProcessListBonitaV_`
+  * Bonita Admin Case Details `adminCaseDetailsBonitaV_`
+  * Bonita Admin Task List `adminTaskListBonitaV_`
+  * Bonita Admin Task Details `adminTaskDetailsBonitaV_`
+  * Bonita Admin User List `adminUserListBonitaV_`
+  * Bonita Admin Group List `adminGroupListBonitaV_`
+  * Bonita Admin Role List `adminRoleListBonitaV_`
+  * Bonita Admin Install Export Organization `adminInstallExportOrganizationBonitaV_`
+  * Bonita Admin Profile List `adminProfileListBonitaV_`
+  * Bonita Admin Resources List `adminResourceListBonitaV_`
+
+The "_" in "V_" stands for the latest "version" of the resource.
+
+::: info
+**Note**: All the "Details" pages must be used as "orphan" pages in the application descriptor, since they need an id to be passed in order to display the details of the right item. They cannot be used at top-level menu.
+:::
+
+#### Case overview
+This page linked to the case lists and case details pages is considered as a form in Bonita. It is linked to the process and can be edited from the Studio:
+1. Go to the pool prperties pane and select the "Execution" tab
+1. Select the "Overview page" in the tab group on the left
+1. Click on the _pencil_ icon to edit the page
+
+### From scratch
+Use the UI Designer to create pages by manipulating widgets.  
+Create the application descriptor from Bonita Studio by adding pages, layout and theme to the application, and map it to a profile.
+Generate the final forms from the human tasks of your diagram, in Bonita Studio too.
 
 ## Testing
 
@@ -76,8 +140,8 @@ When testing is complete, the processes are ready to be deployed in Bonita Porta
 
 ## Specifying the organization
 
-Before you can run a process in production, you need to define your organization with entries for all process users, groups, and roles. You also need to map the process actors to the real people who will carry out process steps.   
-You can [manage your organization in Bonita Portal](organization-in-bonita-bpm-portal-overview.md) for a production system.   
+Before you can run a process in production, you need to define your organization with entries for all process users, groups, and roles. You also need to map the process actors to the real people who will carry out process steps.  
+You can [manage your organization in Bonita Portal](organization-in-bonita-bpm-portal-overview.md) for a production system.  
 While you are in the testing phase, you can [manage the organization in Bonita Studio](organization-management-in-bonita-bpm-studio.md).
 
 ## Monitoring and improvement

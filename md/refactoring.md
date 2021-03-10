@@ -8,15 +8,15 @@ Refactoring a process definition means changing the name of a process element wi
 
 Refactoring applies to the following types of element:
 
-* variable
-* form field
-* actor
-* parameter
-* document
-* contract input
-* business variable
-* page
-* search keys
+- variable
+- form field
+- actor
+- parameter
+- document
+- contract input
+- business variable
+- page
+- search keys
 
 When you change the name of an element of one of these types, the name is changed throughout the process definition, including inside scripts and connector instance definitions.
 
@@ -30,18 +30,18 @@ If your business process includes a call activity subprocess with mapped data, y
 
 Refactoring is not available for the following process definition elements:
 
-* 7.x pages do not reflect modifications of business data, documents and contract inputs.
-* "List of options" elements are not managed by refactoring. If you rename an option, you need to manually update any widgets that use this option as initial value.
-* Refactoring cannot be used to modify the type of an element, It is limited to renaming.
-* Expression dependencies are not recomputed in the Groovy script comparison editor. This means that you need to manually go back to each expression dependency and uncheck/check the "automatic dependency resolution" if you added a new element in the Groovy script comparison editor.
+- 7.x pages do not reflect modifications of business data, documents and contract inputs.
+- "List of options" elements are not managed by refactoring. If you rename an option, you need to manually update any widgets that use this option as initial value.
+- Refactoring cannot be used to modify the type of an element, It is limited to renaming.
+- Expression dependencies are not recomputed in the Groovy script comparison editor. This means that you need to manually go back to each expression dependency and uncheck/check the "automatic dependency resolution" if you added a new element in the Groovy script comparison editor.
 
 ## Example
 
 Suppose you have a process that loops to collect feedback on a new product feature, and has an process variable called _count_ that is used to count the number of people who complete the survey form. The variable is used in the following places in the process definition:
 
-* It is set to zero when a process instance is created.
-* It is incremented using an operation when a user submits a survey form, that is, it is used as the loop counter.
-* It is used in script that creates the content for a daily report sent by email to the feature owner, reporting how many survey forms have been submitted. This report is sent using the email connector, and the script is part of the connector definition.
+- It is set to zero when a process instance is created.
+- It is incremented using an operation when a user submits a survey form, that is, it is used as the loop counter.
+- It is used in script that creates the content for a daily report sent by email to the feature owner, reporting how many survey forms have been submitted. This report is sent using the email connector, and the script is part of the connector definition.
 
 For clarity, it would be better to have a more meaningful name for this variable, so you want to change the name from _count_ to _numberOfSurveyFormsReturned_:
 

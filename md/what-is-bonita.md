@@ -37,6 +37,7 @@ Bonita Studio contains all the elements needed to develop and compile a Bonita a
 * the UI Designer, which is used to create application pages and process forms
 
 It provides:
+
 - capabilities to model BPMN processes
 - capabilities to model data (Business Data Model)
 - capabilities to model user interfaces (UI Designer)

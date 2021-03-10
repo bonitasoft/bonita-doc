@@ -1,4 +1,3 @@
-
 # Bonita Studio installation
 
 How to install a Bonita Studio on Windows, Linux, or Mac operating systems. An OS-independent archive can also be used.
@@ -9,9 +8,9 @@ Check the [hardware and software requirements](hardware-and-software-requirement
 
 Before you download Bonita Studio, make sure that you know whether you are using a using a 32 or 64-bit system, and that you have the appropriate Java version installed:
 
-* For Linux, to find out whether you are using a 32 or 64 bit Linux, run the following command: `getconf LONG_BIT`, which returns either 32 or 64.
-* For Windows, see the [32 and 64 bit Windows FAQ](http://windows.microsoft.com/en-us/windows/32-bit-and-64-bit-windows).
-* For Mac, 32-bit Java is no longer supported, so there is no 32-bit version of Bonita for Mac systems.
+- For Linux, to find out whether you are using a 32 or 64 bit Linux, run the following command: `getconf LONG_BIT`, which returns either 32 or 64.
+- For Windows, see the [32 and 64 bit Windows FAQ](http://windows.microsoft.com/en-us/windows/32-bit-and-64-bit-windows).
+- For Mac, 32-bit Java is no longer supported, so there is no 32-bit version of Bonita for Mac systems.
 
 ::: danger
 Both Windows and Mac have default security settings that will prevent execution of Bonita. See below for further details about what you can do to bypass those security protections
@@ -32,15 +31,17 @@ Only version 7.11.4 and upwards are compatible
 Only **installed JDK** are accepted by the macOS _gatekeeper_.  
 If you try to use a JDK directly downloaded, you will get this kind of error: _jdk-11.0.5 can’t be opened because it is from an unidentified developer._  
 The solution is to use an installer to install properly the JDK. The easiest way is to tape the following commands:  
-``` bash
+
+```bash
 # Install brew first if it is not installed yet, more details here: https://brew.sh
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # Use brew to install a JDK
 brew tap homebrew/cask-versions
 brew cask install java11
-```  
-An other solution is to download and execute manually the installer, [here for example](https://adoptopenjdk.net/index.html). 
+```
+
+Another solution is to download and execute manually the installer, [here for example](https://adoptopenjdk.net/index.html). 
 
 **Note for users of Windows 10**: the security feature called **SmartScreen** prevents execution of Bonita Studio installer.  When you get the "Windows protect your PC" pop up window, click on "More info" link and click on "Run anyway" button.
 
@@ -69,9 +70,11 @@ Subscription editions: `BonitaSubscription-x.y.z-macOs.dmg`
 
 **Zip, no Installer (Windows or Linux)**
 Community edition  
+
 - `BonitaStudioCommunity-x.y.z.zip`
 
 Subscription editions  
+
 - `BonitaStudioSubscription-x.y.z.zip`
 
 ## Install using a wizard
@@ -92,7 +95,7 @@ To install Bonita Studio using the zip archive, unzip the downloaded .zip file t
 
 To start Bonita Studio, go to the directory where you installed it, and run the launcher for your operating system:
 
-**Linux**   
+**Linux**  
 Community edition: `BonitaStudioCommunity-linux`  
 Subscription editions: `BonitaStudioSubscription-linux`  
 
@@ -100,7 +103,7 @@ Subscription editions: `BonitaStudioSubscription-linux`
 Community edition: `BonitaStudioCommunity.exe`  
 Subscription editions: `BonitaStudioSubscription.exe`  
 
-**Mac**   
+**Mac**  
 Community edition: `BonitaStudioCommunity.app`  
 Subscription editions: `BonitaStudioSubscription.app`  
 
@@ -112,7 +115,7 @@ When you launch Bonita Studio for the first time, you need to install a license:
 
 1. Click _**Copy to clipboard**_ to copy the request key from the pop-up
 2. Use the generated request key to request a license on the [Customer portal](https://customer.bonitasoft.com/license/request)
-3. _**Check**_ your email box (after a few minutes) and open the email from _no-reply@bonitasoft.com_
+3. _**Check**_ your email box (after a few minutes) and open the email from _[no-reply@bonitasoft.com](mailto:no-reply@bonitasoft.com)_
 4. _**Download**_ the attached file (.lic)
 5. Go back to your Bonita Studio, click _**Install license...**_, and select your .lic file.
 
@@ -125,12 +128,14 @@ Bonita Studio 7.8 only support Java 8. If you have multiple versions of Java ins
 To specify the JVM version use to run the Studio you first need to identify the appropriate file to edit. For example if you launch the Studio using `BonitaStudioCommunity.exe`, the file to edit will be `BonitaStudioCommunity.ini`. This file is located in your Studio installation folder.
 
 Next you need to add a -vm option and the path to the Java runtime in the ini file (each of them on a new line). Note the format of the -vm option − it is important to be exact:
+
 - The -vm option and its value (the path) must be on separate lines.
 - The value must be the full absolute or relative path to the Java executable, not just to the Java home directory.
-- The -vm option must occur after the other Bonita-specific options (such as -product, --launcher.*, etc), but before the -vmargs option, since everything after -vmargs is passed directly to the JVM.
+- The -vm option must occur after the other Bonita-specific options (such as -product, --launcher.\*, etc), but before the -vmargs option, since everything after -vmargs is passed directly to the JVM.
 
 For example on Windows:
-```
+
+```ini
 -startup
 plugins/org.eclipse.equinox.launcher_1.4.0.v20161219-1356.jar
 --launcher.library
@@ -159,18 +164,15 @@ But you can decide to activate cache, to be closer to the production display tim
 5. Save file.
 6. Start your Bonita studio. Now you have a cache for your living application and your custom page.
 
-
-
 ## Troubleshooting
-
 
 ### Log files
 
 In case of trouble when running Bonita Studio, you might want to take a look at log files.
 
-Studio log file can be displayed from Bonita Studio in "Help" -\> "Show Bonita Studio log" menu.
+Studio log file can be displayed from Bonita Studio in "Help" -> "Show Bonita Studio log" menu.
 
-If Studio fails to start, you can open the log file manually. File is named `.log` and is located in `<studio_folder>/workspace/.metadata` folder.   
+If Studio fails to start, you can open the log file manually. File is named `.log` and is located in `<studio_folder>/workspace/.metadata` folder.  
 Note that folder might be hidden and file might not be displayed if you choose to hide file extensions in your file manager.
 
 ### JVM terminated. Exit code=1
@@ -203,23 +205,7 @@ Then restart Bonita Studio.
 ### OutOfMemory error in Bonita Studio embedded Tomcat server
 
 When using connectors having a large amount of dependencies you may encounter some memory issue with the default `-Xmx` used for the tomcat server.  
-You can increase this value in Studio preferences -> Server settings -> Tomcat Maximum memory allocation.  
-
-### Bonita Studio Welcome page stays blank on Linux (Ubuntu/Debian)
-
-If the Welcome page displays fully white when you start-up your Bonita Studio:
-
-<img src="bonita/images/${varVersion}/studio_welcome_page_ko.png" width="850px"/>
-
-just install the missing packet libwebkitgtk by running the following command:
-```shell
-sudo apt-get install libwebkitgtk-1.0-0
-```
-
-Then the welcome page should display well, like this:
-
-<img src="bonita/images/${varVersion}/studio_welcome_page_ok.png" width="850px"/>
-
+You can increase this value in Studio preferences -> Server settings -> Tomcat Maximum memory allocation.
 
 #### Bonita Studio installation fail due to JVM errors
 

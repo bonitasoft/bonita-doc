@@ -21,9 +21,9 @@ Representation of object attributes with an _always load_ policy:
 ```json
 {
   "persistenceId": _number_,
-  "persistenceId_string": "_number_" 
+  "persistenceId_string": "_number_",
   "persistenceVersion": _number_,
-  "persistenceVersion_string": "_number_"
+  "persistenceVersion_string": "_number_",
   "attributeName":_attributeType_
   ...
 }
@@ -32,10 +32,11 @@ Representation of object attributes with an _always load_ policy:
 The string representation added in 7.0.1 for Long attributes is a workaround for the JavaScript integer spectrum issue.
 
 HATEOAS representation of object attribute with a _load when needed_ policy:
+
 ```json
 "links":[
    {
-   "rel":_string_
+   "rel":_string_,
    "href":_uri_
    }
 ]
@@ -45,21 +46,21 @@ HATEOAS representation of object attribute with a _load when needed_ policy:
 
 The methods used for this resource are:
 
-* GET
+- GET
 
 #### Get the business data
 
 Get the business data specified by its identifier.
 
-* **URL**  
+- **URL**  
   `/API/bdm/businessData/:businessDataType/:persistenceId`  
   _Example_: `/API/bdm/businessData/com.company.model.Contract/1`
-* **Method**  
+- **Method**  
   `GET`
-* **Success Response**  
+- **Success Response**  
   A business data (in JSON format)
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     With business data containing always-loaded object attributes:  
     ```json
     {
@@ -122,26 +123,24 @@ Get the business data specified by its identifier.
       }]
     }
     ```
-* **Error Response**  
+- **Error Response**  
   When business data identifier is not valid  
-  * **Code**: 500
-
-
+  - **Code**: 500
 
 #### Get the business data attribute of business data
 
 Gets the business data attribute of business data according to its identifier and attribute name.
 Request url
 
-* **URL**  
+- **URL**  
   `http://../API/bdm/businessData/:businessDataType/:persistenceId/:attributeName`  
   _Example_: `/API/bdm/businessData/com.company.model.Client/2/industry`
-* **Method**  
+- **Method**  
   `GET`
-* **Success Response**  
+- **Success Response**  
   A business data (in JSON format)
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "persistenceId": 2,
@@ -151,25 +150,25 @@ Request url
       "industryName": "Services"
     }
     ```
-* **Error Response**  
+- **Error Response**  
   When business data identifier or attribute name is not valid  
-  * **Code**: 500
+  - **Code**: 500
 
 #### Get several business data
 
 Get the business data specified by their identifiers.
 
-* **URL**  
+- **URL**  
   `http://../API/bdm/businessData/:businessDataType/findByIds`  
   _Example_: `/API/bdm/businessData/com.company.model.Contract/findByIds?ids=1,83`
-* **Method**  
+- **Method**  
   `GET`
-* **Data Params**  
-  * ids - list of persistenceIds (comma separated)
-* **Success Response**  
+- **Data Params**  
+  - ids - list of persistenceIds (comma separated)
+- **Success Response**  
   An array of business data (in JSON format). It can be an empty array if no identifiers refer to existing data.
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     With business data containing always loaded object attributes
     ```json
     [{
@@ -222,11 +221,11 @@ Get the business data specified by their identifiers.
 #### Description
 
 The business data query REST API resource is used to call a default or custom business data query.
-It is available from version 6.5\.
+It is available from version 6.5.
 
 #### Identifier
 
-../API/bdm/businessData/_businessDataType_?q=_queryName_
+`../API/bdm/businessData/_businessDataType_?q=_queryName_`
 
 #### Representation
 
@@ -236,41 +235,41 @@ A JSON representation of the query result.
 
 The methods used for this resource are:
 
-* GET - Call a named query
+- GET - Call a named query
 
 #### Call a business data named query
 
 The query can be either a default or a custom query.
 
-* **URL**  
+- **URL**  
   `http://../API/bdm/businessData/_businessDataType_?q=_queryName_&p=0&c=10&f=param=value`  
   _Example_: Call the findEmployeeByFirstNameAndLastName query : 
   ```
   /API/bdm/businessData/com.company.model.Employee?q=findEmployeeByFirstNameAndLastName&p=0&c=10&f=firstName=John&f=lastName=Doe
   ```
-* **Method**  
+- **Method**  
   `GET`
-* **Data parameters**:
-  * businessDataType - the fully-qualified business data type name
-  * q=queryName - the query name
-  * p=0 - the page number
-  * c=10 - the maximum number of results in the page
-  * f=parameter=value - sets the parameter value according to business data query parameters defined in the Business Data Model  
-    * For a _Boolean_ parameter, the accepted values are `true` or `false`.
-    * For _Array_ parameters (_String[]_,_Long[]_...), the values must be separated by `,`. For _String[]_, values should be quoted and url encoded. Eg: `f=param='value%20with%20space','value2'...`
+- **Data parameters**:
+
+  - businessDataType - the fully-qualified business data type name
+  - q=queryName - the query name
+  - p=0 - the page number
+  - c=10 - the maximum number of results in the page
+  - f=parameter=value - sets the parameter value according to business data query parameters defined in the Business Data Model  
+    - For a _Boolean_ parameter, the accepted values are `true` or `false`.
+    - For _Array_ parameters (_String\[]_,_Long\[]_...), the values must be separated by `,`. For _String\[]_, values should be quoted and url encoded. Eg: `f=param='value%20with%20space','value2'...`
 
   By default, for a Date parameter can use the following formats:
 
-  * yyyy-MM-dd
-  * HH:mm:ss
-  * yyyy-MM-dd HH:mm:ss
-  * yyyy-MM-dd'T'HH:mm:ss
-  * yyyy-MM-dd'T'HH:mm:ss.SSS
-  
-* **Success Response**  
+  - yyyy-MM-dd
+  - HH:mm:ss
+  - yyyy-MM-dd HH:mm:ss
+  - yyyy-MM-dd'T'HH:mm:ss
+  - yyyy-MM-dd'T'HH:mm:ss.SSS
+- **Success Response**  
   JSON representation of query result 
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     [
       {
@@ -295,7 +294,7 @@ The query can be either a default or a custom query.
 
 ::: warning
 Deprecated (since 7.0.0)
- 
+
 Use [case context API](bpm-api#retrieve-the-case-context) to get business data references for a case
 and [task context API](bpm-api#retrieve-the-usertask-context) to get business data references for a task.
 :::
@@ -317,7 +316,7 @@ Single reference:
 {
   "name":"_string_",
   "type":"_string_",
-  "storageId":_number_
+  "storageId":_number_,
   "storageId_string":"number"
 }
 ```
@@ -328,7 +327,7 @@ Multiple reference:
 {
   "name":"_string_",
   "type":"_string_",
-  "storageIds":[number]
+  "storageIds":[number],
   "storageIds_string":["number"]
 }
 ```
@@ -337,20 +336,21 @@ Multiple reference:
 
 The methods used for this resource are:
 
-* GET
+- GET
 
 #### Get the named business data reference defined in the case
 
 Get the named business data reference ({businessDataName} string) defined in the case ({caseId} long).
-* **URL**  
+
+- **URL**  
   `http://../API/bdm/businessDataReference/:caseId/:businessDataName`  
   _Example_: `/API/bdm/businessDataReference/1/Contracts`
-* **Method**  
+- **Method**  
   `GET`
-* **Success Response**  
+- **Success Response**  
   A business data reference (in JSON format)
-  * **Code**: 200
-  * **Payload**:  
+  - **Code**: 200
+  - **Payload**:  
     ```json
     {
       "name": "contracts",
@@ -363,22 +363,22 @@ Get the named business data reference ({businessDataName} string) defined in the
       ]
     }
     ```
-* **Error Response**  
-  * **Code**:  
+- **Error Response**  
+  - **Code**:  
     400 - when caseId is not a number (long)  
     404 - when the businessDataName does not match an existing reference of the case or the caseId is not found
 
 #### Get the business data references defined in the case
 
-* **URL**  
+- **URL**  
   `/API/bdm/businessDataReference?f=caseId={caseId}&p={pageNumber}&c={pageCount}`  
   _Example_: `/API/bdm/businessDataReference?f=caseId=1&p=0&c=10`
-* **Method**  
+- **Method**  
   `GET`
-* **Success Response**  
+- **Success Response**  
   An array of business data references (in JSON format)
-  * **Code**: 
-  * **Payload**:  
+  - **Code**: 
+  - **Payload**:  
     ```json
     [
       {
@@ -395,13 +395,12 @@ Get the named business data reference ({businessDataName} string) defined in the
       {
         "name": "industry",
         "type": "com.company.model.Industry",
-        "storageId": 1
+        "storageId": 1,
         "storageId_string": "1"
       }
     ]
     ```
-* **Error Response**  
-  * **Code**:  
+- **Error Response**  
+  - **Code**:  
     400 - when caseId or p or c is not a number (long)  
     200 - when caseId is not found, an empty array is returned
-

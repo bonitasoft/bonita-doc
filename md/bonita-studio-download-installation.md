@@ -26,14 +26,15 @@ You are now ready to start the installation process.
 To run the installer for Windows, macOS or Linux, double-click on the file you downloaded.
 
 The installer will guide you through a very basic installation configuration:
+
 1. Select installation language: this will be used for the installation process
-1. Welcome message: click on **Next**
-1. License agreement: you need to accept this to continue
-1. Installation directory: the default should be fine
-1. Confirmation that installation is about to start: click on "Next"
-1. Actual installation: wait a little bit
-1. You'll see a confirmation message that offers the option to start Bonita Studio. Choose to start Bonita Studio and click on **Finish**
-1. A "thank you for downloading" page will be displayed in your web browser. You can close it
+2. Welcome message: click on **Next**
+3. License agreement: you need to accept this to continue
+4. Installation directory: the default should be fine
+5. Confirmation that installation is about to start: click on "Next"
+6. Actual installation: wait a little bit
+7. You'll see a confirmation message that offers the option to start Bonita Studio. Choose to start Bonita Studio and click on **Finish**
+8. A "thank you for downloading" page will be displayed in your web browser. You can close it
 
 ![Bonita Studio installer last screen](images/getting-started-tutorial/installation/studio-installation-installer-08-last-screen.png)<!--{.img-responsive .img-thumbnail}-->
 
@@ -64,15 +65,13 @@ This might take a while and some features may not be immediately available. A po
 
 When the Bonita Engine is started, you will see a confirmation pop-up on your Bonita Studio welcome page.
 
-![Bonita Studio server started pop-up](images/getting-started-tutorial/installation/studio-first-start-04-engine-started-popup.png)
+![Bonita Studio server started pop-up](images/getting-started-tutorial/installation/studio-first-start-04-engine-started-popup.png)<!--{.img-responsive .img-thumbnail}-->
 
 ## Installation validation
 
 To make sure that everything is properly installed, click on the **Portal** button ![Bonita Portal icon](images/getting-started-tutorial/installation/portal-icon.png) in the toolbar. This should open the Bonita Portal home page in your web browser:
 
 ![Bonita Portal display in a web browser](images/getting-started-tutorial/installation/web-browser-display-portal.png)<!--{.img-responsive .img-thumbnail}-->
-
-
 
 Also click on the **UI Designer** button ![UI Designer icon](images/getting-started-tutorial/installation/ui-designer-icon.png) in the toolbar. This will display a pop-up window that you can ignore:
 
@@ -81,7 +80,6 @@ Also click on the **UI Designer** button ![UI Designer icon](images/getting-star
 And the UI Designer should open in your web browser:
 
 ![UI Designer, on first launch, displayed in a web browser](images/getting-started-tutorial/installation/ui-designer-first-start.png)<!--{.img-responsive .img-thumbnail}-->
-
 
 ## Ready to move on
 

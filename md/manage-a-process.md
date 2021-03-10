@@ -6,6 +6,7 @@ This example shows you how to get a list of the deployed processes.
 
 The search options specify that the list is sorted by deployment date, the maximum number of results to list is 100,
 and the list starts with the first results (that is, the processes that were deployed first).
+
 ```java
 // First of all, let's log in onto the API:
 final APIClient apiClient = new APIClient();
@@ -24,6 +25,7 @@ After a process is deployed it must be enabled.
 If a process is not enabled, it is not possible to start a process instance.
 
 To **enable a process**, call the method enableProcess specifying the processDefinition id:
+
 ```java
 // enable the process
 processAPI.enableProcess(processDefinition.getId());
@@ -31,6 +33,7 @@ System.out.println("A new process was enabled: " + processDefinition.getId());
 ```
 
 The next step is to **start an instance** of the deployed process:
+
 ```java
 // start the process
 final ProcessInstance processInstance = processAPI.startProcess(processDefinition.getId());
@@ -49,6 +52,7 @@ The `startProcess` method, which creates the process instance, takes a list of o
 so the map must be converted into a list of operations that will set the values of the variables in the process instance.
 The example calls `buildAssignOperation` for each variable in turn, to build an operation that will assign the value to the
 variable when the process instance is created. Each operation is built as an assignment expression.
+
 ```java
 public void createInstance(String processDefinitionName, String processVersion, Map<String, Object> variables) {
     ProcessAPI processAPI;
@@ -86,6 +90,7 @@ The `startProcess` method, which creates the process instance, takes a list of o
 list of operations that will set the values of the variables in the process instance. For each variable in turn, the example builds
 an expression that assigns the value to the variable to the object supplied in the map, specifying the data type by identifying the class of the object.
 These expressions are concatenated into a list of operations, which is used to initialize the variables when the process instance is created.
+
 ```java
 public void createCase(String processDefinitionName, String processVersion, Map<String, Object> variables, ProcessAPI processAPI) {
     try {
@@ -120,6 +125,7 @@ public void createCase(String processDefinitionName, String processVersion, Map<
 #### Create a map of variables and values and start a process instance
 
 Create a map specifying the values of the variables required to start a case, then pass it to the `instantiateProcess` method, as shown in the following example:
+
 ```java
 public void instantiateProcess(String processDefinitionName, String processVersion, Map<String, Serializable> variables)  {
     try {
@@ -135,6 +141,7 @@ public void instantiateProcess(String processDefinitionName, String processVersi
 #### For a running process instance, set the value of a custom data type variable
 
 To update the value of a variable with a custom data type, you need to call a Groovy script expression that returns the new value of the variable, as shown in the example below:
+
 ```groovy
 final ProcessAPI processAPI = apiClient.getProcessAPI();
 final String dataInstanceName = "acase";
@@ -161,6 +168,7 @@ because the data type definition is not present in the Engine.
 This example shows how to execute a task.
 
 The task is specified by an activityInstanceId.
+
 ```java
 final ProcessAPI processAPI = apiClient.getProcessAPI();
 processAPI.executeFlowNode(activityInstanceId);
@@ -171,6 +179,7 @@ processAPI.executeFlowNode(activityInstanceId);
 This example shows you how to list the open process instances started by the current user.
 
 The search options specify that a maximum of 100 items are listed, starting with the first one.
+
 ```java
 final ProcessAPI processAPI = apiClient.getProcessAPI();
 final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100);
@@ -183,6 +192,7 @@ final SearchResult<ProcessInstance> processInstanceResults = processAPI.searchOp
 This example shows you how to list the open instances of a specified process.
 
 The process is specified by the processDefinitionId. The search options specify that a maximum of 100 items are listed, starting with the first one.
+
 ```java
 final ProcessAPI processAPI = apiClient.getProcessAPI();
 final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100);
@@ -195,6 +205,7 @@ final SearchResult<ProcessInstance> processInstanceResults = processAPI.searchOp
 This example shows how to get the history for a case.
 
 A case is a process instance. To get the history, you retrieve the archived process instance, which is specified by processInstanceID.
+
 ```java
 final ProcessAPI processAPI = apiClient.getProcessAPI();
 final ArchivedProcessInstance archivedProcessInstance = processAPI.getArchivedProcessInstance(processInstanceID);
@@ -205,6 +216,7 @@ final ArchivedProcessInstance archivedProcessInstance = processAPI.getArchivedPr
 This example shows how to get a list of archived process instances that meet a specified filter.
 
 Note that this type of query is only possible with archived process instances.
+
 ```java
 final ProcessAPI processAPI = apiClient.getProcessAPI();
 final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100);
@@ -217,6 +229,7 @@ final SearchResult<ArchivedProcessInstance> archivedProcessInstanceResults = pro
 This example shows how to stop (or cancel) an active process instance.
 
 No further activities in this process instance are started.
+
 ```java
 final ProcessAPI processAPI = apiClient.getProcessAPI();
 processAPI.cancelProcessInstance(processInstanceID);
@@ -232,12 +245,14 @@ The process can be in a business archive (`.bar`) file or can be built using the
 
 First create a business archive from the bar file. In this example, the bar file is `/deploy/travelRequest.bar`. 
 The process is deployed and enabled in a single step.
+
 ```java
 // create a business archive
 final BusinessArchive businessArchive = BusinessArchiveFactory.readBusinessArchive(new File("/deploy/travelRequest.bar"));
 ```
 
 Now **deploy and enable the process**:
+
 ```java
 // deploy and enable the process
 final ProcessDefinition processDefinition = getProcessAPI().deployAndEnableProcess(businessArchive);
@@ -248,6 +263,7 @@ final ProcessDefinition processDefinition = getProcessAPI().deployAndEnableProce
 In this example, there are three steps: deploy the process, map the actor, and enable the process.
 
 First deploy the process:
+
 ```java
 // deploy the process
 final ProcessDefinition processDefinition = processAPI.deploy(processDefinitionBuilder.done());
@@ -257,6 +273,7 @@ System.out.println("A new process was deployed with id: " + processDefinition.ge
 Once the process is deployed, it's necessary to **map the actors** defined in the process to existing users in the database before enabling the process.
 In this example, the actor defined in the process will be mapped to the current logged in user, whose id is available in the session
 (attention, this user cannot be the technical user):
+
 ```java
 // map the actor "delivery" to the current logged in user
 final List<ActorInstance> actors = processAPI.getActors(processDefinition.getId(), 0, 1, ActorCriterion.NAME_ASC);
@@ -265,6 +282,7 @@ processAPI.addUserToActor(actors.get(0).getId(), session.getUserId());
 
 At this point, the process is deployed but not enabled. This means that no instances of this process can be started.
 To **enable the process**, call the method enableProcess:
+
 ```java
 // enable the process
 processAPI.enableProcess(processDefinition.getId());
@@ -274,6 +292,7 @@ System.out.println("A new process was enabled: " + processDefinition.getId());
 ## Get the design process definition
 
 This example shows how to retrieve the definition of a deployed process.
+
 ```java
 // Create a process definition
 final ProcessDefinitionBuilder processBuilder = new ProcessDefinitionBuilder().createNewInstance("name", "1.0");
@@ -296,6 +315,7 @@ This example shows you how to undeploy a process.
 ### Disable the process
 
 To disable a process, simply call: 
+
 ```java
 apiClient.getProcessAPI().disableProcess(processDefinitionId)
 ```
@@ -311,14 +331,17 @@ apiClient.getProcessAPI().deleteProcessDefinition(processDefinitionId)
 
 ::: info
 You can directly disable and delete a process by calling the wrapper API method:
+
 ```java
 apiClient.getProcessAPI().disableAndDeleteProcessDefinition(processDefinitionId)
 ```
+
 :::
 
 ::: warning
 Be aware that to be able to delete a process, you must ensure that all running process instances and all
 archived (finished) process instances are deleted first:
+
 ```java
 // Delete all process instances:
 while (apiClient.getProcessAPI().deleteProcessInstances(processDefinitionId, 0, 100) > 0) { }

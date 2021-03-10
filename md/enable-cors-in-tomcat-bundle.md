@@ -6,12 +6,11 @@ If you try to call the REST API from a page hosted on another domain than the on
 you will face some issues due to the 'same-origin policy' enforced by web browsers.
 For instance you may see in your browser a message such as:
 
->Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at XXX.
->This can be fixed by moving the resource to the same domain or enabling CORS.
+> Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at XXX.
+> This can be fixed by moving the resource to the same domain or enabling CORS.
 
 By configuring the CORS filter on the tomcat bundle, you will be able to access the Bonita REST API from a page
  hosted on a different domain from the one of the tomcat bundle.
-
 
 ## Tomcat configuration
 
@@ -19,7 +18,6 @@ By configuring the CORS filter on the tomcat bundle, you will be able to access 
 
 Edit the web.xml of the bonita.war to add the CORS filter:
 _**Important Note:** to use this configuration, you will need to replace the `ALLOWED_ORIGIN_LIST` by your own allowed origin list._
-
 
 ```xml
 <filter>
@@ -63,21 +61,22 @@ _**Important Note:** to use this configuration, you will need to replace the `AL
   <url-pattern>/*</url-pattern>
 </filter-mapping>
 ```
+
 _**Important Note 1:** The filter must be inserted in the file webapps/bonita/WEB-INF/web.xml (not in the Tomcat conf/web.xml)_
 
 _**Important Note 2:** It must be the first filter, inserted right after the </error-page> tag_
 
 for more information:
-[https://tomcat.apache.org/tomcat-8.5-doc/config/filter.html#CORS_Filter](https://tomcat.apache.org/tomcat-8.5-doc/config/filter.html#CORS_Filter)
+<https://tomcat.apache.org/tomcat-8.5-doc/config/filter.html#CORS_Filter>
 
 ### Choose cookies SameSite Policy
 
 By default, cookies will be automatically passed with a same-site request, or a cross-site top-level navigation with a "safe" HTTP method.  
 This default configuration aims to ensure that we respect the new standard cookie policy rules.
 
-To understand those changes, see [https://blog.chromium.org/2020/02/samesite-cookie-changes-in-february.html](https://blog.chromium.org/2020/02/samesite-cookie-changes-in-february.html)  
+To understand those changes, see <https://blog.chromium.org/2020/02/samesite-cookie-changes-in-february.html>  
 Also note that this new policy will be definitively applied in the months to come for Chrome, and later for the other browsers,
-as you can see here [https://blog.chromium.org/2020/04/temporarily-rolling-back-samesite.html](https://blog.chromium.org/2020/04/temporarily-rolling-back-samesite.html)
+as you can see here <https://blog.chromium.org/2020/04/temporarily-rolling-back-samesite.html>
 
 If you want to perform "unsafe" CORS requests (which means performing a POST/PUT/DELETE request)
 you will need to modify the tomcat `conf/context.xml` file, to set sameSiteCookies to "none" instead of "lax".
@@ -92,12 +91,13 @@ you will need to modify the tomcat `conf/context.xml` file, to set sameSiteCooki
 ::: warning
 **Warning:** 
 Using sameSiteCookies="none" will also force you to use [secure HTTP (HTTPS) on your Bonita server](ssl.md).  
-To explain this constraint, see [https://blog.chromium.org/2019/10/developers-get-ready-for-new.html](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)
+To explain this constraint, see <https://blog.chromium.org/2019/10/developers-get-ready-for-new.html>
 :::
 
 ## HTML Example test page
 
 Here is an example of html page that:
+
 - logs in using the loginservice,
 - get the current session, via the REST api resource system/session
 - edit a user password using the REST api resource identity/user
@@ -243,4 +243,3 @@ _**Important Note 1:** this example works on a bundle where the [CSRF security f
 </html>
 
 ```
-
