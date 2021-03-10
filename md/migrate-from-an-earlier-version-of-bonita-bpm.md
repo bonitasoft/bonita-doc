@@ -160,14 +160,14 @@ Particularly, if you use Oracle 12.2.0.x.y and are migrating to 7.9.n or to 7.10
     :::
 
 1. If you use a custom Look & Feel, [export](managing-look-feel.md) it, and then [restore the default Look & Feel](managing-look-feel.md).
-1. It is generally not recommended to pause the BPM services before migrating. The next point being the exception.
-1. If you use a Business data model and migrate, there are a few things to keep in mind:
-    * If you are migrating to a version that requires the BDM to be redeployed, or a version above that (see [above](#bdm_redeploy)), you will need to redeploy your BDM after your migration.
-    * In this case, and only in this case, it is recommended to stop your BPM services before migrating, so as to be able to redeploy your BDM immediately after migration (and not having to deal with eventual errors in automated processes as you restart your platform after migration).
-    * Because of the bug RUNTIME-131, it is not possible to migrate to versions 7.8.0-7.11.5 with BPM services stopped.
-    * In terms of migration procedure it means that if you need to disable the BPM services before migration, you wil need to either migrate to 7.11.6 or 2021.1 (or above), or to 7.7.5.
-      If you are migrating to a version between 7.8.0 and 7.11.5, you will need to do it with activated BPM services.  Which means : stop at a prior version, redeploy your BDM, migrate again to your desired version with started BPM services.
-      
+1. Generally speaking, pausing (or not) the BPM services before migrating should not impact migration. There are however a few special cases:
+    * If you are migrating from a version **< 7.3.0**. If you are using a BDM, your BDM will have to be redeployed after migration (see [above](#bdm_redeploy)).
+      In this case, it is recommended you **stop your BPM services before migrating**, so as to be able to redeploy your BDM immediately after migration (and not having to deal with eventual errors in automated processes as you restart your platform after migration).
+    * Several bugs affect legacy versions of Bonita that prevent a smooth migration of a Bonita platform with **BPM services paused** in special cases:
+        * Starting version is **before 7.8.0**, and your target version is between **7.8.0** and **7.11.5**
+        * Starting version is **before 7.10.5** & target version is **before 2021.1**
+    * Therefore, while it is recommended to always migrate to the latest version of Bonita, if your target version is not 2021.1, or above, it is necessary to migrate with **BPM services running**.
+
 1. Stop the application server.
 1. **IMPORTANT:**
 [Back up your platform](back-up-bonita-bpm-platform.md) and database in case of problems during migration.
