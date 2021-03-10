@@ -90,8 +90,7 @@ See  [Migrate your platform](#migrate) for step-by-step instructions.
 
 ## Constraints
 
-- If you have added indexes to certain tables in the Engine database, you must remove them before migrating from 6.2.6 to a later version. If you do not remove these indexes, the migration will not complete.
-  This applies to the following tables: `arch_process_instance`, `arch_connector_instance`, `arch_flownode_instance`, `arch_data_instance` and `arch_data_mapping`.
+- If you have added custom indexes to certain tables in the Engine database, you must remove them before migrating to a later version. If you do not remove these indexes, the migration will not complete.
 
 - There is no guarantee that the Look & Feel definition is compatible across maintenance versions.
   For example, in 6.2.2, `jquery+` was renamed `jqueryplus` in `BonitaConsole.html`, for compatibility with more application servers.
