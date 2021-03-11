@@ -6,7 +6,6 @@ However, if a project has a need that was not anticipated and cannot be met by t
 This page lists the extension points that are available.
 
 [#stable_extension_points]
-
 == Stable extension points
 
 The following elements are designed to be extension points of Bonita BPM.
