@@ -3,8 +3,6 @@
 
 This page gives access to the download of Bonita documentation archives, in case you need something very specific to those versions. The format is either html (for not so old versions) or pdf (for very old versions).
 
-You can find here links to download old versions of the Bonita documentation.
-
 == Bonita BPM 7.3 and Bonita BPM 7.4
 
 The format here is html. +
