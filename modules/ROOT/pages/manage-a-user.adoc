@@ -1,0 +1,61 @@
+= Administrator User list in Bonita Portal
+:description: This page explains what a user with the _Administrator_ profile in Bonita Portal can see and do about the users of the deployed organization.
+
+This page explains what a user with the _Administrator_ profile in Bonita Portal can see and do about the users of the deployed organization.
+
+Here is a view of this page:
+image:images/UI2021.1/user-list-portal.png[Administrator user list Portal]
+// {.img-responsive}
+
+== Create a user
+
+Reminder: do not create a user with the same login and password as the platform user or the technical user.
+
+. Go to _Organization_/_Users_.
+. Click on _Create_.
+. In the pop-up window, enter the login, password, first name and last name of the new user.
+. Click _Create_ to confirm the creation.
+. A page is displayed confirming the information about the new user.
+
+== Edit a user
+
+. Go to _Organization_/_Users_.
+. Click on a user.
+. Click on _More_.
+. Click on _Edit user_.
+. Edit the details about the user in the popup window.
+. Click _Save_.
+
+== Add a membership to a user
+
+. Go to _Organization_/_Users_.
+. Click on a user.
+. Click on _More_.
+. Click on _Add membership_.
+. In the pop-up window, enter the group and role.
+. Click on _Add_.
+
+== Delete a membership from a user
+
+. Go to _Organization_/_Users_.
+. Click on a user.
+. Click on _More_.
+. In the Membership table, find the membership to be deleted and click on _Delete_.
+. In the pop-up window, click on _Delete_.
+
+== Edit user profiles
+
+The rights of a user are defined by mapping the user to a profile.
+To map a user to a profile:
+
+. Go to _Organization_/_Profiles_.
+. Select a profile.
+. Click on _More_.
+. In the Users mapping section, click _Add a user_.
+5.In the popup, click the checkbox to select the user to add.
+. Click on _Add_.
+
+The user is mapped to the profile.
+
+To see all the profiles that are mapped to a user, go to the _Organization_/_Users_ and then select the user. +
+The mapped profiles are shown in the Profile section on the right.

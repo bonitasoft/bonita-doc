@@ -1,0 +1,47 @@
+= Administrator Role list in Bonita Portal
+:description: This page explains what a user with the _Administrator_ profile in Bonita Portal can see and do about roles in the organization. +
+
+This page explains what a user with the _Administrator_ profile in Bonita Portal can see and do about roles in the organization. +
+Roles can be defined in the organization, attached to users and used to map actors.
+
+Here is a view of this page:
+image:images/UI2021.1/roles-portal.png[Administrator roles Portal]
+// {.img-responsive}
+
+== Create a role
+
+. Go to _Organization_/_Roles_
+. Click on the _Create a role_ button in the top left corner
+. In the pop-up window, enter the avatar (picture) to represent the role (optional)
+. Enter the name, the display name, and a description of the role
+. Click on _Create_
+The new role will be displayed in the list of roles
+
+== Assign a role to a user
+
+. Go to _Organization_/_Users_
+. Click on a user
+. Click on _More_
+. In "Memberships", click on _Add_
+. Choose the group and role for the user
+. Click on _Add_
+
+== Edit a role
+
+. Go to _Organization_/_Roles_
+. Click a checkbox to select a role
+. Click _Edit_
+. In the popup window, update the role information
+. Click _Save_
+
+== Delete a role
+
+. Go to _Organization_/_Roles_.
+. Click a checkbox to select a role.
+. Click _Delete_.
+. In the popup window, click _Delete_.
+
+== More information about a role
+
+. Go to _Organization_/_Roles_.
+. Click a checkbox to select a role. A list of users who have this role is displayed.

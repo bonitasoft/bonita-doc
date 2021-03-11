@@ -1,0 +1,39 @@
+= User process list
+:description: This page explains what a user with the _User_ profile in Bonita Portal or in xref:user-application-overview.adoc[Bonita User Application] can see and do about processes.
+
+This page explains what a user with the _User_ profile in Bonita Portal or in xref:user-application-overview.adoc[Bonita User Application] can see and do about processes.
+
+_Users_ can view a list of the processes they have the permission to start, and start a new instance of a process.
+
+== Process list
+
+This list displays the processes that the logged user can start.
+
+image:images/UI2021.1/user_process_list.png[User Process list]
+// {.img-responsive}
+
+The ability to start a process has been stated in the Studio, by mapping the _initiator_ actor of the pool with entities of the organization the user is part of.
+
+In the pool configuration, here is how to map an actor to the entities of the organization.
+
+image:images/UI2021.1/Actor-mapping.png[Actor mapping]
+// {.img-responsive}
+
+In the Pool properties, here is how to set an actor as the initiator.
+
+image:images/UI2021.1/Set-as-initiator.png[Set an actor as the process initiator]
+// {.img-responsive}
+
+== Start a process
+
+To start a new instance of the process, also named _case_:
+
+. Click on the arrow at the end of the process row or anywhere on this row. +
+This navigates to the instantiation form of the process.
+. Fill in or select the information requested. +
+At that step, the process is not instantiated yet. +
+That means that you can click in the left part of the instantiation form to come back to the list without the need to cancel a case.
+. Click on the button ("Submit" or else)
+The instance is created.
+
+To know more about the creation of the process instantiation form, go to the xref:create-web-user-interfaces.adoc[Getting started tutorial]
