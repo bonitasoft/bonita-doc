@@ -1,6 +1,11 @@
 = Bonita Documentation
 :description: Learn how to use the Bonita Platform and all of its components.
 
+[NOTE]
+====
+image:images/tv.png[videos]  Discover what is new in Bonita 7.11 thanks to these short videos in https://www.youtube.com/playlist?list=PLvvoQatxaHOOsAGuLQs2ObgX3JgXDwYaW[English], https://www.youtube.com/playlist?list=PLvvoQatxaHONj4o8wmnPEqYml7dnzA9NU[French], or https://www.youtube.com/playlist?list=PLvvoQatxaHOMNTj22Nh_3KEu4ln65EPpy[Spanish]!
+====
+
 Learn how to use the Bonita Platform and all of its components.
 
 [.card-section]
