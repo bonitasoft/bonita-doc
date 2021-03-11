@@ -6,18 +6,17 @@ on:
     branches:
       - 2021.2
     paths:
-      - 'modules/ROOT/**'
+      - 'modules/**'
       - 'antora.yml'
       - '.github/workflows/push-content.yml'
 jobs:
   triggerJob:
     runs-on: ubuntu-20.04
     steps:
-      - name: Workflow Dispatch
-        uses: benc-uk/workflow-dispatch@v1.1
+      - name: Notify content changes
+        uses: peter-evans/repository-dispatch@v1
         with:
-          workflow: Generate documentation
           token: ${{secrets.GH_TOKEN_DOC_TRIGGER_WF}}
-          ref: master
-          repo: bonitasoft/bonitasoft.github.io
-          inputs: '{ "component": "bonita", "branch": "2021.2" }'
+          repository: bonitasoft/bonita-documentation-site
+          event-type: source_documentation_change
+          client-payload: '{ "component": "bonita", "branch": "2021.2" }'
