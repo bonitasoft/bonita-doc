@@ -1,5 +1,5 @@
 * xref:what-is-bonita.adoc[What is Bonita?]
-* xref:_getting-started-tutorial.adoc[Getting started tutorial]
+* Getting started tutorial
  ** xref:tutorial-overview.adoc[Tutorial overview]
  ** xref:bonita-studio-download-installation.adoc[Download and install]
  ** xref:draw-bpmn-diagram.adoc[Draw a BPMN diagram]
@@ -13,8 +13,8 @@
  ** xref:create-application.adoc[Create an application]
 * xref:release-notes.adoc[Release notes]
 * xref:migration-tool.adoc[Migration tool change log]
-* xref:_application-and-process-design.adoc[Application and Process Design]
- ** xref:_application-and-process-design-overview.adoc[Application and process design overview]
+* Application and Process Design
+ ** Application and process design overview
   *** xref:key-concepts.adoc[Key concepts]
   *** xref:comparison-of-7-x-and-6-x.adoc[Comparison of 7.x and 6.x]
   *** xref:lifecycle-and-profiles.adoc[Lifecycle and profiles]
@@ -205,22 +205,22 @@
   *** xref:managing-look-feel.adoc[Manage Look & Feel]
   *** xref:creating-a-new-look-feel.adoc[Create a new Look & Feel]
  ** xref:search-index.adoc[Search keys]
-* xref:_monitoring.adoc[Monitoring]
+* Monitoring
  ** xref:runtime-monitoring.adoc[Bonita Runtime Monitoring]
  ** xref:work-execution-audit.adoc[Work execution audit]
-* xref:_bonita-platform_administration.adoc[Bonita Platform Administration]
+* Bonita Platform Administration
  ** xref:performance-tuning.adoc[Performance tuning]
  ** xref:performance-troubleshooting.adoc[Performance troubleshooting]
  ** xref:cluster-administration.adoc[Cluster administration]
  ** xref:maintenance-operation.adoc[Bonita Runtime Maintenance Operations]
  ** xref:back-up-bonita-bpm-platform.adoc[Back up Bonita Platform]
  ** xref:configurable-archive.adoc[Configurable Archive]
- ** xref:_migration.adoc[Migration]
+ ** Migration
   *** xref:migration-overview.adoc[Migration overview]
   *** xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[Migrate from an earlier version of Bonita]
-* xref:_development.adoc[Development]
+* Development
  ** xref:software-extensibility.adoc[Platform extensibility overview]
- ** xref:_connectors.adoc[Connectors]
+ ** Connectors
   *** xref:connectors-overview.adoc[Connectors overview]
   *** xref:connector-archetype.adoc[Bonita connector archetype]
  ** xref:actor-filter-archetype.adoc[Create an actor filter]
@@ -259,20 +259,20 @@
   *** xref:queriable-logging.adoc[Queriable logger]
   *** xref:log-in-with-cas.adoc[Log in with CAS]
  ** xref:bonita-bpm-portal-urls.adoc[Bonita Portal URLs]
- ** xref:_living-application.adoc[Living application]
+ ** Living application
   *** xref:bonita-layout.adoc[Bonita Layout]
   *** xref:living-application-layout.adoc[Living application layout]
   *** xref:customize-layouts.adoc[Customize layouts]
   *** xref:customize-living-application-theme.adoc[Customize living application theme]
  ** xref:logging.adoc[Logs]
  ** xref:workspaces-and-repositories.adoc[Workspaces and projects]
- ** xref:_continuous-integration.adoc[Continuous integration]
+ ** Continuous integration
   *** xref:automating-builds.adoc[Automate builds]
   *** xref:set-up-continuous-integration.adoc[Set up continuous integration]
-* xref:_collaboration.adoc[Collaboration]
+* Collaboration
  ** xref:project-documentation-generation.adoc[Project documentation generation]
  ** xref:shared-project.adoc[Using a shared project]
-* xref:_howtos.adoc[Howtos]
+* Howtos
  ** xref:uid-modal-tutorial.adoc[Create a modal window using CSS]
  ** xref:uid-case-overview-tutorial.adoc[Create a case overview page using the UI Designer]
  ** xref:optimize-user-tasklist.adoc[Create unique task names for the user task list]
@@ -292,14 +292,14 @@
  ** xref:responsiveness-with-community-edition.adoc[Create a responsive web application with Community edition]
  ** xref:use-bonita-acm.adoc[Enable Adaptive Case Management with Bonita]
  ** xref:event-handlers.adoc[Create an event handler]
-* xref:_contributing.adoc[Contributing]
+* Contributing
  ** xref:building-community-edition-from-source.adoc[Build Bonita Community edition from source files]
- ** xref:_engine-developer-doc.adoc[Bonita Engine developer documentation]
+ ** Bonita Engine developer documentation
   *** xref:engine-architecture-overview.adoc[Bonita Engine architecture overview]
   *** xref:engine-flow-node-states.adoc[Flow node states]
   *** xref:timers-execution.adoc[Timers execution]
   *** xref:connectors-execution.adoc[Connectors execution]
-  *** xref:_works.adoc[Works]
+  *** Works
    **** xref:work-execution.adoc[Work execution]
    **** xref:work-locking.adoc[Work locking]
   *** xref:execution-sequence-states-and-transactions.adoc[BPM process / task execution sequence]
