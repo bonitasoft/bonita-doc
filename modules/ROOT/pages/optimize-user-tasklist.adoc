@@ -194,36 +194,36 @@ When reusing these features for your own projects, make sure that the result of 
 . Run the pool. The default logged in user is Walter Bates
 . Fill out the default instantiation form with two dates
 . Click on *Start*
-
++
 Once you are sent to the task list, you can see that the task name is contextualized. +
 It is computed once, when the task becomes ready.
-
++
 NOTE: The following set of instructions only applies to the task list in Bonita 7.3.0 and above. In earlier versions, the *Description* field is displayed by default.
-
++
 To display the *Description* column and view the _submitted_ status:
-
++
 . Click on the *settings wheel* icon on the top right of the list
 . Select *Description*
 . Click outside the settings box
 The table settings have changed to display the *Description* column. It will be stored in the local storage of the browser
-
++
 You can see the description field, showing the status: "submitted", as shown here:
-
++
 image:images/display_task_name_and_description.png[display task name and description]
 // {.img-responsive .img-thumbnail}
-
++
 . Logout
 . Login with helen.kelly / bpm credentials (since Helen Kelly is Walter Bates' manager)
 . Perform the task
 . Go to the *Done tasks* filter
-
++
 The *Description* column now shows the description after completion, with an edited status as well as the name of who performed the task, as shown here :
-
++
 image:images/description_after_completion.png[description after completion]
 // {.img-responsive .img-thumbnail}
-
++
 If you don't use the description after completion field, the *Description* column will still show the "display description" information.
-
++
 Unlike the "technical" name and description of a task in the Studio, which are useful for development, information for each task as _display name_, _display description_ and _description after completion_ will be unique for each case in the task list, to make the task list more efficient for the users.
 
 == Search a task name based on word-based search
@@ -235,6 +235,5 @@ To do so, go to xref:using-list-and-search-methods.adoc]#word_based_search[word-
 
 [NOTE]
 ====
-
 Setting the word-based search may result in lesser performance, with some delay experienced by users on the display of search results. Turning this feature on requires some testing on your environment.
 ====
