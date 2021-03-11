@@ -1,0 +1,60 @@
+= REST API Extensions
+:description: This page describes how to deploy a REST API extension manually, which is possible with all editions.
+
+This page describes how to deploy a REST API extension manually, which is possible with all editions.
+
+A REST API extension allows to extend REST Resources using Bonita, to get or send information in a page or a form.
+
+To learn more on how to create REST API Extensions, refer to the xref:rest-api-extensions.adoc[tooling for creating and testing REST API Extensions] page (Enterprise, Performance, Efficiency, and Teamwork editions).
+
+== Deploy a REST API Extension
+
+REST API Extensions are xref:resource-management.adoc[managed] as resources.
+
+REST API Extensions use the same authorization mechanism as the standard Bonita REST APIs. When you import the extension, the information in `page.properties` is used to create the appropriate resource permission mappings in Bonita (see xref:rest-api-authorization.adoc[REST API authorization] for information about REST API security configuration).
+
+[NOTE]
+====
+
+It is also possible to deploy a REST API Extensions using xref:portal-api.adoc]#page[REST portal API / "page" resource].
+====
+
+[NOTE]
+====
+
+The deployment of the REST API Extensions should always be made from Bonita Portal or its APIs, not directly from Engine APIs. Notably, the createPage() method of the Engine PageAPI would allow you to deploy a REST API Extensions, but would not update the security settings, meaning that you would not be able to access it at runtime.
+====
+
+[WARNING]
+====
+
+If you are running Bonita in a cluster, after you import a REST API Extensions, you must restart the application server on all the cluster nodes.
+====
+
+[WARNING]
+====
+
+As the deployment of the REST API Extensions automatically creates the appropriate resource permission mapping, be careful not to xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[push a configuration] that does not contain the latest permissions updates. This would overwrite the deployed configuration. To avoid doing so, pull the latest configuration, edit the needed elements and push it back to the Bonita runtime in a pretty short amount of time.
+====
+
+[#usage]
+
+== Use in applications
+
+A REST API Extensions must be deployed before any page or form resource using it is deployed.
+
+A page that uses REST API Extensions must add the required resources in the page resource `page.properties` file.
+
+[NOTE]
+====
+
+REST API permissions are stored in the user's session and new permissions will only be effective for a user the next time they log into Bonita Portal.
+====
+
+== Live update
+
+xref:live-update.adoc[Live update] allows the Administrator to update one element of the application in a situation of emergency.
+
+=== Edit the REST API extension
+
+You can xref:resource-management.adoc]#modify[edit the content of a REST API extension] by installing a new version.

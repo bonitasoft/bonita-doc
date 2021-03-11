@@ -1,0 +1,11 @@
+name: bonita
+title: Bonita
+version: 2021.2
+prerelease: Alpha
+asciidoc:
+  attributes:
+    varVersion: 2021.2
+# default
+#start_page: ROOT:index.adoc
+nav:
+  - modules/ROOT/taxonomy.adoc
