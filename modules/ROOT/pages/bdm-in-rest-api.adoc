@@ -130,8 +130,7 @@ As a result, performance is efficient
 
 [WARNING]
 ====
-
-*:fa-exclamation-triangle: Practices leading to poor performance*
+Practices leading to poor performance*
 
 Since wheel1, wheel2, wheel3, wheel4 are lazy loaded, they are *not retrieved* directly when retrieving a Car.
 The retrieval of related Wheel objects is only performed *when accessing the fields* (via getWheel1(), ...), if necessary.
