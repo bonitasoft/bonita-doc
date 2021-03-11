@@ -1,0 +1,55 @@
+= Design an application page
+:description: So far, with a process, data, forms, and connectors, we've built a fully functional software solution to manage claims. But what if we want to have a dashboard showing all ongoing claims? Such a dashboard is not a process. You should not have to "start" it in order to view it. A Bonita application is the answer. And the first step to build an application is to create pages.
+
+So far, with a process, data, forms, and connectors, we've built a fully functional software solution to manage claims. But what if we want to have a dashboard showing all ongoing claims? Such a dashboard is not a process. You should not have to "start" it in order to view it. A Bonita application is the answer. And the first step to build an application is to create pages.
+
+[NOTE]
+====
+
+Pages in Bonita are a lot like forms. They are created with the UI Designer with the same sets of widgets. The main difference is that they are not bound with a process definition (like instantiation forms and user tasks forms). An application page can display business data values, charts and even let the user start a process or execute a task by displaying the appropriate form.
+====
+
+For this example, we will build a basic page that displays all the claims submitted in a table. To create a new page:
+
+. Click on the *UI Designer* icon image:images/getting-started-tutorial/design-application-page/ui-designer.png[UI Designer icon] in the Studio tool bar
+. Ignore the information message pop up window
+. Click on the *create* button
+. Make sure that *Application page* is selected
+. Type the name: _claimsList_
+. Click on the *Create* button
++
+image:images/getting-started-tutorial/design-application-page/creation-of-an-application-page.gif[Creation of an application page]
+// {.img-responsive .img-thumbnail}
+
+On the new page, you can let the UI Designer automatically create variables to retrieve business data:
+
+. At the top left corner of the UI Designer, click on the *data model* button image:images/getting-started-tutorial/design-application-page/data-model.png[Data model button]
+. In the list of business objects, select the _Claim_ object and drag and drop it in the empty space of the page
+. In the pop up window, change *Variable name* from _claim_ to _claims_
+. In *Additionnal queries* section, select _find_
+. Click on the *Save* button
++
+image:images/getting-started-tutorial/design-application-page/declare-claims-page-variable.gif[Declare claims page variable]
+// {.img-responsive .img-thumbnail}
+
+Add and configure the table widget:
+
+. From the widget palette on the left, drag and drop a *Table* widget to the whiteboard
+. In the widget property on the right:
+ ** Set the *headers* name: _Description, Answer, Satisfaction level_
+ ** For *content*, click on the *fx* button
+ ** Enter _claims_ for the value
+ ** Set *Column keys* to: _description, answer, satisfactionLevel_
+. Click on the UI Designer *Save* button
+. Click on the *Preview* button to get a preview of your page
++
+image:images/getting-started-tutorial/design-application-page/add-and-configure-table-widget.gif[Add and configure table widget]
+// {.img-responsive .img-thumbnail}
+
+[WARNING]
+====
+
+In order for preview to access the data, a user needs to be logged in to the Bonita Portal. You can click on the *Portal* button in the Bonita Studio tool bar to make sure a user is logged in.
+====
+
+Now you have your first application page. It's time to move to the xref:create-application.adoc[next chapter] and create the xref:create-application.adoc[application] that will include the page.

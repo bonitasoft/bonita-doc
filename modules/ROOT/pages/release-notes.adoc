@@ -1,0 +1,398 @@
+= Release notes
+:description: [NOTE]
+
+[NOTE]
+====
+
+Bonita Portal is being transformed into Bonita Applications for User and Administrator. +
+This will imply some changes in the upcoming versions of Bonita. Read more <<portal-transformation,further down>>.
+====
+
+[NOTE]
+====
+
+image:images/tv.png[videos]  Discover what is new in Bonita 7.11 thanks to these short videos in https://www.youtube.com/playlist?list=PLvvoQatxaHOOsAGuLQs2ObgX3JgXDwYaW[English], https://www.youtube.com/playlist?list=PLvvoQatxaHONj4o8wmnPEqYml7dnzA9NU[French], or https://www.youtube.com/playlist?list=PLvvoQatxaHOMNTj22Nh_3KEu4ln65EPpy[Spanish]!
+====
+
+== New values added
+
+=== No more migration between maintenance versions of Bonita
+
+Starting with Bonita 7.11.0, it is not necessary to run the Bonita migration tool to upgrade between maintenance versions of Bonita Runtime
+(to upgrade from 7.11.*0* to 7.11.*1*, for instance). +
+More details on the new procedure xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc]#maintenanceVersionCompatible[here]
+
+On the technical side, Bonita 7.11.0 introduces a loose couple between Bonita binaries and the Database schema it runs on.
+There is now a distinction between Bonita Database Schema version and Bonita Runtime version.
+The Bonita Database Schema version is a technical number (not accessible through APIs), that changes when the database schema changes.
+The Bonita Platform Version is the 3 digit version number we usually use to refer to Bonita.
+On startup Bonita now only checks if the database version is compatible with the binaries version, not if they are identical.
+
+Aside of the quality of live update of not having to run a migration between maintenance versions, this update brings a few behavioral changes:
+
+* Platform.getVersion() method still returns the version of the Bonita runtime binaries (ie. 7.11.0).
+* Platform.getPreviousVersion() is now deprecated, and voided (will always return ""). It was not used anywhere. It will be removed in a later version.
+* A check has been added in Cluster mode as to forbid the start of nodes in different Bonita platform versions. For example, on a two-node cluster, you can't have a node in 7.11.0 and another in 7.11.1.
+The feature of having nodes in different Bonita versions was never supported, though there were cases where it "worked" in previous versions.
+
+[#data-management]
+
+=== Business Data Management in the UI Designer
+
+Visualize and explore your Business Data Model (BDM) in your browser.
+In a few clicks, generate user interfaces from the BDM, using the master/details pattern.
+
+image:images/tv.png[videos]  Get an insight of this new value in this video in https://www.youtube.com/watch?v=ChTv2f-p7UA&list=PLvvoQatxaHOOsAGuLQs2ObgX3JgXDwYaW&index=2[english], https://www.youtube.com/watch?v=JjHsiqu0WjQ&list=PLvvoQatxaHONj4o8wmnPEqYml7dnzA9NU&index=2[french], or https://www.youtube.com/watch?v=mT40Z_yc3ss&list=PLvvoQatxaHOMNTj22Nh_3KEu4ln65EPpy&index=2[spanish].
+
+[#bdm-editor]
+
+=== Business Data Model editor
+
+BDM and access control editors have been reworked, to improve your experience and your efficiency.
+
+[#project-documentation]
+
+=== Generate project documentation
+
+For Teamwork, Efficiency, Performance and Enterprise editions only.
+Extract information from project sources to generate an asciidoc document. The generation templates can be customized to suit your needs.
+
+image:images/tv.png[videos]  Get an insight of this new value in this video in https://www.youtube.com/watch?v=uwLkCsamZ84&list=PLvvoQatxaHOOsAGuLQs2ObgX3JgXDwYaW&index=4[english], https://www.youtube.com/watch?v=4GzFzbMw0l4&list=PLvvoQatxaHONj4o8wmnPEqYml7dnzA9NU&index=4[french], or https://www.youtube.com/watch?v=DX2nZH3QF1I&list=PLvvoQatxaHOMNTj22Nh_3KEu4ln65EPpy&index=4[spanish].
+
+== Improvements
+
+=== Development suite changes
+
+==== Increase the default value of the development runtime's maximum memory heap size to 1Gb (512Mo previously)
+
+To avoid memory issues with large bar files deployment the default xmx value has been increased to 1Gb. If you want to revert this change, you can change it in the Studio preferences \-> Server settings \-> Tomcat Maximum memory allocation.
+
+[#uipath-cloud]
+
+==== UIPath connector - Cloud support
+
+The UIPath connector now supports the cloud solution.
+
+==== Collaboration - Select the branches to clone
+
+When cloning a project, gain time by selecting the branches you want to clone instead of cloning all the branches.
+
+==== Description field on widgets
+
+Add documentation to your pages by providing information on a widget (e.g. how to use it), thanks to the new Description field. Use this information to xref:release-notes.adoc]#project-documentation[generate documentation].
+
+[#connector-archetype]
+
+==== Bonita Platform Extensibility: Connectors and Actor filters archetypes
+
+You can now develop and test custom connectors and actor filters independently of the Bonita Studio.
+Bonita offers maven archetypes to help bootstrap these extension points.
+
+image:images/tv.png[videos]  Get an insight of this new value in this video in https://www.youtube.com/watch?v=RvRPF_GWYxE&list=PLvvoQatxaHOOsAGuLQs2ObgX3JgXDwYaW&index=3[english], https://www.youtube.com/watch?v=rVKqw6V6ME8&list=PLvvoQatxaHONj4o8wmnPEqYml7dnzA9NU&index=3[french], or https://www.youtube.com/watch?v=k4H3EoyPT3M&list=PLvvoQatxaHOMNTj22Nh_3KEu4ln65EPpy&index=3[spanish].
+
+More information:
+
+* xref:actor-filter-archetype.adoc[Bonita actor filter archetype]
+* xref:connector-archetype.adoc[Bonita connector archetype]
+
+[NOTE]
+====
+
+This is not limited to 7.11 and can be used from version 7.7
+====
+
+==== Bonita Purge Tool
+
+A new open source project is available https://github.com/bonitasoft/bonita-purge-tool[here]. +
+It cleans archived process instances older than a specific date. Allows to (potentially) reduce the size of a production database.
+[NOTE]
+====
+
+This is not limited to 7.11 and can be used in previous 7.x versions.
+====
+
+=== Runtime changes
+
+==== Monitoring
+
+===== Messages
+
+Two new metrics on BPM Messages are now accessible xref:runtime-monitoring.adoc[for monitoring purposes]:
+
+* Potential: total number of potential couples, prior to duplicates removal. If this counter grows faster than the executed one, this indicates that we have lot of duplicates. See bonita.log for ids of duplicate couples.
+* ReTriggerMatchingTasks: number of times we detect that there are more potential matches to be processed.
+We retrieve the matches by batch of 100, a retrigger is performed if there are remaining potential matches.
+This counter increases when they are remaining messages to be processed.
+If this counter continues to increase, this means that we are continuously processing matches
+(even if no new waiting events and/or messages have been created), so events processing is delayed,
+i.e. new events/messages are not processed on the fly as it should in a nominal situation.
+
+===== Connectors
+
+There is now a configurable time threshold on connectors. When connector execution takes longer than the threshold, a warning is logged.
+It allows identification of slow running services. +
+The parameter is :
+
+----
+bonita.tenant.connector.warnWhenLongerThanMillis
+----
+
+More information xref:performance-tuning.adoc[here]
+
+== Bundle changes
+
+=== Technical updates
+
+Upgrade Tomcat from 8.5.47 to 8.5.53 (tomcat-dbcp from 9.0.16 to 9.0.31)
+
+=== Oracle driver
+
+The Oracle jdbc driver does not need to be downloaded separately anymore and is now packaged in the Bonita bundle,
+ exactly like the Postgres, Mysql & SQLServer jdbc drivers.
+
+=== Tomcat Manager removal
+
+* the Tomcat Manager is no more provided
+* the bundle is not intended to be used to deploy extra webapps
+* alternatives exist to deploy extra webapps if still needed
+
+=== Tomcat root url redirected to Bonita
+
+Simplify access to bonita by redirecting tomcat root to the bonita webapps.
+For instance http://localhost:8080 redirected to http://localhost:8080/bonita
+
+=== Single Bonita log file
+
+All logs are now generated by default in a single `bonita.<date>.log` file.
+
+This fixes the following issues that occurred in previous Bonita versions
+
+* empty log files as their related webapps are not packaged within the Bonita Bundle
+* some logs related to Bonita activities (in particular, jdbc drivers logs) are generated in `catalina.log`. This was
+fixed from version to version, but most of the time, this was done only after receiving external feedback on bug
+investigations (information were lost or hidden in catalina log file).
+* complex logging configuration to handle which logs are generated to which log file
+* hard to follow `localhost` logs and Bonita logs
+
+Bonita monitoring-specific logs are still logged in a separate file (`bonita-monitoring.<date>.log`)
+
+=== Thread name in Bonita logs
+
+As of Bonita 7.11, the thread name information is added in `bonita.log` (by default, right after the logger name).
+This helps tracking the processing when parallel requests are in progress specially since there is a single log file from Bonita 7.11.
+
+----
+2020-03-02 17:32:51.529 +0100 INFO (localhost-startStop-1) org.bonitasoft.engine.EngineInitializer Initialization of Bonita Engine done! ( took 8982ms)
+2020-03-02 17:33:12.515 +0100 INFO (http-nio-8080-exec-4) org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/bonita] RestletServlet: [Restlet] ServerServlet: component class is null
+2020-03-02 17:33:12.792 +0100 INFO (http-nio-8080-exec-1) org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/bonita] RestletServlet: [Restlet] Attaching application: org.bonitasoft.web.rest.server.BonitaRestletApplication@383b5fb0 to URI: /bonita/API
+2020-03-02 17:33:12.806 +0100 INFO (http-nio-8080-exec-1) org.restlet.Component.BonitaRestletApplication Starting org.bonitasoft.web.rest.server.BonitaRestletApplication application
+2020-03-02 17:33:32.938 +0100 INFO (http-nio-8080-exec-7) org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/bonita] CustomPageRestletServlet: [Restlet] ServerServlet: component class is null
+----
+
+== API Removal
+
+=== Rest API extension
+
+The classes located in the `org.bonitasoft.console.common.server` have been removed. They have been deprecated since December 2015 as of Bonita 7.2.0
+
+Replacements
+
+* for `PageController`
+ ** `org.bonitasoft.console.common.server.page.PageContext` by `org.bonitasoft.web.extension.page.PageContext`
+ ** `org.bonitasoft.console.common.server.page.PageController` by `org.bonitasoft.web.extension.page.PageController`
+ ** `org.bonitasoft.console.common.server.page.PageResourceProvider` by `org.bonitasoft.web.extension.page.PageResourceProvider`
+* for `RestApiController `
+ ** `org.bonitasoft.console.common.server.page.RestApiController` by `org.bonitasoft.web.extension.rest.RestApiController`
+ ** `org.bonitasoft.console.common.server.page.RestApiResponse` by `org.bonitasoft.web.extension.rest.RestApiResponse`
+ ** `org.bonitasoft.console.common.server.page.RestApiResponseBuilder` by `org.bonitasoft.web.extension.rest.RestApiResponseBuilder`
+ ** `org.bonitasoft.console.common.server.page.PageContext`, `org.bonitasoft.console.common.server.page.PageResourceProvider`,
+`org.bonitasoft.console.common.server.page.RestApiUtil` are no more used and are replaced by
+`org.bonitasoft.web.extension.rest.RestAPIContext`
+
+Examples of replacements are available in the bonita source code
+
+* `PageController` in the https://github.com/bonitasoft/bonita-distrib/commit/f1f9d356c96d4e2807bd8b59376ce57d4af89b9a#diff-caa18f5f325ab429a66c76851e3bdd42[bonita-distrib github repository]
+* `RestApiController` in the https://github.com/bonitasoft/bonita-web/commit/1387c4c513bdc2bb97071cddefc75d519886ed90#diff-c08aeb7d35cf380be1cdc09fea7ef822[bonita-web github repository]
+
+== Technical updates
+
+=== Internal libraries upgrades
+
+* spring has been upgraded to 5.2.2
+* spring-boot has been upgraded to 2.2.2
+* The project switched from hibernate 4 to hibernate 5
+* ehcache has been upgraded to 2.10.6
+* hibernate-jpa has been upgraded to 1.0.2
+* hazelcast has been upgraded to 3.12.5
+
+=== Support Matrix
+
+Bonita now supports only Oracle 19c (as opposed to both 19c & 12c in 7.10). +
+Bonita now supports SQLServer 2017.
+
+== Feature deprecations and removals
+
+=== Deprecations
+
+[#portal-transformation]
+
+==== Bonita Portal transformation
+
+Bonita Portal is being transformed into Bonita Applications. When Bonita Applications are ready, Bonita Portal will be removed.
+Developers and users will need to learn how to stop using the Portal and start using Bonita Applications instead.
+This change will allow Bonita and its users to get free from Google Web Toolkit (GWT) technology and offer opportunities for customization.
+
+Indeed, some Portal pages (built with GWT) are being totally recreated with our own UI Designer. They will be customizable.
+Other pages (those that were already using another technology than GWT) are being wrapped and will not be customizable.
+
+Moreover, as any Living Application, Bonita applications will be extensible to add any page the users need.
+More details in the upcoming versions of Bonita.
+
+Until then, we strongly advise not to create Custom Portal Profiles anymore but applications instead if possible.
+When Bonita Portal does not exist anymore, the existing Portal Custom Profiles will need to be migrated into Living applications.
+
+==== IE11 support
+
+Internet Explorer 11 will soon not be supported anymore through the Bonita Platform.
+The Development Suite already embeds features that are not compatible with IE11 (like the widget switch in the UI Designer).
+Bonita Portal is still compatible with IE11 but will soon not be anymore.
+
+=== Removals
+
+=== Complex data-types generation have been removed
+
+This feature was used to generate Java POJOs and XSD in Subscription editions. It is recommended to add your own Java model as jar file in the project classpath or create your xref:groovy-in-bonita.adoc]#create-data-model[data model using Groovy objects].
+
+== Bug fixes
+
+=== Fixes in Bonita 7.11.5 (2020-02-01)
+
+==== Fixes in Bonita Runtime (including Portal)
+
+* RUNTIME-50 LDAP Synch: LDAP group objectclass check should be case insensitive
+* RUNTIME-60 Portal - User Profile - Processes: the list is blank on IE11
+* RUNTIME-69 LDAP Synch: NullPointerException during manager synchronisation makes synchronization fail and exit
+
+=== Fixes in Bonita 7.11.4 (2020-11-26)
+
+==== Fixes in Bonita Runtime (including Portal)
+
+* BS-19550	Cannot install 7.8.4 bdm.zip containing "index" named attributes in version 7.11.x will cause to redesign entire BDM and processes
+* BS-19520	Reserved keyword "index" is not forbidden in the Studio and result in BDM update failure in MySQL
+* BS-19454	Export Organization vs Pagination: Missing ORDER BY may cause issues
+* BR-565	Too many logs when locale is not supported and unnecessary INFO log level
+
+==== Fixes in Bonita Development Suite (Studio and UI Designer)
+
+* STUDIO-3712	[MacOS Big Sur] Search fields on table using StyledString doesn't redraw elements correctly when search is applied
+* STUDIO-3710	[MacOS Big Sur] Connector definitions table isn't refreshed properly when switching category
+* STUDIO-3707	[MacOS Big Sur] Organisation user tab folders are note usable
+* STUDIO-3706	REST Connector fails to parse response not encoded with the default jvm charset
+* STUDIO-3705	[MacOS Big Sur] Selected line is invisible
+* STUDIO-3699	Open welcome page "breaks" the view when properties view are active
+* STUDIO-3696	Organization import fails with java.lang.NullPointerException
+* UID-366	DatePicker and DateTimePicker should disable autocomplete
+* UID-347	fileUpload widget: successful upload doesn't reset 'Error on upload holder'
+* UID-346	Some sentence in Upload widget isn't translate
+* UID-342	Cache busting doesn't work on .js files in fragment
+* UID-335	Deleting middle item in collection causes loss of selected data in following items when a select widget is used
+* UID-332	In help popup, some sentence is not translated
+* REST Connector error management: The connector does not throw exception anymore when the status code of the request is not successful (20x). A warning is logged instead and the error management can be handled process side using the `status_code` connector output.
+
+=== Fixes in Bonita 7.11.3 (2020-11-05)
+
+==== Fixes in Bonita Runtime (including Portal)
+
+* BS-19532	Connector disconnect is not called if an exception is thrown during the connector output operations
+* BS-19513	Admin process more details page retrieves too many forms
+* BS-19502 LDAP Synch: connection to the Bonita engine using the environment variables does not work
+* BR-478 Error 404 on http://localhost:8080/ , Tomcat admin default page missing
+* BR-477 Fix Process stucked due to Errors on event subprocesses
+* BR-553	FIX Hibernate sequence after migration
+* BR-549	SOAP connector stays in executing state even though it's failing
+* BR-425	Fix LDAP Sync Message on force_add_non_exisiting
+* BPO-660 Error 500 after redirection to the login page with locale es_419
+* BPO-650 Invalid Content-Type check in LoginServlet
+* BPO-543 Warning : Cannot find the resource file custompage_processlistBonita/resources/locales/en_US.json
+
+==== Fixes in Bonita Development Suite (Studio and UI Designer)
+
+* STUDIO-3684	Groovy semantic highlight throws false positive in script editor
+* STUDIO-3659	CMIS connector are not visible in connector wizard
+* STUDIO-3655	Inclusive Gateway validation throw false positive
+* STUDIO-3642	Generating a bar with no configuration
+* STUDIO-3613	Leak on Datasource connector
+* STUDIO-3609	ClassCastException is thrown in the add data wizard
+* UID-341 BOS_Locale is duplicated from Preview
+* UID-317 Menu Autocomplete Hidden behind modal
+
+=== Fixes in Bonita 7.11.2 (2020-10-01)
+
+==== Fixes in Bonita Runtime (including Portal)
+
+* BPO-619 standardAuthenticationAllowedProperty returns wrong value and breaks the checkIfSSOAuthenticationCanBeBypassed for Kerberos
+* BR-478 Error 404 on http://localhost:8080/ , Tomcat admin default page missing
+* BS-19520 Reserved keyword "index" is not forbidden in the Studio and result in BDM update failure in MySQL
+* BS-19528 Process stuck when Error End Event fails because Error Start Event Sub-process no longer exists
+* BS-19529 REST API vs BDM custom query with ORDER BY vs BDM access control: JSON list of BDM objects is not sorted in the HTTP response
+
+=== Fixes in Bonita 7.11.1 (2020-08-06)
+
+==== Fixes in Bonita Development Suite (Studio and UI Designer)
+
+* UID-232 UI Designer lets me save invalid JSON variable definition that leads to runtime error
+* UID-236 'Ctrl + s' doesn't work after editing the asset 'style.css'
+* UID-239 In preview,  space is missing between label and 'required' asterisk on input widget
+* UID-274 UID favorites reset to false when Studio restart
+* UID-282 Bonita Data Repository (BDR) error if BDM object has unique constraint with a relation
+* UID-283 Unexpected file in fragment directory prevent the UID to start
+* UID-293 Issue migrating pages with BusinessData variable from 7.10 to 7.11
+
+==== Fixes in Bonita Runtime (including Portal)
+
+* BS-18869  The underlying database request for displaying the User Archived cases page in the Bonita Portal is very slow
+* BS-19482  Actor filter never calls `validateInputParameters()`
+* BS-19484  NPE when first BDM object in a multiple relation list is null
+* BS-19489  StarterThread fails and stops if a flownode instance is not found
+* BR-430    Add a configuration property to track down slow queries
+* BR-429    Search queries now use hibernate prepared statements, which improves performance
+* BR-440    Hibernate query plan cache is now configurable
+* BR-443    Improve Starter thread robustness
+* BR-451    Some errors submitting work on transaction may corrupt the java thread forever (should fix the "lost work" phenomenon)
+* BPO-539 /API/bpm/message does not allow the messageContent value to be null or an empty string
+* BPO-379 Tenant information lost when user logs out
+* BPO-581 Process enable button: no text "ENABLE"
+* BPO-506 Cache busting doesn't work on json variables inside page used in custom profile
+
+==== Fixes in Connectors
+
+* LDAP Connector: https://github.com/bonitasoft/bonita-connector-ldap/issues/4[#4] Add support for paged LDAP queries - Contibution by https://github.com/Catchwa[Andrew Brock]
+
+=== Fixes in Bonita 7.11.0 (2020-06-25)
+
+==== Fixes in Bonita Development Suite (Studio and UI Designer)
+
+* STUDIO-3471	Error when switching from a Business Object to an other in the constraints view
+* STUDIO-3464	Generate documentation leads to error if a used connector / actor filter doesn't have a display name
+* STUDIO-3462	Share with git wizard is ugly / unusable
+* STUDIO-3458	Messages mapping validation
+* STUDIO-3340	DOC: REST API extension page still says that debug mode is enabled by default
+* STUDIO-3294	Web service connector throw null pointer exception with one way web service
+* STUDIO-3295	When extracting a sub process from a task using a bdm object, init script is falsy
+* STUDIO-3327	Reset/clean bdm has no effect
+* STUDIO-3365	Password is displayed in clear where deploying a process fail
+* UID-280 Document edition script generation has a typo
+
+==== Fixes in Bonita Runtime (including Portal)
+
+* BS-18877	Listing process comments on a case (directly or in assign task view) generates a 20 seconds request
+* BS-14777	Missing information in javadoc of FlowNodeInstance.getState API call
+* BS-18907	Diagram is slow to display and generate many request + one slow request
+* BS-19406	When database server restarts, works could be lost
+* BS-16868	When network communication issues with database server, works could be lost
+* BS-19431	Add debug log's messages to investigate lost work issues
+* BS-17052	Low performance of processAPI.getUserIdsForActor API call
+
+==== Fixes in Bonita LDAP Synchronizer
+
+* BS-19435	LDAP Sync force_add_non_existing_users not working as expected
