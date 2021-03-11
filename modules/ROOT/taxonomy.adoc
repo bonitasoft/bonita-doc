@@ -130,8 +130,8 @@
   *** xref:first-steps-after-setup.adoc[First steps after setup]
   *** xref:licenses.adoc[Licenses]
  ** xref:bonita-docker-installation.adoc[Bonita docker installation]
- ** xref:_advanced-bonita-platform-installation.adoc[Advanced Bonita Platform installation]
-  *** xref:_security-and-authentication.adoc[Security and authentication]
+ ** Advanced Bonita Platform installation
+  *** Security and authentication
    **** xref:user-authentication-overview.adoc[User authentication overview]
    **** xref:active-directory-or-ldap-authentication.adoc[Active Directory or LDAP authentication]
    **** xref:single-sign-on-with-cas.adoc[Single sign-on with CAS]
