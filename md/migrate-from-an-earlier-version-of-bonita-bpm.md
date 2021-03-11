@@ -75,7 +75,7 @@ The following are not migrated automatically:
 - Configuration of the platform: Before 7.3 in the _Bonita Home_ folder and after 7.3 in database. Reapply your customizations manually after the migration script has finished (using [platform setup tool](BonitaBPM_platform_setup.md#update_platform_conf) if migrated to 7.3.0+).
 - Deployed process definitions: The processes will continue to run using the definition created in the previous version of Bonita.
 - Process definition sources (`.bos` files): Migrate these by importing them into the new version of Bonita Studio.
-- <a id="bdm_redeploy" />Business data model, and the business data database: if the migration path include version `7.0.0`,`7.2.0` or `7.2.4`, the Business data model must be redeployed after migration, using  [Define and deploy the BDM](define-and-deploy-the-bdm)). Otherwise, no action is required.
+- <a id="bdm_redeploy" />Business data model, and the business data database: if the migration path include version `7.0.0`,`7.2.0` or `7.2.4`, the Business data model must be redeployed after migration. You can pause the tenant before migration, as a tenant admin, so that you'll be able to redeploy the BDM on a paused tenant once migration is done, using  [Define and deploy the BDM](define-and-deploy-the-bdm)). Otherwise, no action is required.
 - Custom connectors, actor filers, data types: These might continue to work in the new version, but should be tested, depending on your custom code.
 - Custom pages: These might continue to work in the new version, but should be tested depending on your custom code.
 - Custom reports: These might continue to work in the new version, but should be tested depending on your custom code.
@@ -87,8 +87,7 @@ See  [Migrate your platform](#migrate) for step-by-step instructions.
 
 ## Constraints
 
-- If you have added indexes to certain tables in the Engine database, you must remove them before migrating from 6.2.6 to a later version. If you do not remove these indexes, the migration will not complete.
-  This applies to the following tables: `arch_process_instance`, `arch_connector_instance`, `arch_flownode_instance`, `arch_data_instance` and `arch_data_mapping`.
+- If you have added custom indexes to certain tables in the Engine database, you must remove them before migrating to a later version. If you do not remove these indexes, the migration will not complete.
 
 - There is no guarantee that the Look & Feel definition is compatible across maintenance versions.
   For example, in 6.2.2, `jquery+` was renamed `jqueryplus` in `BonitaConsole.html`, for compatibility with more application servers.
@@ -144,7 +143,7 @@ Particularly, if you use Oracle 12.2.0.x.y and are migrating to 7.9.n or to 7.10
 1. Configure the database properties needed by the migration script, by editing `bonita-migration/Config.properties`.
    Specify the following information:
 
-    | Property       | Description                                                      | Example                                                    |
+   | Property       | Description                                                      | Example                                                    |
    |:-              |:-                                                                |:-                                                          |
    | bonita.home    | The location of the existing bonita_home. Required only until 7.3| `/opt/BPMN/bonita` (Linux) or `C:\\BPMN\\bonita` (Windows) |
    | db.vendor      | The database vendor                                              | postgres                                                   |
@@ -153,23 +152,25 @@ Particularly, if you use Oracle 12.2.0.x.y and are migrating to 7.9.n or to 7.10
    | db.user        | The username used to authenticate to the database                | bonita                                                     |
    | db.password    | The password used to authenticate to the database                | bpm                                                        |
 
-   ::: info
-   Note: If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example,
-   `db.url=jdbc:mysql://localhost:3306/bonita_migration?allowMultiQueries=true`.  
-   Also, if you are migrating to Bonita 7.9+, you must upgrade your database server to MySQL 8.0, see [Migrating to Bonita 7.9+ using MySQL](#mysql8) specific procedure below.
-   :::
-   
-1. If you use a custom Look & Feel,  [export](managing-look-feel.md) it, and then  [restore the default Look & Feel](managing-look-feel.md).
-1. If you use a Business data model that requires to be redeployed (see  [above](#bdm_redeploy)), you can pause the tenant so that as a tenant admin, you'll be able to redeploy the BDM on a paused tenant once migration is done.
-  
-   ::: warn
-   **IMPORTANT:** Do **not** [pause the BPM services](pause-and-resume-bpm-services.md) before you stop the application server. It will cause problems. 
-   :::
+    ::: info
+    Note: If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example,
+    `db.url=jdbc:mysql://localhost:3306/bonita_migration?allowMultiQueries=true`.  
+    Also, if you are migrating to Bonita 7.9+, you must upgrade your database server to MySQL 8.0, see [Migrating to Bonita 7.9+ using MySQL](#mysql8) specific procedure below.
+    :::
+
+1. If you use a custom Look & Feel, [export](managing-look-feel.md) it, and then [restore the default Look & Feel](managing-look-feel.md).
+1. Generally speaking, pausing (or not) the BPM services before migrating should not impact migration. There are however a few special cases:
+    * If you are migrating from a version **< 7.3.0**. If you are using a BDM, your BDM will have to be redeployed after migration (see [above](#bdm_redeploy)).
+      In this case, it is recommended you **stop your BPM services before migrating**, so as to be able to redeploy your BDM immediately after migration (and not having to deal with eventual errors in automated processes as you restart your platform after migration).
+    * Several bugs affect legacy versions of Bonita that prevent a smooth migration of a Bonita platform with **BPM services paused** in special cases:
+        * Starting version is **before 7.8.0**, and your target version is between **7.8.0** and **7.11.5**
+        * Starting version is **before 7.10.5** & target version is **before 2021.1**
+   * Therefore, while it is recommended to always migrate to the latest version of Bonita, if your target version is not 2021.1, or above, it is necessary to migrate with **BPM services running**.
 
 1. Stop the application server.
 1. **IMPORTANT:**
-   [Back up your platform](back-up-bonita-bpm-platform.md) and database in case of problems during migration.
-
+[Back up your platform](back-up-bonita-bpm-platform.md) and database in case of problems during migration.
+    
 1. Go to the directory containing the migration tool.
 1. Run the migration script:
     - For version 1.x of the migration tool, run `migration.sh` (or `migration.bat` for Windows).
