@@ -21,17 +21,17 @@
   *** xref:design-methodology.adoc[Design methodology]
  ** xref:bonita-bpm-studio-preferences.adoc[Bonita Studio preferences]
  ** xref:bonita-bpm-studio-hints-and-tips.adoc[Bonita Studio hints and tips]
- ** xref:_organization.adoc[Organization]
+ ** Organization
   *** xref:organization-overview.adoc[Organization overview]
   *** xref:approaches-to-managing-organizations-and-actor-mapping.adoc[Approaches to managing organizations and actor mapping]
   *** xref:organization-management-in-bonita-bpm-studio.adoc[Organization management in Bonita Studio]
   *** xref:custom-user-information-in-bonita-bpm-studio.adoc[Custom User Information in Bonita Studio]
   *** xref:ldap-synchronizer.adoc[LDAP synchronizer]
- ** xref:_profiles.adoc[Profiles]
+ ** Profiles
   *** xref:profiles-overview.adoc[Profiles overview]
-   **** xref:profileCreation.adoc[Profiles editor]
- ** xref:_process-modeling.adoc[Process modeling]
-  *** xref:_diagrams.adoc[Diagrams]
+  *** xref:profileCreation.adoc[Profiles editor]
+ ** Process modeling
+  *** Diagrams
    **** xref:diagram-overview.adoc[Diagram overview]
    **** xref:pools-and-lanes.adoc[Pools and lanes]
    **** xref:diagram-tasks.adoc[Tasks]
@@ -46,7 +46,7 @@
   *** xref:actors.adoc[Actors]
   *** xref:actor-filtering.adoc[Actor filters]
   *** xref:iteration.adoc[Iteration]
- ** xref:_data.adoc[Data]
+ ** Data
   *** xref:data-handling-overview.adoc[Data handling overview]
   *** xref:define-and-deploy-the-bdm.adoc[Define and deploy the BDM]
   *** xref:bdm-access-control.adoc[Define access control on business objects]
@@ -57,14 +57,14 @@
   *** xref:define-a-search-index.adoc[Search keys]
   *** xref:expressions-and-scripts.adoc[Expressions and scripts]
   *** xref:operations.adoc[Operations]
- ** xref:_page-and-form-development.adoc[Page and form development]
+ ** Page and form development
   *** xref:page-and-form-development-overview.adoc[Page and form development overview]
-  *** xref:_using-the-ui-designer.adoc[UI Designer]
+  *** UI Designer
    **** xref:ui-designer-overview.adoc[UI Designer overview]
    **** xref:create-or-modify-a-page.adoc[Create or modify UI artifacts]
    **** xref:widgets.adoc[Widgets]
    **** xref:widget-properties.adoc[Widget properties]
-   **** xref:_widget-use-examples.adoc[Widget use examples]
+   **** Widget use examples
     ***** xref:repeat-a-container-for-a-collection-of-data.adoc[Repeat a container for a collection of data]
    **** xref:fragments.adoc[Fragments]
    **** xref:custom-widgets.adoc[Custom widgets]
@@ -76,11 +76,11 @@
    **** xref:migrate-a-form-from-6-x.adoc[Migrate a form from 6.x]
   *** xref:cache-configuration-and-policy.adoc[Cache configuration and policy]
  ** xref:applicationCreation.adoc[Application descriptor]
- ** xref:_connectivity.adoc[Connectivity]
+ ** Connectivity
   *** xref:connectivity-overview.adoc[Connectivity overview]
   *** xref:alfresco.adoc[Alfresco]
   *** xref:cmis.adoc[CMIS]
-  *** xref:_database.adoc[Database]
+  *** Database
    **** xref:list-of-database-connectors.adoc[List of database connectors]
    **** xref:database-connector-configuration.adoc[Database connector configuration]
    **** xref:graphical-query-builder.adoc[Graphical query builder]
@@ -95,32 +95,32 @@
   *** xref:script.adoc[Script]
   *** xref:twitter.adoc[Twitter]
   *** xref:uipath.adoc[UiPath]
-  *** xref:_web-service.adoc[Web service]
+  *** Web service
    **** xref:web-service-connector-overview.adoc[Web service connector overview]
    **** xref:web-service-tutorial.adoc[Web service connector tutorial]
- ** xref:_reporting.adoc[Reporting]
+ ** Reporting
   *** xref:reporting-overview.adoc[Reporting overview]
   *** xref:set-up-a-reporting-database.adoc[Set up a reporting database]
   *** xref:set-up-kpis.adoc[Set up KPIs]
   *** xref:create-a-report.adoc[Create a report]
  ** xref:import-and-export-a-process.adoc[Import and export a process]
- ** xref:_process-configuration.adoc[Process configuration]
+ ** Process configuration
   *** xref:process-configuration-overview.adoc[Process configuration overview]
   *** xref:environments.adoc[Environments]
   *** xref:configuring-a-process.adoc[Configure a process]
   *** xref:manage-jar-files.adoc[Manage JAR files]
   *** xref:managing-dependencies.adoc[Manage dependencies]
- ** xref:_process-testing.adoc[Process testing]
+ ** Process testing
   *** xref:process-testing-overview.adoc[Process testing overview]
   *** xref:configure-a-test-organization.adoc[Configure a test organization]
   *** xref:run-a-process-from-bonita-bpm-studio-for-testing.adoc[Run a process from Bonita Studio for testing]
   *** xref:log-files.adoc[Log files]
  ** xref:project_deploy_in_dev_suite.adoc[Project deployment in Bonita Development Suite]
  ** xref:build-a-process-for-deployment.adoc[Build a process for deployment]
-* xref:_installation.adoc[Installation]
+* Installation
  ** xref:bonita-bpm-installation-overview.adoc[Bonita installation overview]
  ** xref:bonita-bpm-studio-installation.adoc[Bonita Studio installation]
- ** xref:_basic-bonita-platform-installation.adoc[Basic Bonita Platform installation]
+ ** Basic Bonita Platform installation
   *** xref:hardware-and-software-requirements.adoc[Hardware and software requirements]
   *** xref:tomcat-bundle.adoc[Tomcat bundle]
   *** xref:custom-deployment.adoc[Custom Deployment into existing Tomcat installation]
@@ -146,30 +146,30 @@
    **** xref:guest-user.adoc[Guest user access]
   *** xref:set-log-and-archive-levels.adoc[Set log and archive levels]
   *** xref:configurable-archive.adoc[Configurable Archive]
-  *** xref:_performance.adoc[Performance]
+  *** Performance
    **** xref:performance-tuning.adoc[Performance tuning]
    **** xref:performance-troubleshooting.adoc[Performance troubleshooting]
    **** xref:purge-tool.adoc[Purging unnecessary archive data]
   *** xref:use-gzip-compression.adoc[Use gzip compression]
   *** xref:two-main-types-of-deployment.adoc[Two main types of deployment]
-  *** xref:_bonita-in-a-cluster.adoc[Bonita in a cluster]
+  *** Bonita in a cluster
    **** xref:overview-of-bonita-bpm-in-a-cluster.adoc[Overview of Bonita in a cluster]
    **** xref:install-a-bonita-bpm-cluster.adoc[Install a Bonita cluster]
   *** xref:multi-tenancy-and-tenant-configuration.adoc[Multi-tenancy and tenant configuration]
  ** xref:embed-engine.adoc[Embed engine - Lab]
- ** xref:_platform-installation-examples.adoc[Platform installation examples]
+ ** Platform installation examples
   *** xref:ubuntu-openjdk-tomcat-postgresql.adoc[Ubuntu + OpenJDK + Tomcat + PostgreSQL]
   *** xref:bonita-as-windows-service.adoc[Install Tomcat with Bonita as a service in Windows]
  ** xref:upgrade-from-community-to-a-subscription-edition.adoc[Community to Subscription upgrade]
-* xref:_bonita-portal-administration.adoc[Bonita Portal Administration]
- ** xref:_bonita-portal-interface.adoc[Bonita Portal interface]
+* Bonita Portal Administration
+ ** Bonita Portal interface
   *** xref:bonita-bpm-portal-interface-overview.adoc[Bonita Portal overview]
   *** xref:user-task-list.adoc[User task list]
   *** xref:languages.adoc[Languages]
   *** xref:log-in-and-log-out.adoc[Log in and log out]
   *** xref:about.adoc[About Bonita Portal]
  ** xref:mobile-portal.adoc[Mobile Portal]
- ** xref:_process-maintenance.adoc[Process maintenance]
+ ** Process maintenance
   *** xref:processes.adoc[Processes]
   *** xref:cases.adoc[Cases]
   *** xref:tasks.adoc[Tasks]
@@ -177,7 +177,7 @@
   *** xref:pause-and-resume-bpm-services.adoc[Pause and resume services]
   *** xref:bdm-management-in-bonita-bpm-portal.adoc[BDM Management in Bonita Portal]
  ** xref:applications.adoc[Applications]
- ** xref:_resources.adoc[Resources]
+ ** Resources
   *** xref:resource-management.adoc[Resource management]
   *** xref:pages.adoc[Pages]
   *** xref:forms.adoc[Forms]
@@ -185,23 +185,23 @@
   *** xref:themes.adoc[Themes]
   *** xref:api-extensions.adoc[REST API extensions]
  ** xref:live-update.adoc[Live update]
- ** xref:_organization-in-bonita-portal.adoc[Organization in Bonita Portal]
+ ** Organization in Bonita Portal
   *** xref:organization-in-bonita-bpm-portal-overview.adoc[Organization in Bonita Portal overview]
-  *** xref:_organization-maintenance.adoc[Organization maintenance]
+  *** Organization maintenance
    **** xref:import-export-an-organization.adoc[Import/export an organization]
    **** xref:group.adoc[Manage groups]
    **** xref:role.adoc[Manage roles]
-   **** xref:_user.adoc[Manage users]
+   **** Manage users
     ***** xref:manage-a-user.adoc[Manage a user]
     ***** xref:deactivate-a-user.adoc[Deactivate a user]
    **** xref:custom-user-information-in-bonita-bpm-portal.adoc[Custom User Information in Bonita Portal]
  ** xref:analytics.adoc[Analytics]
- ** xref:_user-profiles.adoc[User profiles]
+ ** User profiles
   *** xref:administrator-rights.adoc[Administrator rights]
   *** xref:process-manager.adoc[Process manager]
   *** xref:custom-profiles.adoc[Custom profiles]
   *** xref:deploying-profiles-with-export-and-import.adoc[Deploy profiles with export and import]
- ** xref:_look-feel.adoc[Look & Feel]
+ ** Look & Feel
   *** xref:managing-look-feel.adoc[Manage Look & Feel]
   *** xref:creating-a-new-look-feel.adoc[Create a new Look & Feel]
  ** xref:search-index.adoc[Search keys]
@@ -225,7 +225,7 @@
   *** xref:connector-archetype.adoc[Bonita connector archetype]
  ** xref:actor-filter-archetype.adoc[Create an actor filter]
  ** xref:api-glossary.adoc[API glossary]
- ** xref:_rest-api.adoc[REST API]
+ ** REST API
   *** xref:rest-api-overview.adoc[REST API overview]
   *** xref:rest-api-authentication.adoc[REST Authentication]
   *** xref:application-api.adoc[Application API]
@@ -241,12 +241,12 @@
   *** xref:tenant-api.adoc[Tenant API]
   *** xref:rest-api-extensions.adoc[REST API extensions]
   *** xref:manage-files-using-upload-servlet-and-rest-api.adoc[Manage files using upload servlet and REST API]
- ** xref:_engine-api.adoc[Engine API]
+ ** Engine API
   *** xref:engine-api-overview.adoc[Engine API overview]
   *** xref:create-your-first-project-with-the-engine-apis-and-maven.adoc[Create your first project with the Engine APIs and Maven]
   *** xref:configure-client-of-bonita-bpm-engine.adoc[Configure connection to Bonita Engine]
   *** http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html[Javadoc]
-  *** xref:_examples.adoc[Examples]
+  *** Examples
    **** xref:manage-a-process.adoc[Manage a process]
    **** xref:handle-a-failed-activity.adoc[Handle a failed activity]
    **** xref:manage-an-organization.adoc[Manage an organization]
