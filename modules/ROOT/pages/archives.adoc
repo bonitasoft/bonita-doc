@@ -5,8 +5,8 @@ You can find here links to download old versions of the Bonita documentation.
 
 == BonitaBPM 7.3 and BonitaBPM 7.4
 
-The format here is html.  
-You can navigate those sites with the table of content on the left.
+The format here is html. +
+You can navigate those sites with the table of content on the left. +
 Download the .zip archive, extract it, and then click on the index.html file to launch the site.
 
 * 7.4
@@ -15,7 +15,7 @@ Download the .zip archive, extract it, and then click on the index.html file to 
 
 == From BonitaBPM 6.0 to BonitaBPM 7.2
 
-The format of those versions is pdf. It replaces the very old documentation website.  
+The format of those versions is pdf. It replaces the very old documentation website. +
 You can navigate those documents by using Ctrl+F. 
 
 * 7.2
@@ -30,5 +30,5 @@ You can navigate those documents by using Ctrl+F.
 
 == BonitaBPM 5.x versions
 
-These versions are very, very, very old by now.  
+These versions are very, very, very old by now. +
 If you need a pdf archive, please send a request to https://customer.bonitasoft.com/[support].
