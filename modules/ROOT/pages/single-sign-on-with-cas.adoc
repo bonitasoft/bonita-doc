@@ -33,84 +33,9 @@ As a consequence, configure the reverse proxy to include the `Host:` header when
 The method https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html#getRequestURL--[`getRequestURL ot HttpServletRequest`] is used internaly to retrieve the `server` and `port` of the HTTP request.
 ====
 
-==== example
-*Reverse proxy configuration:*  use the http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypreservehost[ProxyPreserveHost] property (Apache 2.0.31 or greater).
-====
-
-If you need more fine tuning or if you cannot update the reverse proxy configuration, you can consult the official documentation for https://tomcat.apache.org/connectors-doc/common_howto/proxy.html[Tomcat] or https://docs.jboss.org/author/display/WFLY10/Undertow+subsystem+configuration[WildFly].
-
-== Configure Bonita Engine and Tomcat for CAS
-
-. The CAS implementation relies on JAAS, and is defined in the BonitaAuthentication module of the JAAS configuration file. +
-Set the Java system property `java.security.auth.login.config` in the Tomcat startup script to point to the JAAS configuration file, xref:BonitaBPM_platform_setup.adoc[`TOMCAT_HOME/server/conf/jaas-standard.cfg`].
-+
-For example, on Linux, edit `TOMCAT_HOME/setup/tomcat-templates/setenv.sh`, uncomment the line that defines `SECURITY_OPTS`, and insert the variable `SECURITY_OPTS` in the line `CATALINA_OPTS=..`.
-+
-The `TOMCAT_HOME/server/conf/jaas-standard.cfg` file contains the following (replace `ip_address:port` with the relevant IP addresses and port numbers, in two places):
-+
-----
-BonitaAuthentication-1 {
-  org.jasig.cas.client.jaas.CasLoginModule required
-    ticketValidatorClass="org.jasig.cas.client.validation.Cas20ServiceTicketValidator"
-    casServerUrlPrefix="http://ip_address:port/cas"
-    tolerance="20000"
-    service="http://ip_address:port/bonita/loginservice"
-    defaultRoles="admin,operator"
-    roleAttributeNames="memberOf,eduPersonAffiliation"
-    principalGroupName="CallerPrincipal"
-    roleGroupName="Roles"
-    cacheAssertions="true"
-    cacheTimeout="480";
-};
-----
-
-[WARNING]
-====
-
-module names must be unique (from the example above, BonitaAuthentication-1 is the module name). Therefore, remove the unecessary ones
-====
-
-The JAAS configuration file, `jaas-standard.cfg`, is sorted by sets of authentication modules. For Bonita, each set matches a tenant configuration and the name is prefixed with _BonitaAuthentication-`<tenant-id>`_. Make sure there is a set of authentication modules for each tenant in your platform. For each tenant, set the CAS service to point to the application login page and set `casServerUrlPrefix` to point to the CAS server.
-
-. In the `CasLoginModule` configuration, check that the `principalGroupName` property is set to `CallerPrincipal`. +
-This is required to retrieve the username from the Bonita application.
-Bonita uses the CAS LoginModule in the JASIG implementation, so see the CAS LoginModule section of the https://wiki.jasig.org/display/CASC/JAAS+Integration[Jasig documentation] for more information.
-. Copy `cas-client-core-x.x.x.jar` from `BonitaSubscription-x.x.x-tomcat/tools/cas-x.x.x-module/org/jasig/cas/main` into the `TOMCAT_HOME/server/lib` directory.
-. Copy `commons-logging-x.x.x.jar` from `BonitaSubscription-x.x.x-tomcat/tools//BonitaSubscription-x.x.x-LDAP-Synchronizer/lib` into the `TOMCAT_HOME/server/lib` directory.
-. Update `bonita-tenant-sp-custom.properties` from `setup/platform_conf/initial/tenant_template_engine/` if platform has not been initialized yet or `setup/platform_conf/current/tenants/[TENANT_ID]/tenant_engine/` and `setup/platform_conf/current/tenant_template_engine/`.
 [NOTE]
 ====
-
-If the platform has already been initialized, every update to the configuration files under `setup/platform_conf/current` must be done using the `setup` tool:
-
-* `setup pull`
-* edit configuration file(s)
-* `setup push`
-====
- .. Remove the comment flags from these lines:
-`authentication.service.ref.name=jaasAuthenticationService`
- .. *Optionally*, to enable anonymous user to access a process, uncomment this lines:
-+
-----
-authenticator.delegate=casAuthenticatorDelegate
-authentication.delegate.cas.server.url.prefix=http://ip_address:port
-authentication.delegate.cas.service.url=http://ip_address:port/bonita/loginservice
-----
-+
-Specify the relevant IP address and port number.
-
-[discrete]
-==== Configure the Bonita Portal for CAS SSO
-
-. For each tenant, edit `authenticationManager-config.properties` to enable the CASRemoteAuthenticationManager and its properties.
-Edit the `authenticationManager-config.properties` located in `platform_conf/initial/tenant_template_portal` for not initialized platform or `platform_conf/current/tenant_template_portal` and `platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
-[NOTE]
-====
-
-If the platform has already been initialized, every update to the configuration files under `setup/platform_conf/current` must be done using the `setup` tool:
- ** `setup pull`
- ** edit configuration file(s)
- ** `setup push`
+Reverse proxy configuration:*  use the http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypreservehost[ProxyPreserveHost] property (Apache 2.0.31 or greater).
 ====
 
 Make sure that `auth.AuthenticationManager` property is set to `org.bonitasoft.console.common.server.auth.impl.jaas.cas.CASRemoteAuthenticationManagerImpl`
@@ -199,7 +124,7 @@ To configure Bonita Engine for CAS:
 . If you do not already have it, download the Subscription edition Wildfly bundle from the customer portal.
 . Add the CAS module. To do this, copy `BonitaSubscription-x.x.x-wildfly/tools/cas-x.x.x-module/org` to `WILDFLY_HOME/server/modules` to merge the CAS module with the existing modules.
 . Make the CAS module global so that it can be used by any application. To do this, edit `WILDFLY_HOME/setup/wildfly-templates/standalone.xml` and change the definition of the `ee` subsystem to the following:
-
++
 [source,xml]
 ----
  <subsystem xmlns="urn:jboss:domain:ee:1.0">
@@ -208,10 +133,10 @@ To configure Bonita Engine for CAS:
      </global-modules>
 </subsystem>
 ----
-
++
 . Edit `WILDFLY_HOME/setup/wildfly-templates/standalone.xml` and add the BonitaAuthentication module.
 Right after the opening `<security-domains>` tag, insert these lines (specifying the relevant IP addresses and port numbers):
-
++
 [source,xml]
 ----
 <security-domain name="BonitaAuthentication-1">
@@ -231,19 +156,18 @@ Right after the opening `<security-domains>` tag, insert these lines (specifying
     </authentication>
 </security-domain>
 ----
-
++
 [WARNING]
 ====
-
 module names must be unique (from the example above, BonitaAuthentication-1 is the module name). Therefore, remove the unecessary ones
 ====
-
++
 . In the `CasLoginModule` configuration, check that the `principalGroupName` property is set to `CallerPrincipal`. This is required to retrieve the username from the Bonita application.
 Bonita uses the CAS LoginModule in the JASIG implementation, so see the CAS LoginModule section of the https://wiki.jasig.org/display/CASC/JAAS+Integration[Jasig documentation] for more information.
 . Update xref:BonitaBPM_platform_setup.adoc[`bonita-tenant-sp-custom.properties`] from `setup/platform_conf/initial/tenant_template_engine/` if platform has not been initialized yet or `setup/platform_conf/current/tenants/[TENANT_ID]/tenant_engine/` and `setup/platform_conf/current/tenant_template_engine/`.
++
 [NOTE]
 ====
-
 If the platform has already been initialized, every update to the configuration files under `setup/platform_conf/current` must be done using the `setup` tool:
  ** `setup pull`
  ** edit configuration file(s)
