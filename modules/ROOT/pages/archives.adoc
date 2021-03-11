@@ -28,7 +28,7 @@ You can navigate those documents by using Ctrl+F.
 * https://github.com/bonitasoft/bonita-doc/releases/download/6.0-7.2_archives/BonitaBPM_6.1.zip[Bonita BPM 6.1]
 * https://github.com/bonitasoft/bonita-doc/releases/download/6.0-7.2_archives/BonitaBPM_6.0.zip[Bonita BPM 6.0]
 
-== BonitaBPM 5.x versions
+== Bonita BPM 5.x versions
 
 These versions are very, very, very old by now. +
 If you need a pdf archive, please send a request to https://customer.bonitasoft.com/[support].
