@@ -1,23 +1,34 @@
 = Download old Bonita documentations
-:description: Download old Bonita documentation archives, in html or pdf format.
+:description: This page gives access to the download of Bonita documentation archives, in case you need something very specific to those versions. The format is either html (for not so old versions) or pdf (for very old versions).
 
 You can find here links to download old versions of the Bonita documentation.
 
-// TODO
-// Do we want to add a short description about how to use the HTML zip and PDF
+== BonitaBPM 7.3 and BonitaBPM 7.4
 
-== 7.x
+The format here is html.  
+You can navigate those sites with the table of content on the left.
+Download the .zip archive, extract it, and then click on the index.html file to launch the site.
 
-* https://github.com/bonitasoft/bonita-doc/releases/download/7.3_archived/documentation-bonita-7.3_asciidoctor.zip[Bonita BPM 7.3]
-* Bonita BPM 7.0 to 7.2: Coming soon
+* 7.4
+* 7.3 https://github.com/bonitasoft/bonita-doc/releases/download/7.3_archived/documentation-bonita-7.3_asciidoctor.zip[Bonita BPM 7.3]
+ 
 
+== From BonitaBPM 6.0 to BonitaBPM 7.2
 
-== 6.x
+The format of those versions is pdf. It replaces the very old documentation website.  
+You can navigate those documents by using Ctrl+F. 
 
-Coming soon
+* 7.2
+* 7.1
+* 7.0
+* 6.5
+* 6.4
+* 6.3
+* 6.2
+* 6.1
+* 6.0
 
+== BonitaBPM 5.x versions
 
-== 5.x
-
-// this is the message displayed in the legacy documentation site
-The documentation of versions 5.x has been removed. If you want an offline archive please send a request to https://customer.bonitasoft.com/[support].
+These versions are very, very, very old by now.  
+If you need a pdf archive, please send a request to https://customer.bonitasoft.com/[support].
