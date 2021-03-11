@@ -94,14 +94,14 @@ discovery modes), you must declare its public address by adding the following pr
 ----
 ./start-bonita.sh
 ----
-
++
 . Then start the cluster in the load balancer.
-
++
 [WARNING]
 ====
-
-If you are using apache-tomcat load-balancer whith mod_jk, make sure that jvmRoute attribute is set at your Engine +++<Engine name="Catalina" defaultHost="localhost" jvmRoute="node01">+++and that the jvmRoute attribute value matches your worker name in workers.properties. See official documentation: https://tomcat.apache.org/tomcat-7.0-doc/cluster-howto.html In the server.xml file, for example, change the line to: Engine name="Catalina" defaultHost="localhost" jvmRoute="node01"====+++</Engine>+++
-
+If you are using apache-tomcat load-balancer whith mod_jk, make sure that jvmRoute attribute is set at your Engine +++<Engine name="Catalina" defaultHost="localhost" jvmRoute="node01">+++and that the jvmRoute attribute value matches your worker name in workers.properties. See official documentation: https://tomcat.apache.org/tomcat-7.0-doc/cluster-howto.html In the server.xml file, for example, change the line to: Engine name="Catalina" defaultHost="localhost" jvmRoute="node01"
+====
++
 . Check that the log file contains messages of the following form:
 +
 [source,log]
@@ -144,7 +144,6 @@ March 22, 2016 5:12:28 PM INFO: org.apache.coyote.http11.Http11Protocol start St
 March 22, 2016 5:12:28 PM INFO: org.apache.catalina.startup.Catalina start Server startup in 30333 ms
 ----
 +
-````
 
 In the log, you can see how many nodes are in the cluster, and their IP addresses and port number. This node that has been started is indicated by `this`.
 The new node is now available to perform work as directed by the load balancer.
@@ -162,7 +161,6 @@ Some properties of the Bonita Platform needs to be changed, through  xref:Bonita
 * Configure the Setup Tool as described in the  xref:BonitaBPM_platform_setup.adoc[platform setup tool page]
 * Run the `setup.sh pull` or `setup.bat pull`. This will retrieve the configuration of your platform under `platform_conf/current` folder.
 * Update configuration files that are in the `platform_conf/current` folder of the platform setup tool.
-```
  ** In `platform_engine/bonita-platform-sp-custom.properties`
   *** uncomment and set the *`bonita.cluster`* property to `true`.
  ** In `platform_engine/bonita-platform-sp-cluster-custom.properties`
@@ -171,7 +169,7 @@ Some properties of the Bonita Platform needs to be changed, through  xref:Bonita
   uncomment the # properties and set only one of them to `true`, set the others to `false` depending on how you want your nodes to discover each others,
   for more information on this take a look at the http://docs.hazelcast.org/docs/3.4/manual/html-single/index.html#discovering-cluster-members[Hazelcast Documentation].
  ** In `platform_engine/bonita-platform-sp-custom.properties`: In order to keep consistency between nodes, the Hibernate cache must be disabled:
-```
+
 Uncomment and change the line:
     `#bonita.platform.persistence.use_second_level_cache=true`
   change it to:
