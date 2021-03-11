@@ -18,15 +18,15 @@ Download the .zip archive, extract it, and then click on the index.html file to 
 The format of those versions is pdf. It replaces the very old documentation website. +
 You can navigate those documents by using Ctrl+F. 
 
-* 7.2
-* 7.1
-* 7.0
-* 6.5
-* 6.4
-* 6.3
-* 6.2
-* 6.1
-* 6.0
+* 7.2 https://github.com/bonitasoft/bonita-doc/releases/download/6.0-7.2_archives/BonitaBPM_7.2.zip[Bonita BPM 7.2]
+* 7.1 https://github.com/bonitasoft/bonita-doc/releases/download/6.0-7.2_archives/BonitaBPM_7.1.zip[Bonita BPM 7.1]
+* 7.0 https://github.com/bonitasoft/bonita-doc/releases/download/6.0-7.2_archives/BonitaBPM_7.0.zip[Bonita BPM 7.0]
+* 6.5 https://github.com/bonitasoft/bonita-doc/releases/download/6.0-7.2_archives/BonitaBPM_6.5.zip[Bonita BPM 6.5]
+* 6.4 https://github.com/bonitasoft/bonita-doc/releases/download/6.0-7.2_archives/BonitaBPM_6.4.zip[Bonita BPM 6.4]
+* 6.3 https://github.com/bonitasoft/bonita-doc/releases/download/6.0-7.2_archives/BonitaBPM_6.3.zip[Bonita BPM 6.3]
+* 6.2 https://github.com/bonitasoft/bonita-doc/releases/download/6.0-7.2_archives/BonitaBPM_6.2.zip[Bonita BPM 6.2]
+* 6.1 https://github.com/bonitasoft/bonita-doc/releases/download/6.0-7.2_archives/BonitaBPM_6.1.zip[Bonita BPM 6.1]
+* 6.0 https://github.com/bonitasoft/bonita-doc/releases/download/6.0-7.2_archives/BonitaBPM_6.0.zip[Bonita BPM 6.0]
 
 == BonitaBPM 5.x versions
 
