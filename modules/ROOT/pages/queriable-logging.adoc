@@ -38,4 +38,23 @@ System.out.println(log.getMessage());
 
 == Implementation details
 
-The queriable logger service stores log message in the Bonita BPM Engine back-end database using the Hibernate library. The https://github.com/bonitasoft/bonita-engine/blob/master/services/bonita-log/bonita-log-api/src/main/java/org/bonitasoft/engine/services/QueriableLoggerService.java[interface] and the https://github.com/bonitasoft/bonita-engine/tree/master/services/bonita-log/bonita-log-impl/src/main/java/org/bonitasoft/engine/services/impl[implementation] of the service are available from the source code repository on https://github.com/bonitasoft/[GitHub].
+The queriable logger service stores log message in the Bonita BPM Engine back-end database using the Hibernate library. The https://github.com/bonitasoft/bonita-engine/blob/master/services/bonita-log/src/main/java/org/bonitasoft/engine/services/QueriableLoggerService.java[interface] and the https://github.com/bonitasoft/bonita-engine/tree/master/services/bonita-log/src/main/java/org/bonitasoft/engine/services/impl[implementation] of the service are available from the source code repository on https://github.com/bonitasoft/[GitHub].
+
+== Disabling the Queriable logger
+
+Each queriable log type can be turned off individually with its associated property. The properties must be listed into the `/setup/platform_conf/current/tenants/[tenantId]/tenant_engine/bonita-tenant-sp-custom.properties` file.
+ 
+=== Find the list of properties
+
+* You can deactivate the logging on all the events listed xref:event-handlers.adoc#_event_list[here]. 
+* Or, you can also find a set of properties for each product version. You'll find them in a java library: The `bonita-tenant-sp.xml` file contains the list of properties, and it is packed into the `/server/webapps/bonita/WEB-INF/lib/bonita-server-sp-[BonitaVersion].jar` file.
+
+=== Disable the Queriable Logs
+
+. Use the xref:BonitaBPM_platform_setup.adoc[Platform configuration setup tool] to pull the configuration on the disk: `./setup.sh pull`
+. Edit the `/setup/platform_conf/current/tenants/[tenantId]/tenant_engine/bonita-tenant-sp-custom.properties` file.
+. Add one property for each type of queriable log and set it to false, Eg.: 
+`bonita.tenant.queriable.log.ACTOR_CREATED.INTERNAL=false`
+`bonita.tenant.queriable.log.APPLICATION_PAGE_DELETED.INTERNAL=false`
+. Use the xref:BonitaBPM_platform_setup.adoc[Platform configuration setup tool] to push the configuration in the database: `./setup.sh push`
+. xref:tomcat-bundle.adoc#start[Restart] the application server 
