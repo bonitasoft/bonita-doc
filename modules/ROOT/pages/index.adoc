@@ -7,7 +7,7 @@ Welcome to the Bonita BPM documentation website.
 
 [.card.card-index]
 --
-xref:release-notes.adoc[[.card-title]#Release note {varVersion}# [.card-body]#pass:q[]#]
+xref:release-notes.adoc[[.card-title]#Release note {varVersion}# [.card-body.card-content-overflow]#pass:q[A brief presentation of the new values, improvements, technical changes, deprecations, removals, and bug fixes of this release.]#]
 --
 
 [.card.card-index]
