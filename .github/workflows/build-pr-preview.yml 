@@ -1,0 +1,42 @@
+name: Build PR preview
+
+on:
+  pull_request:
+    # To manage 'surge-preview' action teardown, add default event types + closed event type
+    types: [opened, synchronize, reopened, closed]
+    paths:
+      - 'modules/ROOT/**'
+      - 'antora.yml'
+      - '.github/workflows/build-pr-preview.yml'
+jobs:
+  build_preview:
+    runs-on: ubuntu-20.04
+    env:
+      COMPONENT_NAME: bonita
+      # Except if you want to test in progress work that your content depends on, keep it set to master
+      DOC_SITE_BRANCH: master
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+    steps:
+      - name: Get documentation site source code
+        if: github.event.action != 'closed'
+        run: |
+          # Remove existing .git directory
+          rm -rf *
+          git clone --depth 1 --single-branch --branch ${DOC_SITE_BRANCH} https://github.com/bonitasoft/bonitasoft.github.io.git .
+      - name: Compute environment variables
+        run: |
+          echo "BRANCH_NAME=$(echo ${GITHUB_HEAD_REF#refs/heads/})" >> $GITHUB_ENV
+          # the surge-preview action generates https://{{repository.owner}}-{{repository.name}}-{{job.name}}-pr-{{pr.number}}.surge.sh
+          repo_owner_and_name=$(echo "${{github.repository}}" | sed 's/\//-/g')
+          echo PREVIEW_URL=https://$repo_owner_and_name-"${{github.job}}"-pr-$PR_NUMBER.surge.sh >> $GITHUB_ENV
+      - name: Publish preview
+        uses: afc163/surge-preview@v1
+        with:
+          surge_token: ${{ secrets.SURGE_TOKEN_DOC }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          dist: build/site
+          failOnError: true
+          teardown: 'true'
+          build: |
+            ./build-preview.bash --branch "${{ env.BRANCH_NAME }}" --component "${{ env.COMPONENT_NAME }}" --pr "${{ env.PR_NUMBER }}" --site-url "${{ env.PREVIEW_URL }}"
+            ls -lh build/site
