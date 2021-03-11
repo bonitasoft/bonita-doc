@@ -1,6 +1,12 @@
 = Bonita BPM Documentation
+:description: Learn how to use the Bonita Platform and all of its components.
 
-Welcome to the Bonita BPM documentation website.
+[NOTE]
+====
+image:images/tv.png[videos]  Discover what is new in Bonita 7.10 thanks to these short videos in https://www.youtube.com/playlist?list=PLvvoQatxaHOMcgZXuoQcM_6txUhwqru4B[English], https://www.youtube.com/playlist?list=PLvvoQatxaHOPe6RwaiAdbCV6k_RbyYj9d[French], or https://www.youtube.com/playlist?list=PLvvoQatxaHOO564ejh-EggWJ_D_1U4SxB[Spanish]!
+====
+
+Learn how to use the Bonita Platform and all of its components.
 
 [.card-section]
 == Highlight
