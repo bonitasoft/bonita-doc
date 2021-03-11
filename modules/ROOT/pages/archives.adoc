@@ -1,4 +1,4 @@
-= Download old Bonita documentations
+= Download archived documentations of old Bonita versions
 :description: This page gives access to the download of Bonita documentation archives, in case you need something very specific to those versions.
 
 This page gives access to the download of Bonita documentation archives, in case you need something very specific to those versions. The format is either html (for not so old versions) or pdf (for very old versions).
