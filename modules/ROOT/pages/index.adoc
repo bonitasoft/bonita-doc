@@ -1,4 +1,10 @@
 = Bonita Documentation
+:description: Learn how to use the Bonita Platform and all of its components.
+
+[NOTE]
+====
+image:images/tv.png[videos]  Discover what is new in Bonita 7.9 thanks to these short videos in https://www.youtube.com/playlist?list=PLvvoQatxaHOMxnu-1S2lZ_NXk1Brq_WBK[English], https://www.youtube.com/playlist?list=PLvvoQatxaHOMmpQL1nQTz8NPsX6W6GUId[French], or https://www.youtube.com/playlist?list=PLvvoQatxaHOP3QPSvmQhzfQtuw3mqMdHS[Spanish]!
+====
 
 Learn how to use the Bonita Platform and all of its components.
 
