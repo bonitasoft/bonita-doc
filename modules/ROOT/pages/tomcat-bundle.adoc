@@ -29,7 +29,7 @@ For the Community edition:
 
 For a Subscription edition:
 
-* Go to the https://customer.bonitasoft.com/download/request[Customer Portal] and download the Bonita BPM Subscription edition Tomcat bundle.
+* Go to the https://customer.bonitasoft.com/download/request[Customer Service Center] and download the Bonita BPM Subscription edition Tomcat bundle.
 
 ==== Unzip
 
