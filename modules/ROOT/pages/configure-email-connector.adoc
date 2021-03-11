@@ -1,0 +1,51 @@
+= Configure an email connector
+:description: :experimental:
+
+:experimental:
+
+In order for a process to interact with external systems such as publishing a document on a CMS, calling a REST API, or sending an email, Bonita provides connectors. In our example we will configure an email connector to notify the manager that a task _Deal with unsatisfied customer_ requires their attention.
+
+[NOTE]
+====
+
+A connector is a piece of code that is executed when starting or finishing a process or a task. It will process input data (for example business variable values) and generate (optionally) some outputs. Connector code might only transform inputs but can also perform interaction with external systems.
+====
+
+In order to avoid settings that are specific to real email provider, we will use a tool for a fake email server "FakeSMTP":
+
+. Download FakeSMTP from this link: http://nilhcem.github.com/FakeSMTP/downloads/fakeSMTP-latest.zip
+. Unzip the file
+. Run FakeSMTP by double-clicking on the JAR file, or by running this shell command: `java -jar fakeSMTP-2.0.jar`
+. When the user interface is displayed, set the *listening port* to _2525_
+. Click on the *Start server* button.
++
+image::images/getting-started-tutorial/configure-email-connector/fakesmtp-configured-and-listening.png[FakeSMTP configured and listening]
+
+Now that we have a fake server running, let's configure the email connector on the _Deal with unsatisfied customer_ task:
+
+. Select the task _Deal with unsatisfied customer_
+. Go to menu:Execution[Connectors in]
+. Click on the *Add...* button
+. Select the _Email (SMTP)_ connector
+. Click on the *Next* button
+. Name the connector configuration _Send notification_
+. Click on the *Next* button
+. Set the following parameter values:
+ ** SMTP host: _localhost_
+ ** SMTP port: _2525_ (the port number specified in FakeSMTP)
+ ** SSL (in the *Security* section): _unchecked_
+. Click on the *Next* button
+. Enter link:mailto:_no-reply@acme.com_[_no-reply@acme.com_] in the *From* field
+. Use the image:images/getting-started-tutorial/configure-email-connector/pencil.png[pencil icon] icon to edit the expression of the *To* field
+. Set the *Expression type* to *Script*
+. Paste the following Groovy script into the code editing zone: `BonitaUsers.getProcessInstanceInitiatorProfessionalContactInfo(apiAccessor,processInstanceId).email`
+. Click on the *OK* button
+. Click on the *Next* button
+. Set _You have a pending task_ as the subject
+. Click on *Finish*
++
+image::images/getting-started-tutorial/configure-email-connector/configure-email-connector.gif[Email connector configuration]
+
+If you run the process with the connector configured, you should see a new incoming email in the FakeSMTP user interface when task _Deal with unsatisfied customer_ becomes available.
+
+You have now a process definition that uses a wide range of Bonita features. In the next chapters, we will create an application on top of this process.
