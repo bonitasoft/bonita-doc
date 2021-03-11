@@ -87,5 +87,5 @@ xref:http://www.bonitasoft.com/for-you-to-read/bpm-library/ultimate-guide-bpmn[[
 
 [.card.card-index]
 --
-xref:http://documentation.bonitasoft.com/javadoc/api/{varVersion}/index.html[[.card-title]#Javadoc# [.card-body.card-content-overflow]#pass:q[The API documentation extracted from our source code.]#]
+link:http://documentation.bonitasoft.com/javadoc/api/{varVersion}/index.html[[.card-title]#Javadoc# [.card-body.card-content-overflow]#pass:q[The API documentation extracted from our source code.]#]
 --
