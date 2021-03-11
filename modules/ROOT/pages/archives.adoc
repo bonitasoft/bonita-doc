@@ -6,7 +6,7 @@ This page gives access to the download of Bonita documentation archives, in case
 == Bonita BPM 7.3 and Bonita BPM 7.4
 
 The format here is html. +
-Download the .zip archive, extract it, and then click on the index.html file to launch the site. +
+Download the .zip archive, extract it, and then open the index.html file to launch the site. +
 You can navigate those sites with the table of content on the left. 
 
 * https://github.com/bonitasoft/bonita-doc/releases/download/7.4-20210311_130615/documentation-bonita-7.4.zip[Bonita BPM 7.4]
@@ -16,6 +16,7 @@ You can navigate those sites with the table of content on the left.
 == From Bonita BPM 6.0 to Bonita BPM 7.2
 
 The format of those versions is pdf. It replaces the very old documentation website. +
+Download the .zip archive and open the pdf document.
 You can navigate those documents by using Ctrl+F. 
 
 * https://github.com/bonitasoft/bonita-doc/releases/download/6.0-7.2_archives/BonitaBPM_7.2.zip[Bonita BPM 7.2]
