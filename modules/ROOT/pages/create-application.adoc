@@ -1,0 +1,54 @@
+= Create an application
+:description: :experimental:
+
+:experimental:
+
+Creating the application is the final step of this Getting Started tutorial.
+
+But before we actually create the application, we need to deploy our application page in the Bonita Portal:
+
+. In the Bonita Studio menu click on menu:File[Deploy]
+. Click on *Select all* button to make sure everything is deployed: test organization, business data model, process definition, application page
+. Make sure that *Clean BDM database before deployment* is not checked as we want to keep our data for testing
+. Click on *Deploy* button
+. In the *Deploy status* pop up window, click on *Close* button
++
+image:images/getting-started-tutorial/create-application/project-deployment.gif[Project deployment]
+// {.img-responsive .img-thumbnail}
+
+Now we are ready to actually create the application. In the Bonita Community Edition, the easiest way to create an application is to use the Bonita Portal:
+
+. Click on the Portal icon image:images/getting-started-tutorial/create-application/portal-icon.png[Portal icon] in the Bonita Studio tool bar
+. In the upper right corner of the window, click on the *User* drop down menu
+. Select *Administrator*
+. Click on the *Applications* tab
+. Click on the *New* button
+. Configure the application:
+ ** Display name: _Claims_
+ ** URL: _claims_
+ ** Version: _1.0_
+ ** Profile: _User_
+ ** Description: _Claims management application_
+. Click on the *Create* button
++
+image:images/getting-started-tutorial/create-application/create-application.gif[Create an application]
+// {.img-responsive .img-thumbnail}
+
+You now need to edit the application to add the previously created application page:
+
+. Click on the *...* icon in the *Actions* column
+. In the *Pages* section, click on the *Add* button
+. In the drop down list, select _custompage_claimsList - claimsList_
+. In *URL* type: _claims-list_
+. Click on the *Add* button
+. In the pages list, click on the *home icon* to set claims-list as the home page and delete the default home
+. We've kept this application very simple, with only a single page, so we don't need to define a navigation menu
++
+image:images/getting-started-tutorial/create-application/add-page-to-application.gif[Add page to application]
+// {.img-responsive .img-thumbnail}
+
+You can now click on the application URL, and you'll see the application page displayed in the default application layout.
+
+Congratulations! You have successfully created your first process and application with Bonita.
+
+If you want to learn more about Bonita components and concepts we recommend the https://www.youtube.com/playlist?list=PLvvoQatxaHOMHRiP7hFayNXTJNdxIEiYp[Bonita Camp tutorial]. Of course https://documentation.bonitasoft.com[official documentation] is also a great place to learn more about Bonita. If you prefer to learn from examples, you can find several on the https://community.bonitasoft.com/project?title=&field_type_tid=3869[community website]. And finally, remember that you can always get help and https://community.bonitasoft.com/questions-and-answers/[ask questions of the Bonita Community].
