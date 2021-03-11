@@ -1,5 +1,5 @@
 * xref:what-is-bonita.adoc[What is Bonita?]
-* xref:_getting-started-tutorial.adoc[Getting started tutorial]
+* Getting started tutorial
  ** xref:tutorial-overview.adoc[Overview]
  ** xref:bonita-studio-download-installation.adoc[Download and install]
  ** xref:draw-bpmn-diagram.adoc[Draw a BPMN diagram]
@@ -21,17 +21,17 @@
   *** xref:design-methodology.adoc[Design methodology]
  ** xref:bonita-bpm-studio-preferences.adoc[Bonita Studio preferences]
  ** xref:bonita-bpm-studio-hints-and-tips.adoc[Bonita Studio hints and tips]
- ** xref:_organization.adoc[Organization]
+ ** Organization
   *** xref:organization-overview.adoc[Overview]
   *** xref:approaches-to-managing-organizations-and-actor-mapping.adoc[Approaches to managing organizations and actor mapping]
   *** xref:organization-management-in-bonita-bpm-studio.adoc[Organization management in Bonita Studio]
   *** xref:custom-user-information-in-bonita-bpm-studio.adoc[Custom User Information in Bonita Studio]
   *** xref:ldap-synchronizer.adoc[LDAP synchronizer]
- ** xref:_profiles.adoc[Profiles]
+ ** Profiles
   *** xref:profiles-overview.adoc[Overview]
-   **** xref:profileCreation.adoc[Profiles editor]
- ** xref:_process-modeling.adoc[Process modeling]
-  *** xref:_diagrams.adoc[Diagrams]
+  *** xref:profileCreation.adoc[Profiles editor]
+ ** Process modeling
+  *** Diagrams
    **** xref:diagram-overview.adoc[Overview]
    **** xref:pools-and-lanes.adoc[Pools and lanes]
    **** xref:diagram-tasks.adoc[Tasks]
@@ -102,26 +102,26 @@
   *** Web service
    **** xref:web-service-connector-overview.adoc[Web service connector overview]
    **** xref:web-service-tutorial.adoc[Web service connector tutorial]
- ** xref:_reporting.adoc[Reporting]
+ ** Reporting
   *** xref:reporting-overview.adoc[Overview]
   *** xref:set-up-a-reporting-database.adoc[Set up a reporting database]
   *** xref:set-up-kpis.adoc[Set up KPIs]
   *** xref:create-a-report.adoc[Create a report]
  ** xref:import-and-export-a-process.adoc[Import and export a process]
- ** xref:_process-configuration.adoc[Process configuration]
+ ** Process configuration
   *** xref:process-configuration-overview.adoc[Overview]
   *** xref:environments.adoc[Environments]
   *** xref:configuring-a-process.adoc[Configure a process]
   *** xref:manage-jar-files.adoc[Manage JAR files]
   *** xref:managing-dependencies.adoc[Manage dependencies]
- ** xref:_process-testing.adoc[Process testing]
+ ** Process testing
   *** xref:process-testing-overview.adoc[Overview]
   *** xref:configure-a-test-organization.adoc[Configure a test organization]
   *** xref:run-a-process-from-bonita-bpm-studio-for-testing.adoc[Run a process from Bonita Studio for testing]
   *** xref:log-files.adoc[Log files]
  ** xref:project_deploy_in_dev_suite.adoc[Project deployment in Bonita Development Suite]
  ** xref:build-a-process-for-deployment.adoc[Build a process for deployment]
-* xref:_installation.adoc[Installation]
+* Installation
  ** xref:bonita-bpm-installation-overview.adoc[Overview]
  ** xref:bonita-bpm-studio-installation.adoc[Bonita Studio installation]
  ** Basic Bonita Platform installation
