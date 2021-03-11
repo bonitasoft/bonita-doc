@@ -1,5 +1,4 @@
-md/index.md merge=ours
-md/release-notes.md merge=ours
-md/index.md merge=ours
-md/ui-designer-dependencies.md merge=ours
-md/bonita-data-repositories-dependencies.md merge=ours
+modules/ROOT/pages/release-notes.adoc merge=ours
+modules/ROOT/pages/index.adoc merge=ours
+modules/ROOT/pages/ui-designer-dependencies.adoc merge=ours
+modules/ROOT/pages/bonita-data-repositories-dependencies.adoc merge=ours
