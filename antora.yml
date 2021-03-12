@@ -7,7 +7,5 @@ asciidoc:
     javadocVersion: 7.12
     page-editable: true
     page-out-of-support: false
-# default
-#start_page: ROOT:index.adoc
 nav:
   - modules/ROOT/taxonomy.adoc
