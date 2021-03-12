@@ -34,7 +34,7 @@ The method https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRe
 ====
 
 
-==== Exemple
+==== Example
 *Reverse proxy configuration:*  use the http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypreservehost[ProxyPreserveHost] property (Apache 2.0.31 or greater).
 
 If you need more fine tuning or if you cannot update the reverse proxy configuration, you can consult the official documentation for https://tomcat.apache.org/connectors-doc/common_howto/proxy.html[Tomcat] or https://docs.jboss.org/author/display/WFLY10/Undertow+subsystem+configuration[WildFly].
