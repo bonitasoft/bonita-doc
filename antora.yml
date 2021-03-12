@@ -4,6 +4,7 @@ version: "7.10"
 asciidoc:
   attributes:
     varVersion: "7.10"
+    page-editable: true
 # default
 #start_page: ROOT:index.adoc
 nav:
