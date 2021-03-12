@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - 2021.2
+      - '2021.2'
     paths:
       - 'modules/**'
       - 'antora.yml'
