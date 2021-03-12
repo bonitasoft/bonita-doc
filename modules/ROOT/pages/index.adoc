@@ -45,7 +45,7 @@ xref:release-notes.adoc#uipath-cloud[[.card-title]#UiPath RPA connector, now in 
 == Getting started
 [.card.card-index]
 --
-xref:getting-started-tutorial.adoc[[.card-title]#Getting started tutorial# [.card-body.card-content-overflow]#pass:q[A step-by-step creation of a first simple Living Application to learn about all the concepts in Bonita.]#]
+xref:tutorial-overview.adoc[[.card-title]#Getting started tutorial# [.card-body.card-content-overflow]#pass:q[A step-by-step creation of a first simple Living Application to learn about all the concepts in Bonita.]#]
 --
 
 [.card.card-index]
