@@ -258,17 +258,22 @@ spnego.logger.level         = 1
 spnego.preauth.username     = <username>
 spnego.preauth.password     = <password>
 ----
-+
-`<username>` and `<password>` should be replaced with the domain account and password to use to pre-authenticate to on the Domain controller acting as Kerberos Key Distribution Center. `spnego.login.client.module` and `spnego.login.server.module` property values should match the login contexts set in `login.conf` for Tomcat or the security domain names set in `standalone.xml` for Wildfly (spnego-client and spnego-server by default). Note that for Wildfly, the properties `spnego.krb5.conf` and `spnego.login.conf` are not used as already set in the file standalone.xml Make sure to set your principal user name and password.
-+
-. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`, edit the file **bonita-tenant-sp-custom.xml** to uncomment the bean passphraseOrPasswordAuthenticationService:
-+
+
+`username` and `password` shoud be replaced with the domain account and password to use to pre-authenticate to on the Domain controller acting as Kerberos Key Distribution Center. +
+`spnego.login.client.module` and `spnego.login.server.module` property values should match the login contexts set in `login.conf` for Tomcat or the security domain names set in `standalone.xml` for Wildfly (spnego-client and spnego-server by default).
+Note that for Wildfly, the properties `spnego.krb5.conf` and `spnego.login.conf` are not used as already set in the file satndalone.xml
+
+Make sure to set your principal username and password.
+
+. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`,
+ edit the file *bonita-tenant-sp-custom.xml* to uncomment the bean passphraseOrPasswordAuthenticationService:
+
 [source,xml]
 ----
 	<bean id="passphraseOrPasswordAuthenticationService" class="com.bonitasoft.engine.authentication.impl.PassphraseOrPasswordAuthenticationService" lazy-init="true">
- <constructor-arg name="logger" ref="tenantTechnicalLoggerService"></constructor-arg>
- <constructor-arg name="identityService" ref="identityService"></constructor-arg>
- <constructor-arg name="configuredPassphrase" value="${authentication.service.ref.passphrase}"></constructor-arg>
+	   <constructor-arg name="logger" ref="tenantTechnicalLoggerService" />
+	   <constructor-arg name="identityService" ref="identityService" />
+	   <constructor-arg name="configuredPassphrase" value="${authentication.service.ref.passphrase}" />
    </bean>
 ----
 +
@@ -295,7 +300,10 @@ spnego.preauth.password     = <password>
 authentication.service.ref.name=passphraseOrPasswordAuthenticationService
 
 # If authentication.service.ref.name equals "PassphraseOrPasswordAuthenticationService",
-# you need to configure the following passphrase -\-> authentication.service.ref.passphrase=BonitaBPM # CAS authentication delegate : enables the user, providing login/password,
+# you need to configure the following passphrase
+authentication.service.ref.passphrase=BonitaBPM
+
+# CAS authentication delegate : enables the user, providing login/password,
 # to be logged in automatically against CAS web application
 # To be used in conjunction with the generic authentication service configured with CAS (jaasAuthenticationService)
 #authenticator.delegate=casAuthenticatorDelegate
@@ -304,10 +312,9 @@ authentication.service.ref.name=passphraseOrPasswordAuthenticationService
 ----
 +
 It is recommended to also replace the value of the passphrase (property auth.passphrase). The value must be the same as in the file **authenticationManager-config.properties** updated previously.
-
-. If your Domain Controller is correctly configured, you are done. Then you can start the bundle and try to access a portal page, an app page or a form URL (or just `+http://<host>:<port>/bonita[?tenant=<tenantId>]+`) and make sure that you are automatically logged in.
-
-Note that if you try to access `+http://<bundle host="">:<port>/bonita/login.jsp+`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `kerberos.auth.standard.allowed` to true or define a whitelist with the property `auth.tenant.standard.whitelist`) to be able to log in without an account on AD.
++
+. If your Domain Controller is correctly configured, you are done. +
+Then you can start the bundle and try to access a portal page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are automatically logged in.
 
 Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `kerberos.auth.standard.allowed` to true or define a whitelist with the property `auth.tenant.standard.whitelist`) to be able to log in without an account on AD.
 
