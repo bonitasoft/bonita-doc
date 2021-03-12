@@ -17,8 +17,7 @@ A human task with no form and no contract represents a manual task completed out
 
 [WARNING]
 ====
-
-*Attention*: Bonita 7.8 does not support 6.x GWT forms and case overview pages, neither for design nor at runtime.
+Bonita 7.8 does not support 6.x GWT forms and case overview pages, neither for design nor at runtime.
 To migrate your processes still using them, follow those xref:migrate-a-form-from-6-x.adoc[instructions]
 ====
 
