@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - 7.9
+      - '7.9'
     paths:
       - 'modules/**'
       - 'antora.yml'
