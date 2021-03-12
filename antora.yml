@@ -3,5 +3,8 @@ title: Bonita
 version: 0
 display_version: Archives
 start_page: ROOT:archives.adoc
+asciidoc:
+  attributes:
+    page-editable: false
 nav:
   - modules/ROOT/taxonomy.adoc
