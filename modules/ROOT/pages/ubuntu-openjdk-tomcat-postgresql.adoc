@@ -92,11 +92,11 @@ You need to include JDBC driver in Tomcat classpath:
 
 === Download and unzip the Bonita BPM deploy bundle
 
-Download the Bonita BPM deploy bundle from the https://customer.bonitasoft.com/[Customer Portal]
+Download the Bonita BPM deploy bundle from the https://customer.bonitasoft.com/[Customer Service Center]
 (Subscription editions) or get the http://www.bonitasoft.com/downloads-v2[Community edtion]. Instructions
 below will be given for Bonita Subscription Pack. You can easily adapt files and folder names to your edition.
 
-* Go to Bonitasoft https://customer.bonitasoft.com/[Customer Portal]
+* Go to Bonitasoft https://customer.bonitasoft.com/[Customer Service Center]
 * In *Download* menu, click on _*Request a download*_
 * Select your version and click on _*Access download page*_ button
 * On the download page, go to the *Deploying Server Components* section
