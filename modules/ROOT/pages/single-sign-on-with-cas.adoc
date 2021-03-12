@@ -135,7 +135,7 @@ logout.link.hidden=true
 ==== CAS SSO and Java client application
 
 To enable a Java client application to access the engine using CAS autentication, the simplest way is to enable https://apereo.github.io/cas/4.0.x/protocol/REST-Protocol.html[REST authentication on CAS server] and have the Java client <<cas-rest-api,retrieve the `ticket` for the bonita `service` URL>>. +
-Then, use the http://documentation.bonitasoft.com/javadoc/api/${varVersion}/org/bonitasoft/engine/api/LoginAPI.html#login(java.util.Map)[`LoginAPI`] with the `java.util.Map` having the `ticket` and `service`.
+Then, use the https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/LoginAPI.html#login(java.util.Map)[`LoginAPI`] with the `java.util.Map` having the `ticket` and `service`.
 
 [discrete]
 ==== Cluster considerations and bonita webapp for Tomcat
