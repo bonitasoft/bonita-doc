@@ -45,7 +45,7 @@ xref:release-notes.adoc#asynchronous-connector-execution[[.card-title]#Performan
 == Getting started
 [.card.card-index]
 --
-xref:getting-started-tutorial.adoc[[.card-title]#Getting started tutorial# [.card-body.card-content-overflow]#pass:q[A step-by-step creation of a first simple Living Application to learn about all the concepts in Bonita.]#]
+xref:what-is-bonita.adoc[[.card-title]#Getting started tutorial# [.card-body.card-content-overflow]#pass:q[A step-by-step creation of a first simple Living Application to learn about all the concepts in Bonita.]#]
 --
 
 [.card.card-index]
@@ -88,7 +88,7 @@ link:https://www.bonitasoft.com/downloads[[.card-title]#Download Bonita software
 
 [.card.card-index]
 --
-link:https://www.bpmn.org/[[.card-title]#BPMN standard# [.card-body.card-content-overflow]#pass:q[A link to THE BPMN reference.]#]
+link:https://www.bpmn.org[[.card-title]#BPMN standard# [.card-body.card-content-overflow]#pass:q[A link to THE BPMN reference.]#]
 --
 
 [.card.card-index]
