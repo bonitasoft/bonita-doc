@@ -5,6 +5,7 @@ asciidoc:
   attributes:
     varVersion: 7.9
     page-editable: true
+    page-out-of-support: false
 # default
 #start_page: ROOT:index.adoc
 nav:
