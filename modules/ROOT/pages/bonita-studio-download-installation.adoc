@@ -13,9 +13,7 @@ If you have any problems while working through this tutorial, you can https://co
 
 To download the latest version of Bonita Studio, open the https://www.bonitasoft.com/downloads[download page] and click on the *Download* button. This will start the download of the Bonita Studio installer for your operating system.
 
-{::comment}
-update package name
-{::comment}
+// update package name
 
 When the download is finished, you should have one of the following files on your computer (x.y.z refers to the version of Bonita Studio, e.g. $\{varVersion}.0):
 
