@@ -72,20 +72,20 @@ xref:create-your-first-project-with-the-engine-apis-and-maven.adoc[[.card-title]
 
 [.card.card-index]
 --
-xref:http://www.bonitasoft.com/how-we-do-it/downloads[[.card-title]#Download Bonita software# [.card-body.card-content-overflow]#pass:q[A link to our Community web site, the place to get Bonita.]#]
+link:https://www.bonitasoft.com/downloads[[.card-title]#Download Bonita software# [.card-body.card-content-overflow]#pass:q[A link to our Community web site, the place to get Bonita.]#]
 --
 
 [.card.card-index]
 --
-xref:http://www.bonitasoft.com/how-we-do-it/downloads[[.card-title]#BPMN standard# [.card-body.card-content-overflow]#pass:q[A link to THE BPMN reference.]#]
+link:https://www.bpmn.org[[.card-title]#BPMN standard# [.card-body.card-content-overflow]#pass:q[A link to THE BPMN reference.]#]
 --
 
 [.card.card-index]
 --
-xref:http://www.bonitasoft.com/for-you-to-read/bpm-library/ultimate-guide-bpmn[[.card-title]#The Ultimate Guide to BPMN2# [.card-body.card-content-overflow]#pass:q[Download Bonitasoft's whitepaper on BPMN2.]#]
+link:https://www.bonitasoft.com/for-you-to-read/bpm-library/ultimate-guide-bpmn[[.card-title]#The Ultimate Guide to BPMN2# [.card-body.card-content-overflow]#pass:q[Download Bonitasoft's whitepaper on BPMN2.]#]
 --
 
 [.card.card-index]
 --
-link:http://documentation.bonitasoft.com/javadoc/api/{varVersion}/index.html[[.card-title]#Javadoc# [.card-body.card-content-overflow]#pass:q[The API documentation extracted from our source code.]#]
+link:https://documentation.bonitasoft.com/javadoc/api/{varVersion}/index.html[[.card-title]#Javadoc# [.card-body.card-content-overflow]#pass:q[The API documentation extracted from our source code.]#]
 --
