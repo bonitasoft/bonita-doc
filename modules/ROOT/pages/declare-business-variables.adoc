@@ -37,9 +37,11 @@ Now that a business variable is declared, use it in the transition condition def
 . Click on *<* in the quick access operators' bar and type *3*
 . Click on *OK*
 
-====note
+[NOTE]
+====
 You can also enter the Groovy script directly: `claim.satisfactionLevel < 3`
 ====
+[NOTE]
 
 image:images/getting-started-tutorial/declare-business-variable/define-condition.gif[Define transition condition using business variable value]
 // {.img-responsive .img-thumbnail}
