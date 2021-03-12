@@ -347,7 +347,7 @@ To migrate to Bonita 7.9+ from an earlier version, you need to run the [Bonita M
 ==== PostgreSQL
 
 From Bonita 7.9, the supported version of PostgreSQL database is *11.2*. +
-Some xref:performance-tuning.adoc]#postgresql-performance-tuning[PostgreSQL-specific tuning] recommendations are provided for
+Some xref:performance-tuning.adoc#postgresql-performance-tuning[PostgreSQL-specific tuning] recommendations are provided for
 improved database performance.
 
 ==== Microsoft SQL Server

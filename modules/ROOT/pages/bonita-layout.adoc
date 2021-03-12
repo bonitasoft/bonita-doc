@@ -35,4 +35,4 @@ property of the image widget.
 === Font awesome
 
 This layout requires a theme containing the font-awesome library.
-If you are using a custom theme, make sure xref:themes.adoc]#font-awesome[font-awesome is available in your theme].
+If you are using a custom theme, make sure xref:themes.adoc#font-awesome[font-awesome is available in your theme].

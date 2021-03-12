@@ -150,7 +150,7 @@ Use a GET method with filters and search terms to search for custom pages.
 * *Method* +
 `GET`
 * *Data Params* +
-xref:rest-api-overview.adoc]#resource_search[Standard search parameters] are available. +
+xref:rest-api-overview.adoc#resource_search[Standard search parameters] are available. +
 You can filter on:
  ** `+createdBy={user_id}+`: retrieve only the pages created by the specified user ID.
 For example, to retrieve the custom pages created by the user with id 1: `+http://localhost:8080/bonita/API/portal/page?p=0&c=10&f=createdBy%3d1+`.
@@ -316,7 +316,7 @@ Use a GET method with filters and search terms to search for profiles.
 * *Method* +
 `GET`
 * *Data Params* +
-xref:rest-api-overview.adoc]#resource_search[Standard search parameters] are available. +
+xref:rest-api-overview.adoc#resource_search[Standard search parameters] are available. +
 You can filter on:
  ** `+name={exact_profile_name}+`: retrieve only the profiles with the specified name. For example, retrieve the profile with `name=Administrator`: `/API/portal/profile?p=0&c=10&f=name%3dAdministrator`
  ** `hasNavigation={true|false}`: retrieve the profiles with (or without) attached navigation pages (profile entries): `/API/portal/profile?p=0&c=10&f=hasNavigation=true`
@@ -524,7 +524,7 @@ Use a GET method with filters and search terms to search for profileEntry items.
 * *Method* +
 `GET`
 * *Data Params* +
-xref:rest-api-overview.adoc]#resource_search[Standard search parameters] are available. +
+xref:rest-api-overview.adoc#resource_search[Standard search parameters] are available. +
 You can filter on:
  ** `+page={exact_pageToken}+`: retrieve only the profileEntry items with the specified tokenName. For example, retrieve the profileEntry with page name = tasklistinguser: `/API/portal/profileEntry?p=0&c=10&f=page%3dtasklistinguser`.
  ** `+name={exact_page_name}+`: retrieve only the profileEntry items with the specified pageName. For example, retrieve the profileEntry with page name = Tasks: `/API/portal/profileEntry?p=0&c=10&f=name%3dTasks`.
@@ -657,7 +657,7 @@ Use a GET method with filters and search terms to search for profileMembers.
 * *Method* +
 `GET`
 * *Data Params* +
-xref:rest-api-overview.adoc]#resource_search[Standard search parameters] are available. +
+xref:rest-api-overview.adoc#resource_search[Standard search parameters] are available. +
 There is a mandatory filter on:
  ** `member_type=`. For example, retrieve the profileMembers of type user: `/API/portal/profileMember?p=0&c=10&f=member_type%3duser`
 

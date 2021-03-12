@@ -32,4 +32,4 @@ image::images/connector_execution_timeout.png[Connector execution with timeout]
 
 == Configuration
 
-The size of the pool to execute connector and the timeout can be configured as described in xref:performance-tuning.adoc]#connector_service[Connector service performance tuning page]
+The size of the pool to execute connector and the timeout can be configured as described in xref:performance-tuning.adoc#connector_service[Connector service performance tuning page]

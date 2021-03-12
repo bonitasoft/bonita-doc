@@ -88,7 +88,7 @@ There is an https://bz.apache.org/bugzilla/show_bug.cgi?id=58999[issue on tomcat
 
 You need to add your jdbc driver in TOMCAT_HOME/lib.
 MySQL, PostgreSQL and Microsoft SQL Server drivers can be found in the Tomcat bundle under DEPLOY_ZIP_HOME/setup/lib directory. For Oracle,
-use the xref:database-configuration.adoc]#proprietary_jdbc_drivers[jdbc driver] provided by Oracle.
+use the xref:database-configuration.adoc#proprietary_jdbc_drivers[jdbc driver] provided by Oracle.
 
 == License installation
 
@@ -98,12 +98,12 @@ When you receive your license, copy the file to the `TOMCAT_DIRECTORY/setup/plat
 
 == Database initialization
 
-We assume here that the database has already been xref:database-configuration.adoc]#database_creation[created and configured for Bonita].
+We assume here that the database has already been xref:database-configuration.adoc#database_creation[created and configured for Bonita].
 Once created and configured you need to initialize it using the setup tool provided in the bundle.
 This will create database schema and initial values.
 
-. In TOMCAT_DIRECTORY/setup folder, edit the file database.properties with properties matching your rdbms. Beware of xref:BonitaBPM_platform_setup.adoc]#backslash_support[backslash characters].
-. In TOMCAT_DIRECTORY/setup/lib add your jdbc driver if needed (only for Oracle, see xref:database-configuration.adoc]#proprietary_jdbc_drivers[proprietary jdbc drivers])
+. In TOMCAT_DIRECTORY/setup folder, edit the file database.properties with properties matching your rdbms. Beware of xref:BonitaBPM_platform_setup.adoc#backslash_support[backslash characters].
+. In TOMCAT_DIRECTORY/setup/lib add your jdbc driver if needed (only for Oracle, see xref:database-configuration.adoc#proprietary_jdbc_drivers[proprietary jdbc drivers])
 . In TOMCAT_DIRECTORY/setup folder, run `setup.(sh|bat) init`
 
 == Next steps
