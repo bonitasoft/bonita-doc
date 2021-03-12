@@ -28,15 +28,13 @@ To xref:database-connector-configuration.adoc[configure a database connector], f
 
 [#mysql]
 
-[discrete]
-==== MySQL 5.5
+== MySQL 5.5
 
 It is not possible to execute more than one SELECT command in a single script.
 
 [#teradata]
 
-[discrete]
-==== Teradata 14
+== Teradata 14
 
 If you are using the `terajdbc4.jar`, you also need the `tdgssconfig.jar` file. +
 Import both `terajdbc4.jar` and `tdgssconfig.jar` into Bonita Studio and add them to the connector configuration. +
@@ -44,15 +42,13 @@ Specify `terajdbc4.jar` as the active driver. To test the connector, you must sp
 
 [#hsql]
 
-[discrete]
-==== HSQL 2.2
+== HSQL 2.2
 
 Allows only one connection per destination at a time
 
 [#mssql]
 
-[discrete]
-==== Microsoft SQL Server
+== Microsoft SQL Server
 
 *Supported versions*: This connector supports SQL Server 2008, 2012, 2014 and 2016.
 
@@ -75,8 +71,7 @@ When you configure the connector, use this port number in the URL. For example: 
 
 [#sysbase]
 
-[discrete]
-==== Sybase ASE 15
+== Sybase ASE 15
 
 Two driver jar files are available, and the Driver and URL values to specify in the configuration wizard depend on which jar you use:
 
