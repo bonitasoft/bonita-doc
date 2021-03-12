@@ -11,11 +11,8 @@ For Enterprise, Performance, Efficiency, and Teamwork editions only.
 
 [WARNING]
 ====
-
-*Note:*
-
 * The solution described here relies on the BonitaStudioBuilder, which has been deprecated since Bonita 7.7.0. Instead, we strongly encourage you to use the LA builder included in the tooling suite of Bonita Continuous Delivery add-on. One added-value is that LA builder does not need a studio to be installed.
-* https://documentation.bonitasoft.com/bcd/2.0/[Bonita Continuous Delivery add-on] comes with an out-of-the-box solution based on Jenkins CI.
+* https://documentation.bonitasoft.com/bcd/latest/[Bonita Continuous Delivery add-on] comes with an out-of-the-box solution based on Jenkins CI.
 ====
 
 With Continuous Integration (CI) your processes are continuously built and tested while you are designing them. Collaborating on process design can be enhanced with CI by ensuring the integrity of your processes along the development phase.
@@ -69,7 +66,6 @@ You are recommended to install a window manager on the CI server in order to hav
  .. Invoke BonitaStudioBuilder script +
 Note: only one instance of BonitaStudioBuilder can be executed at a time on a computer. +
 Add a build step of type "Execute shell" configured with the following content:
-
 +
 [source,bash]
 ----
@@ -99,7 +95,7 @@ One way to make the generated .bar files available to other Maven projects is to
 The following example installs the processes artifact in the local Maven repository. +
 The Maven artifact could also be deployed to a centralized Maven repository manager solution. +
 To do so, add a second build step of type "Invoke top-level Maven targets" configured as follows:
-
++
 [source,properties]
 ----
 Goals: install:install-file
@@ -110,12 +106,12 @@ version=1.0.0-SNAPSHOT
 packaging=zip
 file=$WORKSPACE/process-bars.zip
 ----
-
++
 Eventually, archive generated artifact in Jenkins +
    You can archive the job artifact (generated processes package) in Jenkins. +
    To do so, add a post-build action of type "Archive the artifacts" and choose to archive the "process-bars.zip" package. +
    As a result, the generated business archives will be made available for download from Jenkins interface.
-
++
 . Run the Jenkins job +
 Run the "Bonita-BuildProcesses" Jenkins job. When it is finished, the Maven artifact   `com.acme.bonita:process-bars:1.0.0-SNAPSHOT` in installed in the local Maven repository of the CI server. The generated processes package is also available as a job build artifact in Jenkins.
 
@@ -135,9 +131,9 @@ You should also check that there is a valid license file in `${bonita.client.hom
 . We recommend that you write your test cases in the src/test/java folder of your project and put all related resources (Bar files, organization file...) in src/test/resources.
 . Before installing your processes load the relevant organization (regarding your actor mapping). You may have to export your organization from a Bonita Studio:
 Menu Organization > Export, Select your Organization.
-
++
 For example:
-
++
 [source,groovy]
 ----
 private void installOrganization() {
@@ -146,9 +142,9 @@ private void installOrganization() {
     getIdentityAPI().importOrganization(organizationContent)
 }
 ----
-
++
 . Then as a basic test, we try to deploy each generated processes. For example:
-
++
 [source,groovy]
 ----
 @Test
@@ -170,9 +166,9 @@ void deploy() throws Exception {
     }
 }
 ----
-
++
 Now configure a job to run this simple test case on your CI (these steps assume you have shared your generated processes as a Maven artifact, so you can use the maven-dependency plugin to retrieve the latest built processes):
-
++
 . Create a new freestyle job in Jenkins
 . Configure the source code management to retrieve your Maven project.
 . Add a build step
@@ -185,22 +181,22 @@ Now configure a job to run this simple test case on your CI (these steps assume 
 * groupId=com.acme.bonita
 * artifactId=process-bars
 * packaging=zip
-
++
 image::images/images-6_0/Get_processes.png[Get the processes]
-
++
 . Then add another build step to unzip the artifact. Select "Execute shell", and use the command `unzip process-bars-1.0.0-SNAPSHOT.zip -d project/src/test/resources`.
-
++
 image::images/images-6_0/Unzip_processes.png[Unzip the processes]
-
++
 . Finally, add another Maven 3 build step to build the test project:
-
++
 * Goals: clean install
-
++
 image::images/images-6_0/Invoke_Maven_Test_Project.png[Build the test project]
-
++
 You may want to publish the JUnit report:
-
++
 * Add a post build action \-> Publish Junit test result.
 * Set the path `project/target/test-reports/*.xml`.
-
++
 image::images/images-6_0/Post_Build_Actions.png[Publish a JUnit report]

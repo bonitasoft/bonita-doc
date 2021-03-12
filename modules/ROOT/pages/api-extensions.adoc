@@ -23,7 +23,7 @@ REST API Extensions use the same authorization mechanism as the standard Bonita 
 [NOTE]
 ====
 
-It is also possible to deploy a REST API Extensions using xref:portal-api.adoc]#page[REST portal API / "page" resource].
+It is also possible to deploy a REST API Extensions using xref:portal-api.adoc#page[REST portal API / "page" resource].
 ====
 
 [NOTE]
@@ -41,7 +41,7 @@ If you are running Bonita in a cluster, after you import a REST API Extensions, 
 [WARNING]
 ====
 
-As the deployment of the REST API Extensions automatically creates the appropriate resource permission mapping, be careful not to xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[push a configuration] that does not contain the latest permissions updates. This would overwrite the deployed configuration. To avoid doing so, pull the latest configuration, edit the needed elements and push it back to the Bonita runtime in a pretty short amount of time.
+As the deployment of the REST API Extensions automatically creates the appropriate resource permission mapping, be careful not to xref:BonitaBPM_platform_setup.adoc#update_platform_conf[push a configuration] that does not contain the latest permissions updates. This would overwrite the deployed configuration. To avoid doing so, pull the latest configuration, edit the needed elements and push it back to the Bonita runtime in a pretty short amount of time.
 ====
 
 [#usage]
@@ -60,7 +60,7 @@ resources=[GET|extension/demoHeaders,POST|extension/demoXml,PUT|extension/putRes
 
 If the page declares its resources correctly, then every user being able to access this page (because it is part of a custom profile or Living Application they have access to)
 will also be automatically granted the necessary permissions to call the REST API Extensions. This works the same way as with the other resources of the REST API. +
-However, if you need to grant access to this REST API Extensions to some users regardless of the pages they have access to, then you need to add xref:rest-api-authorization.adoc]#custom-permissions-mapping[custom permissions] for these users. +
+However, if you need to grant access to this REST API Extensions to some users regardless of the pages they have access to, then you need to add xref:rest-api-authorization.adoc#custom-permissions-mapping[custom permissions] for these users. +
 In order to do so, edit `custom-permissions-mapping.properties` to give the permissions (value of the property `apiExtension.permissions`) declared in the page.properties of the REST API Extensions to the required profiles or users.
 
 [NOTE]
@@ -80,11 +80,11 @@ If you want to disable the debug mode, you need to use the setup tool provided i
 
 A REST API Extensions example resource and API extension viewer page are provided in administrator portal. They are located in administrator portal.
 
-To use the examples, define a xref:rest-api-authorization.adoc]#custom-permissions-mapping[custom permissions] mapping for `demoPermission`:
+To use the examples, define a xref:rest-api-authorization.adoc#custom-permissions-mapping[custom permissions] mapping for `demoPermission`:
 
 In a Tomcat / WildFly bundle:
 
-* Retrieve platform configuration using the xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[setup tool].
+* Retrieve platform configuration using the xref:BonitaBPM_platform_setup.adoc#update_platform_conf[setup tool].
 * Edit `platform_conf/current/tenants/<TENANT_ID>/tenant_portal/custom-permissions-mapping.properties`.
 * Add the following line: `profile|User=[demoPermission]`.
 * Push the changed platform configuration into database using the _setup tool_.
