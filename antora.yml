@@ -4,5 +4,6 @@ version: 7.5
 asciidoc:
   attributes:
     varVersion: 7.5
+    page-editable: false
 nav:
   - modules/ROOT/taxonomy.adoc
