@@ -99,7 +99,15 @@ discovery modes), you must declare its public address by adding the following pr
 +
 [WARNING]
 ====
-If you are using apache-tomcat load-balancer whith mod_jk, make sure that jvmRoute attribute is set at your Engine +++<Engine name="Catalina" defaultHost="localhost" jvmRoute="node01">+++and that the jvmRoute attribute value matches your worker name in workers.properties. See official documentation: https://tomcat.apache.org/tomcat-7.0-doc/cluster-howto.html In the server.xml file, for example, change the line to: Engine name="Catalina" defaultHost="localhost" jvmRoute="node01"
+If you are using apache-tomcat load-balancer whith mod_jk, make sure that jvmRoute attribute is set at your Engine
+[source,xml]
+----
+<Engine name="Catalina" defaultHost="localhost" jvmRoute="node01">
+----
+and that the jvmRoute attribute value matches your worker name in workers.properties. See the official documentation:
+https://tomcat.apache.org/tomcat-7.0-doc/cluster-howto.html
+
+In the server.xml file, for example, change the line to: `Engine name="Catalina" defaultHost="localhost" jvmRoute="node01"`
 ====
 +
 . Check that the log file contains messages of the following form:
