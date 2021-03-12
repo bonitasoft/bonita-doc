@@ -50,7 +50,7 @@ xref:release-notes.adoc#SSO-create-users[[.card-title]#Create a new user automat
 == Getting started
 [.card.card-index]
 --
-xref:tutorial-overview.adoc[[.card-title]#Getting started tutorial# [.card-body.card-content-overflow]#pass:q[A step-by-step creation of a first simple Living Application to learn about all the concepts in Bonita.]#]
+xref:getting-started-tutorial.adoc[[.card-title]#Getting started tutorial# [.card-body.card-content-overflow]#pass:q[A step-by-step creation of a first simple Living Application to learn about all the concepts in Bonita.]#]
 --
 
 [.card.card-index]
