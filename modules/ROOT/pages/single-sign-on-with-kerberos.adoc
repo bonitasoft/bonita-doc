@@ -101,6 +101,7 @@ Updated object
 
 4- Make sure the SPN is set up correctly by running this command:
 
+[source]
 ----
 setspn -L bonita.tomcat
 
@@ -143,19 +144,19 @@ edit the krb5.conf file as follows:
 [source, properties]
 ----
 [libdefaults]
- default_realm = BONITA.LOCAL
-        default_tkt_enctypes = aes256-cts-hmac-sha1-96 aes128-cts rc4-hmac des3-cbc-sha1 des-cbc-md5 des-cbc-crc
-        default_tgs_enctypes = aes256-cts-hmac-sha1-96 aes128-cts rc4-hmac des3-cbc-sha1 des-cbc-md5 des-cbc-crc
-        permitted_enctypes   = aes256-cts-hmac-sha1-96 aes128-cts rc4-hmac des3-cbc-sha1 des-cbc-md5 des-cbc-crc
+default_realm = BONITA.LOCAL
+default_tkt_enctypes = aes256-cts-hmac-sha1-96 aes128-cts rc4-hmac des3-cbc-sha1 des-cbc-md5 des-cbc-crc
+default_tgs_enctypes = aes256-cts-hmac-sha1-96 aes128-cts rc4-hmac des3-cbc-sha1 des-cbc-md5 des-cbc-crc
+permitted_enctypes   = aes256-cts-hmac-sha1-96 aes128-cts rc4-hmac des3-cbc-sha1 des-cbc-md5 des-cbc-crc
 
-    [realms]
+[realms]
  BONITA.LOCAL  = {
      kdc = DC.bonita.local
      default_domain = BONITA.LOCAL
-        }
+}
 
- [domain_realm]
- .BONITA.LOCAL = BONITA.LOCAL
+[domain_realm]
+.BONITA.LOCAL = BONITA.LOCAL
 ----
 +
 If you want to use the AES256-CTS encryption type, you need to update the Java security libraries (Java Cryptography Extension (JCE) Unlimited Strength) to those for Strong Encryption. Depending on your java version, you might have to download some extra files or not.
@@ -169,15 +170,15 @@ edit the login.conf file as follows:
 +
 [source, properties]
 ----
-	spnego-client {
-		com.sun.security.auth.module.Krb5LoginModule required;
-	};
+spnego-client {
+  com.sun.security.auth.module.Krb5LoginModule required;
+};
 
-	spnego-server {
-		com.sun.security.auth.module.Krb5LoginModule required
-		storeKey=true
-		isInitiator=false;
-	};
+spnego-server {
+  com.sun.security.auth.module.Krb5LoginModule required
+  storeKey=true
+  isInitiator=false;
+};
 ----
 +
 In addition, the system property `java.security.auth.login.config` should not already be set or, if it is, it should target the file `conf/login.conf`. In order to do that, you can edit the file `<BUNDLE_HOME>/server/bin/setenv.sh (.bat)` and set the SECURITY_OPT variable as follows: +
@@ -258,16 +259,16 @@ spnego.logger.level         = 1
 spnego.preauth.username     = <username>
 spnego.preauth.password     = <password>
 ----
-
++
 `username` and `password` shoud be replaced with the domain account and password to use to pre-authenticate to on the Domain controller acting as Kerberos Key Distribution Center. +
 `spnego.login.client.module` and `spnego.login.server.module` property values should match the login contexts set in `login.conf` for Tomcat or the security domain names set in `standalone.xml` for Wildfly (spnego-client and spnego-server by default).
 Note that for Wildfly, the properties `spnego.krb5.conf` and `spnego.login.conf` are not used as already set in the file satndalone.xml
-
++
 Make sure to set your principal username and password.
-
++
 . In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`,
  edit the file *bonita-tenant-sp-custom.xml* to uncomment the bean passphraseOrPasswordAuthenticationService:
-
++
 [source,xml]
 ----
 	<bean id="passphraseOrPasswordAuthenticationService" class="com.bonitasoft.engine.authentication.impl.PassphraseOrPasswordAuthenticationService" lazy-init="true">
@@ -352,7 +353,7 @@ Edit the _logger_ tags which _category_ matches `org.bonitasoft.console.common.s
 
 [WARNING]
 ====
- In the logs, you may get a IllegalArgumentException in the class `net.sourceforge.spnego.SpnegoFilterConfig`. +
+In the logs, you may get a IllegalArgumentException in the class `net.sourceforge.spnego.SpnegoFilterConfig`. +
 The most probable cause for that is that the login contexts (set in `login.conf`) for Tomcat or the security domain names (set in `standalone.xml`) for Wildfly (spnego-client and spnego-server by default) do not match the values of the properties `spnego.login.client.module` and `spnego.login.server.module` set in the file `spnego-config.properties`. +
 You may also see a NullPointerException in the class `net.sourceforge.spnego.SpnegoFilterConfig` +
 In that case, for Tomcat, you should make sure the properties `spnego.krb5.conf` and `spnego.login.conf` of `spnego-config.properties` target the right files (the path is relative to `<BUNDLE_HOME>/server`) and the  system property `java.security.auth.login.config` should not be set or, if it is, it should target the file `conf/login.conf`.
@@ -372,7 +373,7 @@ We recommend that you use LDAP or AD as your master source for information, sync
 
 [NOTE]
 ====
- By default the xref:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `kerberos.auth.standard.allowed` in *authenticationManager-config.properties*), users won't be able to log in with the portal login page directly without going through the Domain Controller.
+By default the xref:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `kerberos.auth.standard.allowed` in *authenticationManager-config.properties* ), users won't be able to log in with the portal login page directly without going through the Domain Controller.
 ====
 
 == Single sign-on with Kerberos using the REST API
