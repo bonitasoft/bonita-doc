@@ -37,7 +37,7 @@ replayActivity(long activityInstanceId, `Map<Long` connectorsToReset>connectorsT
 In this example, a task has failed because a connector failed to execute.
 
 The methods that are used to reset process items are in the ProcessManagementAPI, and the details are in the
-http://documentation.bonitasoft.com/javadoc/api/{javadocVersion}/index.html[Javadoc]. These methods are accessed through the ProcessAPI, which extends the ProcessManagementAPI.
+https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Javadoc]. These methods are accessed through the ProcessAPI, which extends the ProcessManagementAPI.
 
 First you need to log in, create the session, and get the ProcessAPI:
 

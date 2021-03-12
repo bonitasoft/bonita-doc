@@ -25,7 +25,7 @@ Many tools exist in every operating system for system monitoring. For example:
 
 These tools can be used in conjunction with monitoring systems such as like Nagios or Zabbix.
 
-Bonita also provides a http://documentation.bonitasoft.com/javadoc/api/{javadocVersion}/index.html[PlatformMonitoringAPI] that you can use to obtain some of this information.
+Bonita also provides a https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[PlatformMonitoringAPI] that you can use to obtain some of this information.
 
 == Network
 
@@ -45,7 +45,7 @@ A large number of deadlocks, or memory heap starvation may indicate a performanc
 Follow the xref:performance-tuning.adoc[JVM performance tuning recommendations] and increase provisioning to get the optimum performance.
 
 Many OpenSource and proprietary tools exist for JVM monitoring.
-These parameters can be obtained through monitoring system like Nagios or Zabbix. You can also retrieve them using the http://documentation.bonitasoft.com/javadoc/api/{javadocVersion}/index.html[PlatformMonitoringAPI].
+These parameters can be obtained through monitoring system like Nagios or Zabbix. You can also retrieve them using the https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[PlatformMonitoringAPI].
 
 == Database
 
@@ -59,7 +59,7 @@ All databases provide information to monitor the following:
 If actual usage reaches the limit of available capacity, this can indicate a performance issue.
 
 These values can be monitored through a monitoring system like Nagios or Zabbix.
-You can also get the number of active transaction using the http://documentation.bonitasoft.com/javadoc/api/{javadocVersion}/index.html[MonitoringAPI].
+You can also get the number of active transaction using the https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[MonitoringAPI].
 
 == Bonita Engine connections
 

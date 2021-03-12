@@ -27,7 +27,7 @@ SearchResult<ArchivedActivityInstance> archActivitResult = TenantAPIAccessor.get
 ----
 
 The advantage of using search is that you can specify filters to get a more precise set of results, which can be more efficient. Several filters can be added. By default, an implicit AND clause is added when several filters are added. If the need is different,
-you can have an OR clause, of more complex clauses. See http://documentation.bonitasoft.com/javadoc/api/{javadocVersion}/org/bonitasoft/engine/search/SearchOptionsBuilder.html[SearchOptionsBuilder methods] for filtering that matches your needs. +
+you can have an OR clause, of more complex clauses. See https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/search/SearchOptionsBuilder.html[SearchOptionsBuilder methods] for filtering that matches your needs. +
 The following example is a more precise search for archived activity instances, using a filter:
 
 [source,java]

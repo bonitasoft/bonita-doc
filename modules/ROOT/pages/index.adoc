@@ -103,5 +103,5 @@ link:https://www.bonitasoft.com/library/ultimate-guide-bpmn[[.card-title]#The Ul
 
 [.card.card-index]
 --
-link:https://documentation.bonitasoft.com/javadoc/api/{javadocVersion}/index.html[[.card-title]#Javadoc# [.card-body.card-content-overflow]#pass:q[The API documentation extracted from our source code.]#]
+link:https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[[.card-title]#Javadoc# [.card-body.card-content-overflow]#pass:q[The API documentation extracted from our source code.]#]
 --
