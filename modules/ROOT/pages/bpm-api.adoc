@@ -2004,10 +2004,9 @@ A representation of a list of case variables
 
 Use the document resource to access a document in an active case.
 
-[WARNING]
+[CAUTION]
 ====
-
-*:fa-exclamation-triangle: Caution:* This resource is deprecated and may be removed in a future release. Instead, use caseDocument or archivedCaseDocument.
+This resource is deprecated and may be removed in a future release. Instead, use caseDocument or archivedCaseDocument.
 ====
 
 == CaseDocument
@@ -2019,7 +2018,6 @@ Use the case document resource to access a document in an active case. For archi
 
 [WARNING]
 ====
-
 `author` in the payload is deprecated: use `submittedBy`
 ====
 
@@ -2995,8 +2993,7 @@ The process definition id, in JSON
 
 [IMPORTANT]
 ====
-
-:fa-exclamation-triangle: *Warning:* The attribute "variables" on the request payload is used to initialize the process variables (not BDM variables).
+The attribute "variables" on the request payload is used to initialize the process variables (not BDM variables).
 If you want to initialize BDM variables at process instantiation, add a contract on the process and map BDM variables to the contract data.
 See <<start-a-process-using-an-instantiation-contract,Start a process using an instantiation contract>> for usage.
 ====
