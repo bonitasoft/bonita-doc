@@ -134,7 +134,7 @@ Before running it, make sure the setup tool is configured to point to the databa
 [NOTE]
 ====
 
-If you have already run `start-bonita` script inside a xref:tomcat-bundle.adoc]#configuration[Tomcat bundle] , those steps are already done.
+If you have already run `start-bonita` script inside a xref:tomcat-bundle.adoc#configuration[Tomcat bundle] , those steps are already done.
 ====
 
 Here is how to do so:
@@ -142,7 +142,7 @@ Here is how to do so:
 . Create the database
 . Customize it so it works with Bonita
 . Modify the `database.properties` file: Set the right db vendor and change connection url, user credentials, database name and so on.
-. If you are using an Oracle database, add the related xref:database-configuration.adoc]#proprietary_jdbc_drivers[JDBC driver] in the `lib` folder.
+. If you are using an Oracle database, add the related xref:database-configuration.adoc#proprietary_jdbc_drivers[JDBC driver] in the `lib` folder.
 
 [#advanced_use]
 

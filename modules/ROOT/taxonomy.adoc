@@ -240,7 +240,7 @@
   *** xref:engine-api-overview.adoc[Engine API overview]
   *** xref:create-your-first-project-with-the-engine-apis-and-maven.adoc[Create your first project with the Engine APIs and Maven]
   *** xref:configure-client-of-bonita-bpm-engine.adoc[Configure connection to Bonita Engine]
-  *** http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html[Javadoc]
+  *** http://documentation.bonitasoft.com/javadoc/api/{varVersion}/index.html[Javadoc]
   *** Examples
    **** xref:manage-a-process.adoc[Manage a process]
    **** xref:handle-a-failed-activity.adoc[Handle a failed activity]
@@ -274,7 +274,6 @@
   *** xref:automating-builds.adoc[Automate builds]
   *** xref:set-up-continuous-integration.adoc[Set up continuous integration]
 * Howtos
- ** xref:uid-modal-tutorial.adoc[Create a modal window using CSS]
  ** xref:uid-case-overview-tutorial.adoc[Create a case overview page using the UI Designer]
  ** xref:optimize-user-tasklist.adoc[Create unique task names for the user task list]
  ** xref:manage-control-in-forms.adoc[Control and validate forms in the UI Designer]

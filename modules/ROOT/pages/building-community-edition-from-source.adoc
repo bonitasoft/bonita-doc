@@ -1,14 +1,10 @@
 = Build Bonita Community edition from the source
-:description: :doctype: book
-
-:doctype: book
+:description: How to build Bonita Community edition from the source
 
 Bonita is an opensource Digital Process Automation platform, you can therefore build Bonita Community edition from the source.
 
 All source code of Bonita is available from the https://github.com/bonitasoft[Bonitasoft GitHub organization]. Each Bonita component has
 a dedicated repository (e.g. https://github.com/bonitasoft/bonita-engine[Engine repository]).
-
-= Building Bonita
 
 == Manual Bonita build
 
