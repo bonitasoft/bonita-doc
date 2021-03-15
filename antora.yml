@@ -5,7 +5,8 @@ version: 7.4
 asciidoc:
   attributes:
     varVersion: 7.4
-# default
-#start_page: ROOT:index.adoc
+    # marked as 'out-of-support'
+    page-editable: false
+    page-out-of-support: true
 nav:
   - modules/ROOT/taxonomy.adoc
