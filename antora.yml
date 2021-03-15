@@ -1,10 +1,12 @@
 name: bonita
 title: Bonita
 version: 7.3
-#display_version: 7.3 EOL
 start_page: ROOT:index.adoc
 asciidoc:
   attributes:
     varVersion: 7.3
+    # marked as 'out-of-support'
+    page-editable: false
+    page-out-of-support: true
 nav:
   - modules/ROOT/taxonomy.adoc
