@@ -35,7 +35,8 @@ This example shows an event handler that detects changes in the state of activit
 
 pom.xml :
 
-[source,xml]
+// for the 'subs' parameter, see https://docs.asciidoctor.org/asciidoc/latest/subs/apply-subs-to-blocks/
+[source,xml,subs="+macros"]
 ----
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -47,7 +48,7 @@ pom.xml :
     <artifactId>event-handler-example</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <properties>
-        <bonita.version>${varVersion}.0</bonita.version>
+        <bonita.version>pass:a[{varVersion}].0</bonita.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
