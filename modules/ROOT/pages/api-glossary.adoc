@@ -27,9 +27,9 @@ if a process loops on a task, multiple instances of a same task definition will 
 * *processDefinitionId*: the id of process definition use to create this process instance.
 * *rootProcessInstanceId (rootCaseId for REST)*: the id of the top parent process instance. Parents exist for event sub-processes and when instance was created using a call activity. If there is no parent it is his own id.
 * *endDate*: the date on which the process instance is marked as _completed_.
+
 [NOTE]
 ====
-
 the _completed_ state is a transitionnary state. Right after a process instance is _completed_, it is archived.
 ====
 
@@ -58,5 +58,5 @@ Use to represent an instance of a none start event, user task, call activity, mu
 
 For a complete description of the different elements, check out the following pages:
 
-* on the engine side, the http://documentation.bonitasoft.com/javadoc/api/${varVersion}/index.html[Javadoc] page
+* on the engine side, the http://documentation.bonitasoft.com/javadoc/api/{varVersion}/index.html[Javadoc] page
 * on the web site, the xref:_rest-api.adoc[REST API page] page

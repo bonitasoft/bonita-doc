@@ -76,7 +76,7 @@ In this deployment, we will configure the Bonita Engine Client used by the Bonit
 * set username and password that match credentials configured for the platform admin (see the xref:tomcat-bundle.adoc[Tomcat bundle] configuration page)
 In addition, all database datasources will be disabled
 
-For more details, please read xref:configure-client-of-bonita-bpm-engine.adoc]#client_config[configuring the connection to a remote engine]
+For more details, please read xref:configure-client-of-bonita-bpm-engine.adoc#client_config[configuring the connection to a remote engine]
 
 ===== Configuring the Bonita Portal
 

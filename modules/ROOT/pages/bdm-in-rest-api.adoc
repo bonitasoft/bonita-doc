@@ -10,7 +10,7 @@ Image below shows the BDM model used for the first use-case:
 
 image::images/bdm_model_for_rest_api_01.png[BDM model used]
 
-Note that the relationships from car to wheel1, wheel2, wheel3, wheel4 are *xref:define-and-deploy-the-bdm.adoc]#lazy_eager_loading[lazy] loaded* (in the Studio, it is
+Note that the relationships from car to wheel1, wheel2, wheel3, wheel4 are *xref:define-and-deploy-the-bdm.adoc#lazy_eager_loading[lazy] loaded* (in the Studio, it is
 configured by selecting the `Only load related objects when needed` radio button).
 
 == Groovy code sample
@@ -23,7 +23,7 @@ Below is an example of a REST API extension groovy script that accesses the Busi
 *Good practices* are:
 
 * If lazy loaded objects are not necessary in the response, ONLY extract the information needed. This avoids costly loading of unnecessary objects.
-* If lazy loaded objects should always be returned in the response, consider changing the relation from xref:define-and-deploy-the-bdm.adoc]#lazy_eager_loading['lazy' to 'eager']
+* If lazy loaded objects should always be returned in the response, consider changing the relation from xref:define-and-deploy-the-bdm.adoc#lazy_eager_loading['lazy' to 'eager']
 in the model.
 ====
 
@@ -130,8 +130,7 @@ As a result, performance is efficient
 
 [WARNING]
 ====
-
-*:fa-exclamation-triangle: Practices leading to poor performance*
+*Practices leading to poor performance*
 
 Since wheel1, wheel2, wheel3, wheel4 are lazy loaded, they are *not retrieved* directly when retrieving a Car.
 The retrieval of related Wheel objects is only performed *when accessing the fields* (via getWheel1(), ...), if necessary.
@@ -256,7 +255,7 @@ class CarSerializer extends JsonSerializer<Car>{
 	@Override
 	public void serialize(Car car, JsonGenerator jgen, SerializerProvider provider)throws IOException, JsonProcessingException {
 		jgen.writeStartObject()
-		
+
 		jgen.writeNumberField("carID", car.getPersistenceId())
 		jgen.writeStringField("model", car.getModel())
 		jgen.writeNumberField("buildYear", car.getBuildYear())
@@ -265,10 +264,10 @@ class CarSerializer extends JsonSerializer<Car>{
 		jgen.writeStringField("wheel2Request", getWheelRequest(car.getPersistenceId(), 2))
 		jgen.writeStringField("wheel3Request", getWheelRequest(car.getPersistenceId(), 3))
 		jgen.writeStringField("wheel4Request", getWheelRequest(car.getPersistenceId(), 4))
-		
+
 		jgen.writeEndObject()
 	}
-	
+
 	private String getWheelRequest(Long carID, Integer wheelNum) {
 		return String.format('../API/extension/wheel?p=0&c=10&carID=%s&wheelNum=%s', carID, wheelNum)
 	}
@@ -304,14 +303,14 @@ class CarIndex implements RestApiController {
     RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
         def p = request.getParameter "p"
         def c = request.getParameter "c"
-		
+
 		def carDAO = context.apiClient.getDAO(CarDAO.class)
 		int startIndex = (p as Integer)*(c as Integer)
 		int endIndex = c as Integer
 		List<Car> cars = carDAO.find(startIndex, endIndex)
-		
+
 		def result = CAR_MAPPER.writeValueAsString(cars)
-		
+
         return buildResponse(responseBuilder, HttpServletResponse.SC_OK, result)
     }
 
