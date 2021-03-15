@@ -43,7 +43,7 @@ xref:release-notes.adoc#SSO-create-users[[.card-title]#Create a new user automat
 
 === Discover what's new in Bonita
 
-{empty} +
+{empty}
 
 video::038g85tvzo4[youtube, width=640,height=380]
 
