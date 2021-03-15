@@ -31,18 +31,18 @@ In all cases, the local Git repository is initialized, and a .gitignore file is 
 . Enter a commit message for the initial commit. If it is the first time you use Git, a dialog will prompt to ask for an identity (mail and name). This identity will be stored in the Git configuration and can be updated in preferences afterward. All your commits will be authored with this identity. Note that this is your Git identity, different from your GitHub credentials.
 . Click on "Commit and Push".
 . To push the project on the GitHub remote: +
-a.  On GitHub, navigate to the main page of the repository. Under the repository name, click on "Clone or download". In the Clone with HTTPs section, click on the icon to copy the clone URL for the repository. +
-b. In the studio, paste the URL in the URI text input +
-c. Do not select anything in the "Protocol" drop down list, nor write anything on the "Port" input field +
-c. If needed, enter your GitHub username and password in the Authentication form +
-d. Click on "Next" +
-e. By convention, the default Git branch is named `master`, but you can change this here. +
-f. You can also change the pulling strategy (default is `merge`) +
-g. Click on "Next" +
-h. Click on "Finish" (Push will be done in a background job, visible at the bottom right corner of the studio window) +
-i. When the Push is done, a push confirmation dialog is displayed
+..  On GitHub, navigate to the main page of the repository. Under the repository name, click on "Clone or download". In the Clone with HTTPs section, click on the icon to copy the clone URL for the repository. +
+.. In the studio, paste the URL in the URI text input +
+.. Do not select anything in the "Protocol" drop down list, nor write anything on the "Port" input field +
+.. If needed, enter your GitHub username and password in the Authentication form +
+.. Click on "Next" +
+.. By convention, the default Git branch is named `master`, but you can change this here. +
+.. You can also change the pulling strategy (default is `merge`) +
+.. Click on "Next" +
+.. Click on "Finish" (Push will be done in a background job, visible in the bottom right corner of the studio window) +
+.. When the Push is done, a push confirmation dialog is displayed
 +
-You might encounter some issues if the two factor authentiation is activated on your github account, see the xref:workspaces-and-repositories.adoc#git-troubleshooting[Git trouble shooting section].
+You might encounter some issues if the two-factor authentication is activated on your github account, see the xref:workspaces-and-repositories.adoc#git-troubleshooting[Git trouble shooting section].
 +
 . To validate that the push has actually been done, you can check your repository on GitHub
 

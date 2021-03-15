@@ -47,8 +47,6 @@ Bonita is provided in five different editions: Community, Teamwork, Efficiency, 
 
 Bonita 7.x provides new and improved features, including the xref:ui-designer-overview.adoc[UI Designer] for creating application pages and forms, as well as xref:contracts-and-contexts.adoc[contracts and context] to create a clear split between the process logic, the data, and the user views.
 
-====
-
 You will also find lots of familiar features, which continue to work as they did in 6.x.
 
 *Tell me about the documentation.*
