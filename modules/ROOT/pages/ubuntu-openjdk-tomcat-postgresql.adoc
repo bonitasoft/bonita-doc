@@ -133,7 +133,7 @@ You need to include JDBC driver in Tomcat classpath:
 
 === Download and unzip the Bonita deploy bundle
 
-Download the Bonita Tomcat bundle from the https://customer.bonitasoft.com/[Customer Portal]
+Download the Bonita Tomcat bundle from the https://customer.bonitasoft.com/[Customer Service Center]
 (Subscription editions) or get the http://www.bonitasoft.com/downloads-v2[Community edition]. Instructions
 below will be given for Bonita Subscription. You can easily adapt files and folder names to the Community edition.
 
