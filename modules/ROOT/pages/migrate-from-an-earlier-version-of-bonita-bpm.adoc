@@ -14,10 +14,8 @@ You can migrate your platform using the `Bonita Migration Tool`. There are 2 ver
 
 For example, if you are migrating from 6.5.3 to 7.1.0, you must migrate from 6.5.3 to 7.0.0 using version 1.x of the _Bonita Migration Tool_, and then migrate from 7.0.0 to 7.1.0 using version 2.x.
 
-[WARNING]
+[CAUTION]
 ====
-
-:fa-exclamation-triangle: *Caution:*
 You should always migrate to the latest version of a major version. Usually, maintenance version might contain bug fixes made after the release of subsequent major or minor release.
 
 For example, the 6.5.4 release contains fixes to certain bugs that were found in early 7.x.y versions, up to 7.1.0.
