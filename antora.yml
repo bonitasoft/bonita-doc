@@ -6,6 +6,7 @@ prerelease: Alpha
 asciidoc:
   attributes:
     varVersion: 2021.2
+    javadocVersion: 7.13
     page-editable: true
     page-out-of-support: false
 nav:

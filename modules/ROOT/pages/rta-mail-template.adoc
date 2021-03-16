@@ -81,10 +81,10 @@ This process instantiation do not hold any form (_no form_ in the menu:Execution
 
 === Check email content task
 
-The _Check email content_ human task will consists of a contract matching the Business object *outOfOfficeMessage* for it to be mapped with the contract output. We also will need a local variable which will allows to know if the mail needs to be tested. +
+The _Check email content_ human task will consist of a contract matching the Business object *outOfOfficeMessage* for it to be mapped with the contract output. We also will need a local variable which will allows to know if the mail needs to be tested. +
 This variable needs to be mapped with a contract data too.
 
-The contract will looks like this :
+The contract will look like this :
 
 image:images/rta-mail/rta-mail-template-ooom-check-mail-contract.png[Out of office message - Check email content - contract]
 // {.img-responsive}
@@ -94,7 +94,7 @@ And the operation pane will look like this:
 image:images/rta-mail/rta-mail-template-ooom-check-mail-operations.png[Out of office message - Check email content - contract]
 // {.img-responsive}
 
-==== Out transistion
+==== Out transition
 
 This task has two possible transition :
 
@@ -103,7 +103,7 @@ This task has two possible transition :
 
 === Send test email service task
 
-This task allow to send a test email to the process instance initiator for him to check if the mail renderring is correct.
+This task allows to send a test email to the process instance initiator for him to check if the mail rendering is correct.
 
 Therefore, we will use the *EMAIL (SMTP) Connector* on the task out step. +
 The connector properties will be :
@@ -131,15 +131,16 @@ outOfOfficeMessage.body
 +
 Once this task is completed, a new _Check email content_ human task is available.o
 
-=== Send message to mail server
+=== Send a message to mail server
 
-Here, the out of office mail message has been validated and the way the mail server handle the out of office mail configuration for a given user depends on the mail server provider and will not be detailed here. +
+Here, the out-of-office mail message has been validated and the way the mail server handle the out-of-office mail configuration for a given user depends on the mail server provider and will not be detailed here. +
 It will use a connector that will send the appropriate information via an external API.
 
-= Form for 'Check Email content' task
 
-On 'Check Email content' task, in the menu:Execution[Form] pane, use the pencil :fa-pencil: icon to generate a default form from the contract. +
+== Form for 'Check Email content' task
+
 It will look like this:
+On 'Check Email content' task, in the menu:Execution[Form] pane, use the pencil icon to generate a default form from the contract. +
 
 image:images/rta-mail/rta-mail-template-ooom-check-mail-initial-form.png[Out of office message - Check email content - form]
 // {.img-responsive}

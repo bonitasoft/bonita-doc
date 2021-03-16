@@ -1,11 +1,9 @@
 = Twitter connector
-:description: :doctype: book
-
-:doctype: book
+:description: Twitter connectors allows to publish Tweets or send direct messages from your processes.
 
 Twitter connectors allows to publish Tweets or send direct messages from your processes.
 
-= Overview
+== Overview
 
 The following Twitter connectors are available:
 

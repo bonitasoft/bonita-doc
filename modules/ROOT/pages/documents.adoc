@@ -31,8 +31,7 @@ The content does not have to be initialized when the process instance is created
 * *Submitter*: the name of the user who uploaded the content.
 * *Creation date*: the date and time when the content was uploaded.
 
-[discrete]
-==== Document lists
+=== Document lists
 
 A document list is a collection of related documents attached to a process. Each component of the list is itself a document object, but it is not necessary to define each one separately. The number of components in the list does not have to be fixed. For example, a process to claim travel expenses includes a document list for the scanned copies of receipts. When the process instance is created, the number of receipts is unknown and the receipts can be in any image format.
 
@@ -96,8 +95,7 @@ For most use cases, we recommend storing documents in a CMS.
 
 [#cms]
 
-[discrete]
-==== CMS
+=== CMS
 
 Typically, business documents are stored in an external system such as a CMS, and accessed by other applications in addition to Bonita. Bonita is not iteself a CMS, and it is more efficient for performance to store documents in an external system and store only links in the process instance. This is particularly true if you have many documents attached to a process instance.
 
@@ -110,15 +108,13 @@ For example, in a process to approve a document for publication, the document ex
 
 [#file]
 
-[discrete]
-==== File
+=== File
 
 A document that is stored as a file can be used to initialize or update the document object in a process instance. This is done when the user specifies the file in a form. Typically, this is useful for information that does not have to be stored outside the process, where the file can be deleted after the document object is created. For example, a file containing a scanned copy of a travel receipt does not need to be kept after the receipt object has been added to a travel expense claim process instance.
 
 [#resource]
 
-[discrete]
-==== Resource
+=== Resource
 
 The Bonita Studio Document assets contains documents that have been imported from the file system. After a document is imported, it is called a resource. When you xref:build-a-process-for-deployment.adoc[build a process bar file for deployment], the resources used in the process are automatically included. A resource is available to all processes in an installation of Studio. A resource cannot be updated directly in Studio, but is updated by uploading a new file. Typically, resources are used for information that is stable and common to all instances of a process, or is used in several processes. The resource is used to initialize the document object in the process instance. You cannot use a resource to update a document object.
 
@@ -137,8 +133,7 @@ The dialog for adding a resource to the document assests is inside the dialog fo
 
 When you deploy a process, the documents included in the bar file are stored in the local Bonita database. They are used to initialize document objects when a process instance is created or when a form is initialized.
 
-[discrete]
-==== Document maximum size setting
+=== Document maximum size setting
 
 By default, the maximum size of a document is 25Mb. You can reduce or increase this in your production environment by modifying the value of the `form.attachment.max.size` property in the `console-config.properties` file of your tenant.
 For the V6 forms, you also need to change the `form.attachment.max.size` property of the `forms-config.properties` file. Those modifications will be applied after a server restart.
@@ -150,8 +145,7 @@ This maximum document size will also depend on your web server configuration, it
 
 In a process instance, there is no specific versioning. When a document is updated, a new object is created. These objects are archived with the associated activity instance, and can be retrieved using Bonita Engine API.
 
-[discrete]
-==== Document archives
+=== Document archives
 
 When a process element is archived the associated documents are also archived. It is possible to delete the archived documents using the Engine API or REST API when they are no longer needed, to save space. You can delete an archived document from a live process instance or from an archived process instance. When you delete an archived document, only the content is deleted. The metadata, such as the name, last updated date, and uploader, is kept so that it can be retrieved if needed for audit.
 
@@ -159,8 +153,7 @@ When a process element is archived the associated documents are also archived. I
 
 This section explains how to specify a document or document list in a process definition.
 
-[discrete]
-==== Add a document
+=== Add a document
 
 A document is added to a process definition at pool level. It is similar to defining a pool-level process variable. You must define at pool level all the documents that will be used in the process.
 
@@ -183,8 +176,7 @@ To define a document in Bonita Studio:
 . If you want to specify the MIME type, click *Manage MIME type...*, and then specify the MIME type in the field that is displayed.
 . When you have provided all the information for the document, click either *_Finish & Add_* to define another document or *_Finish_* if you have no more documents to define for this pool.
 
-[discrete]
-==== Edit a document in the process definition
+=== Edit a document in the process definition
 
 . In your process diagram, select the pool.
 . Go to the *Details* panel, *Data* tab, *Documents* pane. The list of documents defined for the pool is displayed.
@@ -192,8 +184,7 @@ To define a document in Bonita Studio:
 . Update the document information in the popup.
 . Click *_OK_* to save your changes.
 
-[discrete]
-==== Remove a document from a process definition
+=== Remove a document from a process definition
 
 . In your process diagram, select the pool.
 . Go to the *Details* panel, *Data* tab, *Documents* pane. The list of documents defined for the pool is displayed.

@@ -71,7 +71,7 @@ Note that this a different account than the machine object on which the service 
 
 2- Check that the service account is not already associated to any host by running this command (replace bonita.tomcat with your service account name):
 
-[source,bash]
+[source, shell script]
 ----
 setspn -L bonita.tomcat
 ----
@@ -80,7 +80,7 @@ This will list the hosts associated to this service account. There should not be
 
 3- Run these two commands in order to declare the SPN (bonita.tomcat). The first command will use the simple host name (win2008tomcat):
 
-[source,bash]
+[source, shell script]
 ----
 setspn -A HTTP/win2008tomcat bonita.tomcat
 
@@ -91,7 +91,7 @@ Updated object
 
 Second command with the fully qualified host name (win2008tomcat.corp.bonitasoft.com):
 
-[source,bash]
+[source, shell script]
 ----
 setspn -A HTTP/win2008tomcat.corp.bonitasoft.com bonita.tomcat
 
@@ -102,7 +102,7 @@ Updated object
 
 4- Make sure the SPN is set up correctly by running this command:
 
-[source,bash]
+[source]
 ----
 setspn -L bonita.tomcat
 
@@ -113,19 +113,17 @@ Registered ServicePrincipalNames for CN=Bonita Tomcat,OU=Service Accounts,OU=Gre
 
 5- In Active directory, open the service account user properties and go to the account tab. Flag the following values:
 
-----
+
 -	Password never expires = true
 -	User cannot change password = true
 -	This account supports Kerberos AES128
 -	This account supports Kerberos AES256
 -	Use Kerberos DES encryption types for this account = should preferably be false
-----
+
 
 6- Still in the service account user properties, go to the delegation tab and set the following value to true:
 
-----
 Trust this user for delegation to any service (Kerberos only).
-----
 
 == Configure Bonita Bundle for Kerberos
 
@@ -144,35 +142,34 @@ To configure Bonita for Kerberos:
 . You will need to edit the Kerberos configuration file in order to select the desired encryption types used to secure the communication. In the following folder `<BUNDLE_HOME>/server/conf`,
 edit the krb5.conf file as follows:
 +
-[source,conf]
+[source, properties]
 ----
  [libdefaults]
--->		default_realm = BONITA.LOCAL
+		default_realm = BONITA.LOCAL
      default_tkt_enctypes = aes256-cts-hmac-sha1-96 aes128-cts rc4-hmac des3-cbc-sha1 des-cbc-md5 des-cbc-crc
      default_tgs_enctypes = aes256-cts-hmac-sha1-96 aes128-cts rc4-hmac des3-cbc-sha1 des-cbc-md5 des-cbc-crc
      permitted_enctypes   = aes256-cts-hmac-sha1-96 aes128-cts rc4-hmac des3-cbc-sha1 des-cbc-md5 des-cbc-crc
 
  [realms]
--->		BONITA.LOCAL  = {
--->			kdc = DC.bonita.local
--->			default_domain = BONITA.LOCAL
+BONITA.LOCAL  = {
+     kdc = DC.bonita.local
+     			default_domain = BONITA.LOCAL
      }
 
  [domain_realm]
--->		.BONITA.LOCAL = BONITA.LOCAL
+.BONITA.LOCAL = BONITA.LOCAL
 ----
 +
-if you want to use the AES256-CTS encryption type, you need to update the Java security libraries (Java Cryptography Extension (JCE) Unlimited Strength) to those for Strong Encryption. Depending on your java version, you might have to download some extra files or not.
-+
-----
+If you want to use the AES256-CTS encryption type, you need to update the Java security libraries (Java Cryptography Extension (JCE) Unlimited Strength) to those for Strong Encryption. Depending on your java version, you might have to download some extra files or not.+
+
        * For Java updates > Java 8 u162 and java 9, the unlimited policy is enabled by default. You no longer need to install the policy file in the JRE or set the security property crypto.policy
        * For Java updates < Java 8 u162, you have to download the security libraries [Here](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html)
  These libraries need to be put in jre/lib/security and jdk/jre/lib/security.
-----
 
 . In the following folder `<BUNDLE_HOME>/server/conf`,
 edit the login.conf file as follows:
 +
+[source, properties]
 ----
  spnego-client {
      com.sun.security.auth.module.Krb5LoginModule required;
@@ -191,6 +188,7 @@ In addition, the system property `java.security.auth.login.config` should not al
 . In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
 edit the authenticationManager-config.properties as follows:
 +
+[source,properties]
 ----
      # saml.logout.global = false
      # auth.tenant.admin.username = install
@@ -230,15 +228,15 @@ edit the spnego-config.properties file as follows:
  spnego.login.server.module  = spnego-server
  spnego.prompt.ntlm          = true
  spnego.logger.level         = 1
- spnego.preauth.username     = **username**
- spnego.preauth.password     = **password**
+ spnego.preauth.username     = <username>
+ spnego.preauth.password     = <password>
 ----
 +
 `username` and `password` shoud be replaced with the domain account and password to use to pre-authenticate to on the Domain controller acting as Kerberos Key Distribution Center. +
  `spnego.login.client.module` and `spnego.login.server.module` property values should match the login contexts set in `login.conf` (spnego-client and spnego-server by default).
 +
 Make sure to set your principal user name and password.
-
++
 . In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
 edit the file bonita-tenant-sp-custom.properties as follows:
 +
@@ -306,15 +304,15 @@ To troubleshoot Kerberos SSO login issues, you need to add a logging handler for
 In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/logging.properties.
 
 * Add the lines:
-
++
 [source,properties]
 ----
 net.sourceforge.spnego.handlers = 5bonita.org.apache.juli.AsyncFileHandler
 net.sourceforge.spnego.level = ALL
 ----
-
++
 * Update the existing lines (to set the level to `ALL`):
-
++
 [source,properties]
 ----
 org.bonitasoft.console.common.server.auth.level = ALL
@@ -324,10 +322,9 @@ com.bonitasoft.engine.authentication.level = ALL
 
 Edit the _logger_ tags which _category_ matches `org.bonitasoft.console.common.server.auth`, `org.bonitasoft.engine.authentication` and `com.bonitasoft.engine.authentication` packages: change the _level_ _name_ attribute of each _logger_ to `ALL` and add a new logger with the _category_ `net.sourceforge.spnego` (also with a _level_ _name_ set to `ALL`).
 
-[NOTE]
+[WARNING]
 ====
-
-*Common issues :* In the logs, you may get a IllegalArgumentException in the class `net.sourceforge.spnego.SpnegoFilterConfig`. +
+In the logs, you may get a IllegalArgumentException in the class `net.sourceforge.spnego.SpnegoFilterConfig`. +
 The most probable cause for that is that the login contexts (set in `login.conf`) for Tomcat or the security domain names (set in `standalone.xml`) for Wildfly (spnego-client and spnego-server by default) do not match the values of the properties `spnego.login.client.module` and `spnego.login.server.module` set in the file `spnego-config.properties`. +
 You may also see a NullPointerException in the class `net.sourceforge.spnego.SpnegoFilterConfig` +
 In that case, for Tomcat, you should make sure the properties `spnego.krb5.conf` and `spnego.login.conf` of `spnego-config.properties` target the right files (the path is relative to `<BUNDLE_HOME>/server`) and the  system property `java.security.auth.login.config` should not be set or, if it is, it should target the file `conf/login.conf`.
@@ -347,8 +344,7 @@ We recommend that you use LDAP or AD as your master source for information, sync
 
 [NOTE]
 ====
-
-*Note :* By default the xref:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `kerberos.auth.standard.allowed` in *authenticationManager-config.properties*), users won't be able to log in with the portal login page directly without going through the Domain Controller. +
+By default the xref:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `kerberos.auth.standard.allowed` in *authenticationManager-config.properties* ), users won't be able to log in with the portal login page directly without going through the Domain Controller.
 ====
 
 == Single sign-on with Kerberos using the REST API
@@ -365,7 +361,7 @@ Here is the subset of resources filtered by the Kerberos filter by default:
 
 REST API are not part of them by default, but if an http session already exists thanks to cookies, REST API can be used.
 
-The recommended way to authenticate to Bonita Portal to use the REST API is to use the xref:rest-api-overview.adoc]#bonita-authentication[login service]. +
+The recommended way to authenticate to Bonita Portal to use the REST API is to use the xref:rest-api-overview.adoc#bonita-authentication[login service]. +
 If you need the SSO to work with the APIs you can update the web.xml of bonita.war to add the following resources to the URL Mappings of AuthenticationFilter and KerberosFilter:
 
 [source,xml]

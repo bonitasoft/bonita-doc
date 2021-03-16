@@ -26,7 +26,7 @@ The items configured for a task depend on the task type, as shown in the followi
 | Details panel, General tab, General pane
 | All
 
-| <<displayName,Task name in Portal>>
+| displayName,Task name in Portal
 | Details panel, General tab, Portal pane
 | All
 
@@ -34,11 +34,11 @@ The items configured for a task depend on the task type, as shown in the followi
 | Details panel, General tab, General pane
 | All
 
-| <<displayName,Task description in Portal>>
+| displayName,Task description in Portal
 | Details panel, General tab, Portal pane
 | All
 
-| <<displayName,Task description after completion in Portal>>
+| displayName,Task description after completion in Portal
 | Details panel, General tab, Portal pane
 | All
 

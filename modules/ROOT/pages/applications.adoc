@@ -190,3 +190,32 @@ A popup reports the status of the import. It shows the number of applications su
 If the profile associated with an application is not defined, the application is created without any associated profile.
 If a page associated with the application is not present, the application is created without this page or the related navigation elements.
 If the specified layout and/or theme is not present, the application is created with the default layout and theme.
+
+== Updating an application
+
+There are two aspects to updating an application: changing the application definition and changing the resources.
+
+[discrete]
+==== Updating an application definition
+
+. In the menu bar, click *Applications*. The Applications list page is displayed.
+. Click the Edit icon (...) for the application you want to edit. The application details page is displayed. From this page, you can edit the application metadata, layout, theme, pages, and navigation.
+
+* To edit the metadata, click the Edit button. In the popup, modify the information about the application, then click *_Save_*.
+* To edit the layout, see <<layout,Specifying application layout>>.
+* To edit the theme, see <<theme,Specifying application theme>>. Note that the end user will see this modification with a delay (due to the xref:cache-configuration-and-policy.adoc]#portal_and_mobile[cache policy])
+* To edit the pages, go to the Pages zone. You can add a page by clicking *_Add_*. You can remove a page by clicking the trashcan icon for that page.
+Note that if you remove a page, the related menu items are automatically removed from the navigation.
+* To edit the navigation, go to the Navigation zone. You can add a menu or menu item by clicking *_Add_*. You can remove a menu or menu item by clicking the trashcan icon for that page.
+You can reorder menus and menu items by dragging and dropping them.
+
+[discrete]
+==== Updating application resources
+
+Some resources of an application can be updated live without needing to stop the processes or require users to log out of the application. xref:live-update.adoc[Live update] is primarily intended for rapid deployment of updates in a pre-production test environment. It can be used to deploy updates in a production environment, but in most production environments applications and their components are versioned, so a planned roll-out is more typical.
+
+You can use live update for the following resources:
+
+* xref:live-update.adoc[Pages and forms]
+* xref:live-update.adoc[Parameters]
+* xref:live-update.adoc[Connectors]

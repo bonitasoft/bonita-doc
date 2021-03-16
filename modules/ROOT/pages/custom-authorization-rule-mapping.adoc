@@ -31,7 +31,8 @@ In this example, Custom authorization rule is a maven-based java project that ne
 
 * `pom.xml`
 
-[source,xml]
+// for the 'subs' parameter, see https://docs.asciidoctor.org/asciidoc/latest/subs/apply-subs-to-blocks/
+[source,xml,subs="+macros"]
 ----
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -50,7 +51,7 @@ In this example, Custom authorization rule is a maven-based java project that ne
         </dependency>
     </dependencies>
     <properties>
-        <bonita-server.version>[${varVersion}.0,)</bonita-server.version>
+        <bonita-server.version>[pass:a[{varVersion}].0,)</bonita-server.version>
     </properties>
     <build>
         <plugins>
