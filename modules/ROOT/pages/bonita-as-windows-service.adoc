@@ -1,7 +1,7 @@
 = How to install Bonita as a service on Windows
-:description: In this tutorial we show how to install Tomcat with Bonita configured as a windows service.
+:description: In this tutorial we show how to install Tomcat with Bonita configured as a Windows service.
 
-In this tutorial we show how to install Tomcat with Bonita configured as a windows service.
+In this tutorial we show how to install Tomcat with Bonita configured as a Windows service.
 
 == Software needed
 
@@ -52,7 +52,8 @@ Check your Database provider documentation in order to get the proper driver ver
 
 image::images/bonita-as-windows-service/postgresTables.png[database tables]
 
-====Note
+[NOTE]
+====
 This is an example with Postgres, any database works
 ====
 
@@ -79,7 +80,6 @@ image::images/bonita-as-windows-service/bonitaXml.png[datasource configuration]
 
 [WARNING]
 ====
-
 Replace the `%TOMCAT_INSTALL_FOLDER%` by the exact path where you move the setup folder, for example `C:\Program Files\Apache Software Foundation\setup`
 ====
 
@@ -89,14 +89,13 @@ In order to apply these configurations to the new installation, you have to use 
 
 [NOTE]
 ====
-
-Note:
 This is not a command line.
 
-* One properties per line.
+* One property per line.
 * Attention, no space at the end of the line.
 * do not use environment variable. All path must be resolved.
-* do not set the -Xms and -Xmx option: use the field "Initial memory pool" and "Maximul memory pool".
+* do not set the -Xms and -Xmx option: use the field "Initial memory pool" and "Maximum memory pool".
+
 ====
 
 Then for example
