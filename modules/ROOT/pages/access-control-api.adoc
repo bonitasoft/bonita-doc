@@ -1,9 +1,8 @@
 = Access control API
-:description: [NOTE]
+:description: Access control is available to protect the tenant BDM.
 
 [NOTE]
 ====
-
 This API is only available in Enterprise, Efficiency and Performance editions.
 ====
 
