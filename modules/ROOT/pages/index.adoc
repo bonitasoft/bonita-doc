@@ -1,15 +1,10 @@
 = Bonita Documentation
 :description: Learn how to use the Bonita Platform and all of its components.
 
-[NOTE]
-====
-image:images/tv.png[videos]  Discover what is new in Bonita {varVersion} thanks to these short videos in https://www.youtube.com/playlist?list=PLvvoQatxaHOOcS6mu3PUFmVFd1lItLaXs[English], https://www.youtube.com/playlist?list=PLvvoQatxaHOPWv6rMQPNIxzZjW6BNg75K[French], or https://www.youtube.com/playlist?list=PLvvoQatxaHOMepAeo0jDrIR9hHfzK1NPn[Spanish]!
-====
-
-Learn how to use the Bonita Platform and all of its components.
+Learn how to use the Bonita Platform and all of its components. 
 
 [.card-section]
-== Highlight
+== Highlights
 
 [.card.card-index]
 --
@@ -45,6 +40,14 @@ xref:release-notes.adoc#fault-tolerance-mechanism[[.card-title]#Fault tolerance 
 --
 xref:release-notes.adoc#SSO-create-users[[.card-title]#Create a new user automatically in Bonita# [.card-body.card-content-overflow]#pass:q[If the user is known by the SSO, let it become a Bonita user too.]#]
 --
+
+== Video: What's new in Bonita {varVersion}
+
+{empty}
+
+video::038g85tvzo4[youtube, width=640,height=380]
+
+Also available in https://www.youtube.com/playlist?list=PLvvoQatxaHOPWv6rMQPNIxzZjW6BNg75K[french] and https://www.youtube.com/playlist?list=PLvvoQatxaHOMepAeo0jDrIR9hHfzK1NPn[spanish]!
 
 [.card-section]
 == Getting started
