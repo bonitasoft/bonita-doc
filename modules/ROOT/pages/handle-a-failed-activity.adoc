@@ -1,4 +1,4 @@
-= Task errors managmenent
+= Task errors management
 :description: Learn how to handle errors happening on a task.
 
 Learn how to handle errors happening on a task.
