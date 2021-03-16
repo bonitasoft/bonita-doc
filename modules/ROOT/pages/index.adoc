@@ -4,7 +4,7 @@
 Learn how to use the Bonita Platform and all of its components. 
 
 [.card-section]
-== Highlight
+== Highlights
 
 [.card.card-index]
 --
@@ -41,16 +41,13 @@ xref:release-notes.adoc#fault-tolerance-mechanism[[.card-title]#Fault tolerance 
 xref:release-notes.adoc#SSO-create-users[[.card-title]#Create a new user automatically in Bonita# [.card-body.card-content-overflow]#pass:q[If the user is known by the SSO, let it become a Bonita user too.]#]
 --
 
-=== Discover what's new in Bonita
+== Video: What's new in Bonita {varVersion}
 
 {empty}
 
 video::038g85tvzo4[youtube, width=640,height=380]
 
-[TIP]
-====
-Videos are available in https://www.youtube.com/playlist?list=PLvvoQatxaHOOcS6mu3PUFmVFd1lItLaXs[English], https://www.youtube.com/playlist?list=PLvvoQatxaHOPWv6rMQPNIxzZjW6BNg75K[French], or https://www.youtube.com/playlist?list=PLvvoQatxaHOMepAeo0jDrIR9hHfzK1NPn[Spanish]!
-====
+Also available in https://www.youtube.com/playlist?list=PLvvoQatxaHOPWv6rMQPNIxzZjW6BNg75K[French] and https://www.youtube.com/playlist?list=PLvvoQatxaHOMepAeo0jDrIR9hHfzK1NPn[Spanish]!
 
 [.card-section]
 == Getting started
