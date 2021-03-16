@@ -1,15 +1,13 @@
 = Bonita Runtime Maintenance Operation
-:description: :doctype: book
+:description: Describe some available maintenance operations
 
-:doctype: book
+Learn how maintenance operations can help to reduce disk space used by the Bonita Platform.
 
-Learn how maintenance operations can help reducing disk space used by the Bonita Platform.
-
-= Purge archive tables
+== Purge archive tables
 
 Archive tables contain the execution history of the Bonita Platform. Some of these tables can be purged to reduce size on disk.
 
-== Archive Contract Data
+=== Archive Contract Data
 
 Archive contract data table keeps the information of all contracts sent to execute tasks or instantiate processes.
 After of a lot of tasks or processes were executed, the `arch_contract_data` table could become very big and

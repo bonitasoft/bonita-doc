@@ -614,8 +614,7 @@ checkpoint_completion_target = 0.9
 
 [WARNING]
 ====
-
-Warning: properties `random_page_cost` and `seq_page_cost` should have values relative to each other thoroughly set, in order
+properties `random_page_cost` and `seq_page_cost` should have values relative to each other thoroughly set, in order
 for PostgreSQL query planner to choose the right execution plan. +
 See PostgreSQL https://www.postgresql.org/docs/11/runtime-config-query.html#RUNTIME-CONFIG-QUERY-CONSTANTS[Planner Cost Constants]
 for more details on how to set those values.

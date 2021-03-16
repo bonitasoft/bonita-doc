@@ -134,16 +134,6 @@ You started your Studio today, and when you try to open a form from your process
 
 You started your Studio today, and when you try to open a form from your process or open the UI Designer from the Studio, the UI Designer doesn't open and you see a *404 Error* or a *blank page*.
 
-Instead of the form or the home page of the UI Designer, here's what you see in Chrome!
-
-image:images/ui-designer-troubleshooting/404-error-chrome.png[UI Designer displays a 404 error page in Chrome]
-// {.img-responsive}
-
-Here's what you see Firefox, it's just a blank page!
-
-image:images/ui-designer-troubleshooting/ff-blank-page.png[UI Designer displays a blank page in Firefox]
-// {.img-responsive}
-
 ==== How to identify the root cause?
 
 The UI Designer has a log file that you can consult, either from the Studio Menu > Bonita UI-Designer log: +

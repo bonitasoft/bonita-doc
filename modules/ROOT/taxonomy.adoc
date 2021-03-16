@@ -316,7 +316,6 @@
  ** xref:project-documentation-generation.adoc[Project documentation generation]
  ** xref:shared-project.adoc[Using a shared project]
 * Howtos
- ** xref:uid-modal-tutorial.adoc[Create a modal window using CSS]
  ** xref:uid-case-overview-tutorial.adoc[Create a case overview page using the UI Designer]
  ** xref:optimize-user-tasklist.adoc[Create unique task names for the user task list]
  ** xref:manage-control-in-forms.adoc[Control and validate forms in the UI Designer]

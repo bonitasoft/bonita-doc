@@ -11,8 +11,7 @@ Your business data is the information that is shared between your processes and 
 
 [NOTE]
 ====
-
-*:fa-info-circle:*  A BDM is defined at tenant level. It means you can have different BDM per tenant on the same Bonita platform. See <<bdm_storage,BDM data storage>> for more information on how to configure a business data model per tenant.
+A BDM is defined at tenant level. It means you can have different BDM per tenant on the same Bonita platform. See <<bdm_storage,BDM data storage>> for more information on how to configure a business data model per tenant.
 ====
 
 When you define a process, you specify the business objects that are relevant to the process. When a process is instantiated (a case is started), the specified business objects are instantiated as required, becoming variables within the process instance.
@@ -282,9 +281,12 @@ To deploy the BDM, you export it as a ZIP file from Bonita Studio and then impor
 
 [WARNING]
 ====
+Before deploying the business data model, you must xref:pause-and-resume-bpm-services.adoc[pause] the BPM services, so that the update can be performed without affecting ongoing processes.
+====
 
-:fa-exclamation-triangle: *Warning:* Before deploying the business data model, you must xref:pause-and-resume-bpm-services.adoc[pause] the BPM services, so that the update can be performed without affecting ongoing processes.
-*Important:* You are recommended xref:back-up-bonita-bpm-platform.adoc[Back up your platform] and database before deploying a new BDM in case of problems during the update.
+[IMPORTANT]
+====
+You are recommended xref:back-up-bonita-bpm-platform.adoc[Back up your platform] and database before deploying a new BDM in case of problems during the update.
 ====
 
 Follow these steps:
@@ -423,8 +425,7 @@ You can use business data in a Java program by using the DAO. DAO gives _*read*_
 
 [WARNING]
 ====
-
-*:fa-exclamation-triangle: Warning*: In a connector, code is executed outside a transaction, so retrieving or updating business data by DAO is not supported.
+In a connector, code is executed outside a transaction, so retrieving or updating business data by DAO is not supported.
 ====
 
 You can however manipulate the business object outside the connector, and use business objects as connector input or output:
@@ -452,7 +453,7 @@ You can use an alternative database `SchemaManager` implementation. A `SchemaMan
 Business Data Model. As our third-party persistence layer _Hibernate_ does not support all type of schema updates, you may want to use a SchemaManager that does *not* update the database
 tables directly, but rather let you (or your Database Administrator) update the database "manually".
 
-For that, you can use the alternative we provide, by uncommenting the following lines in file `platform_conf/current/tenants/[TENANT_ID]/tenant_engine//bonita-tenants-custom.xml` using xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[setup tool].
+For that, you can use the alternative we provide, by uncommenting the following lines in file `platform_conf/current/tenants/[TENANT_ID]/tenant_engine//bonita-tenants-custom.xml` using xref:BonitaBPM_platform_setup.adoc#update_platform_conf[setup tool].
 
 [source,xml]
 ----

@@ -155,7 +155,7 @@ _Example_: http://localhost:8080/bonita/API/customuserinfo/value?c=10&p=0&f=defi
 * *Data Params* (Required)
  ** c: number of result per page
  ** p: page number
- ** f : filter to apply on results with the format `f={filter\_name}={filter\_value}` +
+ ** f : filter to apply on results with the format `+f={filter_name}={filter_value}+` +
 _possible filter names_: userId, value, definitionId (the filter value being the custom user information definition ID)
 * *Success Response* +
 An array of customuserinfo/value objects
@@ -204,7 +204,7 @@ _Example_: http://localhost:8080/bonita/API/customuserinfo/user?c=10&p=0&f=userI
 * *Data Params* (Required)
  ** c: number of result per page
  ** p: page number
- ** f : filter to apply on results with the format `f={filter\_name}={filter\_value}` +
+ ** f : filter to apply on results with the format `+f={filter_name}={filter_value}+` +
 the filter userId is mandatory `f=userId=id`
 * *Success Response* +
 An array of customuserinfo/user objects
