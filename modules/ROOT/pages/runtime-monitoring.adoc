@@ -1,11 +1,16 @@
 = Bonita Runtime Monitoring
 :description: Discover how to monitor a runtime environment running Bonita
 
+[NOTE]
+====
+
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
+
+
 Discover how to monitor a runtime environment running Bonita
 
-In Community edition, monitoring metrics can be published via 2 channels: JMX and / or Logging file. +
-In Subscription editions, monitoring metrics can be published via 3 channels: JMX and / or Logging file and / or
-a Prometheus endpoint.
+Monitoring metrics can be published via 3 channels: JMX and / or Logging file and / or a Prometheus endpoint.
 
 == Why monitoring ?
 
@@ -69,25 +74,28 @@ Retrieve xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[current config
 
 === Activating Metrics Publishers
 
-Edit file `./setup/platform_conf/current/platform_engine/bonita-platform-community-custom.properties` +
+Edit file `./setup/platform_conf/current/platform_engine/bonita-platform-sp-custom.properties` +
 You will see, in the `# MONITORING` section, a series of properties with their default value:
 
  ## MONITORING
+ ##
  ## PUBLISHERS = where to publish?
+ ## publish metrics to Prometheus
+ #com.bonitasoft.engine.plugin.monitoring.publisher.prometheus.enable=false
  ## publish metrics to JMX:
  #org.bonitasoft.engine.monitoring.publisher.jmx.enable=true
- ## periodically print metrics to logs (bonita-related metrics only):
+ ## periodically print metrics to logs (bonita related only):
  #org.bonitasoft.engine.monitoring.publisher.logging.enable=false
- ## print to logs every minute by default (in the ISO-8601 duration format):
+ ## print to logs every minute by default (ISO-8601 duration):
  #org.bonitasoft.engine.monitoring.publisher.logging.step=PT1M
 
 These are the *metric publishers* that can be activated. +
-In Community edition, 2 metric publishers are provided:
 
 * JMX (enabled by default), that allows to use any JMX console to monitor your favorite metrics (except JVM metrics,
 as they are already published by the JVM itself by default)
 * Logging (disabled by default), that regularly prints to standard Bonita log file the Bonita-related metrics. Print interval can
 be changed (property `org.bonitasoft.engine.monitoring.logging.step`).
+* Prometheus (disabled by default), more details in the dedicated section <<_prometheus_publisher>>
 
 [NOTE]
 ====
@@ -108,14 +116,22 @@ Then restart the Tomcat server for the changes to take effect.
 Edit the same file `./setup/platform_conf/current/platform_engine/bonita-platform-community-custom.properties`
 
  ## METRICS = what to publish?
- ##
+ #
  ## Note: Bonita-related metrics are automatically published.
  ## They are active by default and cannot be disabled.
  ##
  ## publish technical metrics related to Worker / Connector thread pools:
  #org.bonitasoft.engine.monitoring.metrics.executors.enable=false
  ## publish technical metrics related to HIBERNATE statistics
- ## To activate, simply set property (a few lines above) 'bonita.platform.persistence.generate_statistics=true'
+ ## To activate, simply set property (in 'bonita-platform-custom.properties ') 'bonita.platform.persistence.generate_statistics=true'
+ ## publish metrics related to JVM memory:
+ #org.bonitasoft.engine.monitoring.metrics.jvm.memory.enable=false
+ ## publish metrics related to JVM Threads:
+ #org.bonitasoft.engine.monitoring.metrics.jvm.threads.enable=false
+ ## publish metrics related to JVM garbage collection:
+ #org.bonitasoft.engine.monitoring.metrics.jvm.gc.enable=false
+ ## publish technical metrics related to Tomcat (if in a Tomcat context):
+ #org.bonitasoft.engine.monitoring.metrics.tomcat.enable=false
 
 These are the *metrics* (counters) that can be exposed. +
 All configurable metrics are disabled by default and can be enabled separately. +
@@ -141,43 +157,10 @@ Then restart the Tomcat server for the changes to take effect.
 
 ====
 
-== Subscription-only monitoring
-
-=== Additional metrics
-
-Thanks to additional publisher, additional metrics can be published
-
-These metrics provide information about:
-
-* the running JVM memory
-* JVM threads
-* Garbage collection usage
-* Tomcat counters on sessions, threads, requests, connections...
-
-They can be activated by editing file `./setup/platform_conf/current/platform_engine/bonita-platform-sp-custom.properties`
-
- ## METRICS = what to publish?
- ##
- ## publish metrics related to JVM memory:
- #org.bonitasoft.engine.monitoring.metrics.jvm.memory.enable=false
- ## publish metrics related to JVM Threads:
- #org.bonitasoft.engine.monitoring.metrics.jvm.threads.enable=false
- ## publish metrics related to JVM garbage collection:
- #org.bonitasoft.engine.monitoring.metrics.jvm.gc.enable=false
- ## publish technical metrics related to Tomcat (if in a Tomcat context):
- #org.bonitasoft.engine.monitoring.metrics.tomcat.enable=false
 
 === Prometheus publisher
 
-[NOTE]
-====
-
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
-====
-
-Prometheus
-
-In addition to these metric publishers, Bonita Subscription editions can also publish to a REST endpoint in the
+Bonita Subscription editions can also publish to a REST endpoint in the
 https://prometheus.io/docs/instrumenting/exposition_formats/#text-format-example[Prometheus format], that can
 easily be consumed by Prometheus and then displayed by graphical tools like Grafana, etc.
 
@@ -201,7 +184,7 @@ Then xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[push your configur
 
 Then restart the Tomcat server for the changes to take effect.
 
-This exposes all activated metrics (see <<activating-specific-metric-indicators,above>>) at endpoint:
+This exposes all activated metrics (see <<_activating_specific_metric_indicators,above>>) at endpoint:
 
  http://<SERVER_URL>/bonita/metrics
 
