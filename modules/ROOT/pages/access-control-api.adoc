@@ -1,5 +1,5 @@
 = Access control API
-:description: Access control is available to protect the tenant BDM.
+:description: Access control allows you to protect the access to your BDM through REST API.
 
 [NOTE]
 ====
