@@ -3,7 +3,6 @@
 
 [NOTE]
 ====
-
 For Enterprise, Performance, Efficiency, and Teamwork editions only.
 ====
 
@@ -31,7 +30,7 @@ It executes in a Java thread.
 
 == What can be monitored?
 
-The runtime uses https://micrometer.io/[Micrometer] to produce and publish *metrics*. *Metrics* are indicator (generally a numeric value)
+The runtime uses https://micrometer.io/[Micrometer] to produce and publish *metrics*. *Metrics* are indicators (generally numeric values)
 giving information on the system. They can be technical (number of running threads on the JVM), or more Bonita-oriented (total number of connectors executed).
 
 
@@ -64,13 +63,13 @@ The following available metrics are *disabled by default* and can be enabled.
 == How to retrieve those metrics
 
 Those *metrics* are published on *publishers*. *Publishers* are responsible for exposing the activated metrics.
-It is a channel on which metrics are published. Provided metric publishers are JMX, Log files, Prometheus.
+They are channels on which metrics are published. Provided metric publishers are JMX, Log files, Prometheus.
 
 === JMX Publisher
 
-The JMX publisher publishes each metrics using MBeans. All those MBeans are in the domain `metrics`.
+The JMX publisher publishes each metric using MBeans. All those MBeans are in the domain `metrics`.
 
-It can be enable using the property `org.bonitasoft.engine.plugin.monitoring.publisher.jmx.enable` set to `true`.
+It can be enable using the property `org.bonitasoft.engine.monitoring.publisher.jmx.enable` set to `true`.
 
 === Log file Publisher
 
@@ -79,7 +78,7 @@ with the log level `INFO`.
 Metrics are logged every `1 minute` by default. It can be changed using `org.bonitasoft.engine.monitoring.logging.step`.
 
 
-It can be enabled using the property `org.bonitasoft.engine.plugin.monitoring.publisher.logging.enable` set to `true`.
+It can be enabled using the property `org.bonitasoft.engine.monitoring.publisher.logging.enable` set to `true`.
 
 
 === Prometheus Publisher
@@ -170,7 +169,6 @@ In the second section, metrics can be activated.
 
 [NOTE]
 ====
-
 To change any value, *uncomment the line by removing the # character*, and change the true / false value. +
 Then xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[push your configuration changes] to database:
 
@@ -181,4 +179,3 @@ Then xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[push your configur
 
 Then restart the Tomcat server for the changes to take effect.
 ====
-
