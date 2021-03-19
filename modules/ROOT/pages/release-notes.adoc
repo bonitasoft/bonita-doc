@@ -52,7 +52,7 @@ Moreover, the Enterprise offering now encompasses the availability of Bonita Con
 === The version name
 
 So, how should we name this version? Not 7.12 because of all those changes, and all the following ones, but not 8.0 either, as it does not embed backwards incompatible APIs or any other breaking changes.
-And because of its new clear concepts, Bonita will now follow a special type of #CalendarVersioning, with a YEAR.NUM pattern.
+And because of its new clear concepts, Bonita will now follow a special type of \#CalendarVersioning, with a YEAR.NUM pattern.
 So we are proud to present the new (and fresh) Bonita 2021.1!
 As for the Maintenance versions, they will be taggued yyyy.#-mmdd like 2021.1-0212 for the maintenance release of Feb 12th, based on the first minor release of 2021.
 New releases will continue to be rolled out on a 6-month cycle to provide new values.
