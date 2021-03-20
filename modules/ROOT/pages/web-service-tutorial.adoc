@@ -91,10 +91,13 @@ countryDAO.findById(country, 0, 100).get(0)
 +
 [source,groovy]
 ----
-import org.codehaus.groovy.ast.stmt.ContinueStatement
-import org.w3c.dom.NodeList
-responseDocumentBody.childNodes.item(0).textContent
+import groovy.xml.XmlUtil
+
+def reponseBody = new XmlSlurper().parseText(XmlUtil.serialize(responseDocumentBody.getDocumentElement()))
+reponseBody.text()
 ----
+
+TIP: To manipulate more complex XML documents, have a look to the https://groovy-lang.org/processing-xml.html[Groovy XML processing documentation page].
 
 And we are done for the connector configuration. If you want to test it from the wizard, replace _$\{country}_ by _FRA_ in the envelope, and ensure that _Paris_ is returned.
 
