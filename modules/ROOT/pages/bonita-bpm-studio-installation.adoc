@@ -110,7 +110,7 @@ When you launch Bonita Studio for the first time, you need to install a license:
 
 == Configure Bonita Studio to use a specific JVM
 
-Bonita Studio 7.8 only support Java 8. If you have multiple versions of Java installed on your computer you might need to specify which Java Virtual Machine (JVM) to use.
+Bonita Studio only support Java 8 or 11. If you have multiple versions of Java installed on your computer you might need to specify which Java Virtual Machine (JVM) to use.
 
 To specify the JVM version use to run the Studio you first need to identify the appropriate file to edit. For example if you launch the Studio using `BonitaStudioCommunity.exe`, the file to edit will be `BonitaStudioCommunity.ini`. This file is located in your Studio installation folder.
 
