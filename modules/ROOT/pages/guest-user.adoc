@@ -128,10 +128,11 @@ For SSO with link:single-sign-on-with-saml[SAML] and link:single-sign-on-with-ke
 
 For link:single-sign-on-with-cas[CAS], the guest user acount should exist in the accounts of the CAS server with the username/password configured in `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/authenticationManager-config.properties` and the following lines should be uncommented in the file `+++<BUNDLE_HOME>+++/setup/platform_conf/current/tenants/+++<TENANT_ID>+++/tenant_engine/bonita-tenant-sp-custom.properties :+++</TENANT_ID>++++++</BUNDLE_HOME>+++
 
+[source, properties]
 ----
-  authenticator.delegate=casAuthenticatorDelegate
-  authentication.delegate.cas.server.url.prefix=http://bonita_ip_address:port
-  authentication.delegate.cas.service.url=http://bonita_ip_address:port/bonita/loginservice
+authenticator.delegate=casAuthenticatorDelegate
+authentication.delegate.cas.server.url.prefix=http://bonita_ip_address:port
+authentication.delegate.cas.service.url=http://bonita_ip_address:port/bonita/loginservice
 ----
 
 Specify the relevant IP address and port number.
