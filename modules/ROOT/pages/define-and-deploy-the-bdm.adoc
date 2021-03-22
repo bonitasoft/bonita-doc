@@ -47,13 +47,12 @@ A package is defined by its name, which must be a Java package name. It is highl
 Packages can be seen as logical containers, a package should contain business objects related to each other. +
 As example, a package _com.company.product_ could contain the objects `Car` and `Wheel`, a package _com.company.finance_ could contain the objects `Bill` and `Loan`.
 
-A business object definition consists of the following:
+A business object definition consists of the following:	
 
 * An object name. This must be a Java class name (starting with a capital letter), because a business object is implemented as a Java class. +
 [WARNING]
 ====
-
-*:fa-exclamation-triangle: Warning:* Business object names must be unique, even across packages.
+Business object names must be unique, even across packages.
 ====
 * Attributes. These are the components of the object. There can be any number of attributes. For each attribute, you can specify:
  ** A name starting with lower case letter.
