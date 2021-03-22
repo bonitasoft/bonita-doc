@@ -7,12 +7,6 @@ How to install a Bonita Studio on Windows, Linux, or Mac operating systems. An O
 
 Check the xref:hardware-and-software-requirements.adoc[hardware and software requirements].
 
-Before you download Bonita Studio, make sure that you know whether you are using a using a 32 or 64-bit system, and that you have the appropriate Java version installed:
-
-* For Linux, to find out whether you are using a 32 or 64 bit Linux, run the following command: `getconf LONG_BIT`, which returns either 32 or 64.
-* For Windows, see the http://windows.microsoft.com/en-us/windows/32-bit-and-64-bit-windows[32 and 64 bit Windows FAQ].
-* For Mac, 32-bit Java is no longer supported, so there is no 32-bit version of Bonita for Mac systems.
-
 === Macos specific prerequisites
 
 [IMPORTANT]
@@ -145,18 +139,6 @@ C:\progra~1\Java\jre1.8.0_112\bin\javaw.exe
 -Dgreclipse.nonlocking=true
 -Djava.endorsed.dirs=endorsed
 ----
-
-== Cache configuration
-
-By default xref:cache-configuration-and-policy.adoc[cache] is disable for the web server embedded by Bonita studio, as it is more comfortable to realise development without cache.
-But you can decide to activate cache, to be closer to the production display time. To do this, you need to follow those steps.
-
-. Close your Bonita Studio if he's up.
-. Go in the studio installation folder.
-. Open `BonitaStudioSubscription.ini`.
-. Change `-Dtomcat.extra.params=-DnoCacheCustomPage=true` to `-Dtomcat.extra.params=-DnoCacheCustomPage=false`.
-. Save file.
-. Start your Bonita studio. Now you have a cache for your living application and your custom page.
 
 == Troubleshooting
 
