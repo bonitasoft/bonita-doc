@@ -48,6 +48,7 @@ To activate it:
 . In the tenant_portal folder of the target tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
 update the file `authenticationManager-config.properties` as follows:
 +
+[source, properties]
 ----
          [...]
          # logout.link.hidden=true
@@ -78,6 +79,7 @@ In order for the authorization filter to let the guest user make the necessary A
 . In the tenant_portal folder of the target tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
 update the file `dynamic-permissions-checks-custom.properties` to uncomment 3 lines as follows (they may already be uncommented if you use the dynamic authorisation checking instead of the default static authorization checking) :
 +
+[source, properties]
 ----
      [...]
      ## ProcessPermissionRule
