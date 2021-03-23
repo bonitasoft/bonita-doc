@@ -1,11 +1,10 @@
-= Connector's development and testing toolkit
-:description: A set of best of breed tools to develop and test custom connectors independently of the Bonita Studio.
+= Connector's development toolkit
+:description: A set of best of breed tools to develop custom connectors independently of the Bonita Studio.
 
-A set of best of breed tools to develop and test custom connectors independently of the Bonita Studio.
+A set of best of breed tools to develop custom connectors independently of the Bonita Studio.
 
 [WARNING]
 ====
-
-*Note:* The Connector's development toolkit has been replaced by the xref:connector-archetype.adoc[Bonita connector
+The Connector's development toolkit has been replaced by the xref:connector-archetype.adoc[Bonita connector
 archetype].
 ====
