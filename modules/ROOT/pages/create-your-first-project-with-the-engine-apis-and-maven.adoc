@@ -21,7 +21,7 @@ In order to use the client APIs, you need to add a dependency to the `bonita-cli
 [source,xml,subs="+macros"]
 ----
 <properties>
-   <bonita.bpm.version>pass:a[{varVersion}].0</bonita.bpm.version>
+   <bonita.bpm.version>pass:a[{javadocVersion}].0</bonita.bpm.version>
    ...
 </properties>
 
