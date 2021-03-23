@@ -115,7 +115,7 @@ Example: +
 
 [IMPORTANT]
 ====
-*Important:* A task is not automatically assigned to the user who accesses the task form. There must first be a xref:bpm-api.adoc[REST API call to assign the task to the user].
+A task is not automatically assigned to the user who accesses the task form. There must first be a xref:bpm-api.adoc[REST API call to assign the task to the user].
 Otherwise, the user will not be able to execute the task.
 ====
 
@@ -199,7 +199,10 @@ With the above format, the first task with the name "request approval" available
 | `locale=en`
 
 | `id=<id>`
-| <ul><li>For process instantiation URL, identifies the process definition id.</li><li>For process overview URL, identifies the process instance id.</li><li>For task URL, identifies the activity instance of the task.</li>
+a|
+* For process instantiation URL, identifies the process definition id.
+* For process overview URL, identifies the process instance id.
+* For task URL, identifies the activity instance of the task.
 | `id=6972973247608922361`
 
 | `user=<userId>`
