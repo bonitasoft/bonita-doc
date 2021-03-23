@@ -369,7 +369,7 @@ Once you obtained the Access token, you can make your REST API request in a norm
 ==== Authorization Code or Implicit Grant
 
 Those scenarios work the same way as when you login on Bonita portal/apps except it is the client application that needs to use Bonita REST API which needs to trigger the authentication process by calling the OIDC provider authorisation endpoint with Bonita OIDC client as `client_id`. The rest of the scenario is similar to what is described in the OIDC Authorization Code Flow schema. +
-Once you obtain the authorization code, you can request again the OIDC provider to get the tokens with as `grant_type` value `authorization_code`:
+With Authorization Code Flow, once you obtain the authorization code, you can request again the OIDC provider to get the tokens with as `grant_type` value `authorization_code`:
 
 ----
   POST /auth/realms/bonita/protocol/openid-connect/token  HTTP/1.1
