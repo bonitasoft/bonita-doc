@@ -4,6 +4,7 @@ version: 2021.1
 asciidoc:
   attributes:
     varVersion: 2021.1
+    bonitaTechnicalVersion: '7.12.1'
     javadocVersion: 7.12
     page-editable: true
     page-out-of-support: false
