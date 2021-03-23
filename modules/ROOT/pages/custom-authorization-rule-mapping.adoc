@@ -51,7 +51,7 @@ In this example, Custom authorization rule is a maven-based java project that ne
         </dependency>
     </dependencies>
     <properties>
-        <bonita-server.version>[pass:a[{varVersion}].0,)</bonita-server.version>
+        <bonita-server.version>[pass:a[{javadocVersion}].0,)</bonita-server.version>
     </properties>
     <build>
         <plugins>
