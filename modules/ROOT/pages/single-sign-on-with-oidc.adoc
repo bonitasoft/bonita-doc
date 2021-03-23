@@ -150,12 +150,12 @@ The expected format for Keys and certificates is PEM (with or without the commen
  {
    "realm": "master",
    "auth-server-url": "http://localhost:9090/auth",
-   "auth-path": "{auth-server-url}/realms/{realm-name}/protocol/openid-connect/auth",
-   "token-path": "{auth-server-url}/realms/{realm-name}/protocol/openid-connect/token",
-   "logout-path": "{auth-server-url}/realms/{realm-name}/protocol/openid-connect/logout",
-   "token-issuer-path": "{auth-server-url}/realms/{realm-name}",
-   "user-info-path": "{auth-server-url}/realms/{realm-name}/protocol/openid-connect/userinfo",
-   "jwks-path": "{auth-server-url}/realms/{realm-name}/protocol/openid-connect/certs",
+   "auth-url": "{auth-server-url}/realms/{realm-name}/protocol/openid-connect/auth",
+   "token-url": "{auth-server-url}/realms/{realm-name}/protocol/openid-connect/token",
+   "logout-url": "{auth-server-url}/realms/{realm-name}/protocol/openid-connect/logout",
+   "token-issuer-uri": "{auth-server-url}/realms/{realm-name}",
+   "user-info-url": "{auth-server-url}/realms/{realm-name}/protocol/openid-connect/userinfo",
+   "jwks-url": "{auth-server-url}/realms/{realm-name}/protocol/openid-connect/certs",
    "jwt-access-token": true,
    "scopes": "openid profile email",
    "resource": "bonita",
@@ -171,15 +171,15 @@ The expected format for Keys and certificates is PEM (with or without the commen
  }
 ----
 
- ** The property `realm` is only required if you use a Keycloak server as OIDC provider or if you want to benefit from the templating in the `*-path` properties (\{realm-name} will be replaced with the realm value). If you use a Keycloak server, make sure you set it with the name of the realm in which your Bonita OIDC client is/will be created.
+ ** The property `realm` is only required if you use a Keycloak server as OIDC provider or if you want to benefit from the templating in the `*-url` properties (\{realm-name} will be replaced with the realm value). If you use a Keycloak server, make sure you set it with the name of the realm in which your Bonita OIDC client is/will be created.
  ** `auth-server-url` is the base URL of the OIDC provider server. All other service endpoints URL values can reuse this base URL with the placeholder``+{auth-server-url}+``.
- ** `auth-path` needs to be set with the URL of your OIDC provider Authorization endpoint. It can be prefixed with `+{auth-server-url}+` to only indicate the path of the service or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
- ** `token-path` needs to be set with the URL of your OIDC provider Token endpoint. It can be prefixed with `+{auth-server-url}+` to only indicate the path of the service or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
- ** `logout-path` needs to be set with the URL of your OIDC provider Logout endpoint. It can be prefixed with `+{auth-server-url}+` to only indicate the path of the service or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
- ** `token-issuer-path` needs to be set with the URL that will be used as issuer in the JWT tokens (`iss` claim). It can be prefixed with `+{auth-server-url}+` to only indicate the path of the service or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
- ** `user-info-path` needs to be set with the URL of your OIDC provider userInfo endpoint. It is only used when accessing a resource with a Bearer `Authorization` header with an access token that is opaque (not a JWT) and cannot be validated or used to retrieve the logged in user claims. It can be prefixed with `+{auth-server-url}+` to only indicate the path of the service or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
- ** `jwks-path` needs to be set with the URL of your OIDC provider JSON Web Key Set endpoint. It can be prefixed with `+{auth-server-url}+` to only indicate the path of the service or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
- ** `jwt-access-token` indicates if the access token is a JWT. If false, it will be considered by Bonita OIDC module as an opaque token and its validation and retrieval of the logged in user principal name will be delegated to the userInfo endpoint (see `user-info-path`). This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
+ ** `auth-url` needs to be set with the URL of your OIDC provider Authorization endpoint. It can be prefixed with `+{auth-server-url}+` to only indicate the path of the service or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
+ ** `token-url` needs to be set with the URL of your OIDC provider Token endpoint. It can be prefixed with `+{auth-server-url}+` to only indicate the path of the service or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
+ ** `logout-url` needs to be set with the URL of your OIDC provider Logout endpoint. It can be prefixed with `+{auth-server-url}+` to only indicate the path of the service or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
+ ** `token-issuer-uri` needs to be set with the URL that will be used as issuer in the JWT tokens (`iss` claim). It can be prefixed with `+{auth-server-url}+` to only indicate the path of the service or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
+ ** `user-info-url` needs to be set with the URL of your OIDC provider userInfo endpoint. It is only used when accessing a resource with a Bearer `Authorization` header with an access token that is opaque (not a JWT) and cannot be validated or used to retrieve the logged in user claims. It can be prefixed with `+{auth-server-url}+` to only indicate the path of the service or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
+ ** `jwks-url` needs to be set with the URL of your OIDC provider JSON Web Key Set endpoint. It can be prefixed with `+{auth-server-url}+` to only indicate the path of the service or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
+ ** `jwt-access-token` indicates if the access token is a JWT. If false, it will be considered by Bonita OIDC module as an opaque token and its validation and retrieval of the logged in user principal name will be delegated to the userInfo endpoint (see `user-info-url`). This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
  ** `scopes` can be used to set the value of the `scope` parameter sent to the OIDC provider in the authentication request. The scope value `openid` is automatically added if it is no present, but you can add other scope values like `email` or `profile` depending on you OIDC provider configuration and the claims you need in the JWTs. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
  ** `resource` is the OIDC client Id given to your Bonita installation. You can change it if you want but you need to provide it to your OIDC provider.
  ** the `ssl-required` property value may need to be changed if Bonita Portal and the IdP are not both accessed via HTTPS. Possible values for this property are: `all`, `external`, and `none`. For `all`, all requests must come in via HTTPS. For `external`, only non-private IP addresses must come over via HTTPS. For `none`, no requests are required to come over via HTTPS.
@@ -373,5 +373,5 @@ Those scenarios work the same way as when you login on Bonita portal/apps except
 [NOTE]
 ====
 
-If the OIDC provider returns opaque access token (non JWT), then Bonita OIDC client module will use UserInfo OIDC endpoint to validate the token and retrieve the user claims. Make sure the property `user-info-path` is correct in the file `keycloak-oidc.json`. 
+If the OIDC provider returns opaque access token (non JWT), then Bonita OIDC client module will use UserInfo OIDC endpoint to validate the token and retrieve the user claims. Make sure the property `user-info-url` is correct in the file `keycloak-oidc.json`. 
 ====
