@@ -5,8 +5,8 @@ asciidoc:
   attributes:
     varVersion: 2021.1
     bonitaDockerImageEnterpriseVersion: '7.12.2'
-    # latest public community version
-    bonitaTechnicalVersion: '7.12.1'
+    crowdinBonitaVersion: 7.12
+    bonitaTechnicalVersion: '7.12.1' # latest public community version
     javadocVersion: 7.12
     page-editable: true
     page-out-of-support: false
