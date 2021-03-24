@@ -12,7 +12,7 @@ Manage a list of documents through a process means add / edit / remove documents
 [WARNING]
 ====
 
-This tutorial assume that you are already familiar with Bonita. If not you might want to read the xref:getting-started-tutorial.adoc[Getting started] first.
+This tutorial assume that you are already familiar with Bonita. If not you might want to read the xref:what-is-bonita.adoc[Getting started] first.
 ====
 
 This exemple shows how to easily create a document validation process using Bonita Studio. +
