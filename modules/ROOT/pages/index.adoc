@@ -18,27 +18,27 @@ xref:release-notes.adoc[[.card-title]#Release note {varVersion}# [.card-body.car
 
 [.card.card-index]
 --
-xref:release-notes.adoc#acm[[.card-title]#Adaptive Case Management with Bonita# [.card-body.card-content-overflow]#pass:q[]#]
+xref:release-notes.adoc#acm[[.card-title]#Adaptive Case Management with Bonita# [.card-body.card-content-overflow]#pass:q[A Case Management example (processes, data, and a living application), ready to customize, to let the knowledge workers decide.]#]
 --
 
 [.card.card-index]
 --
-xref:release-notes.adoc#monitoring[[.card-title]#Monitoring# [.card-body.card-content-overflow]#pass:q[]#]
+xref:release-notes.adoc#monitoring[[.card-title]#Monitoring# [.card-body.card-content-overflow]#pass:q[A series of technical and Bonita-related metrics to monitor the health of the Bonita Runtime environment.]#]
 --
 
 [.card.card-index]
 --
-xref:release-notes.adoc#guest-user[[.card-title]#Guest User (Subscription only)# [.card-body.card-content-overflow]#pass:q[]#]
+xref:release-notes.adoc#guest-user[[.card-title]#Guest User (Subscription only)# [.card-body.card-content-overflow]#pass:q[Some applications display public content that needs to be shown to users with no Bonita account. Still, such users should be able to start a process (for example to create an account).]#]
 --
 
 [.card.card-index]
 --
-xref:release-notes.adoc#deploy-project[[.card-title]#Project deployment in Bonita Studio# [.card-body.card-content-overflow]#pass:q[]#]
+xref:release-notes.adoc#deploy-project[[.card-title]#Project deployment in Bonita Studio# [.card-body.card-content-overflow]#pass:q[After importing, cloning, or editing a project, resources deployment in the embedded Runtime is now automated.]#]
 --
 
 [.card.card-index]
 --
-xref:release-notes.adoc#bdm-multi-package[[.card-title]#Business Data Model handles multiple packages# [.card-body.card-content-overflow]#pass:q[]#]
+xref:release-notes.adoc#bdm-multi-package[[.card-title]#Business Data Model handles multiple packages# [.card-body.card-content-overflow]#pass:q[Structure the Business objects, and/or work in distributed teams, with different scopes.]#]
 --
 
 [.card-section]
