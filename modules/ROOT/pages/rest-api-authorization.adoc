@@ -35,7 +35,7 @@ You need to <<migrate,add authorization to your custom pages>> before you activa
 
 [NOTE.bonitacloud,caption=Bonita Cloud]
 ====
-In Bonita Cloud, to change the properties files and apply Rest Authorization, you just have to open a support ticket and we'll apply the change on the requested environment for you ! :slightly_smiling_face:
+In Bonita Cloud, to change the properties files and apply Rest Authorization, you just have to open a support ticket and we'll apply the change on the requested environment for you ! 
 ====
 
 
