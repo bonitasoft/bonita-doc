@@ -21,7 +21,8 @@ Bonita uses http://www.keycloak.org/[Keycloak] OIDC Service client adapter. It h
 
 == OpenID Connect overview for Bonita
 
-This is an overview that relates the steps required to integrate a bonita bundle with an OIDC Identity Provider.
+This is an overview that describes the steps of the authentication process on a Bonita bundle configured as an OIDC client.
+[#oidc-overview]
 
 image:images/oidc-overview.png[Authentication over OIDC]
 // {.img-responsive}
@@ -34,14 +35,14 @@ it is composed of:
 It checks if the user is already logged in on Bonita
 
  ** If already logged in \=> Allow the access
- ** If not logged in \=> Redirect to IdP (with user info)
+ ** If not logged in \=> Redirect to IdP (with scope, client Id, redirect URI, and expected response type)
 
 * An Implementation of the Authentication Manager extension point that retrieves the authentication information in the requests to log in to Bonita engine with the right credentials.
 
 [WARNING]
 ====
  +
-Bonita `username` should match the `prefered_username` or one attribute of the principal returned by the OIDC provider in the response.
+Bonita `username` should match the `prefered_username` or one claims returned by the OIDC provider in the JWT token in the response.
  If some users need to be able to log in without having an account on the IdP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the portal login page (`/login.jsp`) provided they have a Bonita account and their password is different from their username. +
  You can configure Bonita engine to create the accounts on the fly in the database once a user accessing Bonita has been authenticated with the IdP (see the configuration of `bonita-tenant-sp-custom.properties` in the 3rd section of the next chapter).
 ====
@@ -150,40 +151,56 @@ The expected format for Keys and certificates is PEM (with or without the commen
  {
    "realm": "master",
    "auth-server-url": "http://localhost:9090/auth",
-   "auth-path": "{auth-server-url}/realms/{realm-name}/protocol/openid-connect/auth",
-   "token-path": "{auth-server-url}/realms/{realm-name}/protocol/openid-connect/token",
-   "token-service-logout-path": "{auth-server-url}/realms/{realm-name}/protocol/openid-connect/logout",
-   "token-audience-path": "{auth-server-url}/realms/{realm-name}",
-   "jwks-path": "{auth-server-url}/realms/{realm-name}/protocol/openid-connect/certs",
+   "auth-url": "{auth-server-url}/realms/{realm-name}/protocol/openid-connect/auth",
+   "token-url": "{auth-server-url}/realms/{realm-name}/protocol/openid-connect/token",
+   "logout-url": "{auth-server-url}/realms/{realm-name}/protocol/openid-connect/logout",
+   "token-issuer-uri": "{auth-server-url}/realms/{realm-name}",
+   "user-info-url": "{auth-server-url}/realms/{realm-name}/protocol/openid-connect/userinfo",
+   "jwks-url": "{auth-server-url}/realms/{realm-name}/protocol/openid-connect/certs",
+   "jwt-access-token": true,
+   "scopes": "openid profile email",
    "resource": "bonita",
    "ssl-required": "external",
    "principal-attribute": "preferred_username",
-   "public-client": true,
+   "public-client": false,
    "autodetect-bearer-only": true,
    "enable-cors": true,
-   "cors-allowed-methods": "POST, PUT, DELETE, GET"
+   "cors-allowed-methods": "POST, PUT, DELETE, GET",
+   "credentials" : {
+     "secret" : "put-your-secret-here"
+   }
  }
 ----
 
- ** The property `realm` is only required if you use a Keycloak server as OIDC provider or if you want to benefit from the templating in the `*-path` properties (\{realm-name} will be replaced with the realm value). If you use a Keycloak server, make sure you set it with the name of the realm in which your Bonita OIDC client is/will be created.
+ ** The property `realm` is only required if you use a Keycloak server as OIDC provider or if you want to benefit from the templating in the `*-url` properties (\{realm-name} will be replaced with the realm value). If you use a Keycloak server, make sure you set it with the name of the realm in which your Bonita OIDC client is/will be created.
  ** `auth-server-url` is the base URL of the OIDC provider server. All other service endpoints URL values can reuse this base URL with the placeholder``+{auth-server-url}+``.
- ** `auth-path` needs to be set with the URL of your OIDC provider Authorization endpoint. It can be prefixed with `+{auth-server-url}+` to only indicate the path of the service or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
- ** `token-path` needs to be set with the URL of your OIDC provider Token endpoint. It can be prefixed with `+{auth-server-url}+` to only indicate the path of the service or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
- ** `token-service-logout-path` needs to be set with the URL of your OIDC provider Logout endpoint. It can be prefixed with `+{auth-server-url}+` to only indicate the path of the service or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
- ** `token-audience-path` needs to be set with the URL that will be used as audience in the ID token (`aud` claim). It can be prefixed with `+{auth-server-url}+` to only indicate the path of the service or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
- ** `jwks-path` needs to be set with the URL of your OIDC provider JSON Web Key Set endpoint. It can be prefixed with `+{auth-server-url}+` to only indicate the path of the service or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
+ ** `auth-url` needs to be set with the URL of your OIDC provider Authorization endpoint. It can be prefixed with `+{auth-server-url}+` to only indicate the path of the end point or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
+ ** `token-url` needs to be set with the URL of your OIDC provider Token endpoint. It can be prefixed with `+{auth-server-url}+` to only indicate the path of the end point or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
+ ** `logout-url` needs to be set with the URL of your OIDC provider Logout endpoint. It can be prefixed with `+{auth-server-url}+` to only indicate the path of the end point or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
+ ** `token-issuer-uri` needs to be set with the URL that will be used as issuer in the JWT tokens (`iss` claim). It can be prefixed with `+{auth-server-url}+` to only indicate the path of the issuer URI or be a full absolute URI. For example using Google's OIDC provider, the issuer is `https://accounts.google.com`. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
+ ** `user-info-url` needs to be set with the URL of your OIDC provider userInfo end point. It is only used when accessing a resource with a Bearer `Authorization` header with an access token that is opaque (not a JWT) and cannot be validated or used to retrieve the logged in user claims. It can be prefixed with `+{auth-server-url}+` to only indicate the path of the end point or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
+ ** `jwks-url` needs to be set with the URL of your OIDC provider JSON Web Key Set endpoint. It can be prefixed with `+{auth-server-url}+` to only indicate the path of the end point or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
+ ** `jwt-access-token` indicates if the access token is a JWT. If false, it will be considered by Bonita OIDC module as an opaque token and its validation and retrieval of the logged in user principal name will be delegated to the userInfo endpoint (see `user-info-url`). This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
+ ** `scopes` can be used to set the value of the `scope` parameter sent to the OIDC provider in the authentication request. The scope value `openid` is automatically added if it is no present, but you can add other scope values like `email` or `profile` depending on you OIDC provider configuration and the claims you need in the JWTs to match Bonita username. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
  ** `resource` is the OIDC client Id given to your Bonita installation. You can change it if you want but you need to provide it to your OIDC provider.
  ** the `ssl-required` property value may need to be changed if Bonita Portal and the IdP are not both accessed via HTTPS. Possible values for this property are: `all`, `external`, and `none`. For `all`, all requests must come in via HTTPS. For `external`, only non-private IP addresses must come over via HTTPS. For `none`, no requests are required to come over via HTTPS.
- ** the `principal-attribute` value indicates the OIDC ID Token attribute (`preferred_username`, `sub`, `email`, `name`, etc...) to use to be considered as user identifier in the client application. It should match the Bonita username
- ** `public-client` indicates that there are no credentials for the client sent to the OIDC provider server.
+ ** the `principal-attribute` value indicates the OIDC ID Token attribute/claim (`preferred_username`, `sub`, `email`, `name`, etc...) to use to be considered as user identifier in the client application. It should match the username in Bonita.
+ ** `public-client` needs to be set to `false` if the OIDC provider requires the client requests to be authenticated (with a client secret for example). In this case you also need to use the `credentials` property. If this property is set to `true`, then no client Authentication header will be sent to the OIDC provider.
  ** `enable-cors` is required only if you wan to be able to use Bonita REST API from a web application located on a different domain from your Bonita installation's. It comes with additional options `cors-max-age`, `cors-allowed-methods`, `cors-allowed-headers`, `cors-exposed-headers`. You can check Keycloak https://www.keycloak.org/docs/latest/securing_apps/#_java_adapter_config[client adpter config documentation] for more information.
+ ** `credentials` you can set it with an object containing either a `secret`,`jwt` or `secret-jwt` attribute if Bonita client is configured with a confidential access type in the OIDC provider (`public-client` is set to `false`). See https://www.keycloak.org/docs/latest/securing_apps/#_client_authentication_adapter[Keycloak's client authentication documentation] for more information.
  ** Some additional properties no present in the default file can be useful:
-  *** `credentials` you can set it to `password` or `jwt` if Bonita client is configured with a 'Confidential' access type in the OIDC provider.
   *** `connection-pool-size` for the pool of connection to the OIDC provider server (20 by default)
   *** `truststore` path to a truststore file for OIDC provider servers requiring HTTPS. It should contain one or more trusted host certificates or certificate authorities. You can create this truststore by extracting the public certificate of the OIDC server's SSL keystore. This property is mandatory if you OIDC provider requires HTTPS unless you set `disable-trust-manager` property to `true`. If the truststore requires a password, you also need to add the property `truststore-password`.
   *** `client-keystore` path to a keystore file containing client certificate for two-way SSL when the OIDC client adapter makes HTTPS requests to the OIDC provider server. You also need to add the properties `client-keystore-password` (password for the client keystore) and  `client-key-password` (password for the client's key).
   *** `token-store` indicates where the account information of the logged in user is stored on the client (Bonita bundle). By default it is `session` (HTTP session). `cookie` is also supported by the client adapter but it is not recommended to change it as all Bonita OIDC integration has been validated with the `session` setting.
-  *** `verify-token-audience` can be set to true to verify that the bearer token audience contains the client name (`resource ` property).
+  *** `verify-token-audience` can be set to `true` to verify that the JWT tokens audience (`aud` claim) contains the client Id (`resource` property).
+  *** `redirect-rewrite-rules` can be used to modify the path section of the redirect URI sent to the OIDC provider with the authentication or code exchange requests. By default the URI sent is the request URI as seen by Bonita OIDC module, but if Bonita is behind a reverse proxy for example, the path of the URI seen by Bonita OIDC module may be the one of the internal URI used by the reverse proxy and not the one of URI the OIDC provider needs to redirect the user agent (web browser) to. The value of this property is an object where each attribute key is a regular expression to which the Redirect URI path is to be matched and the attribute value is the replacement String. The other parts of the URI like the protocol, domain, port or query string cannot be modified. Here is an example:
++
+----
+  "redirect-rewrite-rules" : {
+    "^(.*)$" : "/portal/homepage"
+  }
+----
 
 [NOTE]
 ====
@@ -191,9 +208,9 @@ The expected format for Keys and certificates is PEM (with or without the commen
 More configuration options can be found in https://www.keycloak.org/docs/latest/securing_apps/#_java_adapter_config[Keycloak official documentation]
 ====
 
-. If your Identity Provider is corectly configured (see the section _Configure the Identity Provider_), you are done.
+. If your Identity Provider is correctly configured (see the section _Configure the Identity Provider_), you are done.
 Then you can try to access a portal page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in). +
-Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `oidc.auth.standard.allowed` to true) to be able to log in without an account on the Identity Provider.
+Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected to the OIDC provider's authentication end point since this page needs to be accessible in order for the tenant administrator (or another user if you set the property `oidc.auth.standard.allowed` to `true`) to be able to log in without an account on the Identity Provider.
 
 [WARNING]
 ====
@@ -207,19 +224,20 @@ If you need more fine tuning or if you cannot update the reverse proxy configura
 
 == Configure the Identity Provider
 
-Your IdP should declare an OIDC Service Provider named (or whose client Id is) `bonita` (or the value of the `resource` property set in the file *keycloack-oidc.json* of Bonita bundle if it is different ) with the following configuration or the equivalent depending on your OIDC provider:
+Your OIDC identity provider (IdP) should declare an OIDC Service Provider named (or whose client Id is) `bonita` (or the value of the `resource` property set in the file *keycloack-oidc.json* of Bonita bundle if it is different ) with the following configuration or the equivalent depending on your IdP:
 
 ----
     "clientId": "bonita",
+    "clientSecret": "your client secret",
     "baseUrl": "<your bonita server URL>", (for example http://my.company.domain:8080/bonita)
     "adminUrl": "<your bonita server URL>/keycloak", (for example http://my.company.domain:8080/bonita/keycloak)
   this URL is used by the server to communicate directly with Bonita service provider (to push revocation policies for example))
-    "clientAuthenticatorType": "client-secret", (can also be `client secret jwt`, `private key jwt`, etc... depending on your use case and security policies)
+    "clientAuthenticatorType": "client-secret", (can also be `client-secret-jwt`, `private-key-jwt`, etc... depending on your use case and security policies)
     "redirectUris": [
       "http://my.company.domain:8080/*" (those are the valid redirect URLs)
     ],
     "bearerOnly": false,
-    "publicClient": true,
+    "publicClient": false,
     "consentRequired": false, (or true if you want the users to have to consent if a third party app uses Bonita REST API for example)
     "standardFlowEnabled": true, (or false depending on your use case (if you need to use the implicit flow for example))
     "implicitFlowEnabled": false, (or true depending on your use case)
@@ -232,7 +250,7 @@ You may also define some token signature and encryption mechanism. In this case,
 [NOTE]
 ====
 
-If the IdP declares a redirect/target URL, it might override the target URL set by the Service Provider request, and you may always end up on the same page after logging in. In that case, try to remove the redirect URL. Bonita supports redirection to the URL initially requested after logging in on the IdP, provided the IdP doesn't force this URL.
+If the IdP declares a redirect URI, it might override the target URL (`redirect_URI` parameter) set by the Bonita OIDC module in the request, and you may always end up on the same page after logging in. In that case, try to remove the redirect URI from your OIDC provider's Bonita client configuration. Bonita supports redirection to the URL initially requested after logging in on the IdP, provided the IdP doesn't force this URL.
 ====
 
 == Configure logout behaviour
@@ -300,7 +318,7 @@ com.bonitasoft.level = FINE
 * Make sure `setup[.sh][.bat] push` has been executed and the server restarted after the changes.
 * Try cleaning the cache and cookies of the web browser.
 
-*Symptom:* Bonita portal URL profile and page parameters (or any other) after the hash (#) are lost in redirections. As a result once the OIDC login page redirects back to Bonita portal, the portal displays the first page of the default profile. +
+*Symptom:* Bonita portal URL profile and page parameters (or any other) after the hash (#) are lost in redirection. As a result once the OIDC login page redirects back to Bonita portal, the portal displays the first page of the default profile. +
 *Problem:* The hash part of an URL is not sent server-side. It only exists in the web browser. That explains this behavior. +
 *Solution:*
 The workaround is to put the parameters as regular URL query parameters. Bonita portal has a mechanism that will convert them to hash parameters if they need to be (this only works since version 7.8.1 of Bonita). +
@@ -327,7 +345,7 @@ We recommend that you use LDAP as your master source for information, synchroniz
 == Using Bonita REST API with OIDC
 
 When Bonita web application is configured for authentication with OpenID Connect, Bonita REST API is secured through OIDC too and it is possible to call it with an Oauth Access token.
-To obtain the access token, there are several options depending on your OpenID provider configuration and you use case:
+To obtain the access token, there are several options depending on your OpenID Connect provider configuration and your use case:
 
 [discrete]
 ==== Resource Owner Credentials Grant
@@ -345,9 +363,30 @@ For example, using a Keyclaok server as OIDC provider, with a realm named `bonit
   username:<user IdP username>
   client_id:bonitaOIDC
 ----
+The token endpoint of the OIDC provider will answer with an ID and an access token.
+Once you obtained the Access token, you can make your REST API request in a normal way, just adding a header `Authorization` with value `Bearer <Access token>` (replace the placeholder <Access token> with the token returned by the OIDC provider and make sure to keep the whitespace after `Bearer`).
 
 [discrete]
 ==== Authorization Code or Implicit Grant
 
-Those scenarios work the same way as when you login on Bonita portal/apps except it is the client application that needs to use Bonita REST API which needs to trigger the authentication process by calling the OIDC provider authorisation endpoint with Bonita OIDC client as `client_id`. The rest of the scenario is similar to what is described in the OIDC Authorization Code Flow schema. +
-Once you obtained the Access token, you can make your REST API request in a normal way, just adding a header `Authorization` with value `Bearer <Access token>` (replace the placeholder +++<Access token="">+++with the token returned by the OIDC provider and make sure to keep the whitespace after `Bearer`).+++</Access>+++
+Those scenarios work the same way as when you login on Bonita portal/apps except it is the client application that needs to use Bonita REST API which needs to trigger the authentication process by calling the OIDC provider authorisation endpoint with Bonita OIDC client as `client_id`. The rest of the scenario is similar to what is described in the xref:#oidc-overview[OIDC Authorization Code Flow schema]. +
+With Authorization Code Flow, once you obtain the authorization code, you can request again the OIDC provider to get the tokens with as `grant_type` value `authorization_code`:
+
+----
+  POST /auth/realms/bonita/protocol/openid-connect/token  HTTP/1.1
+  Host: localhost:9090
+  Content-Type: application/x-www-form-urlencoded
+
+  grant_type:authorization_code
+  code:<your code from the OIDC response after user login/consent>
+  client_id:<your client ID>
+  client_secret:<your client secret>
+----
+The token endpoint of the OIDC provider will answer with an ID and an access token.
+Once you obtained the Access token, you can make your REST API request in a normal way, just adding a header `Authorization` with value `Bearer <Access token>`.
+
+[NOTE]
+====
+
+If the OIDC provider returns opaque access token (non JWT), then Bonita OIDC client module will use UserInfo OIDC endpoint to validate the token and retrieve the user claims. Make sure the property `user-info-url` is correct in the file `keycloak-oidc.json`. 
+====
