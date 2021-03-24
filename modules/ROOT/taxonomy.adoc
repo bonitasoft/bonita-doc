@@ -148,7 +148,6 @@
    **** xref:performance-troubleshooting.adoc[Performance troubleshooting]
    **** xref:purge-tool.adoc[Purging unnecessary archive data]
   *** xref:use-gzip-compression.adoc[Use gzip compression]
-  *** xref:two-main-types-of-deployment.adoc[Two main types of deployment]
   *** Bonita in a cluster
    **** xref:overview-of-bonita-bpm-in-a-cluster.adoc[Overview of Bonita in a cluster]
    **** xref:install-a-bonita-bpm-cluster.adoc[Install a Bonita cluster]
