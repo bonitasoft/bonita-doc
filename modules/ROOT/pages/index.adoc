@@ -18,12 +18,12 @@ xref:release-notes.adoc[[.card-title]#Release note {varVersion}# [.card-body.car
 
 [.card.card-index]
 --
-xref:release-notes.adoc#data-management[[.card-title]#Business data management in the UI Designer# [.card-body.card-content-overflow]#pass:q[]#]
+xref:release-notes.adoc#data-management[[.card-title]#Business data management in the UI Designer# [.card-body.card-content-overflow]#pass:q[Automate the creation of containers/widgets in a form or a page by selecting the business data to display.]#]
 --
 
 [.card.card-index]
 --
-xref:release-notes.adoc#project-documentation[[.card-title]#Generation of the project documentation# [.card-body.card-content-overflow]#pass:q[]#]
+xref:release-notes.adoc#project-documentation[[.card-title]#Generation of the project documentation# [.card-body.card-content-overflow]#pass:q[Share and collaborate on your project with the automatic generation of the project documentation]#]
 --
 
 [.card.card-index]
@@ -33,12 +33,12 @@ xref:release-notes.adoc#bdm-editor[[.card-title]#New BDM editor# [.card-body.car
 
 [.card.card-index]
 --
-xref:release-notes.adoc#connector-archetype[[.card-title]#Extensibility: new connector and actor filter archetype# [.card-body.card-content-overflow]#pass:q[]#]
+xref:release-notes.adoc#connector-archetype[[.card-title]#Extensibility: new connector and actor filter archetype# [.card-body.card-content-overflow]#pass:q[Gain time and clicks with a new editor]#]
 --
 
 [.card.card-index]
 --
-xref:release-notes.adoc#uipath-cloud[[.card-title]#UiPath RPA connector, now in the Cloud# [.card-body.card-content-overflow]#pass:q[]#]
+xref:release-notes.adoc#uipath-cloud[[.card-title]#UiPath RPA connector, now in the Cloud# [.card-body.card-content-overflow]#pass:q[The UiPath connector now supports both cloud and on-premise version of UiPath]#]
 --
 
 [.card-section]
