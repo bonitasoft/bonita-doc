@@ -33,6 +33,12 @@ The configuration file defines standard rules for the most frequent cases, so al
 If you have migrated your platform from a version of Bonita earlier than 6.4.0, security is deactivated by default.
 You need to <<migrate,add authorization to your custom pages>> before you activate authorization.
 
+[NOTE.bonitacloud,caption=Bonita Cloud]
+====
+In Bonita Cloud, to change the properties files and apply Rest Authorization, you just have to open a support ticket and we'll apply the change on the requested environment for you ! :slightly_smiling_face:
+====
+
+
 [#static_authorization]
 
 == Static authorization checking
