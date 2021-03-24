@@ -15,7 +15,7 @@ To download the latest version of Bonita Studio, open the https://www.bonitasoft
 
 // update package name
 
-When the download is finished, you should have one of the following files on your computer (x.y refers to the version of Bonita Studio, e.g. {varVersion}):
+When the download is finished, you should have one of the following files on your computer (x.y refers to the version of Bonita Studio, e.g. {bonitaVersion}):
 
 * Windows: `BonitaStudioCommunity-x.y-x86_64.exe`
 * macOS: `BonitaStudioCommunity-x.y-x86_64.dmg`

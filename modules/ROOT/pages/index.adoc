@@ -1,14 +1,14 @@
 = Bonita Documentation
 :description: Learn how to use the Bonita Platform and all of its components.
 
-Learn how to use the Bonita Platform and all of its components. 
+Learn how to use the Bonita Platform and all of its components.
 
 [.card-section]
 == Highlights
 
 [.card.card-index]
 --
-xref:release-notes.adoc[[.card-title]#Release note {varVersion}# [.card-body.card-content-overflow]#pass:q[A brief presentation of the new values, improvements, technical changes, deprecations, removals, and bug fixes of this release.]#]
+xref:release-notes.adoc[[.card-title]#Release note {bonitaVersion}# [.card-body.card-content-overflow]#pass:q[A brief presentation of the new values, improvements, technical changes, deprecations, removals, and bug fixes of this release.]#]
 --
 
 [.card.card-index]
@@ -41,7 +41,7 @@ xref:release-notes.adoc#fault-tolerance-mechanism[[.card-title]#Fault tolerance 
 xref:release-notes.adoc#SSO-create-users[[.card-title]#Create a new user automatically in Bonita# [.card-body.card-content-overflow]#pass:q[If the user is known by the SSO, let it become a Bonita user too.]#]
 --
 
-== Video: What's new in Bonita {varVersion}
+== Video: What's new in Bonita {bonitaVersion}
 
 {empty}
 

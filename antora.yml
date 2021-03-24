@@ -3,7 +3,7 @@ title: Bonita
 version: 2021.1
 asciidoc:
   attributes:
-    varVersion: 2021.1
+    bonitaVersion: 2021.1
     bonitaDockerImageEnterpriseVersion: '7.12.2'
     crowdinBonitaVersion: 7.12
     bonitaTechnicalVersion: '7.12.1' # latest public community version
