@@ -65,7 +65,7 @@ xref:ui-designer-overview.adoc[[.card-title]#UI Designer overview# [.card-body.c
 
 [.card.card-index]
 --
-xref:bonita-bpm-studio-installation.adoc[[.card-title]#Bonita Studio installation# [.card-body.card-content-overflow]#pass:q[The very first step to start your Bonita project.]#]
+xref:bonita-bpm-studio-installation.adoc[[.card-title]#Bonita Studio installation# [.card-body.card-content-overflow]#pass:q[The very first step to start your Bonita project]#]
 --
 
 [.card.card-index]
