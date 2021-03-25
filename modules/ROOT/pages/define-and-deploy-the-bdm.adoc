@@ -50,10 +50,10 @@ As example, a package _com.company.product_ could contain the objects `Car` and 
 A business object definition consists of the following:
 
 * An object name. This must be a Java class name (starting with a capital letter), because a business object is implemented as a Java class. +
+
 [WARNING]
 ====
-
-*:fa-exclamation-triangle: Warning:* Business object names must be unique, even across packages.
+*Warning:* Business object names must be unique, even across packages.
 ====
 * Attributes. These are the components of the object. There can be any number of attributes. For each attribute, you can specify:
  ** A name starting with lower case letter.
