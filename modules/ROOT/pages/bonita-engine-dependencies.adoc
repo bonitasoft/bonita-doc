@@ -692,31 +692,31 @@
 | org.springframework.boot
 | spring-boot
 | 2.2.2.RELEASE
-| https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot[https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot]
+| https://projects.spring.io/spring-boot/\#/spring-boot-parent/spring-boot[https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-autoconfigure
 | 2.2.2.RELEASE
-| https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-autoconfigure[https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-autoconfigure]
+| https://projects.spring.io/spring-boot/\#/spring-boot-parent/spring-boot-autoconfigure[https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-autoconfigure]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-starter
 | 2.2.2.RELEASE
-| https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-starters/spring-boot-starter[https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-starters/spring-boot-starter]
+| https://projects.spring.io/spring-boot/\#/spring-boot-parent/spring-boot-starters/spring-boot-starter[https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-starters/spring-boot-starter]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-starter-jdbc
 | 2.2.2.RELEASE
-| https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-starters/spring-boot-starter-jdbc[https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-starters/spring-boot-starter-jdbc]
+| https://projects.spring.io/spring-boot/\#/spring-boot-parent/spring-boot-starters/spring-boot-starter-jdbc[https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-starters/spring-boot-starter-jdbc]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-starter-logging
 | 2.2.2.RELEASE
-| https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-starters/spring-boot-starter-logging[https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-starters/spring-boot-starter-logging]
+| https://projects.spring.io/spring-boot/\#/spring-boot-parent/spring-boot-starters/spring-boot-starter-logging[https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-starters/spring-boot-starter-logging]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.yaml
@@ -724,7 +724,7 @@
 | 1.25
 | http://www.snakeyaml.org[http://www.snakeyaml.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
-|=== 
+|===
 
 [discrete]
 === bonita-common-sp :
@@ -815,7 +815,7 @@
 | 1.7.25
 | http://www.slf4j.org[http://www.slf4j.org]
 |  http://www.opensource.org/licenses/mit-license.php[MIT License]
-|=== 
+|===
 
 [discrete]
 === bonita-client-sp :
@@ -954,7 +954,7 @@
 | 1.1.4c
 | http://www.extreme.indiana.edu/xgws/xsoap/xpp/mxp1/[http://www.extreme.indiana.edu/xgws/xsoap/xpp/mxp1/]
 |  http://creativecommons.org/licenses/publicdomain[Public Domain]
-|=== 
+|===
 
 [discrete]
 === bonita-server-sp :
@@ -1375,7 +1375,7 @@
 | 1.1.4c
 | http://www.extreme.indiana.edu/xgws/xsoap/xpp/mxp1/[http://www.extreme.indiana.edu/xgws/xsoap/xpp/mxp1/]
 |  http://creativecommons.org/licenses/publicdomain[Public Domain]
-|=== 
+|===
 
 [discrete]
 === platform-setup-sp :
@@ -1518,31 +1518,31 @@
 | org.springframework.boot
 | spring-boot
 | 2.2.2.RELEASE
-| https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot[https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot]
+| https://projects.spring.io/spring-boot/\#/spring-boot-parent/spring-boot[https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-autoconfigure
 | 2.2.2.RELEASE
-| https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-autoconfigure[https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-autoconfigure]
+| https://projects.spring.io/spring-boot/\#/spring-boot-parent/spring-boot-autoconfigure[https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-autoconfigure]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-starter
 | 2.2.2.RELEASE
-| https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-starters/spring-boot-starter[https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-starters/spring-boot-starter]
+| https://projects.spring.io/spring-boot/\#/spring-boot-parent/spring-boot-starters/spring-boot-starter[https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-starters/spring-boot-starter]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-starter-jdbc
 | 2.2.2.RELEASE
-| https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-starters/spring-boot-starter-jdbc[https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-starters/spring-boot-starter-jdbc]
+| https://projects.spring.io/spring-boot/\#/spring-boot-parent/spring-boot-starters/spring-boot-starter-jdbc[https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-starters/spring-boot-starter-jdbc]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-starter-logging
 | 2.2.2.RELEASE
-| https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-starters/spring-boot-starter-logging[https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-starters/spring-boot-starter-logging]
+| https://projects.spring.io/spring-boot/\#/spring-boot-parent/spring-boot-starters/spring-boot-starter-logging[https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-starters/spring-boot-starter-logging]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.yaml
