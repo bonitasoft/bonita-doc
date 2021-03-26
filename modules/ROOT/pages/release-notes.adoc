@@ -4,7 +4,7 @@
 [NOTE]
 ====
 
-The 2021.2 is currently work in progress (WIP). The 2021.2 GA is planned on June 2021.
+The 2021.2 is currently work in progress (WIP).
 ====
 
 == New values added
