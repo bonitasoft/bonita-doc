@@ -31,6 +31,7 @@ To specify an organization manually, you create the organization, create the gro
  ** Select the name of your organization and click *_Next_*.
  ** Click *_Add_* to add a group. You can specify the following:
   *** the group Name, which is used internally by the Bonita software.
+
 [WARNING]
 ====
 
