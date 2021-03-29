@@ -1,7 +1,7 @@
 = OpenID Connect SSO configuration
-:description: Bonita can be configured to use the OpenID Connect (OIDC) protocol to provide single sign-on (SSO), as long as you already have an OpenID Connect Identity Provider server up and running (IdP). OIDC is an extension of OAuth 2.0. Contrary to the SSO support of SAML2, both Bonita Web User Interface and Bonita REST API can be secured and accessed using the OIDC protocol as authentication mechanism (versus just the Web User Interface for SAML2).
+:description: Bonita can be configured to use the OpenID Connect (OIDC) protocol to provide single sign-on (SSO), as long as you already have an OpenID Connect Identity Provider server up and running (IdP). OIDC is an extension of OAuth 2.0. Contrary to the SSO support of SAML2, both Bonita Web User Interface and Bonita REST API can be secured and accessed using the OIDC/Oauth protocols (versus just the Web User Interface for SAML2).
 
-Bonita can be configured to use the OpenID Connect (OIDC) protocol to provide single sign-on (SSO), as long as you already have an OpenID Connect Identity Provider server up and running (IdP). OIDC is an extension of OAuth 2.0. Contrary to the SSO support of SAML2, both Bonita Web User Interface and Bonita REST API can be secured and accessed using the OIDC protocol as authentication mechanism (versus just the Web User Interface for SAML2).
+Bonita can be configured to use the OpenID Connect (OIDC) protocol to provide single sign-on (SSO), as long as you already have an OpenID Connect Identity Provider server up and running (IdP). OIDC is an extension of OAuth 2.0. Contrary to the SSO support of SAML2, both Bonita Web User Interface and Bonita REST API can be secured and accessed using the OIDC/Oauth protocols (versus just the Web User Interface for SAML2).
 
 [NOTE]
 ====
@@ -21,7 +21,9 @@ Bonita uses http://www.keycloak.org/[Keycloak] OIDC Service client adapter. It h
 
 == OpenID Connect overview for Bonita
 
-This is an overview that describes the steps of the authentication process on a Bonita bundle configured as an OIDC client.
+Only the *Authorization Code Flow* of OpenID Connect is supported. Not the *Implicit Flow*.
+
+This is an overview that describes the steps of the authentication process on a Bonita bundle configured as an OIDC client:
 [#oidc-overview]
 
 image:images/oidc-overview.png[Authentication over OIDC]
@@ -35,7 +37,7 @@ it is composed of:
 It checks if the user is already logged in on Bonita
 
  ** If already logged in \=> Allow the access
- ** If not logged in \=> Redirect to IdP (with scope, client Id, redirect URI, and expected response type)
+ ** If not logged in \=> Redirect to IdP (with scope, client Id, redirect URI, and `code` response type)
 
 * An Implementation of the Authentication Manager extension point that retrieves the authentication information in the requests to log in to Bonita engine with the right credentials.
 
@@ -241,8 +243,8 @@ Your OIDC identity provider (IdP) should declare an OIDC Service Provider named 
     "bearerOnly": false,
     "publicClient": false,
     "consentRequired": false, (or true if you want the users to have to consent if a third party app uses Bonita REST API for example)
-    "standardFlowEnabled": true, (or false depending on your use case (if you need to use the implicit flow for example))
-    "implicitFlowEnabled": false, (or true depending on your use case)
+    "standardFlowEnabled": true, (this is for the authorization code flow)
+    "implicitFlowEnabled": false, (Bonita OIDC module does not support implicit flow)
     "directAccessGrantsEnabled": true, (or false if you don't want to use the Resource Owner Credentials Grant type to access the REST API)
     "frontchannelLogout": true,
 ----
@@ -369,7 +371,7 @@ The token endpoint of the OIDC provider will answer with an ID and an access tok
 Once you obtained the Access token, you can make your REST API request in a normal way, just adding a header `Authorization` with value `Bearer <Access token>` (replace the placeholder <Access token> with the token returned by the OIDC provider and make sure to keep the whitespace after `Bearer`).
 
 [discrete]
-==== Authorization Code or Implicit Grant
+==== Authorization Code Grant
 
 Those scenarios work the same way as when you login on Bonita portal/apps except it is the client application that needs to use Bonita REST API which needs to trigger the authentication process by calling the OIDC provider authorisation endpoint with Bonita OIDC client as `client_id`. The rest of the scenario is similar to what is described in the xref:#oidc-overview[OIDC Authorization Code Flow schema]. +
 With Authorization Code Flow, once you obtain the authorization code, you can request again the OIDC provider to get the tokens with as `grant_type` value `authorization_code`:
