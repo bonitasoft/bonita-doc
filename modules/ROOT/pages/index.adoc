@@ -8,37 +8,37 @@ Learn how to use the Bonita Platform and all of its components.
 
 [.card.card-index]
 --
-xref:release-notes.adoc[[.card-title]#Release note {bonitaVersion}# [.card-body.card-content-overflow]#pass:q[A brief presentation of the new values, improvements, technical changes, deprecations, removals, and bug fixes of this release.]#]
+xref:release-notes.adoc[[.card-title]#Release note {bonitaVersion}# [.card-body.card-content-overflow]#pass:q[At a glance: new values, improvements, changes, and bug fixes]#]
 --
 
 [.card.card-index]
 --
-xref:release-notes.adoc#feature-transfer[[.card-title]#Stronger Open Source DNA# [.card-body.card-content-overflow]#pass:q[Everything gets clear between the Community and Enterprise editions.]#]
+xref:release-notes.adoc#feature-transfer[[.card-title]#Stronger Open Source DNA# [.card-body.card-content-overflow]#pass:q[Everything gets clear between the Community and Enterprise editions]#]
 --
 
 [.card.card-index]
 --
-xref:release-notes.adoc#admin-app[[.card-title]#New Bonita Administrator application# [.card-body.card-content-overflow]#pass:q[Use it as is, or customize it to fit your needs.]#]
+xref:release-notes.adoc#admin-app[[.card-title]#New Bonita Administrator application# [.card-body.card-content-overflow]#pass:q[Use it as is, or customize it to fit your needs]#]
 --
 
 [.card.card-index]
 --
-xref:release-notes.adoc#maintenance-compatibility[[.card-title]#Maintenance versions compatibility# [.card-body.card-content-overflow]#pass:q[Teams can work on the same Bonita project with different Bonita Studio maintenance versions.]#]
+xref:release-notes.adoc#maintenance-compatibility[[.card-title]#Maintenance versions compatibility# [.card-body.card-content-overflow]#pass:q[Work on one project with different Bonita Studio maintenance versions]#]
 --
 
 [.card.card-index]
 --
-xref:release-notes.adoc#simplified-script[[.card-title]#Simplified expression editor# [.card-body]#pass:q[Business rules made accessible to business users.]#]
+xref:release-notes.adoc#simplified-script[[.card-title]#Simplified expression editor# [.card-body]#pass:q[Business rules made accessible to business users]#]
 --
 
 [.card.card-index]
 --
-xref:release-notes.adoc#fault-tolerance-mechanism[[.card-title]#Fault tolerance mechanism# [.card-body.card-content-overflow]#pass:q[A new mechanism to recover from exceptional issues and ensure data resilience.]#]
+xref:release-notes.adoc#fault-tolerance-mechanism[[.card-title]#Fault tolerance mechanism# [.card-body.card-content-overflow]#pass:q[Recover from exceptional issues and ensure data resilience]#]
 --
 
 [.card.card-index]
 --
-xref:release-notes.adoc#SSO-create-users[[.card-title]#Create a new user automatically in Bonita# [.card-body.card-content-overflow]#pass:q[If the user is known by the SSO, let it become a Bonita user too.]#]
+xref:release-notes.adoc#SSO-create-users[[.card-title]#Create a new user automatically in Bonita# [.card-body.card-content-overflow]#pass:q[If the user is known by the SSO, let it become a Bonita user]#]
 --
 
 == Video: What's new in Bonita {bonitaVersion}
@@ -53,37 +53,37 @@ Also available in https://www.youtube.com/playlist?list=PLvvoQatxaHOPWv6rMQPNIxz
 == Getting started
 [.card.card-index]
 --
-xref:tutorial-overview.adoc[[.card-title]#Getting started tutorial# [.card-body.card-content-overflow]#pass:q[A step-by-step creation of a first simple Living Application to learn about all the concepts in Bonita.]#]
+xref:tutorial-overview.adoc[[.card-title]#Getting started tutorial# [.card-body.card-content-overflow]#pass:q[A step-by-step creation of a first simple Living Application]#]
 --
 
 [.card.card-index]
 --
-xref:diagram-overview.adoc[[.card-title]#Process diagram overview# [.card-body.card-content-overflow]#pass:q[A BPMN definition of the logic executing in the background of th application.]#]
+xref:diagram-overview.adoc[[.card-title]#Process diagram overview# [.card-body.card-content-overflow]#pass:q[A BPMN definition of the logic behind the application]#]
 --
 
 [.card.card-index]
 --
-xref:key-concepts.adoc[[.card-title]#Key concepts# [.card-body.card-content-overflow]#pass:q[All the concepts needed to create a Bonita automation project.]#]
+xref:key-concepts.adoc[[.card-title]#Key concepts# [.card-body.card-content-overflow]#pass:q[All the concepts needed to create a Bonita automation project]#]
 --
 
 [.card.card-index]
 --
-xref:ui-designer-overview.adoc[[.card-title]#UI Designer overview# [.card-body.card-content-overflow]#pass:q[A presentation of the tool that allows you to create pages, forms, and all UI-related artifacts.]#]
+xref:ui-designer-overview.adoc[[.card-title]#UI Designer overview# [.card-body.card-content-overflow]#pass:q[A presentation of the tool that allows you to create all UI-related artifacts]#]
 --
 
 [.card.card-index]
 --
-xref:bonita-bpm-studio-installation.adoc[[.card-title]#Bonita Studio installation# [.card-body.card-content-overflow]#pass:q[The very first step to start your Bonita project.]#]
+xref:bonita-bpm-studio-installation.adoc[[.card-title]#Bonita Studio installation# [.card-body.card-content-overflow]#pass:q[The very first step to start your Bonita project]#]
 --
 
 [.card.card-index]
 --
-xref:tomcat-bundle.adoc[[.card-title]#Basic Bonita Runtime installation# [.card-body.card-content-overflow]#pass:q[Create Production and non-Production environments to execute your Bonita automation project.]#]
+xref:tomcat-bundle.adoc[[.card-title]#Basic Bonita Runtime installation# [.card-body.card-content-overflow]#pass:q[Create environments to run Bonita automation projects]#]
 --
 
 [.card.card-index]
 --
-xref:create-your-first-project-with-the-engine-apis-and-maven.adoc[[.card-title]#Create your first project with Engine APIs and Maven# [.card-body.card-content-overflow]#pass:q[Set up a Maven client application using Bonita Engine APIs to run a process.]#]
+xref:create-your-first-project-with-the-engine-apis-and-maven.adoc[[.card-title]#Create your first project with Engine APIs and Maven# [.card-body.card-content-overflow]#pass:q[Set up a Maven client application on Bonita Engine APIs]#]
 --
 
 [.card-section]
@@ -91,20 +91,20 @@ xref:create-your-first-project-with-the-engine-apis-and-maven.adoc[[.card-title]
 
 [.card.card-index]
 --
-link:https://www.bonitasoft.com/downloads[[.card-title]#Download Bonita software# [.card-body.card-content-overflow]#pass:q[A link to our Community web site, the place to get Bonita.]#]
+link:https://www.bonitasoft.com/downloads[[.card-title]#Download Bonita software# [.card-body.card-content-overflow]#pass:q[A link to our Community web site, the place to get Bonita]#]
 --
 
 [.card.card-index]
 --
-link:https://www.bpmn.org[[.card-title]#BPMN standard# [.card-body.card-content-overflow]#pass:q[A link to THE BPMN reference.]#]
+link:https://www.bpmn.org[[.card-title]#BPMN standard# [.card-body.card-content-overflow]#pass:q[A link to THE BPMN reference]#]
 --
 
 [.card.card-index]
 --
-link:https://www.bonitasoft.com/library/ultimate-guide-bpmn[[.card-title]#The Ultimate Guide to BPMN2# [.card-body.card-content-overflow]#pass:q[Download Bonitasoft's whitepaper on BPMN2.]#]
+link:https://www.bonitasoft.com/library/ultimate-guide-bpmn[[.card-title]#The Ultimate Guide to BPMN2# [.card-body.card-content-overflow]#pass:q[Download Bonitasoft's whitepaper on BPMN2]#]
 --
 
 [.card.card-index]
 --
-link:https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[[.card-title]#Javadoc# [.card-body.card-content-overflow]#pass:q[The API documentation extracted from our source code.]#]
+link:https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[[.card-title]#Javadoc# [.card-body.card-content-overflow]#pass:q[The API documentation extracted from our source code]#]
 --
