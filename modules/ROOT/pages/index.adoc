@@ -28,12 +28,12 @@ xref:release-notes.adoc#improve-form-generation[[.card-title]#Faster Form Genera
 
 [.card.card-index]
 --
-xref:release-notes.adoc#new-bonita-layout[[.card-title]#A new Bonita Layout for your applications# [.card-body.card-content-overflow]#pass:q[Includes user information, a logout button, and direct access to other applications]#]
+xref:release-notes.adoc#new-bonita-layout[[.card-title]#A new Bonita Layout for your applications# [.card-body.card-content-overflow]#pass:q[Get user information, a logout button, and direct access to other apps]#]
 --
 
 [.card.card-index]
 --
-xref:release-notes.adoc#theme-in-project[[.card-title]#Theme projects are now integrated in Bonita project (Subscription only)# [.card-body.card-content-overflow]#pass:q["Create, edit, build, and deployed them within the Bonita project. "]#]
+xref:release-notes.adoc#theme-in-project[[.card-title]#Theme projects are now integrated in Bonita project (Subscription only)# [.card-body.card-content-overflow]#pass:q[Create, edit, build, and deployed them within the Bonita project]#]
 --
 
 [.card.card-index]
