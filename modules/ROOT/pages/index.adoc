@@ -60,7 +60,7 @@ xref:key-concepts.adoc[[.card-title]#Key concepts# [.card-body.card-content-over
 
 [.card.card-index]
 --
-xref:ui-designer-overview.adoc[[.card-title]#UI Designer overview# [.card-body.card-content-overflow]#pass:q[A presentation of the tool that allows you to create pages, forms, and all UI-related artifacts]#]
+xref:ui-designer-overview.adoc[[.card-title]#UI Designer overview# [.card-body.card-content-overflow]#pass:q[A presentation of the tool that allows you to create all UI-related artifacts]#]
 --
 
 [.card.card-index]
