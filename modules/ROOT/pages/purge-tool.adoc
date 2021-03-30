@@ -13,6 +13,12 @@ For Enterprise, Performance, Efficiency, and Teamwork editions only. +
 This tool is not available publicly. Use https://customer.bonitasoft.com/download/request[Bonita Customer Portal] to download it.
 ====
 
+[WARNING]
+====
+
+The purge tool doesn't delete the documents stored in the DOCUMENT table. It will only remove the mapping between the archived cases and the document itself. If you want to purge the Document table, you will have to use the Engine API or REST API. See the xref:documents.adoc[documents page]. 
+====
+
 == Pre-requisites
 
 This tool can be run on a Bonita runtime environment in a version greater than or equal to 7.7.0. +
