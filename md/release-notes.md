@@ -148,12 +148,25 @@ As part of the reinforcement of our Open Source DNA, Search keys can now be defi
 Take a look at the [search keys documentation](define-a-search-index.md) to learn more about it. 
 
 #### BDM (Business Data Model) class generation
-
+##### ID generation
 In Bonita 2021.1, we changed the way ID's are generated when you deploy a (new version of a) Business Data Model.  
 Previously, the strategy to generate table ID's of BDM objects was left to Hibernate to decide. It could be a database SEQUENCE, an auto-incremented column, ...  
 Now, the specific implementation is explicitly set on each ID column during the BDM class generation. It is however different
 from one Database vendor to another (a database SEQUENCE for Oracle and PostgreSQL, an auto-incremented column for MySQL and MS SQL Server).  
 Note that no change is required from you, and upgrading to Bonita 2021.1 does not affect your already generated BDM until you actually redeploy it (next time you update it).
+##### Foreign key generation
+In Bonita 7.11, the automatic name generation for foreign keys changed. It does not affect new BDM deployments, or already deployed BDMs.
+However, because of a bug (RUNTIME-154, itself caused by the bug HHH-13779 in the underlying hibernate library), redeploying a BDM causes those foreign key to be generated a second time.
+On Oracle, it is forbidden to generate such duplicated foreign keys, so the BDM redeployment operation fails. This is fixed in the next Bonita 2021.1 release.
+On other supported Db vendors the resulting schema in the database will have some duplicated foreign keys: foreign keys with a different name, but otherwise identical.
+Note: it will never generate more than two identical foreign keys, even after several BDM redeployment.
+This has no effect on the behavior of either the Bonita platform, or the BDM. That said, you may wish to clean your BDM database of these duplicated foreign keys. To do so:
+1. Stop your bonita server
+1. Open the db in an edition tool (or execute in command line the relevant commands)
+1. Drop all the duplicated auto-generated foreign keys. You should see identical foreign keys (ie. affecting same columns, on the same table etc.), with ones named FK_<hash>, and the others named FK<another_hash>. 
+   You should drop the ones named FK_<hash>.
+   
+1. Start your bonita server
 
 ## Technical updates
 ### Libraries
