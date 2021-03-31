@@ -1,7 +1,7 @@
 = OpenID Connect SSO configuration
-:description: Bonita can be configured to use the OpenID Connect (OIDC) protocol to provide single sign-on (SSO), as long as you already have an OpenID Connect Identity Provider server up and running (IdP). OIDC is an extension of OAuth 2.0. Contrary to the SSO support of SAML2, both Bonita Web User Interface and Bonita REST API can be secured and accessed using the OIDC/Oauth protocols (versus just the Web User Interface for SAML2).
+:description: Bonita can be configured to use the OpenID Connect (OIDC) protocol to provide single sign-on (SSO), as long as you already have an OpenID Connect Identity Provider server up and running (IdP). OIDC is an extension of OAuth 2.0. Contrary to the SSO support of SAML2, both Bonita Web User Interface and Bonita REST API can be secured and accessed using the OIDC/OAuth protocols (versus just the Web User Interface for SAML2).
 
-Bonita can be configured to use the OpenID Connect (OIDC) protocol to provide single sign-on (SSO), as long as you already have an OpenID Connect Identity Provider server up and running (IdP). OIDC is an extension of OAuth 2.0. Contrary to the SSO support of SAML2, both Bonita Web User Interface and Bonita REST API can be secured and accessed using the OIDC/Oauth protocols (versus just the Web User Interface for SAML2).
+Bonita can be configured to use the OpenID Connect (OIDC) protocol to provide single sign-on (SSO), as long as you already have an OpenID Connect Identity Provider server up and running (IdP). OIDC is an extension of OAuth 2.0. Contrary to the SSO support of SAML2, both Bonita Web User Interface and Bonita REST API can be secured and accessed using the OIDC/OAuth protocols (versus just the Web User Interface for SAML2).
 
 [NOTE]
 ====
