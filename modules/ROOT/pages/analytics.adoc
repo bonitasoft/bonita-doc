@@ -119,10 +119,10 @@ Optionally, a properties file can be added if the report is localized in differe
 ==== Install a report created in the standard Jasper format.
 
 . Go to *Analytics*.
-. Click the _*Install*_ button in the top left corner of the screen.
+. Click the *_Install_* button in the top left corner of the screen.
 . Name the report.
 . Select to your Jasper file (.zip) on your disk drive.
-. Click _*Install*_.
+. Click *_Install_*.
 
 [discrete]
 ==== Result
@@ -135,10 +135,10 @@ A report in the Bonita Portal can be exported as a .pdf file.
 
 . Go to *Analytics*.
 . Select the report that you want to export. This can be one of the default reports, or a custom report that you have installed.
-. Click the _*More*_ button.
-. Click the _*Export*_ button.
+. Click the *_More_* button.
+. Click the *_Export_* button.
 . Specify where the report PDF file will be saved.
-. Click _*OK*_.
+. Click *_OK_*.
 
 == Manage Japanese PDF reports
 

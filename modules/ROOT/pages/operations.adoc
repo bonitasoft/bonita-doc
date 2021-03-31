@@ -30,16 +30,16 @@ You can define a sequence of operations at a task. The operations are performed 
 
 === Business object (BO)
 
-* _*takes value of*_ : the value of the right operand variable is used to update the value of the left operand (the BO) using the "=" operator
+* *_takes value of_* : the value of the right operand variable is used to update the value of the left operand (the BO) using the "=" operator
 * _*Java method*_: the left BO is updated with the value from the right operand using an invoked Java method
 * _*instantiate with*_: at runtime, when the operator is called, the business data variable points to the selected BO instance if it uses a _Query expression type_. +
  The BO instance must exist in the business data database; otherwise the operator throws an exception. +
  The BO instance is not modified during the operation but from that point onward, any expression or operation in the process can reference this object instance to make changes. +
  If it uses a _Script expression type_, you can use the contract inputs to fill in the BO attributes. +
  Go to xref:define-and-deploy-the-bdm.adoc[Initialize BDM attributes from contract inputs in task operations] for more information.
-* _*isDeleted*_: an operator 'Is Deleted' can be called on a business data variable. The BO instance that the business data references is deleted from the database, at runtime, after the task is completed.
+* *_isDeleted_*: an operator 'Is Deleted' can be called on a business data variable. The BO instance that the business data references is deleted from the database, at runtime, after the task is completed.
 
-WARNING: Calling other operations (including _*instantiate with*_) after calling _*isDeleted*_ on the same Business Object, in the same task, is not supported. If you want to re instantiate your Business Object, and perform operations on it, you should do it in a separate task.
+WARNING: Calling other operations (including _*instantiate with*_) after calling *_isDeleted_* on the same Business Object, in the same task, is not supported. If you want to re instantiate your Business Object, and perform operations on it, you should do it in a separate task.
 
 WARNING: Operations on business objects can be done only at task level.
 
