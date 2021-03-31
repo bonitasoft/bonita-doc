@@ -45,6 +45,13 @@ What should not be done is:
 * Call Rest APIs: Network call can drastically impact Bonita platform performance.
 * Call Bonita platform Java APIs: It will not work, APIs handle the transaction and when the handler is called, we are already in transaction.
 
+[NOTE]
+====
+
+If you still want to do Network call of Bonita platform java APIs calls, you can do it by triggering those calls asynchronously using e.g. a message queue or an ExecutorService. 
+Please note that the handler is triggered during the execution of a transaction so it's better to trigger the processing after the current transaction. This can be done by registering a `javax.transaction.Synchronization` using the `javax.transaction.TransactionManager`
+====
+
 == Example: deploy an event handler
 
 This example shows an event handler that detects changes in the state of activity instances.
