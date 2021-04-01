@@ -4,7 +4,7 @@
 [NOTE]
 ====
 
-The 2021.2 is currently work in progress (WIP). The 2021.2 GA is planned on June 2021.
+The 2021.2 is currently work in progress (WIP).
 ====
 
 == New values added
@@ -79,7 +79,7 @@ and remove the JAAS configuration to use another Authentication Manager (an impl
 
 == Bug fixes
 
-=== Fixes in Bonita 7.13.0 (2021-06-04)
+=== Fixes in Bonita 2021.2
 
 ==== Fixes in Bonita Development Suite (Studio and UI Designer)
 
