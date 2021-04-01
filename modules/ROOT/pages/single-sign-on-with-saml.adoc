@@ -97,7 +97,7 @@ Make sure to link:multi-tenancy-and-tenant-configuration#toc2[set the right tena
 
 . In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`,
 edit the file *bonita-tenant-sp-custom.xml* to uncomment the bean passphraseOrPasswordAuthenticationService:
-
++
 [source,xml]
 ----
         <bean id="passphraseOrPasswordAuthenticationService" class="com.bonitasoft.engine.authentication.impl.PassphraseOrPasswordAuthenticationService" lazy-init="true">
@@ -106,7 +106,7 @@ edit the file *bonita-tenant-sp-custom.xml* to uncomment the bean passphraseOrPa
            <constructor-arg name="configuredPassphrase" value="${authentication.service.ref.passphrase}" />
        </bean>
 ----
-
++
 . In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
 edit the file bonita-tenant-sp-custom.properties as follows:
 +
