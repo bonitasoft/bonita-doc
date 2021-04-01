@@ -239,7 +239,7 @@ Your OIDC identity provider (IdP) should declare an OIDC Service Provider named 
     "frontchannelLogout": true,
 ----
 
-If you use "Signed JWT" as the method of authentication for your bonita client you must either provide the public key or the certificate of the Bonita server to the OIDC provider or a JWKS URL where the OIDC provider can download the client’s public keys. Bonita OIDC module provides this service at the following URL: "http://my.company.domain:8080/bonita/k_jwks"
+If you use "Signed JWT" as the method of authentication for your bonita client you must either provide the public key or the certificate of the Bonita server to the OIDC provider or a JWKS URL where the OIDC provider can download the client’s public keys. Bonita OIDC module provides this service at the following URL: "http://my.company.domain:8080/bonita/k_jwks" +
 You may also define some access or ID token signature and encryption mechanism. In this case, make sure to update Bonita bundle configuration file *keycloack-oidc.json* accordingly.
 
 [NOTE]
