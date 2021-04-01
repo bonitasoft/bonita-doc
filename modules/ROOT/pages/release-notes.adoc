@@ -186,7 +186,7 @@ Now, the specific implementation is explicitly set on each ID column during the 
 from one Database vendor to another (a database SEQUENCE for Oracle and PostgreSQL, an auto-incremented column for MySQL and MS SQL Server). +
 Note that no change is required from you, and upgrading to Bonita 2021.1 does not affect your already generated BDM until you actually redeploy it (next time you update it).
 
-===== Id generation
+===== Foreign key generation
 In Bonita 7.11, the automatic name generation for foreign keys changed. It does not affect new BDM deployments, or already deployed BDMs.
 However, because of a bug (RUNTIME-154, itself caused by the bug HHH-13779 in the underlying hibernate library), redeploying a BDM causes those foreign key to be generated a second time.
 On Oracle, it is forbidden to generate such duplicated foreign keys, so the BDM redeployment operation fails. This is fixed in the next Bonita 2021.1 release.
