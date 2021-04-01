@@ -137,15 +137,6 @@ If you want Bonita engine to create the accounts on the fly once a user accessin
 +
 NOTE: Activating this option means any user authorized by the IdP to access Bonita will have an account created automatically in Bonita Database.
 
-. If your OIDC Provider requires requests to be signed, generate a private key.
-For example on linux, you can use the command ssh-keygen, then go to "`cd ~/.ssh`" to retrieve the key from the file id_rsa (more id_rsa, then copy the key).
-
-[NOTE]
-====
-
-The expected format for Keys and certificates is PEM (with or without the comment header and footer). +
-====
-
 . In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`, +
  edit the file *keycloak-oidc.json* to setup Bonita webapp as an OIDC client working with your OIDC provider.
 +
@@ -211,7 +202,7 @@ The expected format for Keys and certificates is PEM (with or without the commen
 More configuration options can be found in https://www.keycloak.org/docs/latest/securing_apps/#_java_adapter_config[Keycloak official documentation]
 ====
 
-. If your Identity Provider is correctly configured (see the section _Configure the Identity Provider_), you are done.
+If your Identity Provider is correctly configured (see the section _Configure the Identity Provider_), you are done.
 Then you can try to access a portal page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in). +
 Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected to the OIDC provider's authentication end point since this page needs to be accessible in order for the tenant administrator (or another user if you set the property `oidc.auth.standard.allowed` to `true`) to be able to log in without an account on the Identity Provider.
 
@@ -235,7 +226,7 @@ Your OIDC identity provider (IdP) should declare an OIDC Service Provider named 
     "baseUrl": "<your bonita server URL>", (for example http://my.company.domain:8080/bonita)
     "adminUrl": "<your bonita server URL>/keycloak", (for example http://my.company.domain:8080/bonita/keycloak)
   this URL is used by the server to communicate directly with Bonita service provider (to push revocation policies for example))
-    "clientAuthenticatorType": "client-secret", (can also be `client-secret-jwt`, `private-key-jwt`, etc... depending on your use case and security policies)
+    "clientAuthenticatorType": "client-secret", (can also be "signed JWT" or "signed JWT with client secret" depending on your use case and security policies)
     "redirectUris": [
       "http://my.company.domain:8080/*" (those are the valid redirect URLs)
     ],
@@ -248,7 +239,8 @@ Your OIDC identity provider (IdP) should declare an OIDC Service Provider named 
     "frontchannelLogout": true,
 ----
 
-You may also define some token signature and encryption mechanism. In this case, make sure to update Bonita bundle configuration file *keycloack-oidc.json* accordingly.
+If you use "Signed JWT" as the method of authentication for your bonita client you must either provide the public key or the certificate of the Bonita server to the OIDC provider or a JWKS URL where the OIDC provider can download the client’s public keys. Bonita OIDC module provides this service at the following URL: "http://my.company.domain:8080/bonita/k_jwks"
+You may also define some access or ID token signature and encryption mechanism. In this case, make sure to update Bonita bundle configuration file *keycloack-oidc.json* accordingly.
 
 [NOTE]
 ====
