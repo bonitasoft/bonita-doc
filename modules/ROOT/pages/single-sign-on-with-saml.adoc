@@ -209,14 +209,14 @@ Due to an https://issues.redhat.com/browse/KEYCLOAK-4377[issue] with the version
 [NOTE]
 ====
 
-*Note 2:* _If your IdP neither requires the SSO requests to be signed nor encrypts its own responses, you can remove the Keys node from the SP and set the attributes signaturesRequired, signRequest and signResponse to false._ +
+_If your IdP neither requires the SSO requests to be signed nor encrypts its own responses, you can remove the Keys node from the SP and set the attributes signaturesRequired, signRequest and signResponse to false._ +
 _If your IdP responses are not signed, you can remove the Keys node from the IDP and set the attributes validateRequestSignature and validateResponseSignature to false._
 ====
 
 [NOTE]
 ====
 
-*Note 3:* More configuration options can be found in https://www.keycloak.org/docs/latest/securing_apps/index.html#_saml-general-config[Keycloak official documentation]
+More configuration options can be found in https://www.keycloak.org/docs/latest/securing_apps/index.html#_saml-general-config[Keycloak official documentation]
 ====
 
 [source,xml]
