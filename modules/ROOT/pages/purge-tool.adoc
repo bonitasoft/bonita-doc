@@ -10,7 +10,7 @@ By default, all archives are preserved forever in Bonita runtime, but if your fu
 ====
 
 For Enterprise, Performance, Efficiency, and Teamwork editions only. +
-This tool is not available publicly. Use https://customer.bonitasoft.com/download/request[Bonita Customer Portal] to download it.
+This tool is not available publicly. Use https://customer.bonitasoft.com/download/request[Bonita Customer Service Center] to download it.
 ====
 
 == Pre-requisites
