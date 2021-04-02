@@ -97,7 +97,7 @@ Make sure to link:multi-tenancy-and-tenant-configuration#toc2[set the right tena
 
 . In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`,
 edit the file *bonita-tenant-sp-custom.xml* to uncomment the bean passphraseOrPasswordAuthenticationService:
-
++
 [source,xml]
 ----
         <bean id="passphraseOrPasswordAuthenticationService" class="com.bonitasoft.engine.authentication.impl.PassphraseOrPasswordAuthenticationService" lazy-init="true">
@@ -106,7 +106,7 @@ edit the file *bonita-tenant-sp-custom.xml* to uncomment the bean passphraseOrPa
            <constructor-arg name="configuredPassphrase" value="${authentication.service.ref.passphrase}" />
        </bean>
 ----
-
++
 . In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
 edit the file bonita-tenant-sp-custom.properties as follows:
 +
@@ -147,11 +147,8 @@ It is recommended to also replace the value of the passphrase (property auth.pas
 . If your Identity Provider (IdP) requires requests to be signed, generate a private key.
 For example on linux, you can use the command ssh-keygen, then go to "`cd ~/.ssh`" to retrieve the key from the file id_rsa (more id_rsa, then copy the key).
 
-[NOTE]
-====
-
-The expected format for Keys and certificates is PEM (with or without the comment header and footer). +
-====
++
+NOTE: The expected format for Keys and certificates is PEM (with or without the comment header and footer). +
 
 . In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`, +
 edit the file *keycloak-saml.xml* to setup Bonita webapp as a Service provider working with your IdP.
@@ -212,14 +209,14 @@ Due to an https://issues.redhat.com/browse/KEYCLOAK-4377[issue] with the version
 [NOTE]
 ====
 
-*Note 2:* _If your IdP neither requires the SSO requests to be signed nor encrypts its own responses, you can remove the Keys node from the SP and set the attributes signaturesRequired, signRequest and signResponse to false._ +
-_If your IdP responses are not signed, you can remove the Keys node from the IDP and set the attributes validateRequestSignature and validateResponseSignature to false._
+If your IdP neither requires the SSO requests to be signed nor encrypts its own responses, you can remove the Keys node from the SP and set the attributes signaturesRequired, signRequest and signResponse to false. +
+If your IdP responses are not signed, you can remove the Keys node from the IDP and set the attributes validateRequestSignature and validateResponseSignature to false.
 ====
 
 [NOTE]
 ====
 
-*Note 3:* More configuration options can be found in https://www.keycloak.org/docs/latest/securing_apps/index.html#_saml-general-config[Keycloak official documentation]
+More configuration options can be found in https://www.keycloak.org/docs/latest/securing_apps/index.html#_saml-general-config[Keycloak official documentation]
 ====
 
 [source,xml]
@@ -265,14 +262,14 @@ _If your IdP responses are not signed, you can remove the Keys node from the IDP
     </keycloak-saml-adapter>
 ----
 
-. If your Identity Provider is corectly configured (see the section _Configure the Identity Provider_), you are done.
+If your Identity Provider is corectly configured (see the section _Configure the Identity Provider_), you are done.
 Then you can try to access a portal page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in). +
 Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `saml.auth.standard.allowed` to true) to be able to log in without an account on the Identity Provider.
 
 [WARNING]
 ====
 
-*Note:* If your Bonita platform is behind a proxy server, You need to make sure the reverse proxy is configured
+If your Bonita platform is behind a proxy server, You need to make sure the reverse proxy is configured
 to include the correct `Host:` header to the requests and the application server is configured to use this header (it is usually the case by default).
 This is required so that `HttpServletRequest.getRequestURL` returns the URL used by the user and not the internal URL used by the reverse proxy. +
 For example, if you are running Apache >=2.0.31 as reverse proxy, this configuration is controlled by the property http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypreservehost[ProxyPreserveHost].
@@ -439,7 +436,7 @@ We recommend that you use LDAP as your master source for information, synchroniz
 [NOTE]
 ====
 
-*Note :* By default the xref:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `saml.auth.standard.allowed` in *authenticationManager-config.properties*), users won't be able to log in with the portal login page directly without going through the IdP. +
+By default the xref:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `saml.auth.standard.allowed` in *authenticationManager-config.properties*), users won't be able to log in with the portal login page directly without going through the IdP. +
 ====
 
 == Single sign-on with SAML using the REST API
