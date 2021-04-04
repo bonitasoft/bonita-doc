@@ -43,7 +43,6 @@ In the below case, my diagram model version is "7.12.1-001". I will not be able 
 
 [source,xml]
 ----
-<?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" ...>
   <process:MainProcess xmi:id="_dNo_EBrNEeughd1BclcISA" name="Administration" author="John Doe"
                         bonitaVersion="7.12.2" bonitaModelVersion="7.12.1-001" <!--1-->
