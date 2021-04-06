@@ -3,7 +3,7 @@
 
 Description of the structure, definition, implementation and test of custom connectors in Bonita.
 
-A connector is an element in a process that accesses an external system to read or write information. If the xref:_connectivity.adoc[default connectors in Bonita] are not suitable, you can implement your own connector.
+A connector is an element in a process that accesses an external system to read or write information. If the default connectors in Bonita are not suitable, you can implement your own connector.
 It's recommended to use the xref:connector-archetype.adoc[maven connector archetype] to create new connector project.
 Otherwise, you can define a new connector definition or implementation in Bonita Studio,
 using the wizards started from the *Development* menu, *Connectors* submenu.

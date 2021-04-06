@@ -18,7 +18,7 @@ These extension points are guaranteed to be stable across versions of Bonita 7: 
 
 In Community, Teamwork, Efficiency, Performance and Enterprise editions
 
-Bonita comes with more than 80 xref:_connectivity.adoc[standard connectors] to the major information system components: major databases (Oracle, Microsoft, Postgres, etc.), SOAP Webservice, Salesforce, Email, etc.
+Bonita comes with more than 80 xref:connectivity-overview.adoc[standard connectors] to the major information system components: major databases (Oracle, Microsoft, Postgres, etc.), SOAP Webservice, Salesforce, Email, etc.
 A new connector enables you to provide new connectivity capabilities for processes.
 To xref:connectors-overview.adoc[implement a new connector], you need to provide some XML description files and a
 Java class respecting the https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Connector interface].
