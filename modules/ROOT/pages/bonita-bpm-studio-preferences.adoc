@@ -5,7 +5,7 @@ Learn about deployment, web and other Bonita Studio preferences, and the Bonita 
 
 == Bonita Studio preferences
 
-To configure Bonita Studio preferences, click _*Preferences*_ in the Cool bar.
+To configure Bonita Studio preferences, click *_Preferences_* in the Cool bar.
 
 === General preferences
 
