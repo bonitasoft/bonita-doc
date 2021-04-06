@@ -203,7 +203,7 @@ To update Bonita configuration after the first run, take a look at the xref:Boni
 ====
 
 
-* The file `database.properties` is the entry point to configure the xref:BonitaBPM_platform_setup.adoc#run_bundle_configure[Tomcat environment] and the xref:BonitaBPM_platform_setup.adoc]]#configure_tool[Bonita Platform configuration].
+* The file `database.properties` is the entry point to configure the xref:BonitaBPM_platform_setup.adoc#run_bundle_configure[Tomcat environment] and the xref:BonitaBPM_platform_setup.adoc#configure_tool[Bonita Platform configuration].
 * You can use command line arguments to specify database properties directly from the command line. Use `<BUNDLE_HOME>/setup/setup.sh --help` on Linux or `<BUNDLE_HOME>\setup\setup.bat --help` on Windows to have a list of available options.
 ====
 
