@@ -143,7 +143,7 @@ If you just want to try Bonita Platform with the embedded H2 database (only for 
 For production, you are recommended to use one of the supported databases, with the following steps.
 ====
 
-. Make sure xref:database-configuration.adoc#database_creation[your databases are created] and xref:database-configuration.adoc]]#specific_database_configuration[customized to work with Bonita].
+. Make sure xref:database-configuration.adoc#database_creation[your databases are created] and xref:database-configuration.adoc#specific_database_configuration[customized to work with Bonita].
 . Edit file `<BUNDLE_HOME>/setup/database.properties` and modify the properties to suit your databases (Bonita internal database & Business Data database). Beware of xref:BonitaBPM_platform_setup.adoc#backslash_support[backslash characters].
 . If you use *Oracle* database, copy your xref:database-configuration.adoc#proprietary_jdbc_drivers[jdbc driver] in `<BUNDLE_HOME>/setup/lib/` folder.
 . Run `<BUNDLE_HOME>\setup\start-bonita.bat` (Windows system) or `<BUNDLE_HOME>/setup/start-bonita.sh` (Unix system) to run Bonita Tomcat bundle (see <<tomcat_start,Tomcat start script>>)
@@ -204,7 +204,7 @@ To update Bonita configuration after the first run, take a look at the xref:Boni
 ====
 
 
-* The file `database.properties` is the entry point to configure the xref:BonitaBPM_platform_setup.adoc#run_bundle_configure[Tomcat environment] and the xref:BonitaBPM_platform_setup.adoc]]#configure_tool[Bonita Platform configuration].
+* The file `database.properties` is the entry point to configure the xref:BonitaBPM_platform_setup.adoc#run_bundle_configure[Tomcat environment] and the xref:BonitaBPM_platform_setup.adoc#configure_tool[Bonita Platform configuration].
 * You can use command line arguments to specify database properties directly from the command line. Use `<BUNDLE_HOME>/setup/setup.sh --help` on Linux or `<BUNDLE_HOME>\setup\setup.bat --help` on Windows to have a list of available options.
 ====
 
