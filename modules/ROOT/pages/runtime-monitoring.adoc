@@ -9,11 +9,15 @@ For Enterprise, Performance, Efficiency, and Teamwork editions only.
 
 Discover how to monitor a runtime environment running Bonita
 
-Monitoring metrics can be published via 3 channels: JMX and / or Logging file and / or a Prometheus endpoint.
+Monitoring metrics can be published via 3 channels:
+
+* JMX
+* Log file
+* Prometheus endpoint
 
 == Why monitoring ?
 
-Monitoring a Production environment is crucial to ensure the runtime is correctly sized and tuned.
+Monitoring a Production environment is crucial to ensure the runtime is correctly sized and tuned, along with detecting abnormal behavior.
 
 Bonita provides a series of technical and Bonita-related metrics to monitor the health of Bonita runtime environment. +
 Some metrics are enabled by default and cannot be disabled. Some others are optional and can be enabled according to
@@ -21,7 +25,7 @@ your needs.
 
 == Glossary
 
-*Work*: a unit piece of code that executes parts of process instances, tasks, BPM elements... and allows the processes to execute forwards.
+*Work*: a unitary piece of code that executes parts of process instances, tasks, BPM elements... and allows the processes to move forwards.
 It executes in a Java thread.
 
 *Connector work*: a unit piece of code that specifically executes Bonita connectors.
@@ -53,12 +57,12 @@ under the logical key name *bonita.bpmengine.connector.pending*
 
 The following available metrics are *disabled by default* and can be enabled.
 
-* Several metrics related to JVM memory, under the logical key names *jvm.memory.** and *jvm.buffer.**
-* Several metrics related to JVM threads, under the logical key name *jvm.threads.**
-* Several metrics related to JVM garbage collection, under the logical key name *jvm.gc.**
-* Several metrics related to Worker / Connector thread pools, under the logical key name *executor.**
-* Several metrics related to Hibernate statistics, under the logical key name *hibernate.**
-* Several metrics related to Tomcat, under the logical key name *tomcat.**
+* Several metrics related to JVM memory, under the logical key names ** jvm.memory.* ** and ** jvm.buffer.* **
+* Several metrics related to JVM threads, under the logical key name ** jvm.threads.* **
+* Several metrics related to JVM garbage collection, under the logical key name ** jvm.gc.* **
+* Several metrics related to Worker / Connector thread pools, under the logical key name ** executor.* **
+* Several metrics related to Hibernate statistics, under the logical key name ** hibernate.* **
+* Several metrics related to Tomcat, under the logical key name ** tomcat.* **
 
 == How to retrieve those metrics
 
@@ -69,16 +73,18 @@ They are channels on which metrics are published. Provided metric publishers are
 
 The JMX publisher publishes each metric using MBeans. All those MBeans are in the domain `metrics`.
 
-It can be enable using the property `org.bonitasoft.engine.monitoring.publisher.jmx.enable` set to `true`.
+It can be enabled using the property `org.bonitasoft.engine.monitoring.publisher.jmx.enable` set to `true`.
+
+Metrics exposed by the JMX publisher can be consulted by any JMX tool, like the JDK-provided https://docs.oracle.com/en/java/javase/11/management/using-jconsole.html[JMX Console].
 
 === Log file Publisher
 
 The log file publisher publishes to a file using the logger `com.bonitasoft.engine.configuration.monitoring.LoggingMeterRegistry`
 with the log level `INFO`.
-Metrics are logged every `1 minute` by default. It can be changed using `org.bonitasoft.engine.monitoring.logging.step`.
-
 
 It can be enabled using the property `org.bonitasoft.engine.monitoring.publisher.logging.enable` set to `true`.
+
+Metrics are logged every `1 minute` by default. It can be changed using the property `org.bonitasoft.engine.monitoring.logging.step`.
 
 
 === Prometheus Publisher
@@ -92,7 +98,7 @@ The endpoint is exposed at:
  http://<SERVER_URL>/bonita/metrics
 
 Use this URL to configure your installed Prometheus configuration in order to record and display the metrics.
-The default URL can be changed in the `web.xml` file of he tomcat bundle.
+The default URL can be changed in the `web.xml` file of the tomcat bundle.
 
 Sample extract of exposed Prometheus data:
 
@@ -125,7 +131,7 @@ Sample extract of exposed Prometheus data:
 == Configuration
 
 
-Retrieve xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[current configuration] by running:
+Retrieve xref:BonitaBPM_platform_setup.adoc#update_platform_conf[current configuration] by running:
 
 [source,bash]
 ----
@@ -136,7 +142,7 @@ Edit file `./setup/platform_conf/current/platform_engine/bonita-platform-sp-cust
 
 You will see, in the `# MONITORING` section, a series of properties with their default value:
 
-In the first section, published can be activated and configured.
+In the first section, `PUBLISHERS` can be activated and configured.
 
  # PUBLISHERS = where to publish?
  # publish metrics to Prometheus
@@ -157,7 +163,7 @@ In the second section, metrics can be activated.
  # publish technical metrics related to Worker / Connector thread pools:
  org.bonitasoft.engine.monitoring.metrics.executors.enable=false
  # publish technical metrics related to HIBERNATE statistics
- # To activate, simply set property (in 'bonita-platform-custom.properties ') 'bonita.platform.persistence.generate_statistics=true'
+ # To activate, simply set property (in file 'bonita-platform-community-custom.properties') 'bonita.platform.persistence.generate_statistics=true'
  # publish metrics related to JVM memory:
  org.bonitasoft.engine.monitoring.metrics.jvm.memory.enable=false
  # publish metrics related to JVM Threads:
@@ -170,7 +176,7 @@ In the second section, metrics can be activated.
 [NOTE]
 ====
 To change any value, *uncomment the line by removing the # character*, and change the true / false value. +
-Then xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[push your configuration changes] to database:
+Then xref:BonitaBPM_platform_setup.adoc#update_platform_conf[push your configuration changes] to database:
 
 [source,bash]
 ----
