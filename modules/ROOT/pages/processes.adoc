@@ -8,10 +8,10 @@ Logged on as an Administrator, you have the rights to manage a process as follow
 == Install a new process
 
 . Go to the BPM tab
-. Click _*Processes*_
+. Click *_Processes_*
 . Click _*Install new process*_
 . Click to browse to the .bar file to import
-. Click _*Install*_
+. Click *_Install_*
 
 The .bar file is ready to be resolved and enabled
 
@@ -36,38 +36,38 @@ To resolve a process, you must complete the configuration of the actor mappings,
 To resolve a process:
 
 . Go to BPM tab.
-. Click _*Processes*_,
-. Click on a _*Process*_. The Configuration section of the right panel shows whether there are items to be resolved.
-. Click on _*More*_.
+. Click *_Processes_*,
+. Click on a *_Process_*. The Configuration section of the right panel shows whether there are items to be resolved.
+. Click on *_More_*.
 . A summary of configuration problems is displayed below the process name in a well and warning icons are displayed in the left navigation list.
 . Modify your configuration for each element displayed.
 
 == Enable a process
 
 . Go to the BPM menu tab
-. Click _*Processes*_
+. Click *_Processes_*
 . Click _*Resolved filter*_
 . Select the process
 . Click _*More* button_
-. Click _*Enable*_
+. Click *_Enable_*
 . The activation state changes to "enabled"
 . The process disappears from the disabled filter and is now displayed in the enabled filter
 
-NOTE: You can also select the processes you want to enable by checking the box in the Resolved list, then click _*ENABLE*_ button in the bulk actions section
+NOTE: You can also select the processes you want to enable by checking the box in the Resolved list, then click *_ENABLE_* button in the bulk actions section
 
 == Disable a process
 
 Disabling a process blocks the creation of new cases. This does not impact existing cases.
 
 . Go to the BPM tab
-. Click _*Processes*_
+. Click *_Processes_*
 . Click _*Enabled filter*_
 . Select the process
-. Click _*Disable*_
+. Click *_Disable_*
 . The activation state changes to "disabled"
 . The process disappears from enabled filter and is located in the disabled filter
 
-NOTE: You can also disable a process in the more details view, by clicking _*Enabled*_ toggle button.
+NOTE: You can also disable a process in the more details view, by clicking *_Enabled_* toggle button.
 
 == Delete a process
 
@@ -87,20 +87,20 @@ This feature should only be used on non-production environments.
 ====
 
 . Go to BPM menu tab
-. Click _*Processes*_
+. Click *_Processes_*
 . Select the process to delete by checking the tickbox next to the process
-. Click _*Delete*_
+. Click *_Delete_*
 
-You can also delete the process in the more details view of a disabled process by clicking _*DELETE*_, then click _*DELETE*_ in the modal window
+You can also delete the process in the more details view of a disabled process by clicking *_DELETE_*, then click *_DELETE_* in the modal window
 
 == Create a category for a process
 
 . Go to BPM tab
 . Select a process in the list
-. Click _*More*_
+. Click *_More_*
 . In General, click the pencil next to Categories label
-. In the opened modal, type a new category name then press _*Enter*_ key
-. Click _*Save*_
+. In the opened modal, type a new category name then press *_Enter_* key
+. Click *_Save_*
 
 After you created a category and added to the process, you can add other processes to the category.
 
@@ -108,76 +108,76 @@ After you created a category and added to the process, you can add other process
 
 . Go to BPM tab
 . Select a process in the list
-. Click _*More*_
+. Click *_More_*
 . In General, click the pencil next to Categories label
-. In the opened modal, type a new category name then press _*Enter*_ key, or use arrow keys to browse among exisiting categories
-. Click _*Save*_
+. In the opened modal, type a new category name then press *_Enter_* key, or use arrow keys to browse among exisiting categories
+. Click *_Save_*
 
 == Make start a process available for more users
 
 You need to map more organization entities to the actor labelled _initiator_ in the process definition. To do so:
 
 . Go to the BPM tab.
-. Click _*Processes*_.
+. Click *_Processes_*.
 . Select a process in the list.
-. Click _*More*_.
-. Click _*Actors*_ in the left navigation.
+. Click *_More_*.
+. Click *_Actors_* in the left navigation.
 . In the Actors section, click the _*+*_ button in the user, group, role or membership column of the actor line.
 . In the opened popup, click on the dropdown list to select one or several actors. The list displays the first five elements, then a number is displayed representing the other selected entities.
-. Click _*APPLY*_.
+. Click *_APPLY_*.
 
 NOTE: Notice that only the first 200 actors are displayed in the dropdown.
 
 == Remove an entity from an actor
 
 . Go to the BPM tab.
-. Click _*Processes*_.
+. Click *_Processes_*.
 . Select a process in the list.
-. Click _*More*_.
-. Click _*Actors*_ in the left navigation.
-. In the Actors section, click the _*pencil*_ button in the user, group, role or membership column of the actor line.
+. Click *_More_*.
+. Click *_Actors_* in the left navigation.
+. In the Actors section, click the *_pencil_* button in the user, group, role or membership column of the actor line.
 . In the opened popup, there is a list of the actors already mapped.
-. Click the _*X*_ button next to the actor, or click _*Remove all*_.
-. A list appears filled with the actors you can to remove. You can undo a removal by clicking _*X*_ button next to the actor or by clicking _*Enable all*_
-. Click _*APPLY*_.
+. Click the *_X_* button next to the actor, or click *_Remove all_*.
+. A list appears filled with the actors you can to remove. You can undo a removal by clicking *_X_* button next to the actor or by clicking _*Enable all*_
+. Click *_APPLY_*.
 
 == Modify a parameter in the Administrator profile
 
 NOTE: In versions 7.0.x, this feature is only available for Bonita Enterprise and Performance editions. Starting from version 7.1.0, this feature is available for Bonita Enterprise, Performance and Efficiency editions.
 
 . Go to the BPM tab
-. Click _*Processes*_
+. Click *_Processes_*
 . Select a process
-. Click _*MORE*_
-. Click _*Parameters*_ in the left navigation
+. Click *_MORE_*
+. Click *_Parameters_* in the left navigation
 . In the *Value* column, click on the value you want to edit
 . A field appears
-. Click the _*Tick*_ button to validate your change or _*X*_ to dismiss your change.
+. Click the *_Tick_* button to validate your change or *_X_* to dismiss your change.
 
 == Edit a connector implementation
 
 NOTE: In versions 7.0.x, this feature is only available for Bonita Enterprise and Performance editions. Starting from version 7.1.0, this feature is available for Bonita Enterprise, Performance and Efficiency editions.
 
 . Go to the BPM tab
-. Click _*Processes*_
-. Click _*More*_ button
-. Click _*Connectors*_
-. In the connector definitions table, in the actions column, click on the _*Pencil*_
+. Click *_Processes_*
+. Click *_More_* button
+. Click *_Connectors_*
+. In the connector definitions table, in the actions column, click on the *_Pencil_*
 . Browse to a .zip file containing the new connector implementation
-. Click _*Save*_ to import the new implementation.
+. Click *_Save_* to import the new implementation.
 
 == Fix forms
 
 NOTE: For Bonita Enterprise, Performance and Efficiency editions only.
 
 . Go to the BPM tab.
-. Click _*Processes*_.
-. Click _*More*_ button.
-. Click _*Forms*_ in the left navigation.
+. Click *_Processes_*.
+. Click *_More_* button.
+. Click *_Forms_* in the left navigation.
 . The tables are displayed which list available forms. Click on a red link.
 . A field input appears.
 . Starting to type some text, and any matching names of installed forms will be proposed. If there is no match for the name you enter, it will be considered as a URL.
-. Click the _*Tick*_ button to validate your change or _*X*_ to dismiss your change.
+. Click the *_Tick_* button to validate your change or *_X_* to dismiss your change.
 
 NOTE: You can also upload a form in order to create a new mapping.
 
@@ -186,44 +186,44 @@ NOTE: You can also upload a form in order to create a new mapping.
 NOTE: For Bonita Enterprise, Performance and Efficiency editions only.
 
 . Go to the BPM tab.
-. Click _*Processes*_.
-. Click _*More*_ button.
-. Click _*Forms*_ in the left navigation.
-. Click _*Form list*_ tab.
+. Click *_Processes_*.
+. Click *_More_* button.
+. Click *_Forms_* in the left navigation.
+. Click *_Form list_* tab.
 . A list of form is displayed. These forms are only visible to the current process.
-. Click the _*plus*_ button at the bottom of the list.
+. Click the *_plus_* button at the bottom of the list.
 . A file selector popup is displayed.
 . Browse to a .zip containing a form.
-. Click _*NEXT*_, then if your form requires some authorization, it will be displayed.
-. Click _*CONFIRM*_.
+. Click *_NEXT_*, then if your form requires some authorization, it will be displayed.
+. Click *_CONFIRM_*.
 
 == Edit an existing form
 
 NOTE: For Bonita Enterprise, Performance and Efficiency editions only.
 
 . Go to the BPM tab.
-. Click _*Processes*_.
-. Click _*More*_ button.
-. Click _*Forms*_ in the left navigation.
-. Click _*Form list*_ tab.
+. Click *_Processes_*.
+. Click *_More_* button.
+. Click *_Forms_* in the left navigation.
+. Click *_Form list_* tab.
 . A list of forms is displayed. These forms are only visible to the current process.
-. Click the _*pencil*_ button of a form line.
+. Click the *_pencil_* button of a form line.
 . A file selector popup is displayed.
 . Browse to a .zip containing a form
-. Click _*NEXT*_, then if your form requires some authorization, it will be displayed.
-. Click _*CONFIRM*_.
+. Click *_NEXT_*, then if your form requires some authorization, it will be displayed.
+. Click *_CONFIRM_*.
 
 == Edit a script content
 
 NOTE: For Bonita Enterprise, Performance and Efficiency editions only.
 
 . Go to the BPM tab
-. Click _*Processes*_
-. Click _*More*_ button
-. Click _*Scripts*_ in the left navigation
+. Click *_Processes_*
+. Click *_More_* button
+. Click *_Scripts_* in the left navigation
 . A script content tree is displayed.
 . You can search for a script by typing text in the dedicated field
-. Click the _*pencil*_ button next to a script name
+. Click the *_pencil_* button next to a script name
 . A popup window is displayed
 . Edit your script content
-. Click _*SAVE*_
+. Click *_SAVE_*

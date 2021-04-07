@@ -26,20 +26,20 @@ See xref:custom-user-information-in-bonita-bpm-studio.adoc[Custom User Informati
 . Log on as a user with>Administrator rights.
 . Go to the *Organization* menu and choose *Users*.
 . Select a user in the list, by clicking on a name.
-. Click _*More*_.
+. Click *_More_*.
 . The custom user definition and value are displayed in the zone called *Other*.
 
 == How to edit Custom information for a single user
 
-. **Log on ** as a user with _*Administrator rights*_.
+. **Log on ** as a user with *_Administrator rights_*.
 . Go to the *Organization* menu and choose *Users*.
 . Select a user in the list, by clicking on a name.
-. Click _*More*_.
+. Click *_More_*.
 . The custom user definition and value are displayed in the zone called *Other*.
-. Click _*Edit user*_ in the top right corner of the screen.
-. In the *Edit a user* pop-up window, click on the _*Other*_ tab.
+. Click *_Edit user_* in the top right corner of the screen.
+. In the *Edit a user* pop-up window, click on the *_Other_* tab.
 . Enter a value for the definition (defined in Bonita Studio), which will only be added to this user.
-. Click _*Save*_. This closes the pop-up.
+. Click *_Save_*. This closes the pop-up.
 . The new value for the the definition will be updated and displayed in the *Other* zone.
 
 Note that changing the value will modify the filtering and map the user to a different task.

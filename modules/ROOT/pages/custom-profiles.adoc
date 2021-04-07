@@ -19,7 +19,7 @@ What customization can I do?
 
 . In the Bonita Portal, in the navigation bar, click the *Organization* menu.
 . Click *Profiles*.
-. Click _*Add*_.
+. Click *_Add_*.
 . In the popup, select *Create a profile*.
 . Enter the Name.
 . Enter the Description (optional).
@@ -39,20 +39,20 @@ Select the profile to delete, and click the *delete button*.
 
 . In the Bonita Portal, in the navigation bar, click the *Organization* menu.
 . Click *Profiles*.
-. Click _*More*_.
-. Click _*Edit*_.
+. Click *_More_*.
+. Click *_Edit_*.
 . Change the name or the description of the custom profile
-. Click _*Save*_.
+. Click *_Save_*.
 
 == Map a profile to users or groups, membership or role
 
 . In the Bonita Portal, in the navigation bar, click the *Organization* menu.
 . Click *Profiles*.
 . Choose a profile. This will display the users mapped to the selected profile.
-. Click _*More*_.
-. Click _*Add a user*_.
+. Click *_More_*.
+. Click *_Add a user_*.
 . Select a user by ticking the checkbox next to the user name.
-. Click _*Add*_.
+. Click *_Add_*.
 
 Do the same steps to map a group, role or membership.
 
@@ -63,7 +63,7 @@ A custom navigation bar can be created for each custom profile created.
 NOTE: The navigation bar will not be used by applications as they have their own navigation menu.
 
 . Select profile to add the new menu to
-. Click on _*More*_
+. Click on *_More_*
 . This will display the *Navigation bar editor*
 . Click _Create menu_.
 
@@ -73,11 +73,11 @@ Here, you will see 3 columns: a check box, a display name and a description.
 
 You can select from the Default pages that are provided with the standard portal and from xref:pages.adoc[Custom pages].
 
-. Click _*Create*_ to confirm your choice of pages and create the menu.
+. Click *_Create_* to confirm your choice of pages and create the menu.
 
 When you select the custom profile, the navigation bar will be applied to it.
 
-NOTE: Click _*Reset*_ to erase the navigation bar if required.
+NOTE: Click *_Reset_* to erase the navigation bar if required.
 
 NOTE: The navigation bar is designed to be displayed as a single line. If your menu is too long, use menus with several menu entries in them.
 

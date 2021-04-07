@@ -308,7 +308,7 @@ Follow these steps:
 . Click *Pause*.
 . When the BPM services are paused, go to the *Business Data Model* menu (and, for Efficiency, Performance and Enterprise editions, choose *Definition*).
 . Specify the file containing the business data model that you exported from Bonita Studio.
-. Click _*Activate*_. A warning is displayed, reminding you that installing this new BDM will overwrite the existing BDM.
+. Click *_Activate_*. A warning is displayed, reminding you that installing this new BDM will overwrite the existing BDM.
 . Click on *Install* to complete the deployment. Bonita Portal loads the file, and retrieves the object definition enabling processes to use them at runtime. It also creates or updates the database schema in the business database, to store business objects appropriately when modified by processes. When the deployment is complete, a message is displayed. If deployment fails, use the Engine logs to analyze the problem.
 . Go to the *BPM Services* page.
 . Click *Resume*. BPM services are resumed.
@@ -399,7 +399,7 @@ For instance, with the above _com.company.model.LeaveRequest_ class, using the *
  ** daysOff: DECIMAL
  ** leaveType: TEXT
  ** approved: BOOLEAN
-Then, you need to go back to the process variable list (*Details* panel, *Data* tab, *Parameters* pane) and add a new variable of type _com.company.model.LeaveRequest_ or edit an existing one of the _com.company.model.LeaveRequest_ type and click on the _*Pencil*_ to open the Groovy script editor.
+Then, you need to go back to the process variable list (*Details* panel, *Data* tab, *Parameters* pane) and add a new variable of type _com.company.model.LeaveRequest_ or edit an existing one of the _com.company.model.LeaveRequest_ type and click on the *_Pencil_* to open the Groovy script editor.
 
 Enter the following code snippet to have a new BDM _com.company.model.LeaveRequest_ instance set with the contract inputs:
 
@@ -420,16 +420,16 @@ var leaveRequest = new com.company.model.LeaveRequest();
 
 In the case where a business object has to be initialized from task level inputs, you can set contract inputs from the *Add from data...* action like in <<initBDM,previous section>> and generate automatically operations by selectionning *Auto-generate the initialization script*. The operations will be generated for business data attributes you selected. You can manage it inside the *Details* panel, *Execution* tab, *Operations* pane.
 
-If you select *No, thanks. I'll manually define how to use the contract* or create inputs manually, you can go to operation pane and add a new operation using the _*Add*_ button.
+If you select *No, thanks. I'll manually define how to use the contract* or create inputs manually, you can go to operation pane and add a new operation using the *_Add_* button.
 
-In the first select box, choose the variable of type _com.company.model.LeaveRequest_, then, click on _*Takes value of*_ link and select _*Instantiate with*_ in _Operator type_ and click _*OK*_.
+In the first select box, choose the variable of type _com.company.model.LeaveRequest_, then, click on *_Takes value of_* link and select *_Instantiate with_* in _Operator type_ and click *_OK_*.
 
-Then, click on the _*pencil*_ button to open the _*Edit Expression*_ editor. Choose the _*Script*_ expression type and enter the same code snippet than the one above to have a new BDM _com.company.model.LeaveRequest_ instance set with the contract inputs.
+Then, click on the *_pencil_* button to open the *_Edit Expression_* editor. Choose the *_Script_* expression type and enter the same code snippet than the one above to have a new BDM _com.company.model.LeaveRequest_ instance set with the contract inputs.
 
 [discrete]
 ==== Business Objects and connectors
 
-You can use business data in a Java program by using the DAO. DAO gives _*read*_ access to business objects.
+You can use business data in a Java program by using the DAO. DAO gives *_read_* access to business objects.
 
 [WARNING]
 ====
@@ -438,8 +438,8 @@ In a connector, code is executed outside a transaction, so retrieving or updatin
 
 You can however manipulate the business object outside the connector, and use business objects as connector input or output:
 
-* For a _*read*_, retrieve the business object with an expression (for example, `employeeDAO.findByFirstNameAndLastName("William","Jobs")`. Then use the object as input to the connector.
-* For a _*create*_ or _*update*_, return the new or updated business object as output of the connector.
+* For a *_read_*, retrieve the business object with an expression (for example, `employeeDAO.findByFirstNameAndLastName("William","Jobs")`. Then use the object as input to the connector.
+* For a *_create_* or *_update_*, return the new or updated business object as output of the connector.
 Then use the business object (which is stored only in memory at this point) in an *operation* to update the business object in the business database, persisting the change.
 
 [discrete]
