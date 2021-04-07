@@ -10,9 +10,9 @@ To manage a group, you need to be logged on Bonita with the *Administrator* prof
 == How to create a group
 
 . Go to the *Organization* menu and choose *Groups*.
-. Click _*Create a group*_.
+. Click *_Create a group_*.
 . In the pop-up window, enter the name (required), the parent group and a description.
-. Click _*Create*_.
+. Click *_Create_*.
 
 _*NB: Bonita doesn't support the '/' character in the group name field. A group name that contains a '/' may lead to unstable behaviour and may be forbidden in the future.*_
 
@@ -20,16 +20,16 @@ _*NB: Bonita doesn't support the '/' character in the group name field. A group 
 
 . Go to the *Organization* menu and choose *Groups*.
 . Check a box to select a group.
-. Click _*Delete*_.
-. In the popup window, click _*Delete*_.
+. Click *_Delete_*.
+. In the popup window, click *_Delete_*.
 
 == How to edit a group
 
 . Go to the *Organization* menu and choose *Groups*.
 . Check a box to select a group.
-. Click _*Edit*_.
+. Click *_Edit_*.
 . In the popup window, update the group information.
-. Click _*Save*_.
+. Click *_Save_*.
 
 == More information about the group
 

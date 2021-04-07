@@ -22,7 +22,7 @@ For Enterprise, Efficiency and Performance editions, you must have no <<installA
 +
 . When services are paused, go to the *BDM* menu.
 . A page called *Business Data Model definition* is displayed.
-. Click on install button and choose the file containing the Business Data Model exported from Bonita Studio, and click on _*install*_ button in the popup.
+. Click on install button and choose the file containing the Business Data Model exported from Bonita Studio, and click on *_install_* button in the popup.
 . A warning is displayed:
 +
 [WARNING]
@@ -57,7 +57,7 @@ The Access control rules must match the Business Data model.
 . In the Bonita Portal, log in as the technical user (default login 'install', default password 'install') or as a user with the administrator profile.
 . As the tenant technical user or as an administrator, go to the *BDM* menu.
 . A page with a section *Business Data Model access control* is displayed.
-. Click *_Install_* to open import popup and choose the file containing the Business Data Model access control definition exported from Bonita Studio, and click on _*Install*_.
+. Click *_Install_* to open import popup and choose the file containing the Business Data Model access control definition exported from Bonita Studio, and click on *_Install_*.
 . A successful import message will be displayed.
 
 Please note that a delay is required after the import for the engine to process the access control and for the filtering to be effective.

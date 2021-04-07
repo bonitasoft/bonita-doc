@@ -237,9 +237,9 @@ GO
 . Make sure that the other services it depends on, namely "Remote Procedure Call" and "Security Accounts Manager", are also set to start automatically.
 . Run the `dcomcnfg` command, or go to the "Start" menu, then Administrative Tools > Component Services.
 . In the left navigation pane, navigate to *Component Services* > *Computers* > *My Computer* > *Distributed Transaction Coordinator*.
-. Select and right-click on _*Local DTC*_ and then _*Properties*_.
-. Click on _*Security*_ tab. Ensure that the checkbox for *Enable XA Transactions* is checked.
-. Click _*Apply*_, then click _*OK*_
+. Select and right-click on *_Local DTC_* and then *_Properties_*.
+. Click on *_Security_* tab. Ensure that the checkbox for *Enable XA Transactions* is checked.
+. Click *_Apply_*, then click *_OK_*
 . Then stop and restart SQLServer to ensure it syncs up with the MS DTC changes.
 . Create the BONITA database: `CREATE DATABASE BONITA GO`.
 . Set `bonitadev` as owner of BONITA database (use, for example, 'Microsoft SQL Management Studio')

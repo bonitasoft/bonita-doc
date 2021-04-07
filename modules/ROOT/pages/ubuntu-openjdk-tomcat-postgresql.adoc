@@ -19,7 +19,7 @@ To install the OpenJDK JVM you need to install the `openjdk-8-jre-headless` pack
 
 * Run the following command line: `sudo apt install openjdk-8-jre-headless`
 * If needed, type your Ubuntu user password
-* Type _*Enter*_ to confirm that you want to continue installation
+* Type *_Enter_* to confirm that you want to continue installation
 
 To check that Java is correctly setup in a console/terminal, type: `java -version`.
 You should get a similar message to the one below:
@@ -39,7 +39,7 @@ To install PostgreSQL 11 you need to install the `postgres-11` package:
 
 * Run the following command line: `sudo apt install postgresql-11`
 * If needed, type your Ubuntu user password
-* Type _*Enter*_ to confirm that you want to continue installation
+* Type *_Enter_* to confirm that you want to continue installation
 
 === Create databases and user
 
@@ -139,7 +139,7 @@ below will be given for Bonita Subscription. You can easily adapt files and fold
 
 * Go to Bonitasoft https://customer.bonitasoft.com/[Customer Portal]
 * In *Download* menu, click on _*Request a download*_
-* Select your version and click on _*Access download page*_ button
+* Select your version and click on *_Access download page_* button
 * On the download page, go to the *Deploying Server Components* section
 * Click on _*Download BonitaSubscription-x.y.z-tomcat.zip*_ link. If your server only has a terminal available
 you can copy the link and use `wget` to download the file or use SSH with `scp` command to copy

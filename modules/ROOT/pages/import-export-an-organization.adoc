@@ -16,14 +16,14 @@ To import an organization in .xml format, that has already been exported from Bo
 Be careful, your organization will be merged with existing data.
 
 . Go to Organization > Import/Export.
-. Click _*Click here to choose your file*_. The xml file will be displayed in the import file field.
-. Click _*Import*_.
-. Click _*Save*_.
+. Click *_Click here to choose your file_*. The xml file will be displayed in the import file field.
+. Click *_Import_*.
+. Click *_Save_*.
 
 == How to export an organization
 
 . Go to Organization > Import/Export.
-. Click _*Export*_.
+. Click *_Export_*.
 
 This will export an organization from Bonita Portal. Users, groups and roles will be exported in a file in .xml format.
 

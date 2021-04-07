@@ -18,7 +18,7 @@ In consequence, the *Add membership button* is not displayed for a deactivated u
 
 . Go to the *Organization* menu and choose *Users*.
 . Select a user in the *Active* list.
-. Click _*Deactivate*_.
+. Click *_Deactivate_*.
 . Confirm the deactivation
 . The user is then moved from the *Active* list to the *Inactive* list.
 
@@ -27,5 +27,5 @@ In consequence, the *Add membership button* is not displayed for a deactivated u
 . Go to the *Organization* menu and choose *Users*.
 . Go to the *Inactive* list.
 . Select user from list.
-. Click _*activate*_.
+. Click *_activate_*.
 . The user is moved from the *Inactive* list to the *Active* list.

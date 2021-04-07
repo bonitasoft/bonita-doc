@@ -8,7 +8,7 @@ You need to be logged on Bonita with the Administrator profile or the Process Ma
 == Add a comment to a case
 
 . Go to *BPM* > *Cases*
-. Click a _*Case id*_ or _*ellipsis*_ icon.
+. Click a *_Case id_* or *_ellipsis_* icon.
 . Enter a comment in the *comment field*
 . Click _*Add comment*_
 
