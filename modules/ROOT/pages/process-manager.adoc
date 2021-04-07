@@ -59,7 +59,7 @@ To assign a process to a user who has the Process manager profile:
 . Log in to Bonita Portal as Administrator or as a Process manager of the process.
 . Go to *BPM* > *Processes* if you use the Administrator profile or *Processes* if you use the Process manager profile.
 . Select the process and click *_More..._*. The number of Process managers currently assigned to the process is shown in the Process manager mapping table.
-. To add a user, click the _*Plus sign or Pencil button*_ in the *_User_* column. A popup shows a list of the users who are currently process managers for this process.
+. To add a user, click the *_Plus sign_* or *_Pencil button_* in the *_User_* column. A popup shows a list of the users who are currently process managers for this process.
 . Click *_Select users _*. A list of users with the Process manager profile is displayed.
 . Select the user you want to be a Process manager for the process, and click *_Apply_*. The selected user is added as a Process manager for the process.
 
@@ -87,13 +87,13 @@ A task can be assigned and reassigned if necessary to another user.
 
 . Go to *Tasks*
 . Click on a *task in the list of tasks*
-. Click _*Assign*_
+. Click *_Assign_*
 
 == Unassign a task
 
 . Go to *Tasks*
 . Click on a *task in the list of tasks*
-. Click _*Unassign*_
+. Click *_Unassign_*
 
 == How to skip a failed task
 
@@ -102,9 +102,9 @@ If a failed task does not impact subsequent task in a process, the Process manag
 . Go to *Tasks*.
 . Go to *Failed*.
 . Click on a Task.
-. Click _*More*_.
+. Click *_More_*.
 . In *Technical details*, the reason for the failure is displayed
-. Click _*Skip*_.
+. Click *_Skip_*.
 
 The task is moved from Failed to Done.
 

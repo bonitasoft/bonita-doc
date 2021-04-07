@@ -22,13 +22,13 @@ Officially supported language means that:
 
 For the web desktop version:
 
-. Go to the top right corner and click on _*Settings*_/_*Language*_
+. Go to the top right corner and click on *_Settings_*/*_Language_*
 . Select a language from the drop-down list.
 
 For the web mobile version:
 
 . Click on the _*Tools icon*_
-. Click on _*Languages*_
+. Click on *_Languages_*
 . Select a new language from the drop-down list
 
 == Select Bonita applications user interface language

@@ -35,13 +35,13 @@ If this configuration is not set, new versions of documents will overwrite previ
 . In the Connector list window:
 
 * Select the CMS/CMIS connector category.
-* Select the _*Upload a document*_ connector.
-* Click _*Next*_.
+* Select the *_Upload a document_* connector.
+* Click *_Next_*.
 
 . In the General window:
 
 * Enter a name.
-* Click _*Next*_.
+* Click *_Next_*.
 
 . In the Server window, enter the information necessary to connect to the repository:
 
@@ -54,19 +54,19 @@ If this configuration is not set, new versions of documents will overwrite previ
  ** RepositoryService endpoint
  ** ObjectService, for example _https://localhost:12345/alfresco/cmis/ObjectService?wsdl_
  ** ObjectService endpoint
-* Click _*Next*_.
+* Click *_Next_*.
 
 . In the Document window:
 
 * Enter the Document name of the document to upload.
 * Enter the relative or absolute path to the *Parent folder* that contains the document.
 * Enter the *Destination name* to be assigned to the document after it is uploaded.
-* Click _*Next*_.
+* Click *_Next_*.
 
 . In the Output operations window:
 
 * You can store the returned `document_id` in a variable.
-* Click _*Finish*_.
+* Click *_Finish_*.
 
 == Example: Creating a folder on Alfresco
 
@@ -75,13 +75,13 @@ This example presents the creation of a folder on a local installation of Alfres
 . In the Connector list window:
 
 * Select the CMS/CMIS connector category.
-* Select the _*Create a folder*_ connector.
-* Click _*Next*_.
+* Select the *_Create a folder_* connector.
+* Click *_Next_*.
 
 . In the General window:
 
 * Enter a name.
-* Click _*Next*_.
+* Click *_Next_*.
 
 . In the Server window, enter the information necessary to connect to the repository:
 
@@ -89,15 +89,15 @@ This example presents the creation of a folder on a local installation of Alfres
 * Repository name: -default-
 * Binding type: atompub
 * URL: http://localhost:8080/alfresco/api/-default-/public/cmis/versions/1.1/atom/
-* Click _*Next*_.
+* Click *_Next_*.
 
 . In the Folder window, enter the location and name of the folder you wish to create:
 
 * Parent folder: / (root folder)
 * Folder name: bonita
-* Click _*Next*_.
+* Click *_Next_*.
 
 . In the Output operations window:
 
 * You can store the returned `folder_id` in a variable.
-* Click _*Finish*_.
+* Click *_Finish_*.
