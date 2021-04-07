@@ -177,13 +177,6 @@ If you use Bonita layout version 5 or a customized version of it in your applica
 As part of the reinforcement of our Open Source DNA, Search keys can now be defined and used in the Community edition. +
 Take a look at the xref:define-a-search-index.adoc[search keys documentation] to learn more about it.
 
-==== BDM Id generation
-In Bonita 2021.1, we changed the way ID's are generated when you deploy a (new version of a) Business Data Model. +
-Previously, the strategy to generate table ID's of BDM objects was left to Hibernate to decide. It could be a database SEQUENCE, an auto-incremented column, ... +
-Now, the specific implementation is explicitly set on each ID column during the BDM class generation. It is however different
-from one Database vendor to another (a database SEQUENCE for Oracle and PostgreSQL, an auto-incremented column for MySQL and MS SQL Server). +
-Note that no change is required from you, and upgrading to Bonita 2021.1 does not affect your already generated BDM until you actually redeploy it (next time you update it).
-
 ==== BDM Foreign key generation
 In Bonita 7.11, the automatic name generation for foreign keys changed. It does not affect new BDM deployments, or already deployed BDMs.
 However, because of a bug (RUNTIME-154, itself caused by the bug HHH-13779 in the underlying hibernate library), redeploying a BDM causes those foreign key to be generated a second time.
