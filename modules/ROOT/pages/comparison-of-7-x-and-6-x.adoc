@@ -128,7 +128,7 @@ See the xref:bonita-bpm-installation-overview.adoc[Installation overview].
 
 | Subtasks
 | A subtask is a part of an existing task. The assignee can create a subtask (to request a missing information for example) and must assign it to a specific person, by name. The assignee can be the creator
-| Supported up to 7.2.4. No more substasks can be created starting from 7.3.0, but open process instances execute them correctly. See xref:subtasks.adoc[Manage a subtask]
+| Supported up to 7.2.4. No more substasks can be created starting from 7.3.0, but open process instances execute them correctly
 
 | Replay tasks and connectors in error
 | It is now possible for the administrator to replay a task or a connector that is in error. This enables a resolution of failed tasks and better service to end users. and connectors in error

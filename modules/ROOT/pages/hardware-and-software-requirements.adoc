@@ -5,7 +5,7 @@ This page describes the suggested hardware and software requirements to install 
 
 == Hardware
 
-[NOTE]
+[CAUTION]
 ====
 
 The hardware recommended for Bonita Platform is strongly dependent on your environment and

@@ -101,8 +101,6 @@ AngularJS sets these different CSS classes on HTML input elements depending on t
 
 ==== Using AngularJS form control CSS classes
 
-NOTE: A tutorial about xref:uid-modal-tutorial.adoc[creating modal windows using CSS in the UI Designer] is available. We recommend to read it before you go further in this tutorial.
-
 So, to alert users about the invalidity of inputs they just edited, you need to use _ng-invalid_ and _ng-dirty_ classes on those elements: +
 In your favorite editor, create a _validationStyle.css_ file containing the class below:
 

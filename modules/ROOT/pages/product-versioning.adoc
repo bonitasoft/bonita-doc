@@ -39,7 +39,27 @@ If the artifacts are incompatible, then either the development suite migrates th
 Example:
 
 In the below case, my diagram model version is "7.12.1-001". I will not be able to open it with a 7.11 Studio but I will be able to open it without migration with any 7.12 Studio. Finally, if I'm using a 7.13 Studio my diagram will be migrated.
-image:images/Modelversion-example.png[modelversionexample]
+
+
+[source,xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actormapping="http://www.bonitasoft.org/ns/actormapping/6.0" xmlns:configuration="http://www.bonitasoft.org/ns/studio/configuration" xmlns:decision="http://www.bonitasoft.org/ns/studio/process/decision" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:process="http://www.bonitasoft.org/ns/studio/process" xsi:schemaLocation="http://www.bonitasoft.org/ns/studio/process/decision http://www.bonitasoft.org/ns/studio/process#//decision">
+  <process:MainProcess xmi:id="_dNo_EBrNEeughd1BclcISA" name="Administration" author="John Doe"
+                        bonitaVersion="7.12.2" bonitaModelVersion="7.12.1-001" <!--1-->
+                        configId="ACED000....">
+    <elements xmi:type="process:Pool" xmi:id="_dNo_ERrNEeughd1BclcISA" name="DeleteVersion" version="0.0.1">
+      <elements xmi:type="process:StartEvent" xmi:id="_dNo_ExrNEeughd1BclcISA" name="Start" outgoing="_dNo_KBrNEeughd1BclcISA">
+        <dynamicLabel xmi:type="expression:Expression" xmi:id="_dNo_FBrNEeughd1BclcISA" name="" content="" returnTypeFixed="true"/>
+        <dynamicDescription xmi:type="expression:Expression" xmi:id="_dNo_FRrNEeughd1BclcISA" name="" content="" returnTypeFixed="true"/>
+        <stepSummary xmi:type="expression:Expression" xmi:id="_dNo_FhrNEeughd1BclcISA" name="" content="" returnTypeFixed="true"/>
+      </elements>
+...
+    </elements>
+  </process:MainProcess>
+</xmi:XMI>
+----
+<1> bonita version and model version declarations
 
 The following artifacts have model versions:
 

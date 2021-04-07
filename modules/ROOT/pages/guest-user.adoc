@@ -66,6 +66,11 @@ Restart Bonita server.
 . If your configuration is correct you should be able to access your public application directly with the URL `http://<host>:<port>/bonita/apps/<app token>` without being logged in first. +
 You are done.
 
+[NOTE.bonitacloud,caption=Bonita Cloud]
+====
+In Bonita Cloud, to change the configuration files to autorize Guest User, you just have to open a support ticket and we'll apply the change on the requested environment for you. 
+====
+
 == Starting a process as guest user
 
 You may require your public living application to provide a link to start a process instance (case). In order for the process instantiation form to be displayed to a guest in an application, what you need to do is:

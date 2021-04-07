@@ -5,8 +5,12 @@ version: 2021.2
 prerelease: Alpha
 asciidoc:
   attributes:
-    varVersion: 2021.2
+    bonitaVersion: 2021.2
+    bonitaTechnicalVersion: '7.13.0' # latest public community version
     javadocVersion: 7.13
+    bonitaDockerImageEnterpriseVersion: '7.13.0'
+    crowdinBonitaVersion: 7.13
+    # page attributes
     page-editable: true
     page-out-of-support: false
 nav:

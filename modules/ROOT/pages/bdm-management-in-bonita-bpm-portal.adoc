@@ -82,11 +82,10 @@ This limitation is well known and will be addressed in a future Bonita version.
 ====
 For Enterprise, Performance, and Efficiency editions only.
 ====
-+
-[#installAccessControl]
+
 It is possible to define Business Data Model access control rules in Bonita Studio and import them in Bonita Portal. +
 The Access control rules must match the Business Data model.
-+
+
 . To import the BDM access control rules created in Bonita Studio, first xref:bdm-access-control.adoc[export the Access Control file] from Bonita Studio where it was designed.
 . In the Bonita Portal, log in as the technical user (default login 'install', default password 'install') or as a user with the administrator profile.
 . As the tenant technical user or as an administrator, go to the *BDM* menu.

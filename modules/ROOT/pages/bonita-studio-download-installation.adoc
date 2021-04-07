@@ -15,11 +15,11 @@ To download the latest version of Bonita Studio, open the https://www.bonitasoft
 
 // update package name
 
-When the download is finished, you should have one of the following files on your computer (x.y.z refers to the version of Bonita Studio, e.g. $\{varVersion}.0):
+When the download is finished, you should have one of the following files on your computer (x.y refers to the version of Bonita Studio, e.g. {bonitaVersion}):
 
-* Windows: `BonitaStudioCommunity-x.y.z-x86_64.exe`
-* macOS: `BonitaStudioCommunity-x.y.z-x86_64.dmg`
-* Linux: `BonitaStudioCommunity-x.y.z-x86_64.run`
+* Windows: `BonitaStudioCommunity-x.y-x86_64.exe`
+* macOS: `BonitaStudioCommunity-x.y-x86_64.dmg`
+* Linux: `BonitaStudioCommunity-x.y-x86_64.run`
 
 You are now ready to start the installation process.
 
@@ -46,9 +46,9 @@ image:images/getting-started-tutorial/installation/studio-installation-installer
 
 Bonita Studio is now installed. The default installation folders are:
 
-* Windows: `C:\BonitaStudioCommunity-x.y.z`
-* macOS: `/Applications/BonitaStudioCommunity-x.y.z`
-* Linux: `/home/<username>/BonitaStudioCommunity-x.y.z`
+* Windows: `C:\BonitaStudioCommunity-x.y`
+* macOS: `/Applications/BonitaStudioCommunity-x.y`
+* Linux: `/home/<username>/BonitaStudioCommunity-x.y`
 
 == First Bonita Studio execution
 

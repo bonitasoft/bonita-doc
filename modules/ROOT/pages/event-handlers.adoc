@@ -66,7 +66,7 @@ pom.xml :
     <artifactId>event-handler-example</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <properties>
-        <bonita.version>pass:a[{varVersion}].0</bonita.version>
+        <bonita.version>pass:a[{bonitaTechnicalVersion}]</bonita.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
