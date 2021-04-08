@@ -653,7 +653,7 @@ Example 2 response ;
 Use a GET method with filters and search terms to search for profileMembers.
 
 * *URL* +
-`+/API/portal/profileMemberEntry?p={page}&c={count}&o={orders}&f={filters}&d={deploy}+`
+`+/API/portal/profileMember?p={page}&c={count}&o={orders}&f={filters}&d={deploy}+`
 * *Method* +
 `GET`
 * *Data Params* +
