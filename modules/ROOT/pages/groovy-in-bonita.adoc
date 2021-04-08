@@ -410,5 +410,5 @@ This object can then be used as a process variable type for example.
 
 == References
 
-* http://docs.groovy-lang.org/docs/groovy-2.4.16/html/documentation/[Groovy 2.4.16 official documentation]
+* http://docs.groovy-lang.org/docs/groovy-3.0.7/html/documentation/[Groovy 3.0.7 official documentation]
 * https://mrhaki.blogspot.com/search/label/Groovy%3AGoodness[Groovy Goodness by MrHaki]
