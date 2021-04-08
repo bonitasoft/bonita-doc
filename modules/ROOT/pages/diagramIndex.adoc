@@ -1,0 +1,59 @@
+= Diagram
+:description: blabla
+
+blabla
+[.card-section]
+== Diagram elements
+
+[.card.card-index]
+--
+xref:diagram-overview.adoc[[.card-title]#Diagram overview# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:pools-and-lanes.adoc[[.card-title]#Pools and lanes# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:diagram-tasks.adoc[[.card-title]#Diagram tasks# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:iteration.adoc[[.card-title]#Iteration# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:gateways.adoc[[.card-title]#Gateways# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:transitions.adoc[[.card-title]#Transitions# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:events.adoc[[.card-title]#Events# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:called-processes.adoc[[.card-title]#Called processes# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:event-subprocesses.adoc[[.card-title]#Event subprocesses# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:text-annotations.adoc[[.card-title]#Text annotations# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+
+// TODO -> tutorial, missing content etc

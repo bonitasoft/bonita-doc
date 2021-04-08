@@ -1,0 +1,69 @@
+= Quick start with Bonita
+:description: blabla
+
+bla bla
+
+[.card-section]
+== Bonita in a nutshell
+[.card.card-index]
+--
+xref:what-is-bonita.adoc[[.card-title]#What is Bonita# [.card-body.card-content-overflow]#pass:q[Discover what is Bonita and what you can do with it!]#]
+--
+
+[.card.card-index]
+--
+xref:bonita-bpm-studio-installation.adoc[[.card-title]#Bonita Studio installation# [.card-body.card-content-overflow]#pass:q[Merger avec ce qu'il y a dans le getting started (redondant)]#]
+--
+
+[.card-section]
+== Getting started
+
+[.card.card-index]
+--
+xref:tutorial-overview.adoc[[.card-title]#Overview# [.card-body.card-content-overflow]#pass:q[TODO.]#]
+--
+
+// [.card.card-index]
+// --
+// xref:bonita-studio-download-installation.adoc[[.card-title]#Download and install# [.card-body.card-content-overflow]#pass:q[TODO.]#]
+// --
+
+[.card.card-index]
+--
+xref:draw-bpmn-diagram.adoc[[.card-title]#Draw a BPMN diagram# [.card-body.card-content-overflow]#pass:q[TODO.]#]
+--
+
+[.card.card-index]
+--
+xref:define-business-data-model.adoc[[.card-title]#Define business data model (BDM)# [.card-body.card-content-overflow]#pass:q[TODO.]#]
+--
+
+[.card.card-index]
+--
+xref:declare-contracts.adoc[[.card-title]#Declare contracts# [.card-body.card-content-overflow]#pass:q[TODO.]#]
+--
+
+[.card.card-index]
+--
+xref:create-web-user-interfaces.adoc[[.card-title]#Create web user Interfaces# [.card-body.card-content-overflow]#pass:q[TODO.]#]
+--
+
+[.card.card-index]
+--
+xref:define-who-can-do-what.adoc[[.card-title]#Define who can do what# [.card-body.card-content-overflow]#pass:q[TODO.]#]
+--
+
+[.card.card-index]
+--
+xref:configure-email-connector.adoc[[.card-title]#Configure an email connector# [.card-body.card-content-overflow]#pass:q[TODO.]#]
+--
+
+[.card.card-index]
+--
+xref:design-application-page.adoc[[.card-title]#Design an application page# [.card-body.card-content-overflow]#pass:q[TODO.]#]
+--
+
+[.card.card-index]
+--
+xref:create-application.adoc[[.card-title]#Create an application# [.card-body.card-content-overflow]#pass:q[TODO.]#]
+--
