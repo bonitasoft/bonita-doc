@@ -5,6 +5,43 @@ Learn how to use the Bonita Platform and all of its components.
 
 [NOTE]
 ====
-
 The 2021.2 is currently work in progress (wip).
 ====
+
+[.card-section]
+== Discover Bonita
+
+[.card.card-index]
+--
+xref:quickStartIndex.adoc[[.card-title]#Quick start# [.card-body.card-content-overflow]#pass:q[Quick start with Bonita!]#]
+--
+
+[.card.card-index]
+--
+xref:release-notes.adoc[[.card-title]#What's new in {bonitaVersion}# [.card-body.card-content-overflow]#pass:q[At a glance: new values, improvements, changes, and bug fixes.]#]
+--
+
+[.card.card-index]
+--
+xref:projectCreationIndex.adoc[[.card-title]#Project creation# [.card-body.card-content-overflow]#pass:q[All the concepts you need to create a Bonita project.]#]
+--
+
+[.card.card-index]
+--
+xref:buildAndDeployIndex.adoc[[.card-title]#Build and deploy# [.card-body.card-content-overflow]#pass:q[Build and deploy your project in a Bonita runtime.]#]
+--
+
+[.card.card-index]
+--
+xref:runtimeInstallationIndex.adoc[[.card-title]#Runtime installation# [.card-body.card-content-overflow]#pass:q[Install and configure a Bonita runtime to execute your processes.]#]
+--
+
+[.card.card-index]
+--
+xref:runtimeAdministrationIndex.adoc[[.card-title]#Runtime administration# [.card-body.card-content-overflow]#pass:q[Manage and monitor your Bonita runtime.]#]
+--
+
+[.card.card-index]
+--
+xref:apiIndex.adoc[[.card-title]#Bonita API# [.card-body.card-content-overflow]#pass:q[REST API, Java API.]#]
+--

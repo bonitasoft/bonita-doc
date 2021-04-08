@@ -1,0 +1,108 @@
+= Project creation
+:description: blabla
+
+bla bla
+[.card-section]
+== Process
+// - diagram  - actor / filters - connectors - contracts - configuration - testing
+[.card.card-index]
+--
+xref:diagramIndex.adoc[[.card-title]#Diagram# [.card-body.card-content-overflow]#pass:q[Pages that explain how to build a diagram using Bonita.]#]
+--
+
+[.card.card-index]
+--
+xref:actorIndex.adoc[[.card-title]#Actor# [.card-body.card-content-overflow]#pass:q[Pages that explain how to use actors and actor filters in Bonita.]#]
+--
+
+[.card.card-index]
+--
+xref:connectorIndex.adoc[[.card-title]#Connector# [.card-body.card-content-overflow]#pass:q[Pages that explain how to use connectors provided by Bonita.]#]
+--
+
+[.card.card-index]
+--
+xref:contracts-and-contexts.adoc[[.card-title]#Contract# [.card-body.card-content-overflow]#pass:q[Pages that define contracts in Bonita.]#]
+--
+
+[.card.card-index]
+--
+xref:processConfigurationIndex.adoc[[.card-title]#Process configuration# [.card-body.card-content-overflow]#pass:q[Configure your processes per environment.]#]
+--
+
+[.card.card-index]
+--
+xref:define-a-search-index.adoc[[.card-title]#Search keys# [.card-body.card-content-overflow]#pass:q[Identify process instances with business data.]#]
+--
+
+[.card.card-index]
+--
+xref:project_deploy_in_dev_suite.adoc[[.card-title]#Project deployment in Bonita Studio# [.card-body.card-content-overflow]#pass:q[Deploy processes from Bonita Studio.]#]
+--
+
+[.card.card-index]
+--
+xref:processTestingIndex.adoc[[.card-title]#Process testing# [.card-body.card-content-overflow]#pass:q[Test your processes in Bonita Studio.]#]
+--
+
+[.card-section]
+== Users
+// Organization - Profiles - Permissions - Actor
+
+[.card-section]
+== Data
+// BDM - Access ctrl - Business data - Process data - Document - Data in UID - Parameters - Business rules
+
+[.card.card-index]
+--
+xref:define-and-deploy-the-bdm.adoc[[.card-title]#Business Data Model# [.card-body.card-content-overflow]#pass:q[Define the Business Data Model of your project.]#]
+--
+
+[.card.card-index]
+--
+xref:bdm-access-control.adoc[[.card-title]#BDM access control# [.card-body.card-content-overflow]#pass:q[Create access control on your business objects.]#]
+--
+
+// TODO card business data quand la doc sera mieux :)
+
+[.card.card-index]
+--
+xref:specify-data-in-a-process-definition.adoc[[.card-title]#Process variables# [.card-body.card-content-overflow]#pass:q[Add variables on your processes.]#]
+--
+
+[.card.card-index]
+--
+xref:documentIndex.adoc[[.card-title]#Documents# [.card-body.card-content-overflow]#pass:q[Manage documents in your processes.]#]
+--
+
+[.card.card-index]
+--
+xref:parameters.adoc[[.card-title]#Parameters# [.card-body.card-content-overflow]#pass:q[Use parameters in your processes.]#]
+--
+
+[.card.card-index]
+--
+xref:contracts-and-contexts.adoc[[.card-title]#Contract# [.card-body.card-content-overflow]#pass:q[Use your data in process contracts.]#]
+--
+
+[.card.card-index]
+--
+xref:variables.adoc[[.card-title]#Data management in UI Designer# [.card-body.card-content-overflow]#pass:q[Discover how to manage data in the UI Designer.]#]
+--
+
+[.card.card-index]
+--
+xref:define-a-search-index.adoc[[.card-title]#Search keys# [.card-body.card-content-overflow]#pass:q[Identify process instances with business data.]#]
+--
+
+[.card-section]
+== User interfaces
+// - Forms - Pages - Layout - Themes - Assets - Widgets (custom ? ) - Traduction - Fragments 
+
+[.card-section]
+== Living applications
+// Bonita app
+
+[.card-section]
+== Extensions
+

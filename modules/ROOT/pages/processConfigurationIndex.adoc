@@ -1,0 +1,31 @@
+= Process configuration 
+:description: blabla
+
+blabla
+[.card-section]
+== Configure processes per environment
+
+[.card.card-index]
+--
+xref:process-configuration-overview.adoc[[.card-title]#Overview# [.card-body.card-content-overflow]#pass:q[Is it usefull?]#]
+--
+
+[.card.card-index]
+--
+xref:environments.adoc[[.card-title]#Environments# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:configuring-a-process.adoc[[.card-title]#Configure a process# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:manage-jar-files.adoc[[.card-title]#Manage JAR files# [.card-body.card-content-overflow]#pass:q[-> A revoir pour etre sur qu'on s'adresse au bon personna]#]
+--
+
+[.card.card-index]
+--
+xref:managing-dependencies.adoc[[.card-title]#Manage dependencies# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--

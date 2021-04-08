@@ -1,0 +1,31 @@
+= Process testing 
+:description: blabla
+
+blabla
+[.card-section]
+== Test your processes in Bonita Studio
+
+[.card.card-index]
+--
+xref:process-testing-overview.adoc[[.card-title]#Overview# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:configure-a-test-organization.adoc[[.card-title]#Configure a test organization# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:configuring-a-process.adoc[[.card-title]#Configure a process# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:run-a-process-from-bonita-bpm-studio-for-testing.adoc[[.card-title]#Run a process from Bonita Studio for testing# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:log-files.adoc[[.card-title]#Log files# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
