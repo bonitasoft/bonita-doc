@@ -226,6 +226,25 @@ Use BPMN 2 importer for model exchange with third-party editors.
 
 == Bug fixes
 
+=== Fixes in Bonita 2021.1-0408 (2021-04-08)
+
+==== Fixes in Bonita Development Suite (Studio and UI Designer)
+
+* UID-413 -	BDM "exploration" failing when the description is on several lines, or contains double quotes
+* STUDIO-3880 -	[Investigate] Editing domain can be null on an opended diagram
+* STUDIO-3875 -	Issue with "Switch project" function
+* STUDIO-3844 -	git clone failing with misleading error
+* STUDIO-3843 -	Performance issue with groovy autocomplete on windows
+* STUDIO-3840 -	Project switch doesn't work when Application editor is opened
+* STUDIO-3757 -	SAP connector cannot create data
+
+==== Fixes in Bonita Runtime (including Portal)
+
+* RUNTIME-154 -	REGRESSION: BDM deployment fails with unclear error after migration to 7.11 + on Oracle. On other db vendors, some table constraints (foreign keys...) are duplicated
+* RUNTIME-148 -	LDAP Synch: problem while resolving an LDAP group member makes synchronization fail and exit
+* RUNTIME-137 -	REGRESSION: BDM deployment errors are not raising the actual Hibernate exception root cause
+* RUNTIME-131 -	Error 500 when accessing BPM services page
+
 === Fixes in Bonita 2021.1-0218 (2021-02-18)
 
 ==== Fixes in Bonita Development Suite (Studio and UI Designer)
