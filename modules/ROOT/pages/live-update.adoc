@@ -55,10 +55,10 @@ This is the list of forms that can be mapped to a task, the case overview, or th
 . Select a process and click on the _More..._
 . Select Forms on the left side menu
 . Select Form List tab
-. In the table, in the actions column, click on the _*pencil button*_ or the _*plus sign button*_
+. In the table, in the actions column, click on the *_pencil button_* or the _*plus sign button*_
 . Browse to a .zip file containing the new page/form
-. Click on _*Next*_ to check the permissions associated with the uploaded page/form.
-. Click on _*Confirm*_ to import the new page/form.
+. Click on *_Next_* to check the permissions associated with the uploaded page/form.
+. Click on *_Confirm_* to import the new page/form.
 
 [#form-mapping]
 

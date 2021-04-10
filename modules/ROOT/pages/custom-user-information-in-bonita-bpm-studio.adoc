@@ -20,10 +20,10 @@ All these types of information are not displayed in standard information tabs bu
 In the Organization menu > Manage organizations > Organization users, the second tab *User information management* offers a summary of the default information and allows to create custom user information. Use "Add" to create your own, with a name and an optional description.
 
 . In Bonita Studio, go to *Organization* in the cool bar
-. Click on _*Manage*_ in the dropdown menu
-. Click on _*Next*_ 3 times to get to the *Organization users* window
+. Click on *_Manage_* in the dropdown menu
+. Click on *_Next_* 3 times to get to the *Organization users* window
 . Click on the *User information management* tab
-. In the *Custom information* pane on the right hand side of the window, click on _*Add*_
+. In the *Custom information* pane on the right hand side of the window, click on *_Add_*
 . This will put a default name *Information1* in the *Name column*
 . Add a description (if needed). This will only appear in Bonita Studio.
 . Double click on the default name *Information1*, to modify it to your needs
@@ -57,16 +57,16 @@ When all relevant users have their Custom User Information set, you can add an a
 
 . In a process diagram, select a lane or a task
 . In the *Details* panel, Go to *General* > *Actors* and select an actor to apply the filter (actors are defined at pool level)
-. At *Actor filter* level, click _*Set*_
-. In the Actor filters window > Categories, click on _*Organization*_ and choose  _*Users with Custom information*_
-. Click on _*Next*_
+. At *Actor filter* level, click *_Set_*
+. In the Actor filters window > Categories, click on *_Organization_* and choose  _*Users with Custom information*_
+. Click on *_Next_*
 . Enter a name and a description for the filter configuration
-. Click on _*Next*_
+. Click on *_Next_*
 . Enter a custom user information *Name* or click on the drop down list to select the one you need
 . Enter a value for the information
 . To filter on several values using the same string, click _**Partial match **_
-. If you expect the filter to return only one user, then it's good that the task is assigned to her automatically. In this case, click the _*Assign tasks automatically*_ checkbox.
-. Click on _*Finish*_
+. If you expect the filter to return only one user, then it's good that the task is assigned to her automatically. In this case, click the *_Assign tasks automatically_* checkbox.
+. Click on *_Finish_*
 
 The filter is set for the actor and is displayed in the actor filter field. Users from the actor and with the relevant value for the custom information chosen will become candidates to perform the task, or all the tasks in the lane if you set it at lane level.
 

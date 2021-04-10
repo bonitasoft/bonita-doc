@@ -100,10 +100,10 @@ This information applies to the Subscription editions. No license is needed for 
 
 When you launch Bonita Studio for the first time, you need to install a license:
 
-. Click _*Copy to clipboard*_ to copy the request key from the pop-up
+. Click *_Copy to clipboard_* to copy the request key from the pop-up
 . Use the generated request key to request a license on the https://customer.bonitasoft.com/license/request[Customer portal]
-. _*Check*_ your email box (after a few minutes) and open the email from _link:mailto:no-reply@bonitasoft.com[no-reply@bonitasoft.com]_
-. _*Download*_ the attached file (.lic)
+. *_Check_* your email box (after a few minutes) and open the email from _link:mailto:no-reply@bonitasoft.com[no-reply@bonitasoft.com]_
+. *_Download_* the attached file (.lic)
 . Go back to your Bonita Studio, click _*Install license...*_, and select your .lic file.
 
 [#enable_cache]

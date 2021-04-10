@@ -380,7 +380,7 @@ Use an image widget to display an image. The image widget is able to display ima
 * To use an image asset in the image widget, set the *Source type* property to _Asset_, and then enter the image name in the *Asset name* input field.
 * To use an online image in the image widget, set the *Source type* property to _URL_, and then enter the image URL in the *URL* input field.
 
-_*Note*_: Applies from _7.0.2_
+*_Note_*: Applies from _7.0.2_
 
 === Chart widget
 
