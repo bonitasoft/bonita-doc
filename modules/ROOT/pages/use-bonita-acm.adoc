@@ -9,7 +9,7 @@ Adaptive Case Management with Bonita offers dynamic modeling of all process poss
 [NOTE]
 ====
 
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
+For Enterprise edition only.
 ====
 
 == Enable ACM Engine Plug-in
