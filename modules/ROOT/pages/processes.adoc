@@ -117,7 +117,7 @@ You can also delete the process in the _More details_ view of a disabled process
 . Select a process in the list
 . Click on the _More_ button
 . In _General_, click the _Pencil_ next to _Categories_ label
-. In the opened modal window, type a new category name then press _*Enter*_ key
+. In the opened modal window, type a new category name then press *_Enter_* key
 . Click on the _Save_ button.
 
 After you created a category and added it to the process, you can add other processes to the category.
@@ -129,7 +129,7 @@ After you created a category and added it to the process, you can add other proc
 . Click on the _More_ button
 . In _General_, click the _Pencil_ next to _Categories_ label
 . In the opened modal window, start typing the category name, and then select among the suggestions by using the arrow keys or mouse.
-. Press the _*Enter*_ key
+. Press the *_Enter_* key
 . Click on the _Save_ button
 
 == Start a case for another user
@@ -244,7 +244,7 @@ Only Administrators can do so.
 . Click on _Forms_ in the left menu.
 . The tables are displayed which list available forms. Click on a red link. A field input appears.
 . Starting to type some text, and any matching names of installed forms will be proposed. If there is no match for the name you enter, it will be considered as a URL.
-. Click the _Tick_ button to validate your change or _*X*_ to dismiss your change.
+. Click the _Tick_ button to validate your change or *_X_* to dismiss your change.
 
 [NOTE]
 ====

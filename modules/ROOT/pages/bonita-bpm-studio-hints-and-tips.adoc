@@ -41,4 +41,4 @@ The alignment tools, and others, are accessed from the icons at the bottom-left 
 == Open a recently modified diagram
 
 To see a list of recently modified diagrams without having to go to the Welcome page, go to the *Diagram* menu and choose *Recently modified*. +
-A submenu of the last ten diagrams you have modified is displayed. Click the _*name*_ of a diagram to open it.
+A submenu of the last ten diagrams you have modified is displayed. Click the *_name_* of a diagram to open it.
