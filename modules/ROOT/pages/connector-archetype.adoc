@@ -1,7 +1,8 @@
 = Bonita connector archetype
-:description: A set of best of breed tools to develop and test custom connectors independently of the Bonita Studio.
+:description: Create  and test Bonita connectors using a maven archetype, deploy a connector on Github packages, install an extension in Bonita Studio
 
-A set of best of breed tools to develop and test custom connectors independently of the Bonita Studio.
+This page explain how to create and test custom connectors using the provided maven archetype. +
+You will find a complete example that also explain how to deploy a connector on github packages in order to install it as an extension in a Studio.
 
 == Create a custom connector
 
@@ -10,8 +11,8 @@ We provide a maven archetype to help you to bootstrap a connector project. The s
 
 === Prerequisite
 
-. Java 8 must be installed: https://adoptopenjdk.net/index.html
-. Maven must be installed: https://maven.apache.org/install.html
+. Java 11 must be installed: https://adoptium.net/[Download Java]
+. Maven must be installed: https://maven.apache.org/install.html[Download Maven]
 . Connector development requires some software development skills. The archetype offers the possibility to develop the connector in _Java_, _Groovy_ or _Kotlin_. Make sure that you are comfortable with at least one of those three languages.
 
 === Generate the project using the maven archetype
@@ -19,16 +20,16 @@ We provide a maven archetype to help you to bootstrap a connector project. The s
 A https://maven.apache.org/archetype/index.html[maven archetype] is a maven project templating toolkit. This archetype allows you to bootstrap a Bonita connector project on your file system. A Bonita connector project is a maven project. It can be built, tested and then imported into a Bonita project using Bonita Studio.
 
 To create your connector project, prompt a terminal and enter the following command:
-[WARNING]
-====
-
-Make sure that you are not executing the command from an existing maven project.
-====
 
 [source,bash]
 ----
 mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-connector-archetype
 ----
+
+[CAUTION]
+====
+Make sure that you are not executing the command from an existing maven project.
+====
 
 You'll then have to specify interactively the properties of your project:
 
@@ -51,7 +52,10 @@ Follow the http://maven.apache.org/guides/mini/guide-naming-conventions.html[mav
 
 A folder named _[your artifact id]_ is created, with your Bonita connector project, ready to use.
 
-⚠️ You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
+[TIP]
+====
+You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
+====
 
 === Connector developpment
 
@@ -59,10 +63,13 @@ In this section we'll look into the different components of a connector project,
 
 ==== Definition
 
-A connector is first defined by its *definition*.  It is an XML file located in _src/main/resources/[artifactId].def_ by default. +
+A connector is first defined by its *definition*.  It is an XML file located in _src/main/resources-filtered/[artifactId].def_ by default. +
 A connector definition defines the inputs and the outputs of a connector. It can be seen as a black box. The definition explicits what will be passed to the connector, and what is expected as output. Then, implementations of this definition can be created, they just need to respect the inputs / outputs contract of the definition.
 
+[TIP]
+====
 The connector definition XSD is available in _schemas/connector-definition-descriptor.xsd_, you can import it in a IDE to get completion.
+====
 
 image::images/connector-def-xsd-overview.png[Connector definition xsd overview]
 
@@ -72,8 +79,8 @@ Example:
 ----
 <?xml version="1.0" encoding="UTF-8"?>
 <definition:ConnectorDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1">
-    <id>myConnector</id> <!-- Id of the definition -->
-    <version>1.0.0</version> <!-- Version of the definition -->
+    <id>${connector-definition-id}</id> <!-- Id of the definition, retrieved from pom.xml -->
+    <version>${connector-definition-version}</version> <!-- Version of the definition, retrieved from pom.xml -->
     <icon>connector.png</icon> <!-- The icon used in the Studio for this definition -->
     <category icon="connector.png" id="Custom"/> <!-- The category of this definition, used in the Studio (e.g: http, script ...) -->
 
@@ -97,7 +104,7 @@ Example:
 </definition:ConnectorDefinition>
 ----
 
-===== Connector Inputs
+**Connector Inputs**
 
 The inputs of a connector are defined in the definition. Those inputs are valued by processes, and are retrieved by the implementation classes of the connector to execute the business logic. +
 A connector input:
@@ -107,7 +114,7 @@ A connector input:
 * Has an optional default value
 * Can be mandatory
 
-===== Connector Outputs
+**Connector Outputs**
 
 The outputs of a connector are defined in the definition. Those outputs are valued by the implementation classes of the connector, and are used by processes. +
 A connector output:
@@ -115,7 +122,12 @@ A connector output:
 * Has a name
 * Has a type
 
-===== Pages and widgets
+[TIP]
+====
+You can use custom types for connector outputs, the only limitation is that the type has to implement 'Serializable'.
+====
+
+**Pages and widgets**
 
 A connector definition includes _pages_ and _widgets_.  Those elements define the UI that will appear in the Bonita Studio to configure the connector.
 
@@ -147,7 +159,6 @@ Some widgets can require additional informations. For example, if you want to cr
 
 [WARNING]
 ====
-
 As widgets are displayed in a dialog window in the Studio, be careful to not use too many widgets in the same page.
 Use Group widget if you need to stack a lot of widgets in the same page.
 ====
@@ -164,8 +175,12 @@ A connector implementation is made of two elements:
 
 ===== Implementation XML file
 
-The implementation XML file is located in _src/main/resources/[connector name].impl_ by default. +
-The connector definition XSD is available in _schemas/connector-implementation-descriptor.xsd_, you can import it in a IDE to get completion.
+The implementation XML file is located in _src/main/resources-filtered/[connector name].impl_ by default. +
+
+[TIP]
+====
+The connector implementation XSD is available in _schemas/connector-implementation-descriptor.xsd_, you can import it in a IDE to get completion.
+====
 
 image::images/connector-impl-xsd-overview.png[Connector implementation xsd overview]
 
@@ -175,20 +190,20 @@ Example:
 ----
 <?xml version="1.0" encoding="UTF-8"?>
 <implementation:connectorImplementation xmlns:implementation="http://www.bonitasoft.org/ns/connector/implementation/6.0">
-  <implementationId>myConnector-impl</implementationId> <!-- Id of the implementation -->
-  <implementationVersion>$implementation.version$</implementationVersion> <!-- Version of the implementation, retrieved from the pom.xml at build time -> ${project.version} -->
-  <definitionId>myConnector</definitionId> <!-- Id of the definition implemented -->
-  <definitionVersion>1.0.0</definitionVersion> <!-- Version of the definition implemented -->
-  <implementationClassname>myGroupId.Connector</implementationClassname> <!-- Path to the main implementation class -->
+  <implementationId>${connector-impl-id}</implementationId> <!-- Id of the implementation, retrieved from pom.xml -->
+  <implementationVersion>${connector-impl-version}</implementationVersion> <!-- Version of the implementation, retrieved from pom.xml  -->
+  <definitionId>${connector-definition-id}</definitionId> <!-- Id of the definition implemented, retrieved from pom.xml -->
+  <definitionVersion>${connector-definition-version}</definitionVersion> <!-- Version of the definition implemented, retrieved from pom.xml -->
+  <implementationClassname>${connector-main-class}</implementationClassname> <!-- Path to the main implementation class, retrieved from pom.xml -->
   <description>Default connector implementation</description>
 
-<!-- Implementation dependencies, retrieved from the pom.xml at build time -->
-$Dependencies$
+<!-- Dependencies, retrieved from the pom.xml-->
+${connector-dependencies}
 
 </implementation:connectorImplementation>
 ----
 
-===== Implementation sources
+**Implementation sources**
 
 The implementation sources contain all the logic of the connector:
 
@@ -263,39 +278,28 @@ class Connector extends AbstractConnector {
 ----
 
 The methods _validateInputParameters_ and _executeBusinessLogic_ must be implemented, and are called by the Bonita engine when the connector is executed. +
-The methods _connect_ and _disconnect_ can be used to open and close a connection to a remote server.  The life cycle of the connection will then be managed by the Bonita engine.
+The methods _connect_ and _disconnect_ can be used to open and close a connection to a remote server.  The life cycle of the connection will then be managed by the Bonita Runtime.
 
 ==== Build a connector project
 
-A connector project is built using Maven, and especially the https://maven.apache.org/plugins/maven-assembly-plugin/[maven assembly plugin]. +
-The root _pom.xml_ file has the following parent:
+A connector project is built using Maven, and especially the https://maven.apache.org/plugins/maven-assembly-plugin/[maven assembly plugin].
 
-[source,xml]
-----
-<parent>
-    <groupId>org.bonitasoft.connectors</groupId>
-    <artifactId>bonita-connectors</artifactId>
-    <version>1.0.0</version>
-</parent>
-----
-
-This parent contains the logic that make the replacements in the implementation xml file at build time.
-
-By default, a zip archives is built containing all the definitions and implementations found in the project.
-By importing this archive in a Bonita Studio you will import all the definitions and implementations created in the project
+By default, a Java archive (jar) is built containing all the definitions and implementations found in the project.
+This jar is meant to be deployed on a maven repository and then imported as an extension in any Studio that has access to this repository.
 
 To build the connector project, type the following command at the root of the project :
 
 [source,bash]
 ----
-./mvnw clean install
+./mvnw clean package
 ----
 
-The built archive can be found in here `target/[artifact id]-[artifact version].zip` after the build.
+The built archive can be found in here `target/[artifact id]-[artifact version].jar` after the build.
 
-== Example
+== Example: create a connector, publish it on Github packages and install it as an extension
 
-In this example, we are going to create a connector to communicate with the https://swapi.dev/[Star Wars API]. It will take in input a Star Wars character name, and will return details on this character.
+In this example, we are going to create a connector to communicate with the https://swapi.dev/[Star Wars API]. It will take in input a Star Wars character name, and will return details on this character. +
+We will then see how to deploy this connector on Github packages in order to install it as an extension in Bonita Studio from anywhere.
 
 This connector will be implemented using:
 
@@ -314,16 +318,17 @@ mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeA
 
 * *groupId*: com.company.connector
 * *artifactId*: connector-starwars
-* *version*: 1.0.0-SNAPSHOT
+* *version*: 1.0.0
 * *package*: com.company.connector
-* *bonitaVersion*: _[Your Bonita version]_ (ex: 7.10.4)
+* *bonitaVersion*: _[Technichal Bonita id]_ (ex: 7.13.0)
 * *className*: ConnectorStarWars
 * *language*: groovy
 * *wrapper*: true
 
-The generated project has the following skeleton:
-
-image::images/connector-archetype-example/connector-project-overview.png[Connector project overview]
+[CAUTION]
+====
+Be sure to use the xref:product-versioning#_technical_id[technical id] of your Bonita version.
+====
 
 Add the following properties and dependencies to the existing ones in the pom.xml:
 
@@ -397,7 +402,7 @@ If you are interested by test coverage, you can add the following jacoco configu
 === 2 - Define connector inputs
 
 The connector inputs are defined in the connector definition. +
-Open the file _src/main/resources/connector-starwars.def_ +
+Open the file _src/main/resouresources-filteredrces/connector-starwars.def_ +
 We are first going to create two inputs for the connector:
 
 * An input *_name_*, which will contain the name of a star wars character
@@ -429,7 +434,7 @@ Replace the default page by the following one:
 ----
 
 For each page and widget , a name and a description must be added  in the property file, else the Studio is unable to display the element. +
-Open the file _src/main/resources/connector-starwars.properties_ and replace the content for the default page and widgets by the following:
+Open the file _src/main/resources-filtered/connector-starwars.properties_ and replace the content for the default page and widgets by the following:
 
 [source,properties]
 ----
@@ -440,6 +445,11 @@ nameWidget.description=The name of the character to retrieve
 urlWidget.label=URL
 urlWidget.description=The service base url
 ----
+
+[IMPORTANT]
+====
+Be sure to always provide a name and a description for pages and widgets, else it will not be possible to configure the connector in the Studio.
+====
 
 === 3 - Create the retrofit service and the model
 
@@ -518,7 +528,10 @@ class PersonResponse implements Serializable {
 }
 ----
 
-_note:_ The API returns many informations about a single star wars character. In order to keep it simple, we decided to just include a few of them in our Person model, but fill free to add other fields if you want to.
+[NOTE]
+====
+The API returns many informations about a single star wars character. In order to keep it simple, we decided to just include a few of them in our Person model, but fill free to add other fields if you want to.
+====
 
 ==== The service
 
@@ -530,6 +543,7 @@ In the package _com.company.connector_, create the Interface _StarWarsService_:
 package com.company.connector
 
 import com.company.connector.model.PersonResponse
+
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -539,7 +553,7 @@ interface StarWarsService {
 
     @Headers("Accept: application/json")
     @GET("api/people")
-    def Call<PersonResponse> person(@Query("search") String name)
+    def Call<PersonResponse> person(@Query("search") String name);
 }
 ----
 
@@ -549,14 +563,17 @@ This service declares a single GET endpoint on _api/people_, with a query parame
 
 Now that the model is created, we can define the connector outputs. +
 Connector outputs are defined in the definition. +
-Open the file _src/main/resources/connector-starwars.def_, and replace the default output by the following one:
+Open the file _src/main/resources-filtered/connector-starwars.def_, and replace the default output by the following one:
 
 [source,xml]
 ----
 <output name="person" type="com.company.connector.model.Person"/>
 ----
 
-_note:_ The type of a connector output must be *_serializable_*.
+[IMPORTANT]
+====
+The type of a connector output must be *_serializable_* (i.e it must implement the class _Serializable_).
+====
 
 === 5 - Implement and test connector logic
 
@@ -841,8 +858,6 @@ def should_handle_server_error() {
 }
 ----
 
-=== 6 - Build and import the connector in Bonita
-
 The implementation of the connector is finished. +
 You can build the connector using the following command line at the root of the project:
 
@@ -851,5 +866,167 @@ You can build the connector using the following command line at the root of the 
 ./mvnw clean package
 ----
 
-The result of the build is a zip archive present in the target folder : _connector-starwars-1.0.0-SNAPSHOT.zip_.
-This archive can be imported in a Bonita Studio (from the menu development \-> connector \-> import), and is ready to be used in processes.
+=== 6 - Publish the connector on Github packages
+
+[NOTE]
+====
+This step is an example of how to publish a Bonita extension on a private maven repository (here Github packages). You can publish your extensions on any kind of maven repository.
+====
+
+Now that the connector development is finished, we want to make it available for Studio users. +
+The recommended way to make an extension available is to publish it on a maven repository. +
+The easiest way is to publish the extension on a public maven repository, like https://mvnrepository.com/[maven central]. The extension will be available for everyone, but you won't have to bother with a private repository and credentials. This https://maven.apache.org/repository/guide-central-repository-upload.html[tutorial] explains how to deploy an artifact  on maven central. +
+We chose an other solution for this example: publish the extension on Github packages, a private maven repository managed by Github (it's free if you store less than 500 MB). This way, your extension will be protected by authentication, only you and your team will have access to it. The only requirement is to have a github account, you can create one for free https://github.com/[here].
+
+[TIP]
+====
+You can easily publish an artifact on Github packages using a Github Action. This way, you won't have to create a personnal access token nor to manage local maven configuration. https://docs.github.com/en/actions/guides/publishing-java-packages-with-maven#publishing-packages-to-github-packages[More details here].
+====
+
+==== Configure Github packages authentication
+
+In order to publish your extension on Github packages, you need to configure Maven, by telling him that he has access to this private repository and by giving him the credentials. 
+
+The https://docs.github.com/en/packages/guides/configuring-apache-maven-for-use-with-github-packages[Official documentation] provided by Github explains in details how to configure Maven, here is a summuary of the main steps.
+
+[#token]
+**Create a personnal access token** 
+
+This token will be used by maven to authenticate to Github packages. You can follow this https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token[tutorial] to create a personal access token. Be sure to check the box _write:packages_ when configuring the token.
+
+**Update maven configuration**
+
+[TIP]
+====
+Bonita Studio embbed a user interface to easily configure maven and encrypt passwords. See xref:configure-maven.adoc[Configure Maven using Bonita Studio].
+====
+
+Now that the token is created, you have to update your local maven configuration. It means editing the file `~/.m2/settings.xml`. +
+The following repository and server must be added: 
+
+[source,xml]
+----
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+  <activeProfiles>
+    <activeProfile>github</activeProfile>
+  </activeProfiles>
+
+  <profiles>
+    <profile>
+      <id>github</id>
+      <repositories>
+        <repository>
+          <id>github</id>
+          <url>https://maven.pkg.github.com/OWNER/*</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+
+  <servers>
+    <server>
+      <id>github</id>
+      <username>USERNAME</username>
+      <password>TOKEN</password>
+    </server>
+  </servers>
+</settings>
+----
+
+Replace USERNAME and TOKEN by your credentials, and OWNER with the name of the user or organization account that owns the repository. Because uppercase letters aren't supported, you must use lowercase letters for the repository owner even if the GitHub user or organization name contains uppercase letters.
+
+If your maven configuration file is shared, it is recommended to use https://maven.apache.org/guides/mini/guide-encryption.html[encryption] for passwords.
+
+**Publish the connector**
+
+Now that Maven in configured, we are almost ready to publish the connector on Github packages. +
+The last thing to do is to update the `pom.xml` of the connector project to tell Maven where is has to deploy this artifact. +
+To do so, add the following _distributionManagement_ tag on your `pom.xml` file (usually at then end, just before the closing project tag): 
+
+[source,xml]
+----
+<!--
+Replace OWNER with the name of the user or organization account that owns the repository.
+Replace REPOSITORY with the name of the repository containing your project.
+-->
+
+<distributionManagement>
+   <repository>
+     <id>github</id>
+     <name>GitHub OWNER Apache Maven Packages</name>
+     <url>https://maven.pkg.github.com/OWNER/REPOSITORY</url>
+   </repository>
+</distributionManagement>
+----
+
+You are now ready to publish your connector. To do so, type the following command at the root of your project:
+
+[source, bash]
+----
+mvn deploy
+----
+
+This https://docs.github.com/en/packages/manage-packages/viewing-packages[guide] explains how to view your deployed packages if you need to.
+
+=== 7 - Import and use your connector as a Bonita extension
+
+Now that your connector has been published on Github packages, anyone that has an access token to your Gitub packages repository can install this connector as an extension in Bonita Studio.
+
+**Configure Bonita Studio to access the Github packages repository** 
+
+====
+_If you already configured maven on your computer to deploy the connector on Github packages, you can skip this step._
+====
+
+To retrieve an extension from a repository, some maven configuration must be done in Bonita Studio. The idea is to declare the repository as accessible (i.e extensions can be retrieved from this repository), and to configure credentials if required. +
+Bonita Studio comes with a handy user interface to update xref:configure-maven[Maven configuration]. +
+There is two things to configure to let the Studio retrieve extensions from Github packages: +
+
+1 - Add the repository in the configuration
+
+To create a new repository, follow those xref:configure-maven#repositories[instructions], using the following parameters: 
+
+- **ID**: `githubPackages`
+- **Name**: 1Github packages1
+- **URL**: `\https://maven.pkg.github.com/**OWNER**/*` _, OWNER is the name of the user or organization account that owns the repository._
+- **Releases and Snapshots**: keep default values, disable snapshots (artifacts in development) if you don't want them.
+
+Bonita Studio now knows that he can retrieve extensions from this repository, but he cannot do it until authentication is configured.
+
+2 - Add the credentials for this repository
+
+To configure the credentials for a repository, you will have to create a _server_, which is just a configuration element that contains credentials.
+
+Before to create a server, make sure that you have an xref:#token[access token] with at least read access.
+
+To create a new server, follow those xref:configure-maven#servers[instructions], using the following parameters: 
+
+- **ID**: `githubPackages`
+- **Username**: Your github username
+- **Password**: The access token
+
+It is recommended to xref:configure-maven#encryption[encrypt] passwords if the configuration file is shared. However, if the access token has only read access you might want to share the real usable value and not an uncrypted unusable value, in this case do not encrypt it.
+
+Bonita Studio is now correctly configured to retrieve extensions from this private maven repository!
+
+**Import and use the connecteur**
+
+To import an extension, you need to open the project extensions view (from the coolbar). +
+On the top right corner of the project extension view, click on _Import an extension_. 
+
+A dialog opens, with fields to enter the _maven coordinates_ of an extension. +
+To import the connector starwars, use the following coordinates: 
+
+- **Group ID**: `com.company.connector`
+- **Artifact ID**: `connector-starwars`
+- **Version**: `1.0.0`
+- **Type**: `jar`
+
+Click on import. After a few seconds, the connector should appear in the list of extensions, you can now use it in a process!
