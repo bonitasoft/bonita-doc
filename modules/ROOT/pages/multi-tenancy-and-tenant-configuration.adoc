@@ -12,5 +12,5 @@ The multi-platforms approach allows:
 * the physical segregation of resources and data (increased security)
 * the possibility to split public/private Cloud instances 
 
-Support is still provided for customers who already use a multi-tenant architecture for their Bonita on-premises.
+Support is still provided for customers who already use a multi-tenant architecture for their Bonita on-premises installation.
 ====
