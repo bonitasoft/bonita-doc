@@ -12,7 +12,7 @@ processes (number of processes instances, number of current users, operations an
 
 Hardware required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Portal)
 
-[width="30%"]
+[width="50%"]
 |===
 | Type | Minimum | Recommended
 
@@ -33,7 +33,7 @@ Hardware required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Port
 
 Software required for Bonita BPM Platform (Bonita BPM Engine and Bonita BPM Portal).
 
-[width="30%"]
+[width="50%"]
 |===
 |  | Version
 
