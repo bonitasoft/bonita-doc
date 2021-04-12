@@ -32,4 +32,5 @@ You can navigate those documents by using Ctrl+F.
 == Bonita BPM 5.x versions
 
 These versions are very, very, very old by now. +
-If you need a pdf archive, please send a request to https://customer.bonitasoft.com/[support].
+But, if you need to access their documentation, you can download https://github.com/bonitasoft/bonita-doc/releases/download/5.x_archives/BonitaBPM_5.x.zip[our html site with Bonita 5.x versions]. +
+Download the .zip archive, extract it, and then open the index.html file to launch the site. +
