@@ -292,8 +292,9 @@ To build the connector project, type the following command at the root of the pr
 ./mvnw clean package
 ----
 
-The built archive can be found in here `target/[artifact id]-[artifact version].jar` after the build.
+The built archive can be found in `target/[artifact id]-[artifact version].jar` after the build.
 
+[#example]
 == Example: create a connector, publish it on Github packages and install it as an extension
 
 In this example, we are going to create a connector to communicate with the https://swapi.dev/[Star Wars API]. It will take in input a Star Wars character name, and will return details on this character. +
