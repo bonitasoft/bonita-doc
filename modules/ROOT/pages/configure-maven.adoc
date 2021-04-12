@@ -12,7 +12,7 @@ All the concepts are explained in the https://maven.apache.org/settings.html[off
 [#repositories]
 == Add a new Maven repository
 
-Repositories declared in your configuration are the remote repositories Maven use to populate your local repository, which is used by Maven to retrieve plugin and dependencies. +
+Repositories declared in your configuration are the remote repositories Maven use to populate your local repository, which is used by Maven to retrieve plugins and dependencies. +
 Concretely, it means that to add an extension to your Bonita project (a connector, a REST API extension...) you have to add the Maven repository that contains your extension in your configuration. Thus, Maven will be able to access this repository and retrieve your extension.
 
 [TIP]
@@ -67,7 +67,7 @@ To configure a new Maven proxy, click on *_Preferences_* (from the coolbar) -> *
 You can add a new Proxy by clicking on the Add button, or edit an existing one by selecting it. +
 _Protocol_, _Host_ and _Port_ refers to the `protocol://host:port` of your proxy. + 
 The field _nonProxyHosts_ refers to the list of hosts that should not be proxied. The delimiter of the list is the expected type of the proxy server, usually a pipe or a comma. +
-You can configure credentials if you proxy requires authentication. It is recommended to xref:encryption[encrypt] your passwords if the maven configuration file is shared. +
+You can configure credentials if your proxy requires authentication. It is recommended to xref:encryption[encrypt] your passwords if the maven configuration file is shared. +
 You might need to define several proxies, but keep in mind that only one proxy can be active at a time. To activate a proxy, select it on the list and click on the button `activate`.
 
 [#mirrors]
