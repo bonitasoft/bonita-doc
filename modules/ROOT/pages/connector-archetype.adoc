@@ -173,8 +173,6 @@ A connector implementation is made of two elements:
 * An xml file used to explicit the definition implemented, the dependencies required and the location of the implementation sources
 * A set of Java based classes, constituting the implementation sources
 
-===== Implementation XML file
-
 The implementation XML file is located in _src/main/resources-filtered/[connector name].impl_ by default. +
 
 [TIP]
