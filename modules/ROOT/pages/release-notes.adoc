@@ -214,7 +214,7 @@ Bonita 2021.1 (7.12) is the latest version fully compatible with java 8 in produ
 === Deprecations and Removals
 
 ==== Multi-tenants architecture
-This option manage different entities (end-customers or internal departments/subsidiaries) is *deprecated*. +
+This option to manage different entities (end-customers or internal departments/subsidiaries) is now *deprecated*. +
 We strongly recommend to use multiple instances of Bonita Runtime for every separate entity, or to subscribe to Bonita Cloud with as many Runtimes as there are required entities. +
 Support is still provided for customers who already use a multi-tenant architecture for their Bonita on-premises installation.
 
