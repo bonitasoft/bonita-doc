@@ -187,7 +187,9 @@ SQL query >
 @/u01/app/oracle/product/12.2.0/dbhome_1/rdbms/admin/xaview.sql
 ----
 +
-The following queries must be done for each new user: i.e. one user = one database schema.
+The following queries must be done for each new user: i.e. one user = one database schema.  
+
+The following queries must be done for the bonita engine *and* the business data users. For example, if the users for the Bonita BPM and BDM databases are `bonita` and `business_data` respectively, you need to run the queries for both users. 
 +
 SQL query >
 +
@@ -202,6 +204,16 @@ GRANT execute ON sys.dbms_system TO bonita;
 GRANT execute ON sys.dbms_xa TO bonita;
 GRANT FORCE ANY TRANSACTION TO bonita;
 ALTER USER bonita quota unlimited on users;
+
+CREATE USER business_data IDENTIFIED BY business_data;
+GRANT connect, resource TO business_data IDENTIFIED BY business_data;
+GRANT select ON sys.dba_pending_transactions TO business_data;
+GRANT select ON sys.pending_trans$ TO business_data;
+GRANT select ON sys.dba_2pc_pending TO bonitbusiness_dataa;
+GRANT execute ON sys.dbms_system TO business_data;
+GRANT execute ON sys.dbms_xa TO business_data;
+GRANT FORCE ANY TRANSACTION TO business_data;
+ALTER USER business_data quota unlimited on users;
 ----
 
 ==== Microsoft SQL Server
