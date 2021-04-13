@@ -211,17 +211,22 @@ Until then, we strongly advise not to create Custom Portal Profiles anymore but 
 
 Bonita 2021.1 (7.12) is the latest version fully compatible with java 8 in production and development environment. JRE or JDK 11+ will be required to run. Bonita 2021.2+ won't be operated on Java 8.
 
-=== Removals
+=== Deprecations and Removals
+
+==== Multi-tenants architecture
+This option manage different entities (end-customers or internal departments/subsidiaries) is *deprecated*. +
+We strongly recommend to use multiple instances of Bonita Runtime for every separate entity, or to subscribe to Bonita Cloud with as many Runtimes as there are required entities. +
+Support is still provided for customers who already use a multi-tenant architecture for their Bonita on-premises installation.
 
 ==== IE11 support
 
-Internet Explorer 11 is not supported anymore through the Bonita Platform.
+Internet Explorer 11 is *not supported anymore* through the Bonita Platform. +
 The web browsers supported by Bonita 2021.1 are Mozilla Firefox, Google Chrome and Microsoft Edge.
 
 ==== Legacy third party format importers
 
-In the Community edition, XPDL and jBPM importers have been removed. +
-In Enterprise edition, Visio and Aris importers have been removed. +
+In the Community edition, XPDL and jBPM importers have been *removed*. +
+In Enterprise edition, Visio and Aris importers have been *removed*. +
 Use BPMN 2 importer for model exchange with third-party editors.
 
 == Bug fixes
