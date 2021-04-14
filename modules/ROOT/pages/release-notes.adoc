@@ -9,6 +9,11 @@ The 2021.2 is currently work in progress (WIP).
 
 == New values added
 
+=== SSO with OpenID Connect
+
+As of Bonita 2021.2 it is possible to xref:single-sign-on-with-oidc.adoc[configure Bonita to use OpenID Connect (OIDC)] as authentication mechanism to access your Bonita applications and achieve Single Sign-on with an external OIDC provider. +
+The Authorization Code Flow of OpenID Connect is supported to authenticate when accessing Bonita applications as well as the Resource Owner Credentials Grant and Authorization Code Grant of OAuth 2.0 to authenticate when requesting Bonita REST API.
+
 == Improvements
 
 === Exception reporting
