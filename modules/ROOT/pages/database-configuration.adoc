@@ -62,8 +62,9 @@ Download the driver compatible with Oracle 12.2.0.1: https://www.oracle.com/data
 The first step in configuring Bonita with your RDBMS is to create the new databases (i.e. schemas): one for engine data, and another one, optionally, if you use business data.
 
 To do so, you need a RDBMS user account that has sufficient privileges (i.e. privileges to create new schema).
+If you use different users for the engine data database and for the business data database, then you must grant this privileges to both users. 
 
-Also, note that the owner of the new schemas must own the following privileges:
+Also, note that the owner of the new schemas (engine data *and* business data) must own the following privileges:
 
 * CREATE TABLE
 * CREATE INDEX
@@ -72,7 +73,7 @@ Also, note that the owner of the new schemas must own the following privileges:
 [NOTE]
 ====
 
-CREATE TABLE and CREATE INDEX privileges are not required after first start in normal use. +
+CREATE TABLE and CREATE INDEX privileges are not required for the engine database user after first start in normal use. +
 If the same SQL user is used with the xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[migration tool], then this user needs such grants.
 ====
 
