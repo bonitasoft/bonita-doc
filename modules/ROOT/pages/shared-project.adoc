@@ -80,6 +80,13 @@ Bonita Studio integrates the default merge tool of EGit. Here are some hints on 
 
 Git workflow offers a lot of other features that are not directly integrated in Bonita Studio. You can still use them using the command line interface (https://git-scm.com/download/[available here]). To retrieve the location of your project on your filesystem do a right click on the project name in the project explorer and select *Show in system explorer* (default location of your project would be: +++<bonita_studio_install_dir>+++/workspace/+++<name_of_the_project>+++).+++</name_of_the_project>++++++</bonita_studio_install_dir>+++
 
+=== Authentication 
+The following authentication methods are supported:
+* Login and password
+* Login and token - use the password field for the token value
+* Ssh Key
+
+
 [#git-troubleshooting]
 
 === Troubleshooting
