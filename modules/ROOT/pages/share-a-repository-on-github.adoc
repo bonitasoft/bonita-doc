@@ -1,12 +1,6 @@
 = How to share a project on Github
 :description: [NOTE]
 
-[NOTE]
-====
-
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
-====
-
 This page explains how to push an existing Bonita project on https://github.com/[GitHub] to share it with teammates. +
 For more information on Git integration in Bonita Studio, you can read the xref:workspaces-and-repositories.adoc#git[reference documentation page].
 
