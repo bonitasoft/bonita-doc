@@ -82,9 +82,9 @@ Git workflow offers a lot of other features that are not directly integrated in 
 
 === Authentication 
 The following authentication methods are supported:
-* Login and password
-* Login and token - use the password field for the token value
-* Ssh Key
+* Login and password +
+* Login and token - use the password field for the token value +
+* Ssh Key +
 
 
 [#git-troubleshooting]
