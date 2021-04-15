@@ -28,7 +28,7 @@ In all cases, the local Git repository is initialized, and a .gitignore file is 
 ..  On GitHub, navigate to the main page of the repository. Under the repository name, click on "Clone or download". In the Clone with HTTPs section, click on the icon to copy the clone URL for the repository. +
 .. In the studio, paste the URL in the URI text input +
 .. Do not select anything in the "Protocol" drop down list, nor write anything on the "Port" input field +
-.. If needed, enter your GitHub username and password in the Authentication form +
+.. If needed, enter your GitHub username and password (the password field can also be used for the authentification token) in the Authentication form +
 .. Click on "Next" +
 .. By convention, the default Git branch is named `master`, but you can change this here. +
 .. You can also change the pulling strategy (default is `merge`) +
