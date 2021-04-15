@@ -178,7 +178,7 @@ SQL query >
 +
 This only needs to be done once, after the installation of Oracle.
 
-. Create the database user to be used by the Bonita Engine and grant the required rights:
+. Create the database user(s) to be used by the Bonita Engine and grant the required rights:
 +
 SQL query >
 +
@@ -188,6 +188,8 @@ SQL query >
 ----
 +
 The following queries must be done for each new user: i.e. one user = one database schema.
++
+WARNING: Both the `db.user` and the `bdm.db.user` defined in the `<TOMCAT_HOME>/setup/database.properties` will require the following privileges, so the queries must be executed for both of them.
 +
 SQL query >
 +
@@ -202,6 +204,15 @@ GRANT execute ON sys.dbms_system TO bonita;
 GRANT execute ON sys.dbms_xa TO bonita;
 GRANT FORCE ANY TRANSACTION TO bonita;
 ALTER USER bonita quota unlimited on users;
+----
+
+. For the business database user (the one defined in `bdm.db.user`) grant this additional privilege:
++
+SQL query >
++
+[source,sql]
+----
+GRANT create sequence TO bonita;
 ----
 
 ==== Microsoft SQL Server
