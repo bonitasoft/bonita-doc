@@ -1,4 +1,4 @@
-== Use a shared project
+= Use a shared project
 :description: [NOTE]
 
 [NOTE]
@@ -9,14 +9,14 @@ Bonita Studio provide a feature (*File* menu, *Import*, *Workspace...*) to impor
 
 [#git]
 
-=== Git
+== Git
 
-==== Prerequisites
+=== Prerequisites
 
 * A remote Git repository (https://github.com/[GitHub], https://bitbucket.org[Bitbucket]...)
 * Basic Git workflow knowledge (https://git-scm.com/book/en/v2/Getting-Started-Git-Basics[Reference article])
 
-==== Git integration in Studio
+=== Git integration in Studio
 
 Bonita Studio Git integration is based on the EGit Eclipse plugin.
 
@@ -71,18 +71,26 @@ This information is also available at the top of Bonita Studio window, as well a
 
 Those commands can be found in Team > Git menu.
 
-==== Conflict management
+=== Conflict management
 
 The use of Git often lead to conflicts when contributions are merged. There is different ways to manage conflicts, with a diff tool, in a text editor... +
 Bonita Studio integrates the default merge tool of EGit. Here are some hints on how to resolve conflicts using EGit: http://wiki.eclipse.org/EGit/User_Guide#Resolving_a_merge_conflict[Manage conflicts using EGit].
 
-==== Advanced Git commands
+=== Advanced Git commands
 
 Git workflow offers a lot of other features that are not directly integrated in Bonita Studio. You can still use them using the command line interface (https://git-scm.com/download/[available here]). To retrieve the location of your project on your filesystem do a right click on the project name in the project explorer and select *Show in system explorer* (default location of your project would be: +++<bonita_studio_install_dir>+++/workspace/+++<name_of_the_project>+++).+++</name_of_the_project>++++++</bonita_studio_install_dir>+++
 
+=== Authentication 
+The following authentication methods are supported:
+
+* Login and password
+* Login and token - use the password field for the token value
+* Ssh Key
+
+
 [#git-troubleshooting]
 
-==== Troubleshooting
+=== Troubleshooting
 
 * *My diagram has many validation issues after a clone / a switch branch operation:* Keep in mind that Bonita artifacts (Business Data Model, Organization, Profiles, Applications, Pages ...) are not redeployed when you perform a clone or a switch branch operation. So, if you switch from a branch A to a branch B, you may need for example to deploy manually your BDM to ensure that all the business objects specific to the branch B are available.
 * *My git history view is empty:* The history view is based on  the active editor or the current selection (in Eclipse, a selection is a file selected in a package explorer). Sometimes you can manage to open the history view without having any active editor and nothing selected (which is often the case in Bonita because we only provide a package explorer in the REST API extensions editor) \-> the history view does not display anything. Just open a diagram for example and then re-open your history view.
@@ -90,7 +98,7 @@ Git workflow offers a lot of other features that are not directly integrated in 
 * *I try to use git with HTTPS, but I have authentication issues (_not authorized_)* This might happen if you have enabled the _two factor authentication_ on your GitHub account. You must use an https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line[access token] to be able to use HTTPS with the _two factor authentication_ activated. Once the token is created, use it instead of your password. An other solution is to use https://help.github.com/en/articles/connecting-to-github-with-ssh[ssh].
 * *I have _invalid privatekey_ issues when I try to use Git with ssh on macOs*: Since the macOs mojave update, the ssh-keygen default export format has changed. The new format isn't compatible with all eclipse versions. Use the following command to force ssh-keygen to export the private key as PEM format if you face this issue: _ssh-keygen -m PEM -t rsa -b 4096 -C "your_email@example.com"_.
 
-=== Subversion (SVN)
+== Subversion (SVN)
 
 A shared project is a repository on an SVN server. It can be accessed by members of the team working on a process definition. +
 It is protected by username and password. Only directories in the SVN 'trunk' can be used as Bonita repositories. +
@@ -98,12 +106,12 @@ The repository created remotely is then copied to your default local workspace a
 
 A shared project contains the artifacts developed in Bonita Studio and the UI Designer. For the UI Designer artifacts, there is no locking, merging, or conflict management.
 
-==== Prerequisites
+=== Prerequisites
 
 * A central SVN server accessible by the process designers, accessible by URL, and protected by login and password.
 * The same version of Bonita must be used by all users of the shared project.
 
-==== Shared a project
+=== Share a project
 
 There are two stages to creating a repository: connect to the SVN server, then specify the name of the new repository. Follow these steps:
 
@@ -119,7 +127,7 @@ There are two stages to creating a repository: connect to the SVN server, then s
 
 The new project is created locally and copied remotely to the SVN server. You can configure synchronization for this new shared project.
 
-==== Connect to a shared project
+=== Connect to a shared project
 
 To connect to a shared repository, follow these steps:
 
@@ -136,7 +144,7 @@ To connect to a shared repository, follow these steps:
 The first time you connect to a repository, you might get a security warning. +
 Configure security for the connection according to your organization's security policy.
 
-==== Synchronize a shared project
+=== Synchronize a shared project
 
 Synchronizing a shared project means merging the changes you have made in your local copy into the central repository on the server, and updating your local copy with the result. +
 There are three modes for synchronizing:
@@ -148,7 +156,7 @@ You launch synchronization manually, by going to the *Team* > *SVN* menu then *C
  You can only use this mode if you have a continuous network connection to the system hosting the SVN server. There is a significant network performance cost for using automatic synchronization. This option is not recommended.
 * Define synchronization mode project by project: With this mode, you define whether synchronization is manual or automatic for each project.
 
-==== Manage locks on shared resources
+=== Manage locks on shared resources
 
 This information applies to artifacts created in Bonita Studio but not those created in the UI Designer.
 
