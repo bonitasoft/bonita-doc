@@ -61,7 +61,7 @@ Download the driver compatible with Oracle 12.2.0.1: https://www.oracle.com/data
 
 The first step in configuring Bonita with your RDBMS is to create the new databases (i.e. schemas): one for engine data, and another one, optionally, if you use business data.
 
-WARNING: If you use different users for the engine data database and for the business data database, then you must grant the following privileges to both users. 
+WARNING: If you use different users for the engine database and for the business data database, then you must *grant the following privileges to both users*. 
 
 To create each new database, you need a RDBMS user account that has sufficient privileges (i.e. privileges to create new schema).
 
@@ -74,7 +74,7 @@ Next, the owner of each new schema (i.e. engine data *and* business data) must o
 [NOTE]
 ====
 
-CREATE TABLE and CREATE INDEX privileges are not required for the engine database user after first start in normal use. +
+CREATE TABLE and CREATE INDEX privileges are not required for the *engine database* user after first start in normal use (however, they will still be required by the *business data database* user even beyond the first deployment of a BDM). +
 If the same SQL user is used with the xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[migration tool], then this user needs such grants.
 ====
 
@@ -191,7 +191,7 @@ SQL query >
 +
 The following queries must be done for each new user: i.e. one user = one database schema.  
 +
-WARNING: The queries must be done for *both* the bonita engine *and* the business data users. +
+WARNING: The queries must be done for *both* the bonita engine *and* the business data database users. +
 For example, if the users for the Bonita BPM and BDM databases are `bonita` and `business_data` respectively (the actual values correspond to the ones set in the properties `db.user` and the `bdm.db.user` defined in the `<TOMCAT_HOME>/setup/database.properties`), you need to run the queries for both users. 
 +
 *For the bonita engine database user (e.g. _bonita_):*
@@ -213,7 +213,7 @@ ALTER USER bonita quota unlimited on users;
 +
 *For the business data database user (e.g. _business_data_):*
 +
-Note that the business database user (the one defined in `bdm.db.user`) grant one additional privilege: CREATE SEQUENCE
+Note that the business data database user (the one defined in `bdm.db.user`) requires one additional privilege: CREATE SEQUENCE
 +
 SQL query >
 +
