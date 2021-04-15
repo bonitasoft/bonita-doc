@@ -103,7 +103,7 @@ A shared project contains the artifacts developed in Bonita Studio and the UI De
 * A central SVN server accessible by the process designers, accessible by URL, and protected by login and password.
 * The same version of Bonita must be used by all users of the shared project.
 
-=== Shared a project
+=== Share a project
 
 There are two stages to creating a repository: connect to the SVN server, then specify the name of the new repository. Follow these steps:
 
