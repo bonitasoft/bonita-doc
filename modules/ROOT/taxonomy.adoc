@@ -315,6 +315,7 @@
 * Collaboration
  ** xref:project-documentation-generation.adoc[Project documentation generation]
  ** xref:shared-project.adoc[Using a shared project]
+ ** xref:share-a-repository-on-github.adoc[Share a project on GitHub]
 * Howtos
  ** xref:uid-case-overview-tutorial.adoc[Create a case overview page using the UI Designer]
  ** xref:optimize-user-tasklist.adoc[Create unique task names for the user task list]
@@ -325,7 +326,6 @@
  ** xref:rta-mail-template.adoc[Use the rich textarea widget in a mail template]
  ** xref:datetimes-management-tutorial.adoc[Manage dates and times in BDM and User Interfaces]
  ** xref:bdm-in-rest-api.adoc[Manage BDM in custom Rest APIs]
- ** xref:share-a-repository-on-github.adoc[Share a project on GitHub]
  ** xref:migrate-a-svn-repository-to-github.adoc[Migrate a SVN repository to a Git repository]
  ** xref:configure-maven.adoc[Configure Maven]
  ** xref:uid-vertical-tabs-container-tutorial.adoc[Create a vertical tabs container for all devices]
