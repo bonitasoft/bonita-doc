@@ -61,10 +61,11 @@ Download the driver compatible with Oracle 12.2.0.1: https://www.oracle.com/data
 
 The first step in configuring Bonita with your RDBMS is to create the new databases (i.e. schemas): one for engine data, and another one, optionally, if you use business data.
 
-To do so, you need a RDBMS user account that has sufficient privileges (i.e. privileges to create new schema).
-If you use different users for the engine data database and for the business data database, then you must grant this privileges to both users. 
+WARNING: If you use different users for the engine data database and for the business data database, then you must grant the following privileges to both users. 
 
-Also, note that the owner of the new schemas (engine data *and* business data) must own the following privileges:
+To create each new database, you need a RDBMS user account that has sufficient privileges (i.e. privileges to create new schema).
+
+Next, the owner of each new schema (i.e. engine data *and* business data) must own the following privileges:
 
 * CREATE TABLE
 * CREATE INDEX
@@ -189,8 +190,11 @@ SQL query >
 ----
 +
 The following queries must be done for each new user: i.e. one user = one database schema.  
-
-The following queries must be done for the bonita engine *and* the business data users. For example, if the users for the Bonita BPM and BDM databases are `bonita` and `business_data` respectively, you need to run the queries for both users. 
++
+WARNING: The queries must be done for *both* the bonita engine *and* the business data users. +
+For example, if the users for the Bonita BPM and BDM databases are `bonita` and `business_data` respectively (the actual values correspond to the ones set in the properties `db.user` and the `bdm.db.user` defined in the `<TOMCAT_HOME>/setup/database.properties`), you need to run the queries for both users. 
++
+*For the bonita engine database user (e.g. _bonita_):*
 +
 SQL query >
 +
@@ -205,9 +209,19 @@ GRANT execute ON sys.dbms_system TO bonita;
 GRANT execute ON sys.dbms_xa TO bonita;
 GRANT FORCE ANY TRANSACTION TO bonita;
 ALTER USER bonita quota unlimited on users;
-
+----
++
+*For the business data database user (e.g. _business_data_):*
++
+Note that the business database user (the one defined in `bdm.db.user`) grant one additional privilege: CREATE SEQUENCE
++
+SQL query >
++
+[source,sql]
+----
 CREATE USER business_data IDENTIFIED BY business_data;
 GRANT connect, resource TO business_data IDENTIFIED BY business_data;
+GRANT create sequence TO business_data;
 GRANT select ON sys.dba_pending_transactions TO business_data;
 GRANT select ON sys.pending_trans$ TO business_data;
 GRANT select ON sys.dba_2pc_pending TO bonitbusiness_dataa;
