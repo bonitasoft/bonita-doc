@@ -289,6 +289,12 @@ Before deploying the business data model, you must xref:pause-and-resume-bpm-ser
 You are recommended xref:back-up-bonita-bpm-platform.adoc[Back up your platform] and database before deploying a new BDM in case of problems during the update.
 ====
 
+[NOTE.bonitacloud,caption=Bonita Cloud]
+====
+In Bonita Cloud, a dedicated backup of the database can be done upon request. Just open a support ticket with a time frame and we'll sync with you.
+====
+
+
 Follow these steps:
 
 . In Bonita Studio, open the *Development menu* in the cool bar.
