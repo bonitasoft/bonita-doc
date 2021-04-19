@@ -291,7 +291,7 @@ It is recommended to xref:back-up-bonita-bpm-platform.adoc[Back up the platform]
 
 [NOTE.bonitacloud,caption=Bonita Cloud]
 ====
-In Bonita Cloud, a dedicated backup of the database can be done upon request. Just open a support ticket with a time frame and we'll sync with you.
+In Bonita Cloud, a dedicated backup of the database can be done upon request. Just open a support ticket with a time frame and we'll synchronize with you.
 ====
 
 
