@@ -41,7 +41,7 @@ You'll then have to specify interactively the properties of your project:
 Follow the http://maven.apache.org/guides/mini/guide-naming-conventions.html[maven naming convention guide]
 * *package* the package in which the connector source files will be created _(default value: the group id of the connector)_
 * *bonitaVersion:* the xref:product-versioning#_technical_id[technical id] of the targeted Bonita version
- ** A Bonita connector project depends on _org.bonitasoft.engine:bonita-common_. To avoid potential conflicts / errors at runtime, you should use the technical id of the Bonita version of your runtime environment.
+ ** A Bonita connector project depends on _org.bonitasoft.engine:bonita-common_. To avoid potential conflicts / errors at runtime, you should use the technical id of the Bonita version of your runtime environment (ex: 7.13.0 for Bonita 2021.2).
 * *className:* the class name of your connector
  ** Must match the following regex: `+^[a-zA-Z_$][a-zA-Z\d_$]+$+` (A Java classname valid identifier)
  ** Example: _MyConnector1_
