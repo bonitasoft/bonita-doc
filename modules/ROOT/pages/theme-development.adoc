@@ -46,7 +46,7 @@ A second way to create a custom theme is starting from a new custom theme in Stu
 +
 [source,json]
 ----
-  --include-path ./node_modules/bootstrap-sass/assets/stylesheets/ --include-path ./node_modules/bootswatch/`name-of-default-theme`/ src/scss/main.scss
+ ... --include-path ./node_modules/bootstrap-sass/assets/stylesheets/ --include-path ./node_modules/bootswatch/`name-of-default-theme`/ src/scss/main.scss ...
 ----
 
 * In the file `src/scss/main.scss`, import the variables of the theme before importing bootstrap by adding:
