@@ -869,7 +869,7 @@ You can build the connector using the following command line at the root of the 
 
 [NOTE]
 ====
-This step is an example of how to publish a Bonita extension on a private maven repository (here Github packages). You can publish your extensions on any kind of maven repository.
+This step is an example of how to publish a Bonita extension on a maven repository (here Github packages). You can publish your extensions on any kind of maven repository (Nexus, Artifactory... etc).
 ====
 
 Now that the connector development is finished, we want to make it available for Studio users. +
