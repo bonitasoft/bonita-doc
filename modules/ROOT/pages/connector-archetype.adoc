@@ -1020,7 +1020,7 @@ It is recommended to xref:configure-maven#encryption[encrypt] passwords if the c
 
 Bonita Studio is now correctly configured to retrieve extensions from this private maven repository!
 
-**Import and use the connecteur**
+**Import and use the connector**
 
 To import an extension, you need to open the project extensions view (from the coolbar). +
 On the top right corner of the project extension view, click on _Import an extension_. 
