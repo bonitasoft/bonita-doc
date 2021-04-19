@@ -880,7 +880,7 @@ A first option is to publish the extension on a public maven repository, like ht
 ====
 Publishing an extension on Maven Central implies that this extension is open source. You will *have to* publish the sources of the extension in addition to the binary.
 ====
-We chose an other solution for this example: publish the extension on Github packages, a private maven repository managed by Github (it's free if you store less than 500 MB). This way, your extension will be protected by authentication, only you and your team will have access to it. The only requirement is to have a github account, you can create one for free https://github.com/[here].
+For this example we present another option: publish the extension using Github packages (it's free if you store less than 500 MB). Github packages require a Github authentication, and only users with https://docs.github.com/en/packages/learn-github-packages/about-github-packages#about-scopes-and-permissions-for-package-registries[proper scope and permissions] will be allowed to consume or publish extensions.
 
 [TIP]
 ====
