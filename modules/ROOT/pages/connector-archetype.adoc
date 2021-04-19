@@ -874,7 +874,12 @@ This step is an example of how to publish a Bonita extension on a maven reposito
 
 Now that the connector development is finished, we want to make it available for Studio users. +
 The recommended way to make an extension available is to publish it on a maven repository. +
-The easiest way is to publish the extension on a public maven repository, like https://mvnrepository.com/[maven central]. The extension will be available for everyone, but you won't have to bother with a private repository and credentials. This https://maven.apache.org/repository/guide-central-repository-upload.html[tutorial] explains how to deploy an artifact  on maven central. +
+A first option is to publish the extension on a public maven repository, like https://search.maven.org/[maven central]. The extension will be available for everyone, but you won't have to bother with a private repository and credentials. This https://maven.apache.org/repository/guide-central-repository-upload.html[tutorial] explains how to deploy an artifact  on maven central. +
+
+[NOTE]
+====
+Publishing an extension on Maven Central implies that this extension is open source. You will *have to* publish the sources of the extension in addition to the binary.
+====
 We chose an other solution for this example: publish the extension on Github packages, a private maven repository managed by Github (it's free if you store less than 500 MB). This way, your extension will be protected by authentication, only you and your team will have access to it. The only requirement is to have a github account, you can create one for free https://github.com/[here].
 
 [TIP]
