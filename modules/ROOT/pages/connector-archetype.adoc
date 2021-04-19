@@ -884,7 +884,7 @@ For this example we present another option: publish the extension using Github p
 
 [TIP]
 ====
-You can easily publish an artifact on Github packages using a Github Action. This way, you won't have to create a personnal access token nor to manage local maven configuration. https://docs.github.com/en/actions/guides/publishing-java-packages-with-maven#publishing-packages-to-github-packages[More details here].
+You can publish an artifact on Github packages using a Github Action. This way, you won't have to create a personnal access token nor to manage local maven configuration to publish an extension. https://docs.github.com/en/actions/guides/publishing-java-packages-with-maven#publishing-packages-to-github-packages[More details here].
 ====
 
 ==== Configure Github packages authentication
