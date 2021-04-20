@@ -152,11 +152,6 @@ When you create a process that uses a business object with a composition or aggr
 [discrete]
 ==== Loading
 
-[WARNING]
-====
-Bonita strongly recommends to use the *lazy* loading option. The eager loading option has a huge impact on the platform performances. You should only use it if you really need all the child object instances to be loaded when the parent object instance is loaded. If you decide to use the eager mode, we recommend to test this option with a test dataset that is the size of your production. 
-====
-
 There are two options for loading complex business objects, *lazy* or *eager*.
 With lazy loading, the parent object instance is loaded, but child object instances are loaded only when they are needed.
 With eager loading, child object instances are loaded when the parent object instance is loaded.
@@ -164,7 +159,12 @@ With eager loading, child object instances are loaded when the parent object ins
 The default is lazy loading. You can override this for any business object by configuring it to use eager loading when you specify
 the object relationship properties. This means that the specified object and all objects related to it by composition or aggregation
 relationships are loaded. +
-There is an overhead for the additional data load and maintenance of the information in memory, but there is a saving in data access time because the data is already loaded.
+*Warning*: With eager loading, there is a high overhead for the additional data load and maintenance of the information in memory. However there is a saving in data access time because the data is already loaded.
+
+[WARNING]
+====
+Bonita strongly recommends to use the default *lazy* loading option. The eager loading option has a huge impact on the platform performances. You should only use it if you really need all the child object instances to be loaded when the parent object instance is loaded. If you decide to use the eager mode, we recommend to test this option with a test dataset that is the size of your production. 
+====
 
 [discrete]
 ==== Multi-instantiation using business object variables in a list
