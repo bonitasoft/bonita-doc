@@ -33,7 +33,13 @@ Define the called process as you would define any other process. When you create
 In the parent process, define a call activity task. Define the normal task characteristics. Note that although a call activity cannot
 have forms associated with it, it can have connectors and task-level data.
 
-In the *Details* panel, *General* tab, *General* pane, specify the name of the called process. If you know the process name, you can enter it directly, otherwise use the expression editor.
+In the *Details* panel, *General* tab, *General* pane, specify the name of the called process. If you know the process name, you can enter it directly, otherwise use the expression editor. 
+
+[NOTE]
+====
+
+The version is optional, when not specified, the engine takes the last version deployed of the process.
+====
 
 In the *Details* panel, *General* tab, *Mapping* pane, specify the mapping of data or contract inputs between the parent process and called process. You can only map variables or inputs of the same type. +
 It is recommended to set a contract up on the called process. This way, you can map the parent process variable to a contract inputs of the called process.
