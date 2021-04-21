@@ -11,7 +11,7 @@ fixes :
 
  - Fix usage print when no parameter is passed.
 
-== 1.0.2 -Jul 21, 2020
+== 1.0.2 - Jul 21, 2020
 
 fixes :
 
