@@ -182,7 +182,7 @@ From the popup, you can:
 * Open a process in read-only mode. You can do this for any process, but it is most useful for a process that is locked by another user (red padlock).
 * Open a locked process (red padlock). You can open a locked process in read-only mode. You cannot open a locked process read-write.
 
-==== Avoiding conflicts
+=== Avoiding conflicts
 
 A conflict occurs when two or more users update the same process in a project and the updates are not compatible. +
 If you are using a shared project, Bonita Studio automatically locks a Studio artifact when a user opens it for edit. (Note: UI Designer artifacts are not locked.) +
@@ -194,7 +194,7 @@ To commit your changes, go to the  *Team* > *SVN* menu, and then choose *Commit 
 When you commit your changes, you have the option to release the lock so that another user can edit the artifact. By default, your lock is maintained. +
 If you want to release the lock, uncheck the *Keep locks* box in the Commit dialog.
 
-==== Versioning and history
+=== Versioning and history
 
 If you are using a shared repository, all modifications to an artifact are recorded by the SVN server.
 
@@ -208,7 +208,7 @@ This shows all the changes that have been made, and the author of each change.
 To revert to an older version, click on that version in the revision history, then click on *_Revert to this version_* in the popup. +
 The selected version will be restored.
 
-==== Restore points
+=== Restore points
 
 A restore point is a marker in a repository that you can use to restore your project back to an earlier state. +
 The difference between a restore point and a version in the revision history is that a restore point applies to the whole project but a version applies to a single artifact.

@@ -13,6 +13,7 @@
  ** xref:create-application.adoc[Create an application]
 * xref:release-notes.adoc[Release notes]
 * xref:migration-tool.adoc[Migration tool change log]
+* xref:purge-tool-changelog.adoc[Purge tool changelog]
 * Application and Process Design
  ** Application and process design overview
   *** xref:key-concepts.adoc[Key concepts]
