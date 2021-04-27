@@ -418,7 +418,7 @@ Caused by: java.lang.RuntimeException: Sp signing key must have a PublicKey or C
 * Make sure you have encryption="true" inside the Key node of the SP.
 * Add Bonita server's private key in the Keys:Key section of the SP.
 
-*Symptom:* Bonita portal URL profile and page parameters (or any other) after the hash (#) are lost in redirections. As a result once the SAML login page redirects back to Bonita portal, the portal displays the first page of the default profile. +
+*Symptom:* Bonita portal URL profile and page parameters (or any other) after the hash are lost in redirections. As a result once the SAML login page redirects back to Bonita portal, the portal displays the first page of the default profile. +
 *Problem:* The hash part of an URL is not sent server-side. It only exists in the web browser. That explains this behavior. +
 *Solution:*
 The workaround is to put the parameters as regular URL query parameters. Bonita portal has a mechanism that will convert them to hash parameters if they need to be (this only works since version 7.8.1 of Bonita). +
