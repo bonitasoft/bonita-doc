@@ -23,6 +23,7 @@
   *** xref:share-a-repository-on-github.adoc[Share a project on GitHub]
   *** xref:automating-builds.adoc[Automate builds]
   *** xref:set-up-continuous-integration.adoc[Set up continuous integration]
+* Living applications  
 * Processes
   ** xref:diagramIndex.adoc[Diagram]
    *** xref:diagram-overview.adoc[Overview]
@@ -71,8 +72,8 @@
    *** xref:configure-a-test-organization.adoc[Configure a test organization]
    *** xref:run-a-process-from-bonita-bpm-studio-for-testing.adoc[Run a process from Bonita Studio for testing]
    *** xref:log-files.adoc[Log files]
-  * Users
-  * Data
+* Users
+* Data
    ** xref:define-and-deploy-the-bdm.adoc[Define the Business Data Model]
    ** xref:bdm-access-control.adoc[Define access control on business objects]
    ** xref:specify-data-in-a-process-definition.adoc[Add process variables]
@@ -82,9 +83,9 @@
    ** xref:parameters.adoc[Parameters]
    ** xref:variables.adoc[Data management in UI Designer]
    ** xref:define-a-search-index.adoc[Search keys]
-  * User interfaces
-  * Living applications
-  * Extensions
+* User interfaces
+* Application descriptors
+* Extensions
 * xref:buildAndDeployIndex.adoc[Build and deploy]
 * xref:runtimeInstallationIndex.adoc[Runtime installation]
 * xref:runtimeAdministrationIndex.adoc[Runtime administration]
