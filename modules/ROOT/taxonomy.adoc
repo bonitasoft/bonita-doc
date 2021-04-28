@@ -1,10 +1,11 @@
 
 * xref:quickStartIndex.adoc[Quick start]
  ** xref:what-is-bonita.adoc[What is Bonita?]
- ** xref:bonita-bpm-studio-installation.adoc[Bonita Studio installation]
  ** Getting started tutorial
   *** xref:tutorial-overview.adoc[Overview]
   *** xref:bonita-studio-download-installation.adoc[Download and install]
+  *** xref:bonita-bpm-studio-installation.adoc[Bonita Studio installation]
+  *** xref:bonita-bpm-studio-installation.adoc[Bonita Studio installation]
   *** xref:draw-bpmn-diagram.adoc[Draw a BPMN diagram]
   *** xref:define-business-data-model.adoc[Define business data model (BDM)]
   *** xref:declare-business-variables.adoc[Declare business variables]
@@ -18,6 +19,11 @@
 * xref:project-best-practicesIndex.adoc[Project Best Practices]
   ** xref:lifecycle-and-profiles.adoc[Project phases]
   ** xref:design-methodology.adoc[Conception]
+  ** xref:setupDevEnvironmentIndex.adoc[Setup the Development Environment]
+  *** xref:shared-project.adoc[Set up Bonita Studio with GitHub]
+  *** xref:share-a-repository-on-github.adoc[Share a project on GitHub]
+  *** xref:automating-builds.adoc[Automate builds]
+  *** xref:set-up-continuous-integration.adoc[Set up continuous integration]
 * Processes
   ** xref:diagramIndex.adoc[Diagram]
    *** xref:diagram-overview.adoc[Overview]
