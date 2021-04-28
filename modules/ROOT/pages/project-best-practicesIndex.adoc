@@ -5,9 +5,6 @@ blabla
 [.card-section]
 == A few reminders we found useful to recall here
 
-  ** xref:lifecycle-and-profiles.adoc[Project phases]
-  ** xref:design-methodology.adoc[Conception]
-
 [.card.card-index]
 --
 xref:lifecycle-and-profiles.adoc[[.card-title]#Project phases# [.card-body.card-content-overflow]#pass:q[]#]
