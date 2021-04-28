@@ -86,7 +86,11 @@
 * User interfaces
 * Application descriptors
 * Extensions
+* xref:TestsIndex.adoc[Tests]
 * xref:buildAndDeployIndex.adoc[Build and deploy]
 * xref:runtimeInstallationIndex.adoc[Runtime installation]
-* xref:runtimeAdministrationIndex.adoc[Runtime administration]
+    ** xref:hardware-and-software-requirements.adoc[Hardware and software requirements]
+* xref:runtimeTuning.adoc[Runtime tuning]
+* xref:runtimeMonitoringIndex.adoc[Runtime monitoring]
+* xref:runtimeTroubleshootingIndex.adoc[Runtime troubleshooting]
 * xref:apiIndex.adoc[API]
