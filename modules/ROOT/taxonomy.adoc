@@ -25,9 +25,9 @@
   *** xref:automating-builds.adoc[Automate builds]
   *** xref:set-up-continuous-integration.adoc[Set up continuous integration]
 * Living applications  
-* xref:bonita-bpm-studio-preferences.adoc[Bonita Studio preferences]
-* xref:bonita-bpm-studio-hints-and-tips.adoc[Bonita Studio hints and tips]
 * Processes
+ ** xref:bonita-bpm-studio-preferences.adoc[Bonita Studio preferences]
+ ** xref:bonita-bpm-studio-hints-and-tips.adoc[Bonita Studio hints and tips]
  ** xref:diagramIndex.adoc[Diagram]
   *** xref:diagram-overview.adoc[Overview]
   *** xref:pools-and-lanes.adoc[Pools and lanes]
@@ -226,7 +226,7 @@
   *** xref:how-a-process-is-completed.adoc[How a process is executed]
   *** xref:how-an-event-is-executed.adoc[How an event is executed]
 * xref:apiIndex.adoc[API]
-* xref:api-glossary.adoc[API glossary]
+  ** xref:api-glossary.adoc[API glossary]
   ** REST API
     *** xref:rest-api-overview.adoc[Overview]
     *** xref:rest-api-authentication.adoc[REST Authentication]
