@@ -24,7 +24,7 @@
   *** xref:share-a-repository-on-github.adoc[Share a project on GitHub]
   *** xref:automating-builds.adoc[Automate builds]
   *** xref:set-up-continuous-integration.adoc[Set up continuous integration]
-* Automation project: definition  
+* Automation project
 * Processes
  ** xref:bonita-bpm-studio-preferences.adoc[Bonita Studio preferences]
  ** xref:bonita-bpm-studio-hints-and-tips.adoc[Bonita Studio hints and tips]
