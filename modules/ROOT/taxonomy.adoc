@@ -24,7 +24,7 @@
   *** xref:share-a-repository-on-github.adoc[Share a project on GitHub]
   *** xref:automating-builds.adoc[Automate builds]
   *** xref:set-up-continuous-integration.adoc[Set up continuous integration]
-* Living applications  
+* Automation project: definition  
 * Processes
  ** xref:bonita-bpm-studio-preferences.adoc[Bonita Studio preferences]
  ** xref:bonita-bpm-studio-hints-and-tips.adoc[Bonita Studio hints and tips]
@@ -148,10 +148,6 @@
    **** xref:admin-application-resources-list.adoc[Resources management]
    **** xref:applications.adoc[Applications]
    **** xref:license-info.adoc[License information]   
- ** xref:reporting-overview.adoc[Overview]
-  *** xref:set-up-a-reporting-database.adoc[Set up a reporting database]
-  *** xref:set-up-kpis.adoc[Set up KPIs]
-  *** xref:create-a-report.adoc[Create a report]
 * Extensions
  ** xref:software-extensibility.adoc[Platform extensibility overview]
  ** xref:connector-archetype.adoc[Bonita connector archetype]
@@ -196,8 +192,9 @@
  ** xref:multi-language-applications.adoc[Multi-language applications]
  ** xref:multi-language-pages.adoc[Multi-language pages]
  ** xref:languages.adoc[Languages]
-* xref:buildAndDeployIndex.adoc[Build and deploy]
-* xref:live-update.adoc[Live update]
+* xref:buildAndDeployIndex.adoc[Deploy]
+ ** xref:build-a-process-for-deployment.adoc[Build a process for deployment]
+ ** xref:live-update.adoc[Live update]
 * xref:runtimeInstallationIndex.adoc[Runtime installation]
   ** xref:hardware-and-software-requirements.adoc[Hardware and software requirements]
   ** xref:tomcat-bundle.adoc[Tomcat bundle]
@@ -224,9 +221,8 @@
  ** xref:ssl.adoc[SSL]
  ** xref:tenant_admin_credentials.adoc[Tenant administrator credentials]
  ** xref:guest-user.adoc[Guest user access]
-* xref:runtimeTuning.adoc[Runtime tuning]
+* xref:runtimeTuning.adoc[Runtime configuration]
    ** xref:performance-tuning.adoc[Performance tuning]
-   ** xref:performance-troubleshooting.adoc[Performance troubleshooting]
    ** xref:purge-tool.adoc[Purging unnecessary archive data]
    ** xref:use-gzip-compression.adoc[Use gzip compression]
 * xref:runtimeMonitoringAndTroubleshootingIndex.adoc[Runtime monitoring and troubleshooting]
