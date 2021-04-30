@@ -61,9 +61,9 @@ default log level for `com.bonitasoft` and `org.bonitasoft` change from `WARNING
 
 ==== Easy upgrade from Community to Subscription
 
-From this release, upgrade from Community to Subscription is made xref:upgrade-from-community-to-a-subscription-edition.adoc#_bonita_platform_upgrade[a lot easier]:
+From this release, xref:upgrade-from-community-to-a-subscription-edition.adoc#bonita-platform-upgrade[upgrade from Community to Subscription] is made a lot easier:
 all the tricky configuration part is handled automatically by Bonita Runtime at server startup. +
-See xref:#_configuration_file_changes[the changes] done to specific configuration files.
+See xref:#_configuration_file_changes[the related changes] done to specific configuration files.
 
 ==== JAAS authentication is now Enterprise
 
