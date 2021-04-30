@@ -1,0 +1,43 @@
+= Bonita behind a reverse-proxy
+:description: Learn how to set up a reverse proxy to expose Bonita web interface publicly while keeping the backend safe
+
+Learn how to set up a reverse proxy to expose Bonita web interface publicly while keeping the backend safe.
+
+== Context
+
+[WARNING]
+====
+Bonitasoft does not support anymore having Bonita portal running on a dedicated Tomcat server on one side, and Bonita Engine running on a dedicated Tomcat server on the other side.
+====
+
+If you have to expose Bonita Portal or a Bonita-developed application publicly, but legibly want to protect any
+other resources behind your firewall, you should set up a software architecture similar to this one:
+
+image::https://people.apache.org/~mturk/docs/article/fig2.gif[Tomcat behind a firewall with reverse proxy]
+
+where the Web Server serves as a reverse proxy, and where the Tomcat server hosts Bonita.
+
+== using Apache httpd
+
+Apache HTTP server proposes the following infrastructure, with optionally several Bonita backend servers:
+
+image::https://httpd.apache.org/docs/current/images/reverse-proxy-arch.png[exposing Bonita backend servers behind a firewall]
+
+Read https://httpd.apache.org/docs/current/howto/reverse_proxy.html[the complete Apache httpd documentation] for detailed configuration capabilities.
+
+An example of httpd configuration that works with Bonita could be:
+
+`httpd.conf`:
+
+```
+RewriteEngine  on
+RewriteRule    "^(?!/bonita)(.*)$"  "/bonita$1" [R,L]
+RewriteRule    "^/(.*)"  "http://127.0.0.1:8080/$1" [P]
+ProxyPassReverse "/" "http://127.0.0.1:8080/"
+```
+
+== using NGINX
+
+NGINX proposes the same functionality.
+
+Read the https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/[official NGINX reverse proxy documentation]
