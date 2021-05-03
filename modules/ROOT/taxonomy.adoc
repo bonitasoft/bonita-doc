@@ -216,7 +216,7 @@
    **** Look & Feel
     ***** xref:managing-look-feel.adoc[Manage Look & Feel]
     ***** xref:creating-a-new-look-feel.adoc[Create a new Look & Feel]
-   **** xref:license-info.adoc[License information]
+   **** xref:licenses.adoc[License information]
   *** Bonita Administrator Application
    **** xref:admin-application-overview.adoc[Overview]
    **** Process Management
