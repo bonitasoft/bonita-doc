@@ -244,7 +244,7 @@
     ***** xref:themes.adoc[Themes]
     ***** xref:api-extensions.adoc[REST API extensions]
    **** xref:applications.adoc[Applications]
-   **** xref:license-info.adoc[License information]
+   **** xref:licenses.adoc[License information]
 * Technical Monitoring
  ** xref:runtime-monitoring.adoc[Overview]
  ** xref:work-execution-audit.adoc[Work execution audit]
