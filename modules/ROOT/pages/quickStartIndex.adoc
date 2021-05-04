@@ -12,7 +12,12 @@ xref:what-is-bonita.adoc[[.card-title]#What is Bonita# [.card-body.card-content-
 
 [.card.card-index]
 --
-xref:bonita-bpm-studio-installation.adoc[[.card-title]#Bonita Studio installation# [.card-body.card-content-overflow]#pass:q[Merger avec ce qu'il y a dans le getting started (redondant)]#]
+xref:bonita-studio-download-installation.adoc[[.card-title]#Download and install# [.card-body.card-content-overflow]#pass:q[Fusionner avec ce qui suit]#]
+--
+
+[.card.card-index]
+--
+xref:bonita-bpm-studio-installation.adoc[[.card-title]#Bonita Studio installation# [.card-body.card-content-overflow]#pass:q[Fusionner avec ce qui précède]#]
 --
 
 [.card-section]
