@@ -12,7 +12,7 @@
 //  ** xref:design-application-page.adoc[Design an application page]
 //  ** xref:create-application.adoc[Create an application]
 // * xref:release-notes.adoc[Release notes]
-* xref:migration-tool.adoc[Migration tool change log]
+// * xref:migration-tool.adoc[Migration tool change log]
 * Application and Process Design
  ** Application and process design overview
   *** xref:key-concepts.adoc[Key concepts]
@@ -313,7 +313,7 @@
 //  *** xref:automating-builds.adoc[Automate builds]
 //  *** xref:set-up-continuous-integration.adoc[Set up continuous integration]
 * Collaboration
- ** xref:project-documentation-generation.adoc[Project documentation generation]
+// ** xref:project-documentation-generation.adoc[Project documentation generation]
 // ** xref:shared-project.adoc[Using a shared project]
 * Howtos
  ** xref:uid-case-overview-tutorial.adoc[Create a case overview page using the UI Designer]
