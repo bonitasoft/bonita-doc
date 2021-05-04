@@ -152,7 +152,8 @@ When you create a process that uses a business object with a composition or aggr
 [discrete]
 ==== Loading
 
-There are two options for loading complex business objects, *lazy* or *eager*: +
+There are two options for loading complex business objects, *lazy* or *eager*. +
+
 * With lazy loading, the parent object instance is loaded, and child object instances are loaded only when they are needed, by the means of additional REST API calls. This is the option to choose when the parent object along with all its relationships can get big, vertically and/or horizontally +
 * With eager loading, the child object instances are loaded when the parent object instance is loaded. It is easier to use because no additional REST API calls are needed. This is the option to choose when the parent object along with all its relationships are neither deep nor large.  +
 
