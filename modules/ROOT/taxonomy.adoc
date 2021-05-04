@@ -19,11 +19,11 @@
 * xref:project-best-practicesIndex.adoc[Project Best Practices]
  ** xref:lifecycle-and-profiles.adoc[Project phases]
  ** xref:design-methodology.adoc[Conception]
-  *** xref:workspaces-and-repositories.adoc[Workspaces and projects]
-  *** xref:shared-project.adoc[Set up Bonita Studio with GitHub]
-  *** xref:share-a-repository-on-github.adoc[Share a project on GitHub]
-  *** xref:automating-builds.adoc[Automate builds]
-  *** xref:set-up-continuous-integration.adoc[Set up continuous integration]
+ ** xref:workspaces-and-repositories.adoc[Workspaces and projects]
+ ** xref:shared-project.adoc[Set up Bonita Studio with GitHub]
+ ** xref:share-a-repository-on-github.adoc[Share a project on GitHub]
+ ** xref:automating-builds.adoc[Automate builds]
+ ** xref:set-up-continuous-integration.adoc[Set up continuous integration]
 * Automation project
  ** Project artefacts
   *** Core artifacts
