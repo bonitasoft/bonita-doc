@@ -552,7 +552,7 @@ interface StarWarsService {
 
     @Headers("Accept: application/json")
     @GET("api/people")
-    def Call<PersonResponse> person(@Query("search") String name);
+    Call<PersonResponse> person(@Query("search") String name);
 }
 ----
 
@@ -603,7 +603,7 @@ Complete the method _validateInputParameters_ with the following content:
     def static final URL_INPUT = "url"
 
     @Override
-    def void validateInputParameters() throws ConnectorValidationException {
+    void validateInputParameters() throws ConnectorValidationException {
         checkMandatoryStringInput(NAME_INPUT)
         checkMandatoryStringInput(URL_INPUT)
     }
@@ -670,12 +670,12 @@ Creating the service in the _connect_ method  ensure that the service will be cr
 def StarWarsService service
 
 @Override
-def void connect() throws ConnectorException {
+void connect() throws ConnectorException {
     def httpClient = createHttpClient(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
     service = createService(httpClient, getInputParameter(URL_INPUT))
 }
 
-def static OkHttpClient createHttpClient(Interceptor... interceptors) {
+static OkHttpClient createHttpClient(Interceptor... interceptors) {
     def clientBuilder = new OkHttpClient.Builder()
     if (interceptors) {
         interceptors.each { clientBuilder.interceptors().add(it) }
@@ -683,7 +683,7 @@ def static OkHttpClient createHttpClient(Interceptor... interceptors) {
     clientBuilder.build()
 }
 
-def static StarWarsService createService(OkHttpClient client, String baseUrl) {
+static StarWarsService createService(OkHttpClient client, String baseUrl) {
     new Retrofit.Builder()
             .client(client)
             .addConverterFactory(JacksonConverterFactory.create())
@@ -740,7 +740,7 @@ In the class _ConnectorStarWars_,  replace the method _executeBusinessLogic_ by 
 def static final PERSON_OUTPUT = "person"
 
 @Override
-def void executeBusinessLogic() throws ConnectorException {
+void executeBusinessLogic() throws ConnectorException {
     def name = getInputParameter(NAME_INPUT)
     log.info "$NAME_INPUT : $name"
     // Retrieve the retrofit service created during the connect phase, call the 'person' endpoint with the name parameter
