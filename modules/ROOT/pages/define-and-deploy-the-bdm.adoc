@@ -162,8 +162,8 @@ relationships will be loaded. +
 
 [WARNING]
 ====
-We strongly recommends to use the default *lazy* loading option. Indeed, when the composition and aggregation relationships go in deep levels vertically or horizontally, the eager loading option can have a huge impact on the platform performances, due to the additional data load and maintenance of the information in memory. +
-If you decide to use the eager mode, we recommend to test this option with a test dataset that is the size of your production expected dataset. 
+We strongly recommend to use the default *lazy* loading option. Indeed, when the composition and aggregation relationships go in deep levels vertically or horizontally, the eager loading option can have a huge impact on the platform performances, due to the additional data load and maintenance of the information in memory. +
+If you decide to use the eager mode, we recommend to test this option with a test dataset that is the size of your production's expected dataset. 
 ====
 
 [discrete]
