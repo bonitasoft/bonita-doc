@@ -235,7 +235,7 @@ class Connector extends AbstractConnector {
      * - validate that the content of the inputs is coherent with your use case (e.g: validate that a date is / isn't in the past ...)
      */
     @Override
-    def void validateInputParameters() throws ConnectorValidationException {
+    void validateInputParameters() throws ConnectorValidationException {
         checkMandatoryStringInput(defaultInput)
     }
 
@@ -256,7 +256,7 @@ class Connector extends AbstractConnector {
      * - Set the output of the connector execution. If outputs are not set, connector fails.
      */
     @Override
-    def void executeBusinessLogic() throws ConnectorException {
+    void executeBusinessLogic() throws ConnectorException {
         def defaultInput = getInputParameter(defaultInput)
         setOutputParameter(defaultOutput, "$defaultInput - output".toString())
     }
@@ -265,13 +265,13 @@ class Connector extends AbstractConnector {
      * [Optional] Open a connection to remote server
      */
     @Override
-    def void connect() throws ConnectorException{}
+    void connect() throws ConnectorException{}
 
     /**
      * [Optional] Close connection to remote server
      */
     @Override
-    def void disconnect() throws ConnectorException{}
+    void disconnect() throws ConnectorException{}
 }
 ----
 
@@ -552,7 +552,7 @@ interface StarWarsService {
 
     @Headers("Accept: application/json")
     @GET("api/people")
-    def Call<PersonResponse> person(@Query("search") String name);
+    Call<PersonResponse> person(@Query("search") String name);
 }
 ----
 
@@ -603,7 +603,7 @@ Complete the method _validateInputParameters_ with the following content:
     def static final URL_INPUT = "url"
 
     @Override
-    def void validateInputParameters() throws ConnectorValidationException {
+    void validateInputParameters() throws ConnectorValidationException {
         checkMandatoryStringInput(NAME_INPUT)
         checkMandatoryStringInput(URL_INPUT)
     }
@@ -670,12 +670,12 @@ Creating the service in the _connect_ method  ensure that the service will be cr
 def StarWarsService service
 
 @Override
-def void connect() throws ConnectorException {
+void connect() throws ConnectorException {
     def httpClient = createHttpClient(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
     service = createService(httpClient, getInputParameter(URL_INPUT))
 }
 
-def static OkHttpClient createHttpClient(Interceptor... interceptors) {
+static OkHttpClient createHttpClient(okhttp3.Interceptor... interceptors) {
     def clientBuilder = new OkHttpClient.Builder()
     if (interceptors) {
         interceptors.each { clientBuilder.interceptors().add(it) }
@@ -683,7 +683,7 @@ def static OkHttpClient createHttpClient(Interceptor... interceptors) {
     clientBuilder.build()
 }
 
-def static StarWarsService createService(OkHttpClient client, String baseUrl) {
+static StarWarsService createService(OkHttpClient client, String baseUrl) {
     new Retrofit.Builder()
             .client(client)
             .addConverterFactory(JacksonConverterFactory.create())
@@ -723,7 +723,7 @@ class StarWarsServiceTest extends Specification {
         def Response<PersonResponse> response = call.execute()
 
         then: 'Should contain Luke data'
-        assert response.isSuccessful() == true
+        assert response.isSuccessful()
         assert response.body.persons.size() == 1
         assert response.body.persons[0].name == "Luke Skywalker"
     }
@@ -740,7 +740,7 @@ In the class _ConnectorStarWars_,  replace the method _executeBusinessLogic_ by 
 def static final PERSON_OUTPUT = "person"
 
 @Override
-def void executeBusinessLogic() throws ConnectorException {
+void executeBusinessLogic() throws ConnectorException {
     def name = getInputParameter(NAME_INPUT)
     log.info "$NAME_INPUT : $name"
     // Retrieve the retrofit service created during the connect phase, call the 'person' endpoint with the name parameter
@@ -889,12 +889,12 @@ You can publish an artifact on Github packages using a Github Action. This way, 
 
 ==== Configure Github packages authentication
 
-In order to publish your extension on Github packages, you need to configure Maven, by telling him that he has access to this private repository and by giving him the credentials. 
+In order to publish your extension on Github packages, you need to configure Maven, by telling him that he has access to this private repository and by giving him the credentials.
 
 The https://docs.github.com/en/packages/guides/configuring-apache-maven-for-use-with-github-packages[Official documentation] provided by Github explains in details how to configure Maven, here is a summuary of the main steps.
 
 [#token]
-**Create a personnal access token** 
+**Create a personnal access token**
 
 This token will be used by maven to authenticate to Github packages. You can follow this https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token[tutorial] to create a personal access token. Be sure to check the box _write:packages_ when configuring the token.
 
@@ -906,7 +906,7 @@ Bonita Studio embbed a user interface to easily configure maven and encrypt pass
 ====
 
 Now that the token is created, you have to update your local maven configuration. It means editing the file `~/.m2/settings.xml`. +
-The following repository and server must be added: 
+The following repository and server must be added:
 
 [source,xml]
 ----
@@ -952,7 +952,7 @@ If your maven configuration file is shared, it is recommended to use https://mav
 
 Now that Maven in configured, we are almost ready to publish the connector on Github packages. +
 The last thing to do is to update the `pom.xml` of the connector project to tell Maven where is has to deploy this artifact. +
-To do so, add the following _distributionManagement_ tag on your `pom.xml` file (usually at then end, just before the closing project tag): 
+To do so, add the following _distributionManagement_ tag on your `pom.xml` file (usually at then end, just before the closing project tag):
 
 [source,xml]
 ----
@@ -983,7 +983,7 @@ This https://docs.github.com/en/packages/manage-packages/viewing-packages[guide]
 
 Now that your connector has been published on Github packages, anyone that has an access token to your Gitub packages repository can install this connector as an extension in Bonita Studio.
 
-**Configure Bonita Studio to access the Github packages repository** 
+**Configure Bonita Studio to access the Github packages repository**
 
 ====
 _If you already configured maven on your computer to deploy the connector on Github packages, you can skip this step._
@@ -995,7 +995,7 @@ There is two things to configure to let the Studio retrieve extensions from Gith
 
 1 - Add the repository in the configuration
 
-To create a new repository, follow those xref:configure-maven#repositories[instructions], using the following parameters: 
+To create a new repository, follow those xref:configure-maven#repositories[instructions], using the following parameters:
 
 - **ID**: `githubPackages`
 - **Name**: 1Github packages1
@@ -1010,7 +1010,7 @@ To configure the credentials for a repository, you will have to create a _server
 
 Before to create a server, make sure that you have an xref:#token[access token] with at least read access.
 
-To create a new server, follow those xref:configure-maven#servers[instructions], using the following parameters: 
+To create a new server, follow those xref:configure-maven#servers[instructions], using the following parameters:
 
 - **ID**: `githubPackages`
 - **Username**: Your github username
@@ -1023,10 +1023,10 @@ Bonita Studio is now correctly configured to retrieve extensions from this priva
 **Import and use the connector**
 
 To import an extension, you need to open the project extensions view (from the coolbar). +
-On the top right corner of the project extension view, click on _Import an extension_. 
+On the top right corner of the project extension view, click on _Import an extension_.
 
 A dialog opens, with fields to enter the _maven coordinates_ of an extension. +
-To import the connector starwars, use the following coordinates: 
+To import the connector starwars, use the following coordinates:
 
 - **Group ID**: `com.company.connector`
 - **Artifact ID**: `connector-starwars`
