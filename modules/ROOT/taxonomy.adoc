@@ -3,6 +3,7 @@
  ** xref:what-is-bonita.adoc[What is Bonita?]
  ** xref:bonita-studio-download-installation.adoc[Download and install]
  ** xref:bonita-bpm-studio-installation.adoc[Bonita Studio installation]
+ ** xref:setupDevEnvironmentIndex.adoc[Setup the Development Environment]
  ** Getting started tutorial
    *** xref:tutorial-overview.adoc[Overview]
    *** xref:draw-bpmn-diagram.adoc[Draw a BPMN diagram]
@@ -18,17 +19,21 @@
 * xref:project-best-practicesIndex.adoc[Project Best Practices]
  ** xref:lifecycle-and-profiles.adoc[Project phases]
  ** xref:design-methodology.adoc[Conception]
- ** xref:setupDevEnvironmentIndex.adoc[Setup the Development Environment]
   *** xref:workspaces-and-repositories.adoc[Workspaces and projects]
   *** xref:shared-project.adoc[Set up Bonita Studio with GitHub]
   *** xref:share-a-repository-on-github.adoc[Share a project on GitHub]
   *** xref:automating-builds.adoc[Automate builds]
   *** xref:set-up-continuous-integration.adoc[Set up continuous integration]
 * Automation project
+ ** Project artefacts
+  *** Core artifacts
+  *** Extensions
+ ** xref:project-documentation-generation.adoc[Project documentation generation]
 * Processes
- ** xref:bonita-bpm-studio-preferences.adoc[Bonita Studio preferences]
- ** xref:bonita-bpm-studio-hints-and-tips.adoc[Bonita Studio hints and tips]
+ ** Studio
+  *** xref:bonita-bpm-studio-preferences.adoc[Bonita Studio preferences]
  ** xref:diagramIndex.adoc[Diagram]
+  *** xref:bonita-bpm-studio-hints-and-tips.adoc[Bonita Studio hints and tips]
   *** xref:diagram-overview.adoc[Overview]
   *** xref:pools-and-lanes.adoc[Pools and lanes]
   *** xref:diagram-tasks.adoc[Tasks]
@@ -97,17 +102,17 @@
 * User interfaces
  ** Applications creation
   *** xref:applicationCreation.adoc[Application descriptor]
+  *** xref:ui-designer-overview.adoc[UI Designer]
   *** xref:layout-development.adoc[Layout]
    **** xref:bonita-layout.adoc[Bonita Layout]
    **** xref:living-application-layout.adoc[Living application layout]
    **** xref:customize-layouts.adoc[Customize layouts]
+  *** xref:appearance.adoc[Appearance]
   *** xref:theme-development.adoc[Theme]
-   **** xref:customize-living-application-theme.adoc[Customize living application theme]
-   **** xref:appearance.adoc[Appearance]
+  *** xref:customize-living-application-theme.adoc[Customize living application theme]
   *** Responsiveness (to create)
   *** Pages and Forms  
    **** xref:page-and-form-development-overview.adoc[Overview - change the name]
-   **** xref:ui-designer-overview.adoc[Overview change name]
    **** xref:create-or-modify-a-page.adoc[Create or modify UI artifacts]
    **** xref:widgets.adoc[Widgets]
    **** xref:widget-properties.adoc[Widget properties]
@@ -250,6 +255,7 @@
   *** xref:how-an-event-is-executed.adoc[How an event is executed]
 * Bonita Update
  ** xref:migration-overview.adoc[Overview]
+ ** xref:migration-tool.adoc[Migration tool change log]
  ** xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[Migrate from an earlier version of Bonita]
  ** xref:migrate-a-form-from-6-x.adoc[Migrate a form from 6.x]
   
