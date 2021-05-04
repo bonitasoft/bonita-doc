@@ -152,17 +152,16 @@ When you create a process that uses a business object with a composition or aggr
 [discrete]
 ==== Loading
 
-There are two options for loading complex business objects, *lazy* or *eager*. +
-With lazy loading, the parent object instance is loaded, but child object instances are loaded only when they are needed. +
-With eager loading, child object instances are loaded when the parent object instance is loaded.
+There are two options for loading complex business objects, *lazy* or *eager*: +
+* With lazy loading, the parent object instance is loaded, and child object instances are loaded only when they are needed, by the means of additional REST API calls. This is the option to choose when the parent object along with all its relationships can get big, vertically and/or horizontally +
+* With eager loading, the child object instances are loaded when the parent object instance is loaded. It is easier to use because no additional REST API calls are needed. This is the option to choose when the parent object along with all its relationships are neither deep nor large.  +
 
 The default is lazy loading, the option recommended in Bonita. You may override this for any business object by configuring it to use eager loading when you specify
-the object relationship properties. This means that the specified object and all objects related to it by composition or aggregation
-relationships will be loaded. +
+the object relationship properties. +
 
 [WARNING]
 ====
-We strongly recommend to use the default *lazy* loading option. Indeed, when the composition and aggregation relationships go in deep levels vertically or horizontally, the eager loading option can have a huge impact on the platform performances, due to the additional data load and maintenance of the information in memory. +
+If you are not sure about the final size of the parent object, we strongly recommend to use the default *lazy* loading option. Indeed, the eager loading option can have a huge impact on the platform performances, due to the additional data load and maintenance of the information in memory. +
 If you decide to use the eager mode, we recommend to test this option with a test dataset that is the size of your production's expected dataset. 
 ====
 
