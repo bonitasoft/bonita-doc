@@ -675,7 +675,7 @@ void connect() throws ConnectorException {
     service = createService(httpClient, getInputParameter(URL_INPUT))
 }
 
-static OkHttpClient createHttpClient(Interceptor... interceptors) {
+static OkHttpClient createHttpClient(okhttp3.Interceptor... interceptors) {
     def clientBuilder = new OkHttpClient.Builder()
     if (interceptors) {
         interceptors.each { clientBuilder.interceptors().add(it) }
