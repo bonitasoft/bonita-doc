@@ -153,6 +153,8 @@ def attachNewDocumentVersionToCase(ProcessAPI processAPI, long processInstanceId
 }
 ----
 
+[#delete_document_archived_case]
+
 == Delete documents of archived cases based on archive date
 
 The use case is to delete the documents of archived cases older than a certain date.
