@@ -18,8 +18,8 @@
  ** Application and process design overview
   *** xref:key-concepts.adoc[Key concepts]
   *** xref:comparison-of-7-x-and-6-x.adoc[Comparison of 7.x and 6.x]
-  *** xref:lifecycle-and-profiles.adoc[Lifecycle and profiles]
-  *** xref:design-methodology.adoc[Design methodology]
+//  *** xref:lifecycle-and-profiles.adoc[Lifecycle and profiles]
+//  *** xref:design-methodology.adoc[Design methodology]
  ** xref:bonita-bpm-studio-preferences.adoc[Bonita Studio preferences]
  ** xref:bonita-bpm-studio-hints-and-tips.adoc[Bonita Studio hints and tips]
  ** Organization
@@ -126,7 +126,7 @@
  ** xref:bonita-bpm-installation-overview.adoc[Overview]
 //  ** xref:bonita-bpm-studio-installation.adoc[Bonita Studio installation]
  ** Basic Bonita Platform installation
-  *** xref:hardware-and-software-requirements.adoc[Hardware and software requirements]
+//  *** xref:hardware-and-software-requirements.adoc[Hardware and software requirements]
   *** xref:tomcat-bundle.adoc[Tomcat bundle]
   *** xref:custom-deployment.adoc[Custom Deployment into existing Tomcat installation]
   *** xref:convert-wildfly-into-tomcat.adoc[Convert a WildFly into a Tomcat installation]
@@ -311,11 +311,11 @@
  ** xref:logging.adoc[Logs]
  ** xref:workspaces-and-repositories.adoc[Workspaces and projects]
  ** Continuous integration
-  *** xref:automating-builds.adoc[Automate builds]
-  *** xref:set-up-continuous-integration.adoc[Set up continuous integration]
+//  *** xref:automating-builds.adoc[Automate builds]
+//  *** xref:set-up-continuous-integration.adoc[Set up continuous integration]
 * Collaboration
  ** xref:project-documentation-generation.adoc[Project documentation generation]
- ** xref:shared-project.adoc[Using a shared project]
+// ** xref:shared-project.adoc[Using a shared project]
  ** xref:share-a-repository-on-github.adoc[Share a project on GitHub]
 * Howtos
  ** xref:uid-case-overview-tutorial.adoc[Create a case overview page using the UI Designer]
@@ -327,7 +327,7 @@
  ** xref:rta-mail-template.adoc[Use the rich textarea widget in a mail template]
  ** xref:datetimes-management-tutorial.adoc[Manage dates and times in BDM and User Interfaces]
  ** xref:bdm-in-rest-api.adoc[Manage BDM in custom Rest APIs]
- ** xref:share-a-repository-on-github.adoc[Share a project on GitHub]
+// ** xref:share-a-repository-on-github.adoc[Share a project on GitHub]
  ** xref:migrate-a-svn-repository-to-github.adoc[Migrate a SVN repository to a Git repository]
  ** xref:configure-maven.adoc[Configure Maven]
  ** xref:uid-vertical-tabs-container-tutorial.adoc[Create a vertical tabs container for all devices]

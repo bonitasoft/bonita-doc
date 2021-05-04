@@ -1,0 +1,26 @@
+= Project best practices
+:description: blabla
+
+blabla
+[.card-section]
+== A few reminders we found useful to recall here
+
+[.card.card-index]
+--
+xref:lifecycle-and-profiles.adoc[[.card-title]#Project phases# [.card-body.card-content-overflow]#pass:q[]#]
+--
+
+[.card.card-index]
+--
+xref:design-methodology.adoc[[.card-title]#Conception# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:setupDevEnvironmentIndex.adoc[[.card-title]#Set up the development environment# [.card-body.card-content-overflow]#pass:q[]#]
+--
+
+[.card.card-index]
+--
+xref:xx.adoc[[.card-title]#More to come# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--

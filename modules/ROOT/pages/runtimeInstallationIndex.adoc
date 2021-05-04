@@ -1,4 +1,12 @@
 = Runtime installation
 :description: blabla
 
-Installation & configuration (tomcat...) + cloud? $$$$
+blabla
+
+[.card-section]
+== Diagram elements
+
+[.card.card-index]
+--
+xref:hardware-and-software-requirements.adoc[[.card-title]#Hardware and software requirements# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
