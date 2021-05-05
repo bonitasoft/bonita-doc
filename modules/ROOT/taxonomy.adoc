@@ -108,7 +108,6 @@
    **** xref:customize-layouts.adoc[Customize layouts]
   *** xref:appearance.adoc[Appearance]
   *** xref:theme-development.adoc[Theme]
-  *** xref:customize-living-application-theme.adoc[Customize living application theme]
   *** Responsiveness (to create)
   *** Pages and Forms  
    **** xref:page-and-form-development-overview.adoc[Overview - change the name]
@@ -154,9 +153,10 @@
    **** xref:licenses.adoc[License information]   
 * Extensions
  ** xref:software-extensibility.adoc[Platform extensibility overview]
- ** xref:connector-archetype.adoc[Bonita connector archetype]
+ ** xref:connector-archetype.adoc[Create a connector]
  ** xref:actor-filter-archetype.adoc[Create an actor filter]
  ** xref:rest-api-extension-archetype.adoc[Create a rest api extension]
+ ** xref:customize-living-application-theme.adoc[Create an theme]
 * xref:apiIndex.adoc[API]
   ** xref:api-glossary.adoc[API glossary]
   ** REST API
