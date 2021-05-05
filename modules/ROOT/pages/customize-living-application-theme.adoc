@@ -1,5 +1,5 @@
 = Customize the living application theme
-:description: This page explains how to create a theme project from the Studio or using the dedicated maven archetype.
+:description: This page explains how to create a theme project using the dedicated maven archetype.
 
 This page explains how to create a theme project from the Studio or using the dedicated maven archetype.
 
@@ -14,15 +14,6 @@ Each application can have its own theme.
 * Maven basic knowledge
 * CSS basic knowledge
 
-== Create a theme project from the Studio
-
-To create a new theme from the Studio:
-
-* Right click in Project Explorer > New > Theme...
-* From the creation wizard, define your theme metadata (name, description, maven gav)
-* Create
-
-Your project should appear in the project explorer, and can be edited within the Studio using the embedded editor.
 
 == Create a theme project using the maven archetype
 
@@ -393,12 +384,6 @@ Sass and SCSS have lots of other interesting features that you could use. Check 
 
 During the development phase, you can preview your theme using the provided test page in `test/index.html`.
 First you will have to `build` your theme:
-
-=== From Bonita Studio
-
-Right click on your theme project > Build or press `Ctrl+Shift+B` for a shortcut.
-
-If your theme is already associated to a living application, you can just `deploy` your theme:  right click on your theme project > Deploy or press `Ctrl+Shift+D` for a shortcut.
 
 === From the maven project
 
