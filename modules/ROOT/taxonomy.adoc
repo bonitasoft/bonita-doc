@@ -115,7 +115,6 @@
    **** xref:widgets.adoc[Widgets]
    **** xref:widget-properties.adoc[Widget properties]
    **** xref:repeat-a-container-for-a-collection-of-data.adoc[Repeat a container for a collection of data - change the name]
-   **** xref:custom-widgets.adoc[Custom widgets]
    **** xref:fragments.adoc[Fragments]
    **** xref:assets.adoc[Assets]
    **** xref:cache-configuration-and-policy.adoc[Cache configuration and policy]
@@ -157,6 +156,7 @@
  ** xref:actor-filter-archetype.adoc[Create an actor filter]
  ** xref:rest-api-extension-archetype.adoc[Create a rest api extension]
  ** xref:customize-living-application-theme.adoc[Create an theme]
+ **** xref:custom-widgets.adoc[Create custom widgets]
 * xref:apiIndex.adoc[API]
   ** xref:api-glossary.adoc[API glossary]
   ** REST API
