@@ -1,0 +1,32 @@
+= Project artifacts
+:description: This page defines what the artifacts are within a Bonita project as well as how some of the are structured to create a Living Application.
+
+This page defines what the artifacts are within a Bonita project as well as how some of the are structured to create a Living Application.
+
+
+== General view
+
+
+
+== Core artifacts
+
+The Administrator can xref:live-update.adoc[Live Update] a user:
+
+* create
+* deactivate
+* edit information
+* edit memberships
+* edit profiles
+
+
+== Extensions
+
+
+
+== Dedicated tools to create the artifacts
+
+=== Bonita high-level architecture
+
+=== What tool for what artifact
+
+
