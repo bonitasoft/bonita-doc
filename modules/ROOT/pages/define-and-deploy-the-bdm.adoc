@@ -154,16 +154,22 @@ When you create a process that uses a business object with a composition or aggr
 
 There are two options for loading complex business objects, *lazy* or *eager*. +
 
-* With lazy loading, the parent object instance is loaded, and child object instances are loaded only when they are needed, by the means of additional REST API calls. This is the option to choose when the parent object along with all its relationships can get big, vertically and/or horizontally +
-* With eager loading, the child object instances are loaded when the parent object instance is loaded. It is easier to use because no additional REST API calls are needed. This is the option to choose when the parent object along with all its relationships are neither deep nor large.  +
+* With lazy loading, the parent object instance is loaded. To load the child object instances, additional REST API calls are made. This is the option to choose when:
 
-The default is lazy loading, the option recommended in Bonita. You may override this for any business object by configuring it to use eager loading when you specify
-the object relationship properties. +
+  * the object is not edited very often in the cases lifetime
+  * the parent object along with all its relationships can get big, vertically and/or horizontally
+  
+* With eager loading, the parent object instance and the child objects instances are loaded at the same time. This is the option to choose when:
+
+  * the object can be edited quite often in the cases lifetime
+  * the parent object along with all its relationships are neither very deep nor large
+
+Choosing the right option is not easy. The default option is lazy loading, but you may override this for any business object by configuring it to use eager loading when you specify the object relationship properties. +
 
 [WARNING]
 ====
-If you are not sure about the final size of the parent object, we strongly recommend to use the default *lazy* loading option. Indeed, the eager loading option can have a huge impact on the platform performances, due to the additional data load and maintenance of the information in memory. +
-If you decide to use the eager mode, we recommend to test this option with a test dataset that is the size of your production's expected dataset. 
+If you are not sure about the final size of the parent object and that editing the child object instances will not be very frequent, we do strongly recommend to use the default *lazy* loading option. Indeed, the *eager* loading option can have a huge impact on the platform performances, due to the additional data load and maintenance of the information in memory. +
+If you think you need to use the eager mode, we recommend to test this option with a test dataset that is the size of your production's expected dataset. 
 ====
 
 [discrete]
