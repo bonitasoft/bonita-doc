@@ -156,13 +156,13 @@ There are two options for loading complex business objects, *lazy* or *eager*. +
 
 * With lazy loading, the parent object instance is loaded. To load the child object instances, additional REST API calls are made. This is the option to choose when:
 
-  * the object is not edited very often in the cases lifetime
-  * the parent object along with all its relationships can get big, vertically and/or horizontally
+  ** the object is not edited very often in the cases lifetime
+  ** the parent object along with all its relationships can get big, vertically and/or horizontally
   
 * With eager loading, the parent object instance and the child objects instances are loaded at the same time. This is the option to choose when:
 
-  * the object can be edited quite often in the cases lifetime
-  * the parent object along with all its relationships are neither very deep nor large
+  ** the object can be edited quite often in the cases lifetime
+  ** the parent object along with all its relationships are neither very deep nor large
 
 Choosing the right option is not easy. The default option is lazy loading, but you may override this for any business object by configuring it to use eager loading when you specify the object relationship properties. +
 
