@@ -209,10 +209,15 @@ Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, t
 [WARNING]
 ====
 
-If your Bonita platform is behind a proxy server, You need to make sure the reverse proxy is configured
-to include the correct `Host:` header to the requests and the application server is configured to use this header (it is usually the case by default).
+If your Bonita platform is behind a reverse proxy or a load balancer, You need to make sure the reverse proxy / load balancer is configured
+to include the correct headers for the host (and the protocol if needed) to the requests and the application server is configured to use these headers (it is usually the case by default). +
 This is required so that `HttpServletRequest.getRequestURL` returns the URL used by the user and not the internal URL used by the reverse proxy. +
-For example, if you are running Apache >=2.0.31 as reverse proxy, this configuration is controlled by the property http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypreservehost[ProxyPreserveHost].
+For example, if you are running Apache >=2.0.31 as reverse proxy, this configuration is controlled by the property http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypreservehost[ProxyPreserveHost] that will override the `Host:` header. +
+This can also be achieved by configuring the load balancer / reverse proxy so that it sets the `X-Forwarded-` HTTP headers. For example :
+----
+    X-Forwarded-Proto: https
+    X-Forwarded-Host: your.bonita.external.url.host
+----
 If you need more fine tuning or if you cannot update the reverse proxy configuration, you can consult the official documentation for https://tomcat.apache.org/connectors-doc/common_howto/proxy.html[Tomcat]
 ====
 
