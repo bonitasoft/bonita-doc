@@ -152,14 +152,25 @@ When you create a process that uses a business object with a composition or aggr
 [discrete]
 ==== Loading
 
-There are two options for loading complex business objects, *lazy* or *eager*.
-With lazy loading, the parent object instance is loaded, but child object instances are loaded only when they are needed.
-With eager loading, child object instances are loaded when the parent object instance is loaded.
+There are two options for loading complex business objects: *lazy* or *eager*. +
 
-The default is lazy loading. You can override this for any business object by configuring it to use eager loading when you specify
-the object relationship properties. This means that the specified object and all objects related to it by composition or aggregation
-relationships are loaded. +
-There is an overhead for the additional data load and maintenance of the information in memory, but there is a saving in data access time because the data is already loaded.
+* With lazy loading, the parent object instance is loaded. To load the children objects instances, additional REST API calls are made. This is the option to choose when:
+
+  ** the object's children are not edited very often in the cases lifetime
+  ** the parent object along with all its children can get big, vertically and/or horizontally
+  
+* With eager loading, the parent object instance and the children objects instances are loaded at the same time. This is the option to choose when:
+
+  ** the object's children can be edited quite often in the cases lifetime
+  ** the parent object along with all its children are neither very deep nor large
+
+Choosing the right option is not easy. The default option is lazy loading, but you may override this for any business object by configuring it to use eager loading when you specify the object relationship properties. +
+
+[WARNING]
+====
+If you are not sure about the final size of the parent object with children, and if editing the children objects instances will not be very frequent, we do strongly recommend to use the default *lazy* loading option. Indeed, the *eager* loading option can have a huge impact on the platform performances, due to the additional data load and maintenance of the information in memory. +
+If you think you need to use the eager mode, we recommend to test this option with a test dataset that is the size of your production's expected dataset. 
+====
 
 [discrete]
 ==== Multi-instantiation using business object variables in a list
