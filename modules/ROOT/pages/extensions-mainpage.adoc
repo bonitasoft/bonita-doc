@@ -1,6 +1,5 @@
 = Extension development in Bonita
-:description: 
-Learn how Bonita Platform can be extended to suit your needs.
+:description:Learn how Bonita Platform can be extended to suit your needs.
 
 [.card-section]
 == Possible Extensions
