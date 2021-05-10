@@ -1,0 +1,11 @@
+= Extension development in Bonita
+:description: blabla
+
+bla bla
+
+[.card-section]
+== Possible Extensions
+[.card.card-index]
+--
+xref:connector-archetype.adoc[[.card-title]#Connectors# [.card-body.card-content-overflow]#pass:q[Discover how to create your custom connectors]#]
+--
