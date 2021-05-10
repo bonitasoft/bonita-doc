@@ -1,0 +1,31 @@
+= Extension development in Bonita
+:description:
+
+Learn how Bonita Platform can be extended to suit your needs.
+
+[.card-section]
+== Possible Extensions
+[.card.card-index]
+--
+xref:connector-archetype.adoc[[.card-title]#Connectors# [.card-body.card-content-overflow]#pass:q[Discover how to create your custom connectors]#]
+--
+
+[.card.card-index]
+--
+xref:actor-filter-archetype.adoc[[.card-title]#Actor Filters# [.card-body.card-content-overflow]#pass:q[Discover how to create your custom actor filters]#]
+--
+
+[.card.card-index]
+--
+xref:customize-living-application-theme.adoc[[.card-title]#Themes# [.card-body.card-content-overflow]#pass:q[Discover how to create your custom living application themes]#]
+--
+
+[.card.card-index]
+--
+xref:rest-api-extension-archetype.adoc[[.card-title]#REST API Extensions# [.card-body.card-content-overflow]#pass:q[Discover how to create your REST API Extensions]#]
+--
+
+[.card.card-index]
+--
+xref:custom-widgets.adoc[[.card-title]#Custom Widgets# [.card-body.card-content-overflow]#pass:q[Discover how to create your custom widgets]#]
+--
