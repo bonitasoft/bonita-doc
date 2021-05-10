@@ -151,6 +151,7 @@
    **** xref:performance-troubleshooting.adoc[Performance troubleshooting]
    **** xref:purge-tool.adoc[Purging unnecessary archive data]
   *** xref:use-gzip-compression.adoc[Use gzip compression]
+  *** xref:reverse-proxy-configuration.adoc[Set Bonita behind a reverse-proxy]
   *** Bonita in a cluster
    **** xref:overview-of-bonita-bpm-in-a-cluster.adoc[Overview of Bonita in a cluster]
    **** xref:install-a-bonita-bpm-cluster.adoc[Install a Bonita cluster]
