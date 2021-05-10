@@ -3,23 +3,88 @@
 
 This page defines what the artifacts are within a Bonita project as well as how some of the are structured to create a Living Application.
 
+An automation project can be of different kinds. 
+We like to promote the Living Applications based on process execution, because it takes advantage of the full potential of Bonita.
+But it can also by about process execution using the Bonita provided applications, with no need for a custom application.
+Or about process execution with no application, when the process is about automated tasks (and robots) only.
 
-== General view
+Among those artifacts, we consider some as *core*: they fully enter in the definition of the automation projects. +
+For some, Bonita is the creation tool, and for some, a default version is provided. +
+As Bonita is a really open platform, you will see that for some, an alternative is available outside of Bonita.
 
-
+The others are *extensions*. They can be created on the side and added to the project when needed. 
 
 == Core artifacts
 
-The Administrator can xref:live-update.adoc[Live Update] a user:
+[cols="1,1,1,1"]
+|===
+|Artifact |Create/Provided | Tool | Alternative
 
-* create
-* deactivate
-* edit information
-* edit memberships
-* edit profiles
+|Processes
+|Create
+|Studio
+|--
 
+|Forms
+|Create
+|UI Designer
+|Use BPM REST API
+
+|Business Data Model
+|Create
+|Studio
+|External data base w/ provided connector
+
+|Organization (for "Actors" and "Profiles")
+|Create
+|Studio
+|--
+
+|Application decriptor
+|Create
+|Studio
+|xml editor
+
+|Application pages
+|Create
+|UI Designer
+|Front-end framework
+
+|Layout
+|Provided
+|UI Designer
+|Front-end framework
+
+|Theme
+|Provided
+|--
+|--
+
+|=== 
+
+For an Automation Project with no application, the last 4 artifacts are not needed.
 
 == Extensions
+Those are developed in the developers' favorite IDE.
+
+* Connectors
+* Actor filters
+* REST API extensions
+* Custom themes
+* Other dependencies
+
+== Maven as our way to compose the project
+
+== General view
+
+This image shows what an automation project looks like when it is about creating a Living Application:
+
+image:images/artifacts.png[Living Application artifacts structure]
+// {.img-responsive}
+
+All artficats are structured in five sets: _Process_, _Users_, _Application descriptor_, _Resources_, and _External dependencies_. +
+In this organization, some artifacts are referenced by others (in an aggregation relationship), and some belong to others (in a composition relationship). +
+
 
 
 
