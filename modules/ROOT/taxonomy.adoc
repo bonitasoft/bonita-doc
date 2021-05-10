@@ -25,8 +25,6 @@
  ** xref:set-up-continuous-integration.adoc[Set up continuous integration]
 * Automation project
  ** Project artefacts
-  *** Core artifacts
-  *** Extensions
  ** xref:project-documentation-generation.adoc[Project documentation generation]
 * Processes
  ** Studio
