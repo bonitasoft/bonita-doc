@@ -156,7 +156,7 @@
  ** xref:actor-filter-archetype.adoc[Create an actor filter]
  ** xref:rest-api-extension-archetype.adoc[Create a rest api extension]
  ** xref:customize-living-application-theme.adoc[Create an theme]
- ** xref:custom-widgets.adoc[Create custom widgets]
+ ** xref:custom-widgets.adoc[Create a custom widgets]
 * xref:apiIndex.adoc[API]
   ** xref:api-glossary.adoc[API glossary]
   ** REST API
