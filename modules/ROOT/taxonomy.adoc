@@ -150,7 +150,7 @@
    **** xref:admin-application-resources-list.adoc[Resources management]
    **** xref:applications.adoc[Applications]
    **** xref:licenses.adoc[License information]   
-* Extensions
+*  xref:extensions-mainpage.adoc[Extensions]
  ** xref:software-extensibility.adoc[Platform extensibility overview]
  ** xref:connector-archetype.adoc[Create a connector]
  ** xref:actor-filter-archetype.adoc[Create an actor filter]
