@@ -1,5 +1,5 @@
 = Project artifacts
-:description: This page defines what the artifacts are within a Bonita project as well as how some of the are structured to create a Living Application.
+:description: This page defines what the artifacts are within a Bonita Automatin Project, as well as how some of them are structured to create a Living Application.
 
 This page defines what the artifacts are within a Bonita project as well as how some of the are structured to create a Living Application.
 
@@ -36,7 +36,7 @@ The others are *extensions*. They can be created on the side and added to the pr
 |External data base w/ provided connector
 
 |Organization (for "Actors" and "Profiles")
-|Create
+|Example provided/Create
 |Studio
 |--
 
@@ -64,6 +64,16 @@ The others are *extensions*. They can be created on the side and added to the pr
 
 For an Automation Project with no application, the last 4 artifacts are not needed.
 
+== How core artifacts fit together
+
+This image shows what an automation project looks like when it is about creating a Living Application:
+
+image:images/artifacts.png[Living Application artifacts structure]
+// {.img-responsive}
+
+All artficats are structured in five sets: _Process_, _Users_, _Application descriptor_, _Resources_, and _External dependencies_. +
+In this organization, some artifacts are referenced by others (in an aggregation relationship), and some belong to others (in a composition relationship). +
+
 == Extensions
 Those are developed in the developers' favorite IDE.
 
@@ -74,24 +84,7 @@ Those are developed in the developers' favorite IDE.
 * Other dependencies
 
 == Maven as our way to compose the project
+[link to page]
 
-== General view
-
-This image shows what an automation project looks like when it is about creating a Living Application:
-
-image:images/artifacts.png[Living Application artifacts structure]
-// {.img-responsive}
-
-All artficats are structured in five sets: _Process_, _Users_, _Application descriptor_, _Resources_, and _External dependencies_. +
-In this organization, some artifacts are referenced by others (in an aggregation relationship), and some belong to others (in a composition relationship). +
-
-
-
-
-== Dedicated tools to create the artifacts
-
-=== Bonita high-level architecture
-
-=== What tool for what artifact
 
 
