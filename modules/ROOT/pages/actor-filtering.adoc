@@ -4,9 +4,9 @@
 On a human task, the actor filter is responsible for filtering out users - mapped to the actor definition - who can actually perform it.
 
 Bonita provides a set of ready-to-use actor filters.
-To create your own Actor filter, see xref:creating-an-actor-filter.adoc[Create an actor filter]].
+To create your own Actor filter, see xref:creating-an-actor-filter.adoc[Create an actor filter].
 
-The following standard actor filters are provided:
+The following standard actor filters are provided in the Bonita Marketplace:
 
 * _Single user_ assigns the task to the specified user.
 * _Task performer_ assigns the task to the user who performed the specified previous human task (in earlier versions with was known as actor continuity).
