@@ -1,7 +1,7 @@
 = Reporting overview
-:description: Learn how reporting can be made on application of the Bonita Plaform.
+:description: Learn how reporting can be made on application of the Bonita Platform.
 
-Learn how reporting can be made on application of the Bonita Plaform.
+Learn how reporting can be made on application of the Bonita Platform.
 
 [NOTE]
 ====
