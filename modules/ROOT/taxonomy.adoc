@@ -73,7 +73,7 @@
   *** xref:manage-jar-files.adoc[Manage JAR files]
   *** xref:managing-dependencies.adoc[Manage dependencies]
  ** xref:project_deploy_in_dev_suite.adoc[Project deployment in Bonita Studio]
-* Users
+* Identity and Access Management
  ** Organization
   *** xref:organization-overview.adoc[Overview]
   *** xref:approaches-to-managing-organizations-and-actor-mapping.adoc[Approaches to managing organizations and actor mapping]
@@ -155,8 +155,8 @@
  ** xref:connector-archetype.adoc[Create a connector]
  ** xref:actor-filter-archetype.adoc[Create an actor filter]
  ** xref:rest-api-extension-archetype.adoc[Create a rest api extension]
- ** xref:customize-living-application-theme.adoc[Create an theme]
- ** xref:custom-widgets.adoc[Create a custom widgets]
+ ** xref:customize-living-application-theme.adoc[Create a theme]
+ ** xref:custom-widgets.adoc[Create a custom widget]
 * xref:apiIndex.adoc[API]
   ** xref:api-glossary.adoc[API glossary]
   ** REST API
