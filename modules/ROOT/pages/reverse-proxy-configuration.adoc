@@ -10,7 +10,7 @@ Learn how to set up a reverse proxy to expose Bonita web interface publicly whil
 Bonitasoft does not support anymore having Bonita portal running on a dedicated Tomcat server on one side, and Bonita Engine running on a dedicated Tomcat server on the other side.
 ====
 
-If you have to expose Bonita Portal or a Bonita-developed application publicly, but legibly want to protect any other resources behind your firewall, you should set up a software architecture similar to this one:
+If you have to expose Bonita Portal or a Bonita-developed application publicly, but legitimately want to protect any other resources behind your firewall, you should set up a software architecture similar to this one:
 
 image::https://people.apache.org/~mturk/docs/article/fig2.gif[Tomcat behind a firewall with reverse proxy]
 
@@ -73,7 +73,7 @@ An example of Apache 2 HTTP server configuration that works with Bonita could be
 </VirtualHost>
 ----
 
-Be sure to also xref:ssl.adoc#_tomcat_and_ssl_offloading[configure Tomcat IP Valve] for IP forwarding.
+Make sure to also xref:ssl.adoc#_tomcat_and_ssl_offloading[configure Tomcat IP Valve] for IP and protocol forwarding.
 
 Read https://httpd.apache.org/docs/current/howto/reverse_proxy.html[the complete Apache httpd documentation] for detailed configuration capabilities.
 
