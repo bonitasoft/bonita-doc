@@ -49,6 +49,11 @@ Database connectors
 
 * Manage the JDBC drivers associated with database connectors. You should use that to include JDBC drivers for commercial DBMS (e.g. DB2)
 
+=== Development
+
+Extensions
+
+
 === Web preferences
 
 Browser
