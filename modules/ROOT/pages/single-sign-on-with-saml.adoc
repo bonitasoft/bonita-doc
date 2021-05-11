@@ -48,7 +48,7 @@ This service validates and process the SAML response :
 
 [WARNING]
 ====
-Bonita "username" should match the NameId or one attributes returned by the IdP in the response.
+Bonita "username" should match the NameId or one of the attributes returned by the IdP in the response.
  If some users need to be able to log in without having an account on the IDP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.
 ====
 
