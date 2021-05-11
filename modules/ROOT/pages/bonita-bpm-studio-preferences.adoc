@@ -53,6 +53,7 @@ Database connectors
 
 Extensions
 
+* Define the access to your extensions (Connectors, REST API Extensions, Themes and Actor Filters). You can configure the Maven settings such as the repositories, serverrs, proxies and mirrors.
 
 === Web preferences
 
