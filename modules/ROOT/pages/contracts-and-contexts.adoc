@@ -112,7 +112,7 @@ In `Edit` mode, additional `persistenceId_string` input are generated to ensure 
 * If the _lazy_ field is not contained in a repeatable container (no multiple parent in the object hierarchy): Another UID variable (External API) is generated to retrieve the _lazy_ relation.
 * If the _lazy_ field is contained in a repeatable container (there is a multiple parent in the object hierarchy or the data is multiple): This kind of fields are unselected by default when generating the contract. We cannot retrieve the values from the context for those relations and a consistent _edition_ form generation is not possible. The current workarounds to handle this use case are:
  ** Change the relation loading mode to _eager_ (Always load related objects option) instead of _lazy_ (Only load related objects when needed)
- ** Use UID  xref:fragments.adoc[fragments] (Enterprise edition only). Keep in mind that it may lead to performance issues as each lazy instance will generate an HTTP request.
+ ** Use UID  xref:fragments.adoc[fragments]. Keep in mind that it may lead to performance issues as each lazy instance will generate an HTTP request.
  ** Use a  xref:api-extensions.adoc[Rest API Extension]. Instead of reusing the Task context, create your own endpoint that will serve all the needed data in one HTTP request.
 
 In `Edit` mode, you have the possibility to generate read only widgets for attributes related to the contract but not in the contract. +
