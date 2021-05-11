@@ -167,7 +167,7 @@
   *** xref:ubuntu-openjdk-tomcat-postgresql.adoc[Ubuntu + OpenJDK + Tomcat + PostgreSQL]
   *** xref:bonita-as-windows-service.adoc[Install Tomcat with Bonita as a service in Windows]
  ** xref:product-versioning.adoc[Bonita Versions]
- ** xref:upgrade-from-community-to-a-subscription-edition.adoc[Community to Subscription upgrade]
+ ** xref:upgrade-from-community-to-a-subscription-edition.adoc[Bonita edition change - Community to/from Enterprise]
 * Bonita User Interfaces in Production
  ** xref:bonita-bpm-portal-interface-overview.adoc[Overview]
  ** xref:languages.adoc[Languages]
