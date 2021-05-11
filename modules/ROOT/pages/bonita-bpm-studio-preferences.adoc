@@ -49,6 +49,12 @@ Database connectors
 
 * Manage the JDBC drivers associated with database connectors. You should use that to include JDBC drivers for commercial DBMS (e.g. DB2)
 
+=== Development
+
+Extensions
+
+* Define the access to your extensions (Connectors, REST API Extensions, Themes and Actor Filters). You can configure the Maven settings such as the repositories, serverrs, proxies and mirrors.
+
 === Web preferences
 
 Browser
