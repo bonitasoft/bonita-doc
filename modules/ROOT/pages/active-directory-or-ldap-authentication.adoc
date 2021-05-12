@@ -264,7 +264,6 @@ If necessary, you can edit your configuration to have additional logs (please no
 * Enable JAAS debug mode by editing your JAAS configuration file (e.g. `<TOMCAT_HOME>/server/conf/jaas.cfg`) and adding the following line: `debug=true`
 * Enable java's https://docs.oracle.com/javase/8/docs/technotes/guides/security/jsse/ReadDebug.html[SSL/TLS connection debug mode] by editing your application server's environment setting file (e.g. `<TOMCAT_HOME>/setup/tomcat-templates/setenv.sh(.bat)`) and adding the following system property to the java options: `-Djavax.net.debug=all`
 
-[discrete]
 ==== Common error examples
 
 *Symptom:* You see the following error in your logs:
@@ -341,4 +340,3 @@ This problem is related to the configuration of Workstation Restrictions in Micr
 In order to get over the error, there seem to be two possible solutions (to be handled by your Active Directory administrator):
  ** Disable the workstations restrictions in AD
  ** Add the hostname of the Active Directory server to "userWorkstations" attribute. (Note: If it is an AD cluster, you need to add each AD server.)
-
