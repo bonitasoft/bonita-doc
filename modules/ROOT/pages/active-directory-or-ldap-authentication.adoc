@@ -259,14 +259,86 @@ The Active Directory configuration has been tested in single domain configuratio
 
 == Troubleshooting
 
-If necessary, you can enable JAAS debug mode by editing your configuration file and adding the following line: `debug=true`
+If necessary, you can edit your configuration to have additional logs (please note, a server restart will be required for the new configuration to be taken into account, though):
 
-On Active Directory, a common error code is:
-`LDAP: error code 49 - 80090308: LdapErr: DSID-0C0903A9, comment: AcceptSecurityContext error, data 52e, v1db1`.
+* Enable JAAS debug mode by editing your JAAS configuration file (e.g. `<TOMCAT_HOME>/server/conf/jaas.cfg`) and adding the following line: `debug=true`
+* Enable java's https://docs.oracle.com/javase/8/docs/technotes/guides/security/jsse/ReadDebug.html[SSL/TLS connection debug mode] by editing your application server's environment setting file (e.g. `<TOMCAT_HOME>/setup/tomcat-templates/setenv.sh(.bat)`) and adding the following system property to the java options: `-Djavax.net.debug=all`
+
+[discrete]
+==== Common error examples
+
+*Symptom:* You see the following error in your logs:
+
+[source,log]
+----
+Caused by: javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed:sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target 
+----
+
+*Possible Solutions:*
+
+* Make sure you have imported the public certificate of the LDAP server into the truststore being used by the application server.
+* Make sure the imported certificate has not expired.
+* Make sure the certificate has been imported into the correct truststore:
+ ** Check whether your application is using a custom truststore. For example, if `-Djavax.net.ssl.trustStore` has been configured, it will override the location of the default truststore.
+ ** Else, the default truststore of the JVM is used, namely (beware: you may have multiple JRE/JDKs): `<JAVA_HOME>/jre/lib/security/cacerts`
+(In order to add your SSL server's certificate into this truststore, the default password is: `changeit`).
+ ** 
+
+*Symptom:* You see the following error in your logs (it may sometimes be necessary to have set the `-Djavax.net.debug=all` system property before hand):
+
+[source,log]
+----
+javax.net.ssl.SSLHandshakeException: java.security.cert.CertificateException: No subject alternative DNS name matching my.ldap.server found. 
+----
+
+*Problem:* The enpoint identification (i.e. hostname verification) check is failing to validate the LDAP server's certificate because its subject does not match the hostname specified in the LDAPS url.
+*Possible Solutions:*
+
+* Make sure the server name used in the _ldaps://_ address of the LdapLoginModule's _userProvider_ matches that of the LDAP server's certificate.
+* Have the LDAP server use a certificate with a subject (or at least a subject alternative name) that matches the server's domain name (so the one used in the ldaps:// addresse of the LdapLoginModule).
+* Disable the endpoint identification (note that the endpoint identification is https://www.oracle.com/technetwork/java/javase/8u181-relnotes-4479407.html[enabled by default since java version 1.8.0_181]) in Bonita's application server by adding the following system property to the java options in your application server's environment setting file (e.g. `<TOMCAT_HOME>/setup/tomcat-templates/setenv.sh(.bat)`): `-Dcom.sun.jndi.ldap.object.disableEndpointIdentification=true`
+
+*Symptom:* The following stacktrace appears in the Bonita server log:
+
+[source,log]
+----
+javax.security.auth.login.FailedLoginException: Cannot bind to LDAP server
+at com.sun.security.auth.module.LdapLoginModule.attemptAuthentication(LdapLoginModule.java:817)
+at com.sun.security.auth.module.LdapLoginModule.login(LdapLoginModule.java:565)
+...
+Caused by: javax.naming.AuthenticationException: [LDAP: error code 49 - 80090308: LdapErr: DSID-XXXXXXXX, comment: AcceptSecurityContext error, data YYY, vZZZZ..] 
+----
+
+*Problem:* As per LDAP standard, error code 49 means: "Invalid credentials" (i.e. the user credentials presented in the bind operation are not valid). +
+When connecting to Active Directory, this error may appear for multiple reasons. The AD-specific error code is the one (`YYY`) after "data" in the error message:
+
+| AD error code | Meaning |
+| --- | :--- |
+| 525 |	user not found |
+| 52e |	invalid credentials | 
+| 530 |	not permitted to logon at this time |
+| 531 |	not permitted to logon at this workstation |
+| 532 |	password expired |
+| 533 |	account disabled |
+| 701 |	account expired |
+| 773 |	user must reset password |
+| 775 |	user account locked |
+
+*Possible Solutions:*
+
+* *52e*: invalid credentials + 
+`LDAP: error code 49 - 80090308: LdapErr: DSID-0C0903A9, comment: AcceptSecurityContext error, data 52e, v1db1`. +
 This error code can have several root causes:
-
-* The user doesn't exist in AD: in the JAAS configuration, verify the user filter and validate it using a tool such as
+ ** The user doesn't exist in AD: in the JAAS configuration, verify the user filter and validate it using a tool such as
 Apache Directory Studio.
-* The username doesn't include the domain name: in the JAAS configuration, make sure that the `authIdentity` value
+ ** The username doesn't include the domain name: in the JAAS configuration, make sure that the `authIdentity` value
 includes the domain name.
-* The user password provided is not correct.
+ ** The user password provided is not correct.
+
+* *531*: not permitted to logon at this workstation +
+`LDAP: error code 49 - 80090308: LdapErr: DSID-0C090446, comment: AcceptSecurityContext error, data 531, v4563` +
+This problem is related to the configuration of Workstation Restrictions in Microsoft Active Directory. This problem does not happen when Workstation Restrictions is disabled on Active Directory. +
+In order to get over the error, there seem to be two possible solutions (to be handled by your Active Directory administrator):
+ ** Disable the workstations restrictions in AD
+ ** Add the hostname of the Active Directory server to "userWorkstations" attribute. (Note: If it is an AD cluster, you need to add each AD server.)
+
