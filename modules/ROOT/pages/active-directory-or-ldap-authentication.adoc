@@ -42,12 +42,10 @@ or `uid` on other LDAP servers, value: `john.smith`)
 
 This section explains how to put together all the LDAP server information you have to create or edit a JAAS configuration file compatible with your JEE application server.
 
-[discrete]
 ==== Login context name
 
 The JAAS configuration can include one or several login contexts. The Bonita login context must be named `BonitaAuthentication-<TENANT_ID>` (where `<TENANT_ID>` is your tenant id).
 
-[discrete]
 ==== LdapLoginModule attributes to set
 
 It's important to identify which `LdapLoginModule` attributes you need to set.
@@ -60,7 +58,6 @@ Based on the information described in the "Before you start" section, you can id
 * If you cannot build the DN and anonymous search is disallowed and authenticated users cannot search \=> set the `userFilter`,
 `authIdentity`, `tryFirstPass`, `java.naming.security.principal` and `java.naming.security.credentials` attributes
 
-[discrete]
 ==== Values for LdapLoginModule attributes
 
 In this section we explain how to set `LdapLoginModule` attributes values. (For further information, check the https://docs.oracle.com/javase/8/docs/jre/api/security/jaas/spec/com/sun/security/auth/module/LdapLoginModule.html[`LdapLoginModule` javadoc] page.)
@@ -89,12 +86,10 @@ If you use a `userFilter` and users are allowed to search, set the value with `+
 *`java.naming.security.credentials`* +
 (only if needed): specify the password of a user that can perform searches on the server.
 
-[discrete]
 ==== Create or edit the configuration file for your application server
 
 NOTE: all configuration files are case sensitive. You can find more examples in the <<examples,JAAS configuration files examples>> section of this page.
 
-[discrete]
 ===== *WildFly*
 
 Edit the `<WILDFLY_HOME>/setup/wildfly-templates/standalone.xml` file to specify the configuration. Use HTML encoding for any strings in the configuration (for example, a space character is written as %20).
@@ -118,7 +113,6 @@ The following example is for a tenant with id 1:
 </security-domain>
 ----
 
-[discrete]
 ===== *Tomcat*
 
 On Tomcat, the JAAS configuration file follows the http://docs.oracle.com/javase/8/docs/api/javax/security/auth/login/Configuration.html[default JVM syntax]. +
@@ -137,7 +131,6 @@ We recommend that you name your JAAS configuration file `jaas.cfg` and that you 
 
 == Configuration steps
 
-[discrete]
 ==== Changing Bonita authentication service
 
 The default Bonita installation comes with an authentication service implementation based on the Bonita Engine database. In
@@ -148,20 +141,16 @@ You will need to perform following changes:
 * Comment out the `authenticationService` line
 * Add this new line: `authentication.service.ref.name=jaasAuthenticationService`
 
-[discrete]
 ==== Configure JAAS
 
-[discrete]
 ===== *WildFly*
 
 As the JAAS configuration in WildFly is already done in a file that already exists, no further configuration is necessary.
 
-[discrete]
 ===== *Tomcat*
 
 To define the JAAS configuration file location you need to set a JVM property, `java.security.auth.login.config`. To do this for a system running Tomcat you need to edit the `setenv` script provided with Bonita and located in `<TOMCAT_HOME>/server/bin` folder.
 
-[discrete]
 ====== For Linux and Mac OS
 
 * Edit this file: `<TOMCAT_HOME>/setup/tomcat-templates/setenv.sh`
@@ -171,7 +160,6 @@ To define the JAAS configuration file location you need to set a JVM property, `
 * Add the tag `+${SECURITY_OPTS}+` after the tag `+${PLATFORM_SETUP}+`
 * Push into database the changes: `./setup.sh push`
 
-[discrete]
 ====== For Windows
 
 * Edit this file: `<TOMCAT_HOME>/setup/tomcat-templates/setenv.bat`
@@ -189,10 +177,8 @@ NOTE: Remember to remove the debug flag for production.
 
 NOTE: These examples use the JAAS standard syntax (as used by Tomcat). They can easily be adapted to the WildFly XML syntax.
 
-[discrete]
 ==== Active Directory
 
-[discrete]
 ===== Search allowed for all users
 
 In this example, the user name is john.smith:
@@ -221,7 +207,6 @@ BonitaAuthentication-1 {
 };
 ----
 
-[discrete]
 ===== Search allowed only for a technical users
 
 In this example, the user name is john.smith:
@@ -239,7 +224,6 @@ BonitaAuthentication-1 {
 };
 ----
 
-[discrete]
 ==== Other LDAP servers
 
 .Build the user DN using the user name
@@ -266,6 +250,7 @@ If necessary, you can edit your configuration to have additional logs (please no
 
 === Common error examples
 
+****  
 *Symptom:* You see the following error in your logs:
 
 [source,log]
@@ -281,8 +266,11 @@ Caused by: javax.net.ssl.SSLHandshakeException: sun.security.validator.Validator
  ** Check whether your application is using a custom truststore. For example, if `-Djavax.net.ssl.trustStore` has been configured, it will override the location of the default truststore.
  ** Else, the default truststore of the JVM is used, namely (beware: you may have multiple JRE/JDKs): `<JAVA_HOME>/jre/lib/security/cacerts`
 (In order to add your SSL server's certificate into this truststore, the default password is: `changeit`).
- ** 
+* Check if your Anti-Virus tool has "SSL Scanning" blocking SSL/TLS. If it does, disable this feature or set exceptions for the target addresses.
+* Make sure that your LDAP server is indeed reachable at the SSL port. You may try connecting to the LDAPS URL with an external ldap client tool (e.g. ldapsearch).
+****  
 
+****
 *Symptom:* You see the following error in your logs (it may sometimes be necessary to have set the `-Djavax.net.debug=all` system property before hand):
 
 [source,log]
@@ -291,12 +279,15 @@ javax.net.ssl.SSLHandshakeException: java.security.cert.CertificateException: No
 ----
 
 *Problem:* The enpoint identification (i.e. hostname verification) check is failing to validate the LDAP server's certificate because its subject does not match the hostname specified in the LDAPS url.
+
 *Possible Solutions:*
 
 * Make sure the server name used in the _ldaps://_ address of the LdapLoginModule's _userProvider_ matches that of the LDAP server's certificate.
 * Have the LDAP server use a certificate with a subject (or at least a subject alternative name) that matches the server's domain name (so the one used in the ldaps:// addresse of the LdapLoginModule).
 * Disable the endpoint identification (note that the endpoint identification is https://www.oracle.com/technetwork/java/javase/8u181-relnotes-4479407.html[enabled by default since java version 1.8.0_181]) in Bonita's application server by adding the following system property to the java options in your application server's environment setting file (e.g. `<TOMCAT_HOME>/setup/tomcat-templates/setenv.sh(.bat)`): `-Dcom.sun.jndi.ldap.object.disableEndpointIdentification=true`
+****
 
+****
 *Symptom:* The following stacktrace appears in the Bonita server log:
 
 [source,log]
@@ -311,27 +302,45 @@ Caused by: javax.naming.AuthenticationException: [LDAP: error code 49 - 80090308
 *Problem:* As per LDAP standard, error code 49 means: "Invalid credentials" (i.e. the user credentials presented in the bind operation are not valid). +
 When connecting to Active Directory, this error may appear for multiple reasons. The AD-specific error code is the one (`YYY`) after "data" in the error message:
 
-| AD error code | Meaning |
-| --- | :--- |
-| 525 |	user not found |
-| 52e |	invalid credentials | 
-| 530 |	not permitted to logon at this time |
-| 531 |	not permitted to logon at this workstation |
-| 532 |	password expired |
-| 533 |	account disabled |
-| 701 |	account expired |
-| 773 |	user must reset password |
-| 775 |	user account locked |
+[%autowidth]
+|===
+| AD error code | Meaning
+
+| 525
+| user not found
+
+| 52e
+| invalid credentials
+
+| 530
+| not permitted to logon at this time
+
+| 531
+| not permitted to logon at this workstation
+
+| 532
+| password expired
+
+| 533
+| account disabled
+
+| 701
+| account expired
+
+| 773
+| user must reset password
+
+| 775
+| user account locked
+|===
 
 *Possible Solutions:*
 
 * *52e*: invalid credentials + 
 `LDAP: error code 49 - 80090308: LdapErr: DSID-0C0903A9, comment: AcceptSecurityContext error, data 52e, v1db1`. +
 This error code can have several root causes:
- ** The user doesn't exist in AD: in the JAAS configuration, verify the user filter and validate it using a tool such as
-Apache Directory Studio.
- ** The username doesn't include the domain name: in the JAAS configuration, make sure that the `authIdentity` value
-includes the domain name.
+ ** The user doesn't exist in AD: in the JAAS configuration, verify the user filter and validate it using a tool such as Apache Directory Studio.
+ ** The username doesn't include the domain name: in the JAAS configuration, make sure that the `authIdentity` value includes the domain name.
  ** The user password provided is not correct.
 
 * *531*: not permitted to logon at this workstation +
@@ -340,3 +349,4 @@ This problem is related to the configuration of Workstation Restrictions in Micr
 In order to get over the error, there seem to be two possible solutions (to be handled by your Active Directory administrator):
  ** Disable the workstations restrictions in AD
  ** Add the hostname of the Active Directory server to "userWorkstations" attribute. (Note: If it is an AD cluster, you need to add each AD server.)
+****
