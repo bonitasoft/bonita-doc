@@ -48,7 +48,7 @@ This service validates and process the SAML response :
 
 [WARNING]
 ====
-Bonita "username" should match the NameId or one attribute of the subject returned by the IdP in the response.
+Bonita "username" should match the NameId or one of the attributes returned by the IdP in the response.
  If some users need to be able to log in without having an account on the IDP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.
 ====
 
@@ -190,8 +190,8 @@ with the certificate provided by the IdP.
    **** validateRequestSignature="true"
    **** validateResponseSignature="true"
  ** The IDP entityID attribute needs to be replaced with the entity ID of the IdP.
- ** The PrincipalNameMapping policy indicates how to retrieve the subject attribute that matches a bonita user account username from the IdP response.
-The policy can either be FROM_NAME_ID or FROM_ATTRIBUTE (in that case you need to specify the name of the subject attribute to use).
+ ** The PrincipalNameMapping policy indicates how to retrieve, in the SAML response from the IdP, the identifier of the subject that matches the bonita user account username.
+The policy can either be FROM_NAME_ID or FROM_ATTRIBUTE (in that case you need to specify the name of the attribute to use --only one attribute can be specified--). There can only be one mapping (meaning that the same policy is used for all the user accounts).
  ** You may also need to change the requestBinding and/or responseBinding from POST to REDIRECT depending on your IdP configuration.
  ** The url binding to your IdP also needs to be define by replacing the following string:
   *** http://idp.saml.binding.url.to.change
