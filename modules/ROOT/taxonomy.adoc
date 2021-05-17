@@ -252,4 +252,4 @@
  ** xref:migration-tool.adoc[Migration tool change log]
  ** xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[Migrate from an earlier version of Bonita]
  ** xref:migrate-a-form-from-6-x.adoc[Migrate a form from 6.x]
-* xref:how-tos-Index.adoc[How tos]
+* xref:how-tos-index.adoc[How tos]
