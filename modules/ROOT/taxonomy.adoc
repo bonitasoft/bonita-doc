@@ -20,7 +20,7 @@
  ** xref:lifecycle-and-profiles.adoc[Project phases]
  ** xref:design-methodology.adoc[Conception]
  ** xref:workspaces-and-repositories.adoc[Workspaces and projects]
-* xref:setupDevEnvironmentIndex.adoc[Setup the Development Environment]
+* xref:setup-dev-environment-index.adoc[Setup the Development Environment]
  ** xref:shared-project.adoc[Set up Bonita Studio with GitHub]
  ** xref:share-a-repository-on-github.adoc[Share a project on GitHub]
  ** xref:automating-builds.adoc[Automate builds]
