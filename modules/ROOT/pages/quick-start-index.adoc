@@ -1,0 +1,39 @@
+= Quick start with Bonita
+:description: blabla
+
+bla bla
+
+[.card-section]
+== Bonita in a nutshell
+[.card.card-index]
+--
+xref:what-is-bonita.adoc[[.card-title]#What is Bonita# [.card-body.card-content-overflow]#pass:q[Discover what is Bonita and what you can do with it!]#]
+--
+
+[.card.card-index]
+--
+xref:bonita-studio-download-installation.adoc[[.card-title]#Download and install# [.card-body.card-content-overflow]#pass:q[Fusionner avec ce qui suit]#]
+--
+
+[.card.card-index]
+--
+xref:bonita-bpm-studio-installation.adoc[[.card-title]#Bonita Studio installation# [.card-body.card-content-overflow]#pass:q[Fusionner avec ce qui précède]#]
+--
+
+[.card-section]
+== You might also like
+
+[.card.card-index]
+--
+xref:tutorial-overview.adoc[[.card-title]#Runtime installation# [.card-body.card-content-overflow]#pass:q[TODO.]#]
+--
+
+// [.card.card-index]
+// --
+// xref:bonita-studio-download-installation.adoc[[.card-title]#The Community Q&A# [.card-body.card-content-overflow]#pass:q[TODO.]#]
+// --
+
+[.card.card-index]
+--
+xref:draw-bpmn-diagram.adoc[[.card-title]#The Community projects to share# [.card-body.card-content-overflow]#pass:q[TODO.]#]
+--
