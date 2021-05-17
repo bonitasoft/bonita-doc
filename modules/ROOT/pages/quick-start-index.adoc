@@ -21,7 +21,7 @@ xref:bonita-bpm-studio-installation.adoc[[.card-title]#Bonita Studio installatio
 --
 
 [.card-section]
-== You might also like
+== Related topics
 
 [.card.card-index]
 --
