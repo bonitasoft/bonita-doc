@@ -1,0 +1,164 @@
+= Business Data Model (BDM) deployment
+:description: Lean how the engine handles the BDM (re-)deployment.
+
+Lean how the engine handles the BDM deployment and redeployment.
+
+== Deployment flow
+
+Deploying a BDM means calling https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html#installBusinessDataModel-byte:A-[TenantAdministrationAPI.installBusinessDataModel()].
+
+As an input parameter, we pass a *ZIP file* containing an XML file, like the one below:
+
+[source,xml]
+----
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<businessObjectModel xmlns="http://documentation.bonitasoft.com/bdm-xml-schema/1.0" modelVersion="1.0" productVersion="7.13.0-SNAPSHOT">
+    <businessObjects>
+        <businessObject qualifiedName="com.acme.operations.Invoice">
+            <fields>
+                <field type="STRING" length="255" name="customerId" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="externalReference" nullable="true" collection="false"/>
+                <field type="LONG" length="255" name="CID_Code" nullable="false" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries>
+                <query name="searchByCustomer" content="SELECT i &#10;FROM Invoice i &#10;WHERE i.customerId = :customerId&#10;ORDER BY i.persistenceId ASC" returnType="com.acme.operations.Invoice">
+                    <queryParameters>
+                        <queryParameter name="customerId" className="java.lang.String"/>
+                    </queryParameters>
+                </query>
+            </queries>
+            <indexes/>
+        </businessObject>
+    </businessObjects>
+</businessObjectModel>
+----
+
+Installing a new BDM executes the following steps:
+
+* generate a *Java model* from the XML model
+* generate and execute the *SQL* instructions to create the database tables
+* provide a Java *client JAR* file to programmatically interact with this model from any client application
+
+
+== BDM classes Generation
+
+From the XML model, Java classes are generated, that match the same name, as the example below (incomplete extract):
+
+[source,java]
+----
+package com.acme.operations;
+
+@javax.persistence.Entity(name = "Invoice")
+@Table(name = "INVOICE")
+@NamedQueries({
+@NamedQuery(name = "Invoice.findByPersistenceId", query = "SELECT i\nFROM Invoice i\nWHERE i.persistenceId= :persistenceId\n"),
+@NamedQuery(name = "Invoice.findByCustomerId", query = "SELECT i\nFROM Invoice i\nWHERE i.customerId= :customerId\nORDER BY i.persistenceId"),
+@NamedQuery(name = "Invoice.findByExternalReference", query = "SELECT i\nFROM Invoice i\nWHERE i.externalReference= :externalReference\nORDER BY i.persistenceId"),
+@NamedQuery(name = "Invoice.findByCID_Code", query = "SELECT i\nFROM Invoice i\nWHERE i.CID_Code= :CID_Code\nORDER BY i.persistenceId"),
+@NamedQuery(name = "Invoice.find", query = "SELECT i\nFROM Invoice i\nORDER BY i.persistenceId"),
+@NamedQuery(name = "Invoice.countForFindByCustomerId", query = "SELECT COUNT(i)\nFROM Invoice i\nWHERE i.customerId= :customerId\n"),
+})
+public class Invoice implements org.bonitasoft.engine.bdm.Entity
+{
+
+    @Id
+    @GeneratedValue(generator = "default_bonita_seq_generator")
+    @GenericGenerator(name = "default_bonita_seq_generator", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
+        @Parameter(name = "sequence_name", value = "hibernate_sequence")
+    })
+    private Long persistenceId;
+    @Version
+    private Long persistenceVersion;
+    @Column(name = "CUSTOMERID", nullable = false, length = 255)
+    private String customerId;
+    @Column(name = "EXTERNALREFERENCE", nullable = true, length = 255)
+    private String externalReference;
+    @Column(name = "CID_CODE", nullable = false)
+    private Long CID_Code;
+
+    public Invoice() { }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+}
+----
+
+Also, DAO interfaces and implementations are generated, to give access to the query methods, that contain code like:
+
+
+[source,java]
+----
+    public com.acme.operations.Invoice findByPersistenceId(Long persistenceId) {
+        try {
+            CommandAPI commandApi = org.bonitasoft.engine.api.TenantAPIAccessor.getCommandAPI(session);
+            Map<String, Serializable> commandParameters = new HashMap<String, Serializable>();
+            commandParameters.put("queryName", "Invoice.findByPersistenceId");
+            commandParameters.put("returnsList", false);
+            commandParameters.put("returnType", "com.acme.operations.Invoice");
+            Map<String, Serializable> queryParameters = new HashMap<String, Serializable>();
+            queryParameters.put("persistenceId", persistenceId);
+            commandParameters.put("queryParameters", ((Serializable) queryParameters));
+            return proxyfier.proxify(deserializer.deserialize(((byte[]) commandApi.execute("executeBDMQuery", commandParameters)), com.acme.operations.Invoice.class));
+        } catch (Exception e) {
+            throw new IllegalArgumentException(e);
+        }
+    }
+----
+
+DAO implementation code uses https://javadoc.bonitasoft.com/api/latest/org/bonitasoft/engine/api/CommandAPI.html[Engine Commands]
+to call from client-side queries that run server-side.
+
+Once generated, those Java classes are *compiled and packaged*:
+
+* in a server JAR that is stored in database and loaded in tenant (and process) classloaders
+* in a client JAR that can be retrieved by calling the https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html#getClientBDMZip--[getClientBDMZip()]
+method, to be able to call from a client application
+
+
+== Database tables creation and update
+
+From this Java model, the SQL instructions to create / update the BDM database tables are generated and executed.
+
+The class responsible for updating the database from the Java model is `SchemaManagerUpdate`, that basically delegates
+the implementation to `Hibernate hbm2ddl`.
+
+An *alternative implementation*, `SchemaManagerReadOnly`, can be configured to *NOT* let Bonita update directly the database
+from the generated Java classes, but rather let a database administrator (DBA) handle this operation manually. +
+However, the SQL instructions run by the DBA must precisely match the Java classes for the BDM to be operational.
+
+
+== APIs
+
+The `TenantAdministrationAPI` exposes several methods:
+
+* https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html#installBusinessDataModel-byte:A-[installBusinessDataModel()] that installs a new BDM. Fails if one already exists. Call uninstallBusinessDataModel()
+first if a BDM already exists.
+* https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html#uninstallBusinessDataModel--[uninstallBusinessDataModel()] that removes the JAR file from the Bonita database and unloads it from the tenant classloader
+(and from all the process classloaders of the tenant). *Does not* update or remove anything from the database.
+* https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html#cleanAndUninstallBusinessDataModel--[cleanAndUninstallBusinessDataModel()]: same as above plus
+*drops all the BDM tables* resulting in a complete data loss. *Not for production*. Use with caution.
+* https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html[other useful methods]
+
+
+== Deploying a new version of the BDM
+
+Deploying a new version of the BDM on top of an existing BDM needs to uninstall the previous version first. +
+The java classes of the model are generated again from scratch, so any refactoring is supported. +
+On the other side, the database refactoring is only partially supported. See limitations below.
+
+
+== Limitations
+
+Regarding the *deployment of a new version of the BDM*, `Hibernate hbm2ddl` can handle several changes, but not all
+model changes are supported.
+
+Adding a new Object (table) or adding a new attribute on an existing Object (new column on an existing database table) are fully supported.
+
+However, some refactoring just do nothing to the database schema, like changing a column type, removing an attribute or an object...
