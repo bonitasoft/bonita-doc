@@ -1,5 +1,5 @@
 * xref:release-notes.adoc[What's new in Bonita {bonitaVersion}]
-* xref:quick-start-index.adoc[What is Bonita?]
+* xref:what-is-bonita-index.adoc[What is Bonita?]
  ** xref:what-is-bonita.adoc[What I can do with Bonita]
  ** xref:project-artifacts.adoc[Project artifacts]
  ** xref:bonita-bpm-overview.adoc[Architecture overview]
