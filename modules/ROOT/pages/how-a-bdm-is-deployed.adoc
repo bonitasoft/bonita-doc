@@ -154,6 +154,35 @@ The java classes of the model are generated again from scratch, so any refactori
 On the other side, the database refactoring is only partially supported. See limitations below.
 
 
+== Constraints to (re-)deploy a BDM
+
+A BDM is defined at *tenant* level.
+
+To be able to deploy or redeploy a BDM, the *BPM services of this tenant must be paused* first.
+
+Indeed, as deploying the BDM changes the tenant classloader and all process classloaders on the same tenant, no process
+can safely run during this operation.
+Pausing the services means that the work service does not execute works anymore on this tenant, the Job service does not triggers any job anymore on this tenant, etc. Only the vital services stay alive, to be able to operate the BDM and the rest of the platform. Other tenants are not affected.
+
+After (re-)deploying the BDM, the BPM services must be resumed to be able to use
+
+
+== Deploying a BDM via the Bonita Portal
+
+Using the Bonita Portal to deploy a BDM follows this flow:
+
+* you must be logged in as the tenant administrator
+* go to the BPM services page, and pause the services
+* go to the Business Data Model page, select the BDM zip file to deploy
+* if a BDM already exists on the current tenant, the portal implicitly calls uninstallBusinessDataModel() on the Engine API
+* then the portal calls installBusinessDataModel() on the Engine API, which generates the Java model, loads it in the tenant
+classloader (and in the process classloaders of all processes on this tenant), and creates / updates the database accordingly.
+* finally, go to the BPM services page, and resume the services
+
+Then the new BDM is directly available, even if in most cases, new (versions of) processes must be (re-)deployed to take
+advantage of the BDM.
+
+
 == Limitations
 
 Regarding the *deployment of a new version of the BDM*, `Hibernate hbm2ddl` can handle several changes, but not all
