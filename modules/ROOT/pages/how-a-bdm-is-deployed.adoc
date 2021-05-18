@@ -5,9 +5,7 @@ Lean how the engine handles the BDM deployment and redeployment.
 
 == Deployment flow
 
-Deploying a BDM means calling https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html#installBusinessDataModel-byte:A-[TenantAdministrationAPI.installBusinessDataModel()].
-
-As an input parameter, we pass a *ZIP file* containing an XML file, like the one below:
+To deploy a BDM, we need to pass a *ZIP file* containing the model definition as an XML file, like the one below:
 
 [source,xml]
 ----
