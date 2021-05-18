@@ -103,7 +103,7 @@
   *** xref:configuring-a-process.adoc[Configure a process]
   *** xref:manage-jar-files.adoc[Manage JAR files]
   *** xref:managing-dependencies.adoc[Manage dependencies]
- ** xref:project_deploy_in_dev_suite.adoc[Project deployment in Bonita Studio]
+ ** xref:project-deploy-in-dev-suite.adoc[Project deployment in Bonita Studio]
 * Data
  ** xref:define-and-deploy-the-bdm.adoc[Define the Business Data Model]
  ** xref:bo-multiple-refs-tutorial.adoc[How to manage multiple references in Business Objects]
@@ -134,7 +134,7 @@
  ** xref:datetimes-management-tutorial.adoc[How to manage dates and times in BDM and User Interfaces]
 * Living applications
  ** xref:bonita-bpm-portal-interface-overview.adoc[Overview]
- ** xref:applicationCreation.adoc[Application descriptor]
+ ** xref:application-creation.adoc[Application descriptor]
  ** xref:layout-development.adoc[Layout]
   *** xref:bonita-layout.adoc[Bonita Layout]
   *** xref:living-application-layout.adoc[Living application layout]
@@ -268,7 +268,7 @@
   *** xref:how-a-process-is-completed.adoc[How a process is executed]
   *** xref:how-an-event-is-executed.adoc[How an event is executed]
  ** xref:performance-tuning.adoc[Performance tuning]
- ** xref:runtimeTuning.adoc[Runtime configuration]
+ ** xref:runtime-tuning.adoc[Runtime configuration]
  ** xref:configurable-archive.adoc[Configurable Archive]
  ** xref:runtime-monitoring.adoc[Overview]
  ** xref:work-execution-audit.adoc[Work execution audit]
