@@ -565,9 +565,9 @@ After this operation, the table QRTZ_PAUSED_TRIGGER_GRPS should be empty, and al
 [#fk_troubleshoot]
 === Some foreign keys are duplicated
 
-_Symptom_: After migrating to 7.11.0+, prior to 7.11.6, after re-installing/updating the BDM, some foreign key constants are effectively duplicated.
+_Symptom_: After migrating to 7.11.0+, prior to 7.11.6, after re-installing/updating the BDM, some foreign key constants are effectively duplicated: there are foreign keys that refer to the same columns and tables, but with a different name.
 
-_Cause_: A bug in an underlying product dependency (hibernate: )The upgrade of an internal library, from Hibernate 4 to 5, introduces a bug ()
+_Cause_: A bug in an underlying product dependency. The upgrade of an internal library, from Hibernate 4 to 5, introduces a bug ( xref:https://hibernate.atlassian.net/browse/HHH-13779[HHH-13779]] )
 
 _Solution_: Doing nothing is an option, as there is no change in product behaviour. If you wish to clean your BDM database, follow the following procedure:
 
@@ -578,7 +578,7 @@ _Solution_: Doing nothing is an option, as there is no change in product behavio
 First, select all the foreign key on a table:
 
 Mysql:
-
+[source,sql]
 ---
 SELECT
 TABLE_NAME,COLUMN_NAME,CONSTRAINT_NAME, REFERENCED_TABLE_NAME,REFERENCED_COLUMN_NAME
@@ -592,6 +592,7 @@ REFERENCED_TABLE_NAME = '<your_table_name>';
 
 SQLserver:
 
+[source,sql]
 ---
 select
 name [foreign key constraint name],
@@ -606,6 +607,7 @@ referenced_object_id = OBJECT_ID('<your_table_name>')
 
 Postgres:
 
+[source,sql]
 ---
 SELECT conname,
 pg_catalog.pg_get_constraintdef(r.oid, true) as condef
