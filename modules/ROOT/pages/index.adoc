@@ -9,7 +9,7 @@ The 2021.2 is currently work in progress (wip).
 ====
 
 [.card-section]
-== Discover Bonita
+== Your automation project with Bonita
 
 [.card.card-index]
 --
