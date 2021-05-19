@@ -1,4 +1,4 @@
-= Quick start with Bonita
+= What is Bonita?
 :description: blabla
 
 bla bla
