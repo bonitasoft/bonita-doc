@@ -1,7 +1,7 @@
 = Bonita Documentation
-:description: Learn how to use the Bonita Platform and all of its components.
+:description: Learn how to get the most out of the Bonita Platform and all of its components.
 
-Learn how to use the Bonita Platform and all of its components.
+Learn how to get the most out of the Bonita Platform and all of its components.
 
 [NOTE]
 ====
@@ -13,35 +13,43 @@ The 2021.2 is currently work in progress (wip).
 
 [.card.card-index]
 --
-xref:quickStartIndex.adoc[[.card-title]#Quick start# [.card-body.card-content-overflow]#pass:q[Quick start with Bonita!]#]
---
-
-[.card.card-index]
---
 xref:release-notes.adoc[[.card-title]#What's new in {bonitaVersion}# [.card-body.card-content-overflow]#pass:q[At a glance: new values, improvements, changes, and bug fixes.]#]
 --
 
 [.card.card-index]
 --
-xref:projectCreationIndex.adoc[[.card-title]#Project creation# [.card-body.card-content-overflow]#pass:q[All the concepts you need to create a Bonita project.]#]
+xref:what-is-bonita-index.adoc[[.card-title]#Quick start# [.card-body.card-content-overflow]#pass:q[A useful overview (our purpose, artifacts to create, platform architecture)!]#]
 --
 
 [.card.card-index]
 --
-xref:buildAndDeployIndex.adoc[[.card-title]#Build and deploy# [.card-body.card-content-overflow]#pass:q[Build and deploy your project in a Bonita runtime.]#]
+xref:project-best-practices-index.adoc[[.card-title]#Project best practices# [.card-body.card-content-overflow]#pass:q[Helpful experience we share for the good of your project]#]
 --
 
 [.card.card-index]
 --
-xref:runtimeInstallationIndex.adoc[[.card-title]#Runtime installation# [.card-body.card-content-overflow]#pass:q[Install and configure a Bonita runtime to execute your processes.]#]
+xref:development-resources-index.adoc[[.card-title]#Development resources# [.card-body.card-content-overflow]#pass:q[All the concepts you need to create a Bonita project.]#]
 --
 
 [.card.card-index]
 --
-xref:runtimeAdministrationIndex.adoc[[.card-title]#Runtime administration# [.card-body.card-content-overflow]#pass:q[Manage and monitor your Bonita runtime.]#]
+xref:api-index.adoc[[.card-title]#Bonita API# [.card-body.card-content-overflow]#pass:q[REST API, Java API, your own API.]#]
+--
+
+[.card-section]
+== Quick start
+
+[.card.card-index]
+--
+xref:studio-installation.adoc[[.card-title]#Studio installation# [.card-body.card-content-overflow]#pass:q[How to download and install Bonita Studio]#]
 --
 
 [.card.card-index]
 --
-xref:apiIndex.adoc[[.card-title]#Bonita API# [.card-body.card-content-overflow]#pass:q[REST API, Java API.]#]
+xref:getting-started-index.adoc[[.card-title]#Getting started tutorial# [.card-body.card-content-overflow]#pass:q[A 9-step journey to create a simple Automation Project.]#]
+--
+
+[.card.card-index]
+--
+xref:runtime-installation-index.adoc[[.card-title]#Runtime installation# [.card-body.card-content-overflow]#pass:q[Install and configure a Bonita Runtime to bring your project to life.]#]
 --
