@@ -18,7 +18,7 @@ xref:release-notes.adoc[[.card-title]#What's new in {bonitaVersion}# [.card-body
 
 [.card.card-index]
 --
-xref:what-is-bonita-index.adoc[[.card-title]#Quick start# [.card-body.card-content-overflow]#pass:q[A useful overview (our purpose, artifacts to create, platform architecture)!]#]
+xref:what-is-bonita-index.adoc[[.card-title]#What is Bonita?# [.card-body.card-content-overflow]#pass:q[A useful overview (our purpose, artifacts to create, platform architecture)!]#]
 --
 
 [.card.card-index]
