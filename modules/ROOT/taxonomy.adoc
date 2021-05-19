@@ -25,17 +25,12 @@
  ** xref:lifecycle-and-profiles.adoc[Project phases]
  ** xref:design-methodology.adoc[Discovery and design]
  ** xref:installation-and-configuration.adoc[Installation and configuration]
- ** xref:implement-and-test.adoc[Implement and test]
+ ** xref:implementation-and-test.adoc[Implement and test]
    *** xref:agility.adoc[Agility]
    *** xref:project-documentation-generation.adoc[Project documentation generation]
- * xref:deployment.adoc[Deployment]
-   *** xref:devops.adoc[DevOps]
-   *** in studio
-   *** non-production environements 
-   *** production environments 
-   *** xref:bcd-and-live-update.adoc[BCD and Live Update]
- * xref:runtime-monitoring.adoc[Runtime monitoring]
- * xref:maintenance-and-continuous-improvement.adoc[Maintenance and continuous improvement]
+ ** xref:from-development-to-production.adoc[Deployment]
+ ** xref:runtime-monitoring.adoc[Runtime monitoring]
+ ** xref:maintenance-and-continuous-improvement.adoc[Maintenance and continuous improvement]
  ** xref:workspaces-and-repositories.adoc[Workspaces and projects]
 * xref:setup-dev-environment-index.adoc[Development environment setup]
  ** xref:configure-maven.adoc[How to configure Maven]
