@@ -13,7 +13,7 @@ The 2021.2 is currently work in progress (wip).
 
 [.card.card-index]
 --
-xref:release-notes.adoc[[.card-title]#What's new in {bonitaVersion}# [.card-body.card-content-overflow]#pass:q[At a glance: new values, improvements, changes, and bug fixes.]#]
+xref:release-notes.adoc[[.card-title]#What's new in {bonitaVersion}# [.card-body.card-content-overflow]#pass:q[At a glance: new values, improvements, changes, and bug fixes]#]
 --
 
 [.card.card-index]
@@ -28,12 +28,12 @@ xref:project-best-practices-index.adoc[[.card-title]#Project best practices# [.c
 
 [.card.card-index]
 --
-xref:development-resources-index.adoc[[.card-title]#Development resources# [.card-body.card-content-overflow]#pass:q[All the concepts you need to create a Bonita project.]#]
+xref:development-resources-index.adoc[[.card-title]#Development resources# [.card-body.card-content-overflow]#pass:q[All the concepts you need to create a Bonita project]#]
 --
 
 [.card.card-index]
 --
-xref:api-index.adoc[[.card-title]#Bonita API# [.card-body.card-content-overflow]#pass:q[REST API, Java API, your own API.]#]
+xref:api-index.adoc[[.card-title]#Bonita API# [.card-body.card-content-overflow]#pass:q[REST API, Java API, your own API]#]
 --
 
 [.card-section]
@@ -46,10 +46,10 @@ xref:studio-installation.adoc[[.card-title]#Studio installation# [.card-body.car
 
 [.card.card-index]
 --
-xref:getting-started-index.adoc[[.card-title]#Getting started tutorial# [.card-body.card-content-overflow]#pass:q[A 9-step journey to create a simple Automation Project.]#]
+xref:getting-started-index.adoc[[.card-title]#Getting started tutorial# [.card-body.card-content-overflow]#pass:q[A 9-step journey to create a simple Automation Project]#]
 --
 
 [.card.card-index]
 --
-xref:runtime-installation-index.adoc[[.card-title]#Runtime installation# [.card-body.card-content-overflow]#pass:q[Install and configure a Bonita Runtime to bring your project to life.]#]
+xref:runtime-installation-index.adoc[[.card-title]#Runtime installation# [.card-body.card-content-overflow]#pass:q[Install and configure a Bonita Runtime to bring your project to life]#]
 --
