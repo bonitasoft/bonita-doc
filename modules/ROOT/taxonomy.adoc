@@ -28,10 +28,14 @@
  ** xref:implement-and-test.adoc[Implement and test]
    *** xref:agility.adoc[Agility]
    *** xref:project-documentation-generation.adoc[Project documentation generation]
- ** xref:from-development-to-production.adoc[From development to production]
+ * xref:deployment.adoc[Deployment]
    *** xref:devops.adoc[DevOps]
- ** xref:runtime-monitoring.adoc[Runtime monitoring]
- ** xref:maintenance-and-continuous-improvement.adoc[Maintenance and continuous improvement]
+   *** in studio
+   *** non-production environements 
+   *** production environments 
+   *** xref:bcd-and-live-update.adoc[BCD and Live Update]
+ * xref:runtime-monitoring.adoc[Runtime monitoring]
+ * xref:maintenance-and-continuous-improvement.adoc[Maintenance and continuous improvement]
  ** xref:workspaces-and-repositories.adoc[Workspaces and projects]
 * xref:setup-dev-environment-index.adoc[Development environment setup]
  ** xref:configure-maven.adoc[How to configure Maven]
@@ -225,9 +229,13 @@
    *** xref:handle-a-failed-activity.adoc[Handle a failed activity]
    *** xref:manage-an-organization.adoc[Manage an organization]
    *** xref:manage-users.adoc[Manage users]
-* xref:build-and-deploy-index.adoc[From development to production]
+* xref:deployment-index.adoc[Deployment]
  ** xref:build-a-process-for-deployment.adoc[Build a process for deployment]
  ** xref:live-update.adoc[Live update]
+ ** in studio
+ ** non-production environements 
+ ** production environments 
+ ** xref:bcd-and-live-update.adoc[BCD and Live Update]
 * xref:admin-application-overview.adoc[Runtime content administration]
  ** Process Management
   *** xref:monitoring.adoc[Monitoring]
@@ -251,7 +259,7 @@
  ** xref:applications.adoc[Applications]
  ** xref:licenses.adoc[License information]   
  ** xref:cluster-administration.adoc[Cluster administration]
-* xref:runtime-monitoring-and-troubleshooting-index.adoc[Runtime technical administration]
+* xref:runtime-technical-administration-index.adoc[Runtime technical administration]
  ** Bonita Engine deep dive
   *** xref:engine-architecture-overview.adoc[Architecture overview]
   *** xref:engine-flow-node-states.adoc[Flow node states]
