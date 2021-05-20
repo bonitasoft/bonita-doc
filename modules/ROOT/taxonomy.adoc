@@ -234,7 +234,7 @@
  ** xref:set-log-and-archive-levels.adoc[Set log and archive levels]
  ** xref:configurable-archive.adoc[Configurable Archive]
  ** xref:upgrade-from-community-to-a-subscription-edition.adoc[Community to Subscription upgrade]
-* xref:runtime-administration-index[Runtime administration]
+* xref:runtime-administration-index.adoc[Runtime administration]
  ** xref:admin-application-overview.adoc[Administrator Application overview]
  ** Process Management
   *** xref:monitoring.adoc[Monitoring]
