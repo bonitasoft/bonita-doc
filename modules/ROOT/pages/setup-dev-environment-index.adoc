@@ -4,7 +4,7 @@
 bla bla
 
 [.card-section]
-== Work as a team on a commun projet
+== Work as a team on a common projet
 
 [.card.card-index]
 --
