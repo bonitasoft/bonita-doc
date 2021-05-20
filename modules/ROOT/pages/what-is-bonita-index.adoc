@@ -1,39 +1,22 @@
 = What is Bonita?
-:description: blabla
+:description: A useful overview of our purpose, the automation project artifacts, and the Bonita Platform architecture.
 
-bla bla
-
-[.card-section]
-== Bonita in a nutshell
-[.card.card-index]
---
-xref:what-is-bonita.adoc[[.card-title]#What is Bonita# [.card-body.card-content-overflow]#pass:q[Discover what is Bonita and what you can do with it!]#]
---
-
-[.card.card-index]
---
-xref:bonita-studio-download-installation.adoc[[.card-title]#Download and install# [.card-body.card-content-overflow]#pass:q[Fusionner avec ce qui suit]#]
---
-
-[.card.card-index]
---
-xref:bonita-bpm-studio-installation.adoc[[.card-title]#Bonita Studio installation# [.card-body.card-content-overflow]#pass:q[Fusionner avec ce qui précède]#]
---
+A useful overview of our purpose, the automation project artifacts, and the Bonita Platform architecture.
 
 [.card-section]
-== Related topics
+== Bonita 
+[.card.card-index]
+--
+xref:bonita-purpose.adoc[[.card-title]#Bonita's purpose# [.card-body.card-content-overflow]#pass:q[Discover what Bonita allows you to achieve]#]
+--
 
 [.card.card-index]
 --
-xref:tutorial-overview.adoc[[.card-title]#Runtime installation# [.card-body.card-content-overflow]#pass:q[TODO.]#]
+xref:main-concepts.index.adoc[[.card-title]#Main concepts# [.card-body.card-content-overflow]#pass:q[Good to know to be fluent in Bonita]#]
 --
-
-// [.card.card-index]
-// --
-// xref:bonita-studio-download-installation.adoc[[.card-title]#The Community Q&A# [.card-body.card-content-overflow]#pass:q[TODO.]#]
-// --
 
 [.card.card-index]
 --
-xref:draw-bpmn-diagram.adoc[[.card-title]#The Community projects to share# [.card-body.card-content-overflow]#pass:q[TODO.]#]
+xref:bonita-bpm-overview.adoc[[.card-title]#Architecture overview# [.card-body.card-content-overflow]#pass:q[Get under the hood at high level]#]
 --
+
