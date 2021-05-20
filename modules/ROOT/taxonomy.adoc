@@ -41,7 +41,7 @@
  ** xref:migrate-a-svn-repository-to-github.adoc[How to migrate a SVN repository into a Git repository]
  ** xref:automating-builds.adoc[Automate builds]
  ** xref:set-up-continuous-integration.adoc[Set up continuous integration]
-* Development resources
+* xref:development-resources-index.adoc[Development resources]
  ** xref:groovy-in-bonita.adoc[How to use Groovy in Bonita]
  ** Processes
   *** xref:diagram-index.adoc[Diagram]
@@ -231,7 +231,8 @@
  ** xref:set-log-and-archive-levels.adoc[Set log and archive levels]
  ** xref:configurable-archive.adoc[Configurable Archive]
  ** xref:upgrade-from-community-to-a-subscription-edition.adoc[Community to Subscription upgrade]
-* xref:admin-application-overview.adoc[Runtime administration]
+* xref:runtime-administration-index[Runtime administration]
+ ** xref:admin-application-overview.adoc[Administrator Application overview]
  ** Process Management
   *** xref:monitoring.adoc[Monitoring]
   *** xref:admin-application-process-list.adoc[Process list]
@@ -254,7 +255,7 @@
  ** xref:applications.adoc[Applications]
  ** xref:licenses.adoc[License information]   
  ** xref:cluster-administration.adoc[Cluster administration]
-* xref:runtime-technical-administration-index.adoc[Runtime tuning]
+* xref:runtime-tuning-index.adoc[Runtime tuning]
  ** Bonita Engine deep dive
   *** xref:engine-architecture-overview.adoc[Architecture overview]
   *** xref:engine-flow-node-states.adoc[Flow node states]
@@ -280,13 +281,12 @@
  ** xref:purge-tool.adoc[Purging unnecessary archive data]
   *** xref:purge-tool-changelog.adoc[Purge tool changelog]
  ** xref:use-gzip-compression.adoc[Using gzip compression]
-* Bonita Version update
+* xref:bonita-version-update-index.adoc[Bonita version update]
  ** xref:product-versioning.adoc[Bonita versions]
  ** xref:migration-overview.adoc[Update overview]
  ** xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[Migrate from an earlier version of Bonita]
   *** xref:migration-tool.adoc[Migration tool changelog]
  ** xref:migrate-a-form-from-6-x.adoc[Migrate a form from 6.x]
-* Contributing
- ** xref:building-community-edition-from-source.adoc[Build Bonita Community edition from source files]
+* xref:building-community-edition-from-source.adoc[Contributing to Bonita]
 * xref:how-tos-index.adoc[How tos]
 * xref:troubleshooting.adoc[Troubleshooting]
