@@ -9,7 +9,7 @@ blabla
 
 [.card.card-index]
 --
-Teamwork[[.card-title]#Create a multi-skilled team# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:teamwork.adoc[[.card-title]#Create a multi-skilled team# [.card-body.card-content-overflow]#pass:q[TODO]#]
 --
 
 [.card.card-index]
