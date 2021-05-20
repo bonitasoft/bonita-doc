@@ -1,7 +1,7 @@
 = What is Bonita?
 :description: A useful overview of our purpose, the automation project artifacts, and the Bonita Platform architecture.
 
-A useful overview of our purpose, the automation project artifacts, and the Bonita Platform architecture.
+A useful overview of Bonita Platform's purpose, the concepts used throughout the platform, and its high-level architecture.
 
 [.card-section]
 == Bonita 
