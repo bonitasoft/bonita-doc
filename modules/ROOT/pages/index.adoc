@@ -53,3 +53,21 @@ xref:getting-started-index.adoc[[.card-title]#Getting started tutorial# [.card-b
 --
 xref:runtime-installation-index.adoc[[.card-title]#Runtime installation# [.card-body.card-content-overflow]#pass:q[Install and configure a Bonita Runtime to bring your project to life]#]
 --
+
+[.card-section]
+== You are not alone
+
+[.card.card-index]
+--
+https://community.bonitasoft.com/questions-and-answers[[.card-title]#Questions & Answers among Bonita Community# [.card-body.card-content-overflow]#pass:q[Ask your question, provide an answer]#]
+--
+
+[.card.card-index]
+--
+https://community.bonitasoft.com/project[[.card-title]#Community projects# [.card-body.card-content-overflow]#pass:q[Do not start from scratch / Embed shared artifacts shared by the Community members]#]
+--
+
+[.card.card-index]
+--
+https://www.youtube.com/playlist?list=PLvvoQatxaHOMHRiP7hFayNXTJNdxIEiYp[[.card-title]#Your journey to learn Bonita# [.card-body.card-content-overflow]#pass:q[Replays of our Bonita Camps]#]
+--
