@@ -1,0 +1,21 @@
+= Development resources 
+:description: blabla
+
+blabla
+[.card-section]
+== It is all here
+
+[.card.card-index]
+--
+xref:xx.adoc[[.card-title]#xx# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:xx.adoc[[.card-title]#xx# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:xx.adoc[[.card-title]#xx# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
