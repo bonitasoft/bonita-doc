@@ -64,7 +64,7 @@ https://community.bonitasoft.com/questions-and-answers[[.card-title]#Questions &
 
 [.card.card-index]
 --
-https://community.bonitasoft.com/project[[.card-title]#Community projects# [.card-body.card-content-overflow]#pass:q[Do not start from scratch / Embed shared artifacts shared by the Community members]#]
+https://community.bonitasoft.com/project[[.card-title]#Community projects# [.card-body.card-content-overflow]#pass:q[Do not start from scratch and use artifacts shared by the Community members]#]
 --
 
 [.card.card-index]
