@@ -93,7 +93,7 @@ To downgrade an Enterprise edition of Bonita Studio and its resources (such as p
 . xref:bonita-bpm-studio-installation.adoc[Install a Bonita  Studio] Community edition.
 . If you are using GIT, clone your project, it will be downgraded during the clone operation
 . if you are not using GIT
-.. Export your resources from the Bonita Studio Enterprise edition to `.bos` files. We recommend that you keep these resource files as a backup.
+.. Export your projects from the Bonita Studio Enterprise edition to `.bos` archives. We recommend that you keep those archives as a backup.
 .. Import your `.bos` archives into the Community edition of Bonita Studio.
 
 The downgrade is performed automatically and silently when importing resources into Bonita Studio Community edition.
