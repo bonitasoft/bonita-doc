@@ -29,7 +29,7 @@ To upgrade a Community edition of Bonita Studio and its resources (such as proce
 . If you are using GIT, clone your project, it will be upgraded during the clone operation
 . if you are not using GIT
 .. Export your resources from the Bonita Studio Community edition to `.bos` files. We recommend that you keep these resource files as a backup.
-.. Import your resource files into the Bonita Studio in Enterprise edition.
+.. Import your `.bos` archives into the Bonita Studio in Enterprise edition.
 
 The upgrade is performed automatically and silently when importing resources into Bonita Studio Enterprise edition.
 
