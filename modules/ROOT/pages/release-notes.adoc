@@ -20,7 +20,7 @@ image:images/tv.png[videos]  Discover what is new in Bonita 7.11 thanks to these
 
 Starting with Bonita 7.11.0, it is not necessary to run the Bonita migration tool to upgrade between maintenance versions of Bonita Runtime
 (to upgrade from 7.11.*0* to 7.11.*1*, for instance). +
-More details on the new procedure xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc]#maintenanceVersionCompatible[here]
+More details on the new procedure xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc#maintenanceVersionCompatible[here]
 
 On the technical side, Bonita 7.11.0 introduces a loose couple between Bonita binaries and the Database schema it runs on.
 There is now a distinction between Bonita Database Schema version and Bonita Runtime version.
@@ -79,7 +79,7 @@ When cloning a project, gain time by selecting the branches you want to clone in
 
 ==== Description field on widgets
 
-Add documentation to your pages by providing information on a widget (e.g. how to use it), thanks to the new Description field. Use this information to xref:release-notes.adoc]#project-documentation[generate documentation].
+Add documentation to your pages by providing information on a widget (e.g. how to use it), thanks to the new Description field. Use this information to xref:release-notes.adoc#project-documentation[generate documentation].
 
 [#connector-archetype]
 
@@ -261,9 +261,23 @@ Bonita Portal is still compatible with IE11 but will soon not be anymore.
 
 === Complex data-types generation have been removed
 
-This feature was used to generate Java POJOs and XSD in Subscription editions. It is recommended to add your own Java model as jar file in the project classpath or create your xref:groovy-in-bonita.adoc]#create-data-model[data model using Groovy objects].
+This feature was used to generate Java POJOs and XSD in Subscription editions. It is recommended to add your own Java model as jar file in the project classpath or create your xref:groovy-in-bonita.adoc#create-data-model[data model using Groovy objects].
 
 == Bug fixes
+
+=== Fixes in Bonita 7.11.6 (2021-05-25)
+
+==== Fixes in Bonita Runtime (including Portal)
+
+* RUNTIME-154	REGRESSION: BDM deployment fails with unclear error after migration to 7.11 + on Oracle. On other db vendors, some table constraints (foreign keys...) are duplicated
+* RUNTIME-137	REGRESSION: BDM deployment errors are not raising the actual Hibernate exception root cause
+* RUNTIME-60	Portal - User Profile - Processes: the list is blank on IE11
+* RUNTIME-59	openjdk version 11.0.9.1: Error messages generated when using start-bonita.sh
+
+==== Fixes in Bonita Development Suite (Studio and UI Designer)
+
+* STUDIO-3953 LA Builder is slow
+* STUDIO-3819 documentation feature is missing task contract inputs
 
 === Fixes in Bonita 7.11.5 (2021-02-01)
 
