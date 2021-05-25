@@ -276,8 +276,8 @@ This feature was used to generate Java POJOs and XSD in Subscription editions. I
 
 ==== Fixes in Bonita Development Suite (Studio and UI Designer)
 
-* STUDIO-3953 LA Builder is slow
-* STUDIO-3819 documentation feature is missing task contract inputs
+* STUDIO-3953: LA Builder is slow
+* STUDIO-3819: documentation feature is missing task contract inputs
 
 === Fixes in Bonita 7.11.5 (2021-02-01)
 
