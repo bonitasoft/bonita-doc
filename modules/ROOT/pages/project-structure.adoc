@@ -1,24 +1,26 @@
 = Project structure
-:description: This page defines what the artifacts are within a Bonita Automatin Project, as well as how some of them are structured to create a Living Application.
+:description: This page defines what the elements are within a Bonita Automation project, as well as how some of them are structured to create a Living Application.
 
-This page defines what the artifacts are within a Bonita project as well as how some of the are structured to create a Living Application.
+This page defines what the elements are within a Bonita Automation project as well as how some of the are structured to create a Living Application.
 
 An automation project can be of different kinds. 
-We like to promote the Living Applications based on process execution, because it takes advantage of the full potential of Bonita.
-But it can also by about process execution using the Bonita provided applications, with no need for a custom application.
+We like to promote the Living Applications based on process execution, because it takes advantage of the full potential of Bonita. +
+But it can also by about process execution using the Bonita provided applications, with no need for a custom application. +
 Or about process execution with no application, when the process is about automated tasks (and robots) only.
 
-Among those artifacts, we consider some as *core*: they fully enter in the definition of the automation projects. +
-For some, Bonita is the creation tool, and for some, a default version is provided. +
-As Bonita is a really open platform, you will see that for some, an alternative is available outside of Bonita.
+Among those elements, some are the *main* elements: they fully enter in the definition of the automation projects. +
+A citizen developer in the project team (business analyst, business project manager, power user) can create most of them in Bonita. +
+Most of the time, an example is provided or easy to download so you do not start from scratch. +
+As Bonita is a really open platform, you will see that for some, an alternative is available outside of Bonita, that will require professional developers' work.
 
-The others are *extensions*. They can be created on the side and added to the project when needed. 
+The others elements are *extensions*. They need some code to be written. +
+To give full freedom to the professional developers, they can be created with other tools than Bonita and added to the project when needed. 
 
-== Core artifacts
+== Main elements
 
 [cols="1,1,1,1"]
 |===
-|Artifact |Create/Provided | Tool | Alternative
+|Element |Create/Provided | Tool | Alternative
 
 |Processes
 |Create
@@ -62,17 +64,17 @@ The others are *extensions*. They can be created on the side and added to the pr
 
 |=== 
 
-For an Automation Project with no application, the last 4 artifacts are not needed.
+For an Automation Project with no application, the last 4 elements are not needed.
 
-== How core artifacts fit together
+== How main elements fit together
 
 This image shows what an automation project looks like when it is about creating a Living Application:
 
 image:images/artifacts.png[Living Application artifacts structure]
 // {.img-responsive}
 
-All artficats are structured in five sets: _Process_, _Users_, _Application descriptor_, _Resources_, and _External dependencies_. +
-In this organization, some artifacts are referenced by others (in an aggregation relationship), and some belong to others (in a composition relationship). +
+All elements are structured in five sets: _Process_, _Users_, _Application descriptor_, _Resources_, and _External dependencies_. +
+In this organization, some elements are referenced by others (in an aggregation relationship), and some belong to others (in a composition relationship). +
 
 == Extensions
 Those are developed in the developers' favorite IDE.
@@ -85,6 +87,3 @@ Those are developed in the developers' favorite IDE.
 
 == Maven as our way to compose the project
 [link to page]
-
-
-
