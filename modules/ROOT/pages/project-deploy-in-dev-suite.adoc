@@ -1,4 +1,6 @@
 = Project deployment in a Studio
+:page-aliases: project_deploy_in_dev_suite.adoc
+
 :description: This page presents an overview of the _Deploy wizard_ capabilities in Bonita Development Suite.
 
 This page presents an overview of the _Deploy wizard_ capabilities in Bonita Development Suite.
