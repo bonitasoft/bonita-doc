@@ -1,4 +1,4 @@
-= Project artifacts
+= Project structure
 :description: This page defines what the artifacts are within a Bonita Automatin Project, as well as how some of them are structured to create a Living Application.
 
 This page defines what the artifacts are within a Bonita project as well as how some of the are structured to create a Living Application.
