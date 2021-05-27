@@ -213,11 +213,11 @@ These cases will raise an error during the automatic BDM update.
 
 If you need to update the BDM, and your update includes one of the cases listed above (both those that generate an error at installation, and those that don't), you will need a need to do the update manually:
 
-1. Stop your Tenant services
-2. Stop your Bonita server
-3. Update manually the BDM schema in your BDM database to make it correspond to your new BDM.
+. Stop your Tenant services
+. Stop your Bonita server
+. Update manually the BDM schema in your BDM database to make it correspond to your new BDM.
 The easiest way to do it is to first install your new BDM on a clean database. Then compare the new schema with the old one, and manually create a sql script to update your BDM database to match the new one.
 Apply this sql script to your BDM database
-4. Restart your Bonita server
-5. Install your new BDM the usual way
-6. Restart your tenant services
+. Restart your Bonita server
+. Install your new BDM the usual way
+. Restart your tenant services
