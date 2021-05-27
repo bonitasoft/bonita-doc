@@ -202,6 +202,7 @@ In the above cases, there will be no error when deploying the BDM, but no change
 It will probably lead to failure when instantiating new objects.
 
 Other not supported model changes are:
+
  - Adding a new object with the same name as a deleted object, but different attributes
  - Make a column "mandatory", delete a "mandatory" column, or create a new "mandatory" column
  - Add or delete a new unique constraint
@@ -211,6 +212,7 @@ Other not supported model changes are:
 These cases will raise an error during the automatic BDM update.
 
 If you need to update the BDM, and your update includes one of the cases listed above (both those that generate an error at installation, and those that don't), you will need a need to do the update manually:
+
 1. Stop your Tenant services
 2. Stop your Bonita server
 3. Update manually the BDM schema in your BDM database to make it correspond to your new BDM.
