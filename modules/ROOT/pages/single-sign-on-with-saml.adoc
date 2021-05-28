@@ -195,8 +195,10 @@ with the certificate provided by the IdP.
  ** The PrincipalNameMapping policy indicates how to retrieve the subject attribute that matches a bonita user account username from the IdP response.
 The policy can either be FROM_NAME_ID or FROM_ATTRIBUTE (in that case you need to specify the name of the subject attribute to use).
  ** You may also need to change the requestBinding and/or responseBinding from POST to REDIRECT depending on your IdP configuration.
- ** The url binding to your IdP also needs to be define by replacing the following string:
+ ** The url binding to your IdP also needs to be defined by replacing the following string:
   *** http://idp.saml.binding.url.to.change
+ ** If you want to use the SAML logout feature, the URL of your Bonita server needs to be defined by replacing the following string (otherwise, you can remove this attribute):
+  *** http://bonita.server.url.to.change
 
 [NOTE]
 ====
@@ -227,7 +229,8 @@ More configuration options can be found in https://www.keycloak.org/docs/latest/
             nameIDPolicyFormat="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
             forceAuthentication="false"
             isPassive="false"
-            turnOffChangeSessionIdOnLogin="true">
+     -->    logoutPage="http://bonita.server.url.to.change"
+            turnOffChangeSessionIdOnLogin="false">
             <Keys>
      -->        <Key signing="true"
      -->             encryption="true">
@@ -326,7 +329,7 @@ Therefore, there is no guaranty that the global logout will work with your Ident
 To setup Bonita for global logout:
 
 . Set the `saml.logout.global` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/`.
-. Update the SingleLogoutService section of `keycloak-saml.xml` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/` to match your Identity Provider configuration.
+. Update the SingleLogoutService section of `keycloak-saml.xml` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/` to match your Identity Provider configuration and set the property `logoutPage` with he URL of your Bonita server.
 . Update your Identity Provider configuration to setup the Logout Service POST/Redirect Binding URL to <Bonita_server_URL>/bonita/samlLogout
 
 [NOTE]
