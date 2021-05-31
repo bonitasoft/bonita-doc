@@ -211,7 +211,6 @@
   *** xref:tenant-admin-credentials.adoc[Tenant administrator credentials]
   *** xref:guest-user.adoc[Guest user access]
 * xref:deployment-index.adoc[Deployment]
- ** xref:deploy-in-bonita-studio.adoc[Deploying in Bonita Studio]
  ** xref:build-a-process-for-deployment.adoc[Runtime deployment]
  ** xref:bcd-and-live-update.adoc[BCD and Live Update]
  ** xref:live-update.adoc[Live update]
