@@ -350,3 +350,4 @@
   *** xref:how-a-call-activity-is-executed.adoc[How a call activity is executed]
   *** xref:how-a-process-is-completed.adoc[How a process is executed]
   *** xref:how-an-event-is-executed.adoc[How an event is executed]
+  *** xref:how-a-bdm-is-deployed.adoc[BDM deployment]
