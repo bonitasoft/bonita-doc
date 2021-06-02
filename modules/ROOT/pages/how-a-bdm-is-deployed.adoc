@@ -142,6 +142,8 @@ first if a BDM already exists.
 (and from all the process classloaders of the tenant). *Does not* update or remove anything from the database.
 * https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html#cleanAndUninstallBusinessDataModel--[cleanAndUninstallBusinessDataModel()]: same as above plus
 *drops all the BDM tables* resulting in a complete data loss. *Not for production*. Use with caution.
+* https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html#updateBusinessDataModel--[updateBusinessDataModel()] Updates the BDM. Uninstalls the old BDM if there was one and installs the new BDM.
+The call is done in a single database transaction, which allows it to be rolled back if the update fails.
 * https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html[other useful methods]
 
 
@@ -172,8 +174,10 @@ Using the Bonita Portal to deploy a BDM follows this flow:
 * you must be logged in as the tenant administrator
 * go to the BPM services page, and pause the services
 * go to the Business Data Model page, select the BDM zip file to deploy
-* if a BDM already exists on the current tenant, the portal implicitly calls uninstallBusinessDataModel() on the Engine API
-* then the portal calls installBusinessDataModel() on the Engine API, which generates the Java model, loads it in the tenant
+* the portal will call the method updateBusinessDataModel() to install the new BDM.
+This method implicitly calls the two following methods in a single database transaction:
+** if a BDM already exists on the current tenant, uninstallBusinessDataModel() is called.
+** then the portal calls installBusinessDataModel() on the Engine API, which generates the Java model, loads it in the tenant
 classloader (and in the process classloaders of all processes on this tenant), and creates / updates the database accordingly.
 * finally, go to the BPM services page, and resume the services
 
