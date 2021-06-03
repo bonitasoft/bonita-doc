@@ -98,23 +98,6 @@ In Teamwork, Efficiency, Performance and Enterprise editions
 An event handler is an extension to the engine that is configured to run when a specified event occurs. An event is a change to any object in the database.
 To xref:event-handlers.adoc[implement an event handler], you need to provide a Java class respecting the Handler interface.
 
-=== BonitaStudioBuilder
-
-[WARNING]
-====
-
-*Important note*: as of Bonita 7.7.0, the BonitaStudioBuilder tooling (headless studio build) has been deprecated. See the
-xref:release-notes.adoc[Release Notes page] for more information
-
-We strongly encourage you to use the LA builder included in the tooling suite of Bonita Continuous Delivery add-on. One added-value is that LA builder does not need a studio to be installed.
-====
-
-In Teamwork, Efficiency, Performance and Enterprise editions
-
-Bonita includes a script, BonitaStudioBuilder (also known as the Workspace API), for building a bar file from a process in a project.
-This intended to be used for xref:automating-builds.adoc[automating builds] in a continuous integration and testing environment.
-You can use the BonitaStudioBuilder to build a bar file for processes stored in a project.
-
 === Portal look & feel
 
 In Teamwork, Efficiency, Performance and Enterprise editions
@@ -139,9 +122,6 @@ There is no guarantee that these templates will not change across Bonita version
 If a form uses some Javascript code based on an element in the HTML Document Object Model, the element may be moved, modified or removed in a future version so the Javascript will no longer work.
 * *Authorization Rule Mapping*. It is possible to modify authorization rules mapping applied to start a process, display process overview or execute a task.
 You can customize this mapping by defining your own bean and override property. See xref:custom-authorization-rule-mapping.adoc[Authorization Rule Mapping]
-* *BonitaStudioBuilder*
-Bonita Entreprise editions include a script, BonitaStudioBuilder (also known as the Workspace API), for building a bar file from a process in a project. This intended to be used for automating process builds in a continuous integration and testing environment. You can use the BonitaStudioBuilder to build a bar file for processes stored in a project.
-WorkspaceAPI is deprecated since Bonita 7.7.0. Instead, we strongly encourage you to use the _LA builder_ included in the tooling suite of https://documentation.bonitasoft.com/bcd/2.0/[_Bonita Continuous Delivery_ add-on]. One added-value is that LA builder does not need a Studio to be installed.
 
 Only the elements listed on this page are intended to be used as extension points. For other elements, there is no guarantee of stability, and a high probability of changes across versions.
 For example, the following should not be considered to be extension points:
