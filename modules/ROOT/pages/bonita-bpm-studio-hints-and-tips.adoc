@@ -84,3 +84,55 @@ You can modify the appearance of an item in the diagram by selecting it and goin
 In addition to changing the appearance of individual items in the diagram, there are some tools that you can use to make the layout clearer, by selecting a group of items and making the vertical or horizontal alignment regular. If a diagram is being developed or maintained by more than one person, it is important to keep the layout clear, to prevent misunderstanding. +
 
 The alignment tools, and others, are accessed from the icons at the bottom-left of the whiteboard.
+
+
+== Troubleshooting
+
+=== Log files
+
+In case of trouble when running Bonita Studio, you might want to take a look at log files.
+
+Studio log file can be displayed from Bonita Studio in "Help" \-> "Show Bonita Studio log" menu.
+
+If Studio fails to start, you can open the log file manually. File is named `.log` and is located in `<studio_folder>/workspace/.metadata` folder. +
+Note that folder might be hidden and file might not be displayed if you choose to hide file extensions in your file manager.
+
+=== JVM terminated. Exit code=1
+
+If when launching the Studio you get an error message "JVM terminated. Exit code=1" it might be because you try to launch Bonita Studio with a version of the JVM that is not supported. See above "Configure Bonita Studio to use a specific JVM" how to force the JVM to use.
+
+=== OutOfMemory error in Bonita Studio
+
+After installation, you might see an `OutOfMemory` error in Bonita Studio.
+This error sometimes occurs when importing a large process definition. +
+The log messages are similar to the following:
+
+[source,log]
+----
+!ENTRY org.bonitasoft.studio.importer 4 0 2014-04-25 09:43:49.467
+!ERROR Import has failed for file Autorisation Engagement Depenses-2.0.bos
+
+!ENTRY org.bonitasoft.studio.importer 4 0 2014-04-25 09:43:49.470
+!ERROR
+!STACK 0
+java.lang.reflect.InvocationTargetException
+Caused by: java.lang.OutOfMemoryError: GC overhead limit exceeded
+----
+
+To fix this issue, you need to increase the memory allocated to the JVM that runs Bonita Studio.
+
+Edit the `*.ini` file that corresponds to the executable you use to launch the Studio and modify this line: `-Xmx512m` to `-Xmx1024m` (or higher).
+
+Then restart Bonita Studio.
+
+=== OutOfMemory error in Bonita Studio embedded Tomcat server
+
+When using connectors having a large amount of dependencies you may encounter some memory issue with the default `-Xmx` used for the tomcat server. +
+You can increase this value in Studio preferences \-> Server settings \-> Tomcat Maximum memory allocation.
+
+==== Bonita Studio installation fail due to JVM errors
+
+A given Bonita Studio version can only run with some specifics Java versions (xref:hardware-and-software-requirements.adoc[hardware and software requirements]). +
+If you encounter some issues related to the JVM during the installation, ensure first that a valid Java version is available. You can for exemple type _java -version_ on a terminal, and informations about the main Java version used will be displayed. +
+If the problem persist, the easiest way to solve it is to remove the installed Java versions, to download that last stable build of the required Java version https://www.oracle.com/technetwork/java/javase/downloads/index.html[on the Oracle website] and to install it properly. +
+Those issues can be related to bad Java installations, or to incompatibilities between a given Java version and Bitrock (Bitrock is the install builder used to install Bonita, it has the responsibility to detect the JRE used to install Bonita. Some defects on a given version could lead to incompatibility).
