@@ -175,7 +175,7 @@ Using the Bonita Portal to deploy a BDM follows this flow:
 * go to the BPM services page, and pause the services
 * go to the Business Data Model page, select the BDM zip file to deploy
 * the portal will call the method updateBusinessDataModel() to install the new BDM.
-This method implicitly calls the two following methods in a single database transaction:
+This method implicitly performs the following steps in a single database transaction:
 ** if a BDM already exists on the current tenant, uninstallBusinessDataModel() is called.
 ** then the portal calls installBusinessDataModel() on the Engine API, which generates the Java model, loads it in the tenant
 classloader (and in the process classloaders of all processes on this tenant), and creates / updates the database accordingly.
