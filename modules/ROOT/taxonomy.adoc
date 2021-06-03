@@ -11,7 +11,6 @@
   *** xref:engine.adoc[Bonita Engine]
   *** xref:bcd.adoc[Bonita Continuous Delivery]
 * xref:bonita-studio-download-installation.adoc[Studio installation]
-  ** xref:bonita-bpm-studio-installation.adoc[duplicate]
 * xref:getting-started-index.adoc[Getting started tutorial]
    ** xref:tutorial-overview.adoc[Overview]
    ** xref:draw-bpmn-diagram.adoc[Draw a BPMN diagram]
