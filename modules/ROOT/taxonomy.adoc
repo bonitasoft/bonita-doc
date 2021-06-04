@@ -311,9 +311,6 @@
   *** xref:customize-living-application-theme.adoc[Customize living application theme]
  ** xref:logging.adoc[Logs]
  ** xref:workspaces-and-repositories.adoc[Workspaces and projects]
- ** Continuous integration
-  *** xref:automating-builds.adoc[Automate builds]
-  *** xref:set-up-continuous-integration.adoc[Set up continuous integration]
 * Collaboration
  ** xref:project-documentation-generation.adoc[Project documentation generation]
  ** xref:shared-project.adoc[Using a shared project]

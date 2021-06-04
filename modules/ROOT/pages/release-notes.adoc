@@ -95,6 +95,10 @@ Bonita 2021.2 is now only compatible with Java 11. Support with Java 8 has now b
 
 === Removals
 
+==== BonitaStudioBuilder
+
+The deprecated `BonitaStudioBuilder` command line interface has been removed. To benefit an efficient Bonita project building and deploying solution, please refer to https://documentation.bonitasoft.com/bcd[BCD add-on].
+
 == Bug fixes
 
 === Fixes in Bonita 2021.2
