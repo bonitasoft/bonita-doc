@@ -137,7 +137,7 @@ Download the Bonita Tomcat bundle from the https://customer.bonitasoft.com/[Cust
 (Subscription editions) or get the http://www.bonitasoft.com/downloads-v2[Community edition]. Instructions
 below will be given for Bonita Subscription. You can easily adapt files and folder names to the Community edition.
 
-* Go to Bonitasoft https://customer.bonitasoft.com/[Customer Portal]
+* Go to Bonitasoft https://customer.bonitasoft.com/[Customer Service Center]
 * In *Download* menu, click on _*Request a download*_
 * Select your version and click on *_Access download page_* button
 * On the download page, go to the *Deploying Server Components* section
@@ -204,10 +204,10 @@ If you run the Subscription Pack version, you will need a license:
  ** Run the script: `./generateRequestKey.sh`
  ** For `License type:`
   *** enter `1` to select `1 - Case counter license.` if your subscription is case-based.
-  *** enter `2` to select `2 - CPU core license.` If your subscription type is cpu based, please refer to the https://customer.bonitasoft.com/knowledgebase[knowledge-base] in the customer portal.
+  *** enter `2` to select `2 - CPU core license.` If your subscription type is cpu based, please refer to the https://customer.bonitasoft.com/knowledgebase[knowledge-base] in the Customer Service Center.
   *** enter `3` to select `3 - Enterprise license.` if your subscription is Enterprise.
  ** You will get a license key (of the type `(9fIyr5O+e2Z8MwDiEPC23sfTfAXv7Y6K)`) that you can copy. Make sure that you keep the brackets. If the key is separated by a linebreak, remove it and put the key on a single line.
-* Connect to Bonitasoft https://customer.bonitasoft.com/[Customer Portal]
+* Connect to Bonitasoft https://customer.bonitasoft.com/[Customer Service Center]
 * Go to Licenses > *Request a license*
 * Fill in the license request forms
 * You should receive the license file by email
