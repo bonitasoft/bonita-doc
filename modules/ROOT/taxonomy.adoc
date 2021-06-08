@@ -266,6 +266,7 @@
     ***** xref:profiles-portal-overview.adoc[Overview]
     ***** xref:admin-application-profiles-list.adoc[Profiles Management]
   *** xref:bdm-management-in-bonita-bpm-portal.adoc[BDM Management]
+   **** xref:how-a-bdm-is-deployed.adoc[BDM deployment]
   *** xref:admin-application-resources-list.adoc[Resources management]
   *** xref:applications.adoc[Applications]
   *** xref:licenses.adoc[License information]   

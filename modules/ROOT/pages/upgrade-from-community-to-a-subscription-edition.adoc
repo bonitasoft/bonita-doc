@@ -26,8 +26,10 @@ An upgrade is performed in two phases.
 To upgrade a Community edition of Bonita Studio and its resources (such as process diagrams, data models), follow these steps:
 
 . xref:bonita-bpm-studio-installation.adoc[Install a Bonita  Studio] Enterprise edition.
-. Export your resources from the Bonita Studio Community edition to `.bos` files. We recommend that you keep these resource files as a backup.
-. Import your resource files into the Bonita Studio in Enterprise edition.
+. If you are using GIT, clone your project, it will be upgraded during the clone operation
+. if you are not using GIT
+.. Export your projects from the Bonita Studio Community edition to `.bos` archives. We recommend that you keep those archives as a backup.
+.. Import your `.bos` archives into the Bonita Studio in Enterprise edition.
 
 The upgrade is performed automatically and silently when importing resources into Bonita Studio Enterprise edition.
 
@@ -89,8 +91,10 @@ the platform settings.
 To downgrade an Enterprise edition of Bonita Studio and its resources (such as process diagrams, data models), follow these steps:
 
 . xref:bonita-bpm-studio-installation.adoc[Install a Bonita  Studio] Community edition.
-. Export your resources from the Bonita Studio Enterprise edition to `.bos` files. We recommend that you keep these resource files as a backup.
-. Import your resource files into the Community edition of Bonita Studio.
+. If you are using GIT, clone your project, it will be downgraded during the clone operation
+. if you are not using GIT
+.. Export your projects from the Bonita Studio Enterprise edition to `.bos` archives. We recommend that you keep those archives as a backup.
+.. Import your `.bos` archives into the Community edition of Bonita Studio.
 
 The downgrade is performed automatically and silently when importing resources into Bonita Studio Community edition.
 

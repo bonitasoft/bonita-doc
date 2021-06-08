@@ -44,25 +44,20 @@ Then click the *_Download_* button.
 When the download is complete, you have one of the following new files:
 
 *Linux* +
-Community edition: `BonitaStudioCommunity-x.y.z-x86_64.run` +
+Community edition (Java runtime included): `BonitaStudioCommunity-x.y.z-x86_64.run` +
 Subscription editions: `BonitaSubscription-x.y.z-x86_64.run`
 
 *Windows* +
-Community edition: `BonitaStudioCommunity-x.y.z-x86_64.exe` +
+Community edition (Java runtime included): `BonitaStudioCommunity-x.y.z-x86_64.exe` +
 Subscription editions: `BonitaSubscription-x.y.z-x86_64.exe`
 
 *Mac* +
-Community edition: `BonitaStudioCommunity-x.y.z-macOs.dmg` +
+Community edition (Java runtime included): `BonitaStudioCommunity-x.y.z-macOs.dmg` +
 Subscription editions: `BonitaSubscription-x.y.z-macOs.dmg`
 
-*Zip, no Installer (Windows or Linux)*
-Community edition
-
-* `BonitaStudioCommunity-x.y.z.zip`
-
-Subscription editions
-
-* `BonitaStudioSubscription-x.y.z.zip`
+*Zip, no Installer (Windows or Linux)* +
+Community edition: `BonitaStudioCommunity-x.y.z.zip` +
+Subscription editions: `BonitaStudioSubscription-x.y.z.zip`
 
 == Install using a wizard
 
@@ -110,15 +105,15 @@ When you launch Bonita Studio for the first time, you need to install a license:
 
 == Configure Bonita Studio to use a specific JVM
 
-Bonita Studio only support Java 8 or 11. If you have multiple versions of Java installed on your computer you might need to specify which Java Virtual Machine (JVM) to use.
+Bonita Studio requires a Java *JDK* 11 version. If you have multiple versions of Java installed on your computer you might need to specify which Java Virtual Machine (JVM) to use.
 
 To specify the JVM version use to run the Studio you first need to identify the appropriate file to edit. For example if you launch the Studio using `BonitaStudioCommunity.exe`, the file to edit will be `BonitaStudioCommunity.ini`. This file is located in your Studio installation folder.
 
-Next you need to add a -vm option and the path to the Java runtime in the ini file (each of them on a new line). Note the format of the -vm option − it is important to be exact:
+Next you need to add a `-vm` option and the path to the Java runtime in the ini file (each of them on a new line). Note the format of the `-vm` option as it is important to be exact:
 
-* The -vm option and its value (the path) must be on separate lines.
+* The `-vm` option and its value (the path) must be on separate lines.
 * The value must be the full absolute or relative path to the Java executable, not just to the Java home directory.
-* The -vm option must occur after the other Bonita-specific options (such as -product, --launcher.*, etc), but before the -vmargs option, since everything after -vmargs is passed directly to the JVM.
+* The `-vm` option must occur after the other Bonita-specific options (such as -product, --launcher.*, etc), but before the -vmargs option, since everything after `-vmargs` is passed directly to the JVM.
 
 For example on Windows:
 
@@ -130,14 +125,13 @@ plugins/org.eclipse.equinox.launcher_1.4.0.v20161219-1356.jar
 plugins/org.eclipse.equinox.launcher.win32.win32.x86_64_1.1.551.v20171108-1834
 --launcher.XXMaxPermSize512m
 -vm
-C:\progra~1\Java\jre1.8.0_112\bin\javaw.exe
+C:\Program Files\AdoptOpenJDK\jdk-11.0.6.10-hotspot\bin\javaw.exe
 -vmargs
--Xmx512m
+-Xmx1g
 -Xms512m
--Dosgi.requiredJavaVersion=1.8
+-Dosgi.requiredJavaVersion=11
 -Dfile.encoding=UTF8
 -Dgreclipse.nonlocking=true
--Djava.endorsed.dirs=endorsed
 ----
 
 == Troubleshooting

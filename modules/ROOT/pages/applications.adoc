@@ -9,7 +9,7 @@ image:images/UI2021.1/admin_applications.png[Administrator Applications]
 
 == Application definition
 
-Bonita allows companies to build business and process-centered web applications that provides access to operational dashboards and pages. +
+Bonita allows companies to build business and process-centered web applications that provide access to operational dashboards and pages. +
 An application is a collection of pages and processes that meets a business need. It contains some or all of the following:
 
 * xref:pages.adoc[Pages] and xref:forms.adoc[Forms]: the user interface components of the application. An application must contain at least one page.
