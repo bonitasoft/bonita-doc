@@ -17,7 +17,7 @@ or double-click the diagram name in the *Recently Modified* list on the Welcome 
 
 The Diagram menu contains options for saving a diagram. You can also duplicate a diagram, which is a useful way of making a backup copy of a diagram before you make major changes.
 
-=== Adding items to a diagram
+== Adding items to a diagram
 
 There are several ways to add an item to a diagram:
 
@@ -31,19 +31,19 @@ The advantage of using the content menu is that the transition is automatically 
 
 If you add an icon to the diagram over a transition, the transition will be broken into two parts and the new item inserted between them. This is called _break-and-insert_, and can be used with any BPMN flow element except text annotations. You can also use _break-and-insert_ when moving an item to a different place in a pool, if the transitions can be resolved.
 
-=== Using the tree view and search
+== Using the tree view and search
 
 The tree view shows all the information that is in a diagram, arranged in a hierarchical structure. It can be a useful way to see all the information related to a particular step or form, or to find where a specific item is configured. For example, you can see the step where a variable is defined without having to check all the steps.
 
 To find a term in your diagram, go to the Tree View panel (by default, at the bottom-left of the screen), enter the term in the filter field and press return. +
 The tree view is updated to show only the items that match the term.
 
-=== Changing the diagram name and version
+== Changing the diagram name and version
 
 Click on the background (outside of a pool) and go to the *Diagram tab* in the *Details panel*. Click on *_Edit..._* then specify the new name and version number. +
 You can use the same dialog to change the name and version of any pools in the diagram.
 
-=== Changing the diagram appearance
+== Changing the diagram appearance
 
 You can modify the appearance of an item in the diagram by selecting it and going to the *Appearance tab* in the *Details panel*. +
 
