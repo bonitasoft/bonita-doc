@@ -179,11 +179,22 @@
   *** xref:create-your-first-project-with-the-engine-apis-and-maven.adoc[Create your first project with the Engine APIs and Maven]
   *** xref:configure-client-of-bonita-bpm-engine.adoc[Configure connection to Bonita Engine]
   *** https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Javadoc]
+  ** Engine API
+  *** xref:engine-api-overview.adoc[Overview]
+  *** xref:create-your-first-project-with-the-engine-apis-and-maven.adoc[Create your first project with the Engine APIs and Maven]
+  *** xref:configure-client-of-bonita-bpm-engine.adoc[Configure connection to Bonita Engine]
+  *** https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Javadoc]
   *** Examples
    **** xref:manage-a-process.adoc[Manage a process]
    **** xref:handle-a-failed-activity.adoc[Handle a failed activity]
    **** xref:manage-an-organization.adoc[Manage an organization]
    **** xref:manage-users.adoc[Manage users]
+   **** xref:handling-documents.adoc[Handle documents]
+   **** xref:create-administration-tools.adoc[Create administration tools]
+   **** xref:manage-the-platform.adoc[Manage the platform]
+  *** xref:using-list-and-search-methods.adoc[List and search methods]
+  *** xref:queriable-logging.adoc[Queriable logger]
+  *** xref:log-in-with-cas.adoc[Log in with CAS]
 * Identity Management
  ** Authorization
   *** Organization
