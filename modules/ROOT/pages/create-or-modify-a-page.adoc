@@ -1,4 +1,4 @@
-= Create or modofy UI elements
+= Create or modify UI elements
 :description: How to create and modify UI elements to reference in your applications with Bonita UI Designer.
 
 How to create and modify UI artifacts to reference in your applications with Bonita UI Designer.
