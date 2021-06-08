@@ -1,44 +1,105 @@
-= Bonita Studio hints and tips
-:description: Discover how to add items to a diagram in Bonita Studio, use the tree view, and search/edit diagrams.
+= Bonita Studio
+:description: Discover what Bonita Studio is, as well as its main features.
 
-Discover how to add items to a diagram in Bonita Studio, use the tree view, and search/edit diagrams.
+Discover what Bonita Studio is, as well as its main features.
 
-== Adding items to a diagram
+== What Bonita Studio is
 
-There are several ways to add an item to the diagram:
+Bonita Studio is the central tool to design processes and applications. This is the place to:
+(add links)
 
-* Click-and-hold on a icon in the *BPMN elements* menu and drag it to where you want the item in the whiteboard.
-* Click-and-release on an icon in the *BPMN elements* then click where you want it to appear in the whiteboard.
-* Select the previous item in the flow, and drag the item from the context menu to where you want it in the whiteboard.
-* Copy and paste an item from another pool.
+* Draw processes
+* Define the Business Data Model, business variables, and contracts
+* Define the organization and actors
+* Manage the project extensions
+* Create the application descriptors
+* Launch the UI Designer to create process forms and application pages and layouts
+* Plug the connectors
+* Test the process execution, thanks to the embedded Tomcat and provided Bonita User Interfaces
+* Configure the processes according to target environments
+* Build the processes for deployment
 
-The advantage of selecting items from the *BPMN elements* menu is that you can choose precisely the item you want. +
-The advantage of using the content menu is that the transition is automatically created.
+== Download and install
 
-If you add an icon to the diagram over a transition, the transition will be broken into two parts and the new item inserted between them. This is called _break-and-insert_, and can be used with any BPMN flow element except text annotations. You can also use _break-and-insert_ when moving an item to a different place in a pool, if the transitions can be resolved.
+The full download and installation procedure is explained in xref:bonita-studio-download-installation.adoc[Studio installation].
 
-== Using the tree view and search
+== Structure
+By default, here is how the Studio is structured:
 
-The tree view shows all the information that is in a diagram, arranged in a hierarchical structure. It can be a useful way to see all the information related to a particular step or form, or to find where a specific item is configured. For example, you can see the step where a variable is defined without having to check all the steps.
+* a top, main menu
+* a "coolbar" with generic features
+* a "project explorer" displaying the main elements of the project and opening to the creation of new ones
+* a tabs area with all the files you are currently working on
+* a "Problems" area to keep an eye on what needs to be fixed before deployment
+* a dedicated Git section when the Studio is linked to a Git repository
 
-To find a term in your diagram, go to the Tree View panel (by default, at the bottom-left of the screen), enter the term in the filter field and press return. +
-The tree view is updated to show only the items that match the term.
+And then for each tab, some specific areas to interact with. +
+You can play with the organization of the tabs and areas. If you get lost, use the "View > Reset view" menu option to come back to default.
 
-== Changing the diagram name and version
+== Welcome page
+The Welcome page is displaying upon the first opening of the Studio. +
+It gives access to a lot of resources to help you during the lifetime of the project. +
+To come back to it in the middle of the project, click on the "Welcome" icon of the coolbar. 
 
-Click on the background (outside of a pool) and go to the *Diagram tab* in the *Details panel*. Click on *_Edit..._* then specify the new name and version number.
-
-You can use the same dialog to change the name and version of any pools in the diagram.
-
-== Changing the diagram appearance
-
-You can modify the appearance of an item in the diagram by selecting it and going to the *Appearance tab* in the *Details panel*.
-
-In addition to changing the appearance of individual items in the diagram, there are some tools that you can use to make the layout clearer, by selecting a group of items and making the vertical or horizontal alignment regular. If a diagram is being developed or maintained by more than one person, it is important to keep the layout clear, to prevent misunderstanding.
-
-The alignment tools, and others, are accessed from the icons at the bottom-left of the whiteboard.
+== Configuration
+The "Preferences" icon in the studio's coolbar allows a full set of configurations. Find the list and how to use them in xref:bonita-bpm-studio-preferences.adoc[Bonita Studio configuration]
 
 == Open a recently modified diagram
 
-To see a list of recently modified diagrams without having to go to the Welcome page, go to the *Diagram* menu and choose *Recently modified*. +
+To see a list of recently modified diagrams without having to go to the Welcome page, go to the *File* menu and choose *Recently modified*. +
 A submenu of the last ten diagrams you have modified is displayed. Click the *_name_* of a diagram to open it.
+
+== Drawing processes
+
+To learn how to draw a process, go to the xref:draw-bpmn-diagram#_create_the_process_diagram[Getting started tutorial], or read this xref:diagram-overview.adoc[documentation page].
+
+== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+
+=== Log files
+
+In case of trouble when running Bonita Studio, you might want to take a look at log files.
+
+Studio log file can be displayed from Bonita Studio in "Help" \-> "Show Bonita Studio log" menu.
+
+If Studio fails to start, you can open the log file manually. File is named `.log` and is located in `<studio_folder>/workspace/.metadata` folder. +
+Note that folder might be hidden and file might not be displayed if you choose to hide file extensions in your file manager.
+
+=== JVM terminated. Exit code=1
+
+If when launching the Studio you get an error message "JVM terminated. Exit code=1" it might be because you try to launch Bonita Studio with a version of the JVM that is not supported. See above "Configure Bonita Studio to use a specific JVM" how to force the JVM to use.
+
+=== OutOfMemory error in Bonita Studio
+
+After installation, you might see an `OutOfMemory` error in Bonita Studio.
+This error sometimes occurs when importing a large process definition. +
+The log messages are similar to the following:
+
+[source,log]
+----
+!ENTRY org.bonitasoft.studio.importer 4 0 2014-04-25 09:43:49.467
+!ERROR Import has failed for file Autorisation Engagement Depenses-2.0.bos
+
+!ENTRY org.bonitasoft.studio.importer 4 0 2014-04-25 09:43:49.470
+!ERROR
+!STACK 0
+java.lang.reflect.InvocationTargetException
+Caused by: java.lang.OutOfMemoryError: GC overhead limit exceeded
+----
+
+To fix this issue, you need to increase the memory allocated to the JVM that runs Bonita Studio.
+
+Edit the `*.ini` file that corresponds to the executable you use to launch the Studio and modify this line: `-Xmx512m` to `-Xmx1024m` (or higher).
+
+Then restart Bonita Studio.
+
+=== OutOfMemory error in Bonita Studio embedded Tomcat server
+
+When using connectors having a large amount of dependencies you may encounter some memory issue with the default `-Xmx` used for the tomcat server. +
+You can increase this value in Studio preferences \-> Server settings \-> Tomcat Maximum memory allocation.
+
+==== Bonita Studio installation fail due to JVM errors
+
+A given Bonita Studio version can only run with some specifics Java versions (xref:hardware-and-software-requirements.adoc[hardware and software requirements]). +
+If you encounter some issues related to the JVM during the installation, ensure first that a valid Java version is available. You can for exemple type _java -version_ on a terminal, and informations about the main Java version used will be displayed. +
+If the problem persist, the easiest way to solve it is to remove the installed Java versions, to download that last stable build of the required Java version https://www.oracle.com/technetwork/java/javase/downloads/index.html[on the Oracle website] and to install it properly. +
+Those issues can be related to bad Java installations, or to incompatibilities between a given Java version and Bitrock (Bitrock is the install builder used to install Bonita, it has the responsibility to detect the JRE used to install Bonita. Some defects on a given version could lead to incompatibility).

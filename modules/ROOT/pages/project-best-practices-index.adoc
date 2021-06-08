@@ -1,0 +1,33 @@
+= Project best practices
+:description: Helpful experience we share for the good of your project.
+
+Helpful experience we share for the good of your project.
+
+blabla
+[.card-section]
+== Worth trying
+
+[.card.card-index]
+--
+xref:teamwork.adoc[[.card-title]#Create a multi-skilled team# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:lifecycle-and-profiles.adoc[[.card-title]#Project phases# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:agility.adoc[[.card-title]#Agility# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:software-craftsmanship.adoc[[.card-title]#Software craftsmanship# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:devops.adoc[[.card-title]#DevOps# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--

@@ -1,17 +1,43 @@
 = Bonita Studio installation
-:description: The first step of to getting started  is to set up your development environment.To do this, install Bonita Studio.
+:description: This page describes how to download and install Bonita Studio on Windows, Linux, or Mac operating systems.
 
-The first step of to getting started  is to set up your development environment.To do this, install Bonita Studio.
+This page describes how to download and install Bonita Studio on Windows, Linux, or Mac operating systems.
 
-[NOTE]
+== Bonita Studio download
+
+=== Prerequisites
+
+Check the xref:hardware-and-software-requirements.adoc[hardware and software requirements].
+
+==== MacOs specific prerequisites
+
+[IMPORTANT]
+====
+For users of macOS Big Sur 11.0 and above: Only version 7.11.4 and upwards are compatible
 ====
 
-If you have any problems while working through this tutorial, you can https://community.bonitasoft.com/questions-and-answers[ask for help on the Bonita community] and/or open an issue on the Bonita https://bonita.atlassian.net/projects/BBPMC/issues[Community issue tracker].
-====
+Only *installed JDK* are accepted by the macOS _gatekeeper_. +
+If you try to use a JDK directly downloaded, you will get this kind of error: _jdk-11.0.5 can't be opened because it is from an unidentified developer._ +
+The solution is to use an installer to install properly the JDK. The easiest way is to tape the following commands:
 
-== Download Bonita Studio
+[source,bash]
+----
+# Install brew first if it is not installed yet, more details here: https://brew.sh
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-To download the latest version of Bonita Studio, open the https://www.bonitasoft.com/downloads[download page] and click on the *Download* button. This will start the download of the Bonita Studio installer for your operating system.
+# Use brew to install a JDK
+brew tap homebrew/cask-versions
+brew cask install java11
+----
+
+Another solution is to download and execute manually the installer, https://adoptopenjdk.net/index.html[here for example].
+
+==== Windows specific note
+
+The security feature called *SmartScreen* prevents execution of Bonita Studio installer.  When you get the "Windows protect your PC" pop up window, click on "More info" link and click on "Run anyway" button.
+
+=== Community edition
+To download the latest version of Bonita Studio Community edition, open the https://www.bonitasoft.com/downloads[download page] and click on the *Download* button. This will start the download of the Bonita Studio installer for your operating system.
 
 // update package name
 
@@ -21,38 +47,83 @@ When the download is finished, you should have one of the following files on you
 * macOS: `BonitaStudioCommunity-x.y-x86_64.dmg`
 * Linux: `BonitaStudioCommunity-x.y-x86_64.run`
 
+=== Subscription edition
+Subcription editions cover the now unique Enterprise editions, but also the Performance, Efficiency, and Teamwork editions that are no longer sold but still supported at Bonitasoft. +
+To download the latest version of Bonita Studio Subscription edition, go to the https://customer.bonitasoft.com/download/request[Customer Service Center] and request the download of the version you need.
+
+When the download is complete, you have one of the following new files:
+
+* Windows: `BonitaSubscription-x.y.z-x86_64.exe`
+* macOS: `BonitaSubscription-x.y.z-macOs.dmg`
+* Linux: `BonitaSubscription-x.y.z-x86_64.run`
+* Zip, no Installer (Windows or Linux): `BonitaStudioSubscription-x.y.z.zip`
+
 You are now ready to start the installation process.
 
-== Install Bonita Studio
+== Bonita Studio installation
 
-To run the installer for Windows, macOS or Linux, double-click on the file you downloaded.
+=== Installation using a wizard
 
-The installer will guide you through a very basic installation configuration:
+To run the installer for Windows, macOS or Linux, double-click on the file you downloaded. +
+
+Then follow the installation wizard through to the end of the installation procedure:
 
 . Select installation language: this will be used for the installation process
 . Welcome message: click on *Next*
 . License agreement: you need to accept this to continue
-. Installation directory: the default should be fine
+. Installation directory: make sure the path is quite short and the directory is empty
+  The default installation directories are:
+         * Windows: `C:\BonitaStudioCommunity-x.y`
+         * macOS: `/Applications/BonitaStudioCommunity-x.y`
+         * Linux: `/home/<username>/BonitaStudioCommunity-x.y`
 . Confirmation that installation is about to start: click on "Next"
 . Actual installation: wait a little bit
+. License request. For the Subscription edition only. If you do not have your licence file ready, you can skip that; Bonita Studio will request the license at first start.
 . You'll see a confirmation message that offers the option to start Bonita Studio. Choose to start Bonita Studio and click on *Finish*
-. A "thank you for downloading" page will be displayed in your web browser. You can close it
+. A "thank you for downloading" page will be displayed in your web browser, with important getting starting information.
 
 image:images/getting-started-tutorial/installation/studio-installation-installer-08-last-screen.png[Bonita Studio installer last screen]
 // {.img-responsive .img-thumbnail}
 
 // update package name
 
+== License
 
-Bonita Studio is now installed. The default installation folders are:
+This information applies to the Subscription editions. No license is needed for the Community edition.
 
-* Windows: `C:\BonitaStudioCommunity-x.y`
-* macOS: `/Applications/BonitaStudioCommunity-x.y`
-* Linux: `/home/<username>/BonitaStudioCommunity-x.y`
+When you install or launch Bonita Studio for the first time, you need to install a license:
+
+. From the installer, click *_Copy to clipboard_* to copy the request key generated specifically for your Bonita Studio
+. Go to the https://customer.bonitasoft.com/license/request[Customer Service Center] adn rquest a license using the request key in the clipboard
+. Wait a few seconds to get the file from the license page, or check your email box (after a few minutes) and open the email from _link:mailto:no-reply@bonitasoft.com[no-reply@bonitasoft.com]_
+. Download the license file (.lic)
+. Go back to your Bonita Studio, click _*Install license...*_, and select your .lic file.
+
+[#enable_cache]
+
+=== Installation using Zip archive (Windows or Linux)
+
+To install Bonita Studio using the Zip archive, unzip the downloaded .zip file to a folder on your hard drive. +
+Avoid using a folder with a long path. Do not use a path that contains spaces. +
+
+Bonita Studio is now installed. 
 
 == First Bonita Studio execution
 
-Now Bonita Studio should be running on your computer. If not, you can manually start it by using the installed shortcut or by using the Bonita Studio executable file from the installation folder.
+To start Bonita Studio, go to the directory where you installed it, and run the launcher for your operating system.
+
+=== Community edition
+* Windows: `BonitaStudioCommunity.exe` 
+* macOS: `BonitaStudioCommunity.app` 
+* Linux: `BonitaStudioCommunity-linux` 
+
+=== Subscription edition
+* Windows: `BonitaStudioSubscription.exe`
+* macOS: `BonitaStudioSubscription.app`
+* Linux: `BonitaStudioSubscription-linux`
+
+Now Bonita Studio should be running on your computer. +
+If not, you can manually start it by using the installed shortcut or by using the Bonita Studio executable file from the installation folder.
 
 You should get the Bonita Studio welcome page:
 
@@ -91,4 +162,3 @@ image:images/getting-started-tutorial/installation/ui-designer-first-start.png[U
 == Ready to move on
 
 You have sucessfully installed Bonita Studio, and the tools and test environment are up and running.
-You are ready to move to the next chapter to xref:draw-bpmn-diagram.adoc[start creating your first process].

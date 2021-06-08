@@ -1,0 +1,27 @@
+= Database connectors 
+:description: blabla
+
+blabla
+[.card-section]
+== Usage
+
+[.card.card-index]
+--
+xref:list-of-database-connectors.adoc[[.card-title]#List# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:database-connector-configuration.adoc[[.card-title]#Configuration# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:graphical-query-builder.adoc[[.card-title]#Graphical query builder# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+
+--
+xref:initialize-a-variable-from-a-database-without-scripting-or-java-code.adoc[[.card-title]#Initialize a variable from a database without coding# [.card-body.card-content-overflow]#pass:q[Candidate for removal ?]#]
+--

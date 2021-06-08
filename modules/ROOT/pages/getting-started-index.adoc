@@ -1,0 +1,57 @@
+= Getting started 
+:description: This is the fastest way to learn, try, and master all concepts of a Living Application.
+
+This is the fastest way to learn, try, and master all concepts of a Living Application.
+
+[.card-section]
+== The 9-step journey
+
+[.card.card-index]
+--
+xref:xref:tutorial-overview.adoc[[.card-title]#Overview# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:draw-bpmn-diagram.adoc[[.card-title]#Draw a BPMN diagram# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:define-business-data-model.adoc[[.card-title]#Define a Business Data Model (BDM)# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:declare-business-variables.adoc[[.card-title]#Declare business variables# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:declare-contracts.adoc[[.card-title]#Declare contracts# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:create-web-user-interfaces.adoc[[.card-title]#Create forms# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:define-who-can-do-what.adoc[[.card-title]#Define who can do what# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:configure-email-connector.adoc[[.card-title]#Configure an email connector# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:design-application-page.adoc[[.card-title]#Design an application page# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--
+
+[.card.card-index]
+--
+xref:create-application.adoc[[.card-title]#Create an application# [.card-body.card-content-overflow]#pass:q[TODO]#]
+--

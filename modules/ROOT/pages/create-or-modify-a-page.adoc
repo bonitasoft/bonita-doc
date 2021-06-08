@@ -1,19 +1,21 @@
-= UI artifacts in UI Designer
-:description: How to create and modify UI artifacts to build powerful applications with Bonita UI Designer.
+= Create or modify UI elements
+:description: How to create and modify UI elements to reference in your applications with Bonita UI Designer.
 
-How to create and modify UI artifacts to build powerful applications with Bonita UI Designer.
+How to create and modify UI artifacts to reference in your applications with Bonita UI Designer.
 
-== Artifacts overview
+== User Interfaces development overview
 
-Design Bonita custom pages, layouts, forms, custom widgets and fragments in UI Designer.
+Your process-based application can use xref:pages-develoment.adoc[pages] and xref:forms-development.adoc[forms] to show or collect information in a browser. +
+Each of theses pages and forms are made of xref:widgets.adoc[widgets], some provided by Bonita, some custom, developped by professional developers from scratch or from an https://community.bonitasoft.com/project[existing project] of the Community. +
+Some widgets can be grouped in xref:fragments.adoc[fragments] in order to be reused in several pages or forms. +
+The overall structure of the application and the display of graphical elements in handled by the xref:layout-development.adoc[layout]. +
+The look and feel of the application, layout, forms, and pages is handled by the xref:theme-development.adoc[theme].
 
-xref:pages.adoc[Custom pages] are used in Bonita Portal custom profiles or in custom BPM applications.
+All of these UI elements are linked to the xref:application-creation.adoc[application descriptor] when the application is created. +
+A default theme is available at Bonita start, both in Bonita Studio and Bonita Runtime. +
+To create a custom theme, developers needs to use their favorite develoment environment and add the theme to the project. +
 
-xref:forms.adoc[Forms] are used to instantiate a process or to execute a human task.
-
-xref:fragments.adoc[Fragments] aim at being reused in other pages of your application.
-
-xref:widgets.adoc[Widgets] are used or customized to design your page or form
+The following chapters give more information on how to develop all the others elements in the UI Designer.
 
 == Design a page, layout, form, or fragment
 

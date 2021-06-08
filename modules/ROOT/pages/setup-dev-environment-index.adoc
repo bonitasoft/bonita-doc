@@ -1,0 +1,28 @@
+= Set up the Development Environment
+:description: blabla
+
+bla bla
+
+[.card-section]
+== Work as a team on a common projet
+
+[.card.card-index]
+--
+xref:shared-project.adoc[[.card-title]#Set up Bonita Studio with GitHub# [.card-body.card-content-overflow]#pass:q[Fusionner avec ce qui suit]#]
+--
+
+[.card.card-index]
+--
+xref:share-a-repository-on-github.adoc[[.card-title]#Share a repository on GitHub# [.card-body.card-content-overflow]#pass:q[Fusionner avec ce qui précède]#]
+--
+
+[.card.card-index]
+--
+xref:set-up-continuous-integration.adoc[[.card-title]#Set up continuous integration# [.card-body.card-content-overflow]#pass:q[]#]
+--
+
+[.card.card-index]
+--
+xref:automating-builds.adoc[[.card-title]#Automating builds# [.card-body.card-content-overflow]#pass:q[]#]
+--
+

@@ -7,7 +7,7 @@ A diagram has a name and a version number. You can xref:bonita-bpm-studio-hints-
 There is no link between the diagram version and the pool version.
 
 [discrete]
-=== How to create a new diagram
+== How to create a new diagram
 
 To create a new diagram in Bonita Studio, choose *New* from the *Diagram* menu or the Cool bar, or click *_New Diagram_* on the Welcome page. Give your diagram a name, and optionally set the version number and add a description. +
 You can also turn on or off validation of your diagram. If validation is on, any errors in your diagram structure are flagged with a red x icon. This helps you correct errors as you build your diagram, instead of correcting them all at the end.
@@ -16,3 +16,37 @@ To open an existing diagram, choose *Open* from the *Diagram* menu or the Cool b
 or double-click the diagram name in the *Recently Modified* list on the Welcome page.
 
 The Diagram menu contains options for saving a diagram. You can also duplicate a diagram, which is a useful way of making a backup copy of a diagram before you make major changes.
+
+== Adding items to a diagram
+
+There are several ways to add an item to a diagram:
+
+* Click-and-hold on a icon in the *BPMN elements* menu and drag it to where you want the item in the whiteboard.
+* Click-and-release on an icon in the *BPMN elements* then click where you want it to appear in the whiteboard.
+* Select the previous item in the flow, and drag the item from the context menu to where you want it in the whiteboard.
+* Copy and paste an item from another pool.
+
+The advantage of selecting items from the *BPMN elements* menu is that you can choose precisely the item you want. +
+The advantage of using the content menu is that the transition is automatically created.
+
+If you add an icon to the diagram over a transition, the transition will be broken into two parts and the new item inserted between them. This is called _break-and-insert_, and can be used with any BPMN flow element except text annotations. You can also use _break-and-insert_ when moving an item to a different place in a pool, if the transitions can be resolved.
+
+== Using the tree view and search
+
+The tree view shows all the information that is in a diagram, arranged in a hierarchical structure. It can be a useful way to see all the information related to a particular step or form, or to find where a specific item is configured. For example, you can see the step where a variable is defined without having to check all the steps.
+
+To find a term in your diagram, go to the Tree View panel (by default, at the bottom-left of the screen), enter the term in the filter field and press return. +
+The tree view is updated to show only the items that match the term.
+
+== Changing the diagram name and version
+
+Click on the background (outside of a pool) and go to the *Diagram tab* in the *Details panel*. Click on *_Edit..._* then specify the new name and version number. +
+You can use the same dialog to change the name and version of any pools in the diagram.
+
+== Changing the diagram appearance
+
+You can modify the appearance of an item in the diagram by selecting it and going to the *Appearance tab* in the *Details panel*. +
+
+In addition to changing the appearance of individual items in the diagram, there are some tools that you can use to make the layout clearer, by selecting a group of items and making the vertical or horizontal alignment regular. If a diagram is being developed or maintained by more than one person, it is important to keep the layout clear, to prevent misunderstanding. +
+
+The alignment tools, and others, are accessed from the icons at the bottom-left of the whiteboard.

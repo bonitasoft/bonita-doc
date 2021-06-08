@@ -5,7 +5,13 @@ Welcome to this Bonita getting started tutorial. On this page you will be guided
 An application offers customized user interfaces to end-users while standardized processes run in the background, to deliver the full potential of BPM solutions. +
 You will then be able to adapt and extend this example to fit your own needs.
 
-If you can't wait to start creating your first application with Bonita, you can safely skip this page and move to the xref:bonita-studio-download-installation.adoc[download and installation] of Bonita Studio.
+If you can't wait to start creating your first application with Bonita, you can safely skip this page and move to the xref:bonita-bpm-studio-installation.adoc[Bonita Studio installation] page.
+
+[NOTE]
+====
+
+If you have any problems while working through this tutorial, you can https://community.bonitasoft.com/questions-and-answers[ask for help on the Bonita Community web site] and/or open an issue on the Bonita https://bonita.atlassian.net/projects/BBPMC/issues[Community issue tracker].
+====
 
 == Before starting
 
