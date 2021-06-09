@@ -1,64 +1,95 @@
 = Project structure
 :description: This page defines what the elements are within a Bonita Automation project, as well as how some of them are structured to create a Living Application.
 
-This page defines what the elements are within a Bonita Automation project as well as how some of the are structured to create a Living Application.
+This page defines what the elements are within a Bonita Automation project.
 
-An automation project can be of different kinds. 
-We like to promote the Living Applications based on process execution, because it takes advantage of the full potential of Bonita. +
-But it can also by about process execution using the Bonita provided applications, with no need for a custom application. +
-Or about process execution with no application, when the process is about automated tasks (and robots) only.
+== Bonita automation project elements
 
-Among those elements, some are the *main* elements: they fully enter in the definition of the automation projects. +
-A citizen developer in the project team (business analyst, business project manager, power user) can create most of them in Bonita. +
-Most of the time, an example is provided or easy to download so you do not start from scratch. +
-As Bonita is a really open platform, you will see that for some, an alternative is available outside of Bonita, that will require professional developers' work.
+Note that not all elements are required and they are alternative ways of doing. However, using the provided elements enables to the full potential of the Bonita platform.
 
-The others elements are *extensions*. They need some code to be written. +
-To give full freedom to the professional developers, they can be created with other tools than Bonita and added to the project when needed. 
-
-== Main elements
-
-[cols="1,1,1,1"]
+=== Process Elements
+[cols="1,1,1,1,1"]
 |===
-|Element |Create/Provided | Tool | Alternative
+|Element |Description |Create/Provided | Tool | Alternative
 
 |Processes
+|BPMN diagram that describes your business processes
 |Create
 |Studio
 |--
 
 |Forms
+|Web interfaces used for human interactions with your processes
 |Create
 |UI Designer
 |Use BPM REST API
 
-|Business Data Model
+|Actor filter
+|Filters users that can access a human task in a process
+|A couple are provided and you can create custom actor filters
+|Studio or SDK (custom connectors)
+|-
+
+|Connectors
+|Web interfaces used for human interactions with your processes
+|A dozen connectors are provided and you can create custom connectors
+|Studio or SDK (custom connectors)
+|-
+
+
+|=== 
+
+=== Data
+[cols="1,1,1,1,1"]
+|===
+|Element |Description |Create/Provided | Tool | Alternative
+
+|Business Data Model(BDM)
 |Create
+|Structure of the business data to be used with your processes
 |Studio
 |External data base w/ provided connector
 
+|=== 
+
+=== Identity Management
+[cols="1,1,1,1,1"]
+|===
+|Element |Description |Create/Provided | Tool | Alternative
+
 |Organization (for "Actors" and "Profiles")
+|The definition of the user base that will use the processes (includes users, roles and groups)
 |Example provided/Create
 |Studio
 |--
+|===
 
-|Application decriptor
+=== Living Applications
+[cols="1,1,1,1,1"]
+|===
+|Element |Description |Create/Provided | Tool | Alternative
+
+|Application descriptor
+|Defines the *living applications*: group of pages with a specific them for a given user profile
 |Create
 |Studio
 |xml editor
 
 |Application pages
+|Web pages used within your applications
 |Create
 |UI Designer
 |Front-end framework
 
 |Layout
+|Used to define the main frame of an application.
 |Provided
 |UI Designer
 |Front-end framework
 
 |Theme
-|Provided
+|Defines the look and feel of your application
+|A default theme is provided and you can create custom theme
 |--
 |--
 
@@ -66,25 +97,37 @@ To give full freedom to the professional developers, they can be created with ot
 
 For an Automation Project with no application, the last 4 elements are not needed.
 
-== How main elements fit together
-
-This image shows what an automation project looks like when it is about creating a Living Application:
-
-image:images/artifacts.png[Living Application artifacts structure]
-// {.img-responsive}
-
-All elements are structured in five sets: _Process_, _Users_, _Application descriptor_, _Resources_, and _External dependencies_. +
-In this organization, some elements are referenced by others (in an aggregation relationship), and some belong to others (in a composition relationship). +
-
 == Extensions
-Those are developed in the developers' favorite IDE.
+Bonita automation project can extended by creating custom components. These are called extensions.
 
-* Connectors
-* Actor filters
-* REST API extensions
-* Custom themes
-* Other dependencies
+Some extensions are used to add elements to those provided while other are used to enable more possibilities to the platform.
 
-== Maven as our way to compose the project
-fd
-[link to page]
+All the extension can developped outside the Studio with your favorite IDE.
+
+[cols="1,1,1"]
+|===
+|Extension |When to use | Tool
+
+|Connector
+|When the provided connector do not cover your requirements
+|Dedicated SDK
+
+|Actor Filters
+|When the provided actor filter do not cover your requirements
+|Dedicated SDK
+
+|Theme
+|When the provided theme do not cover your requirements
+|Dedicated SDK
+
+|REST API Extension
+|To interact with third party system outside processes, to make advanced BDM queries or API calls
+|Dedicated SDK or in the Studio (when Business Data is manipulated)
+
+|===
+
+== Bonita Project Composition
+
+
+=== Maven as our way to compose the project
+
