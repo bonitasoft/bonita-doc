@@ -22,6 +22,11 @@ A task connector _in_ is executed before the task executes. This means it can be
 
 == Add a connector
 
+[NOTE]
+====
+Make sure you have added connectors in project in the Extension view.
+===
+
 To add a connector to a pool or task:
 
 . Select the pool or task.
