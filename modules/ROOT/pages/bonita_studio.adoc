@@ -6,6 +6,7 @@ Discover what Bonita Studio is, as well as its main features.
 == What Bonita Studio is
 
 Bonita Studio is the central tool to design processes and applications. This is the place to:
+
 * Draw processes
 * Define the Business Data Model, business variables, and contracts
 * Define the organization and actors
