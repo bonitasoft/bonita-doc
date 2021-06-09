@@ -1,0 +1,17 @@
+= Managing Extensions the Studio
+The Bonita platform is highly extensible so we created a dedicated view to manage the extensions of your project
+
+== Openning the extensions view
+
+== Adding Extensions
+
+=== Bonita Marketplace
+
+=== From a repository
+
+=== From a local file
+
+== Removing an extension
+
+== Updating an extension
+
