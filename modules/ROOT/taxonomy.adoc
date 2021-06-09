@@ -4,6 +4,7 @@
  ** xref:project-structure.adoc[Bonita Project structure]
  ** xref:bonita-bpm-overview.adoc[Bonita Components]
   *** xref:bonita_studio.adoc[Bonita Studio]
+  **** xref:using_Bonita_Studio.adoc[Using Bonita Studio] 
   *** xref:ui-designer-overview.adoc[Bonita UI Designer]
   *** xref:engine.adoc[Bonita Engine]
   *** xref:bcd.adoc[Bonita Continuous Delivery]
