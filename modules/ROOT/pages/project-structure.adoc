@@ -133,5 +133,10 @@ All the extension can developped outside the Studio with your favorite IDE.
 
 == Bonita Project Composition
 Extensions are re-usable elements. They can shared between several projects. To create you automation project with these extension elements, we are using Maven. The extensions are defined as Maven dependencies.
+
 In Studio, the extensions can be managed in a dedicated view.
+
+We strongly recommend that you publish your extensions on private or public repository to fully the power of maven.
+
+Of course it is still possible to import extension that aren't published on a repository.
 
