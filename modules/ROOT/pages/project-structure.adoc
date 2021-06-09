@@ -5,6 +5,8 @@ This page defines what the elements are within a Bonita Automation project.
 
 == Bonita automation project elements
 
+image:images/BonitaProjectElements.png[Bonita Automation Project elemetns]
+
 Note that not all elements are required and they are alternative ways of doing. However, using the provided elements enables to use the full potential of the Bonita platform.
 
 === Process Elements
