@@ -1,9 +1,7 @@
 * xref:release-notes.adoc[What's new in Bonita {bonitaVersion}]
 * xref:what-is-bonita-index.adoc[What is Bonita?]
  ** xref:bonita-purpose.adoc[Bonita's purpose]
- ** xref:main-concepts.index.adoc[Main concepts]
-  *** xref:software-extensibility.adoc[Platform extensibility overview]
-  *** xref:project-structure.adoc[Project structure]
+ ** xref:project-structure.adoc[Bonita Project structure]
  ** xref:bonita-bpm-overview.adoc[Architecture overview]
    **** xref:bonita-bpm-studio-hints-and-tips.adoc[Bonita Studio]
   *** xref:ui-designer-overview.adoc[Bonita UI Designer]
@@ -151,7 +149,7 @@
   *** xref:multi-language-applications.adoc[Multi-language applications]
   *** xref:multi-language-pages.adoc[Multi-language pages]
   *** xref:languages.adoc[Languages]
-* Extensions
+* xref:software-extensibility.adoc[Extensions]
 * Integration
  ** xref:event-handlers.adoc[How to create an event handler]
 * xref:apiIndex.adoc[API]
