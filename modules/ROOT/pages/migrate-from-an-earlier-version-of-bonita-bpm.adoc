@@ -518,7 +518,7 @@ This means copying the configuration files of the old Bonita Runtime, mainly _da
 * Start the new bundle
 * Delete the old bundle files
 
-*NB* : In a cluster environment, you need to update all your nodes before restarting them.
+*NB* : In a cluster environment, you need to stop all your nodes, update them, before starting them with the new maintenance version.
 
 == Migrate your cluster
 
