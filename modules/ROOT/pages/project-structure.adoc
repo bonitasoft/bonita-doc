@@ -5,7 +5,7 @@ This page defines what the elements are within a Bonita Automation project.
 
 == Bonita automation project elements
 
-Note that not all elements are required and they are alternative ways of doing. However, using the provided elements enables to the full potential of the Bonita platform.
+Note that not all elements are required and they are alternative ways of doing. However, using the provided elements enables to use the full potential of the Bonita platform.
 
 === Process Elements
 [cols="1,1,1,1,1"]
@@ -26,13 +26,13 @@ Note that not all elements are required and they are alternative ways of doing. 
 
 |Actor filter
 |Filters users that can access a human task in a process
-|A couple are provided and you can create custom actor filters
+|A couple are provided in the Marketplace and you can create custom actor filters
 |Studio or SDK (custom connectors)
 |-
 
 |Connectors
 |Web interfaces used for human interactions with your processes
-|A dozen connectors are provided and you can create custom connectors
+|A dozen connectors are provided in the Marketplace and you can create custom connectors
 |Studio or SDK (custom connectors)
 |-
 
@@ -98,9 +98,9 @@ Note that not all elements are required and they are alternative ways of doing. 
 For an Automation Project with no application, the last 4 elements are not needed.
 
 == Extensions
-Bonita automation project can extended by creating custom components. These are called extensions.
+Bonita automation project can be extended by creating custom components. These are called extensions.
 
-Some extensions are used to add elements to those provided while other are used to enable more possibilities to the platform.
+Some extensions are used to add elements to those provided while other are used to enable more possibilities in the platform.
 
 All the extension can developped outside the Studio with your favorite IDE.
 
@@ -127,7 +127,6 @@ All the extension can developped outside the Studio with your favorite IDE.
 |===
 
 == Bonita Project Composition
-
-
-=== Maven as our way to compose the project
+Extensions are re-usable elements. They can shared between several projects. To create you automation project with these extension elements, we are using Maven. The extensions are defined as Maven dependencies.
+In Studio, the extensions can be managed in a dedicated view.
 
