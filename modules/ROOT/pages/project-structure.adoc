@@ -7,6 +7,7 @@ This page defines what the elements are within a Bonita Automation project.
 Bonita automation project are based on processes but also data, user interfaces, identity management and extensions.
 
 image:images/BonitaProjectElements.png[]
+// {.img-responsive .img-thumbnail}
 
 Note that not all elements are required and they are alternative ways of doing. However, using the provided elements enables to use the full potential of the Bonita platform.
 
