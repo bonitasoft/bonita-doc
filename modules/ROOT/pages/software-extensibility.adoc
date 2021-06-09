@@ -67,6 +67,10 @@ Note that although the page framework provided in the product is stable, we cann
 If the standard UI designer xref:widgets.adoc[widgets] do not meet your needs, you can create a xref:custom-widgets.adoc[custom widget].
 You can then use your custom widget in pages, forms, and (for Subscription editions) fragments.
 
+=== Living Application Themes
+
+Custom theme are developped outside the Studio with a dedicated maven archetype. Consult this page for more information:xref:customize-living-application-theme.adoc[Create an theme]
+
 === Import and export exchange files
 
 In Community, Teamwork, Efficiency, Performance and Enterprise editions
