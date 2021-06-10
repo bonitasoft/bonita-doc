@@ -15,9 +15,9 @@ as `apt` or a graphical package manager such as `synaptic`.
 
 == Java Virtual Machine
 
-To install the OpenJDK JVM you need to install the `openjdk-8-jre-headless` package:
+To install the OpenJDK JVM you need to install the `openjdk-11-jre-headless` package:
 
-* Run the following command line: `sudo apt install openjdk-8-jre-headless`
+* Run the following command line: `sudo apt install openjdk-11-jre-headless`
 * If needed, type your Ubuntu user password
 * Type *_Enter_* to confirm that you want to continue installation
 
@@ -26,9 +26,9 @@ You should get a similar message to the one below:
 
 [source,log]
 ----
-openjdk version "1.8.0_111"
-OpenJDK Runtime Environment (build 1.8.0_111-8u111-b14-2ubuntu0.16.04.2-b14)
-OpenJDK 64-Bit Server VM (build 25.111-b14, mixed mode)
+openjdk version "11.0.11" 2021-04-20
+OpenJDK Runtime Environment (build 11.0.11+9-Ubuntu-0ubuntu2.20.04)
+OpenJDK 64-Bit Server VM (build 11.0.11+9-Ubuntu-0ubuntu2.20.04, mixed mode, sharing)
 ----
 
 == Database
@@ -79,8 +79,8 @@ Run the following command lines:
 
 * `sudo apt install curl`
 * `cd /tmp/`
-* `+wget http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.5.40/bin/apache-tomcat-8.5.40.tar.gz+`
-* `sudo tar xzvf apache-tomcat-8.5.40.tar.gz -C /usr/share/tomcat8 --strip-components=1`
+* `+wget https://downloads.apache.org/tomcat/tomcat-8/v8.5.66/bin/apache-tomcat-8.5.66.tar.gz+`
+* `sudo tar xzvf apache-tomcat-8.5.66.tar.gz -C /usr/share/tomcat8 --strip-components=1`
 
 Tomcat 8.5 should now be installed on your computer. Now you should enable tomcat to be run as a service
 
@@ -146,10 +146,10 @@ you can copy the link and use `wget` to download the file or use SSH with `scp` 
 the file from another computer.
 * Make sure that the `BonitaSubscription-x.y.z.zip` file is located in your home folder (e.g. `/home/osuser`).
 If you type `cd ~ && ls` you should see the file listed.
-* Make sure the `unzip` command is installed: `sudo apt install unzip`
-* Unzip the Tomcat bundle: `unzip -q BonitaSubscription-x.y.z.zip`
-* Unzip the Tomcat bundle: `unzip -q BonitaSubscription-x.y.z-tomcat.zip`
-* Change folders and files ownership: `sudo chown -R tomcat8:tomcat8 /opt/bonita`
+* Make sure the `unzip` command is installed: `sudo apt install unzip`.
+* Unzip the Tomcat bundle: `unzip -q BonitaSubscription-x.y.z.zip`.
+* Unzip the Tomcat bundle: `unzip -q BonitaSubscription-x.y.z-tomcat.zip`.
+* Change folders and files ownership: `sudo chown -R tomcat8:tomcat8 /opt/bonita`.
 
 === JVM system variables
 
