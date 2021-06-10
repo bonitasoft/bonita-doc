@@ -9,17 +9,17 @@ You can automatically migrate the platform from an earlier version of Bonita. Yo
 
 [.card.card-index]
 --
-xref:bonita-version-update-index.adoc[[.card-title]#How Versions work in Bonita# [.card-body.card-content-overflow]]
+xref:product-versioning.adoc[[.card-title]#How Versions work in Bonita# [.card-body.card-content-overflow]#pass:q[When and How Bonita is released/What the versioning implies.]#]
 --
 
 [.card.card-index]
 --
-xref:upgradestudio.adoc[[.card-title]#Upgrade your Studio# [.card-body.card-content-overflow]]
+xref:upgradestudio.adoc[[.card-title]#Upgrade your Studio#  [.card-body.card-content-overflow]#pass:q[What is the recomended flow to upgrade your development environment]#]
 --
 
 [.card.card-index]
 --
-xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[[.card-title]#Upgrade your runtimes# [.card-body.card-content-overflow]]
+xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[[.card-title]#Upgrade your runtimes#  [.card-body.card-content-overflow]#pass:q[At a glance: Flow, Best Practices and caveat]#]
 --
 
 
