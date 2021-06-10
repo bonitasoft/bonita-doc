@@ -1,21 +1,25 @@
 = Bonita version update 
-:description: blabla
+Learn how to upgrade a Bonita Platform from an older version to a newer version.
 
-blabla
 [.card-section]
-== How often, and how?
+== Upgrading your platform to the new version
+
+You can automatically migrate the platform from an earlier version of Bonita. You cannot migrate your platform from a version earlier than 6.0.2. After migration, a process continues to run unchanged. You can modify the process definition later to take advantage of the new features in this version of Bonita.
+
 
 [.card.card-index]
 --
-xref:xx.adoc[[.card-title]#xx# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:product-versioning.adoc[[.card-title]#How Versions work in Bonita# [.card-body.card-content-overflow]#pass:q[When and How Bonita is released/What the versioning implies.]#]
 --
 
 [.card.card-index]
 --
-xref:xx.adoc[[.card-title]#xx# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:upgradestudio.adoc[[.card-title]#Upgrade your Studio#  [.card-body.card-content-overflow]#pass:q[What is the recomended flow to upgrade your development environment]#]
 --
 
 [.card.card-index]
 --
-xref:xx.adoc[[.card-title]#xx# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[[.card-title]#Upgrade your runtimes#  [.card-body.card-content-overflow]#pass:q[At a glance: Flow, Best Practices and caveat]#]
 --
+
+
