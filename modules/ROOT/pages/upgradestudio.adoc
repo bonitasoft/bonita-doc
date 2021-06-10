@@ -1,4 +1,4 @@
-= Upgrading your Studion
+= Upgrading your Studio
 How to upgrade your existing Studio to a newer version.
 
 
