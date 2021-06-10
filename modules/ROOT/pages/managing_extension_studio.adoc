@@ -1,17 +1,35 @@
 = Managing Extensions the Studio
 The Bonita platform is highly extensible so we created a dedicated view to manage the extensions of your project
 
-== Openning the extensions view
+== Opening the extensions view
+The extensions view is opened from the Studio cool bar.
 
 == Adding Extensions
+From the extension view you can add the following extension to your project:
+* Connectors
+* Actor Filters
+* REST API Extensions
+* Themes
+* Any Java library required for your project
+
+The extensions can be added through different channels that we will describe in the below chapters.
 
 === Bonita Marketplace
+The Bonita Marketplace contains all the extensions officially supported by Bonitasoft. It will long-term also include all the extensions shared by the community.
 
 === From a repository
+If the extension you are looking for is available in a public or private Maven repository, you can use the artifact IDs (group ID, artifact ID & Version) to add them to your project.
 
 === From a local file
+For the extensions that aren't published in a repository, you can add them from a local file on your computer. These extensions will be added to your project internal store and will be committed to your project repository.
 
 == Removing an extension
+You can also remove extensions from this view. This is always a risky operation but you will be warned of the possible impacts detected of the deletion.
 
 == Updating an extension
+Extensions coming from the Bonita Market place can automatically be upgraded to their latest version. All you need to do is click on "Update to latest version". This button is displayed only if an update is available.
 
+Other extensions can be updated manually with the "Update" button. This button is always displayed and can also be used to downgrade an extension. Depending on the change, you may have to manually update your project consequently.
+
+== Detailed extension view
+Each extension displayed in the extension view can be clicked to view more information on them such as the list of implementation or connectors are used.
