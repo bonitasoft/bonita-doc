@@ -1,0 +1,24 @@
+= Upgrading your Studion
+How to upgrade your existing Studio to a newer version.
+
+
+== Upgrading to a new Minor Version
+
+. Read the version release notes to understand the major changes and their possible impact on your projects
+. Download the new Studio version
+. Install the Studio
+. Launch the Studio
+. If you are using a GIT repository
+ .. In your previous Studio, make sure you have pushed all the latest changes to your project
+ .. Clone your project in the latest Studio version, some upgrade will require actions/decisions from your part
+ .. Repeat for each project that needs to be moved to the new version
+. If you aren't using a GIT repository
+ .. In your previous Studio, Export your project as a BOS file
+ .. Import the .BOS in the latest Studio version, some upgrade will require actions/decisions from your part
+ .. Repeat for each project that needs to be moved to the new version
+
+
+== Between Maintenance version
+Maintenance version are cross compatible, meaning that your Studio version must not match the target runtime version. 
+
+For example, your production runtime can be in 2021.1-0408 and your Studio in 2021.1-0218
