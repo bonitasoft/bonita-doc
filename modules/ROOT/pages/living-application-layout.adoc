@@ -23,6 +23,8 @@ You can customize this layout by following the xref:customize-layouts.adoc[custo
 
 As of version 7.5.x, the default provided layout does not allow this kind of customization anymore (at least not so easily), but if you start from a 7.4.x Layout you can follow the 7.4 documentation link:/7.4?page=customize-living-application-layout#toc3[customize-living-application-layout] to build a side menu layout.
 
+*FIXME*: The above paragraph is not relevant anymore, as the linked page is no more available, please update it.
+
 == Take advantage of the latest improvement in a customized layout
 
 [#improve-navigation]

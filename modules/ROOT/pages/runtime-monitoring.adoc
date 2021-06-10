@@ -60,7 +60,7 @@ The following available metrics are *disabled by default* and can be enabled.
 
 == Activating specific monitoring metrics
 
-Retrieve xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[current configuration] by running:
+Retrieve xref:BonitaBPM_platform_setup.adoc#update_platform_conf[current configuration] by running:
 
 [source,bash]
 ----
