@@ -65,6 +65,7 @@ A new property `bonita.tenant.work.exceptionsNumberOfFrameToLog` of `bonita-tena
 2021.1 introduced a new expression editor. This new expression editor covered most of the existing editor type use case.
 
 Therefore to simplify the expression flow in the Studio we are removing the following expression types:
+
 * Constant
 * Comparison
 * Constant
