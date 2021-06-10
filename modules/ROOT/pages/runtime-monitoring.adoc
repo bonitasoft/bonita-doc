@@ -60,7 +60,7 @@ The following available metrics are *disabled by default* and can be enabled.
 
 == Activating specific monitoring metrics
 
-Retrieve xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[current configuration] by running:
+Retrieve xref:BonitaBPM_platform_setup.adoc#update_platform_conf[current configuration] by running:
 
 [source,bash]
 ----
@@ -93,7 +93,7 @@ be changed (property `org.bonitasoft.engine.monitoring.logging.step`).
 ====
 
 To change any value, *uncomment the line by removing the # character*, and change the true / false value. +
-Then xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[push your configuration changes] to database:
+Then xref:BonitaBPM_platform_setup.adoc#update_platform_conf[push your configuration changes] to database:
 
 [source,bash]
 ----
@@ -130,7 +130,7 @@ Each of these metrics provides many different counters to finely understand what
 ====
 
 To change any value, *uncomment the line by removing the # character*, and change the true / false value. +
-Then xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[push your configuration changes] to database:
+Then xref:BonitaBPM_platform_setup.adoc#update_platform_conf[push your configuration changes] to database:
 
 [source,bash]
 ----
@@ -192,7 +192,7 @@ to
  # publish metrics to Prometheus
  com.bonitasoft.engine.plugin.monitoring.publisher.prometheus.enable=true
 
-Then xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[push your configuration changes] to database:
+Then xref:BonitaBPM_platform_setup.adoc#update_platform_conf[push your configuration changes] to database:
 
 [source,bash]
 ----
