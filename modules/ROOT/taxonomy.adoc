@@ -303,6 +303,7 @@
 * xref:bonita-version-update-index.adoc[Bonita version update]
  ** xref:product-versioning.adoc[Bonita versions]
  ** xref:migration-overview.adoc[Update overview]
+ ** xref:upgradestudio.adoc[Upgrade your Studio]
  ** xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[Migrate from an earlier version of Bonita]
   *** xref:migration-tool.adoc[Migration tool changelog]
  ** xref:migrate-a-form-from-6-x.adoc[Migrate a form from 6.x]
