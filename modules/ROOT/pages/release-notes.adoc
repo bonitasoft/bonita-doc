@@ -16,6 +16,29 @@ The Authorization Code Flow of OpenID Connect is supported to authenticate when 
 
 == Bonita Studio Project Composition
 
+Bonita projects will use the power Maven projects. Meaning that you will be able to easily compose your project of extensions (connectors, Rest API extensions, themes, and actor filters).
+
+All these extensions, which are technical components, have to be built outside the Studio with our SDK. This will allow the developer to use their preferred tooling. It will also help the industrialization of your project as you will be able to implement tests for each extension making your project more robust.
+
+As the extensions are developed outside the Studio, they are no longer bound to a specific Bonita project. They can be easily re-use in a different project - thus improving your efficiency.
+
+The Studio is stripped of its major coding editor (except for the REST API Extensions) but has now a dedicated view for extensions. This view is used to get extensions from a different source: 
+* From the Bonita marketplace, which contains all the actor filters and connectors made and maintain by Bonitasoft
+* From maven repository (private or public)
+* From files (jar or zip)
+
+The Studio is more accessible to citizen developers. Any technical development should be made outside the Studio.
+
+As connectors are now extensions of a project, their version is now bound to the Studio version, therefore you don’t need to upgrade your Studio to upgrade a connector or to upgrade your connector when upgrading your Studio.
+
+This will simplify version upgrades.
+
+Finally, your sources will be lighter as the dependencies will be pulled by the project.
+
+== Organization Editor
+
+Organization editor has been reworked, to improve your experience and your efficiency.
+
 == Improvements
 
 === Exception reporting
@@ -39,6 +62,18 @@ A new property `bonita.tenant.work.exceptionsNumberOfFrameToLog` of `bonita-tena
 === Development suite changes
 
 ==== Expression type simplification
+2021.1 introduced a new expression editor. This new expression editor covered most of the existing editor type use case.
+
+Therefore to simplify the expression flow in the Studio we are removing the following expression types:
+* Constant
+* Comparison
+* Constant
+* Parameter
+* Variable
+* Contract
+* Connector Output
+
+If your project are using these expression types, they will migrated to the new expression editor when you import your project in the 2021.2 Studio.
 
 === Runtime changes
 
