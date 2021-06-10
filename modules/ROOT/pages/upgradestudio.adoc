@@ -19,6 +19,6 @@ How to upgrade your existing Studio to a newer version.
 
 
 == Between Maintenance version
-Maintenance version are cross compatible, meaning that your Studio version must not match the target runtime version. 
+Maintenance versions are cross-compatible, meaning that your Studio version must not match the target runtime version. 
 
 For example, your production runtime can be in 2021.1-0408 and your Studio in 2021.1-0218
