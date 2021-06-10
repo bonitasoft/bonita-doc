@@ -4,7 +4,7 @@ How to upgrade your existing Studio to a newer version.
 
 == Upgrading to a new Minor Version
 
-. Read the version release notes to understand the major changes and their possible impact on your projects
+. Read the version xref:release-notes.adoc[release notes] to understand the major changes and their possible impact on your projects
 . Download the latest Studio version
 . Install the Studio
 . Launch the Studio
