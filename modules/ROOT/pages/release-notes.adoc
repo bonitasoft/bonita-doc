@@ -40,6 +40,10 @@ A new property `bonita.tenant.work.exceptionsNumberOfFrameToLog` of `bonita-tena
 
 === Runtime changes
 
+==== API - Depreciations
+
+In the TenantAdministrationAPI, the installBusinessDataModel method is now deprecated, as the new method updateBusinessDataModel replaces it for all use cases.
+
 ==== Groovy script results casting
 
 Bonita runtime will automatically try to cast result of groovy script when it differs from the declared return type but when it can be converted.
