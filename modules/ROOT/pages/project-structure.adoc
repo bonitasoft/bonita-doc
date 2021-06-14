@@ -3,8 +3,8 @@
 
 This page defines what the elements are within a Bonita Automation project.
 
-== Bonita automation project elements
-Bonita automation project are based on processes but also data, user interfaces, identity management and extensions.
+== Bonita Automation project elements
+Bonita Automation projects are based on processes but also data, user interfaces, identity management and extensions.
 
 [.text-center]
 image:images/BonitaProjectElements.png[]
@@ -100,10 +100,10 @@ Note that not all elements are required and they are alternative ways of doing. 
 
 |=== 
 
-For an Automation Project with no application, the last 4 elements are not needed.
+For a Bonita Automation project with no application, the last 4 elements are not needed.
 
 == Extensions
-Bonita automation project can be extended by creating custom components. These are called extensions.
+Bonita Automation project can be extended by creating custom components. These are called extensions.
 
 Some extensions are used to add elements to those provided while other are used to enable more possibilities in the platform.
 
@@ -132,7 +132,7 @@ All the extension can developped outside the Studio with your favorite IDE.
 |===
 
 == Bonita Project Composition
-Extensions are re-usable elements. They can shared between several projects. To create you automation project with these extension elements, we are using Maven. The extensions are defined as Maven dependencies.
+Extensions are re-usable elements. They can be shared between several projects. To create your Bonita Automation project with these extension elements, we are using Maven. The extensions are defined as Maven dependencies.
 
 In Studio, the extensions can be managed in a dedicated view.
 
