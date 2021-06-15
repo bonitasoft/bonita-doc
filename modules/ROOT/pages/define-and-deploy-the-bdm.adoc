@@ -168,8 +168,8 @@ Choosing the right option is not easy. The default option is lazy loading, but y
 
 [WARNING]
 ====
-If you are not sure about the final size of the parent object with children, and if editing the children objects instances will not be very frequent, we do strongly recommend to use the default *lazy* loading option. Indeed, the *eager* loading option can have a huge impact on the platform performances, due to the additional data load and maintenance of the information in memory. +
-If you think you need to use the eager mode, we recommend to test this option with a test dataset that is the size of your production's expected dataset. 
+If you are not sure about the final size of the parent object with children, we do strongly recommend to use the default *lazy* loading option. Indeed, the *eager* loading option can have a huge impact on the platform performances, due to the additional data load and maintenance of the information in memory. +
+Based on your analysis if you decide to use the eager mode, we recommend to test it with a test dataset that is the size of your production's expected dataset. 
 ====
 
 [discrete]
