@@ -32,4 +32,4 @@ Extensions coming from the Bonita Market place can automatically be upgraded to 
 Other extensions can be updated manually with the "Update" button. This button is always displayed and can also be used to downgrade an extension. Depending on the change, you may have to manually update your project consequently.
 
 == Detailed extension view
-Each extension displayed in the extension view can be clicked to view more information on them such as the list of implementation or connectors are used.
+Details are available for extensions of type _Connector_, _Actor filter_ and _REST API Extensions_. They contain details on the content and the usages of the extension, and can be accessed by clicking on the extension title. 
