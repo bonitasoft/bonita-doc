@@ -24,7 +24,12 @@ If the extension you are looking for is available in a public or private Maven r
 For the extensions that aren't published in a repository, you can add them from a local file on your computer. These extensions will be added to your project internal store and will be committed to your project repository.
 
 == Removing an extension
-You can also remove extensions from this view. This is always a risky operation but you will be warned of the possible impacts detected of the deletion.
+Extensions can be removed from the extension view.
+
+[WARNING]
+====
+Removing an artifact might lead to errors if the artifact is used in the project. The Studio tries to detect such impacts and to alert the user before the deletion, but some specific cases cannot be detected, especially for REST API Extension usages.
+====
 
 == Updating an extension
 Extensions coming from the Bonita Market place can automatically be upgraded to their latest version. All you need to do is click on "Update to latest version". This button is displayed only if an update is available.
