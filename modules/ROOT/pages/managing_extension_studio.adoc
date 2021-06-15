@@ -17,7 +17,7 @@ The extensions can be added through different channels that we will describe in 
 === Bonita Marketplace
 The Bonita Marketplace contains all the extensions officially supported by Bonitasoft. It will long-term also include all the extensions shared by the community.
 
-=== From a repository
+=== From a Maven repository
 If the extension you are looking for is available in a public or private Maven repository, you can use the maven coordinates (group ID, artifact ID & Version) to add them to your project.
 
 === From a local file
