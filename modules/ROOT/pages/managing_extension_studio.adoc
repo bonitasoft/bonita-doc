@@ -21,7 +21,12 @@ The Bonita Marketplace contains all the extensions officially supported by Bonit
 If the extension you are looking for is available in a public or private Maven repository, you can use the artifact IDs (group ID, artifact ID & Version) to add them to your project.
 
 === From a local file
-For the extensions that aren't published in a repository, you can add them from a local file on your computer. These extensions will be added to your project internal store and will be committed to your project repository.
+For extensions that aren't published in a Maven repository, you can add them from a local file on your computer. Imported extensions are added in the project internal store, an hidden folder in a Bonita project. The internal store is exported with the project (in the .bos archive), and is added to the Git repository of the project. 
+
+[CAUTION]
+====
+It is not recommended to add too many dependencies in the internal store, it makes your project heavier. This mechanism should be used to test artifacts under development, and for the artifacts that cannot be deployed on a Maven repository.
+====
 
 == Removing an extension
 Extensions can be removed from the extension view.
