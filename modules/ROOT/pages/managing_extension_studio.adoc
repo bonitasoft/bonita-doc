@@ -18,7 +18,7 @@ The extensions can be added through different channels that we will describe in 
 The Bonita Marketplace contains all the extensions officially supported by Bonitasoft. It will long-term also include all the extensions shared by the community.
 
 === From a repository
-If the extension you are looking for is available in a public or private Maven repository, you can use the artifact IDs (group ID, artifact ID & Version) to add them to your project.
+If the extension you are looking for is available in a public or private Maven repository, you can use the maven coordinates (group ID, artifact ID & Version) to add them to your project.
 
 === From a local file
 For extensions that aren't published in a Maven repository, you can add them from a local file on your computer. Imported extensions are added in the project internal store, an hidden folder in a Bonita project. The internal store is exported with the project (in the .bos archive), and is added to the Git repository of the project. 
