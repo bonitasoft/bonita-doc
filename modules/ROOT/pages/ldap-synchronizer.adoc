@@ -571,8 +571,9 @@ The LDAP synchronizer will fail if this profile is not defined.
 *Configuration:* To configure the LDAP synchronizer for using encrypted connection ( TLS ) :
 
 * Configure the LDAP synchronizer  by editing `ldap.properties` configuration file, as described above
- ** host_url= ldaps://`ldapServerHostname:ldapsServerPort` ( most common `ldapsServerPort` is 636  )
-By default, the LDAP synchronizer uses the `default java trust Store`, but it is possible to use a custom one, by configuring the properties :
+ ** host_url= ldaps://`ldapServerHostname:ldapsServerPort` ( most common `ldapsServerPort` is 636  ) 
+ ** enforce_ssl = `true`  +
+   By default, the LDAP synchronizer uses the `default java trust Store`, but it is possible to use a custom one, by configuring the properties :
  ** truststore_path= `locationOfCustomTrustore`
  ** truststore_password= `passwordOfCustomTrustore`
  ** truststore_type= `customTrustoreType` ( default JKS)
