@@ -7,6 +7,7 @@ The extensions view is opened from the Studio cool bar.
 
 == Adding Extensions
 From the extension view you can add the following extension to your project:
+
 * Connectors
 * Actor Filters
 * REST API Extensions
