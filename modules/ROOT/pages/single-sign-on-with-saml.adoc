@@ -169,9 +169,9 @@ with you current Bonita server's private key and certificate.
    **** signResponse="true"
  ** If your *IdP encrypts the assertions*:
   *** make sure you have encryption="true" inside the Key node of the SP
-  *** replace the following strings in the Keys:Key section of the SP:
+  *** replace the following string in the Keys:Key section of the SP:
    **** put your private key here
-   **** put your certificate here
++
 with you current Bonita server's private key.
  ** If your *IdP responses are signed*:
   *** make sure you have signing="true" inside the Key node of the IDP
@@ -190,6 +190,13 @@ The policy can either be FROM_NAME_ID or FROM_ATTRIBUTE (in that case you need t
  ** You may also need to change the requestBinding and/or responseBinding from POST to REDIRECT depending on your IdP configuration.
  ** The url binding to your IdP also needs to be define by replacing the following string:
   *** http://idp.saml.binding.url.to.change
+
+
+[NOTE]
+====
+
+If your you don't have a certificate for your Bonita server, the `CertificatePem` element can be replaced with a `PublicKeyPem` element containing the public key for the Bonita server.
+====
 
 [NOTE]
 ====
