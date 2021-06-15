@@ -22,6 +22,8 @@ The Bonita Marketplace contains all the extensions provided and supported by Bon
 === From a Maven repository
 If the extension you are looking for is available in a public or private Maven repository, you can use the maven coordinates (group ID, artifact ID & Version) to add them to your project.
 
+Note that you can configure private repositories in the xref:configure-maven.adoc[Studio settings]
+
 === From a local file
 For extensions that aren't published in a Maven repository, you can add them from a local file on your computer. Imported extensions are added in the project internal store, an hidden folder in a Bonita project. The internal store is exported with the project (in the .bos archive), and is added to the Git repository of the project. 
 
