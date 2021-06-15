@@ -47,7 +47,7 @@ On the server where you installed Bonita Platform:
 
 === Generate the new license
 
-Copy your request key and go to the https://customer.bonitasoft.com/license/request[Customer Portal license request] page. +
+Copy your request key and go to the https://customer.bonitasoft.com/license/request[Customer Service Center license request] page. +
 Then fill in the details in the form, copy the request key in the _Request Key_ field, and submit. +
 *Note*: keep the brackets `()` in the key; if the key is separated by a line break, remove it and put the key on a single line.
 
