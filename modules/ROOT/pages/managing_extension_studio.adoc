@@ -1,4 +1,5 @@
-= Managing Extensions the Studio
+= Managing Extensions in the Studio
+:description: The Bonita platform is highly extensible so we created a dedicated view to manage the extensions of your project
 The Bonita platform is highly extensible so we created a dedicated view to manage the extensions of your project
 
 == Opening the extensions view
