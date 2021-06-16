@@ -10,32 +10,36 @@ Bonita Automation projects are based on processes but also data, user interfaces
 image:images/BonitaProjectElements.png[]
 // {.img-responsive .img-thumbnail}
 
-Note that not all elements are required and they are alternative ways of doing. However, using the provided elements enables to use the full potential of the Bonita platform.
+[NOTE]
+====
+Using all the concepts in a projet allows to take the full advantage of the Bonita platform.
+However, it is not required to use all the concepts to create a valid Bonita Automation project.
+====
 
 === Process Elements
 [cols="1,1,1,1,1"]
 |===
 |Element |Description |Create/Provided | Tool | Alternative
 
-|Processes
+|xref:diagram-overview.adoc[Diagrams]
 |BPMN diagram that describes your business processes
 |Create
 |Studio
 |--
 
-|Forms
+|xref:forms.adoc[Forms]
 |Web interfaces used for human interactions with your processes
 |Create
 |UI Designer
 |Use BPM REST API
 
-|Actor filter
+|xref:creating-an-actor-filter.adoc[Actor filter]
 |Filters users that can access a human task in a process
 |A couple are provided in the Marketplace and you can create custom actor filters
-|Studio or SDK (custom connectors)
+|Studio or SDK (custom actor filters)
 |-
 
-|Connectors
+|xref:connectors-overview.adoc[Connectors]
 |Web interfaces used for human interactions with your processes
 |A dozen connectors are provided in the Marketplace and you can create custom connectors
 |Studio or SDK (custom connectors)
@@ -49,9 +53,9 @@ Note that not all elements are required and they are alternative ways of doing. 
 |===
 |Element |Description |Create/Provided | Tool | Alternative
 
-|Business Data Model(BDM)
+|xref:define-and-deploy-the-bdm.adoc[Business Data Model] (BDM)
 |Create
-|Structure of the business data to be used with your processes
+|Structure of the business data used by your processes
 |Studio
 |External data base w/ provided connector
 
@@ -100,12 +104,12 @@ Note that not all elements are required and they are alternative ways of doing. 
 
 |=== 
 
-For a Bonita Automation project with no application, the last 4 elements are not needed.
+The concepts of Application descriptors, Application pages, layouts and themes are only used by Application. A Bonita Automation project without applications won't use those concepts.
 
 == Extensions
 Bonita Automation project can be extended by creating custom components. These are called extensions.
 
-Some extensions are used to add elements to those provided while other are used to enable more possibilities in the platform.
+Some extensions are used to add elements to those provided while others are used to enforce the Bonita platform possibilities.
 
 Extensions can be developed outside of the Studio with your favorite IDE.
 
@@ -123,19 +127,24 @@ Extensions can be developed outside of the Studio with your favorite IDE.
 
 |Theme
 |When the provided theme do not cover your requirements
-|Dedicated SDK
+|xref:customize-living-application-theme.adoc[Dedicated SDK]
 
 |REST API Extension
-|To interact with third party system outside processes, to make advanced BDM queries or API calls
-|Dedicated SDK or in the Studio (when Business Data is manipulated)
+|To interact with third party system outside processes, to make advanced BDM queries or API calls (read only)
+|xref:rest-api-extension-archetype.adoc[Dedicated SDK] or in the Studio (when Business Data is manipulated)
 
 |===
 
 == Bonita Project Composition
-Extensions are re-usable elements. They can be shared between several projects. To create your Bonita Automation project with these extension elements, we are using Maven. The extensions are defined as Maven dependencies.
+Extensions are re-usable elements, they can be shared between projects. 
+Extensions are added to Bonita Automation projects as Maven dependencies.
 
-In the Studio, the extensions can be managed in a xref:managing_extension_studio.adoc[dedicated view].
+In the Studio, extensions are managed in a xref:managing_extension_studio.adoc[dedicated view].
 
-We strongly recommend that you publish your extensions on private or public repository to fully the power of maven.
+[NOTE]
+====
+Even if it is possible to manually import extensions in Bonita Studio, it is highly recommended to publish your extensions on public or private maven repositories.
+xref:connector-archetype#_6_publish_the_connector_on_github_packages[Here] is an example on how to deploy an extension on Github packages.
+====
 
 Of course it is still possible to import extension that aren't published on a repository.

@@ -22,7 +22,7 @@ However you create your own connectors to have new connectivity capabilities for
 
 Connectors are developped outside the Studio with a dedicated maven archetype. Consult this page for more information: xref:connector-archetype.adoc[Create a connector].
 
-Custom connectors are added to a Bonita project with the xref:managing_extension_studio.adoc[extension view].
+Custom connectors are added to a Bonita project from the xref:managing_extension_studio.adoc[extension view].
 
 === Actor filters
 
@@ -30,7 +30,7 @@ Bonita comes with a set of xref:actor-filtering.adoc[standard actor filters] tha
 
 Actor filters are developped outside the Studio with a dedicated maven archetype. Consult this page for more information:xref:actor-filter-archetype.adoc[Create an actor filter]
 
-Custom actor filters are added to a Bonita project the xref:managing_extension_studio.adoc[extension view].
+Custom actor filters are added to a Bonita project from the xref:managing_extension_studio.adoc[extension view].
 
 === Engine API
 
@@ -49,7 +49,7 @@ Pages and forms created with the UI designer rely on the REST APIs to manage dat
 
 In addition to the standard APIs and resources, you can define xref:rest-api-extensions.adoc[REST API extensions].
 
-REST API Extension can either created in the xref:rest-api-extensions.adoc[Studio] or with the xref:rest-api-extension-archetype.adoc[dedicated maven archetype].
+REST API Extension can either be created in the xref:rest-api-extensions.adoc[Studio] or with the xref:rest-api-extension-archetype.adoc[dedicated maven archetype].
 
 Custom REST API extensions developed with the maven archetype are added to a Bonita project from the xref:managing_extension_studio.adoc[extension view].
 
