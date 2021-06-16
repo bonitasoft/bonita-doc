@@ -1,7 +1,7 @@
 = Project structure
 :description: This page defines what the elements are within a Bonita Automation project, as well as how some of them are structured to create a Living Application.
 
-This page defines what the elements are within a Bonita Automation project.
+This page defines the elements used to compose a Bonita Automation project.
 
 == Bonita Automation project elements
 Bonita Automation projects are based on processes but also data, user interfaces, identity management and extensions.
@@ -62,7 +62,7 @@ Note that not all elements are required and they are alternative ways of doing. 
 |===
 |Element |Description |Create/Provided | Tool | Alternative
 
-|Organization (for "Actors" and "Profiles")
+|xref:organization-overview.adoc[Organization] (for "Actors" and "Profiles")
 |The definition of the user base that will use the processes (includes users, roles and groups)
 |Example provided/Create
 |Studio
@@ -74,25 +74,25 @@ Note that not all elements are required and they are alternative ways of doing. 
 |===
 |Element |Description |Create/Provided | Tool | Alternative
 
-|Application descriptor
+|xref:applicationcreation.adoc[Application descriptor]
 |Defines the *living applications*: group of pages with a specific them for a given user profile
 |Create
 |Studio
 |xml editor
 
-|Application pages
+|xref:pages.adoc[Application pages]
 |Web pages used within your applications
 |Create
 |UI Designer
 |Front-end framework
 
-|Layout
+|xref:layouts.adoc[Layout]
 |Used to define the main frame of an application.
 |Provided
 |UI Designer
 |Front-end framework
 
-|Theme
+|xref:themes.adoc[Theme]
 |Defines the look and feel of your application
 |A default theme is provided and you can create custom theme
 |--
@@ -107,7 +107,7 @@ Bonita Automation project can be extended by creating custom components. These a
 
 Some extensions are used to add elements to those provided while other are used to enable more possibilities in the platform.
 
-All the extension can developped outside the Studio with your favorite IDE.
+Extensions can be developed outside of the Studio with your favorite IDE.
 
 [cols="1,1,1"]
 |===
@@ -115,11 +115,11 @@ All the extension can developped outside the Studio with your favorite IDE.
 
 |Connector
 |When the provided connector do not cover your requirements
-|Dedicated SDK
+|xref:connector-archetype.adoc[Dedicated SDK]
 
 |Actor Filters
 |When the provided actor filter do not cover your requirements
-|Dedicated SDK
+|xref:actor-filter-archetype.adoc[Dedicated SDK]
 
 |Theme
 |When the provided theme do not cover your requirements
@@ -139,4 +139,3 @@ In the Studio, the extensions can be managed in a xref:managing_extension_studio
 We strongly recommend that you publish your extensions on private or public repository to fully the power of maven.
 
 Of course it is still possible to import extension that aren't published on a repository.
-

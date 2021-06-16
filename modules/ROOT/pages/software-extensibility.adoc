@@ -51,7 +51,7 @@ In addition to the standard APIs and resources, you can define xref:rest-api-ext
 
 REST API Extension can either created in the xref:rest-api-extensions.adoc[Studio] or with the xref:rest-api-extension-archetype.adoc[dedicated maven archetype].
 
-Custom REST API extension developed with the maven archetype are added to a Bonita project with the xref:managing_extension_studio.adoc[extension view].
+Custom REST API extensions developed with the maven archetype are added to a Bonita project from the xref:managing_extension_studio.adoc[extension view].
 
 === Custom pages
 
@@ -69,7 +69,7 @@ You can then use your custom widget in pages, forms, and (for Subscription editi
 
 === Living Application Themes
 
-Custom theme are developped outside the Studio with a dedicated maven archetype. Consult this page for more information:xref:customize-living-application-theme.adoc[Create an theme]
+Custom themes are developed outside the Studio with a dedicated maven archetype. Consult this page for more information: xref:customize-living-application-theme.adoc[Create an theme]
 
 === Import and export exchange files
 

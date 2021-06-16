@@ -2,7 +2,7 @@
 Learn how to efficiently use Bonita Studio
 
 == Structure
-By default, here is how the Studio is structured:
+Here is the default Studio structure: 
 
 * a top, main menu
 * a "coolbar" with generic features
@@ -15,12 +15,12 @@ And then for each tab, some specific areas to interact with. +
 You can play with the organization of the tabs and areas. If you get lost, use the "View > Reset view" menu option to come back to default.
 
 == Welcome page
-The Welcome page is displaying upon the first opening of the Studio. +
+The Welcome page is displayed upon the first opening of the Studio. +
 It gives access to a lot of resources to help you during the lifetime of the project. +
-To come back to it in the middle of the project, click on the "Welcome" icon of the coolbar. 
+The welcome page can be opened at any time by clicking on the "Welcome" icon of the coolbar. 
 
-== Configuration
-The "Preferences" icon in the studio's coolbar allows a full set of configurations. Find the list and how to use them in xref:bonita-bpm-studio-preferences.adoc[Bonita Studio configuration]
+== Preferences
+The "Preferences" icon in the studio's coolbar allows a full set of configurations. Find the list and how to use them in xref:bonita-bpm-studio-preferences.adoc[Bonita Studio preferences]
 
 == Open a recently modified diagram
 
