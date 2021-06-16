@@ -28,7 +28,7 @@ However, it is not required to use all the concepts to create a valid Bonita Aut
 |--
 
 |xref:forms.adoc[Forms]
-|Web interfaces used for human interactions with your processes
+|Web interfaces to interact with processes (to instantiate a process and for human tasks)
 |Create
 |UI Designer
 |Use BPM REST API
