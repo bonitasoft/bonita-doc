@@ -125,7 +125,7 @@ By default, the pagination is not managed by the LDAP Connector since is not sup
 
 *Solutions*:  
 
-1. Increase the page size on your Active Directory by increasing the value of  MaxPageSize : https://support.microsoft.com/en-us/kb/315071
+1. Increase the page size on your Active Directory by increasing the value of MaxPageSize : https://support.microsoft.com/en-us/kb/315071
 
 2. Develop a Custom LDAP Connector managing the pagination of your Active Directory.
   
