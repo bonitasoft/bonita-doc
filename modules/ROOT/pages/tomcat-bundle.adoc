@@ -80,7 +80,7 @@ On the server where you installed Bonita Platform:
 
 ==== Request the new license
 
-. Copy your request key and go to the Customer Portal license request page.
+. Copy your request key and go to the Customer Service Center license request page.
 . Fill in the details in the form, copy the request key in the _Request Key_ field, and submit.
  Note: keep the brackets () in the key; if the key is separated by a line break, remove it and put the key on a single line.
 

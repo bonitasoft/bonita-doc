@@ -29,7 +29,7 @@ This last step is not mandatory since the setup tool is independent from Tomcat,
 == Get the license (In case of Subscription edition)
 
 * *_Execute_* %TOMCAT_BUNDLE%/tools/request_key_utils/generateRequestKey.bat
-* *_Use_* the generated key to get a license from the customer portal. The license should not be a development license.
+* *_Use_* the generated key to get a license from the Customer Service Center. The license should not be a development license.
 * *_Move_* the received license file into the folder %TOMCAT_INSTALL_FOLDER%/setup/platform_conf/licenses
 
 == Database configuration
