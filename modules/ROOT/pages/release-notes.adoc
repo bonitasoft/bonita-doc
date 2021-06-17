@@ -241,9 +241,9 @@ Use BPMN 2 importer for model exchange with third-party editors.
 * UID-362 - Import custom widgets doesn't import assets
 * UID-298 - Error when entering a description for a fragment
 * STUDIO-3979 - multiInstantiator variable cannot use the Java setter operator in operation
-* STUDIO-3965 - Regression: Organization is reset to Acme or None after restart
-* STUDIO-3953 - LA Builder is slow
-* STUDIO-3948 - Git clone should not display migration warning message
+* STUDIO-3965 - Active organization preference is not stored
+* STUDIO-3953 - Improve LA-Builder build performence
+* STUDIO-3948 - Git clone should not display migration warning message when not causing breaking changes
 * RUNTIME-297 - start-bonita.sh can't be launched from outside of bundle directory
 * RUNTIME-293 - Session fixation protection breaks some SAML features
 * RUNTIME-212 - Process manager typo into dynamic-permissions-checks(-custom).properties file
