@@ -62,8 +62,8 @@ The bundle already contains the files needed to use SAML with Bonita platform.
 To configure Bonita for SAML:
 
 . If you do not already have one:
- .. Download a Subscription edition bundle from the customer portal
- .. link:_basic-bonita-platform-installation[Configure] it as needed
+ .. Download a Subscription edition bundle from the https://customer.bonitasoft.com/[Customer Service Center]
+ .. xref:tomcat-bundle.adoc[Configure] it as needed
  .. Run it a first time, so that the first default tenant is created (TENANT_ID = 1)
  .. Stop it before modifying the configuration files below
 . In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
@@ -175,9 +175,9 @@ with you current Bonita server's private key and certificate.
    **** signResponse="true"
  ** If your *IdP encrypts the assertions*:
   *** make sure you have encryption="true" inside the Key node of the SP
-  *** replace the following strings in the Keys:Key section of the SP:
+  *** replace the following string in the Keys:Key section of the SP:
    **** put your private key here
-   **** put your certificate here
++
 with you current Bonita server's private key.
  ** If your *IdP responses are signed*:
   *** make sure you have signing="true" inside the Key node of the IDP
@@ -194,8 +194,17 @@ with the certificate provided by the IdP.
  ** The PrincipalNameMapping policy indicates how to retrieve, in the SAML response from the IdP, the identifier of the subject that matches the bonita user account username.
 The policy can either be FROM_NAME_ID or FROM_ATTRIBUTE (in that case you need to specify the name of the attribute to use --only one attribute can be specified--). There can only be one mapping (meaning that the same policy is used for all the user accounts).
  ** You may also need to change the requestBinding and/or responseBinding from POST to REDIRECT depending on your IdP configuration.
- ** The url binding to your IdP also needs to be define by replacing the following string:
+ ** The url binding to your IdP also needs to be defined by replacing the following string:
   *** http://idp.saml.binding.url.to.change
+ ** If you want to use the SAML logout feature, the URL of your Bonita server needs to be defined by replacing the following string (otherwise, you can remove this attribute):
+  *** http://bonita.server.url.to.change
+
+
+[NOTE]
+====
+
+If your you don't have a certificate for your Bonita server, the `CertificatePem` element can be replaced with a `PublicKeyPem` element containing the public key for the Bonita server.
+====
 
 [NOTE]
 ====
@@ -226,6 +235,7 @@ More configuration options can be found in https://www.keycloak.org/docs/latest/
             nameIDPolicyFormat="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
             forceAuthentication="false"
             isPassive="false"
+     -->    logoutPage="http://bonita.server.url.to.change"
             turnOffChangeSessionIdOnLogin="false">
             <Keys>
      -->        <Key signing="true"
@@ -325,7 +335,7 @@ Therefore, there is no guaranty that the global logout will work with your Ident
 To setup Bonita for global logout:
 
 . Set the `saml.logout.global` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/`.
-. Update the SingleLogoutService section of `keycloak-saml.xml` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/` to match your Identity Provider configuration.
+. Update the SingleLogoutService section of `keycloak-saml.xml` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/` to match your Identity Provider configuration and set the property `logoutPage` with he URL of your Bonita server.
 . Update your Identity Provider configuration to setup the Logout Service POST/Redirect Binding URL to <Bonita_server_URL>/bonita/samlLogout
 
 [NOTE]

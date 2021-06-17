@@ -149,7 +149,7 @@ This section explains how to migrate a platform that uses one of the Bonita bund
 
 . Download the target version bundle and the migration tool for your Edition from the
 http://www.bonitasoft.com/downloads-v2[Bonitasoft site] for Bonita Community edition
-or from the https://customer.bonitasoft.com/download/request[Customer Portal] for Bonita Subscription Pack editions.
+or from the https://customer.bonitasoft.com/download/request[Customer Service Center] for Bonita Subscription Pack editions.
 . Check your current RDBMS version is compliant with the versions supported by the target version of Bonita (see <<rdbms_requirements,above>>)
 . Unzip the migration tool zip file into a directory. In the steps below, this directory is called `bonita-migration`.
 . If you use Oracle, there is already the driver for 19.3.0.0 oracle version in the `bonita-migration/lib`. add the JDBC driver for your database to `bonita-migration/lib`. This is the same driver as you have installed in your web server `lib` directory. You must upgrade to  xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc#oracle12[Oracle 12c (12.2.x.y)] in order to migrate to 7.9+.
@@ -508,7 +508,7 @@ Starting with Bonita 7.11+, upgrading between maintenance versions of Bonita doe
 To upgrade between maintenance versions in bonita 7.11+ (for example going from 7.11.0 to 7.11.1) follow the following steps:
 
 * Download the new bundle version from http://www.bonitasoft.com/downloads[Bonitasoft site] for Bonita Community edition
-or from the https://customer.bonitasoft.com/download/request[Customer Portal] for Bonita Subscription editions.
+or from the https://customer.bonitasoft.com/download/request[Customer Service Center] for Bonita Subscription editions.
 * Shut down your old Bonita Runtime.
 * Unzip and configure the new bundle.
 This means copying the configuration files of the old Bonita Runtime, mainly _database.properties_, _server.xml_, _internal.properties_ if changes have been made in them.
