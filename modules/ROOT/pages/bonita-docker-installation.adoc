@@ -307,7 +307,7 @@ The migration scripts affect only the database, not the Bonita instance.
 The procedure to migrate a Bonita container is therefore as follow:
 
 * Stop and destroy the running Bonita container.
-* Play the migration script on your Bonita database see xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc]#migrate[migrate the platform from an earlier version of Bonita].
+* Play the migration script on your Bonita database see xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc#migrate[migrate the platform from an earlier version of Bonita].
 * Get the new Bonita docker image, as explained above.
 * Update the license, see <<section-update-configuration,Update configuration and license section>>
 * Start a new Bonita container.
@@ -326,4 +326,4 @@ Setup tool can be used outside of the Docker container directly by downloading t
 The setup tool needs to be able to access the database. Because of that, if the database is in a docker container, its port must be exposed to the host.
 ====
 
-See xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[setup tool page] for more information.
+See xref:BonitaBPM_platform_setup.adoc#update_platform_conf[setup tool page] for more information.

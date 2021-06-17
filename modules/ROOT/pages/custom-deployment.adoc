@@ -19,7 +19,7 @@ It saves you from doing all the following configuration at hand, as the setup to
 == Installation
 
 . Download the Tomcat bundle file from the http://www.bonitasoft.com/downloads-v2[Bonitasoft download page] for the Community edition
-or from the https://customer.bonitasoft.com/download/request[Customer Portal] for Subscription editions.
+or from the https://customer.bonitasoft.com/download/request[Customer Service Center] for Subscription editions.
 . Unzip it into a temporary folder (BUNDLE_DIRECTORY).
 . Follow the <<tomcat-installation,Tomcat bundle steps>>.
 

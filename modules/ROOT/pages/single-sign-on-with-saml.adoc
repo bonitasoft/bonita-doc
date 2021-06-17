@@ -62,8 +62,8 @@ The bundle already contains the files needed to use SAML with Bonita platform.
 To configure Bonita for SAML:
 
 . If you do not already have one:
- .. Download a Subscription edition bundle from the customer portal
- .. link:_basic-bonita-platform-installation[Configure] it as needed
+ .. Download a Subscription edition bundle from the https://customer.bonitasoft.com/[Customer Service Center]
+ .. xref:tomcat-bundle.adoc[Configure] it as needed
  .. Run it a first time, so that the first default tenant is created (TENANT_ID = 1)
  .. Stop it before modifying the configuration files below
 . In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
@@ -174,9 +174,9 @@ with you current Bonita server's private key and certificate.
    **** signResponse="true"
  ** If your *IdP encrypts the assertions*:
   *** make sure you have encryption="true" inside the Key node of the SP
-  *** replace the following strings in the Keys:Key section of the SP:
+  *** replace the following string in the Keys:Key section of the SP:
    **** put your private key here
-   **** put your certificate here
++
 with you current Bonita server's private key.
  ** If your *IdP responses are signed*:
   *** make sure you have signing="true" inside the Key node of the IDP
@@ -195,6 +195,13 @@ The policy can either be FROM_NAME_ID or FROM_ATTRIBUTE (in that case you need t
  ** You may also need to change the requestBinding and/or responseBinding from POST to REDIRECT depending on your IdP configuration.
  ** The url binding to your IdP also needs to be define by replacing the following string:
   *** http://idp.saml.binding.url.to.change
+
+
+[NOTE]
+====
+
+If your you don't have a certificate for your Bonita server, the `CertificatePem` element can be replaced with a `PublicKeyPem` element containing the public key for the Bonita server.
+====
 
 [NOTE]
 ====

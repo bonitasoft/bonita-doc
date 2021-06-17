@@ -54,7 +54,7 @@ This section describes how to create a Jenkins job to build your processes autom
 All example scripts given on this page are compatible with Unix-like operating systems.
 
 . Prepare Bonita Studio on the CI server: Bonita Studio includes a BonitaStudioBuilder script to build processes in a CI environment. Install Bonita Studio as follows:
- .. Download the OS-independent package (zip) from the Customer Portal. For example use BonitaSubscription-7.6.3.zip for version 7.6.3. You must have the same version of Bonita Studio for the shared project and the CI server.
+ .. Download the OS-independent package (zip) from the Customer Service Center. For example use BonitaSubscription-7.6.3.zip for version 7.6.3. You must have the same version of Bonita Studio for the shared project and the CI server.
  .. Extract the package to a permanent location on the CI server: `$> unzip -d /path/to/BonitaStudio BonitaStudioSubscription-7.6.3.zip`
  .. Install your license (a license must have been requested for CI server): `$> cp license.lic /path/to/BonitaStudio/BonitaStudioSubscription-7.6.3/lic_folder/`
 
