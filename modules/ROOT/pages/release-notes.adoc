@@ -18,7 +18,7 @@ The Authorization Code Flow of OpenID Connect is supported to authenticate when 
 
 === Exception reporting
 
-When something goes wrong while executing processes, we now log only the important informations. In addition the root cause of the issue is the first one shown.
+When something goes wrong while executing processes, we now log only the important informations. In addition, the root cause of the issue is the first one shown.
 
 Here is a sample of what will now be logged
 
@@ -102,6 +102,18 @@ Bonita 2021.2 is now only compatible with Java 11. Support with Java 8 has now b
 ==== BonitaStudioBuilder
 
 The deprecated `BonitaStudioBuilder` command line interface has been removed. To benefit an efficient Bonita project building and deploying solution, please refer to https://documentation.bonitasoft.com/bcd[BCD add-on].
+
+==== Example pages / Rest API extensions
+
+Bonita Tomcat bundle 2021.2 does not include anymore the following example pages / Rest API extensions:
+
+- REST API extension example
+- API extension viewer page
+- Groovy example page
+- HTML example page
+
+If you migrate from an earlier version of Bonita, you can now delete them if you don't use them (previously, they could not be deleted).
+
 
 == Bug fixes
 
