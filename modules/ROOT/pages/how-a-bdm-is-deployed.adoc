@@ -117,8 +117,33 @@ Once generated, those Java classes are *compiled and packaged*:
 
 * in a server JAR that is stored in database and loaded in tenant (and process) classloaders
 * in a client JAR that can be retrieved by calling the https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html#getClientBDMZip--[getClientBDMZip()]
-method, to be able to call from a client application
+method, to be able to call from a client application. Below is a sample code on how it can be done.
 
+[source,java]
+----
+...
+byte[] clientBDMZip = getTenantAdministrationAPI().getClientBDMZip();
+// clientBDMZip will typically contain : "README.md", "example-pom.xml", "bdm-dao.jar", "bdm-model.jar", "bom.zip"
+final Map<String, byte[]> resources = new HashMap<>();
+try (final ZipInputStream zis = new ZipInputStream(new ByteArrayInputStream(clientBDMZip))) {
+    ZipEntry entry = zis.getNextEntry();
+    while (entry != null) {
+        try(final ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+            int len;
+            final byte[] buffer = new byte[1024];
+            while ((len = zis.read(buffer)) > 0) {
+                baos.write(buffer, 0, len);
+            }
+            resources.put(entry.getName(), baos.toByteArray());
+        }
+        entry = zis.getNextEntry();
+    }
+}
+
+byte[] bdmModelJar = resources.get("bdm-model.jar");
+byte[] bdmDaoJar = resources.get("bdm-dao.jar");
+...
+----
 
 == Database tables creation and update
 
