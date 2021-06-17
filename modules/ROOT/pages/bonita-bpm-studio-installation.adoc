@@ -34,7 +34,7 @@ Another solution is to download and execute manually the installer, https://adop
 
 == Download Bonita Studio
 
-For a Subscription edition of Bonita Studio, go to the https://customer.bonitasoft.com/download/request[Customer Portal] and request a download.
+For a Subscription edition of Bonita Studio, go to the https://customer.bonitasoft.com/download/request[Customer Service Center] and request a download.
 
 For the Community edition of Bonita Studio, go to the Bonitasoft website http://www.bonitasoft.com/downloads-v2[downloads page]. On the download page you will get a download button based on your operating system auto-detection. If you want to download a different version (e.g. switch from 32 to 64-bit version), click on the *Customize you download* link.
 On this page there are buttons to download the Studio installer for your current operating system and the _all in one_, OS-independent version. +
@@ -101,7 +101,7 @@ This information applies to the Subscription editions. No license is needed for 
 When you launch Bonita Studio for the first time, you need to install a license:
 
 . Click *_Copy to clipboard_* to copy the request key from the pop-up
-. Use the generated request key to request a license on the https://customer.bonitasoft.com/license/request[Customer portal]
+. Use the generated request key to request a license on the https://customer.bonitasoft.com/license/request[Customer Service Center]
 . *_Check_* your email box (after a few minutes) and open the email from _link:mailto:no-reply@bonitasoft.com[no-reply@bonitasoft.com]_
 . *_Download_* the attached file (.lic)
 . Go back to your Bonita Studio, click _*Install license...*_, and select your .lic file.
