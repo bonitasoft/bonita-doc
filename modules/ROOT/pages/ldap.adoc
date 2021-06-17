@@ -86,7 +86,7 @@ Then click *_Next_*.
 . Click *_Finish_*.
 
 
-== Troubleshooting
+== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
 
 *Issue*: LDAP Connector fails to manage more than 1000 users.
