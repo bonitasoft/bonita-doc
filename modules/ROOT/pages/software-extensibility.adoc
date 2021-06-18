@@ -16,26 +16,23 @@ These extension points are guaranteed to be stable across versions of Bonita 7: 
 
 === Connectors
 
-In Community, Teamwork, Efficiency, Performance and Enterprise editions
-
 Bonita comes with more than 80 xref:connectivity-overview.adoc[standard connectors] to the major information system components: major databases (Oracle, Microsoft, Postgres, etc.), SOAP Webservice, Salesforce, Email, etc.
-A new connector enables you to provide new connectivity capabilities for processes.
-To xref:connectors-overview.adoc[implement a new connector], you need to provide some XML description files and a
-Java class respecting the https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Connector interface].
-Connectors can be implemented directly from Bonita Studio.
+
+However you create your own connectors to have new connectivity capabilities for processes.
+
+Connectors are developped outside the Studio with a dedicated maven archetype. Consult this page for more information: xref:connector-archetype.adoc[Create a connector].
+
+Custom connectors are added to a Bonita project from the xref:managing_extension_studio.adoc[extension view].
 
 === Actor filters
 
-In Community, Teamwork, Efficiency, Performance and Enterprise editions
-
 Bonita comes with a set of xref:actor-filtering.adoc[standard actor filters] that can be used to reduce the list of candidates for process tasks.
-A new actor filter enables you to provide new filtering capabilities to processes. To xref:creating-an-actor-filter.adoc[implement a new actor filter],
-you need to provide some XML description files and a Java class respecting the https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[UserFilter interface].
-Actor filters can be implemented directly from Bonita Studio.
+
+Actor filters are developped outside the Studio with a dedicated maven archetype. Consult this page for more information:xref:actor-filter-archetype.adoc[Create an actor filter]
+
+Custom actor filters are added to a Bonita project from the xref:managing_extension_studio.adoc[extension view].
 
 === Engine API
-
-In Community, Teamwork, Efficiency, Performance and Enterprise editions
 
 The https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Bonita Engine APIs] enable you to:
 
@@ -47,13 +44,14 @@ ProcessBuilder and Business Objects DAO are examples of APIs that can be leverag
 
 === REST API
 
-In Community, Teamwork, Efficiency, Performance and Enterprise editions
-
 The xref:rest-api-overview.adoc[REST APIs] enable you to integrate your Bonita processes into your application and execute operations on Bonita objects including business objects.
 Pages and forms created with the UI designer rely on the REST APIs to manage data.
 
 In addition to the standard APIs and resources, you can define xref:rest-api-extensions.adoc[REST API extensions].
-In the Bonita subscription edition, Bonita Studio contains xref:rest-api-extensions.adoc[tooling for creating, testing, and deploying REST API extensions].
+
+REST API Extension can either be created in the xref:rest-api-extensions.adoc[Studio] or with the xref:rest-api-extension-archetype.adoc[dedicated maven archetype].
+
+Custom REST API extensions developed with the maven archetype are added to a Bonita project from the xref:managing_extension_studio.adoc[extension view].
 
 === Custom pages
 
@@ -66,10 +64,12 @@ Note that although the page framework provided in the product is stable, we cann
 
 === Custom widgets
 
-In Community, Teamwork, Efficiency, Performance and Enterprise editions
-
 If the standard UI designer xref:widgets.adoc[widgets] do not meet your needs, you can create a xref:custom-widgets.adoc[custom widget].
 You can then use your custom widget in pages, forms, and (for Subscription editions) fragments.
+
+=== Living Application Themes
+
+Custom themes are developed outside the Studio with a dedicated maven archetype. Consult this page for more information: xref:customize-living-application-theme.adoc[Create an theme]
 
 === Import and export exchange files
 

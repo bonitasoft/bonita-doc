@@ -36,11 +36,8 @@ You can define an actor at pool, lane, or step, and the definitions are related.
 To define actors for a process:
 
 . Define the actors for the pool:
-```
  .. Select the  pool and go to the *Details* panel, *General* tab, *Actors* pane. If you have already defined any actors, they are shown in the table.
- .. Click *_Add_*. A new row is added to the table, with a temporary name for the new actor (for example, Actor1). To change the
-```
-name, select it and type the name you want to use. You can also add a description.
+ .. Click *_Add_*. A new row is added to the table, with a temporary name for the new actor (for example, Actor1). To change the name, select it and type the name you want to use. You can also add a description.
   ... Repeat step 2 to add all the actors required for the process. You can also remove an actor, by selecting it and clicking *_Remove_*.
   ... Select the actor that will be the initiator of the process cases, and click *_Set as initiator_*. If you do not define an initiator for the pool, the process cannot be started in Bonita Portal. Instead, it will have to be started programmatically.
 . For each lane, define the actor. You can either select an actor that was defined for the pool, by selecting the actor from the drop-down list, or you can use an actor filter.
@@ -56,13 +53,18 @@ The initiator is the user who starts a process instance. For a process that is s
 
 == Use an actor filter
 
+[NOTE]
+====
+To use actor filters in your processes, you first need to import the corresponding extensions from the xref:managing_extension_studio.adoc[extension view].
+====
+
 To specify an actor filter, click *_Set..._*, choose one of the predefined actor filters from the list, and follow the instructions in the wizard to configure the actor selector.
 
 To change the configuration of an actor filter, select the actor filter, click *_Edit..._* and modify the information using the wizard.
 
 To delete an actor filter, select the actor filter and click the Erase icon. Note that this does not remove the actor filter from the list of predefined actor filters, just from the process definition.
 
-For information about creating a new actor filter, see xref:creating-an-actor-filter.adoc[Creating an actor filter].
+For information about creating a new actor filter, see xref:actor-filter-archetype.adoc[Creating an actor filter].
 
 == Map an actor
 
