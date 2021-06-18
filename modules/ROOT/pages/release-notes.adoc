@@ -234,6 +234,8 @@ Use BPMN 2 importer for model exchange with third-party editors.
 
 === Fixes in Bonita 2021.1-0617 (2021-06-17)
 
+==== Fixes in Bonita Development Suite (Studio and UI Designer)
+
 * UID-440 - dataTable does not sort date-related columns when source is "Variable"
 * UID-439 - Issue exporting and importing a custom widget with assets
 * UID-431 - Layout title metadata displayed and persisted instead of the living app display name when the living application link is shared
@@ -244,6 +246,9 @@ Use BPMN 2 importer for model exchange with third-party editors.
 * STUDIO-3965 - Active organization preference is not stored
 * STUDIO-3953 - Improve LA-Builder build performence
 * STUDIO-3948 - Git clone should not display migration warning message when not causing breaking changes
+
+==== Fixes in Bonita Runtime (including Portal)
+
 * RUNTIME-297 - start-bonita.sh can't be launched from outside of bundle directory
 * RUNTIME-293 - Session fixation protection breaks some SAML features
 * RUNTIME-212 - Process manager typo into dynamic-permissions-checks(-custom).properties file
