@@ -234,11 +234,11 @@ Use BPMN 2 importer for model exchange with third-party editors.
 
 === Fixes in Bonita 2021.1-0617 (2021-06-17)
 
-* UID-440 - dataTable don't sort date related columns when source is "Variable"
+* UID-440 - dataTable does not sort date-related columns when source is "Variable"
 * UID-439 - Issue exporting and importing a custom widget with assets
 * UID-431 - Layout title metadata displayed and persisted instead of the living app display name when the living application link is shared
 * UID-425 - Japanese locale correspondence table is wrong
-* UID-362 - Import custom widgets doesn't import assets
+* UID-362 - Import custom widgets does not import assets
 * UID-298 - Error when entering a description for a fragment
 * STUDIO-3979 - multiInstantiator variable cannot use the Java setter operator in operation
 * STUDIO-3965 - Active organization preference is not stored
@@ -248,7 +248,6 @@ Use BPMN 2 importer for model exchange with third-party editors.
 * RUNTIME-293 - Session fixation protection breaks some SAML features
 * RUNTIME-212 - Process manager typo into dynamic-permissions-checks(-custom).properties file
 * RUNTIME-33 - Impossible to install a valid BDM after an attempts to install an invalid BDM
-Refresh results	
 
 
 === Fixes in Bonita 2021.1-0408 (2021-04-08)
