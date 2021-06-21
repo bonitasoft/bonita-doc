@@ -1,4 +1,0 @@
-= Bonita documentation resources
-:description: TODO
-
-TODO
