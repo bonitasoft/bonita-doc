@@ -219,7 +219,8 @@ The model changes that are *not* supported are:
  - Deleting a column
  - Deleting an Index
  - Deleting an unique Constraint
- - Changing the max size of a String attribute.
+ - Changing the type of an attribute
+ - Changing the max size of a String attribute
  - Changing an attribute from a single type to multiple, for simple types
  - Changing an attribute from a multiple type to single, for simple types
 
