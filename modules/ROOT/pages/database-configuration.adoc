@@ -71,13 +71,6 @@ Next, the RDBMS user owner of each new schema (i.e. Bonita Engine data *and* bus
 * CREATE INDEX
 * SELECT, INSERT, UPDATE, DELETE on created TABLE
 
-[NOTE]
-====
-
-CREATE TABLE and CREATE INDEX privileges are not required for the *Bonita Engine database* RDBMS user after first start in normal use (however, they will still be required by the *business data database* user even beyond the first deployment of a BDM). +
-If the same RDBMS user is used with the xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[migration tool], then this user needs such grants.
-====
-
 To create the database(s), we recommend that you refer to your RDBMS documentation:
 
 * https://www.postgresql.org/docs/11/app-createdb.html[PostgreSQL]
