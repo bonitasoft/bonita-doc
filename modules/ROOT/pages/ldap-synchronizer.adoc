@@ -141,6 +141,14 @@ This file defines the LDAP connection settings and specifies the account used fo
 | directory_user_type
 | type of the user object ("user" for an Active Directory, "person" for an LDAP)
 | person
+
+| use_paged_search
+| activate search pagination (Not supported by all LDAP servers)
+| false
+
+| page_size
+| number of results in ldap search pages (Not supported by all LDAP servers)
+| 1000
 |===
 
 === logger.properties
