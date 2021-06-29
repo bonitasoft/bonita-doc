@@ -43,7 +43,7 @@
  ** xref:migrate-a-svn-repository-to-github.adoc[How to migrate a SVN repository into a Git repository]
  ** xref:automating-builds.adoc[Automate builds]
  ** xref:set-up-continuous-integration.adoc[Set up continuous integration]
-* Process modeling
+* Processes
  ** xref:diagram-index.adoc[Diagram]
   *** xref:diagram-overview.adoc[Overview]
   *** xref:pools-and-lanes.adoc[Pools and lanes]
