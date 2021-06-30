@@ -20,7 +20,7 @@ Bonita comes with more than 80 xref:connectivity-overview.adoc[standard connecto
 
 However you create your own connectors to have new connectivity capabilities for processes.
 
-Connectors are developped outside the Studio with a dedicated maven archetype. Consult this page for more information: xref:connector-archetype.adoc[Create a connector].
+Connectors are developped outside the Studio with a dedicated Maven archetype. Consult this page for more information: xref:connector-archetype.adoc[Create a connector].
 
 Custom connectors are added to a Bonita project from the xref:managing_extension_studio.adoc[extension view].
 
@@ -28,7 +28,7 @@ Custom connectors are added to a Bonita project from the xref:managing_extension
 
 Bonita comes with a set of xref:actor-filtering.adoc[standard actor filters] that can be used to reduce the list of candidates for process tasks.
 
-Actor filters are developped outside the Studio with a dedicated maven archetype. Consult this page for more information:xref:actor-filter-archetype.adoc[Create an actor filter]
+Actor filters are developped outside the Studio with a dedicated Maven archetype. Consult this page for more information:xref:actor-filter-archetype.adoc[Create an actor filter]
 
 Custom actor filters are added to a Bonita project from the xref:managing_extension_studio.adoc[extension view].
 
@@ -49,9 +49,9 @@ Pages and forms created with the UI designer rely on the REST APIs to manage dat
 
 In addition to the standard APIs and resources, you can define xref:rest-api-extensions.adoc[REST API extensions].
 
-REST API Extension can either be created in the xref:rest-api-extensions.adoc[Studio] or with the xref:rest-api-extension-archetype.adoc[dedicated maven archetype].
+REST API Extension can either be created in the xref:rest-api-extensions.adoc[Studio] or with the xref:rest-api-extension-archetype.adoc[dedicated Maven archetype].
 
-Custom REST API extensions developed with the maven archetype are added to a Bonita project from the xref:managing_extension_studio.adoc[extension view].
+Custom REST API extensions developed with the Maven archetype are added to a Bonita project from the xref:managing_extension_studio.adoc[extension view].
 
 === Custom pages
 
@@ -64,12 +64,12 @@ Note that although the page framework provided in the product is stable, we cann
 
 === Custom widgets
 
-If the standard UI designer xref:widgets.adoc[widgets] do not meet your needs, you can create a xref:custom-widgets.adoc[custom widget].
-You can then use your custom widget in pages, forms, and (for Subscription editions) fragments.
+If the standard UI Designer xref:widgets.adoc[widgets] do not meet your needs, you can create a xref:custom-widgets.adoc[custom widget].
+You can then use your custom widget in pages, forms, and fragments.
 
 === Living Application Themes
 
-Custom themes are developed outside the Studio with a dedicated maven archetype. Consult this page for more information: xref:customize-living-application-theme.adoc[Create an theme]
+Custom themes are developed outside the Studio with a dedicated Maven archetype. Consult this page for more information: xref:customize-living-application-theme.adoc[Create an theme]
 
 === Import and export exchange files
 
