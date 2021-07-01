@@ -76,8 +76,7 @@ You can get it from Bonita Studio Welcome page, in the _Resources_ tile.
 Starting now, you can use it as is, but you can also customize the pages that have been recreated with the UI Designer, or create your own Administrator Application from a handy starting point.
 It replicates the current Administrator Portal profile, except for the _Analytics_ page, available in the Enterprise edition.
 
-In a later version of Bonita, this application will replace the current and now deprecated Administrator Portal profile.
-
+image:images/tv.png[videos]  Get an insight of this new value in this video in https://www.youtube.com/watch?v=R0-hnCy7Weg&list=PLvvoQatxaHOOcS6mu3PUFmVFd1lItLaXs&index=4[english], https://www.youtube.com/watch?v=gUwxFM6AfvQ&list=PLvvoQatxaHOPWv6rMQPNIxzZjW6BNg75K&index=4[french], or https://www.youtube.com/watch?v=fNQ-0hFTyxs&list=PLvvoQatxaHOMepAeo0jDrIR9hHfzK1NPn&index=4[spanish].
 [#maintenance-compatibility]
 
 === Development Suite supports multi-maintenance versions
@@ -159,6 +158,10 @@ See xref:fault-tolerance.adoc[Fault tolerance mechanisms] documentation page for
 
 You can now configure Bonita to allow Bonita Engine to create user accounts on the fly as soon as they have been previously authenticated in their SSO (SAML or Kerberos).
 Find more information on how to configure it xref:single-sign-on-with-saml.adoc[here].
+
+image:images/tv.png[videos]  Get an insight of this new value in this video in https://www.youtube.com/watch?v=VsEybo_TU08&list=PLvvoQatxaHOOcS6mu3PUFmVFd1lItLaXs&index=3[english], https://www.youtube.com/watch?v=VxahUIUJpMo&list=PLvvoQatxaHOPWv6rMQPNIxzZjW6BNg75K&index=3[french], or https://www.youtube.com/watch?v=Ls_x2q46mtQ&list=PLvvoQatxaHOMepAeo0jDrIR9hHfzK1NPn&index=3[spanish].
+[#maintenance-compatibility]
+
 
 ==== REST API and portal login
 
