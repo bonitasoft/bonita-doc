@@ -5,7 +5,6 @@ Learn how to configure the LDAP Synchronizer. This tool updates Bonita Users and
 
 [NOTE]
 ====
-
 For Enterprise, Performance, Efficiency, and Teamwork editions only.
 ====
 
@@ -33,6 +32,20 @@ The tool supports LDAP groups of the following classes (all of the verifications
 * ds-virtual-static-group
 
 == Installation
+
+Bonita LDAP Synchronizer can be installed in two ways:
+
+
+
+The installation of `ldap synchronization` could be done with two different :
+
+
+* <<deploy-from-bundle, Install LDAP Synchronizer from Bonita Bundle>>
+* xref:docker-ldap-synchronizer.adoc[Deploy LDAP Synchronizer with Docker] ( available since bonita *2021.1-0702*)
+
+
+[[deploy-from-bundle]]
+==== Install LDAP Synchronizer from Bonita Bundle
 
 To install the synchronizer, unzip the Tomcat bundle and configure the files located under the tools/BonitaSubscriptionLDAPSynchronizer/conf directory.
 This directory contains a sample configuration in the `conf/default` subfolder which is used to perform LDAP synchronization
@@ -62,6 +75,8 @@ See bonita.properties section
 Customize the configuration for your system, by editing the configuration files.
 There are some additional considerations for using the LDAP synchronizer in a non-default tenant.
 
+
+[[ldap-configuration-files]]
 == Configuration files
 
 There are five properties files:
