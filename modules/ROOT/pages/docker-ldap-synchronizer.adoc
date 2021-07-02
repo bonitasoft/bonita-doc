@@ -25,11 +25,6 @@ docker cp $(docker create --rm quay.io/bonitasoft/bonita-ldap-synchronizer:*vers
 
 xref:ldap-synchronizer.adoc#ldap-configuration-files[here] more details about configuration files.
 
-[source,bash]
-----
-docker run  -e BONITA_URL=http://192.168.0.10:8080 -v $(pwd)/bonita-ldap-synchronizer/conf:/opt/conf/user-config  quay.io/bonitasoft/bonita-ldap-synchronizer`
-----
-
 *WARN:* `bonita.properties`, `ldap.properties` and `log.properties` properties files located on volume will overwrite all configuration specified with environment variables.
 
 ==== Bonita connection settings
