@@ -520,9 +520,13 @@ This means copying the configuration files of the old Bonita Runtime, mainly _da
 
 *NB* : In a cluster environment, you need to update all your nodes before restarting them.
 
+[#migrateCluster]
+
 == Migrate your cluster
 
-A Bonita cluster must have the same version of Bonita on all nodes. To migrate a cluster:
+A Bonita cluster must have the same binary version of Bonita and database version on all nodes. 
+
+To migrate a cluster:
 
 . Download the migration tool:
  ** In version 1.x you need to download the tool for Performance cluster, the ordinary Performance migration tool does not support migration of a cluster.
