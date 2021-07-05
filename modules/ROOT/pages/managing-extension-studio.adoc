@@ -31,7 +31,7 @@ For extensions that aren't published in a Maven repository, you can add them fro
 
 [CAUTION]
 ====
-It is not recommended to add too many dependencies in the internal store, it makes your project heavier. This mechanism should be used to test artifacts under development, and for the artifacts that cannot be deployed on a Maven repository.
+It is not recommended to add too many dependencies in the internal store, it makes your project heavier. This mechanism should be used to test elements under development, and for the elements that cannot be deployed on a Maven repository.
 ====
 
 == Removing an extension
@@ -39,7 +39,7 @@ Extensions can be removed from the extension view.
 
 [WARNING]
 ====
-Removing an artifact might lead to errors if the artifact is used in the project. The Studio tries to detect such impacts and to alert the user before the deletion, but some specific cases cannot be detected, especially for REST API Extension usages.
+Removing an element might lead to errors if the element is used in the project. The Studio tries to detect such impacts and to alert the user before the deletion, but some specific cases cannot be detected, especially for REST API Extension usages.
 ====
 
 == Updating an extension
