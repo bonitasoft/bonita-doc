@@ -25,5 +25,28 @@ For example, your production runtime can be in 2021.1-0408 and your Studio in 20
 
 == Upgrading your project to the project composition
 
-Version 2021.2 introduces major changes to the way the Studio manages project. When importing or cloning your project in this version or any later version
+Version 2021.2 introduces major changes to the way the Studio manages projects. When importing or cloning your project in this version or any later version, it will be transformed into a Maven project. All your project dependencies (connectors, libraries, actor filters...) will be managed with Maven.
+
+*_BOS Import_*
+
+In the BOS import wizard, an additional step has been added. The Studio is going to scan your project dependencies and try to find them on the configured Maven repositories (by default Maven Central is configured).
+
+If the dependencies are found then they will be used as remote dependencies (not committed in your project) else they will added to the project local repository store and will be committed to your project. 
+
+In both case, dependencies that are in the project but are not used will be added in the upgraded project unless you add them manually (by ticking the corresponding checkboxes).
+
+You can also remove the other dependencies (at your own risk).
+
+*_Project cloning_*
+
+If your project is cloned through GIT, there isn't a extra step in the wizard. The migration is applied to the default branch or the branch selected in the GIT clone wizard.
+
+The dependencies are also analyzed by the Studio but they result of the analysis is directly applied to your project.
+The Studio is going to scan your project dependencies and try to find them on the configured Maven repositories (by default Maven Central is configured).
+
+If the dependencies are found then they will be used as remote dependencies (not committed in your project) else they will added to the project local repository store and will be committed to your project. 
+
+*_Upgrading the local repository dependencies to remote dependencies_*
+
+You replace the local repository dependencies with reomote dependencies (if they are made available on a remote repository) by accessing the xref:managing-extension-studio.adoc["Extension" view]. In the "Other extensions" part, select the local repository dependencies and use the "Edit maven coordinates" button to use the corresponding Maven coordinates to get the remote dependency.
 
