@@ -62,7 +62,7 @@ To specify an actor filter, click *_Set..._*, choose one of the predefined actor
 
 To change the configuration of an actor filter, select the actor filter, click *_Edit..._* and modify the information using the wizard.
 
-To delete an actor filter, select the actor filter and click the Erase icon. Note that this does not remove the actor filter from the list of predefined actor filters, just from the process definition.
+To delete an actor filter, select the actor filter and click the Delete icon. Note that this does not remove the actor filter from the list of predefined actor filters, just from the process definition.
 
 For information about creating a new actor filter, see xref:actor-filter-archetype.adoc[Creating an actor filter].
 

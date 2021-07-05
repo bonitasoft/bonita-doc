@@ -117,11 +117,11 @@ Extensions can be developed outside of the Studio with your favorite IDE.
 |===
 |Extension |When to use | Tool
 
-|Connector
+|xref:connectivity-overview.adoc[Connector]
 |When the provided connector do not cover your requirements
 |xref:connector-archetype.adoc[Dedicated SDK]
 
-|Actor Filters
+|xref:actor-filtering.adoc[Actor Filters]
 |When the provided actor filter do not cover your requirements
 |xref:actor-filter-archetype.adoc[Dedicated SDK]
 

@@ -7,10 +7,10 @@ Discover what Bonita Studio is, as well as its main features.
 
 Bonita Studio is the central tool to design processes and applications. This is the place to:
 
-* Draw processes
-* Define the Business Data Model, business variables, and contracts
-* Define the organization and actors
-* Manage the project extensions
+* xref:diagram-overview.adoc[Draw processes]
+* xref:define-and-deploy-the-bdm.adoc[Define the Business Data Model], business variables, and xref:contracts-and-contexts.adoc[contracts]  
+* Define the xref:organization-overview.adoc[organization] and xref:actors.adoc[actors]
+* xref:managing_extension_studio.adoc[Manage the project extensions] 
 * Create the application descriptors
 * Launch the UI Designer to create process forms and application pages and layouts
 * Plug the connectors
