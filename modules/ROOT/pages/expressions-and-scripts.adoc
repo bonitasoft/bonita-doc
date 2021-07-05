@@ -1,7 +1,7 @@
 = Process Expressions and scripts
 :description: Learn how to define Expressions and script in Bonita Studio that will be executed in your processes.
 
-Learn how to define Expressions and script in Bonita Studio that will be executed in your processes.
+Learn how to define Expressions and script in Bonita Studio that will be executed in your *processes*.
 
 Expressions and scripts are used in Bonita Studio for many purposes, including setting the initial or default value of a variable.
 An expression is a simple statement; a script is a sequence of expressions, and has a program-like structure.
@@ -9,6 +9,13 @@ An expression is a simple statement; a script is a sequence of expressions, and 
 This page explains the features of Bonita Studio that enable you to use expressions and scripts.
 
 Note that the expression editor cannot be used in the UI Designer, which has a different concept model for xref:variables.adoc[data].
+
+[WARNING]
+====
+Groovy scripts are meant to be used in **processes only**, do not use them in custom connectors or filters !
+
+Custom connectors and filters should be considered as standalone/side projects and should preferably be created via xref:actor-filter-archetype.adoc[Bonita filter archetype] and xref:connector-archetype.adoc[Bonita connector archetype]
+====
 
 == Expression types
 
