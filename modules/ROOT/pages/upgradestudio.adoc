@@ -22,3 +22,8 @@ How to upgrade your existing Studio to a newer version.
 Maintenance versions are cross-compatible, meaning that it is not required that your Studio version matches the target runtime version.
 
 For example, your production runtime can be in 2021.1-0408 and your Studio in 2021.1-0218
+
+== Upgrading your project to the project composition
+
+Version 2021.2 introduces major changes to the way the Studio manages project. When importing or cloning your project in this version or any later version
+
