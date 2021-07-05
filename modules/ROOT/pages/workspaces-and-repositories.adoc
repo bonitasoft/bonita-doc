@@ -3,12 +3,6 @@
 
 Organize and share your Bonita project using workspaces and projects in order to ease developers team collaboration.
 
-[NOTE]
-====
-
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
-Community Edition only support a single workspace with a single project. To use Git with Community Edition refer to the xref:git-versioning-community-edition.adoc[dedicated tutorial].
-====
 
 == Workspaces and projects
 
