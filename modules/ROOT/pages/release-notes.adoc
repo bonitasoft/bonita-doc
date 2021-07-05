@@ -239,16 +239,16 @@ Use BPMN 2 importer for model exchange with third-party editors.
 
 ==== Fixes in Bonita Development Suite (Studio and UI Designer)
 
-* UID-453	- ResponsivenessHelp in editor help is not displayed
+* UID-453	- Responsiveness: Help in editor help is not displayed
 * UID-369	- Property type changes of target widgets are not mapped when using Switch feature
-* UID-165	- When modifying & save an asset, if you press SUPR, the selected widget is removed
+* UID-165	- When modifying and saving an asset, pressing SUPPR removes the selected widget
 
 
 ==== Fixes in Bonita Runtime (including Portal)
 
 * RUNTIME-326	- Docker logs should not contain sensitive informations
 
-==== Library upgrade
+==== Library updates
 
 * Spring framework: `5.2.9.RELEASE` -> `5.2.15.RELEASE`
 * Spring boot: `2.3.4.RELEASE` -> `2.3.12.RELEASE`
@@ -258,7 +258,10 @@ Use BPMN 2 importer for model exchange with third-party editors.
 * Ehcache: `2.10.6` -> `2.10.9.2`
 * javax.servlet-api: `3.0.1` -> `3.1.0`
 * org.apache.taglibs: `1.1.2` -> `1.2.5`
-* Removed: Xmlbeans
+
+==== Library removal
+
+* Xmlbeans
 
 ==== LDAP synchronizer Docker image
 
