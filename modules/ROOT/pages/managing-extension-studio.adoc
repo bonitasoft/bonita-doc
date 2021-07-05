@@ -43,7 +43,7 @@ Removing an element might lead to errors if the element is used in the project. 
 ====
 
 == Updating an extension
-Extensions coming from the Bonita Market place can automatically be upgraded to their latest version. All you need to do is click on "Update to latest version". This button is displayed only if an update is available.
+Extensions coming from the Bonita Market place can automatically be updated to their latest version. All you need to do is click on "Update to latest version". This button is displayed only if an update is available.
 
 Other extensions can be updated manually with the "Update" button. This button is always displayed and can also be used to downgrade an extension. Depending on the change, you may have to manually update your project consequently.
 
