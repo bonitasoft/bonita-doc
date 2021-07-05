@@ -246,7 +246,7 @@ Use BPMN 2 importer for model exchange with third-party editors.
 
 ==== Fixes in Bonita Runtime (including Portal)
 
-* RUNTIME-326	- Docker logs should not contain sensitive informations
+* RUNTIME-326	- Reduce information in Docker start logs 
 
 ==== Library updates
 
