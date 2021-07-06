@@ -142,6 +142,14 @@ This file defines the LDAP connection settings and specifies the account used fo
 | type of the user object ("user" for an Active Directory, "person" for an LDAP)
 | person
 
+| use_paged_search
+| activate search pagination (Not supported by all LDAP servers)
+| false
+
+| page_size
+| number of results in ldap search pages (Not supported by all LDAP servers)
+| 1000
+
 | enforce_ssl
 | force the connection between ldap client and server to use ssl
 | false
@@ -571,7 +579,7 @@ The LDAP synchronizer will fail if this profile is not defined.
 *Configuration:* To configure the LDAP synchronizer for using encrypted connection ( TLS ) :
 
 * Configure the LDAP synchronizer  by editing `ldap.properties` configuration file, as described above
- ** host_url= ldaps://`ldapServerHostname:ldapsServerPort` ( most common `ldapsServerPort` is 636  ) 
+ ** host_url= ldaps://`ldapServerHostname:ldapsServerPort` ( most common `ldapsServerPort` is 636  )
  ** enforce_ssl = `true`  +
    By default, the LDAP synchronizer uses the `default java trust Store`, but it is possible to use a custom one, by configuring the properties :
  ** truststore_path= `locationOfCustomTruststore`
