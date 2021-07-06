@@ -28,7 +28,7 @@ Please note this procedure cannot be performed using the Bonita Studio. The Boni
 To use Bonita on another RDBMS, please use a xref:tomcat-bundle.adoc[bundle] or set up a xref:custom-deployment.adoc[standalone server].
 ====
 
-Here are the steps to follow. They are the same for the engine database and the business data database:
+Here are the steps to follow. They are the same for the Bonita Engine database and the business data database:
 
 . Create the database
 . Customize RDBMS to make it work with Bonita
@@ -57,22 +57,17 @@ WARNING: Bonita 7.10.+ is compatible with Oracle 12.2.0.x and Oracle 19c (19.3.0
 
 === Create the database(s)
 
-The first step in configuring Bonita with your RDBMS is to create the new databases (i.e. schemas): one for engine data, and another one, optionally, if you use business data.
+The first step in configuring Bonita with your RDBMS is to create the new databases (i.e. schemas): one for the Bonita Engine data, and another one, optionally, if you use business data.
 
-To do so, you need a RDBMS user account that has sufficient privileges (i.e. privileges to create new schema).
+WARNING: If you use different RDBMS users for the Bonita Engine database and for the business data database, then you must *grant the privileges to both users*.
 
-Also, note that the owner of the new schemas must own the following privileges:
+To create each Bonita Engine and business data database, you need a RDBMS user account that has sufficient privileges (i.e. privileges to create each new schemas).
+
+Next, the RDBMS user owner of each new schema (i.e. Bonita Engine data *and* business data) must own the following privileges:
 
 * CREATE TABLE
 * CREATE INDEX
 * SELECT, INSERT, UPDATE, DELETE on created TABLE
-
-[NOTE]
-====
-
-CREATE TABLE and CREATE INDEX privileges are not required after first start in normal use. +
-If the same SQL user is used with the xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[migration tool], then this user needs such grants.
-====
 
 To create the database(s), we recommend that you refer to your RDBMS documentation:
 
@@ -87,8 +82,8 @@ Also, you are recommended to configure the database(s) to be case-insensitive so
 
 [#specific_database_configuration]
 
-NOTE: Bonita is not attached to a specific database user. Therefore, the database user that bonita uses to connect to the database can be changed after the platform creation, provided the new user has the required access rights.
-The same goes for the user used to connect to the business data database, if it is different.
+NOTE: Bonita is not attached to a specific RDBMS user. Therefore, the RDBMS user that bonita uses to connect to the database can be changed after the platform creation, provided the new user has the required access rights.
+The same goes for the RDBMS user used to connect to the business data database, if it is different.
 
 === Customize RDBMS to make it work with Bonita
 
@@ -171,9 +166,17 @@ select comp_name, version, status from dba_registry;
  sql
  @"$ORACLE_HOME/rdbms/admin/xaview.sql"
 ----
++
+This only needs to be done once, after the installation of Oracle.
 
 . Create the database user to be used by the Bonita Engine and grant the required rights:
-The following queries must be done for each new user: i.e. one user = one database schema.
++
+The following queries must be done for each new RDBMS user: i.e. one user = one database schema.
++
+WARNING: The queries must be done for *both* the Bonita Engine *and* the business data RDBMS users. +
+For example, if the users for the Bonita Engine and business data databases are `bonita` and `business_data` respectively (the actual values correspond to the ones set in the properties `db.user` and the `bdm.db.user` defined in the `<TOMCAT_HOME>/setup/database.properties`), you need to run the queries for both users.
++
+*For the Bonita Engine database RDBMS user (e.g. _bonita_):*
 +
 SQL query >
 +
@@ -188,6 +191,26 @@ GRANT execute ON sys.dbms_system TO bonita;
 GRANT execute ON sys.dbms_xa TO bonita;
 GRANT FORCE ANY TRANSACTION TO bonita;
 ALTER USER bonita quota unlimited on users;
+----
++
+*For the business data database RDBMS user (e.g. _business_data_):*
++
+Note that the business data database RDBMS user (the one defined in `bdm.db.user`) requires one additional privilege: CREATE SEQUENCE
++
+SQL query >
++
+[source,sql]
+----
+CREATE USER business_data IDENTIFIED BY business_data;
+GRANT connect, resource TO business_data IDENTIFIED BY business_data;
+GRANT create sequence TO business_data;
+GRANT select ON sys.dba_pending_transactions TO business_data;
+GRANT select ON sys.pending_trans$ TO business_data;
+GRANT select ON sys.dba_2pc_pending TO bonitbusiness_dataa;
+GRANT execute ON sys.dbms_system TO business_data;
+GRANT execute ON sys.dbms_xa TO business_data;
+GRANT FORCE ANY TRANSACTION TO business_data;
+ALTER USER business_data quota unlimited on users;
 ----
 
 ==== Microsoft SQL Server
@@ -272,7 +295,7 @@ See https://msdn.microsoft.com/en-us/library/ms179586%28v%3Dsql.110%29.aspx[in-d
 
 ===== XA Transactions
 
-To support XA transactions, starting from MySQL 8.0, special XA rights must be granted to the database user. For example, if the users for the Bonita BPM and BDM databases are `bonita` and `business_data` respectively, you should run the following command:
+To support XA transactions, starting from MySQL 8.0, special XA rights must be granted to the RDBMS user. For example, if the RDBMS users for the Bonita Engine and business data databases are `bonita` and `business_data` respectively, you should run the following command:
 
 [source,sql]
 ----
@@ -284,7 +307,7 @@ FLUSH PRIVILEGES;
 [WARNING]
 ====
 
-Please note that the above command, by specifying *`*.*`*, is granting privileges for all databases. You may want to limit them to the Bonita BPM and BDM databases if there are additional databases in your MySQL server.
+Please note that the above command, by specifying *`*.*`*, is granting privileges for all databases. You may want to limit them to the Bonita Engine and business data databases if there are additional databases in your MySQL server.
 ====
 
 Refer to the https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html[Privileges section] in the official MySQL documentation for further information.
