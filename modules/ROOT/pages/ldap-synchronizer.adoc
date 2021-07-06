@@ -159,7 +159,7 @@ docker run  -e BONITA_URL=http://192.168.0.10:8080 -v $(pwd)/bonita-ldap-synchro
 
 All logs are produce on console output.
 
-=== Install LDAP Synchronizer from Bonita Bundle
+== Using the LDAP synchronizer from the Bonita bundle
 
 To install the synchronizer, unzip the Tomcat bundle and configure the files located under the tools/BonitaSubscriptionLDAPSynchronizer/conf directory.
 This directory contains a sample configuration in the `conf/default` subfolder which is used to perform LDAP synchronization
@@ -583,7 +583,7 @@ group2.ldap_group_dn  =  cn=group2,ou=groups,dc=bonita,dc=com
 group2.force_add_non_existing_users  =  false
 ----
 
-== Synchronize a list of groups retrieved using a LDAP search
+=== Synchronize a list of groups retrieved using a LDAP search
 
 In combination or as an alternative, groups can be declared using the result of an LDAP search that is defined in the configuration file with the following properties :
 
