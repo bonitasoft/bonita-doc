@@ -38,7 +38,7 @@ Bonita LDAP Synchronizer can be installed in two ways:
 The installation of the LDAP Synchronizer can be done two different ways :
 
 * <<deploy-from-bundle, Install LDAP Synchronizer from Bonita Bundle>>
-* xref:docker-ldap-synchronizer.adoc[Deploy LDAP Synchronizer with Docker] ( available since bonita *2021.1-0702*)
+* <<deploy-with-docker,Deploy LDAP Synchronizer with Docker>> ( available since bonita *2021.1-0702*)
 
 
 [[deploy-from-bundle]]
@@ -250,27 +250,13 @@ The following items are configured by default:
 
 |===
 | Item | Default
-
-| user_name
-| uid
-
-| last_name
-| sn
-
-| title
-| title
-
-| pro_email
-| mail
-
-| pro_phone
-| telephoneNumber
-
-| pro_mobile
-| mobile
-
-| perso_phone
-| homePhone
+| user_name| uid
+| last_name| sn
+| title| title
+| pro_email| mail
+| pro_phone| telephoneNumber
+| pro_mobile| mobile
+| perso_phone| homePhone
 |===
 
 *Custom User Information*
@@ -360,14 +346,8 @@ A 'Custom User Information' not declared in mapper.properties will not be modifi
 
 |===
 | LDAP object | LDAP property | Synchronization
-
-| WalterBates
-| _ldapBadgeIdentification_== 'walterSid'
-| (Synchronized) _badgeId_=='walterSid'
-
-| HelenKelly
-| no property _ldapBadgeIdentification_ defined
-| (No synchronization)
+| WalterBates| _ldapBadgeIdentification_== 'walterSid'| (Synchronized) _badgeId_=='walterSid'
+| HelenKelly| no property _ldapBadgeIdentification_ defined| (No synchronization)
 |===
 
 * *scope*:
@@ -382,14 +362,8 @@ Same as partial, plus if the Ldap Object doesn't have a property, it will be set
 
 |===
 | LDAP object | LDAP property | Synchronization
-
-| WalterBates
-| _ldapBadgeIdentification_== 'walterSid'
-| (Synchronized) _badgeId_=='walterSid'
-
-| HelenKelly
-| no property _ldapBadgeIdentification_ defined
-| (Set to null) _badgeId_==null
+| WalterBates| _ldapBadgeIdentification_== 'walterSid'| (Synchronized) _badgeId_=='walterSid'
+| HelenKelly| no property _ldapBadgeIdentification_ defined| (Set to null) _badgeId_==null
 |===
 
 * *full*:
@@ -403,15 +377,8 @@ Synchronize all 'Custom User Information'. If a 'Custom User Information' is not
 
 |===
 | LDAP object | LDAP property | Synchronization
-
-| WalterBates
-| _ldapBadgeIdentification_== 'walterSid'
-| (Synchronized) _badgeId_=='walterSid' +
-_room_==null
-
-| null
-|
-|
+| WalterBates| _ldapBadgeIdentification_== 'walterSid' | (Synchronized) _badgeId_=='walterSid' +_room_==null
+| null||
 |===
 
 ==== LDAP Watched directory object properties syntax
@@ -423,13 +390,8 @@ This id provides access to the object properties with this syntax: object_id.pro
 Here are the available object properties:
 
 |===
-|  |
-
-| ldap_search_dn
-| DN of the LDAP watched directory that will be used to get the list of the LDAP users.
-
-| ldap_search_filter
-| LDAP user search filter (mandatory attribute, but can be a wide filter such as "cn=*").
+| ldap_search_dn| DN of the LDAP watched directory that will be used to get the list of the LDAP users.
+| ldap_search_filter| LDAP user search filter (mandatory attribute, but can be a wide filter such as "cn=*").
 |===
 
 Example of a watched directory declaration:
@@ -482,16 +444,9 @@ Groups will be synchronized based on the matching of their LDAP common name (CN)
 Groups can be declared individually in the configuration file with the following properties :
 
 |===
-|  |
-
-| ldap_group_dn
-| mandatory attribute that specifies the DN of the LDAP group.
-
-| forced_bonita_group_name
-| optional attribute that renames the Bonita group instead of using the original LDAP group name.
-
-| force_add_non_existing_users
-| optional Boolean attribute (true by default) that defines whether group members (users in LDAP) that are not present in Bonita should be imported (created in Bonita). If false, these users are not created but group is created and existing users get associated with the group.
+| ldap_group_dn| mandatory attribute that specifies the DN of the LDAP group.
+| forced_bonita_group_name| optional attribute that renames the Bonita group instead of using the original LDAP group name.
+| force_add_non_existing_users| optional Boolean attribute (true by default) that defines whether group members (users in LDAP) that are not present in Bonita should be imported (created in Bonita). If false, these users are not created but group is created and existing users get associated with the group.
 |===
 
 Example of group declarations:
@@ -515,11 +470,12 @@ group2.force_add_non_existing_users  =  false
 
 In combination or as an alternative, groups can be declared using the result of an LDAP search that is defined in the configuration file with the following properties :
 
-|                              |                                                                                                                                                                        |
-| :------------------ | :-------------------------------------------------------------------------------------------------------------- |
-| ldap_group_search_dn         | DN of the LDAP watched directory that will be used to get the list of the LDAP groups.                                                                                 |
-| ldap_group_search_filter     | LDAP group search filter (mandatory attribute, but can be a wide filter such as "cn=*").                                                                              |
+|===
+| ldap_group_search_dn| DN of the LDAP watched directory that will be used to get the list of the LDAP groups.                                                                                 |
+| ldap_group_search_filter| LDAP group search filter (mandatory attribute, but can be a wide filter such as "cn=*").                                                                              |
 | force_add_non_existing_users | optional Boolean attribute (true by default) that defines whether group members (users in LDAP) that are not present in Bonita should be imported (created in Bonita). If false, these users are not created but group is created and existing users get associated with the group. |
+|===
+
 Example of group searches:
 
 [source,properties]
@@ -594,3 +550,113 @@ In the following cases:
 * when the server certificate is auto-signed (use of custom root certification) you might configure :
  ** the `public certificate` should be imported into the default java or custom trust Store.
  ** the endpoint authentication might be disabled `disable_endpoint_authentication=true`
+
+[[deploy-with-docker]]
+=== Deploy LDAP Synchronizer with Docker
+
+:description: How to install and use the LDAP Synchronizer docker  distribution.
+
+How to install and use the LDAP Synchronizer docker distribution.
+
+This guide assumes you have a working docker environment.
+
+=== Configuration
+
+==== Environment Variables
+
+All general connection settings( `bonita.properties`, `ldap.properties`
+and `log.properties`) are configurable with environment properties.
+
+Specific configuration available on `mapper.properties` and `sync.properties` could configurable with a copy of files in directory link by volume `/opt/conf/user-config`.
+
+Those files could be copied directly from ldap-syncrhonizer docker image with command to directory link to volume `/opt/conf/user-config` with  :
+
+[source,bash,subs="verbatim,quotes"]
+----
+docker cp $(docker create --rm quay.io/bonitasoft/bonita-ldap-synchronizer:*version*):/conf/default/*conFileName*.properties *directory_link_to_volume*
+----
+
+*e.g* : Overwrite the  `sync.properties` file
+* create directory link to the volume
+----
+mkdir user-config
+----
+* copy the file from the base image using the command :
+----
+docker cp $(docker create --rm quay.io/bonitasoft/bonita-ldap-synchronizer:*version*):/conf/default/sync.properties ./user-config/
+----
+* edit the file
+* start the docker image with the volume docker run [...] -v $(pwd)/user-config:/opt/conf/user-config [..]
+
+
+xref:ldap-synchronizer.adoc#ldap-configuration-files[here] more details about configuration files.
+
+*WARN:* `bonita.properties`, `ldap.properties` and `log.properties`  files located on volume will overwrite all configuration specified with environment variables.
+
+===== Bonita connection settings
+
+[width="100%",cols="34%,33%,33%",options="header",]
+|===
+|Name |Default |Description
+|`BONITA_URL` |http://localhost:8080 |Url to connect to the server
+|`BONITA_APP_NAME` |bonita |Application name
+|`BONITA_LOGIN` |install |Username of the Bonita account used for
+synchronization.
+|`BONITA_PASSWORD` |install |Password of the Bonita account used for
+synchronization.
+|`BONITA_PLATFORM_LOGIN` |platformAdmin |This is the username of the
+platform adminstrator.
+|`BONITA_PLATFORM_PASSWORD` |platform |This is the password of the
+platform adminstrator.
+|===
+
+==== Ldap connection settings
+
+[width="100%",cols="34%,33%,33%",options="header",]
+|===
+|Name |Default |Description
+|`LDAP_HOST_URL` |ldap://localhost:389/ |Host name and port of the LDAP
+server.
+|`LDAP_AUTH_TYPE` |simple |LDAP authentication type (supported values:
+none, simple or strong)
+|`LDAP_PRINCIPAL_DN` |cn=Directory Manager |distinguished name (DN) of
+the user account used for browsing through the LDAP users
+|`LDAP_PRINCIPAL_PASSWORD` |root |password of the LDAP browser account
+|`LDAP_ENFORCE_SSL` |false |force the connection between ldap client and
+server to use ssl
+|`LDAP_DIRECTORY_USER_TYPE` |person |type of the user object (``user''
+for an Active Directory, ``person'' for an LDAP)
+|`LDAP_USE_PAGE_SEARCH` |false |*Not supported by all LDAP servers* :
+Paged search to true to activate page pagination
+|`LDAP_PAGE_SIZE` |1000 |Number page result by search query
+|===
+
+==== LOGGER CONFIGURATION
+
+[width="100%",cols="34%,33%,33%",options="header",]
+|===
+|Name |Default |Description
+|`LOG_DATE_PREFIX` |yyyy-MM-dd |date format used for prefixing the log
+file name ( see
+https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/text/SimpleDateFormat.html[SimpleDateFormat]
+|`LOG_LEVEL` |INFO |level of reporting of the logger (relevant values
+are INFO for production use, FINE for debug use)
+|===
+
+=== Run
+[source,bash,subs="verbatim,quotes"]
+----
+docker run -v *CONF-DIR-PATH*:/opt/conf/user-config quay.io/bonitasoft/bonita-ldap-synchronizer
+----
+
+* *CONF-DIR-PATH* could contain all properties
+
+*eg :*
+[source,bash]
+----
+docker run  -e BONITA_URL=http://192.168.0.10:8080 -v $(pwd)/bonita-ldap-synchronizer/conf:/opt/conf/user-config  quay.io/bonitasoft/bonita-ldap-synchronizer
+----
+
+=== LOG
+
+All logs are produce on console output.
