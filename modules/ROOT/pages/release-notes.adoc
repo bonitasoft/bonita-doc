@@ -139,6 +139,21 @@ bonita.tenant.connector.warnWhenLongerThanMillis
 
 More information xref:performance-tuning.adoc[here]
 
+==== BDM Id generation
+In Bonita 7.11.0, we changed the way ID's are generated when you deploy a Business Data Model or redeploy a new one. +
+Previously, the strategy to generate table ID's of BDM objects was left to Hibernate to decide. It could be a database SEQUENCE, an auto-incremented column, ... +
+Now, the specific implementation is explicitly set on each ID column during the BDM class generation. It is however different
+from one Database vendor to another (a database SEQUENCE for Oracle and PostgreSQL, an auto-incremented column for MySQL and MS SQL Server). +
+Note that no change is required from you, and upgrading to Bonita 2021.1 does not affect your already generated BDM until you actually redeploy it (next time you update it).
+
+==== BDM Foreign key generation
+In Bonita 7.11, the automatic name generation for foreign keys changes. It does not affect new BDM deployments, or already deployed BDMs. +
+However, because of a bug (HHH-13779 in the underlying Hibernate library), redeploying a BDM causes those foreign keys to be generated a second time.
+On Oracle, it is forbidden to generate such duplicated foreign keys, so the BDM redeployment operation fails. This is fixed in 7.11.6. +
+On other supported Database vendors, the resulting schema in the database will have some duplicated foreign keys: foreign keys with a different name, but otherwise identical. +
+Note: it will never generate more than two identical foreign keys, even after several BDM redeployment.
+This has no effect on the behavior of either the Bonita platform, or the BDM. That said, you may wish to xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc#fk_troubleshoot[clean your BDM database of these duplicated foreign keys].
+
 == Bundle changes
 
 === Technical updates
@@ -152,7 +167,7 @@ The Oracle jdbc driver does not need to be downloaded separately anymore and is 
 
 === Tomcat Manager removal
 
-* the Tomcat Manager is no more provided
+* the Tomcat Manager webapp is no more provided
 * the bundle is not intended to be used to deploy extra webapps
 * alternatives exist to deploy extra webapps if still needed
 

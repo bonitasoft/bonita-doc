@@ -552,7 +552,7 @@ _Cause_: Bug in the pause/resume of tenant services, fixed in 7.12.1 version.
 This issue happens because the xref:pause-and-resume-bpm-services.adoc[BPM services] were paused before the migration was performed.
 
 _Solution_: If the BPM services were paused before migrating or had to be paused for whatever reason, then to resolve this,
-you need to execute the following database requests after the migration completes and before you restart your Bonita platform:
+you need to execute the following database requests after the migration completes, and before you restart your Bonita platform:
 
 [source,sql]
 ----
@@ -561,3 +561,74 @@ UPDATE QRTZ_TRIGGERS SET TRIGGER_STATE = 'WAITING' WHERE TRIGGER_STATE = 'PAUSED
 ----
 
 After this operation, the table QRTZ_PAUSED_TRIGGER_GRPS should be empty, and all the triggers in the QRTZ_TRIGGERS table should be in state _waiting_, and not _paused_.
+
+[#fk_troubleshoot]
+=== Some foreign keys are duplicated
+
+[NOTE]
+====
+This issue is fixed in Bonita 7.11.6, without any action required from the user.
+====
+
+_Symptom_: After migrating to a Bonita version between 7.11.0 and 7.11.5, after re-installing/updating the BDM, some foreign key constraints are effectively duplicated: there are foreign keys that refer to the same columns and tables, but with a different name.
+
+_Cause_: A bug was introduced in Bonita 7.11.0 by upgrading an external library, Hibernate from version 4 to 5. This new version introduces xref:https://hibernate.atlassian.net/browse/HHH-13779[a known bug].
+
+_Solution_: Doing nothing is an option, as there is no change in product behaviour. If you wish to clean your BDM database, follow the procedure below:
+
+
+1. Stop your bonita server
+
+2. Open the db in an edition tool (or execute in command line the relevant commands):
+
+First, select all the foreign keys on a table of *your BDM objects*:
+
+==== MySQL
+[source,sql]
+----
+SELECT
+TABLE_NAME,COLUMN_NAME,CONSTRAINT_NAME, REFERENCED_TABLE_NAME,REFERENCED_COLUMN_NAME
+FROM
+INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+WHERE
+REFERENCED_TABLE_SCHEMA = '<your_business_data_db_name>' AND
+REFERENCED_TABLE_NAME = '<your_table_name>';
+----
+
+==== MS SQL Server
+
+[source,sql]
+----
+select
+name [foreign key constraint name],
+OBJECT_NAME(parent_object_id) [created table],
+OBJECT_NAME(referenced_object_id) [referenced table]
+from sys.foreign_keys
+where
+parent_object_id = OBJECT_ID('<your_table_name>') OR
+referenced_object_id = OBJECT_ID('<your_table_name>')
+----
+
+==== PostgreSQL
+
+[source,sql]
+----
+SELECT conname,
+pg_catalog.pg_get_constraintdef(r.oid, true) as condef
+FROM pg_catalog.pg_constraint r
+WHERE r.conrelid = '<your_table_name>'::regclass AND r.contype = 'f' ORDER BY 1
+----
+
+1. These requests will give you all the foreign keys on a table.
+Among these, search for duplicated ones: the duplicated foreign keys should have the following names: `*FK_*<hash>` & `*FK*<another_hash>`. The two different names should be for keys referencing the same columns on the same table.
+Delete the one named: `*FK_*<hash>`.
+
+2. Repeat for all the tables of your BDM database.
+
+3. Start your bonita server
+
+[NOTE]
+====
+Guidance is not provided for Oracle, as the situation is impossible. Oracle prevents the creation of 2 identical foreign keys with different names. +
+Instead, the BDM redeployment will fail after migration. Migrating to Bonita 7.11.6 or higher fixes the issue.
+====
