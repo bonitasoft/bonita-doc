@@ -11,7 +11,7 @@ This guide assumes you have a working docker environment.
 === Environment Variables
 
 All general connection settings( `bonita.properties`, `ldap.properties`
-and `log.properties`) are configurable with environment properties.
+and `loggger.properties`) are configurable with environment properties.
 
 Specific configuration available on `mapper.properties` and `sync.properties` could configurable with a copy of files in directory link by volume `/opt/conf/user-config`.
 
