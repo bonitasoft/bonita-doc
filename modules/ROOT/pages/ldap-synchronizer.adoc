@@ -35,10 +35,7 @@ The tool supports LDAP groups of the following classes (all of the verifications
 
 Bonita LDAP Synchronizer can be installed in two ways:
 
-
-
-The installation of `ldap synchronization` could be done with two different :
-
+The installation of the LDAP Synchronizer can be done two different ways :
 
 * <<deploy-from-bundle, Install LDAP Synchronizer from Bonita Bundle>>
 * xref:docker-ldap-synchronizer.adoc[Deploy LDAP Synchronizer with Docker] ( available since bonita *2021.1-0702*)
