@@ -39,7 +39,7 @@ You can also remove the other dependencies (at your own risk).
 
 *_Project cloning_*
 
-If your project is cloned through GIT, there isn't an extra step in the wizard. The migration is applied to the default branch or the branch selected in the GIT clone wizard.
+If your project is cloned through GIT, there isn't an extra step in the wizard. The migration is automatically applied to the checkouted branch. A `MIGRATION_NOTES.adoc` file is generated at the root of the project to details the major changes occuring at migration. It is up to you to keep it in the project or not (later migrations will be append to this file if it exists.)
 
 The dependencies are also analyzed by the Studio but the result of the analysis is directly applied to your project.
 The Studio is going to scan your project dependencies and try to find them on the configured Maven repositories (by default Maven Central is configured).
