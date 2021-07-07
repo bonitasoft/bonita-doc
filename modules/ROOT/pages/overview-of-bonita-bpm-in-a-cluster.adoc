@@ -83,7 +83,7 @@ Even if your process users do not use Bonita Portal, it is still present in the 
 
 The nodes must all be in the same datacenter, to keep latency of updates to shared information to an acceptable level.
 
-All nodes must run the same software configuration (same versions on Bonita and application server).
+All nodes must run the same exact version of the Bonita Runtime. e.g. a `7.11.2` will not be able to connect to a cluster of Bonita Runtime in `7.11.1`. 
 
 The xref:install-a-bonita-bpm-cluster.adoc#disable-hibernate-cache[Hibernate cache must be disabled].
 
@@ -115,3 +115,22 @@ There are some drawbacks to the basic Bonita in a cluster configuration, but the
 * Only active-active modes is supported. There is no mechanism for starting a new node if a cluster node goes out of service. This could be provided by a third-party application.
 * There is no integrated load balancer, so the client application selects the node on which to make a API call. You should use an external load balancer. For high volume, a hardware load balancer is recommended.
 * All the nodes must use the same database, so the database itself must be highly available.
+
+=== Upgrading the version of the Bonita Runtime in cluster
+
+[WARNING]
+====
+
+All nodes of the cluster must use the *exact* same version. It will not be possible to start a node on an existing cluster having a different version.
+====
+
+Since all nodes must use the exact same version of the Bonita Runtime, the cluster must be shut down entirely to be able to change the version.
+
+When only upgrade to a maintenance version of the same release you will not need to migrate the database but only upgrade the bundle or docker container:
+
+* Configure new bundles or docker container with the newer maintenance version
+* Stop all nodes having the previous version
+* Start nodes with the newer version one by one
+
+
+When migration to a different release of the Bonita Runtime, the database also needs to be migrated. See xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc#migrateCluster[here]

@@ -161,11 +161,9 @@
    **** xref:overview-of-bonita-bpm-in-a-cluster.adoc[Overview of Bonita in a cluster]
    **** xref:install-a-bonita-bpm-cluster.adoc[Install a Bonita cluster]
   *** xref:multi-tenancy-and-tenant-configuration.adoc[Multi-tenancy and tenant configuration]
- ** xref:embed-engine.adoc[Embed engine - Lab]
- ** Platform installation examples
-  *** xref:ubuntu-openjdk-tomcat-postgresql.adoc[Ubuntu + OpenJDK + Tomcat + PostgreSQL]
   *** xref:bonita-as-windows-service.adoc[Install Tomcat with Bonita as a service in Windows]
  ** xref:product-versioning.adoc[Bonita Versions]
+ ** xref:embed-engine.adoc[Embed engine - Lab]
  ** xref:upgrade-from-community-to-a-subscription-edition.adoc[Community to Subscription upgrade]
 * Bonita User Interfaces in Production
  ** xref:bonita-bpm-portal-interface-overview.adoc[Overview]
