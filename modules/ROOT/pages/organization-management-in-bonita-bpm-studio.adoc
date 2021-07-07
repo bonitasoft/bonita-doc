@@ -17,18 +17,16 @@ You can also use this sample organization to test a process that you develop.
 
 You must load an organization into Bonita Engine before running a process. There are two ways to do this:
 
-* Create the organization in Bonita Studio, export it, and then import it into Bonita Portal.
+* Create the organization in Bonita Studio, export it, and then import it into Bonita Adminstration Application.
 * If you have a Subscription edition, use the xref:ldap-synchronizer.adoc[LDAP synchronizer] to automatically load information from your LDAP directory into Bonita Engine.
 
 To specify an organization manually, you create the organization, create the group hierarchy, specify roles, and then add users and their memberships.
 
 . Start Bonita Studio.
-. Go to the Organization menu and select *Manage....*
-. Add a new organization:
- ** Click *_Add_*. A line will be added to the table of organizations, with a placeholder name such as Organization1.
+. Click on the *_New_* button in the cool bar and select *_Organization_*
+ ** A new organization will be created with a placeholder name such as Organization1.
  ** Change the placeholder name to the name of your organization, and add a description.
-. Add groups to your organization:
- ** Select the name of your organization and click *_Next_*.
+. Go to the *_Group_* tab to add groups to your organization:
  ** Click *_Add_* to add a group. You can specify the following:
   *** the group Name, which is used internally by the Bonita software.
 
@@ -68,7 +66,7 @@ To prepare your production system (unless you are using the LDAP synchronizer), 
 
 == Modifying an organization
 
-To modify an organization, choose *Manage...* from the Organization menu and use the same dialogs that you used to create the organization. +
+To modify an organization, double click on it in the project explorer +
 To modify an item in an organization, select it in the item list and modify the information on the right-hand side of the list. +
 To delete an item, select and it click *_Remove_*.
 
