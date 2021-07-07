@@ -20,18 +20,16 @@ Bonita projects will use the power Maven projects. Meaning that you will be able
 
 All these extensions, which are technical components, have to be built outside the Studio with our SDK. This will allow the developer to use their preferred tooling. It will also help the industrialization of your project as you will be able to implement tests for each extension making your project more robust.
 
-As the extensions are developed outside the Studio, they are no longer bound to a specific Bonita project. They can be easily re-use in a different project - thus improving your efficiency.
+As the extensions are developed outside the Studio, they are no longer bound to a specific Bonita project. They can be easily re-used in a different project - thus improving your efficiency. xref:project-structure.adoc[More information on how Bonita project are structured].
 
-The Studio is stripped of its major coding editor (except for the REST API Extensions) but has now a dedicated view for extensions. This view is used to get extensions from a different source: 
+The Studio is stripped of its major coding editor (except for the REST API Extensions) but has now a xref:managing-extension-studio.adoc[dedicated view for extensions]. This view is used to get extensions from different sources: 
 * From the Bonita marketplace, which contains all the actor filters and connectors made and maintain by Bonitasoft
 * From maven repository (private or public)
 * From files (jar or zip)
 
 The Studio is more accessible to citizen developers. Any technical development should be made outside the Studio.
 
-As connectors are now extensions of a project, their version is now bound to the Studio version, therefore you don’t need to upgrade your Studio to upgrade a connector or to upgrade your connector when upgrading your Studio.
-
-This will simplify version upgrades.
+As connectors are now extensions of a project, their version is now bound to the Studio version, therefore you don’t need to upgrade your Studio to upgrade a connector or to upgrade your connector when upgrading your Studio. This will simplify version upgrades.
 
 Finally, your sources will be lighter as the dependencies will be pulled by the project.
 
