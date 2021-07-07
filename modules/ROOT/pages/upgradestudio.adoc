@@ -31,7 +31,7 @@ Version 2021.2 introduces major changes to the way the Studio manages projects. 
 
 In the BOS import wizard, an additional step has been added. The Studio is going to scan your project dependencies and try to find them on the configured Maven repositories (by default Maven Central is configured).
 
-If the dependencies are found then they will be used as remote dependencies (not committed in your project) otherwise they will be added to the project local repository store and will be committed to your project. 
+If the dependencies are found then they will be used as remote dependencies (not copied in your project) otherwise they will be copied in the project and will be committed with your project sources. 
 
 In both cases, dependencies that are in the project but are not used will be added in the upgraded project unless you add them manually (by ticking the corresponding checkboxes).
 
