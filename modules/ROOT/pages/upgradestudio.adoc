@@ -52,6 +52,9 @@ You replace the local repository dependencies with remote dependencies (if they 
 
 === Impact Extension creation
 
+[CAUTION]
+====
 From 2021.2, it will no longer be possible to create connectors, actor filters, and themes from the Studio. You will have to use the corresponding xref:software-extensibility.doc[Maven archetypes].
+====
 
 If your project already has actor filters, connectors, or themes, you will still be able to edit them from the Studio. However, we recommend migrating them to standalone dependencies.
