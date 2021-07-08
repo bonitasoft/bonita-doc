@@ -17,26 +17,18 @@ You can also use this sample organization to test a process that you develop.
 
 You must load an organization into Bonita Engine before running a process. There are two ways to do this:
 
-* Create the organization in Bonita Studio, export it, and then import it into Bonita Portal.
+* Create the organization in Bonita Studio, export it, and then import it into Bonita Adminstration Application.
 * If you have a Subscription edition, use the xref:ldap-synchronizer.adoc[LDAP synchronizer] to automatically load information from your LDAP directory into Bonita Engine.
 
 To specify an organization manually, you create the organization, create the group hierarchy, specify roles, and then add users and their memberships.
 
 . Start Bonita Studio.
-. Go to the Organization menu and select *Manage....*
-. Add a new organization:
- ** Click *_Add_*. A line will be added to the table of organizations, with a placeholder name such as Organization1.
+. Click on the *_New_* button in the cool bar and select *_Organization_*
+ ** A new organization will be created with a placeholder name such as Organization1.
  ** Change the placeholder name to the name of your organization, and add a description.
-. Add groups to your organization:
- ** Select the name of your organization and click *_Next_*.
+. Go to the *_Group_* tab to add groups to your organization:
  ** Click *_Add_* to add a group. You can specify the following:
-  *** the group Name, which is used internally by the Bonita software.
-
-[WARNING]
-====
-
-*NB:* Bonita doesn't support the '/' character in the group name field. A group name that contains a '/' may lead to unstable behaviour and may be forbidden in the future.
-====
+  *** the group Name, which is used internally by the Bonita software (*NB:* Bonita doesn't support the '/' character in the group name field)
   *** the Display name, which is the name displayed in Bonita Portal
   *** the Path, which shows the hierarchical relationship between groups
   *** a Description of the group
@@ -61,21 +53,23 @@ One option is to use the personal part of the user's email address, that is, the
 == Exporting and importing an organization
 
 You can export an organization definition from Bonita Studio. The exported file is in XML, so can be modified. +
+
 You can import an organization definition in this XML format that was exported from another Bonita Studio running the same version of Bonita, or that was constructed by some other method but has the same format. +
-Choose *Export...* or *Import...* from the *Organization* menu.
+
+Open the organization you want to export from the project explorer and click on *_Export_* in the top bar of the organization.
 
 To prepare your production system (unless you are using the LDAP synchronizer), you must create the organization that you need for all the processes that will be deployed, export it from Bonita Studio, and import it into Bonita Portal. After the organization is imported into Bonita Portal, you can xref:group.adoc[manage groups], xref:role.adoc[roles], and xref:manage-a-user.adoc[users] in the organization.
 
 == Modifying an organization
 
-To modify an organization, choose *Manage...* from the Organization menu and use the same dialogs that you used to create the organization. +
+To modify an organization, double click on it in the project explorer +
 To modify an item in an organization, select it in the item list and modify the information on the right-hand side of the list. +
 To delete an item, select and it click *_Remove_*.
 
-== Deploying an organization to Bonita Portal
+== Deploying an organization to Bonita Runtime
 
-Deploying an organization means uploading the organization data to Bonita Portal temporarily so that you can test your process. +
-The organization that you deploy overwrites one in Bonita Portal.
+Deploying an organization means uploading the organization data to the Bonita Runtime temporarily so that you can test your process. +
+The organization that you deploy overwrites one in the Bonita Runtime.
 
 [WARNING]
 ====
@@ -85,17 +79,17 @@ Importing an organization overwrites the existing organization in Bonita Portal,
 
 To deploy the organization data:
 
-. Choose *Deploy...* from the Organization menu.
-. Click the organization to be deployed, and
+. Open the corresponding organization in the project explorer.
+. Click the *_Deploy_*, and
 . Specify the username of the user that will be
-used to log in to Bonita Portal when a process is started from
+used to log in to the Bonita User Application when a process is started from
 Bonita Studio. This user must be in the organization you have
 selected.
 . Click *Deploy*.
 
 == Profile management
 
-In order to log in to bonita UIs (Portal, applications...), a user must have at least one profile (User, Adminstrator...etc).
+In order to log in to bonita UIs (Bonita User Application, Bonita Administration Application, your applications...), a user must have at least one profile (User, Adminstrator...etc).
 
 *_In Community_*, only provided profiles are supported (User and Adminstrator). When deploying an organization from the Studio, each user is automatically mapped to all those profiles.
 
@@ -104,4 +98,4 @@ This will not be true for other environments.
 
 *_In Efficiency, Performance and Enterprise editions_*, in addition to provided profiles it is possible to defined custom profiles in the Studio using the xref:profileCreation.adoc[Profile Editor].
 
-When creating or importing other organizations, you need to make sure that all users are mapped to at least one profile, through a group, a role, a membership, or as a user, to grant them access to Bonita Portal or applications.
+When creating or importing other organizations, you need to make sure that all users are mapped to at least one profile, through a group, a role, a membership, or as a user, to grant them access to Bonita Applications or your applications.
