@@ -53,8 +53,10 @@ One option is to use the personal part of the user's email address, that is, the
 == Exporting and importing an organization
 
 You can export an organization definition from Bonita Studio. The exported file is in XML, so can be modified. +
+
 You can import an organization definition in this XML format that was exported from another Bonita Studio running the same version of Bonita, or that was constructed by some other method but has the same format. +
-Choose *Export...* or *Import...* from the *Organization* menu.
+
+Open the organization you want to export from the project explorer and click on *_Export_* in the top bar of the organization.
 
 To prepare your production system (unless you are using the LDAP synchronizer), you must create the organization that you need for all the processes that will be deployed, export it from Bonita Studio, and import it into Bonita Portal. After the organization is imported into Bonita Portal, you can xref:group.adoc[manage groups], xref:role.adoc[roles], and xref:manage-a-user.adoc[users] in the organization.
 
