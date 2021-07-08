@@ -46,10 +46,6 @@ The Studio is going to scan your project dependencies and try to find them on th
 
 If the dependencies are found then they will be used as remote dependencies (not committed in your project) otherwise they will be added to the project local repository store and will be committed to your project. 
 
-*_Upgrading the local repository dependencies to remote dependencies_*
-
-You replace the local repository dependencies with remote dependencies (if they are made available on a remote repository) by accessing the xref:managing-extension-studio.adoc["Extension" view]. In the "Other extensions" part, select the local repository dependencies and use the "Edit maven coordinates" button to use the corresponding Maven coordinates to get the remote dependency.
-
 === Impact on Extension creation
 
 [CAUTION]
