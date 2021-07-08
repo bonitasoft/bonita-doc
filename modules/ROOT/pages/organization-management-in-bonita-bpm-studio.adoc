@@ -70,10 +70,10 @@ To modify an organization, double click on it in the project explorer +
 To modify an item in an organization, select it in the item list and modify the information on the right-hand side of the list. +
 To delete an item, select and it click *_Remove_*.
 
-== Deploying an organization to Bonita Portal
+== Deploying an organization to Bonita Runtime
 
-Deploying an organization means uploading the organization data to Bonita Portal temporarily so that you can test your process. +
-The organization that you deploy overwrites one in Bonita Portal.
+Deploying an organization means uploading the organization data to the Bonita Runtime temporarily so that you can test your process. +
+The organization that you deploy overwrites one in the Bonita Runtime.
 
 [WARNING]
 ====
@@ -83,17 +83,17 @@ Importing an organization overwrites the existing organization in Bonita Portal,
 
 To deploy the organization data:
 
-. Choose *Deploy...* from the Organization menu.
-. Click the organization to be deployed, and
+. Open the corresponding organization in the project explorer.
+. Click the *_Deploy_*, and
 . Specify the username of the user that will be
-used to log in to Bonita Portal when a process is started from
+used to log in to the Bonita User Application when a process is started from
 Bonita Studio. This user must be in the organization you have
 selected.
 . Click *Deploy*.
 
 == Profile management
 
-In order to log in to bonita UIs (Portal, applications...), a user must have at least one profile (User, Adminstrator...etc).
+In order to log in to bonita UIs (Bonita User Application, Bonita Administration Application, your applications...), a user must have at least one profile (User, Adminstrator...etc).
 
 *_In Community_*, only provided profiles are supported (User and Adminstrator). When deploying an organization from the Studio, each user is automatically mapped to all those profiles.
 
@@ -102,4 +102,4 @@ This will not be true for other environments.
 
 *_In Efficiency, Performance and Enterprise editions_*, in addition to provided profiles it is possible to defined custom profiles in the Studio using the xref:profileCreation.adoc[Profile Editor].
 
-When creating or importing other organizations, you need to make sure that all users are mapped to at least one profile, through a group, a role, a membership, or as a user, to grant them access to Bonita Portal or applications.
+When creating or importing other organizations, you need to make sure that all users are mapped to at least one profile, through a group, a role, a membership, or as a user, to grant them access to Bonita Applications or your applications.
