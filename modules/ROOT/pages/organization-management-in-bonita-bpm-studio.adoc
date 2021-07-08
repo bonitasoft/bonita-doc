@@ -28,13 +28,7 @@ To specify an organization manually, you create the organization, create the gro
  ** Change the placeholder name to the name of your organization, and add a description.
 . Go to the *_Group_* tab to add groups to your organization:
  ** Click *_Add_* to add a group. You can specify the following:
-  *** the group Name, which is used internally by the Bonita software.
-
-[WARNING]
-====
-
-*NB:* Bonita doesn't support the '/' character in the group name field. A group name that contains a '/' may lead to unstable behaviour and may be forbidden in the future.
-====
+  *** the group Name, which is used internally by the Bonita software (*NB:* Bonita doesn't support the '/' character in the group name field)
   *** the Display name, which is the name displayed in Bonita Portal
   *** the Path, which shows the hierarchical relationship between groups
   *** a Description of the group
