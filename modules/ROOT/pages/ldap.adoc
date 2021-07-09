@@ -84,3 +84,49 @@ Then click *_Next_*.
 
 . Specify the output operations. The connector returns a list object.
 . Click *_Finish_*.
+
+
+== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+
+
+*Issue*: LDAP Connector fails to manage more than 1000 users.
+
+*Symptoms*: When using the LDAP Connector to get information from your LDAP Active Directory, for example the users and emails inside the process, the process fails on the connector with the trace:
+
+[source,log]
+----
+    org.bonitasoft.engine.core.connector.exception.SConnectorException: PROCESS_DEFINITION_ID=8541609964140124956 | PROCESS_NAME=Test Ldap connector | PROCESS_VERSION=2.0 |
+    PROCESS_INSTANCE_ID=3002 | ROOT_PROCESS_INSTANCE_ID=3002 | FLOW_NODE_DEFINITION_ID=6398664828292262535 | FLOW_NODE_INSTANCE_ID=60012 |FLOW_NODE_NAME=LDAP request |
+    CONNECTOR_IMPLEMENTATION_CLASS_NAME=getLDAPNamesAndMails | CONNECTOR_INSTANCE_ID=60005 |
+    org.bonitasoft.engine.connector.exception.SConnectorException: java.util.concurrent.ExecutionException: org.bonitasoft.engine.connector.exception.SConnectorException:
+    org.bonitasoft.engine.connector.ConnectorException: javax.naming.SizeLimitExceededException: [LDAP: error code 4 - Sizelimit Exceeded]; remaining name 'ou=Sites,dc=htestlit,dc=local'
+            at org.bonitasoft.engine.core.connector.impl.ConnectorServiceImpl.executeConnectorInClassloader(ConnectorServiceImpl.java:275)
+            at org.bonitasoft.engine.core.connector.impl.ConnectorServiceImpl.executeConnector(ConnectorServiceImpl.java:148)
+            at org.bonitasoft.engine.connector.ConnectorServiceDecorator.executeConnector(ConnectorServiceDecorator.java:114)
+            at org.bonitasoft.engine.execution.work.ExecuteConnectorWork.work(ExecuteConnectorWork.java:138)
+            at org.bonitasoft.engine.execution.work.failurewrapping.TxInHandleFailureWrappingWork.work(TxInHandleFailureWrappingWork.java:42)
+            at org.bonitasoft.engine.execution.work.failurewrapping.TxInHandleFailureWrappingWork.work(TxInHandleFailureWrappingWork.java:42)
+            at org.bonitasoft.engine.execution.work.failurewrapping.TxInHandleFailureWrappingWork.work(TxInHandleFailureWrappingWork.java:42)
+            at org.bonitasoft.engine.execution.work.failurewrapping.TxInHandleFailureWrappingWork.work(TxInHandleFailureWrappingWork.java:42)
+            at org.bonitasoft.engine.execution.work.FailureHandlingBonitaWork.work(FailureHandlingBonitaWork.java:66)
+            at org.bonitasoft.engine.work.BonitaWork.run(BonitaWork.java:56)
+            at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+            at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+            at java.lang.Thread.run(Thread.java:745)
+    Caused by: org.bonitasoft.engine.connector.exception.SConnectorException: java.util.concurrent.ExecutionException: org.bonitasoft.engine.connector.exception.SConnectorException: org.bonitasoft.engine.connector.ConnectorException: javax.naming.SizeLimitExceededException: [LDAP: error code 4 - Sizelimit Exceeded]; remaining name 'ou=Sites,dc=htestlit,dc=local'
+            at org.bonitasoft.engine.connector.impl.ConnectorExecutorImpl.execute(ConnectorExecutorImpl.java:125)
+            at org.bonitasoft.engine.core.connector.impl.ConnectorServiceImpl.executeConnectorInClassloader(ConnectorServiceImpl.java:269)
+            ... 12 more
+----
+
+*Root cause*: Your LDAP Active Directory is using the pagination. Generally on LDAP Server using the pagination, the page size is set to 1000.  
+
+By default, the pagination is not managed by the LDAP Connector since is not supported by all LDAP servers. So if your LDAP Active Directory is using the pagination, it will not be handle by the connector and will make it fail after 1000 users.  
+
+*Solutions*:  
+
+1. Increase the page size on your Active Directory by increasing the value of MaxPageSize : https://support.microsoft.com/en-us/kb/315071
+
+2. Develop a Custom LDAP Connector managing the pagination of your Active Directory. +
+Do to so, you can read the xref:connector-archetype.adoc[documentation page on the connector archetype.]
+  
