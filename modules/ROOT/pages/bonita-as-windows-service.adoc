@@ -32,7 +32,7 @@ image::images/bonita-as-windows-service/tomcatHome.png[Tomcat home page]
 
 == Database configuration
 
-* Follow the documentation xref:database-configuration.adoc#postgres_setup[here] to correctly prepare the postgres database
+* Follow the documentation xref:database-configuration.adoc#postgres_setup[here] to correctly prepare the PostgreSQL database
 * *_Configure_* the file %TOMCAT_BUNDLE%/setup/database.properties to point towards the suited database (engine and BDM)
 
 image::images/bonita-as-windows-service/databaseProperties.png[database-properties file]
