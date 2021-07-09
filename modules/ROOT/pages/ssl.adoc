@@ -168,3 +168,31 @@ Another feature of this valve is to replace the apparent scheme (http/https) and
 ----
 
 If you omit this, %a will log your load balancer's IP address and not the client's IP address.
+
+== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+
+=== SunCertPathBuilderException error in Bonita Runtime log file
+
+*Symptom:* The following stacktrace appears in the Bonita runtime log:
+
+[source,log]
+----
+ javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed:
+ sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+----
+
+*Problem:* This issue arises for one of these reasons:
+
+* You are using a self-signed certificate
+* You are using a certificate that has been issued by an internal certificate authority
+* Your certificate is outdated
+
+*Solutions:*  
+
+* Make sure you have imported the public certificate of the target instance into the truststore according to the Connecting to SSLServices instructions listed above  
+* Make sure any certificates have been imported into the correct truststore; you may have multiple JRE/JDKs  
+* Check to see that the correct truststore is in use. If `-Djavax.net.ssl.trustStore` has been configured, it will override the location of the default truststore, which will need to be checked
+* Check if your Antivirus tool has "SSL Scanning" blocking SSL/TLS. If it does, disable this feature temporarily or, preferably, set exceptions for the target addresses  
+* Verify that the target server is configured to serve SSL correctly. This can be done with an SSL Server Test tool
+* Make sure you used keytool to install the new certificate. More info http://docs.oracle.com/javase/8/docs/technotes/tools/windows/keytool.html[online].
+* Make sure your truststore is not out of date
