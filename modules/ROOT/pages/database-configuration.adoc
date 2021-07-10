@@ -89,6 +89,7 @@ The same goes for the RDBMS user used to connect to the business data database, 
 
 === Customize RDBMS to make it work with Bonita
 
+[#postgres_setup]
 ==== PostgreSQL
 
 Configure the database to use UTF-8.
