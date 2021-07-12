@@ -60,7 +60,7 @@
   *** xref:operations.adoc[Operations]
   *** xref:refactoring.adoc[Refactoring]  
   *** xref:optimize-user-tasklist.adoc[Case-specific task names]
- ** xref:actor-index.adoc[Actor]
+ ** xref:actors-index.adoc[Actor]
   *** xref:actors.adoc[Actors of processes]
   *** xref:actor-filtering.adoc[Actor filters]
   *** xref:actor-filter-archetype.adoc[Create an actor filter]
