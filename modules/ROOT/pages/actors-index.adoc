@@ -1,8 +1,10 @@
 = Actors 
-:description: Actors are indirections between the processes and entities of the organization. They are used to define the candidates who can perform a given human task. +
+:description: Actors are indirections between the processes and entities of the organization. They are used to define the candidates who can perform a given human task.
 
 Actors are indirections between the processes and entities of the organization. They are used to define the candidates who can perform a given human task. +
+
 "The user who performed the previous task" or "The manager of the user who did the previous human task" are actors too ; but since they are not directly linked to the organization, they are called "Actor filters". +
+
 Technically, they have the same structure than connectors. Bonita provides some actor filters, and developers can create their own. +
 Discover more in the following pages.
 
