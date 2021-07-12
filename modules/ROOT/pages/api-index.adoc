@@ -76,7 +76,7 @@ xref:portal-api.adoc[[.card-title]#Portal API# [.card-body.card-content-overflow
 
 [.card.card-index]
 --
- xref:system-api.adoc[[.card-title]#System API# [.card-body.card-content-overflow]#pass:q[Relevant to Bonita Runtime]#]
+xref:system-api.adoc[[.card-title]#System API# [.card-body.card-content-overflow]#pass:q[Relevant to Bonita Runtime]#]
 --
 
 [.card.card-index]
@@ -96,6 +96,7 @@ xref:engine-api-overview.adoc[[.card-title]#Overview# [.card-body.card-content-o
 [.card.card-index]
 --
 https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[[.card-title]#Javadoc# [.card-body.card-content-overflow]#pass:q[]#]
+--
 
 [.card-section]
 == Common use-cases with Engine API 
