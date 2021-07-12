@@ -90,7 +90,7 @@ xref:tenant-api.adoc[[.card-title]#Tenant API# [.card-body.card-content-overflow
 
 [.card.card-index]
 --
-xref:engine-api-overview.adoc[[.card-title]#Overview# [.card-body.card-content-overflow]#pass:q[Lear how to use the Java API and view the list]#]
+xref:engine-api-overview.adoc[[.card-title]#Overview# [.card-body.card-content-overflow]#pass:q[Learn how to use the Java API and view the list]#]
 --
 
 [.card.card-index]
