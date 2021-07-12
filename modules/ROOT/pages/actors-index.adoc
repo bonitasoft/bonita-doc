@@ -1,5 +1,5 @@
 = Actors 
-:description: blabla
+:description: Actors are indirections between the processes and entities of the organization. They are used to define the candidates who can perform a given human task. +
 
 Actors are indirections between the processes and entities of the organization. They are used to define the candidates who can perform a given human task. +
 "The user who performed the previous task" or "The manager of the user who did the previous human task" are actors too ; but since they are not directly linked to the organization, they are called "Actor filters". +
