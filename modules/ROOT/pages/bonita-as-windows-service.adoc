@@ -7,7 +7,7 @@ In this tutorial we show how to install Tomcat with Bonita configured as a Windo
 
 For this tutorial you will need the following softwares:
 
-* Tomcat
+* Tomcat Windows service installer
 * Bonita Tomcat Bundle
 * Postgresql Database (or another database supported by Bonita)
 
@@ -15,7 +15,7 @@ Please verify the supported version in xref:hardware-and-software-requirements.a
 
 == Download and installation
 
-* *_Download_* apache-tomcat-x.y.exe from Tomcat website: https://tomcat.apache.org/
+* *_Download_* apache-tomcat-x.y.exe (32-bit/64-bit Windows Service Installer) from Tomcat website: https://tomcat.apache.org/
 
 [WARNING]
 ====
@@ -23,7 +23,6 @@ Please verify the supported version in xref:hardware-and-software-requirements.a
 Download the same apache-tomcat version (visible in xref:hardware-and-software-requirements.adoc[Installation/Basic Bonita Platform installation/hardware-and-software-requirements])
 Choose the "32-bit/64-bit Windows Service Installer" installation.
 ====
-
 * *_Install_* apache-tomcat-x.y.exe. From now on we'll call the installation path as %TOMCAT_INSTALL_FOLDER%
 * *_Verify_* that Tomcat is well installed browsing the following URL: http://localhost:8080
 
@@ -31,7 +30,6 @@ image::images/bonita-as-windows-service/tomcatHome.png[Tomcat home page]
 
 * *_Download_* the bundle BonitaSubscription-x.y.z.zip (or BonitaCommunity-x.y.z.zip for the community edition)
 * *_Unzip_* the bundle in a folder that we'll call: %TOMCAT_BUNDLE%
-* *_Move_* the setup tool `%TOMCAT_BUNDLE%`/setup into another folder, for example `%TOMCAT_INSTALL_FOLDER%/setup`
 
 == Get the license (In case of Subscription edition)
 
@@ -41,16 +39,18 @@ image::images/bonita-as-windows-service/tomcatHome.png[Tomcat home page]
 
 == Database configuration
 
-* *_Configure_* the file `%TOMCAT_INSTALL_FOLDER%/setup/database.properties` to point towards the suited database (engine and BDM)
+* Follow the documentation xref:database-configuration.adoc#postgres_setup[here] to correctly prepare the PostgreSQL database
+* *_Configure_* the file `%TOMCAT_BUNDLE%/setup/database.properties` to point towards the suited database (engine and BDM)
 
 image::images/bonita-as-windows-service/databaseProperties.png[database-properties file]
 
-* *_Add_* the database driver here: %TOMCAT_INSTALL_FOLDER%/setup/lib
-Check your Database provider documentation in order to get the proper driver version.
-* *_Execute_* the command "%TOMCAT_INSTALL_FOLDER%/setup/setup.bat init" in order to initialize the Bonita database with the default configuration.
-* *_Verify_* that the tables in the engine database are properly created.
+* *_Execute_* the command "%TOMCAT_BUNDLE%/setup/setup.bat init" in order to initialize the Bonita database with the default configuration.
+* *_Verify_* that setup tool properly created the tables in the engine database.
 
 image::images/bonita-as-windows-service/postgresTables.png[database tables]
+
+* *_Execute_* the command "%TOMCAT_BUNDLE%/setup/setup.bat configure" in order to configure file in the %TOMCAT_BUNDLE%.
+Those files will be copied to the tomcat installation.
 
 [NOTE]
 ====
@@ -59,13 +59,10 @@ This is an example with Postgres, any database works
 
 == Server configuration
 
-* *_Move_* the folder *bonita* located under `%TOMCAT_BUNDLE%/server/lib/bonita` to `%TOMCAT_INSTALL_FOLDER%/lib`
-* *_Add_* your database driver to `%TOMCAT_INSTALL_FOLDER%/lib`
-* *_Move_* *All Files* in the folder `%TOMCAT_BUNDLE%/server/conf` to `%TOMCAT_INSTALL_FOLDER%/conf`
-* *_Move_* File *bonita.war* under application `%TOMCAT_BUNDLE%/server/webapps` to `%TOMCAT_INSTALL_FOLDER%/webapps`
-* *_Configure_* `%TOMCAT_INSTALL_FOLDER%/conf/Catalina/localhost/bonita.xml`
+* *_Copy_* the folder %TOMCAT_BUNDLE%/server/lib/bonita to %TOMCAT_INSTALL_FOLDER%/lib
+* *_Copy_* the folder %TOMCAT_BUNDLE%/server/conf to %TOMCAT_INSTALL_FOLDER%/conf
+* *_Copy_* the application %TOMCAT_BUNDLE%/server/webapps/bonita.war to %TOMCAT_INSTALL_FOLDER%/webapps
 
-image::images/bonita-as-windows-service/bonitaXml.png[datasource configuration]
 
 == Configure JVM properties
 
