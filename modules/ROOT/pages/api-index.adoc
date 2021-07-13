@@ -28,7 +28,7 @@ xref:rest-api-extensions.adoc[[.card-title]#REST API extensions overview# [.card
 
 [.card.card-index]
 --
-xref:rest-api-extension-archetype.adoc[[.card-title]#Create a REST API extension# [.card-body.card-content-overflow]#pass:q[Tools to develop and test your Rest API Extensions]#]
+xref:rest-api-extension-archetype.adoc[[.card-title]#Create a REST API extension# [.card-body.card-content-overflow]#pass:q[Tools to develop and test your REST API Extensions]#]
 --
 
 [.card-section]
