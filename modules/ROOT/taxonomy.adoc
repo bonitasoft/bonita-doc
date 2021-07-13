@@ -156,8 +156,8 @@
  ** xref:event-handlers.adoc[How to create an event handler]
 * xref:api-index.adoc[API]
  ** REST API
-  *** xref:api-glossary.adoc[API glossary]
   *** xref:rest-api-overview.adoc[Overview]
+  *** xref:api-glossary.adoc[API glossary]
   *** xref:rest-api-authentication.adoc[REST Authentication]
   *** xref:application-api.adoc[Application API]
   *** xref:access-control-api.adoc[Access control API]
