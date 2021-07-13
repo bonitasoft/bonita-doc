@@ -108,7 +108,7 @@ Other not supported model changes are:
 
 These cases will raise an error during the automatic BDM update.
 
-If you need to update the BDM, and your update includes one of the cases listed above (both those that generate an error at installation, and those that don't), you will need to do the update manually:
+If you need to update the BDM, and your update includes one of the cases listed above (both those that generate an error at installation, and those that do not), you will need to do the update manually:
 
 . Stop your Tenant services
 . Stop your Bonita server
