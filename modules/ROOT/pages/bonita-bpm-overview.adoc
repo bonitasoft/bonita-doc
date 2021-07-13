@@ -1,4 +1,4 @@
-= Bonita platform overview
+= Bonita components
 :description: Bonita is an open-source and extensible platform for business process automation and optimization. The Bonita platform accelerates development and production with clear separation between capabilities for visual programming and for coding.  BPMN graphical notation, full extensibility, and reusable components allow smooth collaboration among the different profiles on the IT team, and with the business teams. Bonita integrates with existing information systems, orchestrates heterogeneous systems, and provides deep visibility into processes across the organization.
 
 Bonita is an open-source and extensible platform for business process automation and optimization. The Bonita platform accelerates development and production with clear separation between capabilities for visual programming and for coding.  BPMN graphical notation, full extensibility, and reusable components allow smooth collaboration among the different profiles on the IT team, and with the business teams. Bonita integrates with existing information systems, orchestrates heterogeneous systems, and provides deep visibility into processes across the organization.
@@ -38,44 +38,3 @@ But Bonita Portal is also the tool used by the tenant administrator to xref:proc
 To install Bonita Engine and Bonita Portal in a qualification or production environment, xref:bonita-bpm-installation-overview.adoc#platform[install Bonita Platform].
 
 In Bonita Studio, once a process is ready, you can xref:build-a-process-for-deployment.adoc[build] it and deploy it on your Bonita qualification or production platform.
-
-== Editions
-
-Until 2019 Bonita was provided in four different editions: Community, Teamwork, Efficiency and Performance. Since 2019 Bonita is only provided in two editions : Community and Enterprise.
-
-== Getting started
-
-*I'm currently using Bonita 6.x. Will 7.x be a big change?*
-
-Bonita 7.x provides new and improved features, including the xref:ui-designer-overview.adoc[UI Designer] for creating application pages and forms, as well as xref:contracts-and-contexts.adoc[contracts and context] to create a clear split between the process logic, the data, and the user views.
-
-You will also find lots of familiar features, which continue to work as they did in 6.x.
-
-*Tell me about the documentation.*
-
-We're continually updating the documentation. +
-There are four main information categories: Application and process design, Installation, Portal administration, and Development.
-
-*Tell me about using Bonita.*
-
-See xref:lifecycle-and-profiles.adoc[Lifecycle and profiles].
-
-*Can I migrate an existing process into Bonita 7.x?*
-
-You can xref:import-and-export-a-process.adoc[import a process] from any earlier Bonita release if  they don't contain Legacy v6 forms or case overview pages. If they do, you need to rework your process and xref:migrate-a-form-from-6-x.adoc[migrate those froms or pages].
-
-*Tell me about creating an application.*
-
-An application is a collection of related processes, user interfaces, and shared data. See xref:design-methodology.adoc[design methodology].
-
-*Tell me about creating a process.*
-
-A process can be included in an application or can be accessed through Bonita Portal. See xref:design-methodology.adoc[design methodology].
-
-*Tell me about creating a diagram.*
-
-See xref:diagram-overview.adoc[diagrams].
-
-*How can I get started?*
-
-Download and install Bonita 7.x: see the xref:bonita-bpm-installation-overview.adoc[installation instructions].
