@@ -309,7 +309,6 @@ If your Bonita platform is configured to manage authentication over SAML, when u
 Therefore they are not logged out of all applications that are using the IdP.
 To avoid this, you have two options :
 
-[discrete]
 ==== Hide the logout button of the portal
 
 This is the most commonly used solution. Users are logged in as long as they don't close their web browser (unless their session times out).
@@ -322,7 +321,6 @@ When a user logs out from the IdP directly, Bonita Portal's session will remain 
 to the configured session timeout value upon each user interaction with the server.
 ====
 
-[discrete]
 ==== Setup Bonita platform for SAML global logout
 
 Global logout allows to log out from the Identity Provider as well as all the registered Service Providers when logging out from Bonita platform. This is sometimes required for example if users are on public computers.
@@ -340,7 +338,7 @@ To setup Bonita for global logout:
 If the single logout flow supported by your IdP is not the same as the one supported by Bonita platform, the preferred solution to handle it anyway is to intercept the requests to /logoutService and handle the logout programmatically.
 ====
 
-== Troubleshoot
+== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
 To troubleshoot SSO login issues, you need to add a logging handler for the package `org.keycloak` and increase the xref:logging.adoc[log level] to `ALL` for the packages `org.bonitasoft`, `com.bonitasoft`, and `org.keycloak` in order for errors to be displayed in the log files bonita-*.log (by default, they are not).
 
@@ -364,16 +362,18 @@ com.bonitasoft.level = ALL
 
 Edit the _logger_ tags which _category_ matches `org.bonitasoft` and `com.bonitasoft` packages: change the _level_ _name_ attribute of each _logger_ to `ALL` and add a new logger with the _category_ `org.keyclock` (also with a _level_ _name_ set to `ALL`).
 
-[discrete]
-==== Common error examples
+=== Common error examples
 
+****
 *Symptom:* After configuring SAML SSO in Bonita, the Bonita Portal login page does not redirect to the SSO login page. +
 *Possible Solutions:*
 
 * Check all the Bonita configuration settings are correct.
 * Make sure `setup[.sh][.bat] push` has been executed and the server restarted after the changes.
 * Try cleaning the cache and cookies of the web browser.
+****
 
+****
 *Symptom:* The following stacktrace appears in the Bonita server log :
 
 [source,log]
@@ -389,7 +389,9 @@ Caused by: java.lang.RuntimeException: Sp signing key must have a PublicKey or C
 
 *Problem:* The signing of the requests has been enabled in the *keycloak-saml.xml* file, but there is no \<CertificatePem> in the Keys:Key section of the SP. +
 *Solution:* Add Bonita server's certificate in the Keys:Key section of the SP.
+****
 
+****
 *Symptom:* The following stacktrace appears in the Bonita server log :
 
 [source,log]
@@ -405,7 +407,9 @@ Caused by: java.lang.RuntimeException: Sp signing key must have a PublicKey or C
 * either the validation has failed because the private key used by the IdP to sign the response does not match the certificate used by the SAML module.
 * or the IdP does not really sign the response (in that case, by activating all the logs for the `org.keyclock` package, you should also see a message `Cannot find Signature element`). +
 *Solution:* Make sure the certificate in the Keys:Key section of the IdP is indeed the one belonging to the private key being used by the IdP to sign its responses. Also make sure the IdP is configured to indeed sign the response. If not you can also change the IDP:Keys:Key section of the *keycloak-saml.xml* to put signing to false and the IDP:SingleSignOnService section to put validateResponseSignature to false.
+****
 
+****
 *Symptom:* The following stacktrace appears in the Bonita server log :
 
 [source,log]
@@ -422,12 +426,15 @@ Caused by: java.lang.RuntimeException: Sp signing key must have a PublicKey or C
 
 * Make sure you have encryption="true" inside the Key node of the SP.
 * Add Bonita server's private key in the Keys:Key section of the SP.
+****
 
+****
 *Symptom:* Bonita portal URL profile and page parameters (or any other) after the hash are lost in redirections. As a result once the SAML login page redirects back to Bonita portal, the portal displays the first page of the default profile. +
 *Problem:* The hash part of an URL is not sent server-side. It only exists in the web browser. That explains this behavior. +
 *Solution:*
 The workaround is to put the parameters as regular URL query parameters. Bonita portal has a mechanism that will convert them to hash parameters if they need to be (this only works since version 7.8.1 of Bonita). +
 For example instead of `<server_URL>/bonita/portal/homepage#?_p=caselistinguser&_pf=2`, use `<server_URL>/bonita/portal/homepage?_p=caselistinguser&_pf=2`
+****
 
 == Manage passwords
 

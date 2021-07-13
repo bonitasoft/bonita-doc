@@ -105,3 +105,28 @@ The Tomcat configuration files are located in the Bonita Studio `workspace/tomca
 * To add a data source, edit `context.xml` or `workspace/tomcat/conf/Catalina/localhost/bonita.xml`.
 
 For more details, see the http://tomcat.apache.org/tomcat-8.5-doc/[Tomcat documentation].
+
+
+== Troubleshooting
+
+****
+*Symptom:* You see the following error in your Studio log file:
+
+[source,log]
+----
+!ENTRY org.bonitasoft.studio.common 4 0 2021-06-11 08:45:59.981
+!MESSAGE 
+!STACK 0
+java.net.UnknownHostException: www.bonitasoft.com
+        at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+        at java.net.PlainSocketImpl.connect(Unknown Source)
+        at java.net.SocksSocketImpl.connect(Unknown Source)
+        at java.net.Socket.connect(Unknown Source)
+        at java.net.Socket.connect(Unknown Source)
+[...]
+----
+
+*Most plausible root cause:* You connect to the internet through Proxy.
+
+*Solution:* You need to configure your HTTP Proxy settings in the Studio Preferences > Web > Proxy. 
+****
