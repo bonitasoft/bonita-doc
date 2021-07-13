@@ -5,8 +5,6 @@ Welcome to this Bonita getting started tutorial. On this page you will be guided
 An application offers customized user interfaces to end-users while standardized processes run in the background, to deliver the full potential of BPM solutions. +
 You will then be able to adapt and extend this example to fit your own needs.
 
-If you can't wait to start creating your first application with Bonita, you can safely skip this page and move to the xref:bonita-bpm-studio-installation.adoc[Bonita Studio installation] page.
-
 [NOTE]
 ====
 
@@ -15,11 +13,12 @@ If you have any problems while working through this tutorial, you can https://co
 
 == Before starting
 
-Make sure to check out the page that tells you everything about xref:what-is-bonita.adoc[What Bonita is].
+. Make sure to check out the page that tells you everything about xref:what-is-bonita.adoc[What Bonita is]. +
+. xref:bonita-studio-download-installation.adoc[Install your Bonita Studio].
 
 == What are the steps to create a Bonita application?
 
-Thanks to the low-code Bonita platform you won't need to write a lot of code to create an application.
+Thanks to the low-code Bonita platform you will not need to write a lot of code to create an application.
 The creation of Bonita applications relies heavily on models:
 
 * a process model (using BPMN standard)
@@ -37,4 +36,4 @@ Creating an application in Bonita Studio (the Bonita development environment) re
 
 We will cover these steps in this getting started tutorial so you can get familiar with the concepts behind a Bonita application.
 
-Ready? Let's move to the nexts step: xref:bonita-studio-download-installation.adoc[download and install Bonita Studio].
+Ready? Let's move to the nexts step: xref:draw-bpmn-diagram.adoc[draw a BPMN diagram].
