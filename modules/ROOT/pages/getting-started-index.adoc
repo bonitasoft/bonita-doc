@@ -4,54 +4,57 @@
 This is the fastest way to learn, try, and master all concepts of a Living Application.
 
 [.card-section]
-== The 9-step journey
+== Prerequisite
 
 [.card.card-index]
 --
-xref:xref:tutorial-overview.adoc[[.card-title]#Overview# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:bonita-studio-download-installation.adoc[[.card-title]#Bonita Studio Installation# [.card-body.card-content-overflow]#pass:q[Bonita's main tool to create create the main elements of all your projects]#]
 --
+
+[.card-section]
+== The 9-step hands-on journey to your first Bonita Living Application
 
 [.card.card-index]
 --
-xref:draw-bpmn-diagram.adoc[[.card-title]#Draw a BPMN diagram# [.card-body.card-content-overflow]#pass:q[TODO]#]
---
-
-[.card.card-index]
---
-xref:define-business-data-model.adoc[[.card-title]#Define a Business Data Model (BDM)# [.card-body.card-content-overflow]#pass:q[TODO]#]
---
-
-[.card.card-index]
---
-xref:declare-business-variables.adoc[[.card-title]#Declare business variables# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:draw-bpmn-diagram.adoc[[.card-title]#Draw a BPMN diagram# [.card-body.card-content-overflow]#pass:q[Process automation, most of the time, starts with a process]#]
 --
 
 [.card.card-index]
 --
-xref:declare-contracts.adoc[[.card-title]#Declare contracts# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:define-business-data-model.adoc[[.card-title]#Define a Business Data Model (BDM)# [.card-body.card-content-overflow]#pass:q[The business data will be handled by the process. First, you need to create the data model]#]
 --
 
 [.card.card-index]
 --
-xref:create-web-user-interfaces.adoc[[.card-title]#Create forms# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:declare-business-variables.adoc[[.card-title]#Declare business variables# [.card-body.card-content-overflow]#pass:q[This is the step to link the business data to the process]#]
 --
 
 [.card.card-index]
 --
-xref:define-who-can-do-what.adoc[[.card-title]#Define who can do what# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:declare-contracts.adoc[[.card-title]#Declare contracts# [.card-body.card-content-overflow]#pass:q[This step defines how the UI and the process interact]#]
 --
 
 [.card.card-index]
 --
-xref:configure-email-connector.adoc[[.card-title]#Configure an email connector# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:create-web-user-interfaces.adoc[[.card-title]#Create forms# [.card-body.card-content-overflow]#pass:q[The forms use the data to feed the process, through the contracts]#]
 --
 
 [.card.card-index]
 --
-xref:design-application-page.adoc[[.card-title]#Design an application page# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:define-who-can-do-what.adoc[[.card-title]#Define who can do what# [.card-body.card-content-overflow]#pass:q[Map organization entities to each human task]#]
 --
 
 [.card.card-index]
 --
-xref:create-application.adoc[[.card-title]#Create an application# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:configure-email-connector.adoc[[.card-title]#Configure an email connector# [.card-body.card-content-overflow]#pass:q[Most of the processes need email notifications, right?]#]
+--
+
+[.card.card-index]
+--
+xref:design-application-page.adoc[[.card-title]#Design an application page# [.card-body.card-content-overflow]#pass:q[Unlike the form, the application pages can display more information than what is linked to a given human task]#]
+--
+
+[.card.card-index]
+--
+xref:create-application.adoc[[.card-title]#Create an application# [.card-body.card-content-overflow]#pass:q[And this where everything is put together to build a rich and valuable end-user experience]#]
 --
