@@ -5,7 +5,18 @@ Bonita is an open-source and extensible platform for business process automation
 
 The Bonita Platform has two components: the development environment, Bonita Studio, and the runtime environment, Bonita Runtime.
 
+[.card-section]
 == Bonita Studio
+
+[.card.card-index]
+--
+xref:bonita-studio.adoc[[.card-title]#Bonita Studio# [.card-body.card-content-overflow]#pass:q[After reading what follows, you may want to know more]#]
+--
+
+[.card.card-index]
+--
+xref:ui-designer-overview.adoc[[.card-title]#Bonita UI Designer# [.card-body.card-content-overflow]#pass:q[The other component within Bonita Studio]#]
+--
 
 Bonita Studio contains all the elements needed to develop and compile a Bonita application. It is a graphical environment for creating processes, applications, data models, and users views (pages and forms). It contains three major design tools:
 
@@ -25,7 +36,13 @@ Users can use Bonita Portal (_User_ profile) to view and complete the process ta
 
 [#platform]
 
+[.card-section]
 == Bonita Runtime
+
+[.card.card-index]
+--
+xref:engine.adoc[[.card-title]#Bonita Engine# [.card-body.card-content-overflow]#pass:q[After reading what follows, you may want to know more]#]
+--
 
 Bonita Runtime is composed of one or more Bonita Server nodes installed on some hosts (physical machine, virtual machine, a cloud instance, a container like Docker, ...). A Bonita Runtime composed of multiple nodes constitutes a cluster.
 
