@@ -44,6 +44,16 @@ Users can use Bonita Portal (_User_ profile) to view and complete the process ta
 xref:engine.adoc[[.card-title]#Bonita Engine# [.card-body.card-content-overflow]#pass:q[After reading what follows, you may want to know more]#]
 --
 
+[.card.card-index]
+--
+xref:admin-application-overview.adoc[[.card-title]#Bonita Administrator application# [.card-body.card-content-overflow]#pass:q[The main user interface provided by Bonita]#]
+--
+
+[.card.card-index]
+--
+xref:user-application-overview.adoc[[.card-title]#Bonita User application# [.card-body.card-content-overflow]#pass:q[An example of a todo list-based application provided by Bonita]#]
+--
+
 Bonita Runtime is composed of one or more Bonita Server nodes installed on some hosts (physical machine, virtual machine, a cloud instance, a container like Docker, ...). A Bonita Runtime composed of multiple nodes constitutes a cluster.
 
 xref:engine-architecture-overview.adoc[Bonita Engine] is the execution engine of Bonita.
