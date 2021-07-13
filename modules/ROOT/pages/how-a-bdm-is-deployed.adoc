@@ -175,7 +175,7 @@ The call is done in a single database transaction, which allows it to be rolled 
 == Deploying a new version of the BDM
 
 The java classes of the model are generated again from scratch, so any refactoring is supported. +
-On the other side, the database refactoring is only partially supported. See limitations below.
+On the other side, the database refactoring is xref:bdm-management-in-bonita-bpm-portal.adoc#_limitations[only partially supported].
 
 
 == Constraints to (re-)deploy a BDM
