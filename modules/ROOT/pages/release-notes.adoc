@@ -23,6 +23,7 @@ All these extensions, which are technical components, have to be built outside t
 As the extensions are developed outside the Studio, they are no longer bound to a specific Bonita project. They can be easily reused in a different project - thus improving your efficiency. xref:project-structure.adoc[More information on how Bonita project are structured].
 
 The Studio is stripped of its major coding editor (except for the REST API Extensions) but has now a xref:managing-extension-studio.adoc[dedicated view for extensions]. This view is used to get extensions from different sources: 
+
 * From the Bonita marketplace, which contains all the actor filters and connectors made and maintain by Bonitasoft
 * From maven repository (private or public)
 * From files (jar or zip)
@@ -39,7 +40,7 @@ The Organization wizard has been reworked into an editor, to improve your experi
 
 == Project Overview
 
-Understanding all the elements of a Bonita project has never been easier thanks to the Project Overview. Accessible from the cool, this new page displays all the elements that can be used in a state-of-the-art Bonita project. From this view, you can create, consult or edit the different elements. You can also find documentation on the different components.
+Understanding all the elements of a Bonita project has never been easier thanks to the Project Overview. Accessible from the cool bar, this new page displays all the elements that can be used in a state-of-the-art Bonita project. From this view, you can create, consult or edit the different elements. You can also find documentation on the different components.
 
 == Improvements
 
