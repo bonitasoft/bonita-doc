@@ -45,7 +45,7 @@ Understanding all the elements of a Bonita project has never been easier thanks 
 
 === Exception reporting
 
-When something goes wrong while executing processes, we now log only the important information. In addition, the root cause of the issue is the first one shown.
+When something goes wrong while executing processes, we now log only the important informations. In addition, the root cause of the issue is the first one shown.
 
 Here is a sample of what will now be logged
 
