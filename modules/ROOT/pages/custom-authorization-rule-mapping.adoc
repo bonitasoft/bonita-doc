@@ -160,7 +160,7 @@ mvn clean install
  ./setup/setup.sh pull
 ----
 
-* add customRule bean registration in `platform_conf/current/tenants/TENANT_ID/tenant_engine/bonita-tenant-custom.xml`
+* add customRule bean registration in `platform_conf/current/tenants/TENANT_ID/tenant_engine/bonita-tenants-custom.xml`
 
 [source,xml]
 ----
@@ -171,7 +171,7 @@ mvn clean install
  </bean>
 ----
 
-* add customAuthorizationRuleMapping bean registration in `platform_conf/current/tenants/TENANT_ID/tenant_engine/bonita-tenant-custom.xml`
+* add customAuthorizationRuleMapping bean registration in `platform_conf/current/tenants/TENANT_ID/tenant_engine/bonita-tenants-custom.xml`
 
 [source,xml]
 ----
