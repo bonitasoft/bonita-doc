@@ -41,7 +41,7 @@ xref:application-api.adoc[[.card-title]#Application API# [.card-body.card-conten
 
 [.card.card-index]
 --
-xref:access-control-api.adoc[[.card-title]#BDM Access Control API# [.card-body.card-content-overflow]#pass:q[Learn how to get the BDM Access Control status (lastUpdatedBy, lastUpdateDate…)]#]
+xref:access-control-api.adoc[[.card-title]#BDM Access Control API# [.card-body.card-content-overflow]#pass:q[Retrieve BDM Access Control status (lastUpdatedBy, lastUpdateDate…)]#]
 --
 
 [.card.card-index]
