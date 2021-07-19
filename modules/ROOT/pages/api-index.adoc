@@ -113,7 +113,7 @@ xref:manage-a-process.adoc[[.card-title]#Managing a process# [.card-body.card-co
 
 [.card.card-index]
 --
-xref:handle-a-failed-activity.adoc[[.card-title]#Handling a failed activity# [.card-body.card-content-overflow]#pass:q[Learn how to create process error recovery through Java API]#]
+xref:handle-a-failed-activity.adoc[[.card-title]#Handling a failed activity# [.card-body.card-content-overflow]#pass:q[Create process error recovery through Java API]#]
 --
 
 [.card.card-index]
