@@ -1,7 +1,7 @@
 = Bonita API 
 :description: Bonita provides REST and Java API's to interact with the Runtime. Learn how to use them here.
 
-There are 2 types of API in Bonita: REST and Engine (Java). Learn how to use them here.
+Bonita provides REST and Java API's to interact with the runtime. Learn how to use them here.
 
 [.card-section]
 == REST API - the basics
