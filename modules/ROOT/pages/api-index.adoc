@@ -100,7 +100,7 @@ xref:engine-api-overview.adoc[[.card-title]#Overview# [.card-body.card-content-o
 
 [.card.card-index]
 --
-https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[[.card-title]#Javadoc# [.card-body.card-content-overflow]#pass:q[View the complete list of Engine API with all the resources you need to use them efficiently]#]
+https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[[.card-title]#Javadoc# [.card-body.card-content-overflow]#pass:q[Complete Javadoc of the Java API]#]
 --
 
 [.card-section]
