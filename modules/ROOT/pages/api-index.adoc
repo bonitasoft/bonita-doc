@@ -32,7 +32,7 @@ xref:rest-api-extension-archetype.adoc[[.card-title]#Create a REST API extension
 --
 
 [.card-section]
-== REST API per project element
+== REST API - per theme
 
 [.card.card-index]
 --
