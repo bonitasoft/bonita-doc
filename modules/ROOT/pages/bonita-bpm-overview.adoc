@@ -28,7 +28,7 @@ As for the Professional developers, the back-end Java developers work in both th
 
 
 [.card-section]
-=== Bonita Studio chapters
+=== Related documentation pages
 
 [.card.card-index]
 --
@@ -67,7 +67,7 @@ Bonita also comes with three more usefule applications:
 
 
 [.card-section]
-=== Bonita Runtime chapters
+=== Related documentation pages
 
 [.card.card-index]
 --
