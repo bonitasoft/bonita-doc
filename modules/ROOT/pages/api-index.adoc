@@ -76,7 +76,7 @@ xref:platform-api.adoc[[.card-title]#Platform API# [.card-body.card-content-over
 
 [.card.card-index]
 --
-xref:portal-api.adoc[[.card-title]#Portal API# [.card-body.card-content-overflow]#pass:q[Learn how to access and manage pages, profiles, profile entries, profile members, and themes]#]
+xref:portal-api.adoc[[.card-title]#Portal API# [.card-body.card-content-overflow]#pass:q[Learn how to access and manage pages, profiles and themes]#]
 --
 
 [.card.card-index]
