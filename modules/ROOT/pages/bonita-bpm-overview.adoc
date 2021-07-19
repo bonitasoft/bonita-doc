@@ -30,6 +30,7 @@ As for the Professional developers, the back-end Java developers work in both th
 [.card-section]
 === Related documentation pages
 
+
 [.card.card-index]
 --
 xref:bonita-studio.adoc[[.card-title]#Bonita Studio# [.card-body.card-content-overflow]#pass:q[Create process-based applications for business users]#]
@@ -68,6 +69,7 @@ Bonita also comes with three very useful applications:
 
 [.card-section]
 === Related documentation pages
+
 
 [.card.card-index]
 --
