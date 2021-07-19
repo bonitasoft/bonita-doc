@@ -81,7 +81,7 @@ xref:portal-api.adoc[[.card-title]#Portal API# [.card-body.card-content-overflow
 
 [.card.card-index]
 --
-xref:system-api.adoc[[.card-title]#System API# [.card-body.card-content-overflow]#pass:q[Learn how to get informations on the current session and on localisation / translation.]#]
+xref:system-api.adoc[[.card-title]#System API# [.card-body.card-content-overflow]#pass:q[Retrieve information on the current session and on localisation / translation.]#]
 --
 
 [.card.card-index]
