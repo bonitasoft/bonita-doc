@@ -108,7 +108,7 @@ https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[[.card-title]#Jav
 
 [.card.card-index]
 --
-xref:manage-a-process.adoc[[.card-title]#Managing a process# [.card-body.card-content-overflow]#pass:q[Learn how to manage a process through Java API]#]
+xref:manage-a-process.adoc[[.card-title]#Managing a process# [.card-body.card-content-overflow]#pass:q[Manage processes through Java API]#]
 --
 
 [.card.card-index]
