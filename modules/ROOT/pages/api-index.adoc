@@ -123,7 +123,7 @@ xref:manage-an-organization.adoc[[.card-title]#Managing an organization# [.card-
 
 [.card.card-index]
 --
-xref:manage-users.adoc[[.card-title]#Managing users# [.card-body.card-content-overflow]#pass:q[Learn how to manage the users of your organization through Java API]#]
+xref:manage-users.adoc[[.card-title]#Managing users# [.card-body.card-content-overflow]#pass:q[Manage the users of your organization through Java API]#]
 --
 
 [.card.card-index]
