@@ -152,7 +152,7 @@ xref:manage-files-using-upload-servlet-and-rest-api.adoc[[.card-title]#Manage fi
 
 [.card.card-index]
 --
-xref:create-administration-tools.adoc[[.card-title]#Creating administration tools# [.card-body.card-content-overflow]#pass:q[Learn how to create your onwn tools to administrate the platform through Java API]#]
+xref:create-administration-tools.adoc[[.card-title]#Create administration tools# [.card-body.card-content-overflow]#pass:q[Learn how to create your own tools to administrate the platform through Java API]#]
 --
 
 [.card.card-index]
