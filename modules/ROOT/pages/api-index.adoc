@@ -133,7 +133,7 @@ xref:handling-documents.adoc[[.card-title]#Handling documents# [.card-body.card-
 
 [.card.card-index]
 --
-xref:manage-the-platform.adoc[[.card-title]#Managing the platform# [.card-body.card-content-overflow]#pass:q[Learn how to manage the platform through Java API]#]
+xref:manage-the-platform.adoc[[.card-title]#Managing the platform# [.card-body.card-content-overflow]#pass:q[Manage the platform through Java API]#]
 --
 
 
