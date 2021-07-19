@@ -128,7 +128,7 @@ xref:manage-users.adoc[[.card-title]#Managing users# [.card-body.card-content-ov
 
 [.card.card-index]
 --
-xref:handling-documents.adoc[[.card-title]#Handling documents# [.card-body.card-content-overflow]#pass:q[Learn how to handle documents within the process through Java API]#]
+xref:handling-documents.adoc[[.card-title]#Handling documents# [.card-body.card-content-overflow]#pass:q[Handle documents within processes through Java API]#]
 --
 
 [.card.card-index]
