@@ -18,7 +18,7 @@ xref:api-glossary.adoc[[.card-title]#REST API glossary# [.card-body.card-content
 
 [.card.card-index]
 --
-xref:rest-api-authentication.adoc[[.card-title]#REST Authentication# [.card-body.card-content-overflow]#pass:q[Login to and logout from Bonita, the prerequisites to call the REST API]#]
+xref:rest-api-authentication.adoc[[.card-title]#REST Authentication# [.card-body.card-content-overflow]#pass:q[Authentication is a prerequisite to any other REST API call]#]
 --
 
 [.card.card-index]
