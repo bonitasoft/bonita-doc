@@ -59,7 +59,7 @@ Bonita Runtime is where the Bonita provided applications are located. +
 
 As mentioned before, the Bonita User Application is the part of Bonita that is visible to process users, who use it to view tasks and take actions thanks to a generic task list for all processes they are involved in. +
 
-Bonita also comes with three more usefule applications:
+Bonita also comes with three very useful applications:
 
 * Bonita Administrator Application: the tool used by the tenant administrator to xref:processes.adoc[install, deploy and manage processes] and to xref:applications.adoc[build applications]. We use the word "tenant" here, in case the platform would be made of xref:multi-tenancy-and-tenant-configuration.adoc[several tenants]. 
 * Bonita Super Administrator Application: the tool used by the technical user to setup the Bonita Runtime environment with organization, Business Data Model, and applications. It is also the maintenance tool that allows to pause and resume the BPM Services, for, for example, updating the Business Data Model. 
