@@ -3,8 +3,11 @@
 
 Bonita provides REST and Java API's to interact with the runtime. Learn how to use them here.
 
+
+== REST API 
+
 [.card-section]
-== REST API - the basics
+=== The basics
 
 [.card.card-index]
 --
@@ -32,11 +35,11 @@ xref:rest-api-extension-archetype.adoc[[.card-title]#Create a REST API extension
 --
 
 [.card-section]
-== REST API - per theme
+=== Per theme
 
 [.card.card-index]
 --
-xref:application-api.adoc[[.card-title]#Application API# [.card-body.card-content-overflow]#pass:q[Learn how to retrieve the current deployed application definitions]#]
+xref:application-api.adoc[[.card-title]#Application API# [.card-body.card-content-overflow]#pass:q[Retrieve the current deployed application definitions]#]
 --
 
 [.card.card-index]
@@ -46,12 +49,12 @@ xref:access-control-api.adoc[[.card-title]#BDM Access Control API# [.card-body.c
 
 [.card.card-index]
 --
-xref:bdm-api.adoc[[.card-title]#BDM API# [.card-body.card-content-overflow]#pass:q[Learn how to query the Business data]#]
+xref:bdm-api.adoc[[.card-title]#BDM API# [.card-body.card-content-overflow]#pass:q[Query the Business data]#]
 --
 
 [.card.card-index]
 --
-xref:bpm-api.adoc[[.card-title]#BPM API# [.card-body.card-content-overflow]#pass:q[Learn how to retrieve activities and to perform maintenance tasks]#]
+xref:bpm-api.adoc[[.card-title]#BPM API# [.card-body.card-content-overflow]#pass:q[Retrieve activities and to perform maintenance tasks]#]
 --
 
 [.card.card-index]
@@ -61,22 +64,22 @@ xref:customuserinfo-api.adoc[[.card-title]#Custom User Information API# [.card-b
 
 [.card.card-index]
 --
-xref:form-api.adoc[[.card-title]#Form API# [.card-body.card-content-overflow]#pass:q[Learn how to map a form to a process or a task]#]
+xref:form-api.adoc[[.card-title]#Form API# [.card-body.card-content-overflow]#pass:q[Map a form to a process or a task]#]
 --
 
 [.card.card-index]
 --
-xref:identity-api.adoc[[.card-title]#Identity API# [.card-body.card-content-overflow]#pass:q[Learn how to manage the organization]#]
+xref:identity-api.adoc[[.card-title]#Identity API# [.card-body.card-content-overflow]#pass:q[Manage the organization]#]
 --
 
 [.card.card-index]
 --
-xref:platform-api.adoc[[.card-title]#Platform API# [.card-body.card-content-overflow]#pass:q[Learn how to manage Bonita platform-level resources]#]
+xref:platform-api.adoc[[.card-title]#Platform API# [.card-body.card-content-overflow]#pass:q[Manage Bonita platform-level resources]#]
 --
 
 [.card.card-index]
 --
-xref:portal-api.adoc[[.card-title]#Portal API# [.card-body.card-content-overflow]#pass:q[Learn how to access and manage pages, profiles and themes]#]
+xref:portal-api.adoc[[.card-title]#Portal API# [.card-body.card-content-overflow]#pass:q[Access and manage pages, profiles and themes]#]
 --
 
 [.card.card-index]
@@ -86,12 +89,14 @@ xref:system-api.adoc[[.card-title]#System API# [.card-body.card-content-overflow
 
 [.card.card-index]
 --
-xref:tenant-api.adoc[[.card-title]#Tenant API# [.card-body.card-content-overflow]#pass:q[Learn how to show the tenant status or install / update the BDM]#]
+xref:tenant-api.adoc[[.card-title]#Tenant API# [.card-body.card-content-overflow]#pass:q[Show the tenant status or install / update the BDM]#]
 --
 
 
+== Java API
+
 [.card-section]
-== Java API - the basics
+=== The basics
 
 [.card.card-index]
 --
@@ -104,7 +109,7 @@ https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[[.card-title]#Jav
 --
 
 [.card-section]
-== Common use-cases with Java API 
+=== Common use-cases
 
 [.card.card-index]
 --
@@ -142,17 +147,17 @@ xref:manage-the-platform.adoc[[.card-title]#Managing the platform# [.card-body.c
 
 [.card.card-index]
 --
-xref:bdm-in-rest-api.adoc[[.card-title]#Manage BDM in REST API extensions# [.card-body.card-content-overflow]#pass:q[Learn how to manage your Business data in your REST API extensions]#]
+xref:bdm-in-rest-api.adoc[[.card-title]#Manage BDM in REST API extensions# [.card-body.card-content-overflow]#pass:q[Manage your Business data in your REST API extensions]#]
 --
 
 [.card.card-index]
 --
-xref:manage-files-using-upload-servlet-and-rest-api.adoc[[.card-title]#Manage files using upload servlet and REST API# [.card-body.card-content-overflow]#pass:q[Learn how to manage files through REST API]#]
+xref:manage-files-using-upload-servlet-and-rest-api.adoc[[.card-title]#Manage files using upload servlet and REST API# [.card-body.card-content-overflow]#pass:q[Manage files through REST API]#]
 --
 
 [.card.card-index]
 --
-xref:create-administration-tools.adoc[[.card-title]#Create administration tools# [.card-body.card-content-overflow]#pass:q[Learn how to create your own tools to administrate the platform through Java API]#]
+xref:create-administration-tools.adoc[[.card-title]#Create administration tools# [.card-body.card-content-overflow]#pass:q[Create your own tools to administrate the platform through Java API]#]
 --
 
 [.card.card-index]
@@ -162,5 +167,5 @@ xref:using-list-and-search-methods.adoc[[.card-title]#List and search methods# [
 
 [.card.card-index]
 --
-xref:queriable-logging.adoc[[.card-title]#Queriable logger# [.card-body.card-content-overflow]#pass:q[Learn how to access all events logged in Bonita Runtime through Java API]#]
+xref:queriable-logging.adoc[[.card-title]#Queriable logger# [.card-body.card-content-overflow]#pass:q[Access all events logged in Bonita Runtime through Java API]#]
 --
