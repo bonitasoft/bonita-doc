@@ -7,7 +7,7 @@ Bonita provides REST and Java API's to interact with the runtime. Learn how to u
 == REST API 
 
 [.card-section]
-=== The basics
+== The basics
 
 [.card.card-index]
 --
