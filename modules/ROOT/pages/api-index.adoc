@@ -51,7 +51,7 @@ xref:bdm-api.adoc[[.card-title]#BDM API# [.card-body.card-content-overflow]#pass
 
 [.card.card-index]
 --
-xref:bpm-api.adoc[[.card-title]#BPM API# [.card-body.card-content-overflow]#pass:q[Learn how to retrieve activities and subprocesses, or to perform maintenance tasks]#]
+xref:bpm-api.adoc[[.card-title]#BPM API# [.card-body.card-content-overflow]#pass:q[Learn how to retrieve activities and to perform maintenance tasks]#]
 --
 
 [.card.card-index]
