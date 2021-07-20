@@ -50,7 +50,10 @@ Follow the http://maven.apache.org/guides/mini/guide-naming-conventions.html[mav
 
 A folder named _[your artifact id]_ is created, with your Bonita actor filter project, ready to use.
 
-⚠️ You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
+[WARNING]
+====
+You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
+====
 
 === Actor filter developpment
 
@@ -135,6 +138,11 @@ Some widgets can require additional informations. For example, if you want to cr
 </widget>
 ----
 
+===== Add multiple definitions
+
+To add a new definition create a `.def` file in the `src/main/resources-filtered/` folder. They will be added to `all` zip archive at build time. It is recommended to use the maven properties for definition id and version.
+
+
 ==== Actor filter implementation
 
 An _actor filter implementation_ implements a definition. A definition defines a set of inputs, implementing a definition means use the provided inputs to create the expected list of users ids. +
@@ -185,17 +193,18 @@ The archetype offers the possibility to generate the default sources in Java, Gr
 
 The entry point of the implementation sources must extend the class _`org.bonitasoft.engine.filter.AbstractUserFilter`_.
 
-==== Build an actor filter project
+==== Build the project
 
-An actor filter project is built using Maven, and especially the https://maven.apache.org/plugins/maven-assembly-plugin/[maven assembly plugin].
-
-By default, a zip archives is built containing all the definitions and implementations found in the project.
-By importing this archive in a Bonita Studio you will import all the definitions and implementations created in the project
-
-To build the actor filter project, type the following command at the root of the project :
-
+Build the project by typing the following command at the root of the project:
+ 
+[source,bash]
 ----
-./mvnw clean package
+./mvnw clean install
 ----
 
-The built archive can be found in here `target/[artifact id]-[artifact version].zip` after the build.
+A actor filter project is built using Maven, and especially the https://maven.apache.org/plugins/maven-assembly-plugin/[maven assembly plugin].
+
+The default build output is:
+
+*  `target/[artifact id]-[artifact version]-all.zip` : By importing this archive in a Bonita Studio you will import all the definitions and implementations created in the project.
+*  `target/[artifact id]-[artifact version]-impl.zip` : An archive containing a single implementation that can be installed using the Admin Portal app

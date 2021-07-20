@@ -51,7 +51,10 @@ Follow the http://maven.apache.org/guides/mini/guide-naming-conventions.html[mav
 
 A folder named _[your artifact id]_ is created, with your Bonita connector project, ready to use.
 
-⚠️ You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
+[WARNING]
+====
+You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
+====
 
 === Connector developpment
 
@@ -151,6 +154,10 @@ Some widgets can require additional informations. For example, if you want to cr
 As widgets are displayed in a dialog window in the Studio, be careful to not use too many widgets in the same page.
 Use Group widget if you need to stack a lot of widgets in the same page.
 ====
+
+===== Add multiple definitions
+
+To add a new definition create a `.def` file in the `src/main/resources-filtered/` folder. They will be added to `all` zip archive at build time. It is recommended to use the maven properties for definition id and version.
 
 ==== Connector implementation
 
@@ -265,33 +272,27 @@ class Connector extends AbstractConnector {
 The methods _validateInputParameters_ and _executeBusinessLogic_ must be implemented, and are called by the Bonita engine when the connector is executed. +
 The methods _connect_ and _disconnect_ can be used to open and close a connection to a remote server.  The life cycle of the connection will then be managed by the Bonita engine.
 
-==== Build a connector project
+===== Add multiple implementations
 
-A connector project is built using Maven, and especially the https://maven.apache.org/plugins/maven-assembly-plugin/[maven assembly plugin]. +
-The root _pom.xml_ file has the following parent:
+To add a new implementation create a `.impl` file in the `src/main/resources-filtered/` folder. They will be added to `all` zip archive at build time. It is recommended to use the maven properties for definition id and version.
 
-[source,xml]
-----
-<parent>
-    <groupId>org.bonitasoft.connectors</groupId>
-    <artifactId>bonita-connectors</artifactId>
-    <version>1.0.0</version>
-</parent>
-----
+If you want to build a single zip assembly containing a specific implementation (that can be installed on a Bonita runtime using the Admin Portal app), you must create a new assembly file in the `src/assembly` folder. This assembly must use an id that match the implementation id and include the proper `.impl` file. You can use the generated `impl` assembly as an example.
 
-This parent contains the logic that make the replacements in the implementation xml file at build time.
+==== Build the project
 
-By default, a zip archives is built containing all the definitions and implementations found in the project.
-By importing this archive in a Bonita Studio you will import all the definitions and implementations created in the project
-
-To build the connector project, type the following command at the root of the project :
-
+Build the project by typing the following command at the root of the project:
+ 
 [source,bash]
 ----
 ./mvnw clean install
 ----
 
-The built archive can be found in here `target/[artifact id]-[artifact version].zip` after the build.
+A connector project is built using Maven, and especially the https://maven.apache.org/plugins/maven-assembly-plugin/[maven assembly plugin].
+
+The default build output is:
+
+*  `target/[artifact id]-[artifact version]-all.zip` : By importing this archive in a Bonita Studio you will import all the definitions and implementations created in the project.
+*  `target/[artifact id]-[artifact version]-impl.zip` : An archive containing a single implementation that can be installed using the Admin Portal app
 
 == Example
 
