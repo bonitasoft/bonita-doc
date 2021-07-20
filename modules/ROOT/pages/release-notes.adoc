@@ -3,7 +3,6 @@
 
 [NOTE]
 ====
-
 The 2021.2 is in beta.
 ====
 
