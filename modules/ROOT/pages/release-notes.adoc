@@ -116,7 +116,6 @@ If you are updating from a 2021.1 or earlier version, in the Community edition, 
 and remove the JAAS configuration to use another Authentication Manager (an implementation of your own, for instance).
 
 ==== Process Manager profile navigation
-
 As part of the update of Bonita Portal into Bonita Applications, we have not reimplemented the pages for the profile Process Manager, a new documentation page will explain how to rebuild and customize the bonita administrator application to handle the process management capabilities.
 
 == Technical updates
