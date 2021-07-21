@@ -14,7 +14,6 @@ Indeed, it is a graphical environment for creating processes and data models, to
 
 By default, users can use the Bonita User application to view and complete the process tasks for all processes. +
 But with Bonita, you can also build personalized process-based applications that will display customized views of the business data. +
-
 To do so, Bonita Studio also contains an application designer, and a UI Designer.
 
 So, Bonita Studio contains three major design tools:
