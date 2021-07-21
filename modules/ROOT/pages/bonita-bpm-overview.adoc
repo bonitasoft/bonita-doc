@@ -19,7 +19,7 @@ Bonita comes with an application designer and a UI designer to create those appl
 In summary, Bonita Studio contains three major design tools:
 
 * the whiteboard, for drawing a process flow diagram and defining the detail of steps, transitions, decision points and other process elements
-* the Development menu, to extend the Studio capabilities and create your data models
+* Several development tools, to design data models, process-based applications ...
 * the UI Designer, used to create process forms, application pages and layouts
 
 Bonita Studio is the development tool for both the Citizen developers and the Professional Developers. +
