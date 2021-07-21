@@ -31,7 +31,7 @@ xref:declare-business-variables.adoc[[.card-title]#Declare business variables# [
 
 [.card.card-index]
 --
-xref:declare-contracts.adoc[[.card-title]#Declare contracts# [.card-body.card-content-overflow]#pass:q[This step defines how the UI and the process interact]#]
+xref:declare-contracts.adoc[[.card-title]#Declare contracts# [.card-body.card-content-overflow]#pass:q[Contracts account for the interfaces allowing processes and UI to interact]#]
 --
 
 [.card.card-index]
