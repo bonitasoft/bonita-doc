@@ -16,7 +16,7 @@ xref:bonita-studio-download-installation.adoc[[.card-title]#Bonita Studio Instal
 
 [.card.card-index]
 --
-xref:draw-bpmn-diagram.adoc[[.card-title]#Draw a BPMN diagram# [.card-body.card-content-overflow]#pass:q[Process automation, "most of the time" ;), starts with a process]#]
+xref:draw-bpmn-diagram.adoc[[.card-title]#Draw a BPMN diagram# [.card-body.card-content-overflow]#pass:q[Process automation always starts with a process]#]
 --
 
 [.card.card-index]
