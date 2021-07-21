@@ -13,7 +13,7 @@ If you have any problems while working through this tutorial, you can https://co
 
 == Before starting
 
-. Make sure to check out the page that tells you everything about xref:what-is-bonita.adoc[What Bonita is]. +
+. Make sure to xref:what-is-bonita.adoc[check this chapter], that tells you everything about what Bonita is. +
 . xref:bonita-studio-download-installation.adoc[Install your Bonita Studio].
 
 == What are the steps to create a Bonita application?
