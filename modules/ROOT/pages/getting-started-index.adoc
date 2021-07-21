@@ -41,7 +41,7 @@ xref:create-web-user-interfaces.adoc[[.card-title]#Create forms# [.card-body.car
 
 [.card.card-index]
 --
-xref:define-who-can-do-what.adoc[[.card-title]#Define who can do what# [.card-body.card-content-overflow]#pass:q[Map organization entities to each human task]#]
+xref:define-who-can-do-what.adoc[[.card-title]#Define who can do what# [.card-body.card-content-overflow]#pass:q[Actors allow the mapping of organization entities to human tasks]#]
 --
 
 [.card.card-index]
