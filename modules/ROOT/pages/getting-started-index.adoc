@@ -56,5 +56,5 @@ xref:design-application-page.adoc[[.card-title]#Design an application page# [.ca
 
 [.card.card-index]
 --
-xref:create-application.adoc[[.card-title]#Create an application# [.card-body.card-content-overflow]#pass:q[And this is where everything is put together to build a rich and valuable end-user experience]#]
+xref:create-application.adoc[[.card-title]#Create an application# [.card-body.card-content-overflow]#pass:q[This is where everything is put together to build a rich, valuable end-user experience]#]
 --
