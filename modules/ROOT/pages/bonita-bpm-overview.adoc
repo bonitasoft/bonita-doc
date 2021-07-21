@@ -5,7 +5,7 @@ Bonita is an open-source and extensible platform for business process automation
 
 Morevoer, Bonita integrates with existing information systems, orchestrates heterogeneous systems, and provides deep visibility into processes across the organization.
 
-The Bonita platform has two main components: the development environment, Bonita Studio, and the runtime environment, Bonita Runtime.
+The Bonita platform has three main components: the development environment, Bonita Studio, the runtime environment, Bonita Runtime, and the tool to continuously deliver Bonita projects: Bonita Continuous Delivery (Subscription editions only).
 
 == Bonita Studio
 
@@ -19,7 +19,7 @@ Bonita comes with an application designer and a UI designer to create those appl
 In summary, Bonita Studio contains three major design tools:
 
 * the whiteboard, for drawing a process flow diagram and defining the detail of steps, transitions, decision points and other process elements
-* Several development tools, to design data models, process-based applications ...
+* Several low-code development tools, to design data models, process-based applications, sandbox organizations ...
 * the UI Designer, used to create process forms, application pages and layouts
 
 Bonita Studio is the development tool for both the Citizen developers and the Professional Developers. +
@@ -49,6 +49,7 @@ xref:bonita-studio-download-installation.adoc[[.card-title]#Studio installation#
 Bonita Studio also embeds a *Bonita Runtime* (Tomcat, Bonita provided applications, Bonita Engine, and an h2 database), suitable for testing an application that is in development. When you run a process from the Studio, it is automatically deployed onto the embedded Runtime (the development environment).
 
 Then, once a process is ready, you can xref:build-a-process-for-deployment.adoc[build] it and deploy it on your Bonita qualification or production Runtime environment. +
+xref:#bcd[Bonita Continuous Delivery] comes in very handy to help with this step throughout the project lifecycle.
 
 [#platform]
 
@@ -62,8 +63,8 @@ As mentioned before, the Bonita User Application is the part of Bonita that is v
 
 Bonita also comes with three other very useful applications:
 
-* Bonita Administrator Application: the tool used by the tenant administrator to xref:processes.adoc[install, deploy and manage processes] and to xref:applications.adoc[build applications]. We use the word "tenant" here, in case the platform would be made of xref:multi-tenancy-and-tenant-configuration.adoc[several tenants]. 
-* Bonita Super Administrator Application: the tool used by the technical user to setup the Bonita Runtime environment with organization, Business Data Model, and applications. It is also the maintenance tool that allows to pause and resume the BPM Services, for, for example, updating the Business Data Model. 
+* Bonita Administrator Application: the tool used by the tenant administrator to xref:processes.adoc[install, deploy and manage processes], monitor process execution, [xref:live-update.adoc[perform  some evolutions] in organization, resources, and applications, and recover from errors. We use the word "tenant" here, in case the platform would be made of xref:multi-tenancy-and-tenant-configuration.adoc[several tenants]. 
+* Bonita Super Administrator Application: the tool used by the technical user to setup the Bonita Runtime environment with organization, Business Data Model, and applications. It is also the maintenance tool that allows to pause and resume the BPM Services to, for example, update the Business Data Model. 
 * Application Directory Application, THE ONE URL to remember for all Bonita users, displaying the catalog of all applications accessible by the logged user.
 
 
@@ -90,3 +91,17 @@ xref:user-application-overview.adoc[[.card-title]#Bonita User application# [.car
 --
 xref:admin-application-overview.adoc[[.card-title]#Bonita Administrator application# [.card-body.card-content-overflow]#pass:q[The Runtime administration user interface provided by Bonita]#]
 --
+
+[#bcd]
+
+== Bonita Continuous Delivery (BCD)
+
+[NOTE] 
+====
+
+For Subscription editions only. +
+If your Bonita Subscription has been purchased before 2021, this Add-on can be purchased on top of your subscription.
+If you have purchased or renewed your Bonita Subscription in 2021 or after, BCD is fully part of your subscription.
+====
+
+To know more on this great tool, read the https://documentation.bonitasoft.com/bcd/latest/[related documentation section].
