@@ -18,9 +18,34 @@ Bonita Studio is the central tool to design processes and applications. This is 
 * Configure the processes according to target environments
 * Build the processes for deployment
 
-== Download and install
+[.card-section]
+== Related documentation pages
 
-The full download and installation procedure is explained in xref:bonita-studio-download-installation.adoc[Studio installation].
+[.card.card-index]
+--
+xref:using-Bonita-Studio.adoc[[.card-title]#Using Bonita Studio# [.card-body.card-content-overflow]#pass:q[Studio structure and usage tips]#]
+--
+
+[.card.card-index]
+--
+xref:managing-extension-studio.adoc[[.card-title]#Managing Extensions# [.card-body.card-content-overflow]#pass:q[Find, add, and use code-based elements to enhance your project ]#]
+--
+
+[.card.card-index]
+--
+xref:bonita-studio-download-installation.adoc[[.card-title]#Studio installation# [.card-body.card-content-overflow]#pass:q[The first step to use the Studio]#]
+--
+
+[.card.card-index]
+--
+xref:getting-started-index.adoc[[.card-title]#Getting started tutorial# [.card-body.card-content-overflow]#pass:q[The 9-step journey to you first Bonita application]#]
+--
+
+[.card.card-index]
+--
+xref:setup-dev-environment-index.adoc[[.card-title]#Development environment setup# [.card-body.card-content-overflow]#pass:q[Make the studio ready for intensive teamwork]#]
+--
+
 
 == image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
