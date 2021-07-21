@@ -46,7 +46,7 @@ xref:ui-designer-overview.adoc[[.card-title]#Bonita UI Designer# [.card-body.car
 xref:bonita-studio-download-installation.adoc[[.card-title]#Studio installation# [.card-body.card-content-overflow]#pass:q[First step to use Bonita Studio]#]
 --
 
-Bonita Studio also embeds a *Bonita Runtime* (Tomcat, UI Designer, Bonita provided applications, Bonita Engine, and an h2 database), suitable for testing an application that is in development. When you run a process, it is automatically deployed onto the development platform.
+Bonita Studio also embeds a *Bonita Runtime* (Tomcat, Bonita provided applications, Bonita Engine, and an h2 database), suitable for testing an application that is in development. When you run a process from the Studio, it is automatically deployed onto the embedded Runtime (the development environment).
 
 Then, once a process is ready, you can xref:build-a-process-for-deployment.adoc[build] it and deploy it on your Bonita qualification or production Runtime environment. +
 
