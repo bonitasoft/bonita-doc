@@ -21,7 +21,7 @@ xref:draw-bpmn-diagram.adoc[[.card-title]#Draw a BPMN diagram# [.card-body.card-
 
 [.card.card-index]
 --
-xref:define-business-data-model.adoc[[.card-title]#Define a Business Data Model (BDM)# [.card-body.card-content-overflow]#pass:q[The business data will be handled by the process. First, you need to create the data model]#]
+xref:define-business-data-model.adoc[[.card-title]#Define a Business Data Model (BDM)# [.card-body.card-content-overflow]#pass:q[The data model represents the business data handled by processes.]#]
 --
 
 [.card.card-index]
