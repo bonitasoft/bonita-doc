@@ -8,7 +8,7 @@ To get started with Bonita, learn how to create your first complete living appli
 
 [.card.card-index]
 --
-xref:bonita-studio-download-installation.adoc[[.card-title]#Bonita Studio Installation# [.card-body.card-content-overflow]#pass:q[Bonita's main tool to create the main elements of all your projects]#]
+xref:bonita-studio-download-installation.adoc[[.card-title]#Bonita Studio Installation# [.card-body.card-content-overflow]#pass:q[Bonita's principal tool to create the main elements of all your projects]#]
 --
 
 [.card-section]
