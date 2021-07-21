@@ -65,7 +65,7 @@ In this section we'll look into the different components of an actor filter proj
 ==== Definition
 
 An actor filter is first defined by its *definition*.  It is an XML file located in _src/main/resources-filtered/[artifactId].def_ by default. +
-A definition defines the inputs of an actor filter. It can be seen as a contract. Then, implementations of this definition can be created, they just need to respect the inputscontract of the definition.
+A definition defines the inputs of an actor filter. It can be seen as a contract. Then, implementations of this definition can be created, they just need to respect the inputs contract of the definition.
 
 The connector definition XSD is available in _schemas/connector-definition-descriptor.xsd_ (it is the same for definition model for Connectors and Actor filters definitions), you can import it in a IDE to get completion.
 
