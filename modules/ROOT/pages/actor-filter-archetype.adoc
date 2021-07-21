@@ -1,7 +1,7 @@
 = Bonita actor filter archetype
 :description: A set of best of breed tools to develop and test custom actor filters independently of the Bonita Studio.
 
-A set of best of breed tools to develop and test custom actor filters independently of the Bonita Studio.
+{description}
 
 == Create a custom actor filter
 
@@ -19,9 +19,9 @@ We provide a maven archetype to help you to bootstrap an actor filter project. T
 A https://maven.apache.org/archetype/index.html[maven archetype] is a maven project templating toolkit. This archetype allows you to bootstrap a Bonita actor filter project on your file system. A Bonita actor filter project is a maven project. It can be built, tested and then imported into a Bonita project using Bonita Studio.
 
 To create your actor filter project, prompt a terminal and enter the following command:
+
 [WARNING]
 ====
-
 Make sure that you are not executing the command from an existing maven project.
 ====
 
@@ -47,21 +47,27 @@ Follow the http://maven.apache.org/guides/mini/guide-naming-conventions.html[mav
  ** java
  ** groovy
  ** kotlin
+* *wrapper* _(optional)_: install a https://github.com/takari/maven-wrapper[Maven wrapper, window = "_blank"]. Available values: 
+ ** true _(default)_
+ ** false
 
 A folder named _[your artifact id]_ is created, with your Bonita actor filter project, ready to use.
 
-⚠️ You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
+[WARNING]
+====
+You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
+====
 
-=== Actor filter developpment
+=== Actor filter development
 
 In this section we'll look into the different components of an actor filter project, and how you should use them to develop your filter.
 
 ==== Definition
 
 An actor filter is first defined by its *definition*.  It is an XML file located in _src/main/resources-filtered/[artifactId].def_ by default. +
-A definition defines the inputs of a filter. It can be seen as a black box. The definition explicits what will be passed to the filter. Then, implementations of this definition can be created, they just need to respect the inputs contract of the definition.
+A definition defines the inputs of an actor filter. It can be seen as a contract. Then, implementations of this definition can be created, they just need to respect the inputs contract of the definition.
 
-The connector definition XSD is available in _schemas/connector-definition-descriptor.xsd_, you can import it in a IDE to get completion.
+The connector definition XSD is available in _schemas/connector-definition-descriptor.xsd_ (it is the same for definition model for Connectors and Actor filters definitions), you can import it in a IDE to get completion.
 
 image::images/connector-def-xsd-overview.png[Connector definition xsd overview]
 
@@ -135,6 +141,11 @@ Some widgets can require additional informations. For example, if you want to cr
 </widget>
 ----
 
+===== Add multiple definitions
+
+To add a new definition create a `.def` file in the `src/main/resources-filtered/` folder. They will be added to `all` zip archive at build time. It is recommended to use the maven properties for definition id and version.
+
+
 ==== Actor filter implementation
 
 An _actor filter implementation_ implements a definition. A definition defines a set of inputs, implementing a definition means use the provided inputs to create the expected list of users ids. +
@@ -148,7 +159,7 @@ An actor filter implementation is made of two elements:
 ===== Implementation XML file
 
 The implementation XML file is located in _src/main/resources-filtered/[artifactId].impl_ by default. +
-The connector definition XSD is available in _schemas/connector-implementation-descriptor.xsd_, you can import it in a IDE to get completion.
+The implementation XSD is available in _schemas/connector-implementation-descriptor.xsd_, you can import it in a IDE to get completion.
 
 image::images/connector-impl-xsd-overview.png[Connector implementation xsd overview]
 
@@ -181,21 +192,27 @@ The implementation sources contain all the logic of the actor filter:
 * The validation of the inputs
 * The execution of the business logic to filter the users for a given actor.
 
-The archetype offers the possibility to generate the default sources in Java, Groovy or Kotlin. The build result will always be a Java archive (jar), no matters the langage selected.
+The archetype offers the possibility to generate the default sources in Java, Groovy or Kotlin. The build result will always be a Java archive (jar) and some Zip archives (assemblies), no matters the language selected.
 
-The entry point of the implementation sources must extend the class _`org.bonitasoft.engine.filter.AbstractUserFilter`_.
+The entry point of the implementation sources must extend the https://javadoc.bonitasoft.com/api/{varVersion}/org/bonitasoft/engine/filter/AbstractUserFilter.html[__AbstractUserFilter__, window="_blank"] class
+or implement https://javadoc.bonitasoft.com/api/{varVersion}/org/bonitasoft/engine/filter/UserFilter.html[__UserFilter__, window="_blank"] interface.
 
-==== Build an actor filter project
+===== Add multiple implementations
 
-An actor filter project is built using Maven, and especially the https://maven.apache.org/plugins/maven-assembly-plugin/[maven assembly plugin].
+To add a new implementation create a `.impl` file in the `src/main/resources-filtered/` folder. They will be added to the `all` zip archive at build time. It is recommended to use the Maven properties for implementation id and version.
 
-By default, a zip archives is built containing all the definitions and implementations found in the project.
-By importing this archive in a Bonita Studio you will import all the definitions and implementations created in the project
+==== Build the project
 
-To build the actor filter project, type the following command at the root of the project :
-
+Build the project by typing the following command at the root of the project:
+ 
+[source,bash]
 ----
-./mvnw clean package
+./mvnw clean install
 ----
 
-The built archive can be found in here `target/[artifact id]-[artifact version].zip` after the build.
+A actor filter project is built using Maven, and especially the https://maven.apache.org/plugins/maven-assembly-plugin/[maven assembly plugin].
+
+The default build output is:
+
+*  `target/[artifact id]-[artifact version]-all.zip` : By importing this archive in a Bonita Studio you will import all the definitions and implementations created in the project.
+*  `target/[artifact id]-[artifact version]-impl.zip` : An archive containing a single implementation.
