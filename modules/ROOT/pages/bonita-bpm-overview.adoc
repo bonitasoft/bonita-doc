@@ -5,7 +5,11 @@ Bonita is an open-source and extensible platform for business process automation
 
 Morevoer, Bonita integrates with existing information systems, orchestrates heterogeneous systems, and provides deep visibility into processes across the organization.
 
-The Bonita platform has three main components: the development environment, Bonita Studio, the runtime environment, Bonita Runtime, and the tool to continuously deliver Bonita projects: Bonita Continuous Delivery (Subscription editions only).
+The Bonita platform has three main components: 
+
+* the development environment, Bonita Studio, 
+* the runtime environment, Bonita Runtime, 
+* the tool to continuously deliver Bonita projects: Bonita Continuous Delivery (Subscription editions only).
 
 == Bonita Studio
 
