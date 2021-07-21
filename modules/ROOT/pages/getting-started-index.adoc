@@ -51,7 +51,7 @@ xref:configure-email-connector.adoc[[.card-title]#Configure an email connector# 
 
 [.card.card-index]
 --
-xref:design-application-page.adoc[[.card-title]#Design an application page# [.card-body.card-content-overflow]#pass:q[Unlike the form, an application page displays more than the information of a human task]#]
+xref:design-application-page.adoc[[.card-title]#Design an application page# [.card-body.card-content-overflow]#pass:q[Application pages information is more generic than human tasks information]#]
 --
 
 [.card.card-index]
