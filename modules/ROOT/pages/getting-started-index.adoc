@@ -31,7 +31,7 @@ xref:declare-business-variables.adoc[[.card-title]#Declare business variables# [
 
 [.card.card-index]
 --
-xref:declare-contracts.adoc[[.card-title]#Declare contracts# [.card-body.card-content-overflow]#pass:q[Contracts account for the interfaces allowing processes and UI to interact]#]
+xref:declare-contracts.adoc[[.card-title]#Declare contracts# [.card-body.card-content-overflow]#pass:q[Contracts are the interfaces allowing processes and UI to interact]#]
 --
 
 [.card.card-index]
@@ -51,10 +51,10 @@ xref:configure-email-connector.adoc[[.card-title]#Configure an email connector# 
 
 [.card.card-index]
 --
-xref:design-application-page.adoc[[.card-title]#Design an application page# [.card-body.card-content-overflow]#pass:q[Application pages information is more generic than human tasks information]#]
+xref:design-application-page.adoc[[.card-title]#Design an application page# [.card-body.card-content-overflow]#pass:q[Pages can display more generic information than tasks forms]#]
 --
 
 [.card.card-index]
 --
-xref:create-application.adoc[[.card-title]#Create an application# [.card-body.card-content-overflow]#pass:q[This is where everything is put together to build a rich, valuable end-user experience]#]
+xref:create-application.adoc[[.card-title]#Create an application# [.card-body.card-content-overflow]#pass:q[Bind all elements together to build a rich, valuable end-user experience]#]
 --
