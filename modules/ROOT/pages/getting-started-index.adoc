@@ -26,7 +26,7 @@ xref:define-business-data-model.adoc[[.card-title]#Define a Business Data Model 
 
 [.card.card-index]
 --
-xref:declare-business-variables.adoc[[.card-title]#Declare business variables# [.card-body.card-content-overflow]#pass:q[Learn hot to link business data and processes]#]
+xref:declare-business-variables.adoc[[.card-title]#Declare business variables# [.card-body.card-content-overflow]#pass:q[Variables are the link between business data and processes]#]
 --
 
 [.card.card-index]
