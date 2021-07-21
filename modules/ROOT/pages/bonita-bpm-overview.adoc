@@ -78,7 +78,7 @@ xref:engine-architecture-overview.adoc[[.card-title]#Bonita Engine# [.card-body.
 
 [.card.card-index]
 --
-xref:bonita-bpm-installation-overview.adoc#platform[[.card-title]#Install Bonita Runtime# [.card-body.card-content-overflow]#pass:q[Install Bonita Engine and Bonita provided applications in a qualification or production environment]#]
+xref:bonita-bpm-installation-overview.adoc#platform[[.card-title]#Install Bonita Runtime# [.card-body.card-content-overflow]#pass:q[Install Bonita Engine and Bonita provided applications]#]
 --
 
 [.card.card-index]
