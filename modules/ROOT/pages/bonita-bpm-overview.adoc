@@ -9,7 +9,7 @@ The Bonita platform has two main components: the development environment, Bonita
 
 == Bonita Studio
 
-Bonita Studio contains all the elements needed to design and compile processes allowing entities of an organization to handle data in a standardized and traceable way. +
+Bonita Studio contains all the elements needed to design and build processes allowing entities of an organization to handle data in a standardized and traceable way. +
 Indeed, it is a graphical environment for creating processes and data models, to manage the organization of people that will do the tasks, and create the connectivity between Bonita and the IT environment it will orchestrate. +
 
 By default, users can use the Bonita User application to view and complete the process tasks for all processes. +
