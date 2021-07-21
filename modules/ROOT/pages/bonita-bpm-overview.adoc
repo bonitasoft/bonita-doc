@@ -56,7 +56,7 @@ Then, once a process is ready, you can xref:build-a-process-for-deployment.adoc[
 
 Bonita Runtime is composed of one or more Bonita Server nodes installed on some hosts (physical machine, virtual machine, a cloud instance, a container like Docker, ...). A Bonita Runtime composed of multiple nodes constitutes a cluster. +
 
-Bonita Runtime is where the Bonita provided applications are located. +
+Bonita provided applications are embedded in the Bonita Runtime. +
 
 As mentioned before, the Bonita User Application is the part of Bonita that is visible to process users, who use it to view tasks and take actions thanks to a generic task list for all processes they are involved in. +
 
