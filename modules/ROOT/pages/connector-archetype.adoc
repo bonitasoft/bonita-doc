@@ -49,6 +49,9 @@ Follow the http://maven.apache.org/guides/mini/guide-naming-conventions.html[mav
  ** java
  ** groovy
  ** kotlin
+ * *wrapper* _(optional)_: install a https://github.com/takari/maven-wrapper[Maven wrapper, window = "_blank"]. Available values: 
+ ** true _(default)_
+ ** false
 
 A folder named _[your artifact id]_ is created, with your Bonita connector project, ready to use.
 
@@ -57,18 +60,18 @@ A folder named _[your artifact id]_ is created, with your Bonita connector proje
 You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
 ====
 
-=== Connector developpment
+=== Connector development
 
 In this section we'll look into the different components of a connector project, and how you should use them to develop your connector.
 
 ==== Definition
 
-A connector is first defined by its *definition*.  It is an XML file located in _src/main/resources-filtered/[artifactId].def_ by default. +
-A connector definition defines the inputs and the outputs of a connector. It can be seen as a black box. The definition explicits what will be passed to the connector, and what is expected as output. Then, implementations of this definition can be created, they just need to respect the inputs / outputs contract of the definition.
+A connector is first defined by its *definition*. It is an XML file located in _src/main/resources/[artifactId].def_ by default. +
+A definition defines the inputs and the outputs of a connector. It can be seen as a contract. Then, implementations of this definition can be created, they just need to respect the inputs / outputs contract of the definition.
 
 [TIP]
 ====
-The connector definition XSD is available in _schemas/connector-definition-descriptor.xsd_, you can import it in a IDE to get completion.
+The definition definition XSD is available in _schemas/connector-definition-descriptor.xsd_ (it is the same for definition model for Connectors and Actor filters definitions), you can import it in a IDE to get completion.
 ====
 
 image::images/connector-def-xsd-overview.png[Connector definition xsd overview]
@@ -163,21 +166,25 @@ As widgets are displayed in a dialog window in the Studio, be careful to not use
 Use Group widget if you need to stack a lot of widgets in the same page.
 ====
 
+===== Add multiple definitions
+
+To add a new definition create a `.def` file in the `src/main/resources-filtered/` folder. They will be added to the `all` zip archive at build time. It is recommended to use the maven properties for definition id and version.
+
 ==== Connector implementation
 
 A _connector implementation_ implements a connector definition. A definition defines a set on inputs / outputs, implementing a definition means use the provided inputs to create the expected outputs. +
-Several implementations can be created for a given definition. A connector implementation can be updated at runtime in a Bonita bundle, as long as it implements the same definition.
+Several implementations can be created for a given definition.
 
 A connector implementation is made of two elements:
 
 * An xml file used to explicit the definition implemented, the dependencies required and the location of the implementation sources
-* A set of Java based classes, constituting the implementation sources
+* A set of Java (Groovy or Kotlin) based classes, constituting the implementation sources
 
-The implementation XML file is located in _src/main/resources-filtered/[connector name].impl_ by default. +
+The implementation XML file is located in _src/main/resources-filtered/[artifactId].impl_ by default. +
 
 [TIP]
 ====
-The connector implementation XSD is available in _schemas/connector-implementation-descriptor.xsd_, you can import it in a IDE to get completion.
+The implementation XSD is available in _schemas/connector-implementation-descriptor.xsd_, you can import it in a IDE to get completion.
 ====
 
 image::images/connector-impl-xsd-overview.png[Connector implementation xsd overview]
@@ -188,20 +195,23 @@ Example:
 ----
 <?xml version="1.0" encoding="UTF-8"?>
 <implementation:connectorImplementation xmlns:implementation="http://www.bonitasoft.org/ns/connector/implementation/6.0">
-  <implementationId>${connector-impl-id}</implementationId> <!-- Id of the implementation, retrieved from pom.xml -->
-  <implementationVersion>${connector-impl-version}</implementationVersion> <!-- Version of the implementation, retrieved from pom.xml  -->
-  <definitionId>${connector-definition-id}</definitionId> <!-- Id of the definition implemented, retrieved from pom.xml -->
-  <definitionVersion>${connector-definition-version}</definitionVersion> <!-- Version of the definition implemented, retrieved from pom.xml -->
-  <implementationClassname>${connector-main-class}</implementationClassname> <!-- Path to the main implementation class, retrieved from pom.xml -->
-  <description>Default connector implementation</description>
+  <implementationId>${connector-impl-id}</implementationId> <!-- Id of the implementation -->
+  <implementationVersion>${connector-impl-version}</implementationVersion> <!-- Version of the implementation -->
+  <definitionId>${connector-definition-id}</definitionId> <!-- Id of the definition implemented -->
+  <definitionVersion>${connector-definition-version}</definitionVersion> <!-- Version of the definition implemented -->
+  <implementationClassname>${connector-main-class}</implementationClassname> <!-- Path to the main implementation class -->
+  <description>Default ${connector-definition-id} implementation</description>
 
-<!-- Dependencies, retrieved from the pom.xml-->
+
+<!-- retrieved from the pom.xml at build time -->
 ${connector-dependencies}
 
 </implementation:connectorImplementation>
 ----
 
-**Implementation sources**
+Filtered Maven properties (`${...}`) are defined in the `pom.xml` file at the root of the project.
+
+===== Implementation sources
 
 The implementation sources contain all the logic of the connector:
 
@@ -209,11 +219,12 @@ The implementation sources contain all the logic of the connector:
 * The connection / disconnection to any external system _(if required)_
 * The execution of the business logic and the  creation of the outputs
 
-The archetype offers the possibility to generate the default sources in Java, Groovy or Kotlin. The build result will always be a Java archive (jar), no matters the langage selected.
+The archetype offers the possibility to generate the default sources in Java, Groovy or Kotlin. The build result will always be a Java archive (jar) and some Zip archives (assemblies), no matters the language selected.
 
-The entry point of the implementation sources must extend the class _`org.bonitasoft.engine.connector.AbstractConnector`_.
+The entry point of the implementation sources must either extend the https://javadoc.bonitasoft.com/api/{varVersion}/org/bonitasoft/engine/connector/AbstractConnector.html[__AbstractConnector__, window="_blank"] class
+or implement https://javadoc.bonitasoft.com/api/{varVersion}/org/bonitasoft/engine/connector/Connector.html[__Connector__, window="_blank"] interface.
 
-Example (_Groovy_):
+Example (using _Groovy_):
 
 [source,groovy]
 ----
@@ -278,21 +289,27 @@ class Connector extends AbstractConnector {
 The methods _validateInputParameters_ and _executeBusinessLogic_ must be implemented, and are called by the Bonita engine when the connector is executed. +
 The methods _connect_ and _disconnect_ can be used to open and close a connection to a remote server.  The life cycle of the connection will then be managed by the Bonita Runtime.
 
-==== Build a connector project
+===== Add multiple implementations
 
-A connector project is built using Maven, and especially the https://maven.apache.org/plugins/maven-assembly-plugin/[maven assembly plugin].
+To add a new implementation create a `.impl` file in the `src/main/resources-filtered/` folder. They will be added to the `all` zip archive at build time. It is recommended to use the maven properties for implementation id and version.
 
-By default, a Java archive (jar) is built containing all the definitions and implementations found in the project.
-This jar is meant to be deployed on a maven repository and then imported as an extension in any Studio that has access to this repository.
+If you want to build a single zip assembly containing a specific implementation footnote:liveupdate[In Bonita Enterprise edition, implementations can be updated at runtime for a given process, as long as it implements the same definition.], you must create a new assembly file in the `src/assembly` folder. This assembly must use an id that match the implementation id and include the proper `.impl` file. You can use the generated `impl` assembly as an example.
 
-To build the connector project, type the following command at the root of the project :
+==== Build the project
 
+Build the project by typing the following command at the root of the project:
+ 
 [source,bash]
 ----
 ./mvnw clean package
 ----
 
-The built archive can be found in `target/[artifact id]-[artifact version].jar` after the build.
+A connector project is built using Maven, and especially the https://maven.apache.org/plugins/maven-assembly-plugin/[maven assembly plugin].
+
+The default build output is:
+
+*  `target/[artifact id]-[artifact version].jar` : This jar can be xref:managing-extension-studio.adoc[installed in a Bonita project] from the Studio.
+*  `target/[artifact id]-[artifact version]-impl.zip` : An archive containing a single implementation.footnote:liveupdate[]
 
 [#example]
 == Example: create a connector, publish it on Github packages and install it as an extension
@@ -302,9 +319,9 @@ We will then see how to deploy this connector on Github packages in order to ins
 
 This connector will be implemented using:
 
-* https://groovy-lang.org/[Groovy]: _A programming language based on the JVM_
-* http://spockframework.org/[Spock]: _A test framework for Groovy applications_
-* https://square.github.io/retrofit/[Retrofit]: _A library which allows to create typed http clients_
+* https://groovy-lang.org/[Groovy, window="_blank"]: __A programming language based on the JVM__
+* http://spockframework.org/[Spock, window="_blank"]: __A test framework for Groovy applications__
+* https://square.github.io/retrofit/[Retrofit, window="_blank"]: __A library which allows to create typed HTTP clients__
 
 === 1 - Generate project and retrieve dependencies
 
@@ -372,7 +389,7 @@ Add the following properties and dependencies to the existing ones in the pom.xm
 </dependencies>
 ----
 
-If you are interested by test coverage, you can add the following jacoco configuration:
+If you want to generate a test coverage report, you can add the following jacoco configuration:
 
 [source,xml]
 ----
@@ -450,10 +467,10 @@ urlWidget.description=The service base url
 Be sure to always provide a name and a description for pages and widgets, else it will not be possible to configure the connector in the Studio.
 ====
 
-=== 3 - Create the retrofit service and the model
+=== 3 - Create the Retrofit service and the model
 
 Retrofit is a library allowing to create typed HTTP clients. +
-We will first create a data model, and then a retrofit service typed with this model.
+We will first create a data model, and then a Retrofit service typed with this model.
 
 ==== The model
 
@@ -534,7 +551,7 @@ The API returns many informations about a single star wars character. In order t
 
 ==== The service
 
-A retrofit service is a Java interface. Specific annotations on methods are used to define the service. +
+A Retrofit service is a Java interface. Specific annotations on methods are used to define the service. +
 In the package _com.company.connector_, create the Interface _StarWarsService_:
 
 [source,groovy]
