@@ -36,7 +36,7 @@ xref:declare-contracts.adoc[[.card-title]#Declare contracts# [.card-body.card-co
 
 [.card.card-index]
 --
-xref:create-web-user-interfaces.adoc[[.card-title]#Create forms# [.card-body.card-content-overflow]#pass:q[The forms use the data to feed the process, through the contracts]#]
+xref:create-web-user-interfaces.adoc[[.card-title]#Create forms# [.card-body.card-content-overflow]#pass:q[Forms use data to feed processes through contracts]#]
 --
 
 [.card.card-index]
