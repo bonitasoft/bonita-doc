@@ -57,7 +57,7 @@
  ** xref:connectors-index.adoc[Connectors]
   *** xref:connectivity-overview.adoc[Overview]
   *** xref:connector-archetype.adoc[Create a connector]
-  *** Provided connectors
+  *** Bonita official connectors
     **** xref:cmis.adoc[CMIS]
     **** xref:database-connectors-index.adoc[Database]
         ***** xref:list-of-database-connectors.adoc[List of database connectors]
