@@ -146,6 +146,10 @@ Bonita 2021.2 is now only compatible with Java 11. Support with Java 8 has now b
 
 The deprecated `BonitaStudioBuilder` command line interface has been removed. To benefit from an efficient Bonita project building and deploying solution, please refer to https://documentation.bonitasoft.com/bcd[BCD add-on].
 
+==== Import workspace
+
+The import workspace feature has been removed. Use the standard project xref:workspaces-and-repositories.adoc#export-import[export/import] or the xref:workspaces-and-repositories.adoc#git[Git integration] instead.
+
 ==== Example pages / Rest API extensions
 
 Bonita Tomcat bundle 2021.2 does not include anymore the following example pages / Rest API extensions:
