@@ -206,12 +206,11 @@
   *** xref:ssl.adoc[SSL]
   *** xref:tenant-admin-credentials.adoc[Tenant administrator credentials]
   *** xref:guest-user.adoc[Guest user access]
-* xref:deployment-index.adoc[Deployment]
+* Deployment
  ** xref:build-a-process-for-deployment.adoc[Runtime deployment]
- ** xref:bcd-and-live-update.adoc[BCD and Live Update]
  ** xref:live-update.adoc[Live update]
  * Runtime
- ** xref:runtime-installation-index.adoc[Installation]
+ ** Installation
   *** xref:hardware-and-software-requirements.adoc[Hardware and software requirements]
   *** xref:tomcat-bundle.adoc[Tomcat bundle]
    **** xref:convert-wildfly-into-tomcat.adoc[Convert a WildFly into a Tomcat installation]
@@ -231,7 +230,7 @@
   *** xref:set-log-and-archive-levels.adoc[Set log and archive levels]
   *** xref:configurable-archive.adoc[Configurable Archive]
   *** xref:upgrade-from-community-to-a-subscription-edition.adoc[Community to Subscription upgrade]
- ** xref:runtime-administration-index.adoc[Administration]
+ ** Administration
   *** xref:admin-application-overview.adoc[Administrator Application overview]
   *** Process Management
    **** xref:monitoring.adoc[Monitoring]
@@ -256,7 +255,7 @@
   *** xref:applications.adoc[Applications]
   *** xref:licenses.adoc[License information]   
   *** xref:cluster-administration.adoc[Cluster administration]
- ** xref:runtime-tuning-index.adoc[Tuning]
+ ** Tuning
   *** Bonita Engine deep dive
    **** xref:engine-architecture-overview.adoc[Architecture overview]
    **** xref:engine-flow-node-states.adoc[Flow node states]
@@ -292,5 +291,3 @@
   *** xref:migration-tool.adoc[Migration tool changelog]
  ** xref:migrate-a-form-from-6-x.adoc[Migrate a form from 6.x]
 * xref:building-community-edition-from-source.adoc[Contributing to Bonita]
-* xref:how-tos-index.adoc[How tos]
-* xref:troubleshooting.adoc[Troubleshooting]
