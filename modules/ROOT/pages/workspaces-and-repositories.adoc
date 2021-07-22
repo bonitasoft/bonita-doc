@@ -1,8 +1,7 @@
 = Workspaces and projects
 :description: Organize and share your Bonita project using workspaces and projects in order to ease developers team collaboration.
 
-Organize and share your Bonita project using workspaces and projects in order to ease developers team collaboration.
-
+{description}
 
 == Workspaces and projects
 
@@ -41,25 +40,27 @@ To create a project:
 
 A new project is created. Only one project can be active at a time.
 
+[#export-import]
+
 === Export/Import a project
 
 You can export all the content from a project for exchange or backup purposes:
 
 . Click on *File* > *Export...*
-. Click  on *Select All* to embed the whole project content into the BOS archive.
 . Choose a location on your local drive to store the archive and click on *Finish*.
 
 The exported archive can then be shared with other studios of the same version or newer.
 
 To import a BOS archive:
 
-. Click on *Diagram* > *Import* >  *BOS Archive...*
+. Click on *File* > *Import* >  *BOS Archive...*
 . Choose the location of the archive on your local drive
-. Choose the target project of the imported content
+. Choose if you want to import the content in an existing project or create a new one.
 . Handle conflicting files if any
+. Handle dependencies conflicts if any
 . Click on *Import*
 
-You can retrieve the whole content of a studio workspace by exporting all its projects and importing them into another studio.
+If your not using xref:git[Git], you can retrieve the whole content of another studio workspace by exporting all its projects and importing them into another studio.
 
 === Switch project
 
@@ -69,19 +70,12 @@ To switch the current project, follow these steps:
 
 . In the *File* menu, choose *Switch project...*.
 . The list of the available projects is displayed. These are the local and shared projects in your current workspace.
-. Select the project to switch to, and click *_OK_*.
-. A confirmation message is displayed when you are working in the new location.
-You can see the name of the current project at the top, in the title bar.
+. Select the project to switch to, and click *_OK_*. Switching project restart the Bonita Runtime so it can take a few seconds.
+. A confirmation message is displayed when you are working with the new project.
 
 If the list does not contain the name of the project you want to use, check that you are using the correct workspace, and if necessary, switch workspace.
 
 == Use a shared project
-
-[NOTE]
-====
-
-Bonita Studio provide a feature (*File* menu, *Import*, *Workspace...*) to import all the projects from a given workspace into your current workspace. If the workspace you import from includes shared projects (Git or Subversion), be aware that importing the workspace will result in having a local project instead of a shared one. For shared projects, it's advised to clone them directly from the remote Git repository instead of using the import workspace feature.
-====
 
 [#git]
 
@@ -174,6 +168,11 @@ Git workflow offers a lot of other features that are not directly integrated in 
 * *I have _invalid privatekey_ issues when I try to use Git with ssh on macOs*: Since the macOs mojave update, the ssh-keygen default export format has changed. The new format isn't compatible with all eclipse versions. Use the following command to force ssh-keygen to export the private key as PEM format if you face this issue: _ssh-keygen -m PEM -t rsa -b 4096 -C "link:mailto:your_email@example.com[your_email@example.com]"_.
 
 === Subversion (SVN)
+
+[CAUTION]
+====
+SVN integration has been deprecated. Use the Git integration instead.
+====
 
 A shared project is a repository on an SVN server. It can be accessed by members of the team working on a process definition. +
 It is protected by username and password. Only directories in the SVN 'trunk' can be used as Bonita repositories. +
