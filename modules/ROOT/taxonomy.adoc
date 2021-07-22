@@ -34,7 +34,7 @@
  ** xref:automating-builds.adoc[Automate builds]
  ** xref:set-up-continuous-integration.adoc[Set up continuous integration]
 * Processes
- ** xref:diagram-index.adoc[Diagrams]
+ ** xref:diagrams-index.adoc[Diagrams]
   *** xref:diagram-overview.adoc[Overview]
   *** xref:pools-and-lanes.adoc[Pools and lanes]
   *** xref:diagram-tasks.adoc[Tasks]
@@ -50,11 +50,11 @@
   *** xref:operations.adoc[Operations]
   *** xref:refactoring.adoc[Refactoring]  
   *** xref:optimize-user-tasklist.adoc[Case-specific task names]
- ** xref:actor-index.adoc[Actors]
+ ** xref:actors-index.adoc[Actors]
   *** xref:actors.adoc[Actors of processes]
   *** xref:actor-filtering.adoc[Actor filters]
   *** xref:actor-filter-archetype.adoc[Create an actor filter]
- ** xref:connector-index.adoc[Connectors]
+ ** xref:connectors-index.adoc[Connectors]
   *** xref:connectivity-overview.adoc[Overview]
   *** xref:connector-archetype.adoc[Create a connector]
   *** xref:alfresco.adoc[Alfresco]
@@ -164,9 +164,9 @@
   *** xref:rest-api-extension-archetype.adoc[Create a REST API extension]
   *** xref:bdm-in-rest-api.adoc[How to manage BDM in REST API extensions]
   *** xref:manage-files-using-upload-servlet-and-rest-api.adoc[Manage files using upload servlet and REST API]
- ** Engine API
+ ** Java API
   *** xref:engine-api-overview.adoc[Overview]
-  *** xref:create-your-first-project-with-the-engine-apis-and-maven.adoc[Create your first project with the Engine APIs and Maven]
+  *** xref:create-your-first-project-with-the-engine-apis-and-maven.adoc[Create your first project with the Java APIs and Maven]
   *** xref:configure-client-of-bonita-bpm-engine.adoc[Configure connection to Bonita Engine]
   *** https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Javadoc]
   *** Examples
