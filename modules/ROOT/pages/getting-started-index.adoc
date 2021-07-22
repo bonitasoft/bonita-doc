@@ -1,7 +1,9 @@
 = Getting started 
 :description: This is the fastest way to learn, try, and master all concepts of a Living Application.
 
-This is the fastest way to learn, try, and master all concepts of a Living Application.
+This is the fastest way to learn, try, and master all concepts of a Living Application. +
+
+This project will guide you through the creation of a simple *Claim Management application*.
 
 [.card-section]
 == The 9-step journey
