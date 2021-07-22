@@ -167,11 +167,6 @@ Git workflow offers a lot of other features that are not directly integrated in 
 
 === Subversion (SVN)
 
-[CAUTION]
-====
-SVN integration has been deprecated. Use the Git integration instead.
-====
-
 A shared project is a repository on an SVN server. It can be accessed by members of the team working on a process definition. +
 It is protected by username and password. Only directories in the SVN 'trunk' can be used as Bonita repositories. +
 The repository created remotely is then copied to your default local workspace and synchronized.
