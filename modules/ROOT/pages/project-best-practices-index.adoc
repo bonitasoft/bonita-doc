@@ -14,7 +14,7 @@ To improve the teamwork between business teams who will benefit from the projet,
 xref:design-methodology.adoc[In this page], find the 6 project phases we recommend for a successful project.
 
 
-== image:images/tv.png[Videos]
+== image:images/tv.png[Videos] Helpful videos
 
 === A user-centered approach to make the automation project a success
 * https://www.bonitasoft.com/videos/user-centered-design-guarantee-your-business-process-automation-projects-succeed[In English]
@@ -48,4 +48,3 @@ xref:design-methodology.adoc[In this page], find the 6 project phases we recomme
 ** https://www.bonitasoft.com/videos/your-first-application-production-now-what-chapter-5[In English]
 ** https://fr.bonitasoft.com/videos/premiere-application-bonita-en-production-et-maintenant-chapitre-5[In French]
 ** https://es.bonitasoft.com/videos/tu-primera-aplicacion-esta-en-produccion-y-ahora-que-capitulo-5[In Spanish]
-
