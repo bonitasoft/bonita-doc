@@ -1,28 +1,45 @@
 = Set up the Development Environment
-:description: blabla
+:description: A description of all Bonita features that allow the creation of a customized, shared, and automated development environment.
 
-bla bla
+A description of all Bonita features that allow the creation of a customized, shared, and automated development environment.
 
 [.card-section]
-== Work as a team on a common projet
+== Customize, share, automate 
 
 [.card.card-index]
 --
-xref:shared-project.adoc[[.card-title]#Set up Bonita Studio with GitHub# [.card-body.card-content-overflow]#pass:q[Fusionner avec ce qui suit]#]
---
-
-[.card.card-index]
---
-xref:share-a-repository-on-github.adoc[[.card-title]#Share a repository on GitHub# [.card-body.card-content-overflow]#pass:q[Fusionner avec ce qui précède]#]
+xref:bonita-bpm-studio-preferences.adoc[[.card-title]#Bonita Studio configuration# [.card-body.card-content-overflow]#pass:q[Adapt Bonita Studio to your needs]#]
 --
 
 [.card.card-index]
 --
-xref:set-up-continuous-integration.adoc[[.card-title]#Set up continuous integration# [.card-body.card-content-overflow]#pass:q[]#]
+xref:configure-maven.adoc[[.card-title]#How to configure Maven# [.card-body.card-content-overflow]#pass:q[A central piece of your Bonita projects]#]
 --
 
 [.card.card-index]
 --
-xref:automating-builds.adoc[[.card-title]#Automating builds# [.card-body.card-content-overflow]#pass:q[]#]
+xref:workspaces-and-repositories.adoc[[.card-title]#Workspaces and projects# [.card-body.card-content-overflow]#pass:q[The structure of all the content you create]#]
 --
+
+[.card.card-index]
+--
+xref:shared-project.adoc[[.card-title]#Set up Bonita Studio with GitHub# [.card-body.card-content-overflow]#pass:q[Share and version your projects]#]
+--
+
+[.card.card-index]
+--
+xref:migrate-a-svn-repository-to-github.adoc[[.card-title]#How to migrate a SVN repository into a Git repository# [.card-body.card-content-overflow]#pass:q[Because Bonita uses Git]#]
+--
+
+[.card.card-index]
+--
+xref:automating-builds.adoc[[.card-title]#Automating builds# [.card-body.card-content-overflow]#pass:q[Make your project ready for deployment on any environment]#]
+--
+
+[.card.card-index]
+--
+xref:set-up-continuous-integration.adoc[[.card-title]#Set up continuous integration# [.card-body.card-content-overflow]#pass:q[The first environment to deploy into]#]
+--
+
+
 
