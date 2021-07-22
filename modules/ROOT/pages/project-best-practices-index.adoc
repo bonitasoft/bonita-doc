@@ -6,7 +6,7 @@ Helpful experience we share for the good of Bonita projects.
 We also encourage you to watch the videos that have been done on this wide topic.
 
 == Teamwork
-To improve the teamwork between business teams who will benefit from the projet, and the IT team that will create it, Bonita has created a xref:project-documentation-generation.adoc[project documentation feature] (Subscription editions only) that captures the content of the project, the business needs and the development explanations (written in the descriptions of all designed items).
+To improve the teamwork between business teams who will benefit from the projet, and the IT team who will create it, Bonita has created a xref:project-documentation-generation.adoc[project documentation feature] (Subscription editions only) that captures the content of the project, the business needs and the development explanations (written in the descriptions of all designed items).
 
 == Project phases
 
