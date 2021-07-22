@@ -1,20 +1,16 @@
-= Bonita connector archetype
+= Create a connector using the connector maven archetype
 :description: This page explain how to create and test custom connectors using the provided maven archetype.
-
-{description}
-
-== Create a custom connector
 
 Bonita offers the possibility to create and plug custom connectors, to allow you to connect with any external system you may need. +
 We provide a maven archetype to help you to bootstrap a connector project. The source code of the archetype is available https://github.com/bonitasoft/bonita-connector-archetype[here].
 
-=== Prerequisite
+== Prerequisite
 
 . Java 11 must be installed: https://adoptium.net/[Download Java]
 . Maven must be installed: https://maven.apache.org/install.html[Download Maven]
 . Connector development requires some software development skills. The archetype offers the possibility to develop the connector in _Java_, _Groovy_ or _Kotlin_. Make sure that you are comfortable with at least one of those three languages.
 
-=== Generate the project using the maven archetype
+== Generate the project using the maven archetype
 
 A https://maven.apache.org/archetype/index.html[maven archetype] is a maven project templating toolkit. This archetype allows you to bootstrap a Bonita connector project on your file system. A Bonita connector project is a maven project. It can be built, tested and then imported into a Bonita project using Bonita Studio.
 
@@ -59,11 +55,11 @@ A folder named _[your artifact id]_ is created, with your Bonita connector proje
 You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
 ====
 
-=== Connector development
+== Connector development
 
 In this section we'll look into the different components of a connector project, and how you should use them to develop your connector.
 
-==== Definition
+=== Connector definition
 
 A connector is first defined by its *definition*. It is an XML file located in _src/main/resources/[artifactId].def_ by default. +
 A definition defines the inputs and the outputs of a connector. It can be seen as a contract. Then, implementations of this definition can be created, they just need to respect the inputs / outputs contract of the definition.
@@ -106,7 +102,7 @@ Example:
 </definition:ConnectorDefinition>
 ----
 
-**Connector Inputs**
+==== Connector Inputs
 
 The inputs of a connector are defined in the definition. Those inputs are valued by processes, and are retrieved by the implementation classes of the connector to execute the business logic. +
 A connector input:
@@ -116,7 +112,7 @@ A connector input:
 * Has an optional default value
 * Can be mandatory
 
-**Connector Outputs**
+==== Connector Outputs
 
 The outputs of a connector are defined in the definition. Those outputs are valued by the implementation classes of the connector, and are used by processes. +
 A connector output:
@@ -129,7 +125,7 @@ A connector output:
 You can use custom types for connector outputs, the only limitation is that the type has to implement 'Serializable'.
 ====
 
-**Pages and widgets**
+==== Pages and widgets
 
 A connector definition includes _pages_ and _widgets_.  Those elements define the UI that will appear in the Bonita Studio to configure the connector.
 
@@ -165,11 +161,11 @@ As widgets are displayed in a dialog window in the Studio, be careful to not use
 Use Group widget if you need to stack a lot of widgets in the same page.
 ====
 
-===== Add multiple definitions
+==== Add multiple definitions
 
 To add a new definition create a `.def` file in the `src/main/resources-filtered/` folder. They will be added to the `all` zip archive at build time. It is recommended to use the maven properties for definition id and version.
 
-==== Connector implementation
+=== Connector implementation
 
 A _connector implementation_ implements a connector definition. A definition defines a set on inputs / outputs, implementing a definition means use the provided inputs to create the expected outputs. +
 Several implementations can be created for a given definition.
@@ -210,7 +206,7 @@ ${connector-dependencies}
 
 Filtered Maven properties (`${...}`) are defined in the `pom.xml` file at the root of the project.
 
-===== Implementation sources
+==== Implementation sources
 
 The implementation sources contain all the logic of the connector:
 
@@ -288,13 +284,13 @@ class Connector extends AbstractConnector {
 The methods _validateInputParameters_ and _executeBusinessLogic_ must be implemented, and are called by the Bonita engine when the connector is executed. +
 The methods _connect_ and _disconnect_ can be used to open and close a connection to a remote server.  The life cycle of the connection will then be managed by the Bonita Runtime.
 
-===== Add multiple implementations
+==== Add multiple implementations
 
 To add a new implementation create a `.impl` file in the `src/main/resources-filtered/` folder. They will be added to the `all` zip archive at build time. It is recommended to use the maven properties for implementation id and version.
 
 If you want to build a single zip assembly containing a specific implementation footnote:liveupdate[In Bonita Enterprise edition, implementations can be updated at runtime for a given process, as long as it implements the same definition.], you must create a new assembly file in the `src/assembly` folder. This assembly must use an id that match the implementation id and include the proper `.impl` file. You can use the generated `impl` assembly as an example.
 
-==== Build the project
+=== Build a connector project
 
 Build the project by typing the following command at the root of the project:
  

@@ -56,7 +56,9 @@
   *** xref:actor-filter-archetype.adoc[Create an actor filter]
  ** xref:connectors-index.adoc[Connectors]
   *** xref:connectivity-overview.adoc[Overview]
-  *** xref:connector-archetype.adoc[Create a connector]
+  *** xref:connector-archetype.adoc[Connector creation concepts]
+  *** xref:connector-archetype-tutorial.adoc[Connector creation example]
+  *** xref:connector-migration.adoc[Migrate an old connector]
   *** Bonita official connectors
     **** xref:cmis.adoc[CMIS]
     **** xref:database-connectors-index.adoc[Database]

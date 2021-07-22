@@ -727,8 +727,8 @@ Bonita Studio is now correctly configured to retrieve extensions from this priva
 
 **Import and use the connector**
 
-To import an extension, you need to open the project extensions view (from the coolbar). +
-On the top right corner of the project extension view, click on _Import an extension_.
+To import an extension, you need to open the project extensions view (from the coolbar, open the project overview and then switch to the extension view). +
+Click on _Add a custom extension_.
 
 A dialog opens, with fields to enter the _maven coordinates_ of an extension. +
 To import the connector starwars, use the following coordinates:

@@ -16,12 +16,9 @@ xref:connector-archetype.adoc[[.card-title]#Create your own connector# [.card-bo
 --
 
 [.card-section]
-== Bonita connectors
+== Bonita official connectors
 
-[.card.card-index]
---
-xref:alfresco.adoc[[.card-title]#Alfresco# [.card-body.card-content-overflow]#pass:q[TODO]#]
---
+// TODO: explain that those connectors are available from the marketplace
 
 [.card.card-index]
 --

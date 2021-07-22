@@ -1,0 +1,139 @@
+= Migrate an old connector created with Bonita Studio to a dedicated connector project
+
+:description: Migrate an old connector created with Bonita Studio to a maven archetype style Connector project
+
+Since Bonita 2021.2, Connectors cannot be created from the Studio anymore. Developers have to create dedicated connector projects outside the Studio, in their favorite IDE, to develop build and release their connectors. Then, connectors can be added to Bonita projects as xref:software-extensibility.adoc[extensions]. This allow connectors to have their own lifecycle, developers can set up proper continuous integrations for connector projects and test them correctly. +
+This page describes the way to migrate an old custom connector created with Bonita Studio into a dedicated connector project created with the provided maven archetype.
+
+[NOTE]
+====
+All the content of this page can be applied to migrate an old actor filter created with Bonita Studio to a dedicated actor filter project. The actor filter archetype has to be used instead of the connector archetype.
+====
+
+== 1 - Create a new connector project using the maven archetype
+
+First of all, a new connector project has to be created using the provided maven archetype. +
+xref:connector-archetype#_generate_the_project_using_the_maven_archetype[This piece of documentation] explains how to create a connector project using the maven archetype.
+
+Some parameters have to be passed to the maven archetype to create the project (groupid, artifactId, version, language...). Make sure to use *Java* as the language, so the existing implementation code will be reusable.
+
+[TIP]
+====
+To ease the migration, it is recommended to use the same definition id and definition version of the current connector. +
+To do so, the maven properties `<connector-definition-id>` and `<connector-definition-version>` have to be edited in the generated pom.xml of the project with the correct values. By default, it takes the project artifact id as definition id and the project version as definition version.
+====
+
+== 2 - Declare the connector dependencies
+
+A connector often depend on external Java libraries. +
+Previously, they were declared in the implementation and sometimes in the definition. A jar file had to be imported in the Bonita Studio, and then it was possible for a connector to depend on this jar. +
+Now, connector projects are Maven projects, dependencies are handled by Maven. It means that all the connector dependencies have to be declared in the file `pom.xml` (at the root of the project) as maven dependencies. https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html[Learn more about the Maven dependency mechanism].
+
+For each declared dependency in you implementation or in your definition, *the corresponding Maven dependency has to be found and declared in the pom.xml*. +
+For example, if a connector depends on the Jar `commons-lang3-3.12.0.jar`, then the corresponding Maven dependency is the dependency `Apache Commons Lang` in version `3.12.0`. So, the following Maven dependency has to be declared in the `pom.xml`: 
+
+[source, xml]
+----
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-lang3</artifactId>
+    <version>3.12.0</version>
+</dependency>
+----
+
+Finding the corresponding maven dependency of a Jar file can be hard, even impossible if the Jar has never been deployed on any Maven repository.
+
+The first thing to do is to simply copy past the Jar name in a web search engine, and hopefully the corresponding maven dependency will show up. You can also try to look for it on famous public maven repositories, like https://mvnrepository.com/[Maven central].
+
+In case it doesn't work, you can try to explore the Jar file (using an archive manager) to see which class it contains. +
+For example, if you explore the jar `commons-lang3-3.12.0.jar`, you will find a class named `StringUtils`. If you type _StringUtils maven_ in a web search engine you have a good chance to find the corresponding maven dependency.
+
+If the corresponding Maven dependency cannot be found publicly, it can mean that it is a private dependency of your organization. In this case, ask your IT team a way to retrieve this dependency through Maven, and to consider to deploy it on a maven repository (private or public) if it's not the already case.
+
+If you can't find a way to retrieve the corresponding maven dependency of a Jar file, you should consider to drop it for an other one available publicly. Try to find out in your source code the purpose of this dependency, and look for an equivalent available. In this case, you will have ot update the implementation code of your connector.
+
+[IMPORTANT]
+====
+Always consider to drop a dependency that is not available publicly and maintained, unless it's your dependency (so you can maintain it if needed). +
+Beeing enable to update a dependency means that your application can stop to work from one day to another, following an OS update, a Java update, and you won't have any solution to fix it easily.
+====
+
+== 3 - Retrieve the definition content
+
+The next step is to retrieve the definition content from the old project an to apply it to the new project. To do so, a part of the old _.def_ file will be copied into the new _.def_ file. 
+
+Start to open the old _.def_ file (usually _definitionId-version.def_) in a text editor. +
+It can be achived in two steps: 
+
+* From the Studio explorer, right click on the old _.def_ file and select _Show in system explorer_
+* The folder containing the old _.def_ file should have popped up, you can now open it with any text editor you have (bloc note, notpad++, sublime text ...)
+
+The new definition in the connector project can be found in `src/main/resources-filtered/<artifactId>.def`.
+
+Only a part of the old definition has to be transfered to the one: 
+
+* The inputs
+* The outputs
+* The pages and widgets
+
+
+For example, if the old _.def_ file has the following content: 
+
+[source, xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<definition:ConnectorDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1">
+  <id>my-connector-def</id>
+  <version>1.0.0</version>
+
+  <input defaultValue="defaultValue" mandatory="true" name="Input1" type="java.lang.String"/> <1>
+  <input mandatory="true" name="Input2" type="java.lang.String"/>
+
+  <output name="Output1" type="java.lang.String"/> <2>
+
+  <page id="input-page"> <3>
+    <widget xsi:type="definition:Text" id="name_widget" inputName="name"/>
+  </page>
+
+  <jarDependency>commons-lang3-3.12.0.jar</jarDependency>
+</definition:ConnectorDefinition>
+----
+<1> The inputs of the connector
+<2> The outputs of the connector
+<3> The pages and widgets of the connector, used by the Studio to configure a call to the connector.
+
+You have to copy past the elements 1, 2 et 3 into the new definition file, which should look like the following one at the end of the operation: 
+
+[source, xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<definition:ConnectorDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1">
+    <id>${connector-definition-id}</id> <!-- Id of the definition -->
+    <version>${connector-definition-version}</version> <!-- Version of the definition -->
+    <icon>connector.png</icon> <!-- The icon used in the Studio for this definition -->
+    <category icon="connector.png" id="Custom"/> <!-- The category of this definition, used in the Studio (e.g: http, script ...) -->
+
+    <!-- Connector inputs -->
+  <input defaultValue="defaultValue" mandatory="true" name="Input1" type="java.lang.String"/> <1>
+  <input mandatory="true" name="Input2" type="java.lang.String"/>
+
+    <!-- Connector outputs -->
+    <output name="Output1" type="java.lang.String"/> <2>
+
+    <!--
+       Pages and widgets to use the connector in the Bonita Studio.
+       - Each widget must be bound to an input
+       - Page titles must be defined in the properties files
+       - Widget labels must be defined in the properties files
+       - Page and widget descriptions can be defined in the properties files (optional)
+    -->
+    <page id="input-page"> <3>
+        <widget xsi:type="definition:Text" id="name_widget" inputName="name"/>
+    </page>
+</definition:ConnectorDefinition>
+----
+<1> The inputs of the connector
+<2> The outputs of the connector
+<3> The pages and widgets of the connector, used by the Studio to configure a call to the connector.
+
+The icons and the category can also be transfered into the new definition, if so then put the corresponding icon files in _src/main/resources_.
