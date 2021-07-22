@@ -38,13 +38,13 @@ xref:design-methodology.adoc[In this page], find the 6 project phases we recomme
 * https://fr.bonitasoft.com/videos/collaboration-entre-metiers-et-developpeurs-avec-bonita-chapitre-3[In French]
 * https://es.bonitasoft.com/videos/colaboracion-entre-negocio-y-desarrollo-con-bonita-capitulo-3[In Spanish]
 
-=== User Interfaces and Infrastructure setup
+=== User Interfaces development and Infrastructure setup
 
 * https://www.bonitasoft.com/videos/web-ui-development-and-bonita-infrastructure-setup-chapter-4[In English]
 * https://fr.bonitasoft.com/videos/developpement-dinterfaces-web-et-preparation-de-linfrastructure-bonita-chapitre-4[In French]
 * https://es.bonitasoft.com/videos/desarrollo-de-la-interfaz-web-y-preparacion-de-la-infraestructura-bonita-capitulo-4[In Spanish]
 
-=== In Production environments and beyond
+=== In Production environments, and beyond
 ** https://www.bonitasoft.com/videos/your-first-application-production-now-what-chapter-5[In English]
 ** https://fr.bonitasoft.com/videos/premiere-application-bonita-en-production-et-maintenant-chapitre-5[In French]
 ** https://es.bonitasoft.com/videos/tu-primera-aplicacion-esta-en-produccion-y-ahora-que-capitulo-5[In Spanish]
