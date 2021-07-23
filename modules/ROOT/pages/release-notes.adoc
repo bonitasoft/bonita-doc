@@ -13,7 +13,7 @@ The 2021.2 is in beta.
 As of Bonita 2021.2 it is possible to xref:single-sign-on-with-oidc.adoc[configure Bonita to use OpenID Connect (OIDC)] as an authentication mechanism to access your Bonita applications and achieve Single Sign-on with an external OIDC provider. +
 The Authorization Code Flow of OpenID Connect is supported to authenticate when accessing Bonita applications as well as the Resource Owner Credentials Grant and Authorization Code Grant of OAuth 2.0 to authenticate when requesting Bonita REST API.
 
-== Bonita Studio Project Composition
+=== Bonita Studio Project Composition
 
 Bonita projects will use the power Maven projects. Meaning that you will be able to easily compose your project of extensions (connectors, Rest API extensions, themes, and actor filters).
 
@@ -33,11 +33,11 @@ As connectors are now extensions of a project, their version is now bound to the
 
 Finally, your sources will be lighter as the dependencies will be pulled by the project.
 
-== Organization Editor
+=== Organization Editor
 
 The Organization wizard has been reworked into an editor, to improve your experience and your efficiency.
 
-== Project Overview
+=== Project Overview
 
 Understanding all the elements of a Bonita project has never been easier thanks to the Project Overview. Accessible from the cool bar, this new page displays all the elements that can be used in a state-of-the-art Bonita project. From this view, you can create, consult or edit the different elements. You can also find documentation on the different components.
 
