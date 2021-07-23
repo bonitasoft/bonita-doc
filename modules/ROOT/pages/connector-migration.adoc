@@ -7,7 +7,7 @@ This page describes the way to migrate an old custom connector created with Boni
 
 [NOTE]
 ====
-All the content of this page can be applied to migrate an old actor filter created with Bonita Studio to a dedicated actor filter project. The actor filter archetype has to be used instead of the connector archetype.
+All the content of this page can be applied to migrate actor filters created with Bonita Studio to a dedicated actor filter project. Use the xref:actor-filter-archetype.adoc[actor filter archetype] instead.
 ====
 
 == 1 - Create a new connector project using the maven archetype
