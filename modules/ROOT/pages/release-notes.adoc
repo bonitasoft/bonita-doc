@@ -3,8 +3,7 @@
 
 [NOTE]
 ====
-
-The 2021.2 is currently work in progress (WIP).
+The 2021.2 is in beta.
 ====
 
 == New values added
@@ -116,6 +115,9 @@ From version 2021.2, JAAS Authentication is only available in the Enterprise edi
 If you are updating from a 2021.1 or earlier version, in the Community edition, you will need to xref:BonitaBPM_platform_setup.adoc[change your configuration] file `authenticationManager-config.properties`
 and remove the JAAS configuration to use another Authentication Manager (an implementation of your own, for instance).
 
+==== Process Manager profile navigation
+As part of the update of Bonita Portal into Bonita Applications, we have not reimplemented the pages for the profile Process Manager, a new documentation page will explain how to rebuild and customize the bonita administrator application to handle the process management capabilities.
+
 == Technical updates
 
 === Java 11 Compliance
@@ -144,6 +146,10 @@ Bonita 2021.2 is now only compatible with Java 11. Support with Java 8 has now b
 
 The deprecated `BonitaStudioBuilder` command line interface has been removed. To benefit from an efficient Bonita project building and deploying solution, please refer to https://documentation.bonitasoft.com/bcd[BCD add-on].
 
+==== Import workspace
+
+The import workspace feature has been removed. Use the standard project xref:workspaces-and-repositories.adoc#export-import[export/import] or the xref:workspaces-and-repositories.adoc#git[Git integration] instead.
+
 ==== Example pages / Rest API extensions
 
 Bonita Tomcat bundle 2021.2 does not include anymore the following example pages / Rest API extensions:
@@ -162,4 +168,23 @@ If you migrate from an earlier version of Bonita, you can now delete them if you
 
 ==== Fixes in Bonita Development Suite (Studio and UI Designer)
 
-==== Fixes in Bonita Runtime (including Portal)
+* STUDIO-4066 - java.lang.NullPointerException at build when wrong variable entered in script but not shown in validation
+* STUDIO-4043 - errors while importing .bos in studio
+* STUDIO-3962 - Release note view is broken on windows
+* STUDIO-3953 - LA Builder is slow
+* STUDIO-3936 - EMF resources not in synch after using Git operations
+* STUDIO-3898 - Model - annotations are positioned relatively to lanes coordinates (not absolute)
+* STUDIO-3880 - Editing domain can be null on an opended diagram
+* STUDIO-3875 - Issue with "Switch project" function
+* STUDIO-3793 - UIPath connector is not working with cloud orchestrator
+
+==== Fixes in Bonita Runtime
+
+* RUNTIME-261 - BDM installation failed when a bdm was already installed
+* RUNTIME-138 - Entire BDM install history lost when BDM deployment issue
+* RUNTIME-132 - [SAML] Getting the default loging page when signing in on a guest app
+* RUNTIME-84 - Loading a class with Class.forName can keep references in VirtualClassloader
+* RUNTIME-70 - BDM schemas changes are not rolled back after a failed installation of a new BDM over an existing one
+* RUNTIME-34 - Install a BDM with an invalid custom query fail silently
+* RUNTIME-27 - Services resume failures after the la-deployer detects bdm deployment timeout
+* RUNTIME-23 - Installing BDM with a wrong custom query corrupts the BDM database without any rollback option
