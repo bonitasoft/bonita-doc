@@ -1,4 +1,4 @@
-= Migrate an old connector created with Bonita Studio to a dedicated connector project
+= Migrate a connector created with Bonita Studio to a dedicated project
 
 :description: Migrate an old connector created with Bonita Studio to a maven archetype style Connector project
 
