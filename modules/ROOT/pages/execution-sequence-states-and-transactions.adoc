@@ -129,6 +129,13 @@ The work unit is then executed as soon as possible, asynchronously, in a separat
 For this reason, a task that is being initialized might not yet be ready for execution, but will be executable after a short while, depending on the work executor availability. +
 A client application therefore needs to poll regularly to check when the asynchronous work unit is finished, or write an xref:event-handlers.adoc[event handler] in order to be notified.
 
+
+As a general rule, 1 API call = 1 transaction. When an API call is made, a transaction is automatically opened and this transaction is also automatically closed at the end of the API call.
+
+There are a few exceptions: user login/logout, platform start/stop/clean & the entirety of platformMonitoringAPI. +
+As an example, calling `processAPI.searchXXX()` is done in a single transaction. In that case, 2 SQL queries are executed: one for the total count, one for the paginated list of results. As Bonita transactions are https://en.wikipedia.org/wiki/ACID[ACID], the results of the 2 queries are consistent with each other.
+
+
 == Summary of state types
 
 * *Initializing*: indicates that an activity is being initialized.
