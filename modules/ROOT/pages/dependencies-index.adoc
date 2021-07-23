@@ -3,7 +3,7 @@
 
 You will find below the list of dependencies used by Bonita.
 
-== Development suite - Other
+== Development suite
 
 [discrete]
 ==== Bonita Studio
@@ -12,16 +12,19 @@ The list of Bonita Studio dependencies are directly available in the Bonita Stud
 Click on the menu *Help* \-> *About* \-> *Installation Details*
 
 [discrete]
-==== UI Designer
+==== Others
 
-xref:ui-designer-dependencies.adoc[List of dependencies]
+xref:ui-designer-dependencies.adoc[List of UI Designer dependencies]
 
-=== Bonita Data-Repository
+xref:bonita-data-repositories-dependencies.adoc[List of Data-Repository dependencies]
 
-xref:bonita-data-repositories-dependencies.adoc[List of dependencies]
 
 == Runtime
 
-=== Engine
+xref:bonita-engine-dependencies.adoc[List of Engine dependencies]
 
-xref:bonita-engine-dependencies.adoc[List of dependencies]
+xref:portal-js-dependencies.adoc[List of Portal-js dependencies]
+
+xref:react-page-dependencies.adoc[List of React Portal pages dependencies]
+
+xref:bonita-web-dependencies.adoc[List of Bonita web portal dependencies]
