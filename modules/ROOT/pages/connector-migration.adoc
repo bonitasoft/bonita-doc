@@ -3,7 +3,7 @@
 :description: Migrate a connector created with Bonita Studio to a dedicated project using the Maven archetype
 
 Since Bonita 2021.2, Connectors cannot be created from the Studio anymore. Developers have to create dedicated connector projects outside the Studio, in their favorite IDE, to develop, build and release their connectors. Then, connectors can be added to Bonita projects as xref:software-extensibility.adoc[extensions]. This allow connectors to have their own project lifecycle and let the developers uses the latest state of the art tooling to manage the continous integration and code quality. +
-This page describes the way to migrate an old custom connector created with Bonita Studio into a dedicated connector project created with the provided maven archetype.
+This page describes how to migrate a custom connector created with Bonita Studio into a dedicated connector project using the provided maven archetype.
 
 [NOTE]
 ====
@@ -55,14 +55,14 @@ If you can't find a way to retrieve the corresponding maven dependency of a Jar 
 [IMPORTANT]
 ====
 Always consider to drop a dependency that is not available publicly and maintained, unless it's your dependency (so you can maintain it if needed). +
-Beeing enable to update a dependency means that your application can stop to work from one day to another, following an OS update, a Java update, and you won't have any solution to fix it easily.
+Not beeing able to update a dependency means that your application is exposed to maintainability and security issues (eg: OS update, Java update...).
 ====
 
 == 3 - Retrieve the definition
 
 The next step is to retrieve the definition content from the old project. To do so, a part of the old _.def_ file will be copied into the new _.def_ file. 
 
-Start to open the old _.def_ file (usually _definitionId-version.def_) in a text editor. +
+Open the old _.def_ file (usually _definitionId-version.def_) in a text editor. +
 It can be achived in two steps: 
 
 * From the Studio explorer, right click on the old _.def_ file and select _Show in system explorer_
