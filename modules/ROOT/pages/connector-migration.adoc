@@ -2,7 +2,7 @@
 
 :description: Migrate a connector created with Bonita Studio to a dedicated project using the Maven archetype
 
-Since Bonita 2021.2, Connectors cannot be created from the Studio anymore. Developers have to create dedicated connector projects outside the Studio, in their favorite IDE, to develop, build and release their connectors. Then, connectors can be added to Bonita projects as xref:software-extensibility.adoc[extensions]. This allow connectors to have their own project lifecycle and let the developers uses the latest state of the art tooling to manage the continous integration and code quality. +
+Since Bonita 2021.2, Connectors cannot be created from the Studio anymore. Developers have to create dedicated connector projects outside the Studio, in their favorite IDE, to develop, build and release their connectors. Then, connectors can be added to Bonita projects as xref:software-extensibility.adoc[extensions]. This allows connectors to have their own project lifecycle and let the developers use the latest state-of-the-art tooling to manage the continuous integration and code quality. +
 This page describes how to migrate a custom connector created with Bonita Studio into a dedicated connector project using the provided maven archetype.
 
 [NOTE]
@@ -25,11 +25,11 @@ To do so, the maven properties `<connector-definition-id>` and `<connector-defin
 
 == 2 - Declare the connector dependencies
 
-A connector often depend on external Java libraries. +
+A connector often depends on external Java libraries. +
 Previously, they were declared in the implementation and sometimes in the definition. A jar file had to be imported in the Bonita Studio, and then it was possible for a connector to depend on this jar. +
 Now, connector projects are Maven projects, dependencies are handled by Maven. It means that all the connector dependencies have to be declared in the file `pom.xml` (at the root of the project) as maven dependencies. https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html[Learn more about the Maven dependency mechanism].
 
-For each declared dependency in you implementation or in your definition, *the corresponding Maven dependency has to be found and declared in the pom.xml*. +
+For each declared dependency in your implementation or in your definition, *the corresponding Maven dependency has to be found and declared in the pom.xml*. +
 For example, if a connector depends on the Jar `commons-lang3-3.12.0.jar`, then the corresponding Maven dependency is the dependency `Apache Commons Lang` in version `3.12.0`. So, the following Maven dependency has to be declared in the `pom.xml`: 
 
 [source, xml]
@@ -48,14 +48,14 @@ The first thing to do is to simply copy past the Jar name in a web search engine
 In case it doesn't work, you can try to explore the Jar file (using an archive manager) to see which class it contains. +
 For example, if you explore the jar `commons-lang3-3.12.0.jar`, you will find a class named `StringUtils`. If you type _StringUtils maven_ in a web search engine you have a good chance to find the corresponding maven dependency.
 
-If the corresponding Maven dependency cannot be found publicly, it can mean that it is a private dependency of your organization. In this case, ask your IT team a way to retrieve this dependency through Maven, and to consider to deploy it on a maven repository (private or public) if it's not the already case.
+If the corresponding Maven dependency cannot be found publicly, it can mean that it is a private dependency of your organization. In this case, ask your IT team a way to retrieve this dependency through Maven, and to consider deploying it on a maven repository (private or public) if it's not the already case.
 
-If you can't find a way to retrieve the corresponding maven dependency of a Jar file, you should consider to drop it for an other one available publicly. Try to find out in your source code the purpose of this dependency, and look for an equivalent available. In this case, you will have ot update the implementation code of your connector.
+If you can't find a way to retrieve the corresponding maven dependency of a Jar file, you should consider dropping it for another one available publicly. Try to find out in your source code the purpose of this dependency, and look for an equivalent available. In this case, you will have to update the implementation code of your connector.
 
 [IMPORTANT]
 ====
-Always consider to drop a dependency that is not available publicly and maintained, unless it's your dependency (so you can maintain it if needed). +
-Not beeing able to update a dependency means that your application is exposed to maintainability and security issues (eg: OS update, Java update...).
+Always consider dropping a dependency that is not available publicly and maintained, unless it's your dependency (so you can maintain it if needed). +
+Not being able to update a dependency means that your application is exposed to maintainability and security issues (eg: OS update, Java update...).
 ====
 
 == 3 - Retrieve the definition
@@ -63,14 +63,14 @@ Not beeing able to update a dependency means that your application is exposed to
 The next step is to retrieve the definition content from the old project. To do so, a part of the old _.def_ file will be copied into the new _.def_ file. 
 
 Open the old _.def_ file (usually _definitionId-version.def_) in a text editor. +
-It can be achived in two steps: 
+It can be achieved in two steps: 
 
-* From the Studio explorer, right click on the old _.def_ file and select _Show in system explorer_
+* From the Studio explorer, right-click on the old _.def_ file and select _Show in system explorer_
 * The folder containing the old _.def_ file should have popped up, you can now open it with any text editor you have (bloc note, notpad++, sublime text ...)
 
 The new definition in the connector project can be found in `src/main/resources-filtered/<artifactId>.def`.
 
-Only a part of the old definition has to be transfered to the one: 
+Only a part of the old definition has to be transferred to the one: 
 
 * The inputs
 * The outputs
@@ -139,19 +139,19 @@ You have to copy past the elements 1, 2, 3 and 4 into the new definition file, w
 </definition:ConnectorDefinition>
 ----
 
-The icons and the category can also be transfered into the new definition, if so then put the corresponding icon files in _src/main/resources_.
+The icons and the category can also be transferred into the new definition, if so then put the corresponding icon files in _src/main/resources_.
 
 == 4 - Retrieve the definition property files
 
 With the definition of a connector come the property files, used to store the values of the different labels of the connector and their translations (mainly the pages and widgets labels). +
-Those properties must be transfered into the new connector, else it won't be usable in the Studio. 
+Those properties must be transferred into the new connector, else it won't be usable in the Studio. 
 
 In the Studio definition folder, you will find a file _.properties_ for each language supported by your connector. +
-Copy past the content of those files in the corresponding _.properties_ file in the folder `src/main/resources-filtered` of your new connector project. You might need to create new _.properties_ files for your translation.
+Copy-paste the content of those files in the corresponding _.properties_ file in the folder `src/main/resources-filtered` of your new connector project. You might need to create new _.properties_ files for your translation.
 
 == 5 - Retrieve the implementation
 
-The next step is to retrieve the implementation source code from the old project. Because the dependencies have already been managed in the step two, there is nothing to retrieve from the _.impl_ file. 
+The next step is to retrieve the implementation source code from the old project. Because the dependencies have already been managed in step two, there is nothing to retrieve from the _.impl_ file. 
 
 In the old connector projects, the implementation source code was by default separated in two classes: 
 
@@ -223,7 +223,7 @@ public class MyConnectorDefImpl extends AbstractMyConnectorDefImpl {
 In the new connector projects, generated by the Maven archetype, there is only one class by default which extends `org.bonitasoft.engine.connector.AbstractConnector`, located in `src/main/<your package>`. 
 
 Now it's up to you, you can either delete the provided class and copy past your old classes, or just pick the content from the old classes and past it in the new one. +
-Here is an example of the old connector sources transfered into the generated class:
+Here is an example of the old connector sources transferred into the generated class:
 
 .New connector implementation main class
 [source, java]
@@ -286,7 +286,7 @@ Make sure that at the end of the operation, the _.impl_ file points to the main 
 
 With the new connector project format comes the possibility to write unit tests for your connectors. +
 Some default tests are generated by the Maven archetype, in `src/test/java/<your package>`. Those tests perform some validations on the default inputs generated. You'll have to update those tests to make them pass, according to the content of your connector project. +
-For example, it is a good pratice to test that the connector execution fails properly if a mandatory input is missing.
+For example, it is a good practice to test that the connector execution fails properly if a mandatory input is missing.
 
 It is also possible to just delete the test file, so the project will build.
 
@@ -296,4 +296,4 @@ The migration from the old project is completed. +
 The project can be built using the command `./mvnw clean package` at the root of the project. +
 The jar built in the folder _target_ can be imported as an extension in the Studio, to test that the migration has been done correctly. 
 
-Once you are done, it is recommended to publish your connector on a maven repository, so it will be possible to use this connector as a Bonita extension using it's maven coordinates. An example is available xref:connector-archetype-tutorial#_6_publish_the_connector_on_github_packages[here].
+Once you are done, it is recommended to publish your connector on a maven repository, so it will be possible to use this connector as a Bonita extension using its maven coordinates. An example is available xref:connector-archetype-tutorial#_6_publish_the_connector_on_github_packages[here].
