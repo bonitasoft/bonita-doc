@@ -31,5 +31,5 @@ xref:actor-filter-archetype.adoc[[.card-title]#Create an actor filter# [.card-bo
 
 [.card.card-index]
 --
-xref:organization-overview.adoc[[.card-title]#Organization# [.card-body.card-content-overflow]#pass:q[Users, roles, groups, membeships to map to the actors]#]
+xref:organization-overview.adoc[[.card-title]#Organization# [.card-body.card-content-overflow]#pass:q[Users, roles, groups, memberships to map to the actors]#]
 --
