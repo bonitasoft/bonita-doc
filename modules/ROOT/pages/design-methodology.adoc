@@ -1,7 +1,9 @@
 = Design methodology
 :description: This page describes the phases required to create a process-based automation project using Bonita.
 
-This page describes the phases required to create a process-based automation project using Bonita.
+This page describes the six phases strongly recommended to create an optimized and secure process-based automation project using Bonita.
+
+image:images/project phases.png[Project phases] 
 
 == Process discovery and modeling
  
@@ -214,10 +216,17 @@ Continuous Delivery can be achived thanks to Bonita Continuous Delivery (Subscri
 
 
 == Go to production
-=== Specifying the organization
+=== Complete organization
 
 Before you can run a process in production, you need to define your organization with entries for all process users, groups, and roles. You also need to map the process actors to the real people who will carry out process steps. This is most of the time achieved thanks to an LDAP, and system administrators will then use Bonita LDAP synchronizer.
 
+=== Permissions
+REST API extensions authorization, static and dynamic API security, BDM access control, actor filters, actor mapping, profiles need to be specified and/or doulbe-checked at that time, to make sure that accesses are given to the right people for the right data.
 
-== Monitoring, Troublshooting, Evolution, and Maintenance
+
+=== Translation
+This is also the time to translate the applications into all languages needed by the end-users.
+
+
+== Monitoring, Troubleshooting, Maintenance, and Evolution
 After deployment, you can monitor usage and collect key performance indicators, to assess how well the process is meeting the objectives that have been defined at the birth of the project.
