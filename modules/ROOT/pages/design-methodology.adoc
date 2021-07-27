@@ -12,39 +12,39 @@ image:images/project phases.png[Project phases]
 Discovering the project accounts for the finding of the first process within a company or a department, eligible to automation, that will benefit from the full power of Bonita while providing the biggest value to the end-users once in production. This process must be core to the business of the company or department. +
 Eventually, this one process may be rendered by several BPMN processes, all of them handling different aspects of the business process identified. +
 
-Once the value has been evaluated, it is described in _objectives_ to reach with this automation project. +
-The more measurable the objectives, the better the performance indicators to monitor how close the project is from the objectives. +
-
 ==== Objectives and KPIs of the project
 
-Objectives can be qualitative or quantitative, and should cover the expected lifecycle of the process. For example, if you want to create an automated process to replace an existing process that uses paper forms, you could define objectives for how long it takes to fill out a form in the initial roll-out period, and after 6 months when users have become familiar with the new system. You could also define an objective for the savings achieved by no longer storing paper documents, or quality objectives that the process must meet before deployment. +
-
-Bonita will not help you define the objectives for a project, but it will help you create metrics to check that your objectives are met. +
+Once the value has been evaluated, it is described in _objectives_ to reach with this automation project. +
+The more measurable the objectives, the better the _performance indicators_ to monitor how close the project is from the objectives. +
+Objectives can be qualitative or quantitative, and should cover the expected lifecycle of the process. +
+For example, if you want to create an automated process to replace an existing process that uses paper forms, you could define objectives for how long it takes to fill out a form in the initial roll-out period, and after 6 months when users have become familiar with the new system. You could also define an objective for the savings achieved by no longer storing paper documents, or quality objectives that the process must meet before deployment. +
 
 ==== Scope of the project
 
-Defining the automation project scope means defining how it will be owned (governance), created, and maintained (project team), who will use it (users), how it will be used (usage), the information it will handle, the level of security needed, and the connections to external systems it will require.
+Defining the automation project scope means defining how it will be owned (governance), created, and maintained (project team); who will use it (users) and how it will be used (usage); the information it will handle, the level of security needed, and the connections to external systems it will require.
 
-* Governance: The people who will be accountable of the quality of the overall project, but also of the quality of the underlying processeses. Those can be different teams.
-* Project team: The people who contribute coding skills, business skills, project management skills, and other needed skills (database, testing, security...) to the project
-* Users: The people who will benefit from the project, both at management and actual end-users levels. 
-* Usage: The times, frequendy and periodicity of use: the main use-cases, but also the exceptional use-cases; the number of simultaneous accesses to plan for
-* Information: The business domain the project encompasses, where the data will be stored, what amount of data is expected, what flow data will follow in the company's information systems
-* Security: The kind of risks and controls needed for people using the application
-* Connections: The needs to exchange information through connections to external systems (databases, emails, REST APIs), and the feasability of such exchanges through Java or REST APIs
+* _Governance_: The people who will be accountable of the quality of the overall project, but also of the quality of the underlying processes. Those can be different teams.
+* _Project team_: The people who contribute coding skills, business skills, project management skills, and other needed skills (database, testing, security...) to the project
+* _Users_: The people who will benefit from the project, both at management and actual end-users levels. 
+* _Usage_: The times, frequency and periodicity of use, the number of simultaneous accesses to plan for for the main use-cases, but also- for the exceptional use-cases
+* _Information_: The business domain the project encompasses, where the data will be stored, what amount of data is expected, what flow data will follow in the company's information systems
+* _Security_: The kind of risks and controls needed for people using the application
+* _Connections_: The needs to exchange information through connections to external systems (databases, content management systems, email server, REST APIs), and the feasability of such exchanges through Java or REST APIs
 
 ==== Type of the project
 
-When there are legacy systems to connect to, that are not reachable through Java or REST APIs, there is a need to insert small robots that will act as humans to copy/paste information from one system to the other or perform low-value tasks along the process. The project then enters the Robotic Process Automation (RPA) world, which Bonita supports. +
-When there are not many users in the process, like a recovery plan in a data center, the automation project may not need a web-application. Most of the time, it does. +
-There are three main kinds of applications to choose from at an early stage, based on the information they deliver:
+Early on, the project team needs to figure out what type of an automation project they will create:
+
+* RPA or not RPA: when there are legacy systems to connect to, that are not reachable through Java or REST APIs, there is a need to insert small robots that will act as humans to copy/paste information from one system to the other or perform other low-value tasks along the process. The project then enters the xref:uipath#_job_configuration[Robotic Process Automation (RPA)] world, which Bonita supports with its partnership with UiPath. +
+* Web application or no web application: if there are not many users in the process, like the automated execution of a backup recovery plan in a data center, the automation project may not need a web application. Most of the time, it does. 
+
+There are three main kinds of applications to choose from at an early stage, based on the type of interaction they create:
 
 * _Tasklist_ applications: all processes are mixed, users do tasks by priority or through a certain filter. Bonita Applications deliver such a user experience. You can use them as they are, or customize Bonita Applications to make them closer to the users' needs. 
-* _Data-centered applications:_ the processes manage the lifecycle of business objects instances, like requests. Users needs a generic view of all requests at any time, but also to act on specific requests at a given time, and to do so, they need to filter the requests list and have actions linked to the requests to make their status evolve. These are business-specific and need to be developed as Living Applications.
+* _Data-centered applications_: the processes manage the lifecycle of business objects instances, like requests. Users needs a generic view of all requests at any time, but also to act on specific requests at a given time, and to do so, they need to filter the requests list and have actions linked to the requests to make their status evolve. These are business-specific and need to be developed as Living Applications.
 * _Case Management_ applications: the process is not as structured as in full BPM; users are considered as deomain experts who can decide whether to do some tasks or if this is not appropriate, the best time to do a task, or to create new tasks during the lifetime of a process instance (case). The case is mainly made of the manipulation of a complex  business object (the request, for example), created when the case starts, edited during the case lifetime, and stored after the case ends.
 
-Then, the type of the project is clearly defined. +
-
+When this choice is done, the type of the project is clearly defined. +
 
 Based on the previous information collected, the scope is more precise, and a budget can be defined, followed by, hopefully, the right resources allocated to make it happen. +
 
@@ -83,9 +83,9 @@ There are many options for how Bonita can be installed: see the xref:bonita-bpm-
 
 === Processes, Data, People 
 
-Using Bonita Studio, anyone trained to the https://www.bpmn.org/[Business Process Model and Notation] as a citizen or professional developer, can quickly implement BPMN versions of the processes, Business Data Model, specify the documents handled by the processes, as well as business variables in the processes. +
+Using Bonita Studio, anyone trained to the https://www.bpmn.org/[Business Process Model and Notation] as a citizen or professional developer, can quickly implement BPMN versions of the xref:diagrams-index.adoc[processes],  xref:define-and-deploy-the-bdm.adoc[Business Data Model], specify the xref:documents-index.adoc[documents] handled by the processes, as well as business variables in the processes. +
 
-It is also very easy to create the actors that will start the processes and execute each human task, create a sandbox organization in Bonita Studio, and then configure the mapping between each actor and the organization entities for testing purposes. +
+It is also very easy to create the xref:actors-index.adoc[actors] that will start the processes and execute each human task, create a sandbox organization in Bonita Studio, and then configure the mapping between each actor and the organization entities for testing purposes. +
 If the actor is linked to the process execution (like _the same person who executed the previous task_), an actor filter must be created as an extension by the professional developers and be made available to the project. +
 
 Then, for each process instantiation and human task, a _contract_ is defined, to declare the process needs to the forms that will be presented to the users. +
