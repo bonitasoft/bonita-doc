@@ -130,7 +130,7 @@
   *** xref:tomcat-bundle.adoc[Tomcat bundle]
   *** xref:custom-deployment.adoc[Custom Deployment into existing Tomcat installation]
   *** xref:convert-wildfly-into-tomcat.adoc[Convert a WildFly into a Tomcat installation]
-  *** xref:BonitaBPM_platform_setup.adoc[Platform configuration]
+  *** xref:bonita-bpm-platform-setup.adoc[Platform configuration]
   *** xref:database-configuration.adoc[Database creation and customization to work with Bonita]
   *** xref:first-steps-after-setup.adoc[First steps after setup]
   *** xref:licenses.adoc[Licenses]
