@@ -1,7 +1,7 @@
 = Development of a Bonita Platform Application
-:description: Typical development of an application based on the Bonita Platform follows the phases described in this document.
+:description: Typical old development of an application based on the Bonita Platform follows the phases described in this document.
 
-Typical development of an application based on the Bonita Platform follows the phases described in this document.
+Typical old development of an application based on the Bonita Platform follows the phases described in this document.
 
 At different stages in the lifecycle, different people with different knowledge and skills play roles. These people are identified by profiles.
 
