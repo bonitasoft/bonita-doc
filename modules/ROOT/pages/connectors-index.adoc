@@ -18,7 +18,7 @@ xref:connector-archetype.adoc[[.card-title]#Create your own connector# [.card-bo
 [.card-section]
 == Bonita official connectors
 
-// TODO: explain that those connectors are available from the marketplace
+All the Bonita official connectors are available from the Bonita marketplace. They can be imported as xref:managing-extension-studio.adoc[extensions] in the Bonita Studio.
 
 [.card.card-index]
 --
