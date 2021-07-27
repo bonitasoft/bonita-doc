@@ -459,5 +459,5 @@ return buildResponse(responseBuilder, HttpServletResponse.SC_OK,new JsonBuilder(
 
 We do not recommend to manage time zone at the Rest API level, as the local of the Rest API server, the Bonita Engine server, and the End User machine could be different.
 So we encourage you to manipulate UTC dates only server-side.
-You can see how we xref:datetimes-management-tutorial.adoc#toc2[manage the time zone using the date time picker]. This time zone should only be managed in the end user interface.
+You can see how we xref:datetimes-management-tutorial.adoc#_date_and_time_displayed_in_the_user_time_zone[manage the time zone using the date time picker]. This time zone should only be managed in the end user interface.
 ====
