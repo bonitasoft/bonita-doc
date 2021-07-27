@@ -6,6 +6,7 @@ You will find here the mandatory and optional steps needed to install and config
 The Tomcat bundle is a .zip archive that contains the Apache Tomcat Java EE application server prepackaged along with Bonita and xref:BonitaBPM_platform_setup.adoc#platform_setup_tool[Bonita platform setup tool].
 The Tomcat bundle is a regular .zip archive based on Tomcat zip distribution.
 
+[#tomcat-bundle-installation]
 == Installation of the Tomcat bundle
 
 === Download and unzip the Tomcat bundle
