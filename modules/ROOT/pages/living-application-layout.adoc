@@ -19,10 +19,6 @@ This layout contains a line with the name of the application, followed by the na
 
 You can customize this layout by following the xref:customize-layouts.adoc[customize-layouts] steps.
 
-== Build a Side menu layout
-
-As of version 7.5.x, the default provided layout does not allow this kind of customization anymore (at least not so easily), but if you start from a 7.4.x Layout you can follow the 7.4 documentation link:/7.4?page=customize-living-application-layout#toc3[customize-living-application-layout] to build a side menu layout.
-
 == Take advantage of the latest improvement in a customized layout
 
 [#improve-navigation]
