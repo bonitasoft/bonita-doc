@@ -5,99 +5,136 @@ This page describes the phases required to create a process-based automation pro
 
 == Process discovery and modeling
  
-=== Process discovery
-
-This phase sets the scope of the project. +
+=== Project discovery
  
-Discovering the process means finding the first process within a company or a department that will benefit from the full power of Bonita while providing the biggest value to the end-users once in production. This process must be core to the business of the company or department. +
-Eventually, this one process may be rendered by several BPMN processes, all of them handling different aspects of the business process discovered. +
+Discovering the project accounts for the finding of the first process within a company or a department, eligible to automation, that will benefit from the full power of Bonita while providing the biggest value to the end-users once in production. This process must be core to the business of the company or department. +
+Eventually, this one process may be rendered by several BPMN processes, all of them handling different aspects of the business process identified. +
 
 Once the value has been evaluated, it is described in _objectives_ to reach with this automation project. +
 The more measurable the objectives, the better the performance indicators to monitor how close the project is from the objectives. +
 
-=== Objectives and KPIs
+==== Objectives and KPIs of the project
 
 Objectives can be qualitative or quantitative, and should cover the expected lifecycle of the process. For example, if you want to create an automated process to replace an existing process that uses paper forms, you could define objectives for how long it takes to fill out a form in the initial roll-out period, and after 6 months when users have become familiar with the new system. You could also define an objective for the savings achieved by no longer storing paper documents, or quality objectives that the process must meet before deployment. +
 
 Bonita will not help you define the objectives for a project, but it will help you create metrics to check that your objectives are met. +
 
-=== Scope
+==== Scope of the project
 
-Defining the automation project scope means defining how it will be created, owned, and maintained, how it will be used, by whom, the information it will handle, the level of security needed, and the connections to external systems.
+Defining the automation project scope means defining how it will be owned (governance), created, and maintained (project team), who will use it (users), how it will be used (usage), the information it will handle, the level of security needed, and the connections to external systems it will require.
 
-* Governance: Who will be accountable of the quality of the project, of the processes? 
-* Users: Who will use the application and processes? Who are the key users? When and how is it used? Is it used frequently, on a schedule, in emergencies? Is it used by just one person or by many people at the same time?
-* Project team: Who can contribute coding skills, business skills, project management skills?
-* Application or no application: If the process is completely automatic with no human users, there is no need to create an application. If the process interacts with other processes with human users, you may still need an application overall.
-* Information: what information does it deliver? What are the expected results of the processes, and of the application? +
-There are three main kinds of applications based on the information they deliver, and the choice made may impact the processes:
- ** Tasklist applications: all processes mixed, users do tasks by priority. Bonita Portal and Bonita Applications deliver such a user experience. You can use them as they are, or customize Bonita Applications to make them closer to the users' needs. We will see how below.
- ** Business centered-applications. The processes help managing the lifecycle of business objects instances, like a request. Users needs to act on specific requests at a given time, and to do so, they need to filter the requests list and have actions linked to the requests to make their status evolve. These are business-specific and need to be developed as Living Applications.
- ** Case Management applications. The process is not as structured as in full BPM, users are experts who can decide whether to do some tasks, the best time to do a task, or to create tasks during the lifetime of a case. The case is mainly made of business data, created when the case starts, edited during the case lifetime, stored after the case ends.
-* Security: What kind of controls are needed for people using the application? Is a simple login sufficient?
-* Connections: What connections to external systems are needed? Does the project need to access information in a database, to send email, or to use some other business application? Do these external systems have APIs accessible by Java?
+* Governance: The people who will be accountable of the quality of the overall project, but also of the quality of the underlying processeses. Those can be different teams.
+* Project team: The people who contribute coding skills, business skills, project management skills, and other needed skills (database, testing, security...) to the project
+* Users: The people who will benefit from the project, both at management and actual end-users levels. 
+* Usage: The times, frequendy and periodicity of use: the main use-cases, but also the exceptional use-cases; the number of simultaneous accesses to plan for
+* Information: The business domain the project encompasses, where the data will be stored, what amount of data is expected, what flow data will follow in the company's information systems
+* Security: The kind of risks and controls needed for people using the application
+* Connections: The needs to exchange information through connections to external systems (databases, emails, REST APIs), and the feasability of such exchanges through Java or REST APIs
 
-=== Defining the process
+==== Type of the project
 
-Using Agile methods like https://openpracticelibrary.com/practice/event-storming/[Event Storming], or any kind of workshops involving business users, professional developers, and a facilitator (internal or externally hired for the workshops), the processes are created in a collective approach. +
-The users know how they work today and what they could need; the developers know what is technically feasible and what is very costly, so a negotiation can happen in this very first approach to avoid later frustrations and conflicts. +
+When there are legacy systems to connect to, that are not reachable through Java or REST APIs, there is a need to insert small robots that will act as humans to copy/paste information from one system to the other or perform low-value tasks along the process. The project then enters the Robotic Process Automation (RPA) world, which Bonita supports. +
+When there are not many users in the process, like a recovery plan in a data center, the automation project may not need a web-application. Most of the time, it does. +
+There are three main kinds of applications to choose from at an early stage, based on the information they deliver:
 
-When the process is sketched from the workshops, it is made ready to be implemented in its BPMN format in Bonita. +
+* _Tasklist_ applications: all processes are mixed, users do tasks by priority or through a certain filter. Bonita Applications deliver such a user experience. You can use them as they are, or customize Bonita Applications to make them closer to the users' needs. 
+* _Data-centered applications:_ the processes manage the lifecycle of business objects instances, like requests. Users needs a generic view of all requests at any time, but also to act on specific requests at a given time, and to do so, they need to filter the requests list and have actions linked to the requests to make their status evolve. These are business-specific and need to be developed as Living Applications.
+* _Case Management_ applications: the process is not as structured as in full BPM; users are considered as deomain experts who can decide whether to do some tasks or if this is not appropriate, the best time to do a task, or to create new tasks during the lifetime of a process instance (case). The case is mainly made of the manipulation of a complex  business object (the request, for example), created when the case starts, edited during the case lifetime, and stored after the case ends.
 
-=== Defining the User Interfaces
+Then, the type of the project is clearly defined. +
 
-Using Agile methods like Design Studio, or any kind of workshops involving business users, professional developers, a user experience designer, and a facilitator, the User Interfaces are created in a collective approach, in the form of mockups. +
+
+Based on the previous information collected, the scope is more precise, and a budget can be defined, followed by, hopefully, the right resources allocated to make it happen. +
+
+=== Project modeling
+
+==== Process details
+
+Using Agile methods like https://openpracticelibrary.com/practice/event-storming/[Event Storming], or any kind of workshops involving business users, professional developers, and a facilitator (internal or externally hired for the workshops), the processes are specified in all their details in a collective approach. +
+The users know how they work today and what they could need; the developers know what is technically feasible, what is very costly, the facilitator knows what changes to expect from process automation, and so a negotiation can happen in this very first approach to avoid later frustrations and conflicts. +
+
+When the process is specified from the workshops, it is ready to be implemented in its BPMN format in Bonita. +
+
+==== User Interfaces
+
+Using Agile methods like https://vimeo.com/37861987[Design Studio], or any kind of workshops involving business users, professional developers, a user experience designer, and a facilitator, the User Interfaces are created in a collective approach, in the form of mockups. +
 Here again, the negotiation between the need and how it can be efficiently rendered is done at an early stage. +
 
-When the UI mockups are precise enough from the workshops, they are made ready to be implemented in Bonita:
+When the UI mockups are precise enough from the workshops, they are ready to be implemented in Bonita:
 
-* For forms: from the process instantiation, process description, and human tasks
+* For forms: from the pool _Execution_ properties (instantiation form and case overview), and human tasks (task forms)
 * For application pages: directly from the UI Designer
 
+==== Business Data Model
+
+Through the process and user interfaces workshops, the business data model is identified and can be specified too. It is ready to be implemented in Bonita.
+
 == Configuration - Installation
-=== Configuration of the development environment
-=== Installation of all non-production and production environments
+
+While the project team works on the content of the project, the development team needs to xref:setup-dev-environment-index.adoc[set up their development environment], to easily version and share the project, as well as automate the project builds. +
+For Subscription editions users, this is also the time to configure https://documentation.bonitasoft.com/bcd/latest/[Bonita Continuous Delivery]. +
+
+Moreover, if the project will be deployed on premises, the infrastructure team works on the installation of the non-production and production environments. +
 
 == Implementation - Test
-Using Bonita Studio, you can quickly implement BPMN versions of the processes. +
 
-At this stage, get agreement from the process owner and the key users before going further.
+=== Processes, Data, People 
+
+Using Bonita Studio, anyone trained to the https://www.bpmn.org/[Business Process Model and Notation] as a citizen or professional developer, can quickly implement BPMN versions of the processes, Business Data Model, specify the documents handled by the processes, as well as business variables in the processes. +
+
+It is also very easy to create the actors that will start the processes and execute each human task, create a sandbox organization in Bonita Studio, and then configure the mapping between each actor and the organization entities for testing purposes. +
+If the actor is linked to the process execution (like _the same person who executed the previous task_), an actor filter must be created as an extension by the professional developers and be made available to the project. +
+
+Then, for each process instantiation and human task, a _contract_ is defined, to declare the process needs to the forms that will be presented to the users. +
+As for the user interfaces per se, at this stage, Bonita provides auto-generated forms that allow the early testing of the process execution. +
 
 Things to think about:
 
 * Most business processes have a single start and a single end, but it is possible to have multiple starts and ends.
 * If there are activities that happen in parallel, use symmetric gates to map out the beginning and end of the parallel phases of the process.
-
-There is no requirement to create a diagram for an application, because it is not executable in the same way as a process. +
-However, you should create a specification so that you can get agreement from the application owner and key users. One option is to use the Bonita Studio to create a diagram showing the usage patterns. +
-This diagram would not be executable, and should not be exported as a /bar file, nor deployed. +
-
-In the development phase of each process in an application, there are several aspects to define:
-
-* Data. Define the inputs and outputs of each step. Define the data model, sourcing and storage, and data types.
 * Step details. Make sure each step is the correct type, and has a descriptive name.
 * Transition and flow details. Make sure all transitions have a descriptive label. Make sure there is always a default path at each branch in the process. If the process contains a loop on a step, make sure there is a maximum number of iterations defined.
-* Connectors. Attach connectors to the relevant steps. Note that it can be more efficient to split steps with both user activity and connector activity into two steps, a human task for the user and a system task for the connector. Configure each connector.
-* Actors. Define the actor for each step, applying an actor filter where necessary.
-* Monitoring: Specify the key performance indicators (KPIs) to be collected. These will enable you to monitor the application using a business activity monitoring (BAM) application. Make sure that the KPIs will provide the data required to monitor the objectives you defined for the process.
 * Exception handling: Plan for how errors and unexpected events will be handled. Consider whether it is necessary to stop the case or process, or whether the case can take an alternate path. Decide whether to use event sub-processes.
-* Process maintainability. Add annotations to explain the process. Make sure all elements have descriptive labels. Generate the process document and check it.
+* Actors. Define the actor for each step, applying an actor filter where necessary.
+* Process maintainability. Add annotations to explain the process. Make sure all elements have descriptive labels. Generate the process documentation and check it.
 
-=== Creating the forms
+=== Connectors 
+For now, connectors responses must be mocked by scripts made available by the professional developers to the project.
 
-=== Creating the pages 
+=== Testing
 
-=== Designing the application
+In this first testing phase, feedback must be taken from the process owner and business users.
 
-When the application definition and process definitions are complete, you will have defined what interaction users have with application pages and with each process task. Create the pages and forms needed.
+=== Process forms
 
-==== From a Bonita application
+From Bonita Studio, in the pools _Execution_ properties (instantiation form and case overview), and human tasks (task forms), create the assisted version of the forms that you will be able to customize later on. Those forms are based on the contracts. +
 
-Each application is devoted to a special business need:
+=== Application pages 
 
-. Bonita Administrator Application for the management, monitoring and operations of Bonita Runtime
-. Bonita User Application for task execution
-. Adaptive Case Management example for Case Management. Note that this example is only available for the Enterprise edition.
+Besides the forms, and following the findings of the UI workshops, application pages may be needed to display generic information about business data. They can also replace a form when all the user needs to do is clicking on a _Approve_ or _Reject_ button.+
+If the project is a Case Management project, you can customize the provided project. +
+The creation of pages is done in the UI Designer embedded in Bonita Studio. +
+
+From the UI Designer, you can also define the layout of the application, although Bonita provides a default layout. +
+A graphical _theme_ can also be defined to match the graphical design charter of the company. This can be done my customizing Bonita's provided theme. +
+Both the layout and theme need some coding skills to be created or customized.
+
+=== Profiles and applications
+
+From the studio, create the profiles needed to grant access to the future applications, mapping each profile with organization entities. +
+Defining the applications then comes down to binding together project elements: a profile, some pages, a layout, and a theme. +
+The application descriptor also allows for the creation of a name, a URL token, the application two-level navigation and the designation of the home page. +
+The link between an application and the processes that run in the background is created by the BPM API called by the clickable elements contained in the pages. There is no need to formally declare such a link. +
+
+You can either create an application from scratch, or customize a Bonita application.
+
+In this latter case, choose well, as each application is devoted to a special business need:
+
+* Bonita Super Administrator application: bootstrap Bonita after the deployment in a non-production or production environment
+* Bonita Administrator application: monitor the execution of the process instances and troubleshoot 
+* Bonita User Application: Start processes and execute tasks
+* Bonita Application Directory application: display all applications the logged user can access
+* Adaptive Case Management example for Case Management. Note that this example is only available for the Enterprise edition.
 
 To customize an application to your needs:
 
@@ -117,7 +154,7 @@ Our pages have been developed with different frameworks over time.
 [NOTE]
 ====
 
-Note: While both the Bonita User Application and the Bonita Administrator Application are supported by Bonitasoft in their original versions, any customization of yours cannot be supported, as Bonitasoft cannot garantee the content of your custom development. +
+Note: While both the Bonita Applications are supported by Bonitasoft in their original versions, any customization of yours cannot be supported, as Bonitasoft cannot garantee the content of your custom development. +
 Similarly, the Adaptive Case Management example, which can only be used after it is customized, is not supported.
 However, our team of Professional Services consultants can assist you in the customization phase.
 ====
@@ -131,7 +168,7 @@ In this application, you can customize:
 * Bonita User Case List `UserCaseListBonitaV_`
 * Bonita User Case Details `UserCaseDetailsBonitaV_`
 
-==== Bonita Administrator Application
+==== Bonita Super Administrator and Administrator Applications
 
 In this application, you can customize:
 
@@ -154,46 +191,33 @@ The "_" in "V_" stands for the latest "version" of the resource.
 All the "Details" pages must be used as "orphan" pages in the application descriptor, since they need an id to be passed in order to display the details of the right item. They cannot be used at top-level menu.
 ====
 
-===== Case overview
-
-This page linked to the case lists and case details pages is considered as a form in Bonita. It is linked to the process and can be edited from the Studio:
-
-. Go to the pool prperties pane and select the "Execution" tab
-. Select the "Overview page" in the tab group on the left
-. Click on the _pencil_ icon to edit the page
-
-==== From scratch
-
-Use the UI Designer to create pages by manipulating widgets. +
-Create the application descriptor from Bonita Studio by adding pages, layout and theme to the application, and map it to a profile.
-Generate the final forms from the human tasks of your diagram, in Bonita Studio too.
+=== Connectors - real implementation
+To use a connector, you need to first declare its definition as a dependency of the project. This is done from the Studio _Extension_ page. The connector can be found in Bonita Marketplace or can be made available by the professional developers of the project team. +
+In this phase, attach the real connectors implementation to the relevant steps. +
+Note that it can be more efficient to split steps with both user activity and connector activity into two steps, a human task for the user and a system task for the connector. + 
 
 === Testing
 
-Test each process individually before testing the application as a whole.
+First, test each connector independently using the connector wizard *_Test_* button. +
+Then, test each process individually (run the process by clicking *_Run_*) +
+You need to xref:process-configuration-overview.adoc[configure] the process before testing it locally.
+You can validate a process definition in Bonita Studio, in the *Details* panel, *Validation status* tab. The validation status indicates any errors or omissions in the definition. Correct any errors flagged in validation before testing the process.
+Then, test the application.
 
-You can validate a process definition in Bonita Studio, in teh *Details* panel, *Validation status* tab. The validation status
-indicates any errors or omissions in the definition. Correct any errors flagged in validation before testing the process.
-
-Bonita Studio includes an environment for testing a process locally, before deployment. You can test each connector independently using teh connector wizard *_Test_* button, then run the process by clicking *_Run_* to test it with connectors. You need to xref:process-configuration-overview.adoc[configure] the process before testing it locally.
-
-Bonita Studio contains an example organization, ACME, which you can use for testing a process or application.
-
-When local testing is complete, depending on the environment where the application will run, you might also need to test the processes in a realistic system before putting the application into production, or perhaps to put it into production but for a limited number of users or cases.
+Bonita Studio includes an environment for testing a process locally, before deployment: when clicking *_Run_*, the embedded Runtime executes the process instances and displays the User Application by default. The default application can be configured to speed up the tests. +
 
 == From development to production
-=== Deployment
 
-When testing is complete, the processes are ready to be deployed in Bonita Portal and the application is ready to be put into production. You need to xref:process-configuration-overview.adoc[configure] each process for deployment before putting it into production.
+When local testing is complete, the processes are ready to be deployed and the application is ready to be put into user acceptance testing, staging, and then production environments. +
+You need to xref:process-configuration-overview.adoc[configure] each process for deployment before deploying into a new environment. +
+Continuous Delivery can be achived thanks to Bonita Continuous Delivery (Subscription editions only).
 
 
 == Go to production
 === Specifying the organization
 
-Before you can run a process in production, you need to define your organization with entries for all process users, groups, and roles. You also need to map the process actors to the real people who will carry out process steps. +
-You can xref:organization-in-bonita-bpm-portal-overview.adoc[manage your organization in Bonita Portal] for a production system. +
-While you are in the testing phase, you can xref:organization-management-in-bonita-bpm-studio.adoc[manage the organization in Bonita Studio].
+Before you can run a process in production, you need to define your organization with entries for all process users, groups, and roles. You also need to map the process actors to the real people who will carry out process steps. This is most of the time achieved thanks to an LDAP, and system administrators will then use Bonita LDAP synchronizer.
 
 
 == Monitoring, Troublshooting, Evolution, and Maintenance
-After deployment, you can monitor usage and collect key performance indicators, to assess how well the process is meeting the objectives you defined.
+After deployment, you can monitor usage and collect key performance indicators, to assess how well the process is meeting the objectives that have been defined at the birth of the project.
