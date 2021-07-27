@@ -1,7 +1,7 @@
-= Design methodology
-:description: This page describes the phases required to create a process-based automation project using Bonita.
+= Project phases
+:description: This page describes the six phases strongly recommended to create an optimized and secured process-based automation project using Bonita.
 
-This page describes the six phases strongly recommended to create an optimized and secure process-based automation project using Bonita.
+This page describes the six phases strongly recommended to create an optimized and secured process-based automation project using Bonita.
 
 image:images/project phases.png[Project phases] 
 
@@ -77,6 +77,7 @@ While the project team works on the content of the project, the development team
 For Subscription editions users, this is also the time to configure https://documentation.bonitasoft.com/bcd/latest/[Bonita Continuous Delivery]. +
 
 Moreover, if the project will be deployed on premises, the infrastructure team works on the installation of the non-production and production environments. +
+There are many options for how Bonita can be installed: see the xref:bonita-bpm-installation-overview.adoc[Installation overview] for details.
 
 == Implementation - Test
 
