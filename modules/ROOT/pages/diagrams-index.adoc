@@ -33,7 +33,7 @@ xref:gateways.adoc[[.card-title]#Gateways# [.card-body.card-content-overflow]#pa
 
 [.card.card-index]
 --
-xref:events.adoc[[.card-title]#Events# [.card-body.card-content-overflow]#pass:q[The elements to start and end, and define timers, messages, errors]#]
+xref:events.adoc[[.card-title]#Events# [.card-body.card-content-overflow]#pass:q[Elements to start and end processes, define timers, messages, and errors]#]
 --
 
 [.card.card-index]
@@ -53,5 +53,5 @@ xref:event-subprocesses.adoc[[.card-title]#Event subprocesses# [.card-body.card-
 
 [.card.card-index]
 --
-xref:text-annotations.adoc[[.card-title]#Text annotations# [.card-body.card-content-overflow]#pass:q[An efficient way to describe the diagram elements for other team members]#]
+xref:text-annotations.adoc[[.card-title]#Text annotations# [.card-body.card-content-overflow]#pass:q[Describe the diagram elements for the other team members]#]
 --
