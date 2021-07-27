@@ -1,7 +1,7 @@
 = Project best practices
 :description: Helpful experience we share for the good of Bonita projects.
 
-Helpful experience we share for the good of Bonita projects.
+{description}
 
 We also encourage you to watch the videos that have been done on this wide topic.
 
