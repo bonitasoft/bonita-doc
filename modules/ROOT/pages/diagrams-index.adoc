@@ -1,59 +1,57 @@
 = Diagram
-:description: blabla
+:description: Diagram definition and usage
 
-blabla
+Diagram definition and usage
+
 [.card-section]
 == Diagram elements
 
 [.card.card-index]
 --
-xref:diagram-overview.adoc[[.card-title]#Diagram overview# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:diagram-overview.adoc[[.card-title]#Diagram overview# [.card-body.card-content-overflow]#pass:q[The bascis of diagram usage]#]
 --
 
 [.card.card-index]
 --
-xref:pools-and-lanes.adoc[[.card-title]#Pools and lanes# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:pools-and-lanes.adoc[[.card-title]#Pools and lanes# [.card-body.card-content-overflow]#pass:q[Efficiently structure your diagrams]#]
 --
 
 [.card.card-index]
 --
-xref:diagram-tasks.adoc[[.card-title]#Diagram tasks# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:diagram-tasks.adoc[[.card-title]#Activities and tasks# [.card-body.card-content-overflow]#pass:q[The alphabet that will compose your diagram]#]
 --
 
 [.card.card-index]
 --
-xref:iteration.adoc[[.card-title]#Iteration# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:iteration.adoc[[.card-title]#Iteration# [.card-body.card-content-overflow]#pass:q[When an activity needs to be executed more than once]#]
 --
 
 [.card.card-index]
 --
-xref:gateways.adoc[[.card-title]#Gateways# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:gateways.adoc[[.card-title]#Gateways# [.card-body.card-content-overflow]#pass:q[The gates to business rules execution]#]
 --
 
 [.card.card-index]
 --
-xref:transitions.adoc[[.card-title]#Transitions# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:events.adoc[[.card-title]#Events# [.card-body.card-content-overflow]#pass:q[The elements to start and end, and define timers, messages, errors]#]
 --
 
 [.card.card-index]
 --
-xref:events.adoc[[.card-title]#Events# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:transitions.adoc[[.card-title]#Transitions# [.card-body.card-content-overflow]#pass:q[The links between activites, events, and gateways]#]
 --
 
 [.card.card-index]
 --
-xref:called-processes.adoc[[.card-title]#Called processes# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:called-processes.adoc[[.card-title]#Called processes# [.card-body.card-content-overflow]#pass:q[A smart way to reuse and maintain chunks of processes]#]
 --
 
 [.card.card-index]
 --
-xref:event-subprocesses.adoc[[.card-title]#Event subprocesses# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:event-subprocesses.adoc[[.card-title]#Event subprocesses# [.card-body.card-content-overflow]#pass:q[A very specific use-case for process interruption]#]
 --
 
 [.card.card-index]
 --
-xref:text-annotations.adoc[[.card-title]#Text annotations# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:text-annotations.adoc[[.card-title]#Text annotations# [.card-body.card-content-overflow]#pass:q[An efficient way to describe the diagram elements for other team members]#]
 --
-
-
-// TODO -> tutorial, missing content etc
