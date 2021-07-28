@@ -29,7 +29,7 @@
   *** xref:ldap-synchronizer.adoc[LDAP synchronizer]
  ** Profiles
   *** xref:profiles-overview.adoc[Profiles overview]
-  *** xref:profileCreation.adoc[Profiles editor]
+  *** xref:profile-creation.adoc[Profiles editor]
  ** Process modeling
   *** Diagrams
    **** xref:diagram-overview.adoc[Diagram overview]
@@ -75,7 +75,7 @@
    **** xref:multi-language-pages.adoc[Multi-language pages]
    **** xref:migrate-a-form-from-6-x.adoc[Migrate a form from 6.x]
   *** xref:cache-configuration-and-policy.adoc[Cache configuration and policy]
- ** xref:applicationCreation.adoc[Application descriptor]
+ ** xref:application-creation.adoc[Application descriptor]
  ** Connectivity
   *** xref:connectivity-overview.adoc[Connectivity overview]
   *** xref:alfresco.adoc[Alfresco]
