@@ -1,5 +1,4 @@
 = Platform configuration setup tool
-
 :description: This page explains how to use the Platform setup tool to configure the Bonita platform (properties, permissions, license install...).
 
 This page explains how to use the Platform setup tool to configure the Bonita platform (properties, permissions, license install...).
