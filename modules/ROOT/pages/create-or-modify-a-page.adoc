@@ -63,3 +63,15 @@ WARNING: an artifact that has not been designed with the UI Designer cannot be i
 When you generate the `.bar` file of a process, the mapped forms created with the UI Designer are embedded in the file. Application pages are not embedded. When you deploy the process in Bonita using the `.bar` file, forms are imported and deployed. Pages and layout must be imported one by one.
 
 To import artifacts in another Studio, you can export pages and forms in the process `.bos` file. In the list of artifacts to insert in the .bos file, forms are checked by default, but not pages. When you import this `.bos` file into another Bonita Studio, forms and pages that you have checked are available in the UI Designer of that Studio.
+
+= User Interfaces development overview
+:description: This page summarizes the User Interface resources needed to create an application with Bonita.
+
+This page summarizes the User Interface resources needed to create an application with Bonita.
+
+Your process-based application can use xref:pages-develoment.adoc[pages] and xref:forms-development.adoc[forms] to show or collect information in a browser. +
+The overall structure of the application and the display of graphical elements in handled by the xref:layout-development.adoc[layout]. +
+The look and feel of the application, layout, forms, and pages is handled by the xref:theme-development.adoc[theme].
+
+All of these UI resources are linked to the application descriptor when the application is created. +
+The following pages give more information on how to develop each of them.
