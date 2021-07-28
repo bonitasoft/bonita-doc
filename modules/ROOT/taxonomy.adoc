@@ -188,7 +188,7 @@
    **** xref:custom-user-information-in-bonita-bpm-studio.adoc[Custom User Information in Bonita Studio]
   *** Profiles
    **** xref:profiles-overview.adoc[Overview]
-   **** xref:profile-creation.adoc[Profiles editor]
+   **** xref:profile-creation.adoc[Profile editor]
   *** xref:rest-api-authorization.adoc[REST API authorization]
   *** xref:custom-authorization-rule-mapping.adoc[Authorization rules]
   *** xref:bdm-access-control.adoc[BDM access control]
