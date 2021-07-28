@@ -103,7 +103,6 @@
    **** xref:list-of-documents.adoc[List of documents]
  * Pages and forms  
  ** xref:create-or-modify-a-page.adoc[Create or modify UI artifacts]
-  *** xref:page-and-form-development-overview.adoc[duplicate]
  ** xref:variables.adoc[Variables in the UI Designer]
  ** xref:widgets.adoc[Widgets]
  ** xref:widget-properties.adoc[Widget properties]
