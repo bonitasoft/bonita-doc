@@ -169,39 +169,9 @@ Similarly, the Adaptive Case Management example, which can only be used after it
 However, our team of Professional Services consultants can assist you in the customization phase (Subscription editions only). You can contact them through the Customer Services Center.
 ====
 
-==== List of Bonita Applications customizable pages
+To know about the pages that can be customized, go to the xref:create-or-modify-a-page.adoc#[create a page] documentation page.
 
-===== Bonita User Application
-
-In this application, you can customize:
-
-* Bonita User Case List `UserCaseListBonitaV_`
-* Bonita User Case Details `UserCaseDetailsBonitaV_`
-
-==== Bonita Super Administrator and Administrator Applications
-
-In thess applications, when relevant, you can customize:
-
-* Bonita Admin Process List `adminProcessListBonitaV_`
-* Bonita Admin Case Details `adminCaseDetailsBonitaV_`
-* Bonita Admin Task List `adminTaskListBonitaV_`
-* Bonita Admin Task Details `adminTaskDetailsBonitaV_`
-* Bonita Admin User List `adminUserListBonitaV_`
-* Bonita Admin Group List `adminGroupListBonitaV_`
-* Bonita Admin Role List `adminRoleListBonitaV_`
-* Bonita Admin Install Export Organization `adminInstallExportOrganizationBonitaV_`
-* Bonita Admin Profile List `adminProfileListBonitaV_`
-* Bonita Admin Resources List `adminResourceListBonitaV_`
-
-The "_" in "V_" stands for the latest "version" of the resource.
-
-[NOTE]
-====
-
-All the "Details" pages must be used as "orphan" pages in the application descriptor, since they need an id to be passed in order to display the details of the right item. They cannot be used at top-level menu.
-====
-
-=== Connectors - real implementation
+=== Connectors - final implementation
 To use a connector, it must first be declared as a dependency of the project. This is done from the Studio xref:managing-extension-studio.adoc[_Extensions_] page. The connector can be found in Bonita Marketplace or can be xref:software-extensibility.adoc[made available] the professional developers of the project team. +
 In this phase, attach the real connectors implementation to the relevant steps. +
 Note that it can be more efficient to split steps with both user activity and connector activity into two steps, a human task for the user and a system task for the connector. + 
