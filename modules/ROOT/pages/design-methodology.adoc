@@ -5,7 +5,7 @@ This page describes the six phases strongly recommended to create an optimized a
 
 image:images/project phases.png[Project phases] 
 
-== Process discovery and modeling
+== Project discovery and design
  
 === Project discovery
  
@@ -49,7 +49,7 @@ When this choice is done, the type of the project is clearly defined. +
 
 Based on the previous information collected, the complexity of the project can be estimated, and a budget can be defined, followed by, hopefully, the right resources allocated to make it happen. +
 
-=== Project modeling
+=== Project design
 
 ==== Process details
 
