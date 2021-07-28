@@ -29,7 +29,7 @@
   *** xref:ldap-synchronizer.adoc[LDAP synchronizer]
  ** Profiles
   *** xref:profiles-overview.adoc[Profiles overview]
-  *** xref:profileCreation.adoc[Profiles editor]
+  *** xref:profile-creation.adoc[Profiles editor]
  ** Process modeling
   *** Diagrams
    **** xref:diagram-overview.adoc[Diagram overview]
