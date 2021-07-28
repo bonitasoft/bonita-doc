@@ -1,4 +1,6 @@
 = Application descriptor
+:page-aliases: applicationCreation.adoc
+
 :description: Define your Bonita application descriptor.
 
 Define your Bonita application descriptor.
