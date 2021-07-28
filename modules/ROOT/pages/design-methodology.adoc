@@ -80,7 +80,7 @@ For Subscription editions users, this is also the time to configure https://docu
 Moreover, if the project will be deployed on premises, the infrastructure team works on the installation of the non-production and production environments. +
 There are many options for how Bonita can be installed: see the xref:bonita-bpm-installation-overview.adoc[Installation overview] for details.
 
-== Implementation - Test - make sure the process does what it should.
+== Implementation - Test I: Make sure the process does what it should
 
 === Processes, Data, People 
 
@@ -113,7 +113,7 @@ The exception to that could be the notifications (when a task is ready, when a t
 Bonita Studio includes an environment for testing a process locally, before deployment: when clicking *_Run_*, the embedded Runtime executes the process instances and displays the User Application by default. The choice of the default application to open can be configured. +
 All along this first implementation phase, feedback must be taken from the process owner and business users, through Agile sprint demonstrations as well as usability testing sessions.
 
-== Implementation - Test - work on the user experience.
+== Implementation - Test II: Work on the user experience
 
 === Process forms
 
@@ -123,7 +123,7 @@ In Bonita Studio, in the pools _Execution_ properties (instantiation form and ca
 
 Besides the forms, and following the findings of the UI workshops, application pages may be needed to display generic information about business data. They can also replace a form when all the user needs to do is clicking on a _Approve_ or _Reject_ button.+
 If the project is a Case Management project, you can customize the provided project. +
-The xref:page-and-form-development-overview.adoc[creation of pages] is done directly in the UI Designer embedded in Bonita Studio. +
+The create-or-modify-a-page.adoc [creation of pages] is done directly in the UI Designer embedded in Bonita Studio. +
 
 From the UI Designer, you can also define the xref:layout-development.adoc[_layout_] of the application, although Bonita provides an efficient xref:bonita-layout.adoc[default Layout]. +
 A xref:customize-living-application-theme.adoc[_theme_] can also be defined to match the graphical design charter of the company. This can be done my customizing one of Bonita's provided themes. +
