@@ -38,6 +38,7 @@ The Case overview (this page is technically considered as a form because of its 
 . Rename it
 . Customize what needs to be displayed as well as the _Target URL on success_ of the *_Submit_* button.
 
+For more technical information about the forms, visit xref:forms-development.adoc[this dedicated documentation page].
 
 == Create a page
 
@@ -85,10 +86,9 @@ The "_" in "V_" stands for the latest "version" of the resource.
 All the "Details" pages must be used as "orphan" pages in the application descriptor, since they need an id to be passed in order to display the details of the right item. They cannot be used at top-level menu.
 ====
 
-== Create a layout
-=== From scratch
+For more technical information about the pages, visit xref:pages-development.adoc[the dedicated documentation page]. 
 
-Use the same sequence of steps than to create a page from scratch.
+== Create a layout
 
 === From the provided Bonita layout
 ==== If you have not installed any Bonita application in your project in Bonita Studio 
@@ -109,9 +109,16 @@ Use the same sequence of steps than to create a page from scratch.
 . Douvle click on _Bonita layout_. This automatically opens the UI Designer with the layout ready to edit.
 . Edit it and save it with another name
 
+=== From scratch
+
+Use the same sequence of steps than to create a page from scratch.
+
+For more technical information about layouts, visit the xref:layout-development.adoc[dedicated documentation page].
+
 == Create a fragment
 
 Use the same sequence of steps than to create a page from scratch.
+
 
 == Responsiveness
 
@@ -120,46 +127,52 @@ image:images/images-6_0/pb-resolution.png[Device type selection]
 
 == Modify an element
 
-After a form, page, layout, or fragment is created, you can update it by just clicking on the *_Pencil_* icon to open it in the editor. 
-Update the element by deleting or dragging and dropping widgets, Business objects or fragments from the palette to the whiteboard. 
+After a form, page, layout, or fragment is created, you can update it by just clicking on the *_Pencil_* icon to open it in the editor. +
+Update the element by deleting or dragging and dropping widgets, business objects or fragments from the palette to the whiteboard. +
 Edit widget properties in the widget properties panel, create data, and bind them to the widgets.
 
 == Preview an element
 
-You can preview page, form and fragment rendering by clicking the *_Preview_* button. Another browser window opens with the element as it will be displayed after deployment. If you update the page, form or fragment, the preview is automatically refreshed when you save.
+You can preview page, form and fragment rendering by clicking the *_Preview_* button. Another browser window opens with the element as it will be displayed after deployment. If you update the page, form or fragment, the preview is automatically refreshed when you save. +
 
-You can display your page, layout, form or fragment with one of your theme application installed.
+You can display your page, layout, form or fragment with one of your theme application installed. +
 
-From the preview window, you can also expand the preview outside of current preview mechanism, with the *Expand Preview in new window* button. This allows you to set new URL parameters, play with dynamic browser sizing, and to reuse same url in another browser to see how your form or page behaves in your user default browser.
+From the preview window, you can also expand the preview outside of current preview mechanism, with the *Expand Preview in new window* button. This allows you to set new URL parameters, play with dynamic browser sizing, and to reuse same url in another browser to see how your form or page behaves in your user default browser. +
 
 You can use the a device types bar on the preview screen to choose the target device type. +
-The preview displays the element as it would be displayed on the selected type of device.
-
-Custom widget is a special element that we will explain in a later chapter.
+The preview displays the element as it would be displayed on the selected type of device. +
 
 [#export]
 
 == Export an element
 
 You can export a page or a layout to deploy it in Bonita Portal as a custom page. +
-You can export any element to import it into another UI Designer.
+You can export any element to import it into another UI Designer. +
 
-To export an element, click the *_Export_* button image:images/images-6_0/pb-export.png[Export button] on the Page editor or the UI Designer home page. A zip file is downloaded to your computer. It contains a Bonita custom page, which also suitable for import into another UI Designer.
+To export an element, click the *_Export_* button image:images/images-6_0/pb-export.png[Export button] on the Page editor or the UI Designer home page. A zip file is downloaded to your computer. It contains a Bonita custom page, which also suitable for import into another UI Designer. +
 
 After export you can modify your page or layout code by directly editing the code located in _resources_ folder. Be aware that such a modification to the code will work when the page or layout is deployed in Bonita Portal but it may be broken if you import the page into another UI Designer.
+
+To import elements in another Studio, you can export pages and forms in the process `.bos` file. In the list of elements to insert in the .bos file, forms are checked by default, but not pages. When you import this `.bos` file into another Bonita Studio, forms and pages that you have checked are available in the UI Designer of that Studio.
 
 [#import]
 
 == Import an element
 
-To import an element from another UI Designer, go to the UI Designer home page and click the *_Import_* button image:images/images-6_0/pb-import.png[Import button]. When you import a page, layout, form or fragment, its dependencies (such as custom widgets and fragments used) are automatically be imported too.
+To import an element from another UI Designer, go to the UI Designer home page and click the *_Import_* button image:images/images-6_0/pb-import.png[Import button]. When you import a page, layout, form or fragment, its dependencies (such as custom widgets and fragments used) are automatically be imported too. +
 
-WARNING: an element that has not been designed with the UI Designer cannot be imported into the UI Designer.
+[WARNING]
+====
+
+An element that has not been designed with the UI Designer cannot be imported into the UI Designer.
+====
 
 == Pages and forms in .bos/.bar file
 
 When you generate the `.bar` file of a process, the mapped forms created with the UI Designer are embedded in the file. +
 Application pages are not embedded as they are independant from the process. +
-Applications and its elements must be deployed onto the target environment, manually from the Super Administrator or Administrator applications, or automatically  When you deploy the process in Bonita using the `.bar` file, forms are imported and deployed. Pages and layout must be imported one by one.
+When the .bar file is deployed, forms are deployed too. +
 
-To import elements in another Studio, you can export pages and forms in the process `.bos` file. In the list of elements to insert in the .bos file, forms are checked by default, but not pages. When you import this `.bos` file into another Bonita Studio, forms and pages that you have checked are available in the UI Designer of that Studio.
+Applications and its elements must be deployed onto the target environment. This can be done manually from the Super Administrator or Administrator applications, in the *_Applications_* and *_Resources_* menu options. It can also be done automatically through the automation of the project builds and deployment.
+
+For more information on Bonita Continuous Delivery tool (Subscription editions only], visit https://documentation.bonitasoft.com/bcd/latest/[the dedicated documentation page].
