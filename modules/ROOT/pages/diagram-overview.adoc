@@ -1,7 +1,7 @@
 = Diagram overview
 :description: A diagram is the representation in the Bonita studio of a group of processes (BPMN pools). A diagram saved, deployed all pools in one action
 
-A diagram is the representation in the Bonita studio of a group of processes (BPMN pools). A diagram saved, deployed all pools in one action
+{description}
 
 A diagram has a name and a version number. You can xref:bonita-bpm-studio-hints-and-tips.adoc[change the diagram name] and you can xref:bonita-bpm-studio-hints-and-tips.adoc[update the version number] whenever you want to indicate a major change in the diagram. A pool also has a version number that can be updated manually. +
 There is no link between the diagram version and the pool version.
