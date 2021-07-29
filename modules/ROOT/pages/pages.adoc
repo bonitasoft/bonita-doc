@@ -19,7 +19,7 @@ A few examples of custom pages:
 * Provide an administrator with a multi-attribute search facility.
 * Integrate a page from an external application.
 
-For all information about developping a custom page, go to xref:page-and-form-development-overview.adoc[page and form development overview].
+For all information about developping a custom page, visit xref:pages-development.adoc[the dedicated documentation page].
 
 == Use in applications
 
