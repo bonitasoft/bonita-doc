@@ -417,7 +417,7 @@ You can use an alternative database `SchemaManager` implementation. A `SchemaMan
 Business Data Model. As our third-party persistence layer _Hibernate_ does not support all type of schema updates, you may want to use a SchemaManager that does *not* update the database
 tables directly, but rather let you (or your Database Administrator) update the database "manually".
 
-For that, you can use the alternative we provide, by uncommenting the following lines in file `platform_conf/current/tenants/[TENANT_ID]/tenant_engine//bonita-tenants-custom.xml` using xref:BonitaBPM_platform_setup.adoc#update_platform_conf[setup tool].
+For that, you can use the alternative we provide, by uncommenting the following lines in file `platform_conf/current/tenants/[TENANT_ID]/tenant_engine//bonita-tenants-custom.xml` using xref:bonita-bpm-platform-setup.adoc#update_platform_conf[setup tool].
 
 [source,xml]
 ----

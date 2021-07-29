@@ -39,7 +39,7 @@ For all options, you will need to xref:database-configuration.adoc[configure] Bo
 [WARNING]
 ====
 
-Starting from Bonita 7.3.0, there is no more bonita home to store the configuration, all the configuration is in the database. For more information, take a look at xref:BonitaBPM_platform_setup.adoc[Bonita Platform configuration]
+Starting from Bonita 7.3.0, there is no more bonita home to store the configuration, all the configuration is in the database. For more information, take a look at xref:bonita-bpm-platform-setup.adoc[Bonita Platform configuration]
 ====
 
 For detailed information on the Supported Environment Matrix, see the https://customer.bonitasoft.com/support-policies[Support Guide] or http://www.bonitasoft.com/contact-us[ask to be contacted by our commercial team].
