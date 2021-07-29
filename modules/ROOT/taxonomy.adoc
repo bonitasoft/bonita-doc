@@ -95,14 +95,14 @@
   ** xref:define-and-deploy-the-bdm.adoc[Business Data Model]
    *** xref:bo-multiple-refs-tutorial.adoc[Multiple references in Business Objects]
    *** xref:data-management.adoc[Data in the UI Designer]
-** Process data
+ ** Process data
   *** xref:specify-data-in-a-process-definition.adoc[Process variables]
   *** xref:parameters.adoc[Parameters]
   *** xref:contracts-and-contexts.adoc[Contracts and contexts]
   *** xref:define-a-search-index.adoc[Search keys]
-  *** xref:documents-index.adoc[Documents]
-   **** xref:documents.adoc[Document in processes]
-   **** xref:list-of-documents.adoc[List of documents]
+ ** xref:documents-index.adoc[Documents]
+  *** xref:documents.adoc[Documents in processes]
+  *** xref:list-of-documents.adoc[List of documents]
  * Pages and forms  
  ** xref:create-or-modify-a-page.adoc[Create or modify UI artifacts]
   *** xref:page-and-form-development-overview.adoc[duplicate]
