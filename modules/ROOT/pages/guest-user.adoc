@@ -75,7 +75,7 @@ In Bonita Cloud, to change the configuration files to autorize Guest User, you j
 
 You may require your public living application to provide a link to start a process instance (case). In order for the process instantiation form to be displayed to a guest in an application, what you need to do is:
 
-* add the guest user account in the actor mapping of the actor which is defined as link:actors#toc1[initiator of the process]
+* add the guest user account in the actor mapping of the actor which is defined as link:actors#_set_the_initiator[initiator of the process]
 * make sure the REST API authorization mechanism allows the guest user to start the process instance.
 
 In order for the authorization filter to let the guest user make the necessary API requests, the best solution is to activate the link:rest-api-authorization#dynamic_authorization[dynamic authorisation checking] for those requests :
