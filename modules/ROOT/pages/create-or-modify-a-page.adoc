@@ -5,8 +5,8 @@ Guidance to create and modify User Interfaces elements to embed in your processe
 
 == User Interfaces development overview
 
-Your automation project can use xref:pages-develoment.adoc[pages] to display information and provide interaction controls to the end-users or administrators. +
-It most of the times uses xref:forms-development.adoc[forms] to display and collect new or edited information. +
+Your automation project can use xref:pages.adoc[pages] to display information and provide interaction controls to the end-users or administrators. +
+It most of the times uses xref:forms.adoc[forms] to display and collect new or edited information. +
 Forms and pages are made of containers and widgets. +
 Some containers and widgets can be grouped in xref:fragments.adoc[fragments], in order to be reused in several pages or forms. +
 
@@ -26,7 +26,7 @@ The following chapters give more information on how to develop all the others el
 
 == Create a form
 
-In a Bonita project architecture, forms are embedded in the pools. Their creation is very linked to the process step they "feed", in a way. +
+In a Bonita project architecture, xref:forms.adoc[forms] are embedded in the pools. Their creation is very linked to the process step they "feed", in a way. +
 Before creating a form, the xref:contracts-and-contexts.adoc[contract] must have been defined in its _Execution / Contract_ property tab, for each form at a different level: 
 
 * An instantiation form must be created from the pool _Execution / Instatiation form_ tab
@@ -41,6 +41,9 @@ The Case overview (this page is technically considered as a form because of its 
 For more technical information about the forms, visit xref:forms-development.adoc[this dedicated documentation page].
 
 == Create a page
+
+xref:pages.adoc[Pages] are created independently from the processes. They are used to display business information that group several processes and several instances of the processes in an efficient view, a list of requests, for example. +
+The controls they embed (buttons, links) can call BPM APIs that will trigger the display of the process instantiation form, or the execution of a task.
 
 === From scratch
 . From Bonita Studio coolbar, click on the *_UI Designer_* icon to open the UI Designer. +
