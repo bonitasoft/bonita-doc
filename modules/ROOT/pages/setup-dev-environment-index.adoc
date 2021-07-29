@@ -23,7 +23,7 @@ xref:workspaces-and-repositories.adoc[[.card-title]#Workspaces and projects# [.c
 
 [.card.card-index]
 --
-xref:shared-project.adoc[[.card-title]#Set up Bonita Studio with GitHub# [.card-body.card-content-overflow]#pass:q[Share and version your projects]#]
+xref:shared-project.adoc[[.card-title]#Set up Bonita Studio with Git# [.card-body.card-content-overflow]#pass:q[Share and version your projects]#]
 --
 
 [.card.card-index]
@@ -40,5 +40,4 @@ xref:automating-builds.adoc[[.card-title]#Automating builds# [.card-body.card-co
 --
 xref:set-up-continuous-integration.adoc[[.card-title]#Set up continuous integration# [.card-body.card-content-overflow]#pass:q[The first environment to deploy into]#]
 --
-
 
