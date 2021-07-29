@@ -137,7 +137,7 @@ Edit widget properties in the widget properties panel, create data, and bind the
 
 == Preview an element
 
-You can preview page, form and fragment rendering by clicking the *_Preview_* button. Another browser window opens with the element as it will be displayed after deployment. If you update the page, form or fragment, the preview is automatically refreshed when you save. +
+You can preview page, form and fragment rendering by clicking on the *_Preview_* button. Another browser window opens with the element as it will be displayed after deployment. If you update the page, form or fragment, the preview is automatically refreshed when you save. +
 
 You can display your page, layout, form or fragment with one of your theme application installed. +
 
