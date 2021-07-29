@@ -1,9 +1,9 @@
 = Profile Editor
 :page-aliases: profileCreation.adoc
-:description: Build a profile to customize the user's environment, define page listing and who can access it.
-:experimental:
 
-Build a profile to customize the user's environment, define page listing and who can access it.
+:description: Build a profile to customize the user's environment, define page listing and who can access it.
+
+{description}
 
 == Definition
 

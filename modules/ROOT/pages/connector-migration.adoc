@@ -1,0 +1,299 @@
+= Migrate a connector created with Bonita Studio to a dedicated project
+
+:description: Migrate a connector created with Bonita Studio to a dedicated project using the Maven archetype
+
+Since Bonita 2021.2, Connectors cannot be created from the Studio anymore. Developers have to create dedicated connector projects outside the Studio, in their favorite IDE, to develop, build and release their connectors. Then, connectors can be added to Bonita projects as xref:software-extensibility.adoc[extensions]. This allows connectors to have their own project lifecycle and let the developers use the latest state-of-the-art tooling to manage the continuous integration and code quality. +
+This page describes how to migrate a custom connector created with Bonita Studio into a dedicated connector project using the provided maven archetype.
+
+[NOTE]
+====
+All the content of this page can be applied to migrate actor filters created with Bonita Studio to a dedicated actor filter project. Use the xref:actor-filter-archetype.adoc[actor filter archetype] instead.
+====
+
+== 1 - Create a new connector project using the maven archetype
+
+First of all, a new connector project has to be created using the provided maven archetype. +
+xref:connector-archetype#_generate_the_project_using_the_maven_archetype[This piece of documentation] explains how to create a connector project using the maven archetype.
+
+Some parameters have to be passed to the maven archetype to create the project (groupid, artifactId, version, package, language...). Make sure to use *Java* as the language, so the existing implementation code will be reusable. It is also recommended to keep the package of the current connector implementation, else you might need to edit some part of your implementation source code.
+
+[TIP]
+====
+To ease the migration, it is recommended to use the same definition id and definition version of the current connector. +
+To do so, the maven properties `connector-definition-id` and `connector-definition-version` have to be edited in the generated pom.xml of the project with the correct values. By default, it takes the project artifact id as definition id and the project version as definition version.
+====
+
+== 2 - Declare the connector dependencies
+
+A connector often depends on external Java libraries. +
+Previously, they were declared in the implementation and sometimes in the definition. A jar file had to be imported in the Bonita Studio, and then it was possible for a connector to depend on this jar. +
+Now, connector projects are Maven projects, dependencies are handled by Maven. It means that all the connector dependencies have to be declared in the file `pom.xml` (at the root of the project) as maven dependencies. https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html[Learn more about the Maven dependency mechanism].
+
+For each declared dependency in your implementation or in your definition, *the corresponding Maven dependency has to be found and declared in the pom.xml*. +
+For example, if a connector depends on the Jar `commons-lang3-3.12.0.jar`, then the corresponding Maven dependency is the dependency `Apache Commons Lang` in version `3.12.0`. So, the following Maven dependency has to be declared in the `pom.xml`: 
+
+[source, xml]
+----
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-lang3</artifactId>
+    <version>3.12.0</version>
+</dependency>
+----
+
+Finding the corresponding maven dependency of a Jar file can be hard, even impossible if the Jar has never been deployed on any Maven repository.
+
+The first thing to do is to copy/paste the jar name in a web search engine, and hopefully the corresponding maven dependency will show up. You can also try to look for it on public maven repositories, like https://mvnrepository.com/[Maven central].
+
+In case it doesn't work, you can try to explore the Jar file (using an archive manager) to see which class it contains. +
+For example, if you explore the jar `commons-lang3-3.12.0.jar`, you will find a class named `StringUtils`. If you type _StringUtils maven_ in a web search engine you have a good chance to find the corresponding maven dependency.
+
+If the corresponding Maven dependency cannot be found publicly, it can mean that it is a private dependency of your organization. In this case, ask your IT team a way to retrieve this dependency through Maven, and to consider deploying it on a maven repository (private or public) if it's not the already case.
+
+If you can't find a way to retrieve the corresponding maven dependency of a Jar file, you should consider dropping it for another one available publicly. Try to find out in your source code the purpose of this dependency, and look for an equivalent available. In this case, you will have to update the implementation code of your connector.
+
+[IMPORTANT]
+====
+Always consider dropping a dependency that is not available publicly and maintained, unless it's your dependency (so you can maintain it if needed). +
+Not being able to update a dependency means that your application is exposed to maintainability and security issues (eg: OS update, Java update...).
+====
+
+== 3 - Retrieve the definition
+
+The next step is to retrieve the definition content from the old project. To do so, a part of the old _.def_ file will be copied into the new _.def_ file. 
+
+Open the old _.def_ file (usually _definitionId-version.def_) in a text editor. +
+It can be achieved in two steps: 
+
+* From the Studio explorer, right-click on the old _.def_ file and select _Show in system explorer_
+* The folder containing the old _.def_ file should have popped up, you can now open it with any text editor you have (bloc note, notpad++, sublime text ...)
+
+The new definition in the connector project can be found in `src/main/resources-filtered/<artifactId>.def`.
+
+Only a part of the old definition has to be transferred to the one: 
+
+* The inputs
+* The outputs
+* The pages and widgets
+
+
+For example, if the old _.def_ file has the following content: 
+
+.Old definition file generated by the Studio
+[source, xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<definition:ConnectorDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1">
+  <id>my-connector-def</id>
+  <version>1.0.0</version>
+
+  <icon>connector.png</icon> <1>
+  <category icon="connector.png" id="Custom"/>
+
+  <input defaultValue="defaultValue" mandatory="true" name="Input1" type="java.lang.String"/> <2>
+  <input mandatory="true" name="Input2" type="java.lang.String"/>
+
+  <output name="Output1" type="java.lang.String"/> <3>
+
+  <page id="input-page"> <4>
+    <widget xsi:type="definition:Text" id="name_widget" inputName="name"/>
+  </page>
+
+  <jarDependency>commons-lang3-3.12.0.jar</jarDependency>
+</definition:ConnectorDefinition>
+----
+<1> The icon and the category of the connector
+<2> The inputs of the connector
+<3> The outputs of the connector
+<4> The pages and widgets of the connector, used by the Studio to configure a call to the connector.
+
+You have to copy past the elements 1, 2, 3 and 4 into the new definition file, which should look like the following one at the end of the operation: 
+
+.Connector definition file in a project generated by the Maven archetype
+[source, xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<definition:ConnectorDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1">
+    <id>${connector-definition-id}</id> <!-- Id of the definition -->
+    <version>${connector-definition-version}</version> <!-- Version of the definition -->
+    <icon>connector.png</icon> <!-- The icon used in the Studio for this definition -->
+    <category icon="connector.png" id="Custom"/> <!-- The category of this definition, used in the Studio (e.g: http, script ...) -->
+
+    <!-- Connector inputs -->
+  <input defaultValue="defaultValue" mandatory="true" name="Input1" type="java.lang.String"/>
+  <input mandatory="true" name="Input2" type="java.lang.String"/>
+
+    <!-- Connector outputs -->
+    <output name="Output1" type="java.lang.String"/>
+
+    <!--
+       Pages and widgets to use the connector in the Bonita Studio.
+       - Each widget must be bound to an input
+       - Page titles must be defined in the properties files
+       - Widget labels must be defined in the properties files
+       - Page and widget descriptions can be defined in the properties files (optional)
+    -->
+    <page id="input-page">
+        <widget xsi:type="definition:Text" id="name_widget" inputName="name"/>
+    </page>
+</definition:ConnectorDefinition>
+----
+
+The icons and the category can also be transferred into the new definition, if so then put the corresponding icon files in _src/main/resources_.
+
+== 4 - Retrieve the definition property files
+
+With the definition of a connector come the property files, used to store the values of the different labels of the connector and their translations (mainly the pages and widgets labels). +
+Those properties must be transferred into the new connector, else it won't be usable in the Studio. 
+
+In the Studio definition folder, you will find a file _.properties_ for each language supported by your connector. +
+Copy-paste the content of those files in the corresponding _.properties_ file in the folder `src/main/resources-filtered` of your new connector project. You might need to create new _.properties_ files for your translation.
+
+== 5 - Retrieve the implementation
+
+The next step is to retrieve the implementation source code from the old project. Because the dependencies have already been managed in step two, there is nothing to retrieve from the _.impl_ file. 
+
+In the old connector projects, the implementation source code was by default separated in two classes: 
+
+- An abstract class extending `org.bonitasoft.engine.connector.AbstractConnector`, containing methods to set, retrieve and validate the inputs and the outputs of the connector
+- A class extending this abstract class, containing the logic of the connector. 
+
+
+.Old abstract connector class, to manage inputs and outputs
+[source, Java]
+----
+package org.mycompany.connector;
+
+import org.bonitasoft.engine.connector.AbstractConnector;
+import org.bonitasoft.engine.connector.ConnectorValidationException;
+
+public abstract class AbstractMyConnectorDefImpl extends AbstractConnector {
+
+	protected final static String INPUT1_INPUT_PARAMETER = "input1";
+	protected final String OUTPUT1_OUTPUT_PARAMETER = "Output1";
+
+	protected final java.lang.String getInput1() {
+		return (java.lang.String) getInputParameter(INPUT1_INPUT_PARAMETER);
+	}
+
+	protected final void setOutput1(java.lang.String output1) {
+		setOutputParameter(OUTPUT1_OUTPUT_PARAMETER, output1);
+	}
+
+	@Override
+	public void validateInputParameters() throws ConnectorValidationException {
+		try {
+			getInput1();
+		} catch (ClassCastException cce) {
+			throw new ConnectorValidationException("input1 type is invalid");
+		}
+
+	}
+
+}
+----
+
+.Old connector class, to execute the business logic
+[source, Java]
+----
+package org.mycompany.connector;
+
+import org.bonitasoft.engine.connector.ConnectorException;
+
+public class MyConnectorDefImpl extends AbstractMyConnectorDefImpl {
+
+	@Override
+	protected void executeBusinessLogic() throws ConnectorException {
+		String input1 = getInput1();
+		// [...]
+		setOutput1("output");
+	 }
+
+	@Override
+	public void connect() throws ConnectorException {
+	}
+
+	@Override
+	public void disconnect() throws ConnectorException{
+	}
+
+}
+----
+
+In the new connector projects, generated by the Maven archetype, there is only one class by default which extends `org.bonitasoft.engine.connector.AbstractConnector`, located in `src/main/<your package>`. 
+
+Now it's up to you, you can either delete the provided class and copy/paste your old classes, or just pick the content from the old classes and paste it in the new one. +
+Here is an example of the old connector sources transferred into the generated class:
+
+.New connector implementation main class
+[source, java]
+----
+package org.mycompany.connector;
+
+import java.util.logging.Logger;
+
+import org.bonitasoft.engine.connector.AbstractConnector;
+import org.bonitasoft.engine.connector.ConnectorException;
+import org.bonitasoft.engine.connector.ConnectorValidationException;
+
+public class MyConnector extends AbstractConnector {
+
+    private static final Logger LOGGER = Logger.getLogger(MyConnector.class.getName());
+
+    static final String INPUT1_INPUT_PARAMETER = "input1";
+    static final String OUTPUT1_OUTPUT_PARAMETER = "Output1";
+
+    @Override
+    public void validateInputParameters() throws ConnectorValidationException {
+        checkMandatoryStringInput(INPUT1_INPUT_PARAMETER);
+    }
+
+    protected void checkMandatoryStringInput(String inputName) throws ConnectorValidationException {
+        try {
+            String value = (String) getInputParameter(inputName);
+            if (value == null || value.isEmpty()) {
+                throw new ConnectorValidationException(this,
+                        String.format("Mandatory parameter '%s' is missing.", inputName));
+            }
+        } catch (ClassCastException e) {
+            throw new ConnectorValidationException(this, String.format("'%s' parameter must be a String", inputName));
+        }
+    }
+
+    @Override
+    protected void executeBusinessLogic() throws ConnectorException {
+        String input1 = getInputParameter(INPUT1_INPUT_PARAMETER);
+        LOGGER.info(String.format("Default input: %s", input1));
+        // [...]
+        setOutputParameter(DEFAULT_OUTPUT, "output");
+    }
+
+    @Override
+    public void connect() throws ConnectorException{}
+
+    @Override
+    public void disconnect() throws ConnectorException{}
+}
+----
+
+[CAUTION]
+====
+The main class of your connector is referenced in the _.impl_ file. +
+Make sure that at the end of the operation, the _.impl_ file points to the main implementation class
+====
+
+== 6 - Update the unit tests
+
+With the new connector project format comes the possibility to write unit tests for your connectors. +
+Some default tests are generated by the Maven archetype, in `src/test/java/<your package>`. Those tests perform some validations on the default inputs generated. You'll have to update those tests to make them pass, according to the content of your connector project. +
+For example, it is a good practice to test that the connector execution fails properly if a mandatory input is missing.
+
+It is also possible to just delete the test file to make the project build.
+
+== 7 - Build, and use the connector
+
+The migration from the old project is completed. +
+The project can be built using the command `./mvnw clean package` at the root of the project. +
+The jar built in the folder _target_ can be imported as an extension in the Studio, to test that the migration has been done correctly. 
+
+Once you are done, it is recommended to publish your connector on a maven repository, so it will be possible to use this connector as a Bonita extension using its maven coordinates. An example is available xref:connector-archetype-tutorial#_6_publish_the_connector_on_github_packages[here].

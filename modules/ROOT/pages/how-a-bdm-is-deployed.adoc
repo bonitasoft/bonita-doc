@@ -162,7 +162,9 @@ However, the SQL instructions run by the DBA must precisely match the Java class
 The `TenantAdministrationAPI` exposes several methods:
 
 * https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html#installBusinessDataModel-byte:A-[installBusinessDataModel()] that installs a new BDM. Fails if one already exists. Call uninstallBusinessDataModel()
-first if a BDM already exists.
+first if a BDM already exists. Deprecated in 2021.2, as updateBusinessDataModel() covers the same use case, and should be used instead.
+* https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html#updateBusinessDataModel--[updateBusinessDataModel()] that updates the BDM. It uninstalls the previous BDM if applicable, and installs the new one.
+The call is done in a single database transaction, which allows it to be rolled back if the update fails.
 * https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html#uninstallBusinessDataModel--[uninstallBusinessDataModel()] that removes the JAR file from the Bonita database and unloads it from the tenant classloader
 (and from all the process classloaders of the tenant). *Does not* update or remove anything from the database.
 * https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html#cleanAndUninstallBusinessDataModel--[cleanAndUninstallBusinessDataModel()]: same as above plus
@@ -172,7 +174,6 @@ first if a BDM already exists.
 
 == Deploying a new version of the BDM
 
-Deploying a new version of the BDM on top of an existing BDM needs to uninstall the previous version first. +
 The java classes of the model are generated again from scratch, so any refactoring is supported. +
 On the other side, the database refactoring is only partially supported. See limitations below.
 
@@ -197,8 +198,11 @@ Using the Bonita Portal to deploy a BDM follows this flow:
 * you must be logged in as the tenant administrator
 * go to the BPM services page, and pause the services
 * go to the Business Data Model page, select the BDM zip file to deploy
-* if a BDM already exists on the current tenant, the portal implicitly calls uninstallBusinessDataModel() on the Engine API
-* then the portal calls installBusinessDataModel() on the Engine API, which generates the Java model, loads it in the tenant
+* the portal will call the method updateBusinessDataModel() to install the new BDM.
+This method implicitly performs the following steps in a single database transaction:
+** if a BDM already exists on the current tenant, it is uninstalled
+** the new BDM is installed / deployed
+** the Bonita Engine loads the new BDM in the tenant
 classloader (and in the process classloaders of all processes on this tenant), and creates / updates the database accordingly.
 * finally, go to the BPM services page, and resume the services
 

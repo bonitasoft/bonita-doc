@@ -5,7 +5,7 @@ on:
   push:
     branches:
       # TODO reactivate when integrating this version to the documentation
-      - '2021.2_disable'
+      - '2021.2'
     paths:
       - 'modules/**'
       - 'antora.yml'
