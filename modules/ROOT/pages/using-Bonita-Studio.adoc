@@ -22,7 +22,7 @@ The welcome page can be opened at any time by clicking on the "Welcome" icon of 
 == Project overview
 The project overview is accessible from the Studio coolbar. It provides an overview of the different elements of your project and those you can use to create a state-of-the-art Bonita project.
 
-You can also access the  xref:managing-extension-studio.adoc[the extension view of your project]
+From the overview, you can access the xref:managing-extension-studio.adoc[extension] view of your project.
 
 == Preferences
 The "Preferences" icon in the studio's coolbar allows a full set of configurations. Find the list and how to use them in xref:bonita-bpm-studio-preferences.adoc[Bonita Studio preferences]
