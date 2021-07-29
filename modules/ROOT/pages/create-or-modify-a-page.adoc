@@ -60,7 +60,7 @@ Only Bonita pages created with the UI Designer can be customized in the UI Desig
 
 ==== List of Bonita Applications customizable pages
 
-===== Bonita User Application
+**Bonita User Application**
 
 In this application, you can customize:
 
