@@ -34,7 +34,7 @@
  ** xref:automating-builds.adoc[Automate builds]
  ** xref:set-up-continuous-integration.adoc[Set up continuous integration]
 * Processes
- ** xref:diagrams-index.adoc[Diagrams]
+ ** xref:diagrams-index.adoc[Process Diagrams]
   *** xref:diagram-overview.adoc[Overview]
   *** xref:pools-and-lanes.adoc[Pools and lanes]
   *** xref:diagram-tasks.adoc[Tasks]
