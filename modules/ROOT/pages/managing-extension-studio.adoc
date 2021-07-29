@@ -5,7 +5,7 @@
 The Bonita platform is highly extensible so we created a dedicated view to manage the extensions of your project
 
 == Opening the extensions view
-The extensions view is opened from the Studio cool bar.
+The extensions view is opened from either the project overview or from the coolbar _New -> extension_.
 
 == Adding Extensions
 From the extension view you can add the following extension to your project:
