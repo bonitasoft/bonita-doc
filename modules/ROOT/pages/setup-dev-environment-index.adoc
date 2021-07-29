@@ -40,4 +40,3 @@ xref:automating-builds.adoc[[.card-title]#Automating builds# [.card-body.card-co
 --
 xref:set-up-continuous-integration.adoc[[.card-title]#Set up continuous integration# [.card-body.card-content-overflow]#pass:q[The first environment to deploy into]#]
 --
-
