@@ -1,21 +1,16 @@
-= Bonita connector archetype
-:description: Create  and test Bonita connectors using a maven archetype, deploy a connector on Github packages, install an extension in Bonita Studio
-
-This page explain how to create and test custom connectors using the provided maven archetype. +
-You will find a complete example that also explain how to deploy a connector on github packages in order to install it as an extension in a Studio.
-
-== Create a custom connector
+= Create a connector using the connector maven archetype
+:description: This page explain how to create and test custom connectors using the provided maven archetype.
 
 Bonita offers the possibility to create and plug custom connectors, to allow you to connect with any external system you may need. +
 We provide a maven archetype to help you to bootstrap a connector project. The source code of the archetype is available https://github.com/bonitasoft/bonita-connector-archetype[here].
 
-=== Prerequisite
+== Prerequisite
 
 . Java 11 must be installed: https://adoptium.net/[Download Java]
 . Maven must be installed: https://maven.apache.org/install.html[Download Maven]
 . Connector development requires some software development skills. The archetype offers the possibility to develop the connector in _Java_, _Groovy_ or _Kotlin_. Make sure that you are comfortable with at least one of those three languages.
 
-=== Generate the project using the maven archetype
+== Generate the project using the maven archetype
 
 A https://maven.apache.org/archetype/index.html[maven archetype] is a maven project templating toolkit. This archetype allows you to bootstrap a Bonita connector project on your file system. A Bonita connector project is a maven project. It can be built, tested and then imported into a Bonita project using Bonita Studio.
 
@@ -60,11 +55,11 @@ A folder named _[your artifact id]_ is created, with your Bonita connector proje
 You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
 ====
 
-=== Connector development
+== Connector development
 
 In this section we'll look into the different components of a connector project, and how you should use them to develop your connector.
 
-==== Definition
+=== Connector definition
 
 A connector is first defined by its *definition*. It is an XML file located in _src/main/resources/[artifactId].def_ by default. +
 A definition defines the inputs and the outputs of a connector. It can be seen as a contract. Then, implementations of this definition can be created, they just need to respect the inputs / outputs contract of the definition.
@@ -107,7 +102,7 @@ Example:
 </definition:ConnectorDefinition>
 ----
 
-**Connector Inputs**
+==== Connector Inputs
 
 The inputs of a connector are defined in the definition. Those inputs are valued by processes, and are retrieved by the implementation classes of the connector to execute the business logic. +
 A connector input:
@@ -117,7 +112,7 @@ A connector input:
 * Has an optional default value
 * Can be mandatory
 
-**Connector Outputs**
+==== Connector Outputs
 
 The outputs of a connector are defined in the definition. Those outputs are valued by the implementation classes of the connector, and are used by processes. +
 A connector output:
@@ -130,7 +125,7 @@ A connector output:
 You can use custom types for connector outputs, the only limitation is that the type has to implement 'Serializable'.
 ====
 
-**Pages and widgets**
+==== Pages and widgets
 
 A connector definition includes _pages_ and _widgets_.  Those elements define the UI that will appear in the Bonita Studio to configure the connector.
 
@@ -166,11 +161,11 @@ As widgets are displayed in a dialog window in the Studio, be careful to not use
 Use Group widget if you need to stack a lot of widgets in the same page.
 ====
 
-===== Add multiple definitions
+==== Add multiple definitions
 
 To add a new definition create a `.def` file in the `src/main/resources-filtered/` folder. They will be added to the `all` zip archive at build time. It is recommended to use the maven properties for definition id and version.
 
-==== Connector implementation
+=== Connector implementation
 
 A _connector implementation_ implements a connector definition. A definition defines a set on inputs / outputs, implementing a definition means use the provided inputs to create the expected outputs. +
 Several implementations can be created for a given definition.
@@ -211,7 +206,7 @@ ${connector-dependencies}
 
 Filtered Maven properties (`${...}`) are defined in the `pom.xml` file at the root of the project.
 
-===== Implementation sources
+==== Implementation sources
 
 The implementation sources contain all the logic of the connector:
 
@@ -289,13 +284,13 @@ class Connector extends AbstractConnector {
 The methods _validateInputParameters_ and _executeBusinessLogic_ must be implemented, and are called by the Bonita engine when the connector is executed. +
 The methods _connect_ and _disconnect_ can be used to open and close a connection to a remote server.  The life cycle of the connection will then be managed by the Bonita Runtime.
 
-===== Add multiple implementations
+==== Add multiple implementations
 
 To add a new implementation create a `.impl` file in the `src/main/resources-filtered/` folder. They will be added to the `all` zip archive at build time. It is recommended to use the maven properties for implementation id and version.
 
 If you want to build a single zip assembly containing a specific implementation footnote:liveupdate[In Bonita Enterprise edition, implementations can be updated at runtime for a given process, as long as it implements the same definition.], you must create a new assembly file in the `src/assembly` folder. This assembly must use an id that match the implementation id and include the proper `.impl` file. You can use the generated `impl` assembly as an example.
 
-==== Build the project
+=== Build a connector project
 
 Build the project by typing the following command at the root of the project:
  
@@ -310,744 +305,3 @@ The default build output is:
 
 *  `target/[artifact id]-[artifact version].jar` : This jar can be xref:managing-extension-studio.adoc[installed in a Bonita project] from the Studio.
 *  `target/[artifact id]-[artifact version]-impl.zip` : An archive containing a single implementation.footnote:liveupdate[]
-
-[#example]
-== Example: create a connector, publish it on Github packages and install it as an extension
-
-In this example, we are going to create a connector to communicate with the https://swapi.dev/[Star Wars API]. It will take in input a Star Wars character name, and will return details on this character. +
-We will then see how to deploy this connector on Github packages in order to install it as an extension in Bonita Studio from anywhere.
-
-This connector will be implemented using:
-
-* https://groovy-lang.org/[Groovy, window="_blank"]: __A programming language based on the JVM__
-* http://spockframework.org/[Spock, window="_blank"]: __A test framework for Groovy applications__
-* https://square.github.io/retrofit/[Retrofit, window="_blank"]: __A library which allows to create typed HTTP clients__
-
-=== 1 - Generate project and retrieve dependencies
-
-The first step is to generate  the maven project using the archetype:
-
-[source,bash]
-----
-mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-connector-archetype
-----
-
-* *groupId*: com.company.connector
-* *artifactId*: connector-starwars
-* *version*: 1.0.0
-* *package*: com.company.connector
-* *bonitaVersion*: _[Technichal Bonita id]_ (ex: 7.13.0)
-* *className*: ConnectorStarWars
-* *language*: groovy
-* *wrapper*: true
-
-[CAUTION]
-====
-Be sure to use the xref:product-versioning#_technical_id[technical id] of your Bonita version.
-====
-
-Add the following properties and dependencies to the existing ones in the pom.xml:
-
-[source,xml]
-----
-<properties>
-    <retrofit.version>2.9.0</retrofit.version>
-    <logging-interceptor.version>3.11.0</logging-interceptor.version>
-    <converter-jackson.version>2.4.0</converter-jackson.version>
-    <mockwebserver.version>3.14.8</mockwebserver.version>
-</properties>
-
-<dependencies>
-    <dependency>
-        <groupId>com.squareup.retrofit2</groupId>
-        <artifactId>retrofit</artifactId>
-        <version>${retrofit.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>com.squareup.okhttp3</groupId>
-        <artifactId>logging-interceptor</artifactId>
-        <version>${logging-interceptor.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>com.squareup.retrofit2</groupId>
-        <artifactId>converter-jackson</artifactId>
-        <version>${converter-jackson.version}</version>
-        <exclusions>
-            <exclusion>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-            </exclusion>
-        </exclusions>
-    </dependency>
-
-    <dependency>
-        <groupId>com.squareup.okhttp3</groupId>
-        <artifactId>mockwebserver</artifactId>
-        <version>${mockwebserver.version}</version>
-        <scope>test</scope>
-    </dependency>
-</dependencies>
-----
-
-If you want to generate a test coverage report, you can add the following jacoco configuration:
-
-[source,xml]
-----
-<plugin>
-    <groupId>org.jacoco</groupId>
-    <artifactId>jacoco-maven-plugin</artifactId>
-    <version>0.8.5</version>
-    <executions>
-        <execution>
-            <goals>
-                <goal>prepare-agent</goal>
-            </goals>
-        </execution>
-        <!-- attached to Maven test phase -->
-        <execution>
-            <id>report</id>
-            <phase>test</phase>
-            <goals>
-                <goal>report</goal>
-            </goals>
-        </execution>
-    </executions>
-</plugin>
-----
-
-=== 2 - Define connector inputs
-
-The connector inputs are defined in the connector definition. +
-Open the file _src/main/resouresources-filteredrces/connector-starwars.def_ +
-We are first going to create two inputs for the connector:
-
-* An input *_name_*, which will contain the name of a star wars character
-* An input *_url_*, which will contain the API server url (so if the API server URL changes in the future, the service will still be usable).
-
-Remove the default input from the definition, and add the two following inputs:
-
-[source,xml]
-----
-<input mandatory="true" name="name" type="java.lang.String"/>
-<input mandatory="true" name="url" type="java.lang.String" defaultValue="http://swapi.dev/"/>
-----
-
-Then we are going to create a _page_ and two _widgets_ for those inputs. _Pages_ and _widgets_ are used by the Bonita Studio to create a User Interface from the connector definition.
-
-Replace the default page by the following one:
-
-[source,xml]
-----
-<page id="starWarsPage">
-    <!--
-    A widget has a type (Text, combo box ...), an id and an input name.
-    - The name must reference an existing input
-    - The id is used in the property file to reference the widget
-    -->
-    <widget xsi:type="definition:Text" id="nameWidget" inputName="name"/>
-    <widget xsi:type="definition:Text" id="urlWidget" inputName="url"/>
-</page>
-----
-
-For each page and widget , a name and a description must be added  in the property file, else the Studio is unable to display the element. +
-Open the file _src/main/resources-filtered/connector-starwars.properties_ and replace the content for the default page and widgets by the following:
-
-[source,properties]
-----
-starWarsPage.pageTitle=Star Wars connector - configuration page
-starWarsPage.pageDescription=Indicate a Star Wars character name, and the service base URl if required.
-nameWidget.label=Character name
-nameWidget.description=The name of the character to retrieve
-urlWidget.label=URL
-urlWidget.description=The service base url
-----
-
-[IMPORTANT]
-====
-Be sure to always provide a name and a description for pages and widgets, else it will not be possible to configure the connector in the Studio.
-====
-
-=== 3 - Create the Retrofit service and the model
-
-Retrofit is a library allowing to create typed HTTP clients. +
-We will first create a data model, and then a Retrofit service typed with this model.
-
-==== The model
-
-The model should match the API response structure, else some custom convertors are required. +
-Here is an example of an API call and the response:
-
-----
-GET /api/people/?search=yoda
-----
-
-[source,json]
-----
-{
-    "count": 1,
-    "next": null,
-    "previous": null,
-    "results": [
-        {
-            "name": "Yoda",
-            "height": "66",
-            "mass": "17",
-            "hair_color": "white",
-            "skin_color": "green",
-            "eye_color": "brown",
-            "birth_year": "896BBY",
-            "gender": "male"
-            ...
-        }
-    ]
-}
-----
-
-Our model will contain two Classes :
-
-* *_PersonResponse_*, which will represent the raw response, and only contain the result list.
-* *_Person_*, which will represent an element of the result list.
-
-Create a new package _model_ in the package _com.company.connector_, and add those two classes in this package:
-
-[source,groovy]
-----
-package com.company.connector.model
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
-
-@JsonIgnoreProperties(ignoreUnknown = true)
-class Person implements Serializable {
-
-    String name
-
-    String gender
-
-    String height
-
-    String homeworld
-}
-----
-
-[source,groovy]
-----
-package com.company.connector.model
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
-import com.fasterxml.jackson.annotation.JsonProperty
-
-@JsonIgnoreProperties(ignoreUnknown = true)
-class PersonResponse implements Serializable {
-
-    @JsonProperty("results")
-    List<Person> persons = []
-}
-----
-
-[NOTE]
-====
-The API returns many informations about a single star wars character. In order to keep it simple, we decided to just include a few of them in our Person model, but fill free to add other fields if you want to.
-====
-
-==== The service
-
-A Retrofit service is a Java interface. Specific annotations on methods are used to define the service. +
-In the package _com.company.connector_, create the Interface _StarWarsService_:
-
-[source,groovy]
-----
-package com.company.connector
-
-import com.company.connector.model.PersonResponse
-
-import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Headers
-import retrofit2.http.Query
-
-interface StarWarsService {
-
-    @Headers("Accept: application/json")
-    @GET("api/people")
-    Call<PersonResponse> person(@Query("search") String name);
-}
-----
-
-This service declares a single GET endpoint on _api/people_, with a query parameter _search_.
-
-=== 4 - Define connector output
-
-Now that the model is created, we can define the connector outputs. +
-Connector outputs are defined in the definition. +
-Open the file _src/main/resources-filtered/connector-starwars.def_, and replace the default output by the following one:
-
-[source,xml]
-----
-<output name="person" type="com.company.connector.model.Person"/>
-----
-
-[IMPORTANT]
-====
-The type of a connector output must be *_serializable_* (i.e it must implement the class _Serializable_).
-====
-
-=== 5 - Implement and test connector logic
-
-The main class of the connector has already been created during the project generation. This class is in charge of:
-
-* Performing validation on connector inputs
-* Connecting / disconnecting to any external service
-* Executing the connector logic (call the API in our case)
-* Setting connector outputs
-
-The main class of a connector is referenced in the implementation. In our case, it's the class _ConnectorStarWars_. +
-Open the file _src/main/groovy/com.company.connector.ConnectorStarWars.groovy_, and the associated test file _src/test/groovy/com.company.connector.ConnectorStarWarsTest.groovy_
-
-We will complete and test this class in three steps:
-
-. Input validation
-. Retrofit service creation
-. API call
-
-==== Input validation
-
-We will only validate that the two mandatory String inputs are provided by the user. +
-Complete the method _validateInputParameters_ with the following content:
-
-[source,groovy]
-----
-    def static final NAME_INPUT = "name"
-    def static final URL_INPUT = "url"
-
-    @Override
-    void validateInputParameters() throws ConnectorValidationException {
-        checkMandatoryStringInput(NAME_INPUT)
-        checkMandatoryStringInput(URL_INPUT)
-    }
-
-    def checkMandatoryStringInput(inputName) throws ConnectorValidationException {
-        def value = getInputParameter(inputName)
-        if (value in String) {
-            if (!value) {
-                throw new ConnectorValidationException(this, "Mandatory parameter '$inputName' is missing.")
-            }
-        } else {
-            throw new ConnectorValidationException(this, "'$inputName' parameter must be a String")
-        }
-    }
-----
-
-Add the following tests in the test class, to validate the behavior when an input is incorrect:
-
-[source,groovy]
-----
-    def should_throw_exception_if_mandatory_input_is_missing() {
-        given: 'Connector with missing input'
-        def connector = new ConnectorStarWars()
-
-        when: 'Validating inputs'
-        connector.validateInputParameters()
-
-        then: 'ConnectorValidationException is thrown'
-        thrown ConnectorValidationException
-    }
-
-    def should_throw_exception_if_mandatory_input_is_empty() {
-        given: 'A connector without an empty input'
-        def connector = new ConnectorStarWars()
-        connector.setInputParameters([(ConnectorStarWars.NAME_INPUT):''])
-
-        when: 'Validating inputs'
-        connector.validateInputParameters()
-
-        then: 'ConnectorValidationException is thrown'
-        thrown ConnectorValidationException
-    }
-
-    def should_throw_exception_if_mandatory_input_is_not_a_string() {
-        given: 'A connector without an integer input'
-        def connector = new ConnectorStarWars()
-        connector.setInputParameters([(ConnectorStarWars.NAME_INPUT):38])
-
-        when: 'Validating inputs'
-        connector.validateInputParameters()
-
-        then: 'ConnectorValidationException is thrown'
-        thrown ConnectorValidationException
-    }
-----
-
-==== Retrofit service creation
-
-In the class _ConnectorStarWars_, replace the method _connect_ by the following one. We do not need to implement the disconnect method, as there is no authentication.
-Creating the service in the _connect_ method  ensure that the service will be created once (and only once) before the logic execution.
-
-[source,groovy]
-----
-def StarWarsService service
-
-@Override
-void connect() throws ConnectorException {
-    def httpClient = createHttpClient(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
-    service = createService(httpClient, getInputParameter(URL_INPUT))
-}
-
-static OkHttpClient createHttpClient(okhttp3.Interceptor... interceptors) {
-    def clientBuilder = new OkHttpClient.Builder()
-    if (interceptors) {
-        interceptors.each { clientBuilder.interceptors().add(it) }
-    }
-    clientBuilder.build()
-}
-
-static StarWarsService createService(OkHttpClient client, String baseUrl) {
-    new Retrofit.Builder()
-            .client(client)
-            .addConverterFactory(JacksonConverterFactory.create())
-            .baseUrl(baseUrl)
-            .build()
-            .create(StarWarsService.class)
-}
-----
-
-The service is created using a http client with a simple logging interceptor, and the retrofit builder. +
-Our model matchs the HTTP response so we do not need to provide custom convertor to the retrofit builder.
-
-We are going to create an integration test for this service: +
-in _src/test/groovy_, create the class _com.company.connector.StarWarsServiceTest.groovy_ with the following content:
-
-[source,groovy]
-----
-package com.company.connector
-
-import com.company.connector.model.PersonResponse
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Response
-import spock.lang.Specification
-
-class StarWarsServiceTest extends Specification {
-
-    /**
-     * Service integration test - internet required
-     */
-    def should_retrieve_luke_data_using_retrofit() {
-        given: 'A service'
-        def httpClient = ConnectorStarWars.createHttpClient(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-        def service = ConnectorStarWars.createService(httpClient, "http://swapi.dev/")
-
-        when: 'Searching for luke'
-        def call = service.person("Luke")
-        def Response<PersonResponse> response = call.execute()
-
-        then: 'Should contain Luke data'
-        assert response.isSuccessful()
-        assert response.body.persons.size() == 1
-        assert response.body.persons[0].name == "Luke Skywalker"
-    }
-}
-----
-
-==== API call
-
-We are finally going to perform the API call to retrieve details on a Star Wars character, and then put those details in the related connector output. +
-In the class _ConnectorStarWars_,  replace the method _executeBusinessLogic_ by the following one.
-
-[source,groovy]
-----
-def static final PERSON_OUTPUT = "person"
-
-@Override
-void executeBusinessLogic() throws ConnectorException {
-    def name = getInputParameter(NAME_INPUT)
-    log.info "$NAME_INPUT : $name"
-    // Retrieve the retrofit service created during the connect phase, call the 'person' endpoint with the name parameter
-    def response = getService().person(name).execute()
-    if (response.isSuccessful()) {
-        def persons = response.body.getPersons()
-        if (!persons.isEmpty()) {
-            def person = persons[0]
-            setOutputParameter(PERSON_OUTPUT, person)
-        } else {
-            throw new ConnectorException("$name not found")
-        }
-    } else {
-        throw new ConnectorException(response.message())
-    }
-}
-----
-
-In order to test the logic of our connector, we are going to mock the Star Wars web server using _MockWebServer_.  Thus we will be able to unitary test that the http response is correctly parsed, the output correctly set, and that server errors are managed.
-
-Add the following tests in the test class _ConnectorStarWarsTest_:
-
-[source,groovy]
-----
-def server
-def connector
-
-def setup() {
-    server = new MockWebServer()
-    def url = server.url("/")
-    def baseUrl = "http://${url.host}:${url.port}"
-
-    def httpClient = ConnectorStarWars.createHttpClient(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-    def service = ConnectorStarWars.createService(httpClient, baseUrl)
-
-    connector = new ConnectorStarWars()
-    connector.service = service
-}
-
-def cleanup() {
-    server.shutdown();
-}
-
-/**
- * Connector unit test - no internet required
- */
-def should_fetch_person() {
-    given: 'A person name'
-    def name = 'Luke'
-    and: 'A related person JSON response'
-    def body = """
-        {"results": [
-            {
-                "name":"$name Skywalker",
-                "height":"172",
-                "mass":"77",
-                "hair_color":"blond",
-                "skin_color":"fair",
-                "eye_color":"blue",
-                "birth_year":"19BBY",
-                "gender":"male",
-                "homeworld":"http://swapi.dev/api/planets/1/"
-            }
-        ]}
-    """
-    server.enqueue(new MockResponse().setBody(body))
-
-    when: 'Executing connector'
-    connector.setInputParameters(['name': name])
-    connector.executeBusinessLogic()
-
-    then: 'Connector output should contain the person data'
-    def outputParameters = connector.outputParameters
-    outputParameters.size() == 1
-
-    def person = outputParameters.get(ConnectorStarWars.PERSON_OUTPUT)
-    person instanceof Person
-    person.name == "Luke Skywalker"
-}
-
-/**
- * Connector unit test - no internet required
- */
-def should_get_unknown_person() {
-    given: 'An API server'
-    String body = "{\"results\":[]}"
-    server.enqueue(new MockResponse().setBody(body))
-
-    when: 'Executing business logic'
-    def name = 'Luke'
-    connector.setInputParameters(['name': name])
-    connector.executeBusinessLogic()
-
-    then: 'Connector should throw exception'
-    def e = thrown(ConnectorException)
-    e.getMessage() == "$name not found"
-}
-
-/**
- * Connector unit test - no internet required
- */
-def should_handle_server_error() {
-    given: 'An API server'
-    server.enqueue(new MockResponse().setResponseCode(500))
-
-    when: 'Executing business logic'
-    def name = 'Luke'
-    connector.setInputParameters(['name': name])
-    connector.executeBusinessLogic()
-
-    then: 'Connector should throw exception'
-    def e = thrown(ConnectorException)
-    e.getMessage() == "Server Error"
-}
-----
-
-The implementation of the connector is finished. +
-You can build the connector using the following command line at the root of the project:
-
-[source,bash]
-----
-./mvnw clean package
-----
-
-=== 6 - Publish the connector on Github packages
-
-[NOTE]
-====
-This step is an example of how to publish a Bonita extension on a maven repository (here Github packages). You can publish your extensions on any kind of maven repository (Nexus, Artifactory... etc).
-====
-
-Now that the connector development is finished, we want to make it available for Studio users. +
-The recommended way to make an extension available is to publish it on a maven repository. +
-A first option is to publish the extension on a public maven repository, like https://search.maven.org/[maven central]. The extension will be available for everyone, but you won't have to bother with a private repository and credentials. This https://maven.apache.org/repository/guide-central-repository-upload.html[tutorial] explains how to deploy an artifact  on maven central. +
-
-[NOTE]
-====
-Publishing an extension on Maven Central implies that this extension is open source. You will *have to* publish the sources of the extension in addition to the binary.
-====
-For this example we present another option: publish the extension using Github packages (it's free if you store less than 500 MB). Github packages require a Github authentication, and only users with https://docs.github.com/en/packages/learn-github-packages/about-github-packages#about-scopes-and-permissions-for-package-registries[proper scope and permissions] will be allowed to consume or publish extensions.
-
-[TIP]
-====
-You can publish an artifact on Github packages using a Github Action. This way, you won't have to create a personnal access token nor to manage local maven configuration to publish an extension. https://docs.github.com/en/actions/guides/publishing-java-packages-with-maven#publishing-packages-to-github-packages[More details here].
-====
-
-==== Configure Github packages authentication
-
-In order to publish your extension on Github packages, you need to configure Maven, by telling him that he has access to this private repository and by giving him the credentials.
-
-The https://docs.github.com/en/packages/guides/configuring-apache-maven-for-use-with-github-packages[Official documentation] provided by Github explains in details how to configure Maven, here is a summuary of the main steps.
-
-[#token]
-**Create a personnal access token**
-
-This token will be used by maven to authenticate to Github packages. You can follow this https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token[tutorial] to create a personal access token. Be sure to check the box _write:packages_ when configuring the token.
-
-**Update maven configuration**
-
-[TIP]
-====
-Bonita Studio embbed a user interface to easily configure maven and encrypt passwords. See xref:configure-maven.adoc[Configure Maven using Bonita Studio].
-====
-
-Now that the token is created, you have to update your local maven configuration. It means editing the file `~/.m2/settings.xml`. +
-The following repository and server must be added:
-
-[source,xml]
-----
-<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
-                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
-
-  <activeProfiles>
-    <activeProfile>github</activeProfile>
-  </activeProfiles>
-
-  <profiles>
-    <profile>
-      <id>github</id>
-      <repositories>
-        <repository>
-          <id>github</id>
-          <url>https://maven.pkg.github.com/OWNER/*</url>
-          <snapshots>
-            <enabled>true</enabled>
-          </snapshots>
-        </repository>
-      </repositories>
-    </profile>
-  </profiles>
-
-  <servers>
-    <server>
-      <id>github</id>
-      <username>USERNAME</username>
-      <password>TOKEN</password>
-    </server>
-  </servers>
-</settings>
-----
-
-Replace USERNAME and TOKEN by your credentials, and OWNER with the name of the user or organization account that owns the repository. Because uppercase letters aren't supported, you must use lowercase letters for the repository owner even if the GitHub user or organization name contains uppercase letters.
-
-If your maven configuration file is shared, it is recommended to use https://maven.apache.org/guides/mini/guide-encryption.html[encryption] for passwords.
-
-**Publish the connector**
-
-Now that Maven in configured, we are almost ready to publish the connector on Github packages. +
-The last thing to do is to update the `pom.xml` of the connector project to tell Maven where is has to deploy this artifact. +
-To do so, add the following _distributionManagement_ tag on your `pom.xml` file (usually at then end, just before the closing project tag):
-
-[source,xml]
-----
-<!--
-Replace OWNER with the name of the user or organization account that owns the repository.
-Replace REPOSITORY with the name of the repository containing your project.
--->
-
-<distributionManagement>
-   <repository>
-     <id>github</id>
-     <name>GitHub OWNER Apache Maven Packages</name>
-     <url>https://maven.pkg.github.com/OWNER/REPOSITORY</url>
-   </repository>
-</distributionManagement>
-----
-
-You are now ready to publish your connector. To do so, type the following command at the root of your project:
-
-[source, bash]
-----
-mvn deploy
-----
-
-This https://docs.github.com/en/packages/manage-packages/viewing-packages[guide] explains how to view your deployed packages if you need to.
-
-=== 7 - Import and use your connector as a Bonita extension
-
-Now that your connector has been published on Github packages, anyone that has an access token to your Gitub packages repository can install this connector as an extension in Bonita Studio.
-
-**Configure Bonita Studio to access the Github packages repository**
-
-====
-_If you already configured maven on your computer to deploy the connector on Github packages, you can skip this step._
-====
-
-To retrieve an extension from a repository, some maven configuration must be done in Bonita Studio. The idea is to declare the repository as accessible (i.e extensions can be retrieved from this repository), and to configure credentials if required. +
-Bonita Studio comes with a handy user interface to update xref:configure-maven[Maven configuration]. +
-There is two things to configure to let the Studio retrieve extensions from Github packages: +
-
-1 - Add the repository in the configuration
-
-To create a new repository, follow those xref:configure-maven#repositories[instructions], using the following parameters:
-
-- **ID**: `githubPackages`
-- **Name**: 1Github packages1
-- **URL**: `\https://maven.pkg.github.com/**OWNER**/*` _, OWNER is the name of the user or organization account that owns the repository._
-- **Releases and Snapshots**: keep default values, disable snapshots (artifacts in development) if you don't want them.
-
-Bonita Studio now knows that he can retrieve extensions from this repository, but he cannot do it until authentication is configured.
-
-2 - Add the credentials for this repository
-
-To configure the credentials for a repository, you will have to create a _server_, which is just a configuration element that contains credentials.
-
-Before to create a server, make sure that you have an xref:#token[access token] with at least read access.
-
-To create a new server, follow those xref:configure-maven#servers[instructions], using the following parameters:
-
-- **ID**: `githubPackages`
-- **Username**: Your github username
-- **Password**: The access token
-
-It is recommended to xref:configure-maven#encryption[encrypt] passwords if the configuration file is shared. However, if the access token has only read access you might want to share the real usable value and not an uncrypted unusable value, in this case do not encrypt it.
-
-Bonita Studio is now correctly configured to retrieve extensions from this private maven repository!
-
-**Import and use the connector**
-
-To import an extension, you need to open the project extensions view (from the coolbar). +
-On the top right corner of the project extension view, click on _Import an extension_.
-
-A dialog opens, with fields to enter the _maven coordinates_ of an extension. +
-To import the connector starwars, use the following coordinates:
-
-- **Group ID**: `com.company.connector`
-- **Artifact ID**: `connector-starwars`
-- **Version**: `1.0.0`
-- **Type**: `jar`
-
-Click on import. After a few seconds, the connector should appear in the list of extensions, you can now use it in a process!
