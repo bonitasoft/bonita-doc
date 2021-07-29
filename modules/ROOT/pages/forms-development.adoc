@@ -1,4 +1,4 @@
-= Develop a form
+= Forms development
 :description: A form is the User Interface attached to a process. It can be a process instantiation form, a human task form, or a case overview form. +
 
 A form is the User Interface attached to a process. It can be a process instantiation form, a human task form, or a case overview form. +
