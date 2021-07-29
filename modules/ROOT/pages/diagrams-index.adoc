@@ -1,7 +1,6 @@
 = Diagram
-:description: Diagram definition and usage
-
-Diagram definition and usage
+:description: Diagrams account for a convenient way to group together pools (single processes) that belong to the same business domain.
+{description}
 
 [.card-section]
 == Diagram elements
