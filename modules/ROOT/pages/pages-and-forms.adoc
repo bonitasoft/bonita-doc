@@ -18,7 +18,7 @@ xref:forms.adoc[[.card-title]#Forms# [.card-body.card-content-overflow]#pass:q[T
 
 [.card.card-index]
 --
-xref:forms-development.adoc[[.card-title]#Forms development# [.card-body.card-content-overflow]#pass:q[The technical insight in their creation]#]
+xref:forms-development.adoc[[.card-title]#Forms development# [.card-body.card-content-overflow]#pass:q[The technical insight for their creation]#]
 --
 
 [.card.card-index]
@@ -28,7 +28,7 @@ xref:pages.adoc[[.card-title]#Pages# [.card-body.card-content-overflow]#pass:q[T
 
 [.card.card-index]
 --
-xref:pages-development.adoc[[.card-title]#Pages development# [.card-body.card-content-overflow]#pass:q[The technical insight in their creation]#]
+xref:pages-development.adoc[[.card-title]#Pages development# [.card-body.card-content-overflow]#pass:q[The technical insight for their creation]#]
 --
 
 [.card.card-index]
@@ -58,7 +58,7 @@ xref:fragments.adoc[[.card-title]#Fragments# [.card-body.card-content-overflow]#
 
 [.card.card-index]
 --
-xref:assets.adoc[[.card-title]#assets# [.card-body.card-content-overflow]#pass:q[Private resources of a page]#]
+xref:assets.adoc[[.card-title]#Assets# [.card-body.card-content-overflow]#pass:q[Private resources of a page]#]
 --
 
 
@@ -72,7 +72,7 @@ xref:manage-control-in-forms.adoc[[.card-title]#How to control and validate form
 
 [.card.card-index]
 --
-xref:uid-case-overview-tutorial.adoc[[.card-title]#Repeatable container# [.card-body.card-content-overflow]#pass:q[How to customize the case overview page]#]
+xref:uid-case-overview-tutorial.adoc[[.card-title]#How to customize the case overview page in the UI Designer# [.card-body.card-content-overflow]#pass:q[]#]
 --
 
 [.card.card-index]
