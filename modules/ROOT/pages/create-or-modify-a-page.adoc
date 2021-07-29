@@ -27,7 +27,8 @@ The following chapters give more information on how to develop all the others el
 == Create a form
 
 In a Bonita project architecture, xref:forms.adoc[forms] are embedded in the pools. Their creation is very linked to the process step they "feed", in a way. +
-Before creating a form, the xref:contracts-and-contexts.adoc[contract] must have been defined in its _Execution / Contract_ property tab, for each form at a different level: 
+It is recommended to define the xref:contracts-and-contexts.adoc[contract] in its _Execution / Contract_ property tab before to create the form, so the Studio will generate a form according to the contract. +
+Forms can be created at different level:
 
 * An instantiation form must be created from the pool _Execution / Instatiation form_ tab
 * A task form must be created from the human task _Execution / form_ tab
