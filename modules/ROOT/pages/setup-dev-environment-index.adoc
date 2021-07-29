@@ -28,7 +28,7 @@ xref:shared-project.adoc[[.card-title]#Set up Bonita Studio with Git# [.card-bod
 
 [.card.card-index]
 --
-xref:migrate-a-svn-repository-to-github.adoc[[.card-title]#How to migrate a SVN repository into a Git repository# [.card-body.card-content-overflow]#pass:q[Because Bonita uses Git]#]
+xref:migrate-a-svn-repository-to-github.adoc[[.card-title]#How to migrate a SVN repository into a Git repository# [.card-body.card-content-overflow]#pass:q[A guide for your Version Control Software migration]#]
 --
 
 [.card.card-index]
