@@ -33,7 +33,7 @@ Forms can be created at different level:
 * An instantiation form is created from the pool _Execution / Instatiation form_ tab
 * A task form is created from the human task _Execution / form_ tab
 
-The Case overview (this page is technically considered as a form because of its strong link to the process) must be created from the pool _Execution / Overview page_ tab and does not need a contract to be created.
+The Case overview (this page is technically considered as a form because of its strong link to the process) is created from the pool _Execution / Overview page_ tab and does not need a contract to be created.
 
 . From these tabs, click on the *_Edit_* icon at the right of the _Target form_ field. This opens the UI Designer on a new form, with some widgets, containers, and variables already created to speed up the design process, using the contract inputs.
 . Rename it
