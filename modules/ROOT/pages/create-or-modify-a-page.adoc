@@ -58,36 +58,7 @@ The controls they embed (buttons, links) can call BPM APIs that will trigger the
 
 Only Bonita pages created with the UI Designer can be customized in the UI Designer. Indeed, as Bonita applications have evolved in several phases, so did the frameworks in which their pages have been made.
 
-==== List of Bonita Applications customizable pages
-
-**Bonita User Application**
-
-In this application, you can customize:
-
-* Bonita User Case List `UserCaseListBonitaV_`
-* Bonita User Case Details `UserCaseDetailsBonitaV_`
-
-==== Bonita Super Administrator and Administrator Applications
-
-In thess applications, when relevant, you can customize:
-
-* Bonita Admin Process List `adminProcessListBonitaV_`
-* Bonita Admin Case Details `adminCaseDetailsBonitaV_`
-* Bonita Admin Task List `adminTaskListBonitaV_`
-* Bonita Admin Task Details `adminTaskDetailsBonitaV_`
-* Bonita Admin User List `adminUserListBonitaV_`
-* Bonita Admin Group List `adminGroupListBonitaV_`
-* Bonita Admin Role List `adminRoleListBonitaV_`
-* Bonita Admin Install Export Organization `adminInstallExportOrganizationBonitaV_`
-* Bonita Admin Profile List `adminProfileListBonitaV_`
-* Bonita Admin Resources List `adminResourceListBonitaV_`
-
-The "_" in "V_" stands for the latest "version" of the resource.
-
-[NOTE]
-====
-All the "Details" pages must be used as "orphan" pages in the application descriptor, since they need an id to be passed in order to display the details of the right item. They cannot be used at top-level menu.
-====
+You can find the list of pages ready for customization in a xref:pages.adoc#_List_of_Bonita_Applications_customizable_pages[dedicated documentation page].
 
 For more technical information about the pages, visit xref:pages-development.adoc[the dedicated documentation page]. 
 
