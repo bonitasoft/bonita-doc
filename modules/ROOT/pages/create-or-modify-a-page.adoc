@@ -1,7 +1,7 @@
 = Create or modify UI elements
 :description: Guidance to create and modify User Interfaces elements to embed in your processes / reference in your applications with Bonita UI Designer.
 
-Guidance to create and modify User Interfaces elements to embed in your processes / reference in your applications with Bonita UI Designer.
+{description}
 
 == User Interfaces development overview
 
