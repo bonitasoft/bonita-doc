@@ -86,7 +86,6 @@ The "_" in "V_" stands for the latest "version" of the resource.
 
 [NOTE]
 ====
-
 All the "Details" pages must be used as "orphan" pages in the application descriptor, since they need an id to be passed in order to display the details of the right item. They cannot be used at top-level menu.
 ====
 
