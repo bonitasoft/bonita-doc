@@ -1,7 +1,7 @@
-= Create your first application with Bonita Engine APIs
-:description: Learn how to set up a Maven client application that uses Bonita Engine APIs to communicate with Bonita Engine and run a process.
+= Create your first application with Bonita Java APIs
+:description: Learn how to set up a Maven client application that uses Bonita Java APIs to communicate with Bonita Engine and run a process.
 
-Learn how to set up a Maven client application that uses Bonita Engine APIs to communicate with Bonita Engine and run a process.
+Learn how to set up a Maven client application that uses Bonita Java APIs to communicate with Bonita Engine and run a process.
 
 It assumes that you are a Java programmer familiar with https://maven.apache.org/[Maven].
 
@@ -136,7 +136,7 @@ private static void startProcess(ProcessDefinition processDefinition) {
 
 === List open process instances
 
-All Bonita Engine API methods that deal with collections are paged to avoid having too many entries in memory. For these methods, if you want to retrieve all results you need to handle this page by page. This the case with the searchProcessInstances method used here to retrieve open process instances. In the example, each page will contain up to 5 (PAGE_SIZE) elements:
+All Bonita Java API methods that deal with collections are paged to avoid having too many entries in memory. For these methods, if you want to retrieve all results you need to handle this page by page. This the case with the searchProcessInstances method used here to retrieve open process instances. In the example, each page will contain up to 5 (PAGE_SIZE) elements:
 
 [source,java]
 ----

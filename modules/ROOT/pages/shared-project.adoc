@@ -1,14 +1,9 @@
-= Use a shared project
-:description: [NOTE]
+= Share a Bonita project with Git or SVN
+:description: Bonita offers the possibility to share projects with Git or SVN. Sharing a project allows to improve teamwork effectiveness.
 
-[NOTE]
-====
-
-Bonita Studio provide a feature (*File* menu, *Import*, *Workspace...*) to import all the projects from a given workspace into your current workspace. If the workspace you import from includes shared projects (Git or Subversion), be aware that importing the workspace will result in having a local project instead of a shared one. For shared projects, it's advised to clone them directly from the remote Git repository instead of using the import workspace feature.
-====
+{description}
 
 [#git]
-
 == Git
 
 === Prerequisites

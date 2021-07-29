@@ -2,7 +2,7 @@ name: bonita
 title: Bonita
 version: 2021.2
 # TODO when integrating this version to the documentation, update push-content.yml
-prerelease: Alpha
+prerelease: Beta
 asciidoc:
   attributes:
     bonitaVersion: 2021.2

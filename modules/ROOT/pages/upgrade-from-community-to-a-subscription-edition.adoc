@@ -71,7 +71,7 @@ To upgrade a Bonita platform from a Community edition to an Enterprise edition, 
 . If you remove bonita webapp folder while Tomcat is running, Tomcat server considers that the webapp should be completely
 unloaded and removed. It also deletes the webapp configuration file `<bonita-installation>/server/conf/Catalina/localhost/bonita.xml`, resulting in many errors in the log files. Hopefully, Bonita restores this file during next run of `start-bonita(.sh/.bat)` script
 
-The upgrade is now finished, you can verify that you are now running an Enterprise edition in the portal user interface; the dialog displayed from the top right "Settings / About" menu should indicate the correct Enterprise edition.
+The upgrade is now finished, you can verify that you are now running an Enterprise edition in the super administrator application; the edition displayed in the "BPM Services" page should indicate Enterprise edition.
 
 Once you have started Bonita Enterprise platform at least once, you can pull your Enterprise configuration (`<install>/setup/setup(.sh/.bat) pull`)
 and change the Enterprise-specific configuration files to match your needs. See xref:BonitaBPM_platform_setup.adoc[Bonita platform setup tool] for details about
@@ -115,6 +115,6 @@ To downgrade a Bonita platform from an Enterprise edition to a Community edition
 . ⚠ (Optionally rename the `<bonita-installation>` folder with a name that does not contain anymore the word `subscription` or `enterprise`, for clarity)
 . Start the downgraded Bonita platform using `<bonita-installation>/start-bonita(.sh/.bat)` script
 
-The downgrade is now finished, you can verify that you are now running a Community edition in the portal user interface; the dialog displayed from the top right "Settings / About" menu should not indicate Enterprise edition anymore.
+The downgrade is now finished, you can verify that you are now running a Community edition in the super administrator application; the edition displayed in the "BPM Services" page should indicate Community edition.
 
 You should also ensure that there are no errors in the log file, referencing Enterprise features.

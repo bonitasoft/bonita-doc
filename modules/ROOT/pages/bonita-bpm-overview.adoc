@@ -1,81 +1,111 @@
-= Bonita platform overview
+= Bonita components
 :description: Bonita is an open-source and extensible platform for business process automation and optimization. The Bonita platform accelerates development and production with clear separation between capabilities for visual programming and for coding.  BPMN graphical notation, full extensibility, and reusable components allow smooth collaboration among the different profiles on the IT team, and with the business teams. Bonita integrates with existing information systems, orchestrates heterogeneous systems, and provides deep visibility into processes across the organization.
 
-Bonita is an open-source and extensible platform for business process automation and optimization. The Bonita platform accelerates development and production with clear separation between capabilities for visual programming and for coding.  BPMN graphical notation, full extensibility, and reusable components allow smooth collaboration among the different profiles on the IT team, and with the business teams. Bonita integrates with existing information systems, orchestrates heterogeneous systems, and provides deep visibility into processes across the organization.
+Bonita is an open-source and extensible platform for business process automation and optimization. The Bonita platform accelerates the development and production of process-based applications with a clear separation between capabilities for visual programming and for coding. Indeed, BPMN graphical notation, full extensibility, and reusable components allow for a smooth collaboration among the different profiles on the IT team, and with the business teams. +
 
-The Bonita Platform has two components: the development environment, Bonita Studio, and the runtime environment, Bonita Runtime.
+Morevoer, Bonita integrates with existing information systems, orchestrates heterogeneous systems, and provides deep visibility into processes across the organization.
+
+The Bonita platform has three main components: 
+
+* the development environment, Bonita Studio, 
+* the runtime environment, Bonita Runtime, 
+* the tool to continuously deliver Bonita projects: Bonita Continuous Delivery (Subscription editions only).
 
 == Bonita Studio
 
-Bonita Studio contains all the elements needed to develop and compile a Bonita application. It is a graphical environment for creating processes, applications, data models, and users views (pages and forms). It contains three major design tools:
+Bonita Studio contains all the elements needed to design and build processes allowing entities of an organization to handle data in a standardized and traceable way. +
+Indeed, it is a graphical environment for creating processes and data models, to manage the organization of people that will do the tasks, and create the connectivity between Bonita and the IT environment it will orchestrate. +
+
+By default, users can use the Bonita User application to view and complete the process tasks for all processes. +
+But with Bonita, you can also build personalized process-based applications that will display customized views of the business data. +
+So, Bonita comes with an application designer and a UI designer to create those applications.
+
+In summary, Bonita Studio contains three major design tools:
 
 * the whiteboard, for drawing a process flow diagram and defining the detail of steps, transitions, decision points and other process elements
-* the Development menu, to extend the Studio capabilities and create your data models
-* the UI Designer, which is used to create application pages and process forms
+* several low-code development tools, to design data models, process-based applications, sandbox organizations ...
+* the UI Designer, used to create process forms, application pages and layouts
 
-Bonita Studio is the development tool for the Business Analyst and Application Developer. Back-end java developers work in Bonita Studio and collaborate with front-end developers working in the UI Designer.
+Bonita Studio is the development tool for both the Citizen developers and the Professional Developers. +
+Citizen developers (Business Analysts, Business Project Managers, Power Users) work in the Studio and the UI Designer to input business-level information to the project: application skeletons, processes, data model, and high-level user-interfaces. +
+As for the Professional developers, the back-end Java developers work in both the Studio and their favorite IDE, and the front-end developers work in the Studio, the UI Designer as well as their favorite IDE. +
 
-You can xref:bonita-bpm-installation-overview.adoc[install Bonita Studio] on your computer, then create and test processes, create data models, applications and application views (pages and forms).
 
-Bonita Studio contains a *Bonita Runtime* (Tomcat, UI Designer, Bonita Portal, Bonita Engine, and an h2 database), suitable for testing an application that is in development. When you run a process, it is automatically deployed onto the development platform.
+[.card-section]
+=== Related documentation pages
 
-Process forms, used to complete the human tasks, are created in the UI Designer, and use the data models created in the Studio.
 
-Users can use Bonita Portal (_User_ profile) to view and complete the process tasks for all processes. You can also build personalized process-based applications. To do so, use the UI Designer to create application pages that display business data from the data models, link the pages to processes thanks to action buttons, then use the Bonita Portal application builder to construct the application piece by piece.
+[.card.card-index]
+--
+xref:bonita-studio.adoc[[.card-title]#Bonita Studio# [.card-body.card-content-overflow]#pass:q[Create process-based applications for business users]#]
+--
+
+[.card.card-index]
+--
+xref:ui-designer-overview.adoc[[.card-title]#Bonita UI Designer# [.card-body.card-content-overflow]#pass:q[Create the User Interfaces of you applications]#]
+--
+
+[.card.card-index]
+--
+xref:bonita-studio-download-installation.adoc[[.card-title]#Studio installation# [.card-body.card-content-overflow]#pass:q[First step to use Bonita Studio]#]
+--
+
+Bonita Studio also embeds a *Bonita Runtime* (Tomcat, Bonita provided applications, Bonita Engine, and an h2 database), suitable for testing an application that is in development. When you run a process from the Studio, it is automatically deployed onto the embedded Runtime (the development environment).
+
+Then, once a process is ready, you can xref:build-a-process-for-deployment.adoc[build] it and deploy it on your Bonita qualification or production Runtime environment. +
+xref:#bcd[Bonita Continuous Delivery] comes in very handy to help with this step throughout the project lifecycle.
 
 [#platform]
 
 == Bonita Runtime
 
-Bonita Runtime is composed of one or more Bonita Server nodes installed on some hosts (physical machine, virtual machine, a cloud instance, a container like Docker, ...). A Bonita Runtime composed of multiple nodes constitutes a cluster.
+Bonita Runtime is composed of one or more Bonita Server nodes installed on some hosts (physical machine, virtual machine, a cloud instance, a container like Docker, ...). A Bonita Runtime composed of multiple nodes constitutes a cluster. +
 
-xref:engine-architecture-overview.adoc[Bonita Engine] is the execution engine of Bonita.
+Bonita provided applications are embedded in the Bonita Runtime. +
 
-As mentioned before, xref:bonita-bpm-portal-interface-overview.adoc[Bonita Portal] is the part of Bonita that is visible to process users, who use it to view tasks and take actions thanks to a generic task list for all processes they are involved in.
+As mentioned before, the Bonita User Application is the part of Bonita that is visible to process users, who use it to view tasks and take actions thanks to a generic task list for all processes they are involved in. +
 
-But Bonita Portal is also the tool used by the tenant administrator to xref:processes.adoc[install, deploy and manage processes] and to xref:applications.adoc[build applications]. We use the word "tenant" here, in case the platform would be made of xref:multi-tenancy-and-tenant-configuration.adoc[several tenants].
+Bonita also comes with three other very useful applications:
 
-To install Bonita Engine and Bonita Portal in a qualification or production environment, xref:bonita-bpm-installation-overview.adoc#platform[install Bonita Platform].
+* Bonita Administrator Application: the tool used by the tenant administrator to xref:processes.adoc[install, deploy and manage processes], monitor process execution, [xref:live-update.adoc[perform  some evolutions] in organization, resources, and applications, and recover from errors. We use the word "tenant" here, in case the platform would be made of xref:multi-tenancy-and-tenant-configuration.adoc[several tenants]. 
+* Bonita Super Administrator Application: the tool used by the technical user to setup the Bonita Runtime environment with organization, Business Data Model, and applications. It is also the maintenance tool that allows to pause and resume the BPM Services to, for example, update the Business Data Model. 
+* Application Directory Application, THE ONE URL to remember for all Bonita users, displaying the catalog of all applications accessible by the logged user.
 
-In Bonita Studio, once a process is ready, you can xref:build-a-process-for-deployment.adoc[build] it and deploy it on your Bonita qualification or production platform.
 
-== Editions
+[.card-section]
+=== Related documentation pages
 
-Until 2019 Bonita was provided in four different editions: Community, Teamwork, Efficiency and Performance. Since 2019 Bonita is only provided in two editions : Community and Enterprise.
 
-== Getting started
+[.card.card-index]
+--
+xref:engine-architecture-overview.adoc[[.card-title]#Bonita Engine# [.card-body.card-content-overflow]#pass:q[The tool to execute the processes, send and receive information to/from your IT environment]#]
+--
 
-*I'm currently using Bonita 6.x. Will 7.x be a big change?*
+[.card.card-index]
+--
+xref:bonita-bpm-installation-overview.adoc#platform[[.card-title]#Install Bonita Runtime# [.card-body.card-content-overflow]#pass:q[Install Bonita Engine and Bonita provided applications]#]
+--
 
-Bonita 7.x provides new and improved features, including the xref:ui-designer-overview.adoc[UI Designer] for creating application pages and forms, as well as xref:contracts-and-contexts.adoc[contracts and context] to create a clear split between the process logic, the data, and the user views.
+[.card.card-index]
+--
+xref:user-application-overview.adoc[[.card-title]#Bonita User application# [.card-body.card-content-overflow]#pass:q[An example of a todo list-based application provided by Bonita]#]
+--
 
-You will also find lots of familiar features, which continue to work as they did in 6.x.
+[.card.card-index]
+--
+xref:admin-application-overview.adoc[[.card-title]#Bonita Administrator application# [.card-body.card-content-overflow]#pass:q[The Runtime administration user interface provided by Bonita]#]
+--
 
-*Tell me about the documentation.*
+[#bcd]
 
-We're continually updating the documentation. +
-There are four main information categories: Application and process design, Installation, Portal administration, and Development.
+== Bonita Continuous Delivery (BCD)
 
-*Tell me about using Bonita.*
+[NOTE] 
+====
 
-See xref:lifecycle-and-profiles.adoc[Lifecycle and profiles].
+For Subscription editions only. +
+If your Bonita Subscription has been purchased before 2021, this Add-on can be purchased on top of your subscription.
+If you have purchased or renewed your Bonita Subscription in 2021 or after, BCD is fully part of your subscription.
+====
 
-*Can I migrate an existing process into Bonita 7.x?*
-
-You can xref:import-and-export-a-process.adoc[import a process] from any earlier Bonita release if  they don't contain Legacy v6 forms or case overview pages. If they do, you need to rework your process and xref:migrate-a-form-from-6-x.adoc[migrate those froms or pages].
-
-*Tell me about creating an application.*
-
-An application is a collection of related processes, user interfaces, and shared data. See xref:design-methodology.adoc[design methodology].
-
-*Tell me about creating a process.*
-
-A process can be included in an application or can be accessed through Bonita Portal. See xref:design-methodology.adoc[design methodology].
-
-*Tell me about creating a diagram.*
-
-See xref:diagram-overview.adoc[diagrams].
-
-*How can I get started?*
-
-Download and install Bonita 7.x: see the xref:bonita-bpm-installation-overview.adoc[installation instructions].
+To know more on this great tool, read the https://documentation.bonitasoft.com/bcd/latest/[related documentation section].
