@@ -1,7 +1,7 @@
 = Set up the Development Environment
 :description: A description of all Bonita features that allow the creation of a customized, shared, and automated development environment.
 
-A description of all Bonita features that allow the creation of a customized, shared, and automated development environment.
+{description}
 
 [.card-section]
 == Customize, share, automate 
@@ -40,6 +40,5 @@ xref:automating-builds.adoc[[.card-title]#Automating builds# [.card-body.card-co
 --
 xref:set-up-continuous-integration.adoc[[.card-title]#Set up continuous integration# [.card-body.card-content-overflow]#pass:q[The first environment to deploy into]#]
 --
-
 
 
