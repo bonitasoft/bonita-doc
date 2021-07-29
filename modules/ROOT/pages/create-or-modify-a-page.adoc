@@ -16,7 +16,7 @@ The look and feel of the application, layout, forms, and pages is handled by the
 Forms are embedded in the processes, whereas pages, layouts, and themes are referred to in the application descriptor. +
 
 Bonita provides a default theme, available in Bonita Studio and Bonita Runtime. +
-To xref:customize-living-application-theme.adoc[create a custom theme], developers needs to use their favorite develoment environment and xref:software-extensibility.adoc[make it available in the project]. +
+Developers can xref:customize-living-application-theme.adoc[create a custom theme] using their favorite development environment, and then add it as an xref:software-extensibility.adoc[extension] in the project. +
 
 Bonita UI Designer comes with a set of xref:widgets.adoc[provided containers and widgets]. +
 xref:custom-widgets.adoc[Custom widgets] can also be created to make the palette richer. +
