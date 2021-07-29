@@ -166,7 +166,6 @@ To import an element from another UI Designer, go to the UI Designer home page a
 
 [WARNING]
 ====
-
 An element that has not been designed with the UI Designer cannot be imported into the UI Designer.
 ====
 
