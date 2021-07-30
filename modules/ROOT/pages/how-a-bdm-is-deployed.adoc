@@ -1,7 +1,7 @@
-= Business Data Model (BDM) deployment
-:description: Lean how the engine handles the BDM (re-)deployment.
+= How Business Data Model (BDM) is handled in the code
+:description: Learn how Business Data Model (BDM) is handled in the code.
 
-Lean how the engine handles the BDM deployment and redeployment.
+Learn how the engine handles the BDM code generation, database support, deployment and redeployment.
 
 == Deployment flow
 
@@ -191,21 +191,14 @@ Pausing the services means that the work service does not execute works anymore 
 After (re-)deploying the BDM, the BPM services must be resumed to be able to use
 
 
-== Deploying a BDM via the Bonita Portal
+== Deploying a BDM via the Bonita Super Administrator application
 
-Using the Bonita Portal to deploy a BDM follows this flow:
+See xref:bdm-management-in-bonita-bpm-portal.adoc#_manage_the_bdm[how to deploy the BDM through Bonita Super Administrator application].
 
-* you must be logged in as the tenant administrator
-* go to the BPM services page, and pause the services
-* go to the Business Data Model page, select the BDM zip file to deploy
-* the portal will call the method updateBusinessDataModel() to install the new BDM.
+Internally, the runtime will call the method `updateBusinessDataModel()` to install the new BDM.
 This method implicitly performs the following steps in a single database transaction:
-** if a BDM already exists on the current tenant, it is uninstalled
-** the new BDM is installed / deployed
-** the Bonita Engine loads the new BDM in the tenant
+
+* if a BDM already exists on the current tenant, it is uninstalled
+* the new BDM is installed / deployed
+* the Bonita Engine loads the new BDM in the tenant
 classloader (and in the process classloaders of all processes on this tenant), and creates / updates the database accordingly.
-* finally, go to the BPM services page, and resume the services
-
-Then the new BDM is directly available, even if in most cases, new (versions of) processes must be (re-)deployed to take
-advantage of the BDM.
-

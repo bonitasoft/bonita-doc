@@ -106,7 +106,8 @@ Other not supported model changes are:
 - Changing an attribute from a single type to multiple, for object types
 - Changing an attribute from a multiple type to single, for object types
 
-These cases will raise an error during the automatic BDM update.
+These cases will raise an error during the BDM update, and the previous version of the BDM will remain. +
+No data are lost in these cases. No restore action is needed.
 
 If you need to update the BDM, and your update includes one of the cases listed above (both those that generate an error at installation, and those that do not), you will need to do the update manually.
 Get some help from your database administrator:
