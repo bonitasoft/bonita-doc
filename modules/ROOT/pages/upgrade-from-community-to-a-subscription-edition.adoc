@@ -100,7 +100,7 @@ The downgrade is performed automatically and silently when importing resources i
 
 [NOTE]
 ====
-If you want to import a project built with Bonita Enterprise Edition from Git, you just need to clone the project from GitHub in Bonita Studio Community Enterprise Edition. 
+If you want to import a project built with Bonita Enterprise Edition from Git, you just need to clone the project from GitHub in Bonita Studio Community Enterprise Edition.
 ====
 
 [#bonita-platform-downgrade]

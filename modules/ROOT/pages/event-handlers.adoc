@@ -156,7 +156,7 @@ public class EventHandlerExample implements SHandler<SEvent> {
 
 === Register an event handler
 
-An event handler is registered on an event by adding an entry to the appropriate map. The list of handlers registered can be extended in the xref:BonitaBPM_platform_setup.adoc[`bonita-tenant-sp-custom.xml`] file:
+An event handler is registered on an event by adding an entry to the appropriate map. The list of handlers registered can be extended in the xref:bonita-bpm-platform-setup.adoc[`bonita-tenant-sp-custom.xml`] file:
 
 [source,xml]
 ----
