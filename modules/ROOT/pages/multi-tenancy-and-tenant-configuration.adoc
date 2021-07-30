@@ -32,7 +32,7 @@ image::images/images-6_0/v6tenant.png[multi-tenancy]
 The platform is the part of the system that is common to all tenants.
 
 Before the platform has been initialized, its configuration can be customized in `setup/platform_conf/initial`. However, in order to modify the configuration on an
-installation whose platform has already been initialized, you need to use the xref:BonitaBPM_platform_setup.adoc[platform setup tool] to retrieve the current
+installation whose platform has already been initialized, you need to use the xref:bonita-bpm-platform-setup.adoc[platform setup tool] to retrieve the current
 configuration and update the files in `setup/platform_conf/current/`. Then use the tool again to save your changes into the database.
 
 The _engine_ platform configuration directory is located in sub-folder: `current/platform_engine/`. +
