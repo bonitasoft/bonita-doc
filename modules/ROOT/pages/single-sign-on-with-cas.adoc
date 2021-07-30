@@ -42,7 +42,7 @@ If you need more fine tuning or if you cannot update the reverse proxy configura
 == Configure Bonita Engine and Tomcat for CAS
 
 . The CAS implementation relies on JAAS, and is defined in the BonitaAuthentication module of the JAAS configuration file. +
-Set the Java system property `java.security.auth.login.config` in the Tomcat startup script to point to the JAAS configuration file, xref:BonitaBPM_platform_setup.adoc[`TOMCAT_HOME/server/conf/jaas-standard.cfg`].
+Set the Java system property `java.security.auth.login.config` in the Tomcat startup script to point to the JAAS configuration file, xref:bonita-bpm-platform-setup.adoc[`TOMCAT_HOME/server/conf/jaas-standard.cfg`].
 +
 For example, on Linux, edit `TOMCAT_HOME/setup/tomcat-templates/setenv.sh`, uncomment the line that defines `SECURITY_OPTS`, and insert the variable `SECURITY_OPTS` in the line `CATALINA_OPTS=..`.
 +
@@ -241,7 +241,7 @@ module names must be unique (from the example above, BonitaAuthentication-1 is t
 +
 . In the `CasLoginModule` configuration, check that the `principalGroupName` property is set to `CallerPrincipal`. This is required to retrieve the username from the Bonita application.
 Bonita uses the CAS LoginModule in the JASIG implementation, so see the CAS LoginModule section of the https://wiki.jasig.org/display/CASC/JAAS+Integration[Jasig documentation] for more information.
-. Update xref:BonitaBPM_platform_setup.adoc[`bonita-tenant-sp-custom.properties`] from `setup/platform_conf/initial/tenant_template_engine/` if platform has not been initialized yet or `setup/platform_conf/current/tenants/[TENANT_ID]/tenant_engine/` and `setup/platform_conf/current/tenant_template_engine/`.
+. Update xref:bonita-bpm-platform-setup.adoc[`bonita-tenant-sp-custom.properties`] from `setup/platform_conf/initial/tenant_template_engine/` if platform has not been initialized yet or `setup/platform_conf/current/tenants/[TENANT_ID]/tenant_engine/` and `setup/platform_conf/current/tenant_template_engine/`.
 +
 [NOTE]
 ====
