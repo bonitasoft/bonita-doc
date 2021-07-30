@@ -4,13 +4,13 @@
 [WARNING]
 ====
 
-Starting with Bonita 2021.1, this feature is *deprecated*, and as such, not offered to new customers nor as a Subscription modification for existing customers. + 
+Starting with Bonita 2021.1, this feature is *deprecated*, and as such, not offered to new customers nor as a Subscription modification for existing customers. +
 We strongly recommend to use multiple instances of Bonita Runtime for every separate entity, or to subscribe to Bonita Cloud with as many Runtimes as there are required entities. By entities, we mean either different end-customers, or different internal departments/subsidiaries. +
 Such a multi-platforms approach allows:
 
 * a specific configuration, independant software versions, infrastructure resources (CPU, memory, disk) and platform lifecycle for each platform (increased flexibility, customization capacities)
 * the physical segregation of resources and data (increased security)
-* the possibility to split public/private Cloud instances 
+* the possibility to split public/private Cloud instances
 
 Support is still provided for customers who already use a multi-tenant architecture for their Bonita on-premises installation.
 ====
