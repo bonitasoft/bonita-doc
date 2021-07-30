@@ -70,9 +70,57 @@ The Business Data Model will now be installed. BPM services can be resumed. +
 ====
 Since business continually evolves, you may need to make some changes to a BDM already in production.
 Bonita uses Hibernate for data persistence, therefore some changes are handled well, like adding new objects or attributes, but some others, like changing the type of an attribute or defining a unique constraint, we cannot guarantee so far.
+
 In such cases, you will have to implement the change on your own, through careful actions in a staging environment, and after the backup of your database.
+
 This limitation is well known and will be addressed in a future Bonita version.
 ====
+
+
+=== Limitations
+
+Regarding the *deployment of a new version of the BDM*, `Hibernate hbm2ddl` can handle certain changes, but not all
+model changes are supported.
+
+Adding a new Object (table) or adding a new attribute on an existing Object (new column on an existing database table) are fully supported.
+
+The model changes that are *not* supported are:
+
+- Deleting an Object (table)
+- Deleting a column
+- Deleting an Index
+- Deleting a unique Constraint
+- Changing the type of an attribute
+- Changing the max size of a String attribute
+- Changing an attribute from a single type to multiple, for simple types
+- Changing an attribute from a multiple type to single, for simple types
+
+In the above cases, there will be no error when deploying the BDM, but no change will be made to the database.
+It will probably lead to failure when instantiating new objects.
+
+Other not supported model changes are:
+
+- Adding a new object with the same name as a deleted object, but different attributes
+- Make a column "mandatory", delete a "mandatory" column, or create a new "mandatory" column
+- Add or delete a new unique constraint
+- Changing an attribute from a single type to multiple, for object types
+- Changing an attribute from a multiple type to single, for object types
+
+These cases will raise an error during the BDM update, and the previous version of the BDM will remain. +
+No data are lost in these cases. No restore action is needed.
+
+If you need to update the BDM, and your update includes one of the cases listed above (both those that generate an error at installation, and those that do not), you will need to do the update manually.
+Get some help from your database administrator:
+
+. Stop your Tenant services
+. Stop your Bonita server
+. Ask your database administrator to update manually the BDM schema in your BDM database to make it correspond to your new BDM.
+The easiest way to do it is to first install your new BDM on a clean database. Then compare the new schema with the old one, and manually create a sql script to update your BDM database to match the new one.
+Apply this sql script to your BDM database
+. Restart your Bonita server
+. Install your new BDM the usual way
+. Restart your tenant services
+
 
 [#installAccessControl]
 

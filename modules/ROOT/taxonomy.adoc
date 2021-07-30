@@ -92,10 +92,10 @@
   *** xref:logging.adoc[Logs]
 * Data
  ** Business data
-  ** xref:define-and-deploy-the-bdm.adoc[Business Data Model]
-   *** xref:bo-multiple-refs-tutorial.adoc[Multiple references in Business Objects]
-   *** xref:data-management.adoc[Data in the UI Designer]
-** Process data
+  *** xref:define-and-deploy-the-bdm.adoc[Business Data Model]
+  *** xref:bo-multiple-refs-tutorial.adoc[Multiple references in Business Objects]
+  *** xref:data-management.adoc[Data in the UI Designer]
+ ** Process data
   *** xref:specify-data-in-a-process-definition.adoc[Process variables]
   *** xref:parameters.adoc[Parameters]
   *** xref:contracts-and-contexts.adoc[Contracts and contexts]
@@ -109,7 +109,7 @@
  ** xref:variables.adoc[Variables in the UI Designer]
  ** xref:widgets.adoc[Widgets]
  ** xref:widget-properties.adoc[Widget properties]
- ** xref:repeat-a-container-for-a-collection-of-data.adoc[Repeatble container]
+ ** xref:repeat-a-container-for-a-collection-of-data.adoc[Repeatable container]
  ** xref:custom-widgets.adoc[Create a custom widget]
  ** xref:fragments.adoc[Fragments]
  ** xref:assets.adoc[Assets]
@@ -252,26 +252,11 @@
     ***** xref:profiles-portal-overview.adoc[Overview]
     ***** xref:admin-application-profiles-list.adoc[Profiles Management]
   *** xref:bdm-management-in-bonita-bpm-portal.adoc[BDM Management]
-   **** xref:how-a-bdm-is-deployed.adoc[BDM deployment]
   *** xref:admin-application-resources-list.adoc[Resources management]
   *** xref:applications.adoc[Applications]
   *** xref:licenses.adoc[License information]   
   *** xref:cluster-administration.adoc[Cluster administration]
- ** Tuning
-  *** Bonita Engine deep dive
-   **** xref:engine-architecture-overview.adoc[Architecture overview]
-   **** xref:engine-flow-node-states.adoc[Flow node states]
-   **** xref:timers-execution.adoc[Timer execution]
-   **** xref:connectors-execution.adoc[Connector execution]
-   **** Works
-    ***** xref:work-execution.adoc[Work execution]
-    ***** xref:work-locking.adoc[Work locking]
-   **** xref:execution-sequence-states-and-transactions.adoc[BPM process / task execution sequence]
-   **** xref:how-a-flownode-is-executed.adoc[How flow node is executed]
-   **** xref:how-a-flownode-is-completed.adoc[How a flownode is completed]
-   **** xref:how-a-call-activity-is-executed.adoc[How a call activity is executed]
-   **** xref:how-a-process-is-completed.adoc[How a process is executed]
-   **** xref:how-an-event-is-executed.adoc[How an event is executed]
+ ** xref:runtime-tuning-index.adoc[Tuning]
   *** xref:fault-tolerance.adoc[Fault tolerance mechanisms]
   *** xref:runtime-monitoring.adoc[Runtime monitoring]
   *** xref:work-execution-audit.adoc[Work execution audit]
@@ -283,6 +268,21 @@
   *** xref:purge-tool.adoc[Purging unnecessary archive data]
    **** xref:purge-tool-changelog.adoc[Purge tool changelog]
   *** xref:use-gzip-compression.adoc[Using gzip compression]
+ ** Bonita Engine deep dive
+  *** xref:engine-architecture-overview.adoc[Architecture overview]
+  *** xref:engine-flow-node-states.adoc[Flow node states]
+  *** xref:timers-execution.adoc[Timer execution]
+  *** xref:connectors-execution.adoc[Connector execution]
+  *** Works
+   **** xref:work-execution.adoc[Work execution]
+   **** xref:work-locking.adoc[Work locking]
+  *** xref:execution-sequence-states-and-transactions.adoc[BPM process / task execution sequence]
+  *** xref:how-a-flownode-is-executed.adoc[How flow node is executed]
+  *** xref:how-a-flownode-is-completed.adoc[How a flownode is completed]
+  *** xref:how-a-call-activity-is-executed.adoc[How a call activity is executed]
+  *** xref:how-a-process-is-completed.adoc[How a process is executed]
+  *** xref:how-an-event-is-executed.adoc[How an event is executed]
+  *** xref:how-a-bdm-is-deployed.adoc[How a BDM is handled in the code]
 * Security
   ** xref:csrf-security.adoc[CSRF security]
   ** xref:enable-cors-in-tomcat-bundle.adoc[Enable CORS in Tomcat bundle]
