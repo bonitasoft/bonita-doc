@@ -41,7 +41,7 @@ If you are running Bonita in a cluster, after you import a REST API Extensions, 
 [WARNING]
 ====
 
-As the deployment of the REST API Extensions automatically creates the appropriate resource permission mapping, be careful not to xref:BonitaBPM_platform_setup.adoc#update_platform_conf[push a configuration] that does not contain the latest permissions updates. This would overwrite the deployed configuration. To avoid doing so, pull the latest configuration, edit the needed elements and push it back to the Bonita runtime in a pretty short amount of time.
+As the deployment of the REST API Extensions automatically creates the appropriate resource permission mapping, be careful not to xref:bonita-bpm-platform-setup.adoc#update_platform_conf[push a configuration] that does not contain the latest permissions updates. This would overwrite the deployed configuration. To avoid doing so, pull the latest configuration, edit the needed elements and push it back to the Bonita runtime in a pretty short amount of time.
 ====
 
 [#usage]
@@ -84,7 +84,7 @@ To use the examples, define a xref:rest-api-authorization.adoc#custom-permission
 
 In a Tomcat bundle:
 
-* Retrieve platform configuration using the xref:BonitaBPM_platform_setup.adoc#update_platform_conf[setup tool].
+* Retrieve platform configuration using the xref:bonita-bpm-platform-setup.adoc#update_platform_conf[setup tool].
 * Edit `platform_conf/current/tenants/<TENANT_ID>/tenant_portal/custom-permissions-mapping.properties`.
 * Add the following line: `profile|User=[demoPermission]`.
 * Push the changed platform configuration into database using the _setup tool_.
