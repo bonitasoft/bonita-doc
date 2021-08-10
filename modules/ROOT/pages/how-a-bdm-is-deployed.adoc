@@ -211,33 +211,35 @@ advantage of the BDM.
 Regarding the *deployment of a new version of the BDM*, `Hibernate hbm2ddl` can handle certain changes, but not all
 model changes are supported.
 
-Adding a new Object (table) or adding a new attribute on an existing Object (new column on an existing database table) are fully supported.
+Adding a new Object (table) or adding a new attribute on an existing Object (new column on an existing database table) is fully supported.
 
-The model changes that are *not* supported are:
+The model changes that are *not* supported are listed below. Note that in most cases, the deployment of a new BDM will not raise an error, nor does it log anything, and completes "successfully".
 
- - Deleting an Object (table)
- - Deleting a column
- - Deleting an Index
- - Deleting an unique Constraint
- - Changing the type of an attribute
- - Changing the max size of a String attribute
- - Changing an attribute from a single type to multiple, for simple types
- - Changing an attribute from a multiple type to single, for simple types
+ - Deleting an Object (table) -> the object will not be deleted
+ - Deleting a column -> the column will not be deleted
+ - Deleting an Index -> the index will not be deleted
+ - Deleting an unique Constraint -> the constraint will not be deleted
+ - Changing an attribute from a single type to multiple, for simple types -> a new table is created, the column is not deleted in the corresponding business object table, and the data is not moved to the new table, and so is lost in the update.
+ - Changing an attribute from a multiple type to single, for simple types -> the table is not deleted, a new column is created in the corresponding business object table. The data is not moved,
+ - Adding a new object with the same name as a deleted object, but different attributes -> Both old and new objects are kept in the database, and share a table. Old lines are kept in the database with null value for new columns. New lines have null values in the old columns.
+ - Changing an attribute from a multiple type to single, for object types (aggregation) -> The intermediate table remains in the database, but is not used.
 
-In the above cases, there will be no error when deploying the BDM, but no change will be made to the database.
-It will probably lead to failure when instantiating new objects.
+In all the above cases, the deployed BDM model does not match the database schema, but it will still probably work as expected.
 
-Other not supported model changes are:
+The cases below are more problematic:
 
- - Adding a new object with the same name as a deleted object, but different attributes
- - Make a column "mandatory", delete a "mandatory" column, or create a new "mandatory" column
- - Add or delete a new unique constraint
- - Changing an attribute from a single type to multiple, for object types
- - Changing an attribute from a multiple type to single, for object types
+ - Changing the type of an attribute (primitive types) -> the type will not be changed. Trying to instantiate a new object will probably lead to a runtime error : the database will try to convert the types, so it might work for some changes (Float -> String), but won't for others (String -> Float).
+ - Changing the max size of a String attribute -> the size won't change in the database. If the change was to reduce the size, no error will be raised.  If the change was to increase the size, when trying to insert a longer String in an object, a runtime error will be raised.
+ - Make a column "mandatory" -> the column will not be made mandatory. The attribute in the java model is mandatory now, and it will cause an error when instantiating the process with empty value.
+ - Delete a "mandatory" column ->  the column will not be deleted. Runtime errors will be raised during process execution.
+ - Create a new "mandatory" column -> the column cannot be created. The BDM deployment will fail.
+ - Add a new unique constraint -> the constraint is not added, even if there is no conflicting data. Will probably lead to errors at runtime.
+ - Delete an unique constraint -> the constraint is not deleted. Will probably lead to errors at runtime.
+ - Changing an attribute from a single type to multiple, for object types (aggregation) -> A new table is created. However, foreign key constraints are not deleted, and existing values are not transfered to the new table. Because of the foreign key, no object in the new collection can be deleted.
+ - Changing an attribute from a single type to multiple, for object types (composition) -> Two new columns are created. The update will fail if the table of the parent object had any data in it.
+ - Changing an attribute from a multiple type to single, for object types (composition) -> The existing referencing columns are not deleted. Because of the existing NOT NULL constraint on them, no new data can be inserted in the table.
 
-These cases will raise an error during the automatic BDM update.
-
-If you need to update the BDM, and your update includes one of the cases listed above (both those that generate an error at installation, and those that don't), you will need to do the update manually:
+If you need to update the BDM, and your update includes one of the cases listed above, you will need to do the update manually:
 
 . Stop your Tenant services
 . Stop your Bonita server
