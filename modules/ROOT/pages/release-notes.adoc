@@ -282,7 +282,6 @@ Use BPMN 2 importer for model exchange with third-party editors.
 
 A standalone docker image that package the LDAP Synchronizer was released under the name `quay.io/bonitasoft/bonita-ldap-synchronizer`
 
-
 === Fixes in Bonita 2021.1-0617 (2021-06-17)
 
 ==== Fixes in Bonita Development Suite (Studio and UI Designer)
