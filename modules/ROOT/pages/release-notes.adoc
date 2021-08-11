@@ -234,6 +234,21 @@ In Enterprise edition, Visio and Aris importers have been removed. +
 Use BPMN 2 importer for model exchange with third-party editors.
 
 == Bug fixes
+=== Fixes in Bonita 2021.1-0811 (2021-08-11)
+
+==== Fixes in Bonita Development Suite (Studio and UI Designer)
+* STUDIO-4043 - errors while importing .bos in 7.12.4 studio
+* STUDIO-4046 - Invalid diagram image name generation
+* STUDIO-4066 - java.lang.NullPointerException at build when wrong variable entered in script but not shown in validation
+* STUDIO-4086 - Expression editor inserts the wrong operator ' =<' instead of '< =' in groovy script
+
+==== Fixes in Bonita Runtime (including Portal)
+* RUNTIME-301 - User sees error 500 trying to access a living app after BPM paused and resumed
+* RUNTIME-425 - I want to use the LDAP Synchronizer without using the platform administrator
+
+==== Library updates
+* jakarta.servlet.jsp.jstl 1.2.5 -> 1.2.6
+* jakarta.servlet.jsp.jstl-api 1.2 -> 1.2.7
 
 === Fixes in Bonita 2021.1-0702 (2021-07-02)
 
@@ -266,18 +281,6 @@ Use BPMN 2 importer for model exchange with third-party editors.
 ==== LDAP synchronizer Docker image
 
 A standalone docker image that package the LDAP Synchronizer was released under the name `quay.io/bonitasoft/bonita-ldap-synchronizer`
-
-=== Fixes in Bonita 2021.1-0811 (2021-08-11)
-
-==== Fixes in Bonita Development Suite (Studio and UI Designer)
-* STUDIO-4043 - errors while importing .bos in 7.12.4 studio
-* STUDIO-4046 - Invalid diagram image name generation
-* STUDIO-4066 - java.lang.NullPointerException at build when wrong variable entered in script but not shown in validation
-* STUDIO-4086 - Expression editor inserts the wrong operator ' =<' instead of '< =' in groovy script
-
-==== Fixes in Bonita Runtime (including Portal)
-* RUNTIME-301 - User sees error 500 trying to access a living app after BPM paused and resumed
-* RUNTIME-425 - I want to use the LDAP Synchronizer without using the platform administrator
 
 
 === Fixes in Bonita 2021.1-0617 (2021-06-17)
