@@ -24,7 +24,7 @@ We provide a maven archetype to help you to bootstrap a theme project outside of
 . Java 8+ must be installed:  https://adoptopenjdk.net/index.html
 . Maven must be installed:  https://maven.apache.org/install.html
 
-=== Generate the project using the maven archetype
+=== Generate the project using the Maven archetype
 
 A https://maven.apache.org/archetype/index.html[maven archetype] is a maven project templating toolkit. This archetype allows you to bootstrap a theme project on your file system. A theme project is a maven project. It can be built, tested and then imported into Bonita from the Bonita portal.
 

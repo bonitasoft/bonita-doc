@@ -217,7 +217,7 @@ Be aware that a poor implementation of a custom REST API accessing BDM objects c
 
 == Troubleshooting
 
-* I get the following stacktrace when using Java 8 Date types (LocalDate, LocalDateTime...) in my Rest API Extension
+* I get the following stacktrace when using `java.time` Date types (LocalDate, LocalDateTime...) in my Rest API Extension
 
 [source,log]
 ----
@@ -250,7 +250,7 @@ java.lang.StackOverflowError
 	at groovy.json.JsonOutput.writeObject(JsonOutput.java:294)
 ----
 
-The http://docs.groovy-lang.org/2.4.4/html/gapi/groovy/json/JsonBuilder.html[`groovy.json.JSONBuilder`] does not support Java 8 Date types serialization for the groovy version currently used by Bonita.
+The http://docs.groovy-lang.org/3.0.8/html/gapi/groovy/json/JsonBuilder.html[`groovy.json.JSONBuilder`] does not support `java.time` Date types serialization in groovy 2.4.x version.
 
 As a workaround you have to format dates in a new data structure before using the JSONBuilder.
 
