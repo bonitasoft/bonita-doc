@@ -91,9 +91,9 @@
   *** xref:logging.adoc[Logs]
 * Data
  ** Business data
-  ** xref:define-and-deploy-the-bdm.adoc[Business Data Model]
-   *** xref:bo-multiple-refs-tutorial.adoc[Multiple references in Business Objects]
-   *** xref:data-management.adoc[Data in the UI Designer]
+  *** xref:define-and-deploy-the-bdm.adoc[Business Data Model]
+  *** xref:bo-multiple-refs-tutorial.adoc[Multiple references in Business Objects]
+  *** xref:data-management.adoc[Data in the UI Designer]
  ** Process data
   *** xref:specify-data-in-a-process-definition.adoc[Process variables]
   *** xref:parameters.adoc[Parameters]
