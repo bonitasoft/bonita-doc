@@ -147,5 +147,5 @@ See the xref:bonita-bpm-installation-overview.adoc[Installation overview].
 | bonita_home
 | A separate bonita_home for each edition and for cluster
 | A common bonita_home used for all editions, simplifying download and installation. Improved structure for bonita_home/server that is easier to maintain and customize.
-| No more bonita_home. Relevant information is stored in the database, increasing performance and easing future migrations. See xref:BonitaBPM_platform_setup.adoc[platform setup]
+| No more bonita_home. Relevant information is stored in the database, increasing performance and easing future migrations. See xref:bonita-bpm-platform-setup.adoc[platform setup]
 |===

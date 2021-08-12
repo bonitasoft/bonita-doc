@@ -52,10 +52,10 @@ Each queriable log type can be turned off individually with its associated prope
 
 === Disable the Queriable Logs
 
-. Use the xref:BonitaBPM_platform_setup.adoc[Platform configuration setup tool] to pull the configuration on the disk: `./setup.sh pull`
+. Use the xref:bonita-bpm-platform-setup.adoc[Platform configuration setup tool] to pull the configuration on the disk: `./setup.sh pull`
 . Edit the `/setup/platform_conf/current/tenants/[tenantId]/tenant_engine/bonita-tenant-sp-custom.properties` file.
 . Add one line per property for each type of queriable log you want to disable, and set it to false, e.g.: 
 `bonita.tenant.queriable.log.ACTOR_CREATED.INTERNAL=false`
 `bonita.tenant.queriable.log.APPLICATION_PAGE_DELETED.INTERNAL=false`
-. Use the xref:BonitaBPM_platform_setup.adoc[Platform configuration setup tool] to push the configuration in the database: `./setup.sh push`
+. Use the xref:bonita-bpm-platform-setup.adoc[Platform configuration setup tool] to push the configuration in the database: `./setup.sh push`
 . xref:tomcat-bundle.adoc#start[Restart] the application server
