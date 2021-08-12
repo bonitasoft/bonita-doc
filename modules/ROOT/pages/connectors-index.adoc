@@ -87,5 +87,5 @@ xref:twitter.adoc[[.card-title]#Twitter# [.card-body.card-content-overflow]#pass
 
 [.card.card-index]
 --
-xref:web-service-connector-overview.adoc[[.card-title]#Web service# [.card-body.card-content-overflow]#pass:q[Connector your processes to any generic Web service]#]
+xref:web-service-connector-overview.adoc[[.card-title]#Web service# [.card-body.card-content-overflow]#pass:q[Connect your processes to any generic Web service]#]
 --
