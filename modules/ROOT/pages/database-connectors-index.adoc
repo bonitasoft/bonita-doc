@@ -25,5 +25,5 @@ xref:graphical-query-builder.adoc[[.card-title]#Graphical query builder# [.card-
 [.card.card-index]
 
 --
-xref:initialize-a-variable-from-a-database-without-scripting-or-java-code.adoc[[.card-title]#Initialize a variable from a database without coding# [.card-body.card-content-overflow]#pass:q[Candidate for removal ?]#]
+xref:initialize-a-variable-from-a-database-without-scripting-or-java-code.adoc[[.card-title]#Retrieving easily the value a database connector# [.card-body.card-content-overflow]#pass:q[Initialize a variable from a database without coding]#]
 --
