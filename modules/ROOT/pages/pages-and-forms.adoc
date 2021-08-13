@@ -82,5 +82,5 @@ xref:datetimes-management-tutorial.adoc[[.card-title]#How to manage dates and ti
 
 [.card.card-index]
 --
-xref::rta-mail-template.adoc[[.card-title]#How to use the rich text area widget in a mail templater# [.card-body.card-content-overflow]#pass:q[]#]
+xref::rta-mail-template.adoc[[.card-title]#How to use the rich text area widget in a mail template# [.card-body.card-content-overflow]#pass:q[]#]
 --
