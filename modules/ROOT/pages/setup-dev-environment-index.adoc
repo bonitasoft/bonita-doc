@@ -30,13 +30,3 @@ xref:shared-project.adoc[[.card-title]#Set up Bonita Studio with Git# [.card-bod
 --
 xref:migrate-a-svn-repository-to-github.adoc[[.card-title]#How to migrate a SVN repository into a Git repository# [.card-body.card-content-overflow]#pass:q[A guide for your Version Control Software migration]#]
 --
-
-[.card.card-index]
---
-xref:automating-builds.adoc[[.card-title]#Automating builds# [.card-body.card-content-overflow]#pass:q[Make your project ready for deployment on any environment]#]
---
-
-[.card.card-index]
---
-xref:set-up-continuous-integration.adoc[[.card-title]#Set up continuous integration# [.card-body.card-content-overflow]#pass:q[The first environment to deploy into]#]
---
