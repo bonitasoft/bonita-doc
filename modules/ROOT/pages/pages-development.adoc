@@ -1,4 +1,5 @@
-= Develop a page
+= Pages development
+
 :description: A page presents information to a user or can also collect information entered by a user. +
 
 A page presents information to a user or can also collect information entered by a user. +

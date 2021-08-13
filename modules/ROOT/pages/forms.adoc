@@ -36,4 +36,4 @@ xref:live-update.adoc[Live update] allows the Administrator to update one elemen
 You can xref:live-update.adoc]#form-list[update the form in the list] and xref:live-update.adoc]]#form-mapping[modify the mapping with the process]. +
 You can also xref:resource-management.adoc]#modify[edit] a global form as a resource in Bonita Portal.
 
-To know more about the development of forms, go to the xref:page-and-form-development-overview.adoc[page and form development overview] page.
+To know more about the development of forms, go to the xref:forms-development.adoc[dedicated documentation page].

@@ -1,0 +1,86 @@
+= Pages and forms, and all other UI elements
+:description: Everything you need to know to create a great user experience based on process execution.
+
+Everything you need to know to create a great user experience based on process execution.
+
+[.card-section]
+== User interfaces elements and how to use them
+
+[.card.card-index]
+--
+xref:create-or-modify-a-page.adoc[[.card-title]#Create or modify UI elements# [.card-body.card-content-overflow]#pass:q[All UI elements and how they fit together]#]
+--
+
+[.card.card-index]
+--
+xref:forms.adoc[[.card-title]#Forms# [.card-body.card-content-overflow]#pass:q[The user interfaces closely tied to processes]#]
+--
+
+[.card.card-index]
+--
+xref:forms-development.adoc[[.card-title]#Forms development# [.card-body.card-content-overflow]#pass:q[The technical insight for their creation]#]
+--
+
+[.card.card-index]
+--
+xref:pages.adoc[[.card-title]#Pages# [.card-body.card-content-overflow]#pass:q[The user interfaces composing Living Applications]#]
+--
+
+[.card.card-index]
+--
+xref:pages-development.adoc[[.card-title]#Pages development# [.card-body.card-content-overflow]#pass:q[The technical insight for their creation]#]
+--
+
+[.card.card-index]
+--
+xref:variables.adoc[[.card-title]#Variables in the UI Designer# [.card-body.card-content-overflow]#pass:q[A means for both business data handling and UI dynamicity]#]
+--
+
+[.card.card-index]
+--
+xref:widgets.adoc[[.card-title]#Widgets# [.card-body.card-content-overflow]#pass:q[The Bonita-provided UI bits and pieces]#]
+--
+
+[.card.card-index]
+--
+xref:widget-properties.adoc[[.card-title]#Widget properties# [.card-body.card-content-overflow]#pass:q[How to make the best use out of them]#]
+--
+
+[.card.card-index]
+--
+xref:repeat-a-container-for-a-collection-of-data.adoc[[.card-title]#Repeatable container# [.card-body.card-content-overflow]#pass:q[A very special property to create great lists]#]
+--
+
+[.card.card-index]
+--
+xref:fragments.adoc[[.card-title]#Fragments# [.card-body.card-content-overflow]#pass:q[Groups of widgets saved together for reusability]#]
+--
+
+[.card.card-index]
+--
+xref:assets.adoc[[.card-title]#Assets# [.card-body.card-content-overflow]#pass:q[Private resources of a page]#]
+--
+
+
+[.card-section]
+== How-tos
+
+[.card.card-index]
+--
+xref:manage-control-in-forms.adoc[[.card-title]#How to control and validate forms in the UI Designer# [.card-body.card-content-overflow]#pass:q[]#]
+--
+
+[.card.card-index]
+--
+xref:uid-case-overview-tutorial.adoc[[.card-title]#How to customize the case overview page in the UI Designer# [.card-body.card-content-overflow]#pass:q[]#]
+--
+
+[.card.card-index]
+--
+xref:datetimes-management-tutorial.adoc[[.card-title]#How to manage dates and times in BDM and User Interfaces# [.card-body.card-content-overflow]#pass:q[]#]
+--
+
+[.card.card-index]
+--
+xref::rta-mail-template.adoc[[.card-title]#How to use the rich text area widget in a mail template# [.card-body.card-content-overflow]#pass:q[]#]
+--

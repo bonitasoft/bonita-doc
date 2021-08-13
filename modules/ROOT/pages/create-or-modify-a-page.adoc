@@ -1,65 +1,151 @@
 = Create or modify UI elements
-:description: How to create and modify UI elements to reference in your applications with Bonita UI Designer.
+:description: Guidance to create and modify User Interfaces elements with Bonita UI Designer.
 
-How to create and modify UI artifacts to reference in your applications with Bonita UI Designer.
+{description}
 
 == User Interfaces development overview
 
-Your process-based application can use xref:pages-develoment.adoc[pages] and xref:forms-development.adoc[forms] to show or collect information in a browser. +
-Each of theses pages and forms are made of xref:widgets.adoc[widgets], some provided by Bonita, some custom, developped by professional developers from scratch or from an https://community.bonitasoft.com/project[existing project] of the Community. +
-Some widgets can be grouped in xref:fragments.adoc[fragments] in order to be reused in several pages or forms. +
-The overall structure of the application and the display of graphical elements in handled by the xref:layout-development.adoc[layout]. +
+Your automation project can use xref:pages.adoc[pages] to display information and provide interaction controls to the end-users or administrators. +
+It most of the times uses xref:forms.adoc[forms] to display and collect new or edited information. +
+Forms and pages are made of containers and widgets. +
+Some containers and widgets can be grouped in xref:fragments.adoc[fragments], in order to be reused in several pages or forms. +
+
+The overall graphical structure of the application is handled by the xref:layout-development.adoc[layout]. +
 The look and feel of the application, layout, forms, and pages is handled by the xref:theme-development.adoc[theme].
 
-All of these UI elements are linked to the xref:application-creation.adoc[application descriptor] when the application is created. +
-A default theme is available at Bonita start, both in Bonita Studio and Bonita Runtime. +
-To create a custom theme, developers needs to use their favorite develoment environment and add the theme to the project. +
+Forms are embedded in the processes, whereas pages, layouts, and themes are referred to in the application descriptor. +
+
+Bonita provides a default theme, available in Bonita Studio and Bonita Runtime. +
+Developers can xref:customize-living-application-theme.adoc[create a custom theme] using their favorite development environment, and then add it as an xref:software-extensibility.adoc[extension] in the project. +
+
+Bonita UI Designer comes with a set of xref:widgets.adoc[provided containers and widgets]. +
+xref:custom-widgets.adoc[Custom widgets] can also be created to make the palette richer. +
+Those are developped by professional developers, from scratch or from an https://community.bonitasoft.com/project[existing project] of the Community. +
 
 The following chapters give more information on how to develop all the others elements in the UI Designer.
 
-== Design a page, layout, form, or fragment
+== Create a form
 
-After a page, layout, form, fragment is created, you can update it in the *Page editor*. Update your page, form or fragment by dragging and dropping widgets from the palette to the whiteboard. Edit widget properties in the widget properties panel, create data, and bind it to the widgets.
+In a Bonita project architecture, xref:forms.adoc[forms] are embedded in the pools. Their creation is very linked to the process step they "feed", in a way. +
+It is recommended to define the xref:contracts-and-contexts.adoc[contract] in its _Execution / Contract_ property tab before to create the form, so the Studio will generate a form according to the contract. +
+Forms can be created at different level:
+
+* An instantiation form is created from the pool _Execution / Instatiation form_ tab
+* A task form is created from the human task _Execution / form_ tab
+
+The Case overview (this page is technically considered as a form because of its strong link to the process) is created from the pool _Execution / Overview page_ tab and does not need a contract to be created.
+
+. From these tabs, click on the *_Edit_* icon at the right of the _Target form_ field. This opens the UI Designer on a new form, with some widgets, containers, and variables already created to speed up the design process, using the contract inputs.
+. Rename it
+. Customize what needs to be displayed as well as the _Target URL on success_ of the *_Submit_* button.
+
+For more technical information about the forms, visit xref:forms-development.adoc[this dedicated documentation page].
+
+== Create a page
+
+xref:pages.adoc[Pages] are created independently from the processes. They are used to display business information that group several processes and several instances of the processes in an efficient view, a list of requests, for example. +
+The controls they embed (buttons, links) can call BPM APIs that will trigger the display of the process instantiation form, or the execution of a task.
+
+=== From scratch
+. From Bonita Studio coolbar, click on the *_UI Designer_* icon to open the UI Designer. +
+. Click on the *_Create_* button
+. In the pop up, choose the element to create
+. Give it a name
+. Click on the *_Create_* button
+. In the page editor, drag and drop the widgets, fragments, or BDM objects to create the right user interface
+
+=== From a Bonita provided page
+
+Only Bonita pages created with the UI Designer can be customized in the UI Designer. Indeed, as Bonita applications have evolved in several phases, so did the frameworks in which their pages have been made.
+
+You can find the list of pages ready for customization in a xref:pages.adoc#_List_of_Bonita_Applications_customizable_pages[dedicated documentation page].
+
+For more technical information about the pages, visit xref:pages-development.adoc[the dedicated documentation page]. 
+
+== Create a layout
+
+=== From the provided Bonita layout
+==== If you have not installed any Bonita application in your project in Bonita Studio 
+
+. From Bonita Studio, click on the *_Applications_* icon and select either the Administrator or Super Administrator application
+. Go to the *_Resources_* menu option
+. If needed, filter the type by _Layout_, and select *_Bonita Layout_* 
+. Click on the *_Export_* button
+. From Bonita Studio, click on the *_UI Designer_* icon to open the UI Designer
+. Click on the *_Import_* button 
+. Find the Bonita layout you have exported and load it
+. Edit it and save it with another name
+
+==== If you have installed a Bonita application 
+
+. In Bonita Studio, go to the _Project Explorer_
+. Open the project, and the _Pages/Forms/Layouts_ section
+. Douvle click on _Bonita layout_. This automatically opens the UI Designer with the layout ready to edit.
+. Edit it and save it with another name
+
+=== From scratch
+
+Use the same sequence of steps than to create a page from scratch.
+
+For more technical information about layouts, visit the xref:layout-development.adoc[dedicated documentation page].
+
+== Create a fragment
+
+Use the same sequence of steps than to create a page from scratch.
+
+
+== Responsiveness
 
 You can optimize the page or form design for a given device type by configuring xref:widget-properties.adoc[device-specific values for the Width property] for widgets. Use the a device types bar in the Page editor to choose the target device type.
 image:images/images-6_0/pb-resolution.png[Device type selection]
 
-Custom widget is a special artifact that we will explain in a later chapter.
+== Modify an element
 
-== Preview a page, layout, form, or fragment
+After a form, page, layout, or fragment is created, you can update it by just clicking on the *_Pencil_* icon to open it in the editor. +
+Update the element by deleting or dragging and dropping widgets, business objects or fragments from the palette to the whiteboard. +
+Edit widget properties in the widget properties panel, create data, and bind them to the widgets.
 
-You can preview page, form and fragment rendering by clicking the *_Preview_* button. Another browser window opens with the artifact as it will be displayed after deployment. If you update the page, form or fragment, the preview is automatically refreshed when you save.
+== Preview an element
 
-You can display your page, layout, form or fragment with one of your theme application installed.
+You can preview page, form and fragment rendering by clicking on the *_Preview_* button. Another browser window opens with the element as it will be displayed after deployment. If you update the page, form or fragment, the preview is automatically refreshed when you save. +
 
-From the preview window, you can also expand the preview outside of current preview mechanism, with the *Expand Preview in new window* button. This allows you to set new URL parameters, play with dynamic browser sizing, and to reuse same url in another browser to see how your form or page behaves in your user default browser.
+You can display your page, layout, form or fragment with one of your theme application installed. +
+
+From the preview window, you can also expand the preview outside of current preview mechanism, with the *Expand Preview in new window* button. This allows you to set new URL parameters, play with dynamic browser sizing, and to reuse same url in another browser to see how your form or page behaves in your user default browser. +
 
 You can use the a device types bar on the preview screen to choose the target device type. +
-The preview displays the artifact as it would be displayed on the selected type of device.
-
-Custom widget is a special artifact that we will explain in a later chapter.
+The preview displays the element as it would be displayed on the selected type of device. +
 
 [#export]
 
-== Export an artifact
+== Export an element
 
 You can export a page or a layout to deploy it in Bonita Portal as a custom page. +
-You can export any artifact to import it into another UI Designer.
+You can export any element to import it into another UI Designer. +
 
-To export an artifact, click the *_Export_* button image:images/images-6_0/pb-export.png[Export button] on the Page editor or the UI Designer home page. A zip file is downloaded to your computer. It contains a Bonita custom page, which also suitable for import into another UI Designer.
+To export an element, click the *_Export_* button image:images/images-6_0/pb-export.png[Export button] on the Page editor or the UI Designer home page. A zip file is downloaded to your computer. It contains a Bonita custom page, which also suitable for import into another UI Designer. +
 
 After export you can modify your page or layout code by directly editing the code located in _resources_ folder. Be aware that such a modification to the code will work when the page or layout is deployed in Bonita Portal but it may be broken if you import the page into another UI Designer.
 
+To import elements in another Studio, you can export pages and forms in the process `.bos` file. In the list of elements to insert in the .bos file, forms are checked by default, but not pages. When you import this `.bos` file into another Bonita Studio, forms and pages that you have checked are available in the UI Designer of that Studio.
+
 [#import]
 
-== Import an artifact
+== Import an element
 
-To import an artifact from another UI Designer, go to the UI Designer home page and click the *_Import_* button image:images/images-6_0/pb-import.png[Import button]. When you import a page, layout, form or fragment, its dependencies (such as custom widgets and fragments used) are automatically be imported too.
+To import an element from another UI Designer, go to the UI Designer home page and click the *_Import_* button image:images/images-6_0/pb-import.png[Import button]. When you import a page, layout, form or fragment, its dependencies (such as custom widgets and fragments used) are automatically be imported too. +
 
-WARNING: an artifact that has not been designed with the UI Designer cannot be imported into the UI Designer.
+[WARNING]
+====
+An element that has not been designed with the UI Designer cannot be imported into the UI Designer.
+====
 
 == Pages and forms in .bos/.bar file
 
-When you generate the `.bar` file of a process, the mapped forms created with the UI Designer are embedded in the file. Application pages are not embedded. When you deploy the process in Bonita using the `.bar` file, forms are imported and deployed. Pages and layout must be imported one by one.
+When you generate the `.bar` file of a process, the mapped forms created with the UI Designer are embedded in the file. +
+Application pages are not embedded as they are independant from the process. +
+When the .bar file is deployed, forms are deployed too. +
 
-To import artifacts in another Studio, you can export pages and forms in the process `.bos` file. In the list of artifacts to insert in the .bos file, forms are checked by default, but not pages. When you import this `.bos` file into another Bonita Studio, forms and pages that you have checked are available in the UI Designer of that Studio.
+Applications and its elements must be deployed onto the target environment. This can be done manually from the Super Administrator or Administrator applications, in the *_Applications_* and *_Resources_* menu options. It can also be done automatically through the automation of the project builds and deployment.
+
+For more information on Bonita Continuous Delivery tool (Subscription editions only], visit https://documentation.bonitasoft.com/bcd/latest/[the dedicated documentation page].
