@@ -30,8 +30,6 @@
  ** xref:workspaces-and-repositories.adoc[Workspaces and projects]
  ** xref:shared-project.adoc[Set up Bonita Studio with GitHub]
  ** xref:migrate-a-svn-repository-to-github.adoc[How to migrate a SVN repository into a Git repository]
- ** xref:automating-builds.adoc[Automate builds]
- ** xref:set-up-continuous-integration.adoc[Set up continuous integration]
 * Processes
  ** xref:diagrams-index.adoc[Diagrams]
   *** xref:diagram-overview.adoc[Overview]
