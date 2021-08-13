@@ -46,7 +46,7 @@ In Bonita, connectors enable connections to your local information system or onl
 If you want to restrict the authorization granted to the default profiles, it is highly recommended to activate the Dynamic authorization checking on the bonita REST APIs access (See xref:rest-api-authorization.adoc[REST API Authorization]).
 To do so:
 
-. Use the setup tool to get the current configuration of Bonita Platform from the database: `setup.sh pull` (See xref:BonitaBPM_platform_setup.adoc[Setup tool])
+. Use the setup tool to get the current configuration of Bonita Platform from the database: `setup.sh pull` (See xref:bonita-bpm-platform-setup.adoc[Setup tool])
 . Edit the file: `/setup/platform_conf/current/tenant_template_portal/security-config.properties`
 . Make sure this line is set to `true`: `security.rest.api.authorizations.check.enabled true`
 . Then edit the file: `/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/dynamic-permissions-checks-custom.properties`
@@ -68,7 +68,7 @@ PUT|bpm/humanTask=[profile|Administrator, check|org.bonitasoft.permissions.TaskP
 ----
 
 . Save the changes made in file  `/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/dynamic-permissions-checks-custom.properties`.
-. Use the setup tool to push the current configuration of Bonita Platform from the database: `setup.sh push` (See xref:BonitaBPM_platform_setup.adoc[Setup tool])
+. Use the setup tool to push the current configuration of Bonita Platform from the database: `setup.sh push` (See xref:bonita-bpm-platform-setup.adoc[Setup tool])
 
 For a maximum security, uncomment the entire file on production, so that the  REST API authorization are more restrictive. Then authorize the REST API access by commenting them out one by one as needed.
 

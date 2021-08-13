@@ -82,7 +82,8 @@ If your project are using these expression types, they will be migrated to the n
 
 ==== API - Depreciations
 
-In the TenantAdministrationAPI, the installBusinessDataModel method is now deprecated, as the new method updateBusinessDataModel replaces it for all use cases.
+ - In the TenantAdministrationAPI, the installBusinessDataModel method is now deprecated, as the new method updateBusinessDataModel replaces it for all use cases.
+ - The ReportingAPI is now deprecated.
 
 ==== Groovy script results casting
 

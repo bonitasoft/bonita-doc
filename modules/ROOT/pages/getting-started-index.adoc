@@ -1,7 +1,7 @@
 = Getting started 
-:description: This is the fastest way to learn, try, and master all concepts of a Living Application.
+:description: To get started with Bonita, learn how to create your first complete living application.
 
-To get started with Bonita, learn how to create your first complete living application.
+{description}
 
 [.card-section]
 == Prerequisite

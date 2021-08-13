@@ -535,7 +535,7 @@ Make sure the living application works fine, and that while selecting subject fr
 . Modify the file _database.properties_, so it points to the target database. In our example we will use the provided h2 database.
 . Add the following line to your _database.properties_ file :
 `h2.database.dir=/home/dolgonos/Desktop/BonitaStudioSubscription-7.7.0-SNAPSHOT/workspace/default/h2_database/`
-. Run _setup pull_. For more details on what this command does, see xref:BonitaBPM_platform_setup.adoc[Bonita Platform Setup].
+. Run _setup pull_. For more details on what this command does, see xref:bonita-bpm-platform-setup.adoc[Bonita Platform Setup].
 . Go the _/BonitaStudioSubscription-7.7.0/workspace/tomcat/setup/platform_conf/current/tenants/1/tenant_portal/_ folder that has just appeared.
 . Open the _dynamic-permissions-checks-custom.properties_, and add the following line:
 `GET|bdm/businessData/com.company.model.Request=[check|SubjectTeacherPermissionRule]`
