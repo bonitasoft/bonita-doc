@@ -7,7 +7,7 @@
    **** xref:using-Bonita-Studio.adoc[Using Bonita Studio] 
    **** xref:managing-extension-studio.adoc[Managing Extensions]
    **** xref:ui-designer-overview.adoc[Bonita UI Designer]
-  *** xref:runtime.adoc[Bonita Runtime]
+  *** xref:engine-architecture-overview.adoc[Bonita Runtime]
   *** https://documentation.bonitasoft.com/bcd/latest/[Bonita Continuous Delivery]
 * xref:bonita-studio-download-installation.adoc[Studio installation]
 * xref:getting-started-index.adoc[Getting started tutorial]
@@ -135,7 +135,6 @@
   *** xref:use-bonita-acm.adoc[Enable Adaptive Case Management with Bonita]
  ** xref:appearance.adoc[Appearance]
   *** xref:theme-development.adoc[Theme]
- ** Responsiveness (to create)
  ** xref:log-in-and-log-out.adoc[Log in and log out]
  ** xref:navigation.adoc[Navigation between User Interfaces]
  ** xref:cache-configuration-and-policy.adoc[Cache configuration and policy]
@@ -143,7 +142,6 @@
   *** xref:multi-language-applications.adoc[Multi-language applications]
   *** xref:multi-language-pages.adoc[Multi-language pages]
   *** xref:languages.adoc[Languages]
-* xref:software-extensibility.adoc[Extensions]
 * Integration
  ** xref:event-handlers.adoc[How to create an event handler]
 * xref:api-index.adoc[API]
@@ -211,7 +209,7 @@
 * Deployment
  ** xref:build-a-process-for-deployment.adoc[Runtime deployment]
  ** xref:live-update.adoc[Live update]
- * Runtime
+* Runtime
  ** Installation
   *** xref:hardware-and-software-requirements.adoc[Hardware and software requirements]
   *** xref:tomcat-bundle.adoc[Tomcat bundle]
@@ -224,7 +222,7 @@
   *** Platform installation examples
    **** xref:ubuntu-openjdk-tomcat-postgresql.adoc[Ubuntu + OpenJDK + Tomcat + PostgreSQL]
    **** xref:bonita-as-windows-service.adoc[Install Tomcat with Bonita as a service in Windows]
-  *** xref:embed-engine.adoc[Embed engine - Lab]
+  *** xref:embed-engine.adoc[Embedded engine - Lab]
  ** xref:bonita-bpm-platform-setup.adoc[Configuration]
   *** xref:database-configuration.adoc[Database creation and customization to work with Bonita]
   *** xref:first-steps-after-setup.adoc[First steps after setup]
