@@ -369,3 +369,11 @@ A standalone docker image that package the LDAP Synchronizer was released under 
 * BPO-664 - Security risk: API/formsDocumentImage executes injected script
 * BR-454 - Sometimes CallActivity are left Completed without target process
 * RUNTIME-50/BR-621 - All LDAP group objectclass checks are now case-insensitive.
+
+== Known issues
+
+=== Email connector 
+
+The rich text editor used to edit an email message does not work on Linux since the `libwebkit2gtk-4.0-37` package has been updated to `2.32.0+`. Linux users can use the plain text editor or a script expression to edit their email's message body.
+
+
