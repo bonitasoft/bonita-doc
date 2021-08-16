@@ -189,3 +189,9 @@ If you migrate from an earlier version of Bonita, you can now delete them if you
 * RUNTIME-34 - Install a BDM with an invalid custom query fail silently
 * RUNTIME-27 - Services resume failures after the la-deployer detects bdm deployment timeout
 * RUNTIME-23 - Installing BDM with a wrong custom query corrupts the BDM database without any rollback option
+
+== Known issues
+
+=== Email connector 
+
+The rich text editor used to edit an email message does not work on Linux since the `libwebkit2gtk-4.0-37` package has been updated to `2.32.0+`. Last known working version of the package is `2.28.1-1`. Linux users can use the plain text editor or a script expression to edit their email's message body.

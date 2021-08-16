@@ -134,7 +134,7 @@ C:\Program Files\AdoptOpenJDK\jdk-11.0.6.10-hotspot\bin\javaw.exe
 -Dgreclipse.nonlocking=true
 ----
 
-== Troubleshooting
+== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
 === Log files
 
@@ -182,5 +182,10 @@ You can increase this value in Studio preferences \-> Server settings \-> Tomcat
 
 A given Bonita Studio version can only run with some specifics Java versions (xref:hardware-and-software-requirements.adoc[hardware and software requirements]). +
 If you encounter some issues related to the JVM during the installation, ensure first that a valid Java version is available. You can for exemple type _java -version_ on a terminal, and informations about the main Java version used will be displayed. +
-If the problem persist, the easiest way to solve it is to remove the installed Java versions, to download that last stable build of the required Java version https://www.oracle.com/technetwork/java/javase/downloads/index.html[on the Oracle website] and to install it properly. +
+If the problem persists, the easiest way to solve it is to remove the installed Java versions, to download the last stable build of the required Java version https://www.oracle.com/technetwork/java/javase/downloads/index.html[on the Oracle website] and to install it properly. +
 Those issues can be related to bad Java installations, or to incompatibilities between a given Java version and Bitrock (Bitrock is the install builder used to install Bonita, it has the responsibility to detect the JRE used to install Bonita. Some defects on a given version could lead to incompatibility).
+
+=== java.security.cert.CertificateException: No subject alternative DNS name matching github-releases.githubusercontent.com found.
+
+Bonita Studio needs to retrieve some remote assets from Github. If the download of those assets fails with the above exception, it may be due to an out of date install of Java. +
+https://adoptopenjdk.net/[Install] the latest xref:hardware-and-software-requirements.adoc[supported Java] package to fix this issue. 
