@@ -106,9 +106,9 @@ synchronization.
 |`BONITA_TENANT_ID` |  |This is the tenant id to synchronize,
 if set, platform credentials are not used.
 |`BONITA_PLATFORM_LOGIN` |platformAdmin |This is the username of the
-platform adminstrator. _Not used when BONITA_TENANT_ID is set_
+platform adminstrator. It is used to retrieve the default tenant id if _BONITA_TENANT_ID_ is not provided.
 |`BONITA_PLATFORM_PASSWORD` |platform |This is the password of the
-platform adminstrator. _Not used when BONITA_TENANT_ID is set_
+platform adminstrator. It is used to retrieve the default tenant id if _BONITA_TENANT_ID_ is not provided.
 |===
 
 =====  Ldap connection settings
@@ -244,11 +244,11 @@ This file defines the connection settings and specifies the account used for use
 |
 
 | technicalUser
-| This is the xref:first-steps-after-setup.adoc[username of the platform adminstrator]. _Not used when tenantId is set_
+| This is the xref:first-steps-after-setup.adoc[username of the platform adminstrator]. It is used to retrieve the default tenant id if _tenantId_ is not provided.
 | platformAdmin
 
 | technicalPassword
-| This is the xref:first-steps-after-setup.adoc[password of the platform adminstrator]. _Not used when tenantId is set_
+| This is the xref:first-steps-after-setup.adoc[password of the platform adminstrator]. It is used to retrieve the default tenant id if _tenantId_ is not provided.
 | platform
 |===
 
