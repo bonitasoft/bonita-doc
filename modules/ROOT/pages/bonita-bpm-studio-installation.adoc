@@ -140,7 +140,7 @@ C:\progra~1\Java\jre1.8.0_112\bin\javaw.exe
 -Djava.endorsed.dirs=endorsed
 ----
 
-== Troubleshooting
+== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
 === Log files
 
