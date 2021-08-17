@@ -1,0 +1,746 @@
+= Develop a custom library
+:description: Develop a custom library project that will be used in a Bonita project and mutualize advanced business rules capabilities.
+
+{description}
+
+== Why should I develop a custom library ?
+
+* To extract advanced logic from processes script expressions
+* To be able to use standard technology to automate testing for this logic
+* To be able to reuse and share this logic between several processes and Bonita projects.
+* To better manage my library dependencies
+
+== Initialize the project
+
+[NOTE]
+====
+In the below example we use Maven as the project build tool, but it is also possible Gradle if it is the tool of your choice.
+====
+ 
+The example will externalize a function used in the xref:define-who-can-do-what.adoc[Define who can do what] article.
+ 
+=== Choose your preferred tools
+
+You are free to choose the IDE of your choice to develop your library (Eclipse IDE, IntelliJ IDEA, VS Code...).
+You can also choose between `Java 11` or `Groovy 3` as target programming language.
+The following example will use `Java` and `Maven`, but other options are possible. 
+
+To follow this tutorial you will need to install:
+
+* A https://adoptopenjdk.net/[JDK 11]
+* https://maven.apache.org/download.cgi[Maven] 
+* The https://git-scm.com/downloads[Git SCM Client] (Optional)
+
+An Internet connection with access to Maven Central is required.
+
+=== Basic setup
+
+Create a new folder on your file system, and call it `bonita-extension-library`.
+At the root of this folder create a `pom.xml` file.
+
+[source, xml]
+.pom.xml
+----
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.bonitasoft.extension</groupId> <1>
+    <artifactId>bonita-extension-library</artifactId> <1>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <name>Bonita extension function library</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>11</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+    </properties>
+
+</project>
+----
+<1> You may choose your own `groupId` and `artifactId`
+
+== Integration with Bonita
+
+=== Using the Runtime BOM
+
+This library will be executed in the Bonita Runtime that already comes with `provided` dependencies in its class-path.
+To avoid dependencies conflicts between our custom library and the Bonita Runtime, we can use a https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#bill-of-materials-bom-poms[**Bill Of Material** (BOM), window = "_blank"].
+
+First, we need to define the target Bonita runtime version. You must use the xref:product-versioning.adoc#_technical_id[technical id] as version. Add a `bonita-runtime.version` property in `properties` section of the pom.xml:
+
+[source, xml]
+----
+<properties>
+    ...
+    <bonita-runtime.version>7.13.0</bonita-runtime.version>
+</properties>
+----
+
+Then, we can `import` the BOM artifact in the `dependencyManagement` section of the `pom.xml` like this:
+
+[source, xml]
+----
+ <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.bonitasoft.runtime</groupId>
+        <artifactId>bonita-runtime-bom</artifactId>
+        <version>${bonita-runtime.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+----
+
+=== Using the Bonita API
+
+Add the `bonita-common` dependency in the `dependencies` section of the pom.xml like this:
+
+[source, xml]
+----
+<dependencies>
+    <dependency>
+        <groupId>org.bonitasoft.engine</groupId>
+        <artifactId>bonita-common</artifactId>
+        <scope>provided</scope> <1>
+    </dependency>
+</dependencies>
+----
+<1> Here we must use the `provided` scope as this dependency is already in the class-path of the Bonita Runtime.
+
+[NOTE]
+====
+The dependency `version` is omitted here, as this dependency is imported by the BOM. To identify whether a dependency is already imported by a BOM you can run the `effective-pom` maven goal from the root of your project: `mvn help:effective-pom`
+====
+
+To trace what our logic is doing we will need a logging API. Bonita Runtime comes with `slf4j-api`.
+So we also add this `provided` dependency in our project.
+
+[source, xml]
+----
+<dependencies>
+    ...
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <scope>provided</scope>
+    </dependency>
+</dependencies>
+----
+
+== Implement the Business logic
+
+In this example, we are going to code a function that retrieves the user who executed a task with specific name in a given process instance.
+
+Maven projects have a default folder structure to find source files to build:
+
+* Java sources are expected in the `src/main/java` folder
+* Java test sources are expected in the `src/test/java` folder
+* Resources are expected in the `src/main/resources` folder
+* Test resources are expected in the `src/test/resources` folder
+
+Create a `Users.java` Java class as entry point for our function. 
+This source must be in `src/main/java` folder. 
+In addition it must respect java package convention.
+So the file must be created in the `src/main/java/org/bonitasoft/extension/` folder as `org.bonitasoft.extension` will be our class package.
+
+[source, java]
+.src/main/java/org/bonitasoft/extension/Users.java
+----
+package org.bonitasoft.extension;
+
+import org.bonitasoft.engine.api.APIAccessor;
+import org.bonitasoft.engine.bpm.flownode.ArchivedHumanTaskInstanceSearchDescriptor;
+import org.bonitasoft.engine.exception.SearchException;
+import org.bonitasoft.engine.search.SearchOptionsBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class Users {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Users.class); <1>
+
+    /**
+     * 
+     * Retrieves the user id of the user who executed the given taskName in the given process instance
+     * 
+     * @param apiAccessor, a {@link APIAccessor}
+     * @param rootProcessInstanceId, the id of the root process instance
+     * @param taskName, the name of the task
+     * @return the id of the user who execute the task
+     * @throws SearchException
+     * @throws IllegalArgumentException when taskName is null or empty
+     * @throws IllegalArgumentException when apiAccessor is null
+     * @throws IllegalArgumentException when no task with taskName has been executed in the given rootProcessInstanceId
+     */
+    public static long getUserWhoExecutedTaskWithName(APIAccessor apiAccessor, <2>
+            long rootProcessInstanceId,
+            String taskName) throws SearchException {
+        
+        if(taskName == null || taskName.isBlank()) {
+            throw new IllegalArgumentException("taskName cannot be null or empty");
+        }
+        
+        if(apiAccessor == null) {
+            throw new IllegalArgumentException("apiAccessor cannot be null");
+        }
+        
+        LOGGER.debug("Searching user who executed task {} in process instance {}", taskName, rootProcessInstanceId);
+
+        var executedBy = apiAccessor.getProcessAPI()
+                .searchArchivedHumanTasks(new SearchOptionsBuilder(0, 1)
+                        .filter(ArchivedHumanTaskInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID,
+                                rootProcessInstanceId)
+                        .filter(ArchivedHumanTaskInstanceSearchDescriptor.NAME, taskName)
+                        .filter(ArchivedHumanTaskInstanceSearchDescriptor.TERMINAL, true)
+                        .done())
+                .getResult().stream()
+                .findFirst()
+                .map(ArchivedHumanTaskInstance::getExecutedBy)
+                .orElseThrow(() -> new IllegalArgumentException(String.format(
+                        "No terminated task %s found in process instance %s", taskName, rootProcessInstanceId)));
+        
+        LOGGER.debug("User with id {} has executed task {} in process instance {}", executedBy, taskName, rootProcessInstanceId);
+        
+        return executedBy;
+
+    }
+
+    private Users() {
+    }
+}
+
+----
+<1> Create a `Logger` to monitor the code execution
+<2> Use a `public` and `static` method to be called from a Script expression in a process.
+
+== Building the project
+
+From a terminal, at the root of the project, run:
+
+```shell
+$ mvn package
+```
+
+It will package the `bonita-extension-library-1.0.0-SNAPSHOT.jar` file in the `target` folder of the project.
+This file can be installed as a project extension in Bonita Studio using the Overview > Extensions > Add custom extension... > Other action.
+Select `From file` option, and browse to the `bonita-extension-library-1.0.0-SNAPSHOT.jar` file. Click on `Import`.
+
+You can now add this dependency in your xref:managing-dependencies.adoc#_configure_process_dependencies[process configuration], and call `org.bonitasoft.extension.Users.getUserWhoExecutedTaskWithName(apiAccessor, rootProcessInstanceId, 'A task name')` from a Script expression.
+
+[NOTE]
+====
+`apiAccessor` and `rootProcessInstanceId` are injected in Script expression
+====
+
+== Automated tests
+
+=== Unit tests
+
+Add and setup `test` dependencies in your project like this:
+
+[source, xml]
+----
+<properties>
+    ...
+    <junit-jupiter-engine.version>5.7.2</junit-jupiter-engine.version> <1>
+    <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version> <2>
+    <mockito-core.version>3.11.2</mockito-core.version> <3>
+    <logback-classic.version>1.2.5</logback-classic.version> <4>
+</properties>
+
+
+<dependencies>
+    ...
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>${junit-jupiter-engine.version}</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-params</artifactId> <5>
+        <version>${junit-jupiter-engine.version}</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-junit-jupiter</artifactId>
+        <version>${mockito-core.version}</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>${logback-classic.version}</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
+
+<build>
+    <pluginManagement>
+        <plugins>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+            </plugin>
+        </plugins>
+    </pluginManagement>
+</build>
+----
+<1> https://junit.org/junit5/docs/current/user-guide/[Junit Jupiter] is the reference Java testing framework.
+<2> By default, Maven comes with base versions for its plug-ins. In order to properly works with Junit Jupiter, it is required to use a recent version of the `maven-surefire-plugin`.
+<3> https://site.mockito.org/[Mockito] is the reference Java mocking framework.
+<4> We'll use http://logback.qos.ch/[Logback] as the SL4J implementation for our tests
+<5> Additional Jupiter module to define parameterized tests
+
+Create the Java test class `UsersTest` in the `src/test/java/org/bonitasoft/extension` folder.
+
+[source, java]
+.src/test/java/org/bonitasoft/extension/UsersTest.java
+----
+package org.bonitasoft.extension;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import java.util.List;
+
+import org.bonitasoft.engine.api.APIAccessor;
+import org.bonitasoft.engine.bpm.flownode.ArchivedHumanTaskInstance;
+import org.bonitasoft.engine.exception.SearchException;
+import org.bonitasoft.engine.search.impl.SearchResultImpl;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
+import org.junit.jupiter.params.provider.ValueSource;
+import org.mockito.Answers;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+@ExtendWith(MockitoExtension.class)
+class UsersTest {
+
+    @Mock(answer = Answers.RETURNS_DEEP_STUBS)
+    APIAccessor apiAccessor;
+
+    @Test
+    void testGetUserWhoExecutedTaskWithName() throws SearchException {
+        // Given
+        var userId = 4L;
+        var myTaskArchivedInstance = mock(ArchivedHumanTaskInstance.class);
+        when(myTaskArchivedInstance.getExecutedBy()).thenReturn(userId);
+        when(apiAccessor.getProcessAPI().searchArchivedHumanTasks(Mockito.any()))
+                .thenReturn(new SearchResultImpl<>(1, List.of(myTaskArchivedInstance)));
+
+        // When
+        long userWhoExecutedTaskWithName = Users.getUserWhoExecutedTaskWithName(apiAccessor, 1L, "My task");
+
+        // Then
+        assertEquals(userWhoExecutedTaskWithName, userId);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = { " ", "Unknown task" })
+    @NullAndEmptySource
+    void testGetUserWhoExecutedTaskWithNameThrowsIllegalArgumentException(String taskName) throws SearchException {
+        // Given
+        when(apiAccessor.getProcessAPI().searchArchivedHumanTasks(Mockito.any()))
+                .thenReturn(new SearchResultImpl<>(1, List.of()));
+
+        // Expect
+        assertThrows(IllegalArgumentException.class,
+                () -> Users.getUserWhoExecutedTaskWithName(apiAccessor, 1L, taskName));
+
+    }
+    
+    @Test
+    void testGetUserWhoExecutedTaskWithNameThrowsIllegalArgumentExceptionWhenAPIAccessorIsNull() throws SearchException {
+        // Expect
+        assertThrows(IllegalArgumentException.class,
+                () -> Users.getUserWhoExecutedTaskWithName(null, 1L, "My Task"));
+
+    }
+}
+----
+
+The goal of this example is not to dig into https://junit.org/junit5/docs/current/user-guide/[Junit5] and https://site.mockito.org/[Mockito]. If you are curious about those framework, visit their documentation site.
+
+You can check that the above test are passing by running the following command from the terminal:
+
+```shell
+$ mvn verify
+```
+
+=== Test coverage
+
+Now that we have tests, an interesting metric to monitor is the code (or test) coverage. It represents the percentage of all the possible branches in code that are covered by our tests.
+
+To compute this coverage, we will use https://www.eclemma.org/jacoco/[Jacoco]. Add the `jacoco-maven-plugin` to the project:
+
+[source, xml]
+.pom.xml
+----
+<properties>
+    ...
+    <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
+</properties>
+
+...
+
+<build>
+    ...
+    <plugins>
+        <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>${jacoco-maven-plugin.version}</version>
+            <executions>
+                <execution>
+                  <goals>
+                    <goal>prepare-agent</goal>
+                  </goals>
+                </execution>
+                <execution>
+                  <id>generate-code-coverage-report</id>
+                  <phase>test</phase>
+                  <goals>
+                    <goal>report</goal>
+                  </goals>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
+----
+
+Re run the following command:
+
+```shell
+$ mvn verify
+```
+
+It should build a coverage report in `target/site/jacoco/index.html`.
+
+== Source control and continuous delivery (Optional)
+
+While optional, it is highly recommended to use a SCM to ease the collaboration around this project. You also want to use a Continuous Integration environment that will build and test your library as often as required. For the sake of this example we will use Git and GitHub  
+but other options are available.
+
+=== Git (Source Control Management)
+
+Git is an advanced tool and we won't dig too much in the detail of its usage. We will just see a few command that get us going on GitHub.
+
+Initialize the Git repository. From a terminal, at the root of your project, run:
+
+```shell
+$ git init
+```
+
+Create a `.gitignore` file at the root of your project:
+
+[source, properties]
+.gitignore
+----
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Eclipse
+.classpath
+.project
+.settings/
+ 
+# Intellij
+.idea/
+*.iml
+*.iws
+ 
+# Mac
+.DS_Store
+----
+
+Install Maven wrapper.
+
+```shell
+$ mvn -N io.takari:maven:0.7.7:wrapper
+```
+
+[NOTE]
+====
+The Maven wrapper binds your project to specific embedded Maven version binary. We will use it later with GitHub actions.
+====
+
+Then create a git **commit** with those commands:
+
+```shell
+$ git add -A <1>
+$ git commit -m "initialize the git repository" <2>
+```
+<1> Add all (not ignored) modified/new files in the content staged for the next commit.
+<2> Create a commit with the given message
+
+
+=== GitHub
+
+You will need to create a https://github.com/signup[GitHub account] if you (or your company) not already have one.
+
+==== New GitHub repository
+
+https://github.com/new[Create a new repository] named `bonita-extension-library`. Choose the `owner` of the repository (you or another organization). For this example you can make the repository `private`. Click on `Create repository`.
+
+Then back to your terminal, at the root of the project, you can **push** your repository to the GitHub _remote_ like this:
+
+```shell
+$ git remote add origin git@github.com:<owner>/bonita-extension-library.git <1>
+$ git branch -M main <2>
+$ git push -u origin main <3>
+```
+<1> Define a _remote_ origin for the local copy of the repository
+<2> Create a _branch_ named `main` from the current HEAD (Our initial commit)
+<3> Push the branch to the define remote origin
+
+If your refresh the GitHub project repository page (https://github.com/<owner>/bonita-extension-library) you should see your source code and single `main` branch.
+
+===== Add a README.md
+
+An highly recommended practice, is to add a `README.md` file at the root of your project. 
+This piece of documentation aims at helping other contributors to quickly jump into the project.
+It should contains a small description of the purpose of the project, how to setup a development environment and any kind of information that you consider relevant.
+
+Here is an example of a `README.md`:
+
+[source, markdown]
+.README.md
+----
+# Bonita extension library
+
+![Build](https://github.com/<owner>/bonita-extension-library/workflows/build/badge.svg)
+![Coverage](.github/badges/jacoco.svg)
+[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-yellow.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
+
+This library provide a set of additional functions to deal with Bonita users.
+
+## How to build
+
+### Prerequisite
+
+* You need to have a JDK 11 installed and configured in your PATH.
+* You need a Git client to clone this repository.
+
+1. Clone this repository
+
+    ```shell
+    $ git clone https://github.com/<owner>/bonita-extension-library.git
+    ```
+    
+1. At the root of the repository run:
+
+    ```shell
+    $ ./mvnw verify
+    ```
+----
+
+===== Add a License file
+
+You can use the https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository#including-an-open-source-license-in-your-repository[GitHub web interface] to add an open source license file to your repository.
+In this example, we are adding a GPLv2 License.
+
+=== Release management
+
+The `maven-release-plugin` will help us automate the release process of our Maven project.
+To setup this plug-in, add the following configuration in the `pom.xml`:
+
+[source, xml]
+.pom.xml
+----
+<properties>
+    ...
+    <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
+</properties>
+
+<build>
+    <pluginManagement>
+        <plugins>
+            ...
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>${maven-release-plugin.version}</version>
+                <configuration>
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
+                    <indentSize>4</indentSize>
+                </configuration>
+            </plugin>
+        </plugins>
+    </pluginManagement>
+    ...
+</build>
+
+<scm>
+    <developerConnection>scm:git:https://github.com/<owner>/bonita-extension-library.git</developerConnection>
+    <connection>scm:git:https://github.com/<owner>/bonita-extension-library.git</connection>
+    <url>https://github.com/<owner>/bonita-extension-library</url>
+</scm>
+----
+
+We will later define a GitHub action that trigger a release of our project using this plug-in.
+
+=== GitHub actions
+
+https://github.com/features/actions[GitHub actions] are a simple and _free_ way of automating the build of our project.
+We can define workflows in our project and let GitHub run it on its infrastructure.
+
+==== Build workflow
+
+Create a `.github/workflows/build.yml` file:
+
+[source, yaml]
+.github/workflows/build.yml
+----
+name: build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.3.4
+      - name: Cache Maven packages
+        uses: actions/cache@v2.1.6
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+          
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: 11
+
+      - name: Build
+        run: ./mvnw -B -ntp clean verify
+    
+      - name: Generate JaCoCo Badge
+        uses: cicirello/jacoco-badge-generator@v2.4.1
+        with:
+          generate-branches-badge: true
+
+      - name: Commit and push the badge (if it changed)
+        uses: EndBug/add-and-commit@v7
+        with:
+          default_author: github_actions
+          message: 'commit badge'
+          add: '*.svg'        
+----
+
+==== Release workflow
+
+Create a `.github/workflows/release.yml` file:
+
+[source, yaml]
+.github/workflows/release.yml
+----
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'The version of the release. Used as tag name.'
+        required: true
+        default: 'x.y.z'
+
+jobs:
+  build:
+    name: Release pipeline
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: adopt
+          java-version: 11
+          server-id: github
+          
+      - name: Configure Git user
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+      
+      - name: Build Release 
+        run: ./mvnw --batch-mode release:prepare -DreleaseVersion=${{ github.event.inputs.version }} <1>
+    
+      - name: Create Github Release
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: v${{ github.event.inputs.version }}
+          release_name: Release v${{ github.event.inputs.version }}
+          draft: false
+          prerelease: false
+     
+      - name: Upload Release Asset
+        id: upload-asset 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above 
+          asset_path: target/bonita-extension-library-${{ github.event.inputs.version }}.jar
+          asset_name: bonita-extension-library-${{  github.event.inputs.version }}.jar
+          asset_content_type: application/java-archive   
+----
+<1> We call the `release:prepare` goal of the `maven-release-plugin` to create and build a tag with the given version.
+
+This workflow is run on demand through the GitHub web interface in the _Actions_ tab of your repository (https://github.com/<owner>/bonita-extension-library/actions/workflows/release.yml).
+The released `jar` file will be attached to a GitHub release and you may use this GitHub release as a distribution channel for the consumers of your library.
+
+[TIP]
+====
+**Artifact publication**: In this example we don't setup a publication mechanism to a Maven repository. But be advised that it will be easier to share your extensions by publishing them. You have a lot of possible options like:
+
+* https://maven.apache.org/repository/guide-central-repository-upload.html[Maven Central]
+** How to automate it with https://docs.github.com/en/actions/guides/publishing-java-packages-with-maven[GitHub actions]
+* https://github.com/features/packages[GitHub packages]
+** Example for xref:connector-archetype-tutorial.adoc#_6_publish_the_connector_on_github_packages[connector extension]
+* Private Nexus or Artifactory...etc
+
+====
+
+
+
+ 
+
+
+
+
