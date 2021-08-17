@@ -49,7 +49,7 @@ where `x.y.z` is the version of Bonita you are running.
 
 WARNING: Do not modify the Organization from the Bonita Portal while the tool is running, as this will cause a synchronization error.
 
-NOTE: Some use cases require additional configuration server side (for example to use directly the engine API).They are described xref:configure-client-of-bonita-bpm-engine.adoc[here].
+NOTE: Some use cases require additional configuration server side (for example to use directly the engine API). They are described xref:configure-client-of-bonita-bpm-engine.adoc[here].
 
 
 [#_using_the_ldap_synchronizer_docker_image]
