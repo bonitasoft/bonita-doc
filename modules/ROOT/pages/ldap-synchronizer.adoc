@@ -1,7 +1,7 @@
 = LDAP synchronizer
 :description: Learn how to configure the LDAP Synchronizer. This tool updates Bonita Users and Groups database from the LDAP directory.
 
-Learn how to configure the LDAP Synchronizer.This tool updates Bonita Users and Groups database from the LDAP directory.
+Learn how to configure the LDAP Synchronizer. This tool updates Bonita Users and Groups database from the LDAP directory.
 
 [NOTE]
 ====
@@ -10,12 +10,12 @@ For Enterprise, Performance, Efficiency, and Teamwork editions only.
 
 The LDAP synchronization service keeps the Bonita organization information synchronized with an external LDAP directory, by creating, updating, or removing
 users and groups in the organization
-to match as closely as possible the user list attributes defined in LDAP.It does not modify the LDAP directory.
+to match as closely as possible the user list attributes defined in LDAP. It does not modify the LDAP directory.
 
 The LDAP Synchronizer connects to both the LDAP server and Bonita Engine to read the data from the LDAP server and modify the organization in the Bonita Engine database using the API.
 Both the Engine and the LDAP server must be running when the LDAP Synchronizer tool is run.
 
-The synchronizer program runs in the background.There is no user interface: all configuration settings are specified in files and
+The synchronizer program runs in the background. There is no user interface: all configuration settings are specified in files and
 all output is written to a log file.
 
 == LDAP objects supported
@@ -200,13 +200,13 @@ There are five properties files:
 
 * bonita.properties defines the Bonita connection settings and specifies the account used for user synchronization (requires administration privileges).
 * ldap.properties defines the LDAP connection settings and specifies the account used for user browsing.
-* logger.properties provides the settings for the logger.Default settings should be fine for most uses.
+* logger.properties provides the settings for the logger. Default settings should be fine for most uses.
 * mapper.properties specifies the translation between Bonita and LDAP directory user attributes.
 * sync.properties defines the synchronization settings.
 
 All configurations files can be found in the conf directory.
 
-NOTE: to use a special character in a properties file, use the Unicode equivalent.For example, for `à` use \u00E0.
+NOTE: to use a special character in a properties file, use the Unicode equivalent. For example, for `à` use \u00E0.
 You can use a tool such as http://docs.oracle.com/javase/8/docs/technotes/tools/unix/native2ascii.html[native2ascii] to convert any special characters in the configuration files to Unicode.
 
 You also need to xref:configure-client-of-bonita-bpm-engine.adoc[configure connection on Bonita Engine] for the LDAP Synchronizer.
