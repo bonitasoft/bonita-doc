@@ -1,7 +1,7 @@
 = What is Bonita?
-:description: A useful overview of our purpose, the automation project artifacts, and the Bonita Platform architecture.
+:description: An overview of our purpose, of the Bonita platform components, and of all the elements that together make a greate automation project in Bonita.
 
-A useful overview of Bonita Platform's purpose, the concepts used throughout the platform, and its high-level architecture.
+{description}
 
 [.card-section]
 == Bonita 
@@ -12,11 +12,11 @@ xref:bonita-purpose.adoc[[.card-title]#Bonita's purpose# [.card-body.card-conten
 
 [.card.card-index]
 --
-xref:project-structure.adoc[[.card-title]#Bonita project structure# [.card-body.card-content-overflow]#pass:q[Good to know to be fluent in Bonita]#]
+xref:bonita-bpm-overview.adoc[[.card-title]#Bonita components# [.card-body.card-content-overflow]#pass:q[Get under the hood, at high level]#]
 --
 
 [.card.card-index]
 --
-xref:bonita-bpm-overview.adoc[[.card-title]#Bonita components# [.card-body.card-content-overflow]#pass:q[Get under the hood, at high level]#]
+xref:project-structure.adoc[[.card-title]#Bonita project structure# [.card-body.card-content-overflow]#pass:q[Good to know to be fluent in Bonita]#]
 --
 
