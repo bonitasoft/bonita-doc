@@ -113,11 +113,15 @@ See xref:#_configuration_file_changes[the related changes] done to specific conf
 ==== JAAS authentication is now Enterprise
 
 From version 2021.2, JAAS Authentication is only available in the Enterprise edition. +
-If you are updating from a 2021.1 or earlier version, in the Community edition, you will need to xref:BonitaBPM_platform_setup.adoc[change your configuration] file `authenticationManager-config.properties`
+If you are updating from a 2021.1 or earlier version, in the Community edition, you will need to xref:bonita-bpm-platform-setup.adoc[change your configuration] file `authenticationManager-config.properties`
 and remove the JAAS configuration to use another Authentication Manager (an implementation of your own, for instance).
 
 ==== Process Manager profile navigation
 As part of the update of Bonita Portal into Bonita Applications, we have not reimplemented the pages for the profile Process Manager, a new documentation page will explain how to rebuild and customize the bonita administrator application to handle the process management capabilities.
+
+==== LDAP Synchronizer
+* LDAP Synchronizer is now available as a Docker image. xref:ldap-synchronizer.adoc#_using_the_ldap_synchronizer_docker_image[See the documentation]
+* A new property `tenantId` can be set to avoid having to use the platform admin credentials. xref:ldap-synchronizer.adoc#_bonita_properties[See the documentation]
 
 == Technical updates
 
