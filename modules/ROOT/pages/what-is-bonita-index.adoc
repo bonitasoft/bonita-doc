@@ -5,19 +5,19 @@
 
 Bonita Platform accelerates the development, go-to-production, and maintenance of automation projects. +
 While allowing users to execute tasks that impact their business data, it also efficiently integrates with existing information systems and orchestrates heterogeneous systems, some of them being https://www.bonitasoft.com/robotic-process-automation[soft robots]. +
-It provides deep visibility of process execution across the organization through its provided end-user applications but also the Living applications that the project team can build to perfectly fit the business needs. 
+It provides deep visibility of process execution across the organization through its provided end-user applications but also, when needed, the xref:applications.adoc[Living applications] the project team can build to perfectly fit the business needs. 
 
-Bonita Platform is made of three main components: for the development phase of the project: xref:bonita-studio.adoc[*Bonita Studio*]; for the various runtime phases, xref:bonita-bpm-overview.adoc#platform[*Bonita Runtime*]; and to ease the iterative deployment of the project from environment to environment, https://documentation.bonitasoft.com/bcd/latest/[*Bonita Continuous Delivery*]. +
+Bonita Platform is made of three main components: for the development phase of the project: xref:bonita-studio.adoc[*Bonita Studio*]; for the various runtime phases, xref:bonita-bpm-overview.adoc#platform[*Bonita Runtime*](who runs the end-users applications); and to ease the iterative deployment of the project from environment to environment, https://documentation.bonitasoft.com/bcd/latest/[*Bonita Continuous Delivery*]. +
 
 Bonita Studio offers a separation between visual coding capabilities and Java/web coding capabilities, to enable an efficient teamwork between business and technical teams. +
-While the citizen developers input the business aspects of the projects (process, data, main aspects of the user interfaces), the professional developers support the project by taking care of the technical translation and behavior of the business elements, and by coding what makes the project unique: they create what we call xref:managing-extension-studio.adoc[extensions] that they contribute to the projects as Maven dependencies.
+While the citizen developers input the business aspects of the projects (process, data, main aspects of the user interfaces), the professional developers support the project by taking care of the technical translation and behavior of the business elements, and by coding what makes the project unique: they create what we call xref:managing-extension-studio.adoc[extensions] that they contribute to the projects as Maven dependencies. +
 
-Both parts of this unified project team use BPMN (Business Process Model and Notation) as their common language, and can rely on the xref:project-documentation-generation.adoc[project documentation] to share the project vision, needs, and achievements.
+Both parts of this unified project team use BPMN (Business Process Model and Notation) as their common language, and can rely on the xref:project-documentation-generation.adoc[project documentation] to share the project vision, needs, and achievements. +
 
 With the Open Source edition *Community*, experiment the value of the platform, create, and operate pretty complex projects. +
 For core and critical projects, for enterprise-grade performance and for support, choose our edition per subscription: the https://www.bonitasoft.com/pricing[*Enterprise* edition]. +
 
-On top of the Enterprise edition, Bonita Runtime can be deployed in xref:overview-of-bonita-bpm-in-a-cluster.adoc[clusters].
+On top of the Enterprise edition, Bonita Runtime can be deployed in xref:overview-of-bonita-bpm-in-a-cluster.adoc[clusters]. +
 Alternatively, you can choose to let us supervise your runtime environments by choosing https://documentation.bonitasoft.com/cloud/latest/[Bonita Cloud].
 
 [.card-section]
