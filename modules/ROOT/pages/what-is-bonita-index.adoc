@@ -4,7 +4,7 @@
 {description}
 
 Bonita Platform accelerates the development, go-to-production, and maintenance of automation projects. +
-While allowing users to execute tasks that impact their business data, it also efficiently integrates with existing information systems and orchestrates heterogeneous systems, and even https://www.bonitasoft.com/robotic-process-automation[soft robots].
+While allowing users to execute tasks that impact their business data, it also efficiently integrates with existing information systems and orchestrates heterogeneous systems, some of them being https://www.bonitasoft.com/robotic-process-automation[soft robots]. +
 It provides deep visibility of process execution across the organization through its provided end-user applications but also the Living applications that the project team can build to perfectly fit the business needs. 
 
 Bonita Platform is made of three main components: for the development phase of the project: xref:bonita-studio.adoc[*Bonita Studio*]; for the various runtime phases, xref:bonita-bpm-overview.adoc#platform[*Bonita Runtime*]; and to ease the iterative deployment of the project from environment to environment, https://documentation.bonitasoft.com/bcd/latest/[*Bonita Continuous Delivery*]. +
