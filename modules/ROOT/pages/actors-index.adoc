@@ -6,6 +6,7 @@
 _"The user who performed the previous task"_ or _"The manager of the user who did the previous human task"_ are actors too ; but since they are not directly linked to the organization, they are called "Actor filters". +
 
 Technically, they have the same structure than connectors. Bonita provides some actor filters, and developers can create their own. +
+
 Discover more in the following pages.
 
 [.card-section]
