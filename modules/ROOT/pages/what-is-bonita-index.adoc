@@ -1,7 +1,20 @@
 = What is Bonita?
-:description: A useful overview of our purpose, the automation project artifacts, and the Bonita Platform architecture.
+:description: Bonita is an open-source and extensible platform for business process automation and optimization.
 
-A useful overview of Bonita Platform's purpose, the concepts used throughout the platform, and its high-level architecture.
+{description}
+
+Bonita Platform accelerates the development, go-to-production, and maintenance of process-based business applications. +
+It integrates with existing information systems, orchestrates heterogeneous systems, and provides deep visibility of process execution across the organization. +
+
+Bonita Platform is made of three main components: for the development phase of the project: xref:bonita-studio.adoc[*Bonita Studio*]; for the various runtime phases, xref:bonita-bpm-overview.adoc#platform[*Bonita Runtime*]; to ease the iterative deployment of the project from environment to environment, xref:https://documentation.bonitasoft.com/bcd/latest/[*Bonita Continuous Delivery*] (only available with the Subscription editions). +
+
+Bonita Studio offers a separation between visual coding capabilities and Java/web coding capabilities, to enable an efficient teamwork between business and technical teams. +
+Citizen developers input the business aspects of the project (process, data, main aspects of the user interfaces), and the professional developers support the project by coding what makes the project special; they create what we call xref:managing-extension-studio.adoc[extensions].
+
+Both teams use BPMN (Business Process Model and Notation) as their common language.
+
+With the Open Source edition, *Community*, you can experiment the value of the platform, create, and operate pretty complex projects. +
+For core and critical projects, for enterprise-grade performance and for support, choose our edition per subscription: the https://www.bonitasoft.com/pricing[*Enterprise* edition]. +
 
 [.card-section]
 == Bonita 
