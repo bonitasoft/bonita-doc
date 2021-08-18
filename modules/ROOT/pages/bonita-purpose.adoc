@@ -1,31 +1,29 @@
 = Bonita's purpose
-:description: Bonita is an open-source and extensible platform for business process automation and optimization. Bonita Platform accelerates the development and production of business applications, with clear separation between capabilities for visual programming and for coding. +
+:description: This page gives an overview of the business use-cases Bonita helps solve.
 
 {description}
 
-BPMN (Business Process Modeling Notation), full extensibility, and reusable components allow smooth collaboration among the different profiles on the IT team, and with the business teams. +
-Bonita integrates with existing information systems, orchestrates heterogeneous systems, and provides deep visibility into processes across the organization.
+Digital Process Automation (DPA), the core of Bonita Platform, is applicable to a wide range of use cases: applications can go from loan request management, to student application processes, to analytical processes in drug discovery - and more! You can find the various industries where Bonita is used as well as use cases from our https://www.bonitasoft.com/industries[website dedicated page].
 
-Bonita Platform has two components: the development environment, Bonita Studio, and the runtime environment, Bonita Runtime.
+== Processes that need automation
 
-== What can I do with Bonita?
+Some business processes do not need to be automated. Their execution stays in the scope of one team, the data they handle does not need to be retrieved nor sent from/to many places, nor undergo transformations from one step to the other, the execution of each instance does not need traceability nor reminders, and there is no need of reporting about their execution. +
+In two words, such processes are not critical to the company's business: it is good when their execution is flawless, but it is ok if there is a little delay sometimes too.
 
-Bonita is a Digital Process Automation (DPA) platform that allows you to create applications based on processes. Processes can be partially automated (if involving users) or fully automated.
+For all other processes, automation is more than welcome.
 
-DPA, available with all Bonita editions, is applicable to a wide range of use cases: applications can go from loan request management, to student application processes, to analytical processes in drug discovery - and more! You can find the various industries where Bonita is used as well as use cases from our https://www.bonitasoft.com/industries[website dedicated page].
+== The automation types
 
-Starting with Bonita 7.10, you can also handle Adaptive Case Management (ACM) with Bonita.
-ACM is like DPA in the sense that it allows to handle cases with some automation. But it also relies on strong principles that make it different from DPA:
+Some processes need a chain of technical systems actions to take place in specific amount of time, with no errors. Although humans will supervise that the execution goes well, specific user interfaces might not be needed: error monitoring and a few database queries can do the supervising job.
 
-* Empower the actors:
-Actors in charge of the case have some autonomy to lead the case to its closure: not all process paths are pre-determined. Some tasks are optional, some are discretionnary.
-Actors' specific knowledge make them fully able to choose the right next action for a case.
-* Expect the unexpected:
-A case can be stopped, resumed and can even change its state at any time without a path being predefined. New tasks may need to be created on the fly to reflect the specificity of a case while still benefiting from traceability.
-* Adapt to the context: case type and state define the availability of tasks following a set of business rules. Those rules must be editable on the fly.
-* Center on data: Case execution is not centered around a strict process, but around case data to create and update.
+For all other processes, user interfaces are more than welcome, in the form of business applications, running processes in the background.
 
-To learn more about how to use ACM capabilities in Bonita, check the dedicated xref:use-bonita-acm.adoc[documentation].
+== The business applications types 
 
-== Overview of the Bonita solution architecture
+This is where business analysts need to take one step aside and look at the overall way the end-users work. +
+
+* Their job may require to be process-centric and do tasks from different processes as they appear in their todo list, with some filtering options. The task-list application is what you need. As an option, team coordinators can pre-sort and assign tasks as they become available, let the team organize themselves, or have the assignment criteria implemented in the process xref:actors.adoc[actor mapping]. Bonita provides such a task list in the xref:user-application-overview.adoc[User application].
+* Their job may require to be data-centric, with very standardized processes creating, modifying and sharing data in a consisteny way. In this case, a BPM approach with a Living application displaying lists of cases (requests, claims, invoices, tickets,...) to handle is the right way to go.
+* Their job may require to be data-centric and manage each case in a specific way due to some conditions. They may need to skip some tasks, add others, so the process can be partially structured and partially open to changes decided by the knowledge workers. In this case, an xref:use-bonita-acm.adoc[Adaptive Case Management] (ACM) approach, with specific process design and user interfaces, is right for them.
+
 
