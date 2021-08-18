@@ -1,5 +1,7 @@
 = Process configuration 
-:description: How to configure your processes for a given environment.
+:description: This pages describes how to configure your processes for a given environment.
+
+{description} 
 
 Bonita Studio provides a dedicated tooling to configure the different artefacts that are part of a process.
 
