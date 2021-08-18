@@ -11,7 +11,7 @@ Bonita Platform is made of three main components:
 
 * xref:bonita-studio.adoc[*Bonita Studio*] for the development phase of the projects
 * xref:bonita-bpm-overview.adoc#platform[*Bonita Runtime*] for the various runtime phases, running the BPM engine and the applications
-* https://documentation.bonitasoft.com/bcd/latest/[*Bonita Continuous Delivery*], to ease the iterative deployment of the projects from environment to environment +
+* https://documentation.bonitasoft.com/bcd/latest/[*Bonita Continuous Delivery*] to ease the iterative deployment of the projects from environment to environment +
 
 Bonita Studio offers a separation between visual coding capabilities and Java/web coding capabilities, to enable an efficient teamwork between business and technical teams. +
 While the citizen developers input the business aspects of the projects (process, data, main aspects of the user interfaces), the professional developers support the projects by taking care of the technical translation and behavior of the business elements, and by coding what makes each project unique: they create what we call xref:managing-extension-studio.adoc[extensions] that they contribute to the projects as Maven dependencies. +
