@@ -1,24 +1,29 @@
 = Bonita's purpose
-:description: This page gives an overview of the business use-cases Bonita helps solve.
+:description: This page gives an overview of the business use-cases Bonita helps solve, both through industry verticals and types of automation projects.
 
 {description}
 
+== Industry verticals
+
 Digital Process Automation (DPA), the core of Bonita Platform, is applicable to a wide range of use cases: applications can go from loan request management, to student application processes, to analytical processes in drug discovery - and more! You can find the various industries where Bonita is used as well as use cases from our https://www.bonitasoft.com/industries[website dedicated page].
 
-== Processes that need automation
+== Types of automation projects
+
+=== The need for automation
 
 Some business processes do not need to be automated. Their execution stays in the scope of one team, the data they handle does not need to be retrieved nor sent from/to many places, nor undergo transformations from one step to the other, the execution of each instance does not need traceability nor reminders, and there is no need of reporting about their execution. +
-In two words, such processes are not critical to the company's business: it is good when their execution is flawless, but it is ok if there is a little delay sometimes too.
+In two words, such processes are _not critical_ to the company's business: it is good when their execution is flawless, but it is ok if there is a little delay sometimes too.
 
 For all other processes, automation is more than welcome.
 
-== The automation types
+=== The automation types
 
-Some processes need a chain of technical systems actions to take place in specific amount of time, with no errors. Although humans will supervise that the execution goes well, specific user interfaces might not be needed: error monitoring and a few database queries can do the supervising job.
+Some processes need a chain of technical systems actions to take place in a target duration, with no errors. +
+Although humans will supervise that the execution goes well, specific user interfaces might not be needed: technical error monitoring on a console and a few database queries that regularly compute KPIs can do the supervising job.
 
-For all other processes, user interfaces are more than welcome, in the form of business applications, running processes in the background.
+For all other processes, user interfaces are more than welcome, in the form of business applications running processes in the background.
 
-== The business applications types 
+=== The business applications types 
 
 This is where business analysts need to take one step aside and look at the overall way the end-users work. +
 
