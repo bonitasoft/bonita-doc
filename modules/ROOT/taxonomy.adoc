@@ -75,7 +75,6 @@
     **** xref:uipath.adoc[UiPath]
     **** xref:web-service-connector-overview.adoc[Web service]
  ** xref:process-configuration-index.adoc[Process configuration]
-  *** xref:process-configuration-overview.adoc[Overview]
   *** xref:environments.adoc[Environments]
   *** xref:configuring-a-process.adoc[Configure a process]
   *** xref:managing-dependencies.adoc[Manage process dependencies]
