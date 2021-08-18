@@ -1,14 +1,20 @@
 = Process configuration 
-:description: Configure your processes for a given environment
+:description: How to configure your processes for a given environment.
+
+Bonita Studio provides a dedicated tooling to configure the different artefacts that are part of a process.
+
+There are two reasons for configuring a process:
+
+* Configuring a process for testing
+* Configuring a process before deployment
+
+Before you can run a process from Bonita Studio for testing, you must configure it. The configuration is partly set implicitly by the Deployment and Web preferences set as Bonita Studio preferences and is partly set explicitly by configuring the process using the configuration wizard.
+
+Before you export a process for deployment, you need to set the initial configuration using the configuration wizard. This configuration is exported with the process if you check the Configuration option in the export dialog when you build a .bar archive. If you are using the Enterprise or the Performance edition, you can update the configuration after deployment. For other editions, you can modify the actor mapping only.
 
 {description}
 [.card-section]
-== Configure processes per environment
-
-[.card.card-index]
---
-xref:process-configuration-overview.adoc[[.card-title]#Overview# [.card-body.card-content-overflow]#pass:q[What is a process configuration]#]
---
+== Learn more
 
 [.card.card-index]
 --
@@ -19,7 +25,6 @@ xref:environments.adoc[[.card-title]#Environments# [.card-body.card-content-over
 --
 xref:configuring-a-process.adoc[[.card-title]#Configure a process# [.card-body.card-content-overflow]#pass:q[What is configurable in a process]#]
 --
-
 
 [.card.card-index]
 --
