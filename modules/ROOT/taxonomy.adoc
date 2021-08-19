@@ -79,7 +79,6 @@
   *** xref:managing-dependencies.adoc[Manage process dependencies]
  ** xref:project-deploy-in-dev-suite.adoc[Project deployment in Bonita Studio]
  ** xref:process-testing-index.adoc[Process testing]
-  *** xref:process-testing-overview.adoc[Overview]
   *** xref:configure-a-test-organization.adoc[Configure a test organization]
   *** xref:run-a-process-from-bonita-bpm-studio-for-testing.adoc[Run a process from Bonita Studio for testing]
   *** xref:log-files.adoc[Log files]
