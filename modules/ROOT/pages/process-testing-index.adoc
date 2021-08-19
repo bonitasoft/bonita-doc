@@ -27,17 +27,17 @@ When you have finished developing your process, we also recommend that you perfo
 
 [.card.card-index]
 --
-xref:configure-a-test-organization.adoc[[.card-title]#Configure a test organization# [.card-body.card-content-overflow]#pass:q[Test organization only needs to recreate the main entities of the target organization]#]
+xref:configure-a-test-organization.adoc[[.card-title]#Configure a test organization# [.card-body.card-content-overflow]#pass:q[Create only the main entities of the target organization]#]
 --
 
 [.card.card-index]
 --
-xref:configuring-a-process.adoc[[.card-title]#Configure a process# [.card-body.card-content-overflow]#pass:q[Configuration prepares each process to be deployed in each target environment]#]
+xref:configuring-a-process.adoc[[.card-title]#Configure a process# [.card-body.card-content-overflow]#pass:q[Prepare each process to be deployed in each target environment]#]
 --
 
 [.card.card-index]
 --
-xref:run-a-process-from-bonita-bpm-studio-for-testing.adoc[[.card-title]#Run a process from Bonita Studio# [.card-body.card-content-overflow]#pass:q[Run simulates the final process execution]#]
+xref:run-a-process-from-bonita-bpm-studio-for-testing.adoc[[.card-title]#Run a process from Bonita Studio# [.card-body.card-content-overflow]#pass:q[Simulate the final process execution]#]
 --
 
 [.card.card-index]
