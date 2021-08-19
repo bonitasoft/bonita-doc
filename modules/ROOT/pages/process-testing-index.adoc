@@ -1,14 +1,29 @@
 = Process testing 
-:description: blabla
+:description: 
 
-blabla
+{description} 
+
+== Functional testing
+Bonita Studio contains several features that you can use to verify your processes and their elements while the project is in development:
+
+* Connectors testing: go to *Test connector* in the _Development_ menu.
+* Expressions testing: use the *Evaluate* feature of the Expression editor.
+* Process diagram validation: choose *Validate* from the _Diagram_ menu, or go to the _Details_ panel, _Validation status_ tab and click *Refresh*. The _Details_ panel contains a list of warnings and errors indicating things to correct in the diagram. Click on a row in the list to highlight the relevant item in the diagram.
+* Process local run: Select the process pool and click on the *Run* icon of the studio coolbar. The processes are deployed in the embedded Tomcat, and made available in Bonita provided applications. +
+
+If you have already created your own xref:actors-index.adoc[actors] for your lanes and human tasks, you need to map them to entities of your test organization before you run your processes. To do so: 
+
+. Create your test xref:organization-overview.adoc[organization]
+. Select the process pool
+. Click on the *Configure* icon of the Studio coolbar and configure the _Actor mapping_
+
+== Performance testing
+In addition to functional testing during development, we recommend that you monitor the system load. This will help evaluate the performance, so you can make your processes efficient.
+
+When you have finished developing your process, we also recommend that you perform a load test with the expected number of simultaneous users of the project, and a realistic rate of use of the processes. This will help you evaluate the size of the platform (CPU, RAM, etc.) you will need when the project goes into production.
+
 [.card-section]
-== Test your processes in Bonita Studio
-
-[.card.card-index]
---
-xref:process-testing-overview.adoc[[.card-title]#Overview# [.card-body.card-content-overflow]#pass:q[TODO]#]
---
+== Learn more
 
 [.card.card-index]
 --
