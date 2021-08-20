@@ -7,7 +7,7 @@ In this tutorial we show how to install Tomcat with Bonita configured as a Windo
 
 For this tutorial you will need the following softwares:
 
-* Tomcat Windows service installer '
+* Tomcat Windows service installer
 * Bonita Tomcat Bundle
 * Postgresql Database (or another database supported by Bonita)
 
