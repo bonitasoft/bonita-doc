@@ -56,7 +56,7 @@ Connector configuration:
            noCompressionUserAgents="gozilla, traviata" />
 ----
 
-Official Tomcat documentation for https://tomcat.apache.org/tomcat-8.5-doc/config/http.html[HTTP Configuration].
+Official Tomcat documentation for https://tomcat.apache.org/tomcat-9.0-doc/config/http.html[HTTP Configuration].
 
 == Check changes
 

@@ -129,6 +129,9 @@ As part of the update of Bonita Portal into Bonita Applications, we have not rei
 
 Bonita 2021.2 is now only compatible with Java 11. Support with Java 8 has now been removed.
 
+=== Tomcat
+
+Tomcat has been updated to the version 9.0.52.
 
 === Libraries
 

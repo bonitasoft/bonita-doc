@@ -142,7 +142,7 @@ If you are running Bonita Engine inside a container, the maximum number of clien
 
 * *Apache Tomcat* `maxThreads` set in _`Tomcat_folder`_`/conf/server.xml`. +
    Default value 20.
-   See the http://tomcat.apache.org/tomcat-8.5-doc/[Tomcat documentation] for information about the `maxThreads` parameter.
+   See the http://tomcat.apache.org/tomcat-9.0-doc/[Tomcat documentation] for information about the `maxThreads` parameter.
 
 [#work_service]
 
