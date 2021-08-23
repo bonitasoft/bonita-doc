@@ -344,15 +344,15 @@ If the single logout flow supported by your IdP is not the same as the one suppo
 
 == image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
-To troubleshoot SSO login issues, you need to add a logging handler for the package `org.keycloak` and increase the xref:logging.adoc[log level] to `ALL` for the packages `org.bonitasoft`, `com.bonitasoft`, and `org.keycloak` in order for errors to be displayed in the log files bonita-*.log (by default, they are not).
+To troubleshoot SSO login issues, you need to increase the xref:logging.adoc[log level] to `FINE` for the packages `org.bonitasoft`, `com.bonitasoft`, and `ALL` for `org.keycloak` in order for errors to be displayed in the log files `bonita-*.log` (by default, they are not).
 
 In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/logging.properties.
 
-* Add the lines:
+* Make sure the following lines are not commented or add them if they are not present (the syntaxe of the first line with `class\` is necessary because of the way the loggers are created in Keycloak):
 
 [source,properties]
 ----
-org.keycloak.handlers = 5bonita.org.apache.juli.AsyncFileHandler
+class\ org.keycloak.level = ALL
 org.keycloak.level = ALL
 ----
 
