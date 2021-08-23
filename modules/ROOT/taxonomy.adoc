@@ -274,7 +274,7 @@
   *** xref:how-an-event-is-executed.adoc[How an event is executed]
   *** xref:how-a-bdm-is-deployed.adoc[How a BDM is handled in the code]
   *** xref:fault-tolerance.adoc[Fault tolerance mechanisms]
- ** xref:runtime-tuning-index.adoc[Optimization]
+ ** xref:runtime-optimization-index.adoc[Optimization]
   *** xref:runtime-monitoring.adoc[Runtime monitoring]
   *** xref:work-execution-audit.adoc[Work execution audit]
   *** xref:performance-troubleshooting.adoc[Performance troubleshooting]
