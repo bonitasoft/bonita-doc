@@ -1,7 +1,7 @@
-= Back up Bonita Platform
-:description: To provide continuity, regular backups of the platform (clustered or not) is advised.
+= Bonita Runtime back up
+:description: To provide continuity, regular backups of Bonita Runtime (clustered or not) are advised.
 
-To provide continuity, regular backups of the platform (clustered or not) is advised.
+{description}
 
 == Procedure
 
