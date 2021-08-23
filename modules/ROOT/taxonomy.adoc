@@ -282,7 +282,7 @@
   *** xref:maintenance-operation.adoc[Bonita Runtime maintenance operations]
   *** xref:purge-tool.adoc[Purging unnecessary archive data]
    **** xref:purge-tool-changelog.adoc[Purge tool changelog]
-  *** xref:use-gzip-compression.adoc[Using gzip compression]
+  *** xref:use-gzip-compression.adoc[Tomcat gzip compression]
 * Security
   ** xref:csrf-security.adoc[CSRF security]
   ** xref:enable-cors-in-tomcat-bundle.adoc[Enable CORS in Tomcat bundle]
