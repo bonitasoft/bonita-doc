@@ -4,7 +4,7 @@
 {description}
 
 [.card-section]
-== four steps to full power
+== Four steps to full power
 
 [.card.card-index]
 --
