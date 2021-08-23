@@ -13,7 +13,7 @@ xref:runtime-monitoring.adoc[[.card-title]#Monitoring# [.card-body.card-content-
 
 [.card.card-index]
 --
-xref:performance-troubleshooting.adoc[[.card-title]#Troubleshooting# [.card-body.card-content-overflow]#pass:q[The right checklist to identify the area(s) to improve]#]
+xref:performance-troubleshooting.adoc[[.card-title]#Performance troubleshooting# [.card-body.card-content-overflow]#pass:q[The right checklist to identify the area(s) to improve]#]
 --
 
 [.card.card-index]
