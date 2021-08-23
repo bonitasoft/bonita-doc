@@ -18,7 +18,7 @@ xref:runtime-configuration-index.adoc[[.card-title]#Configuration# [.card-body.c
 
 [.card.card-index]
 --
-xref:runtime-administration-index.adoc[[.card-title]#Project Administration# [.card-body.card-content-overflow]#pass:q[The capabilities to add and update the projects elements on Bonita Runtime]#]
+xref:runtime-administration-index.adoc[[.card-title]#Project Administration# [.card-body.card-content-overflow]#pass:q[The capabilities to add and update projects elements on Bonita Runtime]#]
 --
 
 [.card.card-index]
@@ -28,5 +28,5 @@ xref:engine-deep-dive-index.adoc[[.card-title]#Bonita Engine deep dive# [.card-b
 
 [.card.card-index]
 --
-xref:runtime-optimization-index.adoc[[.card-title]#Optimization# [.card-body.card-content-overflow]#pass:q[Monitoring, Troublshooting, and Tuning capabilities]#]
+xref:runtime-optimization-index.adoc[[.card-title]#Optimization# [.card-body.card-content-overflow]#pass:q[Monitoring, Troubleshooting, and Tuning capabilities]#]
 --
