@@ -1,20 +1,28 @@
-= Runtime tuning 
-:description: blabla
+= Runtime optimization 
+:description: This section describes the best practices to monitor how Bonita Runtime performs, detect where issues may arise and tune it to fit your usage. 
 
-blabla
+{description}
+
 [.card-section]
-== Monitoring, troubleshooting, and fine tuning
+== four steps to full power
+
 [.card.card-index]
 --
-xref:xx.adoc[[.card-title]#xx# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:runtime-monitoring.adoc[[.card-title]#Monitoring# [.card-body.card-content-overflow]#pass:q[What to monitor in a Runtime environment, and how]#]
 --
 
 [.card.card-index]
 --
-xref:xx.adoc[[.card-title]#xx# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:performance-troubleshooting.adoc[[.card-title]#Troubleshooting# [.card-body.card-content-overflow]#pass:q[The right checklist to identify the area(s) to improve]#]
 --
 
 [.card.card-index]
 --
-xref:xx.adoc[[.card-title]#xx# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:performance-tuning.adoc[[.card-title]#Performance tuning# [.card-body.card-content-overflow]#pass:q[All the knobs and switches to play with]#]
 --
+
+[.card.card-index]
+--
+xref:maintenance-operation.adoc[[.card-title]#Maintenance operations# [.card-body.card-content-overflow]#pass:q[The regular cleaning steps for healthy production environments]#]
+--
+
