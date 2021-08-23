@@ -257,7 +257,7 @@
      ****** xref:cases.adoc[Case list]
      ****** xref:admin-application-task-list.adoc[Task list]
   *** xref:cluster-administration.adoc[Cluster administration]
-  *** xref:back-up-bonita-bpm-platform.adoc[Runtime back up]
+  *** xref:back-up-bonita-bpm-platform.adoc[Runtime backups]
  ** Bonita Engine deep dive
   *** xref:engine-architecture-overview.adoc[Architecture overview]
   *** xref:engine-flow-node-states.adoc[Flow node states]
