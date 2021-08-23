@@ -334,7 +334,7 @@ To setup Bonita for global logout:
 
 . Set the `saml.logout.global` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/`.
 . Update the SingleLogoutService section of `keycloak-saml.xml` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/` to match your Identity Provider configuration and set the property `logoutPage` with he URL of your Bonita server (this is the URL the users will be redirected to once the logout operation succeeded).
-. Update your Identity Provider configuration to setup the Logout Service POST/Redirect Binding URL to <Bonita_server_URL>/bonita/samlLogout?redirect=true
+. Update your Identity Provider configuration to setup the Logout Service POST/Redirect Binding URL to `<Bonita_server_URL>/bonita/samlLogout?redirect=true`
 
 [NOTE]
 ====
