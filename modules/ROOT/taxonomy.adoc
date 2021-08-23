@@ -275,7 +275,7 @@
   *** xref:how-a-bdm-is-deployed.adoc[How a BDM is handled in the code]
   *** xref:fault-tolerance.adoc[Fault tolerance mechanisms]
  ** xref:runtime-optimization-index.adoc[Optimization]
-  *** xref:runtime-monitoring.adoc[Runtime monitoring]
+  *** xref:runtime-monitoring.adoc[Monitoring]
   *** xref:work-execution-audit.adoc[Work execution audit]
   *** xref:performance-troubleshooting.adoc[Performance troubleshooting]
   *** xref:performance-tuning.adoc[Performance tuning]
