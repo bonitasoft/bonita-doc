@@ -1,4 +1,4 @@
-= Bonita Runtime back up
+= Bonita Runtime backups
 :description: To provide continuity, regular backups of Bonita Runtime (clustered or not) are advised.
 
 {description}
