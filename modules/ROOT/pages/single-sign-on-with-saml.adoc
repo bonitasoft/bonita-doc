@@ -364,8 +364,6 @@ org.bonitasoft.level = FINE
 com.bonitasoft.level = FINE
 ----
 
-Edit the _logger_ tags which _category_ matches `org.bonitasoft` and `com.bonitasoft` packages: change the _level_ _name_ attribute of each _logger_ to `ALL` and add a new logger with the _category_ `org.keyclock` (also with a _level_ _name_ set to `ALL`).
-
 === Common error examples
 
 ****
