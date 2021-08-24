@@ -23,12 +23,12 @@ xref:licenses.adoc[[.card-title]#Licenses# [.card-body.card-content-overflow]#pa
 
 [.card.card-index]
 --
-xref:set-log-and-archive-levels.adoc[[.card-title]#Set recording levels# [.card-body.card-content-overflow]#pass:q[Define what you need to know about process execution (logs, archives)]#]
+xref:set-log-and-archive-levels.adoc[[.card-title]#Recording levels# [.card-body.card-content-overflow]#pass:q[Define what you need to know about process execution (logs, archives)]#]
 --
 
 [.card.card-index]
 --
-xref:configurable-archive.adoc[[.card-title]#Configure the archiving of BPM elements# [.card-body.card-content-overflow]#pass:q[Finely select the BPM elements you need to archive]#]
+xref:configurable-archive.adoc[[.card-title]#Archives# [.card-body.card-content-overflow]#pass:q[Precisely select the BPM elements you need to archive]#]
 --
 
 [.card.card-index]
