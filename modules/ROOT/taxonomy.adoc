@@ -142,8 +142,9 @@
   *** xref:multi-language-applications.adoc[Multi-language applications]
   *** xref:multi-language-pages.adoc[Multi-language pages]
   *** xref:languages.adoc[Languages]
+* xref:software-extensibility.adoc[Extensions]
 * Integration
- ** xref:event-handlers.adoc[How to create an event handler]
+ ** xref:event-handlers.adoc[Event handler]
 * xref:api-index.adoc[API]
  ** REST API
   *** xref:rest-api-overview.adoc[Overview]
