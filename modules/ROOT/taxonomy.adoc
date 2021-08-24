@@ -220,7 +220,7 @@
   *** Bonita in a cluster
    **** xref:overview-of-bonita-bpm-in-a-cluster.adoc[Overview of Bonita in a cluster]
    **** xref:install-a-bonita-bpm-cluster.adoc[Install a Bonita cluster]
-  *** xref:custom-deployment.adoc[Custom Deployment into existing Tomcat installation]
+  *** xref:custom-deployment.adoc[Custom Tomcat installation]
   *** Platform installation examples
    **** xref:ubuntu-openjdk-tomcat-postgresql.adoc[Ubuntu + OpenJDK + Tomcat + PostgreSQL]
    **** xref:bonita-as-windows-service.adoc[Install Tomcat with Bonita as a service in Windows]
