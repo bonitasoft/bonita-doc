@@ -1,7 +1,8 @@
-= Logging and archiving of Bonita processes
-:description: How the information about your Bonita processes is recorded, and how to configure what is recorded.
+= Set recording levels
 
-How the information about your Bonita processes is recorded, and how to configure what is recorded.
+:description: This page explains how the information about your Bonita processes can be recorded, and how to configure what is recorded.
+
+{description}
 
 == Foreword
 
