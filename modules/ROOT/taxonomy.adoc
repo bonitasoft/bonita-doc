@@ -225,8 +225,9 @@
    **** xref:ubuntu-openjdk-tomcat-postgresql.adoc[Ubuntu + OpenJDK + Tomcat + PostgreSQL]
    **** xref:bonita-as-windows-service.adoc[Install Tomcat with Bonita as a service in Windows]
   *** xref:embed-engine.adoc[Embed engine - Lab]
- ** xref:bonita-bpm-platform-setup.adoc[Configuration]
-  *** xref:database-configuration.adoc[Database creation and customization to work with Bonita]
+ ** Configuration
+  *** xref:bonita-bpm-platform-setup.adoc[Runtime setup tool]
+  *** xref:database-configuration.adoc[Database configuration]
   *** xref:first-steps-after-setup.adoc[First steps after setup]
   *** xref:licenses.adoc[Licenses]
   *** xref:set-log-and-archive-levels.adoc[Set log and archive levels]
