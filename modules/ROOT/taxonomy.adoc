@@ -228,8 +228,8 @@
  ** xref:bonita-bpm-platform-setup.adoc[Configuration]
   *** xref:database-configuration.adoc[Database creation and customization to work with Bonita]
   *** xref:licenses.adoc[Licenses]
-  *** xref:set-log-and-archive-levels.adoc[Set recording levels]
-  *** xref:configurable-archive.adoc[Configurable Archive]
+  *** xref:set-log-and-archive-levels.adoc[Recording levels]
+  *** xref:configurable-archive.adoc[Archives]
   *** xref:first-steps-after-setup.adoc[First steps after setup]
  ** Administration
   *** xref:admin-application-overview.adoc[Administrator Application overview]
