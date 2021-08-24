@@ -44,3 +44,8 @@ xref:first-steps-after-setup.adoc[[.card-title]#First steps after setup# [.card-
 --
 xref:runtime-installation-index.adoc[[.card-title]#Runtime installation# [.card-body.card-content-overflow]#pass:q[The different flavors of Bonita Runtime]#]
 --
+
+[.card.card-index]
+--
+xref:upgrade-from-community-to-a-subscription-edition.adoc[[.card-title]#From Community to Enterprise# [.card-body.card-content-overflow]#pass:q[Moving to higher levels of services with Bonita]#]
+--
