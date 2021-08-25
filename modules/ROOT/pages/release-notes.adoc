@@ -64,7 +64,7 @@ A new property `bonita.tenant.work.exceptionsNumberOfFrameToLog` of `bonita-tena
 === Development suite changes
 
 ==== Expression type simplification
-2021.1 introduced a new expression editor. This new expression editor covered most of the existing editor expression type use cases.
+2021.1 introduced a new expression editor. This new expression editor coveres most of the existing editor expression type use cases.
 
 Therefore to simplify the expression flow in the Studio we are removing the following expression types:
 
