@@ -23,7 +23,7 @@ Both parts of this unified project team use BPMN (Business Process Model and Not
 
 == Editions
 With the Open Source edition *Community*, experiment the value of the platform, create, and operate pretty complex projects. +
-For core and critical projects, for enterprise-grade performance and for support, choose our edition per subscription: the https://www.bonitasoft.com/pricing[*Enterprise* edition]. +
+For core and critical projects, for enterprise-grade performance and for support, choose our edition per subscription: the https://www.bonitasoft.com/pricing[Enterprise edition]. +
 
 On top of the Enterprise edition, Bonita Runtime can be deployed in xref:overview-of-bonita-bpm-in-a-cluster.adoc[clusters]. +
 Alternatively, you can choose to let us supervise your runtime environments by choosing https://documentation.bonitasoft.com/cloud/latest/[Bonita Cloud].
