@@ -65,7 +65,7 @@ Software required for Bonita Platform (Bonita Engine and Bonita Portal).
 |
 
 | Apache Tomcat
-| 8.5.x (x > 40)
+| 9.0.X (x >= 52)
 
 | *Database*
 | (see note 2)

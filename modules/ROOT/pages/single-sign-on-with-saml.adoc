@@ -314,7 +314,7 @@ If your Bonita platform is configured to manage authentication over SAML, when u
 Therefore they are not logged out of all applications that are using the IdP.
 To avoid this, you have two options :
 
-==== Hide the logout button of the portal
+=== Hide the logout button of the portal
 
 This is the most commonly used solution. Users are logged in as long as they don't close their web browser (unless their session times out).
 To do this, set the `logout.link.hidden` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
@@ -326,7 +326,7 @@ When a user logs out from the IdP directly, Bonita Portal's session will remain 
 to the configured session timeout value upon each user interaction with the server.
 ====
 
-==== Setup Bonita platform for SAML global logout
+=== Setup Bonita platform for SAML global logout
 
 Global logout allows to log out from the Identity Provider as well as all the registered Service Providers when logging out from Bonita platform. This is sometimes required for example if users are on public computers.
 As Identity Providers do not necessarily support single logout and have different ways of handling it (there are several SAML Single Logout methods), Bonita only offers SAML global logout as an experimental feature. Meaning that this feature has only been tested with Keycloack server acting as Identity Provider.
@@ -334,8 +334,8 @@ Therefore, there is no guaranty that the global logout will work with your Ident
 To setup Bonita for global logout:
 
 . Set the `saml.logout.global` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/`.
-. Update the SingleLogoutService section of `keycloak-saml.xml` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/` to match your Identity Provider configuration and set the property `logoutPage` with he URL of your Bonita server.
-. Update your Identity Provider configuration to setup the Logout Service POST/Redirect Binding URL to <Bonita_server_URL>/bonita/samlLogout
+. Update the SingleLogoutService section of `keycloak-saml.xml` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/` to match your Identity Provider configuration and set the property `logoutPage` with he URL of your Bonita server (this is the URL the users will be redirected to once the logout operation succeeded).
+. Update your Identity Provider configuration to setup the Logout Service POST/Redirect Binding URL to `<Bonita_server_URL>/bonita/samlLogout?redirect=true`
 
 [NOTE]
 ====
@@ -345,27 +345,25 @@ If the single logout flow supported by your IdP is not the same as the one suppo
 
 == image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
-To troubleshoot SSO login issues, you need to add a logging handler for the package `org.keycloak` and increase the xref:logging.adoc[log level] to `ALL` for the packages `org.bonitasoft`, `com.bonitasoft`, and `org.keycloak` in order for errors to be displayed in the log files bonita-*.log (by default, they are not).
+To troubleshoot SSO login issues, you need to increase the xref:logging.adoc[log level] to `FINE` for the packages `org.bonitasoft`, `com.bonitasoft`, and `ALL` for `org.keycloak` in order for errors to be displayed in the log files `bonita-*.log` (by default, they are not).
 
 In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/logging.properties.
 
-* Add the lines:
+* Make sure the following lines are not commented or add them if they are not present (the syntaxe of the first line with `class\` is necessary because of the way the loggers are created in Keycloak):
 
 [source,properties]
 ----
-org.keycloak.handlers = 5bonita.org.apache.juli.AsyncFileHandler
+class\ org.keycloak.level = ALL
 org.keycloak.level = ALL
 ----
 
-* Update the existing lines (to set the level to `ALL`):
+* Update the existing lines (to set the level to `FINE`):
 
 [source,properties]
 ----
-org.bonitasoft.level = ALL
-com.bonitasoft.level = ALL
+org.bonitasoft.level = FINE
+com.bonitasoft.level = FINE
 ----
-
-Edit the _logger_ tags which _category_ matches `org.bonitasoft` and `com.bonitasoft` packages: change the _level_ _name_ attribute of each _logger_ to `ALL` and add a new logger with the _category_ `org.keyclock` (also with a _level_ _name_ set to `ALL`).
 
 === Common error examples
 

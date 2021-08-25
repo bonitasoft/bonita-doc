@@ -113,11 +113,15 @@ See xref:#_configuration_file_changes[the related changes] done to specific conf
 ==== JAAS authentication is now Enterprise
 
 From version 2021.2, JAAS Authentication is only available in the Enterprise edition. +
-If you are updating from a 2021.1 or earlier version, in the Community edition, you will need to xref:BonitaBPM_platform_setup.adoc[change your configuration] file `authenticationManager-config.properties`
+If you are updating from a 2021.1 or earlier version, in the Community edition, you will need to xref:bonita-bpm-platform-setup.adoc[change your configuration] file `authenticationManager-config.properties`
 and remove the JAAS configuration to use another Authentication Manager (an implementation of your own, for instance).
 
 ==== Process Manager profile navigation
 As part of the update of Bonita Portal into Bonita Applications, we have not reimplemented the pages for the profile Process Manager, a new documentation page will explain how to rebuild and customize the bonita administrator application to handle the process management capabilities.
+
+==== LDAP Synchronizer
+* LDAP Synchronizer is now available as a Docker image. xref:ldap-synchronizer.adoc#_using_the_ldap_synchronizer_docker_image[See the documentation]
+* A new property `tenantId` can be set to avoid having to use the platform admin credentials. xref:ldap-synchronizer.adoc#_bonita_properties[See the documentation]
 
 == Technical updates
 
@@ -125,6 +129,9 @@ As part of the update of Bonita Portal into Bonita Applications, we have not rei
 
 Bonita 2021.2 is now only compatible with Java 11. Support with Java 8 has now been removed.
 
+=== Tomcat
+
+Tomcat has been updated to the version 9.0.52.
 
 === Libraries
 
@@ -189,3 +196,9 @@ If you migrate from an earlier version of Bonita, you can now delete them if you
 * RUNTIME-34 - Install a BDM with an invalid custom query fail silently
 * RUNTIME-27 - Services resume failures after the la-deployer detects bdm deployment timeout
 * RUNTIME-23 - Installing BDM with a wrong custom query corrupts the BDM database without any rollback option
+
+== Known issues
+
+=== Email connector 
+
+The rich text editor used to edit an email message does not work on Linux since the `libwebkit2gtk-4.0-37` package has been updated to `2.32.0+`. Last known working version of the package is `2.28.1-1`. Linux users can use the plain text editor or a script expression to edit their email's message body.

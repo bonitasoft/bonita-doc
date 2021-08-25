@@ -1,12 +1,12 @@
 = Performance tuning
-:description: Learn how to tune the Bonita Engine to get optimize the performance of your platform.
+:description: Learn how to tune the Bonita Engine to optimize the performance of Bonita Runtime in your environment.
 
-Learn how to tune the Bonita Engine to get optimize the performance of your platform.
+{description} 
 
-It assumes that you are familiar with Java threads, concurrent execution, XML, DB connection pools, your DB instance, cache policies, scheduling, connectors, network speed, I/O, Java Virtual Machine configuration, JTA and transaction management. +
-You need to know how to install and configure Bonita.
+In this page, we assume that you are familiar with Java threads, concurrent execution, XML, DB connection pools, your DB instance, cache policies, scheduling, connectors, network speed, I/O, Java Virtual Machine configuration, JTA and transaction management. +
+You need to know how to xref:runtime-installation-index.adoc[install] and xref:runtime-configuration-index.adoc[configure] Bonita Runtime.
 
-This information applies primarily to the Enterprise and Performance edition, though some details also apply to the Teamwork and Efficiency editions.
+This information applies primarily to the Enterprise and Performance editions, though some details also apply to the Teamwork and Efficiency editions.
 
 It is also possible to xref:use-gzip-compression.adoc[use gzip compression] on your application server to improve performance.
 
@@ -43,8 +43,8 @@ Performance tuning checklist of best practises:
 * Tune the <<logs,log levels>> of Bonita Engine and all its dependencies.
 * Design your <<process_design,processes>> following the best practises.
 * Add a reasonable number of well-developed <<event_handlers,event handlers>>.
-* Tuned the Bonita Engine <<cron,cron jobs>> for your needs.
-* If your database is PostgreSQL, follow <<postgresql-performance-tuning,our recommendations>>.
+* Tune the Bonita Engine <<cron,cron jobs>> for your needs.
+* If your database is PostgreSQL, follow <<postgresql-performance-tuning, our recommendations>>.
 
 [#engine_access]
 
@@ -52,7 +52,7 @@ Performance tuning checklist of best practises:
 
 This section deals with performance impact of your choice of xref:engine-api-overview.adoc[Engine access mode].
 
-There are various ways to access the Engine APIs provided by Bonita Engine. Choose the most suitable access mode for your deployment, requirements, and preferences.
+There are various ways to access the Engine APIs provided by Bonita Engine. Choose the most suitable access mode for your deployment, requirements, and preferences. +
 The access modes rely on different technologies and have different benefits and drawbacks. In this section, we will describe the performance characteristics of each mode.
 
 [#local]
@@ -83,8 +83,7 @@ You can then configure other clients to use one of the remote modes but you do n
 [discrete]
 ===== HTTP
 
-The HTTP access mode is available using our natively provided link:configure-client-of-bonita-bpm-engine[bonita-client library]. It can also be used from other
-technologies like PHP, .Net or Javascript (in that case, you need to develop your our client).
+The HTTP access mode is available using our natively provided link:configure-client-of-bonita-bpm-engine[bonita-client library]. It can also be used from other technologies like PHP, .Net or Javascript (in that case, you need to develop your our client).
 
 [WARNING]
 ====
@@ -101,7 +100,7 @@ The bonita-client library
 
 * sends data over the network using the HTTP protocol using the http://hc.apache.org/index.html[Apache HttpComponents].
 open source library
-* uses a maximum of 20 connections. To change this value refer to the page xref:configure-client-of-bonita-bpm-engine.adoc[Configure connection to Bonita Engine].
+* uses a maximum of 20 connections. To change this value, refer to the page xref:configure-client-of-bonita-bpm-engine.adoc[Configure connection to Bonita Engine].
 
 Data sent is serialized using a Java library called XStream. This serialization also has a cost.
 
@@ -124,7 +123,7 @@ There are two main entry points for load on the engine:
 * *API calls* coming from outside the engine
 * *Engine-generated calls* for internal processing, specifically the *Work service* and the *Scheduler service*
 
-The Bonita Engine is an asynchronous BPM process engine.
+Bonita Engine is an asynchronous BPM process engine.
 This means that every thread that deals with process execution applies the following rule: do the minimum that makes sense in the current transaction to get to a stable state, and then continue in another transaction inside another thread. +
 The great benefit of this is that the caller is not locked while the engine processes something that might be long (such as a long sequence of tasks with connectors.).
 
@@ -138,11 +137,9 @@ The number of client threads is related to the number of parallel users.
 
 If you are running your own application, you have one thread if your applicaiton is not multi-threaded, or you have the number of threads you decided to create explicitly in the application or using your own threadpool.
 
-If you are running Bonita Engine inside a container, the maximum number of client threads is defined by a parameter of the container. For example:
-
-* *Apache Tomcat* `maxThreads` set in _`Tomcat_folder`_`/conf/server.xml`. +
-   Default value 20.
-   See the http://tomcat.apache.org/tomcat-8.5-doc/[Tomcat documentation] for information about the `maxThreads` parameter.
+If you are running Bonita Engine inside a container, the maximum number of client threads is defined by a parameter of the container. For example: *Apache Tomcat* `maxThreads` set in _`Tomcat_folder`_`/conf/server.xml`. +
+ Default value 20. +
+ See the http://tomcat.apache.org/tomcat-9.0-doc/[Tomcat documentation] for information about the `maxThreads` parameter.
 
 [#work_service]
 
@@ -168,7 +165,7 @@ It is very similar to the constructor provided in the http://docs.oracle.com/jav
 For a reminder of how the threadpool behaves, see the Queuing section of the
 http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ThreadPoolExecutor.html[ThreadPoolExecutor documentation].
 
-In the default Bonita configuration, `corePoolSize` is equal to `maximumPoolSize` because we have observed that the default implementation of the threadpool executor allocates work to available threads using a round robin algorithm.
+In the default Bonita configuration, `corePoolSize` is equal to `maximumPoolSize` because we have observed that the default implementation of the threadpool executor allocates work to available threads using a round robin algorithm. +
 Therefore, if the maximum is reached, the thread pool size is unlikely ever to reduce to `corePoolSize`, because work is always allocated to available threads. +
 The current implementation of the RejectedExecutionHandler queues the work, and reduces the system load because it does not release the caller (normal behaviour for a BlockingQueue).
 
@@ -208,7 +205,7 @@ bonita.tenant.work.sqlserver.delayOnMultipleXAResource=100
 
 The connector service executes connectors. To improve tenant isolation (and to protect against denial-of-service attacks), the default implementation of the connector service has its own thread pool and requires executes connectors in a separate thread from the worker. +
 The configuration of the thread pool of this service is independent of the configuration of the work service.
-If you have processes that use a lot of connectors, then you can have more threads to execute connectors. See xref:connectors-execution.adoc[Connector execution] page for details on how connectors are executed.
+If you have processes that use a lot of connectors, then you can have more threads to execute connectors. See the xref:connectors-execution.adoc[connector execution] page for details on how connectors are executed.
 
 The Connector service is configured in `bonita-tenant-community-custom.properties` and `bonita-tenant-sp-custom.properties` (cf link:BonitaBPM_platform_setup[platform setup])
 
@@ -231,7 +228,7 @@ bonita.tenant.connector.timeout=300
 
 For details of these parameters, see <<work_service,Work service>>.
 
-In addition, connectors longer that 10 seconds produces a log at _warning_ level named : `org.bonitasoft.engine.core.connector.impl.ConnectorExecutionTimeLogger`.
+In addition, connectors longer that 10 seconds produce a log at _warning_ level named: `org.bonitasoft.engine.core.connector.impl.ConnectorExecutionTimeLogger`.
 This log contains all references to find exactly which connector is slow.
 
 Another log at the _debug_ level prints all input parameters of this connector.
@@ -258,7 +255,7 @@ bonita.tenant.connector.warnWhenLongerThanMillis=10000
 The Scheduler service is responsible for executing jobs. +
 A job is executed inside a thread of the scheduler service. +
 There are various kinds of jobs, some resulting from internal requirements such as API session cleaning, or batch deletion of a table row, and some related to process design such as BPMN2 events. +
-The Bonita Engine Scheduler service uses the Quartz Scheduler. Quartz takes the size of the threadpool as an input parameter.   Quartz uses threads to execute jobs concurrently.
+The Bonita Engine Scheduler service uses the Quartz Scheduler. Quartz takes the size of the threadpool as an input parameter. Quartz uses threads to execute jobs concurrently.
 
 The Scheduler service configuration is in `bonita-platform-community-custom.properties`.
 You can configure:
@@ -300,9 +297,9 @@ The desired number of parallel processing threads is the sum of the number of wo
 [discrete]
 ==== Datasources settings
 
-You need to configure the maximum pool size for datasources (the following paths are for bundle users):
+You need to configure the maximum pool size for datasources (the following paths are for bundle users).
 
-For Tomcat, edit file `setup/tomcat-templates/bonita.xml`:
+For Tomcat, edit the file `setup/tomcat-templates/bonita.xml`:
 
 * For bonitaSequenceManagerDS, set `maxTotal=”yourvalue”`.
 * For RawBonitaDS, set `maxTotal=”yourvalue”`.
@@ -312,7 +309,7 @@ For Tomcat, edit file `setup/tomcat-templates/bonita.xml`:
 
 == Volume
 
-This section deals with some aspects of engine configurations that have a performance impact in the case of high volume.
+This section deals with some aspects of the engine configurations that have a performance impact in the case of high volume.
 
 [#seq_mgr]
 
@@ -358,7 +355,8 @@ Before going into production, we encourage to finely tune the "Level-2" object c
 
 * run load tests to simulate a production environment
 * analyse the "2nd Level Cache Ratio" log messages generated, combined with the "soft-locked cache entry was expired" *warnings messages* to change the configuration in file *bonita-tenant-hibernate-cache.xml*. +
-For instance, if on entity *org.bonitasoft.engine.core.document.model.impl.SDocumentImpl*, the "soft-locked cache entry was expired" warnings message occurs, it means the size of the *maxElementsInMemory* parameter must be increased, provided it is a reasonable memory size and provided the "2nd Level Cache Ratio" is not low for this element. If the "2nd Level Cache Ratio" is low or even 0, it means the cache is never used to read several times the same entity, which means the *timeToLiveSeconds* parameter should be increased, or that the cache should be completely deactivated for this entity.
+For instance, if on entity *org.bonitasoft.engine.core.document.model.impl.SDocumentImpl*, the "soft-locked cache entry was expired" warning message occurs, it means the size of the *maxElementsInMemory* parameter must be increased, provided it is a reasonable memory size and provided the "2nd Level Cache Ratio" is not low for this element. +
+If the "2nd Level Cache Ratio" is low or even 0, it means the cache is never used to read several times the same entity, which means the *timeToLiveSeconds* parameter should be increased, or the cache should be completely deactivated for this entity.
 
 Below is an example of a "soft-locked cache entry was expired" warning message:
 
@@ -436,22 +434,21 @@ While the garbage collector is running, it prevents creation of new objects, whi
 
 This section deals with performance impact of hardware elements.
 
-Bonita performance is very correlated to the database connectivity and its behavior.
+Bonita performance is very correlated to the database connectivity and its behavior. +
 Almost everything (API call, internal processing using workers, jobs scheduling, and so on) requires a database access. +
 Two elements are critical: network latency, as in most cases your database is located on another server, and the I/O of your hard drives. +
 In case of issues, you should monitor these two elements and consider improvements. For example:
 
-* locate your database in the same datacenter as the Bonita Engine, using gigabit network connections
+* locate your database in the same datacenter as Bonita Engine, using gigabit network connections
 * use SSD hard drives, and RAID configuration with striping
 
-Network connectivity also impacts access to the engine APIs when you are not using local access, that is,
-if you are using <<http,HTTP>>, <<rest,REST>>.
+Network connectivity also impacts access to the engine APIs when you are not using local access, that is, if you are using <<http,HTTP>>, <<rest,REST>>.
 
 == Database, Transaction Manager, and logs
 
 This section is a reminder about some of the main dependencies Bonita Engine has that have a strong impact on the performance of the whole system.
 
-Bonita Engine relies on several other components that each have their own performance tuning options.
+Bonita Engine relies on several other components that each has its own performance tuning options.
 Some of them are key for the system and you should pay a lot of attention to them. +
 In most cases, the key things to consider are the <<db,database>>, <<tm,transaction manager>>, and <<logs,logs>>.
 
@@ -465,9 +462,9 @@ Bonita Engine uses the database heavily, so in consequence a slow database makes
 It is essential that the hardware configuration of the server hosting the DB is powerful, considering resources like CPU, memory or others depending on your database instance.
 
 In addition to this, make sure that your database instance is well configured. +
-Most database software provides many options for tuning, and some of them are easy to set up. +
+Most database softwares provide many options for tuning, and some of them are easy to set up. +
 Others may be more difficult and present choices between robustness and performance, fast read or fast write, etc. +
-Your database configuration must be correlated with the Bonita Engine usage pattern.
+Your database configuration must be correlated with Bonita Engine usage pattern.
 To find the right characteristic to optimize, one good starting point is to consider whether you are creating a lot of process instances (in which case optimize database writes) or you are executing a lot of read queries like `getTaskList` (in which case optimize database reads). +
 <<postgresql-performance-tuning,Specific PostgreSQL performance tuning>> is given as a database tuning reference.
 
@@ -478,7 +475,7 @@ To find the right characteristic to optimize, one good starting point is to cons
 
 Bonita Engine is natively compatible with the Java Transaction API. This means transaction management relies on a transaction manager.
 
-Bonita Platform embed https://narayana.io/[Narayana], an open source transaction manager.
+Bonita Runtime embeds https://narayana.io/[Narayana], an open source transaction manager.
 
 It uses the following configuraton file `server/conf/jbossts-properties.xml`.
 The most common configuration to change here would be `com.arjuna.ats.arjuna.coordinator.defaultTimeout` that is the timeout for transactions.
@@ -490,18 +487,18 @@ More details on the configuration can be found in the http://narayana.io/docs/pr
 ==== Logs
 
 In general, increasing the log level is useful for debugging but has a performance cost. +
-With this in mind, xref:set-log-and-archive-levels.adoc[define the log level for technical logs, queriable logs and archives].
+With this in mind, xref:set-log-and-archive-levels.adoc[define the log level for technical logs, queriable logs and archives]. +
 
-Remember that Bonita Engine dependencies also have their own log and debug options that may impact strongly the system performance.
+Remember that Bonita Engine dependencies also have their own log and debug options that may impact strongly the system performance. +
 Be sure to configure these appropriately.
 
 [#time_tracker]
 
 == Connector time tracker
 
-It is now possible to track the duration of actions in a connector using a new time tracker. The tracker service tracks several connector lifecycle operations. +
-This service can impact performance so is disabled by default. +
-It is configured by editing the following parameters in `bonita-tenant-community-custom.properties`.
+It is possible to track the duration of actions in a connector using a time tracker. The tracker service tracks several connector lifecycle operations. +
+This service can impact performance so it is disabled by default. +
+It is configured by editing the following parameters in `bonita-tenant-community-custom.properties`:
 
 [source,properties]
 ----
@@ -525,11 +522,11 @@ To activate connector time tracking:
 The other parameters can be left at their default value, left commented, or set to the desired value. What each of them does:
 
 . `maxSize` maximum of records that will be saved by the time tracker before a flush. If the maximum number of records is reached before the scheduled flush, the older ones are discared. To avoid the loss of information, a number sufficiently big in comparison with `flushIntervalInSeconds` should be chosen
-. `flushIntervalInSeconds` the interval beetween two flushes on the timetracker thread.
-. `csv.activateAtStart` wether to save the result of the timetracker into a csv file.
-. `csv.folder` the folder where to save the csv file.
+. `flushIntervalInSeconds` the interval beetween two flushes on the timetracker thread
+. `csv.activateAtStart` wether to save the result of the timetracker into a csv file
+. `csv.folder` the folder where to save the csv file
 . `csv.separator` the separator character in the csv file
-. `memory.activateAtStart` wether to save the result of the timetracker in memory.
+. `memory.activateAtStart` whether to save the result of the timetracker in memory
 . `memory.maxSize` maximum amount of records saved in memory. If the maximum number of records is reached before the scheduled flush, the older ones are discared. To avoid the loss of information, a number sufficiently big in comparison with `flushIntervalInSeconds` should be chosen
 
 The non-relevant options will be ignored at execution. Note that `memory` and `csv` can both be activated at the same time.
@@ -574,7 +571,7 @@ org.quartz.scheduler.batchTriggerAcquisitionFireAheadTimeWindow
 
 Details on these properties can be found in http://www.quartz-scheduler.org/documentation/[the Quartz documentation].
 
-They are not read subsequently, so changing the values in `bonita-tenant-community-custom.properties` after the Engine has been started has no effect on Quartz.
+They are not read subsequently, so changing the values in `bonita-tenant-community-custom.properties` after the engine has been started has no effect on Quartz.
 For value definition, and information about how to update the Quartz trigger tables, see the http://www.quartz-scheduler.org/documentation/[Quartz documentation] about Cron Triggers.
 
 [#postgresql-performance-tuning]

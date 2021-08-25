@@ -52,6 +52,7 @@ WARNING: Do not modify the Organization from the Bonita Portal while the tool is
 NOTE: Some use cases require additional configuration server side (for example to use directly the engine API). They are described xref:configure-client-of-bonita-bpm-engine.adoc[here].
 
 
+[#_using_the_ldap_synchronizer_docker_image]
 == Using the LDAP synchronizer Docker image
 
 How to install and use the LDAP Synchronizer docker distribution.
@@ -102,10 +103,12 @@ xref:ldap-synchronizer.adoc#ldap-configuration-files[here] more details about co
 synchronization.
 |`BONITA_PASSWORD` |install |Password of the Bonita account used for
 synchronization.
+|`BONITA_TENANT_ID` |  |This is the tenant id to synchronize,
+if set, platform credentials are not used.
 |`BONITA_PLATFORM_LOGIN` |platformAdmin |This is the username of the
-platform adminstrator.
+platform adminstrator. It is used to retrieve the default tenant id if _BONITA_TENANT_ID_ is not provided.
 |`BONITA_PLATFORM_PASSWORD` |platform |This is the password of the
-platform adminstrator.
+platform adminstrator. It is used to retrieve the default tenant id if _BONITA_TENANT_ID_ is not provided.
 |===
 
 =====  Ldap connection settings
@@ -208,6 +211,7 @@ You can use a tool such as http://docs.oracle.com/javase/8/docs/technotes/tools/
 
 You also need to xref:configure-client-of-bonita-bpm-engine.adoc[configure connection on Bonita Engine] for the LDAP Synchronizer.
 
+[#_bonita_properties]
 === bonita.properties
 
 This file defines the connection settings and specifies the account used for user synchronization (requires administration privileges).
@@ -235,12 +239,16 @@ This file defines the connection settings and specifies the account used for use
 | Password of the Bonita account used for synchronization.
 | install
 
+| tenantId
+| This is the tenant id to synchronize, if set, platform credentials are not used.
+|
+
 | technicalUser
-| This is the xref:first-steps-after-setup.adoc[username of the platform adminstrator].
+| This is the xref:first-steps-after-setup.adoc[username of the platform adminstrator]. It is used to retrieve the default tenant id if _tenantId_ is not provided.
 | platformAdmin
 
 | technicalPassword
-| This is the xref:first-steps-after-setup.adoc[password of the platform adminstrator].
+| This is the xref:first-steps-after-setup.adoc[password of the platform adminstrator]. It is used to retrieve the default tenant id if _tenantId_ is not provided.
 | platform
 |===
 
