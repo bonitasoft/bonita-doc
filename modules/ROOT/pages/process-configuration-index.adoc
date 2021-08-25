@@ -14,7 +14,6 @@ Before you can run a process from Bonita Studio for testing, you must configure 
 
 Before you export a process for deployment, you need to set the initial configuration using the configuration wizard. This configuration is exported with the process if you check the Configuration option in the export dialog when you build a .bar archive. If you are using the Enterprise or the Performance edition, you can update the configuration after deployment. For other editions, you can modify the actor mapping only.
 
-{description}
 [.card-section]
 == Learn more
 
