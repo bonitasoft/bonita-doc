@@ -6,7 +6,7 @@
 == Goal
 *Bonita Platform accelerates the development, go-to-production, and maintenance of automation projects.* +
 While allowing users to execute tasks that impact their business data, it also efficiently *integrates with existing information systems* and *orchestrates heterogeneous systems*, some of them being https://www.bonitasoft.com/robotic-process-automation[soft robots]. +
-It provides *deep visibility of process execution* across the organization through its provided end-user applications but also, when needed, the xref:applications.adoc[Living applications] the project team can build to perfectly fit the business needs. 
+It provides *deep visibility of process execution* across the organization through its embbeded end-user applications or the xref:applications.adoc[Living applications] built by the project team to perfectly fit the business needs.
 
 == Structure
 Bonita Platform is made of three main components: 
