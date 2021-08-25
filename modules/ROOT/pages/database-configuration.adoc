@@ -1,7 +1,8 @@
-= Database creation and configuration for Bonita engine and BDM
-:description: This page describes the steps to create and customize the databases for Bonita Engine and Business Data Model in the Platform installation.
+= Database configuration
 
-This page describes the steps to create and customize the databases for Bonita Engine and Business Data Model in the Platform installation.
+:description: This page describes the steps to create and customize the databases for Bonita Engine and Business Data Model during Runtime configuration.
+
+{description}
 
 == Database usage
 
