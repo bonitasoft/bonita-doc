@@ -1,9 +1,9 @@
-= Use gzip compression
-:description: How to activate gzip compression for a Bonita Platform. It can improve performance by reducing network load.
+= Tomcat gzip compression
+:description: This page describes how to activate gzip compression for a Bonita Platform with Tomcat.
 
-How to activate gzip compression for a Bonita Platform. It can improve performance by reducing network load.
+{description}
 
-This page describes how to activate gzip compression for a Bonita Platform with Tomcat.
+Gzip compression can improve performance by reducing network load.
 
 == Tomcat configuration
 
