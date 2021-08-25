@@ -8,7 +8,8 @@ Discover what Bonita Studio is, as well as its main features.
 Bonita Studio is the central tool to design processes, data models and applications. +
 It is suited for both citizen developers (business analysts, project managers, power users) and application developers, with back-end java developers working in Bonita Studio and collaborating with front-end developers working in the UI Designer. +
 
-Bonita Studio contains a *Bonita Runtime* (Tomcat, UI Designer, Bonita Portal, Bonita Engine, and an h2 database), suitable for testing an application that is in development. + When you run a process, it is automatically deployed onto the development platform. +
+Bonita Studio contains a *Bonita Runtime* (Tomcat, UI Designer, Bonita Portal, Bonita Engine, and an h2 database), suitable for testing an application that is in development. +
+When you run a process, it is automatically deployed onto the development platform. +
 
 Bonita Studio is not intended for any use other than development. As a consequence, the Bonita stack embedded into the Bonita Studio can not be used for production purposes.
 
