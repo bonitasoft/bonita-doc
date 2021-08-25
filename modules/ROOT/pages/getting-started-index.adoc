@@ -8,7 +8,6 @@ You will then be able to adapt and extend this example to fit your own needs.
 
 [NOTE]
 ====
-
 If you have any problems while working through this tutorial, you can https://community.bonitasoft.com/questions-and-answers[ask for help on the Bonita Community web site] and/or open an issue on the Bonita https://bonita.atlassian.net/projects/BBPMC/issues[Community issue tracker].
 ====
 
