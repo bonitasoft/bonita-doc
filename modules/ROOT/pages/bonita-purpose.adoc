@@ -14,7 +14,15 @@ Plus, its robustness enables the BPM engine to handle a company's critical proje
 == Types of automation projects
 
 === The need for automation
-Some business processes do not need to be automated. Their execution stays in the scope of one team, the data they handle does not need to be retrieved nor sent from/to many places, nor undergo transformations from one step to the other, the execution of each instance does not need traceability nor reminders, and there is no need of reporting about their execution. +
+
+Some business processes do not need to be automated. +
+Indeed, the benfits of automation are huge when:
+
+ * Processes are critical for the business, so process execution needs *traceability* 
+ * Processes are complex, they spread over multiple company's departments and teams, so they need to *coordinate a lot of people* and send them reminders
+ * The data handled need to be frequently retrieved or sent from/to many places, and undergo multiple transformations accross the processes steps, so *orchestration of services* is key
+ * Processes are dynamic, can encounter flaws, may need continuous improvement, so process owners need monitoring and reporting
+ 
 In two words, such processes are _not critical_ to the company's business: it is good when their execution is flawless, but it is ok if there is a little delay sometimes too.
 
 For all other processes, automation is more than welcome. +
