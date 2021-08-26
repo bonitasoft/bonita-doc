@@ -1,4 +1,5 @@
 = Bonita installation overview
+:page-aliases: bonita-bpm-installation-overview.adoc
 :description: Description of the different options for Bonita installation.
 
 Description of the different options for Bonita installation.
