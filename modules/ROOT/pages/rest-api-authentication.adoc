@@ -31,6 +31,16 @@ The response to this call generates cookies.
 The `JSESSIONID` must be transfered with each subsequent calls. If the REST API is used in an application running in a web browser, this is handled automatically by the web browser.
 For usage of the `X-Bonita-API-Token` see below.
 
+=== Login to Bonita with OAuth
+
+[NOTE]
+====
+
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
+
+When Bonita web application is configured for authentication with OpenID Connect, Bonita REST API is secured through OIDC too and it is possible to call it with an OAuth Access token. For more information see xref:single-sign-on-with-oidc.adoc#rest-api[OpenID Connect SSO configuration page].
+
 === X-Bonita-API-Token cookie and HTTP header
 
 The security against CSRF attacks is enabled by default for all fresh installations.
