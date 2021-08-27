@@ -346,7 +346,10 @@ By default the xref:ldap-synchronizer.adoc[LDAP synchronizer] sets the password 
 [#rest-api]
 == Using Bonita REST API with OIDC
 
-When Bonita web application is configured for authentication with OpenID Connect, Bonita REST API is secured through OIDC too and it is possible to call it with an Oauth Access token.
+When Bonita web application is configured for authentication with OpenID Connect, Bonita REST API is secured through OIDC too and it is possible to call it with an OAuth Access token.
+
+=== Authentication
+
 To obtain the access token, there are several options depending on your OpenID Connect provider configuration and your use case:
 
 [discrete]
@@ -393,3 +396,8 @@ Once you obtained the Access token, you can make your REST API request in a norm
 
 If the OIDC provider returns opaque access token (non JWT), then Bonita OIDC client module will use UserInfo OIDC endpoint to validate the token and retrieve the user claims. Make sure the property `user-info-url` is correct in the file `keycloak-oidc.json`. 
 ====
+
+=== CORS
+
+If you want to call Bonita REST API from a page hosted on another domain than the one of the Bonita server, you need to enable Cross-Origin Resource Sharing (CORS) through OIDC.
+In the file *keycloak-oidc.json*, Make sure the property `enable-cors` is set to true and the properties `cors-allowed-methods`, `cors-allowed-headers`, `cors-exposed-headers` have the correct values. For a basic configuration, you can use the same values as in the xref:enable-cors-in-tomcat-bundle#_add_cors_filter[configuration of the CORS filter] (which is the way to hande CORS when Bonita web application is not configured for Authentication with OIDC). Also make sure to update the xref:enable-cors-in-tomcat-bundle#_choose_cookies_samesite_policy[sameSiteCookies policy] of the Tomcat server.
