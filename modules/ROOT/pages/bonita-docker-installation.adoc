@@ -31,7 +31,7 @@ docker run --name=bonita -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:
 
 == Versionning
 
-Multiple tags exists:
+Multiple tags exist:
 
 * `latest`: Points to the latest version of the platform
 * `pass:a[{bonitaVersion}]`: Points to the latest maintenance version of the pass:a[{bonitaVersion}] version
