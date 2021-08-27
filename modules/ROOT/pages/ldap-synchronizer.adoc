@@ -564,7 +564,7 @@ After installation, Check that the  xref:profiles-overview.adoc["User" profile] 
 The default tenant has a "User" profile by default, but it must be created manually when a tenant is created.
 The LDAP synchronizer will fail if this profile is not defined.
 
-*Configuration:* To configure the LDAP synchronizer for a tenant that is not the default tenant:
+*Configuration:* To configure the LDAP Synchronizer for a tenant that is not the default tenant:
 
 * Create a new folder in `$BonitaSynchronizerFolder/conf` with the same name as the name of the tenant (not the id) that was set when the tenant was created.
 * Copy the contents of the default folder from `$BonitaSynchronizerFolder/conf` to this new tenant-specific folder.
@@ -591,3 +591,62 @@ In the following cases:
 * when the server certificate is auto-signed (use of custom root certification) you might configure :
  ** the `public certificate` should be imported into the default java or custom trust Store.
  ** the endpoint authentication might be disabled `disable_endpoint_authentication=true`
+
+== Troubleshooting
+=== The Exception below is generated when the LDAP Synchronizer is used
+
+[source,log]
+----
+Aug 12, 2021 9:01:35 AM com.bonitasoft.ldapsynchronizer.repository.BonitaUserRepository initialize
+INFO: Connecting to Bonita server using HTTP mode
+Aug 12, 2021 9:01:38 AM com.bonitasoft.ldapsynchronizer.LDAPSynchronizer run
+SEVERE: Synchronization failed
+java.lang.Exception: Failed to connect to Bonita server: HTTP: url[https://localhost:8080] application[bonita] login[install] password[install]
+	at com.bonitasoft.ldapsynchronizer.repository.BonitaUserRepository.initialize(BonitaUserRepository.java:177)
+	at com.bonitasoft.ldapsynchronizer.repository.BonitaUserRepository.<init>(BonitaUserRepository.java:105)
+	at com.bonitasoft.ldapsynchronizer.LDAPSynchronizer.run(LDAPSynchronizer.java:64)
+	at com.bonitasoft.ldapsynchronizer.LDAPSynchronizer.main(LDAPSynchronizer.java:237)
+Caused by: java.lang.reflect.UndeclaredThrowableException
+	at com.sun.proxy.$Proxy0.login(Unknown Source)
+	at com.bonitasoft.ldapsynchronizer.repository.BonitaUserRepository.initialize(BonitaUserRepository.java:157)
+	... 3 more
+Caused by: java.io.IOException: Error while executing POST request (http code: 404) <POST https://localhost:8080/bonita/serverAPI/org.bonitasoft.engine.api.PlatformLoginAPI/login HTTP/1.1>
+	at org.bonitasoft.engine.api.HTTPServerAPI.invokeMethod(HTTPServerAPI.java:144)
+	at org.bonitasoft.engine.api.impl.ClienInterceptor.invoke(ClientInterceptor.java:79)
+	at com.sun.proxy.$Proxy0.login(Unknown Source)
+	at com.bonitasoft.ldapsynchronizer.repository.BonitaUserRepository.initialize(BonitaUserRepository.java:157)
+	at com.bonitasoft.ldapsynchronizer.repository.BonitaUserRepository.<init>(BonitaUserRepository.java:105)
+	at com.bonitasoft.ldapsynchronizer.LDAPSynchronizer.run(LDAPSynchronizer.java:64)
+	at com.bonitasoft.ldapsynchronizer.LDAPSynchronizer.main(LDAPSynchronizer.java:237)
+	at 	< ========== Beginning of the server stack trace ========== >. ( )
+	at org.bonitasoft.engine.api.HTTPServerAPI.executeHttpPost(HTTPServerAPI.java:177)
+	at org.bonitasoft.engine.api.HTTPServerAPI.invokeMethod(HTTPServerAPI.java:139)
+	at org.bonitasoft.engine.api.impl.ClientInterceptor.invoke(ClientInterceptor.java:79)
+	... 5 more
+Caused by: org.apache.http.client.HttpResponseException: status code: 404
+	at org.apache.http.impl.client.AbstractResponseHandler.handleResponse(AbstractResponseHandler.java:70)
+	at org.apache.http.impl.client.BasicResponseHandler.handleResponse(BasicResponseHandler.java:66)
+	at org.apache.http.impl.client.BasicResponseHandler.handleResponse(BasicResponseHandler.java:52)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:223)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140)
+	at org.bonitasoft.engine.api.HTTPServerAPI.executeHttpPost(HTTPServerAPI.java:169)
+	... 7 more
+----
+=== Root cause
+The LDAP Synchronizer is using the Engine HTTP API of the product but it's not active in your configuration.
+
+=== Solution
+==== On-premise: Configure the ZIP bundle you've downloaded from the bonitasoft Customer Service Center
+* Edit the `/server/webapps/bonita/WEB-INF/web.xml` file and make sure these lines are not commented:
+[source,xml]
+----
+ <servlet>
+        <servlet-name>HttpAPIServlet</servlet-name>
+        <servlet-class>org.bonitasoft.engine.api.internal.servlet.HttpAPIServlet</servlet-class>
+ </servlet>
+----
+==== With the docker image:
+* Run the docker image with *-e HTTP_API=true*
+* For example: `docker run -e HTTP_API=true -e REST_API_DYN_AUTH_CHECKS=false --name bonita -v ./bonita-lic/:/opt/bonita_lic/ -h localhost -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:7.9.2`
+* See the page xref:bonita-docker-installation.adoc#_http_api[Deploy Bonita Runtime with Docker] for more information.
