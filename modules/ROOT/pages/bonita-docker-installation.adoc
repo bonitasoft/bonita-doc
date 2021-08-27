@@ -42,7 +42,7 @@ Multiple tags exists:
 ====
 `latest` and `pass:a[{bonitaVersion}]` are tags that change each time a new version of the platform is released.
 It is safer to use the more complete version tag `pass:a[{bonitaVersion}]-XXXX` when scripting deployments to ensure
-the version does not change.
+the binaries do not change.
 ====
 
 
