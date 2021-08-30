@@ -328,9 +328,10 @@ For example instead of `<server_URL>/bonita/portal/homepage#?_p=caselistinguser&
 *Symptom:* After logging in on the OIDC provider, you are redirected to Bonita but you get a 403 error. +
 *Problem:* Either Bonita OIDC module does not manage to obtain the access tokens, or you don't have the required rights to access the page (when trying to display a page of an application without having the required profile for example). +
 *Solution:*
-Check the logs and if you see a message `failed to turn code into token`, it meens you are in the first situation. The next lines in the logs should indicate the origin of the problem.  Usually, you will need to update the file *keycloak-oidc.json* to match the configuration of Bonita client declared on the OIDC provider.
-For example, you may get the following error in the logs: `Unauthorized client` with as error description: `invalid client secret`. In this case, just fix the client secret in the file *keycloak-oidc.json* (and push the new configuration into database using the setup tool).
-If you don't see any keycloak message, then it probably means the user trying to log in just does have the required profile to see the application. Go to the profile tist page and check the profile associated with the application to make sure the user has this profile.
+Check the logs:
+* If you see a message `failed to turn code into token`, it meens you are in the first situation. The next lines in the logs should indicate the origin of the problem.  Usually, you will need to update the file *keycloak-oidc.json* to match the configuration of Bonita client declared on the OIDC provider.
+For example, you may get the following error in the logs: `Unauthorized client` with as error description: `invalid client secret`. In this case, just fix the client secret in the file *keycloak-oidc.json* (and push the new configuration into database using the setup tool).  
+* If you don't see any keycloak message, then it probably means the user trying to log in just does have the required profile to see the application. Go to the profile tist page and check the profile associated with the application to make sure the user has this profile.
 
 == Manage passwords
 
