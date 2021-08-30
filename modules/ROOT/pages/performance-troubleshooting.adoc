@@ -113,7 +113,11 @@ If a connector execution duration exceeds the configured timeout (300 seconds by
 ----
 Caused by: org.bonitasoft.engine.connector.exception.SConnectorException: The connector timed out
 ---- 
-For Subscription Edition only, this timeout can be increased in the Connector service configuration in `bonita-tenant-community-custom.properties` and `bonita-tenant-sp-custom.properties` (See xref:BonitaBPM_platform_setup.adoc[platform setup]) by increasing the value of the property `bonita.tenant.connector.timeout`.  
+[NOTE]
+====
+for subscription editions only.
+====
+This timeout can be increased in the Connector service configuration in  `bonita-tenant-sp-custom.properties` (See xref:BonitaBPM_platform_setup.adoc[platform setup]) by increasing the value of the property `bonita.tenant.connector.timeout`.  
 
 Additonally, any connectors longer than 10 seconds will produce a warning log.  
 See xref:performance-tuning.adoc#connector_service[connector service] for more information.
