@@ -312,19 +312,24 @@ com.bonitasoft.level = FINE
 [discrete]
 ==== Common error examples
 
+****
 *Symptom:* After configuring OIDC SSO in Bonita, the Bonita Portal login page appears and you are not redirected to the SSO login page. +
 *Possible Solutions:*
 
 * Check all the Bonita configuration settings are correct.
 * Make sure `setup[.sh][.bat] push` has been executed and the server restarted after the changes.
 * Try cleaning the cache and cookies of the web browser.
+****
 
+****
 *Symptom:* Bonita portal URL profile and page parameters (or any other) after the hash (#) are lost in redirection. As a result once the OIDC login page redirects back to Bonita portal, the portal displays the first page of the default profile. +
 *Problem:* The hash part of an URL is not sent server-side. It only exists in the web browser. That explains this behavior. +
 *Solution:*
 The workaround is to put the parameters as regular URL query parameters. Bonita portal has a mechanism that will convert them to hash parameters if they need to be (this only works since version 7.8.1 of Bonita). +
 For example instead of `<server_URL>/bonita/portal/homepage#?_p=caselistinguser&_pf=2`, use `<server_URL>/bonita/portal/homepage?_p=caselistinguser&_pf=2`
+****
 
+****
 *Symptom:* After logging in on the OIDC provider, you are redirected to Bonita but you get a 403 error. +
 *Problem:* Either Bonita OIDC module does not manage to obtain the access tokens, or you don't have the required rights to access the page (when trying to display a page of an application without having the required profile for example). +
 *Solution:*
@@ -332,6 +337,7 @@ Check the logs:
 
 * If you see a message `failed to turn code into token`, it meens you are in the first situation. The next lines in the logs should indicate the origin of the problem. Usually, you will need to update the file *keycloak-oidc.json* to match the configuration of Bonita client declared on the OIDC provider. For example, you may get the following error in the logs: `Unauthorized client` with as error description: `invalid client secret`. In this case, just fix the client secret in the file *keycloak-oidc.json* (and push the new configuration into database using the setup tool).
 * If you don't see any keycloak message, then it probably means the user trying to log in just does have the required profile to see the application. Go to the profile tist page and check the profile associated with the application to make sure the user has this profile.
+****
 
 == Manage passwords
 
