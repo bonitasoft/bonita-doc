@@ -6,7 +6,6 @@ asciidoc:
     bonitaVersion: 2021.1
     bonitaTechnicalVersion: '7.12.1' # latest public community version
     javadocVersion: 7.12
-    bonitaDockerImageEnterpriseVersion: '7.12.2'
     crowdinBonitaVersion: 7.12
     # page attributes
     page-editable: true
