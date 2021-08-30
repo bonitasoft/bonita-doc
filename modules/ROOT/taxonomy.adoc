@@ -10,7 +10,7 @@
   *** xref:engine-architecture-overview.adoc[Bonita Runtime]
   *** https://documentation.bonitasoft.com/bcd/latest/[Bonita Continuous Delivery]
 * xref:bonita-studio-download-installation.adoc[Studio installation]
-* xref:getting-started-index.adoc[Getting started tutorial]
+* xref:getting-started-index.adoc[Getting Started Tutorial]
  ** xref:draw-bpmn-diagram.adoc[Draw a BPMN diagram]
  ** xref:define-business-data-model.adoc[Define a Business Data Model]
  ** xref:declare-business-variables.adoc[Declare business variables]
