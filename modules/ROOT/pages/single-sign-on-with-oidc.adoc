@@ -336,7 +336,7 @@ For example instead of `<server_URL>/bonita/portal/homepage#?_p=caselistinguser&
 Check the logs:
 
 * If you see a message `failed to turn code into token`, it meens you are in the first situation. The next lines in the logs should indicate the origin of the problem. Usually, you will need to update the file *keycloak-oidc.json* to match the configuration of Bonita client declared on the OIDC provider. For example, you may get the following error in the logs: `Unauthorized client` with as error description: `invalid client secret`. In this case, just fix the client secret in the file *keycloak-oidc.json* (and push the new configuration into database using the setup tool).
-* If you don't see any keycloak message, then it probably means the user trying to log in just does have the required profile to see the application. Go to the profile tist page and check the profile associated with the application to make sure the user has this profile.
+* If you don't see any keycloak message, then it probably means the user trying to log in just does not have the required profile to see the application. Go to the profile list page and check the profile associated with the application to make sure the user has this profile.
 ****
 
 == Manage passwords
