@@ -592,9 +592,10 @@ In the following cases:
  ** the `public certificate` should be imported into the default java or custom trust Store.
  ** the endpoint authentication might be disabled `disable_endpoint_authentication=true`
 
-== Troubleshooting
-=== The Exception below is generated when the LDAP Synchronizer is used
+== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+=== HttpResponseException: status code: 404 is generated when the LDAP Synchronizer is used
 
+*Symptom:* The following stacktrace appears in the log:
 [source,log]
 ----
 Aug 12, 2021 9:01:35 AM com.bonitasoft.ldapsynchronizer.repository.BonitaUserRepository initialize
@@ -633,11 +634,13 @@ Caused by: org.apache.http.client.HttpResponseException: status code: 404
 	at org.bonitasoft.engine.api.HTTPServerAPI.executeHttpPost(HTTPServerAPI.java:169)
 	... 7 more
 ----
-=== Root cause
+
+*Root cause:*
 The LDAP Synchronizer is using the Engine HTTP API of the product but it's not active in your configuration.
 
-=== Solution
-==== On-premise: Configure the ZIP bundle you've downloaded from the bonitasoft Customer Service Center
+*Solutions:*
+
+*On-premise solution*: Configure the ZIP bundle you've downloaded from the bonitasoft Customer Service Center
 * Edit the `/server/webapps/bonita/WEB-INF/web.xml` file and make sure these lines are not commented:
 [source,xml]
 ----
@@ -646,7 +649,6 @@ The LDAP Synchronizer is using the Engine HTTP API of the product but it's not a
         <servlet-class>org.bonitasoft.engine.api.internal.servlet.HttpAPIServlet</servlet-class>
  </servlet>
 ----
-==== With the docker image:
-* Run the docker image with *-e HTTP_API=true*
+*Docker image solution:* Run the docker image with *-e HTTP_API=true*
 * For example: `docker run -e HTTP_API=true -e REST_API_DYN_AUTH_CHECKS=false --name bonita -v ./bonita-lic/:/opt/bonita_lic/ -h localhost -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:7.9.2`
 * See the page xref:bonita-docker-installation.adoc#_http_api[Deploy Bonita Runtime with Docker] for more information.
