@@ -101,7 +101,7 @@ that looks like:
 .Pre-2021.2 Custom Profile example
 image::images/temp-release-notes-specific/custom_profile.png[Previous Custom Profile,600]
 
-In Bonita 2021.2, custom profile navigation has been removed, and thus they are automatically converted into Living Applications by the xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[migration tool].
+In Bonita 2021.2, custom profile navigation has been removed, and thus profiles with navigation are automatically converted into Living Applications by the xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[migration tool].
 
 Here is the list of applications, with the converted one, when you log in after migration for the first time:
 
@@ -225,7 +225,7 @@ If you migrate from an earlier version of Bonita, you can now delete them if you
 
 * RUNTIME-261 - BDM installation failed when a bdm was already installed
 * RUNTIME-138 - Entire BDM install history lost when BDM deployment issue
-* RUNTIME-132 - [SAML] Getting the default logging page when signing in on a guest app
+* RUNTIME-132 - [SAML] Getting the default login page when signing in on a guest app
 * RUNTIME-84 - Loading a class with Class.forName can keep references in VirtualClassloader
 * RUNTIME-70 - BDM schemas changes are not rolled back after a failed installation of a new BDM over an existing one
 * RUNTIME-34 - Install a BDM with an invalid custom query fail silently
