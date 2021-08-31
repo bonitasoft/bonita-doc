@@ -119,6 +119,9 @@ and remove the JAAS configuration to use another Authentication Manager (an impl
 ==== Process Manager profile navigation
 As part of the update of Bonita Portal into Bonita Applications, we have not reimplemented the pages for the profile Process Manager, a new documentation page will explain how to rebuild and customize the bonita administrator application to handle the process management capabilities.
 
+==== 4xx errors handling
+When there is a 4xx error while trying to display a resource like 404 (not found) of 403 (forbidden), the status code is set in the HTTP response header, but Bonita applications no longer try to display the dedicated error pages unless the resource is a page. So the status code remain 4xx and is not changed to 200 with the error page in the body of the reponse.
+
 ==== LDAP Synchronizer
 * LDAP Synchronizer is now available as a Docker image. xref:ldap-synchronizer.adoc#_using_the_ldap_synchronizer_docker_image[See the documentation]
 * A new property `tenantId` can be set to avoid having to use the platform admin credentials. xref:ldap-synchronizer.adoc#_bonita_properties[See the documentation]
