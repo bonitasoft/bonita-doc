@@ -10,6 +10,7 @@ After years of semantic versioning, Bonita now follows the calendar versioning: 
 * YYYY is the year of the release
 * # is the release number of the "main" release
 * mmdd is the month and day of the "maintenance" release. 
+
 For example:
 
 * The last main version was 2021.1
@@ -17,7 +18,7 @@ For example:
 
 Keep in mind that:
 
-* Two "main" versions are released every year
+* Two main versions are released every year
 * A new maintenance version is made available at least every month to our customers 
 * All maintenance versions are cross-compatible for the same main version. For example, transitioning from a *2021.1*-0205 to a *2021.1*-0401 will not require any Bonita update procedure. However, transitioning from a *7.11*.5 to a *2021.1*-0205 will require a Bonita update procedure.
 
