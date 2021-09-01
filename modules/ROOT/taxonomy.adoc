@@ -287,7 +287,7 @@
   ** xref:enable-cors-in-tomcat-bundle.adoc[Enable CORS in Tomcat bundle]
 * xref:bonita-version-update-index.adoc[Bonita update and upgrade]
  ** xref:product-versioning.adoc[Bonita versions]
- ** xref:upgrade-studio.adoc[Update Bonita Studio]
+ ** xref:updatee-studio.adoc[Update Bonita Studio]
  ** xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[Update Bonita Runtime]
   *** xref:migration-tool.adoc[Migration tool changelog]
  ** xref:migrate-a-form-from-6-x.adoc[Migrate a form from 6.x]
