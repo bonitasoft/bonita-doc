@@ -111,9 +111,9 @@ To create a new task, select the relevant icon from the *BPMN elements* menu or 
 menu of the preceding element in the diagram, and drop it on the whiteboard. You can change the task type
 of an task in the diagram.
 
-== Setting a unique task name in the Portal
+== Setting a unique task name in the Applications
 
-When you define a task in Bonita Studio, by default the task name and description in Bonita Portal are the same as the task name and description on the diagram.
+When you define a task in Bonita Studio, by default the task name and description in Bonita Applications are the same as the task name and description on the diagram.
 
 Within a process instance (case), this task name must be contextualized with business information specific to the case so that, in the user task list, users efficiently pick the right task to do.
 You can leverage Bonita Studio to optimize user comfort and efficiency by inserting case information in task name and task description.

@@ -7,7 +7,7 @@ The concept of Actor defines who can perform a task or start a process.
 
 First thing to know is that, in Bonita, a human task can be performed by a set of users (i.e. the candidates).
 
-When a user is connected on Bonita Portal he/she can see the list of user task instances he/she can perform. But before actually performing the task, he/she needs to claim the task. By doing so he/she becomes the *task assignee*. +
+When a user is connected in the Bonita User Application he/she can see the list of user task instances he/she can perform. But before actually performing the task, he/she needs to claim the task. By doing so he/she becomes the *task assignee*. +
 This action prevents concurrent actions from several candidates on a single user task instance.
 
 [NOTE]
@@ -39,13 +39,13 @@ To define actors for a process:
  .. Select the  pool and go to the *Details* panel, *General* tab, *Actors* pane. If you have already defined any actors, they are shown in the table.
  .. Click *_Add_*. A new row is added to the table, with a temporary name for the new actor (for example, Actor1). To change the name, select it and type the name you want to use. You can also add a description.
   ... Repeat step 2 to add all the actors required for the process. You can also remove an actor, by selecting it and clicking *_Remove_*.
-  ... Select the actor that will be the initiator of the process cases, and click *_Set as initiator_*. If you do not define an initiator for the pool, the process cannot be started in Bonita Portal. Instead, it will have to be started programmatically.
+  ... Select the actor that will be the initiator of the process cases, and click *_Set as initiator_*. If you do not define an initiator for the pool, the process cannot be started in the Bonita Applications. Instead, it will have to be started programmatically.
 . For each lane, define the actor. You can either select an actor that was defined for the pool, by selecting the actor from the drop-down list, or you can use an actor filter.
 . For each step, define the actor. You can use the actor defined for the lane, or specify an actor for the step. To specify an actor for the step, you can either select an actor that was defined for the pool, by selecting the actor from the drop-down list, or you can use an actor filter.
 
 See xref:custom-user-information-in-bonita-bpm-studio.adoc[Custom User Information in Bonita Studio]
 
-See xref:custom-user-information-in-bonita-bpm-portal.adoc[Custom User Information in Bonita Portal]
+See xref:custom-user-information-in-bonita-bpm-applications.adoc[Custom User Information in Bonita Apps]
 
 == Set the initiator
 
@@ -69,7 +69,7 @@ For information about creating a new actor filter, see xref:actor-filter-archety
 == Map an actor
 
 Before a process can be tested, you must map the actors in the process to users in the organization. Before you can do this, you must
-xref:organization-management-in-bonita-bpm-studio.adoc[define your organization Bonita Studio] and upload it to Bonita Portal.
+xref:organization-management-in-bonita-bpm-studio.adoc[define your organization in Bonita Studio] and upload it to Bonita Applications.
 
 To map the process actors:
 
@@ -77,7 +77,7 @@ To map the process actors:
 indicates any actors in the process that are not yet mapped.
 . For each unmapped actor, click the actor name to select it. You can then map it to a group, role, membership (that is, a role within a group), or specific user.
 
-When you deploy a process, if you have the same organization definition in Bonita Studio and Bonita Portal, you can map the actors first in Bonita Studio then include the mappings when you build the process for deployment. Otherwise, you can configure the actor mappings in Bonita Portal after the process is deployed, when you resolve the process.
+When you deploy a process, if you have the same organization definition in Bonita Studio and Bonita Applications, you can map the actors first in Bonita Studio then include the mappings when you build the process for deployment. Otherwise, you can configure the actor mappings in Bonita Admin Application after the process is deployed, when you resolve the process.
 
 == Update task assignment dynamically
 
