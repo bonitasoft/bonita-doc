@@ -22,12 +22,12 @@ xref:update-studio.adoc[[.card-title]#Updating Bonita Studio# [.card-body.card-c
 
 [.card.card-index]
 --
-xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[[.card-title]#Update Bonita Runtime# [.card-body.card-content-overflow]#pass:q[At a glance: Flow, Best Practices and caveat]#]
+xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[[.card-title]#Updating Bonita Runtime# [.card-body.card-content-overflow]#pass:q[At a glance: Flow, Best Practices and caveat]#]
 --
 
 [.card.card-index]
 --
-xref:migrate-a-form-from-6-x.adoc[[.card-title]#Migrate a form from Bonita 6# [.card-body.card-content-overflow]#pass:q[Make the 6.X projects UI compatible with Bonita 7]#]
+xref:migrate-a-form-from-6-x.adoc[[.card-title]#Migrating a form from Bonita 6# [.card-body.card-content-overflow]#pass:q[Make the 6.X projects UI compatible with Bonita 7]#]
 --
 
 
