@@ -130,7 +130,7 @@ image::images/bonita-as-windows-service/tomcatWStartup.png[tomcatw startup tab]
 == System restart and test
 
 * Restart the Tomcat service to take in account the new updates.
-* Verify that the Bonita portal is available at the following address:
+* Verify that the Bonita platform is available at the following address:
 http://localhost:8080/bonita
 * Connect with the technical user (default install/install) and do some tests:
  ** Add an organization.

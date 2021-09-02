@@ -57,4 +57,4 @@ See also xref:first-steps-after-setup.adoc[First steps after setup]
 
 See also xref:active-directory-or-ldap-authentication.adoc[Active directory/ldap authentication]
 
-See also xref:bonita-bpm-portal-urls.adoc[Accessing Bonita Portal and forms by URL]
+See also xref:bonita-bpm-applications-urls.adoc[Accessing Bonita Portal and forms by URL]

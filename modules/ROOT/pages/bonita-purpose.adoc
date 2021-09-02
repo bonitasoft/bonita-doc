@@ -53,11 +53,11 @@ You can xref:bonita-bpm-installation-overview.adoc[install Bonita Studio] on you
 
 Bonita Studio is not intended for any use other than development. As a consequence, the Bonita stack embedded into the Bonita Studio can not be used for production purposes.
 
-Bonita Studio contains a *Bonita Runtime* (Tomcat, UI Designer, Bonita Portal, Bonita Engine, and an h2 database), suitable for testing an application that is in development. When you run a process, it is automatically deployed onto the development platform.
+Bonita Studio contains a *Bonita Runtime* (Tomcat, UI Designer, Bonita Applications, Bonita Engine, and an h2 database), suitable for testing an application that is in development. When you run a process, it is automatically deployed onto the development platform.
 
 Process forms, used to complete the human tasks, are created in the UI Designer, and use the data models created in the Studio.
 
-Users can use Bonita Portal (_User_ profile) to view and complete the process tasks for all processes. You can also build personalized process-based applications. To do so, use the UI Designer to create application pages that display business data from the data models, display external data through REST API extensions, and move processes forward thanks to action buttons. Then use Bonita Studio to construct the application piece by piece.
+Users can use Bonita Applications (_User_ profile) to view and complete the process tasks for all processes. You can also build personalized process-based applications. To do so, use the UI Designer to create application pages that display business data from the data models, display external data through REST API extensions, and move processes forward thanks to action buttons. Then use Bonita Studio to construct the application piece by piece.
 
 [#platform]
 
@@ -75,11 +75,11 @@ The Bonita server is a standalone Java application running in a Java application
 The Bonita server has two components:
 
 * xref:engine-architecture-overview.adoc[Bonita Engine] is the execution engine of Bonita.
-* xref:bonita-bpm-applications-interface-overview.adoc[Bonita Portal] is the part of Bonita that is visible to process users, who use it to view tasks and take actions thanks to a generic task list for all processes they are involved in.
+* xref:bonita-bpm-applications-interface-overview.adoc[Bonita User application] is one of the Bonita Applications that is visible to process users, who can use it to view tasks and take actions thanks to a generic task list for all processes they are involved in.
 
-But Bonita Portal is also the tool used by the tenant administrator to xref:processes.adoc[install, deploy and manage processes]. We use the word "tenant" here, in case the platform would be made of xref:multi-tenancy-and-tenant-configuration.adoc[several tenants].
+Bonita Administrator Application is another application used by the tenant administrator to xref:processes.adoc[install, deploy and manage processes]. We use the word "tenant" here, in case the platform would be made of xref:multi-tenancy-and-tenant-configuration.adoc[several tenants].
 
-To install Bonita Engine and Bonita Portal in a qualification or production environment, read the dedicated xref:bonita-bpm-installation-overview.adoc]#platform[install Bonita Platform] documentation page.
+To install the full Bonita platform in a qualification or production environment, read the dedicated xref:runtime-installation-index.adoc[install Bonita Platform] documentation page.
 
 == Editions
 

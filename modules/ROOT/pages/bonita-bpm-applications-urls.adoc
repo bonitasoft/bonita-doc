@@ -1,7 +1,7 @@
-= Bonita Portal URLs
-:description: This page explains how to use a URL to access Bonita Portal or the form for a specific process or task.
+= Bonita Applications URLs
+:description: This page explains how to use a URL to access the Bonita Applications or the form for a specific process or task.
 
-This page explains how to use a URL to access Bonita Portal or the form for a specific process or task.
+This page explains how to use a URL to access Bonita Applications or the form for a specific process or task.
 
 [NOTE]
 ====
@@ -9,9 +9,9 @@ This page explains how to use a URL to access Bonita Portal or the form for a sp
 In these URLs, the process names, versions and the task names must be URL encoded.
 ====
 
-== URL of Bonita Portal
+== URL of Bonita Applications
 
-You can connect to Bonita Portal from other tools using a URL of the form `http://`_`host`_`:`_`port`_`+/bonita#?....+`. Other forms of URL are liable to change in future versions. For example, use `+http://localhost:8081/bonita#?process=myProcessId+`, and do not use `+http://localhost:8081/bonita/console/homepage#?process=myProcessId+`.
+You can connect to Bonita Applications from other tools using a URL of the form `http://`_`host`_`:`_`port`_`+/bonita#?....+`. Other forms of URL are liable to change in future versions. For example, use `+http://localhost:8081/bonita#?process=myProcessId+`, and do not use `+http://localhost:8081/bonita/console/homepage#?process=myProcessId+`.
 
 == Process instantiation URL
 

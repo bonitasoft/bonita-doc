@@ -5,10 +5,10 @@ Build deployment artifacts that will allow you to install your process onto a se
 
 == How to
 
-When a process is ready for deployment, build an archive file in Bonita Studio that can be installed in Bonita Portal.
-You also need to initialize the organization information needed in Bonita Portal.
+When a process is ready for deployment, build an archive file in Bonita Studio that can be installed in Bonita Applications.
+You also need to initialize the organization information needed in Bonita Applications.
 
-A process is deployed by installing a business archive (.bar) file in Bonita Portal.
+A process is deployed by installing a business archive (.bar) file in Bonita Administrator Application.
 To create the business archive you can :
 
 . Choose *Build...* from the *Server* menu.
@@ -27,14 +27,14 @@ or
 
 When you build a process from the project explorer, the configuration used is the configuration saved as default. You can edit it from the xref:configuring-a-process.adoc[configure menu]
 
-You can now xref:processes.adoc[install the process in Bonita Portal].
+You can now xref:processes.adoc[install the process in Bonita Administrator Application].
 
-== Initialize the organization in Bonita Portal
+== Initialize the organization in Bonita Administrator Application
 
 To prepare your production system (unless you are using a Subscription editions and the LDAP synchronizer),
 you must create the organization that you need for all the processes that will be deployed, export it from Bonita Studio,
-and import it into Bonita Portal.
+and import it into Bonita Administrator Application.
 
 To export the organization, go to the *Organization* menu and choose *Export...*. You
-can then xref:import-export-an-organization.adoc[import the organization into Bonita Portal]. After the organization is imported into Bonita Portal,
+can then xref:import-export-an-organization.adoc[import the organization into Bonita Administrator Application]. After the organization is imported,
 you can xref:group.adoc[manage the groups], xref:role.adoc[roles], and xref:manage-a-user.adoc[users] in the organization.

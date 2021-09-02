@@ -24,7 +24,7 @@ Appearance
 Language
 
 * Bonita Studio language.
-* Web applications language: the language to use by default when loading process forms and Bonita Portal
+* Web applications language: the language to use by default when loading process forms and Bonita Applications
 
 Java
 

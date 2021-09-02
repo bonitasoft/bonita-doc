@@ -17,8 +17,8 @@ You will find below examples of both use-cases.
 == Use of profiles
 
 Most of the time, the access logic applies to several users, based on a combination of their roles/groups in the organization.
-For that reason, Bonita 7.7 takes advantage of the capability introduced in Bonita 7.6 to define xref:profiles-overview.adoc[profiles] in Bonita Studio. +
-We are making profiles an effective way to map people to Bonita items: living application or Bonita Portal access (since Bonita 5.0), BDM access control rules (starting in Bonita 7.7), actor mapping or more in the future. +
+For that reason, Bonita takes advantage of the capability to define xref:profiles-overview.adoc[profiles] in Bonita Studio. +
+We are making profiles an effective way to map people to Bonita items: living application access, BDM access control rules (starting in Bonita 7.7), actor mapping or more in the future. +
 Granting access to a business object or some attributes of a business object to a given profile means granting access to all users mapped to this profile.
 
 == Define BDM access control
@@ -46,7 +46,7 @@ To allow an easy migration to this new feature, and to keep our BDM API working,
 The graphical editor helps you to achieve this by adding a warning icon close to business objects that have no access rule defined.
 ====
 
-For development purposes, the studio can *deploy* access control onto Bonita Portal for you. Use the _Deploy_ option of the editor toolbar or from the menu. To install it in a production environment, export the access control file (using the _Export_ option of the editor toolbar or from the menu), login to the portal, and xref:bdm-management-in-bonita-bpm-applications.adoc[install it].
+For development purposes, the Bonita Studio can *deploy* access control onto Bonita Super Administrator Application for you. Use the _Deploy_ option of the editor toolbar or from the menu. To install it in a production environment, export the access control file (using the _Export_ option of the editor toolbar or from the menu), login into the platform, and xref:bdm-management-in-bonita-bpm-applications.adoc[install it].
 
 == Examples of use-cases to implement
 
@@ -84,7 +84,7 @@ Define a _LeaveRequest_ business object, with the following attributes:
 . In your organization, create a group _Human Resources_ and two roles: _Trainee_ & _Manager_.
 . Create some users with the membership _Trainee of Human Resources_ and some others with the membership _Manager of Human Resources_.
 . Check that all users are also mapped with the default profile _User_.
-. Define two custom profiles using the xref:profileCreation.adoc[profile editor] in the studio:
+. Define two custom profiles using the xref:profileCreation.adoc[profile editor] in the Studio:
  ** *HR trainees*, mapped with the membership _Trainee of Human Resources_
  ** *HR managers*, mapped with the membership _Manager of Human Resources_
 . Deploy those profiles.
@@ -131,7 +131,7 @@ To manage this and other differences between what profiles can access, you have 
 * manage it on the same page and make its display conditional.
 To do so, in the property *hidden* of the dedicated input, click the *fx* button to make it an expression, and write `$item.medicalComment == null || $item.medicalComment == undefined`.
 
-Create a new application descriptor using the xref:applicationCreation.adoc[application editor] in the studio:
+Create a new application descriptor using the xref:applicationCreation.adoc[application editor] in the Studio:
 
 * Set the application token: _leaveRequest_
 * Set the Application Profile: _User_
@@ -170,10 +170,10 @@ Deploy the access control file.
 
 Access to data is now controlled by the BDM Access Control file just deployed. To check:
 
-. Login onto the portal as a user with the profile _HR trainee_.
-. In the studio, open the application descriptor.
+. Login onto the platform as a user with the profile _HR trainee_.
+. In the Studio, open the application descriptor.
 . Click on the overview link of the application. You are viewing the application as an HR trainee. The medical comment is not displayed.
-. Login onto the portal as a user with the profile _HR manager_. Refresh the application in the web browser. You are viewing the application as an HR manager. The medical comment is displayed.
+. Login into the platform as a user with the profile _HR manager_. Refresh the application in the web browser. You are viewing the application as an HR manager. The medical comment is displayed.
 
 === II - Grant access to attributes in a complex relationship. Invoices
 
@@ -257,7 +257,7 @@ Define an _Invoice_ business object, with the following attributes:
 * In your organization create two groups, 'Order picker' and 'Sales', and two roles 'Member' and 'Novice member'.
 * Create some users with the membership 'Member of Order picker', some others with 'Novice member of Sales', and some with 'Member of Sales'.
 * Check that all users are also mapped with the default profile _User_.
-* Define three custom profiles using the xref:profileCreation.adoc[profile editor] in the studio:
+* Define three custom profiles using the xref:profileCreation.adoc[profile editor] in the Studio:
  ** *Order picker*, mapped with the group 'Order picker'
  ** *Experienced Sales*, mapped with the membership 'Member of Sales'
  ** *Novice Sales*, mapped with the membership 'Novice member of Sales'
@@ -339,7 +339,7 @@ In the UI Designer, create an application page _displayInvoices_  :
     ***** An input ( *Label:* Address, *Value:* $item.customer.address, *hidden:* `$item.customer.address == null || $item.customer.address == undefined`)
     ***** An input(*Label:* Quantity, *Value:* $item.quantity)
 
-Create a new application descriptor using the xref:applicationCreation.adoc[application editor] in the studio:
+Create a new application descriptor using the xref:applicationCreation.adoc[application editor] in the Studio:
 
 * Set the application token: invoices
 * Set the Application Profile: User
@@ -399,11 +399,11 @@ Deploy the access control file.
 
 Access to data is now controlled by the BDM Access Control file just deployed. To check:
 
-. Login onto the portal as a user with the profile _Order picker_.
-. In the studio, open the application descriptor
+. Login into the platform as a user with the profile _Order picker_.
+. In the Studio, open the application descriptor
 . Click on the overview link of the application. Customer data and product prices are not displayed.
-. Login onto the portal as a user with the profile _Experienced Sales_. Refresh the application in the web browser. All data are displayed.
-. Login onto the portal as a user with the profile _Novice Sales_. Refresh the application in the web browser. Full invoice information is displayed. Only customer data names are displayed.
+. Login into the platform as a user with the profile _Experienced Sales_. Refresh the application in the web browser. All data are displayed.
+. Login into the platform as a user with the profile _Novice Sales_. Refresh the application in the web browser. Full invoice information is displayed. Only customer data names are displayed.
 
 === III - Grant access to business object instances. Requests on marks
 
@@ -480,7 +480,7 @@ ORDER BY r.persistenceId
 . In your organization create two groups, 'Physics' and 'Mathematics', and a role 'Teacher'
 . Create some users with the membership 'Teacher of Physics', some others with 'Teacher of Mathematics'
 . Check that all users are also mapped with the default profile _User_.
-. Define three custom profiles using the xref:profileCreation.adoc[profile editor] in the studio:
+. Define three custom profiles using the xref:profileCreation.adoc[profile editor] in the Studio:
  ** *PhysicsTeachers*, mapped with the membership 'Teacher of Physics'
  ** *MathematicsTeachers*, mapped with the membership 'Teacher of Mathematics'
  ** *Teachers*, mapped with role 'Teachers'
@@ -517,7 +517,7 @@ In the UI Designer:, create an application page (_reviewRequests_):
  ** *Content* : requestList (script, click the fx icon to switch from contstant to script)
  ** *Column keys* : persistenceId, subject, content, medicalComment, student.fullname
 
-In the studio, create an xref:applicationCreation.adoc[application descriptor]:
+In the Studio, create an xref:applicationCreation.adoc[application descriptor]:
 
 * Set the application token: _TeacherApp_
 * Set the application profile: _Teachers_
@@ -602,11 +602,11 @@ You still do on a production server.
 
 Access to data queries is now controlled by dynamic security. To check:
 
-. Login onto the portal as a user with the profile _Mathamtics Teacher_.
-. In the studio, open the application descriptor
+. Login into the platform as a user with the profile _Mathamtics Teacher_.
+. In the Studio, open the application descriptor
 . Click on the overview link of the application. Select 'Physics'. No instances are displayed but you can see instances when you select 'Mathematics'.
-. Login onto the portal as a user with the profile _Physics Teacher_. Refresh the application in the web browser. Select 'Mathematics'. No instances are displayed but you can see instances when you select 'Physics'.
-. Login onto the portal as a user with the profile _Teachers_. Refresh the application in the web browser. All instances are available to you.
+. Login into the platform as a user with the profile _Physics Teacher_. Refresh the application in the web browser. Select 'Mathematics'. No instances are displayed but you can see instances when you select 'Physics'.
+. Login into the platform as a user with the profile _Teachers_. Refresh the application in the web browser. All instances are available to you.
 
 *7. Adding access control on attributes*
 
