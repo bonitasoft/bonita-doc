@@ -28,6 +28,7 @@ You are recommended not to start 7.0.0 after you migrate to it, but to proceed i
 
 * Versions 7.0 to 7.4 only support JRE version 7. If you comes from older versions of Bonita supporting JRE 6, you must also upgrade your JRE to version 7.
 * Version 7.5 only supports JRE version 8. If migrating to version 7.5, please upgrade your JRE to version 8.
+* Version 2021.2 only supports JRE version 11. If migrating to version 2021.1 / 7.13, please upgrade your JRE to version 11.
 * For more info, see Support Guide and Supported Environment Matrix for Server.
 
 [#rdbms_requirements]
@@ -390,7 +391,7 @@ To migrate a Bonita platform to Java 11, you need to follow the following steps:
 * Once tested, update what is required on the production server, and switch it to Java 11.
 
 The main parts that require attention and testing are connectors and custom code.
-While the 7.9.0 migration step tries its best to migrate the implementation of connectors that are known not to work in Java 11, namely  xref:release-notes.adoc#connector-dependency-updates[WebService, CMIS, Email and Twitter], custom connectors, groovy scripts, rest api extensions etc. are not migrated and might not work outright in Java 11.
+While the 7.9.0 migration step tries its best to migrate the implementation of connectors that are known not to work in Java 11, namely  xref:https://documentation.bonitasoft.com/bonita/7.9/release-notes#_connectors_dependency_updates[WebService, CMIS, Email and Twitter], custom connectors, groovy scripts, rest api extensions etc. are not migrated and might not work outright in Java 11.
 Aside from just code incompatibility, special attention has to be given to the dependencies of the custom code, as they might either not work in Java 11, work fine but conflict with Bonita own dependencies or the script might use dependencies previously included in Bonita, but no more accessible, or accessible in a different version.
 
 [#postgres11]
