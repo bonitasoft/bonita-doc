@@ -21,7 +21,7 @@ We provide a maven archetype to help you to bootstrap a theme project outside of
 
 === Prerequisite
 
-. Java 8+ must be installed:  https://adoptopenjdk.net/index.html
+. Java 11 must be installed:  https://adoptopenjdk.net/index.html
 . Maven must be installed:  https://maven.apache.org/install.html
 
 === Generate the project using the Maven archetype

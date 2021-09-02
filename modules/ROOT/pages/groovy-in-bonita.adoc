@@ -72,7 +72,7 @@ More about Strings in Groovy http://docs.groovy-lang.org/docs/groovy-2.4.16/html
 
 === Lambdas & Closures
 
-Java 8 supports lambdas and method references:
+Java 8+ supports lambdas and method references:
 
 [source,java]
 ----
@@ -80,7 +80,7 @@ Runnable run = () -> System.out.println("Run");
 list.forEach(System.out::println);
 ----
 
-Java 8 lambdas can be more or less considered as anonymous inner classes. Groovy doesn't support that syntax, but has closures instead:
+Java lambdas can be more or less considered as anonymous inner classes. Groovy doesn't support that syntax, but has closures instead:
 
 [source,groovy]
 ----
