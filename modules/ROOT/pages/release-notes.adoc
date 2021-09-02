@@ -45,7 +45,7 @@ Understanding all the elements of a Bonita project has never been easier thanks 
 
 === Exception reporting
 
-When something goes wrong while executing processes, we now log only the important informations. In addition, the root cause of the issue is the first one shown.
+When something goes wrong while executing processes, we now log only the important information. In addition, the root cause of the issue is the first one shown.
 
 Here is a sample of what will now be logged
 
@@ -59,14 +59,14 @@ Expression : SExpressionImpl [name=aScript, content=1/0, returnType=java.lang.St
 	at org.codehaus.groovy.runtime.typehandling.IntegerMath.divideImpl(IntegerMath.java:49)
 ----
 
-A new property `bonita.tenant.work.exceptionsNumberOfFrameToLog` of `bonita-tenant-community-custom.properties` allows the change the number of frame displayed when an exception happens.
+A new property `bonita.tenant.work.exceptionsNumberOfFrameToLog` in file `bonita-tenant-community-custom.properties` allows the change the number of frames (=lines) displayed when an exception happens.
 
 === Development suite changes
 
 ==== Expression type simplification
-2021.1 introduced a new expression editor. This new expression editor coveres most of the existing editor expression type use cases.
+2021.1 introduced a new expression editor. This new expression editor covers most of the existing editor expression type use cases.
 
-Therefore to simplify the expression flow in the Studio we are removing the following expression types:
+Therefore, to simplify the expression flow in the Studio we are removing the following expression types:
 
 * Constant
 * Comparison
@@ -80,7 +80,45 @@ If your project are using these expression types, they will be migrated to the n
 
 === Runtime changes
 
-==== API - Depreciations
+==== New application-based Portal
+
+In Bonita 2021.2, the Bonita Portal is now removed, meaning that
+
+ - Custom profiles are xref:#_custom_profile_navigation_conversion[converted into Living Applications] with default Bonita layout and Bonita theme
+ - If you had customized the Portal, please note that the Look & Feel files are removed too
+ - Some elements are not migrated (xref:#_process_manager_profile_navigation[Process Manager profile], Reports page), check the release notes to have the complete list
+
+
+==== Custom Profile navigation conversion
+
+Before 2021.2, you had the possibility to create custom profiles and a specific navigation, with menus and pages, to customize your Bonita Portal experience. Here is an example:
+
+.Pre-2021.2 Custom Profile navigation example
+image::images/temp-release-notes-specific/old_profile_navigation.png[Previous Custom Profile Navigation,600]
+
+that looks like:
+
+.Pre-2021.2 Custom Profile example
+image::images/temp-release-notes-specific/custom_profile.png[Previous Custom Profile,600]
+
+In Bonita 2021.2, custom profile navigation has been removed, and thus profiles with navigation are automatically converted into Living Applications by the xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[migration tool].
+
+Here is the list of applications, with the converted one, when you log in after migration for the first time:
+
+.The previous Custom Profile navigation is now accessible as a Living Application
+image::images/temp-release-notes-specific/new_app_directory_with_converted_custom_profile.png[Applications list]
+
+Here is what it looks like after conversion:
+
+.Custom Profile navigation converted into a Living Application
+image::images/temp-release-notes-specific/new_app_converted_from_custom_profile.png[Converted Application]
+
+As any application, you can now modify its details, URL, change its logo, ...
+
+==== Process Manager profile navigation
+As part of the update of Bonita Portal into Bonita Applications, we have not reimplemented the pages for the profile Process Manager, a new documentation page will explain (*//TODO: write page before GA release*) how to rebuild and customize the bonita administrator application to handle the process management capabilities.
+
+==== API - Deprecations
 
  - In the TenantAdministrationAPI, the installBusinessDataModel method is now deprecated, as the new method updateBusinessDataModel replaces it for all use cases.
  - The ReportingAPI is now deprecated.
@@ -116,9 +154,6 @@ From version 2021.2, JAAS Authentication is only available in the Enterprise edi
 If you are updating from a 2021.1 or earlier version, in the Community edition, you will need to xref:bonita-bpm-platform-setup.adoc[change your configuration] file `authenticationManager-config.properties`
 and remove the JAAS configuration to use another Authentication Manager (an implementation of your own, for instance).
 
-==== Process Manager profile navigation
-As part of the update of Bonita Portal into Bonita Applications, we have not reimplemented the pages for the profile Process Manager, a new documentation page will explain how to rebuild and customize the bonita administrator application to handle the process management capabilities.
-
 ==== LDAP Synchronizer
 * LDAP Synchronizer is now available as a Docker image. xref:ldap-synchronizer.adoc#_using_the_ldap_synchronizer_docker_image[See the documentation]
 * A new property `tenantId` can be set to avoid having to use the platform admin credentials. xref:ldap-synchronizer.adoc#_bonita_properties[See the documentation]
@@ -141,7 +176,7 @@ Tomcat has been updated to the version 9.0.52.
 
 * Unused configuration file `forms-config.properties` has been removed.
 * Optional configuration file `jaas-standard.cfg` has been removed from Tomcat Community bundle (because xref:_jaas_authentication_is_now_enterprise[JAAS is now Enterprise])
-* CAS and Kerberos configuration files have been moved to `tools/SSO/` folder (Bonita Enterprise only)
+* CAS and Kerberos configuration files have been moved to folder `tools/SSO/` (Bonita Enterprise only)
 
 
 == Feature deprecations and removals
@@ -178,11 +213,11 @@ If you migrate from an earlier version of Bonita, you can now delete them if you
 
 * STUDIO-4066 - java.lang.NullPointerException at build when wrong variable entered in script but not shown in validation
 * STUDIO-4043 - errors while importing .bos in studio
-* STUDIO-3962 - Release note view is broken on windows
+* STUDIO-3962 - Release note view is broken on Windows
 * STUDIO-3953 - LA Builder is slow
-* STUDIO-3936 - EMF resources not in synch after using Git operations
+* STUDIO-3936 - EMF resources not in sync after using Git operations
 * STUDIO-3898 - Model - annotations are positioned relatively to lanes coordinates (not absolute)
-* STUDIO-3880 - Editing domain can be null on an opended diagram
+* STUDIO-3880 - Editing domain can be null on an opened diagram
 * STUDIO-3875 - Issue with "Switch project" function
 * STUDIO-3793 - UIPath connector is not working with cloud orchestrator
 
@@ -190,7 +225,7 @@ If you migrate from an earlier version of Bonita, you can now delete them if you
 
 * RUNTIME-261 - BDM installation failed when a bdm was already installed
 * RUNTIME-138 - Entire BDM install history lost when BDM deployment issue
-* RUNTIME-132 - [SAML] Getting the default loging page when signing in on a guest app
+* RUNTIME-132 - [SAML] Getting the default login page when signing in on a guest app
 * RUNTIME-84 - Loading a class with Class.forName can keep references in VirtualClassloader
 * RUNTIME-70 - BDM schemas changes are not rolled back after a failed installation of a new BDM over an existing one
 * RUNTIME-34 - Install a BDM with an invalid custom query fail silently
