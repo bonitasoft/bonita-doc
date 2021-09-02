@@ -75,7 +75,7 @@ The Bonita server is a standalone Java application running in a Java application
 The Bonita server has two components:
 
 * xref:engine-architecture-overview.adoc[Bonita Engine] is the execution engine of Bonita.
-* xref:bonita-bpm-portal-interface-overview.adoc[Bonita Portal] is the part of Bonita that is visible to process users, who use it to view tasks and take actions thanks to a generic task list for all processes they are involved in.
+* xref:bonita-bpm-applications-interface-overview.adoc[Bonita Portal] is the part of Bonita that is visible to process users, who use it to view tasks and take actions thanks to a generic task list for all processes they are involved in.
 
 But Bonita Portal is also the tool used by the tenant administrator to xref:processes.adoc[install, deploy and manage processes]. We use the word "tenant" here, in case the platform would be made of xref:multi-tenancy-and-tenant-configuration.adoc[several tenants].
 
