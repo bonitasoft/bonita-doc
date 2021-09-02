@@ -1,9 +1,9 @@
-= Administrator User activation / deactivation in Bonita Portal
-:description: This page explains what a user with the _Administrator_ profile in Bonita Portal can see and do about the activation and deactivation of a user. +
+= Administrator User activation / deactivation in Bonita Applications
+:description: This page explains what a user with the _Administrator_ profile in the Bonita platform can see and do about the activation and deactivation of a user. +
 
-This page explains what a user with the _Administrator_ profile in Bonita Portal can see and do about the activation and deactivation of a user. +
+This page explains what a user with the _Administrator_ profile in the Bonita platform can see and do about the activation and deactivation of a user.
 Activation / deactivation of a user allows to revoke any access to the platform, without deleting the user. +
-If a user is deactivated, they cannot log in to Bonita Portal. However, all their past actions are kept intact and can be displayed.
+If a user is deactivated, they cannot log into the Bonita platform. However, all their past actions are kept intact and can be displayed.
 
 [NOTE]
 ====

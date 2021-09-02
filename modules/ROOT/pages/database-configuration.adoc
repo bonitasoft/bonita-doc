@@ -79,7 +79,7 @@ To create the database(s), we recommend that you refer to your RDBMS documentati
 
 [#utf8_requirement]
 Your database(s) must be configured to use the UTF-8 character set.
-Also, you are recommended to configure the database(s) to be case-insensitive so that searches in Bonita Portal, Bonita REST API and Bonita Engine API are case-insensitive.
+Also, you are recommended to configure the database(s) to be case-insensitive so that searches in Bonita Applications, Bonita REST API and Bonita Engine API are case-insensitive.
 
 [#specific_database_configuration]
 

@@ -288,7 +288,7 @@ There are two ways to export a business data model: in a ZIP file for deployment
 [discrete]
 ==== Export the BDM for deployment
 
-To deploy the BDM, you export it as a ZIP file from Bonita Studio and then import it into Bonita Portal.
+To deploy the BDM, you export it as a ZIP file from Bonita Studio and then import it into Bonita Super Administrator Application.
 
 [WARNING]
 ====
@@ -312,13 +312,13 @@ Follow these steps:
 . Click *Business Data Model* > *Export*.
 . Select a destination folder.
 . Click *Export*. A file called `bdm.zip` is written to the folder that you specified.
-. Log in to Bonita Portal as the technical user.
+. Log into the Bonita platform as the technical user.
 . Go to the *BPM Services* page.
 . Click *Pause*.
 . When the BPM services are paused, go to the *Business Data Model* menu (and, for Efficiency, Performance and Enterprise editions, choose *Definition*).
 . Specify the file containing the business data model that you exported from Bonita Studio.
 . Click *_Activate_*. A warning is displayed, reminding you that installing this new BDM will overwrite the existing BDM.
-. Click on *Install* to complete the deployment. Bonita Portal loads the file, and retrieves the object definition enabling processes to use them at runtime. It also creates or updates the database schema in the business database, to store business objects appropriately when modified by processes. When the deployment is complete, a message is displayed. If deployment fails, use the Engine logs to analyze the problem.
+. Click on *Install* to complete the deployment. The Bonita platform loads the file, and retrieves the object definition enabling processes to use them at runtime. It also creates or updates the database schema in the business database, to store business objects appropriately when modified by processes. When the deployment is complete, a message is displayed. If deployment fails, use the Engine logs to analyze the problem.
 . Go to the *BPM Services* page.
 . Click *Resume*. BPM services are resumed.
 
@@ -381,7 +381,7 @@ When you design a process, you specify the variables to be used in the process. 
 [discrete]
 ==== persistenceID
 
-Each object created in the database has a unique read-only ID called a persistenceID. For each new persistenceID created, the number is incremented. The persistenceID is invisible to the end user in Bonita Portal. A developer can recover this Id by using the method `getPersistenceID`.
+Each object created in the database has a unique read-only ID called a persistenceID. For each new persistenceID created, the number is incremented. The persistenceID is invisible to the end user in the Bonita Applications. A developer can recover this Id by using the method `getPersistenceID`.
 
 When you declare a persisted business object instance in a process, there are two ways you can initialize it:
 

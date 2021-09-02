@@ -25,6 +25,6 @@ xref:bonita-engine-dependencies.adoc[List of Engine dependencies]
 
 xref:portal-js-dependencies.adoc[List of Portal-js dependencies]
 
-xref:react-page-dependencies.adoc[List of React Portal pages dependencies]
+xref:react-page-dependencies.adoc[List of React pages dependencies]
 
-xref:bonita-web-dependencies.adoc[List of Bonita web portal dependencies]
+xref:bonita-web-dependencies.adoc[List of Bonita web dependencies]
