@@ -35,7 +35,7 @@ In the Organization menu > Manage organizations > Organization users, the second
 . Click on *Ok*
 . A new custom tab is applied to all users.
 
-If the value is changed in Bonita Portal by the admin, and the filter value does not exist in the organization
+If the value is changed in the Bonita platform by the admin, and the filter value does not exist in the organization
 
 == Add custom user information values for each user
 

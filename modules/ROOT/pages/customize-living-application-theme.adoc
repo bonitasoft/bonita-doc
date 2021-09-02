@@ -26,7 +26,7 @@ We provide a maven archetype to help you to bootstrap a theme project outside of
 
 === Generate the project using the Maven archetype
 
-A https://maven.apache.org/archetype/index.html[maven archetype] is a maven project templating toolkit. This archetype allows you to bootstrap a theme project on your file system. A theme project is a maven project. It can be built, tested and then imported into Bonita from the Bonita portal.
+A https://maven.apache.org/archetype/index.html[maven archetype] is a maven project templating toolkit. This archetype allows you to bootstrap a theme project on your file system. A theme project is a maven project. It can be built, tested and then imported into Bonita from the Bonita Administrator Application.
 
 To create your theme project, prompt a terminal and enter the following command:
 [WARNING]
@@ -388,7 +388,7 @@ First you will have to `build` your theme:
 === From the maven project
 
 Prompt a terminal and enter the following command: `./mvnw` +
-The build produces a zip archive in the target folder. This archive can be imported into the Bonita Portal, from the resource page using the Administrator application. The theme is now available for all living applications.
+The build produces a zip archive in the target folder. This archive can be imported into the Bonita Administrator Application, in the *Resources* page. The theme is now available for all living applications.
 
 == Create a theme project from an existing theme in production
 

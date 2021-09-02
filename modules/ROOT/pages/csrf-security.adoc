@@ -27,7 +27,7 @@ get the header `X-Bonita-API-Token`, and create their own requests.
 
 == Is there an impact on REST API calls?
 
-If you are using Bonita Portal there is no impact.
+If you are using Bonita Applications there is no impact.
 
 If you have developed an external application or some custom pages using the REST API to communicate with bonita, you need to send the `X-Bonita-API-Token` header in all requests other that GET. There are 2 ways of doing this:
 
@@ -77,6 +77,6 @@ In UI designer:
 1) xref:create-or-modify-a-page.adoc#import[*Import*] the page from 7.3.X or lower version.
 1) xref:create-or-modify-a-page.adoc#export[*Export*] the page you previously imported.
 
-In the portal as Administrator:
+In the Bonita Administrator Application:
 1) Go on Resources entry.
 1) xref:resource-management.adoc#modify[Edit the existing page] by uploading the new one.

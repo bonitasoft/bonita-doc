@@ -5,7 +5,7 @@
 
 The last step of this Getting Started tutorial is to create an application.
 
-To create and deploy a first application in your local environment, use the *xref:applicationCreation.adoc[Application descriptor]*. This editor defines the skeleton of an application, as it contains references to resources installed in Bonita Portal and used by a given application. It will also help deploy the application directly from Bonita Studio.
+To create and deploy a first application in your local environment, use the *xref:applicationCreation.adoc[Application descriptor]*. This editor defines the skeleton of an application, as it contains references to resources installed in the Bonita platform and used by a given application. It will also help deploy the application directly from Bonita Studio.
 
 The page you have created in the UI Designer, as well as the forms, have been automatically added to project resources under *Pages/Forms/Layout*.
 
@@ -42,7 +42,7 @@ image:images/getting-started-tutorial/create-application/create-application.gif[
 The look & feel can be fully customized by modifying the xref:layouts.adoc[layout] and adding a custom xref:customize-living-application-theme.adoc[theme].
 ====
 
-The application is ready to be used. Now you need to deploy it in Bonita Portal:
+The application is ready to be used. Now you need to deploy it in Bonita Applications:
 
 . Click on the *Deploy* icon image:images/getting-started-tutorial/create-application/deploy-icon.png[deploy icon]
 . Click on *Select all* to make sure everything is deployed: test organization, business data model, process definition, application page
@@ -58,14 +58,11 @@ Congratulations! You have successfully created your first process and your first
 [NOTE]
 ====
 
-Verify that the application has been created in Bonita Portal.
+Verify that the application is available.
 
-. Click on the Portal icon image:images/getting-started-tutorial/create-application/portal-icon.png[Portal icon] in the Bonita Studio coolbar.
-. In the upper right corner of the window, click on the *User* drop down menu
-. Select *Administrator*
-. Click on the *Applications* tab
+. Click on the Applications icon image:images/getting-started-tutorial/create-application/applications-icon.png[Applications icon] in the Bonita Studio coolbar.
+. You will see the application _Claims_ that you have just deployed listed in Bonita Application Directory. If you click on the URL, _My Dashboard_ page will be displayed in your brower.
 
-You will see the application _Claims_ that you have just deployed listed in the *Applications list*. If you click on the URL, _My Dashboard_ page will be displayed in your brower.
 ====
 
 To learn more about Bonita components and concepts, we recommend the https://www.youtube.com/playlist?list=PLvvoQatxaHOMHRiP7hFayNXTJNdxIEiYp[Bonita Camp tutorial]. Of course https://documentation.bonitasoft.com[official documentation] is also a great place to learn more about Bonita. If you prefer to learn from examples, you can find several on the https://community.bonitasoft.com/project?title=&field_type_tid=3869[community website]. And finally, remember that you can always get help and https://community.bonitasoft.com/questions-and-answers/[ask questions of the Bonita Community].

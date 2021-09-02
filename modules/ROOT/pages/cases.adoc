@@ -1,7 +1,7 @@
 = Administrator Case list
-:description: This page explains what a user with the _Administrator_ or _Process Manager_ profiles in Bonita Portal, or an _Administrator_ in Bonita Administrator Application can see and do about cases (the process instances).
+:description: This page explains what a user with the _Administrator_ profile in Bonita Administrator Application can see and do about cases (the process instances).
 
-This page explains what a user with the _Administrator_ or _Process Manager_ profiles in Bonita Portal, or an _Administrator_ in Bonita Administrator Application can see and do about cases (the process instances).
+This page explains what a user with the _Administrator_ profile in Bonita Administrator Application can see and do about cases (the process instances).
 
 Those users can view a list of open or archived cases, as well as cases with failures, access the case details and overview, the pending tasks for this case, the process definition of this case, and write a comment in open cases.
 

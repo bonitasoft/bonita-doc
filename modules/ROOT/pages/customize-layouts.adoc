@@ -23,14 +23,15 @@ Prerequisites to customize a layout:
 The following example shows how to add a new widget into the layout. +
 The example sections show how to:
 
-* Export the layout from Bonita Portal
+* Export the layout from Bonita Administrator Application
 * Import the layout into the UI Designer
 * Modify the layout
 * Apply the customized layout onto a living application.
 
-== Export a layout from Bonita Portal
+== Export a layout from Bonita Administrator Application
 
-. Open Bonita Portal, and log in with username and password of someone mapped to the Administrator profile.
+. Log in with someone mapped to the Administrator profile.
+. Open the Bonita Administrator Application
 . Click on the *Resources* menu.
 . Select the filter *Layouts*.
 . Select the layout that you want to modify.
@@ -70,13 +71,13 @@ Once your changes are made, save the new layout using a new name and then export
 . Click on *Save*.
 . Click on the *Export* button.
 
-== Import the _myCustomLayout_ into the portal
+== Import the _myCustomLayout_ into the Bonita Administrator Application
 
-. Open Bonita Portal, and again log in with username and password of someone mapped to the Administrator profile.
+. Log in with someone mapped to the Administrator profile.
+. Open the Bonita Administrator Application
 . Click on the *Resources* menu.
-. Click on *Add*.
+. Click on *Install*.
 . Add the new _myCustomLayout_.
-. Click *Next*.
 . Click *Confirm*.
 
 == Configure your living application to use the modified layout
@@ -96,8 +97,8 @@ Starting with Bonita 7.6.0, when the user clicks on any menu item, only the cont
 To take advantage of this improvement if your customized layout has been created with a Bonita version older than 7.6.0, you will need to follow these steps:
 
 . Import your _CustomLayout_7.5.x_ (or lower) in the UI Designer 7.6.0 (or later versions)
-. Export the _Default layout_ from Bonita Portal 7.6.0 (or later versions)
-. Import the _Default layout_ in the UI Designer
+. Export the _Bonita layout_ from Bonita Administrator Application
+. Import the _Bonita layout_ in the UI Designer
 . Open your _CustomLayout_7.5.x_
 . If any of the custom widgets _livingApplicationMenu_ or _livingApplicationIFrame_ has been modified, +
 you will need to merge your modifications and the modifications of the new version of those widgets, namely _livingApplicationMenuV3_ and _livingApplicationIFrameV3_.
@@ -111,6 +112,6 @@ Note 2: A good practice would be to rename those merged widgets into something l
 . Replace the custom widget _livingApplicationMenu_ by the new custom widget _livingApplicationMenuV3_ (or your _myCustomizedMenuV3_)
 . Replace the custom widget _livingApplicationIFrame_ by the new custom widget _livingApplicationIFrameV3_  (or your _myCustomizedIFrameV3_)
 . Export this updated layout page.
-. In Bonita portal, edit the layout and import the newly exported layout
+. In Bonita Administrator Application, edit the layout and import the newly exported layout
 . Confirm all messages
 . Validate that your application has a layout that fits your requirements and the new menu behaviour.
