@@ -57,9 +57,6 @@ https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Javadoc].
 | Document API
 | Manages documents that are attached to a process instance.
 
-| Theme API
-| Manages the Look & Feel of the Bonita Portal web and mobile interfaces and forms.
-
 | Tenant Management API
 | Used to pause service in a tenant for maintenance, to resume service, and to check whether a tenant is paused. Available in Teamwork, Efficiency, Performance and Enterprise editions.
 |===
@@ -91,7 +88,7 @@ BPM services are related to BPM activities.
 |  |
 
 | Description:
-| Manage categories of processes. A category is a way to classify processes. Categories are handled manually by administrators in Bonita Portal and are visible to portal users.
+| Manage categories of processes. A category is a way to classify processes. Categories are handled manually by in the Bonita Administrator Application and are visible to all users.
 
 | Used by:
 | Command service
@@ -685,10 +682,10 @@ Generic services  perform actions that are not related to BPM but are required f
 |  |
 
 | Description:
-| Handle profiles. A profile is an entity with a name, description, and icon path that is associated with a user, group, role, or membership. A profile entity is used by Bonita Portal to determine a user's profile (user, process manager, or administrator).
+| Handle profiles. A profile is an entity with a name, description, and icon path that is associated with a user, group, role, or membership. A profile entity is used to determine a user's profile (user, process manager, or administrator).
 
 | Used by:
-| API, used by Bonita Portal to modify user profiles.
+| API, used by Bonita Applications to modify user profiles.
 
 | Implementation:
 | org.bonitasoft.engine.profile.impl.ProfileServiceImpl
@@ -770,21 +767,6 @@ Generic services  perform actions that are not related to BPM but are required f
 
 | Implementation:
 | org.bonitasoft.engine.platform.session.impl.PlatformSessionServiceImpl
-|===
-
-=== Theme
-
-|===
-|  |
-
-| Description:
-| Handle storage, retrieval, and update of portal themes.
-
-| Used by:
-| API.
-
-| Implementation:
-| org.bonitasoft.engine.theme.impl.ThemeServiceImpl
 |===
 
 === Transaction
