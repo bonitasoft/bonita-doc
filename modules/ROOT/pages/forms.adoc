@@ -3,8 +3,8 @@
 
 Forms are critical to process execution. They are linked to both process instantiation and task execution.
 
-Most of the time, they are used in only one process; in this case, they are packaged with the process and deployed in the _Processes_ section of Bonita Portal. They can be viewed in the process details section.
-Alternatively, they can be used in several processes. In this case, they can be managed as xref:resource-management.adoc[_Resources_] in Bonita Portal.
+Most of the time, they are used in only one process; in this case, they are packaged with the process and deployed in the _Processes_ section of Bonita User Application. They can be viewed in the process details section.
+Alternatively, they can be used in several processes. In this case, they can be managed as xref:resource-management.adoc[_Resources_] in Bonita Administrator Application.
 
 == Instantiation form
 
@@ -28,12 +28,12 @@ At development time, an auto-generated form is provided by default. It can also 
 == Use in processes
 
 Most of the time, processes imbed their forms in the .bar generated from Bonita Studio and deployed to a Bonita Runtime.
-Rarely, when a form is used by multiple processes, it can be deployed as a "Resource" in Bonita Portal.
+Rarely, when a form is used by multiple processes, it can be deployed as a "Resource" in Bonita Administrator Application.
 
 == Live update
 
 xref:live-update.adoc[Live update] allows the Administrator to update one element of the application in a situation of emergency. +
-You can xref:live-update.adoc]#form-list[update the form in the list] and xref:live-update.adoc]]#form-mapping[modify the mapping with the process]. +
-You can also xref:resource-management.adoc]#modify[edit] a global form as a resource in Bonita Portal.
+You can xref:live-update.adoc#form-list[update the form in the list] and xref:live-update.adoc#form-mapping[modify the mapping with the process]. +
+You can also xref:resource-management.adoc#modify[edit] a global form as a resource in Bonita Administrator Application.
 
 To know more about the development of forms, go to the xref:forms-development.adoc[dedicated documentation page].
