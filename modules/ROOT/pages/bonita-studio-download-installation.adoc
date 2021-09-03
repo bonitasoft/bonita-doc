@@ -161,4 +161,4 @@ image:images/getting-started-tutorial/installation/ui-designer-first-start.png[U
 
 == Ready to move on
 
-You have sucessfully installed Bonita Studio, and the tools and test environment are up and running.
+You have successfully installed Bonita Studio, and the tools and test environment are up and running.
