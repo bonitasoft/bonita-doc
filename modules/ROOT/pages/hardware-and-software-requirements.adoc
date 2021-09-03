@@ -12,7 +12,7 @@ The hardware recommended for Bonita Platform is strongly dependent on your envir
 processes (number of processes instances, number of current users, operations and complexity...).
 ====
 
-Hardware required for Bonita Platform (Bonita Engine and Bonita Portal)
+Hardware required for Bonita Platform
 
 |===
 | Type | Minimum | Recommended
@@ -32,7 +32,7 @@ Hardware required for Bonita Platform (Bonita Engine and Bonita Portal)
 
 == Software
 
-Software required for Bonita Platform (Bonita Engine and Bonita Portal).
+Software required for Bonita Platform.
 
 |===
 |  | Version
