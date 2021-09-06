@@ -1,4 +1,5 @@
 = Bonita User Interfaces overview
+:page-aliases: bonita-bpm-portal-interface-overview.adoc
 :description: This page describes the runtime User Interfaces provided by Bonita. +
 
 This page describes the runtime User Interfaces provided by Bonita. +
