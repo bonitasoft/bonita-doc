@@ -45,7 +45,7 @@ To define actors for a process:
 
 See xref:custom-user-information-in-bonita-bpm-studio.adoc[Custom User Information in Bonita Studio]
 
-See xref:custom-user-information-in-bonita-bpm-applications.adoc[Custom User Information in Bonita Apps]
+See xref:custom-user-information-in-bonita-applications.adoc[Custom User Information in Bonita Apps]
 
 == Set the initiator
 
