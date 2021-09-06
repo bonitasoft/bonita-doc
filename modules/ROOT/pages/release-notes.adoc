@@ -78,11 +78,14 @@ Therefore, to simplify the expression flow in the Studio we are removing the fol
 
 If your project are using these expression types, they will be migrated to the new expression editor when you import your project in the 2021.2 Studio.
 
-=== Improvements on the widget switch
+==== Improvements on the widget switch
 The switch widget feature has been improved to guide the user efficiently to avoid incompatible properties mapping that may lead to inconsistant states of widgets.
 
-=== Tab widget: Possibility to define the selected tab
+==== Tab widget: Possibility to define the selected tab
 It is now possible to define the tab that will be selected by default in the tab group with the new "Selected" field on the tabs.
+
+==== API Variables response Metadata usage
+It is now possible to easily bind the metadata of an API variable response (header, status code, and response value) to other variables
 
 === Runtime changes
 
