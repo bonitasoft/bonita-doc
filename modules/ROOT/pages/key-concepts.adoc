@@ -7,14 +7,14 @@ Learn some of the key concepts related to designing an application or a process 
 
 An application is a collection of processes, user interfaces (called pages) and shared data. A page that is a user interface to a process is called a form.
 
-You can use Bonita to create a process-based application or a process that is accessed only through Bonita Portal. A process that is in an application is also visible in the Portal.
+You can use Bonita to create a process-based application or a process that is accessed through the Bonita Applications.
 
 == Process definition
 
 A process is a sequence of tasks performed by people (human tasks) or automatically (service tasks). The sequence has a start and an end, and can contain decision points, known as gateways. A process definition is constructed in Bonita Studio as a flow diagram. You add data, gateways, connectors, scripts and expressions to control the process flow, and configure the process components and dependencies. The diagram uses the Business Process Model and Notation, which is the standard for defining a business process. Version 2.0, BPMN 2.0, was published in January 2011.
 
 If a process is visible to users, you can use the UI designer to design forms to input data and forms to display information. +
-The result is a process that can be deployed to Bonita Portal.
+The result is a process that can be deployed to the Bonita Runtime.
 
 == Business data
 
@@ -38,10 +38,10 @@ See the xref:connectivity-overview.adoc[Connectivity overview] for details.
 
 == Organization
 
-Your organization is the set of all the users who play a part in all the applications and processes that your business uses. The organization is stored in Bonita Engine and can be managed in Bonita Portal. +
+Your organization is the set of all the users who play a part in all the applications and processes that your business uses. The organization is stored in Bonita Engine and can be managed in the Bonita Administrator Application. +
 Typically, the organization corresponds to the hierarchy of teams within your business. +
 If your clients and suppliers have access to your processes, those users must also be included in the organization. +
-You can also feed Bonita Portal by synchronizing with an external LDAP directory. +
+You can also feed the Bonita Runtime by synchronizing with an external LDAP directory. +
 During process modelling, you need to create a draft organization in Bonita Studio with the main entities (groups, roles) to map it to process actors. +
 See the xref:organization-overview.adoc[Organization overview] for details.
 
