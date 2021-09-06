@@ -60,3 +60,15 @@ REST API permissions are stored in the user's session and new permissions will o
 == Live update
 In Bonita Studio, the debug mode is disabled by default. In debug mode, you can see changes on your REST API Extensions without importing a new zip archive, but it means the classloader of the extension is recreated at each request. +
 If you want to enable the debug mode, you can activate it in the Studio server preferences.
+
+xref:live-update.adoc[Live update] allows the Administrator to update one element of the application in a situation of emergency.
+
+=== Edit the REST API extension
+* Retrieve platform configuration using the xref:bonita-bpm-platform-setup.adoc#update_platform_conf[setup tool].
+* Edit `platform_conf/current/tenants/<TENANT_ID>/tenant_portal/custom-permissions-mapping.properties`.
+* Add a permission for the REST API: `profile|User=[examplePermission]`.
+* Push the changed platform configuration into database using the _setup tool_.
+* Restart Tomcat bundle
+
+You can xref:resource-management.adoc#modify[edit the content of a REST API extension] by installing a new version.
+The url mappings in the `page.properties` in the new version should have the `examplePermission`.

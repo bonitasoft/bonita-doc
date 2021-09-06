@@ -46,7 +46,7 @@ To allow an easy migration to this new feature, and to keep our BDM API working,
 The graphical editor helps you to achieve this by adding a warning icon close to business objects that have no access rule defined.
 ====
 
-For development purposes, the Bonita Studio can *deploy* access control onto Bonita Super Administrator Application for you. Use the _Deploy_ option of the editor toolbar or from the menu. To install it in a production environment, export the access control file (using the _Export_ option of the editor toolbar or from the menu), login into the platform, and xref:bdm-management-in-bonita-bpm-applications.adoc[install it].
+For development purposes, the Bonita Studio can *deploy* access control onto Bonita Super Administrator Application for you. Use the _Deploy_ option of the editor toolbar or from the menu. To install it in a production environment, export the access control file (using the _Export_ option of the editor toolbar or from the menu), login into the Bonita Runtime, and xref:bdm-management-in-bonita-bpm-applications.adoc[install it].
 
 == Examples of use-cases to implement
 
@@ -170,10 +170,10 @@ Deploy the access control file.
 
 Access to data is now controlled by the BDM Access Control file just deployed. To check:
 
-. Login onto the platform as a user with the profile _HR trainee_.
+. Login into the Bonita Runtime as a user with the profile _HR trainee_.
 . In the Studio, open the application descriptor.
 . Click on the overview link of the application. You are viewing the application as an HR trainee. The medical comment is not displayed.
-. Login into the platform as a user with the profile _HR manager_. Refresh the application in the web browser. You are viewing the application as an HR manager. The medical comment is displayed.
+. Login into the Bonita Runtime as a user with the profile _HR manager_. Refresh the application in the web browser. You are viewing the application as an HR manager. The medical comment is displayed.
 
 === II - Grant access to attributes in a complex relationship. Invoices
 
@@ -399,11 +399,11 @@ Deploy the access control file.
 
 Access to data is now controlled by the BDM Access Control file just deployed. To check:
 
-. Login into the platform as a user with the profile _Order picker_.
+. Login into the Bonita Runtime as a user with the profile _Order picker_.
 . In the Studio, open the application descriptor
 . Click on the overview link of the application. Customer data and product prices are not displayed.
-. Login into the platform as a user with the profile _Experienced Sales_. Refresh the application in the web browser. All data are displayed.
-. Login into the platform as a user with the profile _Novice Sales_. Refresh the application in the web browser. Full invoice information is displayed. Only customer data names are displayed.
+. Login into the Bonita Runtime as a user with the profile _Experienced Sales_. Refresh the application in the web browser. All data are displayed.
+. Login into the Bonita Runtime as a user with the profile _Novice Sales_. Refresh the application in the web browser. Full invoice information is displayed. Only customer data names are displayed.
 
 === III - Grant access to business object instances. Requests on marks
 
@@ -602,11 +602,11 @@ You still do on a production server.
 
 Access to data queries is now controlled by dynamic security. To check:
 
-. Login into the platform as a user with the profile _Mathamtics Teacher_.
+. Login into the Bonita Runtime as a user with the profile _Mathamtics Teacher_.
 . In the Studio, open the application descriptor
 . Click on the overview link of the application. Select 'Physics'. No instances are displayed but you can see instances when you select 'Mathematics'.
-. Login into the platform as a user with the profile _Physics Teacher_. Refresh the application in the web browser. Select 'Mathematics'. No instances are displayed but you can see instances when you select 'Physics'.
-. Login into the platform as a user with the profile _Teachers_. Refresh the application in the web browser. All instances are available to you.
+. Login into the Bonita Runtime as a user with the profile _Physics Teacher_. Refresh the application in the web browser. Select 'Mathematics'. No instances are displayed but you can see instances when you select 'Physics'.
+. Login into the Bonita Runtime as a user with the profile _Teachers_. Refresh the application in the web browser. All instances are available to you.
 
 *7. Adding access control on attributes*
 
