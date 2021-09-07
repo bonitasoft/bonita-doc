@@ -440,7 +440,7 @@ but other options are available.
 
 === Git (Source Control Management)
 
-Git is an advanced tool and we won't dig too much in the detail of its usage. We will just see a few command that get us going on GitHub.
+Git is an advanced tool and we won't dig too much into the detail of its usage. We will just see a few commands that get us going on GitHub.
 
 Initialize the Git repository. From a terminal, at the root of your project, run:
 
