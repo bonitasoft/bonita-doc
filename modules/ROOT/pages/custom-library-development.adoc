@@ -3,7 +3,7 @@
 
 {description}
 
-== Why should I develop a custom library ?
+== Why should I develop a custom library?
 
 * To extract advanced logic from processes script expressions
 * To be able to use standard technology to automate testing for this logic
@@ -14,7 +14,7 @@
 
 [NOTE]
 ====
-In the below example we use Maven as the project build tool, but it is also possible Gradle if it is the tool of your choice.
+In the below example we use Maven as the project build tool, but it is also possible to use Gradle if it is the tool of your choice.
 ====
  
 The example will externalize a function used in the xref:define-who-can-do-what.adoc[Define who can do what] article.
@@ -66,12 +66,12 @@ At the root of this folder create a `pom.xml` file.
 
 == Integration with Bonita
 
-=== Using the Runtime BOM
+=== Add the Runtime BOM
 
 This library will be executed in the Bonita Runtime that already comes with `provided` dependencies in its class-path.
 To avoid dependencies conflicts between our custom library and the Bonita Runtime, we can use a https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#bill-of-materials-bom-poms[**Bill Of Material** (BOM), window = "_blank"].
 
-First, we need to define the target Bonita runtime version. You must use the xref:product-versioning.adoc#_technical_id[technical id] as version. Add a `bonita-runtime.version` property in `properties` section of the pom.xml:
+First, we need to define the target Bonita runtime version. You must use the xref:product-versioning.adoc#_technical_id[technical id] as version. Add a `bonita-runtime.version` property in the `properties` section of the pom.xml:
 
 [source, xml]
 ----
@@ -98,7 +98,7 @@ Then, we can `import` the BOM artifact in the `dependencyManagement` section of 
   </dependencyManagement>
 ----
 
-=== Using the Bonita API
+=== Add the Bonita API
 
 Add the `bonita-common` dependency in the `dependencies` section of the pom.xml like this:
 
@@ -136,7 +136,7 @@ So we also add this `provided` dependency in our project.
 
 == Implement the Business logic
 
-In this example, we are going to code a function that retrieves the user who executed a task with specific name in a given process instance.
+In this example, we are going to code a function that retrieves the user who executed a task with a specific name in a given process instance.
 
 Maven projects have a default folder structure to find source files to build:
 
@@ -147,7 +147,7 @@ Maven projects have a default folder structure to find source files to build:
 
 Create a `Users.java` Java class as entry point for our function. 
 This source must be in `src/main/java` folder. 
-In addition it must respect java package convention.
+In addition, it must respect java package convention.
 So the file must be created in the `src/main/java/org/bonitasoft/extension/` folder as `org.bonitasoft.extension` will be our class package.
 
 [source, java]
@@ -236,14 +236,14 @@ You can now add this dependency in your xref:managing-dependencies.adoc#_configu
 
 [NOTE]
 ====
-`apiAccessor` and `rootProcessInstanceId` are injected in Script expression
+`apiAccessor` and `rootProcessInstanceId` are injected in the Script expression
 ====
 
 == Automated tests
 
 === Unit tests
 
-Add and setup `test` dependencies in your project like this:
+Add and set up `test` dependencies in your project like this:
 
 [source, xml]
 ----
@@ -375,7 +375,7 @@ class UsersTest {
 }
 ----
 
-The goal of this example is not to dig into https://junit.org/junit5/docs/current/user-guide/[Junit5] and https://site.mockito.org/[Mockito]. If you are curious about those framework, visit their documentation site.
+The goal of this example is not to dig into https://junit.org/junit5/docs/current/user-guide/[Junit5] and https://site.mockito.org/[Mockito]. If you are curious about those frameworks, visit their documentation site.
 
 You can check that the above test are passing by running the following command from the terminal:
 
@@ -425,7 +425,7 @@ To compute this coverage, we will use https://www.eclemma.org/jacoco/[Jacoco]. A
 </build>
 ----
 
-Re run the following command:
+Re-run the following command:
 
 ```shell
 $ mvn verify
@@ -502,7 +502,7 @@ $ git commit -m "initialize the git repository" <2>
 
 === GitHub
 
-You will need to create a https://github.com/signup[GitHub account] if you (or your company) not already have one.
+You will need to create a https://github.com/signup[GitHub account] if you (or your company) does not already have one.
 
 ==== New GitHub repository
 
@@ -523,8 +523,8 @@ If your refresh the GitHub project repository page (https://github.com/<owner>/b
 
 ===== Add a README.md
 
-An highly recommended practice, is to add a `README.md` file at the root of your project. 
-This piece of documentation aims at helping other contributors to quickly jump into the project.
+A highly recommended practice is to add a `README.md` file at the root of your project. 
+This piece of documentation aims at helping other contributors quickly jump into the project.
 It should contains a small description of the purpose of the project, how to setup a development environment and any kind of information that you consider relevant.
 
 Here is an example of a `README.md`:
@@ -602,7 +602,7 @@ To setup this plug-in, add the following configuration in the `pom.xml`:
 </scm>
 ----
 
-We will later define a GitHub action that trigger a release of our project using this plug-in.
+We will later define a GitHub action that triggers a release of our project using this plug-in.
 
 === GitHub actions
 
