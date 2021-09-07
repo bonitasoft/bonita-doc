@@ -517,7 +517,7 @@ $ git push -u origin main <3>
 ```
 <1> Define a _remote_ origin for the local copy of the repository
 <2> Create a _branch_ named `main` from the current HEAD (Our initial commit)
-<3> Push the branch to the define remote origin
+<3> Push the branch to the defined remote origin
 
 If your refresh the GitHub project repository page (https://github.com/<owner>/bonita-extension-library) you should see your source code and single `main` branch.
 
@@ -525,7 +525,7 @@ If your refresh the GitHub project repository page (https://github.com/<owner>/b
 
 A highly recommended practice is to add a `README.md` file at the root of your project. 
 This piece of documentation aims at helping other contributors quickly jump into the project.
-It should contains a small description of the purpose of the project, how to setup a development environment and any kind of information that you consider relevant.
+It should contain a small description of the purpose of the project, how to set up a development environment, and any kind of information that you consider relevant.
 
 Here is an example of a `README.md`:
 
