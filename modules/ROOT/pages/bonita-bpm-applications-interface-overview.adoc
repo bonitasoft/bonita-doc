@@ -13,7 +13,7 @@ They rely on the analysis that four types of personas use process-based applicat
 
 == Default User Interfaces
 
-Starting with Bonita 2021.2, there are is only one type of runtime User Interfaces provided by Bonita: Bonita Applications.
+Starting with Bonita 2021.2, there is only one type of runtime User Interfaces provided by Bonita: Bonita Applications.
 
 In Bonita 2021.2, Bonita Applications offer:
 
@@ -23,11 +23,11 @@ In Bonita 2021.2, Bonita Applications offer:
 * the Bonita Application Directory
 
 These applications are installed by default for a fresh installation of the platform. The application descriptor can be exported from the Administrator Application or the Super administrator application. +
-In addition to that the first two Bonita Applications can be downloaded from the Welcome Page of the Studio, in the "Resources" tile.
+In addition to that, the first two Bonita Applications can be downloaded from the Welcome Page of the Studio, in the "Resources" tile.
 
 Applications are flexible in two ways:
 
-* The navigation can be customized: remove the pages that are not needed, add custom pages that are needed. This is the equivalent of Custom Profiles, but with the flexibility of an application.
+* The navigation can be customized: remove the pages that are not needed, add custom pages that are needed.
 * Some pages of those applications have been recreated with Bonita UI Designer (find xref:design-methodology.adoc[the list here]). This means that you can open and customize the page to make it fit the precise needs of the users. Starting with an existing page accounts for a big gain of time.
 
 == Custom User Interfaces

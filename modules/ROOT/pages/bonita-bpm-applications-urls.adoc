@@ -1,5 +1,5 @@
 = Bonita Applications URLs
-:description: This page explains how to use a URL to access the Bonita Applications or the form for a specific process or task.
+:description: This page explains how to use a URL to access the Bonita Applications, or to access a form for a specific process or task.
 
 {description}
 

@@ -84,7 +84,7 @@ Define a _LeaveRequest_ business object, with the following attributes:
 . In your organization, create a group _Human Resources_ and two roles: _Trainee_ & _Manager_.
 . Create some users with the membership _Trainee of Human Resources_ and some others with the membership _Manager of Human Resources_.
 . Check that all users are also mapped with the default profile _User_.
-. Define two custom profiles using the xref:profileCreation.adoc[profile editor] in the Studio:
+. Define two custom profiles using the xref:profile-creation.adoc[profile editor] in the Studio:
  ** *HR trainees*, mapped with the membership _Trainee of Human Resources_
  ** *HR managers*, mapped with the membership _Manager of Human Resources_
 . Deploy those profiles.

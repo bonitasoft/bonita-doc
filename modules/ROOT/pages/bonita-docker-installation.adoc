@@ -84,7 +84,7 @@ This will only add the initial license to the Bonita Runtime. To renew a license
 ====
 
 
-This will start a container running the Tomcat Bundle with Bonita Engine + Applications. As you did not specify any environment variables it's almost like if you had launched the Bundle on your host using startup.+{sh|bat}+ (with security hardening on REST and HTTP APIs, cf Security part). It means that Bonita uses a H2 database here.
+This will start a container running the Tomcat Bundle with Bonita Runtime. As you did not specify any environment variables it's almost like if you had launched the Bundle on your host using startup.+{sh|bat}+ (with security hardening on REST and HTTP APIs, cf xref:_start_bonita_with_custom_security_credentials[Security concerns]). It means that Bonita uses a H2 database here.
 
 You can access the Runtime on http://localhost:8080/bonita and login using the default credentials : install / install
 

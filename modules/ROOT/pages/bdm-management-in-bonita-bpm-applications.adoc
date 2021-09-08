@@ -1,6 +1,6 @@
 = Business Data Management
 :page-aliases: bdm-management-in-bonita-bpm-portal.adoc
-:description: This page explains what a user with the _Administrator_ profile in the xref:admin-application-overview.adoc[Bonita Administrator Application] can see and do about Business Data Model (BDM) and BDM Access Control.
+:description: This page explains what a user with the Administrator profile in the Bonita Administrator Application can see and do about Business Data Model (BDM) and BDM Access Control.
 
 {description}
 
