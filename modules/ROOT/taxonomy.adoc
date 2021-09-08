@@ -141,6 +141,7 @@
   *** xref:multi-language-pages.adoc[Multi-language pages]
   *** xref:languages.adoc[Languages]
 * xref:software-extensibility.adoc[Extensions]
+ ** xref:custom-library-development.adoc[Custom library development]
 * Integration
  ** xref:event-handlers.adoc[Event handler]
 * xref:api-index.adoc[API]
