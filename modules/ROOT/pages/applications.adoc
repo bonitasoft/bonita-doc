@@ -1,7 +1,7 @@
 = Applications
 :description: This page defines the term "Application" and explains what a user can see and do about them in the Bonita Administrator Application.
 
-This page defines the term "Application" and explains what a user can see and do about them in the Bonita Administrator Application.
+{description} +
 
 Here is a view of the page:
 image:images/UI2021.1/admin_applications.png[Administrator Applications]

@@ -1,7 +1,7 @@
 = Bonita REST API glossary
 :description: List of Bonita REST API definitions and descriptions.
 
-List of Bonita REST API definitions and descriptions.
+{description}
 
 == Definition
 

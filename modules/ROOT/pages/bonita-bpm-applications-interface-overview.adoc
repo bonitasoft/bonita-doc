@@ -2,7 +2,8 @@
 :page-aliases: bonita-bpm-portal-interface-overview.adoc
 :description: This page describes the runtime User Interfaces provided by Bonita. +
 
-This page describes the runtime User Interfaces provided by Bonita. +
+
+{description} +
 They rely on the analysis that four types of personas use process-based applications in a company:
 
 * the *User* is responsible of performing the tasks for which they are a candidate and also for starting new cases of the processes to which they have access.

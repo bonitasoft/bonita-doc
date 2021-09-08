@@ -2,7 +2,7 @@
 :page-aliases: organization-in-bonita-bpm-portal-overview.adoc
 :description: In Bonita Portal as in Bonita Administrator Application, a user with the _Administrator_ profile can view all the entities of the deployed organization.
 
-In Bonita Portal as in Bonita Administrator Application, a user with the _Administrator_ profile can view all the entities of the deployed organization.
+{description}
 
 In practice, this includes:
 

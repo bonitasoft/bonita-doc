@@ -1,7 +1,7 @@
 = About Bonita Applications
 :description: Bonita Applications gives you access to a basic task preview and administration features.
 
-Bonita Applications give you access to a basic task preview and administration features.
+{description}
 
 == Version of the Bonita Runtime
 

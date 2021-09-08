@@ -1,7 +1,7 @@
 = Profiles management in Bonita Portal
 :description: This page explains what a user with the _Administrator_ profile can do with xref:profiles-portal-overview.adoc[profiles] in Bonita Portal.
 
-This page explains what a user with the _Administrator_ profile can do with xref:profiles-applications-overview.adoc[profiles] in Bonita Portal.
+{description} +
 In all Bonita editions, those users can change the mapping between a provided profile and the organization entities.
 In Enterprise, Performance, and Efficiency editions, they can also create new profiles and edit them.
 

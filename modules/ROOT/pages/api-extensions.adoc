@@ -1,8 +1,7 @@
 = REST API Extensions
 :description: This page describes how to deploy a REST API extension manually, which is possible with all editions.
 
-This page describes how to deploy a REST API extension manually, which is possible with all editions.
-
+{description} +
 A REST API extension allows to extend REST Resources using Bonita, to get or send information in a page or a form.
 
 To learn more on how to create REST API Extensions, refer to the xref:rest-api-extensions.adoc[tooling for creating and testing REST API Extensions] page (Enterprise, Performance, Efficiency, and Teamwork editions).

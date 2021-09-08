@@ -1,7 +1,7 @@
 = How Business Data Model (BDM) is handled in the code
-:description: Learn how Business Data Model (BDM) is handled in the code.
+:description: Learn how the engine handles the BDM code generation, database support, deployment and redeployment.
 
-Learn how the engine handles the BDM code generation, database support, deployment and redeployment.
+{description}
 
 == Deployment flow
 

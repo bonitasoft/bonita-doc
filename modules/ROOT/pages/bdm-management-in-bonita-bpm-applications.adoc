@@ -2,7 +2,7 @@
 :page-aliases: bdm-management-in-bonita-bpm-portal.adoc
 :description: This page explains what a user with the _Administrator_ profile in the xref:admin-application-overview.adoc[Bonita Administrator Application] can see and do about Business Data Model (BDM) and BDM Access Control.
 
-This page explains what a user with the _Administrator_ profile in the xref:admin-application-overview.adoc[Bonita Administrator Application] can see and do about Business Data Model (BDM) and BDM Access Control.
+{description}
 
 Processes using Business Objects with persisted data need to run with a Business Data Model deployed in the Bonita Super Administrator Application. +
 On top of that, it is possible to define access rights on some attributes of business objects based on the user profile. This file is also managed in the Bonita Super Administrator Application.

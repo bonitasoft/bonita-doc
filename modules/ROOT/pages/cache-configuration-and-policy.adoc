@@ -1,7 +1,7 @@
 == Cache configuration and policy
 :description: Learn how to configure Bonita Portal cache and Living Application cache.
 
-Learn how to configure Bonita Portal cache and Living Application cache.
+{description}
 
 Details about this cache configuration impact for the end user, and tutorial on modification of this configuration.
 

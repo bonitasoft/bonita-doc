@@ -1,7 +1,7 @@
 = Bonita Studio installation
 :description: This page describes how to download and install Bonita Studio on Windows, Linux, or Mac operating systems.
 
-This page describes how to download and install Bonita Studio on Windows, Linux, or Mac operating systems.
+{description}
 
 == Bonita Studio download
 

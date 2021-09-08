@@ -1,6 +1,8 @@
 = Access control API
 :description: Access control allows you to protect the access to your BDM through REST API.
 
+{description}
+
 [NOTE]
 ====
 This API is only available in Enterprise, Efficiency and Performance editions.

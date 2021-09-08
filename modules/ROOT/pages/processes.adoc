@@ -1,7 +1,7 @@
 = Administrator Process list in Bonita Portal
 :description: This page explains what a user with the _Administrator_ or _Process Manager_ profile in Bonita Portal can see and do about processes.
 
-This page explains what a user with the _Administrator_ or _Process Manager_ profile in Bonita Portal can see and do about processes.
+{description}
 
 Those users can: install, enable and edit processes, categories, forms, entities mapped to actors and process manager, parameters, and connectors.
 

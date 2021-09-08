@@ -1,7 +1,7 @@
 = Actors of processes
 :description: The concept of Actor defines who can perform a task or start a process.
 
-The concept of Actor defines who can perform a task or start a process.
+{description}
 
 == Candidate and assignee
 
