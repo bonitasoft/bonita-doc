@@ -221,6 +221,8 @@ If you migrate from an earlier version of Bonita, you can now delete them if you
 
 ==== Fixes in Bonita Development Suite (Studio and UI Designer)
 
+* STUDIO-4113 - Process Validation freezes after process import
+* STUDIO-4086 - Expression editor inserts the wrong operator
 * STUDIO-4066 - java.lang.NullPointerException at build when wrong variable entered in script but not shown in validation
 * STUDIO-4043 - errors while importing .bos in studio
 * STUDIO-3962 - Release note view is broken on Windows
@@ -230,6 +232,7 @@ If you migrate from an earlier version of Bonita, you can now delete them if you
 * STUDIO-3880 - Editing domain can be null on an opened diagram
 * STUDIO-3875 - Issue with "Switch project" function
 * STUDIO-3793 - UIPath connector is not working with cloud orchestrator
+* UID-459 - BO variable cannot be edited in fragment after workspace import from previous version and error message is wrong
 
 ==== Fixes in Bonita Runtime
 
