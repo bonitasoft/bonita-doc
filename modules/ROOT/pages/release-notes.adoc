@@ -10,7 +10,7 @@ The 2021.2 is in beta.
 
 === SSO with OpenID Connect
 
-As of Bonita 2021.2 it is possible to xref:single-sign-on-with-oidc.adoc[configure Bonita to use OpenID Connect (OIDC)] as an authentication mechanism to access your Bonita applications and achieve Single Sign-on with an external OIDC provider. +
+As of Bonita 2021.2, it is possible to xref:single-sign-on-with-oidc.adoc[configure Bonita to use OpenID Connect (OIDC)] as an authentication mechanism to access your Bonita applications and achieve Single Sign-on with an external OIDC provider. +
 The Authorization Code Flow of OpenID Connect is supported to authenticate when accessing Bonita applications as well as the Resource Owner Credentials Grant and Authorization Code Grant of OAuth 2.0 to authenticate when requesting Bonita REST API.
 
 === Bonita Studio Project Composition
@@ -19,7 +19,7 @@ Bonita projects will use the power Maven projects. Meaning that you will be able
 
 All these extensions, which are technical components, have to be built outside the Studio with our SDK. This will allow the developer to use their preferred tooling. It will also help the industrialization of your project as you will be able to implement tests for each extension making your project more robust.
 
-As the extensions are developed outside the Studio, they are no longer bound to a specific Bonita project. They can be easily reused in a different project - thus improving your efficiency. xref:project-structure.adoc[More information on how Bonita project are structured].
+As the extensions are developed outside the Studio, they are no longer bound to a specific Bonita project. They can be easily reused in a different project - thus improving your efficiency. xref:project-structure.adoc[More information on how Bonita projects are structured].
 
 The Studio is stripped of its major coding editor (except for the REST API Extensions) but has now a xref:managing-extension-studio.adoc[dedicated view for extensions]. This view is used to get extensions from different sources: 
 
@@ -46,7 +46,7 @@ Understanding all the elements of a Bonita project has never been easier thanks 
 === Development suite changes
 
 ==== Expression type simplification
-2021.1 introduced a new expression editor. This new expression editor covers most of the existing editor expression type use cases.
+2021.1 introduced a new expression editor. This new expression editor covers the existing editor expression type use cases.
 
 Therefore, to simplify the expression flow in the Studio we are removing the following expression types:
 
@@ -82,7 +82,7 @@ In Bonita 2021.2, the Bonita Portal is now removed, meaning that
 
 ==== Custom Profile navigation conversion
 
-Before 2021.2, you had the possibility to create custom profiles and a specific navigation, with menus and pages, to customize your Bonita Portal experience. Here is an example:
+Before 2021.2, you had the possibility to create custom profiles and specific navigation, with menus and pages, to customize your Bonita Portal experience. Here is an example:
 
 .Pre-2021.2 Custom Profile navigation example
 image::images/temp-release-notes-specific/old_profile_navigation.png[Previous Custom Profile Navigation,600]
@@ -104,10 +104,10 @@ Here is what it looks like after conversion:
 .Custom Profile navigation converted into a Living Application
 image::images/temp-release-notes-specific/new_app_converted_from_custom_profile.png[Converted Application]
 
-As any application, you can now modify its details, URL, change its logo, ...
+As with any application, you can now modify its details, URL, change its logo, ...
 
 ==== Process Manager profile navigation
-As part of the update of Bonita Portal into Bonita Applications, we have not reimplemented the pages for the profile Process Manager, a new documentation page will explain (*//TODO: write page before GA release*) how to rebuild and customize the bonita administrator application to handle the process management capabilities.
+As part of the update of Bonita Portal into Bonita Applications, we have not reimplemented the pages for the profile Process Manager, a new documentation page will explain (*//TODO: write page before GA release*) how to rebuild and customize the Bonita administrator application to handle the process management capabilities.
 
 ==== Exception reporting
 
@@ -171,7 +171,7 @@ Bonita 2021.2 is now only compatible with Java 11. Support with Java 8 has now b
 
 === Tomcat
 
-Tomcat has been updated to the version 9.0.52.
+Tomcat has been updated to version 9.0.52.
 
 === Libraries
 
@@ -197,7 +197,7 @@ Tomcat has been updated to the version 9.0.52.
 
 ==== BonitaStudioBuilder
 
-The deprecated `BonitaStudioBuilder` command line interface has been removed. To benefit from an efficient Bonita project building and deploying solution, please refer to https://documentation.bonitasoft.com/bcd[BCD add-on].
+The deprecated `BonitaStudioBuilder` command line interface has been removed. To benefit from an efficient Bonita project building and deploying solution, please refer to the https://documentation.bonitasoft.com/bcd[BCD add-on].
 
 ==== Import workspace
 
@@ -223,7 +223,7 @@ If you migrate from an earlier version of Bonita, you can now delete them if you
 
 * STUDIO-4113 - Process Validation freezes after process import
 * STUDIO-4086 - Expression editor inserts the wrong operator
-* STUDIO-4066 - java.lang.NullPointerException at build when wrong variable entered in script but not shown in validation
+* STUDIO-4066 - java.lang.NullPointerException at build when the wrong variable is entered in a script but not shown in the validation
 * STUDIO-4043 - errors while importing .bos in studio
 * STUDIO-3962 - Release note view is broken on Windows
 * STUDIO-3953 - LA Builder is slow
