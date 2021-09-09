@@ -26,20 +26,20 @@ The items configured for a task depend on the task type, as shown in the followi
 | Details panel, General tab, General pane
 | All
 
-| displayName,Task name in Portal
-| Details panel, General tab, Portal pane
+| Task name in the Bonita Applications
+| Details panel, General tab, Display in apps pane
 | All
 
 | Task description in Studio
 | Details panel, General tab, General pane
 | All
 
-| displayName,Task description in Portal
-| Details panel, General tab, Portal pane
+| Task description in the Bonita Applications
+| Details panel, General tab, Display in apps pane
 | All
 
-| displayName,Task description after completion in Portal
-| Details panel, General tab, Portal pane
+| Task description after completion in the Bonita Applications
+| Details panel, General tab, Display in apps pane
 | All
 
 | Task type
@@ -47,7 +47,7 @@ The items configured for a task depend on the task type, as shown in the followi
 | All
 
 | Priority
-| Details panel, General tab, Portal pane
+| Details panel, General tab, General pane
 | Human, abstract, call activity, service, script
 
 | Estimated duration
