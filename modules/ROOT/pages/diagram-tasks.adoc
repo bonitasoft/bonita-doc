@@ -243,7 +243,7 @@ As a good practice, we advise to display static information that defines the tas
 To configure the display options:
 
 . Select the *Validate request* task
-. Go to *General* pane > *Portal* tab.
+. Go to *General* pane > *Display in apps* tab.
 
 ==== Display name
 
