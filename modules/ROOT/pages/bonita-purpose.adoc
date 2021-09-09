@@ -16,7 +16,7 @@ Plus, its robustness enables the BPM engine to handle a company's critical proje
 === The need for automation
 
 Some business processes do not need to be automated. +
-Indeed, the benfits of automation are huge when:
+Indeed, the benefits of automation are huge when:
 
  * Processes are critical for the business, so process execution needs *traceability* 
  * Processes are complex, they spread over multiple company's departments and teams, so they need to *coordinate a lot of people* and send them reminders
