@@ -11,6 +11,11 @@ This connector will be implemented using:
 * http://spockframework.org/[Spock, window="_blank"]: __A test framework for Groovy applications__
 * https://square.github.io/retrofit/[Retrofit, window="_blank"]: __A library which allows to create typed HTTP clients__
 
+[NOTE]
+====
+While we recommend you to follow the step-by-step instructions, a Git repository containing the final solution is available on the Bonitasoft-Community Github: https://github.com/Bonitasoft-Community/bonita-connector-starwars[bonita-connector-starwars].
+====
+
 == 1 - Generate project and retrieve dependencies
 
 The first step is to generate  the maven project using the archetype:
