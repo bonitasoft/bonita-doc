@@ -63,7 +63,7 @@ Be aware that we only suggest options known by Bonita Studio and the UI Designer
 It means that custom themes, or custom pages and layouts created with another editor than the UI Designer will not appear as options, since they are only known by the Bonita Applications.
 You can still reference such an "unknown" resource, but you will have to write the exact identifier by yourself, and make sure the resource is imported into the Bonita Applications *before* you deploy/install the application descriptor. +
 Since Bonita 7.6, and for Enterprise, Performance and Efficiency editions only, custom profiles can be created in the studio. +
-Therefore, such profiles will be suggested. Those created in the Bonita Applications will not, but you can still export them from the Applications and import them in the studio to get them in the suggested options.
+Therefore, such profiles will be suggested. Those created in the Bonita Applications will not, but you can still export them and import them in the Studio to get them in the suggested options.
 
 There are two ways to reference pages used by your application. In the _Navigation_ table or in the _Orphan pages_ table. +
 Use the _Navigation_ table to create the application menus/submenus, and bind those menus to pages. +
