@@ -53,7 +53,7 @@ In order to do so, edit `custom-permissions-mapping.properties` to give the perm
 [NOTE]
 ====
 
-REST API permissions are stored in the user's session and new permissions will only be effective for a user the next time they log into the Bonita Applications.
+REST API permissions are stored in the user's session and new permissions will only be effective for a user the next time they log into the Bonita Runtime.
 ====
 
 == Live update
