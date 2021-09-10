@@ -111,7 +111,7 @@ To create a new task, select the relevant icon from the *BPMN elements* menu or 
 menu of the preceding element in the diagram, and drop it on the whiteboard. You can change the task type
 of an task in the diagram.
 
-== Setting a unique task name in the Applications
+== Setting a unique task name in the Bonita Applications
 
 When you define a task in Bonita Studio, by default the task name and description in Bonita Applications are the same as the task name and description on the diagram.
 
