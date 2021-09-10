@@ -46,7 +46,7 @@ To allow an easy migration to this new feature, and to keep our BDM API working,
 The graphical editor helps you to achieve this by adding a warning icon close to business objects that have no access rule defined.
 ====
 
-For development purposes, the Bonita Studio can *deploy* access control onto Bonita Super Administrator Application for you. Use the _Deploy_ option of the editor toolbar or from the menu. To install it in a production environment, export the access control file (using the _Export_ option of the editor toolbar or from the menu), login into the Bonita Runtime, and xref:bdm-management-in-bonita-bpm-applications.adoc[install it].
+For development purposes, the Bonita Studio can *deploy* access control onto Bonita Super Administrator Application for you. Use the _Deploy_ option of the editor toolbar or from the menu. To install it in a production environment, export the access control file (using the _Export_ option of the editor toolbar or from the menu), login into the Bonita Runtime, and xref:bdm-management-in-bonita-applications.adoc[install it].
 
 == Examples of use-cases to implement
 

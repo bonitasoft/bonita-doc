@@ -116,7 +116,7 @@
   *** xref:datetimes-management-tutorial.adoc[How to manage dates and times in BDM and User Interfaces]
   *** xref:rta-mail-template.adoc[How to use the rich text area widget in a mail template]
 * Living applications
- ** xref:bonita-bpm-applications-interface-overview.adoc[Overview]
+ ** xref:bonita-applications-interface-overview.adoc[Overview]
  ** xref:application-creation.adoc[Application descriptor]
  ** xref:layout-development.adoc[Layout]
   *** xref:bonita-layout.adoc[Bonita Layout]
@@ -234,7 +234,7 @@
   *** xref:admin-application-overview.adoc[Administration Applications]
    **** xref:pause-and-resume-bpm-services.adoc[Put Runtime in maintenance mode]
    **** Organization
-    ***** xref:organization-in-bonita-bpm-applications-overview.adoc[Organization Management]
+    ***** xref:organization-in-bonita-applications-overview.adoc[Organization Management]
     ***** xref:import-export-an-organization.adoc[Install/export an organization]
     ***** xref:admin-application-groups-list.adoc[Manage groups]
     ***** xref:admin-application-roles-list.adoc[Manage roles]
@@ -244,7 +244,7 @@
     ***** User profiles
      ****** xref:profiles-applications-overview.adoc[Overview]
      ****** xref:admin-application-profiles-list.adoc[Profiles Management]
-   **** xref:bdm-management-in-bonita-bpm-applications.adoc[BDM Management]
+   **** xref:bdm-management-in-bonita-applications.adoc[BDM Management]
    **** xref:admin-application-resources-list.adoc[Resources management]
    **** xref:applications.adoc[Applications]
    **** xref:licenses.adoc[License information]   

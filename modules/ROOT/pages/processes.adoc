@@ -51,7 +51,7 @@ To resolve a process for business variables:
 . Logout
 . Login with the xref:tenant_admin_credentials.adoc[technical user credentials]
 . xref:pause-and-resume-bpm-services.adoc[Pause the BPM services]
-. xref:bdm-management-in-bonita-bpm-applications.adoc[Update the BDM]
+. xref:bdm-management-in-bonita-applications.adoc[Update the BDM]
 . Come back to _BPM_/_Processes_ and check the status.
 
 == Enable a process

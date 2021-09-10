@@ -9,7 +9,7 @@ Users can view a list of the processes they have the permission to start, start 
 [NOTE]
 ====
 
-As xref:bonita-bpm-applications-interface-overview.adoc[Bonita Portal will soon be replaced] by Bonita applications in a next version, and as the Bonita User Application is responsive, the Mobile Portal will not be supported anymore. It will be replaced by the *Bonita User Application*, available to all Bonita editions.
+As xref:bonita-applications-interface-overview.adoc[Bonita Portal will soon be replaced] by Bonita applications in a next version, and as the Bonita User Application is responsive, the Mobile Portal will not be supported anymore. It will be replaced by the *Bonita User Application*, available to all Bonita editions.
 ====
 
 The following applies to Bonita Mobile Portal.
