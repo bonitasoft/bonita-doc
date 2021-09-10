@@ -29,7 +29,7 @@ docker run --name=bonita -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:
 
 [#section-versionning]
 
-== Versionning
+== Versioning
 
 Multiple tags exist:
 
@@ -48,7 +48,7 @@ the binaries do not change.
 
 [#section-StepByStep]
 
-== Step by step installation procedure
+== Step-by-step installation procedure
 
 === Retrieve a licence
 
@@ -105,7 +105,7 @@ Repeat this sequence to manually start and stop Tomcat in the container.
 
 === Link Bonita to a database
 
-The H2 database allows the Bonita container to work out of the box, but it is not recommended outside of a development environment.
+The H2 database allows the Bonita container to work out of the box, but it is not recommended outside a development environment.
 
 As PostgreSQL is the recommended database for qualification and production environments, follow one of these next sections to configure your Bonita container to run on PostgreSQL database.
 You can work with either a PostgreSQL Container, or PostgreSQL as an installed service.
@@ -209,6 +209,7 @@ BIZ_DB_PASS=custombusinesspass
 docker run --name=bonita -h <hostname> --env-file=env.txt -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
+[#start-bonita-custom-credentials]
 === Start Bonita with custom security credentials
 
 [source,shell script,subs="+macros"]
@@ -333,7 +334,7 @@ The procedure to migrate a Bonita container is therefore as follow:
 
 Once renewed from Bonita Customer Portal, the license file and the configuration files are updated using the Setup tool.
 
-Setup tool can be used outside of the Docker container directly by downloading the Tomcat bundle and running it from there.
+Setup tool can be used outside the Docker container directly by downloading the Tomcat bundle and running it from there.
 
 [NOTE]
 ====
@@ -341,4 +342,36 @@ Setup tool can be used outside of the Docker container directly by downloading t
 The setup tool needs to be able to access the database. Because of that, if the database is in a docker container, its port must be exposed to the host.
 ====
 
-See xref:BonitaBPM_platform_setup.adoc#update_platform_conf[setup tool page] for more information.
+See xref:bonita-bpm-platform-setup.adoc#update_platform_conf[setup tool page] for more information.
+
+
+== Troubleshoot and debug problems inside a Docker container
+
+Bonita pass:a[{bonitaVersion}] docker image comes with a use tool embedded, xref:https://github.com/apangin/jattach[jattach], that allows to interact with the Tomcat JVM inside a Bonita container via Dynamic Attach mechanism.
+
+Example of useful commands it supports, that you can run from outside the container include:
+
+* `docker exec <CONTAINER_NAME> jattach 1 jcmd VM.flags` to see all JVM flags passed to Bonita Tomcat JVM:
+```
+Connected to remote JVM
+JVM response code = 0
+-XX:CICompilerCount=4 -XX:ConcGCThreads=2 -XX:G1ConcRefinementThreads=8 -XX:G1HeapRegionSize=1048576 -XX:GCDrainStackTargetSize=64 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/opt/bonita/BonitaSubscription-2021.1-SNAPSHOT/server/logs
+```
+
+* `docker exec <CONTAINER_NAME> jattach 1 properties` to see all System properties that Java will use:
+```
+Connected to remote JVM
+JVM response code = 0
+#Fri Sep 10 14:03:16 GMT 2021
+com.arjuna.ats.arjuna.common.propertiesFile=/opt/bonita/BonitaSubscription-2021.1-SNAPSHOT/server/conf/jbossts-properties.xml
+sysprop.bonita.bdm.db.vendor=h2
+awt.toolkit=sun.awt.X11.XToolkit
+java.specification.version=11
+sun.cpu.isalist=
+sun.jnu.encoding=ANSI_X3.4-1968
+java.class.path=/opt/bonita/BonitaSubscription-2021.1-SNAPSHOT/server/lib/ext/bonita-tomcat-juli-7.12.8-SNAPSHOT.jar\:/opt/bonita/BonitaSubscription-2021.1-SNAPSHOT/server/bin/bootstrap.jar\:/opt/bonita/BonitaSubscription-2021.1-SNAPSHOT/server/bin/tomcat-juli.jar
+sysprop.bonita.db.vendor=h2
+java.vm.vendor=Ubuntu
+```
+
+Read the xref:https://github.com/apangin/jattach[official jattach documentation] for a complete list of supported commands.
