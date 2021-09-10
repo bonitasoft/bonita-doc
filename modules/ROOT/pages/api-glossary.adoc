@@ -5,11 +5,11 @@
 
 == Definition
 
-*Definition*: in Bonita Studio you create definition of processes. A definition of a process includes name, version, definition of actors name... +
-A process definition includes definition of tasks. +
+*Definition*: in Bonita Studio you can define your processes. A definition of a process includes name, version, definition of actors name... +
+The process definition includes tasks definition. +
 The definition of tasks includes connectors, contract inputs declaration (for user task)...
 
-*Instance* : when you start a process (through Applications, and the API) what actually happen is a creation of a new process instance based on the selected process definition. +
+*Instance* : when you start a process (through Applications, or the API) what actually happen is a creation of a new process instance based on the selected process definition. +
 Starting a process instance will actually start a new instance of the start event and usually start a new instance of the first task.
 
 [NOTE]
