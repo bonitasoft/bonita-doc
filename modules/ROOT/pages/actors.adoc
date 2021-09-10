@@ -39,7 +39,7 @@ To define actors for a process:
  .. Select the  pool and go to the *Details* panel, *General* tab, *Actors* pane. If you have already defined any actors, they are shown in the table.
  .. Click *_Add_*. A new row is added to the table, with a temporary name for the new actor (for example, Actor1). To change the name, select it and type the name you want to use. You can also add a description.
   ... Repeat step 2 to add all the actors required for the process. You can also remove an actor, by selecting it and clicking *_Remove_*.
-  ... Select the actor that will be the initiator of the process cases, and click *_Set as initiator_*. If you do not define an initiator for the pool, the process cannot be started in the Bonita Applications. Instead, it will have to be started programmatically.
+  ... Select the actor that will be the initiator of the process cases, and click *_Set as initiator_*. If you do not define an initiator for the pool, the process cannot be started by a user. Instead, it will have to be started programmatically.
 . For each lane, define the actor. You can either select an actor that was defined for the pool, by selecting the actor from the drop-down list, or you can use an actor filter.
 . For each step, define the actor. You can use the actor defined for the lane, or specify an actor for the step. To specify an actor for the step, you can either select an actor that was defined for the pool, by selecting the actor from the drop-down list, or you can use an actor filter.
 
