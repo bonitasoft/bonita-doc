@@ -56,7 +56,7 @@ image:images/getting-started-tutorial/design-application-page/dashboard-page.png
 [WARNING]
 ====
 
-In order for preview to access the data, a user needs to be logged in to the Bonita platform. You can click on *Applications* in the Bonita Studio tool bar to make sure a user is logged in.
+In order for preview to access the data, a user needs to be logged into the Bonita Runtime. You can click on *Applications* in the Bonita Studio toolbar to make sure a user is logged in.
 ====
 
 The preview should look like this:

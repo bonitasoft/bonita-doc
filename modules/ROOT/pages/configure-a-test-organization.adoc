@@ -64,7 +64,7 @@ To upload the organization data:
 
 . Choose Deploy from the Organization menu.
 . Click the organization to be uploaded.
-. Specify the username of the user that will be used to log into the Bonita platform when a process is started from Bonita Studio. This user must be in the organization you have selected.
+. Specify the username of the user that will be used to log into the Bonita Runtime when a process is started from Bonita Studio. This user must be in the organization you have selected.
 . Click Deploy.
 
 After it has been uploaded, you can xref:organization-in-bonita-applications-overview.adoc[modify the organization in Bonita Portal].

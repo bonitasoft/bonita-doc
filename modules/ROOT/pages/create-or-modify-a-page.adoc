@@ -125,7 +125,7 @@ You can export any element to import it into another UI Designer. +
 
 To export an element, click the *_Export_* button image:images/images-6_0/pb-export.png[Export button] on the Page editor or the UI Designer home page. A zip file is downloaded to your computer. It contains a Bonita custom page, which also suitable for import into another UI Designer. +
 
-After export you can modify your page or layout code by directly editing the code located in _resources_ folder. Be aware that such a modification to the code will work when the page or layout is deployed in the Bonita platform, but it may be broken if you import the page into another UI Designer.
+After export you can modify your page or layout code by directly editing the code located in _resources_ folder. Be aware that such a modification to the code will work when the page or layout is deployed in the Bonita Runtime, but it may be broken if you import the page into another UI Designer.
 
 To import elements in another Studio, you can export pages and forms in the process `.bos` file. In the list of elements to insert in the .bos file, forms are checked by default, but not pages. When you import this `.bos` file into another Bonita Studio, forms and pages that you have checked are available in the UI Designer of that Studio.
 

@@ -1,10 +1,10 @@
 = Administrator User activation / deactivation in Bonita Applications
-:description: This page explains what a user with the _Administrator_ profile in the Bonita platform can see and do about the activation and deactivation of a user. +
+:description: This page explains what a user with the Administrator profile in the Bonita Runtime can see and do about the activation and deactivation of a user. +
 
 
 {description} +
-Activation / deactivation of a user allows to revoke any access to the platform, without deleting the user. +
-If a user is deactivated, they cannot log into the Bonita platform. However, all their past actions are kept intact and can be displayed.
+Activation / deactivation of a user allows to revoke any access to the Runtime, without deleting the user. +
+If a user is deactivated, they cannot log into the Bonita Runtime. However, all their past actions are kept intact and can be displayed.
 
 [NOTE]
 ====

@@ -177,7 +177,7 @@ Choosing the right option is not easy. The default option is lazy loading, but y
 
 [WARNING]
 ====
-If you are not sure about the final size of the parent object with children, we do strongly recommend to use the default *lazy* loading option. Indeed, the *eager* loading option can have a huge impact on the platform performances, due to the additional data load and maintenance of the information in memory. +
+If you are not sure about the final size of the parent object with children, we do strongly recommend to use the default *lazy* loading option. Indeed, the *eager* loading option can have a huge impact on the Bonita Runtime performance, due to the additional data load and maintenance of the information in memory. +
 Based on your analysis if you decide to use the eager mode, we recommend to test it with a test dataset that is the size of your production's expected dataset. 
 ====
 
@@ -312,13 +312,13 @@ Follow these steps:
 . Click *Business Data Model* > *Export*.
 . Select a destination folder.
 . Click *Export*. A file called `bdm.zip` is written to the folder that you specified.
-. Log into the Bonita platform as the technical user.
+. Log into the Bonita Runtime as the technical user.
 . Go to the *BPM Services* page.
 . Click *Pause*.
 . When the BPM services are paused, go to the *Business Data Model* menu (and, for Efficiency, Performance and Enterprise editions, choose *Definition*).
 . Specify the file containing the business data model that you exported from Bonita Studio.
 . Click *_Activate_*. A warning is displayed, reminding you that installing this new BDM will overwrite the existing BDM.
-. Click on *Install* to complete the deployment. The Bonita platform loads the file, and retrieves the object definition enabling processes to use them at runtime. It also creates or updates the database schema in the business database, to store business objects appropriately when modified by processes. When the deployment is complete, a message is displayed. If deployment fails, use the Engine logs to analyze the problem.
+. Click on *Install* to complete the deployment. The Bonita Runtime loads the file, and retrieves the object definition enabling processes to use them at runtime. It also creates or updates the database schema in the business database, to store business objects appropriately when modified by processes. When the deployment is complete, a message is displayed. If deployment fails, use the Engine logs to analyze the problem.
 . Go to the *BPM Services* page.
 . Click *Resume*. BPM services are resumed.
 
