@@ -48,7 +48,7 @@ In the Organization menu > Manage organizations > Organization users, the first 
 * Custom
 
 To add custom user information values for a user, select a user in the *List of users*, click on the *_Custom_* tab, and enter the value for each relevant information. You also see a link *Manage custom information*, to go back and manage the list of custom user information. +
-Note: this value can be changed by a user with the Admin profile in the Bonita Portal. See xref:custom-user-information-in-bonita-applications.adoc[How to edit Custom information for a single user]
+Note: this value can be changed by a user in the Bonita Administrator Application. See xref:custom-user-information-in-bonita-applications.adoc[How to edit Custom information for a single user]
 
 == Set an actor filter on custom user information
 
