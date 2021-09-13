@@ -28,7 +28,7 @@
  ** xref:configure-maven.adoc[How to configure Maven]
  ** xref:workspaces-and-repositories.adoc[Workspaces and projects]
  ** xref:shared-project.adoc[Set up Bonita Studio with GitHub]
- ** xref:migrate-a-svn-repository-to-github.adoc[How to migrate a SVN repository into a Git repository]
+ ** xref:migrate-a-svn-repository-to-github.adoc[How to migrate an SVN repository into a Git repository]
 * Processes
  ** xref:diagrams-index.adoc[Process Diagrams]
   *** xref:diagram-overview.adoc[Overview]
@@ -267,7 +267,7 @@
    **** xref:work-locking.adoc[Work locking]
   *** xref:execution-sequence-states-and-transactions.adoc[BPM process / task execution sequence]
   *** xref:how-a-flownode-is-executed.adoc[How flow node is executed]
-  *** xref:how-a-flownode-is-completed.adoc[How a flownode is completed]
+  *** xref:how-a-flownode-is-completed.adoc[How a flow node is completed]
   *** xref:how-a-call-activity-is-executed.adoc[How a call activity is executed]
   *** xref:how-a-process-is-completed.adoc[How a process is executed]
   *** xref:how-an-event-is-executed.adoc[How an event is executed]
