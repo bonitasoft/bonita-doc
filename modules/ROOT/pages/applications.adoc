@@ -1,7 +1,7 @@
 = Applications
-:description: This page defines the term "Application" and explains what a user with the Administrator profile in Bonita Portal can see and do about them.
+:description: This page defines the term "Application" and explains what a user can see and do about them in the Bonita Administrator Application.
 
-This page defines the term "Application" and explains what a user with the Administrator profile in Bonita Portal can see and do about them.
+{description} +
 
 Here is a view of the page:
 image:images/UI2021.1/admin_applications.png[Administrator Applications]
@@ -23,13 +23,13 @@ An application is a collection of pages and processes that meets a business need
 
 An application requires the following to be available:
 
-* The xref:bdm-management-in-bonita-bpm-portal.adoc[Business Data Model] (BDM) must be deployed
-* The xref:organization-in-bonita-bpm-portal-overview.adoc[organization] data must be deployed, so that application users can log in.
+* The xref:bdm-management-in-bonita-applications.adoc[Business Data Model] (BDM) must be deployed
+* The xref:organization-in-bonita-applications-overview.adoc[organization] data must be deployed, so that application users can log in.
 * The access xref:rest-api-authorization.adoc[authorizations] that grant users access to the application resources must be defined.
 
 == Application creation
 
-Even though you can create applications from Bonita Portal, these would not be taken into account in Bonita Studio nor the project sources. +
+Even though you can create applications from the Bonita Administrator Application, these would not be taken into account in Bonita Studio nor the project sources. +
 So we strongly encourage your team to create applications in xref:applicationCreation.adoc[Bonita Studio].
 
 == Application management
@@ -39,7 +39,7 @@ When a Bonita project is deployed on a Bonita Runtime, what you see in the Admin
 === URL of an application
 
 When clicking on a URL, the application opens in another tab of your web browser. +
-To access the application content, you must pertain to the xref:profiles-portal-overview.adoc[profile] mapped with the application. +
+To access the application content, you must pertain to the xref:profiles-applications-overview.adoc[profile] mapped with the application. +
 If this is the case, you will not be taken to the login page and will directly land on the application home page.
 
 === Details of an application
@@ -56,7 +56,7 @@ To do so, click on the _Export_ icon at the right of the row for the application
 
 === Delete an application
 
-Deleting an application is a very critical operation to conduct on Non-Production or Production environments. So we advise not to do so from the Administrator Portal, but rather in Bonita Studio, so this major project edition is saved in a new version of the project and shared with the project team.
+Deleting an application is a very critical operation to conduct on Non-Production or Production environments. So we advise not to do so from the Bonita Administrator Application, but rather in Bonita Studio, so this major project edition is saved in a new version of the project and shared with the project team.
 Still, to delete an application, click on the _Delete- icon
 
 === Live update
@@ -203,7 +203,7 @@ There are two aspects to updating an application: changing the application defin
 
 * To edit the metadata, click the Edit button. In the popup, modify the information about the application, then click *_Save_*.
 * To edit the layout, see <<layout,Specifying application layout>>.
-* To edit the theme, see <<theme,Specifying application theme>>. Note that the end user will see this modification with a delay (due to the xref:cache-configuration-and-policy.adoc]#portal_and_mobile[cache policy])
+* To edit the theme, see <<theme,Specifying application theme>>. Note that the end user will see this modification with a delay (due to the xref:cache-configuration-and-policy.adoc#applications[cache policy])
 * To edit the pages, go to the Pages zone. You can add a page by clicking *_Add_*. You can remove a page by clicking the trashcan icon for that page.
 Note that if you remove a page, the related menu items are automatically removed from the navigation.
 * To edit the navigation, go to the Navigation zone. You can add a menu or menu item by clicking *_Add_*. You can remove a menu or menu item by clicking the trashcan icon for that page.

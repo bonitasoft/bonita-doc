@@ -1,7 +1,7 @@
 == Cache configuration and policy
 :description: Learn how to configure Bonita Portal cache and Living Application cache.
 
-Learn how to configure Bonita Portal cache and Living Application cache.
+{description}
 
 Details about this cache configuration impact for the end user, and tutorial on modification of this configuration.
 
@@ -27,20 +27,7 @@ By default cache is disable for the web server embedded by Bonita studio, as it 
 But you can decide to activate cache, to be closer to the production display time. To do this,
 see xref:bonita-bpm-studio-installation.adoc#enable_cache[Cache configuration] documentation.
 
-[#portal_and_mobile]
-
-==== Portal and Mobile
-
-As the portal or mobile update frequency is specific for each users, cache duration is set to 10 hours by default. So if you update your bonita portal in production, or if you change the portal look and feel,
-the end user will see the modification within a period of 10 hours.
-
-To fit your needs, you can change this duration into your server configuration, by following those steps:
-
-. Go in `workspace\tomcat\server\webapps\bonita\WEB-INF`
-. Open `web.xml` file.
-. Search `CacheFilter` filter-name.
-. Change value for *duration* param to value what you want and *save file*.
-. This update will be up when last cache expiration down or when end user empty cache browser.
+[#applications]
 
 == Living application and custom pages
 

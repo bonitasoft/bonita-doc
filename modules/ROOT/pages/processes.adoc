@@ -1,7 +1,7 @@
 = Administrator Process list in Bonita Portal
 :description: This page explains what a user with the _Administrator_ or _Process Manager_ profile in Bonita Portal can see and do about processes.
 
-This page explains what a user with the _Administrator_ or _Process Manager_ profile in Bonita Portal can see and do about processes.
+{description}
 
 Those users can: install, enable and edit processes, categories, forms, entities mapped to actors and process manager, parameters, and connectors.
 
@@ -51,7 +51,7 @@ To resolve a process for business variables:
 . Logout
 . Login with the xref:tenant_admin_credentials.adoc[technical user credentials]
 . xref:pause-and-resume-bpm-services.adoc[Pause the BPM services]
-. xref:bdm-management-in-bonita-bpm-portal.adoc[Update the BDM]
+. xref:bdm-management-in-bonita-applications.adoc[Update the BDM]
 . Come back to _BPM_/_Processes_ and check the status.
 
 == Enable a process

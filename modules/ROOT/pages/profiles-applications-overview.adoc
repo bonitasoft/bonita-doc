@@ -1,7 +1,8 @@
 = Profiles overview in Bonita User Interfaces
+:page-aliases: profiles-portal-overview.adoc
 :description: This page explains what a profile is for a user with the profile _Administrator_ in Bonita Portal.
 
-This page explains what a profile is for a user with the profile _Administrator_ in Bonita Portal.
+{description}
 
 == Definition
 
@@ -42,8 +43,8 @@ This profile is also mapped to the xref:user-application-overview.adoc[Bonita Us
 By default, its gives access to the Administrator navigation of Bonita Portal. It includes:
 
 * xref:_process-maintenance.adoc[Process Management] and xref:analytics.adoc[Analytics]
-* xref:organization-in-bonita-bpm-portal-overview.adoc[Organization Management]
-* xref:bdm-management-in-bonita-bpm-portal.adoc[Business Data Model Management]
+* xref:organization-in-bonita-applications-overview.adoc[Organization Management]
+* xref:bdm-management-in-bonita-applications.adoc[Business Data Model Management]
 * xref:applications.adoc[Applications Management]
 * xref:managing-look-feel.adoc[Portal Look & Feel Management]
 * xref:license-info.adoc[License Information] (Enterprise, Performance, Efficiency, and Teamwork editions only)

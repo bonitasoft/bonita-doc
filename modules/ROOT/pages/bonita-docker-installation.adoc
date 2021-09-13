@@ -1,7 +1,7 @@
 = Deploy Bonita Runtime with Docker
 :description: How to install and use the Bonita Runtime docker distribution.
 
-How to install and use the Bonita Runtime docker distribution.
+{description}
 
 This guide assumes you have a working docker environment.
 
@@ -84,9 +84,9 @@ This will only add the initial license to the Bonita Runtime. To renew a license
 ====
 
 
-This will start a container running the Tomcat Bundle with Bonita Engine + Portal. As you did not specify any environment variables it's almost like if you had launched the Bundle on your host using startup.+{sh|bat}+ (with security hardening on REST and HTTP APIs, cf Security part). It means that Bonita uses a H2 database here.
+This will start a container running the Tomcat Bundle with Bonita Runtime. As you did not specify any environment variables it's almost like if you had launched the Bundle on your host using startup.+{sh|bat}+ (with security hardening on REST and HTTP APIs, cf xref:_start_bonita_with_custom_security_credentials[Security concerns]). It means that Bonita uses a H2 database here.
 
-You can access the portal on http://localhost:8080/bonita and login using the default credentials : install / install
+You can access the Runtime on http://localhost:8080/bonita and login using the default credentials : install / install
 
 === Start the container interactively
 
@@ -216,7 +216,7 @@ docker run --name=bonita -h <hostname> --env-file=env.txt -d -p 8080:8080 quay.i
 docker run --name=bonita -v bonita-lic:/opt/bonita_lic/ -h <hostname> -e "TENANT_LOGIN=tech_user" -e "TENANT_PASSWORD=secret" -e "PLATFORM_LOGIN=pfadmin" -e "PLATFORM_PASSWORD=pfsecret" -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
-Now you can access the Bonita Portal on localhost:8080/bonita and login using: tech_user / secret
+Now you can access the Bonita Runtime on localhost:8080/bonita and login using: tech_user / secret
 
 == Secure your remote access
 

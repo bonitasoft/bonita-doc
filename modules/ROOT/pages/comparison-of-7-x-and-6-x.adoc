@@ -1,7 +1,7 @@
 = Comparison of Bonita 7.x and Bonita 6.x
 :description: Find out the main differences between versions 7 and 6 and learn about feature improvements in Bonita Studio, Portal, and Engine.
 
-Find out the main differences between versions 7 and 6 and learn about feature improvements in Bonita Studio, Portal, and Engine.
+{description}
 
 == Packaging comparison
 
@@ -116,7 +116,7 @@ See the xref:bonita-bpm-installation-overview.adoc[Installation overview].
 
 | User interface
 | For users, a simple interface for starting cases and performing tasks. For administrators, an interface for managing processes and applications, and the organization, with views for monitoring process and case status
-| No change for users. For adminsitrators, the case process and case monitoring views have been improved, new live update features have been added, and the application editor has been improved. See xref:bonita-bpm-portal-interface-overview.adoc[Bonita Portal interface overview]
+| No change for users. For administrators, the case process and case monitoring views have been improved, new live update features have been added, and the application editor has been improved. See xref:bonita-applications-interface-overview.adoc[Bonita Portal interface overview]
 
 | Task management
 | Users can choose how to manage tasks. They can perform one task after another in list order, or select my tasks for themselves then perform them in the order they choose.

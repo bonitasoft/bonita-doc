@@ -1,7 +1,7 @@
 = Organization overview
 :description: Concepts of actors and organizations in Bonita.
 
-Concepts of actors and organizations in Bonita.
+{description}
 
 There are two stages to specify who will perform a step in a process:
 
@@ -74,7 +74,7 @@ See xref:custom-user-information-in-bonita-bpm-studio.adoc[custom user informati
 
 === In Bonita Portal:
 
-This custom information can only be seen and xref:custom-user-information-in-bonita-bpm-portal.adoc[edited] by users who have the Administrator profile.
+This custom information can only be seen and xref:custom-user-information-in-bonita-applications.adoc[edited] by users who have the Administrator profile.
 
 Note that if the custom user information does not exist in Bonita Studio, modifying its value for a user in Bonita Portal will not make any difference to the filter, apart from creating an error.
 Synchronize the Organization between Bonita Studio and Bonita Portal first by publishing it so all values are up to date.
