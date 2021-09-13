@@ -1,7 +1,8 @@
 = Forms development
 :description: A form is the User Interface attached to a process. It can be a process instantiation form, a human task form, or a case overview form. +
 
-A form is the User Interface attached to a process. It can be a process instantiation form, a human task form, or a case overview form. +
+
+{description} +
 There are some extra things to consider when creating a form compared with a page, namely how data is passed between the process instance and the form.
 
 == Form sources

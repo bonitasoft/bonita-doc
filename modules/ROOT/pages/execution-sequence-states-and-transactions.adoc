@@ -1,7 +1,7 @@
 = BPM process / task execution sequence, states, transitions
 :description: Understand the sequence of actions performed when a process instance is created and when a task is performed by a user
 
-Understand the sequence of actions performed when a process instance is created and when a task is performed by a user
+{description}
 
 This page also shows the interactions between the Bonita Applications and Bonita Engine.
 

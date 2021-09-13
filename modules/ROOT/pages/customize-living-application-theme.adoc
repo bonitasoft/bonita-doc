@@ -1,7 +1,7 @@
 = Customize the living application theme
 :description: This page explains how to create a theme project using the dedicated maven archetype.
 
-This page explains how to create a theme project from the Studio or using the dedicated maven archetype.
+{description}
 
 A theme is an archive of files used to define and share CSS definitions and images for an application.
 It enables you to specify the same style for all pages and layout of an application.

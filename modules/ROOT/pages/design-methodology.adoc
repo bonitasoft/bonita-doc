@@ -1,7 +1,7 @@
 = Project phases
 :description: This page describes the six phases strongly recommended to create an optimized and secured process-based automation project using Bonita.
 
-This page describes the six phases strongly recommended to create an optimized and secured process-based automation project using Bonita.
+{description}
 
 image:images/project phases.png[Project phases] 
 

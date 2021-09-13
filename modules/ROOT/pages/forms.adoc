@@ -1,7 +1,7 @@
 = Forms
 :description: Forms are critical to process execution. They are linked to both process instantiation and task execution.
 
-Forms are critical to process execution. They are linked to both process instantiation and task execution.
+{description}
 
 Most of the time, they are used in only one process; in this case, they are packaged with the process and deployed in the _Processes_ section of Bonita User Application. They can be viewed in the process details section.
 Alternatively, they can be used in several processes. In this case, they can be managed as xref:resource-management.adoc[_Resources_] in Bonita Administrator Application.

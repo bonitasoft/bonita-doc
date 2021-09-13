@@ -1,7 +1,7 @@
 = Bonita Engine API overview
 :description: Customize or add to your application by developing new connectors, actor filters or by replacing/enhancing existing services
 
-Customize or add to your application by developing new connectors, actor filters or by replacing/enhancing existing services
+{description}
 
 == Concepts
 

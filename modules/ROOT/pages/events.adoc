@@ -1,7 +1,7 @@
 = Events
 :description: This section will define different types of events and provide information on their usage.
 
-This section will define different types of events and provide information on their usage.
+{description}
 
 == Overview
 

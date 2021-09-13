@@ -1,7 +1,7 @@
 = Design an application page
 :description: So far, with a process, data, forms, and connectors, we've built a fully functional software solution to manage claims. But what if you need to have a dashboard showing all ongoing claims? Such a dashboard is not a process. You should not have to "start" it in order to view it.
 
-So far, with a process, data, forms, and connectors, we've built a fully functional software solution to manage claims. But what if you need to have a dashboard showing all ongoing claims? Such a dashboard is not a process. You should not have to "start" it in order to view it.
+{description}
 
 A Bonita application is the answer. The first step to build such an application is to create pages.
 
