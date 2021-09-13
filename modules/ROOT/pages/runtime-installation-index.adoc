@@ -1,12 +1,36 @@
 = Runtime installation
-:description: blabla
+:description: This pages summarizes the technical requirements and available flavors in which Bonita Runtime comes, and how to install a single node or a cluster.
 
-blabla
+{description}
+
+Bonita in a cluster
+Platform installation examples
+Embed engine - Lab
 
 [.card-section]
-== Diagram elements
+== Get started with Bonita in Non-Production and Production environments
 
 [.card.card-index]
 --
-xref:hardware-and-software-requirements.adoc[[.card-title]#Hardware and software requirements# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:hardware-and-software-requirements.adoc[[.card-title]#Hardware and software requirements# [.card-body.card-content-overflow]#pass:q[Minimum hardware capacities and software vendors & versions]#]
+--
+
+[.card.card-index]
+--
+xref:tomcat-bundle.adoc[[.card-title]#Bonita Tomcat bundle# [.card-body.card-content-overflow]#pass:q[Install and configure Bonita in its application server]#]
+--
+
+[.card.card-index]
+--
+xref:.adoc[[.card-title]#Custom Tomcat# [.card-body.card-content-overflow]#pass:q[Install Bonita in an existing Tomcat server]#]
+--
+
+[.card.card-index]
+--
+xref:bonita-as-windows-service.adoc[[.card-title]#Bonita as a service# [.card-body.card-content-overflow]#pass:q[Install a Tomcat with Bonita as a service in Windows]#]
+--
+
+[.card.card-index]
+--
+xref:bonita-docker-installation.adoc[[.card-title]#Bonita Docker image# [.card-body.card-content-overflow]#pass:q[Step-by-step installation guide of Bonita in a Docker environment]#]
 --
