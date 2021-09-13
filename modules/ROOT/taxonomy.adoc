@@ -214,14 +214,12 @@
   *** xref:hardware-and-software-requirements.adoc[Hardware and software requirements]
   *** xref:tomcat-bundle.adoc[Tomcat bundle]
    **** xref:convert-wildfly-into-tomcat.adoc[Convert a WildFly into a Tomcat installation]
-  *** xref:bonita-docker-installation.adoc[Bonita docker installation]
+  *** xref:custom-deployment.adoc[In a custom Tomcat]
+  *** xref:bonita-as-windows-service.adoc[As a service]
+  *** xref:bonita-docker-installation.adoc[In Docker]
   *** Bonita in a cluster
-   **** xref:overview-of-bonita-bpm-in-a-cluster.adoc[Overview of Bonita in a cluster]
-   **** xref:install-a-bonita-bpm-cluster.adoc[Install a Bonita cluster]
-  *** xref:custom-deployment.adoc[Custom Tomcat installation]
-  *** Platform installation examples
-   **** xref:ubuntu-openjdk-tomcat-postgresql.adoc[Ubuntu + OpenJDK + Tomcat + PostgreSQL]
-   **** xref:bonita-as-windows-service.adoc[Install Tomcat with Bonita as a service in Windows]
+   **** xref:overview-of-bonita-bpm-in-a-cluster.adoc[Overview]
+   **** xref:install-a-bonita-bpm-cluster.adoc[Install a Bonita cluster]  
   *** xref:embed-engine.adoc[Embed engine - Lab]
  ** Configuration
   *** xref:bonita-bpm-platform-setup.adoc[Setup tool]
