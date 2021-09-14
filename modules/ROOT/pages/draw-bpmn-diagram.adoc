@@ -191,14 +191,14 @@ You can now build, package, deploy and execute this process definition in the Bo
 
 . Select the process pool, the rectangle shape that includes start events and tasks
 . Click on *Run* image:images/getting-started-tutorial/draw-bpmn-diagram/run.png[Run button] in the toolbar at the top of the Bonita Studio window
-. On the instantiation form, click on *Start*. The process instance is started and you are redirected to the Bonita Portal task list
-. Move your mouse over the _Review and answer claim_ form on the right hand side of the Bonita Portal and click on *Take* to "claim" the task
+. On the instantiation form, click on *Start*. The process instance is started and you are redirected to the Bonita User Application task list
+. Move your mouse over the _Review and answer claim_ form on the right hand side of the Bonita User Application and click on *Take* to "claim" the task
 . Click on the *Execute* button to actually perform the task and move the process execution forward
 . Click on the *Refresh* button image:images/getting-started-tutorial/draw-bpmn-diagram/refresh.png[Refresh button] at the top of the task list to update it
 . Click on the *Overview* tab on the right side to see the process execution overview form with information about process execution
 . Click on the *Form* tab to get back to the _Read the answer and rate it_ user task form
 . You can click on *Take* and execute for both tasks, _Read the answer and rate it_ and _Deal with unsatisfied customer_, to finish the process execution
-. In the Bonita Portal top menu, click on *Cases* image:images/getting-started-tutorial/draw-bpmn-diagram/cases.png[Cases button]
+. In the menu, click on *Cases* image:images/getting-started-tutorial/draw-bpmn-diagram/cases.png[Cases button]
 . Click on the *Archived cases* tab
 . Click on the *View case overview* action (i.e. the "eye" icon) to display the overview form with information about process execution
 
@@ -208,13 +208,13 @@ image:images/getting-started-tutorial/draw-bpmn-diagram/run-process.gif[Process 
 [NOTE]
 ====
 
-When you click on the *Run* button, the process definition and its dependencies are built, packaged and deployed in the Bonita Studio test environment. A user is logged in by default (username: _walter.bates_, password: _bpm_) and the auto-generated start form for the process is opened in your web browser. If you submit the instantiation form, it will start a new process instance (or case) and load the user task list in the Bonita Portal. In the task list, you can't immediately submit a user task because, by default, all users (of the test organization) are candidates to perform the tasks of the process. In order to act on the task you need first to "claim" it, which then makes you the only one - among all the possible candidates - who can do perform an action on it.
+When you click on the *Run* button, the process definition and its dependencies are built, packaged and deployed in the Bonita Studio test environment. A user is logged in by default (username: _walter.bates_, password: _bpm_) and the auto-generated start form for the process is opened in your web browser. If you submit the instantiation form, it will start a new process instance (or case) and load the user task list in the Bonita User Application. In the task list, you can't immediately submit a user task because, by default, all users (of the test organization) are candidates to perform the tasks of the process. In order to act on the task you need first to "claim" it, which then makes you the only one - among all the possible candidates - who can do perform an action on it.
 ====
 
 [NOTE]
 ====
 
-You can view process instance information in the xref:cases.adoc[*Cases*] section of the Bonita Portal. Switch between *Open cases* and *Archived cases* to view the ongoing process instances or see completed ones. Note that if you want to start a second case (i.e. a process instance), you must go into the Bonita Portal *Processes* menu and click on the *Start a new case* button (i.e. the "play" icon in the *Action* column) next to the process definition name. If you click on *Run* from Bonita Studio, it will clean / overwrite any information related to any process with same name and version, including previous cases. Note that if you did any modifications to your project, you probably want to click on *Run* to be sure that the latest version is deployed.
+You can view process instance information in the xref:cases.adoc[*Cases*] section of the Bonita User Application. Switch between *Open cases* and *Archived cases* to view the ongoing process instances or see completed ones. Note that if you want to start a second case (i.e. a process instance), you must go into the Bonita User Application *Processes* menu and click on the *Start a new case* button (i.e. the "play" icon in the *Action* column) next to the process definition name. If you click on *Run* from Bonita Studio, it will clean / overwrite any information related to any process with same name and version, including previous cases. Note that if you did any modifications to your project, you probably want to click on *Run* to be sure that the latest version is deployed.
 ====
 
 You've successfully built and executed your first process. So far it is not very useful as it does not deal with any data and web forms, and  only includes a single submit button. In following chapters you will xref:define-business-data-model.adoc[define a business data model] and bind it to the process to save information related to the claim submitted by the user.
