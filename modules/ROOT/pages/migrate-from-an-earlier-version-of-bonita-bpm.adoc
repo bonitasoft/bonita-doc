@@ -98,13 +98,12 @@ For more information, go to the Customer Service Center and read the Support Gui
 * The migration script supports MySQL, Postgres, Oracle, and Microsoft SQL Server. *There is no migration for h2 database*.
 * The target Bonita version may not support the *version of the database* used with your source Bonita version. You may then need to update the version of your database prior to running the migration tool. To make sure:
  ** Please check the xref:hardware-and-software-requirements.adoc[database requirements].
- ** If you need to update your database:
-  *** Please make sure to apply all the xref:database-configuration.adoc#specific_database_configuration[RDBMS customisations required by Bonita] when setting up the new version.
+ ** If you need to update your database, make sure to apply all the xref:database-configuration.adoc#specific_database_configuration[RDBMS customisations required by Bonita] when setting up the new version.
 * If you have added *custom indexes* to certain tables in the engine database, you must *remove them before lauching* the update procedure. If you do not remove these indexes, the update procedure will not complete.
 
-=== Portal Look & Feel
-For target version before Bonita 2021.2: There is no guarantee that the Portal Look & Feel definition is compatible across maintenance versions.
-For example, in Bonita 6.2.2, `jquery+` was renamed `jqueryplus` in `BonitaConsole.html`, for compatibility with more application servers.
+=== Custom Portal Look & Feel
+_For target version older than Bonita 2021.2 only_: there is no guarantee that the Portal Look & Feel definition is compatible across maintenance versions.
+For example, in Bonita 6.2.2, `jquery+` was renamed `jqueryplus` in `BonitaConsole.html`, for compatibility with more application servers. +
 If you are using a custom Look & Feel for Bonita Portal, export it before launching the update procedure.
 After the update is complete, export the default Look & Feel from the new version, recreate your custom Look & Feel from the new default one and with the recommendations for form footers. Then, import your updated custom Look & Feel into Bonita Portal.
 
