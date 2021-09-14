@@ -1,36 +1,39 @@
 = Updating Bonita Studio
-:description: How to upgrade your existing Studio to a newer version.
+:description: How to update your existing Bonita Studio to a newer version.
 
 {description} 
 
-== Updating to a new Main Version
+== Updating to a new Main version
 
 . Read the version xref:release-notes.adoc[release notes] to understand the major changes and their possible impact on your projects
-. Download the latest Studio version
-. Install the Studio
-. Launch the Studio
+. Download the latest Bonita Studio version:
+ * https://www.bonitasoft.com/downloads[Community edition]
+ * https://customer.bonitasoft.com/[Subscription editions]
+. Install Bonita Studio
+. Launch it
 . If you are using a GIT repository
- .. In your previous Studio, make sure you have pushed all the latest changes to your project
+ .. In your previous studio, make sure you have pushed all the latest changes to your project
  .. Clone your project in the latest Studio version, some artifact migrations will require actions/decisions from your part
  .. Repeat for each project that needs to be moved to the new version
 . If you are not using a GIT repository
- .. In your previous Studio, Export your project as a BOS file
- .. Import the .BOS in the latest Studio version, some artifact migrations will require actions/decisions from your part
+ .. In your previous studio, export your project as a BOS file
+ .. Import the .BOS in the latest Bonita Studio version, some artifact migrations will require actions/decisions from your part
  .. Repeat for each project that needs to be moved to the new version
 
 
 == Updating to a new Maintenance version (Enterprise only)
-Maintenance versions are cross-compatible, meaning that it is not required that your Studio version matches the target runtime version.
+Maintenance versions are cross-compatible, meaning that it is not required that your Bonita Studio version matches the target Bonita Runtime version.
 
 For example, your production runtime can be in 2021.1-0408 and your Studio in 2021.1-0218.
 
 == Updating your project to the project composition
 
-Version 2021.2 introduces major changes to the way the Studio manages projects. When importing or cloning your project in this version or any later version, it will be transformed into a Maven project. All your project dependencies (connectors, libraries, actor filters...) will be managed with Maven.
+Version 2021.2 introduces major changes to the way Bonita Studio manages projects. When importing or cloning your project in this version or any later version, it will be transformed into a Maven project. +
+All your project dependencies (connectors, libraries, actor filters...) will then be managed with Maven.
 
-*_BOS Import_*
+=== BOS Import
 
-In the BOS import wizard, an additional step has been added. The Studio is going to scan your project dependencies and try to find them on the configured Maven repositories (by default Maven Central is configured).
+In the BOS import wizard, an additional step has been added. Bonita Studio is going to scan your project dependencies and try to find them on the configured Maven repositories (by default Maven Central is configured).
 
 If the dependencies are found then they will be used as remote dependencies (not copied in your project) otherwise they will be copied in the project and will be committed with your project sources. 
 
@@ -38,20 +41,22 @@ In both cases, dependencies that are in the project but are not used will not be
 
 You can also remove the other dependencies (at your own risk).
 
-*_Project cloning_*
+=== Project cloning
 
-If your project is cloned through GIT, there is- no extra step in the wizard. The migration is automatically applied to the checkouted branch. A `MIGRATION_NOTES.adoc` file is generated at the root of the project to detail the major changes occuring at migration. It is up to you to keep it in the project or not (later migrations will be append to this file if it exists.)
+If your project is cloned through GIT, there is- no extra step in the wizard. The migration is automatically applied to the checkouted branch. +
+A `MIGRATION_NOTES.adoc` file is generated at the root of the project to detail the major changes occuring at migration. +
+It is up to you to keep it in the project or not (later migrations will be appended to this file if it exists.)
 
 The dependencies are also analyzed by the studio but the result of the analysis is directly applied to your project. +
 The studio is going to scan your project dependencies and try to find them on the configured Maven repositories (by default Maven Central is configured).
 
-If the dependencies are found then they will be used as remote dependencies (not committed in your project), otherwise they will be added to the project local repository store and will be committed to your project. 
+If the dependencies are found, then they will be used as remote dependencies (not committed in your project), otherwise they will be added to the project local repository store and will be committed to your project. 
 
 === Impact on Extension creation
 
 [CAUTION]
 ====
-From 2021.2 on, it will no longer be possible to create connectors, actor filters, and themes from the studio. You will have to use the corresponding xref:software-extensibility.doc[Maven archetypes].
+From Bonita 2021.2 on, it will no longer be possible to create connectors, actor filters, and themes from Bonita Studio. You will have to use the corresponding xref:software-extensibility.doc[Maven archetypes].
 ====
 
-If your project already has actor filters, connectors, or themes, you will still be able to edit them from the studio. However, we recommend migrating them to standalone dependencies.
+If your project already has actor filters, connectors, or themes, you will still be able to edit them from Bonita Studio. However, we recommend migrating them to standalone dependencies.
