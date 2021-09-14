@@ -3,7 +3,7 @@
 
 {description}
 
-This page also shows the interactions between the Bonita Applications and Bonita Engine.
+This page also shows the interactions between Bonita Applications and Bonita Engine.
 
 [NOTE]
 ====

@@ -88,7 +88,7 @@ BPM services are related to BPM activities.
 |  |
 
 | Description:
-| Manage categories of processes. A category is a way to classify processes. Categories are handled manually by in the Bonita Administrator Application and are visible to all users.
+| Manage categories of processes. A category is a way to classify processes. Categories are handled manually by administrators in the Bonita Administrator Application and are visible to all users.
 
 | Used by:
 | Command service

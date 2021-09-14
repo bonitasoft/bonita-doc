@@ -27,7 +27,7 @@ In general, we recommend you to set all attributes to *true* or all to *false*. 
 * To archive a loop activity each time it changes state, set `bonita.tenant.archive.SLoopActivityInstance` to true.
 * To archive a multi-instances activity each time it changes state, set `bonita.tenant.archive.SMultiInstanceActivityInstance` to true.
 * To archive a call activity each time it changes state, set `bonita.tenant.archive.SCallActivityInstance` to true.
-* To archive a gateway each time it changes state, set `bonita.tenant.archive.SGatewayInstance` to true. This information is not available in the Bonita Applications.
+* To archive a gateway each time it changes state, set `bonita.tenant.archive.SGatewayInstance` to true. This information is not available in Bonita Applications.
 * To archive a sub-process activity each time it changes state, set `bonita.tenant.archive.SSubProcessActivityInstance` to true.
 * To archive a connector instance each time it changes state, set `bonita.tenant.archive.SConnectorInstance` to true.
 * To archive a send task each time it changes state, set `bonita.tenant.archive.SSendTaskInstance` to true. This information is not available in Bonita Applications.
