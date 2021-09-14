@@ -68,8 +68,7 @@ Business object names must be unique, even across packages.
 
 Business objects can be combined using <<compos,composition or aggregation>> relationships. They are managed using standard create, read, update, delete actions. A business object can be read directly using the http://documentation.bonitasoft.com/javadoc/api/{varVersion}/index.html[Engine Java API] specifying the Java DAO, or using the xref:bdm-api.adoc[REST API]. To read a business object in a Groovy expression, use the DAO. A business object can be updated only in a process, using an operation.
 
-[discrete]
-==== Multiple
+=== Multiple
 
 In some processes, user interfaces or system activities might need to handle multiple instances of a business object. Use cases include the ability to modify data on mass (for example, approving several leave requests from a list in a user form), and initializing a set of data coming from an external system (for example, loading a list of products from an external datasource and saving each of them in a business object instance).
 
@@ -80,15 +79,13 @@ To support handling of multiple instances of a business objects:
 . Set the list of business object instances in an operation using `takes value of` with a right operand that consists of a list of existing (possibly modified) and new business object instances.
 . Delete all instances from a list of business object instances with an `Is Deleted` operation.
 
-[discrete]
-==== Unique constraint
+=== Unique constraint
 
 An SQL UNIQUE constraint is a single field or a combination of fields that uniquely defines an entry in a database. A unique constraint on a single field means that every entry has a different value for this field. A unique constraint for a combination of fields means that this combination is unique, even though some of the component field values might be common or null.
 
 You can specify a unique constraint for an attribute, to require that every value of the attribute is unique. This means that you can use this attribute in data queries knowing that it is not possible for two entries to have the same value.
 
-[discrete]
-==== Queries
+=== Queries
 
 https://en.wikipedia.org/wiki/Java_Persistence_Query_Language[JPQL] queries are used to get information about data objects stored in the database. A set of default queries is defined automatically for each object in the BDM. You can also create custom queries.
 
@@ -108,8 +105,7 @@ To call a query, use the DAO instance. For a Groovy expression, there is a provi
 
 Example: When handling business objects in a form, you want to reload business objects from a query and use a Groovy script to repopulate the form accordingly. Suppose that a form shows a list of contracts that can be filtered according to the choice of client in a selection widget. When the user selects a client, this triggers the execution of a business object query, `Contracts.findByClient()`. A script parses the resulting list of Contracts and repopulates the contract list widget. This scenario requires DAO objects to be called from a Groovy script expression.
 
-[discrete]
-==== Indexes
+=== Indexes
 
 The purpose of an index is to retrieve data more rapidly. You can specify indexes on business objects to optimize performance of application. For example, for a process to modify purchase orders with an instantiation form used to search for the appropriate purchase order, define an index on purchase order number.
 
@@ -121,8 +117,7 @@ In a production environment, indexes are built when a tenant starts or after a n
 
 [#compos]
 
-[discrete]
-==== Composition and aggregation
+=== Composition and aggregation
 
 Composition and aggregation are two ways in which you can define a composite business object that includes relationships with other business objects in the BDM.
 
@@ -133,13 +128,11 @@ Example: A Purchase Order object consists of a set of primitive attribute variab
 
 [WARNING]
 ====
-
 In Bonita, a composition relationship is unique: A given object can only be used in one composition relationship. For exemple, you cannot use the same object _Wheel_ in composition for an object _Car_ and an object _Bike_. You will have to use an object _WheelCar_ and an object _WheelBike_.
 ====
 
 [WARNING]
 ====
-
 In Bonita, in an aggregation relationship, a child must exist when creating its parent. When creating a parent, you must refer to an existing child to value an attribute with an aggregation relationship.
 ====
 
@@ -158,8 +151,7 @@ When you create a process that uses a business object with a composition or aggr
 
 [#lazy_eager_loading]
 
-[discrete]
-==== Loading
+=== Loading
 
 There are two options for loading complex business objects: *lazy* or *eager*. +
 
@@ -181,8 +173,7 @@ If you are not sure about the final size of the parent object with children, we 
 Based on your analysis if you decide to use the eager mode, we recommend to test it with a test dataset that is the size of your production's expected dataset. 
 ====
 
-[discrete]
-==== Multi-instantiation using business object variables in a list
+=== Multi-instantiation using business object variables in a list
 
 The list can be a multiple business data variable, a multivalued process variable, or any type of list.
 
@@ -209,7 +200,6 @@ To create a package:
 
 [NOTE]
 ====
-
 A package must contain at least one business object. A new package comes automatically with a first business object, and deleting the last business object of a package deletes the package.
 ====
 
@@ -262,9 +252,9 @@ image::images/studio_bdm_relationship.png[BDM model relationship]
 
 [NOTE]
 ====
-
 for subscription editions only.
 ====
+
 Two maven artifacts are generated from the Business Data Model : *bdm-dao* and *bdm-client*. +
 The version of those artifacts is fixed to 1.0.
 You have the possibility to edit the group id of those artifacts from the BDM edition wizard. +
@@ -293,8 +283,7 @@ Those dependencies are automatically added when a REST API Extension is created 
 
 There are two ways to export a business data model: in a ZIP file for deployment, or in a BOS file for sharing with other Bonita Studios.
 
-[discrete]
-==== Export the BDM for deployment
+=== Export the BDM for deployment
 
 To deploy the BDM, you export it as a ZIP file from Bonita Studio and then import it into Bonita Portal.
 
@@ -326,23 +315,7 @@ Follow these steps:
 
 WARNING: the database model is automatically updated when you deploy a new BDM. Avoid changing the database schema manually as it may jeopardize the persistence of business objects and cause errors at process runtime.
 
-[discrete]
-==== Export the BDM to share with another Bonita Studio
-
-Bonita Studio is able to import a unitary BDM, exported as a ZIP file, or a BDM contained in a .bos archive. +
-Bonita Studio will try to import the new BDM into the existing one. +
-If the two models are conflicting (i.e there are business objects with the same name but with different content in the two models) the following rules apply:
-
-. *If business objects are conflicting across packages:*
-Example: the current model contains a package _com.company.vehicle_ with an object `Car`, the imported model contains a package _com.company.transport_ with an object `Car`. +
-This kind of conflict is considered as *not solvable* by Bonita Studio; thus the only possibility for the studio is to overwrite the current model by the new one.
-If overwritting is not the option for you, click on "Cancel", solve the conflicts by comparing the two BDMs in xml editors, make sure all processes and UIs comply with those changes, and import again."
-. *If business objects are conflicting in the same package:*
- Example: the current and the imported model contains a package _com.company.vehicle_ with an object `Car`. In the current model the object `Car` has only one field:  `brand`. In the imported model, the object `Car` has two attributes: `brand` and `color`. The two models are conflicting: two objects with the same name but different contents, and the two objects are in the same package in the two models.
-This kind of conflict is considered as *solvable* by Bonita Studio.  You will have the possibility to import the new model *into* the current one, and a decision has to be made for the conflicting package: keep the existing version of the package or overwrite it with the new one. The others non-conflicting packages will be merged.
-
-[discrete]
-==== View the BDM
+=== View the BDM
 
 The BDM ZIP file contains a business object model file, `bom.xml`. You can open this file in a text editor to view the BDM definition.
 
@@ -376,12 +349,25 @@ l.leaveType = 'Test'" returnType="java.lang.Double">
     </businessObjectModel>
 ----
 
+== Import a BDM in Bonita Studio
+
+Bonita Studio is able to import a unitary BDM, exported as a ZIP file, or a BDM contained in a .bos archive. +
+Bonita Studio will try to import the new BDM *into* the existing one. +
+If the two models are conflicting (i.e there are business objects with the same name but with different content in the two models) the following rules apply:
+
+. *If business objects are conflicting across packages:*
+Example: the current model contains a package _com.company.vehicle_ with an object `Car`, the imported model contains a package _com.company.transport_ with an object `Car`. +
+This kind of conflict is considered as *not solvable* by Bonita Studio; thus the only possibility for the studio is to overwrite the current model by the new one.
+If overwritting is not the option for you, click on "Cancel", solve the conflicts by comparing the two BDMs in xml editors, make sure all processes and UIs comply with those changes, and import again."
+. *If business objects are conflicting in the same package:*
+ Example: the current and the imported model contains a package _com.company.vehicle_ with an object `Car`. In the current model the object `Car` has only one field:  `brand`. In the imported model, the object `Car` has two attributes: `brand` and `color`. The two models are conflicting: two objects with the same name but different contents, and the two objects are in the same package in the two models.
+This kind of conflict is considered as *solvable* by Bonita Studio.  You will have the possibility to import the new model *into* the current one, and a decision has to be made for the conflicting package: keep the existing version of the package or overwrite it with the new one. The others non-conflicting packages will be merged.
+
 == Business objects in processes
 
 When you design a process, you specify the variables to be used in the process. These can include variables that are instances of business objects defined in the BDM. You xref:specify-data-in-a-process-definition.adoc[define a business object variable] in Bonita Studio in a similar way to defining other process variables.
 
-[discrete]
-==== persistenceID
+=== persistenceID
 
 Each object created in the database has a unique read-only ID called a persistenceID. For each new persistenceID created, the number is incremented. The persistenceID is invisible to the end user in Bonita Portal. A developer can recover this Id by using the method `getPersistenceID`.
 
@@ -394,8 +380,7 @@ After it is declared in the process, a business object instance can be adapted b
 
 [#initBDM]
 
-[discrete]
-==== Initialize BDM attributes from process instantiation contract inputs
+=== Initialize BDM attributes from process instantiation contract inputs
 
 In the contract definition panel of the Studio (*Details* panel, *Execution* tab, *Contract* pane), you can import contract inputs from a BDM definition using the *Add from data...* button. It creates a complex input mapping the BDM class attributes (if an attribute is not a primitive Java element, another complex input is created and it goes on).By selecting *Auto-generate the initialization script*, the default value of the selected business data will be automatically initialized with an auto-generated script when clicking on finish.
 
@@ -426,8 +411,7 @@ var leaveRequest = new com.company.model.LeaveRequest();
         return leaveRequest;
 ----
 
-[discrete]
-==== Initialize BDM attributes from contract inputs in task operations
+=== Initialize BDM attributes from contract inputs in task operations
 
 In the case where a business object has to be initialized from task level inputs, you can set contract inputs from the *Add from data...* action like in <<initBDM,previous section>> and generate automatically operations by selectionning *Auto-generate the initialization script*. The operations will be generated for business data attributes you selected. You can manage it inside the *Details* panel, *Execution* tab, *Operations* pane.
 
@@ -437,8 +421,7 @@ In the first select box, choose the variable of type _com.company.model.LeaveReq
 
 Then, click on the *_pencil_* button to open the *_Edit Expression_* editor. Choose the *_Script_* expression type and enter the same code snippet than the one above to have a new BDM _com.company.model.LeaveRequest_ instance set with the contract inputs.
 
-[discrete]
-==== Business Objects and connectors
+=== Business Objects and connectors
 
 You can use business data in a Java program by using the DAO. DAO gives *_read_* access to business objects.
 
@@ -453,17 +436,14 @@ You can however manipulate the business object outside the connector, and use bu
 * For a *_create_* or *_update_*, return the new or updated business object as output of the connector.
 Then use the business object (which is stored only in memory at this point) in an *operation* to update the business object in the business database, persisting the change.
 
-[discrete]
-==== BDM and custom REST APIs
+=== BDM and custom REST APIs
 
 Be aware that a poor implementation of a custom REST API accessing BDM objects can lead to poor performance results. See the xref:bdm-in-rest-api.adoc[best practice] on this matter.
 
-[discrete]
-==== Handle BDM database schema manually
+=== Handle BDM database schema manually
 
 [WARNING]
 ====
-
 This section is for advanced usage. You should fully understand the database changes made when you update the Business Data Model before considering using
 this alternative.
 ====
