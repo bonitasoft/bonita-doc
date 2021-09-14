@@ -46,7 +46,7 @@ To an organization, you create the organization, create the group hierarchy, spe
 
 == Export and import an organization
 
-You can export an organization definition from Bonita Studio. The exported file is in XML, so can be modified. You can import an
+You can export an organization definition from Bonita Studio. The exported file is in XML format, so can be modified. You can import an
 organization definition in this XML format that was exported from another Bonita Studio running the same version of Bonita, or that was constructed by some other method but has the same format. You can also import the organization file into Bonita Administrator Application, ready for production.
 
 == Modifying an organization
@@ -64,7 +64,7 @@ To upload the organization data:
 
 . Choose Deploy from the Organization menu.
 . Click the organization to be uploaded.
-. Specify the username of the user that will be used to log into the Bonita Runtime when a process is started from Bonita Studio. This user must be in the organization you have selected.
+. Specify the username of the user that will be used to log into the Bonita Runtime when a process is started from Bonita Studio. This user must be from the organization you have selected.
 . Click Deploy.
 
 After it has been uploaded, you can xref:organization-in-bonita-applications-overview.adoc[modify the organization in Bonita Applications].
