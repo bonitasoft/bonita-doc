@@ -1,7 +1,7 @@
 = Install/export an organization
 :description: This page explains what a user with in the Bonita Administrator Application can see and do about the Organization of Bonita users (an .xml file).
 
-This page explains what a user with in the Bonita Administrator Application can see and do about the Organization of Bonita users (an .xml file).
+{description}
 
 Here is a view of this page:
 image:images/UI2021.1/install-export.png[Install export organization]
