@@ -1,7 +1,8 @@
 = Migrate a live environment to upgrade the version
 :description: Service stopped: Migrate the data, install a new environment, test non-migrated elements behavior and compatibility with new bonita version
+:page-aliases: migrate-from-an-earlier-version-of-bonita-bpm.adoc
 
-Service stopped: Migrate the data, install a new environment, test non-migrated elements behavior and compatibility with new bonita version
+{description}
 
 == Overview
 
@@ -153,7 +154,7 @@ http://www.bonitasoft.com/downloads-v2[Bonitasoft site] for Bonita Community edi
 or from the https://customer.bonitasoft.com/download/request[Customer Service Center] for Bonita Subscription Pack editions.
 . Check your current RDBMS version is compliant with the versions supported by the target version of Bonita (see <<rdbms_requirements,above>>)
 . Unzip the migration tool zip file into a directory. In the steps below, this directory is called `bonita-migration`.
-. If you use Oracle, there is already the driver for 19.3.0.0 oracle version in the `bonita-migration/lib`. add the JDBC driver for your database to `bonita-migration/lib`. This is the same driver as you have installed in your web server `lib` directory. You must upgrade to  xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc#oracle12[Oracle 12c (12.2.x.y)] in order to migrate to 7.9+.
+. If you use Oracle, there is already the driver for 19.3.0.0 oracle version in the `bonita-migration/lib`. add the JDBC driver for your database to `bonita-migration/lib`. This is the same driver as you have installed in your web server `lib` directory. You must upgrade to  xref:migrate-from-an-earlier-version-of-bonita.adoc#oracle12[Oracle 12c (12.2.x.y)] in order to migrate to 7.9+.
 
 WARNING: make sure you double check that you use the official driver version that match your Database version. The correct driver is mandatory for a smooth migration:  xref:database-configuration.adoc#proprietary_jdbc_drivers[Follow instructions for Oracle driver download.]
 Particularly, if you use Oracle 12.2.0.x.y and are migrating to 7.9.n or to 7.10.n, then remove the existing `ojdbc8-19.3.0.0.jar` file, and add the specific JDBC driver to `bonita-migration/lib`.
@@ -300,7 +301,7 @@ Install the new license:
 
 . Start the application server. Before you start Bonita Portal, clear your browser cache. If you do not clear the cache, you might see old, cached versions of Portal pages instead of the new version.
  Log in to the Portal and verify that the migration has completed.
- If you did not set the default Look & Feel before migration and you cannot log in, you need to  xref:managing-look-feel.adoc[restore the default Look & Feel] using a REST client or the Engine API.
+ If you did not set the default Look & Feel before migration and you cannot log in, you need to xref:managing-look-feel.adoc[restore the default Look & Feel] using a REST client or the Engine API.
 . *If you migrated pasted version 7.7*
  In that case, if you used the migration tool 2.41.1 or greater, the table `arch_contract_data` is automatically backed up to the table `arch_contract_data_backup` to avoid long lasting migration.
  To reintegrate the data into your installation, a new tool is provided in versions 2.46.0 and above. It is located in the `tools/live-migration` folder.
@@ -466,7 +467,7 @@ Please make sure to download the appropriate one:
 * setup the Bonita 7.8.4 server to use the Oracle 12c (12.2.0.x.y) or 19c (19.3.0.0) database
 * request and install a temporary 7.8 license in the Bonita server
 * start the Bonita 7.8.4 server
-* check you can successfully log into the portal
+* check you can successfully log into the Bonita Runtime
 
 === Migrate to 7.9+
 

@@ -288,7 +288,7 @@
 * xref:bonita-version-update-index.adoc[Bonita update and upgrade]
  ** xref:product-versioning.adoc[Bonita versions]
  ** xref:upgrade-studio.adoc[Update Bonita Studio]
- ** xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[Update Bonita Runtime]
+ ** xref:migrate-from-an-earlier-version-of-bonita.adoc[Update Bonita Runtime]
   *** xref:migration-tool.adoc[Migration tool changelog]
  ** xref:migrate-a-form-from-6-x.adoc[Migrate a form from 6.x]
  ** xref:upgrade-from-community-to-a-subscription-edition.adoc[Community to Enterprise upgrade]
