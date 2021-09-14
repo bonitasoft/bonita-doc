@@ -257,7 +257,7 @@
      ****** xref:admin-application-task-list.adoc[Task list]
   *** xref:cluster-administration.adoc[Cluster administration]
   *** xref:back-up-bonita-bpm-platform.adoc[Runtime backups]
- ** Bonita Engine deep dive
+ ** xref:engine-deep-dive-index.adoc[Bonita Engine deep dive]
   *** xref:engine-architecture-overview.adoc[Architecture overview]
   *** xref:engine-flow-node-states.adoc[Flow node states]
   *** xref:timers-execution.adoc[Timer execution]
@@ -292,5 +292,4 @@
   *** xref:migration-tool.adoc[Migration tool changelog]
  ** xref:migrate-a-form-from-6-x.adoc[Migrate a form from 6.x]
  ** xref:upgrade-from-community-to-a-subscription-edition.adoc[Community to Enterprise upgrade]
-
 * xref:building-community-edition-from-source.adoc[Contributing to Bonita]
