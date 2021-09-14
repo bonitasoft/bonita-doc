@@ -501,6 +501,7 @@ SQL> SELECT name, value FROM v$parameter
 ----
 
 ====
+
 [#maintenanceVersionCompatible]
 
 === Updating between maintenance versions of Bonita in Bonita 7.11 and greater versions
