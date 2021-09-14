@@ -11,7 +11,7 @@ To update Bonita Runtime you need to use _Bonita Migration Tool_. There are 2 ve
 * Version 1.x migrates the elements of Bonita Runtime from version 6.0.2 or later to any version up to 7.0.0
 * Version 2.x migrates the elements of Bonita Runtime from version 7.0.0 or later to any version up to the last one.
 
-For example, if you consider updating from 6.5.3 to 7.1.0, you must first update from 6.5.3 to 7.0.0 using version 1.x of Bonita Migration Tool, and then update from 7.0.0 to 7.1.0 using version 2.x.
+For example, if you consider updating from 6.5.3 to 7.1.0, you must first update from 6.5.3 to 7.0.0 using version 1.x of Bonita Migration Tool, and then update from 7.0.0 to 7.1.0 using version 2.x. +
 You are recommended not to start 7.0.0 after you update to it, but to proceed immediately with the second phase of the update.
 
 [CAUTION]
@@ -19,7 +19,7 @@ You are recommended not to start 7.0.0 after you update to it, but to proceed im
 You should always update to the latest version of a main version, even if not the latest Bonita version. +
 Indeed, such maintenance versions might contain bug fixes made after the release of subsequent main releases.
 
-For example, the 6.5.4 release contains fixes to certain bugs that were found in early 7.x.y versions, up to 7.1.0.
+For example, the 6.5.4 release contains fixes to certain bugs that were found in early 7.x.y versions, up to 7.1.0. +
 When you are ready to update from 6.5.4 to a 7.x.y version, make sure you update to at least 7.1.1 to be sure that these fixes are present in your new version after the update.
 ====
 
@@ -83,9 +83,9 @@ The following are not migrated automatically:
 * Deployed process definitions: The processes will continue to run using the definition created in the previous version of Bonita.
 * Process definition sources (`.bos` files): Migrate these by importing them into the new version of Bonita Studio.
 * +++<a id="bdm_redeploy">++++++</a>+++Business Data Model, and the business data database: if the updating path includes version `7.0.0`,`7.2.0` or `7.2.4`, the Business Data Model must be redeployed after the update. To do so:
-  .. Before the update, log into the Super Administrator application (in Bonita 2021.2 or greater) or in Bonita Portal as the Technical User (before Bonita 2021.2)
-  .. Pause the BPM Services
-  .. xref:define-and-deploy-the-bdm.adoc[Redeploy the BDM] once the update is done.
+  . Before the update, log into the Super Administrator application (in Bonita 2021.2 or greater) or in Bonita Portal as the Technical User (before Bonita 2021.2)
+  . Pause the BPM Services
+  . xref:define-and-deploy-the-bdm.adoc[Redeploy the BDM] once the update is done.
   Otherwise, no action is required.
 * Custom connectors, actor filers, data types: These might continue to work in the new version, but should be tested, depending on your custom code.
 * Custom pages: These might continue to work in the new version, but should be tested depending on your custom code.
@@ -99,7 +99,7 @@ Starting with Bonita 2021.2, custom reports will not be supported in Bonita anym
 ====
 
 
-When the script has finished, you need to complete the updating procedure by unzipping and configuring a bundle for the new version.
+When the script has finished, you need to complete the updating procedure by unzipping and configuring a bundle for the new version. +
 See  <<migrate,Migrate your platform>> for step-by-step instructions.
 
 == Constraints
@@ -178,7 +178,7 @@ Particularly, if you use Oracle 12.2.0.x.y and are updating to Bonita 7.9.n or 7
 . If you use Microsoft SQL Server, add the JDBC driver for your database type to `bonita-update/lib`. This is the same driver as you have installed in your web server `lib` directory.
 . Configure the database properties needed by the migration script, by editing `bonita-update/Config.properties`.
 Specify the following information:
-+
+
 |===
 | Property | Description | Example
 
@@ -212,7 +212,7 @@ Specify the following information:
 
 If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example,
     `db.url=jdbc:mysql://localhost:3306/bonita-update?allowMultiQueries=true`. +
-    Also, if you are updating to Bonita 7.9 or greater, you must update your database server to MySQL 8.0, see <<mysql8,Migrating to Bonita 7.9+ using MySQL>> specific procedure below.
+Also, if you are updating to Bonita 7.9 or greater, you must update your database server to MySQL 8.0, see <<mysql8,Migrating to Bonita 7.9+ using MySQL>> specific procedure below.
 ====
 
 . (Target version older than 2021.2:) If you used a custom Look & Feel in Bonita Portal, export it, and then restore the default Look & Feel.
@@ -230,7 +230,7 @@ xref:back-up-bonita-bpm-platform.adoc[Back up your runtime nodes] and databases 
 . Run the migration script:
  ** For version 1.x of the migration tool, run `migration.sh` (or `migration.bat` for Windows).
  ** For version 2.x of the migration tool, go to the `bin` directory and run the migration script for your edition and operating system:
-+
+
 |===
 |  |
 
@@ -269,13 +269,11 @@ There is below a Linux example: +
  cd setup
  ./setup.sh pull
 ----
-+
-You must reapply the configuration that had been done on the original instance's BONITA_HOME into the `bonita-target-version/setup/platform_conf/current`    ````
-+
-Please refer to the guide on updating the configuration file using the xref:bonita-bpm-platform-setup.adoc#update_platform_conf[setup tool]
-+
+
+You must reapply the configuration that had been done on the original instance's BONITA_HOME into the `bonita-target-version/setup/platform_conf/current`    ```` +
+Please refer to the guide on updating the configuration file using the xref:bonita-bpm-platform-setup.adoc#update_platform_conf[setup tool]. +
 When done, push the updated configuration into the database:
-+
+
 [source,bash]
 ----
  ./setup.sh push
@@ -292,7 +290,7 @@ When done, push the updated configuration into the database:
 . Configure License: +
 You need to put a new license in the database: see xref:bonita-bpm-platform-setup.adoc#update_platform_conf[Runtime configuration] for further details.
  There is below a Linux example:
-+
+
 [source,bash]
 ----
  cd setup
@@ -300,15 +298,15 @@ You need to put a new license in the database: see xref:bonita-bpm-platform-setu
  ./setup.sh pull
  ls -l ./platform_conf/licenses/
 ----
-+
+
 If there is no valid license in the `./platform_conf/licenses/`, these 2 pages will help you to request and install a new one:
 
  ** https://documentation.bonitasoft.com/?page=licenses[Licenses]
  ** xref:bonita-bpm-platform-setup.adoc#update_platform_conf[Setup tool]
 
-+
+
 Install the new license:
-+
+
 [source,bash]
 ----
  cp BonitaSubscription-7.n-Jerome-myHosname-20171023-20180122.lic ./platform_conf/licenses/
@@ -532,7 +530,7 @@ This means copying the configuration files of the old Bonita Runtime, mainly _da
 . Start the new bundle
 . Delete the old bundle files
 
-*NB* : In a cluster environment, you need to stop all your nodes and update them before starting them with the new maintenance version.
+*Note*: In a cluster environment, you need to stop all your nodes and update them before starting them with the new maintenance version.
 
 [#migrateCluster]
 
