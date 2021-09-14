@@ -113,7 +113,7 @@ After the update is complete, export the default Look & Feel from the new versio
 Starting with Bonita 2021.2, there is no more Bonita Portal. Bonita is all applications. If you need to use some of the Portal Look&Feel assets in the themes of your applications, make sure you create backups of those files before launching the updating procedure.
 ====
 
-=== Bonita home
+=== Custom configuration
 
 To update Bonita to a target version *Bonita 7.3 or greater*: Starting with Bonita 7.3, there is no more _bonita home_ folder. +
 What this means:
@@ -168,7 +168,7 @@ Make sure you double-check that you use the official driver version that matches
 Particularly, if you use Oracle 12.2.0.x.y and are updating to Bonita 7.9.n or 7.10.n, then remove the existing `ojdbc8-19.3.0.0.jar` file, and add the specific JDBC driver to `bonita-update/lib`.
 ====
  
-. Configure the database properties needed by the migration script, by editing `bonita-update/Config.properties`.
+6. Configure the database properties needed by the migration script, by editing `bonita-update/Config.properties`.
 Specify the following information:
 
 |===
@@ -190,12 +190,8 @@ Specify the following information:
 | The location of the Bonita Engine database
 | `jdbc:postgresql://localhost:5432/bonita-update`
 
-[NOTE]
-====
-
-If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example,
-`db.url=jdbc:mysql://localhost:3306/bonita-update?allowMultiQueries=true`. +
-====
+*Note:* If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example,
+`db.url=jdbc:mysql://localhost:3306/bonita-update?allowMultiQueries=true`. 
 
 | db.user
 | The username used to authenticate to the database
@@ -207,19 +203,19 @@ If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example,
 |===
 
 
-. Custom Portal Look & Feel: 
+7. Custom Portal Look & Feel: 
  * Target version older than Bonita 2021.2: If you used a custom Look & Feel in Bonita Portal, export it, and then restore the default Look & Feel.
  * Target version Bonita 2021.2 or greater: Exporting the Look & Feel is not needed, as Bonita Portal has been replaced by Bonita applications. However, the backup of your Look & Feel files may be helpful to create the applications themes.
-. Pause the BPM Services. Generally speaking, pausing (or not) the BPM services before the update should not impact the updating procedure. There are however a few special cases:
+8. Pause the BPM Services. Generally speaking, pausing (or not) the BPM services before the update should not impact the updating procedure. There are however a few special cases:
  ** If the source version is older than Bonita 7.3.0 and if you are using a BDM, your BDM will have to be redeployed after the update is done (see <<bdm_redeploy,above>>). In this case, it is recommended that you *stop your BPM services before updating*, so as to be able to redeploy your BDM immediately after the update (and not having to deal with eventual errors in automated processes as you restart your platform after the update procedure is over).
  ** Several bugs affect legacy versions of Bonita that prevent a smooth update of a Bonita Runtime with *BPM services paused* in special cases:
   *** The source version is *older than Bonita 7.8.0*, and the target version is comprised between *Bonita 7.8.0* and *Bonita 7.11.5*
   *** The source version is *older than Bonita 7.10.5* and the target version is *older than Bonita 2021.1*
  ** Therefore, while it is recommended to always update to the latest version of Bonita, if your target version is not 2021.1 or greater, it is necessary to update with *BPM services running*.
-. Stop the application server.
-. *IMPORTANT:xref:back-up-bonita-bpm-platform.adoc[Back up your runtime nodes] and databases*
-. Go to the directory containing Bonita Migration Tool.
-. Run the migration script:
+9. Stop the application server.
+10. *IMPORTANT:xref:back-up-bonita-bpm-platform.adoc[Back up your runtime nodes] and databases*
+11. Go to the directory containing Bonita Migration Tool.
+12. Run the migration script:
  ** For version 1.x of the migration tool, run `migration.sh` (or `migration.bat` for Windows).
  ** For version 2.x of the migration tool, go to the `bin` directory and run the migration script for your edition and operating system:
 
@@ -234,14 +230,14 @@ If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example,
 |===
 
  ** Starting from Bonita Migration Tool 2.44.1, an additional script called `check-migration-dryrun` is present in the same folder. This script only runs the checks the real update would run, without actually migrating the elements. This is equivalent to running the migration script with a `--verify` option.
-. The script detects the current version of Bonita, and displays a list of the versions that you can update to. 
-. Specify the version you require. 
-. The updating procedure starts
-. As the script runs, it displays messages indicating progress. After each step, you are asked to confirm whether to
+13. The script detects the current version of Bonita, and displays a list of the versions that you can update to. 
+14. Specify the version you require. 
+15. The updating procedure starts
+16. As the script runs, it displays messages indicating progress. After each step, you are asked to confirm whether to
  proceed to the next step. You can pause the updating procedure by answering `no`. +
  To suppress the confirmation questions, so that the update can run unattended, set the ` (-Dauto.accept=true)` system
  property.
- . When the migration script is finished, a message is displayed showing the new Runtime version, and the time taken for the migration of all elements. The database has been updated.
+ 17. When the migration script is finished, a message is displayed showing the new Runtime version, and the time taken for the migration of all elements. The database has been updated.
 
 [CAUTION]
 ====
@@ -249,10 +245,10 @@ If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example,
 Do not use the old Tomcat server: a new one needs to be installed with the Bonita binaries that match the target version.
 ====
 
-. Unzip the target bundle version into a directory. In the steps below, this directory is called `bonita-target-version`
-. xref:database-configuration.adoc[Configure the bundle to use the updated database]. Do not recreate the database and use the setup tool of the `bonita-target-version`. Edit the `bonita-target-version/setup/database.properties` file to point to the updated database.
-. Reapply the configuration made to the runtime, using the setup tool of the `bonita-target-version`
-. Download the configuration from the database to the local disk.
+18. Unzip the target bundle version into a directory. In the steps below, this directory is called `bonita-target-version`
+19. xref:database-configuration.adoc[Configure the bundle to use the updated database]. Do not recreate the database and use the setup tool of the `bonita-target-version`. Edit the `bonita-target-version/setup/database.properties` file to point to the updated database.
+20. Reapply the configuration made to the runtime, using the setup tool of the `bonita-target-version`
+21. Download the configuration from the database to the local disk.
 
 There is below a Linux example: +
 
@@ -271,15 +267,15 @@ When done, push the updated configuration into the database:
  ./setup.sh push
 ----
 
-. If you have done specific configuration and customization actions in your server source version, re-do it by configuring the application server at `bonita-target-version/server` (or `bonita-target-version` if the target version is Bonita 7.3.n or greater): customization, libs etc.
-. *If the source version is Bonita 7.4 or greater:* +++<a id="compound-permission-migration">++++++</a>+++
+22. If you have done specific configuration and customization actions in your server source version, re-do it by configuring the application server at `bonita-target-version/server` (or `bonita-target-version` if the target version is Bonita 7.3.n or greater): customization, libs etc.
+23. *If the source version is Bonita 7.4 or greater:* +++<a id="compound-permission-migration">++++++</a>+++
  In the case where deployed resources have required dedicated xref:resource-management.adoc#permissions[authorizations to use the REST API], these authorizations are not automatically migrated.
  Some manual operations have to be done on files that are located in the extracted `platform_conf/current` folder (see xref:bonita-bpm-platform-setup.adoc#update_platform_conf[Update Bonita Runtime configuration] for more information). You need to:
  ** Perform a diff between the source version and the target version of `tenants/[TENANT_ID]/conf/compound-permissions-mapping.properties` and put the additional lines into the file `tenants/[TENANT_ID]/conf/compound-permissions-mapping-custom.properties`
  ** Perform a diff between the source version and the target version of `tenants/[TENANT_ID]/conf/resources-permissions-mapping.properties` and put the additional lines into the file `tenants/[TENANT_ID]/conf/resources-permissions-mapping-custom.properties`
  ** Perform a diff between the source version and the target versionof `tenants/[TENANT_ID]/conf/dynamic-permissions-checks.properties` and put the additional lines into the file `tenants/[TENANT_ID]/conf/dynamic-permissions-checks-custom.properties`
  ** Report all the content of the source version of``tenants/[TENANT_ID]/conf/custom-permissions-mapping.properties`` into the target version.
-. Put a new license in the database: see xref:bonita-bpm-platform-setup.adoc#update_platform_conf[Runtime configuration] for further details.
+24. Put a new license in the database: see xref:bonita-bpm-platform-setup.adoc#update_platform_conf[Runtime configuration] for further details.
  There is below a Linux example:
 
 [source,bash]
@@ -303,14 +299,14 @@ Install the new license:
  ./setup.sh push
 ----
 
-. Start the application server. Before you start Bonita Portal (before Bonita 2021.2) and/or Bonita Applications, clear your browser cache. If you do not clear the cache, you might see old, cached versions of Portal or Applications pages instead of the new versions.
-. Log in to Bonita UIs and verify that the updating procedure has completed.
-. *If the target version is Bonita 7.7 or greater* and if you used Bonita Migration Tool 2.41.1 or greater, the table `arch_contract_data` is automatically backed up to the table `arch_contract_data_backup` to avoid long lasting migration.
+25. Start the application server. Before you start Bonita Portal (before Bonita 2021.2) and/or Bonita Applications, clear your browser cache. If you do not clear the cache, you might see old, cached versions of Portal or Applications pages instead of the new versions.
+26. Log in to Bonita UIs and verify that the updating procedure has completed.
+27. *If the target version is Bonita 7.7 or greater* and if you used Bonita Migration Tool 2.41.1 or greater, the table `arch_contract_data` is automatically backed up to the table `arch_contract_data_backup` to avoid long lasting migration.
  To reintegrate the data into your installation, a new tool is provided in Bonita Migration Tool 2.46.0 and above. It is located in the `tools/live-migration` folder. Follow instruction in the README.md to run this tool and re-integrate data from `arch_contract_data_backup`.
-. Custom Portal Look & Feel:
+28. Custom Portal Look & Feel:
  * If the target version is older than Bonita 2021.2: If you did not set the default Portal Look & Feel before updating and you cannot log in, you need to restore the default Look & Feel using a REST client or the Engine API.
  * If the target version is older than Bonita 2021.2: If you were using a custom Portal Look & Feel before the update, test it on the new version before applying it to your updated Runtime.
-. The update is now complete.
+29. The update is now complete.
 
 == Special cases
 
@@ -338,7 +334,7 @@ It means that if one or more processes on the target server uses 6.x forms or ov
 
 The disabled processes with 6.x forms cannot be enabled again post update. +
 
-=== Case overview pages
+==== Case overview pages
 
 Having 6.x *case overview* pages on your processes will not prevent the update of the runtime. However, they will all be replaced by the default 7.x case overview page, created with the UI Designer.
 It means that you might want to redo the case overview pages as well as the forms, especially if you have configured a custom case overview page for your processes in version 6.x. +
@@ -346,7 +342,7 @@ Alternatively, you can also xref:live-update.adoc[live update] the case overview
 
 [#update-case-overview-pages]
 
-==== Automated replacement of case overview pages during the updating procedure
+*Automated replacement of case overview pages during the updating procedure*
 
 If the source version is older than Bonita 7.8. +
 Starting with Bonita 7.8, Bonita Migration Tool ships an option to allow you to replace 6.x case overview pages with the default 7.x case overview page (created with the UI Designer). This allows you to see if the page suits your needs. +
@@ -383,7 +379,6 @@ Example of output issued when running the tool:
 === 6.x application resources
 
 6.x application resources have been removed in Bonita 7.8.0, so if you are migrating a process that leverages this feature, you need to modify it (for example to use process dependencies instead (Configure > Process dependencies in Bonita Studio)).
-====
 
 === Updating to Java 11 in Bonita 7.9 or a greater version
 
