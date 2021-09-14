@@ -11,8 +11,8 @@ To update Bonita Runtime you need to use _Bonita Migration Tool_. There are 2 ve
 * Version 1.x migrates the elements of Bonita Runtime from version 6.0.2 or later to any version up to 7.0.0
 * Version 2.x migrates the elements of Bonita Runtime from version 7.0.0 or later to any version up to the last one.
 
-For example, if you consider updating from 6.5.3 to 7.1.0, you must first update from 6.5.3 to 7.0.0 using version 1.x of Bonita Migration Tool, and then update from 7.0.0 to 7.1.0 using version 2.x. +
-You are recommended not to start 7.0.0 after you update to it, but to proceed immediately with the second phase of the update.
+For example, if you consider updating from Bonita 6.5.3 to Bonita 7.1.0, you must first update from Bonita 6.5.3 to Bonita 7.0.0 using version 1.x of Bonita Migration Tool, and then update from Bonita 7.0.0 to Bonita 7.1.0 using version 2.x. +
+You are recommended not to start Bonita 7.0.0 after you update to it, but to proceed immediately with the second phase of the update.
 
 [CAUTION]
 ====
