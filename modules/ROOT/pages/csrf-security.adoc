@@ -4,7 +4,7 @@
 {description}
 
 CSRF (also known as XSRF and Sea-Surf), is an example of a malicious attack on a trusted website.
-While the user is authenticated, by being logged on to a trusted website, malicious requests are transmitted without the user knowing, or giving their consent.
+While the user is authenticated through a trusted website, malicious requests are transmitted without the user giving his consent or even knowing.
 For example, by clicking on a link, the user is tricked into performing actions using their ID and privileges, such as giving personal information, bank details, making purchases or payments.
 If the targeted end user is an administrator, the entire web application can be compromised.
 

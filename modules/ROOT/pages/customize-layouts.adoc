@@ -30,7 +30,7 @@ The example sections show how to:
 
 == Export a layout from Bonita Administrator Application
 
-. Log in with someone mapped to the Administrator profile.
+. Log in with a user that has the Administrator profile.
 . Open the Bonita Administrator Application
 . Click on the *Resources* menu.
 . Select the filter *Layouts*.
@@ -73,7 +73,7 @@ Once your changes are made, save the new layout using a new name and then export
 
 == Import the _myCustomLayout_ into the Bonita Administrator Application
 
-. Log in with someone mapped to the Administrator profile.
+. Log in with a user that has the Administrator profile.
 . Open the Bonita Administrator Application
 . Click on the *Resources* menu.
 . Click on *Install*.
