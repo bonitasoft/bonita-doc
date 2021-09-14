@@ -1,7 +1,7 @@
 = Logging in Bonita components
 :description: Learn how to view and configure logging of Bonita components.
 
-Learn how to view and configure logging of Bonita components.
+{description}
 
 == How components produce log messages
 
@@ -19,7 +19,7 @@ The Portal uses the http://docs.oracle.com/javase/8/docs/api/java/util/logging/p
 
 The Studio uses a logging service provided by the Eclipse platform. Modification of the Studio logging configuration is not very common except for debugging the Studio itself.
 
-The Bonita Studio provides direct access to the log written by the embedded Portal and Engine. You can access this log from the Bonita Studio *Help* menu *Show Engine log* option (*Engine log* also contains UI designer logs).
+The Bonita Studio provides direct access to the log written by the embedded Runtime. You can access this log from the Bonita Studio *Help* menu *Show Engine log* option (*Engine log* also contains UI designer logs).
 
 == Logging configuration
 

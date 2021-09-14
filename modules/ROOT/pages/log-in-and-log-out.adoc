@@ -11,13 +11,12 @@ Note: to avoid login problems, make sure you http://www.wikihow.com/Clear-Your-B
 
 == Log in
 
-A user may receive an email with a link to start a case or a do task in Bonita Portal, Bonita User Application, or a custom application.
-Or a user wants to check the status of the tasklist in Bonita Portal, Bonita User Application, or business data and operations in a custom application. +
+A user may receive an email with a link to start a case or do task in Bonita User Application, or a custom application.
+Or a user wants to check the status of the task list in Bonita User Application, or business data and operations in a custom application. +
 Or an administrator needs to perform monitoring or maintenance on the Bonita Platform. +
 For any of this, they need to log in. To do so:
 
-. Enter the login page URL.
-    * For Bonita Portal: `http://`_`hostname:port`_`/bonita/`. The default port number is 8080. +
+. Enter the login page URL. (The default port number is 8080.) +
     * For Bonita User Application: `http://`_`hostname:port`_`/bonita/apps/userApp`. +
     * For Bonita Administrator Application:
  ** For the Enterprise edition: `http://`_`hostname:port`_`/bonita/apps/adminAppSP`
@@ -26,18 +25,10 @@ For any of this, they need to log in. To do so:
 . In the fields, enter the _username_, and the _password_
 . Click on the *Login* button.
 
-The default Portal profile is User. From there, the user can xref:navigation.adoc[navigate] to their other profiles. +
+The default application is the Bonita Application Directory. From there, the user can xref:navigation.adoc[navigate] to their other profiles. +
 Each application is mapped to one profile. A user can xref:navigation.adoc[navigate] between the applications they have the permissions to access.
 
 == Log out
-
-For Bonita Portal:
-
-. Click on the _username_ in the portal header
-. Click on *Logout*
-
-image:images/UI2021.1/logout.png[Logout]
-// {.img-responsive}
 
 For an application:
 
@@ -50,11 +41,11 @@ image:images/UI2021.1/sign-out.png[Sign out]
 [NOTE]
 ====
 
-Note: in a system that uses a solution to provide single sign-on (with SAML, CAS, etc...), the administrator can remove the logout option. In this case, to log out of the portal or an application, you must log out of the SSO system or close your browser.
+Note: in a system that uses a solution to provide single sign-on (with SAML, CAS, etc...), the administrator can remove the logout option. In this case, to log out of an application, you must log out of the SSO system or close your browser.
 ====
 
 See also xref:first-steps-after-setup.adoc[First steps after setup]
 
 See also xref:active-directory-or-ldap-authentication.adoc[Active directory/ldap authentication]
 
-See also xref:bonita-bpm-applications-urls.adoc[Accessing Bonita Portal and forms by URL]
+See also xref:bonita-bpm-applications-urls.adoc[Accessing Bonita Applications and forms by URL]

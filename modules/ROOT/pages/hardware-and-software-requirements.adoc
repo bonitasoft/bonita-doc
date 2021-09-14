@@ -1,7 +1,7 @@
 = Hardware and software requirements
 :description: This page describes the suggested hardware and software requirements to install Bonita platform.
 
-This page describes the suggested hardware and software requirements to install Bonita platform.
+{description}
 
 == Hardware
 

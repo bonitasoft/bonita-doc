@@ -1,7 +1,7 @@
 = Identity API
 :description: The Identity Rest API allows to manage the Bonita's organization.
 
-The Identity Rest API allows to manage the Bonita's organization.
+{description}
 
 == Professional and Personal contact data
 

@@ -1,7 +1,7 @@
 = Import and export a process
 :description: How to import and export processes in Bonita Studio.
 
-How to import and export processes in Bonita Studio.
+{description}
 
 == Import a process diagram into Bonita Studio
 
