@@ -30,3 +30,10 @@ xref:engine-deep-dive-index.adoc[[.card-title]#Bonita Engine deep dive# [.card-b
 --
 xref:runtime-optimization-index.adoc[[.card-title]#Optimization# [.card-body.card-content-overflow]#pass:q[Monitoring, Troubleshooting, and Tuning capabilities]#]
 --
+
+[.card-section]
+== But also
+
+[.card.card-index]
+--
+xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[[.card-title]#Update Bonita Runtime# [.card-body.card-content-overflow]#pass:q[At a glance: Flow, Best Practices and caveat]#]
