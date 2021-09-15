@@ -92,7 +92,7 @@ that looks like:
 .Pre-2021.2 Custom Profile example
 image::images/temp-release-notes-specific/custom_profile.png[Previous Custom Profile,600]
 
-In Bonita 2021.2, custom profile navigation has been removed, and thus profiles with navigation are automatically converted into Living Applications by the xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[migration tool].
+In Bonita 2021.2, custom profile navigation has been removed, and thus profiles with navigation are automatically converted into Living Applications by the xref:migrate-from-an-earlier-version-of-bonita.adoc[migration tool].
 
 Here is the list of applications, with the converted one, when you log in after migration for the first time:
 
