@@ -12,12 +12,11 @@ Profiles work as permissions to give access to:
 * xref:applications.adoc[Living Applications]
 * Defined objects and attributes of the BDM (through xref:access-control-api.adoc[BDM Access Control])
 * xref:rest-api-authorization.adoc[REST API extension permissions]
-* Navigation (menus) of Bonita Portal
 
-One organization entity can be mapped to several profiles. In Bonita Portal, a logged in user can switch between his/her profiles in the navigation bar.
+One organization entity can be mapped to several profiles. In Bonita Applications, a logged-in user can switch between his/her profiles in the navigation bar.
 
 In development, the creation and edition of profiles is done through the xref:profileCreation.adoc[profile editor] in Bonita Studio. +
-In non-production and production, an Administrator can use the _Organization_>__Profiles__ menu of Bonita Portal.
+In non-production and production, an Administrator can use the _Organization_>__Profiles__ menu of Bonita Administrator Application.
 
 [NOTE]
 ====
@@ -30,23 +29,16 @@ It should only be done to recover from an error temporarily. We strongly encoura
 
 === User
 
-By default, it gives access to the User navigation of Bonita Portal. It includes:
-
-* a xref:user-process-list.adoc[Process list]
-* a xref:portal-user-case-list.adoc[Case list]
-* a xref:user-task-list.adoc[Task list].
-This profile is also the only one mapped with Bonita Mobile Portal. +
-This profile is also mapped to the xref:user-application-overview.adoc[Bonita User Application], bringing the same value but with more customization options.
+By default, it gives access to the Bonita User Application.
 
 === Administrator
 
-By default, its gives access to the Administrator navigation of Bonita Portal. It includes:
+By default, its gives access to Bonita Administrator Application. It includes:
 
 * xref:_process-maintenance.adoc[Process Management] and xref:analytics.adoc[Analytics]
 * xref:organization-in-bonita-applications-overview.adoc[Organization Management]
 * xref:bdm-management-in-bonita-applications.adoc[Business Data Model Management]
 * xref:applications.adoc[Applications Management]
-* xref:managing-look-feel.adoc[Portal Look & Feel Management]
 * xref:license-info.adoc[License Information] (Enterprise, Performance, Efficiency, and Teamwork editions only)
   This profile is also mapped to the xref:admin-application-overview.adoc[Bonita Administrator Application], bringing about the same value but with more customization options.
 
@@ -64,13 +56,5 @@ Someone mapped to the _Process manager_ profile has limited administration right
 ====
 
 In Bonita ACME organization, all users have the role *Member*, and the role *Member* is mapped to all default profiles. +
-This simplifies process testing (log in as any user to see any Portal content).
+This simplifies process testing (log in as any user to see Bonita User and Administrator Application).
 ====
-
-== Custom profiles
-
-In addition to the default profiles, users of Enterprise, Performance and Efficiency editions can create xref:custom-profiles.adoc[custom profiles]. +
-To create a custom profile, use the xref:profileCreation.adoc[profile editor] in Bonita Studio, and map it to entities of the organization. +
-If a custom profile is created to give access to custom content in Bonita Portal, its Portal menu (navigation structure and pages) must also be defined in the profile.
-We highly recommend to create the profiles in Bonita Studio so the custom profiles are versioned with the whole project and maintained consistently. +
-In a production environment, if updating a profile is needed to recover from an issue temporarily, the Administrator can use the _Organization_>_Profiles menu.

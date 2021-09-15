@@ -1,7 +1,7 @@
 = Performance troubleshooting
 :description: Learn how to monitoring your Bonita Platform and troubleshoot performance issues.
 
-Learn how to monitoring your Bonita Platform and troubleshoot performance issues.
+{description}
 
 We recommend that you monitor your system regularly, so that if you suspect a performance degradation, you can repeat these checks and identify the potential problem areas by comparing the performance to the normal level.
 
@@ -63,7 +63,7 @@ You can also get the number of active transaction using the https://javadoc.boni
 
 == Bonita Engine connections
 
-Bonita Engine performance is strongly linked by the number of connections. The number of connections from the Bonita Portal directly influences the number of connections to the database through the number of workers, and the number of connector threads.
+Bonita Engine performance is strongly linked by the number of connections. The number of connections from the Bonita Runtime directly influences the number of connections to the database through the number of workers, and the number of connector threads.
 
 To avoid overloading the Engine, check that the following connection numbers are coherent:
 
