@@ -5,7 +5,7 @@
 
 == Applications and processes
 
-An application is a collection of processes, user interfaces (called pages) and shared data. A page that is a user interface to a process is called a form.
+An application is a collection of processes, user interfaces (called pages) and shared data. The user interface page of a process is called a form.
 
 You can use Bonita to create a process-based application or a process that is accessed through the Bonita Applications.
 

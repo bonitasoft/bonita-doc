@@ -302,7 +302,7 @@ Install the new license:
 . Start the application server. Before you start Bonita Portal, clear your browser cache. If you do not clear the cache, you might see old, cached versions of Portal pages instead of the new version.
  Log in to the Portal and verify that the migration has completed.
  If you did not set the default Look & Feel before migration and you cannot log in, you need to xref:managing-look-feel.adoc[restore the default Look & Feel] using a REST client or the Engine API.
-. *If you migrated pasted version 7.7*
+. *If you migrated past version 7.7*
  In that case, if you used the migration tool 2.41.1 or greater, the table `arch_contract_data` is automatically backed up to the table `arch_contract_data_backup` to avoid long lasting migration.
  To reintegrate the data into your installation, a new tool is provided in versions 2.46.0 and above. It is located in the `tools/live-migration` folder.
  Follow instruction in the README.md to run this tool and re-integrate data from `arch_contract_data_backup`.

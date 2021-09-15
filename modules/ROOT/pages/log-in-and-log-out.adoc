@@ -11,7 +11,7 @@ Note: to avoid login problems, make sure you http://www.wikihow.com/Clear-Your-B
 
 == Log in
 
-A user may receive an email with a link to start a case or do task in Bonita User Application, or a custom application.
+A user may receive an email with a link to start a case or do a task in Bonita User Application, or a custom application.
 Or a user wants to check the status of the task list in Bonita User Application, or business data and operations in a custom application. +
 Or an administrator needs to perform monitoring or maintenance on the Bonita Platform. +
 For any of this, they need to log in. To do so:
