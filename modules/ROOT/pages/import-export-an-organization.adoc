@@ -1,5 +1,5 @@
 = Install/export an organization
-:description: This page explains what a user with in the Bonita Administrator Application can see and do about the Organization of Bonita users (an .xml file).
+:description: This page explains what a user can see and do in the Bonita Administrator Application about the Organization of Bonita users.
 
 {description}
 
@@ -20,7 +20,7 @@ In case of conflict, the priority is given to the data in the imported file. Tak
 ====
 
 In 6.3 there was a change to the structure of the .xml file. This means that you cannot install into Bonita platform 6.3.0 or later an organization .xml file that was created in 6.2.x or earlier. +
-You will need to first install the organization file into Bonita Studio and re-export it, so it is compatible.
+You will need to first install the organization file into Bonita Studio and re-export it, for it to be compatible.
 ====
 
 To install an organization:
