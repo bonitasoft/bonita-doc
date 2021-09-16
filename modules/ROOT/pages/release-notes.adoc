@@ -71,7 +71,7 @@ It is now possible to easily bind the metadata of an API variable response (head
 
 === Runtime changes
 
-==== New application-based Portal
+==== New application-based User interfaces
 
 In Bonita 2021.2, the Bonita Portal is now removed, meaning that
 

@@ -1,7 +1,7 @@
 = REST API extensions
 :description: Create REST API extensions to use third party systems (databases, web services, Bonita Engine, etc) data in forms and pages.
 
-Create REST API extensions to use third party systems (databases, web services, Bonita Engine, etc) data in forms and pages.
+{description}
 
 REST API extensions can be used to query xref:define-and-deploy-the-bdm.adoc[business data], Bonita Engine APIs, or an external information system (such as a database, web service, LDAP directory...). They also help to keep a clean separation between the front-end (forms, pages, and interfaces visible to users) and the back-end (processes).
 
@@ -29,7 +29,7 @@ There is some additional prerequisites when creating a REST API extension:
 . Enter a package name, use to set the artifact *Group id*, for example: _com.company.rest.api_
 . Enter a *Project name*, for example _userInformationRestAPIExtension_
 . Click *Next*.
-. Enter the *pathTemplate* for this REST API extension, for example _userInformation_. This will be the access point of the API, and follows this pattern: `+{bonita_portal_context}/API/extension/userInformation+`.
+. Enter the *pathTemplate* for this REST API extension, for example _userInformation_. This will be the access point of the API, and follows this pattern: `+{bonita_context}/API/extension/userInformation+`.
 . As this REST API extension does not access business data you can safely uncheck "Add BDM dependencies" check box.
 . Define a *Permission* name for the extension (replace the default one), for example _read_user_information_. This is the name of the permission the users should have to be granted access to the extension (see xref:api-extensions.adoc#usage[REST API extensions usage]
 . Click *Next*
@@ -170,8 +170,8 @@ Now you can actually build and deploy the extension:
 . In the *Development* menu, choose *REST API Extension* > *Deploy...*
 . Select the userInformationRestAPIExtension REST API extension.
 . Click on *Deploy* button.
-. In the coolbar, click the *Portal* icon. This opens the Bonita Portal in your browser.
-. In the Portal, change to the *Administrator* profile.
+. In the coolbar, click the *Applications* icon. This opens the Bonita Application Directory in your browser.
+. Go to Bonita Administrator Application
 . Go to the *Resources* tab, and check that the User information REST API extension is in the list of REST API extension resources.
 
 Now you can finally test your REST API extension:

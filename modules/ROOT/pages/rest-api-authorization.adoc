@@ -1,7 +1,7 @@
 = REST API authorizations
 :description: Permissions to access Bonita platform's REST API resources are handled by a configurable authorizations mecanism.
 
-Permissions to access Bonita platform's REST API resources are handled by a configurable authorizations mecanism.
+{description}
 
 The Bonita Applications, or any application that uses the Web REST API, enables user to access resources.
 The set of resources that a user can access is determined by default by the user's profile.
@@ -91,15 +91,14 @@ You can use a compound permission as "shorthand" for a list of simple permission
 By default, the file `resources-permissions-mapping.properties` contains a compound permission that corresponds to each page of the Bonita Applications,
 including <<custom_pages,custom pages>>.
 
-For example: `userlistingadmin=[profile_visualization, process_comment, organization_visualization, tenant_platform_visualization, organization_management]`
+For example: `cusompage_adminUserList=[profile_visualization, process_comment, organization_visualization, tenant_platform_visualization, organization_management]`
 
-This specifies the REST API permissions that are granted with the Bonita Portal Administrator page that lists all the users in the tenant.
+This specifies the REST API permissions that are granted by the Bonita Administrator User List page that lists all the users in the tenant.
 
-By default, there is a compound permission defined for each page in the standard Bonita Portal and there is also one for each provided custom page.
+By default, there is a compound permission defined for each page that is installed by default in the Bonita Runtime.
 
-When you install a custom page in the portal, if the page declares its resources properly, then a new compound permission will be added in an internal version
-of this file (`compound-permissions-mapping-internal.properties`). Then all the users being able to access this page (because it is part of a custom profile or
-Living Application they have access to) will also be automatically granted the necessary permissions to call the required REST API resources.
+When you install a custom page in the Bonita Administrator Application, if the page declares its resources properly, then a new compound permission will be added in an internal version
+of this file (`compound-permissions-mapping-internal.properties`). Then all the users being able to access this page (because it is part of an application they have access to) will also be automatically granted the necessary permissions to call the required REST API resources.
 
 [WARNING]
 ====
@@ -117,15 +116,15 @@ The `custom-permissions-mapping.properties` file contains custom rules that supp
 By default, this file is empty, because the compound permissions definitions automatically manage the permissions needed for default and custom profiles, and for default and custom pages.
 
 If you want to override the default behavior, you can add a rule to this file. You can add a simple or compound permission to a profile.
-For example, to give users with the User profile the ability to manage the Bonita Portal look & feel: `profile|User=[look_and_feel]`
+For example, to give users with the User profile the ability to view applications: `profile|User=[application_visualization]`
 
 You can also assign a permission to a specific user. This is useful if you want to give a named user access to a resource that is not accessible through the user's profiles.
-For example, if the user John.Smith is assigned the User profile, he does not have permission to manage the portal Look & Feel.
-You can add this specific permission to `custom-permissions-mapping.properties` by adding this line: `user|John.Smith=[look_and_feel]`
+For example, if the user John.Smith is assigned the User profile, he does not have permission to modify applications.
+You can add this specific permission to `custom-permissions-mapping.properties` by adding this line: `user|John.Smith=[application_management]`
 
-This means that in addition to the permissions given to him by the User profile, John.Smith can also manage the Portal Look & Feel. It does not modify the permissions for any other user.
+This means that in addition to the permissions given to him by the User profile, John.Smith can also manage the installed applications. It does not modify the permissions for any other user.
 
-If you do not use Bonita Portal but still want to manage REST API authorizations, you can do this using the `custom-permissions-mapping.properties` file.
+If you do not use Bonita Applications but still want to manage REST API authorizations, you can do this using the `custom-permissions-mapping.properties` file.
 To do this, create a custom profile and configure the relevant permissions.
 For example, you could create a profile called CustomProcessManager and assign the permissions needed to monitor and manage processes:
 `profile|MyCustomProfile=[process_visualization, process_management, process_manager_management, custom_process_manager_permission]`
