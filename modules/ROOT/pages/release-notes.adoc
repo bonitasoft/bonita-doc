@@ -317,6 +317,7 @@ A standalone docker image that package the LDAP Synchronizer was released under 
 * RUNTIME-479 -	Update OpenSSL version in Docker images
 * RUNTIME-271 -	Portal: Archived cases query fails with 'operator does not exist' error when filtering on process name
 * RUNTIME-229 -	Missing content-type header in several REST API responses
+* RUNTIME-497 -	Integrate jattach inside official docker image
 
 === Fixes in Bonita 2021.1-0408 (2021-04-08)
 
