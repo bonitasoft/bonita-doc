@@ -314,7 +314,7 @@ A standalone docker image that package the LDAP Synchronizer was released under 
 
 ==== Fixes in Bonita Runtime (including Portal)
 
-* RUNTIME-479 -	CVEs in OpenSSL version in Docker images
+* RUNTIME-479 -	Update OpenSSL version in Docker images
 * RUNTIME-271 -	Portal: Archived cases query fails with 'operator does not exist' error when filtering on process name
 * RUNTIME-229 -	Missing content-type header in several REST API responses
 
