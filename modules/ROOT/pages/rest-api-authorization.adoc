@@ -3,7 +3,7 @@
 
 Permissions to access Bonita platform's REST API resources are handled by a configurable authorizations mecanism.
 
-The Bonita Portal, or any application that uses the Web REST API, enables user to access resources.
+The Bonita Applications, or any application that uses the Web REST API, enables user to access resources.
 The set of resources that a user can access is determined by default by the user's profile.
 This authorization mechanism ensures that users can only access the appropriate resources.
 This means, for example, that a user with only the User profile cannot perform actions intended for the Administrator.
@@ -23,8 +23,8 @@ A user is granted set of permissions. These permissions define the set of resour
 For a new Bonita installation, a basic set of authorization checks is activated by default but you might also want to <<activate,deactivate the HTTP API>>.
 Here are the key points of the authorizations configuration :
 
-* The static checks (activated by default on a fresh installation) create an authorization layer that exactly matches the standard Bonita Portal features and profiles.
-If you are using the standard Portal, you do not need to configure anything.
+* The static checks (activated by default on a fresh installation) create an authorization layer that exactly matches the standard Bonita Applications features and profiles.
+If you are using the Bonita Applications, you do not need to configure anything.
 * If you want to add extra authorization restrictions based on business rules, turn on the dynamic checks that you want.
 The configuration file defines standard rules for the most frequent cases, so all you need to do is uncomment the rules you want to apply.
 * If you add a custom page, include a resources=[ list ] in your page.properties to specify which resources your custom page requires the users to have access to.
@@ -53,7 +53,7 @@ These files grant permissions to sets of users based on profile or user name.
 You cannot remove permissions in a configuration file, so you must ensure that the default definitions grant the minimum permissions that you want to give to any user.
 
 The default versions of these files are located in `setup/platform_conf/initial/tenant_template_portal`.
-In order to change the configuration on an installation whose platform has already been initialized, use the xref:bonita-bpm-platform-setup.adoc[platform setup tool] to
+In order to change the configuration on an installation whose platform has already been initialized, use the xref:bonita-platform-setup.adoc[platform setup tool] to
 retrieve the current configuration and update the files in `setup/platform_conf/current/tenants/[tenantId]/tenant_portal`.
 Then use the tool again to save your changes into the database.
 
@@ -88,7 +88,7 @@ Custom values should be added manually in file `resources-permissions-mapping-`*
 
 The `compound-permissions-mapping-*.properties` files define sets of simple permissions that are grouped together into a compound permission.
 You can use a compound permission as "shorthand" for a list of simple permissions.
-By default, the file `resources-permissions-mapping.properties` contains a compound permission that corresponds to each page of the Bonita Portal,
+By default, the file `resources-permissions-mapping.properties` contains a compound permission that corresponds to each page of the Bonita Applications,
 including <<custom_pages,custom pages>>.
 
 For example: `userlistingadmin=[profile_visualization, process_comment, organization_visualization, tenant_platform_visualization, organization_management]`
@@ -174,9 +174,9 @@ If the platform has never been started yet:
 
 If the platform has already been started:
 
-* use the xref:bonita-bpm-platform-setup.adoc[platform setup tool] to retrieve the current configuration
+* use the xref:bonita-platform-setup.adoc[platform setup tool] to retrieve the current configuration
 * add the script to the `setup/platform_conf/current/tenants/[tenantId]/tenant_security_scripts` folder
-* then use the xref:bonita-bpm-platform-setup.adoc[platform setup tool] again to push the new / modified scripts to database
+* then use the xref:bonita-platform-setup.adoc[platform setup tool] again to push the new / modified scripts to database
 
 The `tenant_security_scripts` folder contains a script sample that can be used to write your own.
 Bonita also provides default scripts that should fit common usages. They are packages internally in the binaries, but the

@@ -156,7 +156,7 @@ See xref:#_configuration_file_changes[the related changes] done to specific conf
 ==== JAAS authentication is now Enterprise
 
 From version 2021.2, JAAS Authentication is only available in the Enterprise edition. +
-If you are updating from a 2021.1 or earlier version, in the Community edition, you will need to xref:bonita-bpm-platform-setup.adoc[change your configuration] file `authenticationManager-config.properties`
+If you are updating from a 2021.1 or earlier version, in the Community edition, you will need to xref:bonita-platform-setup.adoc[change your configuration] file `authenticationManager-config.properties`
 and remove the JAAS configuration to use another Authentication Manager (an implementation of your own, for instance).
 
 ==== LDAP Synchronizer

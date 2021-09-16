@@ -56,7 +56,7 @@ The tool migrates your platform (_bonita_home_ folder and the database). You can
 
 Starting from version 7.3 there is no more _bonita home_ folder. This means that, if your installation does not have any custom change, then you do not need to configure the bundle any further for an installation migrated in 7.3 or above.
 
-On the other hand, if you have customized your configuration, you will have to use the xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool] to send your customized configuration files to the database where configuration is stored, for versions 7.3 and above.
+On the other hand, if you have customized your configuration, you will have to use the xref:bonita-platform-setup.adoc#update_platform_conf[platform setup tool] to send your customized configuration files to the database where configuration is stored, for versions 7.3 and above.
 ====
 
 image::images/images-6_0/migration_bigsteps.png[Migration steps]
@@ -80,7 +80,7 @@ The migration script migrates the following:
 
 The following are not migrated automatically:
 
-* Configuration of the platform: Before 7.3 in the _Bonita Home_ folder and after 7.3 in database. Reapply your customizations manually after the migration script has finished (using xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool] if migrated to 7.3.0+).
+* Configuration of the platform: Before 7.3 in the _Bonita Home_ folder and after 7.3 in database. Reapply your customizations manually after the migration script has finished (using xref:bonita-platform-setup.adoc#update_platform_conf[platform setup tool] if migrated to 7.3.0+).
 * Deployed process definitions: The processes will continue to run using the definition created in the previous version of Bonita.
 * Process definition sources (`.bos` files): Migrate these by importing them into the new version of Bonita Studio.
 * +++<a id="bdm_redeploy">++++++</a>+++Business data model, and the business data database: if the migration path include version `7.0.0`,`7.2.0` or `7.2.4`, the Business data model must be redeployed after migration. You can pause the tenant before migration, as a tenant admin, so that you'll be able to redeploy the BDM on a paused tenant once migration is done, using  link:define-and-deploy-the-bdm[Define and deploy the BDM]). Otherwise, no action is required.
@@ -109,7 +109,7 @@ Then  xref:managing-look-feel.adoc[import] your updated custom Look & Feel into 
 
 *Important:* +
 The migration operation resets the Bonita configuration files to default version for new settings to be applied (from the _$BONITA_HOME_ folder in <7.3.0 version or inside database in >=7.3.0).
-Therefore, you must do a  xref:bonita-bpm-platform-setup.adoc#update_platform_conf[backup of your configuration files] before starting the migration. +
+Therefore, you must do a  xref:bonita-platform-setup.adoc#update_platform_conf[backup of your configuration files] before starting the migration. +
 You will need to merge custom properties and configurations to the migrated environment.
 
 Furthermore, from the database point of view, as any operations on a production system, a migration is not a zero risk operation. +
@@ -255,7 +255,7 @@ There is below a Linux example:
 +
 You must reapply the configuration that had been done on the original instance's BONITA_HOME into the `bonita-target-version/setup/platform_conf/current`    ````
 +
-Please refer to the guide on updating the configuration file using the  xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool]
+Please refer to the guide on updating the configuration file using the  xref:bonita-platform-setup.adoc#update_platform_conf[platform setup tool]
 +
 When done, push the updated configuration into the database:
 +
@@ -267,14 +267,14 @@ When done, push the updated configuration into the database:
 . If you have done specific configuration and customization in your server original version, re-do it by configuring the application server at `bonita-target-version/server` (or `bonita-target-version` if target version is 7.3.n): customization, libs etc.
 . *If your Bonita version is 7.4 or above before migrating, you can skip this point.* +++<a id="compound-permission-migration">++++++</a>+++
  In the case where deployed resources have required dedicated  xref:resource-management.adoc#permissions[authorizations to use the REST API], these authorizations are not automatically migrated.
- Some manual operations have to be done on files that are  located in the extracted `platform_conf/current` folder (see  xref:bonita-bpm-platform-setup.adoc#update_platform_conf[Update Bonita Platform configuration] for more information). You need to:
+ Some manual operations have to be done on files that are  located in the extracted `platform_conf/current` folder (see  xref:bonita-platform-setup.adoc#update_platform_conf[Update Bonita Platform configuration] for more information). You need to:
  ** Perform a diff between the version before migration and the version after migration of `tenants/[TENANT_ID]/conf/compound-permissions-mapping.properties` and put the additional lines into the file `tenants/[TENANT_ID]/conf/compound-permissions-mapping-custom.properties`
  ** Perform a diff between the version before migration and the version after migration of `tenants/[TENANT_ID]/conf/resources-permissions-mapping.properties` and put the additional lines into the file `tenants/[TENANT_ID]/conf/resources-permissions-mapping-custom.properties`
  ** Perform a diff between the version before migration and the version after migration of `tenants/[TENANT_ID]/conf/dynamic-permissions-checks.properties` and put the additional lines into the file `tenants/[TENANT_ID]/conf/dynamic-permissions-checks-custom.properties`
  ** Report all the content of the version before migration of``tenants/[TENANT_ID]/conf/custom-permissions-mapping.properties`` into the new version.
 . Configure License:
 +
-you need to put a new license in the database: see  xref:bonita-bpm-platform-setup.adoc#update_platform_conf[Platform configuration] for further details.
+you need to put a new license in the database: see  xref:bonita-platform-setup.adoc#update_platform_conf[Platform configuration] for further details.
  There is below a Linux example:
 +
 [source,bash]
@@ -288,7 +288,7 @@ you need to put a new license in the database: see  xref:bonita-bpm-platform-set
 If there is no valid license in the `./platform_conf/licenses/`, these 2 pages will help you to request and install a new one:
 
  ** https://documentation.bonitasoft.com/?page=licenses[Licenses]
- ** xref:bonita-bpm-platform-setup.adoc#update_platform_conf[Platform configuration]
+ ** xref:bonita-platform-setup.adoc#update_platform_conf[Platform configuration]
 
 +
 Install the new license:

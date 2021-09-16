@@ -224,7 +224,7 @@
    **** xref:bonita-as-windows-service.adoc[Install Tomcat with Bonita as a service in Windows]
   *** xref:embed-engine.adoc[Embed engine - Lab]
  ** Configuration
-  *** xref:bonita-bpm-platform-setup.adoc[Setup tool]
+  *** xref:bonita-platform-setup.adoc[Setup tool]
   *** xref:database-configuration.adoc[Database configuration]
   *** xref:first-steps-after-setup.adoc[First steps after setup]
   *** xref:licenses.adoc[Licenses]
