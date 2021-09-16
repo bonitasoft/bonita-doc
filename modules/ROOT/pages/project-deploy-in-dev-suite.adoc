@@ -14,13 +14,13 @@ Processes are categorized by versions and you can opt to only select the latest 
 == Deploy options
 
 * Select Process configuration environment (SP Only): You can choose the environment to be used for the deployment. All the parameters values, actors, connector and actors filters implementations mappings and custom scripts belong to the configuration environment.
-* Default user name: The user that will be used to login in the Portal or your applications after the deployment
+* Default user name: The user that will be used to login in the Bonita Applications after the deployment
 * Clean BDM database before deployment: Erase all existing data in the BDM and recreate the database schema from scratch.
 * Validate before deploy: Perform a validation of selected artifacts before the deployment.
 
 == Quick access after deploy
 
-Once the deployment successful, you are able to choose the application to open, either the Portal or one of the deployed living application. +
+Once the deployment successful, you are able to choose one of the deployed living applications to open. +
 Only application that can opened by the user choose in the deploy options will be displayed.
 
 == Error management

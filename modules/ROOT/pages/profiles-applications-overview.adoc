@@ -1,6 +1,6 @@
 = Profiles overview in Bonita User Interfaces
 :page-aliases: profiles-portal-overview.adoc
-:description: This page explains what a profile is for a user with the profile _Administrator_ in Bonita Portal.
+:description: This page explains what a profile is in the Bonita Administrator Application.
 
 {description}
 
