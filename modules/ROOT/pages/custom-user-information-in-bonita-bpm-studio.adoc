@@ -18,7 +18,7 @@ All these types of information are not displayed in standard information tabs bu
 
 == Define custom user information
 
-. In Bonita Studio explorer, double click on the organization you want to edit
+. In Bonita Studio project explorer, double click on the organization you want to edit
 . Click on the *User* tab
 . Expand the *Manage custom information* pane, click on *_Add_*
 . This will put a default name *Information1* in the *Name column*
@@ -29,7 +29,7 @@ All these types of information are not displayed in standard information tabs bu
 
 == Add custom user information values for each user
 
-. In Bonita Studio explorer, double click on the organization you want to edit
+. In Bonita Studio project explorer, double click on the organization you want to edit
 . Click on the *User* tab
 . Click on the user for which you want to define the custom user information value
 . In the *Information* table, select the *Custom* tab
