@@ -221,24 +221,29 @@ If you migrate from an earlier version of Bonita, you can now delete them if you
 
 ==== Fixes in Bonita Development Suite (Studio and UI Designer)
 
+* UID-459 - BO variable cannot be edited in fragment after workspace import from previous version and error message is wrong
+
+* STUDIO-4126 - Process execution errors: bcd-dependencies:7.11.5 generates a .bar different from Studio 7.11.5
 * STUDIO-4113 - Process Validation freezes after process import
-* STUDIO-4086 - Expression editor inserts the wrong operator
-* STUDIO-4066 - java.lang.NullPointerException at build when the wrong variable is entered in a script but not shown in the validation
+* STUDIO-4086 - Expression editor inserts the wrong operator ' =<' instead of '<=' in groovy script
+* STUDIO-4066 - java.lang.NullPointerException at build when wrong variable entered in script but not shown in validation
 * STUDIO-4043 - errors while importing .bos in studio
-* STUDIO-3962 - Release note view is broken on Windows
+* STUDIO-3962 - Release note view is broken on windows
 * STUDIO-3953 - LA Builder is slow
-* STUDIO-3936 - EMF resources not in sync after using Git operations
+* STUDIO-3936 - EMF resources not in synch after using Git operations
 * STUDIO-3898 - Model - annotations are positioned relatively to lanes coordinates (not absolute)
-* STUDIO-3880 - Editing domain can be null on an opened diagram
+* STUDIO-3880 - Editing domain can be null on an opended diagram
 * STUDIO-3875 - Issue with "Switch project" function
 * STUDIO-3793 - UIPath connector is not working with cloud orchestrator
-* UID-459 - BO variable cannot be edited in fragment after workspace import from previous version and error message is wrong
 
 ==== Fixes in Bonita Runtime
 
+* RUNTIME-479 - CVEs in OpenSSL version in Docker images
+* RUNTIME-447 - Security vulnerability REST API portal/runreport open to all profiles
+* RUNTIME-271 - Archived cases query fails with 'operator does not exist' error when filtering on process name
 * RUNTIME-261 - BDM installation failed when a bdm was already installed
 * RUNTIME-138 - Entire BDM install history lost when BDM deployment issue
-* RUNTIME-132 - [SAML] Getting the default login page when signing in on a guest app
+* RUNTIME-132 - [SAML] Getting the default loging page when signing in on a guest app
 * RUNTIME-84 - Loading a class with Class.forName can keep references in VirtualClassloader
 * RUNTIME-70 - BDM schemas changes are not rolled back after a failed installation of a new BDM over an existing one
 * RUNTIME-34 - Install a BDM with an invalid custom query fail silently
