@@ -115,7 +115,7 @@
   *** xref:uid-case-overview-tutorial.adoc[How to customize the case overview page]
   *** xref:datetimes-management-tutorial.adoc[How to manage dates and times in BDM and User Interfaces]
   *** xref:rta-mail-template.adoc[How to use the rich text area widget in a mail template]
-* Applications
+* xref:custom-applications-index.adoc[Applications]
  ** xref:application-creation.adoc[Application descriptor]
  ** xref:layout-development.adoc[Layout]
   *** xref:bonita-layout.adoc[Bonita Layout]
