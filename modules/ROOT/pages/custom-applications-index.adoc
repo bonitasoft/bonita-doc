@@ -1,0 +1,83 @@
+= Custom applications
+:description: This page explains what an application is made of and how you can create your own applications.
+
+{description}
+
+An Application is a navigation of pages that can be accessed by a Profile. It is created and operated within Bonita Platform:
+
+* Created with Bonita Studio and UI Designer
+* Deployed with Bonita Continuous Delivery
+* Run by Bonita Runtime
+
+Its name, token, and navigation menu belong to the application. +
+The profile who can access it, the pages accessed by the menu, its layout and themes are references called by the application. +
+All those elements are made visible in the application descriptor, created in Bonita Studio. +
+
+Note that there is no need to create logical links between the application and the processes that run in the background, as the pages directly call Bonita BPM APIs to execute process instantiantion or tasks. +
+
+The application can be created by the citizen developer or a professional developer. +
+You just need to make sure that all the pages and the application layout have been developed before you call them in the application descriptor. +
+Then to test the look and feel of the application, its theme should be developed so you can use the custom theme instead of Bonita provided theme. 
+
+ ** Adaptive Case Management example 
+  *** xref:use-bonita-acm.adoc[Enable Adaptive Case Management with Bonita]
+ ** xref:appearance.adoc[Appearance]
+  *** xref:theme-development.adoc[Theme]
+ ** xref:navigation.adoc[Navigation between User Interfaces]
+ ** Translation
+  *** xref:multi-language-applications.adoc[Multi-language applications]
+  *** xref:multi-language-pages.adoc[Multi-language pages]
+  *** xref:languages.adoc[Languages]
+
+[.card-section]
+== The application elements
+
+[.card.card-index]
+--
+xref:application-creation.adoc[[.card-title]#Application descriptor# [.card-body.card-content-overflow]#pass:q[]#]
+--
+
+[.card.card-index]
+--
+xref:layout-development.adoc[[.card-title]#Layout# [.card-body.card-content-overflow]#pass:q[]#]
+--
+
+[.card.card-index]
+--
+xref:customize-living-application-theme.adoc[[.card-title]#Theme# [.card-body.card-content-overflow]#pass:q[How to get users to log into an application]#]
+--
+
+[.card-section]
+== The resources 
+
+Starting the development of an application from scratch may not be the more efficient way to go:
+
+* If your project implies that user pick tasks in a tasklist made of all processes, you may want to try and use or customize our Bonita User Application
+* If your project implies specific pages showing specific business data, you may want to borrow a project created by a Community member and customize it
+* If your project implies Adaptive Case Management, with non-sequential parts in the processes to let the knowledge workers' expertise decide which tasks to do and which ones to skip for a dedicated case, you may check our ACM example
+  
+[.card.card-index]
+--
+xref:bonita-user-application.adoc[[.card-title]#Bonita User Application# [.card-body.card-content-overflow]#pass:q[xref:user-application.adoc[[.card-title]#User# [.card-body.card-content-overflow]#pass:q[A tool for actual people making processes alive, centered around a generic tasklist]#]
+--
+
+[.card.card-index]
+--
+https://community.bonitasoft.com/project?title=&field_type_tid=All&field_project_category_tid=1341&field_certification_tid=All&sort_by=created&sort_order=DESC[[.card-title]#Community-made application examples# [.card-body.card-content-overflow]#pass:q[T]#]
+--
+
+[.card.card-index]
+--
+xref:use-bonita-acm.adoc[[.card-title]#Adaptive Case Management example# [.card-body.card-content-overflow]#pass:q[]#]
+--
+
+
+[.card-section]
+== Related topics
+
+Learn how applications are handled by Bonita under the wood, as well as what the four Bonita applications are.
+
+[.card.card-index]
+--
+xref:applications-deep-dive-index.adoc[[.card-title]#Applications deep dive# [.card-body.card-content-overflow]#pass:q[]#]
+--
