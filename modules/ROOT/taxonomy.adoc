@@ -216,7 +216,7 @@
   *** xref:how-an-event-is-executed.adoc[How an event is executed]
   *** xref:how-a-bdm-is-deployed.adoc[How a BDM is handled in the code]
   *** xref:fault-tolerance.adoc[Fault tolerance mechanisms]
- ** Bonita Applications deep dive
+ ** Applications deep dive
   *** xref:bonita-applications-interface-overview.adoc[Overview]   
   *** xref:cache-configuration-and-policy.adoc[Cache configuration and policy]
   *** xref:log-in-and-log-out.adoc[Log in and log out]
