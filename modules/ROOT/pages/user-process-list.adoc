@@ -1,7 +1,7 @@
 = User process list
-:description: This page explains what a user with the _User_ profile in Bonita Portal or in xref:user-application-overview.adoc[Bonita User Application] can see and do about processes.
+:description: This page explains what a user can see and do about processes in the xref:user-application-overview.adoc[Bonita User Application].
 
-This page explains what a user with the _User_ profile in Bonita Portal or in xref:user-application-overview.adoc[Bonita User Application] can see and do about processes.
+{description}
 
 _Users_ can view a list of the processes they have the permission to start, and start a new instance of a process.
 
