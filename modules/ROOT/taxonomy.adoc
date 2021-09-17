@@ -115,7 +115,7 @@
   *** xref:uid-case-overview-tutorial.adoc[How to customize the case overview page]
   *** xref:datetimes-management-tutorial.adoc[How to manage dates and times in BDM and User Interfaces]
   *** xref:rta-mail-template.adoc[How to use the rich text area widget in a mail template]
-* Custom applications
+* Applications
  ** xref:application-creation.adoc[Application descriptor]
  ** xref:layout-development.adoc[Layout]
   *** xref:bonita-layout.adoc[Bonita Layout]
@@ -216,7 +216,7 @@
   *** xref:how-an-event-is-executed.adoc[How an event is executed]
   *** xref:how-a-bdm-is-deployed.adoc[How a BDM is handled in the code]
   *** xref:fault-tolerance.adoc[Fault tolerance mechanisms]
- ** Bonita Applications deep dive
+ ** Applications deep dive
   *** xref:bonita-applications-interface-overview.adoc[Overview]   
   *** xref:cache-configuration-and-policy.adoc[Cache configuration and policy]
   *** xref:log-in-and-log-out.adoc[Log in and log out]
@@ -224,14 +224,6 @@
   *** Bonita Super Administrator application
    **** xref:pause-and-resume-bpm-services.adoc[Put Runtime in maintenance mode]
    **** xref:bdm-management-in-bonita-applications.adoc[BDM Management]
-  *** Bonita Administrator application
-   **** xref:admin-application-overview.adoc[Overview]
-   **** Process Management
-    ***** xref:monitoring.adoc[Monitoring]
-    ***** xref:admin-application-process-list.adoc[Process list]
-    ***** xref:import-and-export-a-process.adoc[Import and export a process]
-    ***** xref:cases.adoc[Case list]
-    ***** xref:admin-application-task-list.adoc[Task list]
    **** Organization
     ***** xref:organization-in-bonita-applications-overview.adoc[Organization Management]
     ***** xref:import-export-an-organization.adoc[Install/export an organization]
@@ -246,6 +238,14 @@
    **** xref:admin-application-resources-list.adoc[Resources management]
    **** xref:applications.adoc[Applications]
    **** xref:licenses.adoc[License information]   
+  *** Bonita Administrator application
+   **** xref:admin-application-overview.adoc[Overview]
+   **** Process Management
+    ***** xref:monitoring.adoc[Monitoring]
+    ***** xref:admin-application-process-list.adoc[Process list]
+    ***** xref:import-and-export-a-process.adoc[Import and export a process]
+    ***** xref:cases.adoc[Case list]
+    ***** xref:admin-application-task-list.adoc[Task list]
   *** Bonita User Application
    **** xref:user-application-overview.adoc[Overview]
    **** xref:user-process-list.adoc[Process list]
