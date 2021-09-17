@@ -120,7 +120,7 @@
   *** xref:bonita-layout.adoc[Bonita Layout]
  ** xref:customize-layouts.adoc[Customize layouts]
  *** xref:uid-vertical-tabs-container-tutorial.adoc[How to create a vertical tabs container for all devices]
- ** xref:customize-living-application-theme.adoc[Create a theme]
+ ** xref:customize-living-application-theme.adoc[Theme]
  ** Adaptive Case Management example 
   *** xref:use-bonita-acm.adoc[Enable Adaptive Case Management with Bonita]
  ** xref:appearance.adoc[Appearance]
@@ -212,7 +212,7 @@
   *** xref:how-an-event-is-executed.adoc[How an event is executed]
   *** xref:how-a-bdm-is-deployed.adoc[How a BDM is handled in the code]
   *** xref:fault-tolerance.adoc[Fault tolerance mechanisms]
- ** Applications deep dive
+ ** xref:bonita-applications-deep-dive.adoc[Applications deep dive]
   *** xref:bonita-applications-interface-overview.adoc[Overview]   
   *** xref:cache-configuration-and-policy.adoc[Cache configuration and policy]
   *** xref:log-in-and-log-out.adoc[Log in and log out]
