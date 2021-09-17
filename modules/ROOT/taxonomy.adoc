@@ -114,22 +114,22 @@
   *** xref:uid-case-overview-tutorial.adoc[How to customize the case overview page]
   *** xref:datetimes-management-tutorial.adoc[How to manage dates and times in BDM and User Interfaces]
   *** xref:rta-mail-template.adoc[How to use the rich text area widget in a mail template]
-* Applications
+* xref:custom-applications-index.adoc[Applications]
  ** xref:application-creation.adoc[Application descriptor]
  ** xref:layout-development.adoc[Layout]
   *** xref:bonita-layout.adoc[Bonita Layout]
- ** xref:customize-layouts.adoc[Customize layouts]
- *** xref:uid-vertical-tabs-container-tutorial.adoc[How to create a vertical tabs container for all devices]
- ** xref:customize-living-application-theme.adoc[Theme]
- ** Adaptive Case Management example 
-  *** xref:use-bonita-acm.adoc[Enable Adaptive Case Management with Bonita]
+  *** xref:customize-layouts.adoc[Customize layouts]
+  *** xref:uid-vertical-tabs-container-tutorial.adoc[How to create a vertical tabs container for all devices]
  ** xref:appearance.adoc[Appearance]
   *** xref:theme-development.adoc[Theme]
- ** xref:navigation.adoc[Navigation between User Interfaces]
+  *** xref:customize-living-application-theme.adoc[Theme]
+ ** xref:navigation.adoc[Navigation between applications]
  ** Translation
   *** xref:multi-language-applications.adoc[Multi-language applications]
   *** xref:multi-language-pages.adoc[Multi-language pages]
   *** xref:languages.adoc[Languages]
+ ** Adaptive Case Management example 
+  *** xref:use-bonita-acm.adoc[Enable Adaptive Case Management with Bonita]
 * xref:software-extensibility.adoc[Extensions]
  ** xref:custom-library-development.adoc[Custom library development]
 * Integration
@@ -194,7 +194,7 @@
   *** xref:ssl.adoc[SSL]
   *** xref:tenant-admin-credentials.adoc[Tenant administrator credentials]
   *** xref:guest-user.adoc[Guest user access]
- ** xref:build-a-process-for-deployment.adoc[Deployment]
+* xref:build-a-process-for-deployment.adoc[Deployment]
 * xref:runtime-index.adoc[Runtime]
  ** Bonita Engine deep dive
   *** xref:engine-architecture-overview.adoc[Architecture overview]
