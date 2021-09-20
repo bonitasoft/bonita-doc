@@ -41,17 +41,17 @@ xref:application-directory-application.adoc[[.card-title]#Application directory#
 
 [.card.card-index]
 --
-xref:super-administrator-application.adoc[[.card-title]#Super Administrator# [.card-body.card-content-overflow]#pass:q[The tool to bootstrap a Bonita Runtime, perform maintenance operations, and update the BDM]#]
+xref:super-administrator-application.adoc[[.card-title]#Super Administrator# [.card-body.card-content-overflow]#pass:q[Bootstrap a Bonita Runtime, perform maintenance operations, and update the BDM]#]
 --
 
 [.card.card-index]
 --
-xref:administrator-application.adoc[[.card-title]#Administrator# [.card-body.card-content-overflow]#pass:q[A tool to manage an automation project in production (BDM excepted)]#]
+xref:administrator-application.adoc[[.card-title]#Administrator# [.card-body.card-content-overflow]#pass:q[Supervise and update automation projects in production (BDM excepted)]#]
 --
 
 [.card.card-index]
 --
-xref:user-application.adoc[[.card-title]#User# [.card-body.card-content-overflow]#pass:q[A tool for actual people making processes alive, centered around a generic tasklist]#]
+xref:user-application.adoc[[.card-title]#User# [.card-body.card-content-overflow]#pass:q[Start process instances and execute tasks using a generic tasklist]#]
 --
 
 [.card-section]
