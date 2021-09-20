@@ -198,7 +198,7 @@
   *** xref:ssl.adoc[SSL]
   *** xref:tenant-admin-credentials.adoc[Tenant administrator credentials]
   *** xref:guest-user.adoc[Guest user access]
- ** xref:build-a-process-for-deployment.adoc[Deployment]
+* xref:build-a-process-for-deployment.adoc[Deployment]
 * xref:runtime-index.adoc[Runtime]
  ** Bonita Engine deep dive
   *** xref:engine-architecture-overview.adoc[Architecture overview]
