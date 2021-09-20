@@ -46,7 +46,7 @@ xref:super-administrator-application.adoc[[.card-title]#Super Administrator# [.c
 
 [.card.card-index]
 --
-xref:administrator-application.adoc[[.card-title]#Administrator# [.card-body.card-content-overflow]#pass:q[Supervise and update automation project elements in production (BDM excepted)]#]
+xref:administrator-application.adoc[[.card-title]#Administrator# [.card-body.card-content-overflow]#pass:q[Supervise and update automation projects in production (BDM excepted)]#]
 --
 
 [.card.card-index]
