@@ -19,6 +19,61 @@
 |=== 
 
 [discrete]
+=== console-common :
+
+|===
+| groupId | artifactId | version | url | licence
+
+| commons-io
+| commons-io
+| 2.8.0
+| https://commons.apache.org/proper/commons-io/[https://commons.apache.org/proper/commons-io/]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+
+| net.sf.ehcache
+| ehcache
+| 2.10.9.2
+| http://ehcache.org[http://ehcache.org]
+|  src/assemble/EHCACHE-CORE-LICENSE.txt[The Apache Software License, Version 2.0]
+
+| org.apache.commons
+| commons-lang3
+| 3.11
+| https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+
+| org.bonitasoft.engine
+| bonita-client
+| 7.12.9-20210920.073309-6
+| https://community.bonitasoft.com/[https://community.bonitasoft.com/]
+|  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
+
+| org.bonitasoft.engine
+| bonita-common
+| 7.12.9-20210920.073309-6
+| https://community.bonitasoft.com/[https://community.bonitasoft.com/]
+|  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
+
+| org.fedorahosted.tennera
+| jgettext
+| 0.13
+| http://nexus.sonatype.org/oss-repository-hosting.html/jgettext[http://nexus.sonatype.org/oss-repository-hosting.html/jgettext]
+|  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License]
+
+| org.lesscss
+| lesscss
+| 1.7.0.1.1
+| http://github.com/marceloverdijk/lesscss-java[http://github.com/marceloverdijk/lesscss-java]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.springframework
+| spring-core
+| 5.2.15.RELEASE
+| https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
+|  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
+|=== 
+
+[discrete]
 === console-server :
 
 |===
@@ -116,31 +171,31 @@
 
 | org.bonitasoft.console
 | console-common
-| 7.12.8
+| 7.12.9-20210920.013638-4
 | N/A
 |  -
 
 | org.bonitasoft.engine
 | bonita-client
-| 7.12.8
+| 7.12.9-20210920.073309-6
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-common
-| 7.12.8
+| 7.12.9-20210920.073309-6
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.forms
 | forms-server
-| 7.12.8
+| 7.12.9-20210920.013642-4
 | N/A
 |  -
 
 | org.bonitasoft.web
 | bonita-web-extensions
-| 7.12.8
+| 7.12.9-20210920.012600-4
 | http://www.bonitasoft.com[http://www.bonitasoft.com]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
@@ -225,13 +280,38 @@
 
 | org.bonitasoft.console
 | console-client
-| 7.12.8
+| 7.12.9-20210920.013646-4
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-common-sp
-| 7.12.8
+| 7.12.9-20210920.013652-4
+| N/A
+|  -
+|=== 
+
+[discrete]
+=== console-common-sp :
+
+|===
+| groupId | artifactId | version | url | licence
+
+| com.bonitasoft.engine
+| bonita-client-sp
+| 7.12.9-20210920.073309-6
+| N/A
+|  -
+
+| commons-io
+| commons-io
+| 2.8.0
+| https://commons.apache.org/proper/commons-io/[https://commons.apache.org/proper/commons-io/]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+
+| org.bonitasoft.console
+| console-common
+| 7.12.9-20210920.013638-4
 | N/A
 |  -
 |=== 
@@ -244,19 +324,19 @@
 
 | com.bonitasoft.engine
 | bonita-client-sp
-| 7.12.8
+| 7.12.9-20210920.073309-6
 | N/A
 |  -
 
 | com.bonitasoft.engine
 | bonita-common-sp
-| 7.12.8
+| 7.12.9-20210920.073309-6
 | N/A
 |  -
 
 | com.bonitasoft.web
 | bonita-web-extensions-sp
-| 7.12.8
+| 7.12.9-20210920.012604-4
 | http://www.bonitasoft.com[http://www.bonitasoft.com]
 |  -
 
@@ -340,31 +420,31 @@
 
 | org.bonitasoft.console
 | bos-mobile-sp
-| 7.12.8
+| 7.12.9-20210920.013651-4
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-common-sp
-| 7.12.8
+| 7.12.9-20210920.013652-4
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-server
-| 7.12.8
+| 7.12.9-20210920.013643-4
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-server
-| 7.12.8
+| 7.12.9-20210920.013643-4
 | N/A
 |  -
 
 | org.bonitasoft.forms
 | forms-server-sp
-| 7.12.8
+| 7.12.9-20210920.013655-4
 | N/A
 |  -
 
