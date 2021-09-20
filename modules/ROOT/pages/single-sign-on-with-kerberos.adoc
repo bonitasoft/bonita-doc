@@ -45,7 +45,7 @@ The scenario covered by the filter is the following:
 
 The Spnego authenticator will then verify the user's Kerberos tickets if present or create a new one. After obtaining a valid ticket the filter will store some information (the authenticated user login) in the client request and get back to the Bonita Kerberos filter.
 
-* The Bonita Kerberos filter will automatically create a Bonita session and let the user through to access the Bonita Application resources.
+* The Bonita Kerberos filter will automatically create a Bonita session and let the user access the Bonita Application resources.
 
 [WARNING]
 ====
@@ -212,7 +212,7 @@ edit the authenticationManager-config.properties as follows:
 Make sure to link:multi-tenancy-and-tenant-configuration[set the right tenant admin username].
 It is recommended to also replace the value of the passphrase (property auth.passphrase) which is used by the engine to verify the authentication request.
 The value must be the same as in the file *bonita-tenant-sp-custom.properties*. +
-If the users need to bypass kerberos authentication method, you can authorize it by setting the property `kerberos.auth.standard.allowed` to true. Users will then be able to log in using the Bonita Login page (/login.jsp) provided they have a bonita account and their password is different from their username. +
+If the users need to bypass kerberos authentication method, you can authorize it by setting the property `kerberos.auth.standard.allowed` to true. Users will then be able to log in using the Bonita Login page (/login.jsp) provided they have a Bonita account and their password is different from their username. +
 If only a limited group of users need to bypass kerberos authentication method you can restrain it by setting the property `kerberos.auth.standard.allowed` to false and setting the property `auth.tenant.standard.whitelist` with the list of authorized usernames (comma separated).
 
 . In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
@@ -295,7 +295,7 @@ Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, t
 
 == Logout behavior
 
-The most commonly used solution is to hide the logout button from the Bonita Layout. Users are logged in as long as they don't close their web browser (unless their session times out). +
+The most commonly used solution is to hide the logout button from the Bonita Layout. Users are logged in as long as they don't close their web browser and their session does not time out. +
 To do this, set the `logout.link.hidden` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
 
 == Troubleshoot

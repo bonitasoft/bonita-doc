@@ -316,7 +316,7 @@ To avoid this, you have two options :
 
 === Hide the logout button of the Bonita Layout
 
-This is the most commonly used solution. Users are logged in as long as they don't close their web browser (unless their session times out).
+This is the most commonly used solution. Users are logged in as long as they don't close their web browser and their session does not time out.
 To do this, set the `logout.link.hidden` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
 
 [NOTE]
