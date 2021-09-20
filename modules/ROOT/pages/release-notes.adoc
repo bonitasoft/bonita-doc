@@ -84,7 +84,7 @@ In Bonita 2021.2, the Bonita Portal is now removed, meaning that:
 Four main applications will be provided and present for a new installation, a new tenant or after the migration to 2021.2 :
 
  - The Bonita Application Directory. This application lets any user that is logged into the Bonita Runtime see a list of their available applications. It also holds UI Designer made error pages. This application is not editable, but the pages are customizable from the Bonita Resource list.
- - The Bonita Super Administrator Application. This is the application for the tenant user. The application, the menu and the pages installed that are used by this application are non-modifiable.
+ - The Bonita Super Administrator Application. This is the application for the technical user. The application, the menu and the pages installed that are used by this application are non-modifiable.
  - The Bonita Administrator Application, which xref:admin-application-overview.adoc[can be found here]. This is the application for users with the Administrator profile. The application menu and contained pages are fully customizable, but the pages that are installed and are related to this application are non-modifiable since some of them are shared with the Bonita Super Administrator Application.
  - The Bonita User Application, which xref:user-application-overview.adoc[can be found here]. This application is fully customizable.
 
