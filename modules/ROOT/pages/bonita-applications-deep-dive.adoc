@@ -30,7 +30,7 @@ This is why Bonita comes with four embedded applications, with different status:
 * Core applications. They are critical to the good operation of Bonita in a Production environment. They can be customized but they cannot be deleted:
   ** Application Directory 
   ** Super Administrator
-* Generic applications. They are fully functional, can be customized, but can be deleted if not useful in a Production environment:
+* Generic applications. They are fully functional, can be customized, but can also be deleted if not useful in a Production environment:
   ** Administrator
   ** User
   
@@ -41,7 +41,7 @@ xref:application-directory-application.adoc[[.card-title]#Application directory#
 
 [.card.card-index]
 --
-xref:super-administrator-application.adoc[[.card-title]#Super Administrator# [.card-body.card-content-overflow]#pass:q[The tool to bootstrap a Bonita Runtime, perform maintenance actions, and update the BDM]#]
+xref:super-administrator-application.adoc[[.card-title]#Super Administrator# [.card-body.card-content-overflow]#pass:q[The tool to bootstrap a Bonita Runtime, perform maintenance operations, and update the BDM]#]
 --
 
 [.card.card-index]
@@ -61,5 +61,5 @@ Learn how to create your own Custom Applications.
 
 [.card.card-index]
 --
-xref:custom-applications-index.adoc[[.card-title]#Custom applications# [.card-body.card-content-overflow]#pass:q[What it is made of, and who creates what when]#]
+xref:custom-applications-index.adoc[[.card-title]#Custom applications# [.card-body.card-content-overflow]#pass:q[What it is made of, and who creates what, when]#]
 --
