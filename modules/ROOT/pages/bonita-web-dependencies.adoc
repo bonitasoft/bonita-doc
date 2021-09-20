@@ -1,6 +1,6 @@
 
 [discrete]
-=== portal :
+=== portal
 
 |===
 | groupId | artifactId | version | url | licence
@@ -19,7 +19,7 @@
 |=== 
 
 [discrete]
-=== console-server :
+=== console-server
 
 |===
 | groupId | artifactId | version | url | licence
@@ -212,7 +212,7 @@
 |=== 
 
 [discrete]
-=== portal-sp :
+=== portal-sp
 
 |===
 | groupId | artifactId | version | url | licence
@@ -237,7 +237,7 @@
 |=== 
 
 [discrete]
-=== console-server-sp :
+=== console-server-sp
 
 |===
 | groupId | artifactId | version | url | licence
