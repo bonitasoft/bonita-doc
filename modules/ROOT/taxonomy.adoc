@@ -220,7 +220,7 @@
   *** xref:bonita-applications-interface-overview.adoc[Overview]   
   *** xref:cache-configuration-and-policy.adoc[Cache configuration and policy]
   *** xref:log-in-and-log-out.adoc[Log in and log out]
-  *** Application Directory application
+  *** xref:application-directory-application.adoc[Application Directory application]
   *** Bonita Super Administrator application
    **** xref:pause-and-resume-bpm-services.adoc[Put Runtime in maintenance mode]
    **** xref:bdm-management-in-bonita-applications.adoc[BDM Management]
