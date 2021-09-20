@@ -58,7 +58,7 @@ Starting the development of an application from scratch may not be the most effi
   
 [.card.card-index]
 --
-xref:bonita-user-application.adoc[[.card-title]#Bonita User Application# [.card-body.card-content-overflow]#pass:q[xref:user-application.adoc[[.card-title]#User# [.card-body.card-content-overflow]#pass:q[A tool for actual people making processes alive, centered around a generic tasklist]#]
+xref:bonita-user-application.adoc[[.card-title]#Bonita User Application# [.card-body.card-content-overflow]#pass:q[xref:user-application.adoc[[.card-title]#User# [.card-body.card-content-overflow]#pass:q[Start process instances and execute tasks using a generic tasklist]#]
 --
 
 [.card.card-index]
