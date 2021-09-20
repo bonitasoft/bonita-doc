@@ -61,5 +61,5 @@ Learn how to create your own Custom Applications.
 
 [.card.card-index]
 --
-xref:custom-applications-index.adoc[[.card-title]#Custom applications# [.card-body.card-content-overflow]#pass:q[What it is made of, and who creates what when]#]
+xref:custom-applications-index.adoc[[.card-title]#Custom applications# [.card-body.card-content-overflow]#pass:q[What it is made of, and who creates what, when]#]
 --
