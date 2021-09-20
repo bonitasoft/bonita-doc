@@ -243,7 +243,7 @@
     ***** xref:import-and-export-a-process.adoc[Import and export a process]
     ***** xref:cases.adoc[Case list]
     ***** xref:admin-application-task-list.adoc[Task list]
-  *** Bonita User Application
+  *** xref:user-application-index.adoc[Bonita User Application]
    **** xref:user-application-overview.adoc[Overview]
    **** xref:user-process-list.adoc[Process list]
    **** xref:user-application-case-list.adoc[Case list]
