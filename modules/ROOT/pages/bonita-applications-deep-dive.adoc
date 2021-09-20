@@ -30,7 +30,7 @@ This is why Bonita comes with four embedded applications, with different status:
 * Core applications. They are critical to the good operation of Bonita in a Production environment. They can be customized but they cannot be deleted:
   ** Application Directory 
   ** Super Administrator
-* Generic applications. They are fully functional, can be customized, but can be deleted if not useful in a Production environment:
+* Generic applications. They are fully functional, can be customized, but can also be deleted if not useful in a Production environment:
   ** Administrator
   ** User
   
