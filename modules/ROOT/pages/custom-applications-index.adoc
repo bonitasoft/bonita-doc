@@ -75,7 +75,7 @@ xref:use-bonita-acm.adoc[[.card-title]#Adaptive Case Management example# [.card-
 [.card-section]
 == Related topics
 
-Learn how applications are handled by Bonita under the wood, as well as what the four Bonita applications are.
+Learn how applications are handled by Bonita under the hood, as well as what the four Bonita applications are.
 
 [.card.card-index]
 --
