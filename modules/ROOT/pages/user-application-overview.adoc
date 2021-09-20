@@ -1,9 +1,9 @@
 = Bonita User Application
 :description: This pages describes the Bonita User Application: its values, how to access it, and the details of its features. +
 
+{description}
 
 {description} +
-The Bonita User Application allows anyone with the _User_ profile to view tasks and do them, get information and add comments on cases, get a list of processes to start.
 
 == Value
 
