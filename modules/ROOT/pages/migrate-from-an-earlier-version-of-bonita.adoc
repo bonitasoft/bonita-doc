@@ -96,12 +96,6 @@ See  <<migrate,Migrate your platform>> for step-by-step instructions.
 == Constraints
 
 * If you have added custom indexes to certain tables in the Engine database, you must remove them before migrating to a later version. If you do not remove these indexes, the migration will not complete.
-* There is no guarantee that the Look & Feel definition is compatible across maintenance versions.
-For example, in 6.2.2, `jquery+` was renamed `jqueryplus` in `BonitaConsole.html`, for compatibility with more application servers.
-If you are using a custom Look & Feel,  xref:managing-look-feel.adoc[export] it before migrating.
-Then after the migration is complete,  xref:managing-look-feel.adoc[export the default Look & Feel] from the new version,
-modify your custom Look & Feel to be compatible with the new definition, and with the  xref:creating-a-new-look-feel.adoc[recommendations for form footers].
-Then  xref:managing-look-feel.adoc[import] your updated custom Look & Feel into Bonita Portal.
 * The migration script supports MySQL, Postgres, Oracle, and Microsoft SQL Server. There is no migration for h2 database.
 
 [WARNING]
@@ -199,7 +193,6 @@ Note: If you are using MySQL, add `?allowMultiQueries=true` to the URL. For exam
     Also, if you are migrating to Bonita 7.9+, you must upgrade your database server to MySQL 8.0, see <<mysql8,Migrating to Bonita 7.9+ using MySQL>> specific procedure below.
 ====
 
-. If you use a custom Look & Feel, xref:managing-look-feel.adoc[export] it, and then xref:managing-look-feel.adoc[restore the default Look & Feel].
 . Generally speaking, pausing (or not) the BPM services before migrating should not impact migration. There are however a few special cases:
  ** If you are migrating from a version *< 7.3.0*. If you are using a BDM, your BDM will have to be redeployed after migration (see <<bdm_redeploy,above>>).
 In this case, it is recommended you *stop your BPM services before migrating*, so as to be able to redeploy your BDM immediately after migration (and not having to deal with eventual errors in automated processes as you restart your platform after migration).
@@ -301,7 +294,6 @@ Install the new license:
 
 . Start the application server. Before you start Bonita Portal, clear your browser cache. If you do not clear the cache, you might see old, cached versions of Portal pages instead of the new version.
  Log in to the Portal and verify that the migration has completed.
- If you did not set the default Look & Feel before migration and you cannot log in, you need to xref:managing-look-feel.adoc[restore the default Look & Feel] using a REST client or the Engine API.
 . *If you migrated past version 7.7*
  In that case, if you used the migration tool 2.41.1 or greater, the table `arch_contract_data` is automatically backed up to the table `arch_contract_data_backup` to avoid long lasting migration.
  To reintegrate the data into your installation, a new tool is provided in versions 2.46.0 and above. It is located in the `tools/live-migration` folder.

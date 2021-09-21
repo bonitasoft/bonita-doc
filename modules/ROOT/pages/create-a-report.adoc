@@ -186,7 +186,6 @@ image:images/images-6_0/exampleswidgets.png[Widget property example in iReport]
 
 === Add style to HTML rendered report
 
-To change style of your components in the HTML rendered reports, add CSS classes to them and update global Look'n'feel as described in xref:managing-look-feel.adoc[Bonita portal look'n'feel page].
 
 [NOTE]
 ====
@@ -247,4 +246,3 @@ If your report contains sub reports, these should be placed in a directory named
 
 If your report uses a style sheet you may also provide a .jrtx file in the archive.
 
-Once you have packaged the Jasper report as a ZIP archive, you can xref:analytics.adoc[install it in the Bonita Portal].

@@ -116,11 +116,11 @@
   *** xref:datetimes-management-tutorial.adoc[How to manage dates and times in BDM and User Interfaces]
   *** xref:rta-mail-template.adoc[How to use the rich text area widget in a mail template]
 * Living applications
+ ** xref:portal-removal.adoc[Portal removal in 2021.2]
  ** xref:bonita-applications-interface-overview.adoc[Overview]
  ** xref:application-creation.adoc[Application descriptor]
  ** xref:layout-development.adoc[Layout]
   *** xref:bonita-layout.adoc[Bonita Layout]
-  *** xref:living-application-layout.adoc[Living application layout]
  ** xref:customize-layouts.adoc[Customize layouts]
  *** xref:uid-vertical-tabs-container-tutorial.adoc[How to create a vertical tabs container for all devices]
  ** xref:customize-living-application-theme.adoc[Create a theme]
