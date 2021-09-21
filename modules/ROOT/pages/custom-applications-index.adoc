@@ -24,7 +24,7 @@ Then to test the look and feel of the application, its theme should be developed
 
 [.card.card-index]
 --
-xref:application-creation.adoc[[.card-title]#Application descriptor# [.card-body.card-content-overflow]#pass:q[Both its ID card and the place where all elements come together]#
+xref:application-creation.adoc[[.card-title]#Application descriptor# [.card-body.card-content-overflow]#pass:q[Both its ID card and the place where all elements come together]#]
 --
 
 [.card.card-index]
