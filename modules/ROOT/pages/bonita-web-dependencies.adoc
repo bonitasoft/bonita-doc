@@ -1,6 +1,6 @@
+= Bonita web dependencies
 
-[discrete]
-=== console-common
+== console-common
 
 |===
 | groupId | artifactId | version | url | licence
@@ -54,8 +54,7 @@
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 |=== 
 
-[discrete]
-=== console-server
+== console-server
 
 |===
 | groupId | artifactId | version | url | licence
@@ -241,8 +240,7 @@
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 |=== 
 
-[discrete]
-=== console-common-sp
+== console-common-sp
 
 |===
 | groupId | artifactId | version | url | licence
@@ -266,8 +264,7 @@
 |  -
 |=== 
 
-[discrete]
-=== console-server-sp
+== console-server-sp
 
 |===
 | groupId | artifactId | version | url | licence
