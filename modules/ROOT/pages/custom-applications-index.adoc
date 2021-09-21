@@ -24,7 +24,7 @@ Then to test the look and feel of the application, its theme should be developed
 
 [.card.card-index]
 --
-xref:application-creation.adoc[[.card-title]#Application descriptor# [.card-body.card-content-overflow]#pass:q[]#]
+xref:application-creation.adoc[[.card-title]#Application descriptor# [.card-body.card-content-overflow]#pass:q[Both its ID card and the place where all elements come together]#
 --
 
 [.card.card-index]
@@ -39,12 +39,12 @@ xref:profiles.adoc[[.card-title]#Profiles# [.card-body.card-content-overflow]#pa
 
 [.card.card-index]
 --
-xref:layout-development.adoc[[.card-title]#Layout# [.card-body.card-content-overflow]#pass:q[]#]
+xref:layout-development.adoc[[.card-title]#Layout# [.card-body.card-content-overflow]#pass:q[The visual structure of the application]#]
 --
 
 [.card.card-index]
 --
-xref:customize-living-application-theme.adoc[[.card-title]#Theme# [.card-body.card-content-overflow]#pass:q[How to get users to log into an application]#]
+xref:customize-living-application-theme.adoc[[.card-title]#Theme# [.card-body.card-content-overflow]#pass:q[The graphical details that create a visual identity]#]
 --
 
 [.card.card-index]
