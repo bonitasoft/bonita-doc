@@ -29,7 +29,7 @@ image:images/saml-overview.png[Authentication over SAML]
 Here some details about the Bonita SAML2 module,
 it is composed of:
 
-* A servlet filter that intercept all the requests to Bonita Application pages
+* A servlet filter that intercepts all the requests to Bonita Application pages
 +
 It checks if the user is already logged in on Bonita
 
@@ -49,7 +49,7 @@ This service validates and process the SAML response :
 [WARNING]
 ====
 Bonita "username" should match the NameId or one of the attributes returned by the IdP in the response.
- If some users need to be able to log in without having an account on the IDP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the Bonita login page (/login.jsp) provided they have a bonita account and their password is different from their username.
+ If some users need to be able to log in without having an account on the IDP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the Bonita login page (/login.jsp) as long as they have a bonita account and their password is different from their username.
 ====
 
 == Configure Bonita Bundle for SAML
@@ -98,7 +98,7 @@ Make sure to link:multi-tenancy-and-tenant-configuration[set the right tenant ad
  It is recommended to also replace the value of the passphrase (property auth.passphrase) which is used by the engine to verify the authentication request.
  The value must be the same as in the file *bonita-tenant-sp-custom.properties*. +
  If you need users to be able to log in without having an account on the IDP, you can authorize it by setting the property `saml.auth.standard.allowed` to true. Users will then be able to log in using the Bonita login page (/login.jsp) provided they have a bonita account and their password is different from their username. +
- If only a limited group of users need to bypass SAML authentication method you can restrain it by setting the property `saml.auth.standard.allowed` to false and setting the property `auth.tenant.standard.whitelist` with the list of authorized usernames (comma separated).
+ If only a limited group of users need to bypass SAML authentication method, you can restrain it by setting the property `saml.auth.standard.allowed` to false and setting the property `auth.tenant.standard.whitelist` with the list of authorized usernames (comma separated).
 
 . In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
 edit the file bonita-tenant-sp-custom.properties as follows:
@@ -158,7 +158,7 @@ NOTE: The expected format for Keys and certificates is PEM (with or without the 
 
 . In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`, +
 edit the file *keycloak-saml.xml* to setup Bonita webapp as a Service provider working with your IdP.
- ** The entityID is the Service Provider given to your bonita installation. You can change it if you want but you need to provide it to your IdP.
+ ** The entityID is the Service Provider given to your Bonita installation. You can change it if you want, but you need to provide it to your IdP.
  ** The sslPolicy option may need to be changed if Bonita Runtime and the IdP are not both accessed via HTTPS. Possible values for this property are: ALL, EXTERNAL, and NONE. For ALL, all requests must come in via HTTPS. For EXTERNAL, only non-private IP addresses must come over via HTTPS. For NONE, no requests are required to come over via HTTPS.
  ** If your *IdP requires the SSO requests to be signed*:
   *** make sure you have signing="true" inside the Key node of the SP
@@ -272,8 +272,7 @@ More configuration options can be found in https://www.keycloak.org/docs/latest/
     </keycloak-saml-adapter>
 ----
 
-If your Identity Provider is corectly configured (see the section _Configure the Identity Provider_), you are done.
-Then you can try to access any Bonita Application page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in). +
+Once your Identity Provider is corectly configured (see the section _Configure the Identity Provider_), try to access any Bonita Application page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in). +
 Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `saml.auth.standard.allowed` to true) to be able to log in without an account on the Identity Provider.
 
 [WARNING]
