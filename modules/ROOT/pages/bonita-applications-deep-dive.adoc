@@ -41,12 +41,12 @@ xref:application-directory-application.adoc[[.card-title]#Application directory#
 
 [.card.card-index]
 --
-xref:super-administrator-application.adoc[[.card-title]#Super Administrator# [.card-body.card-content-overflow]#pass:q[Bootstrap a Bonita Runtime, perform maintenance operations, and update the BDM]#]
+xref:super-administrator-application.adoc[[.card-title]#Super Administrator# [.card-body.card-content-overflow]#pass:q[Bonita boostrap, maintenance operations, and BDM update]#]
 --
 
 [.card.card-index]
 --
-xref:administrator-application.adoc[[.card-title]#Administrator# [.card-body.card-content-overflow]#pass:q[Supervise and update automation projects in production (BDM excepted)]#]
+xref:administrator-application.adoc[[.card-title]#Administrator# [.card-body.card-content-overflow]#pass:q[Supervise and update automation projects in production]#]
 --
 
 [.card.card-index]
