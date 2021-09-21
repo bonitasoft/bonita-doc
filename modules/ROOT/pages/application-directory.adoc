@@ -57,7 +57,7 @@ On the application details page, you will be able to edit:
 
 To update the logo:
 
-. Create the new one. Supported MIME types: XXX. Maximum size: XXX
+. Create the new one. Supported formats/extensions are: png, jpg, jpeg, gif, bmp, wbmp, tga. Maximum size: 100 KB
 . Click on the "Upload new picture" button below the current logo
 . Select the new logo
 The new logo is applied.
