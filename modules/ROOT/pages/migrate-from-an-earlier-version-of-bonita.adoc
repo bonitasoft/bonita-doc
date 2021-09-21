@@ -245,7 +245,7 @@ WARNING: Do not use the old application server: a new one needs to be installed 
 +
 Download the configuration from database to the local disk.
 +
-There is below a Linux example:
+Below a Linux example:
 +
 [source,bash]
 ----
@@ -275,7 +275,7 @@ When done, push the updated configuration into the database:
 . Configure License:
 +
 you need to put a new license in the database: see  xref:bonita-platform-setup.adoc#update_platform_conf[Platform configuration] for further details.
- There is below a Linux example:
+Below a Linux example:
 +
 [source,bash]
 ----

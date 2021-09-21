@@ -4,7 +4,7 @@
 == In Bonita Applications
 
 Users may be mapped with several profiles, opening permissions to access several applications.
-Or maybe one given profile is mapped with several applications.
+Or only one profile can be mapped with several applications.
 In both cases, the user can navigate between applications they have the permissions to access.
 
 The first way to navigate to a different application is through the Bonita Layout.
@@ -13,4 +13,4 @@ The first way to navigate to a different application is through the Bonita Layou
 image:images/UI2021.1/navigation-application.png[Navigation Application]
 // {.img-responsive}
 
-The second way is through the Application directory, which is the first application an user sees when connecting to Bonita: image:images/temp-release-notes-specific/new_app_directory_with_converted_custom_profile.png[Bonita Application Directory]
+The second way is through the Application directory, which is the first application a user sees when connecting to Bonita: image:images/temp-release-notes-specific/new_app_directory_with_converted_custom_profile.png[Bonita Application Directory]
