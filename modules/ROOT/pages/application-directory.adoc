@@ -6,7 +6,7 @@
 == Values
 
 On the developer side, this application embeds error pages for 403 (forbidden), 404 (not found), 500 (internal server) errors. +
-Those pages will be displayed for all applications, provided or custom, given such errors occur at the level of the URL. +
+Those pages will be displayed for all applications, provided or custom, given such errors occur when trying to display a page. +
 
 On the user side, the Application Directory displays all applications that the logged user has access to. +
 The access rights are managed through xref:profiles-overview.adoc[profiles]. +
