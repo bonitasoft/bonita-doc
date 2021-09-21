@@ -14,7 +14,7 @@ Since a user can be mapped to multiple profiles, and since each profile can be m
 
 This application is diplayed when a user:
 
-* accesses the root of Bonita (/bonita or *ITS CLOUD EQUIVALENT*)
+* accesses the root of Bonita web application (`/bonita` or `/` if context root is configured to target Bonita web application)
 * lands on an error page and clicks on the "Go to homepage" button 
 
 When a user uses valid URLs for Bonita, they can always access the list of their applications by using the mosaic icon to switch from the current to another application. +
