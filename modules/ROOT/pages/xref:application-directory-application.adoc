@@ -1,0 +1,109 @@
+= Bonita Application Directory 
+:description: This pages describes the Bonita _Application Directory_: its value, how to access it, and the details of its features. +
+
+{description}
+
+== Value
+
+On the uesr side, the Application Directory displays all applications that the logged user has access to. +
+The access rights are managed through xref:profiles-overview.adoc[profiles]. +
+Since a user can be mapped to multiple profiles, and since each profile can be mapped to multiple applications, all users need a place to centralize all Bonita applications they can access. +
+
+On the developer side, it embeds error pages for 403, 404, 500 errors. Those pages will be displayed for all applications, provided or custom. +
+**it this true: Their display will be triggered by the http response code after a user action on a page or form widget. +
+Is it true: This works even if the page or forms have not been created with the UI Designer. **
+
+This application is diplayed when a user:
+
+* accesses the root of Bonita (/bonita or ITS CLOUD EQUIVALENT)
+* encounters an error page and clicks on the "Go to homepage" button 
+
+When a user uses valid URLs for Bonita, they can always access the list of their applications by using the mosaic icon to switch from the current to another application. +
+
+== Access during Development and Testing phases
+
+To access the application:
+
+. Open Bonita Studio
+. Click on the *Applications* icon of the coolbar
+
+You will be logged in as the default user of the deployed organization. This default user can be changed by opening the organization editor. +
+By default, in our provided ACME organization, the default user is Walter Bates, logged as "walter.bates", with password "bpm".
+
+To access its content: 
+
+. From the Application Directory, click on the Bonita Administrator application (also accessible as Walter Bates)
+. In the menu, click on "Applications"
+. On the "Bonita Application Directory" row, click on the "..." _View application details_ icon 
+
+
+== Status
+This application is core to Bonita Platform. It is embedded in the Runtime and cannot be downloaded from the Studio nor be part of your automation project. +
+This is the reason why you will not see it in the studio Project Explorer. +
+
+Also, since it looks more like a page than an application, it does not use the "Bonita layout" but "Layout Without Menu".
+It is also the reason why the list of pages is fixed, and the navigation cannot be created. +
+
+However, it is customizable in quite a few ways. See below:
+
+== Customization 
+
+On the application details page, you will be able to edit:
+
+* the logo
+* its layout
+* its theme
+* each of the error pages
+
+To update the logo:
+
+. Create the new one. Supported MIME types: XXX. Maximum size: XXX
+. Click on the "Upload new picture" button below the current logo
+. Select the new logo
+The new logo is applied.
+
+To update the layout and/or theme:
+. Create a new xref:layout-development.adoc[layout] and/or xref:customize-living-application-theme.adoc[theme]
+. Go the _Resources_ tab
+. Install it 
+. Go back to the application details
+. Click on the current layout or theme
+. Select the new one from the drop down list
+
+The new layout or theme is applied.
+
+The eroor pages have been created with the UI Designer. To edit them, you need to open them in the UI Designer:
+
+. Click on the "Resources" menu option
+. If needed, filter by pages
+. On the row of the page you need to customize, click on the "pencil" _Export_ icon
+. Save it locally (.zip archive)
+. Back to Bonita Studio, open the UI Designer from the coolbar
+. On the UI Designer home page, click on "Import" at the top left
+. Select the error page .zip archive
+. Click on the _Import_ button
+. In the list of resources, make sure you read the first tab _Pages_, and click on the page name
+
+You can start editing the page. +
+To edit the image, edit the asset positioned right between the two titles. +
+Here is an example of the image location from the "Error403BonitaV1" page:
+
+image::images/edit-error-page-image.png[Edit the image in an error page]
+
+Once you are done editing the page, update it in the Resources:
+
+. From the UI Designer, save the page
+. Export it
+. Open the Administrator application > Resources menu
+. On the row of the page to update, click the "pencil" _Update_ icon
+. Browse for the new version of the page
+. Click on the _Update- button
+
+The page is updated.
+
+[NOTE]
+====
+
+Once a page has been customized, or when the Application Directory has been customized, it is no longer supported. +
+But you can reach one of our Professional Services team member to help you develop or maintain it. To do so, go to the https://customer.bonitasoft.com/[Customer Service Center].
+====
