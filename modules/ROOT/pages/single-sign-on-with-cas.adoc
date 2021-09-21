@@ -206,7 +206,7 @@ The default `AuthenticationFilter` that manages CAS authentication applies only 
 * /apps/*
 * /services/*
 
-REST API are not part of them, but if an http session already exists thanks to cookies, REST API can be used.
+REST API are not part of them, but if an HTTP session already exists thanks to cookies, REST API can be used.
 
 The recommended way to authenticate in the Bonita Runtime, in order to use the REST API, is to use the CAS server REST API. +
 It allows to retrieve authentication tickets to authenticate in the Bonita Runtime.
