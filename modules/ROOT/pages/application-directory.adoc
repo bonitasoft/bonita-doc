@@ -41,7 +41,7 @@ To access its content:
 This application is core to Bonita Platform. It is embedded in the Runtime and cannot be downloaded from the Studio nor be part of your automation project. +
 This is the reason why you will not see it in the studio Project Explorer. +
 
-Also, since it looks more like a page than an application, it does not use the "Bonita layout" but "Layout Without Menu".
+Also, since it looks more like a page than an application, it does not use the "Bonita layout" but a "Layout Without Menu".
 It is also the reason why the list of pages is fixed, and no navigation can be created. +
 
 However, it is customizable in quite a few ways, as explained below.
