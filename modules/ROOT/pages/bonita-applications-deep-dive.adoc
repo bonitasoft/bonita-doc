@@ -36,22 +36,22 @@ This is why Bonita comes with four embedded applications, with different status:
   
 [.card.card-index]
 --
-xref:application-directory-application.adoc[[.card-title]#Application directory# [.card-body.card-content-overflow]#pass:q[The logged user's catalog of applications]#]
+xref:application-directory-application.adoc[[.card-title]#Application directory# [.card-body.card-content-overflow]#pass:q[The logged user's catalog of applications... and more]#]
 --
 
 [.card.card-index]
 --
-xref:super-administrator-application.adoc[[.card-title]#Super Administrator# [.card-body.card-content-overflow]#pass:q[Bootstrap a Bonita Runtime, perform maintenance operations, and update the BDM]#]
+xref:super-administrator-application.adoc[[.card-title]#Super Administrator# [.card-body.card-content-overflow]#pass:q[Bonita boostrap, maintenance operations, and BDM update]#]
 --
 
 [.card.card-index]
 --
-xref:administrator-application.adoc[[.card-title]#Administrator# [.card-body.card-content-overflow]#pass:q[Supervise and update automation projects in production (BDM excepted)]#]
+xref:administrator-application.adoc[[.card-title]#Administrator# [.card-body.card-content-overflow]#pass:q[Monitoring and update of automation projects in production]#]
 --
 
 [.card.card-index]
 --
-xref:user-application.adoc[[.card-title]#User# [.card-body.card-content-overflow]#pass:q[Start process instances and execute tasks using a generic tasklist]#]
+xref:user-application.adoc[[.card-title]#User# [.card-body.card-content-overflow]#pass:q[Process start and task execution using a generic tasklist]#]
 --
 
 [.card-section]
