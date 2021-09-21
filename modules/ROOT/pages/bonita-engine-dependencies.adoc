@@ -1,9 +1,7 @@
 = Bonita engine dependencies (7.13.0)
 :description: List all dependencies uses for Bonita Engine
 
-
-[discrete]
-=== bonita-common :
+== bonita-common :
 
 |===
 | groupId | artifactId | version | url | licence
@@ -93,8 +91,7 @@
 |  http://www.opensource.org/licenses/mit-license.php[MIT License]
 |=== 
 
-[discrete]
-=== bonita-client :
+== bonita-client :
 
 |===
 | groupId | artifactId | version | url | licence
@@ -238,8 +235,7 @@
 |  http://www.xmlpull.org/v1/download/unpacked/LICENSE.txt[Public Domain]
 |=== 
 
-[discrete]
-=== bonita-server :
+== bonita-server :
 
 |===
 | groupId | artifactId | version | url | licence
@@ -908,8 +904,7 @@
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 |=== 
 
-[discrete]
-=== bonita-common-sp :
+== bonita-common-sp :
 
 |===
 | groupId | artifactId | version | url | licence
@@ -1005,8 +1000,7 @@
 |  http://www.opensource.org/licenses/mit-license.php[MIT License]
 |=== 
 
-[discrete]
-=== bonita-client-sp :
+== bonita-client-sp :
 
 |===
 | groupId | artifactId | version | url | licence
@@ -1150,8 +1144,7 @@
 |  http://www.xmlpull.org/v1/download/unpacked/LICENSE.txt[Public Domain]
 |=== 
 
-[discrete]
-=== bonita-server-sp :
+== bonita-server-sp :
 
 |===
 | groupId | artifactId | version | url | licence
@@ -1703,8 +1696,7 @@
 |  http://www.xmlpull.org/v1/download/unpacked/LICENSE.txt[Public Domain]
 |=== 
 
-[discrete]
-=== platform-setup-sp :
+== platform-setup-sp :
 
 |===
 | groupId | artifactId | version | url | licence
