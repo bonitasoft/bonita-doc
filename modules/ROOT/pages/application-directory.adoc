@@ -72,7 +72,7 @@ To update the layout and/or theme:
 
 The new layout or theme is applied.
 
-The eroor pages have been created with the UI Designer. To edit them, you need to open them in the UI Designer:
+The error pages have been created with the UI Designer. To edit them, you need to open them in the UI Designer:
 
 . Click on the "Resources" menu option
 . If needed, filter by pages
