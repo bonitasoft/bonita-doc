@@ -3,7 +3,7 @@
 
 
 {description} +
-_Users_ can view lists of tasks to do as a member of a team, view tasks precisely assigned to them, view tasks they have done related to different processes, take and release tasks, and do tasks, eventually.
+_Users_ can view lists of tasks assigned to their team, assign a task to themselves, view lists of tasks assigned to them inside a team, work on the tasks, view the "Done" tasks on different processes, and release tasks (depending on their status).
 
 == Overview
 

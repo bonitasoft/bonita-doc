@@ -3,7 +3,7 @@
 
 {description}
 
-_Users_ can view a list of the processes they have the permission to start, and start a new instance of a process.
+_Users_ can view a list of the processes they have the permission to start, and start a new instance of those processes.
 
 == Process list
 
