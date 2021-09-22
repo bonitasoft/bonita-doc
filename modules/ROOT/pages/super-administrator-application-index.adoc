@@ -38,7 +38,7 @@ xref:applications.adoc[[.card-title]#Applications# [.card-body.card-content-over
 
 [.card.card-index]
 --
-xref:licenses.adoc[[.card-title]#Licenses# [.card-body.card-content-overflow]#pass:q[Check the Subscription end date. Get the request key to renew]#]
+xref:licenses.adoc[[.card-title]#License# [.card-body.card-content-overflow]#pass:q[Check the Subscription end date. Get the request key to renew]#]
 --
 
 [.card-section]
