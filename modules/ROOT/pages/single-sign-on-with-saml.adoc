@@ -26,7 +26,7 @@ This is an overview that relates the steps required to integrate a bonita bundle
 image:images/saml-overview.png[Authentication over SAML]
 // {.img-responsive}
 
-Here some details about the Bonita SAML2 module,
+Here are some details about the Bonita SAML2 module,
 it is composed of:
 
 * A servlet filter that intercepts all the requests to Bonita Application pages

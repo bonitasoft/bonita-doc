@@ -19,7 +19,7 @@ Kerberos configuration is at tenant level. Each tenant can use a different authe
 Bonita uses http://spnego.sourceforge.net/[Spnego] library that allows to request tickets using the Kerberos protocol.
 ====
 
-== Kerberos single sign-on with Active Directory
+== Kerberos single sign-on with Active Directory (AD)
 
 Kerberos SSO with AD relies on a minimum on 3 physical machines that are member of the same AD domain:
 
@@ -288,7 +288,7 @@ If you want Bonita engine to create the accounts on the fly when a user accessin
 +
 NOTE: Activating this option means any user logged in on the domain trying to access Bonita will have an account created automatically in Bonita Database.
 
-. If your Domain Controller is correctly configured, you are done. +
+. Confirm that your Domain Controller is correctly configured. +
 Then you can start the bundle and try to access any Bonita Application page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are automatically logged in.
 
 Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `kerberos.auth.standard.allowed` to true or define a whitelist with the property `auth.tenant.standard.whitelist`) to be able to log in without an account on AD.
@@ -360,7 +360,7 @@ Here is the subset of resources filtered by the Kerberos filter by default:
 * /mobile/*
 * /apps/*
 
-REST API are not part of them by default, but if an http session already exists thanks to cookies, REST API can be used.
+REST API are not part of them by default, but if a HTTP session already exists thanks to cookies, REST API can be used.
 
 The recommended way to authenticate in the Bonita Runtime, in order to use the REST API, is to use the xref:rest-api-overview.adoc#bonita-authentication[login service]. +
 If you need the SSO to work with the APIs you can update the web.xml of bonita.war to add the following resources to the URL Mappings of AuthenticationFilter and KerberosFilter:

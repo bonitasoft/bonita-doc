@@ -387,7 +387,7 @@ Once you obtained the Access token, you can make your REST API request in a norm
 [discrete]
 ==== Authorization Code Grant
 
-Those scenarios work the same way as when you login into Bonita Runtime except, in this case, it is the client application that uses Bonita REST API which needs to trigger the authentication process by calling the OIDC provider authorisation endpoint with Bonita OIDC client as `client_id`. The rest of the scenario is similar to what is described in the xref:#oidc-overview[OIDC Authorization Code Flow schema]. +
+Those scenarios work the same way as when you login into Bonita Runtime except, in this case, it is the client application that uses Bonita REST API which needs to trigger the authentication process by calling the OIDC provider authorization endpoint with Bonita OIDC client as `client_id`. The rest of the scenario is similar to what is described in the xref:#oidc-overview[OIDC Authorization Code Flow schema]. +
 For example, if Bonita is configured to use Google's OpenID Connect endpoint for authentication, then an application that wants to use Bonita REST API will need to delegate authentication to Google to obtain an authorization code for Bonita REST API. +
 With Authorization Code Flow, once you obtain the authorization code, you can request again the OIDC provider to get the tokens with as `grant_type` value `authorization_code`:
 
