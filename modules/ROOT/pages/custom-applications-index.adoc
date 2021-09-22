@@ -3,21 +3,19 @@
 
 {description}
 
-An Application is a navigation of pages that can be accessed by a xref:profiles-overview.adoc[Profile]. It is created and operated within Bonita Platform:
+An Application is a navigation of pages that can be accessed by a xref:profiles-overview.adoc[Profile]. +
+It is created and operated within Bonita Platform: created with Bonita Studio and UI Designer, deployed with Bonita Continuous Delivery, run by Bonita Runtime.
 
-* Created with Bonita Studio and UI Designer
-* Deployed with Bonita Continuous Delivery
-* Run by Bonita Runtime
+Its purpose is to display and structure the right information and provide the right controls at the right time to the profiles, so they can efficiently perform their tasks. +
 
-Its name, token, and navigation menu _belong to_ the application. +
-The profile who can access it, the pages accessed by the menu, its layout and themes _are referenced by_ the application. +
-All those elements are made visible in the xref:application-creation.adoc[application descriptor], created in Bonita Studio. +
+_Graphically_, an application is made of a navigation menu and pages. In some of the pages, some controls, like -"Validate" or "Reject" buttons- are directly linked to processes and execute tasks in the background. Others -like "New request"or "Modify" or "Add additional information" open forms that, once submitted start a new process instance, or execute a task. +
+Bonita allows you to create xref:bonita-purpose.adoc#_what_can_i_do_with_bonita[different types of applications]. +
 
-Note that there is no need to create logical links between the application and the processes that run in the background: instead, within the pages and forms, widgets directly call Bonita BPM APIs to instantiate processes or tasks. +
+_Structurally_, an application is made of various xref:project-structure.adoc[elements]. Some are directly linked to the application (name, token, navigation), others are referenced (layout, pages, profiles, theme). They are all assembled in the application descriptor. +
 
 The application can be put together by the citizen developer or a professional developer. +
-You just need to make sure that all the pages and the application layout have been developed before you call them in the application descriptor. +
-Then to test the look and feel of the application, its theme should be developed so you can use the custom theme instead of Bonita provided theme. 
+You just need to make sure that all the elements have been developed before you call them in the application descriptor. +
+For testing purposes, Bonita provides a layout and several themes, before you create your own.
 
 [.card-section]
 == Application elements
@@ -69,7 +67,7 @@ Starting the development of an application from scratch may not be the most effi
   
 [.card.card-index]
 --
-xref:bonita-user-application.adoc[[.card-title]#Bonita User Application# [.card-body.card-content-overflow]#pass:q[xref:user-application.adoc[[.card-title]#User# [.card-body.card-content-overflow]#pass:q[Start process instances and execute tasks using a generic tasklist]#]
+xref:bonita-user-application.adoc[[.card-title]#Bonita User Application# [.card-body.card-content-overflow]#pass:q[Start process instances and execute tasks using a generic tasklist]#]
 --
 
 [.card.card-index]
