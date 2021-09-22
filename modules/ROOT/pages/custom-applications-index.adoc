@@ -8,7 +8,7 @@ It is created and operated within Bonita Platform: created with Bonita Studio an
 
 Its purpose is to display and structure the right information and provide the right controls at the right time to the profiles, so they can efficiently perform their tasks. +
 
-_Graphically_, an application is made of a navigation menu and pages. In some of the pages, some controls, like -"Validate" or "Reject" buttons- are directly linked to processes and execute tasks in the background. Others -like "New request" or "Add additional information"- open forms that, once submitted start a new process instance, or execute a task. +
+_Graphically_, an application is made of a navigation menu and a set of pages. In some of the pages, some controls, like -"Validate" or "Reject" buttons- are directly linked to processes and execute tasks in the background. Others -like "New request" or "Add additional information"- open forms that, once submitted start a new process instance, or execute a task. +
 Bonita allows you to create xref:bonita-purpose.adoc#_what_can_i_do_with_bonita[different types of applications]. +
 
 _Structurally_, an application is made of various xref:project-structure.adoc[elements]. Some are directly linked to the application (name, token, navigation), others are referenced (layout, pages, profiles, theme). They are all assembled in the application descriptor. +
