@@ -1,4 +1,4 @@
-= Bonita Super Administrator Application 
+= Bonita Super Administrator Application overview
 :description: This pages describes the Bonita _Super Administrator Application_: its values, how to access it, and how to customize it. +
 
 {description}
