@@ -120,8 +120,8 @@
  ** xref:layout-development.adoc[Layout]
   *** xref:bonita-layout.adoc[Bonita Layout]
   *** xref:living-application-layout.adoc[Living application layout]
- ** xref:customize-layouts.adoc[Customize layouts]
- *** xref:uid-vertical-tabs-container-tutorial.adoc[How to create a vertical tabs container for all devices]
+  *** xref:customize-layouts.adoc[Customize layouts]
+  *** xref:uid-vertical-tabs-container-tutorial.adoc[How to create a vertical tabs container for all devices]
  ** xref:customize-living-application-theme.adoc[Theme]
  ** Adaptive Case Management example 
   *** xref:use-bonita-acm.adoc[Enable Adaptive Case Management with Bonita]
