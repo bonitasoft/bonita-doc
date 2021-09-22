@@ -424,6 +424,14 @@ Please use the Tomcat bundle instead, or see the xref:custom-deployment.adoc[Cus
 * poi-ooxml-3.9.jar
 * poi-ooxml-schemas-3.9.jar
 
+==== Analytics and Reports - For Enterprise, Performance, Efficiency, and Teamwork editions only.
+In keeping with Bonitasoft’s promise to continuously deliver valuable, high quality features, we had to relinquish the Analytics and Reports page from the Bonita v2021.2 release.
+The default reports were based on an old Jasper software version that didn't allow dynamic reporting, required you to have a relatively deep technical knowledge of Jasper and SQL, and most importantly, didn’t meet Bonita’s expectations in terms of security requirements.
+The good news is that we are working on a special dedicated project for reporting.
+Here’s a heads-up of what’s coming: You'll be able to view statistics and to extract process execution reports with meaningful data for performance analysis and pinpointing areas of improvement.
+
+Stay tuned for more news.
+
 == API behavior change
 
 === servletDownloadApp
