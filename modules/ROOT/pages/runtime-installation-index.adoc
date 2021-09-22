@@ -43,5 +43,5 @@ xref:reverse-proxy-configuration.adoc[[.card-title]#Behind a reverse-proxy# [.ca
 
 [.card.card-index]
 --
-xref:overview-of-bonita-bpm-in-a-cluster.adoc[[.card-title]#Bonita cluster# [.card-body.card-content-overflow]#pass:q[Achieve high availability by setting up Bonita in cluster]#]
+xref:overview-of-bonita-bpm-in-a-cluster.adoc[[.card-title]#Bonita cluster# [.card-body.card-content-overflow]#pass:q[Achieve high availability by setting up Bonita in a cluster]#]
 --
