@@ -108,8 +108,8 @@ If you want to disable it, you need to use the setup tool provided in `workspace
 
 === Constraints
 
-When you migrate to a newer version of Bonita, your custom page definition should still be valid.
-However, this cannot be guaranteed for all future migrations.
+When you update to a newer version of Bonita, your custom page definition should still be valid.
+However, this cannot be guaranteed for all future updates.
 
 === Page resources management
 
