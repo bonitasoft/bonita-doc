@@ -1,5 +1,5 @@
 = Bonita Super Administrator Application 
-:description: This page gives an easy access to the Super Administrator application content, and to some related topics elsewhere in the documentation.
+:description: This page gives an easy access to Bonita Super Administrator application content, and to some related topics elsewhere in the documentation.
 
 {description}
 
