@@ -46,7 +46,7 @@ xref:licenses.adoc[[.card-title]#License# [.card-body.card-content-overflow]#pas
 
 [.card.card-index]
 --
-xref:process-management-index.adoc[[.card-title]#Process Management as an Administrator# [.card-body.card-content-overflow]#pass:q[Install, update, and monitor processes at runtime]#]
+xref:process-management-index.adoc[[.card-title]#Process Management as an Administrator# [.card-body.card-content-overflow]#pass:q[Installing, updaing, and monitoring processes at runtime]#]
 --
 
 [.card.card-index]
@@ -56,10 +56,10 @@ xref:define-and-deploy-the-bdm.adoc[[.card-title]#BDM creation# [.card-body.card
 
 [.card.card-index]
 --
-xref:organization-overview.adoc[[.card-title]#Organization creation# [.card-body.card-content-overflow]#pass:q[Users, roles, groups, memberships to map to the actors]#]
+xref:organization-overview.adoc[[.card-title]#Organization creation# [.card-body.card-content-overflow]#pass:q[Creating users, roles, groups,and memberships]#]
 --
 
 [.card.card-index]
 --
-xref:custom-applications.adoc[[.card-title]#Applications creation# [.card-body.card-content-overflow]#pass:q[Create your own applications]#]
+xref:custom-applications.adoc[[.card-title]#Applications creation# [.card-body.card-content-overflow]#pass:q[Creating your own applications]#]
 --
