@@ -36,7 +36,7 @@ To access its content:
 
 
 == Status
-This application is core to Bonita Platform. It is embedded in the Runtime and cannot be downloaded from the Studio nor be part of your automation project. +
+This application is core to Bonita Platform. It is embedded in the Runtime and cannot be downloaded from Bonita Studio nor be part of your automation project. +
 This is the reason why you will not see it in the studio Project Explorer. +
 It is also the reason why the list of pages is fixed, and no navigation can be created. +
 
