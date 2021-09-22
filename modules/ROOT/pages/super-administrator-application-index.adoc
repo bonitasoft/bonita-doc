@@ -4,7 +4,7 @@
 {description}
 
 [.card-section]
-== Bonita Super Administration Application content
+== Bonita Super Administration Applicator content
 
 [.card.card-index]
 --
