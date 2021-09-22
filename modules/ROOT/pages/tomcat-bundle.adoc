@@ -163,7 +163,7 @@ The Setup Configure command configures the Tomcat environment to access the righ
  .. copies your database vendor-specific drivers from `<BUNDLE_HOME>/setup/lib` to `<BUNDLE_HOME>/setup/server/lib/bonita`
 . Starts the Tomcat bundle
 
-For advanced server configuration needs: check out xref:bonita-platform-setup.adoc#run_bundle_configure[Bundle configuration] to finely tune your Tomcat bundle, using templates used by Bonita.
+For advanced server configuration needs: check out xref:bonita-platform-setup.adoc#run_bundle_configure[Bundle configuration] to finely tune your Tomcat bundle, using templates suggested by Bonita.
 ====
 
 [#start]

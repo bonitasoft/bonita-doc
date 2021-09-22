@@ -31,7 +31,7 @@ There is some additional prerequisites when creating a REST API extension:
 . Click *Next*.
 . Enter the *pathTemplate* for this REST API extension, for example _userInformation_. This will be the access point of the API, and follows this pattern: `+{bonita_context}/API/extension/userInformation+`.
 . As this REST API extension does not access business data you can safely uncheck "Add BDM dependencies" check box.
-. Define a *Permission* name for the extension (replace the default one), for example _read_user_information_. This is the name of the permission the users should have to be granted access to the extension (see xref:api-extensions.adoc#usage[REST API extensions usage]
+. Define a *Permission* name for the extension (replace the default one), for example _read_user_information_. This is the name of the permission the users should have to be granted in order to have access to the extension (see xref:api-extensions.adoc#usage[REST API extensions usage])
 . Click *Next*
 . This screen defines *URL parameters* that will be passed to the API. By default, _p_ and _c_ parameters are defined to enables paged result, it applies well in our examples as we want to return a list of users.
 . Click *Create*.
