@@ -58,6 +58,7 @@ To update the logo:
 The new logo is applied.
 
 To update the layout and/or theme:
+
 . Create a new xref:layout-development.adoc[layout] and/or xref:customize-living-application-theme.adoc[theme]
 . Go the _Resources_ tab
 . Install it 
