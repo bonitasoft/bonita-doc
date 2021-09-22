@@ -227,7 +227,6 @@
    **** xref:pause-and-resume-bpm-services.adoc[Put Runtime in maintenance mode]
    **** xref:bdm-management-in-bonita-applications.adoc[BDM]
    **** xref:organization-index.adoc[Organization]
-    ***** xref:organization-in-bonita-applications-overview.adoc[Organization Management]
     ***** xref:import-export-an-organization.adoc[Install/export an organization]
     ***** xref:admin-application-groups-list.adoc[Manage groups]
     ***** xref:admin-application-roles-list.adoc[Manage roles]
