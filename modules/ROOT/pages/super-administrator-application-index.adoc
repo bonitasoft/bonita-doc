@@ -8,6 +8,11 @@
 
 [.card.card-index]
 --
+xref:super-administrator-application-overview.adoc[[.card-title]#Application overview# [.card-body.card-content-overflow]#pass:q[Values, details, and customization]#]
+--
+
+[.card.card-index]
+--
 xref:pause-and-resume-bpm-services.adoc[[.card-title]#Put Runtime in maintenance mode# [.card-body.card-content-overflow]#pass:q[Useful for BDM update and other maintenance operations]#]
 --
 
