@@ -10,13 +10,13 @@ If you want to find out how to customize authentication refer to the dedicated d
 * xref:single-sign-on-with-saml.adoc[Single sign-on with SAML (SSO)]
 * xref:single-sign-on-with-kerberos.adoc[Single sign-on with Kerberos (SSO)]
 
-== Bonita Portal authentication scenario
+== Bonita Runtime authentication scenario
 
-To help understand how user authentication is performed, let's take a typical case where a user accesses the Bonita Portal for the first time. This scenario is the default (no LDAP authentication, nor CAS).
+To help understand how user authentication is performed, let's take a typical case where a user accesses the Bonita Applications for the first time. This scenario is the default (no LDAP authentication, nor CAS).
 
 image::images/images-6_0/user_auth_schema_70.png[user authentication]
 
-. In a web browser, the user types the URL of Bonita Portal
+. In a web browser, the user types the URL of Bonita Applications
 (e.g. `+http://localhost:8080/bonita+`) that will initiate a
 HTTP request handled by the application server that delegates
 processing to the Bonita web application.
@@ -25,10 +25,10 @@ provide a `index.html` file (you can find the `index.html`
 in the `bonita.war` file). This is defined by the `welcome-file`
 property in the Bonita web application deployment descriptor (a `web.xml`
 file located in `bonita.war/WEB-INF`).
-. Javascript in `index.html` will redirect the user to `/portal/homepage`
-(e.g. `+http://localhost:8080/bonita/portal/homepage+`).
+. Javascript in `index.html` will redirect the user to `/apps/appDirectoryBonita`
+(e.g. `+http://localhost:8080/bonita/apps/appDirectoryBonita+`).
 . https://github.com/bonitasoft/bonita-web/blob/{bonitaTechnicalVersion}/server/src/main/java/org/bonitasoft/console/common/server/login/filter/AuthenticationFilter.java[AuthenticationFilter]
-applied to the HTTP request send to `/portal/homepage`.
+applied to the HTTP request send to `/apps/appDirectoryBonita`.
 The filter will check if the user is already authenticated. To do so, it will look in the HTTP session for an `apiSession` attribute (see https://github.com/bonitasoft/bonita-web/blob/{bonitaTechnicalVersion}/server/src/main/java/org/bonitasoft/console/common/server/login/filter/AlreadyLoggedInRule.java[AlreadyLoggedInRule]).
 If an `apiSession` attribute exists, this means a user is already authenticated.
 . If the attribute `apiSession` is not set, the user will be redirected to the login page.
@@ -90,7 +90,7 @@ The `loginManager-config.properties` file for a tenant controls which login mana
 
 == Information about sessions
 
-Two type of session are involved when using Bonita Portal:
+Two type of session are involved when using Bonita Runtime:
 
 * The HTTP session
 * The Bonita Engine session
@@ -105,19 +105,19 @@ and corresponds to one user.
 *The Bonita Engine session*
 
 See https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-api/bonita-common-api/src/main/java/org/bonitasoft/engine/session/APISession.java[APISession]
-class. This session is created by Bonita Engine on the Bonita Portal request, when the user submits a login page.
+class. This session is created by Bonita Engine when the user submits a login page.
 
 *Session expiration*
 
-If the Engine session has expired and the user tries to reach one of the Bonita Portal pages,
-an exception will be raised. Bonita Portal will catch this exception,
+If the Engine session has expired and the user tries to reach one of the Bonita Application pages,
+an exception will be raised. Bonita Applications will catch this exception,
 invalidate the HTTP session and redirect the user to the login page.
 
 NOTE: The Bonita Engine default session duration is one hour (default value
 defined in https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-session/bonita-session-impl/src/main/java/org/bonitasoft/engine/session/impl/SessionServiceImpl.java[SessionServiceImpl]).
 You can configure a different session duration by editing the `bonita.tenant.session.duration` property in `bonita-tenant-community-custom.properties`. Specify the duration in milliseconds.
 
-If the HTTP session has expired, Bonita Portal will redirect the user to the
+If the HTTP session has expired, Bonita Applications will redirect the user to the
 authentication page. The Bonita Engine session associated with the HTTP
 session that has just expired will remain active until it reaches the
 inactivity timeout. A *cron job* takes care of cleaning up inactive
@@ -127,12 +127,12 @@ NOTE: The HTTP session default duration depends on your application server (for 
 
 *Logout*
 
-In Bonita Portal, if a user clicks on the logout button, both the
+In Bonita Layout, if a user clicks on the logout button, both the
 Engine session and HTTP session will be invalidated.
 
-== How does the Bonita Portal know if a user is authenticated?
+== How do Bonita Applications know if a user is authenticated?
 
-The Bonita Portal checks if a valid Bonita Engine session (https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-api/bonita-common-api/src/main/java/org/bonitasoft/engine/session/APISession.java[APISession]
+The Bonita Applications check if a valid Bonita Engine session (https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-api/bonita-common-api/src/main/java/org/bonitasoft/engine/session/APISession.java[APISession]
 object) is found in the
 `apiSession`
 attribute inside the HttpRequest. If the engine session is still valid, the user will have access to the required resource.

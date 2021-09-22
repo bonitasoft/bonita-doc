@@ -1,7 +1,7 @@
 = Create a case overview page using the UI Designer
-:description: Understand what is and how to create a case overview page by following this step by step tutorial.
+:description: Understand what is and how to create a case overview page by following this step-by-step tutorial.
 
-Understand what is and how to create a case overview page by following this step by step tutorial.
+{description}
 
 If you need to modify our default case overview or build your own case overview page, you will have to manage the display of
 both Cases and Archived cases. +
@@ -11,7 +11,7 @@ Let's get started by creating a new page in the UI Designer.
 [NOTE]
 ====
 
-Since Bonita 7.7.0 you can export the default case overview from the portal and import it directly in the UI Designer for edition. The explanantions below may give you a good understanding on how it is built.
+Since Bonita 7.7.0 you can export the default case overview from the Bonita Administrator Application and import it directly in the UI Designer for edition. The explanantions below may give you a good understanding on how it is built.
 ====
 
 == Manage a 'caseId' url parameter

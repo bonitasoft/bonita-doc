@@ -8,7 +8,7 @@
 
 There are three ways to record the information of a process:
 
-* Archive: used by a business analyst or process administrator using Bonita Portal, during the production phase, to trace the running of the process instances in their life cycle. Records who did what and when.
+* Archive: used by a business analyst or process administrator using Bonita Runtime, during the production phase, to trace the running of the process instances in their life cycle. Records who did what and when.
 * Technical log: used by an application developer for troubleshooting, debugging and process tuning.
 * Queriable log: used by a database administrator extracting information related to business actions that is stored in the internal database to be retrieved by a database request.
 
@@ -16,7 +16,7 @@ You can configure the information that is recorded in the archive and the logs.
 
 == Archive
 
-In the portal, after a process is executed, it can be viewed using the "Archived" filter.
+In the Bonita Applications, after a process is executed, it can be viewed using the "Archived" filter.
 There you can find the information on the process instances (the cases). This information is also available using the Web REST API.
 By default, all the information is archived but in the Enterprise and Performance editions this is xref:configurable-archive.adoc[configurable].
 

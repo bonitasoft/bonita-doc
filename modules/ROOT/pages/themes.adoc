@@ -1,13 +1,11 @@
 = Themes
-:description: This page explains how to handle themes in Bonita Portal, and how to use it in an application.
+:description: This page explains how to handle themes in Bonita Applications, and how to use them in an application.
 
-This page explains how to handle themes in Bonita Portal, and how to use it in an application.
+{description}
 
 A theme is an archive of files used to define and share CSS definitions and images for an application.
 It enables you to specify the same style for all pages and layout of an application.
 Each application can have its own theme, or the same theme can be consistently applied to several applications.
-
-There are some examples of themes in Bonita Portal.
 
 == Use in applications
 
@@ -70,7 +68,7 @@ A second way to create a custom theme is starting from a new custom theme in Stu
 
 A theme can only be associated with an application to define the style. It cannot itself be used as a simple application page.
 
-Themes are xref:resource-management.adoc[added, exported, edited, and deleted] as resources in Bonita Portal. +
+Themes are xref:resource-management.adoc[added, exported, edited, and deleted] as resources in Bonita Administrator Application. +
 In Non-Production or Production environements, a theme is imported as a .zip archive containing a `page.properties` file and a `resources` folder.
 
 == Live Update
