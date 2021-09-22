@@ -72,7 +72,7 @@ xref:bonita-user-application.adoc[[.card-title]#Bonita User Application# [.card-
 
 [.card.card-index]
 --
-https://community.bonitasoft.com/project?title=&field_type_tid=All&field_project_category_tid=1341&field_certification_tid=All&sort_by=created&sort_order=DESC[[.card-title]#Community projects# [.card-body.card-content-overflow]#pass:q[Browse the Community members applications to get inspired]#]
+https://community.bonitasoft.com/project?title=&field_type_tid=All&field_project_category_tid=1341&field_certification_tid=All&sort_by=created&sort_order=DESC[[.card-title]#Community projects# [.card-body.card-content-overflow]#pass:q[Browse the Community members' applications to get inspired]#]
 --
 
 [.card.card-index]
