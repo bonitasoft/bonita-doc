@@ -64,13 +64,13 @@ The profile graphical UI provided is bound to the xml source, so you can use it 
 You can switch from the graphical UI to the xml source at any moment, using the tabs _Editor_ and _Source_ at the bottom of the editor. +
 A toolbar is embedded to the editor, use it to:
 
-* *Add* a profile to this file of profiles: you can add a new profile or duplicate an existing one from your current project
-* *Save* this file of profiles *As* an other file of profiles (useful to duplicate the whole file)
-* *Deploy* this file of profiles (i.e all the profiles in this file) +
-⚠  For _development_ purposes, it also deploys their referenced pages used as portal menu entries, but if those resources use REST API Extensions, you have to deploy those manually. In _production_ environment, you still need to import pages, and REST API Extensions manually *before* to import the file of profiles.
-* *Rename* this file of profiles
-* *Export* this file of profiles (download the .xml)
-* *Delete* this file of profiles from your current workspace
+* *Add* a profile to profiles file: you can add a new profile or duplicate an existing one from your current project
+* *Save* profiles file *As* another file of profiles (useful to duplicate the whole file)
+* *Deploy* profiles file (i.e all the profiles in this file) +
+⚠  For _development_ purposes, it also deploys their referenced pages used as portal menu entries, but if those resources use REST API Extensions, you have to deploy those manually. In _production_ environment, you still need to import pages, and REST API Extensions manually *before* importing profiles file.
+* *Rename* profiles file
+* *Export* profiles file (download the .xml)
+* *Delete* profiles file from your current workspace
 * *Manage* the Organization: add users / groups / roles to the organization in order to map them to this profile
 * *Restore* the default file of profiles to its initial state (_only available for the file_ `default_profile.xml`)
 

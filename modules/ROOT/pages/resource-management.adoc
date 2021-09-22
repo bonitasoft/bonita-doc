@@ -11,7 +11,7 @@ image:images/UI2021.1/admin-application-resources-list.png[Administrator Resourc
 
 == Resource definition
 
-A resource is deployed in the Bonita Runtime to be used in some way by the Living Application:
+A resource is deployed in the Bonita Runtime to be used by the Living Application:
 
 * it can be a page, a layout, a theme that is directly linked to an application
 * a REST API extension that will be used by a page or the layout
