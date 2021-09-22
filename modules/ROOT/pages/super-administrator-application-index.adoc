@@ -23,7 +23,7 @@ xref:bdm-management-in-bonita-applications.adoc[[.card-title]#BDM# [.card-body.c
 
 [.card.card-index]
 --
-xref:organization-index.adoc[[.card-title]#Organization# [.card-body.card-content-overflow]#pass:q[User management at runtime]#]
+xref:organization-index.adoc[[.card-title]#Organization# [.card-body.card-content-overflow]#pass:q[Manage users at runtime]#]
 --
 
 [.card.card-index]
