@@ -5,15 +5,7 @@
 {description}
 
 In Bonita Super Administrator and Administrator Applications, a user with the adequate access rights can view all the entities of the deployed organization. +
-In practice, this includes:
-
-* the parent groups
-* child groups
-* the number and list of users in a group
-* the roles and the number of users with that role
-* personal and professional data about the user
-* Custom User Information on users
-* the date and time of the user's last login
+In practice, this includes groups and sub-groups, roles, personal and professional data about the user, Custom User Information on users, the date and time of the user's last login.
 
 Super Administrator and Administrator can also perform some changes in the organization entities. +
 
