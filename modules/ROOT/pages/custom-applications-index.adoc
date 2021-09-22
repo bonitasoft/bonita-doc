@@ -14,7 +14,7 @@ Bonita allows you to create xref:bonita-purpose.adoc#_what_can_i_do_with_bonita[
 _Structurally_, an application is made of various xref:project-structure.adoc[elements]. Some are directly linked to the application (name, token, navigation), others are referenced (layout, pages, profiles, theme). They are all assembled in the application descriptor. +
 
 The application can be put together by the citizen developer or a professional developer. +
-You just need to make sure that all the elements have been developed before you call them in the application descriptor. +
+You just need to make sure that all the elements have been developed before you can use them in the application descriptor. +
 For testing purposes, Bonita provides a layout and several themes, before you create your own.
 
 [.card-section]
