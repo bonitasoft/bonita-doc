@@ -42,7 +42,7 @@ It is also the reason why the list of pages is fixed, and no navigation can be c
 
 However, it is customizable in quite a few ways, as explained below.
 
-== Customization 
+== Customization on Non-Production and Production environments
 
 On the application details page, you will be able to edit:
 
