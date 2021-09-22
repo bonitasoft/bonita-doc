@@ -56,10 +56,10 @@ xref:define-and-deploy-the-bdm.adoc[[.card-title]#BDM creation# [.card-body.card
 
 [.card.card-index]
 --
-xref:organization-overview.adoc[[.card-title]#Organization at development time# [.card-body.card-content-overflow]#pass:q[Users, roles, groups, memberships to map to the actors]#]
+xref:organization-overview.adoc[[.card-title]#Organization creation# [.card-body.card-content-overflow]#pass:q[Users, roles, groups, memberships to map to the actors]#]
 --
 
 [.card.card-index]
 --
-xref:custom-applications.adoc[[.card-title]#Create applications# [.card-body.card-content-overflow]#pass:q[Create your own applications]#]
+xref:custom-applications.adoc[[.card-title]#Applications creation# [.card-body.card-content-overflow]#pass:q[Create your own applications]#]
 --
