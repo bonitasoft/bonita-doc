@@ -149,11 +149,3 @@ See Javadoc for more details.
 === Example
 
 An example can be found in the https://github.com/bonitasoft/bonita-examples/tree/master/embedded-engine-example[bonita-examples] github repository.
-
-== Known limitations
-
-[WARNING]
-====
-
-The portal cannot be used with the embedded engine due to missing web resources when initializing the engine. This will be fix in future versions.
-====
