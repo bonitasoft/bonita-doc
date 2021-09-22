@@ -58,5 +58,5 @@ xref:admin-application-profiles-list.adoc[[.card-title]#Manage profiles# [.card-
 
 [.card.card-index]
 --
-xref:organization-overview.adoc[[.card-title]#Organization# [.card-body.card-content-overflow]#pass:q[Users, roles, groups, memberships to map to the actors]#]
+xref:organization-overview.adoc[[.card-title]#Create an organization# [.card-body.card-content-overflow]#pass:q[Define the organization structure at development time]#]
 --
