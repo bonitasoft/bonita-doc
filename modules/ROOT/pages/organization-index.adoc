@@ -45,7 +45,7 @@ xref:admin-application-users-list.adoc[[.card-title]#Manage users# [.card-body.c
 
 [.card.card-index]
 --
-xref:custom-user-information-in-bonita-applications.adoc[[.card-title]#Custom User Information# [.card-body.card-content-overflow]#pass:q[User information that are specific to the company]#]
+xref:custom-user-information-in-bonita-applications.adoc[[.card-title]#Custom User Information# [.card-body.card-content-overflow]#pass:q[User information that is specific to the company]#]
 --
 
 [.card.card-index]
