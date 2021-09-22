@@ -1,0 +1,69 @@
+= Organization Management at runtime
+
+:description: This pages describes how to get information about the users and make minor changes during runtime.
+
+{description}
+
+In Bonita Super Administrator and Administrator Applications, a user with the adequate access rights can view all the entities of the deployed organization. +
+In practice, this includes:
+
+* the parent groups
+* child groups
+* the number and list of users in a group
+* the roles and the number of users with that role
+* personal and professional data about the user
+* Custom User Information on users
+* the date and time of the user's last login
+
+Super Administrator and Administrator can also perform some changes in the organization entities. +
+
+[CAUTION]
+====
+
+Note that most modifications at runtime should be performed though a change in the project sources, to create a new project version. +
+This new version can then be deployed through Bonita Continuous Delivery. +
+This methodology guarantee the consistency between the project sources and the deployed version, making all subsequent changes much easier and error-proof. +
+
+What the Super Administrator Application allows are emergency changes to recover from an urgent issue. All changes performed through this application must be backported to the project sources and versioned. +
+====
+
+[.card-section]
+== Organization management pages
+
+[.card.card-index]
+--
+xref:import-export-an-organization.adoc[[.card-title]#Install/export an organization# [.card-body.card-content-overflow]#pass:q[Handle the xml structure of the organization]#]
+--
+
+[.card.card-index]
+--
+xref:admin-application-groups-list.adoc[[.card-title]#Manage groups# [.card-body.card-content-overflow]#pass:q[The first axis of organizational structure]#]
+--
+
+[.card.card-index]
+--
+xref:admin-application-roles-list.adoc[[.card-title]#Manage roles# [.card-body.card-content-overflow]#pass:q[The orthogonal axis of organizational structure]#]
+--
+
+[.card.card-index]
+--
+xref:admin-application-users-list.adoc[[.card-title]#Manage users# [.card-body.card-content-overflow]#pass:q[The elementary units of the organization, and their details]#]
+--
+
+[.card.card-index]
+--
+xref:custom-user-information-in-bonita-applications.adoc[[.card-title]#Custom User Information# [.card-body.card-content-overflow]#pass:q[User information that are specific to the company]#]
+--
+
+[.card.card-index]
+--
+xref:admin-application-profiles-list.adoc[[.card-title]#Manage profiles# [.card-body.card-content-overflow]#pass:q[The access rights to applications and more]#]
+--
+
+[.card-section]
+== Related topics
+
+[.card.card-index]
+--
+xref:organization-overview.adoc[[.card-title]#Organization# [.card-body.card-content-overflow]#pass:q[Users, roles, groups, memberships to map to the actors]#]
+--
