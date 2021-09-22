@@ -47,12 +47,17 @@ xref:licenses.adoc[[.card-title]#License# [.card-body.card-content-overflow]#pas
 
 [.card.card-index]
 --
-xref:define-and-deploy-the-bdm.adoc[[.card-title]#BDM creation# [.card-body.card-content-overflow]#pass:q[Defining business objects, their attributes, and their relationships]#]
+xref:define-and-deploy-the-bdm.adoc[[.card-title]#BDM creation# [.card-body.card-content-overflow]#pass:q[Define business objects, their attributes, and their relationships]#]
 --
 
 [.card.card-index]
 --
-xref:organization-overview.adoc[[.card-title]#Organization creation# [.card-body.card-content-overflow]#pass:q[Users, roles, groups, memberships to map to the actors]#]
+xref:bdm-management-in-bonita-applications.adoc[[.card-title]#BDM management as a Super Administrator# [.card-body.card-content-overflow]#pass:q[Install and update the BDM and its related database schema]#]
+--
+
+[.card.card-index]
+--
+xref:organization-overview.adoc[[.card-title]#Organization creation# [.card-body.card-content-overflow]#pass:q[Create users, roles, groups, memberships to map to the actors]#]
 --
 
 [.card.card-index]
