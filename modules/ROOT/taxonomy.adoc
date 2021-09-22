@@ -238,7 +238,7 @@
      ****** xref:admin-application-profiles-list.adoc[Profiles]
    **** xref:admin-application-resources-list.adoc[Resources]
    **** xref:applications.adoc[Applications]
-   **** xref:licenses.adoc[License information]   
+   **** xref:licenses.adoc[License]   
   *** Bonita Administrator application
    **** xref:admin-application-overview.adoc[Overview]
    **** Process Management
