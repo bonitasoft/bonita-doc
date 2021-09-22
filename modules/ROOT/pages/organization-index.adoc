@@ -35,7 +35,7 @@ xref:admin-application-groups-list.adoc[[.card-title]#Manage groups# [.card-body
 
 [.card.card-index]
 --
-xref:admin-application-roles-list.adoc[[.card-title]#Manage roles# [.card-body.card-content-overflow]#pass:q[The orthogonal axis of organizational structure]#]
+xref:admin-application-roles-list.adoc[[.card-title]#Manage roles# [.card-body.card-content-overflow]#pass:q[The second, orthogonal axis of organizational structure]#]
 --
 
 [.card.card-index]
