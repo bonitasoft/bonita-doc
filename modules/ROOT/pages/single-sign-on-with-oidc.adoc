@@ -203,7 +203,7 @@ NOTE: Activating this option means any user authorized by the IdP to access Boni
 More configuration options can be found in https://www.keycloak.org/docs/latest/securing_apps/#_java_adapter_config[Keycloak official documentation]
 ====
 
-If your Identity Provider is correctly configured (see the section _Configure the Identity Provider_), try to access any Bonita Application page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in). +
+Once your Identity Provider is correctly configured (see the section _Configure the Identity Provider_), try to access any Bonita Application page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in). +
 Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected to the OIDC provider's authentication end point since this page needs to be accessible for the tenant administrator (or another user if you set the property `oidc.auth.standard.allowed` to `true`) to be able to log in without an account on the Identity Provider.
 
 [WARNING]
