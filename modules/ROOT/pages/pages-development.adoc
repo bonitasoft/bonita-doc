@@ -8,7 +8,7 @@ Displayed in a browser, a xref:pages.adoc[page] is intended for use in applicati
 == Provided pages
 
 You do not need to create all your pages from scratch. Bonita already provides some pages. +
-Bonita Administrator Application "Resources" tab lists all the non-UI Designer-made pages, that can be reused as is in an application.
+Bonita Administrator Application "Resources" tab lists all the non-UI Designer-made pages, that can be reused "as-is" in an application.
 By downloading the Bonita User and Administrator applications from Bonita Studio Welcome page, you also download Bonita pages created with Bonita UI Designer. +
 Those pages can be customized and added to an application.
 
@@ -16,7 +16,7 @@ Those pages can be customized and added to an application.
 
 A page resource has the general xref:resource-management.adoc[resource definition].
 If it contains an `Index.groovy` file, this must implement the PageController interface optionally with libraries.
-If you create a custom page with Bonita UI Designer, its required structure and content are right, by default.
+If you create a custom page with Bonita UI Designer, its structure and content will be congruent by default.
 
 A custom page is displayed inside an iframe to prevent conflicts between resources (for example JS and CSS) and those used in the custom page.
 This also reduces the risk of migration issues, for example if a custom page uses a version of JQuery that gets updated.

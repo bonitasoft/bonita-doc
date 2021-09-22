@@ -3,7 +3,7 @@
 
 {description}
 
-Within Bonita Studio, more than one organization can be defined. This is useful if you are developing a process that will be deployed in several different organizations. It is also useful for testing, because you can create a reduced version of your organization that has the same structure but fewer users, saving time in managing your test environment.
+Within Bonita Studio, more than one organization can be defined. This is useful if you are developing a process that will be deployed in several organizations. It is also useful for testing, because you can create a reduced version of your organization that has the same structure but fewer users, saving time in managing your test environment.
 
 == The ACME example organization
 
@@ -28,7 +28,7 @@ To specify an organization manually, you create the organization, create the gro
  ** Change the placeholder name to the name of your organization, and add a description.
 . Go to the *_Group_* tab to add groups to your organization:
  ** Click *_Add_* to add a group. You can specify the following:
-  *** the group Name, which is used internally by the Bonita software (*NB:* Bonita doesn't support the '/' character in the group name field)
+  *** the group Name, which is used internally by the Bonita software (*NB:* Bonita doesn't support the '/' character in the group name field. It is used as path separator.)
   *** the Display name, which is the name displayed in Bonita Applications
   *** the Path, which shows the hierarchical relationship between groups
   *** a Description of the group
@@ -74,7 +74,7 @@ The organization that you deploy overwrites one in the Bonita Runtime.
 [WARNING]
 ====
 
-Importing an organization overwrites the existing organization in Bonita Runtime, which could have an impact on deployed processes.
+Importing an organization overwrites the existing organization in Bonita Runtime, and this could have an impact on deployed processes. Take the time to check and test those processes in order to avoid regressions.
 ====
 
 To deploy the organization data:
@@ -89,11 +89,11 @@ selected.
 
 == Profile management
 
-In order to log in to bonita UIs (Bonita User Application, Bonita Administration Application, your applications...), a user must have at least one profile (User, Adminstrator...etc).
+In order to log in to bonita UIs (Bonita User Application, Bonita Administration Application, your applications...), a user must have at least one profile (User, Administrator...etc).
 
-*_In Community_*, only provided profiles are supported (User and Adminstrator). When deploying an organization from the Studio, each user is automatically mapped to all those profiles.
+*_In Community_*, only provided profiles are supported (User and Administrator). When deploying an organization from the Studio, each user is automatically mapped to all those profiles.
 
-*_In Teamwork edition_*, 3 provided profiles (User, Process Manager and Adminstrator) can be edited in the Studio using an XML editor (Go to Organization > Profiles > Open). For development purposes, all users mapped to role _member_ (cf _ACME_ organization) will benefit from all profiles in the Bonita Applications to let you log in with any of those users and test your processes.
+*_In Teamwork edition_*, 3 provided profiles (User, Process Manager and Administrator) can be edited in the Studio using an XML editor (Go to Organization > Profiles > Open). For development purposes, all users mapped to role _member_ (cf _ACME_ organization) will benefit from all profiles in the Bonita Applications to let you log in with any of those users and test your processes.
 This will not be true for other environments.
 
 *_In Efficiency, Performance and Enterprise editions_*, in addition to provided profiles it is possible to defined custom profiles in the Studio using the xref:profileCreation.adoc[Profile Editor].
