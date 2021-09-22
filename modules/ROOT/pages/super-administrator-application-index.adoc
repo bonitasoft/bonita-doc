@@ -46,7 +46,7 @@ xref:licenses.adoc[[.card-title]#Licenses# [.card-body.card-content-overflow]#pa
 
 [.card.card-index]
 --
-xref:process-management-index.adoc[[.card-title]#Process Management as an Administrator# [.card-body.card-content-overflow]#pass:q[Install, update, monitor processes at runtime]#]
+xref:process-management-index.adoc[[.card-title]#Process Management as an Administrator# [.card-body.card-content-overflow]#pass:q[Install, update, and monitor processes at runtime]#]
 --
 
 [.card.card-index]
