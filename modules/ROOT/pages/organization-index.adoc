@@ -12,7 +12,7 @@ Super Administrator and Administrator can also perform some changes in the organ
 [CAUTION]
 ====
 
-Most modifications at runtime should be performed though a change in the project sources, to create a new project version. +
+Most updates at runtime should be performed though a change in the project sources, to create a new project version. +
 This new version can then be deployed through Bonita Continuous Delivery. +
 This methodology guarantees the consistency between the project sources and the deployed version, making all subsequent changes much simpler and error-proof. +
 
