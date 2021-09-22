@@ -24,7 +24,7 @@ This default user can be changed by opening the organization editor. +
 By default, in our provided ACME organization, the default user is Walter Bates, logged as "walter.bates", with password "bpm". +
 
 . Log out
-. Log back in with the Technical User credentials. In Bonita Studio, use username: `install` and password `install`. 
+. Log back in with the Technical User credentials. In Bonita Studio, use the username: `install` and password `install`. 
 . In the Application Directory, select _Bonita Super Administrator Application_
 
 You are now logged in Bonita Super Administrator Application.
