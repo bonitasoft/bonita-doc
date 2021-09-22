@@ -20,7 +20,7 @@ Processes are categorized by versions and you can opt to only select the latest 
 
 == Quick access after deploy
 
-Once the deployment is successful, you are able to choose one of the deployed living applications to open. +
+After the deployment is successful, a user can choose which application to open from the ones deployed on the platform. +
 Only application that can opened by the user choose in the deploy options will be displayed.
 
 == Error management
