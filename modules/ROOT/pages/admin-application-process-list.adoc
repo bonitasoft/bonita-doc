@@ -7,7 +7,7 @@ Those users can: install, enable and edit processes, categories, forms, entities
 
 Here is a view of the Process list page:
 
-image:images/UI2021.1/admin-process-list-portal.png[Administrator Process list in Portal]
+image:images/UI2021.1/admin-application-process-list.png[Bonita Administrator Application Process list]
 // {.img-responsive}
 
 == Install a new process
