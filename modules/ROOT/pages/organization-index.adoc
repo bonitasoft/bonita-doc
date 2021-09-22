@@ -12,11 +12,12 @@ Super Administrator and Administrator can also perform some changes in the organ
 [CAUTION]
 ====
 
-Note that most modifications at runtime should be performed though a change in the project sources, to create a new project version. +
+Most modifications at runtime should be performed though a change in the project sources, to create a new project version. +
 This new version can then be deployed through Bonita Continuous Delivery. +
-This methodology guarantee the consistency between the project sources and the deployed version, making all subsequent changes much easier and error-proof. +
+This methodology guarantees the consistency between the project sources and the deployed version, making all subsequent changes much simpler and error-proof. +
 
-What the Super Administrator Application allows are emergency changes to recover from an urgent issue. All changes performed through this application must be backported to the project sources and versioned. +
+What the Super Administrator Application allows are emergency changes to recover from an urgent issue. +
+All changes performed through this application must be backported to the project sources to be versioned. +
 ====
 
 [.card-section]
