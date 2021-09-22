@@ -1,5 +1,5 @@
 = Bonita Administrator Application 
-:description: This page gives an easy access to the application content, and to some related topics elsewhere in the documentation.
+:description: This page gives an easy access to Bonita Administrator Application content, and to some related topics elsewhere in the documentation.
 
 {description}
 
@@ -57,7 +57,7 @@ xref:bdm-management-in-bonita-applications.adoc[[.card-title]#BDM management as 
 
 [.card.card-index]
 --
-xref:organization-overview.adoc[[.card-title]#Organization creation# [.card-body.card-content-overflow]#pass:q[Create users, roles, groups, memberships to map to the actors]#]
+xref:organization-overview.adoc[[.card-title]#Organization creation# [.card-body.card-content-overflow]#pass:q[Create users, roles, groups, and memberships]#]
 --
 
 [.card.card-index]
