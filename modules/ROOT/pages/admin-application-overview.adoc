@@ -1,43 +1,48 @@
 = Bonita Administrator Application
-:description: This pages describes the Bonita Administrator Application: its values, how to access it, its differences with the _Administrator_ profile of Bonita Portal, and the details of its features. +
+:description: This page describes the Bonita Administrator Application: its values, how to access it, and how to customize it. +
 
-This pages describes the Bonita Administrator Application: its values, how to access it, its differences with the _Administrator_ profile of Bonita Portal, and the details of its features. +
-The Bonita Administrator Application allows anyone with the _Administrator_ profile to manage the usages of Bonita throughout a department or a company.
+{description}
+
 
 == Value
 
-Bonita Portal is deprecated and will be removed in a future Bonita release. +
-We believe that Bonita Applications give our users much more freedom for customization:
+The Bonita Administrator Application allows anyone with the _Administrator_ profile to manage the use of Bonita throughout a department or a company. +
+It allows to monitor process execution, manually install and update processes, organization, BDM access rights, resources, and applications, and access information about the license and subscription. +
+Most of these pages are common with the Bonita Super Administrator Application, because they allow to manage the content of the automation project on Bonita Runtime. +
+Only the monitoring and management of processes is special to the Administrator Application
 
-* Their menus can be customized compared to provided Portal profiles, by adding or removing pages, while still keeping the mapping with the _Administrator_ profile
-* Portal pages that have been re-created with the UI Designer benefit from features improvements
-* These pages can also be modified in the UI Designer to fit precise users' needs.
-
-We also want to remove the last parts of the platform that were still built with Google Web Toolkit framework; as useful as it has been when building Bonita Portal, we now find some limitations.
-
-[NOTE]
+[CAUTION]
 ====
 
-So far, the Bonita Administrator Application is mostly thought for desktop and laptop screen sizes, as we believe this is the most likely screen sizes to be used to administrate Bonita. +
+Most updates at runtime should be performed though a change in the project sources, to create a new project version. +
+This new version can then be deployed through Bonita Continuous Delivery. +
+This methodology guarantees the consistency between the project sources and the deployed version, making all subsequent changes much easier and error-proof. +
+
+What the Administrator Application allows are emergency changes to recover from an urgent issue. All changes performed through this application or any similar application allowing changes in the automation project elements must be backported to the project sources and versioned. +
 ====
 
-== Access during Implementation
+== Access during Development and Testing phases
 
-To get the application when you are implementing your Bonita project, go to the "Resources" tile of the *Studio Welcome page*, and click on "Import Bonita Admin Application".
+To access the application:
 
-image::images/UI2021.1/studio-get-application.png[Get application from Studio]
+. Open Bonita Studio
+. Click on the *Applications* icon of the coolbar.
+  The default application is the Application Directory. You will be logged in as the default user of the deployed organization. +
+  This default user can be changed by opening the organization editor. +
+  By default, in our provided ACME organization, the default user is Walter Bates, logged as "walter.bates", with password "bpm". +
 
-You can also get it from our https://github.com/bonitasoft/bonita-admin-application/[Admin Application GitHub repository]. +
-There are two ways to get the .bos file. You can either get it from the _Releases_ on the right or by cloning the repository of your choice and building it using maven. +
-Building the repository will create a .bos file in the `target` folder. You can import this one into the development environment.
- +
-Using this method is also useful if you want to get an older version of an application or if you need a weekly version with a potential bugfix.
+. In the Application Directory, select _Bonita Administrator Application_
 
-After Studio validation, the application is imported or cloned; you can view its content in the project explorer, deploy it, and open it.
+  You are now logged in the Bonita Administrator Application.
 
-== Access in pre-Production and in Production
+To access its content: 
 
-To deploy the applications into a bundle or the Cloud, you can use https://documentation.bonitasoft.com/bcd//_manage_living_application[Bonita Continuous Delivery] (for Enterprise, Performance, Efficiency, and Teamwork editions, and using BCD).
+. From the Bonita Administrator Application menu, click on "Applications"
+. On the "Bonita Administrator Application" row, click on the "..." _View application details_ icon 
+
+== Access in Non-Production and Production environments
+
+To deploy the applications into a bundle or the Cloud, you can use https://documentation.bonitasoft.com/bcd/latest/_manage_living_application[Bonita Continuous Delivery] (for Enterprise, Performance, Efficiency, and Teamwork editions, and using BCD).
 Alternatively, you can deploy an application by importing all its components in the following order:
 
 * Organization then profiles
@@ -45,64 +50,93 @@ Alternatively, you can deploy an application by importing all its components in 
 * Business Data Model then processes
 * Application descriptor
 
-== Similarities and differences with _Administrator_ profile of Bonita Portal
+Once deployed, log into Bonita and navigate to the application through the Application Directory.
 
-On top of the values of Bonita Living applications, here are the similarities and differences between this Bonita application and Bonita Portal:
-
-* All pages previously created using Google Web Toolkit framework have been recreated with Bonita UI Designer. They can be customized in the UI Designer. They come with the Admin Application you download from Bonita Studio.
-* All pages previously created in other technologies have been wrapped as custom pages. They cannot be customized in the UI Designer. Since they cannot be imported in a .bos archive, they do not come with the Admin Application you downlaod. Instead, they come as provided resources. You can find them in the "Resources" tab of the application.
-
-Now, in details:
-
-* BPM menu
- ** _Monitoring_: same as in Bonita Portal.
- ** _Processes_:
-  *** Process list: recreated with the UI Designer. It brings more clarity to the unresolved-resolved-enabled lifecycle of the processes.
-  *** Process details: same as in Bonita Portal. For Community, monitoring information has been added to display what was previously in the third panel of the process list.
- ** _Cases_:
-  *** Case list: same as in Bonita Portal.
-  *** Case details: recreated with the UI Designer. It brings more clarity in the information layout and the edition of process variables.
- ** _Tasks_:
-  *** Task list: recreated with the UI Designer. It brings more clarity about what is displayed (all types of flow nodes or only human tasks), brings consistency in the page layout with the horizontal tabs, with the failed flownodes first as this is the main monitoring information to get a grip on.
-  *** Task details: recreated with the UI Designer. For failed flow nodes, the error management "replay" functionality has been clarified.
-
-[WARNING]
-====
-
-The _Analytics_ page has neither been wrapped nor recreated with the UI Designer. This value is about to be created as part of a new application soon to be released.
-If you use one of our four BPM reports or one of the Jasper reports you have created and installed, do continue to use Bonita Portal with the Administrator profile.
-====
-
-* Organization menu
- ** _Users_:
-  *** User list: recreated with the UI Designer. It gives less information without the left panel but allows a clearer display at top level.
-  *** User details: same as in Bonita Portal.
- ** _Groups_: recreated with the UI Designer. All information in the third panel has been made available in the table (parent group, technical name, last updatee), or on click (subgroups, users in the group). Actions (Edit, Delete) have been made more reachable at the end of each row.
- ** _Roles_: recreated with the UI Designer. Same improvement than for _Groups_.
- ** _Install / Export_: same than in Bonita Portal.
- ** _Profiles_:
-  *** Profile list: recreated with the UI Designer. It gives the possibility to view and edit the profile mapping by a simple click. There is no option to create a Portal navigation for a profile anymore: applications can now be made of both custom as well as all Bonita provided pages, so it is better to create applications, and the mapping UI has been streamlined.
-  *** Profile details: no more details page :)
-* _BDM_: same as in Bonita Portal.
-* _Resources_: recreated with the UI Designer. You can now search a resource by its name, and hide resources that are provided by Bonita to only show your custom resources.
-* _Applications_: same as in Bonita Portal.
-* _Portal_: no more Portal means no more Porta Look & Feel, so this page is not needed in our application.
-* _License_: same as in Bonita Portal.
-
-Note that for all pages recreated with the UI Designer, error management has been improved. A lot.
+== Status
+This application is a generic example provided by Bonita. It is embedded in the Runtime and can be used as is. But it can also be downloaded from Bonita Studio to be part of your automation project and be totally customized. +
+If you do not need this application at runtime, you can delete it from the Super Administrator Application or any custom application opening to this right. +
 
 == Create your own Administrator application from ours
 
-. Have all your custom pages ready, either imported in Bonita UI Designer or Bonita Studio.
-. Open our UI Designer pages to customize them.
+Creating your adminstrator application based on Bonita Administrator Application means that you can change some of its existing pages, its navigation, its logo, its layout and/or its graphical theme and make those changes visible in the application descriptor. +
+
+=== Import it in Bonita Studio
+
+From Bonita Studio *Welcome page* _Resources_ tile, click on "Import Bonita Admin Application".
+
+image::images/UI2021.1/studio-get-application.png[Get application from Studio]
+
+You can also get it from our https://github.com/bonitasoft/bonita-admin-application/[Admin Application GitHub repository]. +
+There are two ways to get the .bos file. You can either get it from the _Releases_ on the right or by cloning the repository of your choice and building it using maven. +
+Building the repository will create a .bos file in the `target` folder. You can import this one into the development environment. +
+Using this method is also useful if you want to get an older version of an application or if you need a weekly version with a potential bugfix.
+After validation, the application is imported or cloned; you can view its content in the project explorer, deploy it, and open it. +
+
+=== Change the existing pages
+
+. In the studio's project explorer, select the page to customize
+ * All pages previously created using Google Web Toolkit framework have been recreated with Bonita UI Designer. They can be customized in the UI Designer. They come with the Administrator Application you have download from Bonita Studio. You will see them in the Project Explorer.
+ * All pages previously created in other, more recent technologies, have been wrapped as _custom pages_. They cannot be customized in the UI Designer. Since they cannot be imported in a .bos archive, they do not come with the Administrator Application you have downlaoded. Instead, they come as provided resources. You can find them in the "Resources" tab of the application.
+. Double-click on the page. It opens in the UI Designer. You can start editing the page.
+. Save it when you are done. Save it as another page if you need to keep Bonita's original page for further use. 
+
+Saving in the UI Designer makes the new page available in Bonita Studio.
+
+=== Change its navigation menu
+
+. Get all the application's pages available:
+ * If you have created new pages in the UI Designer and saved them, they are ready to be used in an application menu. 
+ * If you have created new pages in another IDE, go to the *Resources* menu option of the Administrator application, and Install your pages.
+   At deployment time, since these external resources are not part of the project, make sure you also deploy them (CAN THEY BE ATTACHED AS DEPENDENCIES IN THE MAVENIZED PROJECT IN 2021.2, OR ADDED TO THE GIT REPO IN ANOTHER WAY?)
 . In Bonita Studio, go to the "Project explorer" on the left and double click on the "bonita-admin-application.xml" application descriptor for Community, or "bonita-admin-application-sp.xml" for Enterprise.
-. In the editor, rename the pages, change the order in the menu, remove the pages you do not need, add yours in the menu, or as orphan pages accessed through navigation from another page.
-[WARNING]
+. In the editor, change the order in the menu, remove the pages you do not need, add other Bonita provided pages, and/or add yours, either in the menu or as orphan pages. +
+  Orphan pages are not visible in the menu, but accessed through the navigation from another page, like a case details page is accessed through a case list.
+
+[CAUTION]
 ====
 
-Make sure our "details" pages are always used as orphan pages, as they need some parameters (usually just an ID) to be passed in the URL by a list or another page to show any content.
+Make sure Bonita provided "details" pages are always used as orphan pages, as they need some parameters (usually just an ID) to be passed in the URL by a list or another page to show any content.
 ====
-. To add other Bonita provided pages, open the portal from the coolbar, switch to the Administrator profile, and look in the "Resources" page, filtered by pages.
+
+=== Change its logo
+
+[NOTE]
+===
+
+Changing an application logo can only be done in Bonita Super Administrator or Administrator applications, and not in Bonita Studio. +
+It should be done upon deployment on a Non-Production or Production environment.
+===
+
+. Create the new one. Supported formats/extensions are: png, jpg, jpeg, gif, bmp, wbmp, tga. Maximum size: 100 KB
+. Go to the application details: *Applications* icon in the coolbar > "Administrator application > "Applications" menu > "..." icon for Bonita Aministrator application. 
+. Click on the "Upload new picture" button below the current logo
+. Select the new logo
+The new logo is applied.
+
+=== Change its layout
+
+[NOTE]
+====
+
+So far, the Bonita Administrator Application is mostly thought for desktop and laptop screen sizes, as we believe this is the most likely screen sizes to be used to administrate Bonita. If you target mobile usage, you may need to rework the widgets display in the UI Designer in the application pages, but Bonita default layout is made to adapt to a mobile screen size.  +
+====
+
+. Create a new xref:layout-development.adoc[layout] and make it available like a page (UI Designer or *Resources* if created in another IDE)
+. In the *Look & Feel* section of the application descriptor, clear the current layout content
+. Start typing the name of the layout
+. Select the new one from the autocomplete list
+
+=== Change its theme
+
+. Create a new xref:customize-living-application-theme.adoc[theme] 
+. Go to the Administrator application > *Resources*
+. Install the new theme
+. Go back to the application descriptor
+. In the *Look & Feel* section, clear the current theme content
+. Start typing the name of the theme
+. Select the new one from the autocomplete list
+
+At deployment time, since these external resources are not part of the project, make sure you also deploy them (CAN THEY BE ATTACHED AS DEPENDENCIES IN THE MAVENIZED PROJECT IN 2021.2, OR ADDED TO THE GIT REPO IN ANOTHER WAY?)
 
 [NOTE]
 ====
