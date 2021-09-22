@@ -13,7 +13,7 @@ Bonita allows companies to build business and process-centered web applications 
 An application is a collection of pages and processes that meets a business need. It contains some or all of the following:
 
 * xref:pages.adoc[Pages] and xref:forms.adoc[Forms]: the user interface components of the application. An application must contain at least one page.
-* xref:processes.adoc[Processes]: the logic execution components of the application. An application must contain at least one process. A process can contain xref:forms.adoc[forms], which are the user interface of the process.
+* xref:admin-application-process-list.adoc[Processes]: the logic execution components of the application. An application must contain at least one process. A process can contain xref:forms.adoc[forms], which are the user interface of the process.
 * xref:data-handling-overview.adoc[Data]: the business information created, transformed, and/or deleted by the processes, and presented in pages and forms.
 * xref:rest-api-extensions.adoc[REST API extensions]: called from pages or forms to retrieve data to be presented to the user.
 * xref:layouts.adoc[Layout]: the frame in which application pages are displayed.

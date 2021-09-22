@@ -26,4 +26,4 @@ To include a script in a process so it can be used in portal mode, there are the
 
 * In the form, add an HTML widget that contains it``.
 
-After a process is xref:processes.adoc[deployed and initialized] in Bonita Portal, it is run by xref:cases.adoc[starting a case].
+After a process is xref:admin-application-process-list.adoc[deployed and initialized] in Bonita Portal, it is run by xref:cases.adoc[starting a case].

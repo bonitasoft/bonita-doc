@@ -48,9 +48,9 @@ This profile is available for Subscription editions only.
 Someone mapped to the _Process manager_ profile has limited administration rights for activities related to the processes they manage. It includes:
 
 * xref:monitoring.adoc[Process monitoring]
-* xref:processes.adoc[Process list], but they cannot install a process
+* xref:admin-application-process-list.adoc[Process list], but they cannot install a process
 * xref:cases.adoc[Case list]
-* xref:tasks.adoc[Task list]
+* xref:admin-application-task-list.adoc[Task list]
 
 [NOTE]
 ====

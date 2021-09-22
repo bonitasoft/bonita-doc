@@ -43,7 +43,7 @@ You can also set parameter values by importing a parameter.properties file. The 
 When you build a process for deployment (see xref:import-and-export-a-process.adoc[Import and export a process]), the .bar archive that is
 created also contains a parameters.properties file.
 
-You can edit a parameters.properties file to change the value of a parameter before importing it into Bonita Studio or before deploying the .bar. You can also edit the file after process deployment, but this is not recommended if the process is running. If you need to change a parameter value for a process that is in production, xref:processes.adoc[update the process configuration in Bonita Administrator Application]).
+You can edit a parameters.properties file to change the value of a parameter before importing it into Bonita Studio or before deploying the .bar. You can also edit the file after process deployment, but this is not recommended if the process is running. If you need to change a parameter value for a process that is in production, xref:admin-application-process-list.adoc[update the process configuration in Bonita Administrator Application]).
 
 == Parameter usage in forms
 

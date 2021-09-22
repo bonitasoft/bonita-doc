@@ -1,6 +1,6 @@
 = Portal removal in 2021.2
 :description: With the 2021.2 release, the Bonita Portal has been replaced by Bonita Applications.
-:page-aliases: analytics.adoc, comparison-of-7-x-and-6-x.adoc, group.adoc, managing-look-feel.adoc, manage-a-user.adoc, living-application-layout.adoc, mobile-portal.adoc, portal-user-case-list.adoc, processes.adoc, profile-list-portal.adoc
+:page-aliases: analytics.adoc, comparison-of-7-x-and-6-x.adoc, group.adoc, managing-look-feel.adoc, manage-a-user.adoc, living-application-layout.adoc, mobile-portal.adoc, portal-user-case-list.adoc, processes.adoc, profile-list-portal.adoc, role.adoc, tasks.adoc
 
 {description} +
 The removal of this part of the product implied removal, deprecation or conversion to a new technology of a list of related things.
@@ -21,8 +21,10 @@ The changes done for these features implied a removal of some pages that referen
 - https://documentation.bonitasoft.com/bonita/2021.1/managing-look-feel[Manage the Portal Look & Feel]
 - https://documentation.bonitasoft.com/bonita/2021.1/group[Administrator Group list in Bonita Portal]
 - https://documentation.bonitasoft.com/bonita/2021.1/manage-a-user[Administrator User list in Bonita Portal]
-- https://documentation.bonitasoft.com/bonita/2021.1/portal-user-case-list[User Case list in Bonita Portal]
 - https://documentation.bonitasoft.com/bonita/2021.1/processes[Administrator Process list in Bonita Portal]
+- https://documentation.bonitasoft.com/bonita/2021.1/role[Administrator Role list in Bonita Portal]
+- https://documentation.bonitasoft.com/bonita/2021.1/tasks[Administrator Task list in Bonita Portal]
 - https://documentation.bonitasoft.com/bonita/2021.1/profile-list-portal[Profiles management in Bonita Portal]
+- https://documentation.bonitasoft.com/bonita/2021.1/portal-user-case-list[User Case list in Bonita Portal]
 - https://documentation.bonitasoft.com/bonita/2021.1/mobile-portal[Mobile User Portal]
 - https://documentation.bonitasoft.com/bonita/2021.1/comparison-of-7-x-and-6-x[Comparison of 7.x and 6.x version]

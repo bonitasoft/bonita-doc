@@ -27,7 +27,7 @@ or
 
 When you build a process from the project explorer, the configuration used is the configuration saved as default. You can edit it from the xref:configuring-a-process.adoc[configure menu]
 
-You can now xref:processes.adoc[install the process in Bonita Administrator Application].
+You can now xref:admin-application-process-list.adoc[install the process in Bonita Administrator Application].
 
 == Initialize the organization in Bonita Administrator Application
 
