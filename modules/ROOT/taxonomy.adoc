@@ -125,7 +125,7 @@
  ** xref:appearance.adoc[Appearance]
   *** xref:theme-development.adoc[Theme]
   *** xref:customize-living-application-theme.adoc[Theme]
- ** xref:navigation.adoc[Navigation between User Interfaces]
+ ** xref:navigation.adoc[Navigation between applications]
  ** Translation
   *** xref:multi-language-applications.adoc[Multi-language applications]
   *** xref:multi-language-pages.adoc[Multi-language pages]
