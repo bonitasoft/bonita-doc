@@ -13,7 +13,7 @@ Bonita 7.7 supports the *Enterprise* licensing model in addition to the Case-bas
 
 The *_License_* menu in Bonita Applications displays information about the current license. This information is available to the platform administrator only.
 
-The xref:bonita-bpm-studio-installation.adoc[license for Bonita Studio] is managed through a wizard when you start the studio for the first time after installation (or after the previous license expires).
+The xref:bonita-bpm-studio-installation.adoc#_license[license for Bonita Studio] is managed through a wizard when you start the studio for the first time after installation (or after the previous license expires).
 
 == Case-counter licensing
 
