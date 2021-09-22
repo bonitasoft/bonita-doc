@@ -190,7 +190,7 @@
   *** xref:rest-api-authorization.adoc[REST API authorization]
   *** xref:custom-authorization-rule-mapping.adoc[Authorization rules]
   *** xref:bdm-access-control.adoc[BDM access control]
- ** [Authentication]
+ ** Authentication
   *** xref:user-authentication-overview.adoc[Overview]
   *** xref:active-directory-or-ldap-authentication.adoc[Active Directory or LDAP authentication]
   *** xref:ldap-synchronizer.adoc[LDAP synchronizer]
