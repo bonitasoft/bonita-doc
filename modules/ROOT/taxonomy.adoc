@@ -225,8 +225,8 @@
   *** xref:super-administrator-application-index.adoc[Bonita Super Administrator application]
    **** xref:super-administrator-application-overview.adoc[Overview]
    **** xref:pause-and-resume-bpm-services.adoc[Put Runtime in maintenance mode]
-   **** xref:bdm-management-in-bonita-applications.adoc[BDM Management]
-   **** Organization
+   **** xref:bdm-management-in-bonita-applications.adoc[BDM]
+   **** xref:organization-index.adoc[Organization]
     ***** xref:organization-in-bonita-applications-overview.adoc[Organization Management]
     ***** xref:import-export-an-organization.adoc[Install/export an organization]
     ***** xref:admin-application-groups-list.adoc[Manage groups]
@@ -236,8 +236,8 @@
      ****** xref:custom-user-information-in-bonita-applications.adoc[Custom User Information]
     ***** User profiles
      ****** xref:profiles-applications-overview.adoc[Overview]
-     ****** xref:admin-application-profiles-list.adoc[Profiles Management]
-   **** xref:admin-application-resources-list.adoc[Resources management]
+     ****** xref:admin-application-profiles-list.adoc[Profiles]
+   **** xref:admin-application-resources-list.adoc[Resources]
    **** xref:applications.adoc[Applications]
    **** xref:licenses.adoc[License information]   
   *** Bonita Administrator application
