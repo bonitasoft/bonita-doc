@@ -65,7 +65,7 @@ You can switch from the graphical UI to the xml source at any moment, using the 
 A toolbar is embedded to the editor, use it to:
 
 * *Add* a profile to profiles file: you can add a new profile or duplicate an existing one from your current project
-* *Save* profiles file *As* another file of profiles (useful to duplicate the whole file)
+* *Save* profiles file *As* another profiles file (useful to duplicate the whole file)
 * *Deploy* profiles file (i.e all the profiles in this file) +
 ⚠  For _development_ purposes, it also deploys their referenced pages used as portal menu entries, but if those resources use REST API Extensions, you have to deploy those manually. In _production_ environment, you still need to import pages, and REST API Extensions manually *before* importing profiles file.
 * *Rename* profiles file
