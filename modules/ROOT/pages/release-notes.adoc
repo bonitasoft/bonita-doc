@@ -6,8 +6,7 @@
 
 Welcome to our xref:bonita-applications-interface-overview.adoc[*four Bonita applications*], that beautifully replace our good old Bonita Portal, gone for retirement. +
 You will find more information in <<New Bonita Applications>>. +
-To know more about Bonita Applications, go to xref:bonita-applications-interface-overview.adoc[this overview page].
-Custom Profiles with a Portal navigation will be automatically convertedto _custom applications_ upon Bonita update. Be extra-careful during the Bonita update procedure.
+Custom Profiles with a Portal navigation will be automatically convertedto _custom applications_ upon Bonita update. Therefore, be extra-careful during the Bonita update procedure.
 ====
 
 == New values added
