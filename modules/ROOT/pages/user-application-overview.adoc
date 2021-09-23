@@ -132,7 +132,7 @@ The new layout is applied.
 . Save the application descriptor
 
 The new layout is applied.
-At deployment time, since these external resources are not part of the project, make sure you also deploy them (CAN THEY BE ATTACHED AS DEPENDENCIES IN THE MAVENIZED PROJECT IN 2021.2, OR ADDED TO THE GIT REPO IN ANOTHER WAY?)
+At deployment time, since these external resources are not part of the project, make sure you also deploy them.
 
 [NOTE]
 ====
