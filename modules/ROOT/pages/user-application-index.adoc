@@ -18,7 +18,7 @@ xref:user-process-list.adoc[[.card-title]#Process list# [.card-body.card-content
 
 [.card.card-index]
 --
-xref:user-application-case-list.adoc[[.card-title]#Case list# [.card-body.card-content-overflow]#pass:q[Monitor the list of open instances, check the closed ones]#]
+xref:user-application-case-list.adoc[[.card-title]#Case list# [.card-body.card-content-overflow]#pass:q[Follow up open instances, check the closed ones]#]
 --
 
 [.card.card-index]
