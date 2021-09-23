@@ -9,7 +9,7 @@ Process Management
 
 [.card.card-index]
 --
-xref:monitoring.adoc[[.card-title]#Monitoring# [.card-body.card-content-overflow]#pass:q[Follow high-level process execution and be fast on error discovery and recovery]#]
+xref:monitoring.adoc[[.card-title]#Monitoring# [.card-body.card-content-overflow]#pass:q[Follow high-level process execution for fast error discovery and recovery]#]
 --
 
 [.card.card-index]
@@ -19,7 +19,7 @@ xref:admin-application-process-list.adoc[[.card-title]#Process list# [.card-body
 
 [.card.card-index]
 --
-xref:import-and-export-a-process.adoc[[.card-title]#Install and export a process# [.card-body.card-content-overflow]#pass:q[For the rare situations where a process defintion needs to be manually shared]#]
+xref:import-and-export-a-process.adoc[[.card-title]#Install and export a process# [.card-body.card-content-overflow]#pass:q[For situations where a process defintion needs to be manually shared]#]
 --
 
 [.card.card-index]
