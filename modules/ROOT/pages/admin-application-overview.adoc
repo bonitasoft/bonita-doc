@@ -69,7 +69,7 @@ image::images/UI2021.1/studio-get-application.png[Get application from Studio]
 
 You can also get it from our https://github.com/bonitasoft/bonita-admin-application/[Admin Application GitHub repository]. +
 There are two ways to get the .bos file. You can either get it from the _Releases_ on the right or by cloning the repository of your choice and building it using maven. +
-Building the repository will create a .bos file in the `target` folder. You can import this one into the development environment. +
+Building the repository will create a .bos file in the `target` folder. You can then import it into the development environment. +
 Using this method is also useful if you want to get an older version of an application or if you need a weekly version with a potential bugfix. +
 After validation, the application is imported or cloned; you can view its content in the project explorer, deploy it, and open it. +
 
