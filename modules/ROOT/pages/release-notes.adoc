@@ -1,12 +1,17 @@
 = Release notes
 :description: This pages describes the main new values, improvements, technical updates and other changes that have been brought to this latest Bonita main version.
 
-[NOTE]
+== Welcome to our xref:bonita-applications-interface-overview.adoc[*four Bonita applications*]!
+
+They beautifully replace our good old Bonita Portal, gone for retirement. +
+You will find more information in the <<New Bonita Applications>> chapter below. +
+
+
+[CAUTION]
 ====
 
-Welcome to our xref:bonita-applications-interface-overview.adoc[*four Bonita applications*], that beautifully replace our good old Bonita Portal, gone for retirement. +
-You will find more information in <<New Bonita Applications>>. +
-Custom Profiles with a Portal navigation will be automatically convertedto _custom applications_ upon Bonita update. Therefore, be extra-careful during the Bonita update procedure.
+Custom Profiles with a Portal navigation will be automatically convertedto _custom applications_ upon Bonita update. +
+Therefore, be extra-careful during the Bonita update procedure.
 ====
 
 == New values added
@@ -88,10 +93,10 @@ Bonita Portal is now removed, meaning that:
 * The (xref:#_process_manager_profile_navigation[Process Manager profile] is temporarily discontinued
 * The Analytics page is also temporarilly discontinued
 
-===== Mobile Portal removal
+*Mobile Portal removal*
 As Bonita User Application can be used on mobile devices thanks to the responsive Bonita layout, the Mobile Portal is no longer needed.
 
-===== Custom Profile navigation conversion
+*Custom Profile navigation conversion*
 
 Before 2021.2, you had the possibility to create custom profiles with specific Portal navigation, with menus and pages, to customize users' Bonita Portal experience. Here is an example:
 
@@ -117,10 +122,10 @@ image::images/temp-release-notes-specific/new_app_converted_from_custom_profile.
 
 As with any application, you can now modify its details, URL, change its logo, ...
 
-===== Process Manager profile navigation
+*Process Manager profile navigation*
 As part of the update of Bonita Portal into Bonita Applications, we have not reimplemented the pages for the profile Process Manager, a new documentation page will soon explain how to rebuild and customize the Bonita Administrator Application to handle the process management capabilities.
 
-==== Easy upgrade from Community to Subscription
+*Easy upgrade from Community to Subscription*
 
 From this release, xref:upgrade-from-community-to-a-subscription-edition.adoc#bonita-platform-upgrade[upgrade from Community to Subscription] is made a lot easier:
 all the tricky configuration part is handled automatically by Bonita Runtime at server startup. +
