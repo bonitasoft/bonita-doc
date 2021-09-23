@@ -1,7 +1,7 @@
 = Bonita is available in different languages
 :description: Bonita is officially released in various languages but is open to more translations from the Community.
 
-Bonita is officially released in various languages but is open to more translations from the Community.
+{description}
 
 == Languages available by default
 
@@ -16,42 +16,29 @@ The following languages are officially supported:
 Officially supported language means that:
 
 * Translation is performed by Bonitasoft or trusted partners
-* The following Bonita components are translated: Studio, UI Designer and Portal
+* The following Bonita components are translated: Studio, UI Designer and Bonita Applications
 
 == Language detection mechanism
 
-Since Bonita 7.11.0, when a user accesses a page of Bonita portal or an application, the language to use to display the page is detected using the following priority order:
+Since Bonita 7.11.0, when a user accesses a page of Bonita Applications, the language used to display the page is detected using the following priority order:
 
 . `locale` parameter value in the URL if it is present (E.g.: `?locale=pt_BR`)
 . BOS_Locale cookie value
-. Web browser prefered language (first locale sent in the request header Accept-Language)
+. Web browser preferred language (first locale sent in the request header Accept-Language)
 . English if none of the previous ones are set and/or supported
 
 [NOTE]
 ====
 
 When a language different from the one already set in the BOS_Locale cookie is passed in the URL (`locale` parameter), then the cookie value is reset with this new language.
-This can be used to force the default language if needed (by simply providing a link to Bonita portal/applications with the locale parameter).
+This can be used to force the default language if needed (by simply providing a link to Bonita Applications with the locale parameter).
 ====
-
-== Select a language in Bonita Portal
-
-For the web desktop version:
-
-. Go to the top right corner and click on *_Settings_*/*_Language_*
-. Select a language from the drop-down list.
-
-For the web mobile version:
-
-. Click on the _*Tools icon*_
-. Click on *_Languages_*
-. Select a new language from the drop-down list
 
 == Select a language in a Bonita application
 
-To select another language, if the appliation uses the default xref:bonita-layout.adoc[Bonita layout]:
+To select another language, if the application uses the default xref:bonita-layout.adoc[Bonita layout]:
 
-. Click on the user name or icon in the top right corner of the application header
+. Click on the username or icon in the top right corner of the application header
 . In the modal window, go to the language section and select a language from the drop-down list
 . Click on the "Apply" button
 . Close the modal window
@@ -61,7 +48,7 @@ image:images/UI2021.1/select-language.png[Select language]
 
 == Select a language in a custom application
 
-If the appliation uses the default xref:bonita-layout.adoc[Bonita layout], the header is the same than a Bonita application, so the procedure is the same. +
+If the application uses the default xref:bonita-layout.adoc[Bonita layout], the header is the same as a Bonita Application, so the procedure is the same. +
 If the layout has been customized, users need to refer to the internally documented procedure.
 
 == Add a language to Bonita Portal

@@ -1,7 +1,7 @@
 = Events
 :description: This section will define different types of events and provide information on their usage.
 
-This section will define different types of events and provide information on their usage.
+{description}
 
 == Overview
 
@@ -217,7 +217,7 @@ To configure an end error event, select the element in the diagram, go to the De
 
 === Start event
 
-This is the normal start event for a process. It indicates the start of a process instance started by a user (typically using Bonita Portal) or programmatically.
+This is the normal start event for a process. It indicates the start of a process instance started by a user (typically in Bonita Applications) or programmatically.
 
 === End event
 

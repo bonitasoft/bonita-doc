@@ -1,7 +1,7 @@
 = Licenses
 :description: This page explains how to manage your license for the Bonita Platform: generate a request key, get the license file and install it.
 
-This page explains how to manage your license for the Bonita Platform: generate a request key, get the license file and install it.
+{description}
 
 [NOTE]
 ====
@@ -11,7 +11,7 @@ For Enterprise, Performance, Efficiency, and Teamwork editions only.
 
 Bonita 7.7 supports the *Enterprise* licensing model in addition to the Case-based and CPU-based licensing.
 
-The *_License_* menu in Bonita Portal displays information about the current license. This information is available to the platform administrator only.
+The *_License_* menu in Bonita Applications displays information about the current license. This information is available to the platform administrator only.
 
 The xref:bonita-bpm-studio-installation.adoc[license for Bonita Studio] is managed through a wizard when you start the studio for the first time after installation (or after the previous license expires).
 
@@ -23,7 +23,7 @@ Each time a case starts, the case counter is increased by one. +
 Case-counter licenses are available for development and for production. A development license must not be used for production, and typically has a lower case limit than a production license. +
 The maximum number of cases is defined in your commercial contract, in discussion with your sales person.
 
-For *Case-based licensing*, you can monitor the case counter using Bonita Portal _License_ page in the Administrator profile, or using the xref:platform-api.adoc#license[REST API] to create a custom monitoring / alerting tool. +
+For *Case-based licensing*, you can monitor the case counter using Bonita Super Administrator or Administrator Application. Simply go to the _License_ page in one of these two applications, or use the xref:platform-api.adoc#license[REST API] to create a custom monitoring / alerting tool. +
 Those two means also allow you to check the expiration date of the license.
 
 When the case counter reaches the limit set in the license, no more cases can be started. Active cases continue until completion.
@@ -33,7 +33,7 @@ If a user tries to submit an instantiation form after the case counter maximum l
 
 Your contract with Bonitasoft specifies the details of the subscription you have purchased, including the edition, and case limit for case-counter licensing. A license matching the subscription details is generated on request.
 
-If this is a license renewal, you can find your request key in the Bonita Portal _License_ menu of the Administrator profile or using the xref:platform-api.adoc#license[platform REST API]. +
+If this is a license renewal, you can find your request key in the _License_ page of the Bonita Super Administrator or Administrator Application, or use the xref:platform-api.adoc#license[platform REST API] to retrieve it. +
 A request key looks like this: `(CIVpYDRB8bhouXdWadLY1M9TVctwYUYuv7ou7sqeIrSUSuCqUIkjQAs0ZGgzbtqv3gguFOHlyMZkyvwdr4HLgg==)`.
 
 If this is the first time you generate a license, you need to generate a request key.
@@ -83,9 +83,9 @@ If the application server has already been started successfully at least once an
 == License renewal scheduling
 
 If you are still within the Subscription period when you approach the license expiration date, request a new license that starts on the last day of your current license. +
-xref:bonita-bpm-platform-setup.adoc#update_platform_conf[Use the Platform setup tool] to pull the existing configuration from the database.
+xref:bonita-platform-setup.adoc#update_platform_conf[Use the Platform setup tool] to pull the existing configuration from the database.
 Put the license you receive in the license folder alongside the existing license.
-xref:bonita-bpm-platform-setup.adoc#update_platform_conf[Use the Platform setup tool] to push your license file to database.
+xref:bonita-platform-setup.adoc#update_platform_conf[Use the Platform setup tool] to push your license file to database.
 Don't forget to restart your application server after pushing the license to the database.
 
 When you reach the "changeover" date for the licenses, Bonita Engine switches automatically from the expired license to the valid one.

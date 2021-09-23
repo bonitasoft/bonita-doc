@@ -1,7 +1,7 @@
 = Manage users
 :description: Examples on how to create and edit users, to search for users data, through Bonita java API's.
 
-Examples on how to create and edit users, to search for users data, through Bonita java API's.
+{description}
 
 == Create a new user
 
@@ -33,7 +33,7 @@ creator.setProfessionalContactData(proContactDataCreator)
 final User user2 = identityAPI.createUser(creator)
 ----
 
-Now add the user to a Bonita Portal profile. A user who does not have a profile cannot log in to Bonita Portal.
+Now add the user to a Bonita profile. A user who does not have a profile cannot log into Bonita Runtime.
 
 [source,groovy]
 ----

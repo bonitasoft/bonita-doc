@@ -1,7 +1,7 @@
 = React page dependencies
-:description: This page list the direct dependencies of the Bonita portal pages that are build using React library.
+:description: This page list the direct dependencies of the Bonita pages that are build using React library.
 
-This page list the direct dependencies of the Bonita portal pages that are build using React library.
+{description}
 
 [discrete]
 === Frontend

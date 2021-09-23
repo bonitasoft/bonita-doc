@@ -3,7 +3,7 @@
 
 You will find here the mandatory and optional steps needed to install and configure the Tomcat bundle to run the Bonita platform.
 
-The Tomcat bundle is a .zip archive that contains the Apache Tomcat Java EE application server prepackaged along with Bonita and xref:bonita-bpm-platform-setup.adoc#platform_setup_tool[Bonita platform setup tool].
+The Tomcat bundle is a .zip archive that contains the Apache Tomcat Java EE application server prepackaged along with Bonita and xref:bonita-platform-setup.adoc#platform_setup_tool[Bonita platform setup tool].
 The Tomcat bundle is a regular .zip archive based on Tomcat zip distribution.
 
 [#tomcat-bundle-installation]
@@ -64,7 +64,7 @@ The Tomcat bundle is based on a standard Tomcat installation with the following 
 
 Beginning with version 7.3.0, Bonita Platform configuration, including the license file, is stored in the same database as the Bonita Engine data, namely in the `CONFIGURATION` table.
 The initialization of this configuration happens during `start-bonita.bat` (for Windows) or `start.bonita.sh` (for Linux) execution. +
-Once initialized, to update this configuration, use the xref:bonita-bpm-platform-setup.adoc[_Platform setup tool_] embedded in Bonita bundles.
+Once initialized, to update this configuration, use the xref:bonita-platform-setup.adoc[_Platform setup tool_] embedded in Bonita bundles.
 ====
 
 === Get and install a license (Subscription editions only)
@@ -100,8 +100,8 @@ As a security precaution, we *strongly recommend* that before you start your app
 
 The username and password are defined in a text file:
 
-* Before the very first Tomcat start: xref:bonita-bpm-platform-setup.adoc[`<BUNDLE_HOME>/setup/platform_conf/initial/platform_engine/bonita-platform-community-custom.properties`]
-* After the first Tomcat start: xref:bonita-bpm-platform-setup.adoc[`<BUNDLE_HOME>/setup/platform_conf/current/platform_engine/bonita-platform-community-custom.properties`]
+* Before the very first Tomcat start: xref:bonita-platform-setup.adoc[`<BUNDLE_HOME>/setup/platform_conf/initial/platform_engine/bonita-platform-community-custom.properties`]
+* After the first Tomcat start: xref:bonita-platform-setup.adoc[`<BUNDLE_HOME>/setup/platform_conf/current/platform_engine/bonita-platform-community-custom.properties`]
 
 The properties are listed below:
 
@@ -114,7 +114,7 @@ This password is used for platform-level administration tasks, such as creating 
 
 Each tenant has an administrator, with a tenant-specific username and password. The tenant administrator is also known as the tenant technical user.
 
-When the platform is created, default values for the tenant administrator username and password are defined in the file xref:bonita-bpm-platform-setup.adoc[`<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_engine/bonita-tenant-community-custom.properties`], by the following properties:
+When the platform is created, default values for the tenant administrator username and password are defined in the file xref:bonita-platform-setup.adoc[`<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_engine/bonita-tenant-community-custom.properties`], by the following properties:
 
 * `userName` defines the username (default `install`)
 * `userPassword` defines the password (default `install`)
@@ -127,8 +127,8 @@ Change these tenant-specific credentials for an existing tenant by updating the 
 
 For the *default tenant*, the tenant administrator username and password must also be changed in file:
 
-* Before the very first Tomcat start: xref:bonita-bpm-platform-setup.adoc[`<BUNDLE_HOME>/setup/platform_conf/initial/platform_portal/platform-tenant-config.properties`]
-* After the first Tomcat start: xref:bonita-bpm-platform-setup.adoc[`<BUNDLE_HOME>/setup/platform_conf/current/platform_portal/platform-tenant-config.properties`],
+* Before the very first Tomcat start: xref:bonita-platform-setup.adoc[`<BUNDLE_HOME>/setup/platform_conf/initial/platform_portal/platform-tenant-config.properties`]
+* After the first Tomcat start: xref:bonita-platform-setup.adoc[`<BUNDLE_HOME>/setup/platform_conf/current/platform_portal/platform-tenant-config.properties`],
 
 For further details and a better understanding, please read the section xref:tenant_admin_credentials.adoc[Tenant administrator credentials].
 ====
@@ -145,7 +145,7 @@ For production, you are recommended to use one of the supported databases, with 
 ====
 
 . Make sure xref:database-configuration.adoc#database_creation[your databases are created] and xref:database-configuration.adoc#specific_database_configuration[customized to work with Bonita].
-. Edit file `<BUNDLE_HOME>/setup/database.properties` and modify the properties to suit your databases (Bonita internal database & Business Data database). Beware of xref:bonita-bpm-platform-setup.adoc#backslash_support[backslash characters].
+. Edit file `<BUNDLE_HOME>/setup/database.properties` and modify the properties to suit your databases (Bonita internal database & Business Data database). Beware of xref:bonita-platform-setup.adoc#backslash_support[backslash characters].
 . Run `<BUNDLE_HOME>\setup\start-bonita.bat` (Windows system) or `<BUNDLE_HOME>/setup/start-bonita.sh` (Unix system) to run Bonita Tomcat bundle (see <<tomcat_start,Tomcat start script>>)
 
 [NOTE]
@@ -163,7 +163,7 @@ The Setup Configure command configures the Tomcat environment to access the righ
  .. copies your database vendor-specific drivers from `<BUNDLE_HOME>/setup/lib` to `<BUNDLE_HOME>/setup/server/lib/bonita`
 . Starts the Tomcat bundle
 
-For advanced server configuration needs: check out xref:bonita-bpm-platform-setup.adoc#run_bundle_configure[Bundle configuration] to finely tune your Tomcat bundle, using templates used by Bonita.
+For advanced server configuration needs: check out xref:bonita-platform-setup.adoc#run_bundle_configure[Bundle configuration] to finely tune your Tomcat bundle, using templates suggested by Bonita.
 ====
 
 [#start]
@@ -198,19 +198,19 @@ Once you have your Tomcat bundle up and running, complete these xref:first-steps
 
 === Configuration update
 
-To update Bonita configuration after the first run, take a look at the xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool]
+To update Bonita configuration after the first run, take a look at the xref:bonita-platform-setup.adoc#update_platform_conf[platform setup tool]
 
 [NOTE]
 ====
 
 
-* The file `database.properties` is the entry point to configure the xref:bonita-bpm-platform-setup.adoc#run_bundle_configure[Tomcat environment] and the xref:bonita-bpm-platform-setup.adoc#configure_tool[Bonita Platform configuration].
+* The file `database.properties` is the entry point to configure the xref:bonita-platform-setup.adoc#run_bundle_configure[Tomcat environment] and the xref:bonita-platform-setup.adoc#configure_tool[Bonita Platform configuration].
 * You can use command line arguments to specify database properties directly from the command line. Use `<BUNDLE_HOME>/setup/setup.sh --help` on Linux or `<BUNDLE_HOME>\setup\setup.bat --help` on Windows to have a list of available options.
 ====
 
 === License update
 
-To update the licenses after the first run, take a look at the xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool]
+To update the licenses after the first run, take a look at the xref:bonita-platform-setup.adoc#update_platform_conf[platform setup tool]
 
 == Troubleshooting
 

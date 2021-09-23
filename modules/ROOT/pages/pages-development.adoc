@@ -1,14 +1,14 @@
 = Pages development
-
 :description: A page presents information to a user or can also collect information entered by a user. +
 
-A page presents information to a user or can also collect information entered by a user. +
+
+{description} +
 Displayed in a browser, a xref:pages.adoc[page] is intended for use in applications.
 
 == Provided pages
 
 You do not need to create all your pages from scratch. Bonita already provides some pages. +
-Bonita Portal "Resources" section lists all the non-UI Designer-made pages, that can be reused as is in an application.
+Bonita Administrator Application "Resources" tab lists all the non-UI Designer-made pages, that can be reused "as-is" in an application.
 By downloading the Bonita User and Administrator applications from Bonita Studio Welcome page, you also download Bonita pages created with Bonita UI Designer. +
 Those pages can be customized and added to an application.
 
@@ -16,10 +16,10 @@ Those pages can be customized and added to an application.
 
 A page resource has the general xref:resource-management.adoc[resource definition].
 If it contains an `Index.groovy` file, this must implement the PageController interface optionally with libraries.
-If you create a custom page with Bonita UI Designer, its required structure and content are right, by default.
+If you create a custom page with Bonita UI Designer, its structure and content will be congruent by default.
 
-A custom page is displayed inside an iframe to prevent conflicts between Bonita Portal resources (for example JS and CSS) and those used in the custom page.
-This also reduces the risk of migration issues, for example if a custom page uses the version of JQuery provided with Bonita Portal and it is updated.
+A custom page is displayed inside an iframe to prevent conflicts between resources (for example JS and CSS) and those used in the custom page.
+This also reduces the risk of migration issues, for example if a custom page uses a version of JQuery that gets updated.
 
 === PageController interface
 
@@ -59,25 +59,6 @@ resources=[GET|identity/user, GET|identity/personalcontactdata, GET|identity/pro
 ----
 
 When a user is given access to this page because they are in a profile that contains it or that is mapped to an application that contains the page, then this user is granted, upon login, the permissions associated to these resources (see xref:rest-api-authorization.adoc[REST API authorizations] for more details).
-
-=== Custom page examples
-
-Two custom page examples are available in Bonita Portal. Both examples show how to:
-
-* Get the Bonita CSS
-* Write simple HTML code
-* Get session information, including the locale
-* Get resources from the custom page definition
-* Call the Engine Java APIs (in the Groovy example) or the Web REST APIs (in the.md example)
-* Write a clickable link to an external page
-* Write a clickable link to a portal page
-* Write locale-specific messages
-
-*Groovy example page* defines a custom page using Groovy.
-*HTML example page* defines a custom page using only HTML.
-In practice, you will probably use a combination of Groovy and HTML to create your custom pages.
-
-To view an example page, map the page to an xref:applications.adoc[application] so that you can view it in Bonita Portal. To view the source of an example, xref:resource-management.adoc]#export[export the custom page].
 
 === Reuse Bonita Portal content
 
@@ -127,9 +108,8 @@ If you want to disable it, you need to use the setup tool provided in `workspace
 
 === Constraints
 
-A custom page is displayed in an iframe in the Bonita Portal, so is isolated from changes to the portal.
-When you migrate to a newer version of Bonita, your custom page definition should still be valid.
-However, this cannot be guaranteed for all future migrations.
+When you update to a newer version of Bonita, your custom page definition should still be valid.
+However, this cannot be guaranteed for all future updates.
 
 === Page resources management
 
@@ -147,9 +127,9 @@ For example: `<link href="css/file.css" rel="stylesheet" />`
 
 ==== API access
 
-If your page is viewed in a custom profile or in an application, you will have access facilities for xref:rest-api-overview.adoc[the portal API].
+If your page is viewed in a custom profile or in an application, you will have access facilities for xref:rest-api-overview.adoc[the REST API].
 
-you will be able to access the portal API using the following path: `../API/{API name}/{resource name}`
+you will be able to access any REST API using the following path: `../API/{API name}/{resource name}`
 
 ==== Theme access
 

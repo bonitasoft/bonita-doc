@@ -1,11 +1,11 @@
 = Pages
-:description: Pages are resources intended to be used in applications. They are xref:resource-management.adoc[added, exported, edited, and deleted] as resources in Bonita Portal.
+:description: Pages are resources intended to be used in applications. They are xref:resource-management.adoc[added, exported, edited, and deleted] as resources in the Bonita Administrator Application.
 
-Pages are resources intended to be used in applications. They are xref:resource-management.adoc[added, exported, edited, and deleted] as resources in Bonita Portal.
+{description}
 
 == Provided pages
 
-Bonita Portal comes with some provided pages to use in applications. They are wrapped pages developed in other technologies than Bonita UI Designer (AngularJS, React, PortalJS). +
+Bonita Runtime comes with some provided pages to use in applications. They are wrapped pages developed in other technologies than Bonita UI Designer (AngularJS, React). +
 Starting with Bonita 2021.1, you can also download Bonita User application and Bonita Administrator applications (from Bonita Studio Welcome page), and get more provided pages, developped with Bonita UI Designer. +
 Such UI Designer pages can be customized in the UI Designer, to better fit the needs of the end-users.
 
@@ -55,7 +55,7 @@ For all information about developping a custom page, visit xref:pages-developmen
 
 == Use in applications
 
-Once the pages are all made available in the Resources section of Bonita Portal, they can be used to xref:applicationCreation.adoc[create applications]. +
+Once the pages are all made available in the Resources tab of Bonita Administrator Application, they can be used to xref:applicationCreation.adoc[create applications]. +
 We highly recommend that the creation of applications is done in Bonita Studio, to be managed with all the other resources of the project in the Version Control System (Git).
 
 == Live update

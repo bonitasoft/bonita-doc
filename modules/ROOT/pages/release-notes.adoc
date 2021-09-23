@@ -71,14 +71,29 @@ It is now possible to easily bind the metadata of an API variable response (head
 
 === Runtime changes
 
-==== New application-based Portal
+==== New application-based User interfaces
 
-In Bonita 2021.2, the Bonita Portal is now removed, meaning that
+In Bonita 2021.2, the Bonita Portal is now removed, meaning that:
 
  - Custom profiles are xref:#_custom_profile_navigation_conversion[converted into Living Applications] with default Bonita layout and Bonita theme
+ - Some elements are not migrated (xref:#_process_manager_profile_navigation[Process Manager profile], Reports page)
  - If you had customized the Portal, please note that the Look & Feel files are removed too
- - Some elements are not migrated (xref:#_process_manager_profile_navigation[Process Manager profile], Reports page), check the release notes to have the complete list
 
+==== Provided Applications
+
+Four main applications will be provided and present for a new installation, a new tenant or after the migration to 2021.2 :
+
+ - The Bonita Application Directory. This application lets any user that is logged into the Bonita Runtime see a list of their available applications. It also holds UI Designer made error pages. This application is not editable, but the pages are customizable from the Bonita Resource list.
+ - The Bonita Super Administrator Application. This is the application for the technical user. The application, the menu and the pages installed that are used by this application are non-modifiable.
+ - The Bonita Administrator Application, which xref:admin-application-overview.adoc[can be found here]. This is the application for users with the Administrator profile. The application menu and contained pages are fully customizable, but the pages that are installed and are related to this application are non-modifiable since some of them are shared with the Bonita Super Administrator Application.
+ - The Bonita User Application, which xref:user-application-overview.adoc[can be found here]. This application is fully customizable.
+
+Last thing to mention is that the Look & Feel of these applications (Logo, Layout and Theme) is customizable for all of these applications.
+
+[WARNING]
+====
+With the new applications come two new pseudo-profiles (one for all users that are logged in and the other for the technical user). These cannot be found in the profile list, and the user mapping of cannot be changed. Do *NOT* use these two profiles. They are thought to be internal profiles, and will make your application non-modifiable and non-deletable.
+====
 
 ==== Custom Profile navigation conversion
 
@@ -92,7 +107,7 @@ that looks like:
 .Pre-2021.2 Custom Profile example
 image::images/temp-release-notes-specific/custom_profile.png[Previous Custom Profile,600]
 
-In Bonita 2021.2, custom profile navigation has been removed, and thus profiles with navigation are automatically converted into Living Applications by the xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[migration tool].
+In Bonita 2021.2, custom profile navigation has been removed, and thus profiles with navigation are automatically converted into Living Applications by the xref:migrate-from-an-earlier-version-of-bonita.adoc[migration tool].
 
 Here is the list of applications, with the converted one, when you log in after migration for the first time:
 
@@ -156,7 +171,7 @@ See xref:#_configuration_file_changes[the related changes] done to specific conf
 ==== JAAS authentication is now Enterprise
 
 From version 2021.2, JAAS Authentication is only available in the Enterprise edition. +
-If you are updating from a 2021.1 or earlier version, in the Community edition, you will need to xref:bonita-bpm-platform-setup.adoc[change your configuration] file `authenticationManager-config.properties`
+If you are updating from a 2021.1 or earlier version, in the Community edition, you will need to xref:bonita-platform-setup.adoc[change your configuration] file `authenticationManager-config.properties`
 and remove the JAAS configuration to use another Authentication Manager (an implementation of your own, for instance).
 
 ==== LDAP Synchronizer
