@@ -15,7 +15,8 @@ Plus, its robustness enables the BPM engine to handle a company's critical proje
 
 === The need for automation
 
-Some business processes do not need to be automated. +
+Not all business processes need to be automated. Sometimes, the need is to model and map all processes, not to automate all of them. +
+Automation must be driven by the strong possibility of a gain in efficiency. +
 Indeed, the benefits of automation are huge when:
 
  * Processes are critical for the business, so process execution needs *traceability* 
