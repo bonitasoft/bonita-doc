@@ -16,6 +16,12 @@ Therefore, be extra-careful during the Bonita update procedure.
 
 == New values added
 
+=== Video: What's new in Bonita {bonitaVersion}
+
+{empty}
+
+video::mZ1D5Bgla4U[youtube, width=640,height=380]
+
 === Bonita Studio and Bonita UI Designer
 
 ==== Bonita Studio Project Composition
