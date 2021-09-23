@@ -83,7 +83,7 @@ After validation, the application is imported or cloned; you can view its conten
 
 Saving in the UI Designer makes the new page available in Bonita Studio.
 
-=== Change its navigation menu
+=== Change the navigation menu
 
 . Get all the application's pages available:
  * If you have created new pages in the UI Designer and saved them, they are ready to be used in an application menu. 
