@@ -1,5 +1,5 @@
 = Bonita Administrator Application overview
-:description: This page describes the Bonita Administrator Application: its values, how to access it, and how to customize it. +
+:description: This page describes Bonita Administrator Application: its values, how to access it, and how to customize it. +
 
 {description}
 
