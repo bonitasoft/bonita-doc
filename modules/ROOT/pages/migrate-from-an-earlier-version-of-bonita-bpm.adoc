@@ -244,7 +244,7 @@ Do not use the old Tomcat server: a new one needs to be installed with the Bonit
 20. Reapply the configuration made to the runtime, using the setup tool of the `bonita-target-version`
 21. Download the configuration from the database to the local disk.
 
-There is below a Linux example: +
+Below you can find a Linux exemple: +
 
 [source,bash]
 ----
@@ -270,7 +270,8 @@ When done, push the updated configuration into the database:
  ** Perform a diff between the source version and the target versionof `tenants/[TENANT_ID]/conf/dynamic-permissions-checks.properties` and put the additional lines into the file `tenants/[TENANT_ID]/conf/dynamic-permissions-checks-custom.properties`
  ** Report all the content of the source version of``tenants/[TENANT_ID]/conf/custom-permissions-mapping.properties`` into the target version.
 24. Put a new license in the database: see xref:bonita-bpm-platform-setup.adoc#update_platform_conf[Runtime configuration] for further details.
- There is below a Linux example:
+
+Below you can find a Linux exemple: +
 
 [source,bash]
 ----
