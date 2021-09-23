@@ -9,17 +9,6 @@ In practice, this includes groups and sub-groups, roles, personal and profession
 
 Super Administrator and Administrator can also perform some changes in the organization entities. +
 
-[CAUTION]
-====
-
-Most updates at runtime should be performed through a change in the project sources, to create a new project version. +
-This new version can then be deployed through Bonita Continuous Delivery. +
-This methodology guarantees the consistency between the project sources and the deployed version, making all subsequent changes much simpler and error-proof. +
-
-What the Super Administrator Application allows are emergency changes to recover from an urgent issue. +
-All changes performed through this application must be backported to the project sources to be versioned. +
-====
-
 [.card-section]
 == Organization management pages
 
