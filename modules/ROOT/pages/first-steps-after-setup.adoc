@@ -102,10 +102,9 @@ NOTE: do not create a user or an administrator with the same login and password 
 *Note:* If your system is using single sign-on with CAS, you need to log in with the following URL: `http://`_`hostname:port`_`/bonita/login.jsp?redirectUrl=/bonita/apps/appDirectoryBonita/`.
 . Open the Bonita Super Admin Application
 . Create a user with the standard profile.
-. Go to *Organization* > *Profiles*. Select "Administrator" profile.
-. Click on the "More" button (in the top right corner).
+. Go to *Organization* > *Profiles*. Click on triple dots button for "Administrator" profile.
 . Under "Users mapping", click on "Add a user".
-. Select your user and click on the "Add" button. Log out as the Technical user and log back in as the newly created user with administrative rights.
+. Select your user and click on "Add" button. Log out as the Technical user and log back in as the newly created user with administrative rights.
 . Create xref:admin-application-users-list.adoc[users with the standard profile].
 . You can add newly created users to the "User" (standard) profile or to a custom profile.
 
