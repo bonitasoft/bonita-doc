@@ -10,7 +10,7 @@ You will find more information in the <<New Bonita Applications>> chapter below.
 [CAUTION]
 ====
 
-Custom Profiles with a Portal navigation will be automatically convertedto _custom applications_ upon Bonita update. +
+Custom Profiles with a Portal navigation will be automatically converted to _custom applications_ upon Bonita update. +
 Therefore, be extra-careful during the Bonita update procedure.
 ====
 
