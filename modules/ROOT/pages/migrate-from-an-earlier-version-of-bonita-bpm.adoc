@@ -318,7 +318,7 @@ It means that if one or more processes on the target server uses 6.x forms or ov
  . Redesign your processes to use contracts at process instantiation and task execution levels, and recreate all your forms and case overview pages in Bonita Studio using the UI Designer or your favorite IDE, so that they use xref:contracts-and-contexts.adoc[contracts]. For more information, go to  xref:migrate-a-form-from-6-x.adoc[migrate a form from 6.x]
  . Upload the new version of all your processes using contracts, new forms, and new case overview pages.
  . Make sure the versions of the processes using 6.x forms have no more running instances, and disable them.
- . Perform the updating proceudre to the desired version.
+ . Perform the updating procedure to the desired version.
 
 * If you are updating from a Bonita 7.x version, follow this procedure:
  . Redesign all your forms in Bonita Studio using the UI Designer. For more information, see xref:migrate-a-form-from-6-x.adoc[how to migrate a form from 6.x]
