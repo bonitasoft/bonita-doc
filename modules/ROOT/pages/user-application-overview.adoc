@@ -67,7 +67,7 @@ After validation, the application is imported or cloned; you can view its conten
 
 . In the studio's Project Explorer, select the page to customize.
  * All pages previously created using Google Web Toolkit framework have been recreated with Bonita UI Designer. They can be customized in the UI Designer. They come with the User Application you have download from Bonita Studio. You will see them in the Project Explorer.
- * All pages previously created in other, more recent technologies, have been wrapped as _custom pages_. They cannot be customized in the UI Designer. Since they cannot be imported in a .bos archive, they do not come with the User Application you have downlaoded. Instead, they come as provided resources. You can find them in the "Resources" tab of the application.
+ * All pages previously created in other, more recent technologies, have been wrapped as _custom pages_. They cannot be customized in the UI Designer. Since they cannot be imported in a .bos archive, they do not come with the User Application you have downloaded. Instead, they come as provided resources. You can find them in the "Resources" tab of the application.
 . Double-click on the page. It opens in the UI Designer. You can start editing the page.
 . Save it when you are done. Save it as another page if you need to keep Bonita's original page for further use. 
 
