@@ -1,5 +1,5 @@
 = Runtime installation
-:description: This pages summarizes the technical requirements and available flavors in which Bonita Runtime comes, and how to install a single node or a cluster.
+:description: This pages summarizes the technical requirements and available flavors in which Bonita Runtime comes. It also explains how to install a simple Runtime or a cluster.
 
 {description}
 
