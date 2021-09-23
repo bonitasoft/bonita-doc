@@ -67,7 +67,7 @@ As mentioned before, the Bonita User Application is the part of Bonita that is v
 
 Bonita also comes with three other very useful applications:
 
-* Bonita Administrator Application: the tool used by the tenant administrator to xref:processes.adoc[install, deploy and manage processes], monitor process execution, [xref:live-update.adoc[perform  some evolutions] in organization, resources, and applications, and recover from errors. We use the word "tenant" here, in case the platform would be made of xref:multi-tenancy-and-tenant-configuration.adoc[several tenants]. 
+* Bonita Administrator Application: the tool used by the tenant administrator to xref:admin-application-process-list.adoc[install, deploy and manage processes], monitor process execution, [xref:live-update.adoc[perform  some evolutions] in organization, resources, and applications, and recover from errors. We use the word "tenant" here, in case the platform would be made of xref:multi-tenancy-and-tenant-configuration.adoc[several tenants].
 * Bonita Super Administrator Application: the tool used by the technical user to setup the Bonita Runtime environment with organization, Business Data Model, and applications. It is also the maintenance tool that allows to pause and resume the BPM Services to, for example, update the Business Data Model. 
 * Application Directory Application, THE ONE URL to remember for all Bonita users, displaying the catalog of all applications accessible by the logged user.
 
