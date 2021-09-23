@@ -1,25 +1,26 @@
 = Release notes
-:description: [NOTE]
+:description: This pages describes the main new values, improvements, technical updates and other changes that have been brought to this latest Bonita main version.
 
 [NOTE]
 ====
-The 2021.2 is in beta.
+
+Welcome to our *four Bonita applications*, that beautifully replace our good old Bonita Portal, gone for retirement. +
+You will find more information in to <<New Bonita Applications>>. +
+To know more about Bonita Applications, go to xref:bonita-applications-interface-overview.adoc[this overview page].
+Custom Profiles with a Portal navigation will be automatically convertedto _custom applications_ upon Bonita update. Be extra-careful during the Bonita update procedure.
 ====
 
 == New values added
 
-=== SSO with OpenID Connect
+=== Bonita Studio and Bonita UI Designer
 
-As of Bonita 2021.2, it is possible to xref:single-sign-on-with-oidc.adoc[configure Bonita to use OpenID Connect (OIDC)] as an authentication mechanism to access your Bonita applications and achieve Single Sign-on with an external OIDC provider. +
-The Authorization Code Flow of OpenID Connect is supported to authenticate when accessing Bonita applications as well as the Resource Owner Credentials Grant and Authorization Code Grant of OAuth 2.0 to authenticate when requesting Bonita REST API.
+==== Bonita Studio Project Composition
 
-=== Bonita Studio Project Composition
+Automation projects now use the power Maven projects. You are now able to easily compose your project of extensions (connectors, Rest API extensions, themes, and actor filters). +
 
-Bonita projects will use the power Maven projects. Meaning that you will be able to easily compose your project of extensions (connectors, Rest API extensions, themes, and actor filters).
+All these extensions, which are technical components, have to be built outside the Studio with our SDK. This will allow the developer to use their preferred tooling. It will also help the industrialization of your project as you will be able to implement tests for each extension making your project more robust. +
 
-All these extensions, which are technical components, have to be built outside the Studio with our SDK. This will allow the developer to use their preferred tooling. It will also help the industrialization of your project as you will be able to implement tests for each extension making your project more robust.
-
-As the extensions are developed outside the Studio, they are no longer bound to a specific Bonita project. They can be easily reused in a different project - thus improving your efficiency. xref:project-structure.adoc[More information on how Bonita projects are structured].
+As the extensions are developed outside the Studio, they are no longer bound to a specific Bonita project. They can be easily reused in a different project - thus improving your efficiency. xref:project-structure.adoc[More information on how Bonita projects are structured]. +
 
 The Studio is stripped of its major coding editor (except for the REST API Extensions) but has now a xref:managing-extension-studio.adoc[dedicated view for extensions]. This view is used to get extensions from different sources: 
 
@@ -27,28 +28,35 @@ The Studio is stripped of its major coding editor (except for the REST API Exten
 * From maven repository (private or public)
 * From files (jar or zip)
 
-The Studio is more accessible to citizen developers. Any technical development should be made outside the Studio.
+Bonita Studio becomes more and more accessible to *citizen developers*. Any technical development should be made outside the Studio. +
 
-As connectors are now extensions of a project, their version is now bound to the Studio version, therefore you don’t need to upgrade your Studio to upgrade a connector or to upgrade your connector when upgrading your Studio. This will simplify version upgrades.
+As connectors are now extensions of a project, their version is now bound to Bonita Studio version, therefore you do not need to update Bonita Studio to migrate a connector or to migrate your connector when updating Bonita Studio. This will simplify version updates. +
 
-Finally, your sources will be lighter as the dependencies will be pulled by the project.
+Finally, your sources will be lighter as the dependencies will be pulled by the project. +
 
-=== Organization Editor
+==== Project Overview
 
-The Organization wizard has been reworked into an editor, to improve your experience and your efficiency.
+Understanding all the elements of a Bonita project has never been easier thanks to the *Project Overview*. Accessible from the coolbar, this new page displays all the elements that can be used in a state-of-the-art Bonita project. From this view, you can create, view or edit the different elements. You can also find documentation on the different components. +
 
-=== Project Overview
+==== Studio Organization Editor
 
-Understanding all the elements of a Bonita project has never been easier thanks to the Project Overview. Accessible from the cool bar, this new page displays all the elements that can be used in a state-of-the-art Bonita project. From this view, you can create, consult or edit the different elements. You can also find documentation on the different components.
+In Bonita Studio, the _Organization_ wizard has been reworked into an editor, to improve your experience and your efficiency.
+
+=== Bonita Runtime
+
+==== SSO with OpenID Connect
+
+It is now possible to xref:single-sign-on-with-oidc.adoc[configure Bonita to use OpenID Connect (OIDC)] as an authentication mechanism to access your Bonita applications and achieve Single Sign-on with an external OIDC provider. +
+The Authorization Code Flow of OpenID Connect is supported to authenticate when accessing Bonita applications as well as the Resource Owner Credentials Grant and Authorization Code Grant of OAuth 2.0 to authenticate when requesting Bonita REST API. +
 
 == Improvements
 
-=== Development suite changes
+=== Bonita Studio and Bonita UI Designer
 
 ==== Expression type simplification
-2021.1 introduced a new expression editor. This new expression editor covers the existing editor expression type use cases.
 
-Therefore, to simplify the expression flow in the Studio we are removing the following expression types:
+Bonita 2021.1 introduced a new expression editor. This new expression editor covers the existing editor expression type use cases. +
+Therefore, to simplify the expression flow in Bonita Studio, we are removing the following expression types:
 
 * Constant
 * Comparison
@@ -58,31 +66,35 @@ Therefore, to simplify the expression flow in the Studio we are removing the fol
 * Contract
 * Connector Output
 
-If your project is using these expression types, they will be migrated to the new expression editor when you import your project in the 2021.2 Studio.
+If your project is using these expression types, they will be migrated to the new expression editor when you import your project in Bonita Studio 2021.2.
 
-==== Improvements on the widget switch
-The switch widget feature has been improved to guide the user efficiently to avoid incompatible properties mapping that may lead to inconsistent states of widgets.
+==== "Switch" widget better guidance
+The *Switch widget* feature has been improved to guide the user efficiently to avoid incompatible properties mapping that may lead to inconsistent states of widgets.
 
-==== Tab widget: Possibility to define the selected tab
-It is now possible to define the tab that will be selected by default in the tab group with the new "Selected" field on the tabs.
+==== Tab widget possibility to define the selected tab
+It is now possible to define the tab that will be selected by default in the _tabs group_ with the new "Selected" field on the tabs.
 
 ==== API Variables response Metadata usage
-It is now possible to easily bind the metadata of an API variable response (header, status code, and response value) to other variables
+It is now possible to easily bind the metadata of an API variable response (header, status code, and response value) to other variables.
 
-=== Runtime changes
+=== Bonita Runtime
 
-==== New application-based Portal
+==== New Bonita Applications
 
-In Bonita 2021.2, the Bonita Portal is now removed, meaning that
+Bonita Portal is now removed, meaning that:
 
- - Custom profiles are xref:#_custom_profile_navigation_conversion[converted into Living Applications] with default Bonita layout and Bonita theme
- - If you had customized the Portal, please note that the Look & Feel files are removed too
- - Some elements are not migrated (xref:#_process_manager_profile_navigation[Process Manager profile], Reports page), check the release notes to have the complete list
+* Bonita Mobile Portal has been removed
+* Custom profiles with Portal navigations are xref:#_custom_profile_navigation_conversion[converted into custom Applications] with default Bonita layout and Bonita theme
+* If you had customized Bonita Portal, please note that the Look & Feel files are removed too: you will need to create a theme an apply it to the newly created applications
+* The (xref:#_process_manager_profile_navigation[Process Manager profile] is temporarily discontinued
+* The Analytics page is also temporarilly discontinued
 
+===== Mobile Portal removal
+As Bonita User Application can be used on mobile devices thanks to the responsive Bonita layout, the Mobile Portal is no longer needed.
 
-==== Custom Profile navigation conversion
+===== Custom Profile navigation conversion
 
-Before 2021.2, you had the possibility to create custom profiles and specific navigation, with menus and pages, to customize your Bonita Portal experience. Here is an example:
+Before 2021.2, you had the possibility to create custom profiles with specific Portal navigation, with menus and pages, to customize users' Bonita Portal experience. Here is an example:
 
 .Pre-2021.2 Custom Profile navigation example
 image::images/temp-release-notes-specific/old_profile_navigation.png[Previous Custom Profile Navigation,600]
@@ -92,25 +104,30 @@ that looks like:
 .Pre-2021.2 Custom Profile example
 image::images/temp-release-notes-specific/custom_profile.png[Previous Custom Profile,600]
 
-In Bonita 2021.2, custom profile navigation has been removed, and thus profiles with navigation are automatically converted into Living Applications by the xref:migrate-from-an-earlier-version-of-bonita.adoc[migration tool].
+In Bonita 2021.2, custom profile navigation has been removed, and thus profiles with navigation are automatically converted into custom applications by the xref:migrate-from-an-earlier-version-of-bonita.adoc[migration tool].
 
-Here is the list of applications, with the converted one, when you log in after migration for the first time:
+Here is the list of applications, with the converted one, when you log in the first time after a Bonita update including the 2021.1 to 2021.2 step:
 
-.The previous Custom Profile navigation is now accessible as a Living Application
+.The previous Custom Profile navigation is now accessible as a custom application
 image::images/temp-release-notes-specific/new_app_directory_with_converted_custom_profile.png[Applications list]
 
 Here is what it looks like after conversion:
 
-.Custom Profile navigation converted into a Living Application
+.Custom Profile navigation converted into a custom application
 image::images/temp-release-notes-specific/new_app_converted_from_custom_profile.png[Converted Application]
 
 As with any application, you can now modify its details, URL, change its logo, ...
 
-==== Process Manager profile navigation
-As part of the update of Bonita Portal into Bonita Applications, we have not reimplemented the pages for the profile Process Manager, a new documentation page will explain (*//TODO: write page before GA release*) how to rebuild and customize the Bonita administrator application to handle the process management capabilities.
+===== Process Manager profile navigation
+As part of the update of Bonita Portal into Bonita Applications, we have not reimplemented the pages for the profile Process Manager, a new documentation page will soon explain how to rebuild and customize the Bonita Administrator Application to handle the process management capabilities.
+
+==== Easy upgrade from Community to Subscription
+
+From this release, xref:upgrade-from-community-to-a-subscription-edition.adoc#bonita-platform-upgrade[upgrade from Community to Subscription] is made a lot easier:
+all the tricky configuration part is handled automatically by Bonita Runtime at server startup. +
+See xref:#_configuration_file_changes[the related changes] done to specific configuration files.
 
 ==== Exception reporting
-
 When something goes wrong while executing processes, we now log only the important information. In addition, the root cause of the issue is the first one shown.
 
 Here is a sample of what will now be logged
@@ -127,15 +144,16 @@ Expression : SExpressionImpl [name=aScript, content=1/0, returnType=java.lang.St
 
 A new property `bonita.tenant.work.exceptionsNumberOfFrameToLog` in file `bonita-tenant-community-custom.properties` allows the change the number of frames (=lines) displayed when an exception happens.
 
+==== Logging
+
+Default log level for `com.bonitasoft` and `org.bonitasoft` change from `WARNING` to `INFO`.
 
 ==== Groovy script results casting
 
-Bonita runtime will automatically try to cast the result of groovy scripts when it differs from the declared return type if it can be converted.
+Bonita Runtime will automatically try to cast the result of groovy scripts when it differs from the declared return type if it can be converted. +
+For example, when a script returns a long and you have declared `java.lang.Integer` as the return type of your expression, it was throwing an Invalid return type exception. Now it will cast that result to an integer. +
+That will make the expression more permissive. +
 
-For example, when a script returns a long and you have declared `java.lang.Integer` as the return type of your expression,
-it was throwing an Invalid return type exception. Now it will cast that result to an integer.
-
-That will make the expression more permissive.
 [NOTE]
 ====
 
@@ -143,25 +161,15 @@ Groovy is able to cast any object in boolean so scripts that declare a return ty
 work and return either `true` or `false`. See https://groovy-lang.org/semantics.html#Groovy-Truth[Official Groovy documentation] for truthy/falsy values.
 ====
 
-==== Logging
-
-default log level for `com.bonitasoft` and `org.bonitasoft` change from `WARNING` to `INFO`
-
-==== Easy upgrade from Community to Subscription
-
-From this release, xref:upgrade-from-community-to-a-subscription-edition.adoc#bonita-platform-upgrade[upgrade from Community to Subscription] is made a lot easier:
-all the tricky configuration part is handled automatically by Bonita Runtime at server startup. +
-See xref:#_configuration_file_changes[the related changes] done to specific configuration files.
-
 ==== JAAS authentication is now Enterprise
 
-From version 2021.2, JAAS Authentication is only available in the Enterprise edition. +
-If you are updating from a 2021.1 or earlier version, in the Community edition, you will need to xref:bonita-bpm-platform-setup.adoc[change your configuration] file `authenticationManager-config.properties`
-and remove the JAAS configuration to use another Authentication Manager (an implementation of your own, for instance).
+JAAS Authentication is now only available in the Enterprise edition. +
+In the Community edition, if you are updating from Bonita 2021.1 or an earlier version, you will need to xref:bonita-bpm-platform-setup.adoc[change your configuration] file `authenticationManager-config.properties` and remove the JAAS configuration to use another Authentication Manager (an implementation of your own, for instance).
 
 ==== LDAP Synchronizer
-* LDAP Synchronizer is now available as a Docker image. xref:ldap-synchronizer.adoc#_using_the_ldap_synchronizer_docker_image[See the documentation]
-* A new property `tenantId` can be set to avoid having to use the platform admin credentials. xref:ldap-synchronizer.adoc#_bonita_properties[See the documentation]
+
+* LDAP Synchronizer is now available as a Docker image. xref:ldap-synchronizer.adoc#_using_the_ldap_synchronizer_docker_image[See the documentation].
+* A new property `tenantId` can be set to avoid having to use the Platform Admin credentials. xref:ldap-synchronizer.adoc#_bonita_properties[See the documentation].
 
 == Technical updates
 
@@ -173,22 +181,17 @@ Bonita 2021.2 is now only compatible with Java 11. Support with Java 8 has now b
 
 Tomcat has been updated to version 9.0.52.
 
-=== Libraries
-
-=== Support Matrix
-
 === Configuration file changes
 
-* Unused configuration file `forms-config.properties` has been removed.
-* Optional configuration file `jaas-standard.cfg` has been removed from Tomcat Community bundle (because xref:_jaas_authentication_is_now_enterprise[JAAS is now Enterprise])
-* CAS and Kerberos configuration files have been moved to folder `tools/SSO/` (Bonita Enterprise only)
-
+* The unused configuration file `forms-config.properties` has been removed.
+* The optional configuration file `jaas-standard.cfg` has been removed from Tomcat Community bundle (because xref:_jaas_authentication_is_now_enterprise[JAAS is now Enterprise]).
+* CAS and Kerberos configuration files have been moved to folder `tools/SSO/` (Bonita Enterprise only).
 
 == Feature deprecations and removals
 
 === Deprecations
 
-==== API - Deprecations
+==== API
 
  - In the TenantAdministrationAPI, the installBusinessDataModel method is now deprecated, as the new method updateBusinessDataModel replaces it for all use cases.
  - The ReportingAPI is now deprecated.
@@ -212,14 +215,14 @@ Bonita Tomcat bundle 2021.2 does not include anymore the following example pages
 - Groovy example page
 - HTML example page
 
-If you migrate from an earlier version of Bonita, you can now delete them if you don't use them (previously, they could not be deleted).
+If you migrate from an earlier version of Bonita, you can now delete them if you do not use them (previously, they could not be deleted).
 
 
 == Bug fixes
 
 === Fixes in Bonita 2021.2
 
-==== Fixes in Bonita Development Suite (Studio and UI Designer)
+==== Fixes in Studio and UI Designer
 
 * UID-459 - BO variable cannot be edited in fragment after workspace import from previous version and error message is wrong
 
