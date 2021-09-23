@@ -5,7 +5,7 @@
 
 == Value
 
-The Bonita Administrator Application allows anyone with the _Administrator_ profile to manage the use of Bonita throughout a department or a company. +
+Bonita Administrator Application allows anyone with the _Administrator_ profile to manage the use of Bonita throughout a department or a company. +
 It allows to monitor process execution, troubleshoot and fix errors, manually install and update processes, organization, BDM access rights, resources, and applications, and access information about the license and subscription. +
 Most of these pages are common with the Bonita Super Administrator Application, because they allow to manage the content of the automation project on Bonita Runtime. +
 Only the monitoring and management of processes is special to the Administrator Application.
