@@ -61,5 +61,5 @@ xref:organization-overview.adoc[[.card-title]#Organization creation# [.card-body
 
 [.card.card-index]
 --
-xref:custom-applications.adoc[[.card-title]#Applications creation# [.card-body.card-content-overflow]#pass:q[Create your own applications]#]
+xref:custom-applications-index.adoc[[.card-title]#Applications creation# [.card-body.card-content-overflow]#pass:q[Create your own applications]#]
 --
