@@ -91,7 +91,7 @@ Saving in the UI Designer makes the new page available in Bonita Studio.
    At deployment time, since these external resources are not part of the project, make sure you also deploy them.
 . In Bonita Studio, go to the "Project Explorer" on the left and double click on the "bonita-admin-application.xml" application descriptor for Community, or "bonita-admin-application-sp.xml" for Enterprise.
 . In the editor, change the order in the menu, remove the pages you do not need, add other Bonita provided pages, and/or add yours, either in the menu or as orphan pages. +
-  Orphan pages are not visible in the menu, but accessed through the navigation from another page, like a case details page is accessed through a case list.
+  Orphan pages are not visible in the menu, but can be accessed through the navigation from another page, like a case details page is accessed through a case list.
 
 [CAUTION]
 ====
