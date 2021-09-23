@@ -28,7 +28,7 @@ To access the application:
 
 . In the Application Directory, select _Bonita User Application_
 
-  You are now logged in the Bonita User Application.
+You are now logged in the Bonita User Application.
 
 To access its content: 
 
