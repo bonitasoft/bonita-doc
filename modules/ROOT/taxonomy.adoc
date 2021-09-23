@@ -181,21 +181,19 @@
   *** xref:queriable-logging.adoc[Queriable logger]
 * Identity Management
  ** Authorization
-  *** Organization
-   **** xref:organization-overview.adoc[Overview]
+  *** xref:organization-overview.adoc[Organization]
    **** xref:approaches-to-managing-organizations-and-actor-mapping.adoc[Approaches to managing organizations and actor mapping]
    **** xref:organization-management-in-bonita-bpm-studio.adoc[Organization management in Bonita Studio]
    **** xref:custom-user-information-in-bonita-bpm-studio.adoc[Custom User Information in Bonita Studio]
-  *** Profiles
-   **** xref:profiles-overview.adoc[Overview]
+  *** xref:profiles-overview.adoc[Profiles]
    **** xref:profile-creation.adoc[Profile editor]
   *** xref:rest-api-authorization.adoc[REST API authorization]
   *** xref:custom-authorization-rule-mapping.adoc[Authorization rules]
   *** xref:bdm-access-control.adoc[BDM access control]
  ** Authentication
-  *** xref:user-authentication-overview.adoc[User authentication overview]
+  *** xref:user-authentication-overview.adoc[Overview]
   *** xref:active-directory-or-ldap-authentication.adoc[Active Directory or LDAP authentication]
-   **** xref:ldap-synchronizer.adoc[LDAP synchronizer]
+  *** xref:ldap-synchronizer.adoc[LDAP synchronizer]
   *** SSO
    **** xref:single-sign-on-with-cas.adoc[CAS]
     ***** xref:log-in-with-cas.adoc[Log in with CAS]
@@ -215,16 +213,15 @@
   *** xref:tomcat-bundle.adoc[Tomcat bundle]
    **** xref:convert-wildfly-into-tomcat.adoc[Convert a WildFly into a Tomcat installation]
   *** xref:bonita-docker-installation.adoc[Bonita docker installation]
-  *** Bonita in a cluster
-   **** xref:overview-of-bonita-bpm-in-a-cluster.adoc[Overview of Bonita in a cluster]
+  *** xref:overview-of-bonita-bpm-in-a-cluster.adoc[Bonita in a cluster]
    **** xref:install-a-bonita-bpm-cluster.adoc[Install a Bonita cluster]
   *** xref:custom-deployment.adoc[Custom Tomcat installation]
   *** Platform installation examples
    **** xref:ubuntu-openjdk-tomcat-postgresql.adoc[Ubuntu + OpenJDK + Tomcat + PostgreSQL]
    **** xref:bonita-as-windows-service.adoc[Install Tomcat with Bonita as a service in Windows]
   *** xref:embed-engine.adoc[Embed engine - Lab]
- ** Configuration
-  *** xref:bonita-platform-setup.adoc[Setup tool]
+ ** xref:runtime-configuration-index.adoc[Configuration]
+  *** xref:bonita-bpm-platform-setup.adoc[Setup tool]
   *** xref:database-configuration.adoc[Database configuration]
   *** xref:first-steps-after-setup.adoc[First steps after setup]
   *** xref:licenses.adoc[Licenses]
@@ -234,8 +231,7 @@
  ** Administration
   *** xref:admin-application-overview.adoc[Administration Applications]
    **** xref:pause-and-resume-bpm-services.adoc[Put Runtime in maintenance mode]
-   **** Organization
-    ***** xref:organization-in-bonita-applications-overview.adoc[Organization Management]
+   **** xref:organization-in-bonita-applications-overview.adoc[Organization Management]
     ***** xref:import-export-an-organization.adoc[Install/export an organization]
     ***** xref:admin-application-groups-list.adoc[Manage groups]
     ***** xref:admin-application-roles-list.adoc[Manage roles]
