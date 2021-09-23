@@ -294,7 +294,7 @@ Install the new license:
  ./setup.sh push
 ----
 
-25. Start the application server. Before you start Bonita Portal (before Bonita 2021.2) and/or Bonita Applications, clear your browser cache. If you do not clear the cache, you might see old, cached versions of Portal or Applications pages instead of the new versions.
+25. Start the application server. Before you start Bonita Portal (before Bonita 2021.2) and Bonita Applications (from Bonita 2021.2), clear your browser cache. If you do not clear the cache, you might see old, cached versions of Portal or Applications pages instead of the new versions.
 26. Log in to Bonita UIs and verify that the updating procedure has completed.
 27. *If the target version is Bonita 7.7 or greater* and if you used Bonita Migration Tool 2.41.1 or greater, the table `arch_contract_data` is automatically backed up to the table `arch_contract_data_backup` to avoid long lasting migration.
  To reintegrate the data into your installation, a new tool is provided in Bonita Migration Tool 2.46.0 and above. It is located in the `tools/live-migration` folder. Follow instruction in the README.md to run this tool and re-integrate data from `arch_contract_data_backup`.
