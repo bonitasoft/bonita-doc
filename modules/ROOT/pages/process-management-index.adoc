@@ -24,7 +24,7 @@ xref:import-and-export-a-process.adoc[[.card-title]#Install and export a process
 
 [.card.card-index]
 --
-xref:cases.adoc[[.card-title]#Case list# [.card-body.card-content-overflow]#pass:q[Follow up case execution and access case execution details]#]
+xref:cases.adoc[[.card-title]#Case list# [.card-body.card-content-overflow]#pass:q[Follow up cases execution and access case execution details]#]
 --
 
 [.card.card-index]
