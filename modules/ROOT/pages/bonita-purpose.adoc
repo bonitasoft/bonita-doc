@@ -43,4 +43,3 @@ This is where business analysts need to take one step aside and look at the over
 
 == Industry verticals
 Digital Process Automation (DPA), the core of Bonita Platform, is applicable to a wide range of use cases: from loan request management, to student application processes, to analytical processes in drug discovery - and more! You can find the various industries where Bonita is used as well as use cases from our https://www.bonitasoft.com/industries[website dedicated page].
-

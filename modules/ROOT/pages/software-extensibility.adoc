@@ -1,7 +1,7 @@
 = Platform extensibility
 :description: Learn how Bonita Platform can be extended to suit your needs.
 
-Learn how Bonita Platform can be extended to suit your needs.
+{description}
 
 Bonita provides a rich set of features by default. These features are designed to meet the needs of most of your projects.
 However, if a project has a need that was not anticipated and cannot be met by the default features, Bonita has been designed to be extensible.
@@ -57,10 +57,10 @@ Custom REST API extensions developed with the Maven archetype are added to a Bon
 
 In Community, Teamwork, Efficiency, Performance and Enterprise editions
 
-A xref:pages.adoc[custom page] is a page that you can add into Bonita Portal to form part of an application, customize information provided in default portal pages, or to add new features to the portal.
+A xref:pages.adoc[custom page] is a page that you can add into Bonita Administrator Application to form part of an application or to customize information provided in default Application pages.
 To implement a page, you need to provide HTML, CSS and Javascript resources respecting some packaging constraints.
 You can create a page using the xref:ui-designer-overview.adoc[UI designer], which automatically creates a well-formed page.
-Note that although the page framework provided in the product is stable, we cannot guarantee that all custom pages will work with future versions, because this depends on the details of how the page is implemented.
+Note that although the page framework provided in the product is stable, we cannot guarantee that all custom pages will work with future versions, because this depends on how the page was implemented.
 
 === Custom widgets
 
@@ -98,28 +98,18 @@ In Teamwork, Efficiency, Performance and Enterprise editions
 An event handler is an extension to the engine that is configured to run when a specified event occurs. An event is a change to any object in the database.
 To xref:event-handlers.adoc[implement an event handler], you need to provide a Java class respecting the Handler interface.
 
-=== Portal look & feel
+=== Bonita Runtime languages
 
-In Teamwork, Efficiency, Performance and Enterprise editions
-
-The Bonita Portal Look & Feel gives the ability to customize the appearance of the portal Web interface. As a Portal Administrator, you can import a new Look & Feel (.zip archive).
-To xref:creating-a-new-look-feel.adoc[create a new Look & Feel], provide CSS and resources files.
-
-=== Portal language pack
-
-Bonita Portal comes with a number of language packs by default. You can also xref:languages.adoc[add languages].
-It is also possible to use this same mechanism to customize the portal terminology to your business environment. For example, an e-commerce business could change _Cases_ to _Orders_.
+Bonita Runtime comes with a number of language packs by default. You can also xref:languages.adoc[add languages].
+It is also possible to use this same mechanism to customize the Application terminology to suit your business environment. For example, an e-commerce business could change _Cases_ to _Orders_.
 
 == Unstable extension points
 
-The following elements may be used as extension points but there is no guarantee of stability across versions. No changes are planned, but we reserve the right to change make incompatible changes in any future version.
+The following elements may be used as extension points but there is no guarantee of stability across versions. No changes are planned, but we do reserve the right to make any necessary changes in the product even if there is a risk of incompatibility with custom code.
 
-* *Portal URLs and Forms URLs*. Some customer projects have used hard-coded or forged URLs to access specific pages of Bonita Portal or forms, to fit in with specific technology or navigation constraints.
+* *Bonita Application URLs and Forms URLs*. Some customer projects have used hard-coded or forged URLs to access specific pages of Bonita Applications or forms, to fit in with specific technology or navigation constraints.
 While such URLs have so far been quite stable, there is no guarantee that they will not change across Bonita versions.
 Recommendation: if your project relies on such URLs, make URL generation configurable so that you can easily change it if required after a Bonita upgrade.
-* *Forms HTML templates*. It is possible to modify the HTML page template, HTML process template, or HTML portal template to customize the appearance and behavior of forms.
-There is no guarantee that these templates will not change across Bonita versions.
-If a form uses some Javascript code based on an element in the HTML Document Object Model, the element may be moved, modified or removed in a future version so the Javascript will no longer work.
 * *Authorization Rule Mapping*. It is possible to modify authorization rules mapping applied to start a process, display process overview or execute a task.
 You can customize this mapping by defining your own bean and override property. See xref:custom-authorization-rule-mapping.adoc[Authorization Rule Mapping]
 
@@ -146,7 +136,6 @@ In Bonita 7.x, we ensure backward compatibility of the following:
 
 We cannot ensure backward compatibility for the following:
 
-* Portal Look & Feel definition structure
 * Custom Pages definition structure
 * Custom data types definition structure
 * URLs

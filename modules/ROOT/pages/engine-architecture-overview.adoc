@@ -1,7 +1,7 @@
 = Bonita Engine architecture
 :description: Discover Bonita Engine architecture, its APIs, main services, and how they are packaged.
 
-Discover Bonita Engine architecture, its APIs, main services, and how they are packaged.
+{description}
 
 == Overview
 
@@ -9,12 +9,12 @@ The Bonita Engine is the runtime processor at the core of Bonita.  It executes p
 
 image::images/images-6_0/dev_arch_engine_architecture_simple.png[engine architecture diagram]
 
-The Bonita Engine component services are completely configurable using the xref:bonita-bpm-platform-setup.adoc[plaform setup tool] to retrieve the current configuration and update it.
+The Bonita Engine component services are completely configurable using the xref:bonita-platform-setup.adoc[plaform setup tool] to retrieve the current configuration and update it.
 
 Services are provided to the Engine using a ServiceAccessor. By default, this uses Spring to bind services and to retrieve service instances.
 The Spring configuration files are present in the classpath but beans can be added or overridden using configuration files stored in database under the *CONFIGURATION*  table.
 These files are all suffixed with -custom.xml and contain Spring bean declaration examples.
-These files can be retrieved and updated using the xref:bonita-bpm-platform-setup.adoc[platform setup tool].
+These files can be retrieved and updated using the xref:bonita-platform-setup.adoc[platform setup tool].
 
 Folder  `setup/platform_conf/[initial|current]/tenant_template_engine` contains tenant-level template configuration files used when creating a new tenant (Subscription edition):
 
@@ -57,9 +57,6 @@ https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Javadoc].
 | Document API
 | Manages documents that are attached to a process instance.
 
-| Theme API
-| Manages the Look & Feel of the Bonita Portal web and mobile interfaces and forms.
-
 | Tenant Management API
 | Used to pause service in a tenant for maintenance, to resume service, and to check whether a tenant is paused. Available in Teamwork, Efficiency, Performance and Enterprise editions.
 |===
@@ -91,7 +88,7 @@ BPM services are related to BPM activities.
 |  |
 
 | Description:
-| Manage categories of processes. A category is a way to classify processes. Categories are handled manually by administrators in Bonita Portal and are visible to portal users.
+| Manage categories of processes. A category is a way to classify processes. Categories are handled manually by administrators in the Bonita Administrator Application and are visible to all users.
 
 | Used by:
 | Command service
@@ -685,10 +682,10 @@ Generic services  perform actions that are not related to BPM but are required f
 |  |
 
 | Description:
-| Handle profiles. A profile is an entity with a name, description, and icon path that is associated with a user, group, role, or membership. A profile entity is used by Bonita Portal to determine a user's profile (user, process manager, or administrator).
+| Handle profiles. A profile is an entity with a name, description, and icon path that is associated with a user, group, role, or membership. A profile entity is used to determine a user's profile (user, process manager, or administrator).
 
 | Used by:
-| API, used by Bonita Portal to modify user profiles.
+| API, used by Bonita Applications to modify user profiles.
 
 | Implementation:
 | org.bonitasoft.engine.profile.impl.ProfileServiceImpl
@@ -770,21 +767,6 @@ Generic services  perform actions that are not related to BPM but are required f
 
 | Implementation:
 | org.bonitasoft.engine.platform.session.impl.PlatformSessionServiceImpl
-|===
-
-=== Theme
-
-|===
-|  |
-
-| Description:
-| Handle storage, retrieval, and update of portal themes.
-
-| Used by:
-| API.
-
-| Implementation:
-| org.bonitasoft.engine.theme.impl.ThemeServiceImpl
 |===
 
 === Transaction

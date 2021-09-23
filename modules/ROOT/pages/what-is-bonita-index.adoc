@@ -1,4 +1,5 @@
 = What is Bonita?
+
 :description: Bonita is an open-source and extensible platform for business process automation and optimization.
 
 {description}
@@ -37,11 +38,11 @@ xref:bonita-purpose.adoc[[.card-title]#Bonita's purpose# [.card-body.card-conten
 
 [.card.card-index]
 --
-xref:project-structure.adoc[[.card-title]#Bonita project structure# [.card-body.card-content-overflow]#pass:q[Good to know to be fluent in Bonita]#]
+xref:bonita-bpm-overview.adoc[[.card-title]#Bonita components# [.card-body.card-content-overflow]#pass:q[Get under the hood, at high level]#]
 --
 
 [.card.card-index]
 --
-xref:bonita-bpm-overview.adoc[[.card-title]#Bonita components# [.card-body.card-content-overflow]#pass:q[Get under the hood, at high level]#]
+xref:project-structure.adoc[[.card-title]#Bonita project structure# [.card-body.card-content-overflow]#pass:q[Good to know to be fluent in Bonita]#]
 --
 

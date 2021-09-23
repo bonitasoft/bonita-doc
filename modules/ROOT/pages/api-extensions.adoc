@@ -1,8 +1,7 @@
 = REST API Extensions
 :description: This page describes how to deploy a REST API extension manually, which is possible with all editions.
 
-This page describes how to deploy a REST API extension manually, which is possible with all editions.
-
+{description} +
 A REST API extension allows to extend REST Resources using Bonita, to get or send information in a page or a form.
 
 To learn more on how to create REST API Extensions, refer to the xref:rest-api-extensions.adoc[tooling for creating and testing REST API Extensions] page (Enterprise, Performance, Efficiency, and Teamwork editions).
@@ -22,7 +21,7 @@ It is also possible to deploy a REST API Extensions using xref:portal-api.adoc#p
 [NOTE]
 ====
 
-The deployment of the REST API Extensions should always be made from Bonita Portal or its APIs, not directly from Engine APIs. Notably, the createPage() method of the Engine PageAPI would allow you to deploy a REST API Extensions, but would not update the security settings, meaning that you would not be able to access it at runtime.
+The deployment of the REST API Extensions should always be made from Bonita Administrator Application or its APIs, not directly from Engine APIs. Notably, the createPage() method of the Engine PageAPI would allow you to deploy a REST API Extensions, but would not update the security settings, meaning that you would not be able to access it at runtime.
 ====
 
 [WARNING]
@@ -34,7 +33,7 @@ If you are running Bonita in a cluster, after you import a REST API Extensions, 
 [WARNING]
 ====
 
-As the deployment of the REST API Extensions automatically creates the appropriate resource permission mapping, be careful not to xref:bonita-bpm-platform-setup.adoc#update_platform_conf[push a configuration] that does not contain the latest permissions updates. This would overwrite the deployed configuration. To avoid doing so, pull the latest configuration, edit the needed elements and push it back to the Bonita runtime in a pretty short amount of time.
+As the deployment of the REST API Extensions automatically creates the appropriate resource permission mapping, be careful not to xref:bonita-platform-setup.adoc#update_platform_conf[push a configuration] that does not contain the latest permissions updates. This would overwrite the deployed configuration. To avoid doing so, pull the latest configuration, edit the needed elements and push it back to the Bonita runtime in a pretty short amount of time.
 ====
 
 [#usage]
@@ -54,26 +53,21 @@ In order to do so, edit `custom-permissions-mapping.properties` to give the perm
 [NOTE]
 ====
 
-REST API permissions are stored in the user's session and new permissions will only be effective for a user the next time they log into Bonita Portal.
+REST API permissions are stored in the user's session and new permissions will only be effective for a user the next time they log into the Bonita Runtime.
 ====
 
 == Live update
 In Bonita Studio, the debug mode is disabled by default. In debug mode, you can see changes on your REST API Extensions without importing a new zip archive, but it means the classloader of the extension is recreated at each request. +
 If you want to enable the debug mode, you can activate it in the Studio server preferences.
 
-== REST API Extensions examples
-
-A REST API Extensions example resource and API extension viewer page are provided in administrator portal. They are located in administrator portal.
-
-To use the examples, define a xref:rest-api-authorization.adoc#custom-permissions-mapping[custom permissions] mapping for `demoPermission`:
-
 xref:live-update.adoc[Live update] allows the Administrator to update one element of the application in a situation of emergency.
 
 === Edit the REST API extension
-* Retrieve platform configuration using the xref:bonita-bpm-platform-setup.adoc#update_platform_conf[setup tool].
+* Retrieve platform configuration using the xref:bonita-platform-setup.adoc#update_platform_conf[setup tool].
 * Edit `platform_conf/current/tenants/<TENANT_ID>/tenant_portal/custom-permissions-mapping.properties`.
-* Add the following line: `profile|User=[demoPermission]`.
+* Add a permission for the REST API: `profile|User=[examplePermission]`.
 * Push the changed platform configuration into database using the _setup tool_.
 * Restart Tomcat bundle
 
-You can xref:resource-management.adoc]#modify[edit the content of a REST API extension] by installing a new version.
+You can xref:resource-management.adoc#modify[edit the content of a REST API extension] by installing a new version.
+The url mappings in the `page.properties` in the new version should have the `examplePermission`.

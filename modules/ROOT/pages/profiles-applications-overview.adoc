@@ -1,0 +1,60 @@
+= Profiles overview in Bonita User Interfaces
+:page-aliases: profiles-portal-overview.adoc
+:description: This page explains what a profile is in the Bonita Administrator Application.
+
+{description}
+
+== Definition
+
+A profile is an indirection to some entities of the organization: users, groups, roles, and/or memberships.
+Profiles work as permissions to give access to:
+
+* xref:applications.adoc[Living Applications]
+* Defined objects and attributes of the BDM (through xref:access-control-api.adoc[BDM Access Control])
+* xref:rest-api-authorization.adoc[REST API extension permissions]
+
+One organization entity can be mapped to several profiles. In Bonita Applications, a logged-in user can switch between his/her profiles in the navigation bar.
+
+In development, the creation and edition of profiles is done through the xref:profileCreation.adoc[profile editor] in Bonita Studio. +
+In non-production and production, an Administrator can use the _Organization_>__Profiles__ menu of Bonita Administrator Application.
+
+[NOTE]
+====
+
+Changing the mapping of a profile on a non-production or production Runtime may lead to inconsistencies when updating the project or deploying it on another server. +
+It should only be done to recover from an error temporarily. We strongly encourage you to report all changes in the sources profiles files of the project.
+====
+
+== Default profiles
+
+=== User
+
+By default, it gives access to the Bonita User Application.
+
+=== Administrator
+
+By default, its gives access to Bonita Administrator Application. It includes:
+
+* xref:_process-maintenance.adoc[Process Management]
+* xref:organization-in-bonita-applications-overview.adoc[Organization Management]
+* xref:bdm-management-in-bonita-applications.adoc[Business Data Model Management]
+* xref:applications.adoc[Applications Management]
+* xref:license-info.adoc[License Information] (Enterprise, Performance, Efficiency, and Teamwork editions only)
+  This profile is also mapped to the xref:admin-application-overview.adoc[Bonita Administrator Application], bringing about the same value but with more customization options.
+
+=== Process manager
+
+This profile is available for Subscription editions only.
+Someone mapped to the _Process manager_ profile has limited administration rights for activities related to the processes they manage. It includes:
+
+* xref:monitoring.adoc[Process monitoring]
+* xref:admin-application-process-list.adoc[Process list], but they cannot install a process
+* xref:cases.adoc[Case list]
+* xref:admin-application-task-list.adoc[Task list]
+
+[NOTE]
+====
+
+In Bonita ACME organization, all users have the role *Member*, and the role *Member* is mapped to all default profiles. +
+This simplifies process testing (log in as any user to see Bonita User and Administrator Application).
+====

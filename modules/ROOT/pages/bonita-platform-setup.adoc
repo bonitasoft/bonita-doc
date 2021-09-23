@@ -1,12 +1,13 @@
-= Platform configuration setup tool
-:description: This page explains how to use the Platform setup tool to configure the Bonita platform (properties, permissions, license install...).
+= Bonita Runtime setup tool
+:page-aliases: bonita-bpm-platform-setup.adoc
+:description: This page explains how to use the setup tool to configure Bonita Runtime (properties, permissions, license install...).
 
-This page explains how to use the Platform setup tool to configure the Bonita platform (properties, permissions, license install...).
+{description}
 
 [NOTE]
 ====
 
-First thing to know is that for all basic installation and start scenarios, you don't need to use the setup tool.
+First thing to know is that for all basic installation and start scenarios, you do not need to use the setup tool.
 We made it easy for you by creating `start-bonita.bat`(for Windows) or `start-bonita.sh` (for Unix), a script that initializes, configures and starts the bundle, using the Platform setup tool.
 ====
 
@@ -129,7 +130,7 @@ Keep in mind that the folder *`platform_conf/initial`* is not used anymore once 
 
 == Pre-requisites
 
-Before running it, make sure the setup tool is configured to point to the database of the Bonita Platform.
+Before running it, make sure the setup tool is configured to point to the database of the Bonita stack.
 
 [NOTE]
 ====

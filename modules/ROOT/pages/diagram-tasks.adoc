@@ -1,7 +1,7 @@
 = Tasks
 :description: You can create tasks to define the process. These tasks can be performed by human or services.
 
-You can create tasks to define the process. These tasks can be performed by human or services.
+{description}
 
 == Definition
 
@@ -26,20 +26,20 @@ The items configured for a task depend on the task type, as shown in the followi
 | Details panel, General tab, General pane
 | All
 
-| displayName,Task name in Portal
-| Details panel, General tab, Portal pane
+| Task name in the Bonita Applications
+| Details panel, General tab, Display in apps pane
 | All
 
 | Task description in Studio
 | Details panel, General tab, General pane
 | All
 
-| displayName,Task description in Portal
-| Details panel, General tab, Portal pane
+| Task description in the Bonita Applications
+| Details panel, General tab, Display in apps pane
 | All
 
-| displayName,Task description after completion in Portal
-| Details panel, General tab, Portal pane
+| Task description after completion in the Bonita Applications
+| Details panel, General tab, Display in apps pane
 | All
 
 | Task type
@@ -47,7 +47,7 @@ The items configured for a task depend on the task type, as shown in the followi
 | All
 
 | Priority
-| Details panel, General tab, Portal pane
+| Details panel, General tab, General pane
 | Human, abstract, call activity, service, script
 
 | Estimated duration
@@ -111,9 +111,9 @@ To create a new task, select the relevant icon from the *BPMN elements* menu or 
 menu of the preceding element in the diagram, and drop it on the whiteboard. You can change the task type
 of an task in the diagram.
 
-== Setting a unique task name in the Portal
+== Setting a unique task name in the Bonita Applications
 
-When you define a task in Bonita Studio, by default the task name and description in Bonita Portal are the same as the task name and description on the diagram.
+When you define a task in Bonita Studio, by default the task name and description in Bonita Applications are the same as the task name and description on the diagram.
 
 Within a process instance (case), this task name must be contextualized with business information specific to the case so that, in the user task list, users efficiently pick the right task to do.
 You can leverage Bonita Studio to optimize user comfort and efficiency by inserting case information in task name and task description.
@@ -243,7 +243,7 @@ As a good practice, we advise to display static information that defines the tas
 To configure the display options:
 
 . Select the *Validate request* task
-. Go to *General* pane > *Portal* tab.
+. Go to *General* pane > *Display in apps* tab.
 
 ==== Display name
 

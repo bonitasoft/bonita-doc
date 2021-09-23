@@ -43,7 +43,7 @@ or `uid` on other LDAP servers, value: `john.smith`)
 
 This section explains how to put together all the LDAP server information you have to create or edit a JAAS configuration file compatible with your JEE application server.
 
-==== Login context name
+=== Login context name
 
 The JAAS configuration can include one or several login contexts. The Bonita login context must be named `BonitaAuthentication-<TENANT_ID>` (where `<TENANT_ID>` is your tenant id).
 
@@ -112,24 +112,24 @@ We recommend that you name your JAAS configuration file `jaas.cfg` and that you 
 
 == Configuration steps
 
-==== Changing Bonita authentication service
+=== Changing Bonita authentication service
 
 The default Bonita installation comes with an authentication service implementation based on the Bonita Engine database. In
-order to activate Active Directory/LDAP authentication the service implementation needs to be changed. To do this, edit xref:bonita-bpm-platform-setup.adoc[`bonita-tenant-sp-custom.properties`].
+order to activate Active Directory/LDAP authentication the service implementation needs to be changed. To do this, edit xref:bonita-platform-setup.adoc[`bonita-tenant-sp-custom.properties`].
 
 You will need to perform following changes:
 
 * Comment out the `authenticationService` line
 * Add this new line: `authentication.service.ref.name=jaasAuthenticationService`
 
-==== Configure JAAS
+=== Configure JAAS
 
 To define the JAAS configuration file location you need to set a JVM property, `java.security.auth.login.config`.
 If you're using a xref:custom-deployment.adoc[`custom deployment into existing Tomcat`] installation, you need to edit the `setenv` script provided with Bonita and located in `<BUNDLE_HOME>/server/bin` folder.
 If you're using the xref:tomcat-bundle.adoc[`tomcat bundle`] installation, you need to edit the `setenv` script provided with Bonita and located in `<BUNDLE_HOME>/setup/tomcat-templates` folder.
 
 [discrete]
-===== For Linux and Mac OS
+==== For Linux and Mac OS
 
 * Edit this file: `<BUNDLE_HOME>/setup/tomcat-templates/setenv.sh`
 * Locate the line that starts: `#SECURITY_OPTS`
@@ -138,7 +138,7 @@ If you're using the xref:tomcat-bundle.adoc[`tomcat bundle`] installation, you n
 * Add the tag `+${SECURITY_OPTS}+` after the tag `+${PLATFORM_SETUP}+`
 * Push into database the changes: `./setup.sh push`
 
-===== For Windows
+==== For Windows
 
 * Edit this file: `<BUNDLE_HOME>/setup/tomcat-templates/setenv.bat`
 * Locate the line that starts: `rem set SECURITY_OPTS`
@@ -148,14 +148,14 @@ If you're using the xref:tomcat-bundle.adoc[`tomcat bundle`] installation, you n
 * Push into database the changes: `.\setup.bat push`
 
 [discrete]
-==== Configure SSL (optional)
+=== Configure SSL (optional)
 
 It's possible to allow authentication to ldap over SSL (ldaps).
 First of all in the `<BUNDLE_HOME>/server/conf/jaas.cfg` file you should use ldaps FQDN and port, and set `useSSL` to true.
 Then the following operations are required:
 
 [discrete]
-===== Create the keystore
+==== Create the keystore
 
 You should have a certificate from the ldaps server (i.e. certificate.pem).
 
@@ -171,7 +171,7 @@ keytool -importcert  -alias yourAlisaName -file certificate.pem -keystore certif
 * Answer to the questions and at the end verify that the truststore (i.e. certificateStore.jks) has been created correctly
 
 [discrete]
-===== Share the truststore with Tomcat
+==== Share the truststore with Tomcat
 
 * Edit this file: `<BUNDLE_HOME>/setup/tomcat-templates/setenv.sh` (Linux) or `<BUNDLE_HOME>/setup/tomcat-templates/setenv.bat` (Windows)
 * Add the following line after the one that starts with set `SECURITY_OPTS`:
@@ -194,9 +194,9 @@ NOTE: Remember to remove the debug flag for production.
 
 NOTE: These examples use the JAAS standard syntax (as used by Tomcat).
 
-==== Active Directory
+=== Active Directory
 
-===== Search allowed for all users
+==== Search allowed for all users
 
 In this example, the user name is john.smith:
 
@@ -224,7 +224,7 @@ BonitaAuthentication-1 {
 };
 ----
 
-===== Search allowed only for a technical users
+==== Search allowed only for a technical users
 
 In this example, the user name is john.smith:
 
@@ -241,7 +241,7 @@ BonitaAuthentication-1 {
 };
 ----
 
-==== Other LDAP servers
+=== Other LDAP servers
 
 .Build the user DN using the user name
 ----

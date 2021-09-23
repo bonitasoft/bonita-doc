@@ -1,7 +1,8 @@
-= Database creation and configuration for Bonita engine and BDM
-:description: This page describes the steps to create and customize the databases for Bonita Engine and Business Data Model in the Platform installation.
+= Database configuration
 
-This page describes the steps to create and customize the databases for Bonita Engine and Business Data Model in the Platform installation.
+:description: This page describes the steps to create and customize the databases for Bonita Engine and Business Data Model during Runtime configuration.
+
+{description}
 
 == Database usage
 
@@ -78,7 +79,7 @@ To create the database(s), we recommend that you refer to your RDBMS documentati
 
 [#utf8_requirement]
 Your database(s) must be configured to use the UTF-8 character set.
-Also, you are recommended to configure the database(s) to be case-insensitive so that searches in Bonita Portal, Bonita REST API and Bonita Engine API are case-insensitive.
+Also, you are recommended to configure the database(s) to be case-insensitive so that searches in Bonita Applications, Bonita REST API and Bonita Engine API are case-insensitive.
 
 [#specific_database_configuration]
 

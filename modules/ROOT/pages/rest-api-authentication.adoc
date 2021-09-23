@@ -1,7 +1,7 @@
 = REST API authentication
 :description: To call the REST API, you must first log on with a user registered in the Engine database.
 
-To call the REST API, you must first log on with a user registered in the Engine database.
+{description}
 
 == Login to Bonita
 
@@ -22,14 +22,24 @@ To log in, use the following request:
 | Form Data
 | username: a username +
 password: a password +
-redirect: `true` or `false`. `false` is the default value if the redirect parameter is not specified. It indicates that the service should not redirect to Bonita Portal (after a successful login) or to the login page (after a login failure). +
-redirectUrl: the URL of the page to be displayed after a succesful login. If it is specified, then the a redirection after the login will be performed even if the redircet parameter is not present in the request. +
+redirect: `true` or `false`. `false` is the default value if the redirect parameter is not specified. It indicates that the service should not redirect to Bonita Applications (after a successful login) or to the login page (after a login failure). +
+redirectUrl: the URL of the page to be displayed after a succesful login. If it is specified, then the a redirection after the login will be performed even if the redirect parameter is not present in the request. +
 tenant: the tenant to log in to (optional for Performance edition, not supported for Community, Teamwork and Efficiency editions)
 |===
 
 The response to this call generates cookies.
 The `JSESSIONID` must be transfered with each subsequent calls. If the REST API is used in an application running in a web browser, this is handled automatically by the web browser.
 For usage of the `X-Bonita-API-Token` see below.
+
+=== Login to Bonita with OAuth
+
+[NOTE]
+====
+
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
+
+When Bonita web application is configured for authentication with OpenID Connect, Bonita REST API is secured through OIDC too and it is possible to call it with an OAuth Access token. For more information see xref:single-sign-on-with-oidc.adoc#rest-api[OpenID Connect SSO configuration page].
 
 === X-Bonita-API-Token cookie and HTTP header
 

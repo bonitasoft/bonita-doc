@@ -1,19 +1,16 @@
 = Bonita User Application
-:description: This pages describes the Bonita User Application: its values, how to access it, its differences with the _User_ profile of Bonita Portal, and the details of its features. +
+:description: This pages describes the Bonita User Application: its values, how to access it, and the details of its features. +
 
-This pages describes the Bonita User Application: its values, how to access it, its differences with the _User_ profile of Bonita Portal, and the details of its features. +
+
+{description} +
 The Bonita User Application allows anyone with the _User_ profile to view tasks and do them, get information and add comments on cases, get a list of processes to start.
 
 == Value
 
-Bonita Portal is deprecated and will be removed in a future Bonita release. +
-We believe that Bonita Applications give our users much more freedom for customization:
+We believe that Bonita Applications give our users freedom for customization:
 
-* Their menus can be customized compared to provided Portal profiles, by adding or removing pages, while still keeping the mapping with the _User_ profile
-* Portal pages that have been re-created with the UI Designer have more features and/or features improvements
+* Their menus can be customized, by adding or removing pages, while still keeping the mapping with the _User_ profile
 * These pages can also be modified in the UI Designer to fit precise users' needs.
-
-We also want to remove the last parts of the platform that were still built with Google Web Toolkit framework; as useful as it has been when building Bonita Portal, we now find some limitations.
 
 == Access during Implementation
 
@@ -39,26 +36,11 @@ Alternatively, you can deploy an application by importing all its components in 
 * Business Data Model then processes
 * Application descriptor
 
-== Similarities and differences with _User_ profile of Bonita Portal
-
-On top of the application values, here are the similarities and differences between application and Portal for the provided pages:
-
-* All pages previously created using Google Web Toolkit framework have been recreated with Bonita UI Designer. They can be customized in the UI Designer. They come with the Admin Application you download from Bonita Studio.
-* All pages previously created in other technologies have been wrapped as custom pages. They cannot be customized in the UI Designer. Since they cannot be imported in a .bos archive, they do not come with the Admin Application you downlaod. Instead, they come as provided resources. You can find them in the "Resources" tab of the application.
-
-Now, in details:
-
-* _Processes_: same as in Bonita Portal.
-* _Cases_:
- ** Case list: recreated with the UI Designer. It allows a much better display of search keys.
- ** Case details: recreated with the UI Designer.
-* _Tasks_: same as in Bonita Portal.
-
 == Create your own User application from ours
 
 . Have all your custom pages ready, either imported in Bonita UI Designer or Bonita Studio.
 . Open our UI Designer pages to customize them.
-. In Bonita Studio, go to the "Project explorer" on the left and double click on the "bonita-user-application.xml" application descriptor.
+. In Bonita Studio, go to the "Project explorer" on the left and double-click on the "bonita-user-application.xml" application descriptor.
 . In the editor, rename the pages, change the order in the menu, remove the pages you do not need, add yours in the menu, or as orphan pages accessed through navigation from another page.
 +
 [WARNING]
@@ -66,7 +48,7 @@ Now, in details:
 Make sure our "details" pages are always used as orphan pages, as they need some parameters (usually just an ID) to be passed in the URL by a list or another page to show any content.
 ====
 +
-. To add other Bonita provided pages, open the portal from the coolbar, switch to the Administrator profile, and look in the "Resources" page, filtered by pages.
+. To add other Bonita provided pages, open the Applications from the coolbar, go to the Bonita Administrator Application, and look in the "Resources" tab, filtered by pages.
 
 [NOTE]
 ====

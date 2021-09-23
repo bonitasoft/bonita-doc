@@ -1,7 +1,7 @@
 = SSL configuration
-:description: It is possible to set up SSL in your Bonita server. This enables you to use secure HTTP (HTTPS) to access the portal.
+:description: It is possible to set up SSL in your Bonita server. This enables you to use secure HTTP (HTTPS) to access the Bonita Applications.
 
-It is possible to set up SSL in your Bonita server. This enables you to use secure HTTP (HTTPS) to access the portal.
+{description}
 
 Configuring SSL for Bonita is the same as configuring it for any other application.
 No changes are necessary to forms or to process definitions, just configuration. This page contains some configuration  examples.
@@ -63,7 +63,7 @@ This example show how to configure SSL with APR and OpenSSL for a Bonita using T
    ...
    <security-constraint>
       <web-resource-collection>
-         <web-resource-name>Bonita Portal Secure URLs</web-resource-name>
+         <web-resource-name>Bonita Applications Secure URLs</web-resource-name>
          <url-pattern>/*</url-pattern>
       </web-resource-collection>
       <user-data-constraint>
@@ -109,7 +109,7 @@ SSLProtocol="TLSv1"></Connector>
    ...
    <security-constraint>
       <web-resource-collection>
-         <web-resource-name>Bonita Portal Secure URLs</web-resource-name>
+         <web-resource-name>Bonita Applications Secure URLs</web-resource-name>
          <url-pattern>/*</url-pattern>
       </web-resource-collection>
       <user-data-constraint>
@@ -150,7 +150,7 @@ reqadd X-Forwarded-Proto:\ https
 +
 NOTE: Make sure that the regular expression set with `internalProxies` matches your IP addresses.
 +
-As explained by the https://tomcat.apache.org/tomcat-8.5-doc/api/org/apache/catalina/valves/RemoteIpValve.html[RemoteIpValve documentation]:
+As explained by the https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/valves/RemoteIpValve.html[RemoteIpValve documentation]:
 "This valve replaces the apparent client remote IP address and hostname for the request with the IP address list presented by a proxy or a load balancer via a request headers (e.g. "X-Forwarded-For").
 Another feature of this valve is to replace the apparent scheme (http/https) and server port with the scheme presented by a proxy or a load balancer via a request header (e.g. "X-Forwarded-Proto")."
 +

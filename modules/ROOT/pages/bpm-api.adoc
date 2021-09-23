@@ -1,7 +1,7 @@
 = REST API BPM API
 :description: Easily retrieve human or service tasks, call activities, and subprocesses with BPM APIs. Perform maintenance tasks.
 
-Easily retrieve human or service tasks, call activities, and subprocesses with BPM APIs. Perform maintenance tasks.
+{description}
 
 == Activities and Tasks
 
@@ -4291,7 +4291,7 @@ A list of process resolution problems in JSON or an empty response body if there
 
 The process supervisor has management rights over a process. He can configure and monitor it.
 You can give the ProcessSupervisor rights to some users by specifying a role and or a group, or a specific user.
-In order to be able to manage the processes he supervises in the portal, a user should also have the profile "Process Manager".
+In order to be able to manage the processes he supervises in the Bonita Applications, a user should also have the profile "Process Manager".
 
 ==== Identifier
 
@@ -4389,7 +4389,7 @@ JSON representations of matching process supervisors
 
 ==== Add a process Supervisor
 
-You can assign a process to a user, a group, a role, or a membership (role and group). Note that in order to be able to manage the processes he supervises in the portal, a user should also have the profile "Process Manager".
+You can assign a process to a user, a group, a role, or a membership (role and group). Note that in order to be able to manage the processes he supervises in the Bonita Applications, a user should also have the profile "Process Manager".
 
 * *URL* +
 `/API/bpm/processSupervisor`

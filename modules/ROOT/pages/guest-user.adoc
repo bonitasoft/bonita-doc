@@ -1,7 +1,7 @@
 = Guest user access
 :description: It is possible to allow public access to some living applications (without the need to sign in to Bonita).
 
-It is possible to allow public access to some living applications (without the need to sign in to Bonita).
+{description}
 
 When accessing a public application without any active session on Bonita platform the user will be automatically logged in with a guest user account.
 
@@ -31,7 +31,7 @@ This feature is different from the auto-login feature that was available in the 
 
 [WARNING]
 ====
-You should not use any of the default profiles of Bonita portal as profiles for your public living applications because, by doing that, you would give access to the guest user account to those portal profiles (and their priviledges).
+You should not use any of the default profiles of the Bonita platform as profiles for your public living applications because, by doing that, you would give access to the guest user account to those profiles (and their priviledges).
 ====
 
 [NOTE]

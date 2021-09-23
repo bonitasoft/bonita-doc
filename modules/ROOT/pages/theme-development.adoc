@@ -1,7 +1,7 @@
 = Develop a theme
 :description: This page describes how to create, import, and use personal themes to skin your Bonita application.
 
-This page describes how to create, import, and use personal themes to skin your Bonita application.
+{description}
 
 == Definition
 
@@ -9,7 +9,7 @@ A theme is an archive of files used to define and share CSS definitions and imag
 It enables you to specify the same style for all pages and layout of an application.
 Each application can have its own theme, or the same theme can be consistently applied to several applications.
 
-There are some examples of themes in Bonita Portal, in the Administrator "Resources" section.
+Only the Bonita theme is available by default in the Bonita Applications, *Resources* tab.
 
 A theme is imported as a .zip archive containing a `page.properties` file and a `resources` folder.
 

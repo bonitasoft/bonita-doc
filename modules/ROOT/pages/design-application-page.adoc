@@ -1,7 +1,7 @@
 = Design an application page
 :description: So far, with a process, data, forms, and connectors, we've built a fully functional software solution to manage claims. But what if you need to have a dashboard showing all ongoing claims? Such a dashboard is not a process. You should not have to "start" it in order to view it.
 
-So far, with a process, data, forms, and connectors, we've built a fully functional software solution to manage claims. But what if you need to have a dashboard showing all ongoing claims? Such a dashboard is not a process. You should not have to "start" it in order to view it.
+{description}
 
 A Bonita application is the answer. The first step to build such an application is to create pages.
 
@@ -56,7 +56,7 @@ image:images/getting-started-tutorial/design-application-page/dashboard-page.png
 [WARNING]
 ====
 
-In order for preview to access the data, a user needs to be logged in to the Bonita Portal. You can click on *Portal* in the Bonita Studio tool bar to make sure a user is logged in.
+In order for preview to access the data, a user needs to be logged into the Bonita Runtime. You can click on *Applications* in the Bonita Studio toolbar to make sure a user is logged in.
 ====
 
 The preview should look like this:

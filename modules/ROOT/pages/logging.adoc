@@ -1,7 +1,7 @@
 = Logging in Bonita components
 :description: Learn how to view and configure logging of Bonita components.
 
-Learn how to view and configure logging of Bonita components.
+{description}
 
 == How components produce log messages
 
@@ -19,7 +19,7 @@ The Portal uses the http://docs.oracle.com/javase/8/docs/api/java/util/logging/p
 
 The Studio uses a logging service provided by the Eclipse platform. Modification of the Studio logging configuration is not very common except for debugging the Studio itself.
 
-The Bonita Studio provides direct access to the log written by the embedded Portal and Engine. You can access this log from the Bonita Studio *Help* menu *Show Engine log* option (*Engine log* also contains UI designer logs).
+The Bonita Studio provides direct access to the log written by the embedded Runtime. You can access this log from the Bonita Studio *Help* menu *Show Engine log* option (*Engine log* also contains UI designer logs).
 
 == Logging configuration
 
@@ -29,7 +29,7 @@ Bonita Engine uses SLF4J to create the logs as well as some Bonita dependencies 
 
 SLF4J is a facade for various logging frameworks, and a logging framework must be available as the back-end. By default, Bonita uses JUL (Java Util Logging) as a the back-end to SLF4J.
 
-By default in the Bonita Runtime, all logs are sent to the JUL framework. To configure what is logged and where it is stored, edit the logging.properties file located in `conf` folder (see the http://tomcat.apache.org/tomcat-8.5-doc/logging.html[Apache Tomcat logging documentation]) of the Bonita Bundle.
+By default in the Bonita Runtime, all logs are sent to the JUL framework. To configure what is logged and where it is stored, edit the logging.properties file located in `conf` folder (see the http://tomcat.apache.org/tomcat-9.0-doc/logging.html[Apache Tomcat logging documentation]) of the Bonita Bundle.
 
 For the Bonita Runtime embedded in the Bonita Studio, the JUL configuration file is located in the Studio installation folder under
 `workspace/tomcat/conf`. After editing this file, restart Bonita by going to the *Server* menu and selecting the *Restart web server* option.

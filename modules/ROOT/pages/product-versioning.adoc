@@ -28,6 +28,8 @@ Technical Id Bonita version correspondence table
 
 | 2021.1
 | 7.12.z
+| 2021.2
+| 7.13.z
 |===
 
 == Artifact version

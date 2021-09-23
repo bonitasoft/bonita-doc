@@ -1,7 +1,7 @@
 = User Case list in Bonita Application
 :description: This page explains what a user with the _User_ profile can see and do about cases (the process instances) in xref:user-application-overview.adoc[Bonita User Application].
 
-This page explains what a user with the _User_ profile can see and do about cases (the process instances) in xref:user-application-overview.adoc[Bonita User Application].
+{description} +
 It describes the value and details of the User Case List in Bonita User Application, as well as its related pages Case Details and Case Overview.
 
 This page has been created using our https://community.bonitasoft.com/blog/development-ui-designer-page-done-bonitasoft[R&D best practices].
@@ -19,7 +19,7 @@ image:images/UI2021.1/user-case-list-app.png[User Case list in Bonita Applicatio
 
 == Cases listed
 
-As in the equivalent Portal page, the page displays the cases in which the logged in user has been involved:
+The page displays the cases in which the logged-in user has been involved:
 
 * They started the case, from the xref:user-process-list.adoc[process list] or another application
 * AND/OR they have done tasks in this case earlier, from the xref:user-task-list.adoc[task list] or another application
@@ -103,11 +103,6 @@ Technically, cases change their Id when going from _open_ to _archived_ status. 
 
 === Sorting options
 
-Sorting options are the same as in the equivalent Portal page, except they have been brought to the top of the page instead of in the table headers.
-Here are the Portal sorting options. +
-image:images/UI2021.1/user-case-sort-Portal.png[User Case sorting options - Portal]
-// {.img-responsive}
-
 Here are the Application sorting options. +
 image:images/UI2021.1/user-case-sort-App.png[User Case sorting options - Application]
 // {.img-responsive}
@@ -156,7 +151,6 @@ It displays:
 * The documents currently managed by the case
 * A bottom-up chronology of some events that happened in the case: case start and human tasks executed, each one with a timestamp and actor.
 
-Is is used both in Bonita Portal and in Bonita Applications. +
 Here is an example of the case overview provided by Bonita.
 image:images/UI2021.1/case-overview.png[Case Overview]
 // {.img-responsive}

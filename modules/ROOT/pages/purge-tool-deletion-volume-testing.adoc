@@ -53,7 +53,7 @@ y
 2020-02-21 19:29:02.660  INFO 8946 -[main] o.b.e.purge.DeleteOldProcessInstances    : Deleted 4643224 rows from table ARCH_DATA_INSTANCE in 1172256 ms
 2020-02-21 19:31:17.330  INFO 8946 -[main] o.b.e.purge.DeleteOldProcessInstances    : Deleted 8125642 rows from table ARCH_CONNECTOR_INSTANCE in 134669 ms
 2020-02-21 19:31:17.352  INFO 8946 -[main] o.b.e.purge.DeleteOldProcessInstances    : Archive process instance purge completed.
-2020-02-21 19:31:17.353  INFO 8946 -[main] o.b.e.purge.DeleteOldProcessInstances    : Some of the deleted elements may still appear in Bonita Portal for a short while.
+2020-02-21 19:31:17.353  INFO 8946 -[main] o.b.e.purge.DeleteOldProcessInstances    : Some of the deleted elements may still appear in Bonita applications for a short while.
 2020-02-21 19:31:17.353  INFO 8946 -[main] o.b.e.purge.DeleteOldProcessInstances    : If you try to access them you will get a not found error. This is the expected behaviour.
 2020-02-21 19:31:17.353  INFO 8946 -[main] org.bonitasoft.engine.purge.Application  : Execution completed in 4295553 ms
 2020-02-21 19:31:17.357  INFO 8946 -[main] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
@@ -191,7 +191,7 @@ DATA_INSTANCE                  0               0
 2020-03-23 19:15:10,909 DEBUG Executing SQL: DROP INDEX idx_rootprocid_archprocinst_tmp ON arch_process_instance
 2020-03-23 19:15:11,035 DEBUG SQL command executed in 126 ms
 2020-03-23 19:15:11,036 INFO  Archive process instance purge completed.
-2020-03-23 19:15:11,036 INFO  Some of the deleted elements may still appear in Bonita Portal for a short while.
+2020-03-23 19:15:11,036 INFO  Some of the deleted elements may still appear in Bonita applications for a short while.
 2020-03-23 19:15:11,036 INFO  If you try to access them you will get a not found error. This is the expected behaviour.
 2020-03-23 19:15:11,036 INFO  Execution completed in 1527482 ms
 2020-03-23 19:15:11,036 INFO  According to the database type you use, you may need to execute certain maintenance commands
@@ -325,7 +325,7 @@ y
 2020-03-19 17:29:12,821 DEBUG Executing SQL: DROP INDEX idx_rootprocid_archprocinst_tmp
 2020-03-19 17:29:13,054 DEBUG SQL command executed in 233 ms
 2020-03-19 17:29:13,054 INFO  Archive process instance purge completed.
-2020-03-19 17:29:13,055 INFO  Some of the deleted elements may still appear in Bonita Portal for a short while.
+2020-03-19 17:29:13,055 INFO  Some of the deleted elements may still appear in Bonita applications for a short while.
 2020-03-19 17:29:13,055 INFO  If you try to access them you will get a not found error. This is the expected behaviour.
 2020-03-19 17:29:13,055 INFO  Execution completed in 3970120 ms
 ----
@@ -427,7 +427,7 @@ y
 2020-03-20 12:29:12,817 DEBUG Executing SQL: DROP INDEX IF EXISTS idx_rootprocid_archprocinst_tmp ON arch_process_instance
 2020-03-20 12:29:12,822 DEBUG SQL command executed in 5 ms
 2020-03-20 12:29:12,822 INFO  Archive process instance purge completed.
-2020-03-20 12:29:12,823 INFO  Some of the deleted elements may still appear in Bonita Portal for a short while.
+2020-03-20 12:29:12,823 INFO  Some of the deleted elements may still appear in Bonita applications for a short while.
 2020-03-20 12:29:12,823 INFO  If you try to access them you will get a not found error. This is the expected behaviour.
 2020-03-20 12:29:12,823 INFO  Execution completed in 330991 ms
 2020-03-20 12:29:12,823 INFO  According to the database type you use, you may need to execute certain maintenance commands

@@ -227,6 +227,6 @@ Rename the form into _*Display capital*_, save it, and we are done.
 * Configure the actor mapping to the group "/acme"
 * Click on the "Run" button to install and enable the process and be redirected to the instantiation form
 * From the instantiation form in your browser, select a country and submit
-* The browser will be redirected to the user perspective in the Portal
+* The browser will be redirected to the Bonita User Application
 * A new task "Display Capital" should be available (refresh if not), click on it
 * The capital should appear on its associated form

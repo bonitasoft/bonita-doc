@@ -1,7 +1,7 @@
 = Bonita Studio installation
 :description: This page describes how to download and install Bonita Studio on Windows, Linux, or Mac operating systems.
 
-This page describes how to download and install Bonita Studio on Windows, Linux, or Mac operating systems.
+{description}
 
 == Bonita Studio download
 
@@ -144,9 +144,9 @@ image:images/getting-started-tutorial/installation/studio-first-start-04-engine-
 
 == Installation validation
 
-To make sure that everything is properly installed, click on the *Portal* button image:images/getting-started-tutorial/installation/portal-icon.png[Bonita Portal icon] in the toolbar. This should open the Bonita Portal home page in your web browser:
+To make sure that everything is properly installed, click on the *Applications* button image:images/getting-started-tutorial/installation/applications-icon.png[Bonita Applications icon] in the toolbar. This should open the Bonita Application Directory in your web browser:
 
-image:images/getting-started-tutorial/installation/web-browser-display-portal.png[Bonita Portal display in a web browser]
+image:images/getting-started-tutorial/installation/web-browser-display-application-list.png[Bonita Application display in a web browser]
 // {.img-responsive .img-thumbnail}
 
 Also click on the *UI Designer* button image:images/getting-started-tutorial/installation/ui-designer-icon.png[UI Designer icon] in the toolbar. This will display a pop-up window that you can ignore:
@@ -161,4 +161,4 @@ image:images/getting-started-tutorial/installation/ui-designer-first-start.png[U
 
 == Ready to move on
 
-You have sucessfully installed Bonita Studio, and the tools and test environment are up and running.
+You have successfully installed Bonita Studio, and the tools and test environment are up and running.

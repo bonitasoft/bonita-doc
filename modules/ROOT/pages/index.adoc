@@ -46,7 +46,7 @@ xref:studio-installation.adoc[[.card-title]#Studio installation# [.card-body.car
 
 [.card.card-index]
 --
-xref:getting-started-index.adoc[[.card-title]#Getting started tutorial# [.card-body.card-content-overflow]#pass:q[A 9-step journey to create a simple Automation Project]#]
+xref:getting-started-index.adoc[[.card-title]#Getting Started Tutorial# [.card-body.card-content-overflow]#pass:q[A 9-step journey to create a simple Automation Project]#]
 --
 
 [.card.card-index]

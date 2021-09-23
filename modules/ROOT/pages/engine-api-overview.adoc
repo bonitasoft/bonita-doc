@@ -1,7 +1,7 @@
 = Bonita Engine API overview
 :description: Customize or add to your application by developing new connectors, actor filters or by replacing/enhancing existing services
 
-Customize or add to your application by developing new connectors, actor filters or by replacing/enhancing existing services
+{description}
 
 == Concepts
 
@@ -46,9 +46,6 @@ Bonita Engine has the following Java APIs:
 | Document API
 | Manages documents that are attached to a process instance.
 
-| Theme API
-| Manages the Look & Feel of the Bonita Portal web and mobile interfaces and forms.
-
 | Tenant Management API
 | Used to pause service in a tenant for maintenance, to resume service, and to check whether a tenant is paused. Available in Teamwork, Efficiency, Performance and Enterprise editions.
 |===
@@ -61,7 +58,7 @@ https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Javadoc].
 Note that the APIs are the same for the Teamwork, Efficiency, Performance and Enterprise editions, but some features are only active if the appropriate license is installed.
 If you try to access a feature for which you do not have a license, a _Feature not active_ error message is returned.
 
-There is also a high-level xref:rest-api-overview.adoc[Web REST API], intended for customers developing portal applications.
+There is also a high-level xref:rest-api-overview.adoc[Web REST API], intended for customers developing applications.
 
 == API access
 

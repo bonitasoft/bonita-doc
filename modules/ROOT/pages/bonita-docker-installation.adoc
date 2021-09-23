@@ -1,39 +1,54 @@
 = Deploy Bonita Runtime with Docker
 :description: How to install and use the Bonita Runtime docker distribution.
 
-How to install and use the Bonita Runtime docker distribution.
+{description}
 
 This guide assumes you have a working docker environment.
 
 == Quick start
 
-To start the latest community release
-
-----
-docker run --name bonita -d -p 8080:8080 bonita
-----
-
-To start the latest subscription release
+To start the latest release
 
 
 // for the 'subs' parameter, see https://docs.asciidoctor.org/asciidoc/latest/subs/apply-subs-to-blocks/
 [source,shell script,subs="+macros"]
 ----
 docker login quay.io
-docker pull quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaDockerImageEnterpriseVersion}]
+docker pull quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
 docker logout quay.io
-docker run --name=bonita -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaDockerImageEnterpriseVersion}]
+docker run --name=bonita -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
 [NOTE]
 ====
+* Documentation of the community docker image is available https://hub.docker.com/_/bonita[here].
 * Information on how to access Quay.io can be found https://customer.bonitasoft.com/download/request[here].
 * You need to provide a valid licence, <<section-StepByStep,follow these steps>> in order to get and configure one.
 ====
 
+
+[#section-versionning]
+
+== Versioning
+
+Multiple tags exist:
+
+* `latest`: Points to the latest version of the platform
+* `pass:a[{bonitaVersion}]`: Points to the latest maintenance version of the pass:a[{bonitaVersion}] version
+* `pass:a[{bonitaVersion}]-XXXX`: Tag of a maintenance version of pass:a[{bonitaVersion}]
+
+
+[WARNING]
+====
+`latest` and `pass:a[{bonitaVersion}]` are tags that change each time a new version of the platform is released.
+It is safer to use the more complete version tag `pass:a[{bonitaVersion}]-XXXX` when scripting deployments to ensure
+the binaries do not change.
+====
+
+
 [#section-StepByStep]
 
-== Step by step installation procedure
+== Step-by-step installation procedure
 
 === Retrieve a licence
 
@@ -41,7 +56,7 @@ First generate a request key into a container with a specific hostname (-h):
 
 [source,shell script,subs="+macros"]
 ----
-docker run --rm --name=bonita -h <hostname> -ti quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaDockerImageEnterpriseVersion}] /bin/bash ./generateRequestKey.sh
+docker run --rm --name=bonita -h <hostname> -ti quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}] /bin/bash ./generateRequestKey.sh
 ----
 
 Answer the questions related to the license you want. This will print out the request key and exit automatically from the running container.
@@ -60,7 +75,7 @@ Re-create a new Bonita container with the same hostname (-h) and this host direc
 
 [source,shell script,subs="+macros"]
 ----
-docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaDockerImageEnterpriseVersion}]
+docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
 [NOTE]
@@ -69,9 +84,9 @@ This will only add the initial license to the Bonita Runtime. To renew a license
 ====
 
 
-This will start a container running the Tomcat Bundle with Bonita Engine + Portal. As you did not specify any environment variables it's almost like if you had launched the Bundle on your host using startup.+{sh|bat}+ (with security hardening on REST and HTTP APIs, cf Security part). It means that Bonita uses a H2 database here.
+This will start a container running the Tomcat Bundle with Bonita Runtime. As you did not specify any environment variables it's almost like if you had launched the Bundle on your host using startup.+{sh|bat}+ (with security hardening on REST and HTTP APIs, cf xref:_start_bonita_with_custom_security_credentials[Security concerns]). It means that Bonita uses a H2 database here.
 
-You can access the portal on http://localhost:8080/bonita and login using the default credentials : install / install
+You can access the Runtime on http://localhost:8080/bonita and login using the default credentials : install / install
 
 === Start the container interactively
 
@@ -79,17 +94,10 @@ You may also run the Bonita container with an interactive shell session in order
 
 Run the container as follows in order to get an interactive `bash` shell session:
 
-*Community release*
-
-----
-docker run --name bonita -it -p 8080:8080 bonita bash
-----
-
-*Subscription release*
 
 [source,shell script,subs="+macros"]
 ----
-docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ -it -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaDockerImageEnterpriseVersion}] bash
+docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ -it -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}] bash
 ----
 
 Then run `/opt/files/startup.sh` inside the container to start Tomcat. In order to stop Tomcat inside the container, press `Ctrl-C`. +
@@ -97,7 +105,7 @@ Repeat this sequence to manually start and stop Tomcat in the container.
 
 === Link Bonita to a database
 
-The H2 database allows the Bonita container to work out of the box, but it is not recommended outside of a development environment.
+The H2 database allows the Bonita container to work out of the box, but it is not recommended outside a development environment.
 
 As PostgreSQL is the recommended database for qualification and production environments, follow one of these next sections to configure your Bonita container to run on PostgreSQL database.
 You can work with either a PostgreSQL Container, or PostgreSQL as an installed service.
@@ -114,7 +122,7 @@ See the official PostgreSQL documentation for more details.
 
 [source,shell script,subs="+macros"]
 ----
-docker run --name bonita_postgres -h <hostname> -v bonita-lic:/opt/bonita_lic/ --link mydbpostgres:postgres -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaDockerImageEnterpriseVersion}]
+docker run --name bonita_postgres -h <hostname> -v bonita-lic:/opt/bonita_lic/ --link mydbpostgres:postgres -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
 ==== Using docker-compose
@@ -136,7 +144,7 @@ services:
       - -c
       - max_prepared_transactions=100
   bonita:
-    image: quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaDockerImageEnterpriseVersion}]
+    image: quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
     hostname: <hostname>
     volumes:
       - ~/bonita-lic:/opt/bonita_lic/
@@ -198,17 +206,18 @@ BIZ_DB_PASS=custombusinesspass
 
 [source,shell script,subs="+macros"]
 ----
-docker run --name=bonita -h <hostname> --env-file=env.txt -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaDockerImageEnterpriseVersion}]
+docker run --name=bonita -h <hostname> --env-file=env.txt -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
+[#start-bonita-custom-credentials]
 === Start Bonita with custom security credentials
 
 [source,shell script,subs="+macros"]
 ----
-docker run --name=bonita -v bonita-lic:/opt/bonita_lic/ -h <hostname> -e "TENANT_LOGIN=tech_user" -e "TENANT_PASSWORD=secret" -e "PLATFORM_LOGIN=pfadmin" -e "PLATFORM_PASSWORD=pfsecret" -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaDockerImageEnterpriseVersion}]
+docker run --name=bonita -v bonita-lic:/opt/bonita_lic/ -h <hostname> -e "TENANT_LOGIN=tech_user" -e "TENANT_PASSWORD=secret" -e "PLATFORM_LOGIN=pfadmin" -e "PLATFORM_PASSWORD=pfsecret" -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
-Now you can access the Bonita Portal on localhost:8080/bonita and login using: tech_user / secret
+Now you can access the Bonita Runtime on localhost:8080/bonita and login using: tech_user / secret
 
 == Secure your remote access
 
@@ -217,7 +226,7 @@ But for specific needs you can override this behavior by setting HTTP_API to tru
 
 [source,shell script,subs="+macros"]
 ----
-docker run  -e HTTP_API=true -e REST_API_DYN_AUTH_CHECKS=false --name bonita -v bonita-lic:/opt/bonita_lic/ -h <hostname> -d -p 8080:8080  quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaDockerImageEnterpriseVersion}]
+docker run  -e HTTP_API=true -e REST_API_DYN_AUTH_CHECKS=false --name bonita -v bonita-lic:/opt/bonita_lic/ -h <hostname> -d -p 8080:8080  quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
 == Environment variables
@@ -314,7 +323,7 @@ The migration scripts affect only the database, not the Bonita instance.
 The procedure to migrate a Bonita container is therefore as follow:
 
 * Stop and destroy the running Bonita container.
-* Play the migration script on your Bonita database see xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc#migrate[migrate the platform from an earlier version of Bonita].
+* Play the migration script on your Bonita database see xref:migrate-from-an-earlier-version-of-bonita.adoc#migrate[migrate the platform from an earlier version of Bonita].
 * Get the new Bonita docker image, as explained above.
 * Update the license, see <<section-update-configuration,Update configuration and license section>>
 * Start a new Bonita container.
@@ -325,7 +334,7 @@ The procedure to migrate a Bonita container is therefore as follow:
 
 Once renewed from Bonita Customer Portal, the license file and the configuration files are updated using the Setup tool.
 
-Setup tool can be used outside of the Docker container directly by downloading the Tomcat bundle and running it from there.
+Setup tool can be used outside the Docker container directly by downloading the Tomcat bundle and running it from there.
 
 [NOTE]
 ====
@@ -333,4 +342,40 @@ Setup tool can be used outside of the Docker container directly by downloading t
 The setup tool needs to be able to access the database. Because of that, if the database is in a docker container, its port must be exposed to the host.
 ====
 
-See xref:BonitaBPM_platform_setup.adoc#update_platform_conf[setup tool page] for more information.
+See xref:bonita-platform-setup.adoc#update_platform_conf[setup tool page] for more information.
+
+
+== Troubleshoot and debug problems inside a Docker container
+
+Bonita pass:a[{bonitaVersion}] docker image comes with a set of tools embedded, xref:https://github.com/apangin/jattach[jattach], that allows to interact with the Tomcat JVM inside a Bonita container via Dynamic Attach mechanism.
+
+Example of useful commands it supports, that you can run from outside the container, include:
+
+* `docker exec <CONTAINER_NAME> jattach 1 jcmd VM.flags` to see all JVM flags passed to Bonita Tomcat JVM:
+
+[source,shell script,subs="+macros"]
+----
+Connected to remote JVM
+JVM response code = 0
+-XX:CICompilerCount=4 -XX:ConcGCThreads=2 -XX:G1ConcRefinementThreads=8 -XX:G1HeapRegionSize=1048576 -XX:GCDrainStackTargetSize=64 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/opt/bonita/BonitaSubscription-pass:a[{bonitaVersion}]/server/logs
+----
+
+* `docker exec <CONTAINER_NAME> jattach 1 properties` to see all System properties that Java will use:
+
+[source,shell script,subs="+macros"]
+----
+Connected to remote JVM
+JVM response code = 0
+#Fri Sep 10 14:03:16 GMT 2021
+com.arjuna.ats.arjuna.common.propertiesFile=/opt/bonita/BonitaSubscription-pass:a[{bonitaVersion}]/server/conf/jbossts-properties.xml
+sysprop.bonita.bdm.db.vendor=h2
+awt.toolkit=sun.awt.X11.XToolkit
+java.specification.version=11
+sun.cpu.isalist=
+sun.jnu.encoding=ANSI_X3.4-1968
+java.class.path=/opt/bonita/BonitaSubscription-pass:a[{bonitaVersion}]/server/lib/ext/bonita-tomcat-juli-pass:a[{bonitaTechnicalVersion}].jar\:/opt/bonita/BonitaSubscription-pass:a[{bonitaVersion}]/server/bin/bootstrap.jar\:/opt/bonita/BonitaSubscription-pass:a[{bonitaVersion}]/server/bin/tomcat-juli.jar
+sysprop.bonita.db.vendor=h2
+java.vm.vendor=Ubuntu
+----
+
+Read the xref:https://github.com/apangin/jattach[official jattach documentation] for a complete list of supported commands.

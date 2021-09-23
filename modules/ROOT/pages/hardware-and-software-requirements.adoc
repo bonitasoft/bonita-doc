@@ -1,7 +1,7 @@
 = Hardware and software requirements
 :description: This page describes the suggested hardware and software requirements to install Bonita platform.
 
-This page describes the suggested hardware and software requirements to install Bonita platform.
+{description}
 
 == Hardware
 
@@ -12,7 +12,7 @@ The hardware recommended for Bonita Platform is strongly dependent on your envir
 processes (number of processes instances, number of current users, operations and complexity...).
 ====
 
-Hardware required for Bonita Platform (Bonita Engine and Bonita Portal)
+Hardware required for Bonita Platform
 
 |===
 | Type | Minimum | Recommended
@@ -32,7 +32,7 @@ Hardware required for Bonita Platform (Bonita Engine and Bonita Portal)
 
 == Software
 
-Software required for Bonita Platform (Bonita Engine and Bonita Portal).
+Software required for Bonita Platform.
 
 |===
 |  | Version
@@ -56,16 +56,16 @@ Software required for Bonita Platform (Bonita Engine and Bonita Portal).
 |
 
 | Oracle Java SE Runtime Environment
-| 8 (deprecated) or 11 (see note 1)
+| 11 (see note 1)
 
 | OpenJDK
-| 8 (deprecated) or 11 (see note 1)
+| 11 (see note 1)
 
 | *Application Server*
 |
 
 | Apache Tomcat
-| 8.5.x (x > 40)
+| 9.0.x (x >= 52)
 
 | *Database*
 | (see note 2)
@@ -97,7 +97,7 @@ Software required for Bonita Platform (Bonita Engine and Bonita Portal).
 
 Notes:
 
-. Bonita can be executed on Java 11 *only*. All development artifacts (connectors, REST API extensions, etc) must be compiled with Java 11 byte code (target version). A JDK (*not a JRE*) 11 is required to run Bonita Studio.
+. Bonita can be executed on Java 11 *only*. All development artifacts (connectors, REST API extensions, etc.) must be compiled with Java 11 byte code (target version). A JRE 11 is required to run Bonita Runtime. A JDK (*not a JRE*) 11 is required to run Bonita Studio.
 . Memory usage: In a Studio, by default, the embedded Tomcat server is started with a maximum memory allocation set to 1Go. Depending on your usage you may need to xref:bonita-bpm-studio-installation.adoc[increase this value].
 . Your database must be configured to use the UTF-8 character set.
 . MySQL must be configured to use UTF-8, we recommend using `utf8mb4` because `utf8mb3` is deprecated, see https://dev.mysql.com/doc/refman/8.0/en/charset-unicode-utf8mb3.html[MySQL documentation].

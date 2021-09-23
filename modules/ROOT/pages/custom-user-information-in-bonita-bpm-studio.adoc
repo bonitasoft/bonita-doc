@@ -1,7 +1,8 @@
 = Custom User Information in Bonita Studio
 :description: Learn how you can add custom (business) information on users, that will then be available for filtering.
 
-Learn how you can add custom (business) information on users, that will then be available for filtering.
+{description}
+
 For instance:
 
 Custom User Information are (key, value) pairs that can be added on users. +
@@ -17,37 +18,28 @@ All these types of information are not displayed in standard information tabs bu
 
 == Define custom user information
 
-In the Organization menu > Manage organizations > Organization users, the second tab *User information management* offers a summary of the default information and allows to create custom user information. Use "Add" to create your own, with a name and an optional description.
-
-. In Bonita Studio, go to *Organization* in the cool bar
-. Click on *_Manage_* in the dropdown menu
-. Click on *_Next_* 3 times to get to the *Organization users* window
-. Click on the *User information management* tab
-. In the *Custom information* pane on the right hand side of the window, click on *_Add_*
+. In Bonita Studio project explorer, double click on the organization you want to edit
+. Click on the *User* tab
+. Expand the *Manage custom information* pane, click on *_Add_*
 . This will put a default name *Information1* in the *Name column*
 . Add a description (if needed). This will only appear in Bonita Studio.
-. Double click on the default name *Information1*, to modify it to your needs
-. Click on *Finish*
-. A message is displayed: _The Organization has been modified. It is recommended to re-publish it. Do you want to do it now?_
-. Click on *Yes*
-. A confirmation message is displayed showing the organization was successfully re-published
-. Click on *Ok*
-. A new custom tab is applied to all users.
-
-If the value is changed in Bonita Portal by the admin, and the filter value does not exist in the organization
+. Click on the default name *Information1*, to modify it to your needs
+. Save and deploy your organization
+. The custom information is applied to all users.
 
 == Add custom user information values for each user
 
-In the Organization menu > Manage organizations > Organization users, the first tab *List of users* shows detail information for each user on the right hand-side panel, spread over five tabs:
+. In Bonita Studio project explorer, double click on the organization you want to edit
+. Click on the *User* tab
+. Click on the user for which you want to define the custom user information value
+. In the *Information* table, select the *Custom* tab
+. Select the custom user information to define and click on its *Value* column
+. Enter the custom user information value
 
-* General (Title, First and last name, Job title)
-* Membership (Group/role)
-* Personal (Email, phone, website, address etc.)
-* Business card (Email, phone, website, address etc.)
-* Custom
+After completing the changes for all the desired users, remember to save and deploy the organization
 
-To add custom user information values for a user, select a user in the *List of users*, click on the *_Custom_* tab, and enter the value for each relevant information. You also see a link *Manage custom information*, to go back and manage the list of custom user information. +
-Note: this value can be changed by a user with the Admin profile in the Bonita Portal. See xref:custom-user-information-in-bonita-bpm-portal.adoc[How to edit Custom information for a single user]
+
+Note: this value can be changed by a user in the Bonita Administrator Application. See xref:custom-user-information-in-bonita-applications.adoc[How to edit Custom information for a single user]
 
 == Set an actor filter on custom user information
 

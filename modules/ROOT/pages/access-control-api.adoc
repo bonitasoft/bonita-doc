@@ -1,6 +1,8 @@
 = Access control API
 :description: Access control allows you to protect the access to your BDM through REST API.
 
+{description}
+
 [NOTE]
 ====
 This API is only available in Enterprise, Efficiency and Performance editions.
@@ -23,7 +25,7 @@ Access control is available to protect the tenant BDM. You can use this API to g
 ====
 
 A servlet to import access control file exists. You can use it with this url  `services/bdmAccessControl/install?bdmAccessControlUpload=accessControlFileToUpload.xml`.
-  The file upload needs to be performed before (POST portal/bdmAccessControlUpload). Use the file name returned in the response of the upload request to perform the import request (bdmAccessControlUpload parameter).
+  The file upload needs to be performed before (POST `portal/bdmAccessControlUpload`). Use the file name returned in the response of the upload request to perform the import request (bdmAccessControlUpload parameter).
 ====
 
 [discrete]

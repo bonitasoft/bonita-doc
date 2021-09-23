@@ -1,11 +1,11 @@
-= About Bonita Portal
-:description: Bonita Portal gives you access to a basic task preview and administration features.
+= About Bonita Applications
+:description: Bonita Applications gives you access to a basic task preview and administration features.
 
-Bonita Portal gives you access to a basic task preview and administration features.
+{description}
 
-== Version of Bonita Portal
+== Version of the Bonita Runtime
 
 To see the version of Bonita installed on a system:
 
-. Go to the *Top menu bar*.
-. Open the *_Settings_* menu and choose *_About_*.
+. Log in with the technical user and access the *Super admin application*
+. Open the *BPM Services* page

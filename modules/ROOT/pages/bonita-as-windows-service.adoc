@@ -28,7 +28,7 @@ Choose the "32-bit/64-bit Windows Service Installer" installation.
 
 image::images/bonita-as-windows-service/tomcatHome.png[Tomcat home page]
 
-* *_Download_* the bundle BonitaSubscription-x.y.z.zip (or BonitaCommunity-x.y.z.zip for the community edition)
+* *_Download_* the bundle BonitaSubscription-VERSION.zip (or BonitaCommunity-VERSION.zip for the community edition)
 * *_Unzip_* the bundle in a folder that we'll call: %TOMCAT_BUNDLE%
 
 == Get the license (In case of Subscription edition)
@@ -69,10 +69,10 @@ This is an example with Postgres, any database works
 * The file `%TOMCAT_BUNDLE%/server/bin/setenv.bat` contains all JVM parameters to use in the new installation.
 * The properties should be the following ones:
  ** -Dorg.bonitasoft.platform.setup.folder=%TOMCAT_INSTALL_FOLDER%\setup
- ** -Dorg.bonitasoft.engine.incident.folder=C:\Program Files\Apache Software Foundation\Tomcat x.y\logs
+ ** -Dorg.bonitasoft.engine.incident.folder=%TOMCAT_INSTALL_FOLDER%\logs
  ** -Dsysprop.bonita.db.vendor=postgres
  ** -Dsysprop.bonita.bdm.db.vendor=postgres
- ** -Dcom.arjuna.ats.arjuna.common.propertiesFile=C:\Program Files\Apache Software Foundation\Tomcat x.y\conf\jbossts-properties.xml
+ ** -Dcom.arjuna.ats.arjuna.common.propertiesFile=%TOMCAT_INSTALL_FOLDER%\conf\jbossts-properties.xml
  ** -Dfile.encoding=UTF-8
 
 [WARNING]
@@ -82,7 +82,7 @@ Replace the `%TOMCAT_INSTALL_FOLDER%` by the exact path where you move the setup
 
 where we replaced the `%CATALINA_HOME% with our new Tomcat directory`
 
-In order to apply these configurations to the new installation, you have to use the program %TOMCAT_INSTALL_FOLDER%/bin/TomcatXw.exe (Where X is the Tomcat major version), and replicate them in the *Java Options* field.
+In order to apply these configurations to the new installation, you have to use the program %TOMCAT_INSTALL_FOLDER%/bin/TomcatXw.exe (Where X is the Tomcat major version ), and replicate them in the *Java Options* field.
 
 [NOTE]
 ====
@@ -99,18 +99,18 @@ Then for example
 
 [source,properties]
 ----
--Dorg.bonitasoft.platform.setup.folder=C:\Program Files\Apache Software Foundation\Tomcat 8.5\setup
--Dcatalina.home=C:\Program Files\Apache Software Foundation\Tomcat 8.5
--Dcatalina.base=C:\Program Files\Apache Software Foundation\Tomcat 8.5
--Djava.io.tmpdir=C:\Program Files\Apache Software Foundation\Tomcat 8.5\temp
+-Dorg.bonitasoft.platform.setup.folder=C:\Program Files\Apache Software Foundation\Tomcat 9.0\setup
+-Dcatalina.home=C:\Program Files\Apache Software Foundation\Tomcat 9.0
+-Dcatalina.base=C:\Program Files\Apache Software Foundation\Tomcat 9.0
+-Djava.io.tmpdir=C:\Program Files\Apache Software Foundation\Tomcat 9.0\temp
 -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
--Djava.util.logging.config.file=C:\Program Files\Apache Software Foundation\Tomcat 8.5\conf\logging.properties
--Dorg.bonitasoft.platform.setup.folder=C:\Program Files\Apache Software Foundation\Tomcat 8.5\setup
--Dorg.bonitasoft.h2.database.dir=C:\Program Files\Apache Software Foundation\Tomcat 8.5\h2_database
--Dorg.bonitasoft.engine.incident.folder=C:\Program Files\Apache Software Foundation\Tomcat 8.5\logs
+-Djava.util.logging.config.file=C:\Program Files\Apache Software Foundation\Tomcat 9.0\conf\logging.properties
+-Dorg.bonitasoft.platform.setup.folder=C:\Program Files\Apache Software Foundation\Tomcat 9.0\setup
+-Dorg.bonitasoft.h2.database.dir=C:\Program Files\Apache Software Foundation\Tomcat 9.0\h2_database
+-Dorg.bonitasoft.engine.incident.folder=C:\Program Files\Apache Software Foundation\Tomcat 9.0\logs
 -Dsysprop.bonita.db.vendor=postgres
 -Dsysprop.bonita.bdm.db.vendor=h2
--Dcom.arjuna.ats.arjuna.common.propertiesFile=C:\Program Files\Apache Software Foundation\Tomcat 8.5\conf\jbossts-properties.xml
+-Dcom.arjuna.ats.arjuna.common.propertiesFile=C:\Program Files\Apache Software Foundation\Tomcat 9.0\conf\jbossts-properties.xml
 -Xshare:auto
 -XX:+HeapDumpOnOutOfMemoryError
 -Dfile.encoding=UTF-8
@@ -120,7 +120,7 @@ is correct
 
 image::images/bonita-as-windows-service/tomcatw.png[tomcatw configuration]
 
-* Setup `+%TOMCAT_INSTALL_FOLDER%/bin/Tomcat8w.exe -> Java+` \-> "Initial memory" with a proper value based on your hardware and project requirements.
+* Setup `+%TOMCAT_INSTALL_FOLDER%/bin/Tomcat9w.exe -> Java+` \-> "Initial memory" with a proper value based on your hardware and project requirements.
 * Do the same with "Maximum Memory pool" property.
 As an example, if your Operating system has 8 GB of ram you could setup Initial Memory Pool = Maximum Memory Pool = 4096.
 * Verify that in the Startup tab the "Mode" property is set to "Jvm".
@@ -130,7 +130,7 @@ image::images/bonita-as-windows-service/tomcatWStartup.png[tomcatw startup tab]
 == System restart and test
 
 * Restart the Tomcat service to take in account the new updates.
-* Verify that the Bonita portal is available at the following address:
+* Verify that the Bonita platform is available at the following address:
 http://localhost:8080/bonita
 * Connect with the technical user (default install/install) and do some tests:
  ** Add an organization.

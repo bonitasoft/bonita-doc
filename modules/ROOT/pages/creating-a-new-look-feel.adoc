@@ -13,10 +13,6 @@ A Look & Feel is defined in a set of files. You can set the Look & Feel for the 
 
 == Introduction
 
-To create a new Look & Feel in Bonita Portal, xref:managing-look-feel.adoc[export the default Look & Feel] and modify the relevant components.
-You can either edit the files directly, or you can use a plugin and update the Look & Feel in a browser.
-When the new Look & Feel is ready, xref:managing-look-feel.adoc[import and apply the new Look & Feel].
-
 There are two types of page in the Portal: pages developed with GWT, as in earlier versions, and new pages, such as the Case monitoring page, that have been developed using Angular.
 The two types of page have different mechanisms for defining Look & Feel.
 This means that in some cases, you might need to specify a Look & Feel element in two places to get a consistent look for your Portal and custom pages.
