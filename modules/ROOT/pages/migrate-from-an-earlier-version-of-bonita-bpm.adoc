@@ -15,7 +15,7 @@ For example, if you consider updating from Bonita 6.5.3 to Bonita 7.1.0, you mus
 You are recommended not to start Bonita 7.0.0 after you update to it, but to proceed immediately with the second phase of the update.
 
 === Version to target
-You should always update to the latest version of a main version, even if not the latest Bonita version. +
+You should always update to the latest version of a main release, even if not the latest Bonita version. +
 Indeed, such maintenance versions might contain bug fixes made after the release of subsequent main releases. +
 For example, Bonita 6.5.4 contains fixes to certain bugs that were found in early Bonita 7.x.y versions, up to Bonita 7.1.0. +
 When you are ready to update from Bonita 6.5.4 to a Bonita 7.x.y version, make sure you update to at least Bonita 7.1.1 to be sure that these fixes are present in your new version after the update.
