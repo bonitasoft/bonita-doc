@@ -120,18 +120,18 @@
  ** xref:layout-development.adoc[Layout]
   *** xref:bonita-layout.adoc[Bonita Layout]
   *** xref:living-application-layout.adoc[Living application layout]
- ** xref:customize-layouts.adoc[Customize layouts]
- *** xref:uid-vertical-tabs-container-tutorial.adoc[How to create a vertical tabs container for all devices]
- ** xref:customize-living-application-theme.adoc[Theme]
- ** Adaptive Case Management example 
-  *** xref:use-bonita-acm.adoc[Enable Adaptive Case Management with Bonita]
+  *** xref:customize-layouts.adoc[Customize layouts]
+  *** xref:uid-vertical-tabs-container-tutorial.adoc[How to create a vertical tabs container for all devices]
  ** xref:appearance.adoc[Appearance]
   *** xref:theme-development.adoc[Theme]
- ** xref:navigation.adoc[Navigation between User Interfaces]
+  *** xref:customize-living-application-theme.adoc[Theme]
+ ** xref:navigation.adoc[Navigation between applications]
  ** Translation
   *** xref:multi-language-applications.adoc[Multi-language applications]
   *** xref:multi-language-pages.adoc[Multi-language pages]
   *** xref:languages.adoc[Languages]
+ ** Adaptive Case Management example 
+  *** xref:use-bonita-acm.adoc[Enable Adaptive Case Management with Bonita]
 * xref:software-extensibility.adoc[Extensions]
  ** xref:custom-library-development.adoc[Custom library development]
 * Integration
@@ -221,7 +221,7 @@
   *** xref:bonita-applications-interface-overview.adoc[Overview]   
   *** xref:cache-configuration-and-policy.adoc[Cache configuration and policy]
   *** xref:log-in-and-log-out.adoc[Log in and log out]
-  *** xref:application-directory-application.adoc[Application Directory application]
+  *** xref:application-directory.adoc[Application Directory]
   *** xref:super-administrator-application-index.adoc[Bonita Super Administrator application]
    **** xref:super-administrator-application-overview.adoc[Overview]
    **** xref:pause-and-resume-bpm-services.adoc[Put Runtime in maintenance mode]
