@@ -4,7 +4,7 @@ version: 7.9
 asciidoc:
   attributes:
     varVersion: 7.9
-    page-editable: true
-    page-out-of-support: false
+    page-editable: false
+    page-out-of-support: true
 nav:
   - modules/ROOT/taxonomy.adoc
