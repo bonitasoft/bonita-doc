@@ -129,7 +129,7 @@ Uncomment `Cas.serverUrlPrefix` and `Cas.bonitaServiceURL` properties as shown b
 # OAuth.callbackURL = http://ip_address:port/loginservice
 auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.jaas.cas.CASRemoteAuthenticationManagerImpl
 Cas.serverUrlPrefix = http://ip_address:port/cas
-Cas.bonitaServiceURL = http://ip_address:port/bonita/portal/homepage
+Cas.bonitaServiceURL = http://ip_address:port/bonita/apps/appDirectoryBonita
 logout.link.hidden=true
 ----
 
@@ -157,7 +157,7 @@ To troubleshoote SSO login issues, you need to increase the xref:logging.adoc[lo
 [discrete]
 ==== Bonita Runtime
 
-If you are using CAS, when users log out of Bonita Runtime, they log out of CAS. Therefore they are logged out of all applications that are using the CAS service. To avoid this, you can hide the logout option of the portal.
+If you are using CAS, when users log out of Bonita Runtime, they log out of CAS. Therefore they are logged out of all applications that are using the CAS service. To avoid this, you can hide the logout option of the Bonita Layout.
 To do this, set the `logout.link.hidden=true` option in `authenticationManager-config.properties` located in `platform_conf/initial/tenant_template_portal` for not initialized platform or `platform_conf/current/tenant_template_portal` and `platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
 [NOTE]
 ====
@@ -200,7 +200,6 @@ CAS is a browser-oriented protocol (based on http automatic redirection, cookies
 [#restricted_cas_urls]
 The default `AuthenticationFilter` that manages CAS authentication applies only to the following pages:
 
-* /portal
 * /mobile/*
 * /portal.js/*
 * /apps/*

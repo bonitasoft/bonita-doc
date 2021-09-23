@@ -66,8 +66,8 @@ A toolbar is embedded to the editor, use it to:
 
 * *Add* a profile to profiles file: you can add a new profile or duplicate an existing one from your current project
 * *Save* profiles file *As* another profiles file (useful to duplicate the whole file)
-* *Deploy* profiles file (i.e all the profiles in this file) +
-⚠  For _development_ purposes, it also deploys their referenced pages used as portal menu entries, but if those resources use REST API Extensions, you have to deploy those manually. In _production_ environment, you still need to import pages, and REST API Extensions manually *before* importing profiles file.
+* *Deploy* profiles (i.e all the profiles in this file) +
+⚠  In _production_ environment, you still need to import REST API Extensions manually *before* importing profiles file.
 * *Rename* profiles file
 * *Export* profiles file (download the .xml)
 * *Delete* profiles file from your current workspace
@@ -82,10 +82,7 @@ You can duplicate a profile name in different files, but remember that you can o
 In the mapping section you can map Users / Groups / Roles / Memberships to your profile. You have to map your profile with elements of the active organization. +
 ⚠  Nodes in the group tree are *independent* ⚠  It means that mapping `/acme` to your profile won't map `/acme/hr` to it. Each node has to be mapped individually to be taken into account. However, you can easily add a whole part of your organization, using the _add subtree_ button:  select a node in the tree, and then click on _add subtree_.
 
-The portal menu entries can be edited for custom profiles. +
-Pages proposed are those provided by default in the Bonita Runtime and those created with the UI Designer. You can reference a custom page only if it is imported in the Bonita Runtime, and you will have to write its exact identifier.
-
-The Applications section provides a quick access to the applications mapped to this profile. +
+The Applications section provides quick access to the applications mapped to this profile. +
 To map a new application to this profile, you have to open the application and then choose this profile in the profile field of the xref:applicationCreation.adoc[application descriptor editor]
 
 == Enable a profile
