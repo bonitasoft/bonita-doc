@@ -31,5 +31,5 @@ xref:user-task-list.adoc#installAccessControl[[.card-title]#Task list# [.card-bo
 
 [.card.card-index]
 --
-xref:custom-applications.adoc[[.card-title]#Applications creation# [.card-body.card-content-overflow]#pass:q[Create your own applications]#]
+xref:custom-applications-index.adoc[[.card-title]#Applications creation# [.card-body.card-content-overflow]#pass:q[Create your own applications]#]
 --
