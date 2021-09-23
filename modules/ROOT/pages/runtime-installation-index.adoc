@@ -23,7 +23,7 @@ xref:custom-deployment.adoc[[.card-title]#Custom Tomcat# [.card-body.card-conten
 
 [.card.card-index]
 --
-xref:convert-wildfly-into-tomcat.adoc[[.card-title]#Convert a WildFly bundle into a Tomcat# [.card-body.card-content-overflow]#pass:q[Install Bonita in an existing Tomcat server]#]
+xref:convert-wildfly-into-tomcat.adoc[[.card-title]#Convert a WildFly bundle into a Tomcat# [.card-body.card-content-overflow]#pass:q[If your current application server is not the one we support]#]
 --
 
 [.card.card-index]
