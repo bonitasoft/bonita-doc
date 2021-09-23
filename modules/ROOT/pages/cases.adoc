@@ -1,7 +1,7 @@
 = Administrator Case list
-:description: This page explains what a user with the _Administrator_ or _Process Manager_ profiles in Bonita Portal, or an _Administrator_ in Bonita Administrator Application can see and do about cases (the process instances).
+:description: This page explains what a user with the _Administrator_ profile in Bonita Administrator Application can see and do about cases (the process instances).
 
-This page explains what a user with the _Administrator_ or _Process Manager_ profiles in Bonita Portal, or an _Administrator_ in Bonita Administrator Application can see and do about cases (the process instances).
+{description}
 
 Those users can view a list of open or archived cases, as well as cases with failures, access the case details and overview, the pending tasks for this case, the process definition of this case, and write a comment in open cases.
 
@@ -38,7 +38,7 @@ From this table, you can delete a case or several cases. Select the cases you wa
 
 if you are using the Enterprise, Performance or Efficiency edition, you can also open the diagram of a case (case visualization), by clicking on the _Picture_ icon for the case.
 On the diagram, colored flags on the steps show the number of step instances in the possible states. Click on _Show key_ to see an explanation of the display.
-Remember that a failure at a step does not necessarily mean that the case has failed entirely, but it might indicate that some action is needed, perhaps to xref:tasks.adoc#_replay_a_failed_task[replay a connector].
+Remember that a failure at a step does not necessarily mean that the case has failed entirely, but it might indicate that some action is needed, perhaps to xref:admin-application-task-list.adoc#_replay_a_failed_task[replay a connector].
 
 The process diagram is constructed from the deployed process definition. This means that some details visible in Bonita Studio, such as annotations, are not available.
 

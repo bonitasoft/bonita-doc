@@ -1,7 +1,7 @@
 = Multi-language pages
 :description: The UI Designer includes a mechanism to add translations for page, layout and form elements, to support multi-language applications.
 
-The UI Designer includes a mechanism to add translations for page, layout and form elements, to support multi-language applications.
+{description}
 
 [NOTE]
 ====
@@ -11,11 +11,11 @@ For Enterprise, Performance, Efficiency, and Teamwork editions only.
 
 == Visualization
 
-The text displayed in the preview and at the runtime adapts to the local or browser language automatically. The UI Designer itself, that speaks to developers, not end-users, is displayed in the language of your Bonita Studio.
+The text displayed in the preview and at the runtime adapts to the local or browser language automatically. The UI Designer itself, used by developers, not end-users, is displayed in the language of your Bonita Studio.
 
-The Preview window is displayed in the language set for Bonita Portal, since it speaks to the end-users.
+The Preview window is displayed in the language set for Bonita Applications, since the result that is previewed if for the end-users.
 
-You can translate all text strings displayed on a page, layout or form: the labels, the placeholders, the available values of a list, and the date format of the Date Picker widget. You can also translate fragments and custom widgets strings that the page, layout or form embeds.
+You can translate all text strings displayed on a page, layout or form: the labels, the placeholders, the available values of a list, and the date format of the Date Picker widget. You can also translate fragments and custom widgets strings that the page, layout or embedded forms.
 
 == How it works
 
@@ -45,7 +45,7 @@ The code that specifies a language in `localization.json` must be the same as th
 
 By default, US english strings are used as the keys for translation. But you could use any code or language for the keys, and create an en-US section of translations to consider english as any other translated language. That option allows to freely change english strings with no duplication on every other language section.
 
-In production, a page, layout or form is displayed in the language specified by the BOS_locale cookie value. This value must match exactly one of the language codes in the `localization.json` asset. The BOS_locale value is set by selecting a language in Bonita Portal or in a custom widget. If BOS_locale is not set or its value does not match a language code, the browser language is used. If neither the BOS_locale nor the browser language matches a language code in `localization.json`, the untranslated keys are displayed in the page.
+In production, a page, layout or form is displayed in the language specified by the BOS_locale cookie value. This value must match exactly one of the language codes in the `localization.json` asset. The BOS_locale value is set by selecting a language in Bonita Layout or in a custom widget. If BOS_locale is not set or its value does not match a language code, the browser language is used. If neither the BOS_locale nor the browser language matches a language code in `localization.json`, the untranslated keys are displayed in the page.
 
 == Tutorial: creating a multi-language page
 
@@ -79,7 +79,7 @@ Now translate the text outside of Bonita, in any suitable translation editor, or
 
 === Add languages to Bonita Portal
 
-Before you can view a page in a language, that language must be supported for Bonita web applications. French is one of the default languages supported, so you just need to add support for Russian. To do this, xref:languages.adoc[add Russian from the Community translations to your Bonita Portal]. Then restart your Bonita Studio, start the Portal, and change the language to Russian to check that it is available.
+Before you can view a page in a language, that language must be supported for Bonita web applications. French is one of the default languages supported, so you just need to add support for Russian. To do this, xref:languages.adoc[add Russian from the Community translations to your Bonita Runtime]. Then restart your Bonita Studio, start the Bonita Runtime, and change the language to Russian to check that it is available.
 
 === Add a localization asset to the page
 
@@ -145,7 +145,7 @@ This gives the opportunity to get such strings available for translation in the 
 
 === Preview the page
 
-Now preview the page in each language. To do this, you need to modify the language used for Bonita web applications, which you do by setting the Portal language from the Portal Settings menu.
+Now preview the page in each language. To do this, you need to modify the language used for Bonita web applications, which you do by setting the Bonita Applications language from xref:languages#_select_a_language_in_a_bonita_application[the Bonita Layout].
 
 image::images/images-6_0/l10n-combined-previews.png[Multi-language page previews]
 
@@ -155,9 +155,9 @@ NOTE: Always update the localization.json file as an asset and then export your 
 
 === Deploy
 
-To put a multi-language page into production in an application, follow the same steps as for a single-language page: xref:resource-management.adoc[upload the page to the Portal] and then xref:applications.adoc[add it to the application]. You can follow the steps for xref:create-application.adoc[creating an application] from the getting started tutorial.
+To put a multi-language page into production in an application, follow the same steps as for a single-language page: xref:resource-management.adoc[upload the page to Bonita Runtime] and then xref:applications.adoc[add it to the application]. You can follow the steps for xref:create-application.adoc[creating an application] from scratch.
 
-After deployment, an application user will see the page in the language configured for their Bonita web applications. A user can set this by selecting the language in the Bonita Portal. If the selected language is not supported by the page localization.json file, the untranslated keys are displayed.
+After deployment, an application user will see the page in the language configured for their Bonita web applications. A user can set this by selecting the language in the Bonita Layout. If the selected language is not supported by the page localization.json file, the untranslated keys are displayed.
 
 == Sharing translations
 

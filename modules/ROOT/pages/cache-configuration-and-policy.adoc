@@ -1,5 +1,5 @@
 == Cache configuration and policy
-:description: Learn how to configure Bonita Portal cache and Living Application cache.
+:description: Learn how to configure Living Application cache.
 
 {description}
 
@@ -12,18 +12,13 @@ it can be quickly accessed at a later time, thereby improving performance.
 When you browse through different forms or custom pages that use the same images, CSS, or JavaScript, your browser will not have to re-download the files.
 Instead, the browser can simply load them from the cache, which is stored on your local hard drive.
 
-This cache policy will have impacts at three different levels:
+This cache policy will have impacts on the Living applications display time and theme update.
 
-* Bonita portal display time and look and feel update.
-* Living applications display time and look and feel update.
-* Mobile application display time and look and feel update.
-
-Note that in every cases, custom pages and forms take advantage of the cache mechanism, whether contained in the portal,
- in an Application or in the Mobile application.
+Note that in every cases, custom pages and forms take advantage of the cache mechanism in an Application.
 
 ==== Development configuration
 
-By default cache is disable for the web server embedded by Bonita studio, as it is more comfortable to realise development without cache.
+By default cache is disabled for the web server embedded by Bonita studio, as it is more comfortable to realise development without cache.
 But you can decide to activate cache, to be closer to the production display time. To do this,
 see xref:bonita-bpm-studio-installation.adoc#enable_cache[Cache configuration] documentation.
 

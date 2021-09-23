@@ -19,7 +19,7 @@ xref:upgradestudio.adoc[[.card-title]#Upgrade your Studio#  [.card-body.card-con
 
 [.card.card-index]
 --
-xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[[.card-title]#Upgrade your runtimes#  [.card-body.card-content-overflow]#pass:q[At a glance: Flow, Best Practices and caveat]#]
+xref:migrate-from-an-earlier-version-of-bonita.adoc[[.card-title]#Upgrade your runtimes#  [.card-body.card-content-overflow]#pass:q[At a glance: Flow, Best Practices and caveat]#]
 --
 
 

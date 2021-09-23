@@ -1,9 +1,9 @@
 = Run a process in Bonita Studio
 :description: You can run a process from Bonita Studio. Bonita Studio includes a test environment with all the components required to execute a process.
 
-You can run a process from Bonita Studio. Bonita Studio includes a test environment with all the components required to execute a process.
+{description}
 
-When you run a process from Bonita Studio it runs on the local Bonita server. The server includes an Java application server (Tomcat), two databases (h2), Bonita Engine and Bonita Portal. Running a process from Bonita Studio is intended for testing during process development.
+When you run a process from Bonita Studio it runs on the local Bonita server. The server includes an Java application server (Tomcat), two databases (h2), and Bonita Runtime. Running a process from Bonita Studio is intended for testing during process development.
 
 Before you can run a process, you must xref:configuring-a-process.adoc[configure the process]
 and xref:organization-management-in-bonita-bpm-studio.adoc[configure the organization].
@@ -24,12 +24,6 @@ This means that if you include a script in the templates, which are the standalo
 
 To include a script in a process so it can be used in portal mode, there are the following options:
 
-* In the form, add an HTML widget that contains ``.
-* In the Portal, use a xref:managing-look-feel.adoc[custom Look & Feel] that includes the JavaScript files between the ```tags of``BonitaForm.html`.
-This makes the script available for all forms in all processes launched from the Portal.
+* In the form, add an HTML widget that contains it``.
 
-To include a script in a process so it can be used in standalone mode:
-
-* In Studio, define a custom look & feel for the Application and include the script in one of the template HTML files. The script is then available for all steps in the process.
-
-After a process is xref:processes.adoc[deployed and initialized] in Bonita Portal, it is run by xref:cases.adoc[starting a case].
+After a process is xref:admin-application-process-list.adoc[deployed and initialized] in Bonita Portal, it is run by xref:cases.adoc[starting a case].

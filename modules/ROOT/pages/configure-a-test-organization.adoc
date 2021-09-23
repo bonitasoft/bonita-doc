@@ -46,8 +46,8 @@ To an organization, you create the organization, create the group hierarchy, spe
 
 == Export and import an organization
 
-You can export an organization definition from Bonita Studio. The exported file is in XML, so can be modified. You can import an
-organization definition in this XML format that was exported from another Bonita Studio running the same version of Bonita, or that was constructed by some other method but has the same format. You can also import the organization file into Bonita Portal, ready for production.
+You can export an organization definition from Bonita Studio. The exported file is in XML format, so can be modified. You can import an
+organization definition in this XML format that was exported from another Bonita Studio running the same version of Bonita, or that was constructed by some other method but has the same format. You can also import the organization file into Bonita Administrator Application, ready for production.
 
 == Modifying an organization
 
@@ -55,16 +55,16 @@ To modify an organization, choose *Manage...* from the Organization menu and use
 To modify an item in an organization, select it in the item list and modify the information on the right-hand side of the list.
 To delete an item, select it and click *_Remove_*.
 
-== Publishing an organization to the Bonita Portal
+== Publishing an organization to the Bonita Administrator Application
 
-Publishing an organization means uploading the organization data to Bonita Portal so that you can test your process. To upload organization data into Bonita Portal permanently, so a process can run when Bonita Studio is not running, you need to export
-the organization from Bonita Studio and import it into Bonita Portal.
+Publishing an organization means uploading the organization data to Bonita Applications so that you can test your process. To upload organization data into Bonita Applications permanently, so a process can run when Bonita Studio is not running, you need to export
+the organization from Bonita Studio and import it into Bonita Administrator Application.
 
 To upload the organization data:
 
-. Choose Publish... from the Organization menu.
-. Click the organization to be uploaded, and then click Next.
-. Specify the username and password of the user that will be used to log in to Bonita Portal when a process is started from Bonita Studio. This user must be in the organization you have selected.
-. Click Publish.
+. Choose Deploy from the Organization menu.
+. Click the organization to be uploaded.
+. Specify the username of the user that will be used to log into the Bonita Runtime when a process is started from Bonita Studio. This user must be from the organization you have selected.
+. Click Deploy.
 
-After it has been uploaded, you can xref:organization-in-bonita-applications-overview.adoc[modify the organization in Bonita Portal].
+After it has been uploaded, you can xref:organization-in-bonita-applications-overview.adoc[modify the organization in Bonita Applications].

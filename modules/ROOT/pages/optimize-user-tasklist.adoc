@@ -1,7 +1,7 @@
 = How to have unique task names in the task list
 :description: Leverage Bonita Studio to optimize user comfort and efficiency by inserting case information in task name and task description.
 
-Leverage Bonita Studio to optimize user comfort and efficiency by inserting case information in task name and task description.
+{description}
 
 [NOTE]
 ====
@@ -133,7 +133,7 @@ As a good practice, we advise to display static information that defines the tas
 To configure the display options:
 
 . Select the *Validate request* task
-. Go to *General* pane > *Portal* tab.
+. Go to *General* pane > *Display in apps* tab.
 
 === Display name
 

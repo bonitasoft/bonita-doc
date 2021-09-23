@@ -1,7 +1,7 @@
 = LDAP synchronizer
 :description: Learn how to configure the LDAP Synchronizer. This tool updates Bonita Users and Groups database from the LDAP directory.
 
-Learn how to configure the LDAP Synchronizer. This tool updates Bonita Users and Groups database from the LDAP directory.
+{description}
 
 [NOTE]
 ====
@@ -47,7 +47,7 @@ Below are all the actions completed by the LDAP synchronizer tool:
 To run the LDAP synchronizer, execute the script `BonitaSubscription-x.y.z-LDAP-Synchronizer.bat` (for Windows) or `BonitaSubscription-x.y.z-LDAP-Synchronizer.sh` (for Linux),
 where `x.y.z` is the version of Bonita you are running.
 
-WARNING: Do not modify the Organization from the Bonita Portal while the tool is running, as this will cause a synchronization error.
+WARNING: Do not modify the Organization from Applications while the tool is running, as this will cause a synchronization error.
 
 NOTE: Some use cases require additional configuration server side (for example to use directly the engine API). They are described xref:configure-client-of-bonita-bpm-engine.adoc[here].
 

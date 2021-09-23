@@ -1,7 +1,7 @@
 = Live update
 :description: This page defines what is called "Live update" and details the process information that can be live-updated from the Administrator profile.
 
-This page defines what is called "Live update" and details the process information that can be live-updated from the Administrator profile.
+{description}
 
 [NOTE]
 ====
@@ -24,7 +24,7 @@ Once such a procedure has been used, the development team should quickly report 
 
 == Parameters
 
-In Bonita Portal, with the _Administrator_ profile, or in the Bonita Administrator Application:
+In the Bonita Administrator Application:
 
 . Go to _BPM_> _Processes_
 . Select a process and click on the _More..._ button

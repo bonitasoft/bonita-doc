@@ -22,12 +22,12 @@ occurred) that is used as a last resort to record an error that cannot be handle
 
 == Monitoring a process
 
-To monitor a process in a cluster, use the Bonita Portal as usual. The information presented applies to process activity on all nodes in the cluster.
+To monitor a process in a cluster, use the Bonita Applications as usual. The information presented applies to process activity on all nodes in the cluster.
 
 == Deploying a process in a Bonita cluster
 
 To deploy a process in a cluster, configure the process in Bonita Studio, and then create a .bar file using the Build option of the Server menu.
-Import the process bar file into Bonita Portal on one of the nodes. The process is now available to Bonita Portal on every node in the cluster.
+Import the process .bar file into Bonita Administrator Application on one of the nodes. The process is now available to Bonita Applications on every node in the cluster.
 The process must be started on one node. Subsequently, instances can be created on all nodes.
 This means that all nodes have the possibility of running instances of tasks of all processes.
 
@@ -35,4 +35,4 @@ You can also xref:manage-a-process.adoc[deploy a process using the API], exactly
 
 == Managing your organization in a cluster
 
-The organization data used by Bonita is stored in the database, so only has to be configured once. It can be maintained from any Bonita Portal in the cluster.
+The organization data used by Bonita is stored in the database, so only has to be configured once. It can be maintained from any Bonita Application in the cluster.

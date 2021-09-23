@@ -8,7 +8,7 @@
 
 [.card.card-index]
 --
-xref:bonita-bpm-platform-setup.adoc[[.card-title]#Setup tool# [.card-body.card-content-overflow]#pass:q[Retrieve, update, and push configuration values to the database]#]
+xref:bonita-platform-setup.adoc[[.card-title]#Setup tool# [.card-body.card-content-overflow]#pass:q[Retrieve, update, and push configuration values to the database]#]
 --
 
 [.card.card-index]

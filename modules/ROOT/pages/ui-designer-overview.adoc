@@ -1,7 +1,7 @@
 = UI Designer overview
 :description: The UI Designer is a wysiwyg development environment for creating pages and forms for a Bonita application.
 
-The UI Designer is a wysiwyg development environment for creating pages and forms for a Bonita application.
+{description}
 
 == Usage
 
@@ -10,7 +10,7 @@ A page is defined in HTML extended by the AngularJS JavaScript framework. Use th
 
 * Create pages directly in the Bonita UI designer.
 * Start form design in Bonita Studio from the appropriate xref:contracts-and-contexts.adoc[contract].
-* Create xref:layouts.adoc[layouts] by duplicating the default layout available in the Bonita Portal resources and then updating it.
+* Create xref:layouts.adoc[layouts] by duplicating the Bonita Layout available in the Bonita Administrator Application, "Resources" tab and then updating it.
 
 You can import an existing page, form, or layout to edit, or duplicate existing ones.
 
@@ -70,15 +70,15 @@ With the form type set to *UI Designer*, you can select a form from the dropdown
 
 == Integration with Bonita Platform
 
-The UI Designer is part of the development tools integrated in Bonita Studio. It runs in a tomcat instance managed by Bonita Studio. This tomcat instance is separated from the engine/portal tomcat instance.
+The UI Designer is part of the development tools integrated in Bonita Studio. It runs in a tomcat instance managed by Bonita Studio. This tomcat instance is separated from the Bonita Runtime tomcat instance.
 
-To use a page in a business application, export it from the Bonita UI designer, import it as a portal resource, and from the relevant application, add it to the list of pages and then insert it in a navigation menu.
+To use a page in a business application, export it from the Bonita UI designer, import it as a Bonita Runtime resource, and from the relevant application, add it to the list of pages and then insert it in a navigation menu.
 
-To use a form in a process, map it in the Bonita Studio to the relevant process or human task. It will be automatically packaged in the .bar archive ready to deploy in the Bonita Portal.
+To use a form in a process, map it in the Bonita Studio to the relevant process or human task. It will be automatically packaged in the .bar archive ready to deploy in the Bonita Administrator Application.
 
-You can xref:live-update.adoc[update a form in production], by exporting a new version of the form from the Bonita UI designer, importing it into the relevant process in the portal, and then mapping it to the relevant task or process start event.
+You can xref:live-update.adoc[update a form in production], by exporting a new version of the form from the Bonita UI designer, importing it into the relevant process in the Bonita Adminsitrator Application, and then mapping it to the relevant task or process start event.
 
-To use a layout in a business application, export it from the Bonita UI designer, import it as a Bonita Portal resource, and map it as the layout of the relevant application.
+To use a layout in a business application, export it from the Bonita UI designer, import it in the Bonita Administrator Application, "Resources" tab, and map it as the layout of the relevant application.
 
 === Business Data model Synchronization
 
