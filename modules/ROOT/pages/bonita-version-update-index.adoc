@@ -7,8 +7,7 @@
 == Updating to a new Bonita version
 
 You can automatically update Bonita from an earlier version, provided it is not older than 6.0.2. +
-In the case of Bonita Runtime, after the update, a process continues to run unchanged. Later on, you can modify the process definition to take advantage of the new features in the new version of Bonita.
-
+In the case of Bonita Runtime, after the update, a process continues to run unchanged. Later on, you can modify the process definition to take advantage of the new features in the new Bonita version.
 
 [.card.card-index]
 --
