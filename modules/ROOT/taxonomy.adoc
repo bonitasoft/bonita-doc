@@ -177,6 +177,7 @@
    **** xref:custom-user-information-in-bonita-bpm-studio.adoc[Custom User Information in Bonita Studio]
   *** xref:profiles-overview.adoc[Profiles]
    **** xref:profile-creation.adoc[Profile editor]
+  *** xref:special-users.adoc[Special users]
   *** xref:rest-api-authorization.adoc[REST API authorization]
   *** xref:custom-authorization-rule-mapping.adoc[Authorization rules]
   *** xref:bdm-access-control.adoc[BDM access control]
@@ -216,24 +217,24 @@
   *** xref:bonita-applications-interface-overview.adoc[Overview]   
   *** xref:cache-configuration-and-policy.adoc[Cache configuration and policy]
   *** xref:log-in-and-log-out.adoc[Log in and log out]
-  *** xref:application-directory-application.adoc[Application Directory application]
-  *** Bonita Super Administrator application
+  *** xref:application-directory.adoc[Application Directory]
+  *** xref:super-administrator-application-index.adoc[Bonita Super Administrator application]
+   **** xref:super-administrator-application-overview.adoc[Overview]
    **** xref:pause-and-resume-bpm-services.adoc[Put Runtime in maintenance mode]
-   **** xref:bdm-management-in-bonita-applications.adoc[BDM Management]
-   **** Organization
-    ***** xref:organization-in-bonita-applications-overview.adoc[Organization Management]
+   **** xref:bdm-management-in-bonita-applications.adoc[BDM]
+   **** xref:organization-index.adoc[Organization]
     ***** xref:import-export-an-organization.adoc[Install/export an organization]
     ***** xref:admin-application-groups-list.adoc[Manage groups]
     ***** xref:admin-application-roles-list.adoc[Manage roles]
-    ***** Manage users
-     ****** xref:admin-application-users-list.adoc[Manage a user]
+    ***** Users
+     ****** xref:admin-application-users-list.adoc[Manage users]
      ****** xref:custom-user-information-in-bonita-applications.adoc[Custom User Information]
     ***** User profiles
      ****** xref:profiles-applications-overview.adoc[Overview]
-     ****** xref:admin-application-profiles-list.adoc[Profiles Management]
-   **** xref:admin-application-resources-list.adoc[Resources management]
+     ****** xref:admin-application-profiles-list.adoc[Profiles]
+   **** xref:admin-application-resources-list.adoc[Resources]
    **** xref:applications.adoc[Applications]
-   **** xref:licenses.adoc[License information]   
+   **** xref:licenses.adoc[License]   
   *** Bonita Administrator application
    **** xref:admin-application-overview.adoc[Overview]
    **** Process Management
