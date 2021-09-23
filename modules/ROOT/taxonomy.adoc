@@ -235,9 +235,9 @@
    **** xref:admin-application-resources-list.adoc[Resources]
    **** xref:applications.adoc[Applications]
    **** xref:licenses.adoc[License]   
-  *** Bonita Administrator application
+  *** xref:administrator-application-index.adoc[Bonita Administrator application]
    **** xref:admin-application-overview.adoc[Overview]
-   **** Process Management
+   **** xref:process-management-index.adoc[Process Management]
     ***** xref:monitoring.adoc[Monitoring]
     ***** xref:admin-application-process-list.adoc[Process list]
     ***** xref:import-and-export-a-process.adoc[Import and export a process]
