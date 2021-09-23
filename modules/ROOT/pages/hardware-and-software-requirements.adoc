@@ -74,7 +74,7 @@ Software required for Bonita Platform.
 | 8.0.14 and higher in the 8.0.x line (see note 3 & 4)
 
 | PostgreSQL
-| 11.2 and higher in the 11.x line
+| 12.6 and higher in the 12.x line
 
 | SQL Server
 | 2017
