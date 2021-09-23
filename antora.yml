@@ -1,14 +1,14 @@
 name: bonita
 title: Bonita
-version: 2021.2
+version: 2022.1
 # TODO when integrating this version to the documentation, update push-content.yml
 prerelease: Beta
 asciidoc:
   attributes:
-    bonitaVersion: 2021.2
-    bonitaTechnicalVersion: '7.13.0' # latest public community version
-    javadocVersion: 7.13
-    crowdinBonitaVersion: 7.13
+    bonitaVersion: 2022.1
+    bonitaTechnicalVersion: '7.14.0' # latest public community version
+    javadocVersion: 7.14
+    crowdinBonitaVersion: 7.14
     # page attributes
     page-editable: true
     page-out-of-support: false

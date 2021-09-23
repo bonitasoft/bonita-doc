@@ -5,7 +5,7 @@ on:
   push:
     branches:
       # TODO reactivate when integrating this version to the documentation
-      - '2021.2'
+      - '2022.1_diable'
     paths:
       - 'modules/**'
       - 'antora.yml'
@@ -20,4 +20,4 @@ jobs:
           token: ${{secrets.GH_TOKEN_DOC_TRIGGER_WF}}
           repository: bonitasoft/bonita-documentation-site
           event-type: source_documentation_change
-          client-payload: '{ "component": "bonita", "branch": "2021.2" }'
+          client-payload: '{ "component": "bonita", "branch": "2022.1" }'
