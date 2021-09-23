@@ -8,8 +8,8 @@
 This application is only available to the user with the xref:special-users.adoc#_technical_user[Technical User] credentials. +
 It is the tool needed to:
 
-* Bootstrap a Bonita Runtime in Non-Production and Production environments, for example, xref:first-steps-after-setup#_create_a_bonita_administrator_profile[creating the administrators]. +
-* Pause BPM Services to perform maintenance operations, among which the update of the Business Data Model (and the related database migration).
+* Bootstrap a Bonita Runtime in Non-Production and Production environments, for example, xref:first-steps-after-setup#_create_a_bonita_administrator_profile[creating the administrators]
+* Pause BPM Services to perform maintenance operations, among which the update of the Business Data Model (and the related database migration)
 * Apply temporary fixes to some projects elements (resources, applications, organization entities) to recover from errors
 
 [CAUTION]
