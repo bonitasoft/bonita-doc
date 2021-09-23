@@ -125,7 +125,7 @@ What this means:
 
 Bonita Runtime must be shut down during the update. +
 The time required depends on several factors including the database volume, the number of versions between the source version and the
-target version, and the system configuration, so it is not possible to be precise about the time that will be required. +
+target version, and the system configuration, so it is not possible to be precise about required time. +
 However, the following example can be used as a guide:
 
 |===
