@@ -166,6 +166,7 @@ work and return either `true` or `false`. See https://groovy-lang.org/semantics.
 JAAS Authentication is now only available in the Enterprise edition. +
 In the Community edition, if you are updating from Bonita 2021.1 or an earlier version, you will need to xref:bonita-bpm-platform-setup.adoc[change your configuration] file `authenticationManager-config.properties` and remove the JAAS configuration to use another Authentication Manager (an implementation of your own, for instance).
 
+
 ==== LDAP Synchronizer
 
 * LDAP Synchronizer is now available as a Docker image. xref:ldap-synchronizer.adoc#_using_the_ldap_synchronizer_docker_image[See the documentation].

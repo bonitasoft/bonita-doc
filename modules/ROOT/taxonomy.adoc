@@ -77,11 +77,10 @@
   *** xref:environments.adoc[Environments]
   *** xref:configuring-a-process.adoc[Configure a process]
   *** xref:managing-dependencies.adoc[Manage process dependencies]
- ** xref:project-deploy-in-dev-suite.adoc[Project deployment in Bonita Studio]
+ ** xref:project-deploy-in-dev-suite.adoc[Deployment in Bonita Studio]
  ** xref:process-testing-index.adoc[Process testing]
-  *** xref:process-testing-overview.adoc[Overview]
   *** xref:configure-a-test-organization.adoc[Configure a test organization]
-  *** xref:run-a-process-from-bonita-bpm-studio-for-testing.adoc[Run a process from Bonita Studio for testing]
+  *** xref:run-a-process-from-bonita-bpm-studio-for-testing.adoc[Run a process in Bonita Studio]
   *** xref:log-files.adoc[Log files]
   *** xref:logging.adoc[Logs]
 * Data
@@ -116,11 +115,11 @@
   *** xref:datetimes-management-tutorial.adoc[How to manage dates and times in BDM and User Interfaces]
   *** xref:rta-mail-template.adoc[How to use the rich text area widget in a mail template]
 * Living applications
+ ** xref:portal-removal.adoc[Portal removal in 2021.2]
  ** xref:bonita-applications-interface-overview.adoc[Overview]
  ** xref:application-creation.adoc[Application descriptor]
  ** xref:layout-development.adoc[Layout]
   *** xref:bonita-layout.adoc[Bonita Layout]
-  *** xref:living-application-layout.adoc[Living application layout]
  ** xref:customize-layouts.adoc[Customize layouts]
  *** xref:uid-vertical-tabs-container-tutorial.adoc[How to create a vertical tabs container for all devices]
  ** xref:customize-living-application-theme.adoc[Create a theme]
@@ -181,21 +180,19 @@
   *** xref:queriable-logging.adoc[Queriable logger]
 * Identity Management
  ** Authorization
-  *** Organization
-   **** xref:organization-overview.adoc[Overview]
+  *** xref:organization-overview.adoc[Organization]
    **** xref:approaches-to-managing-organizations-and-actor-mapping.adoc[Approaches to managing organizations and actor mapping]
    **** xref:organization-management-in-bonita-bpm-studio.adoc[Organization management in Bonita Studio]
    **** xref:custom-user-information-in-bonita-bpm-studio.adoc[Custom User Information in Bonita Studio]
-  *** Profiles
-   **** xref:profiles-overview.adoc[Overview]
+  *** xref:profiles-overview.adoc[Profiles]
    **** xref:profile-creation.adoc[Profile editor]
   *** xref:rest-api-authorization.adoc[REST API authorization]
   *** xref:custom-authorization-rule-mapping.adoc[Authorization rules]
   *** xref:bdm-access-control.adoc[BDM access control]
  ** Authentication
-  *** xref:user-authentication-overview.adoc[User authentication overview]
+  *** xref:user-authentication-overview.adoc[Overview]
   *** xref:active-directory-or-ldap-authentication.adoc[Active Directory or LDAP authentication]
-   **** xref:ldap-synchronizer.adoc[LDAP synchronizer]
+  *** xref:ldap-synchronizer.adoc[LDAP synchronizer]
   *** SSO
    **** xref:single-sign-on-with-cas.adoc[CAS]
     ***** xref:log-in-with-cas.adoc[Log in with CAS]
@@ -210,20 +207,19 @@
  ** xref:build-a-process-for-deployment.adoc[Runtime deployment]
  ** xref:live-update.adoc[Live update]
 * xref:runtime-index.adoc[Runtime]
- ** Installation
+ ** xref:runtime-installation-index.adoc[Installation]
   *** xref:hardware-and-software-requirements.adoc[Hardware and software requirements]
-  *** xref:tomcat-bundle.adoc[Tomcat bundle]
-   **** xref:convert-wildfly-into-tomcat.adoc[Convert a WildFly into a Tomcat installation]
-  *** xref:bonita-docker-installation.adoc[Bonita docker installation]
+  *** xref:tomcat-bundle.adoc[Bonita bundle]
+  *** xref:custom-deployment.adoc[In a custom Tomcat]
+   **** xref:convert-wildfly-into-tomcat.adoc[Convert a WildFly bundle into a Tomcat]
+  *** xref:bonita-as-windows-service.adoc[As a service]
+  *** xref:bonita-docker-installation.adoc[Docker image]
+  *** xref:reverse-proxy-configuration.adoc[Behind a reverse-proxy]
   *** Bonita in a cluster
-   **** xref:overview-of-bonita-bpm-in-a-cluster.adoc[Overview of Bonita in a cluster]
-   **** xref:install-a-bonita-bpm-cluster.adoc[Install a Bonita cluster]
-  *** xref:custom-deployment.adoc[Custom Tomcat installation]
-  *** Platform installation examples
-   **** xref:ubuntu-openjdk-tomcat-postgresql.adoc[Ubuntu + OpenJDK + Tomcat + PostgreSQL]
-   **** xref:bonita-as-windows-service.adoc[Install Tomcat with Bonita as a service in Windows]
+   **** xref:overview-of-bonita-bpm-in-a-cluster.adoc[Overview]
+   **** xref:install-a-bonita-bpm-cluster.adoc[Install a Bonita cluster]  
   *** xref:embed-engine.adoc[Embed engine - Lab]
- ** Configuration
+ ** xref:runtime-configuration-index.adoc[Configuration]
   *** xref:bonita-bpm-platform-setup.adoc[Setup tool]
   *** xref:database-configuration.adoc[Database configuration]
   *** xref:first-steps-after-setup.adoc[First steps after setup]
@@ -234,8 +230,7 @@
  ** Administration
   *** xref:admin-application-overview.adoc[Administration Applications]
    **** xref:pause-and-resume-bpm-services.adoc[Put Runtime in maintenance mode]
-   **** Organization
-    ***** xref:organization-in-bonita-applications-overview.adoc[Organization Management]
+   **** xref:organization-in-bonita-applications-overview.adoc[Organization Management]
     ***** xref:import-export-an-organization.adoc[Install/export an organization]
     ***** xref:admin-application-groups-list.adoc[Manage groups]
     ***** xref:admin-application-roles-list.adoc[Manage roles]

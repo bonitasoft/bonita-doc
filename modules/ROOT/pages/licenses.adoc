@@ -83,9 +83,9 @@ If the application server has already been started successfully at least once an
 == License renewal scheduling
 
 If you are still within the Subscription period when you approach the license expiration date, request a new license that starts on the last day of your current license. +
-xref:bonita-bpm-platform-setup.adoc#update_platform_conf[Use the Platform setup tool] to pull the existing configuration from the database.
+xref:bonita-platform-setup.adoc#update_platform_conf[Use the Platform setup tool] to pull the existing configuration from the database.
 Put the license you receive in the license folder alongside the existing license.
-xref:bonita-bpm-platform-setup.adoc#update_platform_conf[Use the Platform setup tool] to push your license file to database.
+xref:bonita-platform-setup.adoc#update_platform_conf[Use the Platform setup tool] to push your license file to database.
 Don't forget to restart your application server after pushing the license to the database.
 
 When you reach the "changeover" date for the licenses, Bonita Engine switches automatically from the expired license to the valid one.
