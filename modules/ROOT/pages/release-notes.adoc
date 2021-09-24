@@ -25,7 +25,7 @@ video::mZ1D5Bgla4U[youtube, width=640,height=380]
 
 ==== Bonita Studio Project Composition
 
-Automation projects now use the power of Maven. You are now able to compose your project of extensions (connectors, Rest API extensions, themes, and actor filters). +
+Automation projects now use the power of Maven. You can now compose your project of extensions (connectors, Rest API extensions, themes, and actor filters). +
 
 All these extensions, which are technical components, have to be built outside the Studio with our SDK (_expect for Rest API extensions that can still be developed in the Studio_). This will allow the developer to use their preferred tooling. It will also help the industrialization of your project as you will be able to implement tests for each extension making your project more robust. +
 
