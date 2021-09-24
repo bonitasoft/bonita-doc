@@ -111,7 +111,7 @@ This feature should only be used on non-production environments.
 . Go to _BPM_>__Processes__
 . In the row of the process, click on the _View process details_ icon
 . In _General_, click the _Pencil_ next to _Categories_ label
-. In the opened modal window, type a new category name then press the _*Enter*_ key
+. In the opened modal window, type a new category name then press the *_Enter_* key
 . Click on the _Save_ button.
 
 After you created a category and added it to the process, you can add other processes to the category.
@@ -122,7 +122,7 @@ After you created a category and added it to the process, you can add other proc
 . In the row of the process, click on the "View process details" icon
 . In _General_, click the _Pencil_ next to _Categories_ label
 . In the opened modal window, start typing the category name, and then select among the suggestions by using the arrow keys or mouse.
-. Press the _*Enter*_ key
+. Press the *_Enter_* key
 . Click on the _Save_ button
 
 == Start a case for another user

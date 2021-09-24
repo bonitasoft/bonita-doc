@@ -32,7 +32,7 @@ In the Bonita Administrator Application:
 . A table of parameters is displayed
 . In the _Value_ column, click on the parameter value you want to edit
 . Edit the process variable
-. Click on the _*✔*_ button to save it
+. Click on the *_✔_* button to save it
 
 == Connector implementations
 
@@ -55,7 +55,7 @@ This is the list of forms that can be mapped to a task, the case overview, or th
 . Select a process and click on the _More..._
 . Select Forms on the left side menu
 . Select Form List tab
-. In the table, in the actions column, click on the *_pencil button_* or the _*plus sign button*_
+. In the table, in the actions column, click on the *_pencil button_* or the *_plus sign button_*
 . Browse to a .zip file containing the new page/form
 . Click on *_Next_* to check the permissions associated with the uploaded page/form.
 . Click on *_Confirm_* to import the new page/form.
@@ -71,7 +71,7 @@ This is the actual mapping between a form in the list and a process element.
 . Select Forms on the left side menu
 . In the table, click on the current mapping name of the task you want to update
 . Enter the name of the already uploaded page/form or a URL that will handle the task submission
-. Click _*✔*_ button to save it
+. Click *_✔_* button to save it
 
 == Pages
 
