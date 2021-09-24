@@ -1,15 +1,14 @@
 = Release notes
 :description: This pages describes the main new values, improvements, technical updates and other changes that have been brought to this latest Bonita main version.
 
-== Welcome to our xref:bonita-applications-interface-overview.adoc[*four Bonita applications*]!
+== Welcome to our four Bonita applications!
 
-They beautifully replace our good old Bonita Portal, gone for retirement. +
+xref:bonita-applications-interface-overview.adoc[Those new applications] beautifully replace our good old Bonita Portal, gone for retirement. +
 You will find more information in the <<New Bonita Applications>> chapter below. +
 
 
 [CAUTION]
 ====
-
 Custom Profiles with a Portal navigation will be automatically converted to _custom applications_ upon Bonita update. +
 Therefore, be extra-careful during the Bonita update procedure.
 ====
