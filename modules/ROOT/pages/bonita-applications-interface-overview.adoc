@@ -15,10 +15,10 @@ They rely on the analysis that four types of personas use process-based applicat
 
 Bonita Runtime embeds two types of applications:
 
-* _*Core applications*_: they are critical to the good operation of Bonita in a Production environment. Only their look & feel can be customized:
+* *_Core applications_*: they are critical to the good operation of Bonita in a Production environment. Only their look & feel can be customized:
   ** _Super Administrator application_, the Technical User's tool to bootstrap Bonita Runtime, pause and resume BPM services, and update the BDM
   ** _Application Directory_, that displays the catalog of available applications to the logged user
-* _*Generic applications*_: they are fully functional, can be fully customized, but can be deleted if not useful in a Production environment:
+* *_Generic applications_*: they are fully functional, can be fully customized, but can be deleted if not useful in a Production environment:
   ** _User_ , based on a standard BPM usage, centered on a generic tasklist
   ** _Administrator_, allowing the management (monitoring and troubleshooting) of an automation project in production (BDM excepted)
 
