@@ -176,6 +176,9 @@ JAAS Authentication is now only available in the Enterprise edition. +
 In the Community edition, if you are updating from Bonita 2021.1 or an earlier version, you will need to xref:bonita-bpm-platform-setup.adoc[change your configuration] file `authenticationManager-config.properties` and remove the JAAS configuration to use another Authentication Manager (an implementation of your own, for instance).
 
 
+==== 4xx HTTP errors handling
+When trying to load an application resource (Javascript, CSS, image...), if there is a 4xx error, like 404 (not found) or 403 (forbidden), the status code is now set in the HTTP response header but Bonita applications no longer try to display the dedicated error pages unless the resource itself is a page (HTML). As a result, the status code remain 4xx and is no longer changed to 200 with the error page in the body of the reponse.
+
 ==== LDAP Synchronizer
 
 * LDAP Synchronizer is now available as a Docker image. xref:ldap-synchronizer.adoc#_using_the_ldap_synchronizer_docker_image[See the documentation].
