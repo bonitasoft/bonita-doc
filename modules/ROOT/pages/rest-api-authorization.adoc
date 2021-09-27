@@ -4,9 +4,9 @@
 {description}
 
 The Bonita Applications, or any application that uses the Web REST API, enables user to access resources.
-The set of resources that a user can access is determined by default by the user's profile.
+The set of resources that a user can access is determined by default by the user's profiles.
 This authorization mechanism ensures that users can only access the appropriate resources.
-This means, for example, that a user with only the User profile cannot perform actions intended for the Administrator.
+This means, for example, that a user with only the User profile cannot access REST API resources intended for the Administrator.
 
 The authorization mechanism is a "white list" implementation.
 It has two phases,
@@ -15,12 +15,12 @@ and a static phase, which checks in the static configuration to see whether the 
 The static configuration is fixed when the application server is started.
 
 To access a given resource, a user must have a certain permission.
-These permissions are defined as simple permissions, which are the smallest units of permission, or compound permissions, which are groups of simple permissions.
-A user is granted set of permissions. These permissions define the set of resources the user is authorized to access.
+These permissions are defined as *_simple permissions_*, which are the smallest units of permission, or *_compound permissions_*, which are groups of simple permissions.
+Upon login, a user is granted set of permissions. These permissions define the set of resources the user is authorized to access.
 
 == Summary
 
-For a new Bonita installation, a basic set of authorization checks is activated by default but you might also want to <<activate,deactivate the HTTP API>>.
+For a new Bonita installation, a basic set of authorization checks is activated by default for the REST API. But you might also want to <<activate,deactivate the engine HTTP API>>.
 Here are the key points of the authorizations configuration :
 
 * The static checks (activated by default on a fresh installation) create an authorization layer that exactly matches the standard Bonita Applications features and profiles.
@@ -313,8 +313,8 @@ Depending on the permissions that a user of the page already has, it might be ne
 [WARNING]
 ====
 
-If the page declares resources provided by a REST API extension (link to the REST API extention page), then the REST API extension must be deployed before the page,
-otherwise the compound permissions won't be automatically created when deploying the page.
+If the page declares resources provided by a xref:rest-api-extensions.adoc[REST API extension], then the REST API extension must be deployed before the page,
+otherwise the compound permissions won't be automatically created when deploying the page, and you will need to redeploy the page after deploying the REST API extension.
 ====
 
 == Authorization and custom profiles
