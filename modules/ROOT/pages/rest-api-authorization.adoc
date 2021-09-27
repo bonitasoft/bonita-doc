@@ -16,7 +16,7 @@ The static configuration is fixed when the application server is started.
 
 To access a given resource, a user must have a certain permission.
 These permissions are defined as *_simple permissions_*, which are the smallest units of permission, or *_compound permissions_*, which are groups of simple permissions.
-Upon login, a user is granted set of permissions. These permissions define the set of resources the user is authorized to access.
+Upon login, a user is granted a set of permissions. These permissions define the set of resources the user is authorized to access.
 
 == Summary
 
