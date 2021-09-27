@@ -1,5 +1,5 @@
 = REST API authorizations
-:description: Permissions to access Bonita platform's REST API resources are handled by a configurable authorizations mecanism.
+:description: Permissions to access Bonita platform's REST API resources are handled by a configurable authorizations mechanism.
 
 {description}
 
