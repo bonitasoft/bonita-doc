@@ -1,14 +1,14 @@
 = Portal removal in 2021.2
 :description: With the 2021.2 release, the Bonita Portal has been replaced by Bonita Applications.
-:page-aliases: analytics.adoc, comparison-of-7-x-and-6-x.adoc, group.adoc, managing-look-feel.adoc, manage-a-user.adoc, living-application-layout.adoc, mobile-portal.adoc, portal-user-case-list.adoc, processes.adoc, profile-list-portal.adoc, role.adoc, tasks.adoc
+:page-aliases: analytics.adoc, comparison-of-7-x-and-6-x.adoc, group.adoc, managing-look-feel.adoc, manage-a-user.adoc, living-application-layout.adoc, mobile-portal.adoc, portal-user-case-list.adoc, processes.adoc, profile-list-portal.adoc, role.adoc, tasks.adoc, restore-default-look-feel.adoc
 
 {description} +
 The removal of this part of the product implied removal, deprecation or conversion to a new technology of a list of related things.
 
 Some that can be mentioned are: +
 
-- Custom profiles are xref:release-notes.adoc#_custom_profile_navigation_conversion[converted into Living Applications], using Bonita Layout and Bonita Theme
-- xref:release-notes.adoc#_process_manager_profile_navigation[Process Manager profile], which has been removed and will be re-done in a future release
+- Custom profiles are xref:release-notes.adoc#_new_bonita_applications[converted into Living Applications], using Bonita Layout and Bonita Theme
+- xref:release-notes.adoc#_new_bonita_applications[Process Manager profile], which has been removed and will be re-done in a future release
 - Removal of Analytics page, which will be remade in a newer technology
 - The Living Application Layout, which has been replaced by the Bonita Layout
 - The Look & Feel files, which were used to define how the Portal will be displayed, are removed from the database. The default Look & Feel is re-packaged directly in the `server/webapps/bonita/portal-theme` folder in the Bundle
@@ -19,6 +19,7 @@ The changes done for these features implied a removal of some pages that referen
 - https://documentation.bonitasoft.com/bonita/2021.1/analytics[Analytics]
 - https://documentation.bonitasoft.com/bonita/2021.1/living-application-layout[Living Application Layout]
 - https://documentation.bonitasoft.com/bonita/2021.1/managing-look-feel[Manage the Portal Look & Feel]
+- https://documentation.bonitasoft.com/bonita/2021.1/restore-default-look-feel[Restore the default Look & Feel]
 - https://documentation.bonitasoft.com/bonita/2021.1/group[Administrator Group list in Bonita Portal]
 - https://documentation.bonitasoft.com/bonita/2021.1/manage-a-user[Administrator User list in Bonita Portal]
 - https://documentation.bonitasoft.com/bonita/2021.1/processes[Administrator Process list in Bonita Portal]
