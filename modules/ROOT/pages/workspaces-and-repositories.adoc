@@ -298,3 +298,10 @@ To restore an older point:
 . Go to the *Team* > *SVN*, then *Manage restore points*.
 . Select *Restore to an older point* then click *_Next_*.
 . Select the restore point you want to restore, then click *_Restore_*. The project reverts to the restore point.
+
+== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+
+NOTE: Since 2021.2-u1
+
+**My Studio crashed and I've lost my projects in my workspace.** +
+You can enabled the workspace recovery mode that will synchronize the file system and the Studio workspace. Open the `BonitaStudio*.ini` file matching the executable name and set the value of the system property `workspace.recovery.mode` to `true`. Then, restart the Studio. In the Studio logs you should see that the recovery mode is enabled and the import operation of the missing projects into the workspace. Once the recovery operation done, you may want to disable the workspace recovery mode by resetting the property value to `false` in the `.ini` file.
