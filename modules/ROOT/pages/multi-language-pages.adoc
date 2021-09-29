@@ -41,15 +41,15 @@ To use a localization asset, replace the default `localization.json` file with a
   ...
 ----
 
-The code that specifies a language in `localization.json` must be the same as the code in the `.po` files used to xref:languages.adoc[add the language to the Portal].
+The code that specifies a language in `localization.json` must be the same as the code in the `.po` files used to xref:languages.adoc#_add_a_new_language[add a new language].
 
-By default, US english strings are used as the keys for translation. But you could use any code or language for the keys, and create an en-US section of translations to consider english as any other translated language. That option allows to freely change english strings with no duplication on every other language section.
+By default, translation keys are in en-US english texts. If you want to have custom texts, you can create a new translation section for en-US and handle it as a new translation. This option allows to freely change texts by avoiding duplicates on other language sections.
 
 In production, a page, layout or form is displayed in the language specified by the BOS_locale cookie value. This value must match exactly one of the language codes in the `localization.json` asset. The BOS_locale value is set by selecting a language in Bonita Layout or in a custom widget. If BOS_locale is not set or its value does not match a language code, the browser language is used. If neither the BOS_locale nor the browser language matches a language code in `localization.json`, the untranslated keys are displayed in the page.
 
 == Tutorial: creating a multi-language page
 
-This tutorial explains how to create a multi-language version of the Travel Tool application page from the xref:what-is-bonita.adoc[getting started tutorial], adding french and russian text to the page, initially developped in US-english. It assumes that you have already created the Travel Tool page following the instructions in the xref:design-application-page.adoc[getting started tutorial].
+This tutorial explains how to create a multi-language version of the Travel Tool application page from the xref:getting-started-index.adoc[getting started tutorial], adding french and russian text to the page, initially developped in US-english. It assumes that you have already created the Travel Tool page following the instructions in the xref:design-application-page.adoc[getting started tutorial].
 French is supported by default in Bonita, along with US-english and Spanish. Russian is not.
 
 === Translate the text
@@ -77,14 +77,14 @@ no
 
 Now translate the text outside of Bonita, in any suitable translation editor, or spreadsheet.
 
-=== Add languages to Bonita Portal
+=== Add a new language
 
-Before you can view a page in a language, that language must be supported for Bonita web applications. French is one of the default languages supported, so you just need to add support for Russian. To do this, xref:languages.adoc[add Russian from the Community translations to your Bonita Runtime]. Then restart your Bonita Studio, start the Bonita Runtime, and change the language to Russian to check that it is available.
+Before you can view a page in a language, that language must be supported for Bonita web applications. French is one of the default languages supported, so you just need to add support for Russian. To do this, xref:languages.adoc#_add_a_new_language[add Russian from the Community translations to your Bonita Runtime]. Then restart your Bonita Studio, start the Bonita Runtime, and change the language to Russian to check that it is available.
 
 === Add a localization asset to the page
 
 Create a `localization.json` file in the format shown above, containing the french and russian translations of the page text. +
-The language identifier must match the language identifier in the `.po` files containing the Portal translations. +
+The language identifier must match the language identifier in the `.po` files containing the translations. +
 Use an online Json checker to make sure there are no format errors in the file. The file will look something like this:
 
 [source,json]
