@@ -43,7 +43,7 @@ To use a localization asset, replace the default `localization.json` file with a
 
 The code that specifies a language in `localization.json` must be the same as the code in the `.po` files used to xref:languages.adoc#_add_a_new_language[add a new language].
 
-By default, US english strings are used as the keys for translation. But you could use any code or language for the keys, and create an en-US section of translations to consider english as any other translated language. That option allows to freely change english strings with no duplication on every other language section.
+By default, translation keys are in en-US english texts. If you want to have custom texts, you can create a new translation section for en-US and handle it as a new translation. This option allows to freely change texts by avoiding duplicates on other language sections.
 
 In production, a page, layout or form is displayed in the language specified by the BOS_locale cookie value. This value must match exactly one of the language codes in the `localization.json` asset. The BOS_locale value is set by selecting a language in Bonita Layout or in a custom widget. If BOS_locale is not set or its value does not match a language code, the browser language is used. If neither the BOS_locale nor the browser language matches a language code in `localization.json`, the untranslated keys are displayed in the page.
 

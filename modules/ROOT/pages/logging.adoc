@@ -5,11 +5,11 @@
 
 == How components produce log messages
 
-The components of Bonita have their own ways to produce logs, which are described below.
+Bonita components have their own ways to produce logs, as described below.
 
 === Bonita Runtime
 
-The Bonita Runtime is made out of two pars :
+The Bonita Runtime has two components :
 
 - Bonita Engine, which uses SLF4J in order to write log messages.
 - Bonita Rest APIs, which use http://docs.oracle.com/javase/8/docs/api/java/util/logging/package-summary.html[Java Url Logging] (JUL)
@@ -82,7 +82,7 @@ protected void executeBusinessLogic() throws ConnectorException {
 
 === Bonita Studio
 
-In Bonita Studio you have access to two log files:
+In Bonita Studio you have access to the following log files :
 
 * The Studio log file includes information about Studio execution. Look at this file if you see incorrect behavior of the Studio. To view the file, go to the *Help* menu and choose *Show Studio log*. The file is located in the `workspace/.metadata` folder and is named `.log`.
 * The Runtime log file receives all log messages produced by the Bonita Platform embedded in the Studio. When you test your processes by running them from the Studio you will find valuable debugging information in this file. To view the file, go to the *Help* menu and choose *Show Engine log*. The file is located in `workspace/tomcat/log` and is named `bonita-yyyy-mm-dd.log`.

@@ -33,7 +33,7 @@ By default, it gives access to the Bonita User Application.
 
 === Administrator
 
-By default, its gives access to Bonita Administrator Application. It includes:
+By default, it gives access to Bonita Administrator Application, which includes:
 
 * xref:admin-application-process-list.adoc[Process Management]
 * xref:organization-in-bonita-applications-overview.adoc[Organization Management]

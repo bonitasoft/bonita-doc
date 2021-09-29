@@ -79,11 +79,11 @@ Using the graphical editor, you can set all the parameters of your profile.
 The *profile name* has to be unique in a given file of profiles, else it will lead to conflicts when you will try to deploy the file of profiles. +
 You can duplicate a profile name in different files, but remember that you can only have one instance of a given profile in production.
 
-In the mapping section you can map Users / Groups / Roles / Memberships to your profile. You have to map your profile with elements of the active organization. +
+In the mapping section you can map Users / Groups / Roles / Memberships to your profile. You have to map your profile with elements of an active organization. +
 ⚠  Nodes in the group tree are *independent* ⚠  It means that mapping `/acme` to your profile won't map `/acme/hr` to it. Each node has to be mapped individually to be taken into account. However, you can easily add a whole part of your organization, using the _add subtree_ button:  select a node in the tree, and then click on _add subtree_.
 
 The Applications section provides quick access to the applications mapped to this profile. +
-To map a new application to this profile, you have to open the application and then choose this profile in the profile field of the xref:applicationCreation.adoc[application descriptor editor]
+For adding an application to a profile, open the application and assign the required profile by using xref:applicationCreation.adoc[application descriptor editor].
 
 == Enable a profile
 
