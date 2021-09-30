@@ -66,3 +66,15 @@ Please note that a delay is required after the import for the engine to process 
 ====
 Contrary to the BDM definition, the deployment of a Business Data Model access control file doesn't require pausing the BPM services during the operation.
 ====
+
+== Cluster considerations
+
+There is nothing specific to do in a cluster environment.
+
+When the BDM is installed / updated in a cluster environment, 2 things occur:
+
+* The BDM database is updated to reflect the model changes. As the database is common for all nodes, there is nothing specific to do in a cluster environment. +
+* The Java classes that map the new model are created / updated and loaded in the JVM classloader (at tenant level). This triggers the refreshing of the tenant classloader of *all nodes of the cluster* automatically.
+
+With that is mind, the new BDM is fully available, and deploying on a different node a process that makes usage of the new Business Data Model will be available straight away.
+
