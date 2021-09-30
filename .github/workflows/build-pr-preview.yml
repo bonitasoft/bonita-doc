@@ -11,7 +11,7 @@ on:
 jobs:
   build_preview:
     # Don't build preview for non member of the repository
-    if: ${{ env.SURGE_TOKEN_DOC != '' }}
+    if: ${{ secrets.SURGE_TOKEN_DOC != '' }}
     runs-on: ubuntu-20.04
     env:
       COMPONENT_NAME: bonita
