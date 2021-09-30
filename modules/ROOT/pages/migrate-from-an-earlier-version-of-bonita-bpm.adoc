@@ -391,9 +391,15 @@ To migrate a Bonita platform to Java 11, you need to follow the following steps:
 * Test the migrated platform in Java 11, on a test environment.
 * Once tested, update what is required on the production server, and switch it to Java 11.
 
-The main parts that require attention and testing are connectors and custom code.
-While the 7.9.0 migration step tries its best to migrate the implementation of connectors that are known not to work in Java 11, namely  xref:release-notes.adoc#connector-dependency-updates[WebService, CMIS, Email and Twitter], custom connectors, groovy scripts, rest api extensions etc. are not migrated and might not work outright in Java 11.
-Aside from just code incompatibility, special attention has to be given to the dependencies of the custom code, as they might either not work in Java 11, work fine but conflict with Bonita own dependencies or the script might use dependencies previously included in Bonita, but no more accessible, or accessible in a different version.
+The main parts that require attention and testing are connectors and custom code:
+
+The 7.9.0 migration step tries its best to migrate the implementation of connectors that are known *not to* work in Java 11, namely WebService, CMIS, Email and Twitter. +
+See xref:_connector_details_regarding_migration_to_7_9[].
+
+On the other hand, custom connectors, groovy scripts, rest api extensions etc. are not migrated and might not work outright in Java 11.
+
+Aside from just code incompatibility, special attention has to be given to the dependencies of the custom code, as they might either not work in Java 11, work fine but conflict with Bonita own dependencies or the script might use dependencies previously included in Bonita, but no more accessible, or accessible in a different version. +
+Thus, thorough tests have to be carried out so ensure there is no regression when migrating Bonita to version 7.9+.
 
 [#postgres11]
 
@@ -635,3 +641,77 @@ Delete the one named: `*FK_*<hash>`.
 Guidance is not provided for Oracle, as the situation is impossible. Oracle prevents the creation of 2 identical foreign keys with different names. +
 Instead, the BDM redeployment will fail after migration. Migrating to Bonita 7.11.6 or higher fixes the issue.
 ====
+
+== Addendum
+
+=== Connector details regarding migration to 7.9
+
+For Bonita 7.9.0, the migration step tries to migrate the _CMIS_, _Email_ and _Webservice_ connectors of the processes deployed on the platform, along with their dependencies, to allow the migrated platform to run on Java 11. +
+The step works at best effort:
+
+* It will try to upgrade all the connectors it can.
+* It will not upgrade connectors that have dependencies used by other connectors. Those connectors will still work on java 8, but not in java 11, and will require a manual update.
+* A detailed report of all the changes made is displayed at the end of the migration step.
+* Beware that if one of these connectors' removed dependencies was used in one your scripts, it will still be removed/updated, and therefore your scripts might not work anymore after migration. The full list of updated and deleted dependencies can be found below.
+
+From Bonita 7.9+, the supported version of Oracle database is *12c (12.2.x.y)*
+To migrate to Bonita 7.9+ from an earlier version than Oracle 12c (12.2.x.y), see xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc#oracle12[Migrating to Bonita 7.9+ using Oracle].
+
+==== WebService connector
+
+The following dependencies have been added, to ensure Java 11 compliance:
+
+* _javax.xml.stream:stax-api:1.0-2_
+* _org.codehaus.woodstox:woodstox-core-asl:4.1.2_
+* _org.codehaus.woodstox:stax2-api:3.1.1_
+* _com.sun.istack:istack-commons-runtime:2.4_
+* _javax.activation:activation:1.1_
+* _com.sun.xml.messaging.saaj:saaj-impl:1.3.28_
+* _javax.xml.ws:jaxws-api:2.2.7_
+* _com.sun.xml.ws:jaxws-rt:2.2.7_
+* _javax.jws:jsr181-api:1.0-MR1_
+* _javax.xml.bind:jaxb-api_
+* _com.sun.xml.bind:jaxb-impl_
+
+==== CMIS connector
+
+The following dependencies were updated to ensure Java 11 compliance:
+
+* _org.apache.chemistry.opencmis:chemistry-opencmis-client-impl_ dependency has been updated from _0.13.0_ to _1.1.0_
+* _org.apache.chemistry.opencmis:chemistry-opencmis-client-api_ dependency has been updated from _0.13.0_ to _1.1.0_
+* _org.apache.chemistry.opencmis:chemistry-opencmis-commons-api_ dependency has been updated from _0.11.0_ to _1.1.0_
+* _org.apache.chemistry.opencmis:chemistry-opencmis-commons-impl_ dependency has been updated from _0.11.0_ to _1.1.0_
+* _org.apache.chemistry.opencmis:chemistry-opencmis-client-bindings_ dependency has been updated from _0.11.0_ to _1.1.0_
+* _org.apache.cxf:cxf-rt-bindings-xml_ dependency has been updated from _2.7.7_ to _3.0.12_
+* _org.apache.cxf:cxf-rt-frontend-simple_ dependency has been updated from _2.7.7_ to _3.0.12_
+* _org.apache.cxf:cxf-rt-core dependency_ dependency has been updated from _2.7.7_ to _3.0.12_
+* _org.apache.cxf:cxf-rt-transports-http_ dependency has been updated from _2.7.7_ to _3.0.12_
+* _org.apache.cxf:cxf-rt-ws-policy_ dependency has been updated from _2.7.7_ to _3.0.12_
+* _org.apache.cxf:cxf-rt-ws-addr_ dependency has been updated from _2.7.7_ to _3.0.12_
+* _org.apache.cxf:cxf-rt-bindings-soap_ dependency has been updated from _2.7.7_ to _3.0.12_
+* _org.apache.cxf:cxf-rt-databinding-jaxb_ dependency has been updated from _2.7.7_ to _3.0.12_
+* _org.apache.cxf:cxf-rt-frontend-jaxws_ dependency has been updated from _2.7.7_ to _3.0.12_
+* _org.apache.neethi:neethi_ dependency has been updated from _3.0.2_ to _3.0.3_
+* _org.apache.ws.xmlschema:xmlschema-core_ dependency has been updated from _2.0.3_ to _2.2.1_
+
+The following dependencies have been added to ensure Java 11 compliance:
+
+* _org.apache.cxf:cxf-rt-wsdl-3.0.12_
+
+The following dependencies have been removed:
+
+* _org.jvnet.mimepull:mimepull-1.9.4.jar_
+* _org.codehaus.woodstox:stax2-api-3.1.1.jar_
+* _org.apache.geronimo.javamail:geronimo-javamail_1.4_spec-1.7.1.jar_
+* _org.codehaus.woodstox:woodstox-core-asl-4.2.0.jar_
+* _org.apache.cxf:cxf-api-2.7.7.jar_
+
+In addition _bonita-connector-cmis-<version>.jar_ and _bonita-connector-cmis-common-<version>.jar_ have been replaced by a single bonita-connector-cmis-<version>.jar
+
+==== Email connector
+
+The version of the _javax.mail:mail_ dependency has been updated from _1.4.5_ to _1.4.7_
+
+==== Twitter connector
+
+The version of the _org.twitter4j:twitter4j-core_ dependency has been updated from _4.0.2_ to _4.0.7_
