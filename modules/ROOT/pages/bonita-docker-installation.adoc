@@ -112,18 +112,23 @@ You can work with either a PostgreSQL Container, or PostgreSQL as an installed s
 
 ==== PostgreSQL Container
 
-Bonita needs to enable XA transactions in postgres, to do that we set the max_prepared_transactions to 100 (bigger than 0):
+[WARNING]
+====
+
+From Bonita 2022.1 onwards, the Bonita docker image does not include configuration scripts for Postgres
+====
+
+Therefore the PostgreSQL container needs to be configured to work with Bonita before starting the Bonita container.
+The configuration of a PostgreSQL database to work with Bonita is described in detail in the xref:database-configuration.adoc[database configuration page]
+Alternatively, Bonita provides a preconfigured https://hub.docker.com/repository/docker/bonitasoft/bonita-postgres[postgres image] on docker-hub
+You can run the image with the following command
 
 ----
-docker run --name mydbpostgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres:11.2 -c 'max_prepared_transactions=100'
+docker run --name mydbpostgres -h <hostname> -v bonita-lic:/opt/bonita_lic/ -d bonitasoft/bonita-postgres:12.6
 ----
 
-See the official PostgreSQL documentation for more details.
+This image is built from the following https://github.com/Bonitasoft-Community/bonita-database-docker/tree/main/postgres/12[github repository], which can be further adapted/customized to suit your needs.
 
-[source,shell script,subs="+macros"]
-----
-docker run --name bonita_postgres -h <hostname> -v bonita-lic:/opt/bonita_lic/ --link mydbpostgres:postgres -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
-----
 
 ==== Using docker-compose
 
