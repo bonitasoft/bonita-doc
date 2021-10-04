@@ -141,7 +141,7 @@ version: '3'
 
 services:
   db:
-    image: postgres:11.2
+    image: postgres:12.6
     environment:
       POSTGRES_PASSWORD: example
     restart: always
@@ -197,7 +197,6 @@ Run `docker stack deploy -c stack.yml bonita`  or `docker-compose -f stack.yml u
 If you don't want to run your database in a docker container, the following file `env.txt` needs to be configured and provided to the docker run command:
 
 ----
-ENSURE_DB_CHECK_AND_CREATION=false
 DB_VENDOR=postgres
 DB_HOST=172.17.0.2
 DB_PORT=5432
@@ -265,10 +264,6 @@ This optional environment variable is used to enable/disable the Bonita HTTP API
 === JAVA_OPTS
 
 This optional environment variable is used to customize JAVA_OPTS. The default value is -Xms1024m -Xmx1024m -XX:MaxPermSize=256m.
-
-=== ENSURE_DB_CHECK_AND_CREATION
-
-This optional environment variable is used to allow/disallow the SQL queries to automatically check and create the databases using the database administrator credentials. The default value is true.
 
 === DB_VENDOR
 
