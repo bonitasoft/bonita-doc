@@ -112,18 +112,23 @@ You can work with either a PostgreSQL Container, or PostgreSQL as an installed s
 
 ==== PostgreSQL Container
 
-Bonita needs to enable XA transactions in postgres, to do that we set the max_prepared_transactions to 100 (bigger than 0):
+[WARNING]
+====
+
+From Bonita 2022.1 onwards, the Bonita docker image does not include configuration scripts for Postgres
+====
+
+Therefore the PostgreSQL container needs to be configured to work with Bonita before starting the Bonita container.
+The configuration of a PostgreSQL database to work with Bonita is described in detail in the xref:database-configuration.adoc[database configuration page]. +
+Alternatively, Bonita provides a preconfigured https://hub.docker.com/r/bonitasoft/bonita-postgres[PostgreSQL image] on docker-hub. +
+You can run the image with the following command:
 
 ----
-docker run --name mydbpostgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres:11.2 -c 'max_prepared_transactions=100'
+docker run --name mydbpostgres -h <hostname> -v <your-bonita-license-folder>:/opt/bonita_lic/ -d bonitasoft/bonita-postgres:12.6
 ----
 
-See the official PostgreSQL documentation for more details.
+This image is built from the following https://github.com/Bonitasoft-Community/bonita-database-docker/tree/main/postgres/12[github repository], which can be further adapted/customized to suit your needs.
 
-[source,shell script,subs="+macros"]
-----
-docker run --name bonita_postgres -h <hostname> -v bonita-lic:/opt/bonita_lic/ --link mydbpostgres:postgres -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
-----
 
 ==== Using docker-compose
 
@@ -136,7 +141,7 @@ version: '3'
 
 services:
   db:
-    image: postgres:11.2
+    image: postgres:12.6
     environment:
       POSTGRES_PASSWORD: example
     restart: always
@@ -192,7 +197,6 @@ Run `docker stack deploy -c stack.yml bonita`  or `docker-compose -f stack.yml u
 If you don't want to run your database in a docker container, the following file `env.txt` needs to be configured and provided to the docker run command:
 
 ----
-ENSURE_DB_CHECK_AND_CREATION=false
 DB_VENDOR=postgres
 DB_HOST=172.17.0.2
 DB_PORT=5432
@@ -260,10 +264,6 @@ This optional environment variable is used to enable/disable the Bonita HTTP API
 === JAVA_OPTS
 
 This optional environment variable is used to customize JAVA_OPTS. The default value is -Xms1024m -Xmx1024m -XX:MaxPermSize=256m.
-
-=== ENSURE_DB_CHECK_AND_CREATION
-
-This optional environment variable is used to allow/disallow the SQL queries to automatically check and create the databases using the database administrator credentials. The default value is true.
 
 === DB_VENDOR
 
