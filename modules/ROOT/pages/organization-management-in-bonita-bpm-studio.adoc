@@ -1,9 +1,9 @@
 = Organization management in Bonita Studio
 :description: Organization is the set of users, groups and roles. It is used indirectly to define privileges for tasks execution, applications, API, etc.
 
-Organization is the set of users, groups and roles. It is used indirectly to define privileges for tasks execution, applications, API, etc.
+{description}
 
-Within Bonita Studio, more than one organization can be defined. This is useful if you are developing a process that will be deployed in several different organizations. It is also useful for testing, because you can create a reduced version of your organization that has the same structure but fewer users, saving time in managing your test environment.
+Within Bonita Studio, more than one organization can be defined. This is useful if you are developing a process that will be deployed in several organizations. It is also useful for testing, because you can create a reduced version of your organization that has the same structure but fewer users, saving time in managing your test environment.
 
 == The ACME example organization
 
@@ -28,8 +28,8 @@ To specify an organization manually, you create the organization, create the gro
  ** Change the placeholder name to the name of your organization, and add a description.
 . Go to the *_Group_* tab to add groups to your organization:
  ** Click *_Add_* to add a group. You can specify the following:
-  *** the group Name, which is used internally by the Bonita software (*NB:* Bonita doesn't support the '/' character in the group name field)
-  *** the Display name, which is the name displayed in Bonita Portal
+  *** the group Name, which is used internally by the Bonita software (*NB:* Bonita doesn't support the '/' character in the group name field. It is used as path separator.)
+  *** the Display name, which is the name displayed in Bonita Applications
   *** the Path, which shows the hierarchical relationship between groups
   *** a Description of the group
  ** Click *_Add_* to add the next group, and continue until you have added all the groups required. Note that each time you add a group, it is added as a subgroup of the group that is currently selected (by default this is the last group added). You can change the group hierarchy by specifying the Path.
@@ -52,13 +52,13 @@ One option is to use the personal part of the user's email address, that is, the
 
 == Exporting and importing an organization
 
-You can export an organization definition from Bonita Studio. The exported file is in XML, so can be modified. +
+You can export an organization definition from Bonita Studio. The exported file is in XML format, so can be modified. +
 
-You can import an organization definition in this XML format that was exported from another Bonita Studio running the same version of Bonita, or that was constructed by some other method but has the same format. +
+You can import an organization definition in the XML file that was exported from another Bonita Studio running the same version of Bonita, or that was constructed by some other method but has the same format. +
 
 Open the organization you want to export from the project explorer and click on *_Export_* in the top bar of the organization.
 
-To prepare your production system (unless you are using the LDAP synchronizer), you must create the organization that you need for all the processes that will be deployed, export it from Bonita Studio, and import it into Bonita Portal. After the organization is imported into Bonita Portal, you can xref:group.adoc[manage groups], xref:role.adoc[roles], and xref:manage-a-user.adoc[users] in the organization.
+To prepare your production system (unless you are using the LDAP synchronizer), you must create the organization that you need for all the processes that will be deployed, export it from Bonita Studio, and import it into Bonita Applications. After the organization is imported into Bonita Applications, you can xref:admin-application-groups-list.adoc[manage groups], xref:admin-application-roles-list.adoc[roles], and xref:admin-application-users-list.adoc[users] in the organization.
 
 == Modifying an organization
 
@@ -74,7 +74,7 @@ The organization that you deploy overwrites one in the Bonita Runtime.
 [WARNING]
 ====
 
-Importing an organization overwrites the existing organization in Bonita Portal, which could have an impact on deployed processes.
+Importing an organization overwrites the existing organization in Bonita Runtime, and this could have an impact on deployed processes. Take the time to check and test those processes in order to avoid regressions.
 ====
 
 To deploy the organization data:
@@ -89,11 +89,11 @@ selected.
 
 == Profile management
 
-In order to log in to bonita UIs (Bonita User Application, Bonita Administration Application, your applications...), a user must have at least one profile (User, Adminstrator...etc).
+In order to log in to bonita UIs (Bonita User Application, Bonita Administration Application, your applications...), a user must have at least one profile (User, Administrator...etc).
 
-*_In Community_*, only provided profiles are supported (User and Adminstrator). When deploying an organization from the Studio, each user is automatically mapped to all those profiles.
+*_In Community_*, only provided profiles are supported (User and Administrator). When deploying an organization from the Studio, each user is automatically mapped to all those profiles.
 
-*_In Teamwork edition_*, 3 provided profiles (User, Process Manager and Adminstrator) can be edited in the Studio using an XML editor (Go to Organization > Profiles > Open). For development purposes, all users mapped to role _member_ (cf _ACME_ organization) will benefit from all profiles in the Portal to let you log in with any of those users and test your processes.
+*_In Teamwork edition_*, 3 provided profiles (User, Process Manager and Administrator) can be edited in the Studio using an XML editor (Go to Organization > Profiles > Open). For development purposes, all users mapped to role _member_ (cf _ACME_ organization) will benefit from all profiles in the Bonita Applications to let you log in with any of those users and test your processes.
 This will not be true for other environments.
 
 *_In Efficiency, Performance and Enterprise editions_*, in addition to provided profiles it is possible to defined custom profiles in the Studio using the xref:profileCreation.adoc[Profile Editor].

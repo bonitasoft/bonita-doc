@@ -1,39 +1,38 @@
-= Bonita User Interfaces overview
+= Bonita Applications overview
 :page-aliases: bonita-bpm-portal-interface-overview.adoc
-:description: This page describes the runtime User Interfaces provided by Bonita. +
+:description: This page describes the Bonita Applications. +
 
+{description} 
 
-{description} +
 They rely on the analysis that four types of personas use process-based applications in a company:
 
-* the *User* is responsible of performing the tasks for which they are a candidate and also for starting new cases of the processes to which they have access.
+* the *User* is responsible of performing the tasks for which they are a candidate and also for starting new instances of the processes to which they have access.
 * the *Administrator* is responsible for the administration of Bonita at tenant level, and particularly for the management of the processes, the organization, the reports, the custom profiles and the Look & Feel.
 * the *Process Manager* shares process management responsibilities with the Administrator for the processes he has been declared as the Process Manager.
-* the *Technical User* is responsible for opening permissions to use Bonita in non-production or production environments by creating users. S·he is also the only person with permissions to start and stop the BPM services for maintenance or update (namely BDM update). For more information, go to the dedicated xref:first-steps-after-setup.adoc[documentation page].
+* the *Technical User* is responsible for granting permissions to use Bonita in non-production or production environments by creating users. S·he is also the only person with permissions to start and stop the BPM services for maintenance operations or BDM update. 
 
-== Default User Interfaces
+== Bonita Applications details
 
-Starting with Bonita 2021.2, there is only one type of runtime User Interfaces provided by Bonita: Bonita Applications.
+Bonita Runtime embeds two types of applications:
 
-In Bonita 2021.2, Bonita Applications offer:
+* *_Core applications_*: they are critical to the good operation of Bonita in a Production environment. Only their look & feel can be customized:
+  ** _Super Administrator application_, the Technical User's tool to bootstrap Bonita Runtime, pause and resume BPM services, and update the BDM
+  ** _Application Directory_, that displays the catalog of available applications to the logged user
+* *_Generic applications_*: they are fully functional, can be fully customized, but can be deleted if not useful in a Production environment:
+  ** _User_ , based on a standard BPM usage, centered on a generic tasklist
+  ** _Administrator_, allowing the management (monitoring and troubleshooting) of an automation project in production (BDM excepted)
 
-* the Bonita User Application
-* the Bonita Administrator Application
-* the Bonita Super Administrator Application
-* the Bonita Application Directory
-
-These applications are installed by default for a fresh installation of the platform. The application descriptor can be exported from the Administrator Application or the Super administrator application. +
-In addition to that, the first two Bonita Applications can be downloaded from the Welcome Page of the Studio, in the "Resources" tile.
+These applications are installed by default for a fresh installation of the platform. +
+In addition to that, the generic Bonita Applications can be downloaded from the Welcome Page of the Studio, in the "Resources" tile. +
+You may want to do so to create your applications from an example. +
 
 Applications are flexible in two ways:
 
 * The navigation can be customized: remove the pages that are not needed, add custom pages that are needed.
 * Some pages of those applications have been recreated with Bonita UI Designer (find xref:design-methodology.adoc[the list here]). This means that you can open and customize the page to make it fit the precise needs of the users. Starting with an existing page accounts for a big gain of time.
 
-== Custom User Interfaces
+== Custom Applications
 
-You can also create views that fit users' needs better than the provided User Interfaces. +
+You can also create views that fit users' needs better than the Bonita Applications. +
 With Bonita 7.0, Living applications have given the possibility to create applications _made of custom pages_, with their own look & feel. The pages can be created with Bonita UI Designer or with another technology. +
-With Bonita 2021.1 and the availability of Administrator and User Applications, Living applications can be _made of Bonita pages and/or custom pages_ too.
-
-To know more about how to create an application, or create an application from a Bonita Application, go to the xref:design-methodology.adoc[Design methodology] page.
+To know more about how to create an application, or create an application from a Bonita Application, go to the xref:custom-applications-index.adoc[custom applications] page.

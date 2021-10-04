@@ -1,7 +1,7 @@
 = CAS SSO configuration
 :description: Bonita can be configured to use CAS to provide single sign-on (SSO), as long as you already have a working CAS service and all Bonita users are registered in CAS.
 
-Bonita can be configured to use CAS to provide single sign-on (SSO), as long as you already have a working CAS service and all Bonita users are registered in CAS.
+{description}
 
 [NOTE]
 ====
@@ -13,12 +13,12 @@ This information applies to a Bonita platform deployed from a bundle, not to the
 
 CAS configuration is at tenant level. Each tenant can use a different CAS service.
 
-NOTE: On a system using CAS to manage logins, if a user who is not already logged in tries to access a page in the Portal by clicking on a URL link, they are re-directed to the login page.
+NOTE: On a system using CAS to manage logins, if a user who is not already logged in tries to access a page in the Bonita Applications by opening the URL link, they are re-directed to the login page.
 After logging in, the requested page is not displayed automatically. The user must click the link again.
 
 == Return URL
 
-When the user visits the bonita web application using a web browser, the bonita portal redirects it to the CAS server.
+When the user visits the bonita web application using a web browser, the Bonita Runtime redirects it to the CAS server.
 The URL to the CAS server contains the `service` parameter: the value is an encoded return URL, that the CAS server should use to redirect back the user in case of successful authentication.
 
 The return URL is not set by configuration; the `server` and `port` are taken out from the incoming HTTP request which reached the application server. By default, the web application server is configured to use the value of the `Host:` header (see the HTTP 1.1 standard) when present.
@@ -42,7 +42,7 @@ If you need more fine tuning or if you cannot update the reverse proxy configura
 == Configure Bonita Engine and Tomcat for CAS
 
 . The CAS implementation relies on JAAS, and is defined in the BonitaAuthentication module of the JAAS configuration file. +
-Set the Java system property `java.security.auth.login.config` in the Tomcat startup script to point to the JAAS configuration file, xref:bonita-bpm-platform-setup.adoc[`BUNDLE_HOME/server/conf/jaas-standard.cfg`].
+Set the Java system property `java.security.auth.login.config` in the Tomcat startup script to point to the JAAS configuration file, xref:bonita-platform-setup.adoc[`BUNDLE_HOME/server/conf/jaas-standard.cfg`].
 +
 For example, on Linux, edit `BUNDLE_HOME/setup/tomcat-templates/setenv.sh`, uncomment the line that defines `SECURITY_OPTS`, and insert the variable `SECURITY_OPTS` in the line `CATALINA_OPTS=..`.
 +
@@ -103,7 +103,7 @@ Specify the relevant IP address and port number.
  Please note that Guest user access with this configuration has been validated with version 4.2 of CAS server and Bonita 7.10.1.
 
 [discrete]
-==== Configure the Bonita Portal for CAS SSO
+==== Configure the Bonita Runtime for CAS SSO
 
 . For each tenant, edit `authenticationManager-config.properties` to enable the CASRemoteAuthenticationManager and its properties.
 Edit the `authenticationManager-config.properties` located in `platform_conf/initial/tenant_template_portal` for not initialized platform or `platform_conf/current/tenant_template_portal` and `platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
@@ -129,7 +129,7 @@ Uncomment `Cas.serverUrlPrefix` and `Cas.bonitaServiceURL` properties as shown b
 # OAuth.callbackURL = http://ip_address:port/loginservice
 auth.AuthenticationManager = org.bonitasoft.console.common.server.auth.impl.jaas.cas.CASRemoteAuthenticationManagerImpl
 Cas.serverUrlPrefix = http://ip_address:port/cas
-Cas.bonitaServiceURL = http://ip_address:port/bonita/portal/homepage
+Cas.bonitaServiceURL = http://ip_address:port/bonita/apps/appDirectoryBonita
 logout.link.hidden=true
 ----
 
@@ -155,9 +155,9 @@ To troubleshoote SSO login issues, you need to increase the xref:logging.adoc[lo
 == Configure logout behaviour
 
 [discrete]
-==== Bonita Portal
+==== Bonita Runtime
 
-If you are using CAS, when users log out of Bonita Portal, they log out of CAS. Therefore they are logged out of all applications that are using the CAS service. To avoid this, you can hide the logout option of the portal.
+If you are using CAS, when users log out of Bonita Runtime, they log out of CAS. Therefore they are logged out of all applications that are using the CAS service. To avoid this, you can hide the logout option of the Bonita Layout.
 To do this, set the `logout.link.hidden=true` option in `authenticationManager-config.properties` located in `platform_conf/initial/tenant_template_portal` for not initialized platform or `platform_conf/current/tenant_template_portal` and `platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
 [NOTE]
 ====
@@ -169,7 +169,7 @@ If the platform has already been initialized, every update to the configuration 
 * `setup push`
 ====
 
-If this option is set, when users navigate away from the Portal, they are still logged in to CAS.
+If this option is set, when users navigate away from the Bonita Applications, they are still logged in to CAS.
 
 [discrete]
 ==== Bonita Engine
@@ -178,11 +178,11 @@ By default, logging out from Bonita Engine logs the user out of CAS. You can cha
 
 == Tenant administrator login
 
-The xref:tenant_admin_credentials.adoc[Tenant administrator] (also kwown as the _tenant technical user_) will always be able to log in whitout a CAS account. To log with the tenant administrator, use the standard Bonita Portal login page accessible on `http://<bundle host>:<port>/bonita/login.jsp`.
+The xref:tenant_admin_credentials.adoc[Tenant administrator] (also kwown as the _tenant technical user_) will always be able to log in without a CAS account. To log with the tenant administrator, use the standard Bonita Runtime login page accessible on `http://<bundle host>:<port>/bonita/login.jsp`.
 
 == Manage passwords
 
-When you are using CAS, the password for a user is managed in your CAS system. However, when you create a user in Bonita Portal, specifying a password is mandatory. This password is ignored.
+When you are using CAS, the password for a user is managed in your CAS system. However, when you create a user in Bonita Applications, specifying a password is mandatory. This password is ignored.
 
 == LDAP synchronizer and CAS
 
@@ -200,16 +200,15 @@ CAS is a browser-oriented protocol (based on http automatic redirection, cookies
 [#restricted_cas_urls]
 The default `AuthenticationFilter` that manages CAS authentication applies only to the following pages:
 
-* /portal
 * /mobile/*
 * /portal.js/*
 * /apps/*
 * /services/*
 
-REST API are not part of them, but if an http session already exists thanks to cookies, REST API can be used.
+REST API are not part of them, but if an HTTP session already exists thanks to cookies, REST API can be used.
 
-The recommended way to authenticate to *Bonita Portal* to use the REST API is to use the CAS server REST API. +
-It allows to retrieve authentication tickets to authenticate to *Bonita Portal*.
+The recommended way to authenticate in the Bonita Runtime, in order to use the REST API, is to use the CAS server REST API. +
+It allows to retrieve authentication tickets to authenticate in the Bonita Runtime.
 
 For detailed information about the procedure to install Restful access on your CAS SSO server, see the following links:
 
@@ -277,7 +276,7 @@ Take the TGT response and paste it in the url of the ST request, below
 | service={form encoded parameter for the service url}
 |===
 
-For instance, in a *Bonita Portal* deployed on Tomcat bundle on a server with IP `192.168.1.9`, `service url` can be `+http://192.168.1.9:8080/bonita/portal/homepage+`. Its form encoded value would be `http%3A%2F%2F192.168.1.9%3A8080%2Fbonita%2Fportal%2Fhomepage`.
+For instance, in a Bonita Runtime deployed on Tomcat bundle on a server with IP `192.168.1.9`, `service url` can be `+http://192.168.1.9:8080/bonita/apps/appDirectoryBonita/home+`. Its form encoded value would be `http%3A%2F%2F192.168.1.9%3A8080%2Fbonita%2Fapps%2FappDirectoryBonita%2Fhome`.
 
 [discrete]
 ===== *Response for a Service (ST)*
@@ -296,7 +295,7 @@ Take the ST response and paste it in the url of the Bonita Engine login request,
 [discrete]
 ==== Logging into Bonita Engine with Rest API using the service ticket
 
-Use a *Bonita Portal* URL where the <<restricted_cas_urls,CAS AuthenticationFilter applies>> for authentication to work.
+Use the Bonita Runtime URL where the <<restricted_cas_urls,CAS AuthenticationFilter applies>> for authentication to work.
 
 [WARNING]
 ====
@@ -325,13 +324,13 @@ The form encoded parameter URL used as service in the previous step must be used
 [discrete]
 ===== *Authentication to Bonita Engine* with POST
 
-Use a Bonita Portal SSO protected URL for this action.
+Use a Bonita Runtime SSO protected URL for this action.
 
 |===
 |  |
 
 | Request URL
-| `<bonita portal url>`
+| `<bonita service url>`
 
 | Request Method
 | POST
@@ -350,12 +349,12 @@ Use a Bonita Portal SSO protected URL for this action.
 | 200 OK
 |===
 
-You are now logged into Bonita Portal and REST API calls will succeed.
+You are now logged into Bonita Runtime and REST API calls will succeed.
 
 [WARNING]
 ====
 
 Cookies must be enabled in REST client side for authentication to persist across REST API calls. +
 Therefore, calling web application root context may not work (e.g. `/bonita` by default) because session cookie seems not to be set on all web server configurations.
-*Use a protected URL to authenticate to Bonita Portal when using the ticket parameter with POST method.*
+*Use a protected URL to authenticate to Bonita Runtime when using the ticket parameter with POST method.*
 ====

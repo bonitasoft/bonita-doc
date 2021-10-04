@@ -1,7 +1,7 @@
 = How a flownode is executed
 :description: A flownode execution can come:
 
-A flownode execution can come:
+{description}
 
 * from an API call
 * from a specific work triggered by the Engine internally
@@ -10,7 +10,7 @@ A flownode execution can come:
 
 [cols=2*]
 |===
-| When the call comes from the API (generally a human task executed from the Bonita Portal), some verifications are done, contract data are checked and stored in database, then a work is triggered to execute the flownode. See the [[work page
+| When the call comes from the API (generally a human task executed from the Bonita User Application), some verifications are done, contract data are checked and stored in database, then a work is triggered to execute the flownode. See the [[work page
 | Work-execution]] for details.
 |===
 

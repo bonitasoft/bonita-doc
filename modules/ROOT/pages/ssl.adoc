@@ -1,7 +1,7 @@
 = SSL configuration
-:description: It is possible to set up SSL in your Bonita server. This enables you to use secure HTTP (HTTPS) to access the portal.
+:description: It is possible to set up SSL in your Bonita server. This enables you to use secure HTTP (HTTPS) to access the Bonita Applications.
 
-It is possible to set up SSL in your Bonita server. This enables you to use secure HTTP (HTTPS) to access the portal.
+{description}
 
 Configuring SSL for Bonita is the same as configuring it for any other application.
 No changes are necessary to forms or to process definitions, just configuration. This page contains some configuration  examples.
@@ -63,7 +63,7 @@ This example show how to configure SSL with APR and OpenSSL for a Bonita using T
    ...
    <security-constraint>
       <web-resource-collection>
-         <web-resource-name>Bonita Portal Secure URLs</web-resource-name>
+         <web-resource-name>Bonita Applications Secure URLs</web-resource-name>
          <url-pattern>/*</url-pattern>
       </web-resource-collection>
       <user-data-constraint>
@@ -109,7 +109,7 @@ SSLProtocol="TLSv1"></Connector>
    ...
    <security-constraint>
       <web-resource-collection>
-         <web-resource-name>Bonita Portal Secure URLs</web-resource-name>
+         <web-resource-name>Bonita Applications Secure URLs</web-resource-name>
          <url-pattern>/*</url-pattern>
       </web-resource-collection>
       <user-data-constraint>

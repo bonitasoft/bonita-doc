@@ -125,22 +125,15 @@ To start Bonita Studio, go to the directory where you installed it, and run the 
 Now Bonita Studio should be running on your computer. +
 If not, you can manually start it by using the installed shortcut or by using the Bonita Studio executable file from the installation folder.
 
-You should get the Bonita Studio welcome page:
-
-image:images/getting-started-tutorial/installation/studio-first-start-02-studio-on-welcome-page.png[Bonita Studio with welcome page displayed]
-// {.img-responsive .img-thumbnail}
-
 [NOTE]
 ====
-
 When Bonita Studio starts, various tasks are executed in the background, such as the embedded Bonita test server startup (including Bonita Engine initialization), Bonita test organization deployment, and more.
-This might take a while and some features may not be immediately available. A pop-up window will appear to indicate you can update the Bonita server configuration in https://documentation.bonitasoft.com/bonita//bonita-bpm-studio-preferences[preferences] image:images/getting-started-tutorial/installation/studio-first-start-03-starting-bonita-server-popup.png[Bonita Studio Server starting pop-up]
+This might take a while and some features may not be immediately available. A pop-up window will appear to indicate you can update the Bonita server configuration in https://documentation.bonitasoft.com/bonita//bonita-bpm-studio-preferences[preferences]
 ====
 
 When the Bonita Engine is started, you will see a confirmation pop-up on your Bonita Studio welcome page.
 
 image:images/getting-started-tutorial/installation/studio-first-start-04-engine-started-popup.png[Bonita Studio server started pop-up]
-// {.img-responsive .img-thumbnail}
 
 == Installation validation
 

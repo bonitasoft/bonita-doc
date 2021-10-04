@@ -1,7 +1,7 @@
 = OpenID Connect SSO configuration
 :description: Bonita can be configured to use the OpenID Connect (OIDC) protocol to provide single sign-on (SSO), as long as you already have an OpenID Connect Identity Provider server up and running (IdP). OIDC is an extension of OAuth 2.0. Contrary to the SSO support of SAML2, both Bonita Web User Interface and Bonita REST API can be secured and accessed using the OIDC/OAuth protocols (versus just the Web User Interface for SAML2).
 
-Bonita can be configured to use the OpenID Connect (OIDC) protocol to provide single sign-on (SSO), as long as you already have an OpenID Connect Identity Provider server up and running (IdP). OIDC is an extension of OAuth 2.0. Contrary to the SSO support of SAML2, both Bonita Web User Interface and Bonita REST API can be secured and accessed using the OIDC/OAuth protocols (versus just the Web User Interface for SAML2).
+{description}
 
 [NOTE]
 ====
@@ -30,10 +30,10 @@ This is an overview that describes the steps of the authentication process on a 
 image:images/oidc-overview.png[Authentication over OIDC]
 // {.img-responsive}
 
-Here some details about the Bonita OIDC module,
+Here are some details about the Bonita OIDC module,
 it is composed of:
 
-* A servlet filter that intercept all the requests to Bonita portal pages
+* A servlet filter that intercepts all the requests to Bonita Application pages
 +
 It checks if the user is already logged in on Bonita
 
@@ -45,8 +45,8 @@ It checks if the user is already logged in on Bonita
 [WARNING]
 ====
 
-Bonita `username` should match the `prefered_username` or one claims returned by the OIDC provider in the JWT token in the response.
- If some users need to be able to log in without having an account on the IdP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the portal login page (`/login.jsp`) provided they have a Bonita account and their password is different from their username. +
+The `username` attribute of Bonita user accounts should match one of the _claims_ of the JWT token returned in the OIDC provider response (by default the `prefered_username` is used but you can change the configuration to use another _claim_).
+ If some users need to be able to log in without having an account on the IdP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the Bonita login page (`/login.jsp`) as long as they have a Bonita account and their password is different from their username. +
  You can configure Bonita engine to create the accounts on the fly in the database once a user accessing Bonita has been authenticated with the IdP (see the configuration of `bonita-tenant-sp-custom.properties` in the 3rd section of the next chapter).
 ====
 
@@ -86,7 +86,7 @@ edit the `authenticationManager-config.properties` as follows:
 Make sure to link:multi-tenancy-and-tenant-configuration#toc2[set the right tenant admin username].
  It is recommended to also replace the value of the passphrase (property `auth.passphrase`) which is used by the engine to verify the authentication request.
  The value must be the same as in the file *bonita-tenant-sp-custom.properties*. +
- If you need users to be able to log in without having an account on the IDP, you can authorize it by setting the property `oidc.auth.standard.allowed` to true. Users will then be able to log in using the portal login page (`/login.jsp`) provided they have a Bonita account and their password is different from their username. +
+ If you need users to be able to log in without having an account on the IDP, you can authorize it by setting the property `oidc.auth.standard.allowed` to true. Users will then be able to log in using the Bonita login page (`/login.jsp`) provided they have a Bonita account and their password is different from their username. +
  If only a limited group of users need to bypass OIDC authentication method you can restrain it by setting the property `oidc.auth.standard.allowed` to false and setting the property `auth.tenant.standard.whitelist` with the list of authorized usernames (comma separated). Otherwise you can keep it commented.
 
 . In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
@@ -177,12 +177,12 @@ NOTE: Activating this option means any user authorized by the IdP to access Boni
  ** `user-info-url` needs to be set with the URL of your OIDC provider userInfo end point. It is only used when accessing a resource with a Bearer `Authorization` header with an access token that is opaque (not a JWT) and cannot be validated or used to retrieve the logged in user claims. It can be prefixed with `+{auth-server-url}+` to only indicate the path of the end point or be a full absolute URL. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
  ** `jwks-url` needs to be set with the URL of your OIDC provider JSON Web Key Set endpoint. It can be prefixed with `+{auth-server-url}+` to only indicate the path of the end point or be a full absolute URL. For example with Google as OIDC provider, this URL is `https://www.googleapis.com/oauth2/v3/certs`. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
  ** `jwt-access-token` indicates if the access token is a JWT. If false, it will be considered by Bonita OIDC module as an opaque token and its validation and retrieval of the logged in user principal name will be delegated to the userInfo endpoint (see `user-info-url`). This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
- ** `scope-values` can be used to set the value of the `scope` parameter sent to the OIDC provider in the authentication request. The scope value `openid` is automatically added if it is no present, but you can add other scope values like `email` or `profile` depending on you OIDC provider configuration and the claims you need in the JWTs to match Bonita username. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
- ** Some OpenID Connect providers do not support having a pattern of valid redirect URIs. It is the case with Google's for example. With those providers you can use the `state` parameter to pass the target URL (the URL you initially requested and want to be redirected to). In order to do that set the property `save-target-url-in-state` to `true`. When you do that, the redirect_URI query parameter will always be the same. Its default value is the path `/bonita/keycloak` on Bonita server, but you can set a different value using the property `redirect-uri-path`. Make sure this URL is part of the valid redirect URIs in you OIDC provider configuration for the Bonita client. When `save-target-url-in-state` is set to `false` or not present, the `redirect_URI` query parameter is used to save the target URL. Those properties are specific to Bonita OIDC module and are not supported/documented by Keycloak.
- ** the `ssl-required` property value may need to be changed if Bonita Portal and the IdP are not both accessed via HTTPS. Possible values for this property are: `all`, `external`, and `none`. For `all`, all requests must come in via HTTPS. For `external`, only non-private IP addresses must come over via HTTPS. For `none`, no requests are required to come over via HTTPS.
+ ** `scope-values` can be used to set the value of the `scope` parameter sent to the OIDC provider in the authentication request. The scope value `openid` is automatically added if it is no present, but you can add other scope values like `email` or `profile` depending on your OIDC provider configuration and the claims you need in the JWTs to match Bonita username. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
+ ** Some OpenID Connect providers do not support having a pattern of valid redirecting URIs. It is the case with Google's for example. With those providers you can use the `state` parameter to pass the target URL (the URL you initially requested and want to be redirected to). In order to do that, set the property `save-target-url-in-state` to `true`. When you do that, the redirect_URI query parameter will always be the same. Its default value is the path `/bonita/keycloak` on Bonita server, but you can set a different value using the property `redirect-uri-path`. Make sure this URL is part of the valid redirect URIs in you OIDC provider configuration for the Bonita client. When `save-target-url-in-state` is set to `false` or not present, the `redirect_URI` query parameter is used to save the target URL. Those properties are specific to Bonita OIDC module and are not supported/documented by Keycloak.
+ ** the `ssl-required` property value may need to be changed if Bonita Runtime and the IdP are not both accessed via HTTPS. Possible values for this property are: `all`, `external`, and `none`. For `all`, all requests must come in via HTTPS. For `external`, only non-private IP addresses must come over via HTTPS. For `none`, no requests are required to come over via HTTPS.
  ** the `principal-attribute` value indicates the OIDC ID Token attribute/claim (`preferred_username`, `sub`, `email`, `name`, etc...) to use to be considered as user identifier in the client application. It should match the username in Bonita.
  ** `public-client` needs to be set to `false` if the OIDC provider requires the client requests to be authenticated (with a client secret for example). In this case you also need to use the `credentials` property. If this property is set to `true`, then no client Authentication header will be sent to the OIDC provider.
- ** `enable-cors` is required only if you wan to be able to use Bonita REST API from a web application located on a different domain from your Bonita installation's. It comes with additional options `cors-max-age`, `cors-allowed-methods`, `cors-allowed-headers`, `cors-exposed-headers`. You can check Keycloak https://www.keycloak.org/docs/latest/securing_apps/#_java_adapter_config[client adpter config documentation] for more information.
+ ** `enable-cors` is required only if you want to be able to use Bonita REST API from a web application located on a different domain from your Bonita installation's. It comes with additional options `cors-max-age`, `cors-allowed-methods`, `cors-allowed-headers`, `cors-exposed-headers`. You can check Keycloak https://www.keycloak.org/docs/latest/securing_apps/#_java_adapter_config[client adpter config documentation] for more information.
  ** `credentials` you can set it with an object containing either a `secret`,`jwt` or `secret-jwt` attribute if Bonita client is configured with a confidential access type in the OIDC provider (`public-client` is set to `false`). See https://www.keycloak.org/docs/latest/securing_apps/#_client_authentication_adapter[Keycloak's client authentication documentation] for more information.
  ** Some additional properties no present in the default file can be useful:
   *** `connection-pool-size` for the pool of connection to the OIDC provider server (20 by default)
@@ -203,9 +203,8 @@ NOTE: Activating this option means any user authorized by the IdP to access Boni
 More configuration options can be found in https://www.keycloak.org/docs/latest/securing_apps/#_java_adapter_config[Keycloak official documentation]
 ====
 
-If your Identity Provider is correctly configured (see the section _Configure the Identity Provider_), you are done.
-Then you can try to access a portal page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in). +
-Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected to the OIDC provider's authentication end point since this page needs to be accessible in order for the tenant administrator (or another user if you set the property `oidc.auth.standard.allowed` to `true`) to be able to log in without an account on the Identity Provider.
+Once your Identity Provider is correctly configured (see the section _Configure the Identity Provider_), try to access any Bonita Application page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in). +
+Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected to the OIDC provider's authentication end point since this page needs to be accessible for the tenant administrator (or another user if you set the property `oidc.auth.standard.allowed` to `true`) to be able to log in without an account on the Identity Provider.
 
 [WARNING]
 ====
@@ -256,20 +255,20 @@ If the IdP declares a redirect URI, it might override the target URL (`redirect_
 
 == Configure logout behaviour
 
-If your Bonita platform is configured to manage authentication over OIDC, when users log out of Bonita Portal, they do not log out of the OIDC Identity Provider (IdP).
+If your Bonita platform is configured to manage authentication over OIDC, when users log out of Bonita Runtime, they do not log out of the OIDC Identity Provider (IdP).
 Therefore they are not logged out of all applications that are using the OIDC provider.
 To avoid this, you have two options :
 
 [discrete]
-==== Hide the logout button of the portal
+==== Hide the logout button of the Bonita Layout
 
-This is the most commonly used solution. Users are logged in as long as they don't close their web browser (unless their session times out).
+This is the most commonly used solution. Users are logged in as long as they don't close their web browser and their session does not time out.
 To do this, set the `logout.link.hidden` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
 
 [NOTE]
 ====
 
-When a user logs out from the IdP directly, Bonita Portal's session will remain active. The user's session time to live will be reset
+When a user logs out from the IdP directly, Bonita Runtime's session will remain active. The user's session time to live will be reset
 to the configured session timeout value upon each user interaction with the server.
 ====
 
@@ -313,20 +312,12 @@ com.bonitasoft.level = FINE
 ==== Common error examples
 
 ****
-*Symptom:* After configuring OIDC SSO in Bonita, the Bonita Portal login page appears and you are not redirected to the SSO login page. +
+*Symptom:* After configuring OIDC SSO in Bonita, the Bonita login page appears and you are not redirected to the SSO login page. +
 *Possible Solutions:*
 
 * Check all the Bonita configuration settings are correct.
 * Make sure `setup[.sh][.bat] push` has been executed and the server restarted after the changes.
 * Try cleaning the cache and cookies of the web browser.
-****
-
-****
-*Symptom:* Bonita portal URL profile and page parameters (or any other) after the hash ( # ) are lost in redirection. As a result once the OIDC login page redirects back to Bonita portal, the portal displays the first page of the default profile. +
-*Problem:* The hash part of an URL is not sent server-side. It only exists in the web browser. That explains this behavior. +
-*Solution:*
-The workaround is to put the parameters as regular URL query parameters. Bonita portal has a mechanism that will convert them to hash parameters if they need to be (this only works since version 7.8.1 of Bonita). +
-For example instead of `<server_URL>/bonita/portal/homepage#?_p=caselistinguser&_pf=2`, use `<server_URL>/bonita/portal/homepage?_p=caselistinguser&_pf=2`
 ****
 
 ****
@@ -342,7 +333,7 @@ Check the logs:
 == Manage passwords
 
 When your Bonita platform is configured to manage authentication over OIDC, the user password are managed in your OIDC Provider (IdP).
-However, when you create a user in Bonita Portal, specifying a password is mandatory. This password is ignored when logging in with the OIDC provider.
+However, when you create a user in Bonita Applications, specifying a password is mandatory. This password is ignored when logging in with the OIDC provider.
 
 == LDAP synchronizer and OIDC
 
@@ -354,7 +345,7 @@ We recommend that you use LDAP as your master source for information, synchroniz
 [NOTE]
 ====
 
-By default the xref:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `oidc.auth.standard.allowed` in *authenticationManager-config.properties*), users won't be able to log in with the portal login page directly without going through the OIDC provider authentication. +
+By default the xref:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `oidc.auth.standard.allowed` in *authenticationManager-config.properties*), users won't be able to log in with the Bonita login page directly without going through the OIDC provider authentication. +
 ====
 
 [#rest-api]
@@ -388,7 +379,7 @@ Once you obtained the Access token, you can make your REST API request in a norm
 [discrete]
 ==== Authorization Code Grant
 
-Those scenarios work the same way as when you login on Bonita portal/apps except, in this case, it is the client application that uses Bonita REST API which needs to trigger the authentication process by calling the OIDC provider authorisation endpoint with Bonita OIDC client as `client_id`. The rest of the scenario is similar to what is described in the xref:#oidc-overview[OIDC Authorization Code Flow schema]. +
+Those scenarios work the same way as when you login into Bonita Runtime except, in this case, it is the client application that uses Bonita REST API which needs to trigger the authentication process by calling the OIDC provider authorization endpoint with Bonita OIDC client as `client_id`. The rest of the scenario is similar to what is described in the xref:#oidc-overview[OIDC Authorization Code Flow schema]. +
 For example, if Bonita is configured to use Google's OpenID Connect endpoint for authentication, then an application that wants to use Bonita REST API will need to delegate authentication to Google to obtain an authorization code for Bonita REST API. +
 With Authorization Code Flow, once you obtain the authorization code, you can request again the OIDC provider to get the tokens with as `grant_type` value `authorization_code`:
 

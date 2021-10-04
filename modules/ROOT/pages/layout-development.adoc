@@ -1,14 +1,14 @@
 = Develop a layout
 :description: This pages describe how to create a layout and use it in an application.
 
-This pages describe how to create a layout and use it in an application.
+{description}
 
 == Definition
 
 A layout is structure of the application and page content. It defines menu positioning, a footer, or any common content that could be displayed on every page of the application.
 Each application can have its own layout, or the same layout can be used consistently to all applications.
 
-There is an example of layout in Bonita Portal, "Bonita Layout", that can be found in the Administrator "Resources" section. +
+There is an example of layout in Bonita Applications, "Bonita Layout", that can be found in the Bonita Administrator Application, "Resources" page. +
 It is made of three containers:
 
 * layout-header +
@@ -65,9 +65,9 @@ For example: `<link href="css/file.css" rel="stylesheet" />`
 
 === API acces
 
-If your page is viewed in an application, you will have access facilities for xref:rest-api-overview.adoc[the portal API].
+If your page is viewed in an application, you will have access facilities for xref:rest-api-overview.adoc[the APIs].
 
-You will be able to access the portal API using the following path: "../API/{API name}/{resource name}"
+You will be able to access the APIs using the following path: "../API/{API name}/{resource name}"
 
 === Theme access
 

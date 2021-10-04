@@ -1,6 +1,6 @@
 = Updating Bonita Runtime
-
 :description: This page explains how to update Bonita Runtime (single or multiple nodes) to a newer version of Bonita.
+:page-aliases: migrate-from-an-earlier-version-of-bonita-bpm.adoc
 
 {description}
 
@@ -62,7 +62,6 @@ The following are not migrated automatically:
 
 [WARNING]
 ====
-
 Starting with Bonita 2021.2, custom reports will not be supported in Bonita anymore. They will be replaced by another functionality in further versions of Bonita.
 ====
 
@@ -93,7 +92,6 @@ Therefore, it is also strongly recommended to xref:back-up-bonita-bpm-platform.a
 For more information, go to the Customer Service Center and read the Support Guide and Supported Environment Matrix for Server.
 
 [#rdbms_requirements]
-
 === Database
 * The migration script supports MySQL, Postgres, Oracle, and Microsoft SQL Server. *There is no migration for h2 database*.
 * The target Bonita version may not support the *version of the database* used with your source Bonita version. You may then need to update the version of your database prior to running the migration tool. To make sure:
@@ -109,7 +107,6 @@ After the update is complete, export the default Look & Feel from the new versio
 
 [WARNING]
 ====
-
 Starting with Bonita 2021.2, there is no more Bonita Portal. Bonita is all applications. If you need to use some of the Portal Look&Feel assets in the themes of your applications, make sure you create backups of those files before launching the updating procedure.
 ====
 
@@ -196,7 +193,6 @@ Specify the following information:
 | bpm
 |===
 
-
 7. Custom Portal Look & Feel: 
  * Target version older than Bonita 2021.2: If you used a custom Look & Feel in Bonita Portal, export it, and then restore the default Look & Feel.
  * Target version Bonita 2021.2 or greater: Exporting the Look & Feel is not needed, as Bonita Portal has been replaced by Bonita applications. However, the backup of your Look & Feel files may be helpful to create the applications themes.
@@ -235,7 +231,6 @@ Specify the following information:
 
 [CAUTION]
 ====
-
 Do not use the old Tomcat server: a new one needs to be installed with the Bonita binaries that match the target version.
 ====
 
@@ -253,7 +248,7 @@ Below you can find a Linux exemple: +
 ----
 
 You must reapply the configuration that had been done on the original instance's BONITA_HOME into the `bonita-target-version/setup/platform_conf/current`    ```` +
-Please refer to the guide on updating the configuration file using the xref:bonita-bpm-platform-setup.adoc#update_platform_conf[setup tool]. +
+Please refer to the guide on updating the configuration file using the xref:bonita-platform-setup.adoc#update_platform_conf[setup tool]. +
 When done, push the updated configuration into the database:
 
 [source,bash]
@@ -269,7 +264,7 @@ When done, push the updated configuration into the database:
  ** Perform a diff between the source version and the target version of `tenants/[TENANT_ID]/conf/resources-permissions-mapping.properties` and put the additional lines into the file `tenants/[TENANT_ID]/conf/resources-permissions-mapping-custom.properties`
  ** Perform a diff between the source version and the target versionof `tenants/[TENANT_ID]/conf/dynamic-permissions-checks.properties` and put the additional lines into the file `tenants/[TENANT_ID]/conf/dynamic-permissions-checks-custom.properties`
  ** Report all the content of the source version of``tenants/[TENANT_ID]/conf/custom-permissions-mapping.properties`` into the target version.
-24. Put a new license in the database: see xref:bonita-bpm-platform-setup.adoc#update_platform_conf[Runtime configuration] for further details.
+24. Put a new license in the database: see xref:bonita-platform-setup.adoc#update_platform_conf[Runtime configuration] for further details.
 
 Below you can find a Linux exemple: +
 
@@ -284,7 +279,7 @@ Below you can find a Linux exemple: +
 If there is no valid license in the `./platform_conf/licenses/`, these 2 pages will help you to request and install a new one:
 
  ** https://documentation.bonitasoft.com/?page=licenses[Licenses]
- ** xref:bonita-bpm-platform-setup.adoc#update_platform_conf[Setup tool]
+ ** xref:bonita-platform-setup.adoc#update_platform_conf[Setup tool]
 
 Install the new license:
 
