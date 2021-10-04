@@ -119,12 +119,12 @@ From Bonita 2022.1 onwards, the Bonita docker image does not include configurati
 ====
 
 Therefore the PostgreSQL container needs to be configured to work with Bonita before starting the Bonita container.
-The configuration of a PostgreSQL database to work with Bonita is described in detail in the xref:database-configuration.adoc[database configuration page]
-Alternatively, Bonita provides a preconfigured https://hub.docker.com/repository/docker/bonitasoft/bonita-postgres[postgres image] on docker-hub
-You can run the image with the following command
+The configuration of a PostgreSQL database to work with Bonita is described in detail in the xref:database-configuration.adoc[database configuration page]. +
+Alternatively, Bonita provides a preconfigured https://hub.docker.com/r/bonitasoft/bonita-postgres[PostgreSQL image] on docker-hub. +
+You can run the image with the following command:
 
 ----
-docker run --name mydbpostgres -h <hostname> -v bonita-lic:/opt/bonita_lic/ -d bonitasoft/bonita-postgres:12.6
+docker run --name mydbpostgres -h <hostname> -v <your-bonita-license-folder>:/opt/bonita_lic/ -d bonitasoft/bonita-postgres:12.6
 ----
 
 This image is built from the following https://github.com/Bonitasoft-Community/bonita-database-docker/tree/main/postgres/12[github repository], which can be further adapted/customized to suit your needs.
