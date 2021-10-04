@@ -121,7 +121,7 @@ If not, you can manually start it by using the installed shortcut or by using th
 
 [NOTE]
 ====
-When Bonita Studio starts, various tasks are executed in the background, such as the embedded Bonita test server startup (including Bonita Engine initialization), Bonita test organization deployment, and more. This behavior can be configured in the https://documentation.bonitasoft.com/bonita//bonita-bpm-studio-preferences[preferences] +
+When Bonita Studio starts, various tasks are executed in the background, such as the embedded Bonita test server startup (including Bonita Engine initialization), Bonita test organization deployment, and more. This behavior can be configured in the https://documentation.bonitasoft.com/bonita//bonita-bpm-studio-preferences[preferences]. +
 This might take a while and some features may not be immediately available. +
 When those operations are completed, a notification pops up on your Bonita Studio welcome page.
 ====
