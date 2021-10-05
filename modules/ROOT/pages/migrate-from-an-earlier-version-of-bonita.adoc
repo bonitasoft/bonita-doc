@@ -255,8 +255,8 @@ When done, push the updated configuration into the database:
 ----
 
 === Specific configuration
-. If you have done specific configuration and customization actions in your server source version, re-do it by configuring the application server at `bonita-target-version/server` (or `bonita-target-version` if the target version is Bonita 7.3.n or greater): customization, libs etc.
-. *If the source version is Bonita 7.4 or greater:* +++<a id="compound-permission-migration">++++++</a>+++
+* If you have done specific configuration and customization actions in your server source version, re-do it by configuring the application server at `bonita-target-version/server` (or `bonita-target-version` if the target version is Bonita 7.3.n or greater): customization, libs etc.
+* *If the source version is Bonita 7.4 or greater:* +++<a id="compound-permission-migration">++++++</a>+++
  In the case where deployed resources have required dedicated xref:resource-management.adoc#permissions[authorizations to use the REST API], these authorizations are not automatically migrated.
  Some manual operations have to be done on files that are located in the extracted `platform_conf/current` folder (see xref:bonita-bpm-platform-setup.adoc#update_platform_conf[Update Bonita Runtime configuration] for more information). You need to:
  ** Perform a diff between the source version and the target version of `tenants/[TENANT_ID]/conf/compound-permissions-mapping.properties` and put the additional lines into the file `tenants/[TENANT_ID]/conf/compound-permissions-mapping-custom.properties`
