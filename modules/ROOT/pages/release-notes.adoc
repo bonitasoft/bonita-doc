@@ -284,6 +284,19 @@ Use BPMN 2 importer for model exchange with third-party editors.
 
 A standalone docker image that package the LDAP Synchronizer was released under the name `quay.io/bonitasoft/bonita-ldap-synchronizer`
 
+=== Fixes in Bonita 2021.1-0915 (2021-09-15)
+
+==== Fixes in Bonita Development Suite (Studio and UI Designer)
+
+* STUDIO-4109 - LA-Builder requires SP dependency in its classpath
+
+==== Fixes in Bonita Runtime (including Portal)
+
+* RUNTIME-479 -	Update OpenSSL version in Docker images
+* RUNTIME-271 -	Portal: Archived cases query fails with 'operator does not exist' error when filtering on process name
+* RUNTIME-229 -	Missing content-type header in several REST API responses
+* RUNTIME-497 -	Integrate jattach inside official docker image
+
 === Fixes in Bonita 2021.1-0617 (2021-06-17)
 
 ==== Fixes in Bonita Development Suite (Studio and UI Designer)
@@ -306,18 +319,6 @@ A standalone docker image that package the LDAP Synchronizer was released under 
 * RUNTIME-212 - Process manager typo into dynamic-permissions-checks(-custom).properties file
 * RUNTIME-33 - Impossible to install a valid BDM after an attempts to install an invalid BDM
 
-=== Fixes in Bonita 2021.1-0915 (2021-09-15)
-
-==== Fixes in Bonita Development Suite (Studio and UI Designer)
-
-* STUDIO-4109 - LA-Builder requires SP dependency in its classpath
-
-==== Fixes in Bonita Runtime (including Portal)
-
-* RUNTIME-479 -	Update OpenSSL version in Docker images
-* RUNTIME-271 -	Portal: Archived cases query fails with 'operator does not exist' error when filtering on process name
-* RUNTIME-229 -	Missing content-type header in several REST API responses
-* RUNTIME-497 -	Integrate jattach inside official docker image
 
 === Fixes in Bonita 2021.1-0408 (2021-04-08)
 
