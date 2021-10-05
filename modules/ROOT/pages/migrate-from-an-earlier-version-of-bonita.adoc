@@ -4,7 +4,7 @@
 
 {description}
 
-== Forewords
+== How it works
 
 To update Bonita Runtime you need to use _Bonita Migration Tool_. There are 2 versions of the migration tool:
 
@@ -13,22 +13,6 @@ To update Bonita Runtime you need to use _Bonita Migration Tool_. There are 2 ve
 
 For example, if you consider updating from Bonita 6.5.3 to Bonita 7.1.0, you must first update from Bonita 6.5.3 to Bonita 7.0.0 using version 1.x of Bonita Migration Tool, and then update from Bonita 7.0.0 to Bonita 7.1.0 using version 2.x. +
 You are recommended not to start Bonita 7.0.0 after you update to it, but to proceed immediately with the second phase of the update.
-
-=== Version to target
-You should always update to the latest version of a main release, even if not the latest Bonita version. +
-Indeed, such maintenance versions might contain bug fixes made after the release of subsequent main releases. +
-For example, Bonita 6.5.4 contains fixes to certain bugs that were found in early Bonita 7.x.y versions, up to Bonita 7.1.0. +
-When you are ready to update from Bonita 6.5.4 to a Bonita 7.x.y version, make sure you update to at least Bonita 7.1.1 to be sure that these fixes are present in your new version after the update.
-
-=== Update + Upgrade? 
-Bonita Migration Tool modifies files on your runtime, so you cannot xref:upgrade-from-community-to-a-subscription-edition.adoc[change edition] at the same time as updating.
-
-=== Licenses
-
-If you are running a Bonita Subscription edition, you need a valid license for your target version +
-If you are updating to a new maintenance version within the same main version, your current license remains valid after the update.
-
-== How it works
 
 Bonita Migration Tool contains a set of scripts that execute changes on the data to make it compatible with the newer version of Bonita Runtime.
 This tool is provided as a zip archive and contains an executable script that will determine your current configuration and ask you to which version you want to update.
@@ -70,6 +54,20 @@ See  <<update,Updating Bonita bundle: step-by-step procedure>> for step-by-step 
 
 == Things to know before launching the updating procedure
 
+=== Version to target
+You should always update to the latest version of a main release, even if not the latest Bonita version. +
+Indeed, such maintenance versions might contain bug fixes made after the release of subsequent main releases. +
+For example, Bonita 6.5.4 contains fixes to certain bugs that were found in early Bonita 7.x.y versions, up to Bonita 7.1.0. +
+When you are ready to update from Bonita 6.5.4 to a Bonita 7.x.y version, make sure you update to at least Bonita 7.1.1 to be sure that these fixes are present in your new version after the update.
+
+=== Update + Upgrade? 
+Bonita Migration Tool modifies files on your runtime, so you cannot xref:upgrade-from-community-to-a-subscription-edition.adoc[change edition] at the same time as updating.
+
+=== Licenses
+
+If you are running a Bonita Subscription edition, you need a valid license for your target version +
+If you are updating to a new maintenance version within the same main version, your current license remains valid after the update.
+
 === Backups
 
 [CAUTION]
@@ -91,6 +89,7 @@ Therefore, it is also strongly recommended to xref:back-up-bonita-bpm-platform.a
 
 [#rdbms_requirements]
 === Database
+
 * The migration script supports MySQL, PostgreSQL, Oracle, and Microsoft SQL Server. *There is no migration for h2 database*.
 * The target Bonita version may not support the *version of the database* used with your source Bonita version. You may then need to update the version of your database prior to running the migration tool. To make sure:
  ** Please check the xref:hardware-and-software-requirements.adoc[database requirements].
@@ -154,36 +153,36 @@ The correct driver is mandatory for a smooth update: xref:database-configuration
 . Configure the database properties needed by the migration script, by editing `bonita-update/Config.properties`. +
 Specify the following information:
 
-|===
-| Property | Description | Example
+  |===
+  | Property | Description | Example
 
-| bonita.home
-| The location of the existing bonita_home. Required only until Bonita 7.3
-| `/opt/BPMN/bonita` (Linux) or `C:\\BPMN\\bonita` (Windows)
+  | bonita.home
+  | The location of the existing bonita_home. Required only until Bonita 7.3
+  | `/opt/BPMN/bonita` (Linux) or `C:\\BPMN\\bonita` (Windows)
 
-| db.vendor
-| The database vendor
-| postgres
+  | db.vendor
+  | The database vendor
+  | postgres
 
-| db.driverClass
-| The driver used to access the database
-| org.postgresql.Driver
+  | db.driverClass
+  | The driver used to access the database
+  | org.postgresql.Driver
 
-| db.url
-| The location of the Bonita Engine database
-| `jdbc:postgresql://localhost:5432/bonita-update`
+  | db.url
+  | The location of the Bonita Engine database
+  | `jdbc:postgresql://localhost:5432/bonita-update`
 
-*Note:* If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example,
-`db.url=jdbc:mysql://localhost:3306/bonita-update?allowMultiQueries=true`. 
+    *Note:* If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example,
+    `db.url=jdbc:mysql://localhost:3306/bonita-update?allowMultiQueries=true`. 
 
-| db.user
-| The username used to authenticate to the database
-| bonita
+  | db.user
+  | The username used to authenticate to the database
+  | bonita
 
-| db.password
-| The password used to authenticate to the database
-| bpm
-|===
+  | db.password
+  | The password used to authenticate to the database
+  | bpm
+  |===
 
 7. Custom Portal Look & Feel: 
  * Exporting the Look & Feel is not needed, as Bonita Portal has been replaced by Bonita applications. However, the backup of your Look & Feel files may be helpful to create the applications themes.
