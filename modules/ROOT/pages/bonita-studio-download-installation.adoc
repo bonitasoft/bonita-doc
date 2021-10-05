@@ -1,5 +1,6 @@
 = Bonita Studio installation
 :description: This page describes how to download and install Bonita Studio on Windows, Linux, or Mac operating systems.
+:page-aliases: bonita-bpm-studio-installation.adoc
 
 {description}
 
