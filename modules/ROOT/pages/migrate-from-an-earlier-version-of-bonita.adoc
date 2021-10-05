@@ -142,6 +142,7 @@ document: 7476
 
 image::images/images-6_0/migration_bigsteps.png[Update steps]
 
+=== Download
 Download the target version bundle and the migration tool for your Edition from the
 http://www.bonitasoft.com/downloads-v2[Bonitasoft web site] for Bonita Community edition
 or from the https://customer.bonitasoft.com/download/request[Customer Service Center] for Bonita Subscription editions.
@@ -200,7 +201,7 @@ Generally speaking, pausing (or not) the BPM services before the update should n
 . Stop the application server.
 . *IMPORTANT:xref:back-up-bonita-bpm-platform.adoc[Back up your runtime nodes] and databases*
 
-=== Migration Tool
+=== Run Bonita Migration Tool
 . Go to the directory containing Bonita Migration Tool.
 . Run the migration script:
  ** For version 1.x of the migration tool, run `migration.sh` (or `migration.bat` for Windows).
@@ -216,7 +217,9 @@ Generally speaking, pausing (or not) the BPM services before the update should n
 | `bonita-migration-distrib-sp` (Linux) or `bonita-migration-distrib-sp.bat` (Windows)
 |===
 
- ** Starting from Bonita Migration Tool 2.44.1, an additional script called `check-migration-dryrun` is present in the same folder. This script only runs the checks the real update would run, without actually migrating the elements. This is equivalent to running the migration script with a `--verify` option.
+Starting from Bonita Migration Tool 2.44.1, an additional script called `check-migration-dryrun` is present in the same folder. This script only runs the checks the real update would run, without actually migrating the elements. This is equivalent to running the migration script with a `--verify` option. +
+
+Once the script is started:
 . The script detects the current version of Bonita, and displays a list of the versions that you can update to. 
 . Specify the version you require. 
 . The updating procedure starts
@@ -229,7 +232,7 @@ Generally speaking, pausing (or not) the BPM services before the update should n
 Do not use the old Tomcat server: a new one needs to be installed with the Bonita binaries that match the target version.
 ====
 
-=== Target Bonita bundle
+=== Setup the target Bonita bundle
 . Unzip the target bundle version into a directory. In the steps below, this directory is called `bonita-target-version`
 . xref:database-configuration.adoc[Configure the bundle to use the updated database]. Do not recreate the database and use the setup tool of the `bonita-target-version`. Edit the `bonita-target-version/setup/database.properties` file to point to the updated database.
 . Reapply the configuration made to the runtime, using the setup tool of the `bonita-target-version`
@@ -252,6 +255,7 @@ When done, push the updated configuration into the database:
  ./setup.sh push
 ----
 
+=== Specific configuration
 . If you have done specific configuration and customization actions in your server source version, re-do it by configuring the application server at `bonita-target-version/server` (or `bonita-target-version` if the target version is Bonita 7.3.n or greater): customization, libs etc.
 . *If the source version is Bonita 7.4 or greater:* +++<a id="compound-permission-migration">++++++</a>+++
  In the case where deployed resources have required dedicated xref:resource-management.adoc#permissions[authorizations to use the REST API], these authorizations are not automatically migrated.
