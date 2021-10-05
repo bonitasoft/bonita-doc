@@ -174,7 +174,8 @@ Specify the following information:
   | The location of the Bonita Engine database
   | `jdbc:postgresql://localhost:5432/bonita-update`
 
-*Note:* If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example, `db.url=jdbc:mysql://localhost:3306/bonita-update?allowMultiQueries=true`. 
+*Note:* If you are using MySQL, add `?allowMultiQueries=true` to the URL. +
+        For example, `db.url=jdbc:mysql://localhost:3306/bonita-update?allowMultiQueries=true`. 
 
   | db.user
   | The username used to authenticate to the database
