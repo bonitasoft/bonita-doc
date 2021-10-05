@@ -89,8 +89,6 @@ Therefore, it is also strongly recommended to xref:back-up-bonita-bpm-platform.a
 * Bonita 7.5 only supports JRE version 8. If updating to Bonita 7.5 to Bonita 2021.1-0811, please update your JRE to version 8.
 * Bonita 2021.2 only supports JRE version 11. If updating to Bonita 2021.2 or greater, please update your JRE to version 11.
 
-For more information, go to the Customer Service Center and read the Support Guide and Supported Environment Matrix for Server.
-
 [#rdbms_requirements]
 === Database
 * The migration script supports MySQL, PostgreSQL, Oracle, and Microsoft SQL Server. *There is no migration for h2 database*.
