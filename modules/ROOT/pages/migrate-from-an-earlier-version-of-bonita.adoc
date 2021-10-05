@@ -143,8 +143,7 @@ document: 7476
 image::images/images-6_0/migration_bigsteps.png[Update steps]
 
 === Download
-Download the target version bundle and the migration tool for your Edition from the
-http://www.bonitasoft.com/downloads-v2[Bonitasoft web site] for Bonita Community edition
+Download the target version bundle and the migration tool for your Edition from the http://www.bonitasoft.com/downloads-v2[Bonitasoft web site] for Bonita Community edition
 or from the https://customer.bonitasoft.com/download/request[Customer Service Center] for Bonita Subscription editions.
 
 === Database
@@ -175,8 +174,7 @@ Specify the following information:
   | The location of the Bonita Engine database
   | `jdbc:postgresql://localhost:5432/bonita-update`
 
-    *Note:* If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example,
-    `db.url=jdbc:mysql://localhost:3306/bonita-update?allowMultiQueries=true`. 
+*Note:* If you are using MySQL, add `?allowMultiQueries=true` to the URL. For example, `db.url=jdbc:mysql://localhost:3306/bonita-update?allowMultiQueries=true`. 
 
   | db.user
   | The username used to authenticate to the database
@@ -219,7 +217,7 @@ Generally speaking, pausing (or not) the BPM services before the update should n
 
 Starting from Bonita Migration Tool 2.44.1, an additional script called `check-migration-dryrun` is present in the same folder. This script only runs the checks the real update would run, without actually migrating the elements. This is equivalent to running the migration script with a `--verify` option. +
 
-Once the script is started:
+=== Once the script is started
 . The script detects the current version of Bonita, and displays a list of the versions that you can update to. 
 . Specify the version you require. 
 . The updating procedure starts
