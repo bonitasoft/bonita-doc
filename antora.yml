@@ -16,6 +16,6 @@ asciidoc:
     page-editable: true
     page-out-of-support: false
     next-release: true
-    searchable: false
+    hide-search-bar: true
 nav:
   - modules/ROOT/taxonomy.adoc
