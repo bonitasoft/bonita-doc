@@ -130,8 +130,7 @@ Sample extract of exposed Prometheus data:
 
 == Configuration
 
-
-Retrieve xref:BonitaBPM_platform_setup.adoc#update_platform_conf[current configuration] by running:
+Retrieve xref:bonita-platform-setup.adoc#update_platform_conf[current configuration] by running:
 
 [source,bash]
 ----
@@ -142,11 +141,11 @@ Edit file `./setup/platform_conf/current/platform_engine/bonita-platform-sp-cust
 
 You will see, in the `# MONITORING` section, a series of properties with their default value:
 
-In the first section, `PUBLISHERS` can be activated and configured.
+In the first section, `PUBLISHERS` can be activated / deactivated and configured.
 
  # PUBLISHERS = where to publish?
  # publish metrics to Prometheus
- com.bonitasoft.engine.plugin.monitoring.publisher.prometheus.enable=false
+ com.bonitasoft.engine.plugin.monitoring.publisher.prometheus.enable=true
  # publish metrics to JMX:
  org.bonitasoft.engine.monitoring.publisher.jmx.enable=true
  # periodically print metrics to logs (bonita related only):
@@ -176,7 +175,7 @@ In the second section, metrics can be activated.
 [NOTE]
 ====
 To change any value, *uncomment the line by removing the # character*, and change the true / false value. +
-Then xref:BonitaBPM_platform_setup.adoc#update_platform_conf[push your configuration changes] to database:
+Then xref:bonita-platform-setup.adoc#update_platform_conf[push your configuration changes] to database:
 
 [source,bash]
 ----

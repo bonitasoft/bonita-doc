@@ -10,6 +10,13 @@ The 2022.1 is in development.
 
 == Improvements
 
+== Functional changes
+
+=== Prometheus monitoring active by default (Subscription editions)
+
+From Bonita 2022.1, xref:runtime-monitoring.adoc#_prometheus_publisher[the Prometheus metrics publisher] is now active by default, and can be disabled if needed. +
+Its access is now protected with Basic Auth authentication to protect against DOS attacks.
+
 == Technical updates
 
 == Feature deprecations and removals
