@@ -14,8 +14,7 @@ asciidoc:
     crowdinBonitaVersion: 7.14
     # page attributes
     page-editable: true
-    page-out-of-support: false
-    next-release: true
-    hide-search-bar: true
+    page-next-release: true
+    page-hide-search-bar: true
 nav:
   - modules/ROOT/taxonomy.adoc

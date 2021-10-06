@@ -4,8 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      # TODO reactivate when integrating this version to the documentation
-      - '2022.1_diable'
+      - '2022.1'
     paths:
       - 'modules/**'
       - 'antora.yml'
