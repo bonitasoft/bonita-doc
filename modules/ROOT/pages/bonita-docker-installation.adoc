@@ -127,7 +127,7 @@ You can run the image with the following command:
 docker run --name mydbpostgres -h <hostname> -v <your-bonita-license-folder>:/opt/bonita_lic/ -d bonitasoft/bonita-postgres:12.6
 ----
 
-This image is built from the following https://github.com/Bonitasoft-Community/bonita-database-docker/tree/main/postgres/12[github repository], which can be further adapted/customized to suit your needs.
+This image is built from the following https://github.com/Bonitasoft-Community/bonita-database-docker/tree/main/postgres/12[GitHub repository], which can be further adapted/customized to suit your needs.
 
 
 ==== Using docker-compose
@@ -313,9 +313,9 @@ These variables are optional, and used in conjunction to create users and databa
 
 Since Bonita 7.9 BONITA_SERVER_LOGGING_FILE and BONITA_SETUP_LOGGING_FILE can be used to update logging configuration.
 
-`BONITA_SERVER_LOGGING_FILE` default value is /opt/bonita/BonitaSubscription-$\{BONITA_VERSION}/server/conf/logging.properties.
+`BONITA_SERVER_LOGGING_FILE` default value is /opt/bonita/server/conf/logging.properties.
 
-`BONITA_SETUP_LOGGING_FILE` default value is /opt/bonita/BonitaSubscription-$\{BONITA_VERSION}/setup/logback.xml.
+`BONITA_SETUP_LOGGING_FILE` default value is /opt/bonita/setup/logback.xml.
 
 == Migrating from an earlier version of Bonita
 
@@ -357,7 +357,7 @@ Example of useful commands it supports, that you can run from outside the contai
 ----
 Connected to remote JVM
 JVM response code = 0
--XX:CICompilerCount=4 -XX:ConcGCThreads=2 -XX:G1ConcRefinementThreads=8 -XX:G1HeapRegionSize=1048576 -XX:GCDrainStackTargetSize=64 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/opt/bonita/BonitaSubscription-pass:a[{bonitaVersion}]/server/logs
+-XX:CICompilerCount=4 -XX:ConcGCThreads=2 -XX:G1ConcRefinementThreads=8 -XX:G1HeapRegionSize=1048576 -XX:GCDrainStackTargetSize=64 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/opt/bonita/server/logs
 ----
 
 * `docker exec <CONTAINER_NAME> jattach 1 properties` to see all System properties that Java will use:
@@ -367,13 +367,13 @@ JVM response code = 0
 Connected to remote JVM
 JVM response code = 0
 #Fri Sep 10 14:03:16 GMT 2021
-com.arjuna.ats.arjuna.common.propertiesFile=/opt/bonita/BonitaSubscription-pass:a[{bonitaVersion}]/server/conf/jbossts-properties.xml
+com.arjuna.ats.arjuna.common.propertiesFile=/opt/bonita/server/conf/jbossts-properties.xml
 sysprop.bonita.bdm.db.vendor=h2
 awt.toolkit=sun.awt.X11.XToolkit
 java.specification.version=11
 sun.cpu.isalist=
 sun.jnu.encoding=ANSI_X3.4-1968
-java.class.path=/opt/bonita/BonitaSubscription-pass:a[{bonitaVersion}]/server/lib/ext/bonita-tomcat-juli-pass:a[{bonitaTechnicalVersion}].jar\:/opt/bonita/BonitaSubscription-pass:a[{bonitaVersion}]/server/bin/bootstrap.jar\:/opt/bonita/BonitaSubscription-pass:a[{bonitaVersion}]/server/bin/tomcat-juli.jar
+java.class.path=/opt/bonita/server/lib/ext/bonita-tomcat-juli-pass:a[{bonitaTechnicalVersion}].jar\:/opt/bonita/server/bin/bootstrap.jar\:/opt/bonita/server/bin/tomcat-juli.jar
 sysprop.bonita.db.vendor=h2
 java.vm.vendor=Ubuntu
 ----
