@@ -5,7 +5,6 @@
 This profile is linked to the Bonita Application Directory Application by default. More information about this application can be found in the xref:application-directory.adoc[Application Directory page].
 
 == Accessible pages
-* Bonita Layout
 
 == Accessible permissions
 

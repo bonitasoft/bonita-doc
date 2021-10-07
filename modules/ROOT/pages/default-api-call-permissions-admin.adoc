@@ -7,10 +7,27 @@ This profile is linked to the Bonita Administrator Application by default. More 
 == Accessible pages
 * Bonita Layout
 
-
 == Accessible permissions
 
 == Accessible APIs
+* GET
+
+* POST
+
+* PUT
+
+* DELETE
+
+== Subscription Editions
+
+These are additional REST APIs that you have access to when you are using the Enterprise, Performance, Efficiency or Teamwork edition of Bonita.
+
+=== Additional accessible pages
+* License page
+
+=== Additional accessible permissions
+
+=== Additional accessible APIs
 * GET
 
 * POST

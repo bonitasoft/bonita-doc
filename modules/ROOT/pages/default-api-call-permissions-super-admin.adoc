@@ -17,3 +17,21 @@ This profile is linked to the Bonita Super Administrator Application by default.
 * PUT
 
 * DELETE
+
+== Subscription Editions
+
+These are additional REST APIs that you have access to when you are using the Enterprise, Performance, Efficiency or Teamwork edition of Bonita.
+
+=== Additional accessible pages
+* License page
+
+=== Additional accessible permissions
+
+=== Additional accessible APIs
+* GET
+
+* POST
+
+* PUT
+
+* DELETE
