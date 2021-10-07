@@ -1,8 +1,11 @@
 name: bonita
 title: Bonita
-version: 2022.1
-# TODO when integrating this version to the documentation, update push-content.yml
-prerelease: Beta
+# TODO: When we are in beta release, put version: 2022.1
+version: 1
+# TODO: remove this line when we are in beta phase
+display_version: 2022.1-alpha
+# TODO when integrating this version to the documentation, update push-content.yml and replace alpha by beta
+prerelease: alpha
 asciidoc:
   attributes:
     bonitaVersion: 2022.1
@@ -11,6 +14,7 @@ asciidoc:
     crowdinBonitaVersion: 7.14
     # page attributes
     page-editable: true
-    page-out-of-support: false
+    page-next-release: true
+    page-hide-search-bar: true
 nav:
   - modules/ROOT/taxonomy.adoc
