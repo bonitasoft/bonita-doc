@@ -19,6 +19,11 @@ Its access is now protected with Basic Auth authentication to protect against DO
 
 == Technical updates
 
+=== Docker image structure
+
+Folder structure inside Bonita Docker images has been simplified: instead of having /opt/bonita/BonitaCommunity-2021.2 or /opt/bonita/BonitaSubscription-2021.2, we now simply have */opt/bonita*. +
+If you have scripts using the former folder structure, please update them.
+
 == Feature deprecations and removals
 
 == Bug fixes
