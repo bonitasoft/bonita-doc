@@ -1,0 +1,20 @@
+= Administrator profile REST API permissions
+:description: This page explains the REST API permissions for the Administrator profile. More information about how this page is structured can be found xref:default-api-permissions-overview.adoc[in this page].
+
+{description} +
+This profile is linked to the Bonita Administrator Application by default. More information about this application can be found in the xref:admin-application-overview.adoc[Administrator Application overview].
+
+== Accessible pages
+* Bonita Layout
+
+
+== Accessible permissions
+
+== Accessible APIs
+* GET
+
+* POST
+
+* PUT
+
+* DELETE

@@ -1,0 +1,174 @@
+= User profile REST API permissions
+:description: This page explains the REST API permissions for the User profile. More information about how this page is structured can be found xref:default-api-permissions-overview.adoc[in this page].
+
+{description} +
+This profile is linked to the Bonita User Application by default. More information about this application can be found in the xref:user-application-overview.adoc[User Application overview].
+
+== Accessible pages
+* Bonita Layout
+* User Task List
+* User Case List
+* User Case Details
+* User Case Overview
+* User Process List
+
+== Accessible permissions
+* application_visualization
+* profile_visualization
+* tenant_platform_visualization
+* organization_visualization
+* avatars
+* process_categories
+* process_actor_mapping_visualization
+* connector_visualization
+* flownode_management
+* download_document
+* profile_member_visualization
+* form_file_upload
+* task_visualization
+* task_management
+* process_visualization
+* case_visualization
+* form_visualization
+* process_comment
+* license
+* flownode_visualization
+* bdm_visualization
+* document_visualization
+* case_start
+* process_deploy
+* case_management
+
+== Accessible APIs
+* GET
+** identity/user
+** identity/personalcontactdata
+** identity/professionalcontactdata
+** identity/role
+** identity/group
+** identity/membership
+** customuserinfo/user
+** customuserinfo/definition
+** customuserinfo/value
+** bpm/process
+** bpm/process/*/contract
+** bpm/processConnector
+** bpm/processConnectorDependency
+** bpm/actor
+** bpm/actorMember
+** bpm/category
+** bpm/processResolutionProblem
+** bpm/case
+** bpm/case/*/context
+** bpm/caseInfo
+** bpm/comment
+** bpm/archivedComment
+** bpm/archivedCase
+** bpm/archivedCase/*/context
+** bpm/caseVariable
+** bpm/caseDocument
+** bpm/flowNode
+** bpm/activity
+** bpm/task
+** bpm/humanTask
+** bpm/userTask
+** bpm/userTask/*/contract
+** bpm/userTask/*/context
+** bpm/manualTask
+** bpm/activityVariable
+** bpm/connectorInstance
+** bpm/archivedFlowNode
+** bpm/archivedActivity
+** bpm/archivedTask
+** bpm/archivedHumanTask
+** bpm/archivedUserTask
+** bpm/archivedUserTask/*/context
+** bpm/archivedManualTask
+** bpm/archivedConnectorInstance
+** bpm/document
+** bpm/archiveddocument
+** bpm/archivedCaseDocument
+** bpm/connectorFailure
+** bpm/timerEventTrigger
+** bpm/diagram
+** portal/profile
+** portal/bonitaPage
+** portal/page
+** portal/profileEntry
+** portal/profileMember
+** userXP/profile
+** userXP/profileEntry
+** userXP/profileMember
+** userXP/bonitaPage
+** system/session
+** system/log
+** system/tenant
+** system/feature
+** system/license
+** system/monitoring
+** system/i18nlocale
+** system/i18ntranslation
+** platform/platform
+** platform/jvmDynamic
+** platform/jvmStatic
+** platform/systemProperty
+** platform/tenant
+** platform/license
+** living/application
+** living/application-page
+** living/application-menu
+** bdm/businessData
+** bdm/businessDataReference
+** bdm/businessDataQuery
+** form/mapping
+** API/avatars
+** portal/custom-page/API/avatars
+** API/documentDownload
+** portal/custom-page/API/documentDownload
+** portal/documentDownload
+** API/formsDocumentImage
+** portal/custom-page/API/formsDocumentImage
+** portal/formsDocumentImage
+** portal/custom-page/API/formsDocumentDownload
+** portal/formsDocumentDownload
+** API/applicationIcon
+** portal/downloadDocument
+** portal/custom-page/API/downloadDocument
+* POST
+** bpm/process
+** bpm/process/*/instantiation
+** bpm/processCategory
+** bpm/category
+** bpm/case
+** bpm/comment
+** bpm/caseDocument
+** bpm/userTask
+** bpm/userTask/*/execution
+** bpm/manualTask
+** bpm/document
+** bpm/message
+** API/formFileUpload
+** portal/custom-page/API/formFileUpload
+** API/processUpload
+* PUT
+** bpm/process
+** bpm/category
+** bpm/caseVariable
+** bpm/caseDocument
+** bpm/flowNode
+** bpm/activity
+** bpm/activityReplay
+** bpm/task
+** bpm/humanTask
+** bpm/userTask
+** bpm/manualTask
+** bpm/document
+** bpm/timerEventTrigger
+* DELETE
+** bpm/process
+** bpm/processCategory
+** bpm/category
+** bpm/caseDocument
+** bpm/document
+** bpm/archivedCaseDocument
+** API/avatars

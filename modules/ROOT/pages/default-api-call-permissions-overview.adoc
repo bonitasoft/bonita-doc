@@ -1,0 +1,35 @@
+= Default API Call permissions
+:description: This page lists the API Calls that the default profiles have access to, for a new installation of the platform
+
+{description}
+
+Check out the xref:rest-api-authorization.adoc[REST API authorization page] in order to understand more about how the permissions are given depending on a profile. +
+Each profile will have the following structure: +
+
+```
+= Profile 1
+General profile information
+== Accessible pages
+* accessible page 1 for profile 1
+* accessible page 2 for profile 1
+...
+== Accessible permissions
+* permission 1
+* permission 2
+...
+== Accessible APIs
+* GET
+    ** API 1
+    ** API 2
+    ...
+* POST
+    ** API 1
+    ** API 2
+...
+```
+
+You can view the following pages for each profile :
+* xref:default-api-call-permissions-user.adoc[User profile]
+* xref:default-api-call-permissions-admin.adoc[Administrator profile]
+* xref:default-api-call-permissions-super-admin.adoc[Super Administrator profile]
+* xref:default-api-call-permissions-all.adoc[All profiles]
