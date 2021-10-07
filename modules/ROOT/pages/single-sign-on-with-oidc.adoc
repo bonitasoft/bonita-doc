@@ -321,14 +321,6 @@ com.bonitasoft.level = FINE
 ****
 
 ****
-*Symptom:* Bonita portal URL profile and page parameters (or any other) after the hash ( # ) are lost in redirection. As a result once the OIDC login page redirects back to Bonita portal, the portal displays the first page of the default profile. +
-*Problem:* The hash part of an URL is not sent server-side. It only exists in the web browser. That explains this behavior. +
-*Solution:*
-The workaround is to put the parameters as regular URL query parameters. Bonita portal has a mechanism that will convert them to hash parameters if they need to be (this only works since version 7.8.1 of Bonita). +
-For example instead of `<server_URL>/bonita/portal/homepage#?_p=caselistinguser&_pf=2`, use `<server_URL>/bonita/portal/homepage?_p=caselistinguser&_pf=2`
-****
-
-****
 *Symptom:* After logging in on the OIDC provider, you are redirected to Bonita but you get a 403 error. +
 *Problem:* Either Bonita OIDC module does not manage to obtain the access tokens, or you don't have the required rights to access the page (when trying to display a page of an application without having the required profile for example). +
 *Solution:*

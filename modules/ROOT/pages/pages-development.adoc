@@ -60,24 +60,6 @@ resources=[GET|identity/user, GET|identity/personalcontactdata, GET|identity/pro
 
 When a user is given access to this page because they are in a profile that contains it or that is mapped to an application that contains the page, then this user is granted, upon login, the permissions associated to these resources (see xref:rest-api-authorization.adoc[REST API authorizations] for more details).
 
-=== Reuse Bonita Portal content
-
-You can reuse pages from Bonita Portal in your custom pages. For example, in a page that gives details of a case history, you could include the case status diagram to show the current status. For example, for case 1 of process definition 8270554088248243867, include these lines in your custom page definition:
-
-[source,groovy]
-----
-def idProcess = "8270554088248243867";
-def idCase = "1";
-out.write("""<iframe src=../portal.js/#/admin/monitoring/${idProcess}-${idCase}" style="width:100%; height:100%"></iframe>""");
-----
-
-This displays the case status diagram exactly as it appears in the standard Bonita Portal page. You can modify the view to hide the Portal _Back_ button by adding `?diagramOnly` to the URL:
-
-[source,groovy]
-----
-out.write("""<iframe src=../portal.js/#/admin/monitoring/${idProcess}-${idCase}?diagramOnly}" style="width:100%; height:100%"></iframe>""");
-----
-
 === Debugging a custom page in development
 
 While you are developing a custom page, you can enable custom page debug mode. In debug mode, you can see changes to your custom page without importing a new .zip archive.
@@ -92,7 +74,7 @@ To work on a page in debug mode:
 On a Tomcat installation, `<java.io.tmpdir>` points to `<BUNDLE_HOME>/temp/`
 ====
 
-. Import your custom page zip archive into the portal. This creates a directory `<java.io.tmpdir>/bonita_portal_*/tenants/tenant_id/pages/custompage_<your custom page>`.
+. Import your custom page zip archive into the Bonita Administrator Application. This creates a directory `<java.io.tmpdir>/bonita_portal_*/tenants/tenant_id/pages/custompage_<your custom page>`.
 . Publish the page to a profile, then log out and log in as a user having this profile.
 . You can now update `Index.groovy` and the contents of the `lib` directory directly in `<java.io.tmpdir>/bonita_portal_*/tenants/tenant_id/pages/custompage_<your custom page>`.
 . To view the page after you modify it, refresh the page in the browser.

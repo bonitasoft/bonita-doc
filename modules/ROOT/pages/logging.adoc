@@ -5,15 +5,14 @@
 
 == How components produce log messages
 
-The components of Bonita have their own ways to produce logs, which are described below.
+Bonita components have their own ways to produce logs, as described below.
 
-=== Bonita Engine
+=== Bonita Runtime
 
-All the Engine services uses SLF4J in order to write log messages.
+The Bonita Runtime has two components :
 
-=== Bonita Portal
-
-The Portal uses the http://docs.oracle.com/javase/8/docs/api/java/util/logging/package-summary.html[Java Util Logging] (JUL) directly to log messages.
+- Bonita Engine, which uses SLF4J in order to write log messages.
+- Bonita Rest APIs, which use http://docs.oracle.com/javase/8/docs/api/java/util/logging/package-summary.html[Java Url Logging] (JUL)
 
 === Bonita Studio
 
@@ -23,7 +22,7 @@ The Bonita Studio provides direct access to the log written by the embedded Runt
 
 == Logging configuration
 
-=== Bonita Engine and Bonita Portal aka Bonita Runtime
+=== Bonita Runtime
 
 Bonita Engine uses SLF4J to create the logs as well as some Bonita dependencies such as Quartz and Ehcache.
 
@@ -83,10 +82,10 @@ protected void executeBusinessLogic() throws ConnectorException {
 
 === Bonita Studio
 
-In Bonita Studio you have access to two log files:
+In Bonita Studio you have access to the following log files :
 
 * The Studio log file includes information about Studio execution. Look at this file if you see incorrect behavior of the Studio. To view the file, go to the *Help* menu and choose *Show Studio log*. The file is located in the `workspace/.metadata` folder and is named `.log`.
-* The Engine and Portal log file receives all log messages produced by the Bonita Platform embedded in the Studio. When you test your processes by running them from the Studio you will find valuable debugging information in this file. To view the file, go to the *Help* menu and choose *Show Engine log*. The file is located in `workspace/tomcat/log` and is named `bonita-yyyy-mm-dd.log`.
+* The Runtime log file receives all log messages produced by the Bonita Platform embedded in the Studio. When you test your processes by running them from the Studio you will find valuable debugging information in this file. To view the file, go to the *Help* menu and choose *Show Engine log*. The file is located in `workspace/tomcat/log` and is named `bonita-yyyy-mm-dd.log`.
 
 === Bonita Runtime
 

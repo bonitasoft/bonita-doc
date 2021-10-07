@@ -33,24 +33,14 @@ By default, it gives access to the Bonita User Application.
 
 === Administrator
 
-By default, its gives access to Bonita Administrator Application. It includes:
+By default, it gives access to Bonita Administrator Application, which includes:
 
-* xref:_process-maintenance.adoc[Process Management]
+* xref:admin-application-process-list.adoc[Process Management]
 * xref:organization-in-bonita-applications-overview.adoc[Organization Management]
 * xref:bdm-management-in-bonita-applications.adoc[Business Data Model Management]
 * xref:applications.adoc[Applications Management]
-* xref:license-info.adoc[License Information] (Enterprise, Performance, Efficiency, and Teamwork editions only)
-  This profile is also mapped to the xref:admin-application-overview.adoc[Bonita Administrator Application], bringing about the same value but with more customization options.
-
-=== Process manager
-
-This profile is available for Subscription editions only.
-Someone mapped to the _Process manager_ profile has limited administration rights for activities related to the processes they manage. It includes:
-
-* xref:monitoring.adoc[Process monitoring]
-* xref:admin-application-process-list.adoc[Process list], but they cannot install a process
-* xref:cases.adoc[Case list]
-* xref:admin-application-task-list.adoc[Task list]
+* xref:licenses.adoc[License Information] (Enterprise, Performance, Efficiency, and Teamwork editions only)
+ This profile is also mapped to the xref:admin-application-overview.adoc[Bonita Administrator Application], bringing about the same value but with more customization options.
 
 [NOTE]
 ====
