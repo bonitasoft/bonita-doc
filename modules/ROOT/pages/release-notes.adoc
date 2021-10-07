@@ -19,10 +19,20 @@ Its access is now protected with Basic Auth authentication to protect against DO
 
 == Technical updates
 
-=== Docker image structure
+=== Docker image
 
 Folder structure inside Bonita Docker images has been simplified: instead of having /opt/bonita/BonitaCommunity-2021.2 or /opt/bonita/BonitaSubscription-2021.2, we now simply have */opt/bonita*. +
 If you have scripts using the former folder structure, please update them.
+
+The docker image does not create the database schema and the associated user anymore. The database must be created before the image starts. We provide pre-configured database images with already created existing schema and users https://hub.docker.com/r/bonitasoft/bonita-postgres
+
+The following environment properties were removed
+
+* `ENSURE_DB_CHECK_AND_CREATION`
+* `DB_DROP_EXISTING`
+* `BIZ_DB_DROP_EXISTING`
+* `DB_ADMIN_USER`
+* `DB_ADMIN_PASS`
 
 == Feature deprecations and removals
 
