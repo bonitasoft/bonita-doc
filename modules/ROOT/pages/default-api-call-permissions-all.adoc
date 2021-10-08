@@ -2,17 +2,44 @@
 :description: This page explains the REST API permissions for All profiles. More information about how this page is structured can be found xref:default-api-permissions-overview.adoc[in this page].
 
 {description} +
-This profile is linked to the Bonita Application Directory Application by default. More information about this application can be found in the xref:application-directory.adoc[Application Directory page].
+All profiles are linked to the Bonita Application Directory by default. More information about this application can be found in the xref:application-directory.adoc[Application Directory page].
 
 == Accessible pages
+* Layout without menu
+* Application Directory
+* Error 403
+* Error 404
+* Error 500
 
 == Accessible permissions
+* application_visualization
+* tenant_platform_visualization
+* organization_visualization
 
 == Accessible APIs
 * GET
-
-* POST
-
-* PUT
-
-* DELETE
+** identity/user
+** identity/personalcontactdata
+** identity/professionalcontactdata
+** identity/role
+** identity/group
+** identity/membership
+** customuserinfo/user
+** customuserinfo/definition
+** customuserinfo/value
+** system/session
+** system/log
+** system/tenant
+** system/feature
+** system/monitoring
+** system/i18nlocale
+** system/i18ntranslation
+** platform/platform
+** platform/jvmDynamic
+** platform/jvmStatic
+** platform/systemProperty
+** platform/tenant
+** living/application
+** living/application-page
+** living/application-menu
+** API/applicationIcon
