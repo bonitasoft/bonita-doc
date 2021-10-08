@@ -4,7 +4,7 @@ title: Bonita
 version: 1
 # TODO: remove this line when we are in beta phase
 display_version: 2022.1-alpha
-# TODO when integrating this version to the documentation, update push-content.yml and replace alpha by beta
+# TODO when releasing beta version, replace alpha by beta
 prerelease: alpha
 asciidoc:
   attributes:
