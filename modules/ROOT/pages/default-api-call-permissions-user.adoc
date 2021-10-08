@@ -113,7 +113,6 @@ This profile is linked to the Bonita User Application by default. More informati
 ** platform/jvmStatic
 ** platform/systemProperty
 ** platform/tenant
-** platform/license
 ** living/application
 ** living/application-page
 ** living/application-menu
