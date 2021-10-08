@@ -289,6 +289,7 @@ This profile is linked to the Bonita Administrator Application by default. More 
 These are additional REST APIs that you have access to when you are using the Enterprise, Performance, Efficiency or Teamwork edition of Bonita.
 
 === Additional accessible pages
+* Monitoring
 * License information
 
 === Additional accessible permissions
