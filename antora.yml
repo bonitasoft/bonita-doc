@@ -1,10 +1,10 @@
 name: bonita
 title: Bonita
-# TODO: When we are in beta release, put version: 2022.1
+# TODO: When releasing beta version, put version: 2022.1
 version: 1
-# TODO: remove this line when we are in beta phase
+# TODO: When releasing beta version, remove this line
 display_version: 2022.1-alpha
-# TODO when releasing beta version, replace alpha by beta
+# TODO: When releasing beta version, replace alpha by beta
 prerelease: alpha
 asciidoc:
   attributes:
@@ -14,7 +14,7 @@ asciidoc:
     crowdinBonitaVersion: 7.14
     # page attributes
     page-editable: true
-    page-next-release: true
-    page-hide-search-bar: true
+    page-next-release: true # TODO: When releasing beta version, set this field to false
+    page-hide-search-bar: true # TODO: When releasing beta version, set this field to false
 nav:
   - modules/ROOT/taxonomy.adoc
