@@ -293,22 +293,6 @@ These variables are used in conjunction to create a new user, set that user's pa
 
 `BIZ_DB_PASS` default value is businesspass.
 
-=== DB_ADMIN_USER, DB_ADMIN_PASS
-
-These variables are optional, and used in conjunction to create users and databases through the administrator account used on the database instance.
-
-`DB_ADMIN_USER` if no value is provided, this is automatically set to root with MySQL or postgres with PostgreSQL.
-
-`DB_ADMIN_PASS` if no value is provided, this is automatically set using the value from the linked container: MYSQL_ENV_MYSQL_ROOT_PASSWORD or POSTGRES_ENV_POSTGRES_PASSWORD.
-
-=== DB_DROP_EXISTING, BIZ_DB_DROP_EXISTING
-
-`DB_DROP_EXISTING` and `BIZ_DB_DROP_EXISTING` can be used to drop existing databases in order to reuse an existing database instance.
-
-`DB_DROP_EXISTING` default value is N.
-
-`BIZ_DB_DROP_EXISTING` default value is N.
-
 === BONITA_SERVER_LOGGING_FILE, BONITA_SETUP_LOGGING_FILE
 
 Since Bonita 7.9 BONITA_SERVER_LOGGING_FILE and BONITA_SETUP_LOGGING_FILE can be used to update logging configuration.
