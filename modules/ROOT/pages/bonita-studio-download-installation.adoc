@@ -127,17 +127,17 @@ This might take a while and some features may not be immediately available. +
 When those operations are completed, a notification pops up on your Bonita Studio welcome page.
 ====
 
-image:images/getting-started-tutorial/installation/studio-first-start-engine-started-popup.png[Bonita Studio server started pop-up,50%]
+image:images/getting-started-tutorial/installation/studio-first-start-engine-started-popup.png[Bonita Studio server started pop-up,70%,align="center"]
 
 == Installation validation
 
 To make sure that everything is properly installed, click on the *Applications* button in the toolbar. This should open the Bonita Application Directory in your web browser:
 
-image:images/getting-started-tutorial/installation/web-browser-display-application-list.png[Bonita Application display in a web browser,50%]
+image:images/getting-started-tutorial/installation/web-browser-display-application-list.png[Bonita Application display in a web browser,70%,align="center"]
 
 Also click on the *UI Designer* button in the toolbar to check that the UI Designer is ready to use:
 
-image:images/getting-started-tutorial/installation/ui-designer-first-start.png[UI Designer, on first launch, displayed in a web browser,50%]
+image:images/getting-started-tutorial/installation/ui-designer-first-start.png[UI Designer on first launch displayed in a web browser,70%,align="center"]
 
 == Ready to move on
 
