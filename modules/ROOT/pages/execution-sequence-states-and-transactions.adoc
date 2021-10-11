@@ -35,6 +35,21 @@ For the *Community* edition, these actions are not relevant, but the order of th
 the connector execution is aborted and the process instantiation is considered failed.
 . The process is instantiated, the API call finishes and the Engine executes the process flow asynchronously
 
+== Sequence of events at process instance completion
+
+Process instance completion happens when:
+
+* the last flownode of the process terminates (either normally or if a flow node is aborted/cancelled).
+* the process is aborted/cancelled
+
+There are three steps to the standard completion procedure:
+
+. unregisterEventSubProcess: we remove the waiting events associated with the subprocesses of the current process
+. handleProcessCompletion: we set the state of the process to what it needs to be (standard flow is to set is to *Completed*) and execute *ON_FINISH* process connectors.
+. We call childReachedState() to notify a potential callActivity that the process finished. If a callActivity started the process, childReachedState() will :
+ ** decrement the tokens of the callActivity.
+ ** register a work to execute the callActivity if the process that finished was the last of the callActivity processes.
+
 == Sequence of events at user task _initialization_
 
 During, user task execution, Bonita Engine:
@@ -44,7 +59,7 @@ During, user task execution, Bonita Engine:
 . Launches the "on enter" connectors
 . Evaluates the task dynamic name and description. This will be evaluated only once
 
-The user task is now in *ready* state and is waiting for a user to perform and submit it.
+The user task is now in *READY* state and is waiting for a user to perform and submit it.
 
 == Sequence of events at user task _execution_
 
@@ -67,8 +82,8 @@ A state is either stable, terminal, or unstable:
 
 * Stable: the flow node is not yet finished, but paused as it waits for input. A stable state is waiting for either:
 
- ** A Human interaction to change (Ready/Failed).
- ** A BPMN event (Waiting).
+ ** A Human interaction to change (*READY*/*FAILED*).
+ ** A BPMN event (*WAITING*).
   *** intermediateCatch
   *** receive
   *** boundary
@@ -77,7 +92,7 @@ A state is either stable, terminal, or unstable:
   *** MultiInstance
   *** CallActivity...
 
-A flownode will stay in a stable state until the event it is waiting for occurs. No work is generated in the meantime. The transaction is committed.
+A flow node will stay in a stable state until the event it is waiting for occurs. No work is generated in the meantime. The transaction is committed.
 
 * Terminal: A terminal state is a stable state. It is the last state reached by a flow node. Executing the flow node in terminal state will archive the flow node, delete it and trigger the asynchronous execution of the following elements of the process. +
 You can not "come back" from a terminal step. The one exception is the transition Completed \-> Failed.
@@ -90,16 +105,16 @@ Examples: ExecutingAutomaticActivity, InitializingAndExecutingFlownode, EndingIn
 
 === Transitioning from state to state
 
-Executing a state of a flownode is running the code of the `execute()` method on the *current* state, and then moving the flownode to the next state (determined by the transitions). +
-When executing the state of a flownode, a return code indicates if the execution of the state is finished, meaning we can move on to the next state, or not finished, meaning we stay on the same state, some background task will trigger the move to the next state later (Eg. connector execution).
+Executing a state of a flow node is running the code of the `execute()` method on the *current* state, and then moving the flow node to the next state (determined by the transitions). +
+When executing the state of a flow node, a return code indicates if the execution of the state is finished, meaning we can move on to the next state, or not finished, meaning we stay on the same state, some background task will trigger the move to the next state later (Eg. connector execution).
 
-If the state is finished, the State Machine determines the next state: +
-Each flownode type has an ordered list of states. +
+If the state is finished, the State Machine determines the next state: each flownode type has an ordered list of states. +
 We take the next state in the list, and ask the state to determine whether we should execute the state or not. +
-If not, the next state is "skipped" and the second next state is checked the same way, until a state determines it should be executed. +
-If so, the next state is executed, in another background task (if terminal or not stable).
 
-=== State sequence at activity execution
+ * If not, the next state is "skipped" and the second next state is checked the same way, until a state determines it should be executed. +
+ * If so, the next state is executed, in another background task (if terminal or not stable).
+
+==== State sequence at activity execution
 
 . Get the current state of the activity
 . Execute the state's behavior
@@ -108,17 +123,17 @@ If so, the next state is executed, in another background task (if terminal or no
  .. If the state is terminal, the transaction is committed, Bonita Engine triggers the asynchronous execution of the followings elements of the process and the API call is returned
  .. If the state is neither stable nor terminal, the transition to the next state is scheduled asynchronously
 
-=== Work service mechanism
+==== Work service mechanism
 
 image::images/images-6_0/user_task_details.png[Diagram of the details of user task execution]
 
 . Bonita Engine commits the transaction and then submits a work to execute the connectors asynchronously. The connectors are executed outside any transaction and thus are not a problem for the data integrity if the execution takes too long
 . As soon as there is a free slot in the Work Service, it executes the work, which is in fact the connector execution
 . When a connector execution is finished, if there are other connectors, they are executed in the same way. If there are no more connectors, Bonita Engine continues to execute the state's behavior by triggering a new work
-. When the engine executes a state's behavior, it updates the display name, and then sets the activity to the state _Ready_. As this is a stable state, the engine commits the transaction and stops
-. The state _Ready_ will then be executed through an API call
+. When the engine executes a state's behavior, it updates the display name, and then sets the activity to the state *READY*. As this is a stable state, the engine commits the transaction and stops
+. The state *READY* will then be executed through an API call
 
-=== Short transactions and asynchronism
+==== Short transactions and asynchronism
 
 Transactions in Bonita Engine are as small as possible, and each transaction is committed as soon as possible. +
 Each unit of work uses a non-blocking queued executor mechanism and is thus asynchronous. There is a dedicated queue for asynchronous executions. (Connector execution is handled in a separate execution queue.) +
@@ -143,7 +158,7 @@ When the execution of the last connector is complete, the state's behaviour is c
 
 The diagrams below show the transactions and states when a user task is executed.
 The vertical line represents the condition necessary to execute the current state.
-The first state is _initializing_: it is automatically executed and the flow node goes to next state (_Ready_) but is executed only after an API call.
+The first state is _initializing_: it is automatically executed and the flow node goes to next state (*READY*) but is executed only after an API call.
 
 *In the first diagram, the task contains connectors*
 
@@ -170,17 +185,27 @@ If the connector execution never ends because the external system does not have 
 Aborting is the action of changing the flow of transitions from the normal flow to the *aborting* sequence of states. It is triggered by the Bonita Engine itself. +
 Cancelling is the same notion, but triggered by a human interaction. The flow is the *cancelling* sequence of states.
 
-Aborting / cancelling a flow node is only setting its flag *stateCategory* to ABORTING / CANCELLING + registering works to execute the flow nodes.
+Aborting / cancelling a flow node is only setting its flag *stateCategory* to *ABORTING* / *CANCELLING* + registering works to execute the flow nodes.
 
-==== Aborting a flow node
+==== Flow node abortion
 
 When the execution of a flow node sees that the state category of the flow node is *not the same* as the state category of the state (determined by the State Machine), then the current state is *not* executed (to the contrary of a normal case).- +
 Then the next state is the first state of the aborting flow sequence for that type of flow node. +
 Then the state is executed in a background task, as usual, and then follows the aborting flow sequence of states, until it reaches the last state in that sequence.
 
-==== Cancelling a flow node
+==== Flow node cancellation
 
 Cancelling a flow node is exactly the same as aborting a flow node, but the flow sequence of states is the *cancelling* sequence.
+
+=== Process instance cancellation
+
+Processe instances can be cancelled by using the API. All the flownodes and the process are put in the *CANCELLING* state, and works are registered to execute them all. The process is then put into the *CANCELLED* state without any other actions.
+
+=== Process instance abortion
+
+* If an error event has been fired by the current process instance, we trigger the _end error events_, and the process instance is put into state *ABORTING*. +
+* When the process is in state *ABORTING*, the behavior is similar to that of the state *CANCELLING*. +
+Process instances are directly put in the state *ABORTING* if they are not aborted by error events.
 
 === Special States
 
@@ -191,13 +216,13 @@ We then execute the `shouldExecuteState()` code of the next state (determined by
 
 === Summary of state types
 
-* *Initializing*: indicates that an activity is being initialized.
-* *Ready*: indicates that a user or manual task has been initialized but is not yet being executed.
-* *Waiting*: indicates that a RECEIVE_TASK, BOUNDARY_EVENT or INTERMEDIATE_CATCH_EVENT activity is waiting for some external trigger.
-* *Executing*: indicates that an activity is being executed.
-* *Failed*: indicates that a task has failed because of a problem in execution, for example because of an exception that was not anticipated, a connector that fails, or bad expression design.
-* *Skipped*: indicates that a task that failed because of connector execution failure is being skipped instead of re-executed. Skipping a task skips the execution of any connectors not already executed and proceeds to task completion.
-* *Cancelled*: indicates that an activity is cancelled by a user.
-* *Aborting*: indicates that an activity is cancelled by the system. For example, an interrupting event sub-process can trigger ABORTS for all other active paths.
-* *Completed*: indicates an activity that is complete.
-* *Error*: not currently used.
+* *INITIALIZING*: indicates that an activity is being initialized.
+* *READY*: indicates that a user or manual task has been initialized but is not yet being executed.
+* *WAITING*: indicates that a RECEIVE_TASK, BOUNDARY_EVENT or INTERMEDIATE_CATCH_EVENT activity is waiting for some external trigger.
+* *EXECUTING*: indicates that an activity is being executed.
+* *FAILED*: indicates that a task has failed because of a problem in execution, for example because of an exception that was not anticipated, a connector that fails, or bad expression design.
+* *SKIPPED*: indicates that a task that failed because of connector execution failure is being skipped instead of re-executed. Skipping a task skips the execution of any connectors not already executed and proceeds to task completion.
+* *CANCELLED*: indicates that an activity is cancelled by a user.
+* *ABORTING*: indicates that an activity is cancelled by the system. For example, an interrupting event sub-process can trigger ABORTS for all other active paths.
+* *COMPLETED*: indicates an activity that is complete.
+* *ERROR*: not currently used.
