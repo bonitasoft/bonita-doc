@@ -1,6 +1,7 @@
 = Execution sequence, states, and transactions
 :description: Understand the sequence of actions performed when a process instance is created and when a task is performed by a user; know the flow nodes states, and learn about the transactions
-:page-aliases: engine-flow-node-states.adoc.adoc
+:page-aliases: engine-flow-node-states.adoc
+:page-aliases: how-a-process-is-completed.adoc
 
 {description}
 
