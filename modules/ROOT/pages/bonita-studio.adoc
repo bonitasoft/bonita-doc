@@ -61,6 +61,10 @@ xref:getting-started-index.adoc[[.card-title]#Getting started tutorial# [.card-b
 xref:setup-dev-environment-index.adoc[[.card-title]#Development environment setup# [.card-body.card-content-overflow]#pass:q[Make the studio ready for intensive teamwork]#]
 --
 
+[.card.card-index]
+--
+xref:update-studio.adoc[[.card-title]#Update Bonita Studio# [.card-body.card-content-overflow]#pass:q[The recomended flow to update the development environment]#]
+--
 
 == image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
