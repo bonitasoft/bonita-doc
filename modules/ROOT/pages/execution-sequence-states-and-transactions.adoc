@@ -44,7 +44,7 @@ During, user task execution, Bonita Engine:
 . Launches the "on enter" connectors
 . Evaluates the task dynamic name and description. This will be evaluated only once
 
-The user task is now in *ready* state and is waiting for a user to perform and submit it.
+The user task is now in *READY* state and is waiting for a user to perform and submit it.
 
 == Sequence of events at user task _execution_
 
@@ -80,7 +80,7 @@ A state is either stable, terminal, or unstable:
 A flownode will stay in a stable state until the event it is waiting for occurs. No work is generated in the meantime. The transaction is committed.
 
 * Terminal: A terminal state is a stable state. It is the last state reached by a flow node. Executing the flow node in terminal state will archive the flow node, delete it and trigger the asynchronous execution of the following elements of the process. +
-You can not "come back" from a terminal step. The one exception is the transition Completed \-> Failed.
+You can not "come back" from a terminal step. The one exception is the transition *COMPLETED* \-> *FAILED*.
 
 * Unstable
 
@@ -116,7 +116,7 @@ image::images/images-6_0/user_task_details.png[Diagram of the details of user ta
 . As soon as there is a free slot in the Work Service, it executes the work, which is in fact the connector execution
 . When a connector execution is finished, if there are other connectors, they are executed in the same way. If there are no more connectors, Bonita Engine continues to execute the state's behavior by triggering a new work
 . When the engine executes a state's behavior, it updates the display name, and then sets the activity to the state _Ready_. As this is a stable state, the engine commits the transaction and stops
-. The state _Ready_ will then be executed through an API call
+. The state *READY* will then be executed through an API call
 
 === Short transactions and asynchronism
 
@@ -143,7 +143,7 @@ When the execution of the last connector is complete, the state's behaviour is c
 
 The diagrams below show the transactions and states when a user task is executed.
 The vertical line represents the condition necessary to execute the current state.
-The first state is _initializing_: it is automatically executed and the flow node goes to next state (_Ready_) but is executed only after an API call.
+The first state is _initializing_: it is automatically executed and the flow node goes to next state (*READY*) but is executed only after an API call.
 
 *In the first diagram, the task contains connectors*
 
@@ -167,10 +167,10 @@ If the connector execution never ends because the external system does not have 
 
 === Abort/Cancel procedure
 
-Aborting is the action of changing the flow of transitions from the normal flow to the *aborting* sequence of states. It is triggered by the Bonita Engine itself. +
-Cancelling is the same notion, but triggered by a human interaction. The flow is the *cancelling* sequence of states.
+Aborting is the action of changing the flow of transitions from the normal flow to the *ABORTING* sequence of states. It is triggered by the Bonita Engine itself. +
+Cancelling is the same notion, but triggered by a human interaction. The flow is the *CANCELLING* sequence of states.
 
-Aborting / cancelling a flow node is only setting its flag *stateCategory* to ABORTING / CANCELLING + registering works to execute the flow nodes.
+Aborting / cancelling a flow node is only setting its flag *stateCategory* to *ABORTING* / *CANCELLING* + registering works to execute the flow nodes.
 
 ==== Aborting a flow node
 
@@ -180,7 +180,7 @@ Then the state is executed in a background task, as usual, and then follows the 
 
 ==== Cancelling a flow node
 
-Cancelling a flow node is exactly the same as aborting a flow node, but the flow sequence of states is the *cancelling* sequence.
+Cancelling a flow node is exactly the same as aborting a flow node, but the flow sequence of states is the *CANCELLING* sequence.
 
 === Special States
 
@@ -191,13 +191,13 @@ We then execute the `shouldExecuteState()` code of the next state (determined by
 
 === Summary of state types
 
-* *Initializing*: indicates that an activity is being initialized.
-* *Ready*: indicates that a user or manual task has been initialized but is not yet being executed.
-* *Waiting*: indicates that a RECEIVE_TASK, BOUNDARY_EVENT or INTERMEDIATE_CATCH_EVENT activity is waiting for some external trigger.
-* *Executing*: indicates that an activity is being executed.
-* *Failed*: indicates that a task has failed because of a problem in execution, for example because of an exception that was not anticipated, a connector that fails, or bad expression design.
-* *Skipped*: indicates that a task that failed because of connector execution failure is being skipped instead of re-executed. Skipping a task skips the execution of any connectors not already executed and proceeds to task completion.
-* *Cancelled*: indicates that an activity is cancelled by a user.
-* *Aborting*: indicates that an activity is cancelled by the system. For example, an interrupting event sub-process can trigger ABORTS for all other active paths.
-* *Completed*: indicates an activity that is complete.
-* *Error*: not currently used.
+* *INITIALIZING*: indicates that an activity is being initialized.
+* *READY*: indicates that a user or manual task has been initialized but is not yet being executed.
+* *WAITING*: indicates that a RECEIVE_TASK, BOUNDARY_EVENT or INTERMEDIATE_CATCH_EVENT activity is waiting for some external trigger.
+* *EXECUTING*: indicates that an activity is being executed.
+* *FAILED*: indicates that a task has failed because of a problem in execution, for example because of an exception that was not anticipated, a connector that fails, or bad expression design.
+* *SKIPPED*: indicates that a task that failed because of connector execution failure is being skipped instead of re-executed. Skipping a task skips the execution of any connectors not already executed and proceeds to task completion.
+* *CANCELLED*: indicates that an activity is cancelled by a user.
+* *ABORTING*: indicates that an activity is cancelled by the system. For example, an interrupting event sub-process can trigger ABORTS for all other active paths.
+* *COMPLETED*: indicates an activity that is complete.
+* *ERROR*: not currently used.
