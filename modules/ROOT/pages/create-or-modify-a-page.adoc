@@ -11,7 +11,7 @@ Forms and pages are made of containers and widgets. +
 Some containers and widgets can be grouped in xref:fragments.adoc[fragments], in order to be reused in several pages or forms. +
 
 The overall graphical structure of the application is handled by the xref:layout-development.adoc[layout]. +
-The look and feel of the application, layout, forms, and pages is handled by the xref:theme-development.adoc[theme].
+The look and feel of the application, layout, forms, and pages is handled by the xref:themes.adoc[theme].
 
 Forms are embedded in the processes, whereas pages, layouts, and themes are referred to in the application descriptor. +
 

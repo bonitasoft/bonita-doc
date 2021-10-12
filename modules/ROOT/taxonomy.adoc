@@ -121,8 +121,8 @@
   *** xref:customize-layouts.adoc[Customize layouts]
   *** xref:uid-vertical-tabs-container-tutorial.adoc[How to create a vertical tabs container for all devices]
  ** xref:appearance.adoc[Appearance]
-  *** xref:theme-development.adoc[Theme]
-  *** xref:customize-living-application-theme.adoc[Theme]
+  *** xref:themes.adoc[Theme]
+  *** xref:customize-living-application-theme.adoc[Theme customization]
  ** xref:navigation.adoc[Navigation between applications]
  ** Translation
   *** xref:multi-language-applications.adoc[Multi-language applications]

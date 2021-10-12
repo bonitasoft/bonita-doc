@@ -1,5 +1,6 @@
 = Themes
 :description: This page explains how to handle themes in Bonita Applications, and how to use them in an application.
+:page-aliases: theme-development.adoc
 
 {description}
 
