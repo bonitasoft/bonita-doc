@@ -2632,7 +2632,7 @@ Add a member_type = MEMBERSHIP to the actor with id = 2.
 Use a GET method with filters and search terms to search for actorMembers.
 
 * *URL* +
-`/API/bpm/actorMemberEntry` +
+`/API/bpm/actorMember` +
 _Example_: ``
 * *Method* +
 ``
