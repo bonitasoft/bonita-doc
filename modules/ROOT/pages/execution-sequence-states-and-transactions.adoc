@@ -32,7 +32,8 @@ For the *Community* edition, these actions are not relevant, but the order of th
 . Operations (that does not initialize data) are executed. Operations at process instantiation level can either come from V6 forms or from calling process instances (for processes stared by call-activities)
 . The Engine instantiates and executes the "on enter" connectors (evaluate input expression, execute, evaluate output operation). Connectors are executed in the order of declaration +
 *Community*: Execution duration is not limited. If the connector never finishes, the process instantiation will never finish +
-*Subscription*: Execution duration of a connector is limited to a maximum of 5 minutes by default. This timeout value can be changed by configuration. Above this limit, the connector execution is aborted and the process instantiation is considered failed.
+*Subscription*: Execution duration of a connector is limited to a maximum of 5 minutes by default. This timeout value can be changed by configuration. Above this limit, 
+the connector execution is aborted and the process instantiation is considered failed.
 . The process is instantiated, the API call finish and the Engine executes the process flow asynchronously
 
 == User Step action sequence
@@ -79,7 +80,6 @@ A flow node is defined by a set of states.
 
 If there is a connector to execute in the state's behavior, then the transaction is committed and the connector is executed outside of any transaction.
 The flow node stays in the current state while the connector is being executed.
-
 When the execution of the last connector is complete, the state's behaviour is completed. If you are using a Bonita Subscription edition, a timeout limit can be set for connector execution.
 
 == Example: User task
@@ -97,7 +97,6 @@ image::images/images-6_0/user_task_execution_with_connector.png[Diagram of the s
 image::images/images-6_0/user_task_execution_without_connector.png[Diagram of the states and transactions when a user task with connectors is executed]
 
 As you can see in these illustrations, there is a non-negligible cost when adding some connectors on an activity: +
-
 If there is no connector to execute then the state executes in one transaction. +
 If there is at least one connector to execute in the state, the state execution requires at least three transactions:
 
@@ -128,10 +127,12 @@ The work unit is then executed as soon as possible, asynchronously, in a separat
 For this reason, a task that is being initialized might not yet be ready for execution, but will be executable after a short while, depending on the work executor availability. +
 A client application therefore needs to poll regularly to check when the asynchronous work unit is finished, or write an xref:event-handlers.adoc[event handler] in order to be notified.
 
+
 As a general rule, 1 API call = 1 transaction. When an API call is made, a transaction is automatically opened and this transaction is also automatically closed at the end of the API call.
 
 There are a few exceptions: user login/logout, platform start/stop/clean & the entirety of platformMonitoringAPI. +
 As an example, calling `processAPI.searchXXX()` is done in a single transaction. In that case, 2 SQL queries are executed: one for the total count, one for the paginated list of results. As Bonita transactions are https://en.wikipedia.org/wiki/ACID[ACID], the results of the 2 queries are consistent with each other.
+
 
 == Summary of state types
 
