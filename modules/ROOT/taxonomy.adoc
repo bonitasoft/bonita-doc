@@ -210,19 +210,6 @@
   *** xref:how-an-event-is-executed.adoc[Events execution]
   *** xref:how-a-bdm-is-deployed.adoc[Business data handling at code level]
   *** xref:fault-tolerance.adoc[Fault tolerance mechanisms]
- ** Installation
-  *** xref:hardware-and-software-requirements.adoc[Hardware and software requirements]
-  *** xref:tomcat-bundle.adoc[Tomcat bundle]
-   **** xref:convert-wildfly-into-tomcat.adoc[Convert a WildFly into a Tomcat installation]
-  *** xref:bonita-docker-installation.adoc[Bonita docker installation]
-  *** Bonita in a cluster
-   **** xref:overview-of-bonita-bpm-in-a-cluster.adoc[Overview of Bonita in a cluster]
-   **** xref:install-a-bonita-bpm-cluster.adoc[Install a Bonita cluster]
-  *** xref:custom-deployment.adoc[Custom Tomcat installation]
-  *** Platform installation examples
-   **** xref:ubuntu-openjdk-tomcat-postgresql.adoc[Ubuntu + OpenJDK + Tomcat + PostgreSQL]
-   **** xref:bonita-as-windows-service.adoc[Install Tomcat with Bonita as a service in Windows]
-  *** xref:embed-engine.adoc[Embed engine - Lab]
  ** xref:bonita-applications-deep-dive.adoc[Applications deep dive]
   *** xref:bonita-applications-interface-overview.adoc[Overview]   
   *** xref:cache-configuration-and-policy.adoc[Cache configuration and policy]
