@@ -23,40 +23,45 @@ xref:work-locking.adoc[[.card-title]#Work locking# [.card-body.card-content-over
 
 [.card.card-index]
 --
-xref:execution-sequence-states-and-transactions.adoc[[.card-title]#Execution sequence, states, and transactions# [.card-body.card-content-overflow]#pass:q[]#]
+xref:execution-sequence-states-and-transactions.adoc[[.card-title]#Execution sequence, states, and transactions# [.card-body.card-content-overflow]#pass:q[Concepts needed to understand BPM elements execution]#]
 --
 
 [.card.card-index]
 --
-xref:how-a-flownode-is-executed.adoc[[.card-title]#Flownodes execution and completion# [.card-body.card-content-overflow]#pass:q[]#]
+xref:how-a-flownode-is-executed.adoc[[.card-title]#Flow node execution# [.card-body.card-content-overflow]#pass:q[Sequence of actions and states at flow nodes execution and completion]#]
 --
 
 [.card.card-index]
 --
-xref:how-a-call-activity-is-executed.adoc[[.card-title]#Call activities execution# [.card-body.card-content-overflow]#pass:q[]#]
+xref:how-a-process-is-completed.adoc[[.card-title]#Process execution# [.card-body.card-content-overflow]#pass:q[Sequence of actions and states at process execution and completion]#]
 --
 
 [.card.card-index]
 --
-xref:connectors-execution.adoc[[.card-title]#Connectors execution# [.card-body.card-content-overflow]#pass:q[]#]
+xref:how-a-call-activity-is-executed.adoc[[.card-title]#Call activities execution# [.card-body.card-content-overflow]#pass:q[Sequence of actions and states at call activity execution and completion]#]
 --
 
 [.card.card-index]
 --
-xref:timers-execution.adoc[[.card-title]#Timers execution# [.card-body.card-content-overflow]#pass:q[]#]
+xref:connectors-execution.adoc[[.card-title]#Connectors execution# [.card-body.card-content-overflow]#pass:q[Sequence of actions and states at connectors execution and completion]#]
 --
 
 [.card.card-index]
 --
-xref:how-an-event-is-executed.adoc[[.card-title]#Events execution# [.card-body.card-content-overflow]#pass:q[]#]
+xref:timers-execution.adoc[[.card-title]#Timers execution# [.card-body.card-content-overflow]#pass:q[Sequence of actions and states at timers execution and completion]#]
 --
 
 [.card.card-index]
 --
-xref:how-a-bdm-is-deployed.adoc[[.card-title]#Business data handling at code level# [.card-body.card-content-overflow]#pass:q[]#]
+xref:how-an-event-is-executed.adoc[[.card-title]#Events execution# [.card-body.card-content-overflow]#pass:q[Sequence of actions and states at events execution and completion]#]
 --
 
 [.card.card-index]
 --
-xref:fault-tolerance.adoc[[.card-title]#Fault tolerance mechanism# [.card-body.card-content-overflow]#pass:q[]#]
+xref:how-a-bdm-is-deployed.adoc[[.card-title]#Business data handling at code level# [.card-body.card-content-overflow]#pass:q[Sequence of actions and states at BDM installation and update]#]
+--
+
+[.card.card-index]
+--
+xref:fault-tolerance.adoc[[.card-title]#Fault tolerance mechanism# [.card-body.card-content-overflow]#pass:q[How Bonita Engine can recover from some errors]#]
 --
