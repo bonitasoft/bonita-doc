@@ -11,7 +11,7 @@ a network issue, we can have the JVM on which Bonita Platform runs failing, or w
 * When dealing with a failure on the host machine, like the JVM or hardware crashing, Bonita platform can be installed in a
 xref:overview-of-bonita-bpm-in-a-cluster.adoc[clustered architecture] to ensure the High availability of the service.
 It means that if one node of the cluster fails, another one is available to continue executing xref:work-execution.adoc[works].
-* When dealing with external services' outage called by xref:connectors-overview.adoc[connectors], they can be xref:tasks.adoc[replayed].
+* When dealing with external services' outage called by xref:connectors-overview.adoc[connectors], they can be xref:admin-application-task-list.adoc[replayed].
 * When dealing with incident like unresponsive database, we have two mechanisms to handle these errors the Retry mechanism and
 the Recovery mechanism
 

@@ -1,7 +1,7 @@
 = SAML SSO configuration
 :description: Bonita can be configured to use the SAML protocol to provide single sign-on (SSO), as long as you already have a SAML Identity Provider server up and running (IdP).
 
-Bonita can be configured to use the SAML protocol to provide single sign-on (SSO), as long as you already have a SAML Identity Provider server up and running (IdP).
+{description}
 
 [NOTE]
 ====
@@ -26,10 +26,10 @@ This is an overview that relates the steps required to integrate a bonita bundle
 image:images/saml-overview.png[Authentication over SAML]
 // {.img-responsive}
 
-Here some details about the Bonita SAML2 module,
+Here are some details about the Bonita SAML2 module,
 it is composed of:
 
-* A servlet filter that intercept all the requests to Bonita portal pages
+* A servlet filter that intercepts all the requests to Bonita Application pages
 +
 It checks if the user is already logged in on Bonita
 
@@ -49,7 +49,7 @@ This service validates and process the SAML response :
 [WARNING]
 ====
 Bonita "username" should match the NameId or one of the attributes returned by the IdP in the response.
- If some users need to be able to log in without having an account on the IDP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.
+ If some users need to be able to log in without having an account on the IDP, you can authorize it by activating an option in the file `authenticationManager-config.properties` (see 2. below). Users will then be able to log in using the Bonita login page (/login.jsp) as long as they have a bonita account and their password is different from their username.
 ====
 
 == Configure Bonita Bundle for SAML
@@ -97,8 +97,8 @@ edit the authenticationManager-config.properties as follows:
 Make sure to link:multi-tenancy-and-tenant-configuration[set the right tenant admin username].
  It is recommended to also replace the value of the passphrase (property auth.passphrase) which is used by the engine to verify the authentication request.
  The value must be the same as in the file *bonita-tenant-sp-custom.properties*. +
- If you need users to be able to log in without having an account on the IDP, you can authorize it by setting the property `saml.auth.standard.allowed` to true. Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username. +
- If only a limited group of users need to bypass SAML authentication method you can restrain it by setting the property `saml.auth.standard.allowed` to false and setting the property `auth.tenant.standard.whitelist` with the list of authorized usernames (comma separated).
+ If you need users to be able to log in without having an account on the IDP, you can authorize it by setting the property `saml.auth.standard.allowed` to true. Users will then be able to log in using the Bonita login page (/login.jsp) provided they have a bonita account and their password is different from their username. +
+ If only a limited group of users need to bypass SAML authentication method, you can restrain it by setting the property `saml.auth.standard.allowed` to false and setting the property `auth.tenant.standard.whitelist` with the list of authorized usernames (comma separated).
 
 . In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
 edit the file bonita-tenant-sp-custom.properties as follows:
@@ -158,8 +158,8 @@ NOTE: The expected format for Keys and certificates is PEM (with or without the 
 
 . In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`, +
 edit the file *keycloak-saml.xml* to setup Bonita webapp as a Service provider working with your IdP.
- ** The entityID is the Service Provider given to your bonita installation. You can change it if you want but you need to provide it to your IdP.
- ** The sslPolicy option may need to be changed if Bonita Portal and the IdP are not both accessed via HTTPS. Possible values for this property are: ALL, EXTERNAL, and NONE. For ALL, all requests must come in via HTTPS. For EXTERNAL, only non-private IP addresses must come over via HTTPS. For NONE, no requests are required to come over via HTTPS.
+ ** The entityID is the Service Provider given to your Bonita installation. You can change it if you want, but you need to provide it to your IdP.
+ ** The sslPolicy option may need to be changed if Bonita Runtime and the IdP are not both accessed via HTTPS. Possible values for this property are: ALL, EXTERNAL, and NONE. For ALL, all requests must come in via HTTPS. For EXTERNAL, only non-private IP addresses must come over via HTTPS. For NONE, no requests are required to come over via HTTPS.
  ** If your *IdP requires the SSO requests to be signed*:
   *** make sure you have signing="true" inside the Key node of the SP
   *** replace the following strings in the Keys:Key section of the SP:
@@ -272,8 +272,7 @@ More configuration options can be found in https://www.keycloak.org/docs/latest/
     </keycloak-saml-adapter>
 ----
 
-If your Identity Provider is corectly configured (see the section _Configure the Identity Provider_), you are done.
-Then you can try to access a portal page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in). +
+Once your Identity Provider is corectly configured (see the section _Configure the Identity Provider_), try to access any Bonita Application page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in). +
 Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `saml.auth.standard.allowed` to true) to be able to log in without an account on the Identity Provider.
 
 [WARNING]
@@ -310,19 +309,19 @@ If the IdP declares a redirect/target URL, it might override the target URL set 
 
 == Configure logout behaviour
 
-If your Bonita platform is configured to manage authentication over SAML, when users log out of Bonita Portal, they do not log out of the SAML Identity Provider (IdP).
+If your Bonita platform is configured to manage authentication over SAML, when users log out of Bonita Runtime, they do not log out of the SAML Identity Provider (IdP).
 Therefore they are not logged out of all applications that are using the IdP.
 To avoid this, you have two options :
 
-=== Hide the logout button of the portal
+=== Hide the logout button of the Bonita Layout
 
-This is the most commonly used solution. Users are logged in as long as they don't close their web browser (unless their session times out).
+This is the most commonly used solution. Users are logged in as long as they don't close their web browser and their session does not time out.
 To do this, set the `logout.link.hidden` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
 
 [NOTE]
 ====
 
-When a user logs out from the IdP directly, Bonita Portal's session will remain active. The user's session time to live will be reset
+When a user logs out from the IdP directly, Bonita Runtime's session will remain active. The user's session time to live will be reset
 to the configured session timeout value upon each user interaction with the server.
 ====
 
@@ -368,7 +367,7 @@ com.bonitasoft.level = FINE
 === Common error examples
 
 ****
-*Symptom:* After configuring SAML SSO in Bonita, the Bonita Portal login page does not redirect to the SSO login page. +
+*Symptom:* After configuring SAML SSO in Bonita, the Bonita login page does not redirect to the SSO login page. +
 *Possible Solutions:*
 
 * Check all the Bonita configuration settings are correct.
@@ -431,18 +430,10 @@ Caused by: java.lang.RuntimeException: Sp signing key must have a PublicKey or C
 * Add Bonita server's private key in the Keys:Key section of the SP.
 ****
 
-****
-*Symptom:* Bonita portal URL profile and page parameters (or any other) after the hash are lost in redirections. As a result once the SAML login page redirects back to Bonita portal, the portal displays the first page of the default profile. +
-*Problem:* The hash part of an URL is not sent server-side. It only exists in the web browser. That explains this behavior. +
-*Solution:*
-The workaround is to put the parameters as regular URL query parameters. Bonita portal has a mechanism that will convert them to hash parameters if they need to be (this only works since version 7.8.1 of Bonita). +
-For example instead of `<server_URL>/bonita/portal/homepage#?_p=caselistinguser&_pf=2`, use `<server_URL>/bonita/portal/homepage?_p=caselistinguser&_pf=2`
-****
-
 == Manage passwords
 
 When your Bonita platform is configured to manage authentication over SAML, the user password are managed in your SAML Identity Provider (IdP).
-However, when you create a user in Bonita Portal, specifying a password is mandatory. This password is ignored when logging in with the IdP.
+However, when you create a user in Bonita Applications, specifying a password is mandatory. This password is ignored when logging in with the IdP.
 
 == LDAP synchronizer and SAML
 
@@ -454,7 +445,7 @@ We recommend that you use LDAP as your master source for information, synchroniz
 [NOTE]
 ====
 
-By default the xref:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `saml.auth.standard.allowed` in *authenticationManager-config.properties*), users won't be able to log in with the portal login page directly without going through the IdP. +
+By default the xref:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `saml.auth.standard.allowed` in *authenticationManager-config.properties*), users won't be able to log in with the Bonita login page directly without going through the IdP. +
 ====
 
 == Single sign-on with SAML using the REST API
@@ -474,4 +465,4 @@ Here is the subset of pages filtered by the SAML filter:
 
 REST API are not part of them, but if an http session already exists thanks to cookies, REST API can be used.
 
-The recommended way to authenticate to Bonita Portal to use the REST API is to use the xref:rest-api-overview.adoc#bonita-authentication[login service]..
+The recommended way to authenticate in Bonita Runtime, in order to use the REST API, is to use the xref:rest-api-overview.adoc#bonita-authentication[login service].

@@ -53,6 +53,15 @@ The exported archive can then be shared with other studios of the same version o
 
 To import a BOS archive:
 
+[WARNING]
+====
+Starting with version 2021.2, Java versions lower than Java 11 are no longer supported. +
+As a result, some of the dependencies in the projects imported from previous Bonita Studio versions may not be compatible with Java 11 (for example, an old dependency may contain some packages that have been moved into the JDK in Java 11, which could lead to issues with modules as the same package might be loaded twice). +
+This typically leads to the following error: `The package XXX is accessible from more than one module: <unnamed>, YYY` 
+
+Please double check all your *dependencies* in the project exported from a previous Bonita Studio version and *make sure they are compatible with Java 11* before importing it.
+====
+
 . Click on *File* > *Import* >  *BOS Archive...*
 . Choose the location of the archive on your local drive
 . Choose if you want to import the content in an existing project or create a new one.

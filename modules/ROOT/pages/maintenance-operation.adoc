@@ -39,7 +39,7 @@ To delete all rows from the `arch_contract_data`, you can use the `TRUNCATE TABL
 
 After a migration to version 7.7 of Bonita Runtime, the data of the `arch_contract_data` table has been moved
 to a new table named `arch_contract_data_backup`, for migration purposes.
-In that case, if the `live-migration` tool was not executed (please see xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[Bonita migration steps]),
+In that case, if the `live-migration` tool was not executed (please see xref:migrate-from-an-earlier-version-of-bonita.adoc[Bonita migration steps]),
 you will also need to drop the table `arch_contract_data_backup`:
 
 [source,sql]

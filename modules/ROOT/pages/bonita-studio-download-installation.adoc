@@ -1,5 +1,6 @@
 = Bonita Studio installation
 :description: This page describes how to download and install Bonita Studio on Windows, Linux, or Mac operating systems.
+:page-aliases: bonita-bpm-studio-installation.adoc
 
 {description}
 
@@ -79,13 +80,8 @@ Then follow the installation wizard through to the end of the installation proce
 . Confirmation that installation is about to start: click on "Next"
 . Actual installation: wait a little bit
 . License request. For the Subscription edition only. If you do not have your licence file ready, you can skip that; Bonita Studio will request the license at first start.
-. You'll see a confirmation message that offers the option to start Bonita Studio. Choose to start Bonita Studio and click on *Finish*
+. You'll see a confirmation message that offers the option to start Bonita Studio. Choose to launch Bonita Studio and click on *Finish*
 . A "thank you for downloading" page will be displayed in your web browser, with important getting starting information.
-
-image:images/getting-started-tutorial/installation/studio-installation-installer-08-last-screen.png[Bonita Studio installer last screen]
-// {.img-responsive .img-thumbnail}
-
-// update package name
 
 == License
 
@@ -94,13 +90,12 @@ This information applies to the Subscription editions. No license is needed for 
 When you install or launch Bonita Studio for the first time, you need to install a license:
 
 . From the installer, click *_Copy to clipboard_* to copy the request key generated specifically for your Bonita Studio
-. Go to the https://customer.bonitasoft.com/license/request[Customer Service Center] adn rquest a license using the request key in the clipboard
+. Go to the https://customer.bonitasoft.com/license/request[Customer Service Center] and request a license using the request key in the clipboard
 . Wait a few seconds to get the file from the license page, or check your email box (after a few minutes) and open the email from _link:mailto:no-reply@bonitasoft.com[no-reply@bonitasoft.com]_
 . Download the license file (.lic)
-. Go back to your Bonita Studio, click _*Install license...*_, and select your .lic file.
+. Go back to your Bonita Studio, click *_Install license..._*, and select your .lic file.
 
 [#enable_cache]
-
 === Installation using Zip archive (Windows or Linux)
 
 To install Bonita Studio using the Zip archive, unzip the downloaded .zip file to a folder on your hard drive. +
@@ -125,39 +120,24 @@ To start Bonita Studio, go to the directory where you installed it, and run the 
 Now Bonita Studio should be running on your computer. +
 If not, you can manually start it by using the installed shortcut or by using the Bonita Studio executable file from the installation folder.
 
-You should get the Bonita Studio welcome page:
-
-image:images/getting-started-tutorial/installation/studio-first-start-02-studio-on-welcome-page.png[Bonita Studio with welcome page displayed]
-// {.img-responsive .img-thumbnail}
-
 [NOTE]
 ====
-
-When Bonita Studio starts, various tasks are executed in the background, such as the embedded Bonita test server startup (including Bonita Engine initialization), Bonita test organization deployment, and more.
-This might take a while and some features may not be immediately available. A pop-up window will appear to indicate you can update the Bonita server configuration in https://documentation.bonitasoft.com/bonita//bonita-bpm-studio-preferences[preferences] image:images/getting-started-tutorial/installation/studio-first-start-03-starting-bonita-server-popup.png[Bonita Studio Server starting pop-up]
+When Bonita Studio starts, various tasks are executed in the background, such as the embedded Bonita test server startup (including Bonita Engine initialization), Bonita test organization deployment, and more. This behavior can be configured in the https://documentation.bonitasoft.com/bonita//bonita-bpm-studio-preferences[preferences]. +
+This might take a while and some features may not be immediately available. +
+When those operations are completed, a notification pops up on your Bonita Studio welcome page.
 ====
 
-When the Bonita Engine is started, you will see a confirmation pop-up on your Bonita Studio welcome page.
-
-image:images/getting-started-tutorial/installation/studio-first-start-04-engine-started-popup.png[Bonita Studio server started pop-up]
-// {.img-responsive .img-thumbnail}
+image:images/getting-started-tutorial/installation/studio-first-start-engine-started-popup.png[Bonita Studio server started pop-up]
 
 == Installation validation
 
-To make sure that everything is properly installed, click on the *Applications* button image:images/getting-started-tutorial/installation/applications-icon.png[Bonita Applications icon] in the toolbar. This should open the Bonita Application Directory in your web browser:
+To make sure that everything is properly installed, click on the *Applications* button in the toolbar. This should open the Bonita Application Directory in your web browser:
 
 image:images/getting-started-tutorial/installation/web-browser-display-application-list.png[Bonita Application display in a web browser]
-// {.img-responsive .img-thumbnail}
 
-Also click on the *UI Designer* button image:images/getting-started-tutorial/installation/ui-designer-icon.png[UI Designer icon] in the toolbar. This will display a pop-up window that you can ignore:
-
-image:images/getting-started-tutorial/installation/ui-designer-launch-pop-up.png[UI Designer first launch pop-up window]
-// {.img-responsive .img-thumbnail}
-
-And the UI Designer should open in your web browser:
+Also click on the *UI Designer* button in the toolbar. This will display a pop-up window that you can ignore and open the UI Designer:
 
 image:images/getting-started-tutorial/installation/ui-designer-first-start.png[UI Designer, on first launch, displayed in a web browser]
-// {.img-responsive .img-thumbnail}
 
 == Ready to move on
 

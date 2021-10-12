@@ -7,7 +7,7 @@
 ====
 
 Remember that the recommended way of installing Bonita is to use the provided xref:tomcat-bundle.adoc[Tomcat] bundle. +
-It saves you from doing all the following configuration at hand, as the xref:bonita-bpm-platform-setup.adoc[setup tool] included handles it automatically.
+It saves you from doing all the following configuration at hand, as the xref:bonita-platform-setup.adoc[setup tool] included handles it automatically.
 ====
 
 [WARNING]
@@ -87,7 +87,7 @@ We assume here that the database has already been xref:database-configuration.ad
 Once created and configured you need to initialize it using the setup tool provided in the bundle.
 This will create database schema and initial values.
 
-. In TOMCAT_DIRECTORY/setup folder, edit the file database.properties with properties matching your RDBMS. Beware of xref:bonita-bpm-platform-setup.adoc#backslash_support[backslash characters].
+. In TOMCAT_DIRECTORY/setup folder, edit the file database.properties with properties matching your RDBMS. Beware of xref:bonita-platform-setup.adoc#backslash_support[backslash characters].
 . In TOMCAT_DIRECTORY/setup folder, run `setup.(sh|bat) init`
 
 == Next steps

@@ -1,7 +1,7 @@
 = Process testing overview
 :description: Bonita Studio contains several features that you can use to verify your process while it is in development.
 
-Bonita Studio contains several features that you can use to verify your process while it is in development.
+{description}
 
 You can validate a process diagram: choose *_Validate_* from the *_Diagram_* menu,
 or go to the *Details* panel, *Validation status* tab and click *Refresh*. The *Details* panel contains a list
@@ -12,7 +12,7 @@ You can test some process components individually:
 * Connectors: go to *_Test connector..._* in the *_Development_* menu.
 * Expressions: use the *_Evaluate_* feature of the Expression editor.
 
-You can run the process locally, launching it from Bonita Studio without first deploying it to Bonita Portal.
+You can run the process locally, launching it from Bonita Studio without first deploying it to Bonita Applications.
 You must xref:configure-a-test-organization.adoc[create a test organization]
 and xref:configuring-a-process.adoc[configure a process] before you can
 xref:run-a-process-from-bonita-bpm-studio-for-testing.adoc[run a process from Bonita Studio].

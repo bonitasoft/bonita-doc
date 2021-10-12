@@ -104,6 +104,10 @@ Add the `bonita-common` dependency in the `dependencies` section of the pom.xml 
 
 [source, xml]
 ----
+<dependencyManagement>
+   ...
+</dependencyManagement>
+
 <dependencies>
     <dependency>
         <groupId>org.bonitasoft.engine</groupId>
@@ -124,6 +128,11 @@ So we also add this `provided` dependency in our project.
 
 [source, xml]
 ----
+<dependencyManagement>
+   ...
+</dependencyManagement>
+
+
 <dependencies>
     ...
     <dependency>
@@ -156,6 +165,7 @@ So the file must be created in the `src/main/java/org/bonitasoft/extension/` fol
 package org.bonitasoft.extension;
 
 import org.bonitasoft.engine.api.APIAccessor;
+import org.bonitasoft.engine.bpm.flownode.ArchivedHumanTaskInstance;
 import org.bonitasoft.engine.bpm.flownode.ArchivedHumanTaskInstanceSearchDescriptor;
 import org.bonitasoft.engine.exception.SearchException;
 import org.bonitasoft.engine.search.SearchOptionsBuilder;
