@@ -8,6 +8,16 @@
 
 [.card.card-index]
 --
+xref:engine-deep-dive-index.adoc[[.card-title]#Bonita Engine deep dive# [.card-body.card-content-overflow]#pass:q[The under-the-hood activities of Bonita Runtime]#]
+--
+
+[.card.card-index]
+--
+xref:applications-deep-dive-index.adoc[[.card-title]#Applications deep dive# [.card-body.card-content-overflow]#pass:q[A description of how Bonita Runtime runs applications, and a presentation of Bonita applications]#]
+--
+
+[.card.card-index]
+--
 xref:runtime-installation-index.adoc[[.card-title]#Installation# [.card-body.card-content-overflow]#pass:q[The different flavors of Bonita Runtime]#]
 --
 
@@ -19,11 +29,6 @@ xref:runtime-configuration-index.adoc[[.card-title]#Configuration# [.card-body.c
 [.card.card-index]
 --
 xref:runtime-administration-index.adoc[[.card-title]#Project Administration# [.card-body.card-content-overflow]#pass:q[How to add and update projects elements on Bonita Runtime]#]
---
-
-[.card.card-index]
---
-xref:engine-deep-dive-index.adoc[[.card-title]#Bonita Engine deep dive# [.card-body.card-content-overflow]#pass:q[The under-the-hood activities of Bonita Runtime]#]
 --
 
 [.card.card-index]
