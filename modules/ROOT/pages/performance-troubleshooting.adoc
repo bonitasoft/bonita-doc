@@ -1,7 +1,7 @@
 = Performance troubleshooting
-:description: Learn how to monitoring your Bonita Platform and troubleshoot performance issues.
+:description: Learn how to monitor your Bonita Platform and troubleshoot performance issues.
 
-Learn how to monitoring your Bonita Platform and troubleshoot performance issues.
+{description}
 
 We recommend that you monitor your system regularly, so that if you suspect a performance degradation, you can repeat these checks and identify the potential problem areas by comparing the performance to the normal level.
 
@@ -63,7 +63,7 @@ You can also get the number of active transaction using the https://javadoc.boni
 
 == Bonita Engine connections
 
-Bonita Engine performance is strongly linked by the number of connections. The number of connections from the Bonita Portal directly influences the number of connections to the database through the number of workers, and the number of connector threads.
+Bonita Engine performance is strongly linked by the number of connections. The number of connections from the Bonita Runtime directly influences the number of connections to the database through the number of workers, and the number of connector threads.
 
 To avoid overloading the Engine, check that the following connection numbers are coherent:
 
@@ -108,9 +108,21 @@ that take volume in the database and that slows some queries down.
 
 == Connectors
 
-Any connectors longer than 10 seconds will produce a warning log. See xref:performance-tuning.adoc]#connector_service[connector service] for more information.
+If a connector execution duration exceeds the configured timeout (300 seconds by default), an exception will be raised in the log: 
+[source,log]
+----
+Caused by: org.bonitasoft.engine.connector.exception.SConnectorException: The connector timed out
+---- 
+[NOTE]
+====
+The connector execution with timeout is a Subscription feature for Teamwork, Efficiency, Performance, and Enterprise editions only.
+====
+This timeout can be increased in the Connector service configuration in  `bonita-tenant-sp-custom.properties` (See xref:BonitaBPM_platform_setup.adoc[platform setup]) by increasing the value of the property `bonita.tenant.connector.timeout`.  
 
-In addition, performance of connectors can be measured using the xref:performance-tuning.adoc]#time_tracker[connector time tracker].
+Additionally, any connectors longer than 10 seconds will produce a warning log.
+See xref:performance-tuning.adoc#connector_service[connector service] for more information.
+
+In addition, performance of connectors can be measured using the xref:performance-tuning.adoc#time_tracker[connector time tracker].
 
 == Cron jobs
 

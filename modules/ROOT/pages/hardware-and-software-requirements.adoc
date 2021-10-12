@@ -1,7 +1,7 @@
 = Hardware and software requirements
 :description: This page describes the suggested hardware and software requirements to install Bonita platform.
 
-This page describes the suggested hardware and software requirements to install Bonita platform.
+{description}
 
 == Hardware
 
@@ -12,7 +12,7 @@ The hardware recommended for Bonita Platform is strongly dependent on your envir
 processes (number of processes instances, number of current users, operations and complexity...).
 ====
 
-Hardware required for Bonita Platform (Bonita Engine and Bonita Portal)
+Hardware required for Bonita Platform
 
 |===
 | Type | Minimum | Recommended
@@ -32,7 +32,7 @@ Hardware required for Bonita Platform (Bonita Engine and Bonita Portal)
 
 == Software
 
-Software required for Bonita Platform (Bonita Engine and Bonita Portal).
+Software required for Bonita Platform.
 
 |===
 |  | Version
@@ -74,7 +74,7 @@ Software required for Bonita Platform (Bonita Engine and Bonita Portal).
 | 8.0.14 and higher in the 8.0.x line (see note 3 & 4)
 
 | PostgreSQL
-| 11.2 and higher in the 11.x line
+| 12.6 and higher in the 12.x line
 
 | SQL Server
 | 2017

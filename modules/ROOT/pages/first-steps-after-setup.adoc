@@ -46,7 +46,7 @@ In Bonita, connectors enable connections to your local information system or onl
 If you want to restrict the authorization granted to the default profiles, it is highly recommended to activate the Dynamic authorization checking on the bonita REST APIs access (See xref:rest-api-authorization.adoc[REST API Authorization]).
 To do so:
 
-. Use the setup tool to get the current configuration of Bonita Platform from the database: `setup.sh pull` (See xref:bonita-bpm-platform-setup.adoc[Setup tool])
+. Use the setup tool to get the current configuration of Bonita Platform from the database: `setup.sh pull` (See xref:bonita-platform-setup.adoc[Setup tool])
 . Edit the file: `/setup/platform_conf/current/tenant_template_portal/security-config.properties`
 . Make sure this line is set to `true`: `security.rest.api.authorizations.check.enabled true`
 . Then edit the file: `/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/dynamic-permissions-checks-custom.properties`
@@ -68,7 +68,7 @@ PUT|bpm/humanTask=[profile|Administrator, check|org.bonitasoft.permissions.TaskP
 ----
 
 . Save the changes made in file  `/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/dynamic-permissions-checks-custom.properties`.
-. Use the setup tool to push the current configuration of Bonita Platform from the database: `setup.sh push` (See xref:bonita-bpm-platform-setup.adoc[Setup tool])
+. Use the setup tool to push the current configuration of Bonita Platform from the database: `setup.sh push` (See xref:bonita-platform-setup.adoc[Setup tool])
 
 For a maximum security, uncomment the entire file on production, so that the  REST API authorization are more restrictive. Then authorize the REST API access by commenting them out one by one as needed.
 
@@ -102,11 +102,10 @@ NOTE: do not create a user or an administrator with the same login and password 
 *Note:* If your system is using single sign-on with CAS, you need to log in with the following URL: `http://`_`hostname:port`_`/bonita/login.jsp?redirectUrl=/bonita/apps/appDirectoryBonita/`.
 . Open the Bonita Super Admin Application
 . Create a user with the standard profile.
-. Go to *Organization* > *Profiles*. Select "Administrator" profile.
-. Click on the "More" button (in the top right corner).
+. Go to *Organization* > *Profiles*. Click on triple dots button for "Administrator" profile.
 . Under "Users mapping", click on "Add a user".
-. Select your user and click on the "Add" button. Log out as the Technical user and log back in as the newly created user with administrative rights.
-. Create xref:manage-a-user.adoc[users with the standard profile].
+. Select your user and click on "Add" button. Log out as the Technical user and log back in as the newly created user with administrative rights.
+. Create xref:admin-application-users-list.adoc[users with the standard profile].
 . You can add newly created users to the "User" (standard) profile or to a custom profile.
 
 If you already have a system that stores information about end users, you can use it to create user accounts in Bonita.

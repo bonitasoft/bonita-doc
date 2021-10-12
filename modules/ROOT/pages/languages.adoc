@@ -1,7 +1,7 @@
 = Bonita is available in different languages
 :description: Bonita is officially released in various languages but is open to more translations from the Community.
 
-Bonita is officially released in various languages but is open to more translations from the Community.
+{description}
 
 == Languages available by default
 
@@ -16,42 +16,29 @@ The following languages are officially supported:
 Officially supported language means that:
 
 * Translation is performed by Bonitasoft or trusted partners
-* The following Bonita components are translated: Studio, UI Designer and Portal
+* The following Bonita components are translated: Studio, UI Designer and Bonita Applications
 
 == Language detection mechanism
 
-Since Bonita 7.11.0, when a user accesses a page of Bonita portal or an application, the language to use to display the page is detected using the following priority order:
+Since Bonita 7.11.0, when a user accesses a page of Bonita Applications, the language used to display the page is detected using the following priority order:
 
 . `locale` parameter value in the URL if it is present (E.g.: `?locale=pt_BR`)
 . BOS_Locale cookie value
-. Web browser prefered language (first locale sent in the request header Accept-Language)
+. Web browser preferred language (first locale sent in the request header Accept-Language)
 . English if none of the previous ones are set and/or supported
 
 [NOTE]
 ====
 
 When a language different from the one already set in the BOS_Locale cookie is passed in the URL (`locale` parameter), then the cookie value is reset with this new language.
-This can be used to force the default language if needed (by simply providing a link to Bonita portal/applications with the locale parameter).
+This can be used to force the default language if needed (by simply providing a link to Bonita Applications with the locale parameter).
 ====
-
-== Select a language in Bonita Portal
-
-For the web desktop version:
-
-. Go to the top right corner and click on *_Settings_*/*_Language_*
-. Select a language from the drop-down list.
-
-For the web mobile version:
-
-. Click on the _*Tools icon*_
-. Click on *_Languages_*
-. Select a new language from the drop-down list
 
 == Select a language in a Bonita application
 
-To select another language, if the appliation uses the default xref:bonita-layout.adoc[Bonita layout]:
+To select another language, if the application uses the default xref:bonita-layout.adoc[Bonita layout]:
 
-. Click on the user name or icon in the top right corner of the application header
+. Click on the username or icon in the top right corner of the application header
 . In the modal window, go to the language section and select a language from the drop-down list
 . Click on the "Apply" button
 . Close the modal window
@@ -59,20 +46,21 @@ To select another language, if the appliation uses the default xref:bonita-layou
 image:images/UI2021.1/select-language.png[Select language]
 // {.img-responsive}
 
-== Select a language in a custom application
+== Select a language in a Custom Application
 
-If the appliation uses the default xref:bonita-layout.adoc[Bonita layout], the header is the same than a Bonita application, so the procedure is the same. +
+If the application uses the default xref:bonita-layout.adoc[Bonita layout], the header is the same as a Bonita Application, so the procedure is the same. +
 If the layout has been customized, users need to refer to the internally documented procedure.
 
-== Add a language to Bonita Portal
+== Add a new language
 
 [NOTE]
 ====
 
-Instructions below assume that the language you want to add is already available in the Community translation project. If translation is not available see <<Translate_BonitaB_PM_Portal,Translate Bonita Portal>> for instruction about how to collaborate to a new or ongoing translation.
+This part is a legacy way to add a new language and will be reworked in the future. +
+Instructions below assume that the language you want to add is already available in the Community translation project. If translation is not available see <<Translate_Bonita_Runtime,Translate Bonita Runtime>> for instruction about how to collaborate to a new or ongoing translation.
 ====
 
-Instructions below explain how to add a language to Bonita Portal. Steps below involve using content created by Bonitasoft community and therefore not officially supported.
+Instructions below explain how to add a language to the Bonita Runtime. Steps below involve using content created by Bonitasoft community and therefore not officially supported.
 
 [discrete]
 ==== Download the language files
@@ -99,25 +87,11 @@ Instructions below explain how to add a language to Bonita Portal. Steps below i
   *** Linux 64bit: `[STUDIO_HOME]/BonitaStudioSubscription64-linux.ini`
   *** etc.
 . Restart your application server (or Click on Server in the Bonita Studio menu bar, click on Restart Web Server).
-. Check that the new language is listed in Settings menu of the Bonita Portal.
+. Check that the new language is listed in the available languages of the Bonita layout.
 
-[WARNING]
-====
+[#Translate_Bonita_Runtime]
 
-The `mobile_xxxx.po/.pot` files used for the language of the https://documentation.bonitasoft.com/bonita/7.4/mobile-portal[Bonita Mobile Portal] may contain some keys missing translation. For the Mobile Portal to be displayed correctly in the new language, these keys must not be empty.
-
-On the other hand, some of the keys in the `mobile_xxxx.po/.pot` files are duplicates from the ones in other non-mobile `.po/.pot` files. These keys must all have the same value (whether translated or chosen to be left in English) across all the `.po/.pot` files.
-
-For example, if you are adding the German language to the Mobile portal, the "Do it" key should be equally translated (or set to "Do it", but never left empty) in the following files:
-
-* `mobile_de_DE.po`
-* `portal_de_DE.po`
-* `portal-sp_de_DE.po`
-====
-
-[#Translate_BonitaB_PM_Portal]
-
-== Translate Bonita Portal
+== Translate Bonita Runtime
 
 . Go to http://translate.bonitasoft.org/[Bonita translation project] hosted on Crowdin and check if the language you want to contribute to is already listed. If it's not, please request it by submitting an issue on our https://bonita.atlassian.net[community issue tracker].
 
@@ -127,5 +101,5 @@ If the language you want to contribute to is already listed:
 . On the http://translate.bonitasoft.org/[Bonita translation project] page click on the language you want to translate.
 . At the top of the page, click on the "Join" button.
 . Wait for us to validate your request to join the project.
-. Navigate to the Portal `.po/.pot` files (see information in the "Add a language to Bonita Portal" section above).
+. Navigate to the `.po/.pot` files in the `portal` folder (see information in the xref:#_add_a_new_language[Add a new language] section above).
 . Click on a file to begin the translation. You can then use the filter *missing translation* to only display the strings to be translated.
