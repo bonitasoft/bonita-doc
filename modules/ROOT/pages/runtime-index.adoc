@@ -13,7 +13,7 @@ xref:engine-deep-dive-index.adoc[[.card-title]#Bonita Engine deep dive# [.card-b
 
 [.card.card-index]
 --
-xref:applications-deep-dive-index.adoc[[.card-title]#Applications deep dive# [.card-body.card-content-overflow]#pass:q[A description of how Bonita Runtime runs applications, and a presentation of Bonita applications]#]
+xref:applications-deep-dive-index.adoc[[.card-title]#Applications deep dive# [.card-body.card-content-overflow]#pass:q[How applications are run, and what Bonita applications are]#]
 --
 
 [.card.card-index]
