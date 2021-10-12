@@ -1,6 +1,6 @@
 = Portal removal in 2021.2
 :description: With the 2021.2 release, the Bonita Portal has been replaced by Bonita Applications.
-:page-aliases: analytics.adoc, comparison-of-7-x-and-6-x.adoc, group.adoc, managing-look-feel.adoc, manage-a-user.adoc, living-application-layout.adoc, mobile-portal.adoc, portal-user-case-list.adoc, processes.adoc, profile-list-portal.adoc, role.adoc, tasks.adoc, restore-default-look-feel.adoc
+:page-aliases: analytics.adoc, comparison-of-7-x-and-6-x.adoc, group.adoc, managing-look-feel.adoc, manage-a-user.adoc, living-application-layout.adoc, mobile-portal.adoc, portal-user-case-list.adoc, processes.adoc, profile-list-portal.adoc, role.adoc, tasks.adoc, restore-default-look-feel.adoc, create-a-report.adoc, reporting-overview.adoc
 
 {description} +
 The removal of this part of the product implied removal, deprecation or conversion to a new technology of a list of related things.
@@ -29,3 +29,5 @@ The changes done for these features implied a removal of some pages that referen
 - https://documentation.bonitasoft.com/bonita/2021.1/portal-user-case-list[User Case list in Bonita Portal]
 - https://documentation.bonitasoft.com/bonita/2021.1/mobile-portal[Mobile User Portal]
 - https://documentation.bonitasoft.com/bonita/2021.1/comparison-of-7-x-and-6-x[Comparison of 7.x and 6.x version]
+- https://documentation.bonitasoft.com/bonita/2021.1/create-a-report[Create a report]
+- https://documentation.bonitasoft.com/bonita/2021.1/reporting-overview[Reporting overview]
