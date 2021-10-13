@@ -13,12 +13,7 @@ xref:engine-architecture-overview.adoc[[.card-title]#Architecture overview# [.ca
 
 [.card.card-index]
 --
-xref:work-execution.adoc[[.card-title]#Works execution# [.card-body.card-content-overflow]#pass:q[]#]
---
-
-[.card.card-index]
---
-xref:work-locking.adoc[[.card-title]#Work locking# [.card-body.card-content-overflow]#pass:q[]#]
+xref:works-index.adoc[[.card-title]#Works execution# [.card-body.card-content-overflow]#pass:q[An explanation of the execution unit within Bonita Engine]#]
 --
 
 [.card.card-index]
