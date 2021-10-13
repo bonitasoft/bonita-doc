@@ -1,5 +1,5 @@
 = Works 
-:description: The works...
+:description: This page describes the fundamental mechanism of BPM execution within Bonita Engine.
 
 {description}
 
