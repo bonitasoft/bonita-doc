@@ -1,0 +1,44 @@
+= Works 
+:description: The works...
+
+{description}
+
+== Definition
+
+A work is an execution unit. It is a Java runnable object executed in a thread pool. +
+It's the most basic component of Bonita Engine, and is central to the execution of processes. +
+
+Works often wraps one another to add specific behaviors. +
+An *ExecuteFlowNodeWork* contains the flow node execution logic. +
+It is wrapped in a *TxBonitaWork*, to ensure everything is executing inside a transaction. +
+It is itself wrapped into a *LockProcessInstanceWork*, to allow to lock any concurrent access to the same process instance. +
+It is itself wrapped into a *InSessionBonitaWork*, to set the tenant context (tenantId). +
+
+=== Short transactions and asynchronism
+
+Transactions in Bonita Engine are as small as possible, and each transaction is committed as soon as possible. +
+Each unit of work uses a non-blocking queued executor mechanism and is thus asynchronous. +
+There is a dedicated queue for asynchronous executions. (Connector execution is handled in a separate execution queue.) +
+
+As a consequence of the design, when an asynchronous work unit originates from an API call (which might be a result of a human action), then the call returns and ends the transaction. +
+The work unit is then executed as soon as possible, asynchronously, in a separate transaction. +
+For this reason, a task that is being initialized might not yet be ready for execution, but will be executable after a short while, depending on the work executor availability. +
+A client application therefore needs to poll regularly to check when the asynchronous work unit is finished, or write an xref:event-handlers.adoc[event handler] in order to be notified. +
+
+As a general rule, 1 API call = 1 transaction. When an API call is made, a transaction is automatically opened and this transaction is also automatically closed at the end of the API call. +
+
+There are a few exceptions: user login/logout, platform start/stop/clean & the entirety of platformMonitoringAPI. +
+As an example, calling `processAPI.searchXXX()` is done in a single transaction. In that case, 2 SQL queries are executed: one for the total count, one for the paginated list of results. As Bonita transactions are https://en.wikipedia.org/wiki/ACID[ACID], the results of the 2 queries are consistent with each other.
+
+[.card-section]
+== More on works
+
+[.card.card-index]
+--
+xref:work-execution.adoc[[.card-title]#Work execution# [.card-body.card-content-overflow]#pass:q[Sequence of low-level actions during the execution of a work]#]
+--
+
+[.card.card-index]
+--
+xref:work-locking.adoc[[.card-title]#Work locking# [.card-body.card-content-overflow]#pass:q[The mechanism that defines how works behave]#]
+--
