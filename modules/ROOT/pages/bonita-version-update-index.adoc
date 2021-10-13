@@ -1,25 +1,39 @@
-= Bonita version update 
-Learn how to upgrade a Bonita Platform from an older version to a newer version.
+= Bonita update and upgrade
+:description: Learn how to update a Bonita Studio or Runtime from an older version to a newer version, or transition from our Community to our Enterprise edition.
+
+{description}
 
 [.card-section]
-== Upgrading your platform to the new version
+== Updating to a new Bonita version
 
-You can automatically migrate the platform from an earlier version of Bonita. You cannot migrate your platform from a version earlier than 6.0.2. After migration, a process continues to run unchanged. You can modify the process definition later to take advantage of the new features in this version of Bonita.
-
-
-[.card.card-index]
---
-xref:product-versioning.adoc[[.card-title]#How Versions work in Bonita# [.card-body.card-content-overflow]#pass:q[When and How Bonita is released/What the versioning implies.]#]
---
+You can automatically update Bonita from an earlier version, provided it is not older than 6.0.2. +
+In the case of Bonita Runtime, after the update, a process continues to run unchanged. Later on, you can modify the process definition to take advantage of the new features in the new Bonita version.
 
 [.card.card-index]
 --
-xref:upgradestudio.adoc[[.card-title]#Upgrade your Studio#  [.card-body.card-content-overflow]#pass:q[What is the recomended flow to upgrade your development environment]#]
+xref:product-versioning.adoc[[.card-title]#Bonita versions# [.card-body.card-content-overflow]#pass:q[When and How Bonita is released / What the versioning implies]#]
 --
 
 [.card.card-index]
 --
-xref:migrate-from-an-earlier-version-of-bonita.adoc[[.card-title]#Upgrade your runtimes#  [.card-body.card-content-overflow]#pass:q[At a glance: Flow, Best Practices and caveat]#]
+xref:update-studio.adoc[[.card-title]#Updating Bonita Studio# [.card-body.card-content-overflow]#pass:q[The recomended flow to update the development environment]#]
+--
+
+[.card.card-index]
+--
+xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[[.card-title]#Updating Bonita Runtime# [.card-body.card-content-overflow]#pass:q[At a glance: Flow, Best Practices and caveat]#]
+--
+
+[.card.card-index]
+--
+xref:migrate-a-form-from-6-x.adoc[[.card-title]#Migrating a form from Bonita 6# [.card-body.card-content-overflow]#pass:q[Make the 6.X projects UI compatible with Bonita 7]#]
 --
 
 
+[.card-section]
+== Upgrading to a new Bonita edition
+
+[.card.card-index]
+--
+xref:upgrade-from-community-to-a-subscription-edition.adoc[[.card-title]#Upgrading from Community to Enterprise# [.card-body.card-content-overflow]#pass:q[Access to another level of services]#]
+--
