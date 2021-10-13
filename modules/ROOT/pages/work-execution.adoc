@@ -1,16 +1,6 @@
 = Execution of works
 :description: == Definition
 
-== Definition
-
-A work is an execution unit. It is java runnable object executed in a thread pool. It's the most basic component of the Bonita Engine, and is central to the execution of processes.
-
-A work often wraps one another to add specific behaviors.
-An *ExecuteFlowNodeWork* contains the flownode execution logic.
-It is wrapped in a *TxBonitaWork*, to ensure everything is executing inside a transaction.
-It is itself wrapped into a *LockProcessInstanceWork*, to allow to lock any concurrent access to the same process instance. +
-It is itself wrapped into a *InSessionBonitaWork*, to set the tenant context (tenantId).
-
 == Basic call flow
 
 The *ThreadPoolExecutor* is responsible for executing works. It calls the _work()_ method on the parent Work. The parent will then call  _work()_ on the wrapped work who will call _work()_ on its wrapped work and so on.
