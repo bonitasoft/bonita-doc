@@ -199,7 +199,7 @@
 * xref:runtime-index.adoc[Runtime]
  ** xref:engine-deep-dive-index.adoc[Bonita Engine deep dive]
   *** xref:engine-architecture-overview.adoc[Architecture overview]
-  *** Works
+  *** xref:works-index.adoc[Works]
    **** xref:work-execution.adoc[Work execution]
    **** xref:work-locking.adoc[Work locking]
   *** xref:execution-sequence-states-and-transactions.adoc[Execution sequence, states, and transactions]
