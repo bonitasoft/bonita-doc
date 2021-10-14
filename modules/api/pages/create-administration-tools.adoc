@@ -1,7 +1,8 @@
 = Create administration tools
+:page-aliases: ROOT:create-administration-tools.adoc
 :description: Discover how to create tools to administer your Bonita system using Maven and Java.
 
-Discover how to create tools to administer your Bonita system using Maven and Java.
+{description}
 
 == Getting started
 

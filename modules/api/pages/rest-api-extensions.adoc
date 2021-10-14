@@ -1,4 +1,5 @@
 = REST API extensions
+:page-aliases: ROOT:rest-api-extensions.adoc
 :description: Create REST API extensions to use third party systems (databases, web services, Bonita Engine, etc) data in forms and pages.
 
 {description}

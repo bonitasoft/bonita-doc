@@ -1,5 +1,6 @@
 = Tenant API
-:description: == BDM
+:page-aliases: ROOT:tenant-api.adoc
+:description: Manage tenant artifacts
 
 == BDM
 

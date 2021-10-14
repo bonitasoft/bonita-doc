@@ -1,4 +1,5 @@
 = Bonita Rest API Extension archetype
+:page-aliases: ROOT:rest-api-extension-archetype.adoc
 :description: A set of best of breed tools to develop and test Rest API Extension independently of Bonita Studio.
 
 {description}

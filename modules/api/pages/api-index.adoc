@@ -1,7 +1,8 @@
 = Bonita API 
+:page-aliases: ROOT:api-index.adoc
 :description: Bonita provides REST and Java API's to interact with the Runtime. Learn how to use them here.
 
-Bonita provides REST and Java API's to interact with the runtime. Learn how to use them here.
+{description}
 
 
 == REST API 

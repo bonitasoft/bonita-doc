@@ -1,4 +1,5 @@
 = Access control API
+:page-aliases: ROOT:access-control-api.adoc
 :description: Access control allows you to protect the access to your BDM through REST API.
 
 {description}

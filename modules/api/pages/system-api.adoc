@@ -1,7 +1,8 @@
 = REST API System API
+:page-aliases: ROOT:system-api.adoc
 :description: Get informations on the current session and on localisation/translation.
 
-Get informations on the current session and on localisation/translation.
+{description}
 
 == i18nlocale
 

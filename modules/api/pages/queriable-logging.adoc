@@ -1,11 +1,11 @@
 = Bonita Engine Queriable logger
+:page-aliases: ROOT:queriable-logging.adoc
 :description: Queriable logger provides information about important events that happened in the Bonita Platform.
 
 {description}
 
 [NOTE]
 ====
-
 For Enterprise, Performance, Efficiency, and Teamwork editions only.
 ====
 

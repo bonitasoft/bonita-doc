@@ -1,4 +1,5 @@
 = Identity API
+:page-aliases: ROOT:identity-api.adoc
 :description: The Identity Rest API allows to manage the Bonita's organization.
 
 {description}

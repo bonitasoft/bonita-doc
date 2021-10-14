@@ -1,4 +1,5 @@
 = REST API authentication
+:page-aliases: ROOT:rest-api-authentication.adoc
 :description: To call the REST API, you must first log on with a user registered in the Engine database.
 
 {description}

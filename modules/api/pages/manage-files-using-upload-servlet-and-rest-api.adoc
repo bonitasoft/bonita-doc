@@ -1,7 +1,8 @@
 = Upload servlets for the REST API expecting files
+:page-aliases: ROOT:manage-files-using-upload-servlet-and-rest-api.adoc
 :description: For all the REST APIs expecting a file path it is required to upload the file using one of the provided upload servlets first.
 
-For all the REST APIs expecting a file path it is required to upload the file using one of the provided upload servlets first.
+{description}
 
 To upload a file you need to perform a multipart post request on any of the available servlets.
 It returns the name of the temporary uploaded file.

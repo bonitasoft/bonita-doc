@@ -1,9 +1,10 @@
 = Manage a process
-:description: == List the deployed processes
+:page-aliases: ROOT:manage-a-process.adoc
+:description: This example shows you how to get a list of the deployed processes.
 
 == List the deployed processes
 
-This example shows you how to get a list of the deployed processes.
+{description}
 
 The search options specify that the list is sorted by deployment date, the maximum number of results to list is 100,
 and the list starts with the first results (that is, the processes that were deployed first).
