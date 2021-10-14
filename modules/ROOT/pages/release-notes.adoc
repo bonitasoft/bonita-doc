@@ -95,12 +95,13 @@ Bonita Portal is now removed, meaning that:
 * Bonita Mobile Portal has been removed
 * Custom profiles with Portal navigations are xref:#_custom_profile_navigation_conversion[converted into custom Applications] with default Bonita layout and Bonita theme
 * If you had customized Bonita Portal, please note that the Look & Feel files are removed too: you will need to create a theme an apply it to the newly created applications
-* The (xref:#_process_manager_profile_navigation[Process Manager profile] is temporarily discontinued
+* The xref:#_process_manager_profile_navigation[Process Manager profile] is temporarily discontinued
 * The Analytics page is also temporarilly discontinued
 
 *Mobile Portal removal*
 As Bonita User Application can be used on mobile devices thanks to the responsive Bonita layout, the Mobile Portal is no longer needed.
 
+[#_custom_profile_navigation_conversion]
 *Custom Profile navigation conversion*
 
 Before 2021.2, you had the possibility to create custom profiles with specific Portal navigation, with menus and pages, to customize users' Bonita Portal experience. Here is an example:
@@ -127,6 +128,7 @@ image::images/temp-release-notes-specific/new_app_converted_from_custom_profile.
 
 As with any application, you can now modify its details, URL, change its logo, ...
 
+[#_process_manager_profile_navigation]
 *Process Manager profile navigation*
 As part of the update of Bonita Portal into Bonita Applications, we have not reimplemented the pages for the profile Process Manager, a new documentation page will soon explain how to rebuild and customize the Bonita Administrator Application to handle the process management capabilities.
 
