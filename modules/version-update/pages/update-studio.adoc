@@ -1,4 +1,5 @@
 = Updating Bonita Studio
+:page-aliases: ROOT:update-studio.adoc
 :description: How to update your existing Bonita Studio to a newer version.
 
 {description} 

@@ -1,4 +1,5 @@
 = Bonita update and upgrade
+:page-aliases: ROOT:bonita-version-update-index.adoc
 :description: Learn how to update a Bonita Studio or Runtime from an older version to a newer version, or transition from our Community to our Enterprise edition.
 
 {description}
