@@ -298,7 +298,7 @@ To do this, set the `logout.link.hidden` option to `true` in `authenticationMana
 
 == Troubleshoot
 
-To troubleshoot Kerberos SSO login issues, you need to add a logging handler for the package `net.sourceforge.spnego` and increase the xref:logging.adoc[log level] to `ALL` for the packages `org.bonitasoft`, `com.bonitasoft`, and `net.sourceforge.spnego` in order for errors to be displayed in the log files bonita-*.log (by default, they are not).
+To troubleshoot Kerberos SSO login issues, you need to add a logging handler for the package `net.sourceforge.spnego` and increase the xref:ROOT:logging.adoc[log level] to `ALL` for the packages `org.bonitasoft`, `com.bonitasoft`, and `net.sourceforge.spnego` in order for errors to be displayed in the log files bonita-*.log (by default, they are not).
 
 In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/logging.properties.
 
@@ -336,14 +336,14 @@ However, when you create a user in the Bonita Administrator Application, specify
 
 == LDAP synchronizer and Kerberos
 
-If you are using an LDAP (or AD) service and the xref:ldap-synchronizer.adoc[LDAP synchronizer] to manage your user data, +
+If you are using an LDAP (or AD) service and the xref:ROOT:ldap-synchronizer.adoc[LDAP synchronizer] to manage your user data, +
 you can continue to do this and manage authentication over Kerberos. +
 The LDAP synchronizer user must be registered in Bonita (no need for an LDAP/AD account). It is recommended though to use the tenant admin account. +
 We recommend that you use LDAP or AD as your master source for information, synchronizing the relevant information with your Bonita platform.
 
 [NOTE]
 ====
-By default the xref:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `kerberos.auth.standard.allowed` in *authenticationManager-config.properties* ), users won't be able to log in with the Bonita login page directly without going through the Domain Controller.
+By default the xref:ROOT:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `kerberos.auth.standard.allowed` in *authenticationManager-config.properties* ), users won't be able to log in with the Bonita login page directly without going through the Domain Controller.
 ====
 
 == Single sign-on with Kerberos using the REST API
@@ -360,7 +360,7 @@ Here is the subset of resources filtered by the Kerberos filter by default:
 
 REST API are not part of them by default, but if a HTTP session already exists thanks to cookies, REST API can be used.
 
-The recommended way to authenticate in the Bonita Runtime, in order to use the REST API, is to use the xref:rest-api-overview.adoc#bonita-authentication[login service]. +
+The recommended way to authenticate in the Bonita Runtime, in order to use the REST API, is to use the xref:ROOT:rest-api-overview.adoc#bonita-authentication[login service]. +
 If you need the SSO to work with the APIs you can update the web.xml of bonita.war to add the following resources to the URL Mappings of AuthenticationFilter and KerberosFilter:
 
 [source,xml]

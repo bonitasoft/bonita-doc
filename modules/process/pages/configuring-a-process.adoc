@@ -11,7 +11,7 @@ Multiple environments can be created with the Subscription.
 
 To configure a process in Bonita Studio, open the process diagram, select the pool, and click *_Configure_* in the toolbar.
 
-If you are using a Enterprise, Performance, Efficiency, or Teamwork edition of Bonita, you can configure a process for an xref:environments.adoc[environment]:
+If you are using a Enterprise, Performance, Efficiency, or Teamwork edition of Bonita, you can configure a process for an xref:ROOT:environments.adoc[environment]:
 with the process diagram open and the pool selected, choose an environment from
 the Configuration menu in the toolbar.
 
@@ -24,7 +24,7 @@ The following items can be configured:
 * Connectors
 * Parameters
 * Actor filters
-* xref:managing-dependencies.adoc[Process dependencies]
+* xref:ROOT:managing-dependencies.adoc[Process dependencies]
 * Run user
 
-After deployment, depending on the Bonita edition that you are using, you can xref:live-update.adoc[update the process configuration in production] for some aspects of the process.
+After deployment, depending on the Bonita edition that you are using, you can xref:ROOT:live-update.adoc[update the process configuration in production] for some aspects of the process.

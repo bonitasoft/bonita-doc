@@ -8,7 +8,7 @@
 
 === Prerequisites
 
-Check the xref:hardware-and-software-requirements.adoc[hardware and software requirements].
+Check the xref:ROOT:hardware-and-software-requirements.adoc[hardware and software requirements].
 
 ==== MacOs specific prerequisites
 

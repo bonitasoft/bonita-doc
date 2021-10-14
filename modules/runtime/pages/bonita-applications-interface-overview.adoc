@@ -29,10 +29,10 @@ You may want to do so to create your applications from an example. +
 Applications are flexible in two ways:
 
 * The navigation can be customized: remove the pages that are not needed, add custom pages that are needed.
-* Some pages of those applications have been recreated with Bonita UI Designer (find xref:design-methodology.adoc[the list here]). This means that you can open and customize the page to make it fit the precise needs of the users. Starting with an existing page accounts for a big gain of time.
+* Some pages of those applications have been recreated with Bonita UI Designer (find xref:ROOT:design-methodology.adoc[the list here]). This means that you can open and customize the page to make it fit the precise needs of the users. Starting with an existing page accounts for a big gain of time.
 
 == Custom Applications
 
 You can also create views that fit users' needs better than the Bonita Applications. +
 With Bonita 7.0, Living applications have given the possibility to create applications _made of custom pages_, with their own look & feel. The pages can be created with Bonita UI Designer or with another technology. +
-To know more about how to create an application, or create an application from a Bonita Application, go to the xref:custom-applications-index.adoc[custom applications] page.
+To know more about how to create an application, or create an application from a Bonita Application, go to the xref:ROOT:custom-applications-index.adoc[custom applications] page.

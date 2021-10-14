@@ -12,27 +12,27 @@
 
 [.card.card-index]
 --
-xref:rest-api-overview.adoc[[.card-title]#REST API overview# [.card-body.card-content-overflow]#pass:q[Learn how to use the REST API]#]
+xref:ROOT:rest-api-overview.adoc[[.card-title]#REST API overview# [.card-body.card-content-overflow]#pass:q[Learn how to use the REST API]#]
 --
 
 [.card.card-index]
 --
-xref:api-glossary.adoc[[.card-title]#REST API glossary# [.card-body.card-content-overflow]#pass:q[A few things to know to best use the REST API]#]
+xref:ROOT:api-glossary.adoc[[.card-title]#REST API glossary# [.card-body.card-content-overflow]#pass:q[A few things to know to best use the REST API]#]
 --
 
 [.card.card-index]
 --
-xref:rest-api-authentication.adoc[[.card-title]#REST Authentication# [.card-body.card-content-overflow]#pass:q[Authentication is a prerequisite to any other REST API call]#]
+xref:ROOT:rest-api-authentication.adoc[[.card-title]#REST Authentication# [.card-body.card-content-overflow]#pass:q[Authentication is a prerequisite to any other REST API call]#]
 --
 
 [.card.card-index]
 --
-xref:rest-api-extensions.adoc[[.card-title]#REST API extensions overview# [.card-body.card-content-overflow]#pass:q[Introduction and example]#]
+xref:ROOT:rest-api-extensions.adoc[[.card-title]#REST API extensions overview# [.card-body.card-content-overflow]#pass:q[Introduction and example]#]
 --
 
 [.card.card-index]
 --
-xref:rest-api-extension-archetype.adoc[[.card-title]#Create a REST API extension# [.card-body.card-content-overflow]#pass:q[Tools to develop and test your REST API Extensions]#]
+xref:ROOT:rest-api-extension-archetype.adoc[[.card-title]#Create a REST API extension# [.card-body.card-content-overflow]#pass:q[Tools to develop and test your REST API Extensions]#]
 --
 
 [.card-section]
@@ -40,57 +40,57 @@ xref:rest-api-extension-archetype.adoc[[.card-title]#Create a REST API extension
 
 [.card.card-index]
 --
-xref:application-api.adoc[[.card-title]#Application API# [.card-body.card-content-overflow]#pass:q[Retrieve the current deployed application definitions]#]
+xref:ROOT:application-api.adoc[[.card-title]#Application API# [.card-body.card-content-overflow]#pass:q[Retrieve the current deployed application definitions]#]
 --
 
 [.card.card-index]
 --
-xref:access-control-api.adoc[[.card-title]#BDM Access Control API# [.card-body.card-content-overflow]#pass:q[Retrieve BDM Access Control status]#]
+xref:ROOT:access-control-api.adoc[[.card-title]#BDM Access Control API# [.card-body.card-content-overflow]#pass:q[Retrieve BDM Access Control status]#]
 --
 
 [.card.card-index]
 --
-xref:bdm-api.adoc[[.card-title]#BDM API# [.card-body.card-content-overflow]#pass:q[Query the Business data]#]
+xref:ROOT:bdm-api.adoc[[.card-title]#BDM API# [.card-body.card-content-overflow]#pass:q[Query the Business data]#]
 --
 
 [.card.card-index]
 --
-xref:bpm-api.adoc[[.card-title]#BPM API# [.card-body.card-content-overflow]#pass:q[Retrieve activities, perform maintenance tasks]#]
+xref:ROOT:bpm-api.adoc[[.card-title]#BPM API# [.card-body.card-content-overflow]#pass:q[Retrieve activities, perform maintenance tasks]#]
 --
 
 [.card.card-index]
 --
-xref:customuserinfo-api.adoc[[.card-title]#Custom User Information API# [.card-body.card-content-overflow]#pass:q[Manage your specific user information]#]
+xref:ROOT:customuserinfo-api.adoc[[.card-title]#Custom User Information API# [.card-body.card-content-overflow]#pass:q[Manage your specific user information]#]
 --
 
 [.card.card-index]
 --
-xref:form-api.adoc[[.card-title]#Form API# [.card-body.card-content-overflow]#pass:q[Map a form to a process or a task]#]
+xref:ROOT:form-api.adoc[[.card-title]#Form API# [.card-body.card-content-overflow]#pass:q[Map a form to a process or a task]#]
 --
 
 [.card.card-index]
 --
-xref:identity-api.adoc[[.card-title]#Identity API# [.card-body.card-content-overflow]#pass:q[Manage the organization]#]
+xref:ROOT:identity-api.adoc[[.card-title]#Identity API# [.card-body.card-content-overflow]#pass:q[Manage the organization]#]
 --
 
 [.card.card-index]
 --
-xref:platform-api.adoc[[.card-title]#Platform API# [.card-body.card-content-overflow]#pass:q[Manage Bonita platform-level resources]#]
+xref:ROOT:platform-api.adoc[[.card-title]#Platform API# [.card-body.card-content-overflow]#pass:q[Manage Bonita platform-level resources]#]
 --
 
 [.card.card-index]
 --
-xref:portal-api.adoc[[.card-title]#Portal API# [.card-body.card-content-overflow]#pass:q[Access and manage pages, profiles and themes]#]
+xref:ROOT:portal-api.adoc[[.card-title]#Portal API# [.card-body.card-content-overflow]#pass:q[Access and manage pages, profiles and themes]#]
 --
 
 [.card.card-index]
 --
-xref:system-api.adoc[[.card-title]#System API# [.card-body.card-content-overflow]#pass:q[Retrieve information on the current session and on localisation / translation.]#]
+xref:ROOT:system-api.adoc[[.card-title]#System API# [.card-body.card-content-overflow]#pass:q[Retrieve information on the current session and on localisation / translation.]#]
 --
 
 [.card.card-index]
 --
-xref:tenant-api.adoc[[.card-title]#Tenant API# [.card-body.card-content-overflow]#pass:q[Show the tenant status or install / update the BDM]#]
+xref:ROOT:tenant-api.adoc[[.card-title]#Tenant API# [.card-body.card-content-overflow]#pass:q[Show the tenant status or install / update the BDM]#]
 --
 
 
@@ -101,7 +101,7 @@ xref:tenant-api.adoc[[.card-title]#Tenant API# [.card-body.card-content-overflow
 
 [.card.card-index]
 --
-xref:engine-api-overview.adoc[[.card-title]#Overview# [.card-body.card-content-overflow]#pass:q[View the high-level list and usage of Java API]#]
+xref:ROOT:engine-api-overview.adoc[[.card-title]#Overview# [.card-body.card-content-overflow]#pass:q[View the high-level list and usage of Java API]#]
 --
 
 [.card.card-index]
@@ -114,32 +114,32 @@ https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[[.card-title]#Jav
 
 [.card.card-index]
 --
-xref:manage-a-process.adoc[[.card-title]#Managing a process# [.card-body.card-content-overflow]#pass:q[Manage processes through Java API]#]
+xref:ROOT:manage-a-process.adoc[[.card-title]#Managing a process# [.card-body.card-content-overflow]#pass:q[Manage processes through Java API]#]
 --
 
 [.card.card-index]
 --
-xref:handle-a-failed-activity.adoc[[.card-title]#Handling a failed activity# [.card-body.card-content-overflow]#pass:q[Create process error recovery through Java API]#]
+xref:ROOT:handle-a-failed-activity.adoc[[.card-title]#Handling a failed activity# [.card-body.card-content-overflow]#pass:q[Create process error recovery through Java API]#]
 --
 
 [.card.card-index]
 --
-xref:manage-an-organization.adoc[[.card-title]#Managing an organization# [.card-body.card-content-overflow]#pass:q[Manage people involved in the process execution through Java API]#]
+xref:ROOT:manage-an-organization.adoc[[.card-title]#Managing an organization# [.card-body.card-content-overflow]#pass:q[Manage people involved in the process execution through Java API]#]
 --
 
 [.card.card-index]
 --
-xref:manage-users.adoc[[.card-title]#Managing users# [.card-body.card-content-overflow]#pass:q[Manage the users of your organization through Java API]#]
+xref:ROOT:manage-users.adoc[[.card-title]#Managing users# [.card-body.card-content-overflow]#pass:q[Manage the users of your organization through Java API]#]
 --
 
 [.card.card-index]
 --
-xref:handling-documents.adoc[[.card-title]#Handling documents# [.card-body.card-content-overflow]#pass:q[Handle documents within processes through Java API]#]
+xref:ROOT:handling-documents.adoc[[.card-title]#Handling documents# [.card-body.card-content-overflow]#pass:q[Handle documents within processes through Java API]#]
 --
 
 [.card.card-index]
 --
-xref:manage-the-platform.adoc[[.card-title]#Managing the platform# [.card-body.card-content-overflow]#pass:q[Manage the platform through Java API]#]
+xref:ROOT:manage-the-platform.adoc[[.card-title]#Managing the platform# [.card-body.card-content-overflow]#pass:q[Manage the platform through Java API]#]
 --
 
 
@@ -148,25 +148,25 @@ xref:manage-the-platform.adoc[[.card-title]#Managing the platform# [.card-body.c
 
 [.card.card-index]
 --
-xref:bdm-in-rest-api.adoc[[.card-title]#Manage BDM in REST API extensions# [.card-body.card-content-overflow]#pass:q[Manage your Business data in your REST API extensions]#]
+xref:ROOT:bdm-in-rest-api.adoc[[.card-title]#Manage BDM in REST API extensions# [.card-body.card-content-overflow]#pass:q[Manage your Business data in your REST API extensions]#]
 --
 
 [.card.card-index]
 --
-xref:manage-files-using-upload-servlet-and-rest-api.adoc[[.card-title]#Manage files using upload servlet and REST API# [.card-body.card-content-overflow]#pass:q[Manage files through REST API]#]
+xref:ROOT:manage-files-using-upload-servlet-and-rest-api.adoc[[.card-title]#Manage files using upload servlet and REST API# [.card-body.card-content-overflow]#pass:q[Manage files through REST API]#]
 --
 
 [.card.card-index]
 --
-xref:create-administration-tools.adoc[[.card-title]#Create administration tools# [.card-body.card-content-overflow]#pass:q[Create your own tools to administrate the platform through Java API]#]
+xref:ROOT:create-administration-tools.adoc[[.card-title]#Create administration tools# [.card-body.card-content-overflow]#pass:q[Create your own tools to administrate the platform through Java API]#]
 --
 
 [.card.card-index]
 --
-xref:using-list-and-search-methods.adoc[[.card-title]#List and search methods# [.card-body.card-content-overflow]#pass:q[Learn about the options of Bonita lists and Bonita search methods]#]
+xref:ROOT:using-list-and-search-methods.adoc[[.card-title]#List and search methods# [.card-body.card-content-overflow]#pass:q[Learn about the options of Bonita lists and Bonita search methods]#]
 --
 
 [.card.card-index]
 --
-xref:queriable-logging.adoc[[.card-title]#Queriable logger# [.card-body.card-content-overflow]#pass:q[Access all events logged in Bonita Runtime through Java API]#]
+xref:ROOT:queriable-logging.adoc[[.card-title]#Queriable logger# [.card-body.card-content-overflow]#pass:q[Access all events logged in Bonita Runtime through Java API]#]
 --

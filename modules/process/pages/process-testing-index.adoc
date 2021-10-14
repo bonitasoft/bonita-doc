@@ -12,7 +12,7 @@ Bonita Studio contains several features that you can use to verify your processe
 * Process diagram validation: choose *Validate* from the _Diagram_ menu, or go to the _Details_ panel, _Validation status_ tab and click *Refresh*. The _Details_ panel contains a list of warnings and errors indicating things to correct in the diagram. Click on a row in the list to highlight the relevant item in the diagram.
 * Process local run: Select the process pool and click on the *Run* icon of the studio coolbar. The processes are deployed in the embedded Tomcat, and made available in Bonita provided applications. +
 
-If you have already created your own xref:actors-index.adoc[actors] for your lanes and human tasks, you need to map them to entities of your test organization before you run your processes. To do so: 
+If you have already created your own xref:ROOT:actors-index.adoc[actors] for your lanes and human tasks, you need to map them to entities of your test organization before you run your processes. To do so: 
 
 . Create your test organization (see below)
 . Select the process pool
@@ -28,20 +28,20 @@ When you have finished developing your process, we also recommend that you perfo
 
 [.card.card-index]
 --
-xref:configure-a-test-organization.adoc[[.card-title]#Configure a test organization# [.card-body.card-content-overflow]#pass:q[Create only the main entities of the target organization]#]
+xref:ROOT:configure-a-test-organization.adoc[[.card-title]#Configure a test organization# [.card-body.card-content-overflow]#pass:q[Create only the main entities of the target organization]#]
 --
 
 [.card.card-index]
 --
-xref:configuring-a-process.adoc[[.card-title]#Configure a process# [.card-body.card-content-overflow]#pass:q[Prepare each process to be deployed in each target environment]#]
+xref:ROOT:configuring-a-process.adoc[[.card-title]#Configure a process# [.card-body.card-content-overflow]#pass:q[Prepare each process to be deployed in each target environment]#]
 --
 
 [.card.card-index]
 --
-xref:run-a-process-from-bonita-bpm-studio-for-testing.adoc[[.card-title]#Run a process from Bonita Studio# [.card-body.card-content-overflow]#pass:q[Simulate the final process execution]#]
+xref:ROOT:run-a-process-from-bonita-bpm-studio-for-testing.adoc[[.card-title]#Run a process from Bonita Studio# [.card-body.card-content-overflow]#pass:q[Simulate the final process execution]#]
 --
 
 [.card.card-index]
 --
-xref:log-files.adoc[[.card-title]#Studio log files# [.card-body.card-content-overflow]#pass:q[Log files content for easy monitoring and troubleshooting]#]
+xref:ROOT:log-files.adoc[[.card-title]#Studio log files# [.card-body.card-content-overflow]#pass:q[Log files content for easy monitoring and troubleshooting]#]
 --

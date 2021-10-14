@@ -9,27 +9,27 @@
 
 [.card.card-index]
 --
-xref:runtime-installation-index.adoc[[.card-title]#Installation# [.card-body.card-content-overflow]#pass:q[The different flavors of Bonita Runtime]#]
+xref:ROOT:runtime-installation-index.adoc[[.card-title]#Installation# [.card-body.card-content-overflow]#pass:q[The different flavors of Bonita Runtime]#]
 --
 
 [.card.card-index]
 --
-xref:runtime-configuration-index.adoc[[.card-title]#Configuration# [.card-body.card-content-overflow]#pass:q[The essential steps to setup Bonita Runtime]#]
+xref:ROOT:runtime-configuration-index.adoc[[.card-title]#Configuration# [.card-body.card-content-overflow]#pass:q[The essential steps to setup Bonita Runtime]#]
 --
 
 [.card.card-index]
 --
-xref:runtime-administration-index.adoc[[.card-title]#Project Administration# [.card-body.card-content-overflow]#pass:q[How to add and update projects elements on Bonita Runtime]#]
+xref:ROOT:runtime-administration-index.adoc[[.card-title]#Project Administration# [.card-body.card-content-overflow]#pass:q[How to add and update projects elements on Bonita Runtime]#]
 --
 
 [.card.card-index]
 --
-xref:engine-deep-dive-index.adoc[[.card-title]#Bonita Engine deep dive# [.card-body.card-content-overflow]#pass:q[The under-the-hood activities of Bonita Runtime]#]
+xref:ROOT:engine-deep-dive-index.adoc[[.card-title]#Bonita Engine deep dive# [.card-body.card-content-overflow]#pass:q[The under-the-hood activities of Bonita Runtime]#]
 --
 
 [.card.card-index]
 --
-xref:runtime-optimization-index.adoc[[.card-title]#Optimization# [.card-body.card-content-overflow]#pass:q[Monitoring, Troubleshooting, and Tuning capabilities]#]
+xref:ROOT:runtime-optimization-index.adoc[[.card-title]#Optimization# [.card-body.card-content-overflow]#pass:q[Monitoring, Troubleshooting, and Tuning capabilities]#]
 --
 
 [.card-section]
@@ -37,5 +37,5 @@ xref:runtime-optimization-index.adoc[[.card-title]#Optimization# [.card-body.car
 
 [.card.card-index]
 --
-xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[[.card-title]#Update Bonita Runtime# [.card-body.card-content-overflow]#pass:q[At a glance: Flow, Best Practices and caveat]#]
+xref:ROOT:migrate-from-an-earlier-version-of-bonita-bpm.adoc[[.card-title]#Update Bonita Runtime# [.card-body.card-content-overflow]#pass:q[At a glance: Flow, Best Practices and caveat]#]
 --

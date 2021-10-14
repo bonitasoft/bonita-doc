@@ -24,7 +24,7 @@ In order to fully use this feature, we recommend that you use extensively the pr
 
 As we know that your needs in term of documentation can greatly vary from one project to another or from one team to another, you can easily customize both the generated documentation and the templates used by the generator.
 
-To perform these customizations, you will need xref:groovy-in-bonita.adoc[Groovy] and https://asciidoctor.org/[asciidoctor] knowledge.
+To perform these customizations, you will need xref:ROOT:groovy-in-bonita.adoc[Groovy] and https://asciidoctor.org/[asciidoctor] knowledge.
 However, we provide examples to make your life easier and a framework so that business-oriented users can also participate in the documentation.
 
 == Generating the documentation
@@ -116,7 +116,7 @@ There are also other solutions to process asciidoc documents using https://ascii
 === View in GitHub or GitLab
 
 If you are using https://github.com[GitHub] or https://about.gitlab.com/[GitLab] for your project, your documentation will be displayed below the content of the repository (like any readme file).
-All you need to do is generate your documentation and push it to your repository thanks to xref:workspaces-and-repositories.adoc["Team" features].
+All you need to do is generate your documentation and push it to your repository thanks to xref:ROOT:workspaces-and-repositories.adoc["Team" features].
 
 image::images/doc-generation/github_preview.png[GitHub preview]
 

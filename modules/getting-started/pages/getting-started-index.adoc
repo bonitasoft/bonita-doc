@@ -17,7 +17,7 @@ If you have any problems while working through this tutorial, you can https://co
 
 [.card.card-index]
 --
-xref:bonita-studio-download-installation.adoc[[.card-title]#Bonita Studio Installation# [.card-body.card-content-overflow]#pass:q[Bonita's principal tool to create the main elements of all your projects]#]
+xref:ROOT:bonita-studio-download-installation.adoc[[.card-title]#Bonita Studio Installation# [.card-body.card-content-overflow]#pass:q[Bonita's principal tool to create the main elements of all your projects]#]
 --
 
 [.card-section]
@@ -25,46 +25,46 @@ xref:bonita-studio-download-installation.adoc[[.card-title]#Bonita Studio Instal
 
 [.card.card-index]
 --
-xref:draw-bpmn-diagram.adoc[[.card-title]#Draw a BPMN diagram# [.card-body.card-content-overflow]#pass:q[Process automation always starts with a process]#]
+xref:ROOT:draw-bpmn-diagram.adoc[[.card-title]#Draw a BPMN diagram# [.card-body.card-content-overflow]#pass:q[Process automation always starts with a process]#]
 --
 
 [.card.card-index]
 --
-xref:define-business-data-model.adoc[[.card-title]#Define a Business Data Model (BDM)# [.card-body.card-content-overflow]#pass:q[The data model describes business data handled by processes]#]
+xref:ROOT:define-business-data-model.adoc[[.card-title]#Define a Business Data Model (BDM)# [.card-body.card-content-overflow]#pass:q[The data model describes business data handled by processes]#]
 --
 
 [.card.card-index]
 --
-xref:declare-business-variables.adoc[[.card-title]#Declare business variables# [.card-body.card-content-overflow]#pass:q[Variables are the link between business data and processes]#]
+xref:ROOT:declare-business-variables.adoc[[.card-title]#Declare business variables# [.card-body.card-content-overflow]#pass:q[Variables are the link between business data and processes]#]
 --
 
 [.card.card-index]
 --
-xref:declare-contracts.adoc[[.card-title]#Declare contracts# [.card-body.card-content-overflow]#pass:q[Contracts are interfaces allowing processes and UI to interact]#]
+xref:ROOT:declare-contracts.adoc[[.card-title]#Declare contracts# [.card-body.card-content-overflow]#pass:q[Contracts are interfaces allowing processes and UI to interact]#]
 
 --
 
 [.card.card-index]
 --
-xref:create-web-user-interfaces.adoc[[.card-title]#Create forms# [.card-body.card-content-overflow]#pass:q[Forms use data to feed processes through contracts]#]
+xref:ROOT:create-web-user-interfaces.adoc[[.card-title]#Create forms# [.card-body.card-content-overflow]#pass:q[Forms use data to feed processes through contracts]#]
 --
 
 [.card.card-index]
 --
-xref:define-who-can-do-what.adoc[[.card-title]#Define who can do what# [.card-body.card-content-overflow]#pass:q[Actors allow the mapping of organization entities to human tasks]#]
+xref:ROOT:define-who-can-do-what.adoc[[.card-title]#Define who can do what# [.card-body.card-content-overflow]#pass:q[Actors allow the mapping of organization entities to human tasks]#]
 --
 
 [.card.card-index]
 --
-xref:configure-email-connector.adoc[[.card-title]#Configure an email connector# [.card-body.card-content-overflow]#pass:q[Most of the processes need email notifications, right?]#]
+xref:ROOT:configure-email-connector.adoc[[.card-title]#Configure an email connector# [.card-body.card-content-overflow]#pass:q[Most of the processes need email notifications, right?]#]
 --
 
 [.card.card-index]
 --
-xref:design-application-page.adoc[[.card-title]#Design an application page# [.card-body.card-content-overflow]#pass:q[Pages can display more generic information than tasks forms]#]
+xref:ROOT:design-application-page.adoc[[.card-title]#Design an application page# [.card-body.card-content-overflow]#pass:q[Pages can display more generic information than tasks forms]#]
 --
 
 [.card.card-index]
 --
-xref:create-application.adoc[[.card-title]#Create an application# [.card-body.card-content-overflow]#pass:q[Bind all elements together to build a rich, valuable end-user experience]#]
+xref:ROOT:create-application.adoc[[.card-title]#Create an application# [.card-body.card-content-overflow]#pass:q[Bind all elements together to build a rich, valuable end-user experience]#]
 --

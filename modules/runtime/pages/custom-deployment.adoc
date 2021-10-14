@@ -7,8 +7,8 @@
 [WARNING]
 ====
 
-Remember that the recommended way of installing Bonita is to use the provided xref:tomcat-bundle.adoc[Tomcat] bundle. +
-It saves you from doing all the following configuration at hand, as the xref:bonita-platform-setup.adoc[setup tool] included handles it automatically.
+Remember that the recommended way of installing Bonita is to use the provided xref:ROOT:tomcat-bundle.adoc[Tomcat] bundle. +
+It saves you from doing all the following configuration at hand, as the xref:ROOT:bonita-platform-setup.adoc[setup tool] included handles it automatically.
 ====
 
 [WARNING]
@@ -78,20 +78,20 @@ MySQL, PostgreSQL, Oracle and Microsoft SQL Server drivers can be found in the T
 
 == License installation
 
-If you are installing a Subscription edition, you need to xref:licenses.adoc[request a license].
+If you are installing a Subscription edition, you need to xref:ROOT:licenses.adoc[request a license].
 
 When you receive your license, copy the file to the `TOMCAT_DIRECTORY/setup/platform_conf/licenses` folder of your application server.
 
 == Database initialization
 
-We assume here that the database has already been xref:database-configuration.adoc#database_creation[created and configured for Bonita].
+We assume here that the database has already been xref:ROOT:database-configuration.adoc#database_creation[created and configured for Bonita].
 Once created and configured you need to initialize it using the setup tool provided in the bundle.
 This will create database schema and initial values.
 
-. In TOMCAT_DIRECTORY/setup folder, edit the file database.properties with properties matching your RDBMS. Beware of xref:bonita-platform-setup.adoc#backslash_support[backslash characters].
+. In TOMCAT_DIRECTORY/setup folder, edit the file database.properties with properties matching your RDBMS. Beware of xref:ROOT:bonita-platform-setup.adoc#backslash_support[backslash characters].
 . In TOMCAT_DIRECTORY/setup folder, run `setup.(sh|bat) init`
 
 == Next steps
 
 You are done with Bonita installation. You can now start your application server as usual. +
-You can also xref:first-steps-after-setup.adoc[complete the setup] of your system by validating the installation, setting passwords, and creating the technical user who will act as the Super Administrator.
+You can also xref:ROOT:first-steps-after-setup.adoc[complete the setup] of your system by validating the installation, setting passwords, and creating the technical user who will act as the Super Administrator.

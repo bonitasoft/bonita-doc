@@ -122,7 +122,7 @@ You can leverage Bonita Studio to optimize user comfort and efficiency by insert
 [NOTE]
 ====
 
-This howto applies to the legacy task list -Bonita 6.0 to 6.5.x versions- as well as the xref:user-task-list.adoc[new task list - from Bonita 7.3 and above].
+This howto applies to the legacy task list -Bonita 6.0 to 6.5.x versions- as well as the xref:ROOT:user-task-list.adoc[new task list - from Bonita 7.3 and above].
 ====
 
 === Pre-requisites: create the process example
@@ -346,7 +346,7 @@ Unlike the "technical" name and description of a task in the Studio, which are u
 Another feature you can use to improve end users efficiency and satisfaction is _word-based search_: +
 To allow users to efficiently search by task name, you can configure the search option: from _starts by_ (the beginning of the whole task name string), you can switch to _word-based search_ (the beginning of every word in the task name).
 
-To do so, go to xref:using-list-and-search-methods.adoc]#word_based_search[word-based search].
+To do so, go to xref:ROOT:using-list-and-search-methods.adoc]#word_based_search[word-based search].
 
 [NOTE]
 ====

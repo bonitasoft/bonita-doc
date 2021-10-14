@@ -7,7 +7,7 @@
 From the Bonita Studio Help menu you can access the Studio log file
 and the Engine log file.
 
-See the xref:logging.adoc[Logging overview] for details of how logging is implemented in Bonita and how to add logging to Groovy scripts or Java code that you add to a process
+See the xref:ROOT:logging.adoc[Logging overview] for details of how logging is implemented in Bonita and how to add logging to Groovy scripts or Java code that you add to a process
 
 == Studio log file
 

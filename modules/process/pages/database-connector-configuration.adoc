@@ -19,10 +19,10 @@ These configuration steps are the same for all database connectors except the da
 . Select the *.jar file* of the database driver. Click *_Next_*.
 . Enter the *Access information*. Click *_Next_*.
 . Enter the *Input query*. This is a query to send to the database. You can put single or multiple queries separated by a separator.
-You can also use the xref:graphical-query-builder.adoc[graphical query builder] to specify the query. Click *_Next_*.
+You can also use the xref:ROOT:graphical-query-builder.adoc[graphical query builder] to specify the query. Click *_Next_*.
 . Choose how you want to specify the operations on connector outputs. Choose *Graphical mode* or *Scripting mode*. +
 The Graphical mode does not require scripting. Click *_Next_*.
-. Specify the output operations, using the xref:initialize-a-variable-from-a-database-without-scripting-or-java-code.adoc[Graphical mode] or using expressions.
+. Specify the output operations, using the xref:ROOT:initialize-a-variable-from-a-database-without-scripting-or-java-code.adoc[Graphical mode] or using expressions.
 . In the *Edit expression window*, set the *provided variable* to get data from the external database.
 . Click *_Finish_*.
 
@@ -48,9 +48,9 @@ To configure the datasource connector, follow these steps:
 . Enter the *Name*, *Description*, *Event* and *error message* (if any). Click *_Next_*.
 . Specify the datasource name and, optionally, properties. Click *_Next_*.
 . Enter the *Input query*. This is a query to send to the database. You can put single or multiple queries separated by a separator.
-You can also use the xref:graphical-query-builder.adoc[graphical query builder] to specify the query. Click *_Next_*.
+You can also use the xref:ROOT:graphical-query-builder.adoc[graphical query builder] to specify the query. Click *_Next_*.
 . Choose how you want to specify the operations on connector outputs. Choose *Graphical mode* or *Scripting mode*.
 The Graphical mode does not require scripting. Click *_Next_*.
-. Specify the output operations, using the xref:initialize-a-variable-from-a-database-without-scripting-or-java-code.adoc[Graphical mode] or using expressions.
+. Specify the output operations, using the xref:ROOT:initialize-a-variable-from-a-database-without-scripting-or-java-code.adoc[Graphical mode] or using expressions.
 . In the *Edit expression window*, set the *provided variable* to get data from the external database.
 . Click *_Finish_*.

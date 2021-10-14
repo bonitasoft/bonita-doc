@@ -20,15 +20,15 @@ Before you export a process for deployment, you need to set the initial configur
 
 [.card.card-index]
 --
-xref:environments.adoc[[.card-title]#Environments# [.card-body.card-content-overflow]#pass:q[Define environments that matches your target runtimes]#]
+xref:ROOT:environments.adoc[[.card-title]#Environments# [.card-body.card-content-overflow]#pass:q[Define environments that matches your target runtimes]#]
 --
 
 [.card.card-index]
 --
-xref:configuring-a-process.adoc[[.card-title]#Configure a process# [.card-body.card-content-overflow]#pass:q[What is configurable in a process]#]
+xref:ROOT:configuring-a-process.adoc[[.card-title]#Configure a process# [.card-body.card-content-overflow]#pass:q[What is configurable in a process]#]
 --
 
 [.card.card-index]
 --
-xref:managing-dependencies.adoc[[.card-title]#Manage process dependencies# [.card-body.card-content-overflow]#pass:q[Integrate third party library in your processes]#]
+xref:ROOT:managing-dependencies.adoc[[.card-title]#Manage process dependencies# [.card-body.card-content-overflow]#pass:q[Integrate third party library in your processes]#]
 --

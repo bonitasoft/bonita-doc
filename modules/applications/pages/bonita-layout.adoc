@@ -21,7 +21,7 @@ information about the current session, as well as the button that opens the navi
 
 == Customizing this layout
 
-You can customize this layout by following the xref:customize-layouts.adoc[customize-layouts] steps.
+You can customize this layout by following the xref:ROOT:customize-layouts.adoc[customize-layouts] steps.
 
 == Dependencies
 

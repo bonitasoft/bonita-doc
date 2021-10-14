@@ -4,17 +4,17 @@
 
 {description}
 
-An application is a navigation of pages that can be accessed by a xref:profiles-overview.adoc[Profile]. +
+An application is a navigation of pages that can be accessed by a xref:ROOT:profiles-overview.adoc[Profile]. +
 It is created and operated within Bonita Platform: created with Bonita Studio and UI Designer, deployed with Bonita Continuous Delivery, run by Bonita Runtime.
 
 Its purpose is to display and structure the right information and provide the right controls at the right time to the profiles, so they can efficiently perform their tasks. +
 
 _Graphically_, an application is made of a navigation menu and a set of pages. In some of the pages, some controls, like -"Validate" or "Reject" buttons- are directly linked to processes and execute tasks in the background. Others -like "New request" or "Add additional information"- open forms that, once submitted start a new process instance, or execute a task. +
-Bonita allows you to create xref:bonita-purpose.adoc#_what_can_i_do_with_bonita[different types of applications]. +
+Bonita allows you to create xref:ROOT:bonita-purpose.adoc#_what_can_i_do_with_bonita[different types of applications]. +
 
-_Structurally_, an application is made of various xref:project-structure.adoc[elements]. Some are directly linked to the application (name, token, navigation), others are referenced (layout, pages, profiles, theme). They are all assembled in the application descriptor. +
+_Structurally_, an application is made of various xref:ROOT:project-structure.adoc[elements]. Some are directly linked to the application (name, token, navigation), others are referenced (layout, pages, profiles, theme). They are all assembled in the application descriptor. +
 
-Bonita comes with four xref:bonita-applications-interface-overview.adoc[Bonita Applications]. +
+Bonita comes with four xref:ROOT:bonita-applications-interface-overview.adoc[Bonita Applications]. +
 
 We encourage our users to create their own *custom applications* so as to create the best user experience for their specific use-cases. +
 The application can be put together by the citizen developer or a professional developer. +
@@ -26,37 +26,37 @@ For testing purposes, Bonita provides a layout and several themes, before you cr
 
 [.card.card-index]
 --
-xref:application-creation.adoc[[.card-title]#Application descriptor# [.card-body.card-content-overflow]#pass:q[Both its ID card and the place where all elements come together]#]
+xref:ROOT:application-creation.adoc[[.card-title]#Application descriptor# [.card-body.card-content-overflow]#pass:q[Both its ID card and the place where all elements come together]#]
 --
 
 [.card.card-index]
 --
-xref:pages.adoc[[.card-title]#Pages# [.card-body.card-content-overflow]#pass:q[The foundation for a great end-user experience]#]
+xref:ROOT:pages.adoc[[.card-title]#Pages# [.card-body.card-content-overflow]#pass:q[The foundation for a great end-user experience]#]
 --
 
 [.card.card-index]
 --
-xref:profiles.adoc[[.card-title]#Profiles# [.card-body.card-content-overflow]#pass:q[Entities of the organization who can access the application]#]
+xref:ROOT:profiles.adoc[[.card-title]#Profiles# [.card-body.card-content-overflow]#pass:q[Entities of the organization who can access the application]#]
 --
 
 [.card.card-index]
 --
-xref:layout-development.adoc[[.card-title]#Layout# [.card-body.card-content-overflow]#pass:q[The visual structure of the application]#]
+xref:ROOT:layout-development.adoc[[.card-title]#Layout# [.card-body.card-content-overflow]#pass:q[The visual structure of the application]#]
 --
 
 [.card.card-index]
 --
-xref:customize-living-application-theme.adoc[[.card-title]#Theme# [.card-body.card-content-overflow]#pass:q[The graphical details that create a visual identity]#]
+xref:ROOT:customize-living-application-theme.adoc[[.card-title]#Theme# [.card-body.card-content-overflow]#pass:q[The graphical details that create a visual identity]#]
 --
 
 [.card.card-index]
 --
-xref:navigation.adoc[[.card-title]#Navigation between applications# [.card-body.card-content-overflow]#pass:q[How to switch from one application to another]#]
+xref:ROOT:navigation.adoc[[.card-title]#Navigation between applications# [.card-body.card-content-overflow]#pass:q[How to switch from one application to another]#]
 --
 
 [.card.card-index]
 --
-xref:multi-language-applications.adoc[[.card-title]#Multi-language applications# [.card-body.card-content-overflow]#pass:q[How to translate applications in several languages]#]
+xref:ROOT:multi-language-applications.adoc[[.card-title]#Multi-language applications# [.card-body.card-content-overflow]#pass:q[How to translate applications in several languages]#]
 --
 
 
@@ -72,12 +72,12 @@ Starting the development of an application from scratch may not be the most effi
   
 [.card.card-index]
 --
-xref:user-application-overview.adoc[[.card-title]#Bonita User Application# [.card-body.card-content-overflow]#pass:q[Start process instances and execute tasks using a generic tasklist]#]
+xref:ROOT:user-application-overview.adoc[[.card-title]#Bonita User Application# [.card-body.card-content-overflow]#pass:q[Start process instances and execute tasks using a generic tasklist]#]
 --
 
 [.card.card-index]
 --
-xref:admin-application-overview.adoc[[.card-title]#Bonita Administrator Application# [.card-body.card-content-overflow]#pass:q[Monitor and troubleshoot process execution]#]
+xref:ROOT:admin-application-overview.adoc[[.card-title]#Bonita Administrator Application# [.card-body.card-content-overflow]#pass:q[Monitor and troubleshoot process execution]#]
 --
 
 [.card.card-index]
@@ -87,7 +87,7 @@ https://community.bonitasoft.com/project?title=&field_type_tid=All&field_project
 
 [.card.card-index]
 --
-xref:use-bonita-acm.adoc[[.card-title]#Adaptive Case Management example# [.card-body.card-content-overflow]#pass:q[An all configured process and its dedicated application]#]
+xref:ROOT:use-bonita-acm.adoc[[.card-title]#Adaptive Case Management example# [.card-body.card-content-overflow]#pass:q[An all configured process and its dedicated application]#]
 --
 
 
@@ -96,5 +96,5 @@ xref:use-bonita-acm.adoc[[.card-title]#Adaptive Case Management example# [.card-
 
 [.card.card-index]
 --
-xref:applications-deep-dive-index.adoc[[.card-title]#Applications deep dive# [.card-body.card-content-overflow]#pass:q[Applications under the hood, and the four Bonita applications]#]
+xref:ROOT:applications-deep-dive-index.adoc[[.card-title]#Applications deep dive# [.card-body.card-content-overflow]#pass:q[Applications under the hood, and the four Bonita applications]#]
 --

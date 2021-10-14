@@ -40,7 +40,7 @@ For usage of the `X-Bonita-API-Token` see below.
 For Enterprise, Performance, Efficiency, and Teamwork editions only.
 ====
 
-When Bonita web application is configured for authentication with OpenID Connect, Bonita REST API is secured through OIDC too and it is possible to call it with an OAuth Access token. For more information see xref:single-sign-on-with-oidc.adoc#rest-api[OpenID Connect SSO configuration page].
+When Bonita web application is configured for authentication with OpenID Connect, Bonita REST API is secured through OIDC too and it is possible to call it with an OAuth Access token. For more information see xref:ROOT:single-sign-on-with-oidc.adoc#rest-api[OpenID Connect SSO configuration page].
 
 === X-Bonita-API-Token cookie and HTTP header
 

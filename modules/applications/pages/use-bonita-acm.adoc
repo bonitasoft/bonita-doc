@@ -15,7 +15,7 @@ For Enterprise, Performance, Efficiency, and Teamwork editions only.
 
 == Enable ACM Engine Plug-in
 
-The ACM engine plug-in registers an xref:event-handlers.adoc[event handler] at startup. This handler will be in charge of updating the _acm_ variables of all the active tasks of a case each time a task is completed in this same case. An _acm_ variable is a transient local variable prefixed with the `$` sign. In the credit card dispute resolution example, there is only one _acm_ variable named _$activityState_.
+The ACM engine plug-in registers an xref:ROOT:event-handlers.adoc[event handler] at startup. This handler will be in charge of updating the _acm_ variables of all the active tasks of a case each time a task is completed in this same case. An _acm_ variable is a transient local variable prefixed with the `$` sign. In the credit card dispute resolution example, there is only one _acm_ variable named _$activityState_.
 
 By default the event handler is *not* registered. To enable the event handler you must start the engine with the following argument: +
 `-Dcom.bonitasoft.engine.plugin.acm.REGISTER_ACM_HANDLER=true` +

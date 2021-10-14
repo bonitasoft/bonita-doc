@@ -50,7 +50,7 @@ contentType=layout
 * The resources folder must contain an `Index.groovy` class or an `index.html` file and optionally can contain some additional resources.
 
 In case of layout edition using Bonita UI Designer, the contentType is kept unchanged.
-xref:resource-management.adoc[Export the examples] to see how to structure your layout.
+xref:ROOT:resource-management.adoc[Export the examples] to see how to structure your layout.
 
 == Constraints
 
@@ -66,12 +66,12 @@ For example: `<link href="css/file.css" rel="stylesheet" />`
 
 === API acces
 
-If your page is viewed in an application, you will have access facilities for xref:rest-api-overview.adoc[the APIs].
+If your page is viewed in an application, you will have access facilities for xref:ROOT:rest-api-overview.adoc[the APIs].
 
 You will be able to access the APIs using the following path: "../API/{API name}/{resource name}"
 
 === Theme access
 
-If your page is viewed in an application, you will have access facilities for xref:applications.adoc[the application theme].
+If your page is viewed in an application, you will have access facilities for xref:ROOT:applications.adoc[the application theme].
 
 The `Theme.css` is directly accessible by adding the following link in `index.html`: `<link href="../theme/theme.css" rel="stylesheet" />`

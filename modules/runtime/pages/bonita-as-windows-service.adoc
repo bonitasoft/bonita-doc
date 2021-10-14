@@ -12,7 +12,7 @@ For this tutorial you will need the following softwares:
 * Bonita Tomcat Bundle
 * Postgresql Database (or another database supported by Bonita)
 
-Please verify the supported version in xref:hardware-and-software-requirements.adoc[Installation/Basic Bonita Platform installation/hardware-and-software-requirements]
+Please verify the supported version in xref:ROOT:hardware-and-software-requirements.adoc[Installation/Basic Bonita Platform installation/hardware-and-software-requirements]
 
 == Download and installation
 
@@ -21,7 +21,7 @@ Please verify the supported version in xref:hardware-and-software-requirements.a
 [WARNING]
 ====
 
-Download the same apache-tomcat version (visible in xref:hardware-and-software-requirements.adoc[Installation/Basic Bonita Platform installation/hardware-and-software-requirements])
+Download the same apache-tomcat version (visible in xref:ROOT:hardware-and-software-requirements.adoc[Installation/Basic Bonita Platform installation/hardware-and-software-requirements])
 Choose the "32-bit/64-bit Windows Service Installer" installation.
 ====
 * *_Install_* apache-tomcat-x.y.exe. From now on we'll call the installation path as %TOMCAT_INSTALL_FOLDER%
@@ -40,7 +40,7 @@ image::images/bonita-as-windows-service/tomcatHome.png[Tomcat home page]
 
 == Database configuration
 
-* Follow the documentation xref:database-configuration.adoc#postgres_setup[here] to correctly prepare the PostgreSQL database
+* Follow the documentation xref:ROOT:database-configuration.adoc#postgres_setup[here] to correctly prepare the PostgreSQL database
 * *_Configure_* the file `%TOMCAT_BUNDLE%/setup/database.properties` to point towards the suited database (engine and BDM)
 
 image::images/bonita-as-windows-service/databaseProperties.png[database-properties file]

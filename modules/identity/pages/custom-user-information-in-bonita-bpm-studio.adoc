@@ -40,7 +40,7 @@ All these types of information are not displayed in standard information tabs bu
 After completing the changes for all the desired users, remember to save and deploy the organization
 
 
-Note: this value can be changed by a user in the Bonita Administrator Application. See xref:custom-user-information-in-bonita-applications.adoc[How to edit Custom information for a single user]
+Note: this value can be changed by a user in the Bonita Administrator Application. See xref:ROOT:custom-user-information-in-bonita-applications.adoc[How to edit Custom information for a single user]
 
 == Set an actor filter on custom user information
 

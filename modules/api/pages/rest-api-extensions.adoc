@@ -4,7 +4,7 @@
 
 {description}
 
-REST API extensions can be used to query xref:define-and-deploy-the-bdm.adoc[business data], Bonita Engine APIs, or an external information system (such as a database, web service, LDAP directory...). They also help to keep a clean separation between the front-end (forms, pages, and interfaces visible to users) and the back-end (processes).
+REST API extensions can be used to query xref:ROOT:define-and-deploy-the-bdm.adoc[business data], Bonita Engine APIs, or an external information system (such as a database, web service, LDAP directory...). They also help to keep a clean separation between the front-end (forms, pages, and interfaces visible to users) and the back-end (processes).
 
 == Prerequisites
 
@@ -20,7 +20,7 @@ There is some additional prerequisites when creating a REST API extension:
 
 * Basic knowledge of Maven
 * *Access to http://central.maven.org/maven2[Maven central repository]*.
-* More information on maven configuration xref:configure-maven.adoc[here]
+* More information on maven configuration xref:ROOT:configure-maven.adoc[here]
 
 === Generate a new REST API extension skeleton
 
@@ -32,7 +32,7 @@ There is some additional prerequisites when creating a REST API extension:
 . Click *Next*.
 . Enter the *pathTemplate* for this REST API extension, for example _userInformation_. This will be the access point of the API, and follows this pattern: `+{bonita_context}/API/extension/userInformation+`.
 . As this REST API extension does not access business data you can safely uncheck "Add BDM dependencies" check box.
-. Define a *Permission* name for the extension (replace the default one), for example _read_user_information_. This is the name of the permission the users should have to be granted in order to have access to the extension (see xref:api-extensions.adoc#usage[REST API extensions usage])
+. Define a *Permission* name for the extension (replace the default one), for example _read_user_information_. This is the name of the permission the users should have to be granted in order to have access to the extension (see xref:ROOT:api-extensions.adoc#usage[REST API extensions usage])
 . Click *Next*
 . This screen defines *URL parameters* that will be passed to the API. By default, _p_ and _c_ parameters are defined to enables paged result, it applies well in our examples as we want to return a list of users.
 . Click *Create*.
@@ -214,7 +214,7 @@ Those maven artifacts are meant to be used from REST API extensions, using the f
 Those dependencies are automatically added when a REST API Extension is created from the Bonita Studio. It allows to manipulate Business Objects from a REST API Extension. +
 ℹ️ Only *read operations*  can be performed on business objects from a REST API Extension, even with the dao. Write operations are done through processes.
 
-Be aware that a poor implementation of a custom REST API accessing BDM objects can lead to poor performance results. See the xref:bdm-in-rest-api.adoc[best practice] on this matter.
+Be aware that a poor implementation of a custom REST API accessing BDM objects can lead to poor performance results. See the xref:ROOT:bdm-in-rest-api.adoc[best practice] on this matter.
 
 == Troubleshooting
 
@@ -272,5 +272,5 @@ return buildResponse(responseBuilder, HttpServletResponse.SC_OK,new JsonBuilder(
 
 We do not recommend to manage time zone at the Rest API level, as the local of the Rest API server, the Bonita Engine server, and the End User machine could be different.
 So we encourage you to manipulate UTC dates only server-side.
-You can see how we xref:datetimes-management-tutorial.adoc#_date_and_time_displayed_in_the_user_time_zone[manage the time zone using the date time picker]. This time zone should only be managed in the end user interface.
+You can see how we xref:ROOT:datetimes-management-tutorial.adoc#_date_and_time_displayed_in_the_user_time_zone[manage the time zone using the date time picker]. This time zone should only be managed in the end user interface.
 ====

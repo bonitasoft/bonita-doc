@@ -34,7 +34,7 @@ Such data can either be automatically stored in a database dedicated to business
 
 A connector is a link between a process and an external information system such as a database or information service. A number of standard connectors are provided, and you can create additional connectors if required. +
 Separating the connector configuration and implementation from the process means it is easier to update or replace the connector without having to modify the process. You can use the same connector in more than one process. +
-See the xref:connectivity-overview.adoc[Connectivity overview] for details.
+See the xref:ROOT:connectivity-overview.adoc[Connectivity overview] for details.
 
 == Organization
 
@@ -43,16 +43,16 @@ Typically, the organization corresponds to the hierarchy of teams within your bu
 If your clients and suppliers have access to your processes, those users must also be included in the organization. +
 You can also feed the Bonita Runtime by synchronizing with an external LDAP directory. +
 During process modelling, you need to create a draft organization in Bonita Studio with the main entities (groups, roles) to map it to process actors. +
-See the xref:organization-overview.adoc[Organization overview] for details.
+See the xref:ROOT:organization-overview.adoc[Organization overview] for details.
 
 == Actors
 
 An actor is a placeholder specified in the process definition for the users. Using an actor instead of specifying real people directly makes the process definition more flexible: when the list of users changes, you change only the process configuration, which can be done while the process is running. You can also use the same process definition with completely different sets of users, for example, if a service business sells a process to several clients. +
 Making the connection between the actor definition and the set of users is called actor mapping. +
-See xref:organization-management-in-bonita-bpm-studio.adoc[Configure a test organization] and xref:actors.adoc[actors] for details.
+See xref:ROOT:organization-management-in-bonita-bpm-studio.adoc[Configure a test organization] and xref:actors.adoc[actors] for details.
 
 == Environments and parameters
 
 An environment (available in the Bonita Enterprise, Performance, Efficiency, and Teamwork editions) is the context in which a process will run. +
 There are three standard environments: Local, Qualification, and Production. You can define additional environments that are useful when designing and deploying a process for your business. +
-A parameter is a piece of information in a process that has a value specific to the environment. See xref:environments.adoc[Environments] and xref:parameters.adoc[Parameters] for more details.
+A parameter is a piece of information in a process that has a value specific to the environment. See xref:ROOT:environments.adoc[Environments] and xref:parameters.adoc[Parameters] for more details.

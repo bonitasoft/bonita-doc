@@ -10,7 +10,7 @@ Each application can have its own layout.
 
 There is an example of layout in Bonita Applications, the "Bonita Layout".
 
-Layouts are xref:resource-management.adoc[added, exported, edited, and deleted] as resources in Bonita Applications.
+Layouts are xref:ROOT:resource-management.adoc[added, exported, edited, and deleted] as resources in Bonita Applications.
 
 == Use in applications
 
@@ -21,12 +21,12 @@ In a Non-Production or Production environment, a layout is imported as a .zip ar
 
 == Live update
 
-xref:live-update.adoc[Live update] allows the Administrator to update one element of the application in a situation of emergency.
+xref:ROOT:live-update.adoc[Live update] allows the Administrator to update one element of the application in a situation of emergency.
 
 === Edit the layout
 
-You can xref:resource-management.adoc]#modify[edit the content of a layout] by installing a new version.
+You can xref:ROOT:resource-management.adoc]#modify[edit the content of a layout] by installing a new version.
 
 === Modify the pages in an application
 
-You can xref:applications.adoc]#define-navigation[link another layout to an application] in the application descriptor.
+You can xref:ROOT:applications.adoc]#define-navigation[link another layout to an application] in the application descriptor.

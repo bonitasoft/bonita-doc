@@ -8,10 +8,10 @@
 
 === Fonctional
 
-Profiles work as permissions to give access to xref:applications.adoc[Living Applications]
+Profiles work as permissions to give access to xref:ROOT:applications.adoc[Living Applications]
 
 A profile is made of a name, a description, and a mapping with the organization entities.
-When used to access a Living Application, the application menu is defined in the xref:applicationCreation.adoc[application descriptor] itself.
+When used to access a Living Application, the application menu is defined in the xref:ROOT:applicationCreation.adoc[application descriptor] itself.
 
 All applications can use the default profiles *Administrator* and *User*.
 
@@ -82,7 +82,7 @@ In the mapping section you can map Users / Groups / Roles / Memberships to your 
 ⚠  Nodes in the group tree are *independent* ⚠  It means that mapping `/acme` to your profile won't map `/acme/hr` to it. Each node has to be mapped individually to be taken into account. However, you can easily add a whole part of your organization, using the _add subtree_ button:  select a node in the tree, and then click on _add subtree_.
 
 The Applications section provides quick access to the applications mapped to this profile. +
-For adding an application to a profile, open the application and assign the required profile by using xref:applicationCreation.adoc[application descriptor editor].
+For adding an application to a profile, open the application and assign the required profile by using xref:ROOT:applicationCreation.adoc[application descriptor editor].
 
 == Enable a profile
 

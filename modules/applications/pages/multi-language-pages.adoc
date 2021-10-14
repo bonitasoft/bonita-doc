@@ -19,7 +19,7 @@ You can translate all text strings displayed on a page, layout or form: the labe
 
 == How it works
 
-Each page has a xref:assets.adoc[localization asset] that contains the keys and the translations for all strings and all languages that the page supports, one section by language. +
+Each page has a xref:ROOT:assets.adoc[localization asset] that contains the keys and the translations for all strings and all languages that the page supports, one section by language. +
 The asset is a file, `localization.json`. Each language is identified by the ISO 639 language attribute (for example, fr-FR, es-ES). Open the default `localization.json` asset to see how this file must be formatted, and to update it with the needed strings and translations. +
 To use a localization asset, replace the default `localization.json` file with an updated `localization.json` file of the same format containing all the keys as well as the translations into the target languages. The format of file must be:
 
@@ -41,7 +41,7 @@ To use a localization asset, replace the default `localization.json` file with a
   ...
 ----
 
-The code that specifies a language in `localization.json` must be the same as the code in the `.po` files used to xref:languages.adoc#_add_a_new_language[add a new language].
+The code that specifies a language in `localization.json` must be the same as the code in the `.po` files used to xref:ROOT:languages.adoc#_add_a_new_language[add a new language].
 
 By default, translation keys are in en-US english texts. If you want to have custom texts, you can create a new translation section for en-US and handle it as a new translation. This option allows to freely change texts by avoiding duplicates on other language sections.
 
@@ -49,7 +49,7 @@ In production, a page, layout or form is displayed in the language specified by 
 
 == Tutorial: creating a multi-language page
 
-This tutorial explains how to create a multi-language version of the Travel Tool application page from the xref:getting-started-index.adoc[getting started tutorial], adding french and russian text to the page, initially developped in US-english. It assumes that you have already created the Travel Tool page following the instructions in the xref:design-application-page.adoc[getting started tutorial].
+This tutorial explains how to create a multi-language version of the Travel Tool application page from the xref:ROOT:getting-started-index.adoc[getting started tutorial], adding french and russian text to the page, initially developped in US-english. It assumes that you have already created the Travel Tool page following the instructions in the xref:design-application-page.adoc[getting started tutorial].
 French is supported by default in Bonita, along with US-english and Spanish. Russian is not.
 
 === Translate the text
@@ -79,7 +79,7 @@ Now translate the text outside of Bonita, in any suitable translation editor, or
 
 === Add a new language
 
-Before you can view a page in a language, that language must be supported for Bonita web applications. French is one of the default languages supported, so you just need to add support for Russian. To do this, xref:languages.adoc#_add_a_new_language[add Russian from the Community translations to your Bonita Runtime]. Then restart your Bonita Studio, start the Bonita Runtime, and change the language to Russian to check that it is available.
+Before you can view a page in a language, that language must be supported for Bonita web applications. French is one of the default languages supported, so you just need to add support for Russian. To do this, xref:ROOT:languages.adoc#_add_a_new_language[add Russian from the Community translations to your Bonita Runtime]. Then restart your Bonita Studio, start the Bonita Runtime, and change the language to Russian to check that it is available.
 
 === Add a localization asset to the page
 
@@ -129,7 +129,7 @@ In the UI Designer, import this file as an asset of the travel tool page. This w
 
 === Translate contents in custom widgets
 
-In the custom widget editor, use the the _uiTranslate_ filter or the _ui-translate_ directive to indicate the content to translate.   Then add the strings to the localization.json file of each page, layout and forms using it. See xref:custom-widgets.adoc[Custom widgets section] for more information.
+In the custom widget editor, use the the _uiTranslate_ filter or the _ui-translate_ directive to indicate the content to translate.   Then add the strings to the localization.json file of each page, layout and forms using it. See xref:ROOT:custom-widgets.adoc[Custom widgets section] for more information.
 
 === Translate content in fragments
 
@@ -155,7 +155,7 @@ NOTE: Always update the localization.json file as an asset and then export your 
 
 === Deploy
 
-To put a multi-language page into production in an application, follow the same steps as for a single-language page: xref:resource-management.adoc[upload the page to Bonita Runtime] and then xref:applications.adoc[add it to the application]. You can follow the steps for xref:create-application.adoc[creating an application] from scratch.
+To put a multi-language page into production in an application, follow the same steps as for a single-language page: xref:ROOT:resource-management.adoc[upload the page to Bonita Runtime] and then xref:applications.adoc[add it to the application]. You can follow the steps for xref:create-application.adoc[creating an application] from scratch.
 
 After deployment, an application user will see the page in the language configured for their Bonita web applications. A user can set this by selecting the language in the Bonita Layout. If the selected language is not supported by the page localization.json file, the untranslated keys are displayed.
 

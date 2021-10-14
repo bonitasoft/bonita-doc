@@ -124,7 +124,7 @@ The new logo is applied.
 So far, the Bonita Administrator Application is mostly thought for desktop and laptop screen sizes, as we believe this is the most likely screen sizes to be used to administrate Bonita. If you target mobile usage, you may need to rework the widgets display in the UI Designer in the application pages, but Bonita default layout is made to adapt to a mobile screen size.  +
 ====
 
-. Create a new xref:layout-development.adoc[layout] and make it available like a page (UI Designer or *Resources* if created in another IDE)
+. Create a new xref:ROOT:layout-development.adoc[layout] and make it available like a page (UI Designer or *Resources* if created in another IDE)
 . In the *Look & Feel* section of the application descriptor, clear the current layout content
 . Start typing the name of the layout
 . Select the new one from the autocomplete list
@@ -134,7 +134,7 @@ The new layout is applied.
 
 === Change its theme
 
-. Create a new xref:customize-living-application-theme.adoc[theme] 
+. Create a new xref:ROOT:customize-living-application-theme.adoc[theme] 
 . Go to the Administrator application > *Resources*
 . Install the new theme
 . Go back to the application descriptor
@@ -156,12 +156,12 @@ But you can reach one of our Professional Services team member to help you devel
 
 == Login and sign out
 
-To know more, go to the xref:log-in-and-log-out.adoc[dedicated page].
+To know more, go to the xref:ROOT:log-in-and-log-out.adoc[dedicated page].
 
 == Language selection
 
-To know more, go to the xref:languages.adoc[dedicated page].
+To know more, go to the xref:ROOT:languages.adoc[dedicated page].
 
 == Navigation between applications
 
-To know more, go to the xref:navigation.adoc[dedicated page].
+To know more, go to the xref:ROOT:navigation.adoc[dedicated page].

@@ -59,7 +59,7 @@ https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Javadoc].
 Note that the APIs are the same for the Teamwork, Efficiency, Performance and Enterprise editions, but some features are only active if the appropriate license is installed.
 If you try to access a feature for which you do not have a license, a _Feature not active_ error message is returned.
 
-There is also a high-level xref:rest-api-overview.adoc[Web REST API], intended for customers developing applications.
+There is also a high-level xref:ROOT:rest-api-overview.adoc[Web REST API], intended for customers developing applications.
 
 == API access
 

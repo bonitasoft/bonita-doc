@@ -16,11 +16,11 @@ In practice, this includes:
 
 The Administrator has the rights to:
 
-* xref:import-export-an-organization.adoc[install an organization exported from Bonita Studio]
-* xref:import-export-an-organization.adoc[export an organization from the Bonita Install / Export Organization page]
-* create, update, and delete groups, from the xref:admin-application-groups-list.adoc[Administrator application]
-* create, update, and delete roles, from the xref:admin-application-roles-list.adoc[Administrator application]
+* xref:ROOT:import-export-an-organization.adoc[install an organization exported from Bonita Studio]
+* xref:ROOT:import-export-an-organization.adoc[export an organization from the Bonita Install / Export Organization page]
+* create, update, and delete groups, from the xref:ROOT:admin-application-groups-list.adoc[Administrator application]
+* create, update, and delete roles, from the xref:ROOT:admin-application-roles-list.adoc[Administrator application]
 * create, update, and manage users and manage memberships, from the link:admin-application-users-list.adoc[Administrator application]
 
 When you first launch the Bonita Administrator Application in a Production environment, there is *no default organization*.
-You must xref:first-steps-after-setup.adoc[create a user and map it to the Administrator profile]. This user can than create and manage the organization.
+You must xref:ROOT:first-steps-after-setup.adoc[create a user and map it to the Administrator profile]. This user can than create and manage the organization.

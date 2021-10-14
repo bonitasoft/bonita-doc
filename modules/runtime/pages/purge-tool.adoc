@@ -10,7 +10,7 @@ By default, all archives are preserved forever in Bonita runtime, but if your fu
 
 [WARNING]
 ====
-The purge tool doesn't delete documents (stored in the DOCUMENT table) from the platform. It will only remove the mapping between the archived cases and the document itself. If you need to reduce the size of the Document table in the engine database, please refer to the documentation: xref:handling-documents.adoc#delete_document_archived_case[Delete documents of archived cases based on archive date]
+The purge tool doesn't delete documents (stored in the DOCUMENT table) from the platform. It will only remove the mapping between the archived cases and the document itself. If you need to reduce the size of the Document table in the engine database, please refer to the documentation: xref:ROOT:handling-documents.adoc#delete_document_archived_case[Delete documents of archived cases based on archive date]
 ====
 
 [NOTE]
@@ -94,4 +94,4 @@ However, this means that the time required to execute a purge will be the same w
 
 == Database deletion volume testing reference
 
-This xref:purge-tool-deletion-volume-testing.adoc[reference page] provides the tests run on all supported databases.
+This xref:ROOT:purge-tool-deletion-volume-testing.adoc[reference page] provides the tests run on all supported databases.

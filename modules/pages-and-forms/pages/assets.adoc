@@ -70,7 +70,7 @@ An image asset can be displayed in a custom widget (see the Custom widget editor
 
 === Localization asset
 
-The localization asset of a page is a local file called `localization.json` that contains the text presented in the page with translations into the languages that you want to support. This enables you to create xref:multi-language-pages.adoc[multi-language pages].
+The localization asset of a page is a local file called `localization.json` that contains the text presented in the page with translations into the languages that you want to support. This enables you to create xref:ROOT:multi-language-pages.adoc[multi-language pages].
 
 A page can not have more than one localization asset. When you upload a new `localization.json` asset file, it overwrites the existing one.
 

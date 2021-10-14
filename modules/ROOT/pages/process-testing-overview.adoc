@@ -13,9 +13,9 @@ You can test some process components individually:
 * Expressions: use the *_Evaluate_* feature of the Expression editor.
 
 You can run the process locally, launching it from Bonita Studio without first deploying it to Bonita Applications.
-You must xref:configure-a-test-organization.adoc[create a test organization]
-and xref:configuring-a-process.adoc[configure a process] before you can
-xref:run-a-process-from-bonita-bpm-studio-for-testing.adoc[run a process from Bonita Studio].
+You must xref:ROOT:configure-a-test-organization.adoc[create a test organization]
+and xref:ROOT:configuring-a-process.adoc[configure a process] before you can
+xref:ROOT:run-a-process-from-bonita-bpm-studio-for-testing.adoc[run a process from Bonita Studio].
 
 In addition to functional testing during development, we recommend that you monitor the system load. This will help evaluate the performance, so you can make your process efficient.
 

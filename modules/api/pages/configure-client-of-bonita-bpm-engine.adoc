@@ -88,7 +88,7 @@ org.bonitasoft.engine.api-type = LOCAL
 
 === Server configuration to accept HTTP Connection
 
-By default the xref:tomcat-bundle.adoc[Tomcat bundle] is configured to accept connection for HTTP connections.
+By default the xref:ROOT:tomcat-bundle.adoc[Tomcat bundle] is configured to accept connection for HTTP connections.
 
 It is configured in the `web.xml` file of the web application like this:
 

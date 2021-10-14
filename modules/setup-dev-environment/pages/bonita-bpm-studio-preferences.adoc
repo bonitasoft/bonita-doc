@@ -114,7 +114,7 @@ Advanced
 
 * Rename diagram the first time it is saved.
 * Do not show confirmation on connector definition edition.
-* SVN connector: the SVN connector used if you are using a remote SVN xref:workspaces-and-repositories.adoc[repository]. Note: if you change this your local working copy might become unstable. To avoid this, commit any outstanding changes before you modify the connector setting, and reinitialize your local working copy after the update
+* SVN connector: the SVN connector used if you are using a remote SVN xref:ROOT:workspaces-and-repositories.adoc[repository]. Note: if you change this your local working copy might become unstable. To avoid this, commit any outstanding changes before you modify the connector setting, and reinitialize your local working copy after the update
 
 Eclipse
    Give access to all Eclipse settings (Bonita Studio is based on Eclipse)
@@ -135,7 +135,7 @@ Eclipse
 
 You might need to edit the Tomcat configuration files for example to:
 
-* xref:logging.adoc[Configure logging]
+* xref:ROOT:logging.adoc[Configure logging]
 * Change listening ports (shutdown, AJP, h2) to prevent conflicts
 * Declare a datasource to connect to a business database
 

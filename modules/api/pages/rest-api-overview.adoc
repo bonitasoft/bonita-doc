@@ -8,7 +8,7 @@
 
 If your application is using a technology other than Java, you can integrate it with the Bonita solution using the Web REST API. This API provides access to all Bonita objects (like processes, tasks, users, connectors etc.), to execute operations on them (create, retrieve, update, delete). You can use these operations to create a workflow with Bonita and integrate it into your application. The Bonita Engine remains responsible for executing the workflow logic (connectors, gateways with conditions, messages, timers etc.) while your application gives access to the workflow. Users can manage processes and tasks, and perform administrative activities.
 
-Access to the Web REST API depends on xref:rest-api-authorization.adoc[REST API authorization] settings.
+Access to the Web REST API depends on xref:ROOT:rest-api-authorization.adoc[REST API authorization] settings.
 
 image::images/rest_api_architecture_overview.png[diagram of architecture of a REST client integrated with Bonita]
 
@@ -20,7 +20,7 @@ There are three phases of operation for an application that is integrated with B
 
 === Authenticate to Bonita
 
-See xref:rest-api-authentication.adoc[REST Authentication] details to understand how to login from Bonita REST APIs.
+See xref:ROOT:rest-api-authentication.adoc[REST Authentication] details to understand how to login from Bonita REST APIs.
 
 To log in, use the following request:
 
@@ -54,22 +54,22 @@ Make sure your application has authentified your user before calling other APIs 
 
 After the application is connected to the Bonita Engine, you can start calling API methods. The following is a typical scenario for an end user.
 
-. xref:bpm-api.adoc#case[Start a new case with variables]: Provide a form for the user to enter initial data. Then call the method to start a new case using the values entered by the user to initialize some variables. The engine will start the execution of the process. Depending on the design of your process, there might then be some human tasks available for the end user.
-. xref:bpm-api.adoc#human-task[List the pending tasks for a user]: Retrieve a list of available human tasks for the logged in user. When the user selects a task to do, you can display the corresponding form. It can be an external form or a Bonita form that can be accessed by url.
-. xref:bpm-api.adoc#activity[Update variables and execute a task]: If your application is using an external form, update the values of the variables in your process.
+. xref:ROOT:bpm-api.adoc#case[Start a new case with variables]: Provide a form for the user to enter initial data. Then call the method to start a new case using the values entered by the user to initialize some variables. The engine will start the execution of the process. Depending on the design of your process, there might then be some human tasks available for the end user.
+. xref:ROOT:bpm-api.adoc#human-task[List the pending tasks for a user]: Retrieve a list of available human tasks for the logged in user. When the user selects a task to do, you can display the corresponding form. It can be an external form or a Bonita form that can be accessed by url.
+. xref:ROOT:bpm-api.adoc#activity[Update variables and execute a task]: If your application is using an external form, update the values of the variables in your process.
 You can use a method to update process or activity variables with values coming from your application. When the user submits the external form, you can call a method to execute a task.
 The engine will then continue the execution of the workflow as designed.
-. xref:bpm-api.adoc#connector-instance[Handle tasks in error]: Get a list of tasks that are in the failed state, and then replay each task by doing three steps: get the list of failed connectors, reset the state of failed connectors and replay the failed task.
+. xref:ROOT:bpm-api.adoc#connector-instance[Handle tasks in error]: Get a list of tasks that are in the failed state, and then replay each task by doing three steps: get the list of failed connectors, reset the state of failed connectors and replay the failed task.
 
 === Logout from Bonita
 
 When processing is complete, you must log out.
 
-See xref:rest-api-authentication.adoc[REST Authentication] details to understand how to logout from Bonita REST APIs.
+See xref:ROOT:rest-api-authentication.adoc[REST Authentication] details to understand how to logout from Bonita REST APIs.
 
 == API Extensions
 
-You can create xref:rest-api-extensions.adoc[Rest API Extensions] to extend the Rest API by adding missing ressources (not provided by the Rest API).
+You can create xref:ROOT:rest-api-extensions.adoc[Rest API Extensions] to extend the Rest API by adding missing ressources (not provided by the Rest API).
 It is possible for an extension to interact with the engine (via the API) or with any other external service (for example a database, a directory, or a web service).
 
 == Create a resource
@@ -211,7 +211,7 @@ Example
 The required object is specified with a set of filters in the request URL. The URL parameters must be URL-encoded.
 
 Results are returned in a paged list, so you have to specify the page (counting from zero), and the number of results per page (count), additionally you can define a sort key (order). You can see the total number of matching results in the HTTP response header Content-Range.
-If you are searching for business data using a custom query, there must be a xref:define-and-deploy-the-bdm.adoc[count query in the BDM]. If there is no count query, results from a custom query on business data cannot be paged properly (the header Content-Range will be absent).
+If you are searching for business data using a custom query, there must be a xref:ROOT:define-and-deploy-the-bdm.adoc[count query in the BDM]. If there is no count query, results from a custom query on business data cannot be paged properly (the header Content-Range will be absent).
 For business data default queries, the count query is defined automatically.
 
 The available filters are the attributes of the item plus some specific filters defined by each item.
@@ -239,7 +239,7 @@ For a GET method that retrieves more than one instance of a resource, you can sp
 * o: order of presentation of values in response: must be either `attributeName ASC` or `attributeName DESC`. The final order parameter value must be URL encoded.
 * f: list of filters, specified as `attributeName=attributeValue`. To filter on more than one attribute, specify an f parameters for each attribute. The final filter parameter value must be URL encoded.
 The attributes you can filter on are specific to the resource.
-* s: search on name or search keys. The matching policy depends on the configuration of xref:using-list-and-search-methods.adoc[word-based search].
+* s: search on name or search keys. The matching policy depends on the configuration of xref:ROOT:using-list-and-search-methods.adoc[word-based search].
 For example, if word-based search is enabled, `s=Valid` returns matches containing the string "valid" at the start of any word in the attribute value word,
 such as "Valid address", "Not a valid address", and "Validated request" but not "Invalid request".
 If word-based search is disabled, `s=Valid` returns matches containing the string "valid" at the start of the attribute value, such as "Valid address" or "Validated request" but not "Not a valid address" or "Invalid request".

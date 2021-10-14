@@ -12,22 +12,22 @@ In the case of Bonita Runtime, after the update, a process continues to run unch
 
 [.card.card-index]
 --
-xref:product-versioning.adoc[[.card-title]#Bonita versions# [.card-body.card-content-overflow]#pass:q[When and How Bonita is released / What the versioning implies]#]
+xref:ROOT:product-versioning.adoc[[.card-title]#Bonita versions# [.card-body.card-content-overflow]#pass:q[When and How Bonita is released / What the versioning implies]#]
 --
 
 [.card.card-index]
 --
-xref:update-studio.adoc[[.card-title]#Updating Bonita Studio# [.card-body.card-content-overflow]#pass:q[The recomended flow to update the development environment]#]
+xref:ROOT:update-studio.adoc[[.card-title]#Updating Bonita Studio# [.card-body.card-content-overflow]#pass:q[The recomended flow to update the development environment]#]
 --
 
 [.card.card-index]
 --
-xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[[.card-title]#Updating Bonita Runtime# [.card-body.card-content-overflow]#pass:q[At a glance: Flow, Best Practices and caveat]#]
+xref:ROOT:migrate-from-an-earlier-version-of-bonita-bpm.adoc[[.card-title]#Updating Bonita Runtime# [.card-body.card-content-overflow]#pass:q[At a glance: Flow, Best Practices and caveat]#]
 --
 
 [.card.card-index]
 --
-xref:migrate-a-form-from-6-x.adoc[[.card-title]#Migrating a form from Bonita 6# [.card-body.card-content-overflow]#pass:q[Make the 6.X projects UI compatible with Bonita 7]#]
+xref:ROOT:migrate-a-form-from-6-x.adoc[[.card-title]#Migrating a form from Bonita 6# [.card-body.card-content-overflow]#pass:q[Make the 6.X projects UI compatible with Bonita 7]#]
 --
 
 
@@ -36,5 +36,5 @@ xref:migrate-a-form-from-6-x.adoc[[.card-title]#Migrating a form from Bonita 6# 
 
 [.card.card-index]
 --
-xref:upgrade-from-community-to-a-subscription-edition.adoc[[.card-title]#Upgrading from Community to Enterprise# [.card-body.card-content-overflow]#pass:q[Access to another level of services]#]
+xref:ROOT:upgrade-from-community-to-a-subscription-edition.adoc[[.card-title]#Upgrading from Community to Enterprise# [.card-body.card-content-overflow]#pass:q[Access to another level of services]#]
 --

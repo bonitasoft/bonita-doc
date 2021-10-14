@@ -1,6 +1,6 @@
 = User process list
 :page-aliases: ROOT:user-process-list.adoc
-:description: This page explains what a user can see and do about processes in the xref:user-application-overview.adoc[Bonita User Application].
+:description: This page explains what a user can see and do about processes in the xref:ROOT:user-application-overview.adoc[Bonita User Application].
 
 {description}
 
@@ -37,4 +37,4 @@ That means that you can click in the left part of the instantiation form to come
 . Click on the button ("Submit" or else)
 The instance is created.
 
-To know more about the creation of the process instantiation form, go to the xref:create-web-user-interfaces.adoc[Getting started tutorial]
+To know more about the creation of the process instantiation form, go to the xref:ROOT:create-web-user-interfaces.adoc[Getting started tutorial]

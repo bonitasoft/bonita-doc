@@ -289,7 +289,7 @@ If the logout flow supported by your OIDC provider is not the same as the one su
 
 == Troubleshoot
 
-To troubleshoot SSO login issues, you need to increase the xref:logging.adoc[log level] to `FINE` for the packages `org.bonitasoft`, `com.bonitasoft`, and `ALL` for `org.keycloak` in order for errors to be displayed in the log files `bonita-*.log` (by default, they are not).
+To troubleshoot SSO login issues, you need to increase the xref:ROOT:logging.adoc[log level] to `FINE` for the packages `org.bonitasoft`, `com.bonitasoft`, and `ALL` for `org.keycloak` in order for errors to be displayed in the log files `bonita-*.log` (by default, they are not).
 
 In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/logging.properties.`
 
@@ -336,7 +336,7 @@ However, when you create a user in Bonita Applications, specifying a password is
 
 == LDAP synchronizer and OIDC
 
-If you are using an LDAP service and the xref:ldap-synchronizer.adoc[LDAP synchronizer] to manage your user data, +
+If you are using an LDAP service and the xref:ROOT:ldap-synchronizer.adoc[LDAP synchronizer] to manage your user data, +
 you can continue to do this and manage authentication over OIDC. +
 The LDAP synchronizer user must be registered in Bonita (no need for an OIDC account). It is recommended though to use the tenant admin account.
 We recommend that you use LDAP as your master source for information, synchronizing the relevant information with your Bonita platform.
@@ -344,7 +344,7 @@ We recommend that you use LDAP as your master source for information, synchroniz
 [NOTE]
 ====
 
-By default the xref:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `oidc.auth.standard.allowed` in *authenticationManager-config.properties*), users won't be able to log in with the Bonita login page directly without going through the OIDC provider authentication. +
+By default the xref:ROOT:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `oidc.auth.standard.allowed` in *authenticationManager-config.properties*), users won't be able to log in with the Bonita login page directly without going through the OIDC provider authentication. +
 ====
 
 [#rest-api]

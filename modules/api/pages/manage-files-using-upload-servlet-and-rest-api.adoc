@@ -26,7 +26,7 @@ This file name can be used to link those files with any REST resources.
 [NOTE]
 ====
 
-For `/API/formFileUpload`, you indeed need to pass the xref:csrf-security.adoc[CSRF token] in the request. It is expected to be present as one of the form data of the request (contrary to the REST API which expects it in the request headers). The name of this form-data needs to be "CSRFToken" and the value, the content of the X-Bonita-API-Token cookie.
+For `/API/formFileUpload`, you indeed need to pass the xref:ROOT:csrf-security.adoc[CSRF token] in the request. It is expected to be present as one of the form data of the request (contrary to the REST API which expects it in the request headers). The name of this form-data needs to be "CSRFToken" and the value, the content of the X-Bonita-API-Token cookie.
 ====
 
 == Example

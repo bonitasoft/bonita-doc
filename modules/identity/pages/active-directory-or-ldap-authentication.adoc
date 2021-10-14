@@ -11,8 +11,8 @@ For Enterprise, Performance, Efficiency, and Teamwork editions only.
 
 *Important notes:*
 
-* This documentation applies to an existing and working Bonita installation (see the xref:bonita-bpm-installation-overview.adoc[installation instructions]).
-* In order to have functioning Active Directory/LDAP authentication, the user login (username) must exist both in the LDAP directory and in the Bonita database (user password is checked against the LDAP server but user information is read from Bonita database).  We recommend that you use the xref:ldap-synchronizer.adoc[LDAP synchronizer] to create Bonita users in a Bonita database.
+* This documentation applies to an existing and working Bonita installation (see the xref:ROOT:bonita-bpm-installation-overview.adoc[installation instructions]).
+* In order to have functioning Active Directory/LDAP authentication, the user login (username) must exist both in the LDAP directory and in the Bonita database (user password is checked against the LDAP server but user information is read from Bonita database).  We recommend that you use the xref:ROOT:ldap-synchronizer.adoc[LDAP synchronizer] to create Bonita users in a Bonita database.
 
 == Overview
 
@@ -115,7 +115,7 @@ We recommend that you name your JAAS configuration file `jaas.cfg` and that you 
 === Changing Bonita authentication service
 
 The default Bonita installation comes with an authentication service implementation based on the Bonita Engine database. In
-order to activate Active Directory/LDAP authentication the service implementation needs to be changed. To do this, edit xref:bonita-platform-setup.adoc[`bonita-tenant-sp-custom.properties`].
+order to activate Active Directory/LDAP authentication the service implementation needs to be changed. To do this, edit xref:ROOT:bonita-platform-setup.adoc[`bonita-tenant-sp-custom.properties`].
 
 You will need to perform following changes:
 
@@ -125,8 +125,8 @@ You will need to perform following changes:
 === Configure JAAS
 
 To define the JAAS configuration file location you need to set a JVM property, `java.security.auth.login.config`.
-If you're using a xref:custom-deployment.adoc[`custom deployment into existing Tomcat`] installation, you need to edit the `setenv` script provided with Bonita and located in `<BUNDLE_HOME>/server/bin` folder.
-If you're using the xref:tomcat-bundle.adoc[`tomcat bundle`] installation, you need to edit the `setenv` script provided with Bonita and located in `<BUNDLE_HOME>/setup/tomcat-templates` folder.
+If you're using a xref:ROOT:custom-deployment.adoc[`custom deployment into existing Tomcat`] installation, you need to edit the `setenv` script provided with Bonita and located in `<BUNDLE_HOME>/server/bin` folder.
+If you're using the xref:ROOT:tomcat-bundle.adoc[`tomcat bundle`] installation, you need to edit the `setenv` script provided with Bonita and located in `<BUNDLE_HOME>/setup/tomcat-templates` folder.
 
 [discrete]
 ==== For Linux and Mac OS
