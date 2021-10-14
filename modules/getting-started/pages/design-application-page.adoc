@@ -1,5 +1,6 @@
 = Design an application page
 :description: So far, with a process, data, forms, and connectors, we've built a fully functional software solution to manage claims. But what if you need to have a dashboard showing all ongoing claims? Such a dashboard is not a process. You should not have to "start" it in order to view it.
+:page-aliases: ROOT:design-application-page.adoc
 
 {description}
 

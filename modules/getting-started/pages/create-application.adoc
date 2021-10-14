@@ -1,7 +1,6 @@
 = Create an application
-:description: :experimental:
-
-:experimental:
+:description: getting started tutorial - create an application
+:page-aliases: ROOT:create-application.adoc
 
 The last step of this Getting Started tutorial is to create an application.
 

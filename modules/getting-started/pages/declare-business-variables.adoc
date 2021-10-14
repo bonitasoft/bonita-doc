@@ -1,7 +1,6 @@
 = Declare business variables
-:description: :experimental:
-
-:experimental:
+:description: getting started tutorial - decalre business variables
+:page-aliases: ROOT:declare-business-variables.adoc
 
 For your process to perform operations on business data such as the classic create, read, update and delete operations, you'll need to include business variables in your process definition.
 

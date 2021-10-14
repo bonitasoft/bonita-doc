@@ -1,7 +1,6 @@
 = Declare contracts
-:description: :experimental:
-
-:experimental:
+:description: getting started tutorial - declare contracts
+:page-aliases: ROOT:declare-contracts.adoc
 
 So far our process defines a sequences of events and tasks, and declares a business variable that it will instantiate and update when executed.
 
