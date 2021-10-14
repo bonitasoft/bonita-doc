@@ -1,7 +1,8 @@
 = Documents
-:description: Some processes require documents to provide supplementary information, or to manipulate business information. +
+:page-aliases: ROOT:documents.adoc
+:description: Some processes require documents to provide supplementary information, or to manipulate business information.
 
-Some processes require documents to provide supplementary information, or to manipulate business information. +
+{description}
 
 == Examples of use case
 

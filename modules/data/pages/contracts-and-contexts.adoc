@@ -1,5 +1,6 @@
 = Contracts and contexts
-:description: == Overview
+:page-aliases: ROOT:contracts-and-contexts.adoc
+:description: Contracts and contexts in Bonita
 
 == Overview
 

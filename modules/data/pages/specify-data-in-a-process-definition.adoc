@@ -1,7 +1,8 @@
 = Specify data in a process definition
+:page-aliases: ROOT:specify-data-in-a-process-definition.adoc
 :description: This page explains how to handle data (variables and documents) in a process, including specifying process and task-level data.
 
-This page explains how to handle data (variables and documents) in a process, including specifying process and task-level data.
+{description}
 
 == Variable scope
 

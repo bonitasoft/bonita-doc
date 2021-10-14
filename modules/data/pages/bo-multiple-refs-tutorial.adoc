@@ -1,7 +1,8 @@
 = How to manage multiple references in Business Objects
+:page-aliases: ROOT:bo-multiple-refs-tutorial.adoc
 :description: Tutorial for managing multiple references in the BDM Business Objects.
 
-Tutorial for managing multiple references in the BDM Business Objects.
+{description}
 
 == Introduction
 

@@ -1,7 +1,8 @@
 = Data Management in the UI Designer
-:description: Discover how to explore xref:define-business-data-model.adoc[Business Data Model] (BDM) objects in the UI Designer, and use it to create user interfaces and variables.
+:page-aliases: ROOT:data-management.adoc
+:description: Discover how to explore the Business Data Model (BDM) objects in the UI Designer, and howe to use it to create user interfaces and variables.
 
-Discover how to explore xref:define-business-data-model.adoc[Business Data Model] (BDM) objects in the UI Designer, and use it to create user interfaces and variables.
+Discover how to explore the xref:define-business-data-model.adoc[Business Data Model] (BDM) objects in the UI Designer, and how to use it to create user interfaces and variables.
 
 A *Data Model* tab is available from the Palette of the Page editor:
 
