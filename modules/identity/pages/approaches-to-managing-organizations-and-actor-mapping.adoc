@@ -1,4 +1,5 @@
 = Manage organization, actors and users within Bonita
+:page-aliases: ROOT:approaches-to-managing-organizations-and-actor-mapping.adoc
 :description: Bonita requires to define organizations, actors and users to execute your process
 
 {description}

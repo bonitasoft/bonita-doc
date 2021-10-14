@@ -1,11 +1,11 @@
 = SSO Log in with CAS
+:page-aliases: ROOT:log-in-with-cas.adoc
 :description: Use CAS as your Single Sign On (SSO) authentication server to log into Bonita Runtime or REST APIs.
 
 {description}
 
 [NOTE]
 ====
-
 For Enterprise, Performance and Efficiency editions only.
 ====
 

@@ -1,7 +1,8 @@
 = How to map authorization rules
+:page-aliases: ROOT:custom-authorization-rule-mapping.adoc
 :description: Custom authorization can be configured for pages and forms to restrict the access to selected profiles or users.
 
-Custom authorization can be configured for pages and forms to restrict the access to selected profiles or users.
+{description}
 
 == Introduction
 

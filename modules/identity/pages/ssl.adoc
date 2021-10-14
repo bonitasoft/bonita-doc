@@ -1,4 +1,5 @@
 = SSL configuration
+:page-aliases: ROOT:ssl.adoc
 :description: It is possible to set up SSL in your Bonita server. This enables you to use secure HTTP (HTTPS) to access the Bonita Applications.
 
 {description}

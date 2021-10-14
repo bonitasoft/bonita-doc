@@ -1,4 +1,5 @@
 = Organization management in Bonita Studio
+:page-aliases: ROOT:organization-management-in-bonita-bpm-studio.adoc
 :description: Organization is the set of users, groups and roles. It is used indirectly to define privileges for tasks execution, applications, API, etc.
 
 {description}

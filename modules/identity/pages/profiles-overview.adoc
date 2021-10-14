@@ -1,7 +1,8 @@
 = Profiles overview
+:page-aliases: ROOT:profiles-overview.adoc
 :description: A profile is an indirection to some entities of the organization: users, groups, roles, and/or memberships.
 
-A profile is an indirection to some entities of the organization: users, groups, roles, and/or memberships.
+{description} +
 Profiles work as permissions to give access to:
 
 * xref:applications.adoc[Living Applications]

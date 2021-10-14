@@ -1,4 +1,5 @@
 = Organization overview
+:page-aliases: ROOT:organization-overview.adoc
 :description: Concepts of actors and organizations in Bonita.
 
 {description}
