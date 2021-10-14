@@ -1,4 +1,5 @@
 = CSRF security
+:page-aliases: ROOT:csrf-security.adoc
 :description: Bonita REST API is secured against Cross-Site Request Forgery (CSRF) attacks.
 
 {description}
