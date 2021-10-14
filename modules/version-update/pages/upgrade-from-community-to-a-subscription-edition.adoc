@@ -1,5 +1,6 @@
 = Upgrading from Community to Enterprise
 :description: Learn how to change Bonita edition: move from a Bonita Community to any Bonita Enterprise or vice-versa
+:page-aliases: ROOT:upgrade-from-community-to-a-subscription-edition.adoc
 
 {description}
 
