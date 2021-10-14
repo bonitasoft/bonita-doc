@@ -1,4 +1,5 @@
 = Create a case overview page using the UI Designer
+:page-aliases: ROOT:uid-case-overview-tutorial.adoc
 :description: Understand what is and how to create a case overview page by following this step-by-step tutorial.
 
 {description}

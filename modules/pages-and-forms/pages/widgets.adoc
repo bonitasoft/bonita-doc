@@ -1,7 +1,8 @@
 = UI Designer Embedded widgets
+:page-aliases: ROOT:widgets.adoc
 :description: The UI Designer provides a set of default widgets that you can use or customize to design a page or form.
 
-The UI Designer provides a set of default widgets that you can use or customize to design a page or form.
+{description}
 
 == Difference between page and form
 

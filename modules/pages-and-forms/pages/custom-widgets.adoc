@@ -1,7 +1,8 @@
 = UI Designer Custom widgets
-:description: To extend the xref:widgets.adoc[standard widgets], develop your custom widgets using HTML, AngularJS and Javascript.
+:page-aliases: ROOT:custom-widgets.adoc
+:description: To extend the standard widgets, develop your custom widgets using HTML, AngularJS and Javascript.
 
-To extend the xref:widgets.adoc[standard widgets], develop your custom widgets using HTML, AngularJS and Javascript.
+{To extend the xref:widgets.adoc[standard widgets], develop your custom widgets using HTML, AngularJS and Javascript.}
 
 After creation, custom widgets are available in the palette to design pages, application layouts, forms or fragments.
 

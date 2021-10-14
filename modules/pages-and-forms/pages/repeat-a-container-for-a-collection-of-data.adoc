@@ -1,7 +1,8 @@
 = Repeat a container for a collection of data
+:page-aliases: ROOT:repeat-a-container-for-a-collection-of-data.adoc
 :description: Reuse a container inside a form more than once times to insert multiple-type data.
 
-Reuse a container inside a form more than once times to insert multiple-type data.
+{description}
 
 == Overview
 

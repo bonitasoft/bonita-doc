@@ -1,7 +1,8 @@
 = Assets
+:page-aliases: ROOT:assets.adoc
 :description: Assets enable you to add web resources to pages, layouts and forms. You can use JavaScript, CSS, image, and localization asset type.
 
-Assets enable you to add web resources to pages, layouts and forms. You can use JavaScript, CSS, image, and localization asset type.
+{description}
 
 == Assets location
 
