@@ -1,7 +1,6 @@
 = Define business data model (BDM)
-:description: :experimental:
-
-:experimental:
+:description: getting started tutorial - define business data model
+:page-aliases: ROOT:define-business-data-model.adoc
 
 The Bonita platform provides a means to define, manipulate and store your business data. This data management service will create Java objects to allow data manipulation, database tables for storage, and all operations required to get the data from your process into the database and vice versa.
 

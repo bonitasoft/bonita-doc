@@ -1,7 +1,6 @@
 = Configure an email connector
-:description: :experimental:
-
-:experimental:
+:description: getting started tutorial - configure email connector
+:page-aliases: ROOT:configure-email-connector.adoc
 
 Bonita provides connectors for a process to interact with external systems, such as publishing a document on a CMS, calling a REST API, or sending an email. In this example we will configure an email connector, to send a notification to the manager that the task _Deal with unsatisfied customer_ requires their attention.
 
