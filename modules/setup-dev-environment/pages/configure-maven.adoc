@@ -1,4 +1,5 @@
 = Configure Maven from Bonita Studio
+:page-aliases: ROOT:configure-maven.adoc
 :description: Update maven configuration to add repositories, proxy, mirrors, servers and encrypt passwords.
 
 This page explains how to configure Maven from Bonita Studio. You have the possibility to add repositories, servers, proxies, and mirrors, and also to encrypt your passwords from the UI.

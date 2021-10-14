@@ -1,4 +1,5 @@
 = Share a Bonita project with Git or SVN
+:page-aliases: ROOT:shared-project.adoc
 :description: Bonita offers the possibility to share projects with Git or SVN. Sharing a project allows to improve teamwork effectiveness.
 
 {description}

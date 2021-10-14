@@ -1,4 +1,5 @@
 = Set up the Development Environment
+:page-aliases: ROOT:setup-dev-environment-index.adoc
 :description: A description of all Bonita features that allow the creation of a customized, shared, and automated development environment.
 
 {description}
