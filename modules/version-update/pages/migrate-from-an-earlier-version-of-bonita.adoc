@@ -1,6 +1,6 @@
 = Updating Bonita Runtime
 :description: This page explains how to update Bonita Runtime (single or multiple nodes) to a newer version of Bonita.
-:page-aliases: migrate-from-an-earlier-version-of-bonita-bpm.adoc
+:page-aliases: ROOT:migrate-from-an-earlier-version-of-bonita-bpm.adoc
 
 {description}
 
