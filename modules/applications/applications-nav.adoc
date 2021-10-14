@@ -1,0 +1,16 @@
+* xref:custom-applications-index.adoc[Applications]
+ ** xref:application-creation.adoc[Application descriptor]
+ ** xref:layout-development.adoc[Layout]
+  *** xref:bonita-layout.adoc[Bonita Layout]
+  *** xref:customize-layouts.adoc[Customize layouts]
+  *** xref:uid-vertical-tabs-container-tutorial.adoc[How to create a vertical tabs container for all devices]
+ ** xref:appearance.adoc[Appearance]
+  *** xref:themes.adoc[Theme]
+  *** xref:customize-living-application-theme.adoc[Theme customization]
+ ** xref:navigation.adoc[Navigation between applications]
+ ** Translation
+  *** xref:multi-language-applications.adoc[Multi-language applications]
+  *** xref:multi-language-pages.adoc[Multi-language pages]
+  *** xref:languages.adoc[Languages]
+ ** Adaptive Case Management example 
+  *** xref:use-bonita-acm.adoc[Enable Adaptive Case Management with Bonita]

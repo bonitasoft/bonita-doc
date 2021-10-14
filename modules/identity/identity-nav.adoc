@@ -1,0 +1,26 @@
+* Identity Management
+ ** Authorization
+  *** xref:organization-overview.adoc[Organization]
+   **** xref:approaches-to-managing-organizations-and-actor-mapping.adoc[Approaches to managing organizations and actor mapping]
+   **** xref:organization-management-in-bonita-bpm-studio.adoc[Organization management in Bonita Studio]
+   **** xref:custom-user-information-in-bonita-bpm-studio.adoc[Custom User Information in Bonita Studio]
+  *** xref:profiles-overview.adoc[Profiles]
+   **** xref:profile-creation.adoc[Profile editor]
+  *** xref:special-users.adoc[Special users]
+  *** xref:rest-api-authorization.adoc[REST API authorization]
+  *** xref:custom-authorization-rule-mapping.adoc[Authorization rules]
+  *** xref:bdm-access-control.adoc[BDM access control]
+ ** Authentication
+  *** xref:user-authentication-overview.adoc[Overview]
+  *** xref:active-directory-or-ldap-authentication.adoc[Active Directory or LDAP authentication]
+  *** xref:ldap-synchronizer.adoc[LDAP synchronizer]
+  *** SSO
+   **** xref:single-sign-on-with-cas.adoc[CAS]
+    ***** xref:log-in-with-cas.adoc[Log in with CAS]
+   **** xref:single-sign-on-with-saml.adoc[SAML]
+   **** xref:single-sign-on-with-oidc.adoc[OIDC]
+   **** xref:single-sign-on-with-kerberos.adoc[Kerberos]
+  *** xref:enforce-password-policy.adoc[Enforce password policy]
+  *** xref:ssl.adoc[SSL]
+  *** xref:tenant-admin-credentials.adoc[Tenant administrator credentials]
+  *** xref:guest-user.adoc[Guest user access]

@@ -1,0 +1,3 @@
+* xref:project-best-practices-index.adoc[Project best practices]
+ ** xref:project-documentation-generation.adoc[Teamwork]
+ ** xref:design-methodology.adoc[Project phases]

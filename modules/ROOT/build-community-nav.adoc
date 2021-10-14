@@ -1,0 +1,1 @@
+* xref:building-community-edition-from-source.adoc[Contributing to Bonita]
