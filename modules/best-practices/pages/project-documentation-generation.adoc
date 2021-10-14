@@ -1,4 +1,5 @@
 = Generate project documentation
+:page-aliases: ROOT:project-documentation-generation.adoc
 :description: How to generate the project documentation in Bonita Studio.
 
 How to generate the project documentation in Bonita Studio.
