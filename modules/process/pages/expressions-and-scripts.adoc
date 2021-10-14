@@ -1,4 +1,5 @@
 = Process Expressions and scripts
+:page-aliases: ROOT:expressions-and-scripts.adoc
 :description: Learn how to define Expressions and script in Bonita Studio that will be executed in your processes.
 
 Learn how to define Expressions and script in Bonita Studio that will be executed in your *processes*.

@@ -1,7 +1,8 @@
 = Event subprocesses
+:page-aliases: ROOT:event-subprocesses.adoc
 :description: An Event Subprocess can be called by a parent process to handle exceptions or a case.
 
-An Event Subprocess can be called by a parent process to handle exceptions or a case.
+{description}
 
 == Definition
 

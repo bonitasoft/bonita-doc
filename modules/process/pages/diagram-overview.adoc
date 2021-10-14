@@ -1,4 +1,5 @@
 = Process Diagram overview
+:page-aliases: ROOT:diagram-overview.adoc
 :description: A process diagram is the representation in the Bonita studio of a group of processes (BPMN pools). A process diagram saved, deployed all pools in one action
 
 {description}

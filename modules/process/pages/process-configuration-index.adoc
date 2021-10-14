@@ -1,4 +1,5 @@
 = Process configuration 
+:page-aliases: ROOT:process-configuration-index.adoc
 :description: This pages describes how to configure your processes for a given environment.
 
 {description} 

@@ -1,6 +1,6 @@
 = Bonita's purpose
-:description: This page gives an overview of the values of Bonita Platform, as well as the business use-cases Bonita helps solve, both through types of automation projects and industry verticals.
 :page-aliases: ROOT:bonita-purpose.adoc
+:description: This page gives an overview of the values of Bonita Platform, as well as the business use-cases Bonita helps solve, both through types of automation projects and industry verticals.
 
 {description}
 

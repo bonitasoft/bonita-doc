@@ -1,7 +1,8 @@
 = Script connectors
+:page-aliases: ROOT:script.adoc
 :description: Script connectors allows to execute groovy scripts and system scripts in your processes.
 
-Script connectors allows to execute groovy scripts and system scripts in your processes.
+{description}
 
 == Existing connectors
 

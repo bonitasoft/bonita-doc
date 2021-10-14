@@ -1,4 +1,5 @@
 = Logging in Bonita components
+:page-aliases: ROOT:logging.adoc
 :description: Learn how to view and configure logging of Bonita components.
 
 {description}

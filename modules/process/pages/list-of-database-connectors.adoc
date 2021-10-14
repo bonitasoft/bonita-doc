@@ -1,7 +1,8 @@
 = List of default relational database connectors
+:page-aliases: ROOT:list-of-database-connectors.adoc
 :description: A complete list of all database connectors available in Bonita for the major relational database vendors (e.g. Oracle, MySQL, PostgreSQL...).
 
-A complete list of all database connectors available in Bonita for the major relational database vendors (e.g. Oracle, MySQL, PostgreSQL...).
+{description}
 
 This page lists the database connectors provided with Bonita. For some connectors there are special considerations, included in a section below.
 

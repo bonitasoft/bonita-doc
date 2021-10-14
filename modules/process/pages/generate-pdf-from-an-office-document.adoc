@@ -1,7 +1,8 @@
 = Generate a PDF from an Office document
+:page-aliases: ROOT:generate-pdf-from-an-office-document.adoc
 :description: How to use the Generate PDF from an Office document connector.
 
-How to use the Generate PDF from an Office document connector.
+{description}
 
 == Description
 

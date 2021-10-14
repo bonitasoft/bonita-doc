@@ -1,4 +1,5 @@
 = Create a connector using the connector maven archetype
+:page-aliases: ROOT:connector-archetype.adoc
 :description: This page explain how to create and test custom connectors using the provided maven archetype.
 
 Bonita offers the possibility to create and plug custom connectors, to allow you to connect with any external system you may need. +

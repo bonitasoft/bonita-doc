@@ -1,7 +1,8 @@
 = Email connector
+:page-aliases: ROOT:messaging.adoc
 :description: This connector will send an email message when activated.
 
-This connector will send an email message when activated.
+{description}
 
 There is no output returned.
 

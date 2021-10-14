@@ -1,4 +1,5 @@
 = Events
+:page-aliases: ROOT:events.adoc
 :description: This section will define different types of events and provide information on their usage.
 
 {description}

@@ -1,7 +1,8 @@
 = Operations to update variables value
+:page-aliases: ROOT:operations.adoc
 :description: An operation is an action that updates the value of a variable when a task is executed. You can specify any number of operations per task, they are executed in the order they are listed.
 
-An operation is an action that updates the value of a variable when a task is executed. You can specify any number of operations per task, they are executed in the order they are listed.
+{description}
 
 == Define operations at task level
 

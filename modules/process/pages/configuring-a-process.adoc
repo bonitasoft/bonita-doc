@@ -1,4 +1,5 @@
 = Configure a process
+:page-aliases: ROOT:configuring-a-process.adoc
 :description: Process configuration contains Actor mapping, Connectors, Actor filter, Parameters, Java dependencies. Configuration can be done per Environment.
 
 {description}

@@ -1,7 +1,8 @@
 = Environment management
+:page-aliases: ROOT:environments.adoc
 :description: An environment is a set of configuration definitions for a project. You can configure a process differently for each environments.
 
-An environment is a set of configuration definitions for a project. You can configure a process differently for each environments.
+{description}
 
 == How to use environments
 

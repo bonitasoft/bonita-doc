@@ -1,4 +1,5 @@
 = Pools and lanes
+:page-aliases: ROOT:pools-and-lanes.adoc
 :description: This page defines pools and lanes and how they can be configured.
 
 {description}
