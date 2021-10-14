@@ -1,4 +1,5 @@
 = Applications
+:page-aliases: ROOT:applications.adoc
 :description: This page defines the term "Application" and explains what a user can see and do about them in the Bonita Administrator Application.
 
 {description} +

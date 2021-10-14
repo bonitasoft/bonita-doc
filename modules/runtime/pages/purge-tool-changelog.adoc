@@ -1,4 +1,5 @@
 = Purge tool change log
+:page-aliases: ROOT:purge-tool-changelog.adoc
 :description: This is the changelog of the purge tool.
 
 This is the changelog of the purge tool.

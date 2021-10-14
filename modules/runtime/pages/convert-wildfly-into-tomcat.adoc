@@ -1,4 +1,5 @@
 = Convert a Bonita WildFly installation into a Bonita Tomcat installation
+:page-aliases: ROOT:convert-wildfly-into-tomcat.adoc
 :description: Learn how to convert a Bonita installation based on WildFly to a one based on Tomcat
 
 Learn how to convert a Bonita installation based on WildFly to a one based on Tomcat

@@ -1,5 +1,5 @@
 = Set recording levels
-
+:page-aliases: ROOT:set-log-and-archive-levels.adoc
 :description: This page explains how the information about your Bonita processes can be recorded, and how to configure what is recorded.
 
 {description}

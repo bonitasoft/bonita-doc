@@ -1,4 +1,5 @@
 = Administrator Case list
+:page-aliases: ROOT:cases.adoc
 :description: This page explains what a user with the _Administrator_ profile in Bonita Administrator Application can see and do about cases (the process instances).
 
 {description}

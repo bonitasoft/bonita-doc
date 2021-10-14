@@ -1,4 +1,5 @@
 = Deploy Bonita Runtime with Docker
+:page-aliases: ROOT:bonita-docker-installation.adoc
 :description: How to install and use the Bonita Runtime docker distribution.
 
 {description}

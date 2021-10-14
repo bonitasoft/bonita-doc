@@ -1,4 +1,5 @@
 = Connectors execution
+:page-aliases: ROOT:connectors-execution.adoc
 :description: == What are connectors
 
 == What are connectors

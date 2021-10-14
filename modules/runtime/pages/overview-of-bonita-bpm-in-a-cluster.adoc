@@ -1,4 +1,5 @@
 = Overview of Bonita Platform in cluster
+:page-aliases: ROOT:overview-of-bonita-bpm-in-a-cluster.adoc
 :description: Learn how to achieve High availability by setting up Bonita Platform in cluster.
 
 {description}

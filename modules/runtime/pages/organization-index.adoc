@@ -1,5 +1,5 @@
 = Organization Management at runtime
-
+:page-aliases: ROOT:organization-index.adoc
 :description: This pages describes how to get information about the users and make minor changes during runtime.
 
 {description}

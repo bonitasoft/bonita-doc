@@ -1,4 +1,5 @@
 = Events execution
+:page-aliases: ROOT:how-an-event-is-executed.adoc
 :description: Learn how the engine handles BPMN event.
 
 Learn how the engine handles BPMN event.

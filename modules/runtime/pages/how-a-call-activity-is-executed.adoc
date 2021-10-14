@@ -1,4 +1,5 @@
 = Call activity execution
+:page-aliases: ROOT:how-a-call-activity-is-executed.adoc
 :description: Lean how the engine executes and aborts call activities.
 
 Lean how the engine executes and aborts call activities.

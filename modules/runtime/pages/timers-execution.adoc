@@ -1,4 +1,5 @@
 = Timers execution
+:page-aliases: ROOT:timers-execution.adoc
 :description: == What are timers
 
 == What are timers

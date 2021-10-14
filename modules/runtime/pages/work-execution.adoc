@@ -1,4 +1,5 @@
 = Execution of works
+:page-aliases: ROOT:work-execution.adoc
 :description: == Definition
 
 == Definition

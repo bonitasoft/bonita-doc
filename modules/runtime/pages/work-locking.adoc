@@ -1,4 +1,5 @@
 = Work locking
+:page-aliases: ROOT:work-locking.adoc
 :description: Each work needs to lock resources to be executed.
 
 Each work needs to lock resources to be executed.

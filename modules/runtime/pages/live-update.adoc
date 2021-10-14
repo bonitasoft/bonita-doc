@@ -1,4 +1,5 @@
 = Live update
+:page-aliases: ROOT:live-update.adoc
 :description: This page defines what is called "Live update" and details the process information that can be live-updated from the Administrator profile.
 
 {description}

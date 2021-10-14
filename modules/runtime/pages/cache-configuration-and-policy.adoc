@@ -1,4 +1,5 @@
 == Cache configuration and policy
+:page-aliases: ROOT:cache-configuration-and-policy.adoc
 :description: Learn how to configure Living Application cache.
 
 {description}

@@ -1,4 +1,5 @@
 = Bonita Runtime Monitoring
+:page-aliases: ROOT:runtime-monitoring.adoc
 :description: Discover how to monitor a runtime environment running Bonita
 
 [NOTE]

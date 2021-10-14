@@ -1,4 +1,5 @@
 = Purge Tool
+:page-aliases: ROOT:purge-tool.adoc
 :description: Bonita Purge Tool provides the capability to purge finished (archived) process instances from Bonita Runtime environment.
 
 Bonita Purge Tool provides the capability to purge finished (archived) process instances from Bonita Runtime environment.

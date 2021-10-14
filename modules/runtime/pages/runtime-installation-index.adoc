@@ -1,4 +1,5 @@
 = Runtime installation
+:page-aliases: ROOT:runtime-installation-index.adoc
 :description: This pages gives an easy access to the technical requirements and available flavors in which Bonita Runtime comes. It also explains how to install a simple Runtime or a cluster.
 
 {description}

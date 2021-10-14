@@ -1,4 +1,5 @@
 = Bonita cluster installation and configuration
+:page-aliases: ROOT:install-a-bonita-bpm-cluster.adoc
 :description: Discover how to create a cluster from scratch, convert a single node into a cluster, allow communication between nodes and manage a cluster.
 
 Discover how to create a cluster from scratch, convert a single node into a cluster, allow communication between nodes and manage a cluster.

@@ -1,4 +1,5 @@
 = Group list in Bonita Administrator Application
+:page-aliases: ROOT:admin-application-groups-list.adoc
 :description: This page explains what a user with the _Administrator_ profile can see and do about groups (of the organization) in link:admin-application-overview[Bonita Administrator Application]. +
 
 

@@ -1,4 +1,5 @@
 = Bonita Runtime backups
+:page-aliases: ROOT:back-up-bonita-bpm-platform.adoc
 :description: To provide continuity, regular backups of Bonita Runtime (clustered or not) are advised.
 
 {description}

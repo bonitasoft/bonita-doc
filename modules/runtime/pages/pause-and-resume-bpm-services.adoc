@@ -1,4 +1,5 @@
 = Put Runtime in maintenance mode
+:page-aliases: ROOT:pause-and-resume-bpm-services.adoc
 :description: Learn how to execute maintenance tasks on your tenants by pausing and resuming BPM services of a Bonita Runtime.
 
 {description}

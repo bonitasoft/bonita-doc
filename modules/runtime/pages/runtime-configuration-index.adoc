@@ -1,4 +1,5 @@
-= Runtime Configuration 
+= Runtime Configuration
+:page-aliases: ROOT:runtime-configuration-index.adoc
 :description: After installation, you may want to have a look at the best way to configure Bonita Runtime to suit your needs.
 
 {description}

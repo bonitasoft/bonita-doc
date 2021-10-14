@@ -1,4 +1,5 @@
-= Runtime optimization 
+= Runtime optimization
+:page-aliases: ROOT:runtime-optimization-index.adoc
 :description: This section describes the best practices to monitor how Bonita Runtime performs, detect where issues may arise and tune it to fit your usage. 
 
 {description}

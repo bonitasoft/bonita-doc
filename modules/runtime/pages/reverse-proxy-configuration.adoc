@@ -1,4 +1,5 @@
 = Bonita behind a reverse-proxy
+:page-aliases: ROOT:reverse-proxy-configuration.adoc
 :description: Learn how to set up a reverse proxy to expose Bonita web interface publicly while keeping the backend safe
 
 Learn how to set up a reverse proxy to expose Bonita web interface publicly while keeping the backend safe.

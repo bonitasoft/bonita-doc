@@ -1,5 +1,5 @@
 = Bonita Applications overview
-:page-aliases: bonita-bpm-portal-interface-overview.adoc
+:page-aliases: ROOT:bonita-bpm-portal-interface-overview.adoc, ROOT:bonita-applications-interface-overview.adoc
 :description: This page describes the Bonita Applications. +
 
 {description} 

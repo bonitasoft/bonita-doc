@@ -1,4 +1,5 @@
 = Install/export an organization
+:page-aliases: ROOT:import-export-an-organization.adoc
 :description: This page explains what a user can see and do in the Bonita Administrator Application about the Organization of Bonita users.
 
 {description}
