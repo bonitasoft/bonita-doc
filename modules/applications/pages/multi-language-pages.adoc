@@ -1,11 +1,11 @@
 = Multi-language pages
+:page-aliases: ROOT:multi-language-pages.adoc
 :description: The UI Designer includes a mechanism to add translations for page, layout and form elements, to support multi-language applications.
 
 {description}
 
 [NOTE]
 ====
-
 For Enterprise, Performance, Efficiency, and Teamwork editions only.
 ====
 

@@ -1,10 +1,6 @@
 = How to display a vertical tabs container on all devices
-:description: [WARNING]
-
-[WARNING]
-====
-This tutorial is using "Vertical tabs container" available since Bonita 7.10
-====
+:page-aliases: ROOT:uid-vertical-tabs-container-tutorial.adoc
+:description: Display vertical tabs with UI Designer
 
 == Goal: Display stacked tabs on mobile and juxtaposed tabs on desktop
 
