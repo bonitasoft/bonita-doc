@@ -1,4 +1,5 @@
 = Project phases
+:page-aliases: ROOT:design-methodology.adoc
 :description: This page describes the six phases strongly recommended to create an optimized and secured process-based automation project using Bonita.
 
 {description}

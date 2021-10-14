@@ -1,4 +1,5 @@
 = Project best practices
+:page-aliases: ROOT:project-best-practices-index.adoc
 :description: Helpful experience we share for the good of Bonita projects.
 
 {description}
