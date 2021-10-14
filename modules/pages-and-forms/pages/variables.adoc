@@ -1,7 +1,8 @@
 = Variables in the UI Designer
+:page-aliases: ROOT:variables.adoc
 :description: Discover how to use variables in the UI Designer to manage information in artifacts.
 
-Discover how to use variables in the UI Designer to manage information in artifacts.
+{description}
 
 *Variables* are a key concept in the UI Designer. They define how pages, layouts, forms, and fragments behave. They are used to fetch external resources, to manipulate and process information, and much more. It is important to understand how to define and use variables in artifacts, and how the data contained in the variables works when combined with widget properties. Unless otherwise stated, we will use "page" as the generic term for page, layout, form, and fragment.
 

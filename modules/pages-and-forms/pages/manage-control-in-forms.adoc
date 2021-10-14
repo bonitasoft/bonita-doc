@@ -1,7 +1,8 @@
 = How to control and validate forms in the UI Designer
+:page-aliases: ROOT:manage-control-in-forms.adoc
 :description: Learn how to create forms using UI Designer and add validation for the data to submit, using a leave request process as an example.
 
-Learn how to create forms using UI Designer and add validation for the data to submit, using a leave request process as an example.
+{description}
 
 == Prologue
 

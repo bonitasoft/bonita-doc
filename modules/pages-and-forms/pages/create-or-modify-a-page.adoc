@@ -1,4 +1,5 @@
 = Create or modify UI elements
+:page-aliases: ROOT:create-or-modify-a-page.adoc
 :description: Guidance to create and modify User Interfaces elements with Bonita UI Designer.
 
 {description}

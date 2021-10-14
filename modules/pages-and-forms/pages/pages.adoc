@@ -1,7 +1,8 @@
 = Pages
-:description: Pages are resources intended to be used in applications. They are xref:resource-management.adoc[added, exported, edited, and deleted] as resources in the Bonita Administrator Application.
+:page-aliases: ROOT:pages.adoc
+:description: Pages are resources intended to be used in applications.
 
-{description}
+{description}  They are xref:resource-management.adoc[added, exported, edited, and deleted] as resources in the Bonita Administrator Application.
 
 == Provided pages
 

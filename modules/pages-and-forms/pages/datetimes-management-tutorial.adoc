@@ -1,13 +1,8 @@
 = How to manage dates and times in BDM and User Interfaces
+:page-aliases: ROOT:datetimes-management-tutorial.adoc
 :description: Manage dates and times in user interface is often difficult. This following howTo should help you.
 
-Manage dates and times in user interface is often difficult. This following howTo should help you.
-
-[NOTE]
-====
-
-This howto applies to Bonita 7.5.0 and above.
-====
+{description}
 
 To manage dates and times in the BDM and User Interfaces, Bonita comes with 3 types of data that you can manipulate through processes, APIs and user interfaces (forms/pages). +
 This page gives a step-by-step procedure to create a process with forms that allow to choose a date (with or without a time) and then display it, leveraging each of these data types.

@@ -1,8 +1,9 @@
 = Pages development
-:description: A page presents information to a user or can also collect information entered by a user. +
+:page-aliases: ROOT:pages-development.adoc
+:description: A page presents information to a user or can also collect information entered by a user.
 
+{description}
 
-{description} +
 Displayed in a browser, a xref:pages.adoc[page] is intended for use in applications.
 
 == Provided pages

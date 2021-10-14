@@ -1,10 +1,8 @@
 = How to use the rich textarea widget in a mail template
-:description: :doctype: book
+:page-aliases: ROOT:rta-mail-template.adoc
+:description: Learn how to use a mail template in a form with the rich textarea widget: the leave request management process example.
 
-:doctype: book
-:experimental:
-
-Learn how to use a mail template in a form with the rich textarea widget: the leave request management process example.
+{description}
 
 == Out of office message process
 
