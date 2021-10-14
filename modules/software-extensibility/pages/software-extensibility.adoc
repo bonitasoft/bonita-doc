@@ -1,4 +1,5 @@
 = Platform extensibility
+:page-aliases: ROOT:software-extensibility.adoc
 :description: Learn how Bonita Platform can be extended to suit your needs.
 
 {description}
