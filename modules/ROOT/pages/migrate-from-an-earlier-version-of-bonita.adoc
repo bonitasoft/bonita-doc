@@ -485,16 +485,12 @@ follow this procedure:
 . Restart the new Bonita Runtime
 
 [WARNING]
-=====
-
+====
 When updating the Oracle database make sure that the initialization parameter https://docs.oracle.com/en/database/oracle/oracle-database/19/upgrd/what-is-oracle-database-compatibility.html#GUID-551DEA35-0A31-4D1C-A367-AFAF8906AEC8[Compatible] is not set to a previous version. You can check this with the query:
-
-[source,sql]
 ----
 SQL> SELECT name, value FROM v$parameter
          WHERE name = 'compatible';
 ----
-
 ====
 
 [#maintenanceVersionCompatible]
