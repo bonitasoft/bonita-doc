@@ -5,7 +5,7 @@
 {description}
 
 The menus in Bonita User and Administrator applications are available in English only by default. But, depending on your requirements, the menus can be translated into other languages too by updating Bonita layout. Using the same procedure, custom applications menus can be translated as well.
-This documentation is only about the menus. For more information regarding translations at the page level, go to the xref:multi-language-pages.adoc[multi language pages] page.
+This documentation is only about the menus. For more information regarding translations at the page level, go to the xref:ROOT:multi-language-pages.adoc[multi language pages] page.
 
 == Updating the menu widget
 
@@ -31,7 +31,7 @@ image::images/multi-language-applications/menu-widget.png[Menu-widget]
 
 Note that the translation mechanism has been added to the menu, you need to modify the layout to translate the menu entries. In order to do so, you can follow this procedure:
 
-. Update your layout inside Bonita UI Designer. For more information regarding customizing the layout, go to the xref:customize-layouts.adoc[customize layouts] page.
+. Update your layout inside Bonita UI Designer. For more information regarding customizing the layout, go to the xref:ROOT:customize-layouts.adoc[customize layouts] page.
 . Make sure your layout uses the version of the menu widget you just updated (click on the menu widget in the whiteboard to check its name and version and use the replace feature at the top right corner of the properties panel if it is not the right version).
 . Inside the Localization section of the assets panel, click on the pencil icon at the right of the localizaton.json file to edit it.
 image:images/multi-language-applications/edit-localization.png[Edit-localization]

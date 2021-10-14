@@ -4,7 +4,7 @@
 
 The last step of this Getting Started tutorial is to create an application.
 
-To create and deploy an application in your local environment, use the *xref:applicationCreation.adoc[Application descriptor]*. This editor defines the skeleton of an application, as it contains references to resources installed in Bonita Portal and used by a given application. It will also help deploy the application directly from Bonita Studio.
+To create and deploy an application in your local environment, use the *xref:ROOT:applicationCreation.adoc[Application descriptor]*. This editor defines the skeleton of an application, as it contains references to resources installed in Bonita Portal and used by a given application. It will also help deploy the application directly from Bonita Studio.
 
 The page you have created in the UI Designer, as well as the forms, have been automatically added to project resources under *Pages/Forms/Layout*.
 
@@ -38,7 +38,7 @@ image:images/getting-started-tutorial/create-application/create-application.gif[
 [NOTE]
 ====
 
-The look & feel can be fully customized by modifying the xref:layouts.adoc[layout] and adding a custom xref:customize-living-application-theme.adoc[theme].
+The look & feel can be fully customized by modifying the xref:ROOT:layouts.adoc[layout] and adding a custom xref:customize-living-application-theme.adoc[theme].
 ====
 
 The application is ready to be deployed in Bonita Applications. Now you need to deploy it in Bonita Applications:

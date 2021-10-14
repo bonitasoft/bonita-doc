@@ -63,7 +63,7 @@ To configure Bonita for SAML:
 
 . If you do not already have one:
  .. Download a Subscription edition bundle from the https://customer.bonitasoft.com/[Customer Service Center]
- .. xref:tomcat-bundle.adoc[Configure] it as needed
+ .. xref:ROOT:tomcat-bundle.adoc[Configure] it as needed
  .. Run it a first time, so that the first default tenant is created (TENANT_ID = 1)
  .. Stop it before modifying the configuration files below
 . In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
@@ -344,7 +344,7 @@ If the single logout flow supported by your IdP is not the same as the one suppo
 
 == image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
-To troubleshoot SSO login issues, you need to increase the xref:logging.adoc[log level] to `FINE` for the packages `org.bonitasoft`, `com.bonitasoft`, and `ALL` for `org.keycloak` in order for errors to be displayed in the log files `bonita-*.log` (by default, they are not).
+To troubleshoot SSO login issues, you need to increase the xref:ROOT:logging.adoc[log level] to `FINE` for the packages `org.bonitasoft`, `com.bonitasoft`, and `ALL` for `org.keycloak` in order for errors to be displayed in the log files `bonita-*.log` (by default, they are not).
 
 In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/logging.properties.
 
@@ -437,7 +437,7 @@ However, when you create a user in Bonita Applications, specifying a password is
 
 == LDAP synchronizer and SAML
 
-If you are using an LDAP service and the xref:ldap-synchronizer.adoc[LDAP synchronizer] to manage your user data, +
+If you are using an LDAP service and the xref:ROOT:ldap-synchronizer.adoc[LDAP synchronizer] to manage your user data, +
 you can continue to do this and manage authentication over SAML. +
 The LDAP synchronizer user must be registered in Bonita (no need for an SAML IdP account). It is recommended though to use the tenant admin account.
 We recommend that you use LDAP as your master source for information, synchronizing the relevant information with your Bonita platform.
@@ -445,7 +445,7 @@ We recommend that you use LDAP as your master source for information, synchroniz
 [NOTE]
 ====
 
-By default the xref:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `saml.auth.standard.allowed` in *authenticationManager-config.properties*), users won't be able to log in with the Bonita login page directly without going through the IdP. +
+By default the xref:ROOT:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `saml.auth.standard.allowed` in *authenticationManager-config.properties*), users won't be able to log in with the Bonita login page directly without going through the IdP. +
 ====
 
 == Single sign-on with SAML using the REST API
@@ -465,4 +465,4 @@ Here is the subset of pages filtered by the SAML filter:
 
 REST API are not part of them, but if an http session already exists thanks to cookies, REST API can be used.
 
-The recommended way to authenticate in Bonita Runtime, in order to use the REST API, is to use the xref:rest-api-overview.adoc#bonita-authentication[login service].
+The recommended way to authenticate in Bonita Runtime, in order to use the REST API, is to use the xref:ROOT:rest-api-overview.adoc#bonita-authentication[login service].

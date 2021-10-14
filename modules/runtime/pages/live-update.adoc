@@ -90,7 +90,7 @@ This is the actual mapping between a form in the list and a process element.
 
 Cache busting is the mechanism used in Bonita to refresh the cache for users when a page created with the UI Designer is updated.
 
-Cache busting has been introduced in Bonita 7.6, along with a new xref:cache-configuration-and-policy.adoc[cache policy]. +
+Cache busting has been introduced in Bonita 7.6, along with a new xref:ROOT:cache-configuration-and-policy.adoc[cache policy]. +
 It allows end users to benefit from custom page update without the need to empty the browser cache. +
 When you export a page or a layout from the UI Designer, we suffix the resources filenames with a hash. +
 If the page is updated, the resources filenames will change, and the browser will download it from the server, and not from the cache.

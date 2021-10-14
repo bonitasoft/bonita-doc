@@ -18,7 +18,7 @@
 In the below example we use Maven as the project build tool, but it is also possible to use Gradle if it is the tool of your choice.
 ====
  
-The example will externalize a function used in the xref:define-who-can-do-what.adoc[Define who can do what] article.
+The example will externalize a function used in the xref:ROOT:define-who-can-do-what.adoc[Define who can do what] article.
  
 === Choose your preferred tools
 
@@ -72,7 +72,7 @@ At the root of this folder create a `pom.xml` file.
 This library will be executed in the Bonita Runtime that already comes with `provided` dependencies in its class-path.
 To avoid dependencies conflicts between our custom library and the Bonita Runtime, we can use a https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#bill-of-materials-bom-poms[**Bill Of Material** (BOM), window = "_blank"].
 
-First, we need to define the target Bonita runtime version. You must use the xref:product-versioning.adoc#_technical_id[technical id] as version. Add a `bonita-runtime.version` property in the `properties` section of the pom.xml:
+First, we need to define the target Bonita runtime version. You must use the xref:ROOT:product-versioning.adoc#_technical_id[technical id] as version. Add a `bonita-runtime.version` property in the `properties` section of the pom.xml:
 
 [source, xml]
 ----
@@ -243,7 +243,7 @@ It will package the `bonita-extension-library-1.0.0-SNAPSHOT.jar` file in the `t
 This file can be installed as a project extension in Bonita Studio using the Overview > Extensions > Add custom extension... > Other action.
 Select `From file` option, and browse to the `bonita-extension-library-1.0.0-SNAPSHOT.jar` file. Click on `Import`.
 
-You can now add this dependency in your xref:managing-dependencies.adoc#_configure_process_dependencies[process configuration], and call `org.bonitasoft.extension.Users.getUserWhoExecutedTaskWithName(apiAccessor, rootProcessInstanceId, 'A task name')` from a Script expression.
+You can now add this dependency in your xref:ROOT:managing-dependencies.adoc#_configure_process_dependencies[process configuration], and call `org.bonitasoft.extension.Users.getUserWhoExecutedTaskWithName(apiAccessor, rootProcessInstanceId, 'A task name')` from a Script expression.
 
 [NOTE]
 ====
@@ -743,7 +743,7 @@ The released `jar` file will be attached to a GitHub release and you may use thi
 * https://maven.apache.org/repository/guide-central-repository-upload.html[Maven Central]
 ** How to automate it with https://docs.github.com/en/actions/guides/publishing-java-packages-with-maven[GitHub actions]
 * https://github.com/features/packages[GitHub packages]
-** Example for xref:connector-archetype-tutorial.adoc#_6_publish_the_connector_on_github_packages[connector extension]
+** Example for xref:ROOT:connector-archetype-tutorial.adoc#_6_publish_the_connector_on_github_packages[connector extension]
 * Private Nexus or Artifactory...etc
 
 ====

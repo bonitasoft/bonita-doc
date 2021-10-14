@@ -7,15 +7,15 @@ blabla
 
 [.card.card-index]
 --
-xref:xx.adoc[[.card-title]#xx# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:ROOT:xx.adoc[[.card-title]#xx# [.card-body.card-content-overflow]#pass:q[TODO]#]
 --
 
 [.card.card-index]
 --
-xref:xx.adoc[[.card-title]#xx# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:ROOT:xx.adoc[[.card-title]#xx# [.card-body.card-content-overflow]#pass:q[TODO]#]
 --
 
 [.card.card-index]
 --
-xref:xx.adoc[[.card-title]#xx# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:ROOT:xx.adoc[[.card-title]#xx# [.card-body.card-content-overflow]#pass:q[TODO]#]
 --

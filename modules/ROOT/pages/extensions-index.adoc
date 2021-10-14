@@ -7,25 +7,25 @@ Learn how Bonita Platform can be extended to suit your needs.
 == Possible Extensions
 [.card.card-index]
 --
-xref:connector-archetype.adoc[[.card-title]#Connectors# [.card-body.card-content-overflow]#pass:q[Discover how to create your custom connectors]#]
+xref:ROOT:connector-archetype.adoc[[.card-title]#Connectors# [.card-body.card-content-overflow]#pass:q[Discover how to create your custom connectors]#]
 --
 
 [.card.card-index]
 --
-xref:actor-filter-archetype.adoc[[.card-title]#Actor Filters# [.card-body.card-content-overflow]#pass:q[Discover how to create your custom actor filters]#]
+xref:ROOT:actor-filter-archetype.adoc[[.card-title]#Actor Filters# [.card-body.card-content-overflow]#pass:q[Discover how to create your custom actor filters]#]
 --
 
 [.card.card-index]
 --
-xref:customize-living-application-theme.adoc[[.card-title]#Themes# [.card-body.card-content-overflow]#pass:q[Discover how to create your custom living application themes]#]
+xref:ROOT:customize-living-application-theme.adoc[[.card-title]#Themes# [.card-body.card-content-overflow]#pass:q[Discover how to create your custom living application themes]#]
 --
 
 [.card.card-index]
 --
-xref:rest-api-extension-archetype.adoc[[.card-title]#REST API Extensions# [.card-body.card-content-overflow]#pass:q[Discover how to create your REST API Extensions]#]
+xref:ROOT:rest-api-extension-archetype.adoc[[.card-title]#REST API Extensions# [.card-body.card-content-overflow]#pass:q[Discover how to create your REST API Extensions]#]
 --
 
 [.card.card-index]
 --
-xref:custom-widgets.adoc[[.card-title]#Custom Widgets# [.card-body.card-content-overflow]#pass:q[Discover how to create your custom widgets]#]
+xref:ROOT:custom-widgets.adoc[[.card-title]#Custom Widgets# [.card-body.card-content-overflow]#pass:q[Discover how to create your custom widgets]#]
 --

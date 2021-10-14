@@ -25,7 +25,7 @@ Here is the list of database connectors. The links take you to sections of this 
 * <<sysbase,Sybase ASE 15>>
 * Datasource db query
 
-To xref:database-connector-configuration.adoc[configure a database connector], follow the instructions in the wizard.
+To xref:ROOT:database-connector-configuration.adoc[configure a database connector], follow the instructions in the wizard.
 
 [#mysql]
 

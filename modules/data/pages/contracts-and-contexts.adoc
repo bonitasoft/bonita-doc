@@ -26,7 +26,7 @@ A contract specifies the pieces of information the process requires to be starte
 In Bonita Studio select the pool to create the process instantiation contract, or select a human task to create a task contract.
 Go to the *Details* panel, *Execution* tab, *Contract* pane. In the Inputs tab, declare each expected input and its type. You have two options: declare the input manually or from a business variable using the *Add from data* option.
 
-Defining an input based on a variable saves you time, and is the preferred option if the aim of the input is to initialize (or update) the business variable. In addition, using *Add from data* on a contract automatically generates xref:operations.adoc[operations] or expressions to instantiate or edit the selected business variables with the task contract inputs. It also generates *constraints* for each mandatory field and all aggregation relations to validate their integrity.
+Defining an input based on a variable saves you time, and is the preferred option if the aim of the input is to initialize (or update) the business variable. In addition, using *Add from data* on a contract automatically generates xref:ROOT:operations.adoc[operations] or expressions to instantiate or edit the selected business variables with the task contract inputs. It also generates *constraints* for each mandatory field and all aggregation relations to validate their integrity.
 
 In the *Constraints* tab, declare expressions that check the validity of the value of each input. A constraint has a name, a content, and an error message. The message is logged if the constraint is not met. Make sure to provide a meaningful name and message to help process users understand why the system rejected the command to instantiate the process or execute a task.
 
@@ -102,7 +102,7 @@ When generating a Form from a contract, a Text widget is created to display erro
 To display contextual information of the task or the process instance in a form, you can leverage the business data and document references made publicly available through the context. The notion of context is available at two levels : process instance and human task. The context is a list of references to the business data and documents manipulated by the process instance during its execution.
 Currently, context is the same for a human task and its process instance. All the business data and documents defined are public.
 
-Limitation : there is currently no way to customize which business data or document are public in Community edition. When using an Enterprise edition, you may want to use the xref:bdm-access-control.adoc[BDM Access Control] to protect data access.
+Limitation : there is currently no way to customize which business data or document are public in Community edition. When using an Enterprise edition, you may want to use the xref:ROOT:bdm-access-control.adoc[BDM Access Control] to protect data access.
 
 == +++<a name="form-generation">++++++</a>+++ Form generation
 
@@ -113,8 +113,8 @@ In `Edit` mode, additional `persistenceId_string` input are generated to ensure 
 * If the _lazy_ field is not contained in a repeatable container (no multiple parent in the object hierarchy): Another UID variable (External API) is generated to retrieve the _lazy_ relation.
 * If the _lazy_ field is contained in a repeatable container (there is a multiple parent in the object hierarchy or the data is multiple): This kind of fields are unselected by default when generating the contract. We cannot retrieve the values from the context for those relations and a consistent _edition_ form generation is not possible. The current workarounds to handle this use case are:
  ** Change the relation loading mode to _eager_ (Always load related objects option) instead of _lazy_ (Only load related objects when needed)
- ** Use UID  xref:fragments.adoc[fragments]. Keep in mind that it may lead to performance issues as each lazy instance will generate an HTTP request.
- ** Use a  xref:api-extensions.adoc[Rest API Extension]. Instead of reusing the Task context, create your own endpoint that will serve all the needed data in one HTTP request.
+ ** Use UID  xref:ROOT:fragments.adoc[fragments]. Keep in mind that it may lead to performance issues as each lazy instance will generate an HTTP request.
+ ** Use a  xref:ROOT:api-extensions.adoc[Rest API Extension]. Instead of reusing the Task context, create your own endpoint that will serve all the needed data in one HTTP request.
 
 In `Edit` mode, you have the possibility to generate read only widgets for attributes related to the contract but not in the contract. +
 The following example describes the logic:

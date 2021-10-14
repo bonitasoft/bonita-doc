@@ -66,12 +66,12 @@ Business data variables will be always an array that contains the result of quer
 [NOTE]
 ====
 
-Read xref:ui-designer-overview.adoc#_integration_with_bonita_platform[Integration with Bonita Platform] to know how Business Data are connected with Bonita Platform.
+Read xref:ROOT:ui-designer-overview.adoc#_integration_with_bonita_platform[Integration with Bonita Platform] to know how Business Data are connected with Bonita Platform.
 ====
 
 === External API
 
-External API variables are used to fetch data from outside the page. These are typically used for REST API calls using HTTP GET requests. The response is stored in the page data model. You can parameterize the URL construction with other data using `+{{variableName}}+` syntax. You can retrieve information using the xref:rest-api-overview.adoc[Bonita REST APIs].
+External API variables are used to fetch data from outside the page. These are typically used for REST API calls using HTTP GET requests. The response is stored in the page data model. You can parameterize the URL construction with other data using `+{{variableName}}+` syntax. You can retrieve information using the xref:ROOT:rest-api-overview.adoc[Bonita REST APIs].
 You can retrieve the response *Status Code* or response *Headers* with `__status` and `__headers` on this variable (e.g. variableName.__status)
 
 Here are some examples:
@@ -83,9 +83,9 @@ This variable is evaluated every time the value of `userId` changes. Also, if `u
 
 * Retrieve the task with the id `taskId`: +
 API URL: `+../API/bpm/humanTask/{{taskId}}+`
-* Retrieve a xref:bdm-api.adoc[business object] with name `businessDataName` associated with the case with id `caseId`: +
+* Retrieve a xref:ROOT:bdm-api.adoc[business object] with name `businessDataName` associated with the case with id `caseId`: +
 API URL: `+../API/bdm/businessDataReference/{{caseId}}/{{businessDataName}}+`
-* Retrieve business data using the reference link in the xref:contracts-and-contexts.adoc[context] when building a form: +
+* Retrieve business data using the reference link in the xref:ROOT:contracts-and-contexts.adoc[context] when building a form: +
 API URL: `../{{context.myBusinessData_ref.link}}`
 * Retrieve lazy references of a business data field using `lazyRef` filter in an External API variable: +
 API URL: `{{myBusinessData | lazyRef : 'relationName'}}` where `myBusinessData` is an External API variable retrieving a business data from the context like in the above example and `relationName` the name of the lazy relation field to retrieve.
@@ -113,7 +113,7 @@ Create two input widgets "First name" and "Last name" and bind the values to two
 
 == Using a variable
 
-A variable is used by another variable or inside a xref:widgets.adoc[widget] properties. There are many ways to use a variable in widget properties:
+A variable is used by another variable or inside a xref:ROOT:widgets.adoc[widget] properties. There are many ways to use a variable in widget properties:
 
 * In a property containing text or HTML to be displayed in a widget, you can use the syntax _{\{variableName}}_ in the content to make it dynamic content. For example, you could display the user's name in a welcome message.
 * In the case of user input (for example the _Value_ property of a text input) the variable value is used both to set the initial value and retrieve the user input.
@@ -122,7 +122,7 @@ A binding is dynamic, so every time the value of a variable changes, the whole d
 
 == In Bonita forms
 
-One of the goals of the UI Designer is to enable you to build forms for process instantiation and human tasks execution. The xref:contracts-and-contexts.adoc[contract] eases the decoupling between the user views and the process. When a form is submitted for process instantiation or human task execution, the UI Designer sends data to fulfill the contract.
+One of the goals of the UI Designer is to enable you to build forms for process instantiation and human tasks execution. The xref:ROOT:contracts-and-contexts.adoc[contract] eases the decoupling between the user views and the process. When a form is submitted for process instantiation or human task execution, the UI Designer sends data to fulfill the contract.
 
 To ease the definition of the form data to send back to the process, when you create a form from the Bonita Studio, the UI Designer generates the following variables:
 

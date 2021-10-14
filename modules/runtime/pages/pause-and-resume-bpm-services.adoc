@@ -16,7 +16,7 @@ When a tenant is paused, this has the following consequences:
 Those are the reasons why such maintenance procedures must be planned at a time of low usage and must be communicated carefully to the users. +
 
 The following sections explain how to pause and resume services in a tenant using the Bonita Super Administrator application. +
-You can also use the https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Engine API] or the xref:rest-api-overview.adoc[Web REST API].
+You can also use the https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Engine API] or the xref:ROOT:rest-api-overview.adoc[Web REST API].
 
 == Pause a tenant
 

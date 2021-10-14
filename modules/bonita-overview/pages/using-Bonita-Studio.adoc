@@ -25,10 +25,10 @@ The welcome page can be opened at any time by clicking on the "Welcome" icon of 
 == Project overview
 The project overview is accessible from the Studio coolbar. It provides an overview of the different elements of your project and those you can use to create a state-of-the-art Bonita project.
 
-From the overview, you can access the xref:managing-extension-studio.adoc[extension] view of your project.
+From the overview, you can access the xref:ROOT:managing-extension-studio.adoc[extension] view of your project.
 
 == Preferences
-The "Preferences" icon in the studio's coolbar allows a full set of configurations. Find the list and how to use them in xref:bonita-bpm-studio-preferences.adoc[Bonita Studio preferences]
+The "Preferences" icon in the studio's coolbar allows a full set of configurations. Find the list and how to use them in xref:ROOT:bonita-bpm-studio-preferences.adoc[Bonita Studio preferences]
 
 == Open a recently modified diagram
 
@@ -37,4 +37,4 @@ A submenu of the last ten diagrams you have modified is displayed. Click the *_n
 
 == Drawing processes
 
-To learn how to draw a process, go to the xref:draw-bpmn-diagram#_create_the_process_diagram[Getting started tutorial], or read this xref:diagram-overview.adoc[documentation page].
+To learn how to draw a process, go to the xref:ROOT:draw-bpmn-diagram#_create_the_process_diagram[Getting started tutorial], or read this xref:diagram-overview.adoc[documentation page].

@@ -9,22 +9,22 @@
 
 [.card.card-index]
 --
-xref:user-application-overview.adoc[[.card-title]#Application overview# [.card-body.card-content-overflow]#pass:q[Values, details, and customization]#]
+xref:ROOT:user-application-overview.adoc[[.card-title]#Application overview# [.card-body.card-content-overflow]#pass:q[Values, details, and customization]#]
 --
 
 [.card.card-index]
 --
-xref:user-process-list.adoc[[.card-title]#Process list# [.card-body.card-content-overflow]#pass:q[Start a new process instance]#]
+xref:ROOT:user-process-list.adoc[[.card-title]#Process list# [.card-body.card-content-overflow]#pass:q[Start a new process instance]#]
 --
 
 [.card.card-index]
 --
-xref:user-application-case-list.adoc[[.card-title]#Case list# [.card-body.card-content-overflow]#pass:q[Follow up open instances, check the closed ones]#]
+xref:ROOT:user-application-case-list.adoc[[.card-title]#Case list# [.card-body.card-content-overflow]#pass:q[Follow up open instances, check the closed ones]#]
 --
 
 [.card.card-index]
 --
-xref:user-task-list.adoc#installAccessControl[[.card-title]#Task list# [.card-body.card-content-overflow]#pass:q[Open forms, fill out the data, submit, and get efficient]#]
+xref:ROOT:user-task-list.adoc#installAccessControl[[.card-title]#Task list# [.card-body.card-content-overflow]#pass:q[Open forms, fill out the data, submit, and get efficient]#]
 --
 
 [.card-section]
@@ -32,5 +32,5 @@ xref:user-task-list.adoc#installAccessControl[[.card-title]#Task list# [.card-bo
 
 [.card.card-index]
 --
-xref:custom-applications-index.adoc[[.card-title]#Applications creation# [.card-body.card-content-overflow]#pass:q[Create your own applications]#]
+xref:ROOT:custom-applications-index.adoc[[.card-title]#Applications creation# [.card-body.card-content-overflow]#pass:q[Create your own applications]#]
 --

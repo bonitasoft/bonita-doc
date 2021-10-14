@@ -26,7 +26,7 @@ On this page, an Administrator can:
 
 == Live Update
 
-The Administrator can xref:live-update.adoc[Live Update] a group:
+The Administrator can xref:ROOT:live-update.adoc[Live Update] a group:
 
 * create
 * delete
@@ -34,7 +34,7 @@ The Administrator can xref:live-update.adoc[Live Update] a group:
 * modify users within a group
 
 This is only in case of an issue to solve temporarily. We strongly encourage the modification of the organization to be conducted
-in Bonita Studio so it can be shared and versioned with the whole project, or through the xref:ldap-synchronizer.adoc[LDAP synchronizer] if the organization is located in an external system.
+in Bonita Studio so it can be shared and versioned with the whole project, or through the xref:ROOT:ldap-synchronizer.adoc[LDAP synchronizer] if the organization is located in an external system.
 
 === Create a group
 
@@ -67,7 +67,7 @@ Bonita does not accept the '/' character in the group name field. A group name t
 In the way we conceive the way a user pertains to an organization, it is only possible to add both a role and a group (what we call a membership) to a user.  +
 For example, "Assistant"(role) of "Human Resources"(group).
 
-. Go to _Organization_/_Users_. You navigate to the xref:admin-application-users-list.adoc[Users] page.
+. Go to _Organization_/_Users_. You navigate to the xref:ROOT:admin-application-users-list.adoc[Users] page.
 . In the row of a user, click on the _View user details_ icon
 . Click on _Profiles_ / _Memberships_
 . To delete a membership, click on the _Delete_ icon of an existing membership

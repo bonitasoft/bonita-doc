@@ -9,21 +9,21 @@
 
 [.card.card-index]
 --
-xref:runtime-monitoring.adoc[[.card-title]#Monitoring# [.card-body.card-content-overflow]#pass:q[What to monitor in a Runtime environment, and how]#]
+xref:ROOT:runtime-monitoring.adoc[[.card-title]#Monitoring# [.card-body.card-content-overflow]#pass:q[What to monitor in a Runtime environment, and how]#]
 --
 
 [.card.card-index]
 --
-xref:performance-troubleshooting.adoc[[.card-title]#Performance troubleshooting# [.card-body.card-content-overflow]#pass:q[The right checklist to identify the area(s) to improve]#]
+xref:ROOT:performance-troubleshooting.adoc[[.card-title]#Performance troubleshooting# [.card-body.card-content-overflow]#pass:q[The right checklist to identify the area(s) to improve]#]
 --
 
 [.card.card-index]
 --
-xref:performance-tuning.adoc[[.card-title]#Performance tuning# [.card-body.card-content-overflow]#pass:q[All the knobs and switches to play with]#]
+xref:ROOT:performance-tuning.adoc[[.card-title]#Performance tuning# [.card-body.card-content-overflow]#pass:q[All the knobs and switches to play with]#]
 --
 
 [.card.card-index]
 --
-xref:maintenance-operation.adoc[[.card-title]#Maintenance operations# [.card-body.card-content-overflow]#pass:q[The regular cleaning steps for healthy production environments]#]
+xref:ROOT:maintenance-operation.adoc[[.card-title]#Maintenance operations# [.card-body.card-content-overflow]#pass:q[The regular cleaning steps for healthy production environments]#]
 --
 

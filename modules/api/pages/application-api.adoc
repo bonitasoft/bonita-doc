@@ -172,7 +172,7 @@ _Example_: /API/living/application?f=token%3dmyapp&d=createdBy
 * *Method* +
 `GET`
 * *URL Params* +
-xref:rest-api-overview.adoc#resource_search[Standard search parameters] are available to search form mappings. +
+xref:ROOT:rest-api-overview.adoc#resource_search[Standard search parameters] are available to search form mappings. +
 *Required*
  ** c: number of result per page to retrieve
  ** p: page number to retrieve
@@ -429,7 +429,7 @@ _Example_: `http://../API/living/application-menu?p=0&c=2&f=applicationId%3d1`
 * *Method* +
 `GET`
 * *Data Params* +
-xref:rest-api-overview.adoc#resource_search[Standard search parameters] are available to search form mappings.
+xref:ROOT:rest-api-overview.adoc#resource_search[Standard search parameters] are available to search form mappings.
  ** c: number of result per page
  ** p: page number
  ** o: can order on "id", "displayName", "applicationId", "applicationPageId", "index", "parentId"

@@ -2,7 +2,7 @@
 :description: getting started tutorial - create web user interfaces
 :page-aliases: ROOT:create-web-user-interfaces.adoc
 
-Generally, a user usually drives process execution using web interfaces. Bonita provides xref:ui-designer-overview.adoc[the UI Designer] to easily create such interfaces.
+Generally, a user usually drives process execution using web interfaces. Bonita provides xref:ROOT:ui-designer-overview.adoc[the UI Designer] to easily create such interfaces.
 
 [NOTE]
 ====
@@ -43,7 +43,7 @@ image:images/getting-started-tutorial/create-web-user-interfaces/switch-widget.g
 [NOTE]
 ====
 
-The xref:widgets.adoc[switch menu option] can be used to replace one widget with another one while keepiing the current configuration.
+The xref:ROOT:widgets.adoc[switch menu option] can be used to replace one widget with another one while keepiing the current configuration.
 ====
 
 You can now go back to Bonita Studio and create the form for the _Review and answer claim_ user task:
@@ -63,4 +63,4 @@ Do the same set of operations with the form for _Read the answer and rate it_ ta
 
 Execute this new process version and see that the form still offers the option to capture the data required by the contract, but now also displays the data provided at the process start and in previous steps.
 
-In the xref:define-who-can-do-what.adoc[next chapter] you'll assure that individual tasks can only be performed by appropriate users.
+In the xref:ROOT:define-who-can-do-what.adoc[next chapter] you'll assure that individual tasks can only be performed by appropriate users.

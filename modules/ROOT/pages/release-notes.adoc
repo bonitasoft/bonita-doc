@@ -3,7 +3,7 @@
 
 == Welcome to our four Bonita applications!
 
-xref:bonita-applications-interface-overview.adoc[Those new applications] beautifully replace our good old Bonita Portal, gone for retirement. +
+xref:ROOT:bonita-applications-interface-overview.adoc[Those new applications] beautifully replace our good old Bonita Portal, gone for retirement. +
 You will find more information in the <<New Bonita Applications>> chapter below. +
 
 
@@ -29,9 +29,9 @@ Automation projects now use the power of Maven. You can now compose your project
 
 All these extensions, which are technical components, have to be built outside of the Studio with our SDK (_except for Rest API extensions that can still be developed in the Studio_). This will allow the developer to use their preferred tooling. It will also help the industrialization of your project as you will be able to implement tests for each extension making your project more robust. +
 
-As the extensions are developed outside the Studio, they are no longer bound to a specific Bonita project. They can be easily reused in a different project - thus improving your efficiency. xref:project-structure.adoc[More information on how Bonita projects are structured]. +
+As the extensions are developed outside the Studio, they are no longer bound to a specific Bonita project. They can be easily reused in a different project - thus improving your efficiency. xref:ROOT:project-structure.adoc[More information on how Bonita projects are structured]. +
 
-The Studio is stripped of its major coding editor (except for the REST API Extensions), and has now a xref:managing-extension-studio.adoc[dedicated view for extensions]. This view is used to get extensions from different sources: 
+The Studio is stripped of its major coding editor (except for the REST API Extensions), and has now a xref:ROOT:managing-extension-studio.adoc[dedicated view for extensions]. This view is used to get extensions from different sources: 
 
 * From the Bonita marketplace, which contains all the connectors and actor filters made and maintained by Bonitasoft
 * From maven repositories (private or public)
@@ -55,7 +55,7 @@ In Bonita Studio, the _Organization_ wizard has been reworked into an editor, to
 
 ==== SSO with OpenID Connect
 
-It is now possible to xref:single-sign-on-with-oidc.adoc[configure Bonita to use OpenID Connect (OIDC)] as an authentication mechanism to access your Bonita applications and achieve Single Sign-on with an external OIDC provider. +
+It is now possible to xref:ROOT:single-sign-on-with-oidc.adoc[configure Bonita to use OpenID Connect (OIDC)] as an authentication mechanism to access your Bonita applications and achieve Single Sign-on with an external OIDC provider. +
 The Authorization Code Flow of OpenID Connect is supported to authenticate when accessing Bonita applications as well as the Resource Owner Credentials Grant and Authorization Code Grant of OAuth 2.0 to authenticate when requesting Bonita REST API. +
 
 == Improvements
@@ -114,7 +114,7 @@ that looks like:
 .Pre-2021.2 Custom Profile example
 image::images/temp-release-notes-specific/custom_profile.png[Previous Custom Profile,600]
 
-In Bonita 2021.2, custom profile navigation has been removed, and thus profiles with navigation are automatically converted into custom applications by the xref:migrate-from-an-earlier-version-of-bonita.adoc[migration tool].
+In Bonita 2021.2, custom profile navigation has been removed, and thus profiles with navigation are automatically converted into custom applications by the xref:ROOT:migrate-from-an-earlier-version-of-bonita.adoc[migration tool].
 
 Here is the list of applications, with the converted one, when you log in the first time after a Bonita update including the 2021.1 to 2021.2 step:
 
@@ -134,7 +134,7 @@ As part of the update of Bonita Portal into Bonita Applications, we have not rei
 
 *Easy upgrade from Community to Subscription*
 
-From this release, xref:upgrade-from-community-to-a-subscription-edition.adoc#bonita-platform-upgrade[upgrade from Community to Subscription] is made a lot easier:
+From this release, xref:ROOT:upgrade-from-community-to-a-subscription-edition.adoc#bonita-platform-upgrade[upgrade from Community to Subscription] is made a lot easier:
 all the tricky configuration part is handled automatically by Bonita Runtime at server startup. +
 See xref:#_configuration_file_changes[the related changes] done to specific configuration files.
 
@@ -175,7 +175,7 @@ work and return either `true` or `false`. See https://groovy-lang.org/semantics.
 ==== JAAS authentication is now Enterprise
 
 JAAS Authentication is now only available in the Enterprise edition. +
-In the Community edition, if you are updating from Bonita 2021.1 or an earlier version, you will need to xref:bonita-bpm-platform-setup.adoc[change your configuration] file `authenticationManager-config.properties` and remove the JAAS configuration to use another Authentication Manager (an implementation of your own, for instance).
+In the Community edition, if you are updating from Bonita 2021.1 or an earlier version, you will need to xref:ROOT:bonita-bpm-platform-setup.adoc[change your configuration] file `authenticationManager-config.properties` and remove the JAAS configuration to use another Authentication Manager (an implementation of your own, for instance).
 
 
 ==== 4xx HTTP errors handling
@@ -183,8 +183,8 @@ When trying to load an application resource (Javascript, CSS, image...), if ther
 
 ==== LDAP Synchronizer
 
-* LDAP Synchronizer is now available as a Docker image. xref:ldap-synchronizer.adoc#_using_the_ldap_synchronizer_docker_image[See the documentation].
-* A new property `tenantId` can be set to avoid having to use the Platform Admin credentials. xref:ldap-synchronizer.adoc#_bonita_properties[See the documentation].
+* LDAP Synchronizer is now available as a Docker image. xref:ROOT:ldap-synchronizer.adoc#_using_the_ldap_synchronizer_docker_image[See the documentation].
+* A new property `tenantId` can be set to avoid having to use the Platform Admin credentials. xref:ROOT:ldap-synchronizer.adoc#_bonita_properties[See the documentation].
 
 == Technical updates
 
@@ -219,7 +219,7 @@ The deprecated `BonitaStudioBuilder` command line interface has been removed. To
 
 ==== Import workspace
 
-The import workspace feature has been removed. Use the standard project xref:workspaces-and-repositories.adoc#export-import[export/import] or the xref:workspaces-and-repositories.adoc#git[Git integration] instead.
+The import workspace feature has been removed. Use the standard project xref:ROOT:workspaces-and-repositories.adoc#export-import[export/import] or the xref:workspaces-and-repositories.adoc#git[Git integration] instead.
 
 ==== Example pages / Rest API extensions
 

@@ -8,11 +8,11 @@
 
 A REST API Extension example resource and API extension viewer page are provided in the Bonita Administrator Application, in the "Resources" tab.
 
-To use the examples, define a xref:rest-api-authorization.adoc#custom-permissions-mapping[custom permissions] mapping for `demoPermission`:
+To use the examples, define a xref:ROOT:rest-api-authorization.adoc#custom-permissions-mapping[custom permissions] mapping for `demoPermission`:
 
 In a Tomcat bundle:
 
-* Retrieve platform configuration using the xref:BonitaBPM_platform_setup.adoc#update_platform_conf[setup tool].
+* Retrieve platform configuration using the xref:ROOT:BonitaBPM_platform_setup.adoc#update_platform_conf[setup tool].
 * Edit `platform_conf/current/tenants/<TENANT_ID>/tenant_portal/custom-permissions-mapping.properties`.
 * Add the following line: `profile|User=[demoPermission]`.
 * Push the changed platform configuration into database using the _setup tool_.
@@ -39,7 +39,7 @@ Another REST API Extensions example with SQL data source is available on http://
 == Create a REST API Extension
 
 Bonita offers the possibility to extend the set of existing REST API with custom extension that let you enrich your forms and applications with specific needs.
-They can be used to query xref:define-and-deploy-the-bdm.adoc[business data], Bonita Engine APIs, or an external information system (such as a database, web service, LDAP directory...). They also help to keep a clean separation between the front-end (forms, pages, and interfaces visible to users) and the back-end (processes).
+They can be used to query xref:ROOT:define-and-deploy-the-bdm.adoc[business data], Bonita Engine APIs, or an external information system (such as a database, web service, LDAP directory...). They also help to keep a clean separation between the front-end (forms, pages, and interfaces visible to users) and the back-end (processes).
 We provide a Maven archetype to help you to bootstrap a REST API Extension project. The source code of the archetype is available https://github.com/bonitasoft/bonita-rest-api-extension-archetype[here].
 
 === Prerequisites
@@ -171,7 +171,7 @@ resources=[GET|extension/demoHeaders,POST|extension/demoXml,PUT|extension/putRes
 ----
 
 If the page declares its resources correctly, then every user able to access this page (because they have the right profile for the Living Application) will also be automatically granted the necessary permissions to call the REST API Extensions. This works the same way as with the other resources of the REST API. +
-However, if you need to grant access to this REST API Extensions to some users regardless of the pages they have access to, then you need to add xref:rest-api-authorization.adoc#custom-permissions-mapping[custom permissions] for these users. +
+However, if you need to grant access to this REST API Extensions to some users regardless of the pages they have access to, then you need to add xref:ROOT:rest-api-authorization.adoc#custom-permissions-mapping[custom permissions] for these users. +
 In order to do so, edit `custom-permissions-mapping.properties` to give the permissions (value of the property `apiExtension.permissions`) declared in the page.properties of the REST API Extensions to the required profiles or users.
 
 [NOTE]
@@ -189,4 +189,4 @@ If you want to enable the debug mode, you can activate it in Bonita Studio "Serv
 
 === Configure the authorization
 
-To configure the REST API authorization, checkout the dedicated xref:rest-api-authorization.adoc[documentation page]. Note that you can reuse existing permissions that are already mapped to provided profiles (User, Administrator).
+To configure the REST API authorization, checkout the dedicated xref:ROOT:rest-api-authorization.adoc[documentation page]. Note that you can reuse existing permissions that are already mapped to provided profiles (User, Administrator).

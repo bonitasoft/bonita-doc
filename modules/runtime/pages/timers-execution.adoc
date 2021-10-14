@@ -12,7 +12,7 @@ Their execution is delegated to the *Quartz Job Scheduler*, a popular Java sched
 
 == Change timers execution data
 
-Execution date for timer of type *DATE* or *DURATION* (not *CYCLE*) can be changed using the xref:bpm-api.adoc#timers[BPM Rest API]
+Execution date for timer of type *DATE* or *DURATION* (not *CYCLE*) can be changed using the xref:ROOT:bpm-api.adoc#timers[BPM Rest API]
 
 == Handle failures on timer execution
 
@@ -40,4 +40,4 @@ Once this method is called (at least once) the ``FailedJob``s for this timer wil
 == Tune performance of timers execution
 
 If you notice that timers are executed significantly after the date they should be executed, you might suffer Quartz performance issues.
-Check xref:performance-tuning.adoc#cron[this page] to fine tune Quartz performance.
+Check xref:ROOT:performance-tuning.adoc#cron[this page] to fine tune Quartz performance.

@@ -2,7 +2,7 @@
 :page-aliases: ROOT:pages.adoc
 :description: Pages are resources intended to be used in applications.
 
-{description}  They are xref:resource-management.adoc[added, exported, edited, and deleted] as resources in the Bonita Administrator Application.
+{description}  They are xref:ROOT:resource-management.adoc[added, exported, edited, and deleted] as resources in the Bonita Administrator Application.
 
 == Provided pages
 
@@ -52,21 +52,21 @@ A few examples of custom pages:
 * Provide an administrator with a multi-attribute search facility.
 * Integrate a page from an external application.
 
-For all information about developping a custom page, visit xref:pages-development.adoc[the dedicated documentation page].
+For all information about developping a custom page, visit xref:ROOT:pages-development.adoc[the dedicated documentation page].
 
 == Use in applications
 
-Once the pages are all made available in the Resources tab of Bonita Administrator Application, they can be used to xref:applicationCreation.adoc[create applications]. +
+Once the pages are all made available in the Resources tab of Bonita Administrator Application, they can be used to xref:ROOT:applicationCreation.adoc[create applications]. +
 We highly recommend that the creation of applications is done in Bonita Studio, to be managed with all the other resources of the project in the Version Control System (Git).
 
 == Live update
 
-xref:live-update.adoc[Live update] allows the Administrator to update one element of the application in a situation of emergency.
+xref:ROOT:live-update.adoc[Live update] allows the Administrator to update one element of the application in a situation of emergency.
 
 === Edit a page
 
-You can xref:resource-management.adoc]#modify[edit the content of a page] by installing a new version of a page.
+You can xref:ROOT:resource-management.adoc]#modify[edit the content of a page] by installing a new version of a page.
 
 === Modify the pages in an application
 
-You can modify the pages in an application by xref:applications.adoc]#specify-pages[mapping other pages] in the application descriptor, and/or xref:applications.adoc]]#define-navigation[creating, moving, or deleting menus or menu options].
+You can modify the pages in an application by xref:ROOT:applications.adoc]#specify-pages[mapping other pages] in the application descriptor, and/or xref:applications.adoc]]#define-navigation[creating, moving, or deleting menus or menu options].

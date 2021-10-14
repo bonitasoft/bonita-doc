@@ -17,10 +17,10 @@ Bonita Studio is not intended for any use other than development. As a consequen
 
 == Main features
 
-* xref:diagram-overview.adoc[Draw processes] on the whiteboard
-* xref:define-and-deploy-the-bdm.adoc[Define the Business Data Model], business variables, and xref:contracts-and-contexts.adoc[contracts]  
-* Define the xref:organization-overview.adoc[organization] and xref:actors.adoc[actors]
-* xref:managing_extension_studio.adoc[Manage the project extensions] 
+* xref:ROOT:diagram-overview.adoc[Draw processes] on the whiteboard
+* xref:ROOT:define-and-deploy-the-bdm.adoc[Define the Business Data Model], business variables, and xref:contracts-and-contexts.adoc[contracts]  
+* Define the xref:ROOT:organization-overview.adoc[organization] and xref:actors.adoc[actors]
+* xref:ROOT:managing_extension_studio.adoc[Manage the project extensions] 
 * Create the application descriptors
 * Launch the UI Designer to create process forms and application pages and layouts
 * Plug the connectors
@@ -39,32 +39,32 @@ image:images/getting-started-tutorial/what-is-bonita/architecture-bonita-studio.
 
 [.card.card-index]
 --
-xref:using-Bonita-Studio.adoc[[.card-title]#Using Bonita Studio# [.card-body.card-content-overflow]#pass:q[Studio structure and usage tips]#]
+xref:ROOT:using-Bonita-Studio.adoc[[.card-title]#Using Bonita Studio# [.card-body.card-content-overflow]#pass:q[Studio structure and usage tips]#]
 --
 
 [.card.card-index]
 --
-xref:managing-extension-studio.adoc[[.card-title]#Managing Extensions# [.card-body.card-content-overflow]#pass:q[Find, add, and use code-based elements to enhance your project ]#]
+xref:ROOT:managing-extension-studio.adoc[[.card-title]#Managing Extensions# [.card-body.card-content-overflow]#pass:q[Find, add, and use code-based elements to enhance your project ]#]
 --
 
 [.card.card-index]
 --
-xref:bonita-studio-download-installation.adoc[[.card-title]#Studio installation# [.card-body.card-content-overflow]#pass:q[The first step to use the Studio]#]
+xref:ROOT:bonita-studio-download-installation.adoc[[.card-title]#Studio installation# [.card-body.card-content-overflow]#pass:q[The first step to use the Studio]#]
 --
 
 [.card.card-index]
 --
-xref:getting-started-index.adoc[[.card-title]#Getting started tutorial# [.card-body.card-content-overflow]#pass:q[The 9-step journey to you first Bonita application]#]
+xref:ROOT:getting-started-index.adoc[[.card-title]#Getting started tutorial# [.card-body.card-content-overflow]#pass:q[The 9-step journey to you first Bonita application]#]
 --
 
 [.card.card-index]
 --
-xref:setup-dev-environment-index.adoc[[.card-title]#Development environment setup# [.card-body.card-content-overflow]#pass:q[Make the studio ready for intensive teamwork]#]
+xref:ROOT:setup-dev-environment-index.adoc[[.card-title]#Development environment setup# [.card-body.card-content-overflow]#pass:q[Make the studio ready for intensive teamwork]#]
 --
 
 [.card.card-index]
 --
-xref:update-studio.adoc[[.card-title]#Update Bonita Studio# [.card-body.card-content-overflow]#pass:q[The recomended flow to update the development environment]#]
+xref:ROOT:update-studio.adoc[[.card-title]#Update Bonita Studio# [.card-body.card-content-overflow]#pass:q[The recomended flow to update the development environment]#]
 --
 
 == image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
@@ -113,7 +113,7 @@ You can increase this value in Studio preferences \-> Server settings \-> Tomcat
 
 ==== Bonita Studio installation fail due to JVM errors
 
-A given Bonita Studio version can only run with some specifics Java versions (xref:hardware-and-software-requirements.adoc[hardware and software requirements]). +
+A given Bonita Studio version can only run with some specifics Java versions (xref:ROOT:hardware-and-software-requirements.adoc[hardware and software requirements]). +
 If you encounter some issues related to the JVM during the installation, ensure first that a valid Java version is available. You can for exemple type _java -version_ on a terminal, and informations about the main Java version used will be displayed. +
 If the problem persists, the easiest way to solve it is to remove the installed Java versions, to download the last stable build of the required Java version https://www.oracle.com/technetwork/java/javase/downloads/index.html[on the Oracle website] and to install it properly. +
 Those issues can be related to bad Java installations, or to incompatibilities between a given Java version and Bitrock (Bitrock is the install builder used to install Bonita, it has the responsibility to detect the JRE used to install Bonita. Some defects on a given version could lead to incompatibility).
@@ -121,4 +121,4 @@ Those issues can be related to bad Java installations, or to incompatibilities b
 === java.security.cert.CertificateException: No subject alternative DNS name matching github-releases.githubusercontent.com found.
 
 Bonita Studio needs to retrieve some remote assets from Github. If the download of those assets fails with the above exception, it may be due to an out of date install of Java. +
-https://adoptopenjdk.net/[Install] the latest xref:hardware-and-software-requirements.adoc[supported Java] package to fix this issue. 
+https://adoptopenjdk.net/[Install] the latest xref:ROOT:hardware-and-software-requirements.adoc[supported Java] package to fix this issue. 

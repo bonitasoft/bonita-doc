@@ -6,7 +6,7 @@
 
 == Updating to a new Main version
 
-. Read the version xref:release-notes.adoc[release notes] to understand the major changes and their possible impact on your projects
+. Read the version xref:ROOT:release-notes.adoc[release notes] to understand the major changes and their possible impact on your projects
 . Download the latest Bonita Studio version:
  * https://www.bonitasoft.com/downloads[Community edition]
  * https://customer.bonitasoft.com/[Subscription editions]

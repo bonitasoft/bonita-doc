@@ -2,7 +2,7 @@
 :page-aliases: ROOT:data-management.adoc
 :description: Discover how to explore the Business Data Model (BDM) objects in the UI Designer, and howe to use it to create user interfaces and variables.
 
-Discover how to explore the xref:define-business-data-model.adoc[Business Data Model] (BDM) objects in the UI Designer, and how to use it to create user interfaces and variables.
+Discover how to explore the xref:ROOT:define-business-data-model.adoc[Business Data Model] (BDM) objects in the UI Designer, and how to use it to create user interfaces and variables.
 
 A *Data Model* tab is available from the Palette of the Page editor:
 
@@ -32,13 +32,13 @@ Once you know which business object you want to use, you can either:
 
 Drag and drop a Business Object in the whiteboard.
 A configuration wizard appears: provide information on how to retrieve elements of this Business Object.
-You can find information on how to use this wizard from the xref:variables.adoc[Business Data Variables] page.
+You can find information on how to use this wizard from the xref:ROOT:variables.adoc[Business Data Variables] page.
 
 image::images/uid_data_management_wizard.png[data_management_wizard]
 
 A user interface is generated. It follows the master/details pattern: a Table widget is displayed with all the object instances, and the details are shown when a line is selected.
 The details section map each Business Object attribute to a corresponding widget (for instance, an Input widget for an attribute of type String).
-If you need another widget for an attribute, you can xref:widgets.adoc[switch the widget].
+If you need another widget for an attribute, you can xref:ROOT:widgets.adoc[switch the widget].
 A set of variables are generated as well, to allow the user interface to operate.
 
 [NOTE]

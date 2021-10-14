@@ -18,7 +18,7 @@ By configuring the CORS filter on the tomcat bundle, you will be able to access 
  
  [NOTE]
 ====
-When Bonita web application is configured for authentication with OpenID Connect, CORS is handled by the OIDC module, so you don't need to configure the CORS filter as described below. Instead you need to configure the file *keycloak-oidc.json* as explained in the xref:single-sign-on-with-oidc.adoc#_cors[OpenID Connect SSO configuration page].
+When Bonita web application is configured for authentication with OpenID Connect, CORS is handled by the OIDC module, so you don't need to configure the CORS filter as described below. Instead you need to configure the file *keycloak-oidc.json* as explained in the xref:ROOT:single-sign-on-with-oidc.adoc#_cors[OpenID Connect SSO configuration page].
 ====
 
 == Tomcat configuration
@@ -102,7 +102,7 @@ you will need to modify the tomcat `conf/context.xml` file, to set sameSiteCooki
 [WARNING]
 ====
 
-Using sameSiteCookies="none" will also force you to use xref:ssl.adoc[secure HTTP (HTTPS) on your Bonita server]. +
+Using sameSiteCookies="none" will also force you to use xref:ROOT:ssl.adoc[secure HTTP (HTTPS) on your Bonita server]. +
 To explain this constraint, see https://blog.chromium.org/2019/10/developers-get-ready-for-new.html
 ====
 

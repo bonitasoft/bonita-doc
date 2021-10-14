@@ -13,19 +13,19 @@ You can define a variable at process, task, or form level:
 * A form variable is available only in the form, and is used to store data used in the form. You can also use form variables with connectors that are associated with the form.
 
 See also: +
-xref:data-handling-overview.adoc[Data types and defining a variable] +
-xref:variables.adoc[Data handling in a form]
+xref:ROOT:data-handling-overview.adoc[Data types and defining a variable] +
+xref:ROOT:variables.adoc[Data handling in a form]
 
 image::images/images-6_0/variables_scope.png[Scope of variables]
 
 Best practice:
 
-* Use xref:define-and-deploy-the-bdm.adoc[business data] for information that is shared between applications or processes.
+* Use xref:ROOT:define-and-deploy-the-bdm.adoc[business data] for information that is shared between applications or processes.
 * For external data that is stored in a database or other information system, use a connector to read or write the data when required, and use transient form variables to hold the value temporarily while it is displayed or updated in a form. ***check still true for Page Designer***
 * Define a variable at the lowest level possible, using a process variable only when required for the process flow.
 * Use the minimum number of variables possible; having an unnecessarily large set of variables has an impact on performance.
 
-There are also a number of variables that are provided by default in a process, such as the id of the current user. They are available through the xref:expressions-and-scripts.adoc[expression editor].
+There are also a number of variables that are provided by default in a process, such as the id of the current user. They are available through the xref:ROOT:expressions-and-scripts.adoc[expression editor].
 
 == Transient data
 
@@ -49,10 +49,10 @@ An event subprocess has access to the data in the parent process. This includes 
 
 == External data
 
-A process or application can use data that is stored in an external database and accessed using a xref:list-of-database-connectors.adoc[database connector]. For example, in a process for requesting annual leave, there could be a step that uses a connector to retrieve the number of days available for an employee and stores this in a transient variable. This variable is then
+A process or application can use data that is stored in an external database and accessed using a xref:ROOT:list-of-database-connectors.adoc[database connector]. For example, in a process for requesting annual leave, there could be a step that uses a connector to retrieve the number of days available for an employee and stores this in a transient variable. This variable is then
 compared with the number of days requested to see whether the employee is entitled to take the requested number of days. In a later step, another connector is used to update the number of available days after this request is approved, by subtracting the number of days requested.
 
-You can also use data stored in external information system components, such as a CRM document storage system. These systems are also accessed using a xref:connectivity-overview.adoc[connector].
+You can also use data stored in external information system components, such as a CRM document storage system. These systems are also accessed using a xref:ROOT:connectivity-overview.adoc[connector].
 
 == Define a variable
 
@@ -73,7 +73,7 @@ When you define a variable, you specify a name and the data type. Optionally, yo
 
 Bonita has a number of predefined data types: Boolean, date, integer, long, double, text, Java object, XML schema (XSD) and option list. You can also define a variable as _multiple_, that is, an array or collection of values of the specified type.
 
-Note that since 7.0, Business data is now available. For a detailed explanation, see the xref:define-and-deploy-the-bdm.adoc[Business Data overview].
+Note that since 7.0, Business data is now available. For a detailed explanation, see the xref:ROOT:define-and-deploy-the-bdm.adoc[Business Data overview].
 
 [#variable_naming]
 
@@ -92,7 +92,7 @@ The simple data types are Boolean, date, integer, long, double, and text. To def
 . Select the process pool or the step where you want the variable.
 . Go to the *Details* panel, *General* view, *Data* pane. A list of the variables already defined is displayed.
 . Choose if you want to add Process data or Business data. Click *_Add..._*.
-Note: if you add Business data, only add it at the pool/lane level. See this tutorial as a guide for the next steps: xref:define-and-deploy-the-bdm.adoc[How to add Business data to a process].
+Note: if you add Business data, only add it at the pool/lane level. See this tutorial as a guide for the next steps: xref:ROOT:define-and-deploy-the-bdm.adoc[How to add Business data to a process].
 . Specify a name for the variable. The name must be unique within the scope of the variable. For easier process maintenance, it is a good idea to make all variable names unique within the process, even though this is not strictly necessary for variables defined in a step.
 . Optionally, add a description of the variable.
 . Select the data type from the drop down list.

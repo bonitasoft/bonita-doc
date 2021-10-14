@@ -6,10 +6,10 @@
 
 If you want to find out how to customize authentication refer to the dedicated documentation pages:
 
-* xref:active-directory-or-ldap-authentication.adoc[LDAP server / Active Directory]
-* xref:single-sign-on-with-cas.adoc[CAS single sign-on (SSO)]
-* xref:single-sign-on-with-saml.adoc[Single sign-on with SAML (SSO)]
-* xref:single-sign-on-with-kerberos.adoc[Single sign-on with Kerberos (SSO)]
+* xref:ROOT:active-directory-or-ldap-authentication.adoc[LDAP server / Active Directory]
+* xref:ROOT:single-sign-on-with-cas.adoc[CAS single sign-on (SSO)]
+* xref:ROOT:single-sign-on-with-saml.adoc[Single sign-on with SAML (SSO)]
+* xref:ROOT:single-sign-on-with-kerberos.adoc[Single sign-on with Kerberos (SSO)]
 
 == Bonita Runtime authentication scenario
 
@@ -36,7 +36,7 @@ If an `apiSession` attribute exists, this means a user is already authenticated.
 *Note:* Information about the original page the user tried to reach is included in a URL parameter named `redirectURL`.
 The login page URL is determined by the https://github.com/bonitasoft/bonita-web/blob/{bonitaTechnicalVersion}/common/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java[AuthenticationManager]
 implementation. The implementation to use for the current tenant is configured in a file `authenticationManager-config.properties`
-(located in `setup/platform_conf/initial/tenant_template_portal` or `setup/platform_conf/current/tenants/[tenantid]/tenant_portal` and updatable using the xref:bonita-platform-setup.adoc[platform setup tool]).
+(located in `setup/platform_conf/initial/tenant_template_portal` or `setup/platform_conf/current/tenants/[tenantid]/tenant_portal` and updatable using the xref:ROOT:bonita-platform-setup.adoc[platform setup tool]).
 The default https://github.com/bonitasoft/bonita-web/blob/{bonitaTechnicalVersion}/common/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java[AuthenticationManager]
 is https://github.com/bonitasoft/bonita-web/blob/{bonitaTechnicalVersion}/server/src/main/java/org/bonitasoft/console/common/server/auth/impl/standard/StandardAuthenticationManagerImpl.java[StandardAuthenticationManagerImpl].
 Its behavior is to redirect to the `login.jsp` page embedded in the webapp.
@@ -53,7 +53,7 @@ information.
 calls `login` method of https://github.com/bonitasoft/bonita-web/blob/{bonitaTechnicalVersion}/server/src/main/java/org/bonitasoft/console/common/server/login/LoginManager.java[LoginManager]
 . https://github.com/bonitasoft/bonita-web/blob/{bonitaTechnicalVersion}/server/src/main/java/org/bonitasoft/console/common/server/login/LoginManager.java[LoginManager]
 searches for an https://github.com/bonitasoft/bonita-web/blob/{bonitaTechnicalVersion}/common/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java[AuthenticationManager]
-implementation based on configuration file for current tenant (xref:bonita-platform-setup.adoc[`authenticationManager-config.properties`]). The default https://github.com/bonitasoft/bonita-web/blob/{bonitaTechnicalVersion}/common/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java[AuthenticationManager]
+implementation based on configuration file for current tenant (xref:ROOT:bonita-platform-setup.adoc[`authenticationManager-config.properties`]). The default https://github.com/bonitasoft/bonita-web/blob/{bonitaTechnicalVersion}/common/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java[AuthenticationManager]
 is https://github.com/bonitasoft/bonita-web/blob/{bonitaTechnicalVersion}/server/src/main/java/org/bonitasoft/console/common/server/auth/impl/standard/StandardAuthenticationManagerImpl.java[StandardAuthenticationManagerImpl].
 . `authenticate` method is called on the https://github.com/bonitasoft/bonita-web/blob/{bonitaTechnicalVersion}/common/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java[AuthenticationManager].
 `authenticate` method of https://github.com/bonitasoft/bonita-web/blob/{bonitaTechnicalVersion}/server/src/main/java/org/bonitasoft/console/common/server/auth/impl/standard/StandardAuthenticationManagerImpl.java[StandardAuthenticationManagerImpl]
@@ -85,7 +85,7 @@ that will add session information as HTTP session attribute.
 . Call get back to https://github.com/bonitasoft/bonita-web/blob/{bonitaTechnicalVersion}/server/src/main/java/org/bonitasoft/console/common/server/login/servlet/LoginServlet.java[LoginServlet]
 that will redirect the user to the requested page.
 
-NOTE: If you xref:single-sign-on-with-cas.adoc[configure your Bonita platform to use CAS], the logical flow of authentication is the same as above.
+NOTE: If you xref:ROOT:single-sign-on-with-cas.adoc[configure your Bonita platform to use CAS], the logical flow of authentication is the same as above.
 The difference is that at step 7 the CASRemoteLoginManager is used instead of the default loginManager and at step 12 the `JAASGenericAuthenticationServiceImpl` is called instead of the default authentication service, `AuthenticationServiceImpl`.
 The `loginManager-config.properties` file for a tenant controls which login manager and authentication service (`cfg-bonita-authentication-impl.xml`) are used.
 

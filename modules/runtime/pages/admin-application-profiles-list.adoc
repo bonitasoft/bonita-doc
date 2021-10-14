@@ -33,7 +33,7 @@ To do so:
 
 == Live Update
 
-The Administrator can xref:live-update.adoc[Live Update] a profile:
+The Administrator can xref:ROOT:live-update.adoc[Live Update] a profile:
 
 * create a custom profile (not for Community or Teamwork)
 * delete a custom profile (same)

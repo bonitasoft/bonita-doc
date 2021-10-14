@@ -19,7 +19,7 @@ You can also use this sample organization to test a process that you develop.
 You must load an organization into Bonita Engine before running a process. There are two ways to do this:
 
 * Create the organization in Bonita Studio, export it, and then import it into Bonita Adminstration Application.
-* If you have a Subscription edition, use the xref:ldap-synchronizer.adoc[LDAP synchronizer] to automatically load information from your LDAP directory into Bonita Engine.
+* If you have a Subscription edition, use the xref:ROOT:ldap-synchronizer.adoc[LDAP synchronizer] to automatically load information from your LDAP directory into Bonita Engine.
 
 To specify an organization manually, you create the organization, create the group hierarchy, specify roles, and then add users and their memberships.
 
@@ -59,7 +59,7 @@ You can import an organization definition in the XML file that was exported from
 
 Open the organization you want to export from the project explorer and click on *_Export_* in the top bar of the organization.
 
-To prepare your production system (unless you are using the LDAP synchronizer), you must create the organization that you need for all the processes that will be deployed, export it from Bonita Studio, and import it into Bonita Applications. After the organization is imported into Bonita Applications, you can xref:admin-application-groups-list.adoc[manage groups], xref:admin-application-roles-list.adoc[roles], and xref:admin-application-users-list.adoc[users] in the organization.
+To prepare your production system (unless you are using the LDAP synchronizer), you must create the organization that you need for all the processes that will be deployed, export it from Bonita Studio, and import it into Bonita Applications. After the organization is imported into Bonita Applications, you can xref:ROOT:admin-application-groups-list.adoc[manage groups], xref:admin-application-roles-list.adoc[roles], and xref:admin-application-users-list.adoc[users] in the organization.
 
 == Modifying an organization
 
@@ -97,6 +97,6 @@ In order to log in to bonita UIs (Bonita User Application, Bonita Administration
 *_In Teamwork edition_*, 3 provided profiles (User, Process Manager and Administrator) can be edited in the Studio using an XML editor (Go to Organization > Profiles > Open). For development purposes, all users mapped to role _member_ (cf _ACME_ organization) will benefit from all profiles in the Bonita Applications to let you log in with any of those users and test your processes.
 This will not be true for other environments.
 
-*_In Efficiency, Performance and Enterprise editions_*, in addition to provided profiles it is possible to defined custom profiles in the Studio using the xref:profileCreation.adoc[Profile Editor].
+*_In Efficiency, Performance and Enterprise editions_*, in addition to provided profiles it is possible to defined custom profiles in the Studio using the xref:ROOT:profileCreation.adoc[Profile Editor].
 
 When creating or importing other organizations, you need to make sure that all users are mapped to at least one profile, through a group, a role, a membership, or as a user, to grant them access to Bonita Applications or your applications.

@@ -612,7 +612,7 @@ This token will be used by maven to authenticate to Github packages. You can fol
 
 [TIP]
 ====
-Bonita Studio embbed a user interface to easily configure maven and encrypt passwords. See xref:configure-maven.adoc[Configure Maven using Bonita Studio].
+Bonita Studio embbed a user interface to easily configure maven and encrypt passwords. See xref:ROOT:configure-maven.adoc[Configure Maven using Bonita Studio].
 ====
 
 Now that the token is created, you have to update your local maven configuration. It means editing the file `~/.m2/settings.xml`. +

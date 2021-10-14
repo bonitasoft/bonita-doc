@@ -4,7 +4,7 @@
 
 {description}
 
-Displayed in a browser, a xref:pages.adoc[page] is intended for use in applications.
+Displayed in a browser, a xref:ROOT:pages.adoc[page] is intended for use in applications.
 
 == Provided pages
 
@@ -15,7 +15,7 @@ Those pages can be customized and added to an application.
 
 == Custom pages
 
-A page resource has the general xref:resource-management.adoc[resource definition].
+A page resource has the general xref:ROOT:resource-management.adoc[resource definition].
 If it contains an `Index.groovy` file, this must implement the PageController interface optionally with libraries.
 If you create a custom page with Bonita UI Designer, its structure and content will be congruent by default.
 
@@ -43,11 +43,11 @@ public void doGet(HttpServletRequest request, HttpServletResponse response, Page
 === Permissions for custom pages
 
 If your custom page is an HTML page using the Web REST API,
-you need to specify the xref:rest-api-authorization.adoc[REST API authorizations] that a user needs to have in order to access the resources in the custom page.
+you need to specify the xref:ROOT:rest-api-authorization.adoc[REST API authorizations] that a user needs to have in order to access the resources in the custom page.
 These resource authorizations are defined in the `page.properties` file. If your custom page is written in Groovy and uses the Bonita Engine Java APIs, you do not need to specify any resource authorization.
 
 For each REST resource accessed in the page, specify the authorization needed for each method used. +
-You can find examples of the default resources in xref:BonitaBPM_platform_setup.adoc[`resources-permissions-mapping.properties`].
+You can find examples of the default resources in xref:ROOT:BonitaBPM_platform_setup.adoc[`resources-permissions-mapping.properties`].
 
 The following example shows the resource authorizations defined for a custom page that enables a user to view but not update organization information:
 
@@ -59,13 +59,13 @@ description=Organization viewer page. You cannot modify the organization from th
 resources=[GET|identity/user, GET|identity/personalcontactdata, GET|identity/professionalcontactdata, GET|identity/role, GET|identity/group, GET|identity/membership, GET|customuserinfo/user, GET|customuserinfo/definition, GET|customuserinfo/value]
 ----
 
-When a user is given access to this page because they are in a profile that contains it or that is mapped to an application that contains the page, then this user is granted, upon login, the permissions associated to these resources (see xref:rest-api-authorization.adoc[REST API authorizations] for more details).
+When a user is given access to this page because they are in a profile that contains it or that is mapped to an application that contains the page, then this user is granted, upon login, the permissions associated to these resources (see xref:ROOT:rest-api-authorization.adoc[REST API authorizations] for more details).
 
 === Debugging a custom page in development
 
 While you are developing a custom page, you can enable custom page debug mode. In debug mode, you can see changes to your custom page without importing a new .zip archive.
 
-To enable custom page debug mode, edit xref:BonitaBPM_platform_setup.adoc[`console-config.properties`] and set `custom.page.debug` to `true`.
+To enable custom page debug mode, edit xref:ROOT:BonitaBPM_platform_setup.adoc[`console-config.properties`] and set `custom.page.debug` to `true`.
 
 To work on a page in debug mode:
 
@@ -110,12 +110,12 @@ For example: `<link href="css/file.css" rel="stylesheet" />`
 
 ==== API access
 
-If your page is viewed in a custom profile or in an application, you will have access facilities for xref:rest-api-overview.adoc[the REST API].
+If your page is viewed in a custom profile or in an application, you will have access facilities for xref:ROOT:rest-api-overview.adoc[the REST API].
 
 you will be able to access any REST API using the following path: `../API/{API name}/{resource name}`
 
 ==== Theme access
 
-If your page is viewed in an application, you will have access facilities for xref:applications.adoc[the application theme].
+If your page is viewed in an application, you will have access facilities for xref:ROOT:applications.adoc[the application theme].
 
 The `Theme.css` is directly accessible by adding the following link in `index.html`: `<link href="../theme/theme.css" rel="stylesheet" />`

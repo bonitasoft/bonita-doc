@@ -15,17 +15,17 @@ Discover more in the following pages.
 
 [.card.card-index]
 --
-xref:actors.adoc[[.card-title]#Actors of processes# [.card-body.card-content-overflow]#pass:q[Define actors in a process, and map them depending on the target environment]#]
+xref:ROOT:actors.adoc[[.card-title]#Actors of processes# [.card-body.card-content-overflow]#pass:q[Define actors in a process, and map them depending on the target environment]#]
 --
 
 [.card.card-index]
 --
-xref:actor-filtering.adoc[[.card-title]#Actor filters# [.card-body.card-content-overflow]#pass:q[Learn how to set a specific set of actors for a task]#]
+xref:ROOT:actor-filtering.adoc[[.card-title]#Actor filters# [.card-body.card-content-overflow]#pass:q[Learn how to set a specific set of actors for a task]#]
 --
 
 [.card.card-index]
 --
-xref:actor-filter-archetype.adoc[[.card-title]#Create an actor filter# [.card-body.card-content-overflow]#pass:q[Besides the actor filters provided by Bonita, learn how to develop your own]#]
+xref:ROOT:actor-filter-archetype.adoc[[.card-title]#Create an actor filter# [.card-body.card-content-overflow]#pass:q[Besides the actor filters provided by Bonita, learn how to develop your own]#]
 --
 
 [.card-section]
@@ -33,5 +33,5 @@ xref:actor-filter-archetype.adoc[[.card-title]#Create an actor filter# [.card-bo
 
 [.card.card-index]
 --
-xref:organization-overview.adoc[[.card-title]#Organization# [.card-body.card-content-overflow]#pass:q[Users, roles, groups, memberships to map to the actors]#]
+xref:ROOT:organization-overview.adoc[[.card-title]#Organization# [.card-body.card-content-overflow]#pass:q[Users, roles, groups, memberships to map to the actors]#]
 --

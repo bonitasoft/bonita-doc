@@ -22,28 +22,28 @@ However, it is not required to use all the concepts to create a valid Bonita Aut
 |===
 |Element |Description |Create/Provided | Tool | Alternative
 
-|xref:diagram-overview.adoc[Diagrams]
+|xref:ROOT:diagram-overview.adoc[Diagrams]
 |BPMN diagram that describes your business processes
 |Create
 |Studio
 |--
 
-|xref:forms.adoc[Forms]
+|xref:ROOT:forms.adoc[Forms]
 |Web interfaces to interact with processes (to instantiate a process and for human tasks)
 |Create
 |UI Designer
 |Use BPM REST API
 
-|xref:creating-an-actor-filter.adoc[Actor filter]
+|xref:ROOT:creating-an-actor-filter.adoc[Actor filter]
 |Filters users that can access a human task in a process
 |A couple are provided in the Marketplace and you can create custom actor filters
-|Studio or xref:actor-filter-archetype.adoc[Dedicated SDK] (custom actor filters)
+|Studio or xref:ROOT:actor-filter-archetype.adoc[Dedicated SDK] (custom actor filters)
 |-
 
-|xref:connectors-overview.adoc[Connectors]
+|xref:ROOT:connectors-overview.adoc[Connectors]
 |Web interfaces used for human interactions with your processes
 |A dozen connectors are provided in the Marketplace and you can create custom connectors
-|Studio or xref:connector-archetype.adoc[Dedicated SDK] (custom connectors)
+|Studio or xref:ROOT:connector-archetype.adoc[Dedicated SDK] (custom connectors)
 |-
 
 
@@ -54,7 +54,7 @@ However, it is not required to use all the concepts to create a valid Bonita Aut
 |===
 |Element |Description |Create/Provided | Tool | Alternative
 
-|xref:define-and-deploy-the-bdm.adoc[Business Data Model] (BDM)
+|xref:ROOT:define-and-deploy-the-bdm.adoc[Business Data Model] (BDM)
 |Structure of the business data used by your processes
 |Create
 |Studio
@@ -67,7 +67,7 @@ However, it is not required to use all the concepts to create a valid Bonita Aut
 |===
 |Element |Description |Create/Provided | Tool | Alternative
 
-|xref:organization-overview.adoc[Organization] (for "Actors" and "Profiles")
+|xref:ROOT:organization-overview.adoc[Organization] (for "Actors" and "Profiles")
 |The definition of the user base that will use the processes (includes users, roles and groups)
 |Example provided/Create
 |Studio/Admin Application/LDAP synchronizer(Enterprise Edition only)
@@ -79,28 +79,28 @@ However, it is not required to use all the concepts to create a valid Bonita Aut
 |===
 |Element |Description |Create/Provided | Tool | Alternative
 
-|xref:applicationcreation.adoc[Application descriptor]
+|xref:ROOT:applicationcreation.adoc[Application descriptor]
 |Defines the *living applications*: group of pages with a specific them for a given user profile
 |Create
 |Studio/Admin Application
 |xml editor
 
-|xref:pages.adoc[Application pages]
+|xref:ROOT:pages.adoc[Application pages]
 |Web pages used within your applications
 |Create
 |UI Designer
 |Front-end framework
 
-|xref:layouts.adoc[Layout]
+|xref:ROOT:layouts.adoc[Layout]
 |Used to define the main frame of an application.
 |Provided
 |UI Designer
 |Front-end framework
 
-|xref:themes.adoc[Theme]
+|xref:ROOT:themes.adoc[Theme]
 |Defines the look and feel of your application
 |A default theme is provided and you can create custom theme
-|Studio or xref:customize-living-application-theme.adoc[Dedicated SDK] (custom theme)
+|Studio or xref:ROOT:customize-living-application-theme.adoc[Dedicated SDK] (custom theme)
 |--
 
 |=== 
@@ -118,21 +118,21 @@ Extensions can be developed outside of the Studio with your favorite IDE.
 |===
 |Extension |When to use | Tool
 
-|xref:connectivity-overview.adoc[Connector]
+|xref:ROOT:connectivity-overview.adoc[Connector]
 |When the provided connector do not cover your requirements
-|xref:connector-archetype.adoc[Dedicated SDK]
+|xref:ROOT:connector-archetype.adoc[Dedicated SDK]
 
-|xref:actor-filtering.adoc[Actor Filters]
+|xref:ROOT:actor-filtering.adoc[Actor Filters]
 |When the provided actor filter do not cover your requirements
-|xref:actor-filter-archetype.adoc[Dedicated SDK]
+|xref:ROOT:actor-filter-archetype.adoc[Dedicated SDK]
 
 |Theme
 |When the provided theme do not cover your requirements
-|xref:customize-living-application-theme.adoc[Dedicated SDK]
+|xref:ROOT:customize-living-application-theme.adoc[Dedicated SDK]
 
 |REST API Extension
 |To interact with third party system outside processes, to make advanced BDM queries or API calls (read only)
-|xref:rest-api-extension-archetype.adoc[Dedicated SDK] or in the Studio (when Business Data is manipulated)
+|xref:ROOT:rest-api-extension-archetype.adoc[Dedicated SDK] or in the Studio (when Business Data is manipulated)
 
 |===
 
@@ -140,7 +140,7 @@ Extensions can be developed outside of the Studio with your favorite IDE.
 Extensions are re-usable elements, they can be shared between projects. 
 Extensions are added to Bonita Automation projects as Maven dependencies.
 
-In the Studio, extensions are managed in a xref:managing_extension_studio.adoc[dedicated view].
+In the Studio, extensions are managed in a xref:ROOT:managing_extension_studio.adoc[dedicated view].
 
 [NOTE]
 ====

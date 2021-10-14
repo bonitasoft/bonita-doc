@@ -9,40 +9,40 @@
 
 [.card.card-index]
 --
-xref:hardware-and-software-requirements.adoc[[.card-title]#Hardware and software requirements# [.card-body.card-content-overflow]#pass:q[Minimum hardware capacities and software vendors & versions]#]
+xref:ROOT:hardware-and-software-requirements.adoc[[.card-title]#Hardware and software requirements# [.card-body.card-content-overflow]#pass:q[Minimum hardware capacities and software vendors & versions]#]
 --
 
 [.card.card-index]
 --
-xref:tomcat-bundle.adoc[[.card-title]#Bonita bundle# [.card-body.card-content-overflow]#pass:q[Install and configure Bonita in its application server]#]
+xref:ROOT:tomcat-bundle.adoc[[.card-title]#Bonita bundle# [.card-body.card-content-overflow]#pass:q[Install and configure Bonita in its application server]#]
 --
 
 [.card.card-index]
 --
-xref:custom-deployment.adoc[[.card-title]#Custom Tomcat# [.card-body.card-content-overflow]#pass:q[Install Bonita in an existing Tomcat server]#]
+xref:ROOT:custom-deployment.adoc[[.card-title]#Custom Tomcat# [.card-body.card-content-overflow]#pass:q[Install Bonita in an existing Tomcat server]#]
 --
 
 [.card.card-index]
 --
-xref:convert-wildfly-into-tomcat.adoc[[.card-title]#Convert a WildFly bundle into a Tomcat# [.card-body.card-content-overflow]#pass:q[If your current application server is not the one we support]#]
+xref:ROOT:convert-wildfly-into-tomcat.adoc[[.card-title]#Convert a WildFly bundle into a Tomcat# [.card-body.card-content-overflow]#pass:q[If your current application server is not the one we support]#]
 --
 
 [.card.card-index]
 --
-xref:bonita-as-windows-service.adoc[[.card-title]#Bonita as a service# [.card-body.card-content-overflow]#pass:q[Install a Tomcat with Bonita as a service in Windows]#]
+xref:ROOT:bonita-as-windows-service.adoc[[.card-title]#Bonita as a service# [.card-body.card-content-overflow]#pass:q[Install a Tomcat with Bonita as a service in Windows]#]
 --
 
 [.card.card-index]
 --
-xref:bonita-docker-installation.adoc[[.card-title]#Bonita Docker image# [.card-body.card-content-overflow]#pass:q[Step-by-step installation guide of Bonita in a Docker environment]#]
+xref:ROOT:bonita-docker-installation.adoc[[.card-title]#Bonita Docker image# [.card-body.card-content-overflow]#pass:q[Step-by-step installation guide of Bonita in a Docker environment]#]
 --
 
 [.card.card-index]
 --
-xref:reverse-proxy-configuration.adoc[[.card-title]#Behind a reverse-proxy# [.card-body.card-content-overflow]#pass:q[Expose the web interface publicy while protecting the backend]#]
+xref:ROOT:reverse-proxy-configuration.adoc[[.card-title]#Behind a reverse-proxy# [.card-body.card-content-overflow]#pass:q[Expose the web interface publicy while protecting the backend]#]
 --
 
 [.card.card-index]
 --
-xref:overview-of-bonita-bpm-in-a-cluster.adoc[[.card-title]#Bonita cluster# [.card-body.card-content-overflow]#pass:q[Achieve high availability by setting up Bonita in a cluster]#]
+xref:ROOT:overview-of-bonita-bpm-in-a-cluster.adoc[[.card-title]#Bonita cluster# [.card-body.card-content-overflow]#pass:q[Achieve high availability by setting up Bonita in a cluster]#]
 --

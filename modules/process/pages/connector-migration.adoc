@@ -2,12 +2,12 @@
 :page-aliases: ROOT:connector-migration.adoc
 :description: Migrate a connector created with Bonita Studio to a dedicated project using the Maven archetype
 
-Since Bonita 2021.2, Connectors cannot be created from the Studio anymore. Developers have to create dedicated connector projects outside the Studio, in their favorite IDE, to develop, build and release their connectors. Then, connectors can be added to Bonita projects as xref:software-extensibility.adoc[extensions]. This allows connectors to have their own project lifecycle and let the developers use the latest state-of-the-art tooling to manage the continuous integration and code quality. +
+Since Bonita 2021.2, Connectors cannot be created from the Studio anymore. Developers have to create dedicated connector projects outside the Studio, in their favorite IDE, to develop, build and release their connectors. Then, connectors can be added to Bonita projects as xref:ROOT:software-extensibility.adoc[extensions]. This allows connectors to have their own project lifecycle and let the developers use the latest state-of-the-art tooling to manage the continuous integration and code quality. +
 This page describes how to migrate a custom connector created with Bonita Studio into a dedicated connector project using the provided maven archetype.
 
 [NOTE]
 ====
-All the content of this page can be applied to migrate actor filters created with Bonita Studio to a dedicated actor filter project. Use the xref:actor-filter-archetype.adoc[actor filter archetype] instead.
+All the content of this page can be applied to migrate actor filters created with Bonita Studio to a dedicated actor filter project. Use the xref:ROOT:actor-filter-archetype.adoc[actor filter archetype] instead.
 ====
 
 == 1 - Create a new connector project using the maven archetype

@@ -9,7 +9,7 @@ A Bonita application is the answer. The first step to build such an application 
 [NOTE]
 ====
 
-xref:ui-designer-overview.adoc[Pages] in Bonita are a lot like forms. They are created with the UI Designer with the same sets of widgets. The main difference is that they are not bound to a process definition (like instantiation forms and user tasks forms). An application page can display business data values, charts and even let the user start a process or execute a task by displaying the appropriate form.
+xref:ROOT:ui-designer-overview.adoc[Pages] in Bonita are a lot like forms. They are created with the UI Designer with the same sets of widgets. The main difference is that they are not bound to a process definition (like instantiation forms and user tasks forms). An application page can display business data values, charts and even let the user start a process or execute a task by displaying the appropriate form.
 ====
 
 For this example, we will build a basic page that displays, in a table, all the claims that have been submitted. To create a new page:
@@ -24,7 +24,7 @@ For this example, we will build a basic page that displays, in a table, all the 
 image:images/getting-started-tutorial/design-application-page/creation-of-an-application-page.gif[Creation of an application page]
 // {.img-responsive .img-thumbnail}
 
-On the new page, using the xref:data-management.adoc[data management] capabilities, the UI Designer can automatically create xref:variables.adoc[variables] to retrieve business data and generate the user interface:
+On the new page, using the xref:ROOT:data-management.adoc[data management] capabilities, the UI Designer can automatically create xref:variables.adoc[variables] to retrieve business data and generate the user interface:
 
 . At the top left corner of the UI Designer, click on  *Data model* image:images/getting-started-tutorial/design-application-page/data-model.png[Data model button]
 . In the list of business objects, select the _Claim_ object and drag and drop it into the empty space of the page
@@ -43,9 +43,9 @@ The UI Designer automatically created 2 variables which will be used to retrieve
 image:images/getting-started-tutorial/design-application-page/variables.png[variables]
 // {.img-responsive .img-thumbnail}
 
-A dashboard page is also automatically generated in the whiteboard. It follows the master/details pattern using xref:widgets.adoc[containers]:
+A dashboard page is also automatically generated in the whiteboard. It follows the master/details pattern using xref:ROOT:widgets.adoc[containers]:
 
-* A xref:widgets.adoc[Table widget] is displayed with all the instance objects, and the details are shown when a line is selected.
+* A xref:ROOT:widgets.adoc[Table widget] is displayed with all the instance objects, and the details are shown when a line is selected.
 * The details section maps each Business Object attribute to a corresponding widget (for instance, an Input widget for an attribute of type String)
 +
 image:images/getting-started-tutorial/design-application-page/dashboard-page.png[dashboard page]
@@ -65,4 +65,4 @@ The preview should look like this:
 image:images/getting-started-tutorial/design-application-page/dashboard-page-preview.png[dashboard page preview]
 // {.img-responsive .img-thumbnail}
 
-Now you have your first application page. It's time to move to the xref:create-application.adoc[next chapter] and create the xref:create-application.adoc[application] that will include the page.
+Now you have your first application page. It's time to move to the xref:ROOT:create-application.adoc[next chapter] and create the xref:create-application.adoc[application] that will include the page.

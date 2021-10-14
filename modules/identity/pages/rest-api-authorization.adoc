@@ -54,7 +54,7 @@ These files grant permissions to sets of users based on profile or user name.
 You cannot remove permissions in a configuration file, so you must ensure that the default definitions grant the minimum permissions that you want to give to any user.
 
 The default versions of these files are located in `setup/platform_conf/initial/tenant_template_portal`.
-In order to change the configuration on an installation whose platform has already been initialized, use the xref:bonita-platform-setup.adoc[platform setup tool] to
+In order to change the configuration on an installation whose platform has already been initialized, use the xref:ROOT:bonita-platform-setup.adoc[platform setup tool] to
 retrieve the current configuration and update the files in `setup/platform_conf/current/tenants/[tenantId]/tenant_portal`.
 Then use the tool again to save your changes into the database.
 
@@ -174,9 +174,9 @@ If the platform has never been started yet:
 
 If the platform has already been started:
 
-* use the xref:bonita-platform-setup.adoc[platform setup tool] to retrieve the current configuration
+* use the xref:ROOT:bonita-platform-setup.adoc[platform setup tool] to retrieve the current configuration
 * add the script to the `setup/platform_conf/current/tenants/[tenantId]/tenant_security_scripts` folder
-* then use the xref:bonita-platform-setup.adoc[platform setup tool] again to push the new / modified scripts to database
+* then use the xref:ROOT:bonita-platform-setup.adoc[platform setup tool] again to push the new / modified scripts to database
 
 The `tenant_security_scripts` folder contains a script sample that can be used to write your own.
 Bonita also provides default scripts that should fit common usages. They are packages internally in the binaries, but the
@@ -288,7 +288,7 @@ and dynamic check scripts available immediately.
 
 == User login
 
-When a user logs in, after the user is xref:user-authentication-overview.adoc[authenticated], a map of `LoggedUserPermissions` is created.
+When a user logs in, after the user is xref:ROOT:user-authentication-overview.adoc[authenticated], a map of `LoggedUserPermissions` is created.
 `LoggedUserPermissions` is a combination of the information from `compound-permissions-mapping.properties` and
 `CustomUserPermissionsMapping` that is relevant to the user.
 It takes into account all the profiles assigned to the user, not only the current profile, so when you change profile the map does not need to be recreated.
@@ -301,26 +301,26 @@ needed to access the resource (or page), and checks the `LoggedUserPermissions` 
 If so, the user is authorized.
 Otherwise, access is refused.
 If access is not authorized, a message is written in the log so that the Administrator is aware that an unauthorized user has tried to gain access.
-Note that this level of logging is only available if you xref:logging.adoc[set the logging level] to `FINEST`.
+Note that this level of logging is only available if you xref:ROOT:logging.adoc[set the logging level] to `FINEST`.
 
 [#custom_pages]
 
 == Authorizing access to a custom page
 
-When a new xref:pages.adoc[custom page] is added, the permissions defined in the page properties are added to the permissions configuration files and the cache.
+When a new xref:ROOT:pages.adoc[custom page] is added, the permissions defined in the page properties are added to the permissions configuration files and the cache.
 It is not necessary to restart the applications server to activate security for the new custom page.
 Depending on the permissions that a user of the page already has, it might be necessary to log out and log in again to get access to the new custom page.
 
 [WARNING]
 ====
 
-If the page declares resources provided by a xref:rest-api-extensions.adoc[REST API extension], then the REST API extension must be deployed before the page,
+If the page declares resources provided by a xref:ROOT:rest-api-extensions.adoc[REST API extension], then the REST API extension must be deployed before the page,
 otherwise the compound permissions won't be automatically created when deploying the page, and you will need to redeploy the page after deploying the REST API extension.
 ====
 
 == Authorization and custom profiles
 
-When a new xref:custom-profiles.adoc[custom profile] is created, the permissions mappings are updated in the configuration files and in the cache.
+When a new xref:ROOT:custom-profiles.adoc[custom profile] is created, the permissions mappings are updated in the configuration files and in the cache.
 It is not necessary to restart the application server to activate security for the new custom profile.
 
 == Granting permissions to a given resource
@@ -339,7 +339,7 @@ For example, to add the permission to the user walter.bates (username), add the 
 
 Starting with the Bonita efficiency subscription edition, you can use a simpler mechanism to grant or deny access to BDM objects or some of their attributes to specific profiles, using the BDM Access Control feature.
 It is also possible to protect instances of the BDM objects, using REST API authorizations.
-For more details see : xref:bdm-access-control.adoc[BDM access control]
+For more details see : xref:ROOT:bdm-access-control.adoc[BDM access control]
 
 == Activating and deactivating authorization
 
@@ -394,11 +394,11 @@ When you migrate from a version earlier than 6.4.0, authorization is configured 
 If you have an existing custom page and want to activate authorization, you need to add permissions to the definition of the custom page.
 To add authorization to an existing custom page:
 
-. Export the xref:pages.adoc[custom page].
-. Update the page properties with xref:pages.adoc[permissions].
+. Export the xref:ROOT:pages.adoc[custom page].
+. Update the page properties with xref:ROOT:pages.adoc[permissions].
 . Activate authorization, by editing `security-config.properties` and setting the value of the `security.rest.api.authorizations.check.enabled` property to `true`.
 . Restart the application server.
-. Import the xref:pages.adoc[custom page].
+. Import the xref:ROOT:pages.adoc[custom page].
 
 If you have an existing custom profile, the permissions relating to the profiles is automatically added to the permissions files, so you do not need to update the profile.
 However, if a custom profile use a custom page, you must update the custom page definition to add permissions before you activate authorization.

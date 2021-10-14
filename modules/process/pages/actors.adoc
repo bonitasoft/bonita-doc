@@ -17,7 +17,7 @@ This action prevents concurrent actions from several candidates on a single user
 Note that if the task assignee realizes that he/she cannot actually perform a user task instance he/she can release it. Releasing a user task instance will make it available again to all the initial candidates.
 ====
 
-In order to define the candidates of a user task instance Bonita offers two alternatives: actor and xref:actor-filtering.adoc[actor filters].
+In order to define the candidates of a user task instance Bonita offers two alternatives: actor and xref:ROOT:actor-filtering.adoc[actor filters].
 
 == Define an actor
 
@@ -44,9 +44,9 @@ To define actors for a process:
 . For each lane, define the actor. You can either select an actor that was defined for the pool, by selecting the actor from the drop-down list, or you can use an actor filter.
 . For each step, define the actor. You can use the actor defined for the lane, or specify an actor for the step. To specify an actor for the step, you can either select an actor that was defined for the pool, by selecting the actor from the drop-down list, or you can use an actor filter.
 
-See xref:custom-user-information-in-bonita-bpm-studio.adoc[Custom User Information in Bonita Studio]
+See xref:ROOT:custom-user-information-in-bonita-bpm-studio.adoc[Custom User Information in Bonita Studio]
 
-See xref:custom-user-information-in-bonita-applications.adoc[Custom User Information in Bonita Apps]
+See xref:ROOT:custom-user-information-in-bonita-applications.adoc[Custom User Information in Bonita Apps]
 
 == Set the initiator
 
@@ -56,7 +56,7 @@ The initiator is the user who starts a process instance. For a process that is s
 
 [NOTE]
 ====
-To use actor filters in your processes, you first need to import the corresponding extensions from the xref:managing_extension_studio.adoc[extension view].
+To use actor filters in your processes, you first need to import the corresponding extensions from the xref:ROOT:managing_extension_studio.adoc[extension view].
 ====
 
 To specify an actor filter, click *_Set..._*, choose one of the predefined actor filters from the list, and follow the instructions in the wizard to configure the actor selector.
@@ -65,12 +65,12 @@ To change the configuration of an actor filter, select the actor filter, click *
 
 To delete an actor filter, select the actor filter and click the Delete icon. Note that this does not remove the actor filter from the list of predefined actor filters, just from the process definition.
 
-For information about creating a new actor filter, see xref:actor-filter-archetype.adoc[Creating an actor filter].
+For information about creating a new actor filter, see xref:ROOT:actor-filter-archetype.adoc[Creating an actor filter].
 
 == Map an actor
 
 Before a process can be tested, you must map the actors in the process to users in the organization. Before you can do this, you must
-xref:organization-management-in-bonita-bpm-studio.adoc[define your organization in Bonita Studio] and upload it to Bonita Applications.
+xref:ROOT:organization-management-in-bonita-bpm-studio.adoc[define your organization in Bonita Studio] and upload it to Bonita Applications.
 
 To map the process actors:
 
@@ -83,7 +83,7 @@ When you deploy a process, if you have the same organization definition in Bonit
 == Update task assignment dynamically
 
 The Bonita Engine API contains a method to re-evaluate the assignment of a task by reapplying the actor mapping any actor filters.
-This means that if there are changes in your organization, you can update any active process instances to assign tasks to the correct people. This is known as xref:manage-users.adoc[dynamic task assignment].
+This means that if there are changes in your organization, you can update any active process instances to assign tasks to the correct people. This is known as xref:ROOT:manage-users.adoc[dynamic task assignment].
 
 == Export or import actor mapping
 

@@ -14,7 +14,7 @@ There are two stages to specify who will perform a step in a process:
 When you define a process, you define who will carry out a step in the process by specifying an actor. For example, if a step can be done by any member of the HR team, you could call the actor _hr_, or if a step can only be done by the sales team manager in Europe, you could call the actor _sales_mgr_europe_.
 
 A user is a person who has a username and a password in a Bonita organization, and can therefore perform steps in a process.
-Before you deploy a process, you need to xref:actors.adoc[map the process actors]. This mapping defines who can carry out steps in the process.
+Before you deploy a process, you need to xref:ROOT:actors.adoc[map the process actors]. This mapping defines who can carry out steps in the process.
 
 == What is an organization?
 
@@ -48,7 +48,7 @@ All the users who participate in a process must be in the same Bonita organizati
 
 The Bonita model for managing an organization assumes that you use the same organization information for other tools and that it is stored in an LDAP directory. Bonita has three tools you can use to manage your organization information:
 
-* xref:ldap-synchronizer.adoc[LDAP synchronizer] (in the Enterprise, Performance, Efficiency, and Teamwork editions of Bonita), for keeping the Bonita organization synchronized with your external LDAP directory. Synchronization is one-way, from LDAP to Bonita. You can run the synchronizer once to load the organization then manage it within Bonita Applications, or you can run the synchronizer on a schedule and manage the organization externally.
+* xref:ROOT:ldap-synchronizer.adoc[LDAP synchronizer] (in the Enterprise, Performance, Efficiency, and Teamwork editions of Bonita), for keeping the Bonita organization synchronized with your external LDAP directory. Synchronization is one-way, from LDAP to Bonita. You can run the synchronizer once to load the organization then manage it within Bonita Applications, or you can run the synchronizer on a schedule and manage the organization externally.
 * *Bonita Applications*, for managing organization information in production within Bonita. You can manage users, groups, and roles. You can also import or export the organization information.
 * *Bonita Studio*, for creating your initial organization definition, which must be imported into Bonita Applications prior to production, and for managing organization information while you test a process in development. Bonita Studio contains an example organization, called ACME.
 This organization contains a small number of users, who belong to different groups with realistic roles. You can use this sample organization to test a process that you develop. +
@@ -61,7 +61,7 @@ Custom user information enables custom details to be added to a user in the Orga
 === In Bonita Studio:
 
 Use the *Custom* tab in *Organization users* to add Custom information to a user. +
-This xref:custom-user-information-in-bonita-bpm-studio.adoc[custom information is defined in Bonita Studio], then applied to an actor filter, and when deployed in Bonita Applications, enables the filtering of users mapped to tasks.
+This xref:ROOT:custom-user-information-in-bonita-bpm-studio.adoc[custom information is defined in Bonita Studio], then applied to an actor filter, and when deployed in Bonita Applications, enables the filtering of users mapped to tasks.
 
 The custom user information is saved in the Organization schema and published, so it can be used in Bonita Applications.
 
@@ -71,11 +71,11 @@ When the process is deployed in Bonita Applications in a production environment,
 However, the value associated with a filter definition can be modified by a user with an admin profile. +
 The organization will be modified on the remote server. This enables tasks to be re-assigned to users in processes that are already deployed, which is then used to filter users for tasks.
 
-See xref:custom-user-information-in-bonita-bpm-studio.adoc[custom user information in Bonita Studio] for setting the definition and values for the filter
+See xref:ROOT:custom-user-information-in-bonita-bpm-studio.adoc[custom user information in Bonita Studio] for setting the definition and values for the filter
 
 === In Bonita Applications:
 
-This custom information can only be seen and xref:custom-user-information-in-bonita-applications.adoc[edited] by users who have the Administrator profile.
+This custom information can only be seen and xref:ROOT:custom-user-information-in-bonita-applications.adoc[edited] by users who have the Administrator profile.
 
 Note that if the custom user information does not exist in Bonita Studio, modifying its value for a user in Bonita Applications will not make any difference to the filter, apart from creating an error.
 Synchronize the Organization between Bonita Studio and Bonita Applications first by publishing it so all values are up to date.

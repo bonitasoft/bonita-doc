@@ -7,11 +7,11 @@
 We also encourage you to watch the videos that have been done on this wide topic.
 
 == Teamwork
-To improve the teamwork between business teams who will benefit from the projet, and the IT team who will create it, Bonita has created a xref:project-documentation-generation.adoc[project documentation feature] (Subscription editions only) that captures the content of the project, the business needs and the development explanations (written in the descriptions of all designed items).
+To improve the teamwork between business teams who will benefit from the projet, and the IT team who will create it, Bonita has created a xref:ROOT:project-documentation-generation.adoc[project documentation feature] (Subscription editions only) that captures the content of the project, the business needs and the development explanations (written in the descriptions of all designed items).
 
 == Project phases
 
-xref:design-methodology.adoc[In this page], find the 6 project phases we recommend for a successful project.
+xref:ROOT:design-methodology.adoc[In this page], find the 6 project phases we recommend for a successful project.
 
 
 == image:images/tv.png[Videos] Videos

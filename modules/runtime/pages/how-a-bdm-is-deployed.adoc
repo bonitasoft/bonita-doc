@@ -176,7 +176,7 @@ The call is done in a single database transaction, which allows it to be rolled 
 == Deploying a new version of the BDM
 
 The java classes of the model are generated again from scratch, so any refactoring is supported. +
-On the other side, the database refactoring is xref:bdm-management-in-bonita-applications.adoc#_limitations[only partially supported].
+On the other side, the database refactoring is xref:ROOT:bdm-management-in-bonita-applications.adoc#_limitations[only partially supported].
 
 
 == Constraints to (re-)deploy a BDM
@@ -194,7 +194,7 @@ After (re-)deploying the BDM, the BPM services must be resumed to be able to use
 
 == Deploying a BDM via the Bonita Super Administrator application
 
-See xref:bdm-management-in-bonita-applications.adoc#_manage_the_bdm[how to deploy the BDM through Bonita Super Administrator application].
+See xref:ROOT:bdm-management-in-bonita-applications.adoc#_manage_the_bdm[how to deploy the BDM through Bonita Super Administrator application].
 
 Internally, the runtime will call the method `updateBusinessDataModel()` to install the new BDM.
 This method implicitly performs the following steps in a single database transaction:

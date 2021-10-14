@@ -37,5 +37,5 @@ In general, we recommend you to set all attributes to *true* or all to *false*. 
 * To archive a reference between a business data and its process instance, set `bonita.tenant.archive.RefBusinessDataInstance` to true.
 * To archive contract data when a task / process instance finishes, set `bonita.tenant.archive.SContractData` to true.  Note that, if not set, this parameter will by be set to true by default.
 
-To configure the archiving strategy, edit the file xref:bonita-platform-setup.adoc[`bonita-tenant-sp-custom.properties`] and specify the items that you want archived.
+To configure the archiving strategy, edit the file xref:ROOT:bonita-platform-setup.adoc[`bonita-tenant-sp-custom.properties`] and specify the items that you want archived.
 By default, the archiving strategy is that everything is archived, so the value for each type of information is set to `true`. Change this setting to `false` for the items that you do not want to archive.

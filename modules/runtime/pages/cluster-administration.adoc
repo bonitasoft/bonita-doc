@@ -12,7 +12,7 @@ Discover how to administer, monitor and manage a Bonita cluster.
 
 == Backing up a cluster
 
-Back up your cluster in the same as you would xref:back-up-bonita-bpm-platform.adoc[back up a standalone Bonita system], by backing up the database.
+Back up your cluster in the same as you would xref:ROOT:back-up-bonita-bpm-platform.adoc[back up a standalone Bonita system], by backing up the database.
 You also need to back up the load balancer (see your load balancer documentation for details of how to do this).
 
 == Troubleshooting
@@ -32,7 +32,7 @@ Import the process .bar file into Bonita Administrator Application on one of the
 The process must be started on one node. Subsequently, instances can be created on all nodes.
 This means that all nodes have the possibility of running instances of tasks of all processes.
 
-You can also xref:manage-a-process.adoc[deploy a process using the API], exactly as you would in a standalone system.
+You can also xref:ROOT:manage-a-process.adoc[deploy a process using the API], exactly as you would in a standalone system.
 
 == Managing your organization in a cluster
 

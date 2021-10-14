@@ -49,9 +49,9 @@ To resolve a process for actors, parameters, connectors, and forms:
 To resolve a process for business variables:
 
 . Logout
-. Login in Bonita Administrator Portal with the xref:tenant_admin_credentials.adoc[technical user credentials]
-. xref:pause-and-resume-bpm-services.adoc[Pause the BPM services]
-. xref:bdm-management-in-bonita-bpm-portal.adoc[Update the BDM]
+. Login in Bonita Administrator Portal with the xref:ROOT:tenant_admin_credentials.adoc[technical user credentials]
+. xref:ROOT:pause-and-resume-bpm-services.adoc[Pause the BPM services]
+. xref:ROOT:bdm-management-in-bonita-bpm-portal.adoc[Update the BDM]
 . Come back to the application _BPM_/_Processes_ and check the status.
 
 == Enable a process
@@ -141,7 +141,7 @@ To start a case for another user:
 The case is started as though the specified user had started it.
 For example, if you start a case for user A and a subsequent task is to be done by the manager of the user, it is assigned to user A's manager, not to your manager.
 
-All of what follows belong to the xref:live-update.adoc[Live update feature] and are only available in for the Enterprise, Performance, and Efficiency editions.
+All of what follows belong to the xref:ROOT:live-update.adoc[Live update feature] and are only available in for the Enterprise, Performance, and Efficiency editions.
 
 == Edit the actor mapping
 

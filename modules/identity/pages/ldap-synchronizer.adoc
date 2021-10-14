@@ -50,7 +50,7 @@ where `x.y.z` is the version of Bonita you are running.
 
 WARNING: Do not modify the Organization from Applications while the tool is running, as this will cause a synchronization error.
 
-NOTE: Some use cases require additional configuration server side (for example to use directly the engine API). They are described xref:configure-client-of-bonita-bpm-engine.adoc[here].
+NOTE: Some use cases require additional configuration server side (for example to use directly the engine API). They are described xref:ROOT:configure-client-of-bonita-bpm-engine.adoc[here].
 
 
 [#_using_the_ldap_synchronizer_docker_image]
@@ -89,7 +89,7 @@ docker cp $(docker create --rm quay.io/bonitasoft/bonita-ldap-synchronizer:*vers
 * start the docker image with the volume docker run [...] -v $(pwd)/user-config:/opt/conf/user-config [..]
 
 
-xref:ldap-synchronizer.adoc#ldap-configuration-files[here] more details about configuration files.
+xref:ROOT:ldap-synchronizer.adoc#ldap-configuration-files[here] more details about configuration files.
 
 *WARN:* `bonita.properties`, `ldap.properties` and `log.properties`  files located on volume will overwrite all configuration specified with environment variables.
 
@@ -184,7 +184,7 @@ Add between `java` and `-classpath`:
 ----
 
 The LDAP Synchronizer connects to Bonita server using the HTTP mode only.
-For more understanding about API access, see the xref:engine-api-overview.adoc[Engine API overview].
+For more understanding about API access, see the xref:ROOT:engine-api-overview.adoc[Engine API overview].
 
 2/ Connection using Bonita.properties files:
 
@@ -210,7 +210,7 @@ All configurations files can be found in the conf directory.
 NOTE: to use a special character in a properties file, use the Unicode equivalent. For example, for `à` use \u00E0.
 You can use a tool such as http://docs.oracle.com/javase/8/docs/technotes/tools/unix/native2ascii.html[native2ascii] to convert any special characters in the configuration files to Unicode.
 
-You also need to xref:configure-client-of-bonita-bpm-engine.adoc[configure connection on Bonita Engine] for the LDAP Synchronizer.
+You also need to xref:ROOT:configure-client-of-bonita-bpm-engine.adoc[configure connection on Bonita Engine] for the LDAP Synchronizer.
 
 [#_bonita_properties]
 === bonita.properties
@@ -245,11 +245,11 @@ This file defines the connection settings and specifies the account used for use
 |
 
 | technicalUser
-| This is the xref:first-steps-after-setup.adoc[username of the platform adminstrator]. It is used to retrieve the default tenant id if _tenantId_ is not provided.
+| This is the xref:ROOT:first-steps-after-setup.adoc[username of the platform adminstrator]. It is used to retrieve the default tenant id if _tenantId_ is not provided.
 | platformAdmin
 
 | technicalPassword
-| This is the xref:first-steps-after-setup.adoc[password of the platform adminstrator]. It is used to retrieve the default tenant id if _tenantId_ is not provided.
+| This is the xref:ROOT:first-steps-after-setup.adoc[password of the platform adminstrator]. It is used to retrieve the default tenant id if _tenantId_ is not provided.
 | platform
 |===
 
@@ -635,7 +635,7 @@ search2.force_add_non_existing_users  =  false
 == Using the LDAP synchronizer in a non-default tenant
 
 *Installation:* The LDAP Synchronizer is installed on the platform as described above.
-After installation, Check that the  xref:profiles-overview.adoc["User" profile] is defined for the tenant.
+After installation, Check that the  xref:ROOT:profiles-overview.adoc["User" profile] is defined for the tenant.
 The default tenant has a "User" profile by default, but it must be created manually when a tenant is created.
 The LDAP synchronizer will fail if this profile is not defined.
 
@@ -726,4 +726,4 @@ The LDAP Synchronizer is using the Engine HTTP API of the product but it's not a
 ----
 *Docker image solution:* Run the docker image with *-e HTTP_API=true*
 * For example: `docker run -e HTTP_API=true -e REST_API_DYN_AUTH_CHECKS=false --name bonita -v ./bonita-lic/:/opt/bonita_lic/ -h localhost -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:7.9.2`
-* See the page xref:bonita-docker-installation.adoc#_http_api[Deploy Bonita Runtime with Docker] for more information.
+* See the page xref:ROOT:bonita-docker-installation.adoc#_http_api[Deploy Bonita Runtime with Docker] for more information.

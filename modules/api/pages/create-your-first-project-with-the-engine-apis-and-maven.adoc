@@ -44,7 +44,7 @@ In order to use the client APIs, you need to add a dependency to the `bonita-cli
 
 You must configure the connection to the Engine (i.e. Bonita Platform) for your project. To do so you can use System properties or programmatic configuration.
 
-Take a look at xref:configure-client-of-bonita-bpm-engine.adoc[how to configure a client]
+Take a look at xref:ROOT:configure-client-of-bonita-bpm-engine.adoc[how to configure a client]
 
 == Log in
 
