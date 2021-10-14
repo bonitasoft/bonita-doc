@@ -1,9 +1,9 @@
 = Bonita Layout
-:description: [NOTE]
+:page-aliases: ROOT:bonita-layout.adoc
+:description: Layout
 
 [NOTE]
 ====
-
 For Enterprise, Performance, Efficiency, and Teamwork editions only.
 ====
 

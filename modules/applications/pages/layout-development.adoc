@@ -1,4 +1,5 @@
 = Develop a layout
+:page-aliases: ROOT:layout-development.adoc
 :description: This pages describe how to create a layout and use it in an application.
 
 {description}

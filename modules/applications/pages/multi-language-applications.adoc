@@ -1,7 +1,8 @@
 = Multi-language applications
+:page-aliases: ROOT:multi-language-applications.adoc
 :description: Throughout this page, you will see how you can translate the application menus.
 
-Throughout this page, you will see how you can translate the application menus.
+{description}
 
 The menus in Bonita User and Administrator applications are available in English only by default. But, depending on your requirements, the menus can be translated into other languages too by updating Bonita layout. Using the same procedure, custom applications menus can be translated as well.
 This documentation is only about the menus. For more information regarding translations at the page level, go to the xref:multi-language-pages.adoc[multi language pages] page.

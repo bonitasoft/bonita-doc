@@ -1,5 +1,6 @@
 = Navigation between User Interfaces
-:description: == In Bonita Applications
+:page-aliases: ROOT:navigation.adoc
+:description: Navigation between User Interfaces
 
 == In Bonita Applications
 

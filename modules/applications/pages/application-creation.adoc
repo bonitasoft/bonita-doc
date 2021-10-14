@@ -1,9 +1,8 @@
 = Application descriptor
-:page-aliases: applicationCreation.adoc
-
+:page-aliases: ROOT:applicationCreation.adoc, ROOT:application-creation.adoc
 :description: Define your Bonita application descriptor.
 
-Define your Bonita application descriptor.
+{description}
 
 == Overview
 

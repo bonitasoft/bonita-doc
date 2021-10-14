@@ -1,9 +1,9 @@
 = Customize layouts
-:description: [NOTE]
+:page-aliases: ROOT:customize-layouts.adoc
+:description: Customize layouts
 
 [NOTE]
 ====
-
 For Enterprise, Performance, Efficiency, and Teamwork editions only.
 ====
 

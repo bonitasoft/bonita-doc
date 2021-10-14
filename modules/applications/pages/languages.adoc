@@ -1,4 +1,5 @@
 = Bonita is available in different languages
+:page-aliases: ROOT:languages.adoc
 :description: Bonita is officially released in various languages but is open to more translations from the Community.
 
 {description}

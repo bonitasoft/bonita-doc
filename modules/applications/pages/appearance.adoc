@@ -1,7 +1,8 @@
 = Appearance of page and forms
+:page-aliases: ROOT:appearance.adoc
 :description: Bonita allows you to define the appearance of a page or form using themes.
 
-Bonita allows you to define the appearance of a page or form using themes.
+{description}
 
 == Apply an application resource theme
 
