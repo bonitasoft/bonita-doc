@@ -1,5 +1,6 @@
 = Bonita components
 :description: Bonita is an open-source and extensible platform for business process automation and optimization. The Bonita platform accelerates development and production with clear separation between capabilities for visual programming and for coding.  BPMN graphical notation, full extensibility, and reusable components allow smooth collaboration among the different profiles on the IT team, and with the business teams. Bonita integrates with existing information systems, orchestrates heterogeneous systems, and provides deep visibility into processes across the organization.
+:page-aliases: ROOT:bonita-bpm-overview.adoc
 
 Bonita is an open-source and extensible platform for business process automation and optimization. The Bonita platform accelerates the development and production of process-based applications with a clear separation between capabilities for visual programming and for coding. Indeed, BPMN graphical notation, full extensibility, and reusable components allow for a smooth collaboration among the different profiles on the IT team, and with the business teams. +
 
