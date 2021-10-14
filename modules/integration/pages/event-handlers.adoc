@@ -1,11 +1,11 @@
 = Bonita Engine Event handlers
+:page-aliases: ROOT:event-handlers.adoc
 :description: An event handler is an extension to the engine that is configured to run when a specified event occurs.
 
-An event handler is an extension to the engine that is configured to run when a specified event occurs.
+{description}
 
 [NOTE]
 ====
-
 For Enterprise, Performance, Efficiency, and Teamwork editions only.
 ====
 
@@ -32,7 +32,6 @@ It means that:
 
 [WARNING]
 ====
-
 In a cluster environment, Event handlers must be Serializable (implements Serializable and have all its fields serializable or transient) because they are shared with other nodes of the cluster.
 ====
 
