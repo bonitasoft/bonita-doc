@@ -1,5 +1,6 @@
 = UI Designer overview
 :description: The UI Designer is a wysiwyg development environment for creating pages and forms for a Bonita application.
+:page-aliases: ROOT:ui-designer-overview.adoc
 
 {description}
 
