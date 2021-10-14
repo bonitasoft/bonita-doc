@@ -1,4 +1,5 @@
 = Actors 
+:page-aliases: ROOT:actors-index.adoc
 :description: Actors are indirections between the processes and entities of the organization. They are used to define the candidates who can perform a given human task.
 
 {description}

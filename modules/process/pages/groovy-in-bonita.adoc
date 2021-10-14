@@ -1,7 +1,8 @@
 = Groovy script language in Bonita
+:page-aliases: ROOT:groovy-in-bonita.adoc
 :description: In Bonita, it is a prerequisite to be comfortable with Java when implementing advanced behaviors in your processes, the below article aims at helping with Groovy, the scripting language used by Bonita.
 
-In Bonita, it is a prerequisite to be comfortable with Java when implementing advanced behaviors in your processes, the below article aims at helping with Groovy, the scripting language used by Bonita.
+{description} +
 Groovy has been chosen as the scripting language because it is :
 
 * Concise, readable and have an expressive syntax, easy to learn for Java developers

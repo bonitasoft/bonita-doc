@@ -1,7 +1,8 @@
 = LDAP Connector
+:page-aliases: ROOT:ldap.adoc
 :description: The LDAP connector allows a process to retrieve data from an LDAP server by running a query.
 
-The LDAP connector allows a process to retrieve data from an LDAP server by running a query.
+{description}
 
 If you are looking for LDAP Authentication please go to: https://documentation.bonitasoft.com/bonita/{javadocVersion}/active-directory-or-ldap-authentication[Active Directory or LDAP authentication].
 

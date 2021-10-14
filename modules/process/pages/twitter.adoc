@@ -1,7 +1,8 @@
 = Twitter connector
+:page-aliases: ROOT:twitter.adoc
 :description: Twitter connectors allows to publish Tweets or send direct messages from your processes.
 
-Twitter connectors allows to publish Tweets or send direct messages from your processes.
+{description}
 
 == Overview
 

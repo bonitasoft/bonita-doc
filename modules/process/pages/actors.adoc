@@ -1,4 +1,5 @@
 = Actors of processes
+:page-aliases: ROOT:actors.adoc
 :description: The concept of Actor defines who can perform a task or start a process.
 
 {description}

@@ -1,7 +1,8 @@
 = Log files
+:page-aliases: ROOT:log-files.adoc
 :description: Studio log file is related to development activities, while Engine log file is related to process testing.
 
-Studio log file is related to development activities, while Engine log file is related to process testing.
+{description}
 
 From the Bonita Studio Help menu you can access the Studio log file
 and the Engine log file.

@@ -1,7 +1,8 @@
 = Text annotations
+:page-aliases: ROOT:text-annotations.adoc
 :description: A text annotation is a comment that can be added to a diagram.
 
-A text annotation is a comment that can be added to a diagram.
+{description}
 
 Text annotations can be added to :
 

@@ -1,7 +1,8 @@
 = Graphical query builder
+:page-aliases: ROOT:graphical-query-builder.adoc
 :description: Build a database query graphically.
 
-Build a database query graphically.
+{description}
 
 == Connect to the database
 

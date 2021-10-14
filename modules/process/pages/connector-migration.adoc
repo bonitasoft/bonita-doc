@@ -1,5 +1,5 @@
 = Migrate a connector created with Bonita Studio to a dedicated project
-
+:page-aliases: ROOT:connector-migration.adoc
 :description: Migrate a connector created with Bonita Studio to a dedicated project using the Maven archetype
 
 Since Bonita 2021.2, Connectors cannot be created from the Studio anymore. Developers have to create dedicated connector projects outside the Studio, in their favorite IDE, to develop, build and release their connectors. Then, connectors can be added to Bonita projects as xref:software-extensibility.adoc[extensions]. This allows connectors to have their own project lifecycle and let the developers use the latest state-of-the-art tooling to manage the continuous integration and code quality. +

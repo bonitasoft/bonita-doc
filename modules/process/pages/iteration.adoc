@@ -1,7 +1,8 @@
 = Iteration
+:page-aliases: ROOT:iteration.adoc
 :description: Iteration is used in Bonita when you need to perform a task multiple times.
 
-Iteration is used in Bonita when you need to perform a task multiple times.
+{description}
 
 == How to
 

@@ -1,4 +1,5 @@
 = Process testing 
+:page-aliases: ROOT:process-testing-index.adoc
 :description: Tips and how-tos for functional and performance testing of your automation projects.
 
 {description} 

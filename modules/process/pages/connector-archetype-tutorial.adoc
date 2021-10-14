@@ -1,5 +1,5 @@
 = Example: Create a connector, publish it on Github packages and install it as an extension
-
+:page-aliases: ROOT:connector-archetype-tutorial.adoc
 :description: Create a custom connector using the provided maven archetype, deploy a connector on Github packages, install an extension in Bonita Studio
 
 In this example, we are going to create a connector to communicate with the https://swapi.dev/[Star Wars API]. It will take in input a Star Wars character name, and will return details on this character. +

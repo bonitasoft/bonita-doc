@@ -1,6 +1,7 @@
 = Process diagrams
-
+:page-aliases: ROOT:diagrams-index.adoc
 :description: Diagrams account for a convenient way to group together pools (single processes) that belong to the same business domain.
+
 {description}
 
 [.card-section]

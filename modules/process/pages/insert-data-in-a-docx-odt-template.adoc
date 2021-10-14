@@ -1,7 +1,8 @@
 = Insert data in a .docx/.odt template connector
+:page-aliases: ROOT:insert-data-in-a-docx-odt-template.adoc
 :description: The *insert data in a .docx/.odt template* fills a specified template file by inserting values coming from the current process instance.
 
-The *insert data in a .docx/.odt template* fills a specified template file by inserting values coming from the current process instance.
+{description}
 
 == Usage
 

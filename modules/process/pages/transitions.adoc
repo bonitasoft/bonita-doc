@@ -1,7 +1,8 @@
 = Transitions
+:page-aliases: ROOT:transitions.adoc
 :description: Transitions connect all objects permitting the sequence flow to execute from start to end.
 
-Transitions connect all objects permitting the sequence flow to execute from start to end.
+{description}
 
 == Overview
 

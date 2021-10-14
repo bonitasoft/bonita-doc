@@ -1,7 +1,8 @@
 = SAP JCo 3 Connector
+:page-aliases: ROOT:sap-jco-3.adoc
 :description: The Bonita SAP Java Connector 3 allows Bonita to communicate with any SAP system using the SAP JCo 3 toolkit.
 
-The Bonita SAP Java Connector 3 allows Bonita to communicate with any SAP system using the SAP JCo 3 toolkit.
+{description}
 
 == Prerequisite
 

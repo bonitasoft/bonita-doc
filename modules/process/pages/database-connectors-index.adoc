@@ -1,4 +1,5 @@
 = Database connectors 
+:page-aliases: ROOT:database-connectors-index.adoc
 :description: Database connectors allow you to connector your process with external data sources to read or write data. Bonita supports natively several database connector.
 
 Database connectors allow you to connector your process with external data sources to read or write data. Bonita supports natively several database connector.
