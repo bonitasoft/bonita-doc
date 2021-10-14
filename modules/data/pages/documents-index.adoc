@@ -1,7 +1,8 @@
 = Documents
+:page-aliases: ROOT:documents-index.adoc
 :description: An explanation of how documents are managed in Bonita.
 
-An explanation of how documents are managed in Bonita.
+{description}
 
 [.card-section]
 == Use documents in Bonita

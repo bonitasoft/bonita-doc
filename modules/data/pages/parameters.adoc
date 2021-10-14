@@ -1,4 +1,5 @@
 = Process Parameters
+:page-aliases: ROOT:parameters.adoc
 :description: A parameter can be used to store a value that differs between deployments but is fixed for all cases of a deployed process.
 
 {description}

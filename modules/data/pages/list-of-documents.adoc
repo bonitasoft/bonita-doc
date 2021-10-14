@@ -1,7 +1,8 @@
 = Manage a list of documents
+:page-aliases: ROOT:list-of-documents.adoc
 :description: Bonita allows you to group documents with lists.
 
-Bonita allows you to group documents with lists.
+{description}
 
 == How to
 
