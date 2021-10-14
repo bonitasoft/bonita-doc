@@ -1,5 +1,5 @@
 = Updating Bonita Runtime
-:page-aliases: migrate-from-an-earlier-version-of-bonita-bpm.adoc, ROOT:migrate-from-an-earlier-version-of-bonita.adoc
+:page-aliases: ROOT:migrate-from-an-earlier-version-of-bonita-bpm.adoc, ROOT:migrate-from-an-earlier-version-of-bonita.adoc
 :description: This page explains how to update Bonita Runtime (single or multiple nodes) to a newer version of Bonita.
 
 {description}
