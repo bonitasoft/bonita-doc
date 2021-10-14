@@ -1,4 +1,5 @@
 = Hardware and software requirements
+:page-aliases: ROOT:hardware-and-software-requirements.adoc
 :description: This page describes the suggested hardware and software requirements to install Bonita platform.
 
 {description}

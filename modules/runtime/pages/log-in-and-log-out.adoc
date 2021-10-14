@@ -1,4 +1,5 @@
 = Log in and log out
+:page-aliases: ROOT:log-in-and-log-out.adoc
 :description: This page explains how to log in and log out of the Bonita User Interfaces.
 
 {description}

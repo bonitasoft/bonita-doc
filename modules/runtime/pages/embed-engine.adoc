@@ -1,4 +1,5 @@
 = Embed Bonita Engine in your application
+:page-aliases: ROOT:embed-engine.adoc
 :description: image:images/bonita-lab.png[]
 
 image:images/bonita-lab.png[]

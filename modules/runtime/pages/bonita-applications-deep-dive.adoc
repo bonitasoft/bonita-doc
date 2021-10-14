@@ -1,4 +1,5 @@
-= Applications deep dive 
+= Applications deep dive
+:page-aliases: ROOT:bonita-applications-deep-dive.adoc
 :description: This page explains how Bonita runs applications and presents the Bonita applications natively embedded in Bonita Runtime
 
 {description}

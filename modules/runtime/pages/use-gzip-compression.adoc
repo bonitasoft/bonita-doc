@@ -1,4 +1,5 @@
 = Tomcat gzip compression
+:page-aliases: ROOT:use-gzip-compression.adoc
 :description: This page describes how to activate gzip compression for a Bonita Platform with Tomcat.
 
 {description}

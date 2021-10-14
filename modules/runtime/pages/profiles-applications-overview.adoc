@@ -1,5 +1,5 @@
 = Profiles overview in Bonita User Interfaces
-:page-aliases: profiles-portal-overview.adoc
+:page-aliases: ROOT:profiles-portal-overview.adoc, ROOT:profiles-applications-overview.adoc
 :description: This page explains what a profile is in the Bonita Administrator Application.
 
 {description}

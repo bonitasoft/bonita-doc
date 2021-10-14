@@ -1,4 +1,5 @@
 = User task list
+:page-aliases: ROOT:user-task-list.adoc
 :description: This page explains what a user can see and do about tasks in the xref:user-application-overview.adoc[Bonita User Application]. +
 
 

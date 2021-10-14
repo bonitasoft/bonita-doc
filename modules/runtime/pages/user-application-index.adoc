@@ -1,4 +1,5 @@
-= Bonita User Application 
+= Bonita User Application
+:page-aliases: ROOT:user-application-index.adoc
 :description: This page gives an easy access to Bonita User Application content, and to some related topics elsewhere in the documentation.
 
 {description}

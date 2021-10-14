@@ -1,4 +1,5 @@
 = Bonita Tomcat bundle
+:page-aliases: ROOT:tomcat-bundle.adoc
 :description: You will find here the mandatory and optional steps needed to install and configure the Tomcat bundle to run the Bonita platform.
 
 You will find here the mandatory and optional steps needed to install and configure the Tomcat bundle to run the Bonita platform.

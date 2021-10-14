@@ -1,4 +1,5 @@
-= Bonita Application Directory 
+= Bonita Application Directory
+:page-aliases: ROOT:application-directory.adoc
 :description: This pages describes Bonita _Application Directory_: its values, how to access it, and how to customize it. +
 
 {description}

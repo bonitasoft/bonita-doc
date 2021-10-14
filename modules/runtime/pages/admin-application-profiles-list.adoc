@@ -1,4 +1,5 @@
 = Profiles management in Bonita Administration Application
+:page-aliases: ROOT:admin-application-profiles-list.adoc
 :description: This page explains what a user with the _Administrator_ profile can do with profiles in link:admin-application-overview[Bonita Administrator Application].
 
 This page explains what a user with the _Administrator_ profile can do with profiles in link:admin-application-overview[Bonita Administrator Application].

@@ -1,4 +1,5 @@
-= Runtime 
+= Runtime
+:page-aliases: ROOT:runtime-index.adoc
 :description: All you need to know to make the best out of this essential Bonita component in your non-production and production environments.
 
 {description}

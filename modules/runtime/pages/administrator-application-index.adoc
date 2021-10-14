@@ -1,4 +1,5 @@
-= Bonita Administrator Application 
+= Bonita Administrator Application
+:page-aliases: ROOT:administrator-application-index.adoc
 :description: This page gives an easy access to Bonita Administrator Application content, and to some related topics elsewhere in the documentation.
 
 {description}

@@ -1,4 +1,5 @@
 = BPM process / task execution sequence, states, transitions
+:page-aliases: ROOT:execution-sequence-states-and-transactions.adoc
 :description: Understand the sequence of actions performed when a process instance is created and when a task is performed by a user
 
 {description}

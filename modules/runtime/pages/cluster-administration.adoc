@@ -1,4 +1,5 @@
 = Cluster administration
+:page-aliases: ROOT:cluster-administration.adoc
 :description: [NOTE]
 
 [NOTE]

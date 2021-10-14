@@ -1,5 +1,5 @@
 = Database configuration
-
+:page-aliases: ROOT:database-configuration.adoc
 :description: This page describes the steps to create and customize the databases for Bonita Engine and Business Data Model during Runtime configuration.
 
 {description}

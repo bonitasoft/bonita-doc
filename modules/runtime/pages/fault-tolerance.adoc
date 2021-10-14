@@ -1,4 +1,5 @@
 = Fault tolerance mechanisms
+:page-aliases: ROOT:fault-tolerance.adoc
 :description: Learn which mechanism allows the platform to be fault tolerant.
 
 Learn which mechanism allows the platform to be fault tolerant.

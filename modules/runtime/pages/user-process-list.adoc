@@ -1,4 +1,5 @@
 = User process list
+:page-aliases: ROOT:user-process-list.adoc
 :description: This page explains what a user can see and do about processes in the xref:user-application-overview.adoc[Bonita User Application].
 
 {description}

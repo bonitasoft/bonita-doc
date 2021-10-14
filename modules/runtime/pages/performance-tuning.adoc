@@ -1,4 +1,5 @@
 = Performance tuning
+:page-aliases: ROOT:performance-tuning.adoc
 :description: Learn how to tune the Bonita Engine to optimize the performance of Bonita Runtime in your environment.
 
 {description} 

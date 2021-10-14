@@ -1,4 +1,5 @@
 = Bonita Super Administrator Application overview
+:page-aliases: ROOT:super-administrator-application-overview.adoc
 :description: This pages describes Bonita _Super Administrator Application_: its values, how to access it, and how to customize it. +
 
 {description}

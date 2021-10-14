@@ -1,4 +1,5 @@
 = User Case list in Bonita Application
+:page-aliases: ROOT:user-application-case-list.adoc
 :description: This page explains what a user with the _User_ profile can see and do about cases (the process instances) in xref:user-application-overview.adoc[Bonita User Application].
 
 {description} +
