@@ -1,6 +1,5 @@
 = Profile Editor
-:page-aliases: profileCreation.adoc
-
+:page-aliases: ROOT:profileCreation.adoc, ROOT:profile-creation.adoc
 :description: Build a profile to customize the user's environment, define page listing and who can access it.
 
 {description}

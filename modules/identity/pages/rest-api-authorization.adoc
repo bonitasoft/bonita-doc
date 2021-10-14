@@ -1,4 +1,5 @@
 = REST API authorizations
+:page-aliases: ROOT:rest-api-authorization.adoc
 :description: Permissions to access Bonita platform's REST API resources are handled by a configurable authorizations mechanism.
 
 {description}

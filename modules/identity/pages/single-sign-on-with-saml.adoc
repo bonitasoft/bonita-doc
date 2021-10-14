@@ -1,11 +1,11 @@
 = SAML SSO configuration
+:page-aliases: ROOT:single-sign-on-with-saml.adoc
 :description: Bonita can be configured to use the SAML protocol to provide single sign-on (SSO), as long as you already have a SAML Identity Provider server up and running (IdP).
 
 {description}
 
 [NOTE]
 ====
-
 For Enterprise, Performance, Efficiency, and Teamwork editions only.
 ====
 

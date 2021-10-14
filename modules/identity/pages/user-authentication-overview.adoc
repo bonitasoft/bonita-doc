@@ -1,7 +1,8 @@
 = User authentication overview
+:page-aliases: ROOT:user-authentication-overview.adoc
 :description: Learn how user authentication is achieved in Bonita. This page can be helpful to troubleshoot and debug authentication issues.
 
-Learn how user authentication is achieved in Bonita. This page can be helpful to troubleshoot and debug authentication issues.
+{description}
 
 If you want to find out how to customize authentication refer to the dedicated documentation pages:
 

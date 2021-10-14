@@ -1,4 +1,5 @@
 = Guest user access
+:page-aliases: ROOT:guest-user.adoc
 :description: It is possible to allow public access to some living applications (without the need to sign in to Bonita).
 
 {description}
@@ -7,7 +8,6 @@ When accessing a public application without any active session on Bonita platfor
 
 [NOTE]
 ====
-
 For Enterprise, Performance, Efficiency, and Teamwork editions only.
 ====
 

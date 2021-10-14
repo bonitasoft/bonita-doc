@@ -1,4 +1,5 @@
 = LDAP synchronizer
+:page-aliases: ROOT:ldap-synchronizer.adoc
 :description: Learn how to configure the LDAP Synchronizer. This tool updates Bonita Users and Groups database from the LDAP directory.
 
 {description}

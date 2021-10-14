@@ -1,13 +1,13 @@
 = Single sign-on with Kerberos
-:description: [NOTE]
+:page-aliases: ROOT:single-sign-on-with-kerberos.adoc
+:description: This pages explains how to configure your Bonita Platform system to use the Kerberos protocol to provide single sign-on (SSO).
 
 [NOTE]
 ====
-
 For Enterprise, Performance, Efficiency, and Teamwork editions only.
 ====
 
-This pages explains how to configure your Bonita Platform system to use the Kerberos protocol to provide single sign-on (SSO). It assumes you already have a Correctly configured Windows Domain (AD/KDC/DNS services).
+{description.} It assumes you already have a Correctly configured Windows Domain (AD/KDC/DNS services).
 
 This information applies to a Bonita platform deployed from a bundle, not to the Engine launched from Bonita Studio. `<BUNDLE_HOME>` refers to the root directory of the bundle.
 
@@ -15,7 +15,6 @@ Kerberos configuration is at tenant level. Each tenant can use a different authe
 
 [NOTE]
 ====
-
 Bonita uses http://spnego.sourceforge.net/[Spnego] library that allows to request tickets using the Kerberos protocol.
 ====
 
@@ -24,7 +23,6 @@ Bonita uses http://spnego.sourceforge.net/[Spnego] library that allows to reques
 Kerberos SSO with AD relies on a minimum on 3 physical machines that are member of the same AD domain:
 
 image:images/kerberos-ad.png[Kerberos with AD]
-// {.img-responsive}
 
 * Domain Controller: the AD domain controller providing the SSO tickets through the Kerberos KDC component.
 * Service Server: the server on which resides the service we want to access (Bonita for instance). This server is referred to as the "Principal". It uses the credentials of an AD service account and is member of the domain.

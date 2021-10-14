@@ -1,11 +1,11 @@
 = LDAP authentication configuration
+:page-aliases: ROOT:active-directory-or-ldap-authentication.adoc
 :description: Bonita can be configured to perform user authentication against an LDAP server such as Active Directory, Apache Directory Server, or OpenLDAP.
 
-Bonita can be configured to perform user authentication against an LDAP server such as Active Directory, Apache Directory Server, or OpenLDAP.
+{description}
 
 [NOTE]
 ====
-
 For Enterprise, Performance, Efficiency, and Teamwork editions only.
 ====
 
