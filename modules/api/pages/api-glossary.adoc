@@ -1,4 +1,5 @@
 = Bonita REST API glossary
+:page-aliases: ROOT:api-glossary.adoc
 :description: List of Bonita REST API definitions and descriptions.
 
 {description}

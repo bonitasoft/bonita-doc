@@ -1,7 +1,8 @@
 = Custom user info API
+:page-aliases: ROOT:customuserinfo-api.adoc
 :description: The Custom user info Rest API allows to manage the custom information of the Bonita's users.
 
-The Custom user info Rest API allows to manage the custom information of the Bonita's users.
+{description}
 
 == Definition
 

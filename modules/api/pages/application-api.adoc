@@ -1,7 +1,8 @@
 = Application API
+:page-aliases: ROOT:application-api.adoc
 :description: Bonita application API allows you to retrieve the current deployed application definitions
 
-Bonita application API allows you to retrieve the current deployed application definitions
+{description}
 
 == Living application
 

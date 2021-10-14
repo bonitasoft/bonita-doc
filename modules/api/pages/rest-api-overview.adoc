@@ -1,4 +1,5 @@
 = REST API Overview with a Getting started example
+:page-aliases: ROOT:rest-api-overview.adoc
 :description: The REST API lets you access the data with HTTP requests; it is useful when implementing rich web forms / pages for a good user experience.
 
 {description}

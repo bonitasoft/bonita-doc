@@ -1,7 +1,8 @@
 = Platform API
+:page-aliases: ROOT:platform-api.adoc
 :description: The Platform REST API allows to manage Bonita Platform and platform level resources.
 
-The Platform REST API allows to manage Bonita Platform and platform level resources.
+{description}
 
 == Platform API Login and Logout
 

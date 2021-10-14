@@ -1,7 +1,8 @@
 = Manage documents with code examples using Java APIs
+:page-aliases: ROOT:handling-documents.adoc
 :description: Code examples that illustrate how the Bonita Engine Java APIs let you create, add a new version and attach documents to a Bonita process.
 
-Code examples that illustrate how the Bonita Engine Java APIs let you create, add a new version and attach documents to a Bonita process.
+{description}
 
 == More information
 

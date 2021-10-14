@@ -1,11 +1,11 @@
 = Task errors management
+:page-aliases: ROOT:handle-a-failed-activity.adoc
 :description: Learn how to handle errors happening on a task.
 
-Learn how to handle errors happening on a task.
+{description}
 
 [NOTE]
 ====
-
 For Enterprise and Performance editions only.
 ====
 

@@ -1,7 +1,8 @@
 = Configure connection to Bonita Engine
+:page-aliases: ROOT:configure-client-of-bonita-bpm-engine.adoc
 :description: Learn how to configure your application to connect to a remote Bonita Engine, in order to access Engine APIs
 
-Learn how to configure your application to connect to a remote Bonita Engine, in order to access Engine APIs
+{description}
 
 If you want your application to use Bonita Engine APIs of a remote engine, your application (the _client_)
 must configure the connection to the remote engine (the _server_)

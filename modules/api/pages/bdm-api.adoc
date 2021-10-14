@@ -1,7 +1,8 @@
 = Business Data Model (BDM) API
+:page-aliases: ROOT:bdm-api.adoc
 :description: BDM Rest APIs allow to query Bonita Business Data.
 
-BDM Rest APIs allow to query Bonita Business Data.
+{description}
 
 Access to the BDM Rest APIs depends on the xref:rest-api-authorization.adoc[REST API authorization] settings.
 

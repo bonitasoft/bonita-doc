@@ -1,7 +1,8 @@
 = Search and list elements of Bonita Engine
+:page-aliases: ROOT:using-list-and-search-methods.adoc
 :description: Learn how to use search and list methods of the Bonita Engine APIs and how to configure word-based search.
 
-Learn how to use search and list methods of the Bonita Engine APIs and how to configure word-based search.
+{description}
 
 == List elements
 

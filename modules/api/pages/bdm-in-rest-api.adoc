@@ -1,5 +1,6 @@
 = How to manage BDM in REST API extensions
-:description: Learn best practices when developing a xref:rest-api-extensions.adoc[REST API Extension] accessing xref:define-and-deploy-the-bdm.adoc[Business Data]. +
+:page-aliases: ROOT:bdm-in-rest-api.adoc
+:description: Learn best practices when developing a REST API Extension accessing Business Data.
 
 Learn best practices when developing a xref:rest-api-extensions.adoc[REST API Extension] accessing xref:define-and-deploy-the-bdm.adoc[Business Data]. +
 Special attention is paid on performance matters.

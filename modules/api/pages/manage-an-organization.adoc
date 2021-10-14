@@ -1,7 +1,8 @@
 = Manage an organization
+:page-aliases: ROOT:manage-an-organization.adoc
 :description: Examples on how to import / read / edit / delete organizations through Bonita java API's.
 
-Examples on how to import / read / edit / delete organizations through Bonita java API's.
+{description}
 
 == Import an organization
 
