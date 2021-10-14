@@ -1,6 +1,6 @@
 = Bonita Versions
-:description: Discover how Bonita manages its product and artifacts versions and how it can impact your projects
 :page-aliases: ROOT:product-versioning.adoc
+:description: Discover how Bonita manages its product and artifacts versions and how it can impact your projects
 
 {description}
 

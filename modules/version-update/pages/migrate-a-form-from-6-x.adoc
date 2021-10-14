@@ -1,6 +1,6 @@
 = Migrate a form from 6.x
-:description: [WARNING]
 :page-aliases: ROOT:migrate-a-form-from-6-x.adoc
+:description: [WARNING]
 
 [WARNING]
 ====
