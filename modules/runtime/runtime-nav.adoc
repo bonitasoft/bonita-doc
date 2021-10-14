@@ -61,7 +61,7 @@
    **** xref:install-a-bonita-bpm-cluster.adoc[Install a Bonita cluster]  
   *** xref:embed-engine.adoc[Embed engine - Lab]
  ** xref:runtime-configuration-index.adoc[Configuration]
-  *** xref:bonita-bpm-platform-setup.adoc[Setup tool]
+  *** xref:bonita-platform-setup.adoc[Setup tool]
   *** xref:database-configuration.adoc[Database configuration]
   *** xref:first-steps-after-setup.adoc[First steps after setup]
   *** xref:licenses.adoc[Licenses]
