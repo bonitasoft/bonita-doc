@@ -1,0 +1,86 @@
+= Bonita Super Administrator Application overview
+:page-aliases: ROOT:super-administrator-application-overview.adoc
+:description: This pages describes Bonita _Super Administrator Application_: its values, how to access it, and how to customize it. +
+
+{description}
+
+== Values
+
+This application is only available to the user with the xref:special-users.adoc#_technical_user[Technical User] credentials. +
+It is the tool needed to:
+
+* Bootstrap a Bonita Runtime in Non-Production and Production environments, for example, xref:first-steps-after-setup#_create_a_bonita_administrator_profile[creating the administrators]
+* Pause BPM Services to perform maintenance operations, among which the update of the Business Data Model (and the related database migration)
+* Apply temporary fixes to some projects elements (resources, applications, organization entities) to recover from errors
+
+[CAUTION]
+====
+
+Most updates at runtime should be performed through a change in the project sources, to create a new project version. +
+This new version can then be deployed through Bonita Continuous Delivery. +
+This methodology guarantees the consistency between the project sources and the deployed version, making all subsequent changes much simpler and error-proof. +
+
+What the Super Administrator Application allows are emergency changes to recover from an urgent issue. +
+All changes performed through this application must be backported to the project sources to be versioned. +
+====
+
+== Access during Development and Testing phases
+
+To access the application:
+
+. Open Bonita Studio
+. Click on the *Applications* icon of the coolbar.
+
+The default application is the Application Directory. You will be logged in as the default user of the deployed organization. +
+This default user can be changed by opening the organization editor. +
+By default, in our provided ACME organization, the default user is Walter Bates, logged as "walter.bates", with password "bpm". +
+
+. Log out
+. Log back in with the Technical User credentials. In Bonita Studio, use the username: `install` and password `install`. 
+. In the Application Directory, select _Bonita Super Administrator Application_
+
+You are now logged in Bonita Super Administrator Application.
+
+To access its content: 
+
+. From Bonita Super Administrator Application menu, click on "Applications"
+. On the "Bonita Super Administrator Application" row, click on the "..." _View application details_ icon 
+
+
+== Status
+This application is core to Bonita Platform. It is embedded in the Runtime and cannot be downloaded from Bonita Studio nor be part of your automation project. +
+This is the reason why you will not see it in Bonita Studio's Project Explorer. +
+It is also the reason why the list of pages is fixed, and no navigation can be created. +
+
+However, it is customizable in quite a few ways, as explained below.
+
+== Customization on Non-Production and Production environments
+
+On the application details page, you will be able to edit:
+
+* the logo
+* the layout
+* the theme
+
+To update the logo:
+
+. Create the new one. Supported formats/extensions are: png, jpg, jpeg, gif, bmp, wbmp, tga. Maximum size: 100 KB
+. Click on the "Upload new picture" button below the current logo
+. Select the new logo
+The new logo is applied.
+
+To update the layout and/or theme:
+
+. Create a new xref:layout-development.adoc[layout] and/or xref:customize-living-application-theme.adoc[theme]
+. Go the _Resources_ tab
+. Install it 
+. Go back to the application details
+. Click on the current layout or theme
+. Select the new one from the drop down list
+
+[NOTE]
+====
+
+Once the Super Administrator Application has been customized, its customized aspects are not supported. +
+But you can reach one of our Professional Services team member to help you develop or maintain it. To do so, go to the https://customer.bonitasoft.com/[Customer Service Center].
+====

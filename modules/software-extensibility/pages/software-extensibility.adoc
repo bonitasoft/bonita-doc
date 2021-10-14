@@ -1,0 +1,144 @@
+= Platform extensibility
+:page-aliases: ROOT:software-extensibility.adoc
+:description: Learn how Bonita Platform can be extended to suit your needs.
+
+{description}
+
+Bonita provides a rich set of features by default. These features are designed to meet the needs of most of your projects.
+However, if a project has a need that was not anticipated and cannot be met by the default features, Bonita has been designed to be extensible.
+This page lists the extension points that are available.
+
+[#stable_extension_points]
+
+== Stable extension points
+
+The following elements are designed to be extension points of Bonita.
+These extension points are guaranteed to be stable across versions of Bonita 7: Java interfaces and XML schema will be kept backward compatible so that your implementation will work even after a Bonita version upgrade.
+
+=== Connectors
+
+Bonita comes with more than 80 xref:connectivity-overview.adoc[standard connectors] to the major information system components: major databases (Oracle, Microsoft, Postgres, etc.), SOAP Webservice, Salesforce, Email, etc.
+
+However you create your own connectors to have new connectivity capabilities for processes.
+
+Connectors are developped outside the Studio with a dedicated Maven archetype. Consult this page for more information: xref:connector-archetype.adoc[Create a connector].
+
+Custom connectors are added to a Bonita project from the xref:managing_extension_studio.adoc[extension view].
+
+=== Actor filters
+
+Bonita comes with a set of xref:actor-filtering.adoc[standard actor filters] that can be used to reduce the list of candidates for process tasks.
+
+Actor filters are developped outside the Studio with a dedicated Maven archetype. Consult this page for more information:xref:actor-filter-archetype.adoc[Create an actor filter]
+
+Custom actor filters are added to a Bonita project from the xref:managing_extension_studio.adoc[extension view].
+
+=== Engine API
+
+The https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Bonita Engine APIs] enable you to:
+
+* start and stop the engine
+* design, install, configure and interact with processes
+* manage users
+
+ProcessBuilder and Business Objects DAO are examples of APIs that can be leveraged in your development. They will remain stable in time.
+
+=== REST API
+
+The xref:rest-api-overview.adoc[REST APIs] enable you to integrate your Bonita processes into your application and execute operations on Bonita objects including business objects.
+Pages and forms created with the UI designer rely on the REST APIs to manage data.
+
+In addition to the standard APIs and resources, you can define xref:rest-api-extensions.adoc[REST API extensions].
+
+REST API Extension can either be created in the xref:rest-api-extensions.adoc[Studio] or with the xref:rest-api-extension-archetype.adoc[dedicated Maven archetype].
+
+Custom REST API extensions developed with the Maven archetype are added to a Bonita project from the xref:managing_extension_studio.adoc[extension view].
+
+=== Custom pages
+
+In Community, Teamwork, Efficiency, Performance and Enterprise editions
+
+A xref:pages.adoc[custom page] is a page that you can add into Bonita Administrator Application to form part of an application or to customize information provided in default Application pages.
+To implement a page, you need to provide HTML, CSS and Javascript resources respecting some packaging constraints.
+You can create a page using the xref:ui-designer-overview.adoc[UI designer], which automatically creates a well-formed page.
+Note that although the page framework provided in the product is stable, we cannot guarantee that all custom pages will work with future versions, because this depends on how the page was implemented.
+
+=== Custom widgets
+
+If the standard UI Designer xref:widgets.adoc[widgets] do not meet your needs, you can create a xref:custom-widgets.adoc[custom widget].
+You can then use your custom widget in pages, forms, and fragments.
+
+=== Living Application Themes
+
+Custom themes are developed outside the Studio with a dedicated Maven archetype. Consult this page for more information: xref:customize-living-application-theme.adoc[Create an theme]
+
+=== Import and export exchange files
+
+In Community, Teamwork, Efficiency, Performance and Enterprise editions
+
+Included in the https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Engine APIs] are methods to import and export various items.
+These methods manipulate files with formats that are versioned. Newer versions of the file format are designed to be backward compatible with earlier versions. The following items have import and export API methods:
+
+* organization (users, groups, roles)
+* parameters
+* custom pages
+* connectors
+
+=== Authentication service
+
+In Teamwork, Efficiency, Performance and Enterprise editions
+
+From Bonita 6.3, the Engine authentication service is considered to be an official extension point of the solution. It is now safe to provide your own implementation of this service to better fit the needs of your projects.
+xref:user-authentication-overview.adoc[Default authentication implementations] are provided allow to check user credentials from the Bonita database, LDAP or a CAS SSO server (using JAAS).
+To implement an Authentication Service, provide a Java class respecting the Authentication Service interface.
+
+=== Event handlers
+
+In Teamwork, Efficiency, Performance and Enterprise editions
+
+An event handler is an extension to the engine that is configured to run when a specified event occurs. An event is a change to any object in the database.
+To xref:event-handlers.adoc[implement an event handler], you need to provide a Java class respecting the Handler interface.
+
+=== Bonita Runtime languages
+
+Bonita Runtime comes with a number of language packs by default. You can also xref:languages.adoc[add languages].
+It is also possible to use this same mechanism to customize the Application terminology to suit your business environment. For example, an e-commerce business could change _Cases_ to _Orders_.
+
+== Unstable extension points
+
+The following elements may be used as extension points but there is no guarantee of stability across versions. No changes are planned, but we do reserve the right to make any necessary changes in the product even if there is a risk of incompatibility with custom code.
+
+* *Bonita Application URLs and Forms URLs*. Some customer projects have used hard-coded or forged URLs to access specific pages of Bonita Applications or forms, to fit in with specific technology or navigation constraints.
+While such URLs have so far been quite stable, there is no guarantee that they will not change across Bonita versions.
+Recommendation: if your project relies on such URLs, make URL generation configurable so that you can easily change it if required after a Bonita upgrade.
+* *Authorization Rule Mapping*. It is possible to modify authorization rules mapping applied to start a process, display process overview or execute a task.
+You can customize this mapping by defining your own bean and override property. See xref:custom-authorization-rule-mapping.adoc[Authorization Rule Mapping]
+
+Only the elements listed on this page are intended to be used as extension points. For other elements, there is no guarantee of stability, and a high probability of changes across versions.
+For example, the following should not be considered to be extension points:
+
+* *Engine Services* (other than those listed in this page). The Engine is structured as an aggregation of several services.
+This provides clear isolation of responsibility and eases maintenance. The interfaces, configuration files, and existence of services are not guaranteed across versions.
+
+== Backward compatibility
+
+In Bonita 7.x, we ensure backward compatibility of the following:
+
+* Engine API (except items marked as deprecated)
+* Web REST API (except items marked as deprecated)
+* Authentication Service (from 6.3.0 onwards)
+* XML file format for the following:
+ ** event handlers
+ ** BonitaStudioBuilder (also known as the Workspace API)
+ ** actor filters
+ ** connectors
+ ** form validators
+ ** import and export exchange files
+
+We cannot ensure backward compatibility for the following:
+
+* Custom Pages definition structure
+* Custom data types definition structure
+* URLs
+* Forms definition structure and HTML templates
+* bonita home folder structure and content (removed since 7.3)

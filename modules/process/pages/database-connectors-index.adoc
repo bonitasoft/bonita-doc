@@ -1,0 +1,30 @@
+= Database connectors 
+:page-aliases: ROOT:database-connectors-index.adoc
+:description: Database connectors allow you to connector your process with external data sources to read or write data. Bonita supports natively several database connector.
+
+Database connectors allow you to connector your process with external data sources to read or write data. Bonita supports natively several database connector.
+
+
+[.card-section]
+== Usage
+
+[.card.card-index]
+--
+xref:list-of-database-connectors.adoc[[.card-title]#The provided database connectors# [.card-body.card-content-overflow]#pass:q[See all the different database connectors provided by Bonitasoft]#]
+--
+
+[.card.card-index]
+--
+xref:database-connector-configuration.adoc[[.card-title]#Configuration# [.card-body.card-content-overflow]#pass:q[Understand how to easily configure those connectors]#]
+--
+
+[.card.card-index]
+--
+xref:graphical-query-builder.adoc[[.card-title]#Graphical query builder# [.card-body.card-content-overflow]#pass:q[How to use the low-code query builder]#]
+--
+
+[.card.card-index]
+
+--
+xref:initialize-a-variable-from-a-database-without-scripting-or-java-code.adoc[[.card-title]#Retrieving easily the value a database connector# [.card-body.card-content-overflow]#pass:q[Initialize a variable from a database without coding]#]
+--

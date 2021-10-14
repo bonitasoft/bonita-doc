@@ -17,4 +17,22 @@ asciidoc:
     page-next-release: true # TODO: When releasing beta version, set this field to false
     page-hide-search-bar: true # TODO: When releasing beta version, set this field to false
 nav:
-  - modules/ROOT/taxonomy.adoc
+  - modules/ROOT/release-note-nav.adoc
+  - modules/bonita-overview/bonita-overview-nav.adoc
+  - modules/ROOT/studio-installation-nav.adoc
+  - modules/getting-started/getting-started-nav.adoc
+  - modules/best-practices/best-practices-nav.adoc
+  - modules/setup-dev-environment/setup-dev-environment-nav.adoc
+  - modules/process/process-nav.adoc
+  - modules/data/data-nav.adoc
+  - modules/pages-and-forms/pages-and-forms-nav.adoc
+  - modules/applications/applications-nav.adoc
+  - modules/software-extensibility/software-extensibility-nav.adoc
+  - modules/integration/integration-nav.adoc
+  - modules/api/api-nav.adoc
+  - modules/identity/identity-nav.adoc
+  - modules/ROOT/build-a-process-for-deployment-nav.adoc
+  - modules/runtime/runtime-nav.adoc
+  - modules/security/security-nav.adoc
+  - modules/version-update/version-update-nav.adoc
+  - modules/ROOT/build-community-nav.adoc

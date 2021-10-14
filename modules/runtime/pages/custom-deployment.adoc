@@ -1,0 +1,97 @@
+= Custom Tomcat installation
+:page-aliases: ROOT:custom-deployment.adoc
+:description: This page explains how to install Bonita Runtime in an existing Tomcat server.
+
+{description}
+
+[WARNING]
+====
+
+Remember that the recommended way of installing Bonita is to use the provided xref:tomcat-bundle.adoc[Tomcat] bundle. +
+It saves you from doing all the following configuration at hand, as the xref:bonita-platform-setup.adoc[setup tool] included handles it automatically.
+====
+
+[WARNING]
+====
+
+This installation procedure only specifically targets the Java EE application servers that have been installed under a single root folder (typically, from a .zip file).
+Thus, for installations using native distribution packages (that more often than not split the binaries and the configuration files into separate folder hierarchies), it would be up to you to adapt the documented steps to your very own folder layout.
+====
+
+== Installation
+
+. Download the Tomcat bundle file from the http://www.bonitasoft.com/downloads-v2[Bonitasoft download page] for the Community edition
+or from the https://customer.bonitasoft.com/download/request[Customer Service Center] for Subscription editions.
+. Unzip it into a temporary folder (BUNDLE_DIRECTORY).
+. Follow the <<tomcat-installation,Tomcat bundle steps>>.
+
+[#tomcat-installation]
+
+== Tomcat installation
+
+=== Install Bonita Runtime in the Tomcat server
+
+Copy, from the bundle into your Tomcat server:
+
+* `server/bin/setenv.sh` or `server/bin/setenv.bat`, depending if you are on Unix or Windows, to `bin`
+* The entirety of the bundle `server/conf` folder to `conf`
+* The entirety of the bundle `server/lib/bonita` folder to `lib/bonita`
+* The `server/webapps/bonita.war` and `webapps/ROOT/favicon.ico` to `webapps` and `webapps/ROOT/`
+* The entirety of the `setup` directory at the root of your tomcat server.
+* The entirety of the `tools/request_key_utils-`. Includes script files to generate license request keys.
+
+[WARNING]
+====
+Some configuration files from the bundle will overwrite some default Tomcat configuration files. Proceed
+with care in a Tomcat where other applications are already installed.
+====
+
+
+=== Data sources configuration
+
+. Open the file BUNDLE_HOME/conf/Catalina/localhost/bonita.xml
+. Remove or comment out the lines regarding the h2 database.
+. Uncomment the lines matching your RDBMS.
+. Update following attributes value:
+ ** username: your RDBMS user name.
+ ** password: your RDBMS password.
+ ** url: the URL, including the RDBMS server address, RDBMS server port and database (schema) name.
+. There are 4 datasources declared. Make sure you made the change for them all, named RawBonitaDS, bonitaSequenceManagerDS, RawBusinessDataDS, NotManagedBizDataDS.
+
+=== RDBMS vendor configuration
+
+. {blank}
++
+[cols=2*]
+|===
+| Open the file BUNDLE_HOME/bin/setenv.(bat
+| sh)
+|===
+
+. Change the value of sysprop.bonita.db.vendor according to your RDBMS vendor
+. Change the value of sysprop.bonita.bdm.db.vendor according to your RDBMS vendor
+
+=== Add JDBC driver
+
+You need to add your JDBC driver in BUNDLE_HOME/lib.
+MySQL, PostgreSQL, Oracle and Microsoft SQL Server drivers can be found in the Tomcat bundle under DEPLOY_ZIP_HOME/setup/lib directory.
+
+== License installation
+
+If you are installing a Subscription edition, you need to xref:licenses.adoc[request a license].
+
+When you receive your license, copy the file to the `TOMCAT_DIRECTORY/setup/platform_conf/licenses` folder of your application server.
+
+== Database initialization
+
+We assume here that the database has already been xref:database-configuration.adoc#database_creation[created and configured for Bonita].
+Once created and configured you need to initialize it using the setup tool provided in the bundle.
+This will create database schema and initial values.
+
+. In TOMCAT_DIRECTORY/setup folder, edit the file database.properties with properties matching your RDBMS. Beware of xref:bonita-platform-setup.adoc#backslash_support[backslash characters].
+. In TOMCAT_DIRECTORY/setup folder, run `setup.(sh|bat) init`
+
+== Next steps
+
+You are done with Bonita installation. You can now start your application server as usual. +
+You can also xref:first-steps-after-setup.adoc[complete the setup] of your system by validating the installation, setting passwords, and creating the technical user who will act as the Super Administrator.

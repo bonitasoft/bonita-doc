@@ -1,0 +1,72 @@
+= Pages
+:page-aliases: ROOT:pages.adoc
+:description: Pages are resources intended to be used in applications.
+
+{description}  They are xref:resource-management.adoc[added, exported, edited, and deleted] as resources in the Bonita Administrator Application.
+
+== Provided pages
+
+Bonita Runtime comes with some provided pages to use in applications. They are wrapped pages developed in other technologies than Bonita UI Designer (AngularJS, React). +
+Starting with Bonita 2021.1, you can also download Bonita User application and Bonita Administrator applications (from Bonita Studio Welcome page), and get more provided pages, developped with Bonita UI Designer. +
+Such UI Designer pages can be customized in the UI Designer, to better fit the needs of the end-users.
+
+=== List of Bonita Applications customizable pages
+
+==== Bonita User Application
+
+In this application, you can customize:
+
+* Bonita User Case List `UserCaseListBonitaV_`
+* Bonita User Case Details `UserCaseDetailsBonitaV_`
+
+==== Bonita Administrator Applications
+
+In thess applications, when relevant, you can customize:
+
+* Bonita Admin Process List `adminProcessListBonitaV_`
+* Bonita Admin Case Details `adminCaseDetailsBonitaV_`
+* Bonita Admin Task List `adminTaskListBonitaV_`
+* Bonita Admin Task Details `adminTaskDetailsBonitaV_`
+* Bonita Admin User List `adminUserListBonitaV_`
+* Bonita Admin Group List `adminGroupListBonitaV_`
+* Bonita Admin Role List `adminRoleListBonitaV_`
+* Bonita Admin Install Export Organization `adminInstallExportOrganizationBonitaV_`
+* Bonita Admin Profile List `adminProfileListBonitaV_`
+* Bonita Admin Resources List `adminResourceListBonitaV_`
+
+The "_" in "V_" stands for the latest "version" of the resource.
+
+[NOTE]
+====
+All the "Details" pages must be used as "orphan" pages in the application descriptor, since they need an id to be passed in order to display the details of the right item. They cannot be used at top-level menu.
+====
+
+== Custom pages
+
+To create the perfect user experience for different profiles of applications users, you need to create custom pages. This can be done with Bonita UI Designer, or in your favorite IDE. +
+A few examples of custom pages:
+
+* Add a welcome page, with dashboards showing activity in Bonita and related external applications.
+* Provide a process owner with a dashboard showing the activity of open cases of the process.
+* Provide a busy user with a filtered view of the task list.
+* Provide an administrator with a multi-attribute search facility.
+* Integrate a page from an external application.
+
+For all information about developping a custom page, visit xref:pages-development.adoc[the dedicated documentation page].
+
+== Use in applications
+
+Once the pages are all made available in the Resources tab of Bonita Administrator Application, they can be used to xref:applicationCreation.adoc[create applications]. +
+We highly recommend that the creation of applications is done in Bonita Studio, to be managed with all the other resources of the project in the Version Control System (Git).
+
+== Live update
+
+xref:live-update.adoc[Live update] allows the Administrator to update one element of the application in a situation of emergency.
+
+=== Edit a page
+
+You can xref:resource-management.adoc]#modify[edit the content of a page] by installing a new version of a page.
+
+=== Modify the pages in an application
+
+You can modify the pages in an application by xref:applications.adoc]#specify-pages[mapping other pages] in the application descriptor, and/or xref:applications.adoc]]#define-navigation[creating, moving, or deleting menus or menu options].

@@ -1,0 +1,6 @@
+* xref:setup-dev-environment-index.adoc[Development environment setup]
+ ** xref:bonita-bpm-studio-preferences.adoc[Bonita Studio configuration]
+ ** xref:configure-maven.adoc[How to configure Maven]
+ ** xref:workspaces-and-repositories.adoc[Workspaces and projects]
+ ** xref:shared-project.adoc[Set up Bonita Studio with GitHub]
+ ** xref:migrate-a-svn-repository-to-github.adoc[How to migrate an SVN repository into a Git repository]

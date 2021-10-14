@@ -1,0 +1,48 @@
+= What is Bonita?
+:page-aliases: ROOT:what-is-bonita-index.adoc
+:description: Bonita is an open-source and extensible platform for business process automation and optimization.
+
+{description}
+
+== Goal
+*Bonita Platform accelerates the development, go-to-production, and maintenance of automation projects.* +
+While allowing users to execute tasks that impact their business data, it also efficiently *integrates with existing information systems* and *orchestrates heterogeneous systems*, some of them being https://www.bonitasoft.com/robotic-process-automation[soft robots]. +
+It provides *deep visibility of process execution* across the organization through its embbeded end-user applications or the xref:applications.adoc[Living applications] built by the project team to perfectly fit the business needs.
+
+== Structure
+Bonita Platform is made of three main components: 
+
+* xref:bonita-studio.adoc[*Bonita Studio*] for the development phase of the projects
+* xref:bonita-bpm-overview.adoc#platform[*Bonita Runtime*] for the various runtime phases, running the BPM engine and the applications
+* https://documentation.bonitasoft.com/bcd/latest/[*Bonita Continuous Delivery*] to ease the iterative deployment of the projects from environment to environment +
+
+== Teamwork
+Bonita Studio offers a separation between visual coding capabilities and Java/web coding capabilities, to enable an efficient teamwork between business and technical teams. +
+While the citizen developers input the business aspects of the projects (process, data model, main aspects of the user interfaces), the professional developers support the projects by taking care of the technical configuration and behavior of the business elements, and by coding what makes each project unique: they create what we call xref:managing-extension-studio.adoc[extensions] that they contribute to the projects as Maven dependencies. +
+
+Both parts of this unified project team use BPMN (Business Process Model and Notation) as their common language, and can rely on the xref:project-documentation-generation.adoc[project documentation] to share the project vision, needs, and achievements. +
+
+== Editions
+With the Open Source edition *Community*, experiment the value of the platform, create, and operate pretty complex projects. +
+For core and critical projects, for enterprise-grade performance and for support, choose our edition per subscription: the https://www.bonitasoft.com/pricing[Enterprise edition]. +
+
+On top of the Enterprise edition, Bonita Runtime can be deployed in xref:overview-of-bonita-bpm-in-a-cluster.adoc[clusters]. +
+Alternatively, you can choose to let us supervise your runtime environments by choosing https://documentation.bonitasoft.com/cloud/latest/[Bonita Cloud].
+
+[.card-section]
+== Learn more 
+[.card.card-index]
+--
+xref:bonita-purpose.adoc[[.card-title]#Bonita's purpose# [.card-body.card-content-overflow]#pass:q[Discover what Bonita allows you to achieve]#]
+--
+
+[.card.card-index]
+--
+xref:bonita-bpm-overview.adoc[[.card-title]#Bonita components# [.card-body.card-content-overflow]#pass:q[Get under the hood, at high level]#]
+--
+
+[.card.card-index]
+--
+xref:project-structure.adoc[[.card-title]#Bonita project structure# [.card-body.card-content-overflow]#pass:q[Good to know to be fluent in Bonita]#]
+--
+

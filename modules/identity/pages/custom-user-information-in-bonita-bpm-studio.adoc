@@ -1,0 +1,66 @@
+= Custom User Information in Bonita Studio
+:page-aliases: ROOT:custom-user-information-in-bonita-bpm-studio.adoc
+:description: Learn how you can add custom (business) information on users, that will then be available for filtering.
+
+{description}
+
+For instance:
+
+Custom User Information are (key, value) pairs that can be added on users. +
+You define the attributes that you want to store, and then add the values for the users. +
+You can use custom user information to assign tasks to users based on information that is specific to your organization
+and not included in the standard Bonita organization definition.
+
+== Purpose
+
+For example, you may want to create a security badge with an individual value (number) for each user, or an office skill
+for a user, a special professional activity, or geographical details.
+All these types of information are not displayed in standard information tabs but you may want to filter candidates to a human task thanks to those attributes.
+
+== Define custom user information
+
+. In Bonita Studio project explorer, double click on the organization you want to edit
+. Click on the *User* tab
+. Expand the *Manage custom information* pane, click on *_Add_*
+. This will put a default name *Information1* in the *Name column*
+. Add a description (if needed). This will only appear in Bonita Studio.
+. Click on the default name *Information1*, to modify it to your needs
+. Save and deploy your organization
+. The custom information is applied to all users.
+
+== Add custom user information values for each user
+
+. In Bonita Studio project explorer, double click on the organization you want to edit
+. Click on the *User* tab
+. Click on the user for which you want to define the custom user information value
+. In the *Information* table, select the *Custom* tab
+. Select the custom user information to define and click on its *Value* column
+. Enter the custom user information value
+
+After completing the changes for all the desired users, remember to save and deploy the organization
+
+
+Note: this value can be changed by a user in the Bonita Administrator Application. See xref:custom-user-information-in-bonita-applications.adoc[How to edit Custom information for a single user]
+
+== Set an actor filter on custom user information
+
+A task or a lane is linked to an actor. An actor is mapped to a list of users. An actor filter applies to the set of users mapped to the actor. The actor filter configuration can be added to an actor at lane or human task level.
+
+When all relevant users have their Custom User Information set, you can add an actor filter:
+
+. In a process diagram, select a lane or a task
+. In the *Details* panel, Go to *General* > *Actors* and select an actor to apply the filter (actors are defined at pool level)
+. At *Actor filter* level, click *_Set_*
+. In the Actor filters window > Categories, click on *_Organization_* and choose  _*Users with Custom information*_
+. Click on *_Next_*
+. Enter a name and a description for the filter configuration
+. Click on *_Next_*
+. Enter a custom user information *Name* or click on the drop down list to select the one you need
+. Enter a value for the information
+. To filter on several values using the same string, click _**Partial match **_
+. If you expect the filter to return only one user, then it's good that the task is assigned to her automatically. In this case, click the *_Assign tasks automatically_* checkbox.
+. Click on *_Finish_*
+
+The filter is set for the actor and is displayed in the actor filter field. Users from the actor and with the relevant value for the custom information chosen will become candidates to perform the task, or all the tasks in the lane if you set it at lane level.
+
+Note that the filter will not work if you change values in the organization but do not re-publish the organization. This will throw a synchronization error.

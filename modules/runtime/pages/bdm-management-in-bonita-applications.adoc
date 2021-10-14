@@ -1,0 +1,172 @@
+= Business Data Management
+:page-aliases: ROOT:bdm-management-in-bonita-bpm-portal.adoc, ROOT:bdm-management-in-bonita-applications.adoc
+:description: This page explains what a user with the Administrator profile in the Bonita Administrator Application can see and do about Business Data Model (BDM) and BDM Access Control.
+
+{description}
+
+Processes using Business Objects with persisted data need to run with a Business Data Model deployed in the Bonita Super Administrator Application. +
+On top of that, it is possible to define access rights on some attributes of business objects based on the user profile. This file is also managed in the Bonita Super Administrator Application.
+
+Here is a view of the page:
+image:images/UI2021.1/bdm-management.png[BDM in UI]
+// {.img-responsive}
+
+== Manage the BDM
+
+[WARNING]
+====
+
+Only one model can be deployed at a time in the Bonita Runtime, so make sure it contains the Business Object definitions used in all processes that will run within this tenant.
+The Business Objects must match the structure used by the deployed processes. Make sure that when modifying the Business Data Model, the processes are modified accordingly.
+====
+
+. To import the Business Data Model created in Bonita  Studio, first xref:define-and-deploy-the-bdm.adoc[export the Business Data Model] from Bonita  Studio where it was designed.
+. In the Bonita Runtime, log in as the technical user (default login 'install', default password 'install').
+. Go to the *BPM Services* menu.
+. Click on *Pause* to xref:pause-and-resume-bpm-services.adoc[pause] the tenant.
++
+[NOTE]
+====
+The deployment of a Business Data Model requires pausing the service during the operation, so that the update can be performed without affecting ongoing processes.
+For Enterprise, Efficiency and Performance editions, you must have no <<installAccessControl,access control>> file installed in order to be able to install or update the Business Data Model.
+====
+
+To do so:
+
+. Log in as the technical user (default login 'install', default password 'install', or refer to the internal documentation if modified as it should be).
+. Go to the _BPM Services_ menu.
+. Click on the _Pause_ button to xref:pause-and-resume-bpm-services.adoc[pause] the tenant.
+
+Then, you can install or update the BDM.
+[WARNING]
+====
+
+Please note that existing business database tables will be modified definitively. This action cannot be reversed. +
+====
+
+. It is highly recommended to back up the database before proceeding.
+. xref:define-and-deploy-the-bdm.adoc[Export the Business Data Model] from Bonita Studio where it was designed.
+. Go to the _BDM_ menu.
+. Click on the _Install_ button
+. Choose the file containing the Business Data Model exported from Bonita Studio
+. Click on the _Install_ button in the popup.
++
+. When services are paused, go to the *BDM* menu.
+. A page called *Business Data Model definition* is displayed.
+. Click on install button and choose the file containing the Business Data Model exported from Bonita Studio, and click on *_install_* button in the popup.
+. A warning is displayed:
++
+[WARNING]
+====
+The Business Data Model will now be installed.
+====
+The Bonita Runtime will load the file, retrieve the object definitions and enable processes to use them at runtime. +
+It will also create or update the database schema (set of tables, columns, indexes...) in the business database, so as to store business objects appropriately when modified by processes.
+The Business Data Model will now be installed. BPM services can be resumed. +
+ To do so:
+. Go to the _BPM Services_ menu.
+. Click on the _Resume_ button to xref:pause-and-resume-bpm-services.adoc[resume tenant activity].
++
+[WARNING]
+====
+Since business continually evolves, you may need to make some changes to a BDM already in production.
+Bonita uses Hibernate for data persistence, therefore some changes are handled well, like adding new objects or attributes, but some others, like changing the type of an attribute or defining a unique constraint, we cannot guarantee so far.
+
+In such cases, you will have to implement the change on your own, through careful actions in a staging environment, and after the backup of your database.
+
+This limitation is well known and will be addressed in a future Bonita version.
+====
+
+
+=== Limitations
+
+Regarding the *deployment of a new version of the BDM*, `Hibernate hbm2ddl` can handle certain changes, but not all
+model changes are supported.
+
+Adding a new Object (table) or adding a new attribute on an existing Object (new column on an existing database table) are fully supported.
+
+The model changes that are *not* supported are:
+
+- Deleting an Object (table)
+- Deleting a column
+- Deleting an Index
+- Deleting a unique Constraint
+- Changing the type of an attribute
+- Changing the max size of a String attribute
+- Changing an attribute from a single type to multiple, for simple types
+- Changing an attribute from a multiple type to single, for simple types
+
+In the above cases, there will be no error when deploying the BDM, but no change will be made to the database.
+It will probably lead to failure when instantiating new objects.
+
+Other not supported model changes are:
+
+- Adding a new object with the same name as a deleted object, but different attributes
+- Make a column "mandatory", delete a "mandatory" column, or create a new "mandatory" column
+- Add or delete a new unique constraint
+- Changing an attribute from a single type to multiple, for object types
+- Changing an attribute from a multiple type to single, for object types
+
+These cases will raise an error during the BDM update, and the previous version of the BDM will remain. +
+No data are lost in these cases. No restore action is needed.
+
+If you need to update the BDM, and your update includes one of the cases listed above (both those that generate an error at installation, and those that do not), you will need to do the update manually.
+Get some help from your database administrator:
+
+. Stop your Tenant services
+. Stop your Bonita server
+. Ask your database administrator to update manually the BDM schema in your BDM database to make it correspond to your new BDM.
+The easiest way to do it is to first install your new BDM on a clean database. Then compare the new schema with the old one, and manually create a sql script to update your BDM database to match the new one.
+Apply this sql script to your BDM database
+. Restart your Bonita server
+. Install your new BDM the usual way
+. Restart your tenant services
+
+
+[#installAccessControl]
+
+== Manage BDM Access Control
+
+[NOTE]
+====
+For Enterprise, Performance, and Efficiency editions only.
+====
+
+It is possible to define Business Data Model access control rules in Bonita Studio and import them in Bonita Super Administrator Application. +
+The Access control rules must match the Business Data model.
+
+. To import the BDM access control rules created in Bonita Studio, first xref:bdm-access-control.adoc[export the Access Control file] from Bonita Studio where it was designed.
+. In the Bonita Runtime, log in as the technical user (default login 'install', default password 'install') or as a user with the administrator profile.
+. As the tenant technical user or as an administrator, go to the *BDM* menu.
+. A page with a section *Business Data Model access control* is displayed.
+. Click *_Install_* to open import popup and choose the file containing the Business Data Model access control definition exported from Bonita Studio, and click on *_Install_*.
+. A successful import message will be displayed.
+
+Please note that a delay is required after the import for the engine to process the access control and for the filtering to be effective.
+
+[NOTE]
+====
+Contrary to the BDM definition, the deployment of a BDM Access Control file does not require pausing the BPM services during the operation.
+====
+
+. xref:bdm-access-control.adoc[Export the BDM Access Control file] from Bonita Studio where it was designed.
+. In the Bonita Runtime, log in as a user with the _Administrator_ profile, or as the Technical user
+. Go to the _BDM_ menu
+. Click on the _Install_ button to open install popup
+. Choose the file containing the BDM Access Control definition exported from Bonita Studio
+. Click on the _Install_ button
+. A successful import message will be displayed.
+
+Please note that a delay is required after the installation, for Bonita Engine to process the access control and for the filtering to be effective.
+
+== Cluster considerations
+
+There is nothing specific to do in a cluster environment.
+
+When the BDM is installed / updated in a cluster environment, 2 things occur:
+
+* The BDM database is updated to reflect the model changes. As the database is common for all nodes, there is nothing specific to do in a cluster environment. +
+* The Java classes that map the new model are created / updated and loaded in the JVM classloader (at tenant level). This triggers the refreshing of the tenant classloader of *all nodes of the cluster* automatically.
+
+With that is mind, the new BDM is fully available, and deploying on a different node a process that makes usage of the new Business Data Model will be available straight away.
+

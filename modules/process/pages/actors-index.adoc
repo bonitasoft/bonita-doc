@@ -1,0 +1,37 @@
+= Actors 
+:page-aliases: ROOT:actors-index.adoc
+:description: Actors are indirections between the processes and entities of the organization. They are used to define the candidates who can perform a given human task.
+
+{description}
+
+_"The user who performed the previous task"_ or _"The manager of the user who did the previous human task"_ are actors too ; but since they are not directly linked to the organization, they are called "Actor filters". +
+
+Technically, they have the same structure than connectors. Bonita provides some actor filters, and developers can create their own. +
+
+Discover more in the following pages.
+
+[.card-section]
+== Actors in Bonita
+
+[.card.card-index]
+--
+xref:actors.adoc[[.card-title]#Actors of processes# [.card-body.card-content-overflow]#pass:q[Define actors in a process, and map them depending on the target environment]#]
+--
+
+[.card.card-index]
+--
+xref:actor-filtering.adoc[[.card-title]#Actor filters# [.card-body.card-content-overflow]#pass:q[Learn how to set a specific set of actors for a task]#]
+--
+
+[.card.card-index]
+--
+xref:actor-filter-archetype.adoc[[.card-title]#Create an actor filter# [.card-body.card-content-overflow]#pass:q[Besides the actor filters provided by Bonita, learn how to develop your own]#]
+--
+
+[.card-section]
+== Related topics
+
+[.card.card-index]
+--
+xref:organization-overview.adoc[[.card-title]#Organization# [.card-body.card-content-overflow]#pass:q[Users, roles, groups, memberships to map to the actors]#]
+--

@@ -1,0 +1,106 @@
+= Hardware and software requirements
+:page-aliases: ROOT:hardware-and-software-requirements.adoc
+:description: This page describes the suggested hardware and software requirements to install Bonita platform.
+
+{description}
+
+== Hardware
+
+[CAUTION]
+====
+
+The hardware recommended for Bonita Platform is strongly dependent on your environment and
+processes (number of processes instances, number of current users, operations and complexity...).
+====
+
+Hardware required for Bonita Platform
+
+|===
+| Type | Minimum | Recommended
+
+| Processors
+| 4 CPU cores
+| 4 CPU cores or more
+
+| Memory (RAM)
+| 4 GB
+| 8 GB or more
+
+| Disk space
+| 10 GB
+| 30 GB or more, depending on usage
+|===
+
+== Software
+
+Software required for Bonita Platform.
+
+|===
+|  | Version
+
+| *Operating system*
+|
+
+| Microsoft Windows Server
+| 2016 64 bits
+
+| Red Hat Enterprise Linux
+| 8.2 64 bits
+
+| CentOS
+| 8.2 64 bits
+
+| Ubuntu
+| 18.04 LTS 64 bits
+
+| *Java Virtual Machine*
+|
+
+| Oracle Java SE Runtime Environment
+| 11 (see note 1)
+
+| OpenJDK
+| 11 (see note 1)
+
+| *Application Server*
+|
+
+| Apache Tomcat
+| 9.0.x (x >= 52)
+
+| *Database*
+| (see note 2)
+
+| MySQL
+| 8.0.14 and higher in the 8.0.x line (see note 3 & 4)
+
+| PostgreSQL
+| 12.6 and higher in the 12.x line
+
+| SQL Server
+| 2017
+
+| Oracle
+| 19c (19.3.0.0.0) (see note 5)
+
+| *Browser*
+|
+
+| Mozilla Firefox
+| latest version
+
+| Google Chrome
+| latest version
+
+| Microsoft Edge
+| latest version
+|===
+
+Notes:
+
+. Bonita can be executed on Java 11 *only*. All development artifacts (connectors, REST API extensions, etc.) must be compiled with Java 11 byte code (target version). A JRE 11 is required to run Bonita Runtime. A JDK (*not a JRE*) 11 is required to run Bonita Studio.
+. Memory usage: In a Studio, by default, the embedded Tomcat server is started with a maximum memory allocation set to 1Go. Depending on your usage you may need to xref:bonita-bpm-studio-installation.adoc[increase this value].
+. Your database must be configured to use the UTF-8 character set.
+. MySQL must be configured to use UTF-8, we recommend using `utf8mb4` because `utf8mb3` is deprecated, see https://dev.mysql.com/doc/refman/8.0/en/charset-unicode-utf8mb3.html[MySQL documentation].
+MySQL must be configured with innoDB storage engine.
+. Oracle must be configured using AL32UTF8 character set to store properly all _Char_ data

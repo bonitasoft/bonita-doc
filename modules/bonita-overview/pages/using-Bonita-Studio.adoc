@@ -1,0 +1,40 @@
+= Using Bonita Studio
+:description: Learn how to efficiently use Bonita Studio
+:page-aliases: ROOT:using-Bonita-Studio.adoc
+
+{description}
+
+== Structure
+Here is the default Studio structure: 
+
+* a top, main menu
+* a "coolbar" with generic features
+* a "project explorer" displaying the main elements of the project, and providing actions to open them or create new ones.
+* a tabs area with all the files you are currently working on
+* a "Problems" area to keep an eye on what needs to be fixed before deployment
+* a dedicated Git section when the current project is shared with Git.
+
+Each tab contains some specific areas to interact with. +
+You can play with the organization of the tabs and areas. If you get lost, use the "View > Reset view" menu option to come back to default.
+
+== Welcome page
+The Welcome page is displayed upon the first opening of the Studio. +
+It gives access to a lot of resources to help you during the lifetime of the project. +
+The welcome page can be opened at any time by clicking on the "Welcome" icon of the coolbar. 
+
+== Project overview
+The project overview is accessible from the Studio coolbar. It provides an overview of the different elements of your project and those you can use to create a state-of-the-art Bonita project.
+
+From the overview, you can access the xref:managing-extension-studio.adoc[extension] view of your project.
+
+== Preferences
+The "Preferences" icon in the studio's coolbar allows a full set of configurations. Find the list and how to use them in xref:bonita-bpm-studio-preferences.adoc[Bonita Studio preferences]
+
+== Open a recently modified diagram
+
+To see a list of recently modified diagrams without having to go to the Welcome page, go to the *File* menu and choose *Recently modified*. +
+A submenu of the last ten diagrams you have modified is displayed. Click the *_name_* of a diagram to open it.
+
+== Drawing processes
+
+To learn how to draw a process, go to the xref:draw-bpmn-diagram#_create_the_process_diagram[Getting started tutorial], or read this xref:diagram-overview.adoc[documentation page].

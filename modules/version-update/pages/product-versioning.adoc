@@ -1,0 +1,115 @@
+= Bonita Versions
+:page-aliases: ROOT:product-versioning.adoc
+:description: Discover how Bonita manages its product and artifacts versions and how it can impact your projects
+
+{description}
+
+== Platform Versions
+
+After years of semantic versioning, and one release trying calendar versioning, Bonita now settles down in a mix type of versioning: YYYY.#-uX, since version 2021.2:
+
+* YYYY is the year of the release
+* # is the release number of the "main" release
+* uX is for the _update_ number: 0 for the "main", and then each "maintenance" release gets an increment of 1. 
+
+For example:
+
+* If the last main release is 2021.2, its binaries are labelled 2021.2-u0
+* The 3rd maintenance version of this release is 2021.1-u3
+
+Keep in mind that:
+
+* Two main versions are released every year
+* A new maintenance version is made available at least every month to our customers 
+* All maintenance versions are cross-compatible for the same main version. For example, transitioning from a *2021.2*-u1 to a *2021.1*-u3 will not require any Bonita database update procedure. However, transitioning from a *7.11*.5 to a *2021.2*-u2 will require a Bonita database update procedure.
+
+== Technical Id
+
+A technical Id also exists for Bonita components, and it follows the usual semantic versioning X.Y.Z:
+
+* X is the major version number. It changes when non-backward compatible changes are implemented.
+* Y is the minor version number. It changes when backward compatible features are added. 
+* Z is the maintenance version number. The maintenance versions contain fixes. 
+
+Technical Id Bonita version correspondence table
+
+|===
+| Bonita Version | Technical Id
+
+| 2021.1
+| 7.12.z
+| 2021.2
+| 7.13.z
+|===
+
+== Artifact version
+
+In addition to the platform version, most artifacts have a model version. Bonita Studio and UI Designer use this model version to determine if the corresponding artifact is compatible. +
+If the artifacts are incompatible, then either Bonita Studio migrates the artifacts (when the model version is lower than the Bonita Studio version), or you will have to update your studio to a compatible version. +
+
+Example:
+
+In the case below, my diagram model version is "7.12.1-001". I will not be able to open it with a 7.11 Studio but I will be able to open it without Bonita update with any 7.12 Studio. Finally, if I'm using a 7.13 Studio, my diagram will be migrated.
+
+
+[source,xml]
+----
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" ...>
+  <process:MainProcess xmi:id="_dNo_EBrNEeughd1BclcISA" name="Administration" author="John Doe"
+                        bonitaVersion="7.12.2" bonitaModelVersion="7.12.1-001" <!--1-->
+                        configId="ACED000....">
+    <elements xmi:type="process:Pool" xmi:id="_dNo_ERrNEeughd1BclcISA" name="DeleteVersion" version="0.0.1">
+      <elements xmi:type="process:StartEvent" xmi:id="_dNo_ExrNEeughd1BclcISA" name="Start" outgoing="_dNo_KBrNEeughd1BclcISA">
+        <dynamicLabel xmi:type="expression:Expression" xmi:id="_dNo_FBrNEeughd1BclcISA" name="" content="" returnTypeFixed="true"/>
+        <dynamicDescription xmi:type="expression:Expression" xmi:id="_dNo_FRrNEeughd1BclcISA" name="" content="" returnTypeFixed="true"/>
+        <stepSummary xmi:type="expression:Expression" xmi:id="_dNo_FhrNEeughd1BclcISA" name="" content="" returnTypeFixed="true"/>
+      </elements>
+...
+    </elements>
+  </process:MainProcess>
+</xmi:XMI>
+----
+<1> bonita version and model version declarations
+
+The following artifacts have model versions:
+
+* Diagrams
+* Organization
+* Business Data Model
+* BDM Access control
+* Applications
+* Pages
+* Forms
+* Fragments
+* Layouts
+* Customer Widgets
+
+These model versions should not change between maintenance versions of a given main version (e.g. between a 7.12.5 and a 7.12.3). This means that no update procedure is needed in production or the Studio when changing the maintenance version.
+
+[NOTE]
+====
+
+Changing the main version does not imply that the model version of all artifacts will change: in some cases, updating to a new main version will not require to migrate the artifacts.
+====
+
+== Version checks in Bonita Studio and UI Designer
+
+=== Studio
+
+Bonita Studio will check the model version of every artifact of a given project when cloning or importing it. The artifact model version will also be checked when importing artifacts individually.
+
+The model versions of all artifacts are also checked when deploying a project. Finally, the model version is checked when an artifact is opened.
+
+To check the compatibility of your artifacts manually, you can use the "Validate" action in the project's context menu or via the File menu.
+
+You will not be able to work with incompatible artifacts nor deploy them. However, it is possible to migrate older artifacts.
+
+=== UI Designer
+
+The UI Designer will check the model version of all artifacts when it is launched and when a given artifact is opened. You will not be able to work with incompatible artifacts. However, you will be able to migrate older artifacts.
+
+[WARNING]
+====
+
+Artifact migration is not reversible. Once the studio or UI Designer has migrated an artifact, it is no longer compatible with the previous version of the Bonita component.
+====

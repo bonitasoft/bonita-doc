@@ -1,0 +1,67 @@
+= Bonita Administrator Application
+:page-aliases: ROOT:administrator-application-index.adoc
+:description: This page gives an easy access to Bonita Administrator Application content, and to some related topics elsewhere in the documentation.
+
+{description}
+
+[.card-section]
+== Bonita Administrator Application content
+
+[.card.card-index]
+--
+xref:admin-application-overview.adoc[[.card-title]#Application overview# [.card-body.card-content-overflow]#pass:q[Values, details, and customization]#]
+--
+
+[.card.card-index]
+--
+xref:process-management-index.adoc[[.card-title]#Process Management at runtime# [.card-body.card-content-overflow]#pass:q[Install, update, and monitor processes at runtime]#]
+--
+
+[.card.card-index]
+--
+xref:organization-index.adoc[[.card-title]#Organization# [.card-body.card-content-overflow]#pass:q[Manage users at runtime]#]
+--
+
+[.card.card-index]
+--
+xref:bdm-management-in-bonita-applications.adoc#installAccessControl[[.card-title]#BDM Access Control# [.card-body.card-content-overflow]#pass:q[Install and update business data authorizations at runtime]#]
+--
+
+[.card.card-index]
+--
+xref:admin-application-resources-list.adoc[[.card-title]#Resources# [.card-body.card-content-overflow]#pass:q[Manage pages, layouts, themes, and REST API extensions at runtime]#]
+--
+
+[.card.card-index]
+--
+xref:applications.adoc[[.card-title]#Applications# [.card-body.card-content-overflow]#pass:q[Manage applications at runtime]#]
+--
+
+[.card.card-index]
+--
+xref:licenses.adoc[[.card-title]#License# [.card-body.card-content-overflow]#pass:q[Check the Subscription end date. Get the request key to renew]#]
+--
+
+[.card-section]
+== Related topics
+
+
+[.card.card-index]
+--
+xref:define-and-deploy-the-bdm.adoc[[.card-title]#BDM creation# [.card-body.card-content-overflow]#pass:q[Define business objects, their attributes, and their relationships]#]
+--
+
+[.card.card-index]
+--
+xref:bdm-management-in-bonita-applications.adoc[[.card-title]#BDM management as a Super Administrator# [.card-body.card-content-overflow]#pass:q[Install and update the BDM and its related database schema]#]
+--
+
+[.card.card-index]
+--
+xref:organization-overview.adoc[[.card-title]#Organization creation# [.card-body.card-content-overflow]#pass:q[Create users, roles, groups, and memberships]#]
+--
+
+[.card.card-index]
+--
+xref:custom-applications-index.adoc[[.card-title]#Applications creation# [.card-body.card-content-overflow]#pass:q[Create your own applications]#]
+--

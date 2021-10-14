@@ -1,0 +1,46 @@
+= Bonita's purpose
+:page-aliases: ROOT:bonita-purpose.adoc
+:description: This page gives an overview of the values of Bonita Platform, as well as the business use-cases Bonita helps solve, both through types of automation projects and industry verticals.
+
+{description}
+
+== Values of Bonita Platform
+
+As a platform, Bonita supports your automation project from implementation to maintenance and evolution, with a set of dedicated tools. +
+It comes with plenty of provided artifacts, speeding up the development, facilitating the communication among team members, but also easing the maintenance. +
+As an open platform, it encourages the creation of more artifacts to perfectly fit the business and technical needs of a given automation project. As our customers say; "you are never stuck with Bonita". +
+Moreover, the built-in BPM engine provides events traceability upon which monitoring and reporting dashboards are created, providing in-depth visibility and undersanding of the process execution. 
+Plus, its robustness enables the BPM engine to handle a company's critical projects, with high performance and technical monitoring indicators.
+
+== Types of automation projects
+
+=== The need for automation
+
+Not all business processes need to be automated. Sometimes, the need is to model and map all processes, not to automate all of them. +
+Automation must be driven by the strong possibility of a gain in efficiency. +
+Indeed, the benefits of automation are huge when:
+
+ * Processes are critical for the business, so process execution needs *traceability* 
+ * Processes are complex, they spread over multiple company's departments and teams, so they need to *coordinate a lot of people* and send them reminders
+ * The data handled need to be frequently retrieved or sent from/to many places, and undergo multiple transformations accross the processes steps, so *orchestration of services* is key
+ * Processes are dynamic, can encounter flaws, may need continuous improvement, so process owners need monitoring and reporting
+ 
+In two words, such processes are _not critical_ to the company's business: it is good when their execution is flawless, but it is ok if there is a little delay sometimes too.
+
+For all other processes, automation is more than welcome. +
+
+=== The automation types
+Some processes need a chain of technical systems actions to take place in a target duration, with no errors. +
+Although humans will supervise that the execution goes well, specific user interfaces might not be needed: technical error monitoring on a console and a few database queries that regularly compute KPIs can do the supervising job.
+
+For all other processes, user interfaces are more than welcome, in the form of business applications running processes in the background.
+
+=== The business applications types 
+This is where business analysts need to take one step aside and look at the overall way the end-users work. +
+
+* Their job may require to be process-centric and do tasks from different processes as they appear in their todo list, with some filtering options. The task-list application is what you need. As an option, team coordinators can pre-sort and assign tasks as they become available, let the team organize themselves, or have the assignment criteria implemented in the process xref:actors.adoc[actor mapping]. Bonita provides such a task list in the xref:user-application-overview.adoc[User application].
+* Their job may require to be data-centric, with very standardized processes creating, modifying and sharing data in a consistent way. In this case, a BPM approach with a Living application displaying lists of cases (requests, claims, invoices, tickets,...) to handle is the right way to go.
+* Their job may require to be data-centric and manage each case in a specific way due to some conditions. They may need to skip some tasks, add others, so the process can be partially structured and partially open to changes decided by the knowledge workers. In this case, an xref:use-bonita-acm.adoc[Adaptive Case Management] (ACM) approach, with specific process design and user interfaces, is right for them.
+
+== Industry verticals
+Digital Process Automation (DPA), the core of Bonita Platform, is applicable to a wide range of use cases: from loan request management, to student application processes, to analytical processes in drug discovery - and more! You can find the various industries where Bonita is used as well as use cases from our https://www.bonitasoft.com/industries[website dedicated page].

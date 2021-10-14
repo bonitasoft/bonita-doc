@@ -1,0 +1,66 @@
+= Applications deep dive
+:page-aliases: ROOT:bonita-applications-deep-dive.adoc
+:description: This page explains how Bonita runs applications and presents the Bonita applications natively embedded in Bonita Runtime
+
+{description}
+
+
+[.card-section]
+== How it works in Bonita Runtime
+
+[.card.card-index]
+--
+xref:bonita-applications-interface-overview.adoc[[.card-title]#Overview# [.card-body.card-content-overflow]#pass:q[How applications are run by Bonita]#]
+--
+
+[.card.card-index]
+--
+xref:cache-configuration-and-policy.adoc[[.card-title]#Cache management# [.card-body.card-content-overflow]#pass:q[Cache policies and how to configure the caching mechanism]#]
+--
+
+[.card.card-index]
+--
+xref:log-in-and-log-out.adoc[[.card-title]#Login mechanism# [.card-body.card-content-overflow]#pass:q[How to get users to log into an application]#]
+--
+
+[.card-section]
+== Bonita applications
+Bonitasoft developers develop Bonita using Bonita. +
+This is why Bonita comes with four embedded applications, with different status: 
+
+* Core applications. They are critical to the good operation of Bonita in a Production environment. They can be customized but they cannot be deleted:
+  ** Application Directory 
+  ** Super Administrator
+* Generic applications. They are fully functional, can be customized, but can also be deleted if not useful in a Production environment:
+  ** Administrator
+  ** User
+  
+[.card.card-index]
+--
+xref:application-directory.adoc[[.card-title]#Application directory# [.card-body.card-content-overflow]#pass:q[The logged user's catalog of applications... and more]#]
+--
+
+[.card.card-index]
+--
+xref:super-administrator-application-overview.adoc[[.card-title]#Super Administrator# [.card-body.card-content-overflow]#pass:q[Bonita boostrap, maintenance operations, and BDM update]#]
+--
+
+[.card.card-index]
+--
+xref:admin-application-overview.adoc[[.card-title]#Administrator# [.card-body.card-content-overflow]#pass:q[Monitoring and update of automation projects in production]#]
+--
+
+[.card.card-index]
+--
+xref:user-application-overview.adoc[[.card-title]#User# [.card-body.card-content-overflow]#pass:q[Process start and task execution using a generic tasklist]#]
+--
+
+[.card-section]
+== Related topics
+
+Learn how to create your own Custom Applications.
+
+[.card.card-index]
+--
+xref:custom-applications-index.adoc[[.card-title]#Custom applications# [.card-body.card-content-overflow]#pass:q[What it is made of, and who creates what, when]#]
+--

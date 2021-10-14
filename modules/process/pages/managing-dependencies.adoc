@@ -1,0 +1,60 @@
+= Manage process dependencies
+:page-aliases: ROOT:managing-dependencies.adoc
+:description: Learn how to manage dependencies using Bonita Studio, so that when you build a process for deployment, all the dependencies are included
+
+{description}
+
+A dependency is an external module, not provided by the Bonita runtime, that is used by a process. It can be an xref:managing-extension-studio.adoc[extension] or any third party jar to you may need in your process.
+
+You can have an overview of your project dependencies using the project _Overview_ in a Bonita Studio. From there you can navigate to the _Extensions_ view.
+This view only displays the root dependencies. In most cases, a java dependency has transitive dependencies. Bonita Studio helps you deal with those transitive dependencies by using Apache Maven as a dependency management tool for your Bonita project.
+
+== Configure process dependencies
+
+Once you have added the required dependencies for your project. You need to add them to the process configuration that will use them.
+
+To specify the dependencies for a process, select the process and click *_Configure_* in the toolbar. Navigate to the _Process dependencies_ tab.
+
+If your process already uses some connectors or actor filters. You'll see that connectors and filters dependencies are automatically added to the configuration.
+Now if you need a specific dependency you can select the _Other_ category in the dependency tree and click _Add..._. It opens a dialog with the root dependencies declared at the process level. Select your dependency and click _OK_.
+
+[NOTE]
+====
+It is at this time that if a root dependency have transitive dependencies, they are automatically added in configuration.
+==== 
+
+== Dependencies conflicts
+
+You can have to deal with dependency conflict when adding dependencies in a process configuration. A warning is displayed on jars that are already presents in the Bonita runtime and that may cause issue at runtime.
+If the dependency version is the same between the Bonita runtime and your dependency you can delete or deselect the corresponding jar from the dependency tree of the _Process dependencies_ tab. If they are not in the same version, you can opt to leave both versions but it is highly recommended to align the conflicting dependency version with the one provided by the Bonita runtime. 
+
+== Incompatible dependencies
+
+The Bonita runtime already comes with provided dependencies. If you try to add a dependency that is not compatible with the provided dependencies you may have some errors on your project pointing the relevant dependency.
+The common incompatibilities are by example a dependency that requires `groovy-all` or `bonita-server`. Those are already _provided_ by the runtime and thus, should not be added to the project classpath.
+To fix those issues, you must update the source code of the dependency and declared the dependencies that are already in Bonita runtime with a _provided_ maven scope.
+
+== Avoiding dependency conflicts
+
+If you want to develop custom extensions for your processes, it is highly recommended to use Maven projects and the _import_ the runtime BOM (Bill of Material) in the _<dependencyManagement>_ section of your project:
+
+[source, xml]
+----
+ <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.bonitasoft.runtime</groupId>
+        <artifactId>bonita-runtime-bom</artifactId>
+        <version>${bonita.runtime.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+----
+
+This will help Maven selecting the matching versions if you are using a dependency already available in the Bonita runtime. When it is the case a warning should be displayed by your IDE. You can remove the version and set the scope to _provided_.
+
+
+
+

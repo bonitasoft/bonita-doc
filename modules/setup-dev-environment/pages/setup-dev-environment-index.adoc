@@ -1,0 +1,33 @@
+= Set up the Development Environment
+:page-aliases: ROOT:setup-dev-environment-index.adoc
+:description: A description of all Bonita features that allow the creation of a customized, shared, and automated development environment.
+
+{description}
+
+[.card-section]
+== Customize, share, automate 
+
+[.card.card-index]
+--
+xref:bonita-bpm-studio-preferences.adoc[[.card-title]#Bonita Studio configuration# [.card-body.card-content-overflow]#pass:q[Adapt Bonita Studio to your needs]#]
+--
+
+[.card.card-index]
+--
+xref:configure-maven.adoc[[.card-title]#How to configure Maven# [.card-body.card-content-overflow]#pass:q[A central piece of your Bonita projects]#]
+--
+
+[.card.card-index]
+--
+xref:workspaces-and-repositories.adoc[[.card-title]#Workspaces and projects# [.card-body.card-content-overflow]#pass:q[The structure of all the content you create]#]
+--
+
+[.card.card-index]
+--
+xref:shared-project.adoc[[.card-title]#Set up Bonita Studio with Git# [.card-body.card-content-overflow]#pass:q[Share and version your projects]#]
+--
+
+[.card.card-index]
+--
+xref:migrate-a-svn-repository-to-github.adoc[[.card-title]#How to migrate a SVN repository into a Git repository# [.card-body.card-content-overflow]#pass:q[A guide for your Version Control Software migration]#]
+--

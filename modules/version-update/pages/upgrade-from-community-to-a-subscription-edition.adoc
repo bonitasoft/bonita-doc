@@ -1,0 +1,117 @@
+= Upgrading from Community to Enterprise
+:page-aliases: ROOT:upgrade-from-community-to-a-subscription-edition.adoc
+:description: Learn how to change Bonita edition: move from a Bonita Community to any Bonita Enterprise or vice-versa
+
+{description}
+
+*Upgrading* means moving from a Bonita Community edition environment to any Bonita Enterprise edition environment.
+
+*Downgrading* means moving from a Bonita Enterprise edition environment to a Bonita Community edition environment.
+
+== To check before upgrading / downgrading
+
+A Bonita edition change can only be performed on the same Bonita version.
+
+You cannot update to a new version at the same time as you upgrade to Enterprise edition. +
+Eg. You can only upgrade from *Bonita 2021.2 Community* edition to *Bonita 2021.2 Enterprise* edition. You *cannot* upgrade from *Bonita 2021.2 Community* to *Bonita 2021.3 Enterprise*. +
+This also applies for the downgrade.
+
+== Upgrade
+
+An upgrade is performed in two phases.
+
+=== Bonita studio
+
+To upgrade a Community edition of Bonita Studio and its resources (such as process diagrams, data models), follow these steps:
+
+. xref:bonita-bpm-studio-installation.adoc[Install a Bonita  Studio] Enterprise edition.
+. If you are using GIT, clone your project, it will be upgraded during the clone operation
+. if you are not using GIT
+.. Export your projects from the Bonita Studio Community edition to `.bos` archives. We recommend that you keep those archives as a backup.
+.. Import your `.bos` archives into the Bonita Studio in Enterprise edition.
+
+The upgrade is performed automatically and silently when importing resources into Bonita Studio Enterprise edition.
+
+
+[#bonita-platform-upgrade]
+=== Bonita Runtime
+
+Upgrading a Bonita Runtime allows you to keep its data (process definitions, cases, BDM...) while benefiting from the Enterprise edition features.
+
+[NOTE]
+====
+The *upgrade procedure* is quite simple and should not take more that 30 minutes. +
+The *service downtime* should not be more that 5-10 minutes.
+====
+
+[WARNING]
+====
+A Bonita Runtime upgrade can only be performed on the same database vendor (E.g. PostgreSQL) and on the same Bonita version (E.g. Bonita 2021.2 (=_7.13_))
+====
+
+To upgrade a Bonita Runtime from a Community edition to an Enterprise edition, follow these steps:
+
+. Download and unzip the Bonita Enterprise bundle (to retrieve the bonita.war Web App later)
+. Retrieve an xref:licenses.adoc[Enterprise license] file
+. Run `<bonita-installation>/setup/setup(.sh/.bat) pull` to fetch your current Community configuration in `<bonita-installation>/setup/platform_conf/current`
+. Create license folder `<bonita-installation>/setup/platform_conf/licenses/`
+. Copy your license file into this newly-created folder
+. Push your new license in the database: `<bonita-installation>/setup/setup(.sh/.bat) push`
+. Stop Bonita Community platform with `<bonita-installation>/stop-bonita(.sh/.bat)` script. *Do not remove the WAR file before stopping Tomcat, or many errors would be issued in the log* (See xref:#_notes[note 1 for explanations])
+. Remove Bonita Community Web App from `<bonita-installation>/server/webapps`: both `bonita.war` and the auto-extracted folder with the same name `bonita/`
+. Copy the Bonita Enterprise Web App (extracted from Bonita Enterprise bundle) where the Community version was: `<bonita-installation>/server/webapps/bonita.war`
+. ⚠ (Optionally rename the `<bonita-installation>` folder with a name that does not contain anymore the word `community`, for clarity)
+. Start the upgraded Bonita Runtime using `<bonita-installation>/start-bonita(.sh/.bat)` script
+
+
+=== Notes
+
+If you remove bonita webapp folder while Tomcat is running, Tomcat server considers that the webapp should be completely unloaded and removed. It also deletes the webapp configuration file `<bonita-installation>/server/conf/Catalina/localhost/bonita.xml`, resulting in many errors in the log files. Hopefully, Bonita restores this file during next run of `start-bonita(.sh/.bat)` script.
+
+The upgrade is now finished, you can verify that you are now running an Enterprise edition in the Super Administrator application; the edition displayed in the "BPM Services" page should indicate Enterprise edition.
+
+Once you have started Bonita Enterprise Runtime at least once, you can pull your Enterprise configuration (`<install>/setup/setup(.sh/.bat) pull`)
+and change the Enterprise-specific configuration files to match your needs. See xref:BonitaBPM_platform_setup.adoc[Bonita Runtime setup tool] for details about
+how to apply configuration changes.
+
+== Downgrade
+
+[WARNING]
+====
+Downgrading to Bonita Community edition means you will not be able to use Bonita Enterprise edition features anymore,
+so a prerequisite is to ensure you do not use any of these features before downgrading. Neither in your processes, nor in
+the Runtime settings.
+====
+
+=== Bonita studio
+
+To downgrade an Enterprise edition of Bonita Studio and its resources (such as process diagrams, data models), follow these steps:
+
+. xref:bonita-bpm-studio-installation.adoc[Install a Bonita  Studio] Community edition.
+. If you are using GIT, clone your project, it will be downgraded during the clone operation
+. if you are not using GIT
+.. Export your projects from the Bonita Studio Enterprise edition to `.bos` archives. We recommend that you keep those archives as a backup.
+.. Import your `.bos` archives into the Community edition of Bonita Studio.
+
+The downgrade is performed automatically and silently when importing resources into Bonita Studio Community edition.
+
+[NOTE]
+====
+If you want to import a project built with Bonita Enterprise edition from Git, you just need to clone the project from GitHub in Bonita Studio Community edition.
+====
+
+[#bonita-platform-downgrade]
+=== Bonita Runtime
+
+To downgrade a Bonita Runtime from an Enterprise edition to a Community edition, follow these steps:
+
+. Download and unzip the Bonita Community bundle (to retrieve the bonita.war Web App later)
+. Stop Bonita Enterprise Runtime with `<bonita-installation>/stop-bonita(.sh/.bat)` script. *Do not remove the WAR file before stopping Tomcat, or many errors would be issued in the log* (See xref:#_notes[note 1 for explanations])
+. Remove Bonita Enterprise Web App from `<bonita-installation>/server/webapps`: both `bonita.war` and the auto-extracted folder with the same name `bonita/`
+. Copy the Bonita Community Web App (extracted from Bonita Community bundle) where the Enterprise version was: `<bonita-installation>/server/webapps/bonita.war`
+. ⚠ (Optionally rename the `<bonita-installation>` folder with a name that does not contain anymore the word `subscription` or `enterprise`, for clarity)
+. Start the downgraded Bonita Runtime using `<bonita-installation>/start-bonita(.sh/.bat)` script
+
+The downgrade is now finished, you can verify that you are now running a Community edition in the Super Administrator application; the edition displayed in the "BPM Services" page should indicate Community edition.
+
+You should also ensure that there are no errors in the log file, referencing Enterprise features.
