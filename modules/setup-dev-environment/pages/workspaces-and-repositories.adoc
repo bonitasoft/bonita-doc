@@ -1,4 +1,5 @@
 = Workspaces and projects
+:page-aliases: ROOT:workspaces-and-repositories.adoc
 :description: Organize and share your Bonita project using workspaces and projects in order to ease developers team collaboration.
 
 {description}

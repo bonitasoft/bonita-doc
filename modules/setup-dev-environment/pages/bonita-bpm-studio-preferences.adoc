@@ -1,4 +1,5 @@
 = Bonita Studio preferences and configuration
+:page-aliases: ROOT:bonita-bpm-studio-preferences.adoc
 :description: Learn about deployment, web and other Bonita Studio preferences, as well as the Bonita Studio embedded Tomcat configuration.
 
 Learn about deployment, web and other Bonita Studio preferences, as well as the Bonita Studio embedded Tomcat configuration.
