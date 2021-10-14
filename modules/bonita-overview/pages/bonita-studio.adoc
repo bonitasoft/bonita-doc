@@ -1,5 +1,6 @@
 = Bonita Studio
 :description: Discover what Bonita Studio is, as well as its main features.
+:page-aliases: ROOT:bonita-studio.adoc
 
 Discover what Bonita Studio is, as well as its main features.
 

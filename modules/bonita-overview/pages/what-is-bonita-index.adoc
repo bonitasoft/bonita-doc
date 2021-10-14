@@ -1,6 +1,7 @@
 = What is Bonita?
 
 :description: Bonita is an open-source and extensible platform for business process automation and optimization.
+:page-aliases: ROOT:what-is-bonita-index.adoc
 
 {description}
 

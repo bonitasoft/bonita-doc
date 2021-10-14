@@ -1,5 +1,6 @@
 = Project structure
 :description: This page defines what the elements are within a Bonita Automation project, as well as how some of them are structured to create a Living Application.
+:page-aliases: ROOT:project-structure.adoc
 
 This page defines the elements used to compose a Bonita Automation project.
 

@@ -1,5 +1,8 @@
 = Using Bonita Studio
-Learn how to efficiently use Bonita Studio
+:description: Learn how to efficiently use Bonita Studio
+:page-aliases: ROOT:using-Bonita-Studio.adoc
+
+{description}
 
 == Structure
 Here is the default Studio structure: 

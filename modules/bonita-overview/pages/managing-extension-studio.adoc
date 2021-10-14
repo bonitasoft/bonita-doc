@@ -1,6 +1,7 @@
 = Managing Extensions in the Studio
 
 :description: The Bonita platform is highly extensible so we created a dedicated view to manage the extensions of your project
+:page-aliases: ROOT:managing-extension-studio.adoc
 
 The Bonita platform is highly extensible so we created a dedicated view to manage the extensions of your project
 
