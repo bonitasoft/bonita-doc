@@ -128,6 +128,14 @@ Sample extract of exposed Prometheus data:
  tomcat_servlet_request_max_seconds{name="dispatcherServlet",} 0.104
  ...
 
+This endpoint is protected with Basic access authentication to protect against DOS attacks. +
+Thus, when reaching this endpoint, you will have to manually enter the configured username and password information for your access to be granted.
+
+These credentials can be consulted and modified:
+
+* in the <BONITA>/server/conf/tomcat-users.xml file in a *Bonita Tomcat bundle*
+* using xref:bonita-docker-installation.adoc#_monitoring_username[specific Environment parameters] when starting a *Bonita Docker image*
+
 
 == Configuration
 
