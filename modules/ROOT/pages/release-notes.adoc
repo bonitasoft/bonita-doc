@@ -20,7 +20,7 @@ Thus, when reaching the prometheus metrics endpoint, typically https://localhost
 
 These credentials can be consulted and modified:
 
-* in <BONITA>/server/conf/tomcat-users.xml in a *Bonita Tomcat bundle*
+* in the <BONITA>/server/conf/tomcat-users.xml file in a *Bonita Tomcat bundle*
 * using xref:bonita-docker-installation.adoc#_monitoring_username[specific Environment parameters] when starting a *Bonita Docker image*
 
 
