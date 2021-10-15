@@ -1,8 +1,6 @@
 * xref:runtime-index.adoc[Runtime]
- ** Bonita Engine deep dive
-  *** xref:engine-flow-node-states.adoc[Flow node states]
-  *** xref:timers-execution.adoc[Timer execution]
-  *** xref:connectors-execution.adoc[Connector execution]
+ ** xref:engine-deep-dive-index.adoc[Bonita Engine deep dive]
+  *** xref:bonita-overview:engine-architecture-overview.adoc[Architecture overview]
   *** Works
    **** xref:work-execution.adoc[Work execution]
    **** xref:work-locking.adoc[Work locking]
