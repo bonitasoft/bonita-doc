@@ -7,15 +7,15 @@ blabla
 
 [.card.card-index]
 --
-xref:actors.adoc[[.card-title]#How to 1# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:ROOT:actors.adoc[[.card-title]#How to 1# [.card-body.card-content-overflow]#pass:q[TODO]#]
 --
 
 [.card.card-index]
 --
-xref:actor-filtering.adoc[[.card-title]#How to 2# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:ROOT:actor-filtering.adoc[[.card-title]#How to 2# [.card-body.card-content-overflow]#pass:q[TODO]#]
 --
 
 [.card.card-index]
 --
-xref:organization-overview.adoc[[.card-title]#How to 3# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:ROOT:organization-overview.adoc[[.card-title]#How to 3# [.card-body.card-content-overflow]#pass:q[TODO]#]
 --

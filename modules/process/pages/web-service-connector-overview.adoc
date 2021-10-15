@@ -16,12 +16,12 @@
 
 To format your entries according to SOAP specifications, go to http://www.w3.org/TR/soap12-part1/#intro[SOAP!]
 
-See a working example of a web service connector in this xref:web-service-tutorial.adoc[tutorial].
+See a working example of a web service connector in this xref:ROOT:web-service-tutorial.adoc[tutorial].
 
 [WARNING]
 ====
 This connector uses the StAX API. StAX libraries cannot be loaded in more than one classloader but must instead be placed in a single location where they can be called by all the items that use them. +
-When you configure a process that uses this connector, you must xref:manage-dependencies.adoc[manage the configuration process dependencies].
+When you configure a process that uses this connector, you must xref:ROOT:manage-dependencies.adoc[manage the configuration process dependencies].
 ====
 
 === Input

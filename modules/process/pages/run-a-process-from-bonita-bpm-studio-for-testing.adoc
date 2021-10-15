@@ -6,8 +6,8 @@
 
 When you run a process from Bonita Studio it runs on the local Bonita server. The server includes an Java application server (Tomcat), two databases (h2), and Bonita Runtime. Running a process from Bonita Studio is intended for testing during process development.
 
-Before you can run a process, you must xref:configuring-a-process.adoc[configure the process]
-and xref:organization-management-in-bonita-bpm-studio.adoc[configure the organization].
+Before you can run a process, you must xref:ROOT:configuring-a-process.adoc[configure the process]
+and xref:ROOT:organization-management-in-bonita-bpm-studio.adoc[configure the organization].
 
 To run a process, you can :
 

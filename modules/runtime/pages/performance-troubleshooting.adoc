@@ -43,7 +43,7 @@ These are the key indicators to check:
 * Threads: Number of threads, number of deadlocks
 
 A large number of deadlocks, or memory heap starvation may indicate a performance issue.
-Follow the xref:performance-tuning.adoc[JVM performance tuning recommendations] and increase provisioning to get the optimum performance.
+Follow the xref:ROOT:performance-tuning.adoc[JVM performance tuning recommendations] and increase provisioning to get the optimum performance.
 
 Many OpenSource and proprietary tools exist for JVM monitoring.
 These parameters can be obtained through monitoring system like Nagios or Zabbix. You can also retrieve them using the https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[PlatformMonitoringAPI].
@@ -79,9 +79,9 @@ Predict and then monitor the following:
 
 All connection numbers must be defined according to the performance tuning recommendations:
 
-* Monitor connection number managed by client (see xref:performance-tuning.adoc[Client Threads])
-* Check connection number managed by Bonitasoft Server (See xref:performance-tuning.adoc[Work Service], Connector service, and xref:performance-tuning.adoc[Scheduler Service])
-* Check number of database connections defined in Bonitasoft (see xref:performance-tuning.adoc[Database connections] and xref:performance-tuning.adoc[Datasource settings])
+* Monitor connection number managed by client (see xref:ROOT:performance-tuning.adoc[Client Threads])
+* Check connection number managed by Bonitasoft Server (See xref:ROOT:performance-tuning.adoc[Work Service], Connector service, and xref:performance-tuning.adoc[Scheduler Service])
+* Check number of database connections defined in Bonitasoft (see xref:ROOT:performance-tuning.adoc[Database connections] and xref:performance-tuning.adoc[Datasource settings])
 * Check maximum number of simultaneous connections on database
 * Monitor number of simultaneous connections on database
 
@@ -104,7 +104,7 @@ bonita.platform.persistence.dbquery.warnWhenLongerThanMillis=1000
 
 == Purge archive tables
 
-If you can afford to get rid of data of old finished process instances, use xref:purge-tool.adoc[the purge tool] to clean up unnecessary data
+If you can afford to get rid of data of old finished process instances, use xref:ROOT:purge-tool.adoc[the purge tool] to clean up unnecessary data
 that take volume in the database and that slows some queries down.
 
 == Connectors
@@ -118,17 +118,17 @@ Caused by: org.bonitasoft.engine.connector.exception.SConnectorException: The co
 ====
 The connector execution with timeout is a Subscription feature for Teamwork, Efficiency, Performance, and Enterprise editions only.
 ====
-This timeout can be increased in the Connector service configuration in  `bonita-tenant-sp-custom.properties` (See xref:BonitaBPM_platform_setup.adoc[platform setup]) by increasing the value of the property `bonita.tenant.connector.timeout`.  
+This timeout can be increased in the Connector service configuration in  `bonita-tenant-sp-custom.properties` (See xref:ROOT:BonitaBPM_platform_setup.adoc[platform setup]) by increasing the value of the property `bonita.tenant.connector.timeout`.  
 
 Additionally, any connectors longer than 10 seconds will produce a warning log.
-See xref:performance-tuning.adoc#connector_service[connector service] for more information.
+See xref:ROOT:performance-tuning.adoc#connector_service[connector service] for more information.
 
-In addition, performance of connectors can be measured using the xref:performance-tuning.adoc#time_tracker[connector time tracker].
+In addition, performance of connectors can be measured using the xref:ROOT:performance-tuning.adoc#time_tracker[connector time tracker].
 
 == Cron jobs
 
-The Bonita Engine uses the Scheduler service to trigger jobs in a recurrent manner. It might be possible to improve performance by xref:performance-tuning.adoc[optimizing the cron settings].
+The Bonita Engine uses the Scheduler service to trigger jobs in a recurrent manner. It might be possible to improve performance by xref:ROOT:performance-tuning.adoc[optimizing the cron settings].
 
 == Performance tuning
 
-See xref:performance-tuning.adoc[Performance tuning].
+See xref:ROOT:performance-tuning.adoc[Performance tuning].

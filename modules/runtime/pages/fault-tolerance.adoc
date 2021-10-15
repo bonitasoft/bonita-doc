@@ -10,9 +10,9 @@ Multiple incidents can happen in a given system. We can have the database not re
 a network issue, we can have the JVM on which Bonita Platform runs failing, or we can have external services not available. Each category of incident has a mechanism to recover from it.
 
 * When dealing with a failure on the host machine, like the JVM or hardware crashing, Bonita platform can be installed in a
-xref:overview-of-bonita-bpm-in-a-cluster.adoc[clustered architecture] to ensure the High availability of the service.
-It means that if one node of the cluster fails, another one is available to continue executing xref:work-execution.adoc[works].
-* When dealing with external services' outage called by xref:connectors-overview.adoc[connectors], they can be xref:admin-application-task-list.adoc[replayed].
+xref:ROOT:overview-of-bonita-bpm-in-a-cluster.adoc[clustered architecture] to ensure the High availability of the service.
+It means that if one node of the cluster fails, another one is available to continue executing xref:ROOT:work-execution.adoc[works].
+* When dealing with external services' outage called by xref:ROOT:connectors-overview.adoc[connectors], they can be xref:admin-application-task-list.adoc[replayed].
 * When dealing with incident like unresponsive database, we have two mechanisms to handle these errors the Retry mechanism and
 the Recovery mechanism
 
@@ -24,12 +24,12 @@ analyses the exception and determine if the work should be retried automatically
 When the exception is retryable, the platform queues the work again, with a delay. That can be done up to 10 times
 with the delay increasing gradually from 1 second to more than 1 hour by default.
 
-See xref:work-execution.adoc[Work execution] and xref:work-execution-audit.adoc[Work executiuon audit] for more details.
+See xref:ROOT:work-execution.adoc[Work execution] and xref:work-execution-audit.adoc[Work executiuon audit] for more details.
 
 === Configuration
 
 Configuration for the retry is available in the `bonita-tenant-community-custom.properties` and can be updated using the
-xref:BonitaBPM_platform_setup.adoc[setup tool]
+xref:ROOT:BonitaBPM_platform_setup.adoc[setup tool]
 
 [source,properties]
 ----
@@ -47,7 +47,7 @@ multiplied at each retry *by 2*.
 
 === Monitoring
 
-The xref:work-execution-audit.adoc[Work execution audit] allows to be informed when the work is retried to many times.
+The xref:ROOT:work-execution-audit.adoc[Work execution audit] allows to be informed when the work is retried to many times.
 
 == Recovery mechanism
 
@@ -61,7 +61,7 @@ In cluster environment, only one node is responsible to run the recovery at any 
 === Configuration
 
 Configuration for the recovery is available in the `bonita-tenant-community-custom.properties` and can be updated using the
-xref:BonitaBPM_platform_setup.adoc[setup tool]
+xref:ROOT:BonitaBPM_platform_setup.adoc[setup tool]
 
 The default values of those properties should work for everyone. If the recovery task takes more than a few minutes,
 you might want to change these values to run the recovery less often. Take a look at the metrics section to understand how
@@ -112,7 +112,7 @@ There is four metrics related to the recovery:
 `bonita.bpmengine.recovery.recovered.last`
 
 Here is an example of metrics published using the Prometheus publisher, more info on how to activate this publisher
- in xref:runtime-monitoring.adoc[Bonita Runtime Monitoring]
+ in xref:ROOT:runtime-monitoring.adoc[Bonita Runtime Monitoring]
 
 ----
 # HELP bonita_bpmengine_recovery_duration_seconds_max duration of recovery task

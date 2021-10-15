@@ -70,4 +70,4 @@ We can see here:
 * `executionCount` is the counter of every time was taken for execution.
 * `retryCount` is the counter of each time the work failed because of a retryable exception.
 
-see xref:work-execution-audit.adoc[Work executiuon audit] for more details.
+see xref:ROOT:work-execution-audit.adoc[Work executiuon audit] for more details.

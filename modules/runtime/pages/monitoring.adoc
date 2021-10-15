@@ -26,7 +26,7 @@ The *Monitor open cases* page is displayed, with the following summary informati
 
 You can filter the table to show only a specified process, or process and version. You can also filter it by process activation state.
 
-Process Managers can see only the xref:process-manager.adoc[processes they manage].
+Process Managers can see only the xref:ROOT:process-manager.adoc[processes they manage].
 
 From a row in the table, you can click the _List_ icon to see a list of cases of the process.
 You can also open a diagram of a process, by clicking on the _Picture_ icon for the process. On the diagram, you can see the number and state of cases in progress at each step.

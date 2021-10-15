@@ -37,7 +37,7 @@ You can define a sequence of operations at a task. The operations are performed 
  The BO instance must exist in the business data database; otherwise the operator throws an exception. +
  The BO instance is not modified during the operation but from that point onward, any expression or operation in the process can reference this object instance to make changes. +
  If it uses a _Script expression type_, you can use the contract inputs to fill in the BO attributes. +
- Go to xref:define-and-deploy-the-bdm.adoc[Initialize BDM attributes from contract inputs in task operations] for more information.
+ Go to xref:ROOT:define-and-deploy-the-bdm.adoc[Initialize BDM attributes from contract inputs in task operations] for more information.
 * *_isDeleted_*: an operator 'Is Deleted' can be called on a business data variable. The BO instance that the business data references is deleted from the database, at runtime, after the task is completed.
 
 WARNING: Calling other operations (including _*instantiate with*_) after calling *_isDeleted_* on the same Business Object, in the same task, is not supported. If you want to re instantiate your Business Object, and perform operations on it, you should do it in a separate task.

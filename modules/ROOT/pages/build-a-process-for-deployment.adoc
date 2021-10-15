@@ -25,9 +25,9 @@ or
 . Specify the location where the .bar file will be created. The filename is determined by the process name and cannot be changed at this stage.
 . Click *Finish*. The business archive is created.
 
-When you build a process from the project explorer, the configuration used is the configuration saved as default. You can edit it from the xref:configuring-a-process.adoc[configure menu]
+When you build a process from the project explorer, the configuration used is the configuration saved as default. You can edit it from the xref:ROOT:configuring-a-process.adoc[configure menu]
 
-You can now xref:admin-application-process-list.adoc[install the process in Bonita Administrator Application].
+You can now xref:ROOT:admin-application-process-list.adoc[install the process in Bonita Administrator Application].
 
 == Initialize the organization in Bonita Administrator Application
 
@@ -36,5 +36,5 @@ you must create the organization that you need for all the processes that will b
 and import it into Bonita Administrator Application.
 
 To export the organization, go to the *Organization* menu and choose *Export...*. You
-can then xref:import-export-an-organization.adoc[import the organization into Bonita Administrator Application]. After the organization is imported,
-you can xref:admin-application-groups-list.adoc[manage the groups], xref:admin-application-roles-list.adoc[roles], and xref:admin-application-users-list.adoc[users] in the organization.
+can then xref:ROOT:import-export-an-organization.adoc[import the organization into Bonita Administrator Application]. After the organization is imported,
+you can xref:ROOT:admin-application-groups-list.adoc[manage the groups], xref:admin-application-roles-list.adoc[roles], and xref:admin-application-users-list.adoc[users] in the organization.

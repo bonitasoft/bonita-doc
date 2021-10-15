@@ -26,7 +26,7 @@ select the pool. Then choose *New environment...* from the *Configure* or *Run* 
 
 == Configure a process in an environment
 
-To configure a process for an environment, select the environment from the *Configure* menu in the Cool bar. Then use the configuration wizard to xref:configuring-a-process.adoc[configure the process].
+To configure a process for an environment, select the environment from the *Configure* menu in the Cool bar. Then use the configuration wizard to xref:ROOT:configuring-a-process.adoc[configure the process].
 
 == Run a process in an environment
 

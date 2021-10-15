@@ -22,7 +22,7 @@ The _Platform setup tool_ handles:
 * The management of Bonita Platform configuration (stored in the database)
 * The management of licenses (also stored in the database)
 
-It is located in the xref:tomcat-bundle.adoc[Tomcat bundle]. You can find the tool in the `setup` folder.
+It is located in the xref:ROOT:tomcat-bundle.adoc[Tomcat bundle]. You can find the tool in the `setup` folder.
 
 === Structure
 
@@ -135,7 +135,7 @@ Before running it, make sure the setup tool is configured to point to the databa
 [NOTE]
 ====
 
-If you have already run `start-bonita` script inside a xref:tomcat-bundle.adoc#configuration[Tomcat bundle] , those steps are already done.
+If you have already run `start-bonita` script inside a xref:ROOT:tomcat-bundle.adoc#configuration[Tomcat bundle] , those steps are already done.
 ====
 
 Here is how to do so:

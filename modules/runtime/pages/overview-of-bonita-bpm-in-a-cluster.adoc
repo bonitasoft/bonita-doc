@@ -16,8 +16,8 @@ and therefore to your business. A Bonita cluster alone does not guarantee high a
 You must also ensure that the prerequisite infrastructure is highly available.
 
 See also: +
-xref:install-a-bonita-bpm-cluster.adoc[Install a Bonita cluster] +
-xref:cluster-administration.adoc[Cluster administration]
+xref:ROOT:install-a-bonita-bpm-cluster.adoc[Install a Bonita cluster] +
+xref:ROOT:cluster-administration.adoc[Cluster administration]
 
 == Introduction
 
@@ -86,7 +86,7 @@ The nodes must all be in the same datacenter, to keep latency of updates to shar
 
 All nodes must run the same exact version of the Bonita Runtime. e.g. a `7.11.2` will not be able to connect to a cluster of Bonita Runtime in `7.11.1`. 
 
-The xref:install-a-bonita-bpm-cluster.adoc#disable-hibernate-cache[Hibernate cache must be disabled].
+The xref:ROOT:install-a-bonita-bpm-cluster.adoc#disable-hibernate-cache[Hibernate cache must be disabled].
 
 The load balancer must be configured to use sticky sessions (this is needed to manage sessions created when users log into the Bonita Runtime).
 
@@ -134,4 +134,4 @@ When only upgrade to a maintenance version of the same release you will not need
 * Start nodes with the newer version one by one
 
 
-When migration to a different release of the Bonita Runtime, the database also needs to be migrated. See xref:migrate-from-an-earlier-version-of-bonita.adoc#migrateCluster[here]
+When migration to a different release of the Bonita Runtime, the database also needs to be migrated. See xref:ROOT:migrate-from-an-earlier-version-of-bonita.adoc#migrateCluster[here]

@@ -14,17 +14,17 @@ Click on the menu *Help* \-> *About* \-> *Installation Details*
 [discrete]
 ==== Others
 
-xref:ui-designer-dependencies.adoc[List of UI Designer dependencies]
+xref:ROOT:ui-designer-dependencies.adoc[List of UI Designer dependencies]
 
-xref:bonita-data-repositories-dependencies.adoc[List of Data-Repository dependencies]
+xref:ROOT:bonita-data-repositories-dependencies.adoc[List of Data-Repository dependencies]
 
 
 == Runtime
 
-xref:bonita-engine-dependencies.adoc[List of Engine dependencies]
+xref:ROOT:bonita-engine-dependencies.adoc[List of Engine dependencies]
 
-xref:portal-js-dependencies.adoc[List of Portal-js dependencies]
+xref:ROOT:portal-js-dependencies.adoc[List of Portal-js dependencies]
 
-xref:react-page-dependencies.adoc[List of React pages dependencies]
+xref:ROOT:react-page-dependencies.adoc[List of React pages dependencies]
 
-xref:bonita-web-dependencies.adoc[List of Bonita web dependencies]
+xref:ROOT:bonita-web-dependencies.adoc[List of Bonita web dependencies]

@@ -9,13 +9,13 @@ An expression is a simple statement; a script is a sequence of expressions, and 
 
 This page explains the features of Bonita Studio that enable you to use expressions and scripts.
 
-Note that the expression editor cannot be used in the UI Designer, which has a different concept model for xref:variables.adoc[data].
+Note that the expression editor cannot be used in the UI Designer, which has a different concept model for xref:ROOT:variables.adoc[data].
 
 [WARNING]
 ====
 Groovy scripts are meant to be used in **processes only**, do not use them in custom connectors or filters !
 
-Custom connectors and filters should be considered as standalone/side projects and should preferably be created via xref:actor-filter-archetype.adoc[Bonita filter archetype] and xref:connector-archetype.adoc[Bonita connector archetype]
+Custom connectors and filters should be considered as standalone/side projects and should preferably be created via xref:ROOT:actor-filter-archetype.adoc[Bonita filter archetype] and xref:connector-archetype.adoc[Bonita connector archetype]
 ====
 
 == Expression types
@@ -149,11 +149,11 @@ Note that the Groovy script will be embedded in the process deployment file (*.b
 
 ==== Log messages in a Groovy script
 
-You can xref:logging.adoc[add logging] to Groovy scripts or Java code that you develop.
+You can xref:ROOT:logging.adoc[add logging] to Groovy scripts or Java code that you develop.
 
 ==== Scripts in right operands of operations at task level
 
-Scripts can be used to define the result of the right operand of an xref:operations.adoc[operation]. Those scripts are created in the same editor as the others, and can also call external methods and resources, but are designed as read-only scripts in the product.
+Scripts can be used to define the result of the right operand of an xref:ROOT:operations.adoc[operation]. Those scripts are created in the same editor as the others, and can also call external methods and resources, but are designed as read-only scripts in the product.
 [WARNING]
 ====
 
@@ -161,6 +161,6 @@ It means that trying to directly write data to the database in those scripts (us
 Data in this case, refers to documents, business objects, pages, process commentaries.
 ====
 
-For documents, you should use the xref:documents.adoc[document type] provided in the Studio and the associated xref:operations.adoc[operations] related to this document type.
-For business objects, you should use the xref:define-and-deploy-the-bdm.adoc[BDM type] provided in the Studio and the associated xref:operations.adoc[operations] related to this BDM type.
-For other use case you may want to use a xref:connectors-overview.adoc[connector] to perform those write operations.
+For documents, you should use the xref:ROOT:documents.adoc[document type] provided in the Studio and the associated xref:operations.adoc[operations] related to this document type.
+For business objects, you should use the xref:ROOT:define-and-deploy-the-bdm.adoc[BDM type] provided in the Studio and the associated xref:operations.adoc[operations] related to this BDM type.
+For other use case you may want to use a xref:ROOT:connectors-overview.adoc[connector] to perform those write operations.

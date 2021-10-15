@@ -1,6 +1,6 @@
 = User Case list in Bonita Application
 :page-aliases: ROOT:user-application-case-list.adoc
-:description: This page explains what a user with the _User_ profile can see and do about cases (the process instances) in xref:user-application-overview.adoc[Bonita User Application].
+:description: This page explains what a user with the _User_ profile can see and do about cases (the process instances) in xref:ROOT:user-application-overview.adoc[Bonita User Application].
 
 {description} +
 It describes the value and details of the User Case List in Bonita User Application, as well as its related pages Case Details and Case Overview.
@@ -22,8 +22,8 @@ image:images/UI2021.1/user-case-list-app.png[User Case list in Bonita Applicatio
 
 The page displays the cases in which the logged-in user has been involved:
 
-* They started the case, from the xref:user-process-list.adoc[process list] or another application
-* AND/OR they have done tasks in this case earlier, from the xref:user-task-list.adoc[task list] or another application
+* They started the case, from the xref:ROOT:user-process-list.adoc[process list] or another application
+* AND/OR they have done tasks in this case earlier, from the xref:ROOT:user-task-list.adoc[task list] or another application
 
 === Open and Archived cases
 
@@ -58,7 +58,7 @@ Open and Archived case lists can be filtered by process name and version, in the
 
 Open and Archived case lists can be filtered by the initiator of the case. By default, the lists display the cases started by anyone. +
 By checking the "Started by me" checkbox, they are filtered by the logged in user as the initiator. +
-To know more about how to set an entity of the organization as the initiator of a case, go to the xref:actors.adoc[actors] page, or check the link:user-process-list[User process list] page.
+To know more about how to set an entity of the organization as the initiator of a case, go to the xref:ROOT:actors.adoc[actors] page, or check the link:user-process-list[User process list] page.
 
 === Refresh
 
@@ -86,14 +86,14 @@ They can be updated anytime during the lifetime of the case. +
 Search keys are optional and it is possible to define up to five search keys for a process. +
 All available search keys are displayed for a given case. +
 Technical note: There is a databse index ofr each search key. +
-To know more about how to implement search keys, go to the xref:define-a-search-index.adoc[search keys] page.
+To know more about how to implement search keys, go to the xref:ROOT:define-a-search-index.adoc[search keys] page.
 
 ==== Search keys filter results
 
 Only cases which have been given values for their search keys during the execution of the case will be filtered.
 Search can be done on the value of a search key. +
 By default, the search is performed on the first word of the string. +
-In case the string contains several words and you would need the search to be performed on the beginning of either word, you need to activate the xref:using-list-and-search-methods.adoc]#word_based_search[word-based search]. +
+In case the string contains several words and you would need the search to be performed on the beginning of either word, you need to activate the xref:ROOT:using-list-and-search-methods.adoc]#word_based_search[word-based search]. +
 The search is launched automatically after a character is typed, with no need to press the Enter key.
 
 === Search by Case Id
@@ -156,4 +156,4 @@ Here is an example of the case overview provided by Bonita.
 image:images/UI2021.1/case-overview.png[Case Overview]
 // {.img-responsive}
 
-To know more about the customization of the case overview, go to the xref:uid-case-overview-tutorial.adoc[Case overview] page.
+To know more about the customization of the case overview, go to the xref:ROOT:uid-case-overview-tutorial.adoc[Case overview] page.

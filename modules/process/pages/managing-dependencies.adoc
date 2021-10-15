@@ -4,7 +4,7 @@
 
 {description}
 
-A dependency is an external module, not provided by the Bonita runtime, that is used by a process. It can be an xref:managing-extension-studio.adoc[extension] or any third party jar to you may need in your process.
+A dependency is an external module, not provided by the Bonita runtime, that is used by a process. It can be an xref:ROOT:managing-extension-studio.adoc[extension] or any third party jar to you may need in your process.
 
 You can have an overview of your project dependencies using the project _Overview_ in a Bonita Studio. From there you can navigate to the _Extensions_ view.
 This view only displays the root dependencies. In most cases, a java dependency has transitive dependencies. Bonita Studio helps you deal with those transitive dependencies by using Apache Maven as a dependency management tool for your Bonita project.

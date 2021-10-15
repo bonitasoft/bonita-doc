@@ -9,7 +9,7 @@ For Enterprise, Performance, Efficiency, and Teamwork editions only.
 
 == Overview
 
-As explained in the xref:layouts.adoc[layouts] documentation page, it is possible to customize the existing application layout using the UI Designer.
+As explained in the xref:ROOT:layouts.adoc[layouts] documentation page, it is possible to customize the existing application layout using the UI Designer.
 Keep in mind that any layout is composed by tree containers: layout-header, layout-content, layout-footer. But only layout-header and layout-footer are designed to support additional widgets.
 
 Prerequisites to customize a layout:

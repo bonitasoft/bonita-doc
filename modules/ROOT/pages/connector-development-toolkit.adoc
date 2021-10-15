@@ -5,6 +5,6 @@ A set of best of breed tools to develop custom connectors independently of the B
 
 [WARNING]
 ====
-The Connector's development toolkit has been replaced by the xref:connector-archetype.adoc[Bonita connector
+The Connector's development toolkit has been replaced by the xref:ROOT:connector-archetype.adoc[Bonita connector
 archetype].
 ====

@@ -42,7 +42,7 @@ If you need more fine tuning or if you cannot update the reverse proxy configura
 == Configure Bonita Engine and Tomcat for CAS
 
 . The CAS implementation relies on JAAS, and is defined in the BonitaAuthentication module of the JAAS configuration file. +
-Set the Java system property `java.security.auth.login.config` in the Tomcat startup script to point to the JAAS configuration file, xref:bonita-platform-setup.adoc[`BUNDLE_HOME/server/conf/jaas-standard.cfg`].
+Set the Java system property `java.security.auth.login.config` in the Tomcat startup script to point to the JAAS configuration file, xref:ROOT:bonita-platform-setup.adoc[`BUNDLE_HOME/server/conf/jaas-standard.cfg`].
 +
 For example, on Linux, edit `BUNDLE_HOME/setup/tomcat-templates/setenv.sh`, uncomment the line that defines `SECURITY_OPTS`, and insert the variable `SECURITY_OPTS` in the line `CATALINA_OPTS=..`.
 +
@@ -150,7 +150,7 @@ If you are configuring Bonita and Tomcat in a cluster environment for CAS, there
 
 === Troubleshoot
 
-To troubleshoote SSO login issues, you need to increase the xref:logging.adoc[log level] to `ALL` in order for errors to be displayed in the log files (by default, they are not).
+To troubleshoote SSO login issues, you need to increase the xref:ROOT:logging.adoc[log level] to `ALL` in order for errors to be displayed in the log files (by default, they are not).
 
 == Configure logout behaviour
 
@@ -178,7 +178,7 @@ By default, logging out from Bonita Engine logs the user out of CAS. You can cha
 
 == Tenant administrator login
 
-The xref:tenant_admin_credentials.adoc[Tenant administrator] (also kwown as the _tenant technical user_) will always be able to log in without a CAS account. To log with the tenant administrator, use the standard Bonita Runtime login page accessible on `http://<bundle host>:<port>/bonita/login.jsp`.
+The xref:ROOT:tenant_admin_credentials.adoc[Tenant administrator] (also kwown as the _tenant technical user_) will always be able to log in without a CAS account. To log with the tenant administrator, use the standard Bonita Runtime login page accessible on `http://<bundle host>:<port>/bonita/login.jsp`.
 
 == Manage passwords
 
@@ -186,7 +186,7 @@ When you are using CAS, the password for a user is managed in your CAS system. H
 
 == LDAP synchronizer and CAS
 
-If you are using an LDAP service and the xref:ldap-synchronizer.adoc[LDAP synchronizer] to manage your user data, you can continue to do this and use CAS. The LDAP synchronizer user must be registered in CAS.
+If you are using an LDAP service and the xref:ROOT:ldap-synchronizer.adoc[LDAP synchronizer] to manage your user data, you can continue to do this and use CAS. The LDAP synchronizer user must be registered in CAS.
 Alternatively, the LDAP synchronizer could be run with the tenant technical user, because this bypasses the SSO login.
 
 We recommend that you use LDAP as your master source for information, synchronizing the relevant information with your CAS server.
@@ -213,7 +213,7 @@ It allows to retrieve authentication tickets to authenticate in the Bonita Runti
 For detailed information about the procedure to install Restful access on your CAS SSO server, see the following links:
 
 * http://apereo.github.io/cas/4.2.x/index.html[CAS SSO RESTful API]
-* xref:rest-api-overview.adoc[Bonita REST API]
+* xref:ROOT:rest-api-overview.adoc[Bonita REST API]
 
 [NOTE]
 ====

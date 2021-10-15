@@ -26,8 +26,8 @@ For any of this, they need to log in. To do so:
 . In the fields, enter the _username_, and the _password_
 . Click on the *Login* button.
 
-The default application is the Bonita Application Directory. From there, the user can xref:navigation.adoc[navigate] to their other profiles. +
-Each application is mapped to one profile. A user can xref:navigation.adoc[navigate] between the applications they have the permissions to access.
+The default application is the Bonita Application Directory. From there, the user can xref:ROOT:navigation.adoc[navigate] to their other profiles. +
+Each application is mapped to one profile. A user can xref:ROOT:navigation.adoc[navigate] between the applications they have the permissions to access.
 
 == Log out
 
@@ -45,8 +45,8 @@ image:images/UI2021.1/sign-out.png[Sign out]
 Note: in a system that uses a solution to provide single sign-on (with SAML, CAS, etc...), the administrator can remove the logout option. In this case, to log out of an application, you must log out of the SSO system or close your browser.
 ====
 
-See also xref:first-steps-after-setup.adoc[First steps after setup]
+See also xref:ROOT:first-steps-after-setup.adoc[First steps after setup]
 
-See also xref:active-directory-or-ldap-authentication.adoc[Active directory/ldap authentication]
+See also xref:ROOT:active-directory-or-ldap-authentication.adoc[Active directory/ldap authentication]
 
-See also xref:bonita-bpm-applications-urls.adoc[Accessing Bonita Applications and forms by URL]
+See also xref:ROOT:bonita-bpm-applications-urls.adoc[Accessing Bonita Applications and forms by URL]

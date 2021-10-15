@@ -23,7 +23,6 @@ These credentials can be consulted and modified:
 * in the <BONITA>/server/conf/tomcat-users.xml file in a *Bonita Tomcat bundle*
 * using xref:bonita-docker-installation.adoc#_monitoring_username[specific Environment parameters] when starting a *Bonita Docker image*
 
-
 == Technical updates
 
 === Docker image

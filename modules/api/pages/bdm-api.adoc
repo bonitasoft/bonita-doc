@@ -4,7 +4,7 @@
 
 {description}
 
-Access to the BDM Rest APIs depends on the xref:rest-api-authorization.adoc[REST API authorization] settings.
+Access to the BDM Rest APIs depends on the xref:ROOT:rest-api-authorization.adoc[REST API authorization] settings.
 
 == Business Data
 

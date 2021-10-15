@@ -7,11 +7,11 @@
 == Difference between page and form
 
 The UI Designer is a tool for creating pages and forms to use in a BPM application. +
-A form is mapped to process instantiation or to a human task and must fulfill a xref:contracts-and-contexts.adoc[contract]. To gather the inputs that will be sent to the contract, it embeds input fields and a submit button. A page is not mapped to any part of a process, it displays business information and gives access to forms or action buttons that send information to the process. Besides this, there is no difference between a page and a form, so the procedure for designing them is the same. This documentation uses the term _page_ for both pages and forms, unless otherwise stated.
+A form is mapped to process instantiation or to a human task and must fulfill a xref:ROOT:contracts-and-contexts.adoc[contract]. To gather the inputs that will be sent to the contract, it embeds input fields and a submit button. A page is not mapped to any part of a process, it displays business information and gives access to forms or action buttons that send information to the process. Besides this, there is no difference between a page and a form, so the procedure for designing them is the same. This documentation uses the term _page_ for both pages and forms, unless otherwise stated.
 
 == Page structure
 
-A page consists of widgets that are arranged in rows, and optionally, containers. The UI Designer provides a set of default widgets that you can use to design a page. The default widgets are available from the palette panel, which is on the left side of the Page editor. A widget has properties that control how it appears and how it is used. There are some general properties that all widgets have, and some properties that are specific to the widget type. You can also create xref:custom-widgets.adoc[custom widgets].
+A page consists of widgets that are arranged in rows, and optionally, containers. The UI Designer provides a set of default widgets that you can use to design a page. The default widgets are available from the palette panel, which is on the left side of the Page editor. A widget has properties that control how it appears and how it is used. There are some general properties that all widgets have, and some properties that are specific to the widget type. You can also create xref:ROOT:custom-widgets.adoc[custom widgets].
 
 Each widget in the palette has a description. To show a widget description, just roll over the widget in the palette.
 
@@ -51,7 +51,7 @@ Switch feature not available for Internet Explorer 11 and Microsoft Edge.
 == Containers
 
 A container is a special kind of widget that contains other widgets. You can create nested containers. A typical use for containers is to control the main layout of your page. For example, if you want to create a two-column layout, you will start your page by adding two containers on the same row, each one spanning six columns of the page. A page does not need to have a container, but it is useful. +
-By default, a container contains one row, where you can drop component widgets or containers. You can also make the page layout dynamic by xref:repeat-a-container-for-a-collection-of-data.adoc[repeating a container to display a collection of data].
+By default, a container contains one row, where you can drop component widgets or containers. You can also make the page layout dynamic by xref:ROOT:repeat-a-container-for-a-collection-of-data.adoc[repeating a container to display a collection of data].
 
 === Adding a widget to a row
 
@@ -88,7 +88,7 @@ Use the *tab container* to structure a page using tabs.
 
 === Tab container properties
 
-Tabs can be display vertically or horizontally. By default, tabs is stacked above the content. If you want to display tabs in the left of the content, you can follow this xref:uid-vertical-tabs-container-tutorial.adoc[tutorial].
+Tabs can be display vertically or horizontally. By default, tabs is stacked above the content. If you want to display tabs in the left of the content, you can follow this xref:ROOT:uid-vertical-tabs-container-tutorial.adoc[tutorial].
 
 Type property allows you to customize the tabs style ('tabs' or 'pills').
 
@@ -203,7 +203,7 @@ Use the `Today` button to select automatically and quickly the current day.
 
 For more information about supported formats, read the Angular documentation for https://docs.angularjs.org/api/ng/filter/date[date filter].
 
-For a detailed example using the Date picker widget, you can consult the following Howto: xref:datetimes-management-tutorial.adoc[Manage dates and times in BDM and User Interfaces].
+For a detailed example using the Date picker widget, you can consult the following Howto: xref:ROOT:datetimes-management-tutorial.adoc[Manage dates and times in BDM and User Interfaces].
 
 The calendar can be localized with the usual localization mechanism (localization.json file).
 
@@ -220,7 +220,7 @@ Use the `Today` and `Now` buttons to select automatically and quickly the curren
 
 For more information about supported formats, read the Angular documentation for https://docs.angularjs.org/api/ng/filter/date[date filter].
 
-For a detailed example using the Date time picker widget, you can consult the following Howto: xref:datetimes-management-tutorial.adoc[Manage dates and times in BDM and User Interfaces].
+For a detailed example using the Date time picker widget, you can consult the following Howto: xref:ROOT:datetimes-management-tutorial.adoc[Manage dates and times in BDM and User Interfaces].
 
 The calendar can be localized with the usual localization mechanism (localization.json file).
 
@@ -325,13 +325,13 @@ NOTE: In embedded Table widget documentation you can found an example for border
 
 === Data table widget
 
-NOTE: Read xref:widgets.adoc#_table_widget[Table widget] section to know how you can customize display of your data table widget.
+NOTE: Read xref:ROOT:widgets.adoc#_table_widget[Table widget] section to know how you can customize display of your data table widget.
 
 An extended table widget that provides column sorting, filtering, and paging in addition to the standard table widget facilities.
 
 Set the *Data source* to _Bonita API_ to populate the data table with records from a Bonita REST API. +
 Then enter a REST API URL in the *URL* property. Use the *API request parameters* property to pass additional parameters to the request. +
-Supported parameters are described in the xref:rest-api-overview.adoc[REST API Overview] and in the REST API documentation for the relevant resource. +
+Supported parameters are described in the xref:ROOT:rest-api-overview.adoc[REST API Overview] and in the REST API documentation for the relevant resource. +
 You do not need to specify paging parameters (such as `?p=0&c=10`), because the data table handles paging automatically when you use a Bonita API data source. +
 The value of the *Page size* property controls how many rows are displayed in a table view, and automatically adds buttons to show subsequent pages of the table.
 
@@ -432,4 +432,4 @@ Use the rich text area widget to edit HTML formatted text in any UI Designer art
 You can add rich text area inputs for end users to create text to be exported in HTML format for integration on emails, etc. +
 It can be prefilled with an HTML template.
 
-A options toolbar exposed to end users can be customized and localized with the usual xref:multi-language-pages.adoc[localization mechanism] (localization.json file).
+A options toolbar exposed to end users can be customized and localized with the usual xref:ROOT:multi-language-pages.adoc[localization mechanism] (localization.json file).

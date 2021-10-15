@@ -2,7 +2,7 @@
 :page-aliases: ROOT:custom-widgets.adoc
 :description: To extend the standard widgets, develop your custom widgets using HTML, AngularJS and Javascript.
 
-{To extend the xref:widgets.adoc[standard widgets], develop your custom widgets using HTML, AngularJS and Javascript.}
+{To extend the xref:ROOT:widgets.adoc[standard widgets], develop your custom widgets using HTML, AngularJS and Javascript.}
 
 After creation, custom widgets are available in the palette to design pages, application layouts, forms or fragments.
 
@@ -28,14 +28,14 @@ For now, the definition of custom containers is not yet available in the product
 ====
 
 Note that UI Designer always prefix the ID of the custom widgets by "custom",
-whereas the xref:widgets.adoc[standard widgets] are internally using the prefix "pb".
+whereas the xref:ROOT:widgets.adoc[standard widgets] are internally using the prefix "pb".
 If you build a widget outside of the UI Designer, your widget ID must not start with "pb".
 ====
 
 == Custom widget properties
 
 Properties are variables that can be set in the properties panel when adding a custom widget to a page, layout, form, or fragment. +
-A property is constant, dynamic, a bidirectional bond, or an interpolation. You can chose between these treatments when you edit the xref:widget-properties.adoc[widget property]. Use properties when you want the front-end developer using the widget to customize widget appearance or behavior. In a custom widget, a property can be used either in the template or in the controller.
+A property is constant, dynamic, a bidirectional bond, or an interpolation. You can chose between these treatments when you edit the xref:ROOT:widget-properties.adoc[widget property]. Use properties when you want the front-end developer using the widget to customize widget appearance or behavior. In a custom widget, a property can be used either in the template or in the controller.
 
 A property has a _name_ which can be referenced in the controller or the template, a _label_ which will be printed in the properties panel in an editor, a _default_ value, and a type. There are several property types:
 
@@ -54,7 +54,7 @@ Many Angular libraries are available on the Internet and can be used in a custom
 
 == Translation filter
 
-The xref:multi-language-pages.adoc[Multi-language pages] tutorial explains how to manage localization (l10) inside developped pages, layouts, forms or fragments. During page loading, the l10n strings are loaded to the l10n mechanism.
+The xref:ROOT:multi-language-pages.adoc[Multi-language pages] tutorial explains how to manage localization (l10) inside developped pages, layouts, forms or fragments. During page loading, the l10n strings are loaded to the l10n mechanism.
 
 You can use this mechanism in your custom widgets to process content to translate. There are two ways to use the localization: either the _uiTranslate_ angular filter or _ui-translate_ directive:
 

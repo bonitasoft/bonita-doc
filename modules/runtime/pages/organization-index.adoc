@@ -14,32 +14,32 @@ Super Administrator and Administrator can also perform some changes in the organ
 
 [.card.card-index]
 --
-xref:import-export-an-organization.adoc[[.card-title]#Install/export an organization# [.card-body.card-content-overflow]#pass:q[Handle the xml structure of the organization]#]
+xref:ROOT:import-export-an-organization.adoc[[.card-title]#Install/export an organization# [.card-body.card-content-overflow]#pass:q[Handle the xml structure of the organization]#]
 --
 
 [.card.card-index]
 --
-xref:admin-application-groups-list.adoc[[.card-title]#Manage groups# [.card-body.card-content-overflow]#pass:q[The first axis of organizational structure]#]
+xref:ROOT:admin-application-groups-list.adoc[[.card-title]#Manage groups# [.card-body.card-content-overflow]#pass:q[The first axis of organizational structure]#]
 --
 
 [.card.card-index]
 --
-xref:admin-application-roles-list.adoc[[.card-title]#Manage roles# [.card-body.card-content-overflow]#pass:q[The second, orthogonal axis of organizational structure]#]
+xref:ROOT:admin-application-roles-list.adoc[[.card-title]#Manage roles# [.card-body.card-content-overflow]#pass:q[The second, orthogonal axis of organizational structure]#]
 --
 
 [.card.card-index]
 --
-xref:admin-application-users-list.adoc[[.card-title]#Manage users# [.card-body.card-content-overflow]#pass:q[The elementary units of the organization, and their details]#]
+xref:ROOT:admin-application-users-list.adoc[[.card-title]#Manage users# [.card-body.card-content-overflow]#pass:q[The elementary units of the organization, and their details]#]
 --
 
 [.card.card-index]
 --
-xref:custom-user-information-in-bonita-applications.adoc[[.card-title]#Custom User Information# [.card-body.card-content-overflow]#pass:q[User information that is specific to the company]#]
+xref:ROOT:custom-user-information-in-bonita-applications.adoc[[.card-title]#Custom User Information# [.card-body.card-content-overflow]#pass:q[User information that is specific to the company]#]
 --
 
 [.card.card-index]
 --
-xref:admin-application-profiles-list.adoc[[.card-title]#Manage profiles# [.card-body.card-content-overflow]#pass:q[The access rights to applications and more]#]
+xref:ROOT:admin-application-profiles-list.adoc[[.card-title]#Manage profiles# [.card-body.card-content-overflow]#pass:q[The access rights to applications and more]#]
 --
 
 [.card-section]
@@ -47,5 +47,5 @@ xref:admin-application-profiles-list.adoc[[.card-title]#Manage profiles# [.card-
 
 [.card.card-index]
 --
-xref:organization-overview.adoc[[.card-title]#Create an organization# [.card-body.card-content-overflow]#pass:q[Define the organization structure at development time]#]
+xref:ROOT:organization-overview.adoc[[.card-title]#Create an organization# [.card-body.card-content-overflow]#pass:q[Define the organization structure at development time]#]
 --

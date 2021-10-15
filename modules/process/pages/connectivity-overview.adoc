@@ -8,13 +8,13 @@ Connectors are elements in Bonita that allows to read or write information from 
 
 A connector is an element in a process that accesses an external system to read or write information. By extension, it also accounts for tools that modify data within a process like Office connectors that modify Bonita documents.
 
-Bonita contains a set of standard connectors. You can also create custom connectors using the xref:connector-archetype.adoc[maven connector archetype].
+Bonita contains a set of standard connectors. You can also create custom connectors using the xref:ROOT:connector-archetype.adoc[maven connector archetype].
 
 A connector consists of a definition, an implementation, and a configuration.
 
 * The definition specifies the external interfaces for input and output, including the configuration wizard.
 * The implementation is the Java code that acts on the inputs, interacts with the external system, and returns outputs to the process. There can be any number of implementations for a given definition.
-* The configuration is the specification of how the connector is used in a specific process or task. The main part or connector configuration is done at pool and tasks levels, through a wizard. The choice of connector implementation though is done when you xref:configuring-a-process.adoc[configure the process].
+* The configuration is the specification of how the connector is used in a specific process or task. The main part or connector configuration is done at pool and tasks levels, through a wizard. The choice of connector implementation though is done when you xref:ROOT:configuring-a-process.adoc[configure the process].
 
 You can add a connector to a pool or a task, at the start (_connector in_) or at the end (_connector out_). +
 A pool connector _in_ is executed when the process is instantiated. A pool connector _out_ is executed when the process instance terminates, regardless of the reason for termination. If a process has more than one terminate end event or flow leading to the end of the process instance, make sure that it is always appropriate for the pool connector out to be executed. If it is not, use task connectors instead.
@@ -25,7 +25,7 @@ A task connector _in_ is executed before the task executes. This means it can be
 
 [NOTE]
 ====
-To use connectors in your processes, you first need to import the corresponding extensions from the xref:managing_extension_studio.adoc[extension view].
+To use connectors in your processes, you first need to import the corresponding extensions from the xref:ROOT:managing_extension_studio.adoc[extension view].
 ====
 
 To add a connector to a pool or task:
@@ -44,11 +44,11 @@ To add a connector to a pool or task:
 
 == Connectors and forms
 
-In Bonita 6.x, you could add a connector to a form. This is no longer possible with forms created with the UI Designer. To achieve the same result, create a xref:rest-api-extensions.adoc[REST API extension]. There is an example showing how to execute SQL queries on a external database.
+In Bonita 6.x, you could add a connector to a form. This is no longer possible with forms created with the UI Designer. To achieve the same result, create a xref:ROOT:rest-api-extensions.adoc[REST API extension]. There is an example showing how to execute SQL queries on a external database.
 
 == Edit a connector
 
-To change the implementation of a connector for a process, update the xref:configuring-a-process.adoc[process configuration]. +
+To change the implementation of a connector for a process, update the xref:ROOT:configuring-a-process.adoc[process configuration]. +
 The implementation can also be changed after deployment:
 
 * In versions 7.0.x, if you are using the Enterprise or Performance edition

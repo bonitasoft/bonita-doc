@@ -4,7 +4,7 @@
 
 {description}
 
-The Business Data Model is the definition of the business data that is shared by processes and process-based applications in a tenant. This page explains how to define the Business Data Model and how to deploy it. After the model is defined, you can use it to xref:specify-data-in-a-process-definition.adoc[specify the business data used in a process].
+The Business Data Model is the definition of the business data that is shared by processes and process-based applications in a tenant. This page explains how to define the Business Data Model and how to deploy it. After the model is defined, you can use it to xref:ROOT:specify-data-in-a-process-definition.adoc[specify the business data used in a process].
 
 == Business data model (BDM)
 
@@ -36,7 +36,7 @@ The business data specified in the BDM is stored in a database. It requires two 
 
 During development, you can use the tools in the `h2-1.3.170.jar` in the workspace Tomcat library to view the business data in the h2 database. If you modify database content manually, there is risk of losing data and losing synchronization with business objects in a process instance. However, it can be useful to view the database for debugging processes. If you change the BDM during development, this can also cause problems in existing process definitions.
 
-When you are ready to go to production, you need to xref:database-configuration.adoc[configure a database and datasources for business data] in your production environment.
+When you are ready to go to production, you need to xref:ROOT:database-configuration.adoc[configure a database and datasources for business data] in your production environment.
 
 [#bdm_spec]
 
@@ -67,7 +67,7 @@ Business object names must be unique, even across packages.
 * Indexes for some attributes (optional)
 * A `persistenceId`, created automatically
 
-Business objects can be combined using <<compos,composition or aggregation>> relationships. They are managed using standard create, read, update, delete actions. A business object can be read directly using the https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Engine Java API] specifying the Java DAO, or using the xref:bdm-api.adoc[REST API]. To read a business object in a Groovy expression, use the DAO. A business object can be updated only in a process, using an operation.
+Business objects can be combined using <<compos,composition or aggregation>> relationships. They are managed using standard create, read, update, delete actions. A business object can be read directly using the https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Engine Java API] specifying the Java DAO, or using the xref:ROOT:bdm-api.adoc[REST API]. To read a business object in a Groovy expression, use the DAO. A business object can be updated only in a process, using an operation.
 
 === Multiple
 
@@ -282,12 +282,12 @@ To deploy the BDM, you export it as a ZIP file from Bonita Studio and then impor
 
 [WARNING]
 ====
-Before deploying the business data model, you must xref:pause-and-resume-bpm-services.adoc[pause] the BPM services, so that the update can be performed without affecting ongoing processes.
+Before deploying the business data model, you must xref:ROOT:pause-and-resume-bpm-services.adoc[pause] the BPM services, so that the update can be performed without affecting ongoing processes.
 ====
 
 [IMPORTANT]
 ====
-It is recommended to xref:back-up-bonita-bpm-platform.adoc[Back up the platform] and database before deploying a new BDM in case of problems during the update.
+It is recommended to xref:ROOT:back-up-bonita-bpm-platform.adoc[Back up the platform] and database before deploying a new BDM in case of problems during the update.
 ====
 
 [NOTE.bonitacloud,caption=Bonita Cloud]
@@ -364,7 +364,7 @@ This kind of conflict is considered as *solvable* by Bonita Studio.  You will ha
 
 == Business objects in processes
 
-When you design a process, you specify the variables to be used in the process. These can include variables that are instances of business objects defined in the BDM. You xref:specify-data-in-a-process-definition.adoc[define a business object variable] in Bonita Studio in a similar way to defining other process variables.
+When you design a process, you specify the variables to be used in the process. These can include variables that are instances of business objects defined in the BDM. You xref:ROOT:specify-data-in-a-process-definition.adoc[define a business object variable] in Bonita Studio in a similar way to defining other process variables.
 
 === persistenceID
 
@@ -437,7 +437,7 @@ Then use the business object (which is stored only in memory at this point) in a
 
 === BDM and custom REST APIs
 
-Be aware that a poor implementation of a custom REST API accessing BDM objects can lead to poor performance results. See the xref:bdm-in-rest-api.adoc[best practice] on this matter.
+Be aware that a poor implementation of a custom REST API accessing BDM objects can lead to poor performance results. See the xref:ROOT:bdm-in-rest-api.adoc[best practice] on this matter.
 
 === Handle BDM database schema manually
 
@@ -451,7 +451,7 @@ You can use an alternative database `SchemaManager` implementation. A `SchemaMan
 Business Data Model. As our third-party persistence layer _Hibernate_ does not support all type of schema updates, you may want to use a SchemaManager that does *not* update the database
 tables directly, but rather let you (or your Database Administrator) update the database "manually".
 
-For that, you can use the alternative we provide, by uncommenting the following lines in file `platform_conf/current/tenants/[TENANT_ID]/tenant_engine//bonita-tenants-custom.xml` using xref:bonita-platform-setup.adoc#update_platform_conf[setup tool].
+For that, you can use the alternative we provide, by uncommenting the following lines in file `platform_conf/current/tenants/[TENANT_ID]/tenant_engine//bonita-tenants-custom.xml` using xref:ROOT:bonita-platform-setup.adoc#update_platform_conf[setup tool].
 
 [source,xml]
 ----

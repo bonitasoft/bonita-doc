@@ -6,29 +6,29 @@
 
 == User Interfaces development overview
 
-Your automation project can use xref:pages.adoc[pages] to display information and provide interaction controls to the end-users or administrators. +
-It most of the times uses xref:forms.adoc[forms] to display and collect new or edited information. +
+Your automation project can use xref:ROOT:pages.adoc[pages] to display information and provide interaction controls to the end-users or administrators. +
+It most of the times uses xref:ROOT:forms.adoc[forms] to display and collect new or edited information. +
 Forms and pages are made of containers and widgets. +
-Some containers and widgets can be grouped in xref:fragments.adoc[fragments], in order to be reused in several pages or forms. +
+Some containers and widgets can be grouped in xref:ROOT:fragments.adoc[fragments], in order to be reused in several pages or forms. +
 
-The overall graphical structure of the application is handled by the xref:layout-development.adoc[layout]. +
-The look and feel of the application, layout, forms, and pages is handled by the xref:themes.adoc[theme].
+The overall graphical structure of the application is handled by the xref:ROOT:layout-development.adoc[layout]. +
+The look and feel of the application, layout, forms, and pages is handled by the xref:ROOT:themes.adoc[theme].
 
 Forms are embedded in the processes, whereas pages, layouts, and themes are referred to in the application descriptor. +
 
 Bonita provides a default theme, available in Bonita Studio and Bonita Runtime. +
-Developers can xref:customize-living-application-theme.adoc[create a custom theme] using their favorite development environment, and then add it as an xref:software-extensibility.adoc[extension] in the project. +
+Developers can xref:ROOT:customize-living-application-theme.adoc[create a custom theme] using their favorite development environment, and then add it as an xref:software-extensibility.adoc[extension] in the project. +
 
-Bonita UI Designer comes with a set of xref:widgets.adoc[provided containers and widgets]. +
-xref:custom-widgets.adoc[Custom widgets] can also be created to make the palette richer. +
+Bonita UI Designer comes with a set of xref:ROOT:widgets.adoc[provided containers and widgets]. +
+xref:ROOT:custom-widgets.adoc[Custom widgets] can also be created to make the palette richer. +
 Those are developped by professional developers, from scratch or from an https://community.bonitasoft.com/project[existing project] of the Community. +
 
 The following chapters give more information on how to develop all the others elements in the UI Designer.
 
 == Create a form
 
-In a Bonita project architecture, xref:forms.adoc[forms] are embedded in the pools. Their creation is very linked to the process step they "feed", in a way. +
-It is recommended to define the xref:contracts-and-contexts.adoc[contract] in its _Execution / Contract_ property tab before to create the form, so the Studio will generate a form according to the contract. +
+In a Bonita project architecture, xref:ROOT:forms.adoc[forms] are embedded in the pools. Their creation is very linked to the process step they "feed", in a way. +
+It is recommended to define the xref:ROOT:contracts-and-contexts.adoc[contract] in its _Execution / Contract_ property tab before to create the form, so the Studio will generate a form according to the contract. +
 Forms can be created at different level:
 
 * An instantiation form is created from the pool _Execution / Instatiation form_ tab
@@ -40,11 +40,11 @@ The Case overview (this page is technically considered as a form because of its 
 . Rename it
 . Customize what needs to be displayed as well as the _Target URL on success_ of the *_Submit_* button.
 
-For more technical information about the forms, visit xref:forms-development.adoc[this dedicated documentation page].
+For more technical information about the forms, visit xref:ROOT:forms-development.adoc[this dedicated documentation page].
 
 == Create a page
 
-xref:pages.adoc[Pages] are created independently from the processes. They are used to display business information that group several processes and several instances of the processes in an efficient view, a list of requests, for example. +
+xref:ROOT:pages.adoc[Pages] are created independently from the processes. They are used to display business information that group several processes and several instances of the processes in an efficient view, a list of requests, for example. +
 The controls they embed (buttons, links) can call BPM APIs that will trigger the display of the process instantiation form, or the execution of a task.
 
 === From scratch
@@ -59,9 +59,9 @@ The controls they embed (buttons, links) can call BPM APIs that will trigger the
 
 Only Bonita pages created with the UI Designer can be customized in the UI Designer. Indeed, as Bonita applications have evolved in several phases, so did the frameworks in which their pages have been made.
 
-You can find the list of pages ready for customization in a xref:pages.adoc#_List_of_Bonita_Applications_customizable_pages[dedicated documentation page].
+You can find the list of pages ready for customization in a xref:ROOT:pages.adoc#_List_of_Bonita_Applications_customizable_pages[dedicated documentation page].
 
-For more technical information about the pages, visit xref:pages-development.adoc[the dedicated documentation page]. 
+For more technical information about the pages, visit xref:ROOT:pages-development.adoc[the dedicated documentation page]. 
 
 == Create a layout
 
@@ -88,7 +88,7 @@ For more technical information about the pages, visit xref:pages-development.ado
 
 Use the same sequence of steps than to create a page from scratch.
 
-For more technical information about layouts, visit the xref:layout-development.adoc[dedicated documentation page].
+For more technical information about layouts, visit the xref:ROOT:layout-development.adoc[dedicated documentation page].
 
 == Create a fragment
 
@@ -97,7 +97,7 @@ Use the same sequence of steps than to create a page from scratch.
 
 == Responsiveness
 
-You can optimize the page or form design for a given device type by configuring xref:widget-properties.adoc[device-specific values for the Width property] for widgets. Use the a device types bar in the Page editor to choose the target device type.
+You can optimize the page or form design for a given device type by configuring xref:ROOT:widget-properties.adoc[device-specific values for the Width property] for widgets. Use the a device types bar in the Page editor to choose the target device type.
 image:images/images-6_0/pb-resolution.png[Device type selection]
 
 == Modify an element

@@ -74,7 +74,7 @@ An example of Apache 2 HTTP server configuration that works with Bonita could be
 </VirtualHost>
 ----
 
-Make sure to also xref:ssl.adoc#_tomcat_and_ssl_offloading[configure Tomcat IP Valve] for IP and protocol forwarding.
+Make sure to also xref:ROOT:ssl.adoc#_tomcat_and_ssl_offloading[configure Tomcat IP Valve] for IP and protocol forwarding.
 
 Read https://httpd.apache.org/docs/current/howto/reverse_proxy.html[the complete Apache httpd documentation] for detailed configuration capabilities.
 

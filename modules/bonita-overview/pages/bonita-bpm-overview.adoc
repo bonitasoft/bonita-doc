@@ -38,22 +38,22 @@ As for the Professional developers, the back-end Java developers work in both th
 
 [.card.card-index]
 --
-xref:bonita-studio.adoc[[.card-title]#Bonita Studio# [.card-body.card-content-overflow]#pass:q[Create process-based applications for business users]#]
+xref:ROOT:bonita-studio.adoc[[.card-title]#Bonita Studio# [.card-body.card-content-overflow]#pass:q[Create process-based applications for business users]#]
 --
 
 [.card.card-index]
 --
-xref:ui-designer-overview.adoc[[.card-title]#Bonita UI Designer# [.card-body.card-content-overflow]#pass:q[Create the User Interfaces of you applications]#]
+xref:ROOT:ui-designer-overview.adoc[[.card-title]#Bonita UI Designer# [.card-body.card-content-overflow]#pass:q[Create the User Interfaces of you applications]#]
 --
 
 [.card.card-index]
 --
-xref:bonita-studio-download-installation.adoc[[.card-title]#Studio installation# [.card-body.card-content-overflow]#pass:q[First step to use Bonita Studio]#]
+xref:ROOT:bonita-studio-download-installation.adoc[[.card-title]#Studio installation# [.card-body.card-content-overflow]#pass:q[First step to use Bonita Studio]#]
 --
 
 Bonita Studio also embeds a *Bonita Runtime* (Tomcat, Bonita provided applications, Bonita Engine, and an h2 database), suitable for testing an application that is in development. When you run a process from the Studio, it is automatically deployed onto the embedded Runtime (the development environment).
 
-Then, once a process is ready, you can xref:build-a-process-for-deployment.adoc[build] it and deploy it on your Bonita qualification or production Runtime environment. +
+Then, once a process is ready, you can xref:ROOT:build-a-process-for-deployment.adoc[build] it and deploy it on your Bonita qualification or production Runtime environment. +
 xref:#bcd[Bonita Continuous Delivery] comes in very handy to help with this step throughout the project lifecycle.
 
 [#platform]
@@ -68,7 +68,7 @@ As mentioned before, the Bonita User Application is the part of Bonita that is v
 
 Bonita also comes with three other very useful applications:
 
-* Bonita Administrator Application: the tool used by the tenant administrator to xref:admin-application-process-list.adoc[install, deploy and manage processes], monitor process execution, [xref:live-update.adoc[perform  some evolutions] in organization, resources, and applications, and recover from errors. We use the word "tenant" here, in case the platform would be made of xref:multi-tenancy-and-tenant-configuration.adoc[several tenants].
+* Bonita Administrator Application: the tool used by the tenant administrator to xref:ROOT:admin-application-process-list.adoc[install, deploy and manage processes], monitor process execution, [xref:live-update.adoc[perform  some evolutions] in organization, resources, and applications, and recover from errors. We use the word "tenant" here, in case the platform would be made of xref:multi-tenancy-and-tenant-configuration.adoc[several tenants].
 * Bonita Super Administrator Application: the tool used by the technical user to setup the Bonita Runtime environment with organization, Business Data Model, and applications. It is also the maintenance tool that allows to pause and resume the BPM Services to, for example, update the Business Data Model. 
 * Application Directory Application, THE ONE URL to remember for all Bonita users, displaying the catalog of all applications accessible by the logged user.
 
@@ -79,22 +79,22 @@ Bonita also comes with three other very useful applications:
 
 [.card.card-index]
 --
-xref:engine-architecture-overview.adoc[[.card-title]#Bonita Engine# [.card-body.card-content-overflow]#pass:q[The tool to execute the processes, send and receive information to/from your IT environment]#]
+xref:ROOT:engine-architecture-overview.adoc[[.card-title]#Bonita Engine# [.card-body.card-content-overflow]#pass:q[The tool to execute the processes, send and receive information to/from your IT environment]#]
 --
 
 [.card.card-index]
 --
-xref:bonita-bpm-installation-overview.adoc#platform[[.card-title]#Install Bonita Runtime# [.card-body.card-content-overflow]#pass:q[Install Bonita Engine and Bonita provided applications]#]
+xref:ROOT:bonita-bpm-installation-overview.adoc#platform[[.card-title]#Install Bonita Runtime# [.card-body.card-content-overflow]#pass:q[Install Bonita Engine and Bonita provided applications]#]
 --
 
 [.card.card-index]
 --
-xref:user-application-overview.adoc[[.card-title]#Bonita User application# [.card-body.card-content-overflow]#pass:q[An example of a todo list-based application provided by Bonita]#]
+xref:ROOT:user-application-overview.adoc[[.card-title]#Bonita User application# [.card-body.card-content-overflow]#pass:q[An example of a todo list-based application provided by Bonita]#]
 --
 
 [.card.card-index]
 --
-xref:admin-application-overview.adoc[[.card-title]#Bonita Administrator application# [.card-body.card-content-overflow]#pass:q[The Runtime administration user interface provided by Bonita]#]
+xref:ROOT:admin-application-overview.adoc[[.card-title]#Bonita Administrator application# [.card-body.card-content-overflow]#pass:q[The Runtime administration user interface provided by Bonita]#]
 --
 
 [#bcd]

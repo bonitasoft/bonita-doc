@@ -2,7 +2,7 @@
 :page-aliases: ROOT:widget-properties.adoc
 :description: A page is constructed from widgets. The behavior of a widget is determined by its properties.
 
-A page is constructed from xref:widgets.adoc[widgets]. The behavior of a widget is determined by its properties.
+A page is constructed from xref:ROOT:widgets.adoc[widgets]. The behavior of a widget is determined by its properties.
 
 Any property you configure for a container is applied to all widgets in the container unless you override it with a widget-specific value.
 
@@ -48,7 +48,7 @@ Some general properties are common to all widgets except containers.
 
 === Description
 
-Specify the usage of the widget (e.g. how to use it), and this description will be used when xref:project-documentation-generation.adoc[generating documentation].
+Specify the usage of the widget (e.g. how to use it), and this description will be used when xref:ROOT:project-documentation-generation.adoc[generating documentation].
 
 === Width
 

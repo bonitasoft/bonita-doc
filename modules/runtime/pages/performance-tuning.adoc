@@ -5,11 +5,11 @@
 {description} 
 
 In this page, we assume that you are familiar with Java threads, concurrent execution, XML, DB connection pools, your DB instance, cache policies, scheduling, connectors, network speed, I/O, Java Virtual Machine configuration, JTA and transaction management. +
-You need to know how to xref:runtime-installation-index.adoc[install] and xref:runtime-configuration-index.adoc[configure] Bonita Runtime.
+You need to know how to xref:ROOT:runtime-installation-index.adoc[install] and xref:runtime-configuration-index.adoc[configure] Bonita Runtime.
 
 This information applies primarily to the Enterprise and Performance editions, though some details also apply to the Teamwork and Efficiency editions.
 
-It is also possible to xref:use-gzip-compression.adoc[use gzip compression] on your application server to improve performance.
+It is also possible to xref:ROOT:use-gzip-compression.adoc[use gzip compression] on your application server to improve performance.
 
 == Summary
 
@@ -51,7 +51,7 @@ Performance tuning checklist of best practises:
 
 == Engine access
 
-This section deals with performance impact of your choice of xref:engine-api-overview.adoc[Engine access mode].
+This section deals with performance impact of your choice of xref:ROOT:engine-api-overview.adoc[Engine access mode].
 
 There are various ways to access the Engine APIs provided by Bonita Engine. Choose the most suitable access mode for your deployment, requirements, and preferences. +
 The access modes rely on different technologies and have different benefits and drawbacks. In this section, we will describe the performance characteristics of each mode.
@@ -101,7 +101,7 @@ The bonita-client library
 
 * sends data over the network using the HTTP protocol using the http://hc.apache.org/index.html[Apache HttpComponents].
 open source library
-* uses a maximum of 20 connections. To change this value, refer to the page xref:configure-client-of-bonita-bpm-engine.adoc[Configure connection to Bonita Engine].
+* uses a maximum of 20 connections. To change this value, refer to the page xref:ROOT:configure-client-of-bonita-bpm-engine.adoc[Configure connection to Bonita Engine].
 
 Data sent is serialized using a Java library called XStream. This serialization also has a cost.
 
@@ -110,14 +110,14 @@ Data sent is serialized using a Java library called XStream. This serialization 
 [discrete]
 ===== REST
 
-This method of accessing the Bonita capabilities is not yet integrated as an engine service but exists as a web application service accessed using the xref:rest-api-overview.adoc[Web REST API].
+This method of accessing the Bonita capabilities is not yet integrated as an engine service but exists as a web application service accessed using the xref:ROOT:rest-api-overview.adoc[Web REST API].
 No details are provided here as it is currently out of scope. +
 In general, the constraints are almost the same as for the HTTP mode, but we do not provide any Java client for this access mode.
 
 == Concurrent execution
 
 This section describes some aspects of engine configuration that have a performance impact if there is a high level of concurrent execution. +
-Before you read this, make sure you are familiar with the engine xref:execution-sequence-states-and-transactions.adoc[execution sequence, states, and transactions].
+Before you read this, make sure you are familiar with the engine xref:ROOT:execution-sequence-states-and-transactions.adoc[execution sequence, states, and transactions].
 
 There are two main entry points for load on the engine:
 
@@ -151,7 +151,7 @@ The work service is responsible for asynchronously processing execution of proce
 This is one of the key configurations to optimize, because even though there are many client threads, client threads are held only for a short time before being released, and then execution flow continues using work service threads. +
 A thread from the pool of the work service is known as a worker.
 
-The work service is configured in xref:bonita-platform-setup.adoc[`bonita-tenant-community-custom.properties`].
+The work service is configured in xref:ROOT:bonita-platform-setup.adoc[`bonita-tenant-community-custom.properties`].
 
 [source,properties]
 ----
@@ -189,7 +189,7 @@ This issue happens only when using Bonita and BDM XA resources ( *XAMultipleReso
 
 To avoid the issue described above, by default, a *100 ms work execution delay* is added when the database is *SQL Server* and if the *previous transaction has multiple XA Resources ( Bonita + BDM )*.
 This small execution delay allows database to handle the commit and update the information out of the isolated level, so next request out of the write transaction can get the updated data.
-The *work execution delay* is configured in xref:BonitaBPM_platform_setup.adoc[`bonita-tenant-community-custom.properties`].
+The *work execution delay* is configured in xref:ROOT:BonitaBPM_platform_setup.adoc[`bonita-tenant-community-custom.properties`].
 
 [source,properties]
 ----
@@ -206,7 +206,7 @@ bonita.tenant.work.sqlserver.delayOnMultipleXAResource=100
 
 The connector service executes connectors. To improve tenant isolation (and to protect against denial-of-service attacks), the default implementation of the connector service has its own thread pool and requires executes connectors in a separate thread from the worker. +
 The configuration of the thread pool of this service is independent of the configuration of the work service.
-If you have processes that use a lot of connectors, then you can have more threads to execute connectors. See the xref:connectors-execution.adoc[connector execution] page for details on how connectors are executed.
+If you have processes that use a lot of connectors, then you can have more threads to execute connectors. See the xref:ROOT:connectors-execution.adoc[connector execution] page for details on how connectors are executed.
 
 The Connector service is configured in `bonita-tenant-community-custom.properties` and `bonita-tenant-sp-custom.properties` (cf link:BonitaBPM_platform_setup[platform setup])
 
@@ -488,7 +488,7 @@ More details on the configuration can be found in the http://narayana.io/docs/pr
 ==== Logs
 
 In general, increasing the log level is useful for debugging but has a performance cost. +
-With this in mind, xref:set-log-and-archive-levels.adoc[define the log level for technical logs, queriable logs and archives]. +
+With this in mind, xref:ROOT:set-log-and-archive-levels.adoc[define the log level for technical logs, queriable logs and archives]. +
 
 Remember that Bonita Engine dependencies also have their own log and debug options that may impact strongly the system performance. +
 Be sure to configure these appropriately.
@@ -557,7 +557,7 @@ We strongly recommend that you add only appropriate handlers and carefully code 
 [discrete]
 ==== BPMN Timers execution
 
-Bonita Engine uses the xref:engine-architecture-overview.adoc[Scheduler service] to trigger timers.
+Bonita Engine uses the xref:ROOT:engine-architecture-overview.adoc[Scheduler service] to trigger timers.
 
 The Bonita Scheduler service implementation uses the Quartz Scheduler. Some quartz properties can be modified to fine tune quartz jobs execution. These properties can be found in `bonita-platform-community-custom.properties`.
 

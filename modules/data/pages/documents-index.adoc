@@ -8,15 +8,15 @@
 == Use documents in Bonita
 [.card.card-index]
 --
-xref:documents.adoc[[.card-title]#Documents in processes# [.card-body.card-content-overflow]#pass:q[Learn how to use documents in your processes.]#]
+xref:ROOT:documents.adoc[[.card-title]#Documents in processes# [.card-body.card-content-overflow]#pass:q[Learn how to use documents in your processes.]#]
 --
 
 [.card.card-index]
 --
-xref:list-of-documents.adoc[[.card-title]#Manage a list of documents# [.card-body.card-content-overflow]#pass:q[How to use a list of identical documents.]#]
+xref:ROOT:list-of-documents.adoc[[.card-title]#Manage a list of documents# [.card-body.card-content-overflow]#pass:q[How to use a list of identical documents.]#]
 --
 
 [.card.card-index]
 --
-xref:handling-documents.adoc[[.card-title]#Handle documents through Java API# [.card-body.card-content-overflow]#pass:q[Several use-cases of documents handling through Java API.]#]
+xref:ROOT:handling-documents.adoc[[.card-title]#Handle documents through Java API# [.card-body.card-content-overflow]#pass:q[Several use-cases of documents handling through Java API.]#]
 --

@@ -136,7 +136,6 @@ These credentials can be consulted and modified:
 * in the <BONITA>/server/conf/tomcat-users.xml file in a *Bonita Tomcat bundle*
 * using xref:bonita-docker-installation.adoc#_monitoring_username[specific Environment parameters] when starting a *Bonita Docker image*
 
-
 == Configuration
 
 Retrieve xref:bonita-platform-setup.adoc#update_platform_conf[current configuration] by running:
@@ -184,7 +183,11 @@ In the second section, metrics can be activated.
 [NOTE]
 ====
 To change any value, *uncomment the line by removing the # character*, and change the true / false value. +
+<<<<<<< HEAD
 Then xref:bonita-platform-setup.adoc#update_platform_conf[push your configuration changes] to database:
+=======
+Then xref:ROOT:BonitaBPM_platform_setup.adoc#update_platform_conf[push your configuration changes] to database:
+>>>>>>> 187a556f53880b07b19092b89569b23a866eb244
 
 [source,bash]
 ----

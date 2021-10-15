@@ -13,7 +13,7 @@
 
 == Status in Bonita
 
-Although documents stand for business information to share / update / upload / download / delete / store within the life time of a process instance, they are not part of the xref:define-and-deploy-the-bdm.adoc[Business Data Model] in Bonita. +
+Although documents stand for business information to share / update / upload / download / delete / store within the life time of a process instance, they are not part of the xref:ROOT:define-and-deploy-the-bdm.adoc[Business Data Model] in Bonita. +
 They account for a specific type of process data.
 
 == Document definition
@@ -121,9 +121,9 @@ A document that is stored as a file can be used to initialize or update the docu
 
 === Resource
 
-The Bonita Studio Document assets contains documents that have been imported from the file system. After a document is imported, it is called a resource. When you xref:build-a-process-for-deployment.adoc[build a process bar file for deployment], the resources used in the process are automatically included. A resource is available to all processes in an installation of Studio. A resource cannot be updated directly in Studio, but is updated by uploading a new file. Typically, resources are used for information that is stable and common to all instances of a process, or is used in several processes. The resource is used to initialize the document object in the process instance. You cannot use a resource to update a document object.
+The Bonita Studio Document assets contains documents that have been imported from the file system. After a document is imported, it is called a resource. When you xref:ROOT:build-a-process-for-deployment.adoc[build a process bar file for deployment], the resources used in the process are automatically included. A resource is available to all processes in an installation of Studio. A resource cannot be updated directly in Studio, but is updated by uploading a new file. Typically, resources are used for information that is stable and common to all instances of a process, or is used in several processes. The resource is used to initialize the document object in the process instance. You cannot use a resource to update a document object.
 
-When you xref:import-and-export-a-process.adoc[export a process in a bos file for import into another Studio], you must select the resources that are used so that they are included.
+When you xref:ROOT:import-and-export-a-process.adoc[export a process in a bos file for import into another Studio], you must select the resources that are used so that they are included.
 
 The dialog for adding a resource to the document assests is inside the dialog for adding a resource to a process definition.   However, you can add a resource without updating the process definition, as follows:
 
@@ -206,7 +206,7 @@ To map a document when using a call activity:
 . In the call activity of the main process, add a task variable of type long (for example called "docId") that will contain the id of the instance of mainDoc. +
 Set the default value of docId with the following code: `apiAccessor.getProcessAPI().getLastDocument(processInstanceId, "mainDoc").getId();`
 . In the called process, add a pool-level variable of type long (for example called docId).
-. Define the xref:called-processes.adoc[variable mapping in the call activity] so that docId in the call activity is mapped to docId in the called process.
+. Define the xref:ROOT:called-processes.adoc[variable mapping in the call activity] so that docId in the call activity is mapped to docId in the called process.
 . In the called process, as the first task add an automatic task that will get the mainDoc, create a DocumentValue object with the content of mainDoc, and use it to update the content of subDoc. +
 To do this, define an operation in the automatic task as follows:
  ** In the first field, select subDoc.
@@ -226,11 +226,11 @@ new DocumentValue(apiAccessor.getProcessAPI().getDocumentContent(doc.getContentS
 
 When you have specified the documents in the process definition, you need to define how they are handled in the process tasks.
 
-A document is represented in a form definition by the xref:widgets.adoc[upload widget].
+A document is represented in a form definition by the xref:ROOT:widgets.adoc[upload widget].
 
 == Connectors and documents
 
-During a process instance, you can use xref:connectivity-overview.adoc[connectors] to manipulate documents. +
+During a process instance, you can use xref:ROOT:connectivity-overview.adoc[connectors] to manipulate documents. +
 In addition to the connectors that interact with content management systems (such as the Alfrecso and CMIS connectors), some other connectors can also manipulate documents. For example:
 
 * A task that uses the Email connector to send a message can attach a document to the message.

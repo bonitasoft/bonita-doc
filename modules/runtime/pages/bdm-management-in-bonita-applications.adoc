@@ -20,10 +20,10 @@ Only one model can be deployed at a time in the Bonita Runtime, so make sure it 
 The Business Objects must match the structure used by the deployed processes. Make sure that when modifying the Business Data Model, the processes are modified accordingly.
 ====
 
-. To import the Business Data Model created in Bonita  Studio, first xref:define-and-deploy-the-bdm.adoc[export the Business Data Model] from Bonita  Studio where it was designed.
+. To import the Business Data Model created in Bonita  Studio, first xref:ROOT:define-and-deploy-the-bdm.adoc[export the Business Data Model] from Bonita  Studio where it was designed.
 . In the Bonita Runtime, log in as the technical user (default login 'install', default password 'install').
 . Go to the *BPM Services* menu.
-. Click on *Pause* to xref:pause-and-resume-bpm-services.adoc[pause] the tenant.
+. Click on *Pause* to xref:ROOT:pause-and-resume-bpm-services.adoc[pause] the tenant.
 +
 [NOTE]
 ====
@@ -35,7 +35,7 @@ To do so:
 
 . Log in as the technical user (default login 'install', default password 'install', or refer to the internal documentation if modified as it should be).
 . Go to the _BPM Services_ menu.
-. Click on the _Pause_ button to xref:pause-and-resume-bpm-services.adoc[pause] the tenant.
+. Click on the _Pause_ button to xref:ROOT:pause-and-resume-bpm-services.adoc[pause] the tenant.
 
 Then, you can install or update the BDM.
 [WARNING]
@@ -45,7 +45,7 @@ Please note that existing business database tables will be modified definitively
 ====
 
 . It is highly recommended to back up the database before proceeding.
-. xref:define-and-deploy-the-bdm.adoc[Export the Business Data Model] from Bonita Studio where it was designed.
+. xref:ROOT:define-and-deploy-the-bdm.adoc[Export the Business Data Model] from Bonita Studio where it was designed.
 . Go to the _BDM_ menu.
 . Click on the _Install_ button
 . Choose the file containing the Business Data Model exported from Bonita Studio
@@ -65,7 +65,7 @@ It will also create or update the database schema (set of tables, columns, index
 The Business Data Model will now be installed. BPM services can be resumed. +
  To do so:
 . Go to the _BPM Services_ menu.
-. Click on the _Resume_ button to xref:pause-and-resume-bpm-services.adoc[resume tenant activity].
+. Click on the _Resume_ button to xref:ROOT:pause-and-resume-bpm-services.adoc[resume tenant activity].
 +
 [WARNING]
 ====
@@ -135,7 +135,7 @@ For Enterprise, Performance, and Efficiency editions only.
 It is possible to define Business Data Model access control rules in Bonita Studio and import them in Bonita Super Administrator Application. +
 The Access control rules must match the Business Data model.
 
-. To import the BDM access control rules created in Bonita Studio, first xref:bdm-access-control.adoc[export the Access Control file] from Bonita Studio where it was designed.
+. To import the BDM access control rules created in Bonita Studio, first xref:ROOT:bdm-access-control.adoc[export the Access Control file] from Bonita Studio where it was designed.
 . In the Bonita Runtime, log in as the technical user (default login 'install', default password 'install') or as a user with the administrator profile.
 . As the tenant technical user or as an administrator, go to the *BDM* menu.
 . A page with a section *Business Data Model access control* is displayed.
@@ -149,7 +149,7 @@ Please note that a delay is required after the import for the engine to process 
 Contrary to the BDM definition, the deployment of a BDM Access Control file does not require pausing the BPM services during the operation.
 ====
 
-. xref:bdm-access-control.adoc[Export the BDM Access Control file] from Bonita Studio where it was designed.
+. xref:ROOT:bdm-access-control.adoc[Export the BDM Access Control file] from Bonita Studio where it was designed.
 . In the Bonita Runtime, log in as a user with the _Administrator_ profile, or as the Technical user
 . Go to the _BDM_ menu
 . Click on the _Install_ button to open install popup

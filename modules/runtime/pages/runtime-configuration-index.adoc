@@ -9,32 +9,32 @@
 
 [.card.card-index]
 --
-xref:bonita-platform-setup.adoc[[.card-title]#Setup tool# [.card-body.card-content-overflow]#pass:q[Retrieve, update, and push configuration values to the database]#]
+xref:ROOT:bonita-platform-setup.adoc[[.card-title]#Setup tool# [.card-body.card-content-overflow]#pass:q[Retrieve, update, and push configuration values to the database]#]
 --
 
 [.card.card-index]
 --
-xref:database-configuration.adoc[[.card-title]#Database configuration# [.card-body.card-content-overflow]#pass:q[Create and customize the database for Bonita Engine and the BDM]#]
+xref:ROOT:database-configuration.adoc[[.card-title]#Database configuration# [.card-body.card-content-overflow]#pass:q[Create and customize the database for Bonita Engine and the BDM]#]
 --
 
 [.card.card-index]
 --
-xref:licenses.adoc[[.card-title]#Licenses# [.card-body.card-content-overflow]#pass:q[Generate and install your license]#]
+xref:ROOT:licenses.adoc[[.card-title]#Licenses# [.card-body.card-content-overflow]#pass:q[Generate and install your license]#]
 --
 
 [.card.card-index]
 --
-xref:set-log-and-archive-levels.adoc[[.card-title]#Recording levels# [.card-body.card-content-overflow]#pass:q[Define what you need to know about process execution (logs, archives)]#]
+xref:ROOT:set-log-and-archive-levels.adoc[[.card-title]#Recording levels# [.card-body.card-content-overflow]#pass:q[Define what you need to know about process execution (logs, archives)]#]
 --
 
 [.card.card-index]
 --
-xref:configurable-archive.adoc[[.card-title]#Archives# [.card-body.card-content-overflow]#pass:q[Precisely select the BPM elements you need to archive]#]
+xref:ROOT:configurable-archive.adoc[[.card-title]#Archives# [.card-body.card-content-overflow]#pass:q[Precisely select the BPM elements you need to archive]#]
 --
 
 [.card.card-index]
 --
-xref:first-steps-after-setup.adoc[[.card-title]#First steps after setup# [.card-body.card-content-overflow]#pass:q[Last actions to complete Bonita Runtime configuration]#]
+xref:ROOT:first-steps-after-setup.adoc[[.card-title]#First steps after setup# [.card-body.card-content-overflow]#pass:q[Last actions to complete Bonita Runtime configuration]#]
 --
 
 
@@ -43,10 +43,10 @@ xref:first-steps-after-setup.adoc[[.card-title]#First steps after setup# [.card-
 
 [.card.card-index]
 --
-xref:runtime-installation-index.adoc[[.card-title]#Runtime installation# [.card-body.card-content-overflow]#pass:q[The different flavors of Bonita Runtime]#]
+xref:ROOT:runtime-installation-index.adoc[[.card-title]#Runtime installation# [.card-body.card-content-overflow]#pass:q[The different flavors of Bonita Runtime]#]
 --
 
 [.card.card-index]
 --
-xref:upgrade-from-community-to-a-subscription-edition.adoc[[.card-title]#From Community to Enterprise# [.card-body.card-content-overflow]#pass:q[Moving to higher levels of services with Bonita]#]
+xref:ROOT:upgrade-from-community-to-a-subscription-edition.adoc[[.card-title]#From Community to Enterprise# [.card-body.card-content-overflow]#pass:q[Moving to higher levels of services with Bonita]#]
 --

@@ -6,7 +6,7 @@
 
 == More information
 
-You might want to consult the xref:documents.adoc[document documentation] first.
+You might want to consult the xref:ROOT:documents.adoc[document documentation] first.
 
 A document is treated in a similar way to a variable in Bonita Engine database. It is defined in Bonita Studio or programmatically, and is stored in the Bonita Engine database. Inside a process instance, a document is a byte stream.
 

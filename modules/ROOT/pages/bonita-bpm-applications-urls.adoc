@@ -115,7 +115,7 @@ Example: +
 
 [IMPORTANT]
 ====
-A task is not automatically assigned to the user who accesses the task form. There must first be a xref:bpm-api.adoc[REST API call to assign the task to the user].
+A task is not automatically assigned to the user who accesses the task form. There must first be a xref:ROOT:bpm-api.adoc[REST API call to assign the task to the user].
 Otherwise, the user will not be able to execute the task.
 ====
 

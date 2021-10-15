@@ -6,12 +6,12 @@ The Bonita platform provides a means to define, manipulate and store your busine
 
 Data management involves several steps:
 
-* Create the xref:define-and-deploy-the-bdm.adoc[Business Data Model (BDM)]. This is the definition of the types of data you will deal with in your processes and applications.
+* Create the xref:ROOT:define-and-deploy-the-bdm.adoc[Business Data Model (BDM)]. This is the definition of the types of data you will deal with in your processes and applications.
 * Declare link:specify-data-in-a-process-definition#_define_a_variable[business variables] in the process definition. Variables are used to make the link between your process definition and the data it needs to create, read, update, and delete. Data can be created as part of process execution (on start or on a task) but processes can also read and update data created by other processes and of course can choose to delete data.
-* Define process and task xref:contracts-and-contexts.adoc[contracts]. Contracts define the information process accepts from the user submitting the form.
+* Define process and task xref:ROOT:contracts-and-contexts.adoc[contracts]. Contracts define the information process accepts from the user submitting the form.
 
 In this chapter we will focus on the creation of the Business Data Model (BDM) only. Declaration of business variables is part of the next chapter.
-You can read the chapter about xref:data-handling-overview.adoc[data handling] for more information on data management.
+You can read the chapter about xref:ROOT:data-handling-overview.adoc[data handling] for more information on data management.
 
 In Bonita Studio, create a BDM:
 
@@ -56,7 +56,7 @@ When you click on the "Finish" button three different operations are performed:
 
 ====
 
-Now you have a fully functional business data management model. You are ready to move to the next chapter and xref:declare-business-variables.adoc[start populating the database with data collected by the process].
+Now you have a fully functional business data management model. You are ready to move to the next chapter and xref:ROOT:declare-business-variables.adoc[start populating the database with data collected by the process].
 
 [NOTE]
 ====

@@ -1,8 +1,8 @@
 = Work execution audit
 :page-aliases: ROOT:work-execution-audit.adoc
-:description: Sometimes it is useful to understand what is currently happening in the platform, in particular for work execution, see xref:execution-sequence-states-and-transactions.adoc[Work service mechanism].
+:description: Sometimes it is useful to understand what is currently happening in the platform, in particular for work execution, see xref:ROOT:execution-sequence-states-and-transactions.adoc[Work service mechanism].
 
-Sometimes it is useful to understand what is currently happening in the platform, in particular for work execution, see xref:execution-sequence-states-and-transactions.adoc[Work service mechanism].
+Sometimes it is useful to understand what is currently happening in the platform, in particular for work execution, see xref:ROOT:execution-sequence-states-and-transactions.adoc[Work service mechanism].
 
 This can be achieved using a specific logger called _Work execution audit_
 
