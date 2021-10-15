@@ -85,7 +85,7 @@ This will only add the initial license to the Bonita Runtime. To renew a license
 ====
 
 
-This will start a container running the Tomcat Bundle with Bonita Runtime. As you did not specify any environment variables it's almost like if you had launched the Bundle on your host using startup.+{sh|bat}+ (with security hardening on REST and HTTP APIs, cf xref:_start_bonita_with_custom_security_credentials[Security concerns]). It means that Bonita uses a H2 database here.
+This will start a container running the Tomcat Bundle with Bonita Runtime. As you did not specify any environment variables it's almost like if you had launched the Bundle on your host using startup.+{sh|bat}+ (with security hardening on REST and HTTP APIs, cf xref:start-bonita-custom-credentials[Security concerns]). It means that Bonita uses a H2 database here.
 
 You can access the Runtime on http://localhost:8080/bonita and login using the default credentials : install / install
 
@@ -164,6 +164,8 @@ services:
       - TENANT_PASSWORD=secret
       - PLATFORM_LOGIN=pfadmin
       - PLATFORM_PASSWORD=pfsecret
+      - MONITORING_USERNAME=monitorAdmin
+      - MONITORING_PASSWORD=monitor_Secr3t-P455w0rD
     restart: on-failure:2
     depends_on:
       - db
@@ -219,7 +221,7 @@ docker run --name=bonita -h <hostname> --env-file=env.txt -d -p 8080:8080 quay.i
 
 [source,shell script,subs="+macros"]
 ----
-docker run --name=bonita -v bonita-lic:/opt/bonita_lic/ -h <hostname> -e "TENANT_LOGIN=tech_user" -e "TENANT_PASSWORD=secret" -e "PLATFORM_LOGIN=pfadmin" -e "PLATFORM_PASSWORD=pfsecret" -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
+docker run --name=bonita -v bonita-lic:/opt/bonita_lic/ -h <hostname> -e "TENANT_LOGIN=tech_user" -e "TENANT_PASSWORD=secret" -e "PLATFORM_LOGIN=pfadmin" -e "PLATFORM_PASSWORD=pfsecret" -e "MONITORING_USERNAME=monitorAdmin" -e "MONITORING_PASSWORD=monitor_Secr3t-P455w0rD" -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
 Now you can access the Bonita Runtime on localhost:8080/bonita and login using: tech_user / secret
@@ -253,6 +255,14 @@ This environment variable is recommended for you to use the Bonita image. It set
 === TENANT_LOGIN
 
 This optional environment variable is used in conjunction with TENANT_PASSWORD to define the username for the tenant administrator. If it is not specified, the default username `install` will be used.
+
+=== MONITORING_USERNAME
+
+This optional environment variable is used in conjunction with `MONITORING_PASSWORD` to define the access to the Prometheus monitoring endpoint, which is protected with https://en.wikipedia.org/wiki/Basic_access_authentication[BASIC Auth access]. If it is not specified, the default monitoring username `monitoring` will be used.
+
+=== MONITORING_PASSWORD
+
+This optional environment variable is used in conjunction with `MONITORING_USERNAME` to define the access to the Prometheus monitoring endpoint, which is protected with https://en.wikipedia.org/wiki/Basic_access_authentication[BASIC Auth access]. If it is not specified, the default monitoring username `mon1tor1ng_adm1n` will be used.
 
 === REST_API_DYN_AUTH_CHECKS
 
