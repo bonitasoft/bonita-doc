@@ -16,7 +16,7 @@ ____
 By configuring the CORS filter on the tomcat bundle, you will be able to access the Bonita REST API from a page
  hosted on a different domain from the one of the tomcat bundle.
  
- [NOTE]
+[NOTE]
 ====
 When Bonita web application is configured for authentication with OpenID Connect, CORS is handled by the OIDC module, so you don't need to configure the CORS filter as described below. Instead you need to configure the file *keycloak-oidc.json* as explained in the xref:ROOT:single-sign-on-with-oidc.adoc#_cors[OpenID Connect SSO configuration page].
 ====
