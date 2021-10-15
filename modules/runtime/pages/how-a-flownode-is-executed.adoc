@@ -1,37 +1,75 @@
-= How a flownode is executed
-:page-aliases: ROOT:how-a-flownode-is-executed.adoc
-:description: A flownode execution can come:
+= Flow node execution and completion
+:page-aliases: ROOT:how-a-flownode-is-executed.adoc, ROOT:how-a-flownode-is-completed.adoc
+:description: The sequence of actions and states at flow node execution and completion.
 
 {description}
 
-* from an API call
-* from a specific work triggered by the Engine internally
+== Flow node execution
 
-== API call
+The execution of a flow node can come from:
+ 
+* An API call
+* A specific work triggered by Bonita Engine internally
+
+=== API call
 
 [cols=2*]
 |===
-| When the call comes from the API (generally a human task executed from the Bonita User Application), some verifications are done, contract data are checked and stored in database, then a work is triggered to execute the flownode. See the [[work page
+| When the call comes from the API (generally a human task executed from an application), some verifications are done, contract data are checked and stored in database, then a work is triggered to execute the flow node. See the [[work page
 | Work-execution]] for details.
 |===
 
-== Internal engine trigger
+=== Internal Bonita Engine trigger of a work
 
 Works are automatically triggered when:
 
-* The process starts it.
-* The previous node of the process finishes.
-* The previous flownode state starts it.
+* The process starts it
+* The previous node of the process finishes
+* The previous flownode state starts it
 
-== Execution of a Flownode State
+=== Execution of a flow node state
 
-The execution logic of the flownode (ie. what the flownode tries to do) depends on the State of the flownode.
-Flownode execution happens in a work. The page [[Work execution|Work-execution]] explains the operations done by the wrapped works. After they are done, the parent work, ExecuteFlowNodeWork, executes its own logic:
+The execution logic of the flow node (ie. what the flown ode tries to do) depends on the state of the flow node. +
+Flow node execution happens in a work. The page [[Work execution|Work-execution]] explains the operations done by the wrapped works. +
+After they are done, the parent work, ExecuteFlowNodeWork, executes its own logic:
 
-* It verifies the flownode is in the required state and has not changed since the start of the execution. If it has, a SWorkPreconditionException is thrown.
+* It verifies that the flow node is in the required state and has not changed since the start of the execution. If it has, a SWorkPreconditionException is thrown.
 * The thread classloader is set to be the process classloader.
-* It executes the current state, running the `execute()` code of the State implementation. Eg. ExecutingCallActivityStateImpl.java
-* If the execution of the state is finished (unlike when executing connectors, where the state remains the same), the state of the flownode is updated with the next state that should be executed. (*)
-* Then, if the next state requires to be executed as well, we register a work to go on (execute next flownode state if state is not stable, or notify child finished if state is terminal).
+* It executes the current state, running the `execute()` code of the state implementation. Eg. ExecutingCallActivityStateImpl.java
+* If the execution of the state is finished (unlike when executing connectors, where the state remains the same), the state of the flow node is updated with the next state that should be executed. (*)
+* Then, if the next state requires to be executed as well, we register a work to go on (execute next flow node state if state is not stable, or notify child finished if state is terminal).
 
-(*) to determine the next state, we execute the `shouldBeExecuted()` code of each state (defined by the state transitions) until one returns true. This code may executed things, not only return a boolean. If it returns true, we stop and update the state of the flownode with that one.
+(*) to determine the next state, we execute the `shouldBeExecuted()` code of each state (defined by the state transitions) until one returns true. This code may executed things, not only return a boolean. If it returns `true`, we stop and update the state of the flow node with that one.
+
+== Flow node completion
+
+A flownode completion can only come from a specific work triggered by the Engine internally when the flow node arrives in the terminal state. +
+
+There are two cases to distinguish:
+
+* The flow node is directly contained in a process instance
+* The flow node is contained in a parent flow node
+
+=== Flow node directly contained in a process instance
+
+This is the nominal case. The childFinished() method (of the processExecutor) is called. It calls the method executeValidOutgoingTransitionsAndUpdateTokens() on the process defintion.
+
+ * If it returns `false`, nothing more is done and the method returns. Potentially, works have been registered to execute the next flow nodes
+ * If it returns `true`, the flow node that finished was the last flow node of the process, and the process is terminated
+
+== Flow node in a parent flow node
+
+This can happen in case of:
+
+* A loop
+* A multi instantiated task
+* Sub-tasks
+
+*Note*: Boundary events belong to the previous case: their parent is the process, and not the flow node they are attached to.
+
+When a child finishes, the childFinished() method is called. It:
+
+* Archives & deletes the child flownode
+* Decrements the token count of the parent
+* Calls notifyChildFlowNodeHasFinished on parent activity state that returns whether the parent should continue (ie. that all its children have finished. Exception to this are manual tasks).
+* Calls stepforward() on the parent if the parent should continue. This is done in the same transaction (ie. we don't create a separate work for that).
