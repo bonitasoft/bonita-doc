@@ -154,7 +154,7 @@ Make sure you double-check that you use the official driver version that matches
 The correct driver is mandatory for a smooth update: xref:ROOT:database-configuration.adoc#proprietary_jdbc_drivers[follow the instructions for Oracle driver download.] Particularly, if you use Oracle 12.2.0.x.y and are updating to Bonita 7.9.n or 7.10.n, then remove the existing `ojdbc8-19.3.0.0.jar` file, and add the specific JDBC driver to `bonita-update/lib`.
 . Configure the database properties needed by the migration script, by editing `bonita-update/Config.properties`. +
 Specify the following information:
-
++
 |===
 |Property |Description |Example
 
@@ -183,10 +183,12 @@ Specify the following information:
 |bpm
 |===
 
-
-NOTE: If you are using MySQL, add `?allowMultiQueries=true` to the URL. +
+[NOTE]
+====
+If you are using MySQL, add `?allowMultiQueries=true` to the URL. +
 For example, `db.url=jdbc:mysql://localhost:3306/bonita-update?allowMultiQueries=true`. 
-        
+====
+
 === Look & Feel
 Exporting the Look & Feel is not needed, as Bonita Portal has been replaced by Bonita applications. However, the backup of your Look & Feel files may be helpful to create the applications themes.
 
