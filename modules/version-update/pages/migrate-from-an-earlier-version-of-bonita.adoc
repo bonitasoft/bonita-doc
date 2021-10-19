@@ -171,8 +171,8 @@ Specify the following information:
 |org.postgresql.Driver
 
 |db.url
-|The location of the Bonita Engine database*
-|`jdbc:postgresql://localhost:5432/bonita-update`
+|The location of the Bonita Engine database
+|`jdbc:postgresql://localhost:5432/bonita-update`*
 
 |db.user
 |The username used to authenticate to the database
