@@ -185,7 +185,7 @@ Specify the following information:
 
 [NOTE]
 ====
-If you are using MySQL, add `?allowMultiQueries=true` to the URL. +
+*If you are using MySQL, add `?allowMultiQueries=true` to the URL. +
 For example, `db.url=jdbc:mysql://localhost:3306/bonita-update?allowMultiQueries=true`. 
 ====
 
