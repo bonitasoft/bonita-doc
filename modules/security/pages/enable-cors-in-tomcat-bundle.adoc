@@ -4,7 +4,7 @@
 
 How to enable Cross-Origin Resource Sharing (CORS) in Tomcat, and check it.
 
-If you try to call the REST API from a page hosted on another domain than the one of the tomcat bundle,
+If you try to call the REST API from a page hosted on another domain than the one of the Bonita server,
 you will face some issues due to the 'same-origin policy' enforced by web browsers.
 For instance you may see in your browser a message such as:
 
@@ -81,12 +81,8 @@ https://tomcat.apache.org/tomcat-9.0-doc/config/filter.html#CORS_Filter
 
 === Choose cookies SameSite Policy
 
-By default, cookies will be automatically passed with a same-site request, or a cross-site top-level navigation with a "safe" HTTP method. +
-This default configuration aims to ensure that we respect the new standard cookie policy rules.
-
-To understand those changes, see https://blog.chromium.org/2020/02/samesite-cookie-changes-in-february.html +
-Also note that this new policy will be definitively applied in the months to come for Chrome, and later for the other browsers,
-as you can see here https://blog.chromium.org/2020/04/temporarily-rolling-back-samesite.html
+With Bonita server's default configuration, cookies will be automatically passed with a same-site request, or a cross-site top-level navigation with a "safe" HTTP method (GET/HEAD/OPTIONS). +
+This default configuration aims to ensure that Bonita respects the link:https://blog.chromium.org/2020/02/samesite-cookie-changes-in-february.html[new standard cookie policy rules] enforced by recent web browser versions.
 
 If you want to perform "unsafe" CORS requests (which means performing a POST/PUT/DELETE request)
 you will need to modify the tomcat `conf/context.xml` file, to set sameSiteCookies to "none" instead of "lax".
