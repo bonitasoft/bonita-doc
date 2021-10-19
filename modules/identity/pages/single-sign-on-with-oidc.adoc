@@ -403,5 +403,26 @@ If the OIDC provider returns opaque access token (non JWT), then Bonita OIDC cli
 
 === CORS
 
-If you want to call Bonita REST API from a page hosted on another domain than the one of the Bonita server, you need to enable Cross-Origin Resource Sharing (CORS) through OIDC.
-In the file *keycloak-oidc.json*, Make sure the property `enable-cors` is set to true and the properties `cors-allowed-methods`, `cors-allowed-headers`, `cors-exposed-headers` have the correct values. For a basic configuration, you can use the same values as in the xref:enable-cors-in-tomcat-bundle#_add_cors_filter[configuration of the CORS filter] (which is the way to hande CORS when Bonita web application is not configured for Authentication with OIDC). Also make sure to update the xref:enable-cors-in-tomcat-bundle#_choose_cookies_samesite_policy[sameSiteCookies policy] of the Tomcat server.
+If you want to call Bonita REST API from a page hosted on another domain than the one of the Bonita server, you need to enable Cross-Origin Resource Sharing (CORS) through Open ID Connect.
+
+[NOTE]
+====
+A limitation prevents CORS requests from working with Open ID Connect authentication in version 2021.2-u0 of Bonita. Please upgrade to 2021.2-u1 (or a more recent version) if you want to allow CORS through OIDC.
+====
+
+==== Configure Bonita Bundle with OIDC for CORS
+
+In the file *keycloak-oidc.json*, Make sure the property `enable-cors` is set to true and the properties `cors-allowed-methods`, `cors-allowed-headers`, `cors-exposed-headers` have the correct values. For a basic configuration, you can use the following values: 
+
+----
+  "enable-cors": true,
+  "cors-allowed-methods": "GET,HEAD,POST,PUT,DELETE",
+  "cors-allowed-headers": "content-type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,x-bonita-api-token,authorization",
+  "cors-exposed-headers": "Access-Control-Allow-Origin,Access-Control-Allow-Credentials,x-bonita-api-token,content-type",
+----
+You don't need to configure any xref:enable-cors-in-tomcat-bundle#_add_cors_filter[additional CORS filter] (which is the way to hande CORS when Bonita web application is not configured for Authentication with OIDC). Also make sure to update the xref:enable-cors-in-tomcat-bundle#_choose_cookies_samesite_policy[sameSiteCookies policy] of the Tomcat server and use xref:ROOT:ssl.adoc[HTTPS on your Bonita server].
+
+==== Configure the Identity Provider
+
+In your OIDC identity provider (IdP) configuration, you should make sure the `bonita` OIDC Service Provider declares as `Allowed CORS web origins` the URLs of the domains where the pages requiring calls to Bonita REST API are hosted (or `*` if you want to allow origins).
+
