@@ -123,6 +123,17 @@ SSLProtocol="TLSv1"></Connector>
 . Start Tomcat: `./bin/startup.sh`
 . Check that everything is correctly configured, by opening `+https://127.0.0.1:8443/bonita+` in your browser. Your browser should warn you about the certificate used to perform the HTTPS connection. You can safely add this certificate to the exceptions allowed.
 
+== Secure the cookies
+
+The secure flag on the `X-Bonita-API-Token` cookie needs to be set when using HTTPS.
+
+Activating the secure flag can be done in the file `security-config.properties` for the whole platform.
+The default version of this file is located in `setup/platform_conf/initial/platform_portal`. In order to change the configuration on an installation whose platform has already been initialized, use the xref:ROOT:bonita-platform-setup.adoc[platform setup tool] to retrieve the current configuration and update the file in `setup/platform_conf/current/platform_portal`. Then use the tool again to save your changes into to the database.
+
+To activate the addition of the secure flag, edit the configuration file and change the `security.csrf.cookie.secure` value to *true*.
+
+For more information on this cookie see xref:ROOT:csrf-security.adoc[CSRF security].
+
 == Tomcat and SSL Offloading
 
 This example shows you how to configure SSL if you run Tomcat behind a load balancer that features in SSL Accelerator or Offloading (sometimes called SSL Termination).
