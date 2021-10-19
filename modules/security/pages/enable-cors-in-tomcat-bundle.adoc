@@ -39,29 +39,29 @@ _*Important Note:* to use this configuration, you will need to replace the `ALLO
   </init-param>
 
   <init-param>
-	<param-name>cors.support.credentials</param-name>
-	<param-value>true</param-value>
+    <param-name>cors.support.credentials</param-name>
+    <param-value>true</param-value>
   </init-param>
 
   <init-param>
     <param-name>cors.allowed.methods</param-name>
-   <param-value>GET,HEAD,POST,PUT,DELETE,OPTIONS</param-value>
+    <param-value>GET,HEAD,POST,PUT,DELETE,OPTIONS</param-value>
   </init-param>
 
   <!-- List of the response headers other than simple response headers that the browser should expose to
     the author of the cross-domain request through the XMLHttpRequest.getResponseHeader() method.
     The CORS filter supplies this information through the Access-Control-Expose-Headers header. -->
   <init-param>
-      <param-name>cors.exposed.headers</param-name>
-      <param-value>Access-Control-Allow-Origin,Access-Control-Allow-Credentials,X-Bonita-API-Token</param-value>
+    <param-name>cors.exposed.headers</param-name>
+    <param-value>Access-Control-Allow-Origin,Access-Control-Allow-Credentials,X-Bonita-API-Token</param-value>
   </init-param>
 
   <!-- The names of the supported author request headers. These are advertised through the Access-Control-Allow-Headers header.
     The CORS Filter implements this by simply echoing the requested value back to the browser.
   -->
   <init-param>
-      <param-name>cors.allowed.headers</param-name>
-      <param-value>Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,X-Bonita-API-Token</param-value>
+    <param-name>cors.allowed.headers</param-name>
+    <param-value>Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,X-Bonita-API-Token</param-value>
   </init-param>
 
 </filter>
@@ -76,8 +76,7 @@ _*Important Note 1:* The filter must be inserted in the file webapps/bonita/WEB-
 
 _*Important Note 2:* It must be the first filter, inserted right after the </error-page> tag_
 
-for more information:
-https://tomcat.apache.org/tomcat-9.0-doc/config/filter.html#CORS_Filter
+For more information visite the link:https://tomcat.apache.org/tomcat-9.0-doc/config/filter.html#CORS_Filter[CORS filter documentation]
 
 === Choose cookies SameSite Policy
 
@@ -99,7 +98,7 @@ you will need to modify the tomcat `conf/context.xml` file, to set sameSiteCooki
 ====
 
 Using sameSiteCookies="none" will also force you to use xref:ROOT:ssl.adoc[secure HTTP (HTTPS) on your Bonita server]. +
-To explain this constraint, see https://blog.chromium.org/2019/10/developers-get-ready-for-new.html
+For more information on this constraint, see link:https://blog.chromium.org/2019/10/developers-get-ready-for-new.html[here].
 ====
 
 == HTML Example test page
