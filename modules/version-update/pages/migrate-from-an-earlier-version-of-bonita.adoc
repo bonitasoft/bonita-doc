@@ -155,33 +155,32 @@ The correct driver is mandatory for a smooth update: xref:ROOT:database-configur
 . Configure the database properties needed by the migration script, by editing `bonita-update/Config.properties`. +
 Specify the following information:
 
-  [cols="1,1,1"]
   |===
-  | Property |Description |Example
+  |Property |Description |Example
 
-  | bonita.home
-  | The location of the existing bonita_home. Required only until Bonita 7.3
-  | `/opt/BPMN/bonita` (Linux) or `C:\\BPMN\\bonita` (Windows)
+  |bonita.home
+  |The location of the existing bonita_home. Required only until Bonita 7.3
+  |`/opt/BPMN/bonita` (Linux) or `C:\\BPMN\\bonita` (Windows)
 
-  | db.vendor
-  | The database vendor
-  | postgres
+  |db.vendor
+  |The database vendor
+  |postgres
 
-  | db.driverClass
-  | The driver used to access the database
-  | org.postgresql.Driver
+  |db.driverClass
+  |The driver used to access the database
+  |org.postgresql.Driver
 
-  | db.url
-  | The location of the Bonita Engine database*
-  | `jdbc:postgresql://localhost:5432/bonita-update`
+  |db.url
+  |The location of the Bonita Engine database*
+  |`jdbc:postgresql://localhost:5432/bonita-update`
 
-  | db.user
-  | The username used to authenticate to the database
-  | bonita
+  |db.user
+  |The username used to authenticate to the database
+  |bonita
 
-  | db.password
-  | The password used to authenticate to the database
-  | bpm
+  |db.password
+  |The password used to authenticate to the database
+  |bpm
   |===
 
 *Note: If you are using MySQL, add `?allowMultiQueries=true` to the URL. +
