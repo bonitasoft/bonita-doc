@@ -424,5 +424,5 @@ You don't need to configure any xref:enable-cors-in-tomcat-bundle#_add_cors_filt
 
 ==== Configure the Identity Provider
 
-In your OIDC identity provider (IdP) configuration, you should make sure the `bonita` OIDC Service Provider declares the URLs of the domains where the pages requiring calls to Bonita REST API are hosted (or `*` if you want to allow origins) as `Allowed CORS web origins`.
+In your OIDC identity provider (IdP) configuration, you should make sure the `bonita` OIDC Service Provider declares the URLs of the domains where the pages requiring calls to Bonita REST API are hosted (or `*` if you want to allow all origins) as `Allowed CORS web origins`.
 
