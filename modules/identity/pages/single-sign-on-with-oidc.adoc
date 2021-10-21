@@ -350,7 +350,7 @@ By default the xref:ROOT:ldap-synchronizer.adoc[LDAP synchronizer] sets the pass
 [#rest-api]
 == Using Bonita REST API with OIDC
 
-When Bonita web application is configured for authentication with OpenID Connect, Bonita REST API is secured through OIDC too and it is possible to call it with just an OAuth Access token. This means "statelessness" as there is no need for a sticky session between the client and Bonita REST API. This is a major advantage if you want to use the REST API of a Bonita cluster with several nodes.
+When Bonita web application is configured for authentication with OpenID Connect, Bonita REST API is secured through OIDC too and it is possible to call it with just an OAuth Access token. This means "statelessness" as there is no need for a sticky session between the client and Bonita REST API. This is a major advantage if you want to use the REST API of a Bonita cluster of several nodes.
 
 === Authentication
 
