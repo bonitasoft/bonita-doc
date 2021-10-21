@@ -80,8 +80,7 @@ For more information visite the link:https://tomcat.apache.org/tomcat-9.0-doc/co
 
 === Choose cookies SameSite Policy
 
-With Bonita server's default configuration, cookies will be automatically passed with a same-site request, or a cross-site top-level navigation with a "safe" HTTP method (GET/HEAD/OPTIONS). +
-This default configuration aims to ensure that Bonita respects the link:https://blog.chromium.org/2020/02/samesite-cookie-changes-in-february.html[new standard cookie policy rules] enforced by recent web browser versions.
+With Bonita server's default configuration, cookies will be automatically passed with a same-site request, or a cross-site top-level navigation with a "safe" HTTP method (GET/HEAD/OPTIONS). This behavior is related to the link:https://blog.chromium.org/2020/02/samesite-cookie-changes-in-february.html[standard cookie policy rules] enforced by recent web browser versions.
 
 If you want to perform "unsafe" CORS requests (which means performing a POST/PUT/DELETE request)
 you will need to modify the tomcat `conf/context.xml` file, to set sameSiteCookies to "none" instead of "lax".
