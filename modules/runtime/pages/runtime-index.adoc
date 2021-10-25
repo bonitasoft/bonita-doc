@@ -24,7 +24,7 @@ xref:runtime-configuration-index.adoc[[.card-title]#Configuration# [.card-body.c
 
 [.card.card-index]
 --
-xref:runtime-administration-index.adoc[[.card-title]#Project Administration# [.card-body.card-content-overflow]#pass:q[How to add and update projects elements on Bonita Runtime]#]
+xref:runtime-administration-index.adoc[[.card-title]#Administration# [.card-body.card-content-overflow]#pass:q[Production content, clustering and backups]#]
 --
 
 [.card.card-index]
