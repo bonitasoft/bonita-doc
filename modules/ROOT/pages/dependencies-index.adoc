@@ -14,7 +14,7 @@ Click on the menu *Help* \-> *About* \-> *Installation Details*
 [discrete]
 ==== Others
 
-xref:ui-designer-dependencies.adoc[List of UI Designer dependencies]
+xref:bonita-ui-designer-dependencies.adoc[List of UI Designer dependencies]
 
 xref:bonita-data-repository-dependencies.adoc[List of Data-Repository dependencies]
 
