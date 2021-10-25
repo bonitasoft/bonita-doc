@@ -67,8 +67,8 @@
   *** xref:licenses.adoc[Licenses]
   *** xref:set-log-and-archive-levels.adoc[Recording levels]
   *** xref:configurable-archive.adoc[Archives]
- ** Administration
-  *** xref:cluster-administration.adoc[Cluster administration]
+ ** xref:runtime-administration.adoc[Administration]
+  *** xref:cluster-administration.adoc[Cluster]
   *** xref:live-update.adoc[Live update]
   *** xref:back-up-bonita-bpm-platform.adoc[Runtime backups]
  ** xref:runtime-optimization-index.adoc[Optimization]
