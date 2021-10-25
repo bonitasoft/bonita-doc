@@ -16,7 +16,7 @@ Click on the menu *Help* \-> *About* \-> *Installation Details*
 
 xref:ui-designer-dependencies.adoc[List of UI Designer dependencies]
 
-xref:bonita-data-repositories-dependencies.adoc[List of Data-Repository dependencies]
+xref:bonita-data-repository-dependencies.adoc[List of Data-Repository dependencies]
 
 
 == Runtime
