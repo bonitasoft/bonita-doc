@@ -16,7 +16,6 @@ xref:ROOT:administrator-application-index.adoc[[.card-title]#Administrator appli
 xref:ROOT:super-administrator-application-index.adoc[[.card-title]#Super Administrator application# [.card-body.card-content-overflow]#pass:q[Bonita bootstrap, maintenance operations, and BDM update]#]
 --
 
-
 [.card-section]
 == Specific operations
 
