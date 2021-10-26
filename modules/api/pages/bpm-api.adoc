@@ -3286,9 +3286,9 @@ xref:ROOT:rest-api-overview.adoc#resource_search[Standard search parameters] are
   *** `sourceObjectId`: The original case ID before the case was archived
   *** `processDefinitionId`: The process derfinition ID
   *** `name`: the process name
-  *** `started\_by`: the ID of the user who started the process
-  *** `team\_manager\_id`: allow to retrieve the cases in which all users with this manager ID ar involved)
-  *** `supervisor\_id`: allow the retrived the cases of all processes the user with this ID is supervisor of)
+  *** `started_by`: the ID of the user who started the process
+  *** `team_manager_id`: allow to retrieve the cases in which all users with this manager ID ar involved)
+  *** `supervisor_id`: allow the retrived the cases of all processes the user with this ID is supervisor of)
 beware you cannot use team_manager_id and supervisor_id at the same time
  ** d: extend resource response parameters of <<archived-case-deploy,this resource>> are available.
 * *Success Response* +
