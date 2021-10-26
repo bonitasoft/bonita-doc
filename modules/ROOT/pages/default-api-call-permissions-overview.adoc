@@ -29,6 +29,7 @@ General profile information
 ```
 
 You can view the following pages for each profile :
+
 * xref:default-api-call-permissions-user.adoc[User profile]
 * xref:default-api-call-permissions-admin.adoc[Administrator profile]
 * xref:default-api-call-permissions-super-admin.adoc[Super Administrator profile]
