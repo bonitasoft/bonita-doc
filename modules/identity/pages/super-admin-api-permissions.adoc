@@ -1,7 +1,7 @@
 = Super Administrator profile REST API permissions
 :description: This page explains the REST API permissions for the Super Administrator profile.
 
-{description}. More information about how this page is structured can be found xref:default-api-call-permissions-overview.adoc[in this page]. +
+{description}. More information about how this page is structured can be found in xref:api-permissions-overview.adoc[this page]. +
 This profile is linked to the Bonita Super Administrator Application by default. More information about this application can be found in the xref:super-administrator-application-overview.adoc[Super Administrator Application overview].
 
 == Accessible pages

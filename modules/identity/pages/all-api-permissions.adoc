@@ -1,7 +1,7 @@
 = All profiles REST API permissions
 :description: This page explains the REST API permissions for All profiles.
 
-{description}. More information about how this page is structured can be found xref:default-api-call-permissions-overview.adoc[in this page]. +
+{description}. More information about how this page is structured can be found in xref:api-permissions-overview.adoc[this page]. +
 All profiles are linked to the Bonita Application Directory by default. More information about this application can be found in the xref:application-directory.adoc[Application Directory page].
 
 == Accessible pages

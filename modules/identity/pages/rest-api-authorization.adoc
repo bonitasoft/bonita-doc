@@ -405,4 +405,4 @@ However, if a custom profile use a custom page, you must update the custom page 
 
 == Permissions and resources
 
-You can find the rest API authorizations xref:default-api-call-permissions-overview.adoc[in this page].
+You can find the rest API authorizations xref:api-permissions-overview.adoc[in this page].
