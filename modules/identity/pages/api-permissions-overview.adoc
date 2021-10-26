@@ -3,15 +3,24 @@
 
 {description}
 
-Check out the xref:rest-api-authorization.adoc[REST API authorization page] in order to understand more about how the permissions are given depending on a profile. +
-Each profile will have the following structure: +
+Check out the xref:rest-api-authorization.adoc[REST API authorization page] in order to understand more about how the permissions are given, depending on a profile or a user. +
+The Super Administrator user has specific permissions that are given to him by the Super Administrator Application. +
+
+The list of permissions can be found in the following pages:
+
+* xref:user-api-permissions.adoc[User profile]
+* xref:admin-api-permissions.adoc[Administrator profile]
+* xref:all-api-permissions.adoc[All profiles]
+* xref:super-admin-api-permissions.adoc[Super Administrator user]
+
+Each page will have the following structure:
 
 ```
 = Profile 1
 General profile information
 == Accessible pages
-* accessible page 1 for profile 1
-* accessible page 2 for profile 1
+* accessible page 1 for profile or user 1
+* accessible page 2 for profile or user 1
 ...
 == Accessible permissions
 * permission 1
@@ -27,10 +36,3 @@ General profile information
     ** API 2
 ...
 ```
-
-You can view the following pages for each profile :
-
-* xref:user-api-permissions.adoc[User profile]
-* xref:admin-api-permissions.adoc[Administrator profile]
-* xref:super-admin-api-permissions.adoc[Super Administrator profile]
-* xref:all-api-permissions.adoc[All profiles]
