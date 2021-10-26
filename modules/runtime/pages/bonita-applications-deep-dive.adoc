@@ -1,6 +1,6 @@
 = Applications deep dive
 :page-aliases: ROOT:bonita-applications-deep-dive.adoc
-:description: This page explains how Bonita runs applications and presents the Bonita applications natively embedded in Bonita Runtime
+:description: This page explains how Bonita runs applications and presents the Bonita Applications natively embedded in Bonita Runtime
 
 {description}
 
@@ -24,7 +24,7 @@ xref:ROOT:log-in-and-log-out.adoc[[.card-title]#Login mechanism# [.card-body.car
 --
 
 [.card-section]
-== Bonita applications
+== Bonita Applications
 Bonitasoft developers develop Bonita using Bonita. +
 This is why Bonita comes with four embedded applications, with different status: 
 
@@ -58,7 +58,7 @@ xref:ROOT:user-application-overview.adoc[[.card-title]#User# [.card-body.card-co
 [.card-section]
 == Related topics
 
-Learn how to create your own Custom Applications.
+Learn how to create your own Custom applications.
 
 [.card.card-index]
 --

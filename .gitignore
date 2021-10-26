@@ -11,3 +11,4 @@ build/html/*
 *.orig
 /.project
 *.DS_Store
+.settings

@@ -1,6 +1,6 @@
 = SSL configuration
 :page-aliases: ROOT:ssl.adoc
-:description: It is possible to set up SSL in your Bonita server. This enables you to use secure HTTP (HTTPS) to access the Bonita Applications.
+:description: It is possible to set up SSL in your Bonita server. This enables you to use secure HTTP (HTTPS) to access the Bonita Applications which is recommended.
 
 {description}
 
@@ -165,6 +165,17 @@ Another feature of this valve is to replace the apparent scheme (http/https) and
 ----
 
 If you omit this, %a will log your load balancer's IP address and not the client's IP address.
+
+== Secure the CSRF protection cookie 
+
+The secure flag on the `X-Bonita-API-Token` cookie should be set when using HTTPS.
+
+Activating the secure flag can be done in the file `security-config.properties` for the whole platform.
+The default version of this file is located in `setup/platform_conf/initial/platform_portal`. In order to change the configuration on an installation whose platform has already been initialized, use the xref:ROOT:bonita-platform-setup.adoc[platform setup tool] to retrieve the current configuration and update the file in `setup/platform_conf/current/platform_portal`. Then use the tool again to save your changes into to the database.
+
+To activate the addition of the secure flag, edit the configuration file and change the `security.csrf.cookie.secure` value to *true*.
+
+For more information on this cookie see xref:ROOT:csrf-security.adoc[CSRF security].
 
 == image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 

@@ -1,5 +1,5 @@
 = Dependencies for bonita-data-repository 7.13.0
-
+:page-aliases: bonita-data-repositories-dependencies.adoc
 == NodeJS Dependencies
 
 |===
@@ -200,7 +200,7 @@
 
 | kuler | 1.0.1 | MIT
 
-| lodash | 4.17.19 | MIT
+| lodash | 4.17.15 | MIT
 
 | logform | 2.1.2 | MIT
 
