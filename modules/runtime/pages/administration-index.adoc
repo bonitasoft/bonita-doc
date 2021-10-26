@@ -1,5 +1,5 @@
 = Administration
-:description: This page gives an easy access to the administration features in Bonita Runtime
+:description: This page gives an easy access to the administration features in Bonita Runtime.
 
 {description}
 
@@ -21,15 +21,15 @@ xref:ROOT:super-administrator-application-index.adoc[[.card-title]#Super Adminis
 
 [.card.card-index]
 --
-xref:ROOT:live-update.adoc[[.card-title]#Live Update# [.card-body.card-content-overflow]#pass:q[The very handy emergency actions you can take on a Runtime]#]
+xref:ROOT:live-update.adoc[[.card-title]#Live Update# [.card-body.card-content-overflow]#pass:q[Very handy emergency actions you can take on a Runtime]#]
 --
 
 [.card.card-index]
 --
-xref:ROOT:back-up-bonita-bpm-platform.adoc[[.card-title]#Runtime backups# [.card-body.card-content-overflow]#pass:q[The backup creation procedure to perform before a maintenance operation]#]
+xref:ROOT:back-up-bonita-bpm-platform.adoc[[.card-title]#Runtime backups# [.card-body.card-content-overflow]#pass:q[Backup procedure to perform before a maintenance operation]#]
 --
 
 [.card.card-index]
 --
-xref:ROOT:cluster-administration.adoc[[.card-title]#Cluster# [.card-body.card-content-overflow]#pass:q[The specificities of a cluster]#]
+xref:ROOT:cluster-administration.adoc[[.card-title]#Cluster# [.card-body.card-content-overflow]#pass:q[Specificities to be aware of with a cluster]#]
 --
