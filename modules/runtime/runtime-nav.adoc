@@ -1,5 +1,6 @@
 * xref:runtime-index.adoc[Runtime]
- ** Bonita Engine deep dive
+ ** xref:engine-deep-dive-index.adoc[Bonita Engine deep dive]
+  *** xref:engine-architecture-overview.adoc[Architecture overview]
   *** xref:timers-execution.adoc[Timer execution]
   *** xref:connectors-execution.adoc[Connector execution]
   *** Works

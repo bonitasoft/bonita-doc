@@ -1,6 +1,6 @@
 = Bonita Engine architecture
 :description: Discover Bonita Engine architecture, its APIs, main services, and how they are packaged.
-:page-aliases: ROOT:engine-architecture-overview.adoc
+:page-aliases: ROOT:engine-architecture-overview.adoc, bonita-overview:engine-architecture-overview.adoc
 
 {description}
 
