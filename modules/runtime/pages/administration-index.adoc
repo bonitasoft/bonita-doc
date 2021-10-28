@@ -1,5 +1,5 @@
 = Administration
-:description: This page gives an easy access to the administration features in Bonita Runtime.
+:description: This page gives an easy access to the documentation of the administration features in Bonita Runtime.
 
 {description}
 
