@@ -21,7 +21,7 @@ xref:ROOT:super-administrator-application-index.adoc[[.card-title]#Super Adminis
 
 [.card.card-index]
 --
-xref:ROOT:live-update.adoc[[.card-title]#Live Update# [.card-body.card-content-overflow]#pass:q[Very handy emergency actions you can take on a Runtime]#]
+xref:ROOT:live-update.adoc[[.card-title]#Live Update# [.card-body.card-content-overflow]#pass:q[Emergency actions you can take on a Runtime]#]
 --
 
 [.card.card-index]
