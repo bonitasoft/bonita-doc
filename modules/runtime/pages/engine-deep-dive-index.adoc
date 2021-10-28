@@ -1,4 +1,4 @@
-= Engine Deep Dive 
+= Bonita Engine deep dive 
 :description: This page describes the core elements to know about Bonita Engine to start mastering what goes on under Bonita's hood.
 
 {description}
@@ -8,22 +8,22 @@
 
 [.card.card-index]
 --
-xref:engine-architecture-overview.adoc[[.card-title]#Architecture overview# [.card-body.card-content-overflow]#pass:q[]#]
+xref:engine-architecture-overview.adoc[[.card-title]#Architecture overview# [.card-body.card-content-overflow]#pass:q[Overview, APIs, and packaging]#]
 --
 
 [.card.card-index]
 --
-xref:work-execution.adoc[[.card-title]#Works execution# [.card-body.card-content-overflow]#pass:q[]#]
+xref:work-execution.adoc[[.card-title]#Works execution# [.card-body.card-content-overflow]#pass:q[Basic flow and error management]#]
 --
 
 [.card.card-index]
 --
-xref:work-locking.adoc[[.card-title]#Work locking# [.card-body.card-content-overflow]#pass:q[]#]
+xref:work-locking.adoc[[.card-title]#Work locking# [.card-body.card-content-overflow]#pass:q[why, when, and how works are locked]#]
 --
 
 [.card.card-index]
 --
-xref:execution-sequence-states-and-transactions.adoc[[.card-title]#Execution sequence, states, and transactions# [.card-body.card-content-overflow]#pass:q[Concepts needed to understand BPM elements execution]#]
+xref:execution-sequence-states-and-transactions.adoc[[.card-title]#BPM execution sequence, states, and transactions# [.card-body.card-content-overflow]#pass:q[Concepts needed to understand BPM elements execution]#]
 --
 
 [.card.card-index]
