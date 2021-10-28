@@ -8,17 +8,17 @@
 
 [.card.card-index]
 --
-xref:engine-architecture-overview.adoc[[.card-title]#Architecture overview# [.card-body.card-content-overflow]#pass:q[]#]
+xref:engine-architecture-overview.adoc[[.card-title]#Architecture overview# [.card-body.card-content-overflow]#pass:q[Overview, APIs, and packaging]#]
 --
 
 [.card.card-index]
 --
-xref:work-execution.adoc[[.card-title]#Works execution# [.card-body.card-content-overflow]#pass:q[]#]
+xref:work-execution.adoc[[.card-title]#Works execution# [.card-body.card-content-overflow]#pass:q[Basic flow and error management]#]
 --
 
 [.card.card-index]
 --
-xref:work-locking.adoc[[.card-title]#Work locking# [.card-body.card-content-overflow]#pass:q[]#]
+xref:work-locking.adoc[[.card-title]#Work locking# [.card-body.card-content-overflow]#pass:q[why, when, and how works are locked]#]
 --
 
 [.card.card-index]
