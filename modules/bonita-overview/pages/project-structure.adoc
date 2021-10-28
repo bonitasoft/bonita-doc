@@ -145,5 +145,5 @@ In the Studio, extensions are managed in a xref:ROOT:managing_extension_studio.a
 [NOTE]
 ====
 Even if it is possible to manually import extensions in Bonita Studio, it is highly recommended to publish your extensions on public or private maven repositories.
-xref:connector-archetype.adoc#_6_publish_the_connector_on_github_packages[Here] is an example on how to deploy an extension on Github packages.
+xref:process:connector-archetype-tutorial#_6_publish_the_connector_on_github_packages[Here] is an example on how to deploy an extension on Github packages.
 ====
