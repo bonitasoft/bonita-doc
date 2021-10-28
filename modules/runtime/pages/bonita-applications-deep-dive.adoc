@@ -37,7 +37,7 @@ This is why Bonita comes with four embedded applications, with different status:
   
 [.card.card-index]
 --
-xref:ROOT:application-directory.adoc[[.card-title]#Application directory# [.card-body.card-content-overflow]#pass:q[The logged user's catalog of applications... and more]#]
+xref:ROOT:application-directory.adoc[[.card-title]#image::images/images-6_0/row-over.png[row toolbar] Application directory# [.card-body.card-content-overflow]#pass:q[The logged user's catalog of applications... and more]#]
 --
 
 [.card.card-index]
