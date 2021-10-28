@@ -4,7 +4,7 @@
   *** Works
    **** xref:work-execution.adoc[Work execution]
    **** xref:work-locking.adoc[Work locking]
-  *** xref:execution-sequence-states-and-transactions.adoc[BPM process / task execution sequence]
+  *** xref:execution-sequence-states-and-transactions.adoc[BPM execution sequence, states and transactions]
   *** xref:how-a-flownode-is-completed.adoc[Flow nodes execution and completion]
   *** xref:how-a-process-is-completed.adoc[Processes execution and completion]
   *** xref:how-a-call-activity-is-executed.adoc[Call activities execution]
