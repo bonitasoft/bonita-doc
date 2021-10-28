@@ -9,6 +9,11 @@
 
 [.card.card-index]
 --
+xref:engine-deep-dive.adoc[[.card-title]#Bonita Engine deep dive# [.card-body.card-content-overflow]#pass:q[Discover what runs under Bonita's hood]#]
+--
+
+[.card.card-index]
+--
 xref:bonita-applications-deep-dive.adoc[[.card-title]#Applications deep dive# [.card-body.card-content-overflow]#pass:q[How applications are run, and what Bonita applications are]#]
 --
 
