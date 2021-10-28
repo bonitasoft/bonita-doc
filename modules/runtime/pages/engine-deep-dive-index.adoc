@@ -1,5 +1,5 @@
 = Engine Deep Dive 
-:description: This page describes the core elements to know about in Bonita Engine to start mastering what goes on under Bonita's hood.
+:description: This page describes the core elements to know about Bonita Engine to start mastering what goes on under Bonita's hood.
 
 {description}
 
