@@ -5,7 +5,7 @@
 
 [NOTE]
 ====
-The Bonita Test Toolkit is opnly available for Enterprise, Performance, Efficiency and teamwork editions only. 
+The Bonita Test Toolkit is only available for Enterprise, Performance, Efficiency and teamwork editions only. 
 
 However, it based on the open source https://github.com/bonitasoft/bonita-java-client[Bonita Java Client] to make HTTP calls on the Bonita platform. Any user can make its own test toolkit using this client. 
 ====
