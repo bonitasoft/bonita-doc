@@ -50,5 +50,6 @@
  ** xref:process-testing-index.adoc[Process testing]
   *** xref:configure-a-test-organization.adoc[Configure a test organization]
   *** xref:run-a-process-from-bonita-bpm-studio-for-testing.adoc[Run a process in Bonita Studio]
+  *** xref:process-integration-test.adoc[Create integration tests]
   *** xref:log-files.adoc[Log files]
   *** xref:logging.adoc[Logs]
