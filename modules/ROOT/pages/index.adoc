@@ -31,7 +31,7 @@ xref:ROOT:api-index.adoc[[.card-title]#Bonita API# [.card-body.card-content-over
 
 [.card.card-index]
 --
-xref:ROOT:studio-installation.adoc[[.card-title]#Studio installation# [.card-body.card-content-overflow]#pass:q[How to download and install Bonita Studio]#]
+xref:ROOT:bonita-studio-download-installation.adoc[[.card-title]#Studio installation# [.card-body.card-content-overflow]#pass:q[How to download and install Bonita Studio]#]
 --
 
 [.card.card-index]
