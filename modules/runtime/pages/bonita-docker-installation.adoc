@@ -130,7 +130,7 @@ docker run --name bonita_postgres -h <hostname> -v bonita-lic:/opt/bonita_lic/ -
 
 Create a file `docker-compose.yml` with the following content
 
-[source,shell script,subs="+macros"]
+[source,yaml]
 ----
 # Use tech_user/secret as user/password credentials
 version: '3'
