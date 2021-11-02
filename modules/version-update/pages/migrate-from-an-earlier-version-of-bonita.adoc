@@ -93,7 +93,7 @@ Therefore, it is also strongly recommended to xref:ROOT:back-up-bonita-bpm-platf
 * The migration script supports MySQL, PostgreSQL, Oracle, and Microsoft SQL Server. *There is no migration for h2 database*.
 * The target Bonita version may not support the *version of the database* used with your source Bonita version. You may then need to update the version of your database prior to running the migration tool. To make sure:
  ** Please check the xref:ROOT:hardware-and-software-requirements.adoc[database requirements].
- ** If you need to update your database, make sure to apply all the xref:ROOT:database-configuration.adoc#specific_database_configuration[RDBMS customizations required by Bonita] when setting up the new version.
+ ** If you need to update your database, make sure to apply all the xref:runtime:database-configuration.adoc#specific_database_configuration[RDBMS customizations required by Bonita] when setting up the new version.
 * If you have added *custom indexes* to certain tables in the engine database, you must *remove them before lauching* the update procedure. If you do not remove these indexes, the update procedure will not be completed.
 
 [WARNING]
@@ -539,7 +539,7 @@ If you have applications that are client of Bonita, you may have to change your 
 time, we guarantee backward compatibility. In any case, read the xref:ROOT:release-notes.adoc[release notes] to check if
 some changes have been introduced.
 
-In addition, if your application connects to Bonita Engine using the HTTP access mode, see the link:configure-client-of-bonita-bpm-engine[bonita-client library] documentation page.
+In addition, if your application connects to Bonita Engine using the HTTP access mode, see the xref:api:configure-client-of-bonita-bpm-engine[bonita-client library] documentation page.
 
 == image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
@@ -576,9 +576,9 @@ _Cause_: A bug was introduced in Bonita 7.11.0 by upgrading an external library,
 _Solution_: Doing nothing is an option, as there is no change in Bonita's behaviour. If you wish to clean your BDM database, follow the procedure below:
 
 
-1. Stop your bonita server
+- Stop your bonita server
 
-2. Open the database in an edition tool (or execute in command line the relevant commands):
+- Open the database in an edition tool (or execute in command line the relevant commands):
 
 First, select all the foreign keys on a table of *your BDM objects*:
 
@@ -618,13 +618,13 @@ FROM pg_catalog.pg_constraint r
 WHERE r.conrelid = '<your_table_name>'::regclass AND r.contype = 'f' ORDER BY 1
 ----
 
-3. These requests will give you all the foreign keys on a table.
+- These requests will give you all the foreign keys on a table.
 Among these, search for duplicated ones: the duplicated foreign keys should have the following names: `*FK_*<hash>` & `*FK*<another_hash>`. The two different names should be for keys referencing the same columns on the same table.
 Delete the one named: `*FK_*<hash>`.
 
-4. Repeat for all the tables of your BDM database.
+- Repeat for all the tables of your BDM database.
 
-5. Start your Bonita Runtime
+- Start your Bonita Runtime
 
 [NOTE]
 ====

@@ -6,8 +6,7 @@
 _Administrators_ can view a list of the resources filtered by type, install new resources, update existing resources, or delete resources.
 
 Here is a view of the page:
-image:images/UI2021.1/admin-application-resources-list.png[Administrator Resources]
-// {.img-responsive}
+image:runtime:images/UI2021.1/admin-application-resources-list.png[Administrator Resources]
 
 == Resource definition
 
