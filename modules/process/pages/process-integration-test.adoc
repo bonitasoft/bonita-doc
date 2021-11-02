@@ -23,7 +23,7 @@ It is written is Java, and should be used with a Java test framework like JUnit.
 
 == Quick start
 
-This quick start tutorial assumes that a Bonita platform is running at `localhost:8080/bonita` (a Bonita Studio for example). On this platform, a small BDM and basic process using this BDM is installed (described xref:project-example[in the paragraph below]). +
+This quick start tutorial assumes that a Bonita platform is running at `http://localhost:8080/bonita` (Bonita Studio default for example). On this platform, a small BDM and basic process using this BDM is installed (described xref:project-example[in the paragraph below]). +
 No matter where is your platform running and what kind of process is installed on it, you should be able to follow this quick start tutoriel and adapt it to your use case.
 
 [#project-example]
@@ -74,7 +74,6 @@ Create a new Maven project with the following pom.xml:
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
-        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <maven-dependency-plugin.version>3.2.0</maven-dependency-plugin.version>
         <maven-project-info-plugin.version>3.1.2</maven-project-info-plugin.version>
     
@@ -103,22 +102,11 @@ Create a new Maven project with the following pom.xml:
             <groupId>com.bonitasoft</groupId>
             <artifactId>bonita-test-toolkit</artifactId>
             <version>${bonita-test-toolkit.version}</version>
+            <scope>test</scope>
         </dependency>
-
-        <!-- Test -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-suite-engine</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-params</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -128,6 +116,31 @@ Create a new Maven project with the following pom.xml:
             <scope>test</scope>
         </dependency>
     </dependencies>
+    
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>${maven-failsafe-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        
+        <plugins>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>integration-test</goal>
+                        <goal>verify</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugins>
+    </build>
 </project>
 ----
 <1> The Bonita Test Toolkit dependency
@@ -156,12 +169,6 @@ import com.bonitasoft.test.toolkit.model.Task;
 
 public class ProcessIT {
 
-    private static final String USER_NAME = "walter.bates";
-    private static final String BUSINESS_OBJECT_TYPE = "com.company.model.Dinosaur";
-    private static final String PROCESS_NAME = "create-dinosaur";
-    private static final String CREATE_TASK = "CreateDinosaur";
-    private static final String HUNT_TASK = "goToHunt";
-
     @RegisterExtension
     static BonitaTestExtension bonitaExtension = new BonitaTestExtension(Configuration.builder()
             .targetRuntimeURL(() -> "http://localhost:8080/bonita")
@@ -170,23 +177,23 @@ public class ProcessIT {
             .build()); <1>
 
     @Test
-    public void test_my_process(BonitaTestToolkit toolkit) throws Exception { <2>
-        var user = toolkit.getUser(USER_NAME); <3>
-        var processDef = toolkit.getProcessDefinition(PROCESS_NAME); <4>
-        var businessObject = toolkit.getBusinessOject(BUSINESS_OBJECT_TYPE); <5>
+    public void should_create_a_tyrannosaurus(BonitaTestToolkit toolkit) throws Exception { <2>
+        var user = toolkit.getUser("walter.bates"); <3>
+        var processDef = toolkit.getProcessDefinition("create-dinosaur"); <4>
+        var businessObject = toolkit.getBusinessOject("com.company.model.Dinosaur"); <5>
 
         assertThat(businessObject.findAll(0, 10)).isEmpty();
 
         var processInstance = processDef.startProcessFor(user); <6>
         BonitaAssertions.assertThat(processInstance).isStarted();
-        BonitaAssertions.assertThat(processInstance).containsPendingTasks(CREATE_TASK); <7>
+        BonitaAssertions.assertThat(processInstance).containsPendingTasks("CreateDinosaur"); <7>
 
         var complexInputBuilder = ComplexInputBuilder.complexInput()
                 .textInput("name", "Tyrannosaurus")
                 .textInput("color", "Brown")
                 .booleanInput("hungry", true);
         var task1Contract = ContractBuilder.newContract().complexInput("dinosaurInput", complexInputBuilder).build(); <8>
-        var task1 = processInstance.getFirstPendingTask(CREATE_TASK); <9>
+        var task1 = processInstance.getFirstPendingUserTask("CreateDinosaur"); <9>
         BonitaAssertions.assertThat(task1).hasCandidates(user);
         BonitaAssertions.assertThat(task1).isReady();
 
@@ -195,15 +202,15 @@ public class ProcessIT {
         // Tasks assertions
         BonitaAssertions.assertThat(task1).isArchived();
         BonitaAssertions.assertThat(processInstance).isArchived();
-        assertThat(processInstance.searchActivities()).map(Task::getName).containsExactlyInAnyOrder(CREATE_TASK, HUNT_TASK);
-        assertThat(processInstance.getFirstActivity(HUNT_TASK).isArchived()).isTrue();
+        assertThat(processInstance.searchTasks()).map(Task::getName).containsExactlyInAnyOrder("CreateDinosaur", "goToHunt");
+        assertThat(processInstance.getFirstTask("goToHunt").isArchived()).isTrue();
 
         // Data assertions
         List<BusinessData> businessData = businessObject.query("findByName", List.of("name=Tyrannosaurus"), 0, 10);
         assertThat(businessData).hasSize(1);
         assertThat(businessData.get(0).getStringField("name")).isEqualTo("Tyrannosaurus");
         assertThat(businessData.get(0).getStringField("color")).isEqualTo("Brown");
-        assertThat(businessData.get(0).getBooleanField("hungry")).isEqualTo(true);
+        assertThat(businessData.get(0).getBooleanField("hungry")).isTrue();
     }
 
 }
@@ -217,3 +224,11 @@ public class ProcessIT {
 <7> The class `BonitaAssertions` offers the possibility to make assertions on Bonita concepts. It makes synchronous http calls on the targeted Bonita platform to perform the assertions.
 <8> Contracts can be built using a `ContractBuilder` and a `ComplexInputBuilder` if required. It creates a key-value model representing the contract required to execute the task.
 <9> Pending user tasks can be retrieved from the `ProcessInstance`. Different actions and assertions can be performed on user tasks.
+
+=== Run the tests
+
+Using Maven command line
+
+```shell
+mvn verify [-Dbonita.url=<TARGET_RUNTIME_URL> -Dtech.user=<TECHNICAL_USER_USERNAME> -Dtech.password=<TECHNICAL_USER_PASSWORD>]
+```
