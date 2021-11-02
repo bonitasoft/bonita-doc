@@ -102,7 +102,6 @@ Note: if you add Business data, only add it at the pool/lane level. See this tut
 . Optionally, set a default value. You can use the expression editor to set the value, or type directly in the field.
 . To define the variable as multiple, check the box.
 . To define the variable as transient, check the box. This option is not available for process-level variables.
-. To automatically add a widget corresponding to this variable when you generate a form for this step, check the box.
 . Save the definition: if you want to continue on and define another variable, click *_Create & New_*, otherwise click *_Finish_*.
 
 [#define_java_object]
@@ -124,7 +123,6 @@ To add a Java object variable:
 . Optionally, set a default value. You can use the expression editor to set the value, or type directly in the field.
 . To define the variable as multiple, check the box.
 . To define the variable as transient, check the box. This option is not available for process-level variables.
-. To automatically add a widget corresponding to this variable when you generate a form for this step, check the box.
 . Save the definition: if you want to continue on and define another variable, click *_Create & New_*, otherwise click *_Finish_*.
 
 When you configure the process, add the JAR file that contains the data type definition to the application or process dependencies.
@@ -151,7 +149,6 @@ To add an XML variable:
 . Optionally, set a default value. You can use the expression editor to set the value, or type directly in the field.
 . To define the variable as multiple, check the box.
 . To define the variable as transient, check the box. This option is not available for process-level variables.
-. To automatically add a widget corresponding to this variable when you generate a form for this step, check the box.
 . Save the definition: if you want to continue on and define another variable, click *_Create & New_*, otherwise click *_Finish_*.
 
 [#define_list_of_options]
@@ -175,7 +172,6 @@ To add a static list of options variable:
 . Optionally, set a default value. You can use the expression editor to set the value, or type directly in the field.
 . To define the variable as multiple, check the box. This means that more than one option from the list can be selected.
 . To define the variable as transient, check the box. This option is not available for process-level variables.
-. To automatically add a widget corresponding to this variable when you generate a form for this step, check the box.
 . Save the definition: if you want to continue on and define another variable, click *_Create & New_*, otherwise click *_Finish_*.
 
 After a list of options has been defined, you can define another variable that uses the same list of options, by choosing the list name from the Data type menu.
