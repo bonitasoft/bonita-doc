@@ -186,7 +186,7 @@ public class ProcessIT {
 
         var processInstance = processDef.startProcessFor(user); <6>
         BonitaAssertions.assertThat(processInstance).isStarted();
-        BonitaAssertions.assertThat(processInstance).containsPendingTasks("CreateDinosaur"); <7>
+        BonitaAssertions.assertThat(processInstance).containsPendingUserTasks("CreateDinosaur"); <7>
 
         var complexInputBuilder = ComplexInputBuilder.complexInput()
                 .textInput("name", "Tyrannosaurus")
