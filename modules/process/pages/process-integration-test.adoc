@@ -177,7 +177,7 @@ public class ProcessIT {
             .build()); <1>
 
     @Test
-    public void should_create_a_tyrannosaurus(BonitaTestToolkit toolkit) throws Exception { <2>
+    public void should_create_an_hungry_tyrannosaurus(BonitaTestToolkit toolkit) throws Exception { <2>
         var user = toolkit.getUser("walter.bates"); <3>
         var processDef = toolkit.getProcessDefinition("create-dinosaur"); <4>
         var businessObject = toolkit.getBusinessOject("com.company.model.Dinosaur"); <5>
