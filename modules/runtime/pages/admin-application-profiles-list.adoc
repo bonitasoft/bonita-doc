@@ -8,10 +8,6 @@ In all Bonita editions, Administrators can change the mapping between a provided
 In Enterprise, Performance, Efficiency, and Teamwork editions, there is one more provided profile: Process Manager.
 In Enterprise, Performance, and Efficiency editions, Administrators can also create new profiles and edit them.
 
-Here is a view of this page:
-image:images/UI2021.1/admin-application-profiles-list.png[Profiles in Portal]
-// {.img-responsive}
-
 == View profile and profile mappings
 
 In _Organization_/_Profiles_, the list shows all profiles sorted by alphabetical order:

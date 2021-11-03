@@ -22,7 +22,6 @@ The generated file can replace the template in the same document or be stored in
 
 [NOTE]
 ====
-
 Tested versions are *Microsoft Word 2007/2010*. This connector may work with later versions.
 ====
 
@@ -52,7 +51,7 @@ This example uses key values taken from a business variable.
 
 === Business Data Model
 
-Here is a link:images/special_code/study-leave-template.docx[template example] for Leave Request submission and approval. +
+Here is a link:images/images/special_code/study-leave-template.docx[template example] for Leave Request submission and approval. +
 This .docx file uses keys, most of which will be replaced by values from business variables created from the following *Business Data Model*:
 
 image::images/images-6_0/MyUser_Model_lazy.png[]

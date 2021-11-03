@@ -1,12 +1,9 @@
 = Embed Bonita Engine in your application
 :page-aliases: ROOT:embed-engine.adoc
-:description: image:images/bonita-lab.png[]
 
-image:images/bonita-lab.png[]
 [WARNING]
 ====
-
-This is a Lab feature and is subject to change without warning in any version. It is not recommended for production.
+image:images/bonita-lab-icon.png[] This is a Lab feature and is subject to change without warning in any version. It is not recommended for production.
 ====
 
 Starting from version 7.9.0, new artifacts allow to start an embedded engine in your application.
@@ -39,7 +36,6 @@ Maven
 
 [NOTE]
 ====
-
 If you are using Bonita subscription edition, change group id for `com.bonitasoft.engine` and artifact id for `bonita-engine-spring-boot-starter-sp`
 ====
 
@@ -96,7 +92,6 @@ Maven
 
 [NOTE]
 ====
-
 If you are using Bonita subscription edition, change group id for `com.bonitasoft.engine` and artifact id for `bonita-engine-standalone-sp`
 ====
 
@@ -119,7 +114,6 @@ APIClient client = new APIClient()
 
 [NOTE]
 ====
-
 If you are using subscription edition, use `com.bonitasoft.engine.BonitaEngineSP` and `com.bonitasoft.engine.api.APIClient` objects instead.
 ====
 

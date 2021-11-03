@@ -116,11 +116,6 @@ image::images/temp-release-notes-specific/custom_profile.png[Previous Custom Pro
 
 In Bonita 2021.2, custom profile navigation has been removed, and thus profiles with navigation are automatically converted into custom applications by the xref:ROOT:migrate-from-an-earlier-version-of-bonita.adoc[migration tool].
 
-Here is the list of applications, with the converted one, when you log in the first time after a Bonita update including the 2021.1 to 2021.2 step:
-
-.The previous Custom Profile navigation is now accessible as a custom application
-image::images/temp-release-notes-specific/new_app_directory_with_converted_custom_profile.png[Applications list]
-
 Here is what it looks like after conversion:
 
 .Custom Profile navigation converted into a custom application

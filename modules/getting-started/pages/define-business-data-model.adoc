@@ -7,7 +7,7 @@ The Bonita platform provides a means to define, manipulate and store your busine
 Data management involves several steps:
 
 * Create the xref:ROOT:define-and-deploy-the-bdm.adoc[Business Data Model (BDM)]. This is the definition of the types of data you will deal with in your processes and applications.
-* Declare link:specify-data-in-a-process-definition#_define_a_variable[business variables] in the process definition. Variables are used to make the link between your process definition and the data it needs to create, read, update, and delete. Data can be created as part of process execution (on start or on a task) but processes can also read and update data created by other processes and of course can choose to delete data.
+* Declare xref:declare-business-variables.adoc[business variables] in the process definition. Variables are used to make the link between your process definition and the data it needs to create, read, update, and delete. Data can be created as part of process execution (on start or on a task) but processes can also read and update data created by other processes and of course can choose to delete data.
 * Define process and task xref:ROOT:contracts-and-contexts.adoc[contracts]. Contracts define the information process accepts from the user submitting the form.
 
 In this chapter we will focus on the creation of the Business Data Model (BDM) only. Declaration of business variables is part of the next chapter.
@@ -41,27 +41,23 @@ image:images/getting-started-tutorial/define-business-data-model/create-business
 
 [WARNING]
 ====
-
 When you edit the BDM in Bonita Studio, it is always recommended to reset the database after doing any modification on the model. Check the checkbox "Reset BDM database," available in the pop-up window display when you validate your modifications.
 ====
 
 [NOTE]
 ====
-
 When you click on the "Finish" button three different operations are performed:
 
 * BDM definition is saved in your project (under *Business Data Model* category)
 * Java classes are generated, compiled, packaged and the resulting jar file is added to your project (under *Java dependencies* category)
 * Tables are created in the Bonita Studio embedded test database
-
 ====
 
 Now you have a fully functional business data management model. You are ready to move to the next chapter and xref:ROOT:declare-business-variables.adoc[start populating the database with data collected by the process].
 
-[NOTE]
-====
+Bonita Studio uses h2 to provide the database for testing. (We recommend you to use other types of databases such as Oracle, PostgreSQL, MySQL and SQL Server for production). +
+Bonita Studio provides two database schemas: one for the Bonita Engine and one dedicated to BDM. +
+You can view the tables created in the h2 BDM database by clicking on _Development -> Business Data Model -> Browse data (h2 console)..._. +
+In the h2 console (a web interface) you can see that a table named "CLAIM" was created. You can run an SQL query such as `SELECT * FROM CLAIM` which should return an empty result as there is no data yet. 
 
-Bonita Studio uses h2 to provide the database for testing. (We recommend you to use other types of databases such as Oracle, PostgreSQL, MySQL and SQL Server for production). Bonita Studio provides two database schemas: one for the Bonita Engine and one dedicated to BDM.
-You can view the tables created in the h2 BDM database by clicking on menu:Development[Business Data Model > Browse data (h2 console)...]. In the h2 console (a web interface) you can see that a table named "CLAIM" was created. You can run an SQL query such as `SELECT * FROM CLAIM` which should return an empty result as there is no data yet. +
-You can also link:data-management#_exploring_the_bdm[graphically explore the BDM database schema] by clicking on menu:Development[Business Data Model > Explore model (GraphQL voyager)...].
-====
+You can also xref:data:data-management#_exploring_the_bdm[graphically explore the BDM database schema] by clicking on Development -> Business Data Model -> Explore model (GraphQL voyager)... .

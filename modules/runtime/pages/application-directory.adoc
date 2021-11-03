@@ -87,9 +87,6 @@ The error pages have been created with the UI Designer. To edit them, you need t
 
 You can start editing the page. +
 To edit the image, edit the asset positioned right between the two titles. +
-Here is an example of the image location from the "Error403BonitaV1" page:
-
-image::images/edit-error-page-image.png[Edit the image in an error page]
 
 Once you are done editing the page, update it in the Resources:
 
