@@ -15,7 +15,6 @@ OpenID Connect configuration is at tenant level. Each tenant can use a different
 
 [NOTE]
 ====
-
 Bonita uses http://www.keycloak.org/[Keycloak] OIDC Service client adapter. It has been extended to support other OIDC providers than Keycloak.  
 Authentication in Bonita with OIDC has been tested with both Keycloak server and Google's OpenID Connect endpoint.
 ====
@@ -59,8 +58,8 @@ The bundle already contains the files needed to use OIDC with Bonita platform.
 To configure Bonita for OIDC:
 
 . If you do not already have one:
- .. Download a Subscription edition bundle from the customer portal
- .. link:_basic-bonita-platform-installation[Configure] it as needed
+ .. Download a Subscription edition bundle from the https://customer.bonitasoft.com/[Customer Service Center]
+ .. xref:runtime:tomcat-bundle.adoc#configuration[Configure] it as needed
  .. Run it a first time, so that the first default tenant is created (TENANT_ID = 1)
  .. Stop it and run `setup[.sh][.bat] pull` to retrieve current configuration before modifying the configuration files below
 . In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
