@@ -7,7 +7,7 @@
 ====
 The Bonita Test Toolkit is only available for Enterprise, Performance, Efficiency and teamwork editions only. 
 
-However, it based on the open source https://github.com/bonitasoft/bonita-java-client[Bonita Java Client] to make HTTP calls on the Bonita platform. Any user can make its own test toolkit using this client. 
+However, it is based on the open source https://github.com/bonitasoft/bonita-java-client[Bonita Java Client] to make HTTP calls to the Bonita runtime. Any user can make their own test toolkit using this client. 
 ====
 
 Some developer skills are required to follow this documentation page and, generally, to write process integration tests.
