@@ -140,6 +140,7 @@ Create a new Maven project with the following pom.xml:
                     </goals>
                 </execution>
             </executions>
+	</plugin>
         </plugins>
     </build>
 </project>
