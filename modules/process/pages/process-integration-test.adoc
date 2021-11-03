@@ -14,7 +14,7 @@ Some developer skills are required to follow this documentation page and, genera
 
 == Motivations
 
-In the world of development, writing tests is not an option. It is the best way to ensure that a product fulfill its requirements, and that existing existing features won't be broken by future developments. 
+In the world of development, writing tests is not an option. It is the best way to ensure that a product fulfill its requirements, and that existing features won't be broken by future developments. 
 
 This applies to Bonita processes. For each process, an integration test should be written, to validate that the process executes correctly depending on the inputs, that after each task the platform is in the expected state and so on.
 
