@@ -129,6 +129,7 @@ Create a new Maven project with the following pom.xml:
         </pluginManagement>
         
         <plugins>
+<plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-failsafe-plugin</artifactId>
             <executions>
