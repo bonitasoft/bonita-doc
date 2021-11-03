@@ -29,24 +29,25 @@ or from the https://customer.bonitasoft.com/download/request[Customer Service Ce
 
 === Install Bonita Platform in Tomcat
 
-Copy, from the bundle into your Tomcat server:
+Copy, from the bundle into your Tomcat server (TOMCAT_DIRECTORY):
 
-* `server/bin/setenv.sh` or `server/bin/setenv.bat`, depending if you are on Unix or Windows, to `bin`
-* The entirety of the bundle `server/conf` folder to `conf`
-* The entirety of the bundle `server/lib/bonita` folder to `lib/bonita`
-* The `server/webapps/bonita.war` and `webapps/ROOT/favicon.ico` to `webapps` and `webapps/ROOT/`
-* The entirety of the `setup` directory at the root of your tomcat server.
-* The entirety of the `tools/request_key_utils-`. Includes script files to generate license request keys.
+* `BUNDLE_DIRECTORY/server/bin/setenv.sh` or `BUNDLE_DIRECTORY/server/bin/setenv.bat`, depending if you are on Unix or Windows, to `TOMCAT_DIRECTORY/bin`
+* The entirety of the bundle `BUNDLE_DIRECTORY/server/conf` folder to `TOMCAT_DIRECTORY/conf`
+* The entirety of the bundle `BUNDLE_DIRECTORY/server/lib/bonita` folder to `TOMCAT_DIRECTORY/lib/bonita`
+* The `BUNDLE_DIRECTORY/server/webapps/bonita.war` to `TOMCAT_DIRECTORY/webapps`
+* The and `BUNDLE_DIRECTORY/webapps/ROOT/favicon.ico` to `TOMCAT_DIRECTORY/webapps/ROOT/`
+* The entirety of the `BUNDLE_DIRECTORY/setup` directory at the root of your tomcat server `TOMCAT_DIRECTORY`.
+* The entirety of the `BUNDLE_DIRECTORY/tools/request_key_utils-`. Includes script files to generate license request keys to `TOMCAT_DIRECTORY/tools/request_key_utils-`.
 
 [WARNING]
 ====
 
-Some of the libraries copied from the bundle `server/lib/bonita` may already exist (albeit in a different version) in your Tomcat server `lib` folder. e.g.:
+Some of the libraries copied from the bundle `BUNDLE_DIRECTORY/server/lib/bonita` may already exist (albeit in a different version) in your Tomcat server `TOMCAT_DIRECTORY/lib` folder. e.g.:
 
 * bundle (Tomcat 8.5.40): `server/lib/bonita/tomcat-dbcp-9.0.16.jar`
 * Tomcat server (Tomcat 8.0.36): `lib/tomcat-dbcp-8.0.36.jar` and `lib/tomcat-dbcp.jar`
 
-For such libraries, you should only keep the ones copied from the bundle under `lib/bonita`, or else the Bonita server may encounter `NoSuchMethodError`-type of issues.
+For such libraries, you should only keep the ones copied from the bundle under `TOMCAT_DIRECTORY/lib/bonita`, or else the Bonita server may encounter `NoSuchMethodError`-type of issues.
 ====
 [WARNING]
 ====
@@ -62,7 +63,7 @@ There is an https://bz.apache.org/bugzilla/show_bug.cgi?id=58999[issue on tomcat
 
 === Configure data sources
 
-. Open the file BUNDLE_HOME/conf/Catalina/localhost/bonita.xml
+. Open the file `TOMCAT_DIRECTORY/conf/Catalina/localhost/bonita.xml`
 . Remove or comment out the lines regarding the h2 database.
 . Uncomment the lines matching your RDBMS.
 . Update following attributes value:
@@ -73,21 +74,15 @@ There is an https://bz.apache.org/bugzilla/show_bug.cgi?id=58999[issue on tomcat
 
 === Configure RDBMS vendor
 
-. {blank}
-+
-[cols=2*]
-|===
-| Open the file BUNDLE_HOME/bin/setenv.(bat
-| sh)
-|===
-
+. Open the file `TOMCAT_DIRECTORY/bin/setenv.sh` (Unix system) or `TOMCAT_DIRECTORY/bin/setenv.bat` (Windows system) 
 . Change the value of sysprop.bonita.db.vendor according to your RDBMS vendor
 . Change the value of sysprop.bonita.bdm.db.vendor according to your RDBMS vendor
 
+[#driver]
 === Add Jdbc driver
 
-You need to add your jdbc driver in BUNDLE_HOME/lib.
-MySQL, PostgreSQL and Microsoft SQL Server drivers can be found in the Tomcat bundle under DEPLOY_ZIP_HOME/setup/lib directory. For Oracle,
+You need to add your jdbc driver in `TOMCAT_DIRECTORY/lib`.
+MySQL, PostgreSQL and Microsoft SQL Server drivers can be found in the Tomcat bundle under `BUNDLE_DIRECTORY/setup/lib` directory. For Oracle,
 use the xref:database-configuration.adoc#proprietary_jdbc_drivers[jdbc driver] provided by Oracle.
 
 == License installation
@@ -102,9 +97,9 @@ We assume here that the database has already been xref:database-configuration.ad
 Once created and configured you need to initialize it using the setup tool provided in the bundle.
 This will create database schema and initial values.
 
-. In TOMCAT_DIRECTORY/setup folder, edit the file database.properties with properties matching your rdbms. Beware of xref:bonita-bpm-platform-setup.adoc#backslash_support[backslash characters].
-. In TOMCAT_DIRECTORY/setup/lib add your jdbc driver if needed (only for Oracle, see xref:database-configuration.adoc#proprietary_jdbc_drivers[proprietary jdbc drivers])
-. In TOMCAT_DIRECTORY/setup folder, run `setup.(sh|bat) init`
+. In `TOMCAT_DIRECTORY/setup` folder, edit the file `database.properties` with properties matching your rdbms. Beware of xref:bonita-bpm-platform-setup.adoc#backslash_support[backslash characters].
+. In `TOMCAT_DIRECTORY/setup/lib` add your <<driver,jdbc driver>> if needed (only for Oracle, see xref:database-configuration.adoc#proprietary_jdbc_drivers[proprietary jdbc drivers])
+. In `TOMCAT_DIRECTORY/setup` folder, run `setup.(sh|bat) init`
 
 == Next steps
 
