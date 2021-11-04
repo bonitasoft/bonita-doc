@@ -29,7 +29,7 @@ or from the https://customer.bonitasoft.com/download/request[Customer Service Ce
 
 === Install Bonita Platform in Tomcat
 
-Copy, from the bundle into your Tomcat server (TOMCAT_DIRECTORY):
+Copy, from the bundle into your Tomcat server (`TOMCAT_DIRECTORY`):
 
 * `BUNDLE_DIRECTORY/server/bin/setenv.sh` or `BUNDLE_DIRECTORY/server/bin/setenv.bat`, depending if you are on Unix or Windows, to `TOMCAT_DIRECTORY/bin`
 * The entirety of the bundle `BUNDLE_DIRECTORY/server/conf` folder to `TOMCAT_DIRECTORY/conf`
