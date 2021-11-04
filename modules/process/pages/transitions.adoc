@@ -21,7 +21,7 @@ To configure a transition, select it in the process diagram and go to the Detail
 
 == Expression Editor
 
-Click the crayon icon to open the Expression editor. Use the provided quick operators and the available varialbes (parameters, business and process variables) to define the transition logic.
+Click the crayon icon to open the Expression editor. Use the provided quick operators and the available variables (parameters, business and process variables) to define the transition logic.
 
 == Condition decision table
 
