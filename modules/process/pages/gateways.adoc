@@ -29,5 +29,5 @@ An inclusive gateway waits for the input from all active paths, and activates al
 evaluates to true. +
 If there is only one outgoing transition, no condition is needed and the transition is always activated. +
 If there is more than one outgoing transition, every transition should either be the default or should have a condition. +
-The default transition is used if all other conditions are evaluated to false. It is not mandatory to have a default transition, but an error will occure if no default transition is defined and all conditions are evaluated to false.
+The default transition is used if all other conditions are evaluated to false. It is not mandatory to have a default transition, but an error will occur if no default transition is defined and all conditions are evaluated to false.
 If no default transition is defined, ensure that at least one of the conditions will be evaluated to true.

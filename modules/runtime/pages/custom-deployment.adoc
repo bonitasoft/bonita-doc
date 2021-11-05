@@ -60,14 +60,7 @@ with care in a Tomcat where other applications are already installed.
 
 === RDBMS vendor configuration
 
-. {blank}
-+
-[cols=2*]
-|===
-| Open the file BUNDLE_HOME/bin/setenv.(bat
-| sh)
-|===
-
+. Open the file BUNDLE_HOME/bin/setenv.sh (Unix system) or setenv.bat (Windows system)
 . Change the value of sysprop.bonita.db.vendor according to your RDBMS vendor
 . Change the value of sysprop.bonita.bdm.db.vendor according to your RDBMS vendor
 
