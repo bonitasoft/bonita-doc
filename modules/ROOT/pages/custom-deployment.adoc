@@ -73,14 +73,7 @@ There is an https://bz.apache.org/bugzilla/show_bug.cgi?id=58999[issue on tomcat
 
 === Configure RDBMS vendor
 
-. {blank}
-+
-[cols=2*]
-|===
-| Open the file BUNDLE_HOME/bin/setenv.(bat
-| sh)
-|===
-
+. Open the file BUNDLE_HOME/bin/setenv.sh (Unix system) or setenv.bat (Windows system)
 . Change the value of sysprop.bonita.db.vendor according to your RDBMS vendor
 . Change the value of sysprop.bonita.bdm.db.vendor according to your RDBMS vendor
 
