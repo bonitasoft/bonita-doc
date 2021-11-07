@@ -5,7 +5,6 @@ Bonita can be configured to perform user authentication against an LDAP server s
 
 [NOTE]
 ====
-
 For Enterprise, Performance, Efficiency, and Teamwork editions only.
 ====
 
@@ -47,7 +46,7 @@ This section explains how to put together all the LDAP server information you ha
 
 The JAAS configuration can include one or several login contexts. The Bonita login context must be named `BonitaAuthentication-<TENANT_ID>` (where `<TENANT_ID>` is your tenant id).
 
-==== LdapLoginModule attributes to set
+=== LdapLoginModule attributes to set
 
 It's important to identify which `LdapLoginModule` attributes you need to set.
 This will be at least one of `authIdentity`, `userFilter`, `tryFirstPass`, `java.naming.security.principal` or `java.naming.security.credentials`.
@@ -59,7 +58,7 @@ Based on the information described in the "Before you start" section, you can id
 * If you cannot build the DN and anonymous search is disallowed and authenticated users cannot search \=> set the `userFilter`,
 `authIdentity`, `tryFirstPass`, `java.naming.security.principal` and `java.naming.security.credentials` attributes
 
-==== Values for LdapLoginModule attributes
+=== Values for LdapLoginModule attributes
 
 In this section we explain how to set `LdapLoginModule` attributes values. (For further information, check the https://docs.oracle.com/javase/8/docs/jre/api/security/jaas/spec/com/sun/security/auth/module/LdapLoginModule.html[`LdapLoginModule` javadoc] page.)
 
@@ -91,10 +90,9 @@ If you use a `userFilter` and users are allowed to search, set the value with `+
 *`useSSL`*
 Set this to `true` if SSL is required, `false` otherwise.
 
-[discrete]
-==== Create or edit the configuration file for your application server
+=== Create or edit the configuration file for your application server
 
-NOTE: all configuration files are case sensitive. You can find more examples in the <<examples,JAAS configuration files examples>> section of this page.
+NOTE: All configuration files are case sensitive. You can find more examples in the <<examples,JAAS configuration files examples>> section of this page.
 
 The JAAS configuration file follows the http://docs.oracle.com/javase/8/docs/api/javax/security/auth/login/Configuration.html[default JVM syntax]. +
 Here is an example of JAAS configuration file:
@@ -128,8 +126,7 @@ To define the JAAS configuration file location you need to set a JVM property, `
 If you're using a xref:custom-deployment.adoc[`custom deployment into existing Tomcat`] installation, you need to edit the `setenv` script provided with Bonita and located in `<BUNDLE_HOME>/server/bin` folder.
 If you're using the xref:tomcat-bundle.adoc[`tomcat bundle`] installation, you need to edit the `setenv` script provided with Bonita and located in `<BUNDLE_HOME>/setup/tomcat-templates` folder.
 
-[discrete]
-==== For Linux and Mac OS
+=== For Linux and Mac OS
 
 * Edit this file: `<BUNDLE_HOME>/setup/tomcat-templates/setenv.sh`
 * Locate the line that starts: `#SECURITY_OPTS`
@@ -147,15 +144,13 @@ If you're using the xref:tomcat-bundle.adoc[`tomcat bundle`] installation, you n
 * Add the tag `%SECURITY_OPTS%` after the tag `%PLATFORM_SETUP%`
 * Push into database the changes: `.\setup.bat push`
 
-[discrete]
-=== Configure SSL (optional)
+== Configure SSL (optional)
 
 It's possible to allow authentication to ldap over SSL (ldaps).
 First of all in the `<BUNDLE_HOME>/server/conf/jaas.cfg` file you should use ldaps FQDN and port, and set `useSSL` to true.
 Then the following operations are required:
 
-[discrete]
-==== Create the keystore
+=== Create the keystore
 
 You should have a certificate from the ldaps server (i.e. certificate.pem).
 
@@ -170,8 +165,7 @@ keytool -importcert  -alias yourAlisaName -file certificate.pem -keystore certif
 * Choose a password for your keystore (here we call it keyStorePassword)
 * Answer to the questions and at the end verify that the truststore (i.e. certificateStore.jks) has been created correctly
 
-[discrete]
-==== Share the truststore with Tomcat
+=== Share the truststore with Tomcat
 
 * Edit this file: `<BUNDLE_HOME>/setup/tomcat-templates/setenv.sh` (Linux) or `<BUNDLE_HOME>/setup/tomcat-templates/setenv.bat` (Windows)
 * Add the following line after the one that starts with set `SECURITY_OPTS`:
@@ -211,7 +205,7 @@ BonitaAuthentication-1 {
 };
 ----
 
-In this example, the user name is link:mailto:john.smith@mydomain.com[john.smith@mydomain.com]:
+In this example, the user name is `john.smith@mydomain.com`:
 
 ----
 BonitaAuthentication-1 {

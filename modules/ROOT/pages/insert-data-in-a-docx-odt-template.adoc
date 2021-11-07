@@ -51,7 +51,8 @@ This example uses key values taken from a business variable.
 
 === Business Data Model
 
-Here is a link:images/special_code/study-leave-template.docx[template example] for Leave Request submission and approval. +
+// IMPORTANT: links to attachments change in Antora 3.0. See https://docs.antora.org/antora/3.0/whats-new/#attachment-resource-ids and https://docs.antora.org/antora/3.0/page/attachments/
+Here is a link:{attachmentsdir}/study-leave-template.docx[template example] for Leave Request submission and approval. +
 This .docx file uses keys, most of which will be replaced by values from business variables created from the following *Business Data Model*:
 
 image::images/images-6_0/MyUser_Model_lazy.png[]
