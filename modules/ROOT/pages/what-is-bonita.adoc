@@ -79,7 +79,7 @@ The Bonita server has two components:
 
 But Bonita Portal is also the tool used by the tenant administrator to xref:processes.adoc[install, deploy and manage processes]. We use the word "tenant" here, in case the platform would be made of xref:multi-tenancy-and-tenant-configuration.adoc[several tenants].
 
-To install Bonita Engine and Bonita Portal in a qualification or production environment, read the dedicated xref:bonita-bpm-installation-overview.adoc]#platform[install Bonita Platform] documentation page.
+To install Bonita Engine and Bonita Portal in a qualification or production environment, read the dedicated xref:bonita-bpm-installation-overview.adoc#platform[install Bonita Platform] documentation page.
 
 == Editions
 
