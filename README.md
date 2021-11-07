@@ -1,3 +1,0 @@
-# Bonita documentation resources
-
-TODO
