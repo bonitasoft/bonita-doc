@@ -91,7 +91,7 @@ If the platform has already been initialized, every update to the configuration 
 +
  .. Remove the comment flags from these lines:
 `authentication.service.ref.name=jaasAuthenticationService`
- .. *Optionally*, to enable link:guest-user[guest user access], uncomment this lines:
+ .. *Optionally*, to enable xref:guest-user.adoc[guest user access], uncomment this lines:
 +
 ----
 authenticator.delegate=casAuthenticatorDelegate

@@ -27,4 +27,9 @@ Be careful, your organization will be merged with existing data.
 
 This will export an organization from Bonita Portal. Users, groups and roles will be exported in a file in .xml format.
 
-See the link:images/videos-6_0/import_an_organization_into_bonita_portal.mp4[video].
+
+== Live Example
+
+Watch this video to see an organization import and export in action.
+
+video::images/videos-6_0/import_an_organization_into_bonita_portal.mp4[]

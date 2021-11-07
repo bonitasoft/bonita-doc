@@ -83,7 +83,7 @@ The following are not migrated automatically:
 * Configuration of the platform: Before 7.3 in the _Bonita Home_ folder and after 7.3 in database. Reapply your customizations manually after the migration script has finished (using xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool] if migrated to 7.3.0+).
 * Deployed process definitions: The processes will continue to run using the definition created in the previous version of Bonita.
 * Process definition sources (`.bos` files): Migrate these by importing them into the new version of Bonita Studio.
-* +++<a id="bdm_redeploy">++++++</a>+++Business data model, and the business data database: if the migration path include version `7.0.0`,`7.2.0` or `7.2.4`, the Business data model must be redeployed after migration. You can pause the tenant before migration, as a tenant admin, so that you'll be able to redeploy the BDM on a paused tenant once migration is done, using  link:define-and-deploy-the-bdm[Define and deploy the BDM]). Otherwise, no action is required.
+* +++<a id="bdm_redeploy">++++++</a>+++Business data model, and the business data database: if the migration path include version `7.0.0`,`7.2.0` or `7.2.4`, the Business data model must be redeployed after migration. You can pause the tenant before migration, as a tenant admin, so that you'll be able to redeploy the BDM on a paused tenant once migration is done, using xref:define-and-deploy-the-bdm.adoc[Define and deploy the BDM]). Otherwise, no action is required.
 * Custom connectors, actor filers, data types: These might continue to work in the new version, but should be tested, depending on your custom code.
 * Custom pages: These might continue to work in the new version, but should be tested depending on your custom code.
 * Custom reports: These might continue to work in the new version, but should be tested depending on your custom code.
@@ -452,7 +452,7 @@ Skip this section and jump directly to *Upgrade Oracle database server* section 
 
 === Configure the Oracle database server
 
-* configure the Oracle database server, in particular activate the XA transactions management: see the _Oracle Database_ section in the link:database-configuration[Database creation and configuration for Bonita engine and BDM] page
+* configure the Oracle database server, in particular activate the XA transactions management: see the _Oracle Database_ section in the xref:database-configuration.adoc[Database creation and configuration for Bonita engine and BDM] page
 * install the missing Oracle components
 * execute the SQL scripts to _install_ XA management elements
 * execute the SQL requests to GRANT the proper rights to the Oracle users; for both Bonita BPM and BDM schemas
@@ -504,7 +504,7 @@ If you have applications that are client of Bonita, you may have to change your 
 time, we guarantee backward compatibility. In any cases, please read the  xref:release-notes.adoc[release notes] to check if
 some changes have been introduced.
 
-In addition, if your application connect to the Bonita Engine using the HTTP access mode, see the  link:configure-client-of-bonita-bpm-engine[bonita-client library]
+In addition, if your application connect to the Bonita Engine using the HTTP access mode, see the xref:configure-client-of-bonita-bpm-engine.adoc[bonita-client library]
 documentation page.
 
 == Migration troubleshooting

@@ -123,13 +123,14 @@ Use an online Json checker to make sure there are no format errors in the file. 
 }
 ----
 
-You can link:images/special_code/localization.json[download a copy of this `localization.json` file] for testing.
+// IMPORTANT: links to attachments change in Antora 3.0. See https://docs.antora.org/antora/3.0/whats-new/#attachment-resource-ids and https://docs.antora.org/antora/3.0/page/attachments/
+You can link:{attachmentsdir}/localization.json[download a copy of this `localization.json` file] for testing.
 
 In the UI Designer, import this file as an asset of the travel tool page. This will replace any existing `localization.json` file. Save the page.
 
 === Translate contents in custom widgets
 
-In the custom widget editor, use the the _uiTranslate_ filter or the _ui-translate_ directive to indicate the content to translate.   Then add the strings to the localization.json file of each page, layout and forms using it. See xref:custom-widgets.adoc[Custom widgets section] for more information.
+In the custom widget editor, use the _uiTranslate_ filter or the _ui-translate_ directive to indicate the content to translate.   Then add the strings to the localization.json file of each page, layout and forms using it. See xref:custom-widgets.adoc[Custom widgets section] for more information.
 
 === Translate content in fragments (Subscription editions)
 

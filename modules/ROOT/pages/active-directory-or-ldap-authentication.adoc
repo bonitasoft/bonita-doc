@@ -205,7 +205,7 @@ BonitaAuthentication-1 {
 };
 ----
 
-In this example, the user name is link:mailto:john.smith@mydomain.com[john.smith@mydomain.com]:
+In this example, the user name is `john.smith@mydomain.com`:
 
 ----
 BonitaAuthentication-1 {
