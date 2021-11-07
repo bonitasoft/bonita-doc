@@ -13,7 +13,7 @@ A connector is a piece of code that is executed when starting or finishing a pro
 
 In order to avoid settings that are specific to real email provider, we will use a tool for a fake email server "FakeSMTP":
 
-. Download FakeSMTP from this link: http://nilhcem.github.com/FakeSMTP/downloads/fakeSMTP-latest.zip
+. Download FakeSMTP from this link: https://nilhcem.github.io/FakeSMTP/downloads/fakeSMTP-latest.zip
 . Unzip the file
 . Run FakeSMTP by double-clicking on the JAR file, or by running this shell command: `java -jar fakeSMTP-2.0.jar`
 . When the user interface is displayed, set the *listening port* to _2525_
@@ -36,7 +36,7 @@ Now that we have a fake server running, let's configure the email connector on t
  ** SMTP port: _2525_ (the port number specified in FakeSMTP)
  ** SSL (in the *Security* section): _unchecked_
 . Click on the *Next* button
-. Enter link:mailto:_no-reply@acme.com_[_no-reply@acme.com_] in the *From* field
+. Enter `no-reply@acme.com` in the *From* field
 . Use the image:images/getting-started-tutorial/configure-email-connector/pencil.png[pencil icon] icon to edit the expression of the *To* field
 . Set the *Expression type* to *Script*
 . Paste the following Groovy script into the code editing zone: `BonitaUsers.getUserProfessionalContactInfo(apiAccessor,taskAssigneeId).email`

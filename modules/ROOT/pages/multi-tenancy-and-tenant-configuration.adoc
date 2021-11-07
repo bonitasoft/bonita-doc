@@ -1,7 +1,7 @@
 = Multi-tenant configuration for a Bonita platform
-:description: One single platform to admininstrate with multiple logical engines. Discover what is a Tenant and how to setup Bonita with Multi-tenancy.
+:description: One single platform to administrate with multiple logical engines. Discover what is a Tenant and how to setup Bonita with Multi-tenancy.
 
-One single platform to admininstrate with multiple logical engines. Discover what is a Tenant and how to setup Bonita with Multi-tenancy.
+One single platform to administrate with multiple logical engines. Discover what is a Tenant and how to setup Bonita with Multi-tenancy.
 
 [NOTE]
 ====
@@ -43,6 +43,7 @@ There is a separate _portal_ configuration directory for each tenant, located in
 There is also a default tenant _engine_ configuration directory, located in: `current/tenant_template_engine`. +
 There is also a default tenant _portal_ configuration directory, located in: `current/tenant_template_portal`.
 
+[#tenant_creation]
 == Tenant creation
 
 A tenant can be created using the Java PlatformAPI (see the http://documentation.bonitasoft.com/javadoc/api/{varVersion}/com/bonitasoft/engine/api/PlatformAPI.html[Engine Javadoc]) or the xref:platform-api.adoc[platform REST API].
