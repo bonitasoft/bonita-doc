@@ -61,7 +61,7 @@ In cluster environment, only one node is responsible to run the recovery at any 
 === Configuration
 
 Configuration for the recovery is available in the `bonita-tenant-community-custom.properties` and can be updated using the
-xref:ROOT:BonitaBPM_platform_setup.adoc[setup tool]
+xref:runtime:bonita-platform-setup.adoc[setup tool]
 
 The default values of those properties should work for everyone. If the recovery task takes more than a few minutes,
 you might want to change these values to run the recovery less often. Take a look at the metrics section to understand how

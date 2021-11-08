@@ -47,7 +47,7 @@ you need to specify the xref:ROOT:rest-api-authorization.adoc[REST API authoriza
 These resource authorizations are defined in the `page.properties` file. If your custom page is written in Groovy and uses the Bonita Engine Java APIs, you do not need to specify any resource authorization.
 
 For each REST resource accessed in the page, specify the authorization needed for each method used. +
-You can find examples of the default resources in xref:ROOT:BonitaBPM_platform_setup.adoc[`resources-permissions-mapping.properties`].
+You can find examples of the default resources in xref:runtime:bonita-platform-setup.adoc[`resources-permissions-mapping.properties`].
 
 The following example shows the resource authorizations defined for a custom page that enables a user to view but not update organization information:
 
@@ -65,7 +65,7 @@ When a user is given access to this page because they are in a profile that cont
 
 While you are developing a custom page, you can enable custom page debug mode. In debug mode, you can see changes to your custom page without importing a new .zip archive.
 
-To enable custom page debug mode, edit xref:ROOT:BonitaBPM_platform_setup.adoc[`console-config.properties`] and set `custom.page.debug` to `true`.
+To enable custom page debug mode, edit xref:runtime:bonita-platform-setup.adoc[`console-config.properties`] and set `custom.page.debug` to `true`.
 
 To work on a page in debug mode:
 

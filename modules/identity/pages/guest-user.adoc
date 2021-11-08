@@ -54,7 +54,7 @@ update the file `authenticationManager-config.properties` as follows:
 Make sure to set the username and password of the guest user account created in the section <<prerequisite,Guest profile and dedicated user account>>.
  The property "auth.tenant.guest.apps" contains the list of URL tokens of the applications that require public access (in this example, "public" and "guest"). Replace it with your applications tokens
 
-. Use the xref:BonitaBPM_platform_setup.adoc[platform setup tool] again to save your changes into the database (Eg. setup.sh/.bat push). +
+. Use the xref:runtime:bonita-platform-setup.adoc[platform setup tool] again to save your changes into the database (Eg. setup.sh/.bat push). +
 Restart Bonita server.
 . If your configuration is correct you should be able to access your public application directly with the URL `http://<host>:<port>/bonita/apps/<app token>` without being logged in first. +
 You are done.
@@ -73,7 +73,7 @@ You may require your public living application to provide a link to start a proc
 
 In order for the authorization filter to let the guest user make the necessary API requests, the best solution is to activate the xref:rest-api-authorization.adoc#dynamic_authorization[dynamic authorization checking] for those requests :
 
-. Use the xref:BonitaBPM_platform_setup.adoc[platform setup tool] to retrieve the current configuration (Eg. setup.sh/.bat pull). You need to execute the following actions in the folder of the tenant in which the applications which requires public access are deployed.
+. Use the xref:runtime:bonita-platform-setup.adoc[platform setup tool] to retrieve the current configuration (Eg. setup.sh/.bat pull). You need to execute the following actions in the folder of the tenant in which the applications which requires public access are deployed.
 . In the tenant_portal folder of the target tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
 update the file `dynamic-permissions-checks-custom.properties` to uncomment 3 lines as follows (they may already be uncommented if you use the dynamic authorisation checking instead of the default static authorization checking) :
 +
@@ -109,7 +109,7 @@ When someone tries to start a process, it will make sure he is either:
 
 If in your process instantiation form you make other requests to Bonita REST API, you may need to uncomment more lines in `dynamic-permissions-checks-custom.properties` accordingly.
 
-. Use the xref:BonitaBPM_platform_setup.adoc[platform setup tool] again to save your changes into the database (Eg. setup.sh/.bat push). +
+. Use the xref:runtime:bonita-platform-setup.adoc[platform setup tool] again to save your changes into the database (Eg. setup.sh/.bat push). +
 Restart Bonita server.
 . If your configuration is correct a guest user should be able to start a process instance (case) without being logged in first. +
 You are done.

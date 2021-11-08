@@ -12,7 +12,7 @@ To use the examples, define a xref:ROOT:rest-api-authorization.adoc#custom-permi
 
 In a Tomcat bundle:
 
-* Retrieve platform configuration using the xref:ROOT:BonitaBPM_platform_setup.adoc#update_platform_conf[setup tool].
+* Retrieve platform configuration using the xref:runtime:bonita-platform-setup.adoc#update_platform_conf[setup tool].
 * Edit `platform_conf/current/tenants/<TENANT_ID>/tenant_portal/custom-permissions-mapping.properties`.
 * Add the following line: `profile|User=[demoPermission]`.
 * Push the changed platform configuration into database using the _setup tool_.

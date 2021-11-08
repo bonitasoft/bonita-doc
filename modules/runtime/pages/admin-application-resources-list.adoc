@@ -43,7 +43,7 @@ If your resource needs to perform requests to Bonita REST API,
 you need to specify the xref:ROOT:rest-api-authorization.adoc[REST API authorizations] that a user needs to have in order to access those API.
 These permissions are defined in the `page.properties` file. If your resource is a page written in Groovy and uses the Bonita Engine Java APIs, you do not need to specify permissions.
 For each REST resource accessed in other resources, specify the authorization needed for each method used.
-You can find examples of the default resources in xref:ROOT:BonitaBPM_platform_setup.adoc[`resources-permissions-mapping.properties`].
+You can find examples of the default resources in xref:runtime:bonita-platform-setup.adoc[`resources-permissions-mapping.properties`].
 
 When a user is given access to a page/layout because they are in a profile that contains it or that is mapped to an application that contains the page/layout, then this user is granted, upon login, the permissions associated to these REST resources (see xref:ROOT:rest-api-authorization.adoc[REST API authorizations] for more details).
 
@@ -102,7 +102,7 @@ After a resource is installed, it can be used in an xref:ROOT:applications.adoc[
 [WARNING]
 ====
 
-As the deployment of resources automatically creates the appropriate resource permissions mapping, be careful not to xref:ROOT:BonitaBPM_platform_setup.adoc#update_platform_conf[push a configuration] that does not contain the latest permissions updates. This would overwrite the deployed configuration. To avoid doing so, pull the latest configuration, edit the needed elements and push it back to Bonita Runtime in a pretty short amount of time.
+As the deployment of resources automatically creates the appropriate resource permissions mapping, be careful not to xref:runtime:bonita-platform-setup.adoc#update_platform_conf[push a configuration] that does not contain the latest permissions updates. This would overwrite the deployed configuration. To avoid doing so, pull the latest configuration, edit the needed elements and push it back to Bonita Runtime in a pretty short amount of time.
 ====
 
 === Delete a Resource
