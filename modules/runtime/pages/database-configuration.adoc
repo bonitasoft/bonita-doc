@@ -77,9 +77,14 @@ To create the database(s), we recommend that you refer to your RDBMS documentati
 * https://technet.microsoft.com/en-us/library/dd207005(v=sql.110).aspx[SQL Server]
 * https://dev.mysql.com/doc/refman/8.0/en/database-use.html[MySQL]
 
+
 [#utf8_requirement]
+[WARNING]
+====
 Your database(s) must be configured to use the UTF-8 character set.
-Also, you are recommended to configure the database(s) to be case-insensitive so that searches in Bonita Applications, Bonita REST API and Bonita Engine API are case-insensitive.
+
+Search in Bonita are case-insensitive on all RDBMS except Oracle. xref:api:using-list-and-search-methods.adoc#case_sensitivity[More details here.]
+====
 
 [#specific_database_configuration]
 NOTE: Bonita is not attached to a specific RDBMS user. Therefore, the RDBMS user that bonita uses to connect to the database can be changed after the platform creation, provided the new user has the required access rights.
