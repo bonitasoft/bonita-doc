@@ -29,7 +29,7 @@ See xref:ROOT:work-execution.adoc[Work execution] and xref:work-execution-audit.
 === Configuration
 
 Configuration for the retry is available in the `bonita-tenant-community-custom.properties` and can be updated using the
-xref:ROOT:BonitaBPM_platform_setup.adoc[setup tool]
+xref:bonita-platform-setup.adoc[setup tool]
 
 [source,properties]
 ----

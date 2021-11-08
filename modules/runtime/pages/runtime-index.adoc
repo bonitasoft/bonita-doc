@@ -9,7 +9,7 @@
 
 [.card.card-index]
 --
-xref:engine-deep-dive.adoc[[.card-title]#Bonita Engine deep dive# [.card-body.card-content-overflow]#pass:q[Discover what runs under Bonita's hood]#]
+xref:engine-deep-dive-index.adoc[[.card-title]#Bonita Engine deep dive# [.card-body.card-content-overflow]#pass:q[Discover what runs under Bonita's hood]#]
 --
 
 [.card.card-index]
