@@ -1,8 +1,8 @@
 = Process list in Bonita Administrator Application
 :page-aliases: ROOT:admin-application-process-list.adoc
-:description: This page explains what a user with the _Administrator_ profile can see and do about processes in link:admin-application-overview[Bonita Administrator Application].
+:description: This page explains what a user with the Administrator profile can see and do about processes in Bonita Administrator Application.
 
-This page explains what a user with the _Administrator_ profile can see and do about processes in link:admin-application-overview[Bonita Administrator Application].
+This page explains what a user with the _Administrator_ profile can see and do about processes in xref:admin-application-overview.adoc[Bonita Administrator Application].
 
 Those users can: install, enable and edit processes, categories, forms, entities mapped to actors and process manager, parameters, and connectors.
 

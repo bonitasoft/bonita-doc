@@ -1,9 +1,9 @@
 = Task list in Bonita Administrator Application
 :page-aliases: ROOT:admin-application-task-list.adoc
-:description: This page explains what a user with the _Administrator_ profile can see and do about tasks (and more generally, flow nodes) in link:admin-application-overview[Bonita Administrator Application]. +
+:description: This page explains what a user with the Administrator profile can see and do about tasks in Bonita Administrator Application.
 
-This page explains what a user with the _Administrator_ profile can see and do about tasks (and more generally, flow nodes) in link:admin-application-overview[Bonita Administrator Application]. +
-A flow node is an element of a process. It defines an action to be performed (automatic or human). A taks is a flownode done by a person.
+This page explains what a user with the _Administrator_ profile can see and do about tasks (and more generally, flow nodes) in xref:admin-application-overview.adoc[Bonita Administrator Application]. +
+A flow node is an element of a process. It defines an action to be performed (automatic or human). A task is a flownode done by a person.
 
 Those users can view the list of flow nodes in error, pending tasks, done tasks, assign and unassign a task, do a task for someone else, skip a failed flow node, replay a failed flow node, and write a comment about the case.
 

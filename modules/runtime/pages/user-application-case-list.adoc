@@ -58,7 +58,7 @@ Open and Archived case lists can be filtered by process name and version, in the
 
 Open and Archived case lists can be filtered by the initiator of the case. By default, the lists display the cases started by anyone. +
 By checking the "Started by me" checkbox, they are filtered by the logged in user as the initiator. +
-To know more about how to set an entity of the organization as the initiator of a case, go to the xref:ROOT:actors.adoc[actors] page, or check the link:user-process-list[User process list] page.
+To know more about how to set an entity of the organization as the initiator of a case, go to the xref:ROOT:actors.adoc[actors] page, or check the xref:user-process-list.adoc[User process list] page.
 
 === Refresh
 
