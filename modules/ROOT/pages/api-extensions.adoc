@@ -33,7 +33,7 @@ If you are running Bonita in a cluster, after you import a REST API Extensions, 
 [WARNING]
 ====
 
-As the deployment of the REST API Extensions automatically creates the appropriate resource permission mapping, be careful not to xref:ROOT:bonita-platform-setup.adoc#update_platform_conf[push a configuration] that does not contain the latest permissions updates. This would overwrite the deployed configuration. To avoid doing so, pull the latest configuration, edit the needed elements and push it back to the Bonita runtime in a pretty short amount of time.
+As the deployment of the REST API Extensions automatically creates the appropriate resource permission mapping, be careful not to xref:runtime:bonita-platform-setup.adoc#update_platform_conf[push a configuration] that does not contain the latest permissions updates. This would overwrite the deployed configuration. To avoid doing so, pull the latest configuration, edit the needed elements and push it back to the Bonita runtime in a pretty short amount of time.
 ====
 
 [#usage]
@@ -63,7 +63,7 @@ If you want to enable the debug mode, you can activate it in the Studio server p
 xref:ROOT:live-update.adoc[Live update] allows the Administrator to update one element of the application in a situation of emergency.
 
 === Edit the REST API extension
-* Retrieve platform configuration using the xref:ROOT:bonita-platform-setup.adoc#update_platform_conf[setup tool].
+* Retrieve platform configuration using the xref:runtime:bonita-platform-setup.adoc#update_platform_conf[setup tool].
 * Edit `platform_conf/current/tenants/<TENANT_ID>/tenant_portal/custom-permissions-mapping.properties`.
 * Add a permission for the REST API: `profile|User=[examplePermission]`.
 * Push the changed platform configuration into database using the _setup tool_.

@@ -85,11 +85,11 @@ For example:
 
 Using word-based search has an impact on performance, so by default it is disabled. You can enable it for the platform or for a tenant. If you enable it, you can exclude any objects for which it is not useful.
 
-. To configure word-based search, using xref:ROOT:bonita-platform-setup.adoc[the setup tool],
+. To configure word-based search, using xref:runtime:bonita-platform-setup.adoc[the setup tool],
 edit `platform_engine/bonita-platform-community-custom.properties` and change the value of
 `bonita.platform.persistence.platform.enableWordSearch` (for the platform) or
 `bonita.platform.persistence.tenant.enableWordSearch` (for a tenant) to `true`.
-. For each object you be excluded from word-based search,  using xref:ROOT:bonita-platform-setup.adoc[the setup tool],
+. For each object you be excluded from word-based search,  using xref:runtime:bonita-platform-setup.adoc[the setup tool],
 edit `platform_engine/bonita-platform-custom.xml` add a mapping to the `wordSearchExclusionMappings` set.
 Each mapping has the following form:
 

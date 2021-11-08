@@ -54,7 +54,7 @@ These files grant permissions to sets of users based on profile or user name.
 You cannot remove permissions in a configuration file, so you must ensure that the default definitions grant the minimum permissions that you want to give to any user.
 
 The default versions of these files are located in `setup/platform_conf/initial/tenant_template_portal`.
-In order to change the configuration on an installation whose platform has already been initialized, use the xref:ROOT:bonita-platform-setup.adoc[platform setup tool] to
+In order to change the configuration on an installation whose platform has already been initialized, use the xref:runtime:bonita-platform-setup.adoc[platform setup tool] to
 retrieve the current configuration and update the files in `setup/platform_conf/current/tenants/[tenantId]/tenant_portal`.
 Then use the tool again to save your changes into the database.
 
@@ -174,9 +174,9 @@ If the platform has never been started yet:
 
 If the platform has already been started:
 
-* use the xref:ROOT:bonita-platform-setup.adoc[platform setup tool] to retrieve the current configuration
+* use the xref:runtime:bonita-platform-setup.adoc[platform setup tool] to retrieve the current configuration
 * add the script to the `setup/platform_conf/current/tenants/[tenantId]/tenant_security_scripts` folder
-* then use the xref:ROOT:bonita-platform-setup.adoc[platform setup tool] again to push the new / modified scripts to database
+* then use the xref:runtime:bonita-platform-setup.adoc[platform setup tool] again to push the new / modified scripts to database
 
 The `tenant_security_scripts` folder contains a script sample that can be used to write your own.
 Bonita also provides default scripts that should fit common usages. They are packages internally in the binaries, but the

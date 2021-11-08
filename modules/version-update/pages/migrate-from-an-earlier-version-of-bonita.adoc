@@ -249,7 +249,7 @@ Below you can find a Linux exemple: +
 ----
 
 You must reapply the configuration that had been done on the original instance's BONITA_HOME into the `bonita-target-version/setup/platform_conf/current`    ```` +
-Please refer to the guide on updating the configuration file using the xref:ROOT:bonita-platform-setup.adoc#update_platform_conf[setup tool]. +
+Please refer to the guide on updating the configuration file using the xref:runtime:bonita-platform-setup.adoc#update_platform_conf[setup tool]. +
 When done, push the updated configuration into the database:
 
 [source,bash]
@@ -268,7 +268,7 @@ When done, push the updated configuration into the database:
  ** Report all the content of the source version of``tenants/[TENANT_ID]/conf/custom-permissions-mapping.properties`` into the target version.
 
 === License
-Put a new license in the database: see xref:ROOT:bonita-platform-setup.adoc#update_platform_conf[Runtime configuration] for further details.
+Put a new license in the database: see xref:runtime:bonita-platform-setup.adoc#update_platform_conf[Runtime configuration] for further details.
 
 Below you can find a Linux exemple: +
 
@@ -283,7 +283,7 @@ Below you can find a Linux exemple: +
 If there is no valid license in the `./platform_conf/licenses/`, these 2 pages will help you to request and install a new one:
 
  ** https://documentation.bonitasoft.com/?page=licenses[Licenses]
- ** xref:ROOT:bonita-platform-setup.adoc#update_platform_conf[Setup tool]
+ ** xref:runtime:bonita-platform-setup.adoc#update_platform_conf[Setup tool]
 
 Install the new license:
 

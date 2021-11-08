@@ -47,7 +47,7 @@ The `X-Bonita-API-Token` is valid for the whole client session.
 Disabling the CSRF protection is not recommended as it will make Bonita REST API unprotected from malicious attacks.
 
 But if you need to, the CSRF protection can be deactivated in the file `security-config.properties` for the whole platform.
-The default version of this file is located in `setup/platform_conf/initial/platform_portal`. In order to change the configuration on an installation whose platform has already been initialized, use the xref:ROOT:bonita-platform-setup.adoc[platform setup tool] to retrieve the current configuration and update the file in `setup/platform_conf/current/platform_portal`. Then use the tool again to save your changes into to the database.
+The default version of this file is located in `setup/platform_conf/initial/platform_portal`. In order to change the configuration on an installation whose platform has already been initialized, use the xref:runtime:bonita-platform-setup.adoc[platform setup tool] to retrieve the current configuration and update the file in `setup/platform_conf/current/platform_portal`. Then use the tool again to save your changes into to the database.
 
 When CSRF protection is enabled, this file contains this line:
 `security.csrf.enabled true`
@@ -59,7 +59,7 @@ To disable the CSRF protection, edit the configuration file and change the `secu
 You can set the secure flag on the `X-Bonita-API-Token` cookie to make sure the browser will only transmit the cookie if the page is HTTPS.
 
 Activating the addition of the secure flag can be done in the file `security-config.properties` for the whole platform.
-The default version of this file is located in `setup/platform_conf/initial/platform_portal`. In order to change the configuration on an installation whose platform has already been initialized, use the xref:ROOT:bonita-platform-setup.adoc[platform setup tool] to retrieve the current configuration and update the file in `setup/platform_conf/current/platform_portal`. Then use the tool again to save your changes into to the database.
+The default version of this file is located in `setup/platform_conf/initial/platform_portal`. In order to change the configuration on an installation whose platform has already been initialized, use the xref:runtime:bonita-platform-setup.adoc[platform setup tool] to retrieve the current configuration and update the file in `setup/platform_conf/current/platform_portal`. Then use the tool again to save your changes into to the database.
 
 When the secure flag is not active, the file contains this line:
 `security.csrf.cookie.secure false`

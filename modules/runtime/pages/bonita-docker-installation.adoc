@@ -341,7 +341,7 @@ Setup tool can be used outside the Docker container directly by downloading the 
 The setup tool needs to be able to access the database. Because of that, if the database is in a docker container, its port must be exposed to the host.
 ====
 
-See xref:ROOT:bonita-platform-setup.adoc#update_platform_conf[setup tool page] for more information.
+See xref:runtime:bonita-platform-setup.adoc#update_platform_conf[setup tool page] for more information.
 
 
 == Troubleshoot and debug problems inside a Docker container
