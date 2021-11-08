@@ -50,7 +50,7 @@ Pages and forms created with the UI designer rely on the REST APIs to manage dat
 
 In addition to the standard APIs and resources, you can define xref:api:rest-api-extensions.adoc[REST API extensions].
 
-REST API Extension can either be created in the xref:api:rest-api-extensions.adoc[Studio] or with the xref:rest-api-extension-archetype.adoc[dedicated Maven archetype].
+REST API Extension can either be created in the xref:api:rest-api-extensions.adoc[Studio] or with the xref:api:rest-api-extension-archetype.adoc[dedicated Maven archetype].
 
 Custom REST API extensions developed with the Maven archetype are added to a Bonita project from the xref:ROOT:managing_extension_studio.adoc[extension view].
 

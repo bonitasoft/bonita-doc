@@ -20,7 +20,7 @@ Bonita provides a default theme, available in Bonita Studio and Bonita Runtime. 
 Developers can xref:ROOT:customize-living-application-theme.adoc[create a custom theme] using their favorite development environment, and then add it as an xref:software-extensibility.adoc[extension] in the project. +
 
 Bonita UI Designer comes with a set of xref:ROOT:widgets.adoc[provided containers and widgets]. +
-xref:ROOT:custom-widgets.adoc[Custom widgets] can also be created to make the palette richer. +
+xref:custom-widgets.adoc[Custom widgets] can also be created to make the palette richer. +
 Those are developped by professional developers, from scratch or from an https://community.bonitasoft.com/project[existing project] of the Community. +
 
 The following chapters give more information on how to develop all the others elements in the UI Designer.
@@ -61,23 +61,23 @@ Only Bonita pages created with the UI Designer can be customized in the UI Desig
 
 You can find the list of pages ready for customization in a xref:ROOT:pages.adoc#_List_of_Bonita_Applications_customizable_pages[dedicated documentation page].
 
-For more technical information about the pages, visit xref:ROOT:pages-development.adoc[the dedicated documentation page]. 
+For more technical information about the pages, visit xref:ROOT:pages-development.adoc[the dedicated documentation page].
 
 == Create a layout
 
 === From the provided Bonita layout
-==== If you have not installed any Bonita application in your project in Bonita Studio 
+==== If you have not installed any Bonita application in your project in Bonita Studio
 
 . From Bonita Studio, click on the *_Applications_* icon and select either the Administrator or Super Administrator application
 . Go to the *_Resources_* menu option
-. If needed, filter the type by _Layout_, and select *_Bonita Layout_* 
+. If needed, filter the type by _Layout_, and select *_Bonita Layout_*
 . Click on the *_Export_* button
 . From Bonita Studio, click on the *_UI Designer_* icon to open the UI Designer
-. Click on the *_Import_* button 
+. Click on the *_Import_* button
 . Find the Bonita layout you have exported and load it
 . Edit it and save it with another name
 
-==== If you have installed a Bonita application 
+==== If you have installed a Bonita application
 
 . In Bonita Studio, go to the _Project Explorer_
 . Open the project, and the _Pages/Forms/Layouts_ section
