@@ -1,7 +1,7 @@
 = User list in Bonita Administrator Application
-:description: This page explains what a user with the _Administrator_ profile can see and do about the users (of the organization) in link:admin-application-overview[Bonita Administrator Application].
+:description: This page explains what a user with the Administrator profile can see and do about the users in Bonita Administrator Application.
 
-This page explains what a user with the _Administrator_ profile can see and do about the users (of the organization) in link:admin-application-overview[Bonita Administrator Application].
+This page explains what a user with the _Administrator_ profile can see and do about the users (of the organization) in xref:admin-application-overview.adoc[Bonita Administrator Application].
 
 Here is a view of this page:
 image:images/UI2021.1/admin-application-users-list.png[Administrator user list Portal]

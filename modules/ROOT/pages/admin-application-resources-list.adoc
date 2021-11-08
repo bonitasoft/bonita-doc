@@ -1,7 +1,7 @@
 = Resources list in the Bonita Administrator Application
-:description: This page defines the term "Resources" and explains what a user with the _Administrator_ profile can see and do about resources in link:admin-application-overview[Bonita Administrator Application].
+:description: This page defines the term "Resources" and explains what a user with the Administrator profile can see and do about resources in Bonita Administrator Application.
 
-This page defines the term "Resources" and explains what a user with the _Administrator_ profile can see and do about resources in link:admin-application-overview[Bonita Administrator Application].
+This page defines the term "Resources" and explains what a user with the _Administrator_ profile can see and do about resources in xref:admin-application-overview.adoc[Bonita Administrator Application].
 
 _Administrators_ can view a list of the resources filtered by type, search a resource by its name, install new resources, update existing resources, or delete resources.
 

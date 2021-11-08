@@ -44,7 +44,7 @@ The first step is the design of the process "happy path."
 While drawing the model, you will use and learn about some basic BPMN elements used in most process diagrams:
 
 * xref:pools-and-lanes.adoc[Pool]: a pool is a container for a process in a diagram.
-* xref:pools-and-lanes.adoc[Lanes]: a lane is a division of a pool. Typically, a lane contains all the tasks assigned to one link:actors[actor].
+* xref:pools-and-lanes.adoc[Lanes]: a lane is a division of a pool. Typically, a lane contains all the tasks assigned to one xref:actors.adoc[actor].
 * xref:events.adoc[Start and end events]: a start event is at the start of a process flow, and an end event is at the end of a flow.
 * xref:diagram-tasks.adoc[Tasks]: a task is a type of activity in a process.
 * xref:gateways.adoc[Gateways]: gateways are used to control how sequence flows interact within a process.
