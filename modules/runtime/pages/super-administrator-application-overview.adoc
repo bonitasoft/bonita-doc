@@ -1,6 +1,6 @@
 = Bonita Super Administrator Application overview
 :page-aliases: ROOT:super-administrator-application-overview.adoc
-:description: This pages describes Bonita _Super Administrator Application_: its values, how to access it, and how to customize it. +
+:description: This pages describes Bonita _Super Administrator Application_: its values, how to access it, and how to customize it.
 
 {description}
 
@@ -9,7 +9,7 @@
 This application is only available to the user with the xref:ROOT:special-users.adoc#_technical_user[Technical User] credentials. +
 It is the tool needed to:
 
-* Bootstrap a Bonita Runtime in Non-Production and Production environments, for example, xref:first-steps-after-setup#_create_a_bonita_administrator_profile[creating the administrators]
+* Bootstrap a Bonita Runtime in Non-Production and Production environments, for example, xref:first-steps-after-setup.adoc#_create_a_bonita_administrator_profile[creating the administrators]
 * Pause BPM Services to perform maintenance operations, among which the update of the Business Data Model (and the related database migration)
 * Apply temporary fixes to some projects elements (resources, applications, organization entities) to recover from errors
 
@@ -36,15 +36,15 @@ This default user can be changed by opening the organization editor. +
 By default, in our provided ACME organization, the default user is Walter Bates, logged as "walter.bates", with password "bpm". +
 
 . Log out
-. Log back in with the Technical User credentials. In Bonita Studio, use the username: `install` and password `install`. 
+. Log back in with the Technical User credentials. In Bonita Studio, use the username: `install` and password `install`.
 . In the Application Directory, select _Bonita Super Administrator Application_
 
 You are now logged in Bonita Super Administrator Application.
 
-To access its content: 
+To access its content:
 
 . From Bonita Super Administrator Application menu, click on "Applications"
-. On the "Bonita Super Administrator Application" row, click on the "..." _View application details_ icon 
+. On the "Bonita Super Administrator Application" row, click on the "..." _View application details_ icon
 
 
 == Status
@@ -71,9 +71,9 @@ The new logo is applied.
 
 To update the layout and/or theme:
 
-. Create a new xref:ROOT:layout-development.adoc[layout] and/or xref:customize-living-application-theme.adoc[theme]
+. Create a new xref:ROOT:layout-development.adoc[layout] and/or xref:applications:customize-living-application-theme.adoc[theme]
 . Go the _Resources_ tab
-. Install it 
+. Install it
 . Go back to the application details
 . Click on the current layout or theme
 . Select the new one from the drop down list

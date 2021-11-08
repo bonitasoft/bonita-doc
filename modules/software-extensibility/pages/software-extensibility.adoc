@@ -70,7 +70,7 @@ You can then use your custom widget in pages, forms, and fragments.
 
 === Living Application Themes
 
-Custom themes are developed outside the Studio with a dedicated Maven archetype. Consult this page for more information: xref:ROOT:customize-living-application-theme.adoc[Create an theme]
+Custom themes are developed outside the Studio with a dedicated Maven archetype. Consult this page for more information: xref:applications:customize-living-application-theme.adoc[Create an theme]
 
 === Import and export exchange files
 

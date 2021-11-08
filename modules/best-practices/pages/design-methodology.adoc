@@ -127,7 +127,7 @@ If the project is a Case Management project, you can customize the provided proj
 The create-or-modify-a-page.adoc [creation of pages] is done directly in the UI Designer embedded in Bonita Studio. +
 
 From the UI Designer, you can also define the xref:ROOT:layout-development.adoc[_layout_] of the application, although Bonita provides an efficient xref:bonita-layout.adoc[default Layout]. +
-A xref:ROOT:customize-living-application-theme.adoc[_theme_] can also be defined to match the graphical design charter of the company. This can be done my customizing one of Bonita's provided themes. +
+A xref:applications:customize-living-application-theme.adoc[_theme_] can also be defined to match the graphical design charter of the company. This can be done my customizing one of Bonita's provided themes. +
 The theme needs some coding (CSS, html) skills to be created or customized. Once developed in the developer's favorite IDE, it needs to be made available to the project as an xref:ROOT:software-extensibility.adoc[extension].
 
 === Profiles and applications

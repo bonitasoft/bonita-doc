@@ -31,10 +31,10 @@ To access the application:
 
 You are now logged in the Bonita User Application.
 
-To access its content: 
+To access its content:
 
 . From the Bonita Administrator Application menu, click on "Applications"
-. On the "Bonita User Application" row, click on the "..." _View application details_ icon 
+. On the "Bonita User Application" row, click on the "..." _View application details_ icon
 
 == Access in Non-Production and Production environments
 
@@ -70,14 +70,14 @@ After validation, the application is imported or cloned; you can view its conten
  * All pages previously created using Google Web Toolkit framework have been recreated with Bonita UI Designer. They can be customized in the UI Designer. They come with the User Application you have download from Bonita Studio. You will see them in the Project Explorer.
  * All pages previously created in other, more recent technologies, have been wrapped as _custom pages_. They cannot be customized in the UI Designer. Since they cannot be imported in a .bos archive, they do not come with the User Application you have downloaded. Instead, they come as provided resources. You can find them in the "Resources" tab of the application.
 . Double-click on the page. It opens in the UI Designer. You can start editing the page.
-. Save it when you are done. Save it as another page if you need to keep Bonita's original page for further use. 
+. Save it when you are done. Save it as another page if you need to keep Bonita's original page for further use.
 
 Saving in the UI Designer makes the new page available in Bonita Studio.
 
 === Change its navigation menu
 
 . Get all the application's pages available:
- * If you have created new pages in the UI Designer and saved them, they are ready to be used in an application menu. 
+ * If you have created new pages in the UI Designer and saved them, they are ready to be used in an application menu.
  * If you have created new pages in another IDE, go to the *Resources* menu option of the Administrator application, and Install your pages.
    At deployment time, since these external resources are not part of the project, make sure you also deploy them.
 . In Bonita Studio, go to the "Project Explorer" on the left and double click on the "bonita-user-application.xml" application descriptor.
@@ -99,7 +99,7 @@ It should be done upon deployment in a Non-Production or Production environment.
 ====
 
 . Create the new logo. Supported formats/extensions are: png, jpg, jpeg, gif, bmp, wbmp, tga. Maximum size: 100 KB
-. Go to the application details: *Applications* icon in the coolbar > "Administrator application > "Applications" menu > "..." icon for Bonita User application. 
+. Go to the application details: *Applications* icon in the coolbar > "Administrator application > "Applications" menu > "..." icon for Bonita User application.
 . Click on the "Upload new picture" button below the current logo
 . Select the new logo
 
@@ -123,7 +123,7 @@ The new layout is applied.
 
 === Change its theme
 
-. Create a new xref:ROOT:customize-living-application-theme.adoc[theme] 
+. Create a new xref:applications:customize-living-application-theme.adoc[theme]
 . Go to the Administrator application > *Resources*
 . Install the new theme
 . Go back to the application descriptor

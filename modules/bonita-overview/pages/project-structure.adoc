@@ -100,7 +100,7 @@ However, it is not required to use all the concepts to create a valid Bonita Aut
 |xref:ROOT:themes.adoc[Theme]
 |Defines the look and feel of your application
 |A default theme is provided and you can create custom theme
-|Studio or xref:ROOT:customize-living-application-theme.adoc[Dedicated SDK] (custom theme)
+|Studio or xref:applications:customize-living-application-theme.adoc[Dedicated SDK] (custom theme)
 |--
 
 |===
@@ -128,7 +128,7 @@ Extensions can be developed outside of the Studio with your favorite IDE.
 
 |Theme
 |When the provided theme do not cover your requirements
-|xref:ROOT:customize-living-application-theme.adoc[Dedicated SDK]
+|xref:applications:customize-living-application-theme.adoc[Dedicated SDK]
 
 |REST API Extension
 |To interact with third party system outside processes, to make advanced BDM queries or API calls (read only)
