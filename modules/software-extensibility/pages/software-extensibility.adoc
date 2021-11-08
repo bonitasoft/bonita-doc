@@ -29,7 +29,7 @@ Custom connectors are added to a Bonita project from the xref:ROOT:managing_exte
 
 Bonita comes with a set of xref:ROOT:actor-filtering.adoc[standard actor filters] that can be used to reduce the list of candidates for process tasks.
 
-Actor filters are developped outside the Studio with a dedicated Maven archetype. Consult this page for more information:xref:ROOT:actor-filter-archetype.adoc[Create an actor filter]
+Actor filters are developed outside the Studio with a dedicated Maven archetype. Consult this page for more information:xref:ROOT:actor-filter-archetype.adoc[Create an actor filter]
 
 Custom actor filters are added to a Bonita project from the xref:ROOT:managing_extension_studio.adoc[extension view].
 
