@@ -4,7 +4,7 @@
 {description} +
 A REST API extension allows to extend REST Resources using Bonita, to get or send information in a page or a form.
 
-To learn more on how to create REST API Extensions, refer to the xref:ROOT:rest-api-extensions.adoc[tooling for creating and testing REST API Extensions] page (Enterprise, Performance, Efficiency, and Teamwork editions).
+To learn more on how to create REST API Extensions, refer to the xref:api:rest-api-extensions.adoc[tooling for creating and testing REST API Extensions] page (Enterprise, Performance, Efficiency, and Teamwork editions).
 
 == Deploy a REST API Extension
 
@@ -15,7 +15,7 @@ REST API Extensions use the same authorization mechanism as the standard Bonita 
 [NOTE]
 ====
 
-It is also possible to deploy a REST API Extensions using xref:ROOT:portal-api.adoc#page[REST portal API / "page" resource].
+It is also possible to deploy a REST API Extensions using xref:api:portal-api.adoc#page[REST portal API / "page" resource].
 ====
 
 [NOTE]
@@ -47,7 +47,7 @@ A page that uses REST API Extensions must add the required resources in the page
 
 If the page declares its resources correctly, then every user being able to access this page (because it is part of a custom profile or Living Application they have access to)
 will also be automatically granted the necessary permissions to call the REST API Extensions. This works the same way as with the other resources of the REST API. +
-However, if you need to grant access to this REST API Extensions to some users regardless of the pages they have access to, then you need to add xref:ROOT:rest-api-authorization.adoc#custom-permissions-mapping[custom permissions] for these users. +
+However, if you need to grant access to this REST API Extensions to some users regardless of the pages they have access to, then you need to add xref:api:rest-api-authorization.adoc#custom-permissions-mapping[custom permissions] for these users. +
 In order to do so, edit `custom-permissions-mapping.properties` to give the permissions (value of the property `apiExtension.permissions`) declared in the page.properties of the REST API Extensions to the required profiles or users.
 
 [NOTE]

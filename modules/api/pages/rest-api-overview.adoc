@@ -69,7 +69,7 @@ See xref:ROOT:rest-api-authentication.adoc[REST Authentication] details to under
 
 == API Extensions
 
-You can create xref:ROOT:rest-api-extensions.adoc[Rest API Extensions] to extend the Rest API by adding missing ressources (not provided by the Rest API).
+You can create xref:api:rest-api-extensions.adoc[Rest API Extensions] to extend the Rest API by adding missing ressources (not provided by the Rest API).
 It is possible for an extension to interact with the engine (via the API) or with any other external service (for example a database, a directory, or a web service).
 
 == Create a resource

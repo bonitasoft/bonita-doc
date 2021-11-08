@@ -17,17 +17,17 @@ These extension points are guaranteed to be stable across versions of Bonita 7: 
 
 === Connectors
 
-Bonita comes with more than 80 xref:ROOT:connectivity-overview.adoc[standard connectors] to the major information system components: major databases (Oracle, Microsoft, Postgres, etc.), SOAP Webservice, Salesforce, Email, etc.
+Bonita comes with more than 80 xref:process:connectivity-overview.adoc[standard connectors] to the major information system components: major databases (Oracle, Microsoft, Postgres, etc.), SOAP Webservice, Salesforce, Email, etc.
 
-However you create your own connectors to have new connectivity capabilities for processes.
+However, you create your own connectors to have new connectivity capabilities for processes.
 
-Connectors are developped outside the Studio with a dedicated Maven archetype. Consult this page for more information: xref:ROOT:connector-archetype.adoc[Create a connector].
+Connectors are developed outside the Studio with a dedicated Maven archetype. Consult this page for more information: xref:process:connector-archetype.adoc[Create a connector].
 
 Custom connectors are added to a Bonita project from the xref:ROOT:managing_extension_studio.adoc[extension view].
 
 === Actor filters
 
-Bonita comes with a set of xref:ROOT:actor-filtering.adoc[standard actor filters] that can be used to reduce the list of candidates for process tasks.
+Bonita comes with a set of xref:process:actor-filtering.adoc[standard actor filters] that can be used to reduce the list of candidates for process tasks.
 
 Actor filters are developed outside the Studio with a dedicated Maven archetype. Consult this page for more information:xref:ROOT:actor-filter-archetype.adoc[Create an actor filter]
 
@@ -45,12 +45,12 @@ ProcessBuilder and Business Objects DAO are examples of APIs that can be leverag
 
 === REST API
 
-The xref:ROOT:rest-api-overview.adoc[REST APIs] enable you to integrate your Bonita processes into your application and execute operations on Bonita objects including business objects.
+The xref:api:rest-api-overview.adoc[REST APIs] enable you to integrate your Bonita processes into your application and execute operations on Bonita objects including business objects.
 Pages and forms created with the UI designer rely on the REST APIs to manage data.
 
-In addition to the standard APIs and resources, you can define xref:ROOT:rest-api-extensions.adoc[REST API extensions].
+In addition to the standard APIs and resources, you can define xref:api:rest-api-extensions.adoc[REST API extensions].
 
-REST API Extension can either be created in the xref:ROOT:rest-api-extensions.adoc[Studio] or with the xref:rest-api-extension-archetype.adoc[dedicated Maven archetype].
+REST API Extension can either be created in the xref:api:rest-api-extensions.adoc[Studio] or with the xref:rest-api-extension-archetype.adoc[dedicated Maven archetype].
 
 Custom REST API extensions developed with the Maven archetype are added to a Bonita project from the xref:ROOT:managing_extension_studio.adoc[extension view].
 
