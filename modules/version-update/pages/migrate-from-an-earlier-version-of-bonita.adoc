@@ -35,7 +35,7 @@ The following are not migrated automatically:
 * Deployed process definitions: The processes will continue to run using the definition created in the previous version of Bonita.
 * Process definition sources (`.bos` files): Migrate these by importing them into the new version of Bonita Studio.
 * +++<a id="bdm_redeploy">++++++</a>+++Business Data Model, and the business database: if the updating path includes version `7.0.0`,`7.2.0` or `7.2.4`, the Business Data Model must be redeployed after the update. To do so:
-  . Before the update, log into the Super Administrator application 
+  . Before the update, log into the Super Administrator application
   . Pause the BPM Services
   . xref:ROOT:define-and-deploy-the-bdm.adoc[Redeploy the BDM] once the update is done.
   Otherwise, no action is required.
@@ -60,7 +60,7 @@ Indeed, such maintenance versions might contain bug fixes made after the release
 For example, Bonita 6.5.4 contains fixes to certain bugs that were found in early Bonita 7.x.y versions, up to Bonita 7.1.0. +
 When you are ready to update from Bonita 6.5.4 to a Bonita 7.x.y version, make sure you update to at least Bonita 7.1.1 to be sure that these fixes are present in your new version after the update.
 
-=== Update + Upgrade? 
+=== Update + Upgrade?
 Bonita Migration Tool modifies files on your runtime, so you cannot xref:ROOT:upgrade-from-community-to-a-subscription-edition.adoc[change edition] at the same time as updating.
 
 === Licenses
@@ -186,7 +186,7 @@ Specify the following information:
 [NOTE]
 ====
 *If you are using MySQL, add `?allowMultiQueries=true` to the URL. +
-For example, `db.url=jdbc:mysql://localhost:3306/bonita-update?allowMultiQueries=true`. 
+For example, `db.url=jdbc:mysql://localhost:3306/bonita-update?allowMultiQueries=true`.
 ====
 
 === Look & Feel
@@ -222,10 +222,10 @@ Generally speaking, pausing (or not) the BPM services before the update should n
 Starting from Bonita Migration Tool 2.44.1, an additional script called `check-migration-dryrun` is present in the same folder. This script only runs the checks the real update would run, without actually migrating the elements. This is equivalent to running the migration script with a `--verify` option. +
 
 === Once the script is started
-. The script detects the current version of Bonita, and displays a list of the versions that you can update to. 
-. Specify the version you require. 
+. The script detects the current version of Bonita, and displays a list of the versions that you can update to.
+. Specify the version you require.
 . The updating procedure starts
-. As the script runs, it displays messages indicating progress. After each step, you are asked to confirm whether you want to proceed to the next step. You can pause the updating procedure by answering `no`. 
+. As the script runs, it displays messages indicating progress. After each step, you are asked to confirm whether you want to proceed to the next step. You can pause the updating procedure by answering `no`.
  To suppress the confirmation questions, so that the update can run unattended, set the ` (-Dauto.accept=true)` system  property.
 . When the migration script is finished, a message is displayed showing the new Runtime version, and the time taken for migrating all the elements. The database has been updated.
 
@@ -441,7 +441,7 @@ If the target version is Bonita 7.8.4, skip this section and jump directly to th
 
 ==== Configure the Oracle database server
 
-. Configure the Oracle database server, in particular activate the XA transactions management: see the _Oracle Database_ section in the link:database-configuration[Database creation and configuration for Bonita engine and BDM] page
+. Configure the Oracle database server, in particular activate the XA transactions management: see the _Oracle Database_ section in the xref:runtime:database-configuration.adoc[Database creation and configuration for Bonita engine and BDM] page
 . Install the missing Oracle components
 . Execute the SQL scripts to _install_ XA management elements
 . Execute the SQL requests to GRANT the proper rights to the Oracle users; for both Bonita BPM and BDM schemas
