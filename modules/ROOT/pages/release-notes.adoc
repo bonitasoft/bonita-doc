@@ -99,6 +99,7 @@ Bonita Portal is now removed, meaning that:
 * The Analytics page is also temporarilly discontinued
 
 *Mobile Portal removal*
+
 As Bonita User Application can be used on mobile devices thanks to the responsive Bonita layout, the Mobile Portal is no longer needed.
 
 [#_custom_profile_navigation_conversion]
