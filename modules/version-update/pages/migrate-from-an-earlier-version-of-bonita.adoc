@@ -149,7 +149,7 @@ or from the https://customer.bonitasoft.com/download/request[Customer Service Ce
 === Database
 . Check that your current RDBMS version is compliant with the versions supported by the targeted version of Bonita (see <<rdbms_requirements,above>>)
 . Unzip the migration tool zip file into a directory. In the steps below, this directory is called `bonita-update`
-. If you use Oracle or Microsoft SQL Server, add the JDBC driver for your database to `bonita-update/lib`. This is the same driver as you have installed in your web server `lib` directory. The driver for Oracle 19.3.0.0 in already embedded in `bonita-update/lib`. If the target version of the update is Bonita 7.9 or greater, you must upgrade to xref:ROOT:migrate-from-an-earlier-version-of-bonita-bpm.adoc#oracle12[Oracle 12c (12.2.x.y)]. +
+. If you use Oracle or Microsoft SQL Server, add the JDBC driver for your database to `bonita-update/lib`. This is the same driver as you have installed in your web server `lib` directory. The driver for Oracle 19.3.0.0 in already embedded in `bonita-update/lib`. If the target version of the update is Bonita 7.9 or greater, you must upgrade to <<oracle12, Oracle 12c (12.2.x.y)>>. +
 Make sure you double-check that you use the official driver version that matches your database version. +
 The correct driver is mandatory for a smooth update: xref:ROOT:database-configuration.adoc#proprietary_jdbc_drivers[follow the instructions for Oracle driver download.] Particularly, if you use Oracle 12.2.0.x.y and are updating to Bonita 7.9.n or 7.10.n, then remove the existing `ojdbc8-19.3.0.0.jar` file, and add the specific JDBC driver to `bonita-update/lib`.
 . Configure the database properties needed by the migration script, by editing `bonita-update/Config.properties`. +
@@ -645,7 +645,7 @@ The step works at "best effort":
 * Beware that if one of these connectors' removed dependencies was used in one your scripts, it will still be removed/updated, and therefore your scripts might not work anymore after the update. The full list of updated and deleted dependencies can be found below.
 
 From Bonita 7.9 and greater versions, the supported version of Oracle database is *12c (12.2.x.y)*
-To update to Bonita 7.9 or a greater version from an earlier version than Oracle 12c (12.2.x.y), see xref:ROOT:migrate-from-an-earlier-version-of-bonita-bpm.adoc#oracle12[Updating to Bonita 7.9 or greater versions using Oracle].
+To update to Bonita 7.9 or a greater version from an earlier version than Oracle 12c (12.2.x.y), see <<oracle12, Updating to Bonita 7.9 or greater versions using Oracle>>.
 
 ==== WebService connector
 

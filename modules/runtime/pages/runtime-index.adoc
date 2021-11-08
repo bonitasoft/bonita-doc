@@ -42,5 +42,5 @@ xref:runtime-optimization-index.adoc[[.card-title]#Optimization# [.card-body.car
 
 [.card.card-index]
 --
-xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[[.card-title]#Update Bonita Runtime# [.card-body.card-content-overflow]#pass:q[At a glance: Flow, Best Practices and caveat]#]
+xref:version-update:migrate-from-an-earlier-version-of-bonita.adoc[[.card-title]#Update Bonita Runtime# [.card-body.card-content-overflow]#pass:q[At a glance: Flow, Best Practices and caveat]#]
 --
