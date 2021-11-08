@@ -4,7 +4,7 @@
 
 {description}
 
-A dependency is an external module, not provided by the Bonita runtime, that is used by a process. It can be an xref:ROOT:managing-extension-studio.adoc[extension] or any third party jar to you may need in your process.
+A dependency is an external module, not provided by the Bonita runtime, that is used by a process. It can be an xref:bonita-overview:managing-extension-studio.adoc[extension] or any third party jar to you may need in your process.
 
 You can have an overview of your project dependencies using the project _Overview_ in a Bonita Studio. From there you can navigate to the _Extensions_ view.
 This view only displays the root dependencies. In most cases, a java dependency has transitive dependencies. Bonita Studio helps you deal with those transitive dependencies by using Apache Maven as a dependency management tool for your Bonita project.
@@ -21,12 +21,12 @@ Now if you need a specific dependency you can select the _Other_ category in the
 [NOTE]
 ====
 It is at this time that if a root dependency have transitive dependencies, they are automatically added in configuration.
-==== 
+====
 
 == Dependencies conflicts
 
 You can have to deal with dependency conflict when adding dependencies in a process configuration. A warning is displayed on jars that are already presents in the Bonita runtime and that may cause issue at runtime.
-If the dependency version is the same between the Bonita runtime and your dependency you can delete or deselect the corresponding jar from the dependency tree of the _Process dependencies_ tab. If they are not in the same version, you can opt to leave both versions but it is highly recommended to align the conflicting dependency version with the one provided by the Bonita runtime. 
+If the dependency version is the same between the Bonita runtime and your dependency you can delete or deselect the corresponding jar from the dependency tree of the _Process dependencies_ tab. If they are not in the same version, you can opt to leave both versions but it is highly recommended to align the conflicting dependency version with the one provided by the Bonita runtime.
 
 == Incompatible dependencies
 

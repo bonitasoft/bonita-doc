@@ -306,5 +306,5 @@ A connector project is built using Maven, and especially the https://maven.apach
 
 The default build output is:
 
-*  `target/[artifact id]-[artifact version].jar` : This jar can be xref:ROOT:managing-extension-studio.adoc[installed in a Bonita project] from the Studio.
+*  `target/[artifact id]-[artifact version].jar` : This jar can be xref:bonita-overview:managing-extension-studio.adoc[installed in a Bonita project] from the Studio.
 *  `target/[artifact id]-[artifact version]-impl.zip` : An archive containing a single implementation.footnote:liveupdate[]

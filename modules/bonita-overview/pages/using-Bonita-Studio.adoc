@@ -5,7 +5,7 @@
 {description}
 
 == Structure
-Here is the default Studio structure: 
+Here is the default Studio structure:
 
 * a top, main menu
 * a "coolbar" with generic features
@@ -20,12 +20,12 @@ You can play with the organization of the tabs and areas. If you get lost, use t
 == Welcome page
 The Welcome page is displayed upon the first opening of the Studio. +
 It gives access to a lot of resources to help you during the lifetime of the project. +
-The welcome page can be opened at any time by clicking on the "Welcome" icon of the coolbar. 
+The welcome page can be opened at any time by clicking on the "Welcome" icon of the coolbar.
 
 == Project overview
 The project overview is accessible from the Studio coolbar. It provides an overview of the different elements of your project and those you can use to create a state-of-the-art Bonita project.
 
-From the overview, you can access the xref:ROOT:managing-extension-studio.adoc[extension] view of your project.
+From the overview, you can access the xref:bonita-overview:managing-extension-studio.adoc[extension] view of your project.
 
 == Preferences
 The "Preferences" icon in the studio's coolbar allows a full set of configurations. Find the list and how to use them in xref:ROOT:bonita-bpm-studio-preferences.adoc[Bonita Studio preferences]

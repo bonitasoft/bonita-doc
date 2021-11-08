@@ -4,12 +4,12 @@
 
 {description}
 
-image:images/project phases.png[Project phases] 
+image:images/project phases.png[Project phases]
 
 == Project discovery and design
- 
+
 === Project discovery
- 
+
 Discovering the project accounts for the finding of the first process within a company or a department, eligible to automation, that will benefit from the full power of Bonita while providing the biggest value to the end-users once in production. This process must be core to the business of the company or department. +
 Eventually, this one process may be rendered by several BPMN processes, all of them handling different aspects of the business process identified. +
 
@@ -27,7 +27,7 @@ Defining the automation project scope means defining how it will be owned (gover
 
 * _Governance_: The people who will be accountable of the quality of the overall project, but also of the quality of the underlying processes. Those can be different teams.
 * _Project team_: The people who contribute coding skills, business skills, project management skills, and other needed skills (database, testing, security...) to the project
-* _Users_: The people who will benefit from the project, both at management and actual end-users levels. 
+* _Users_: The people who will benefit from the project, both at management and actual end-users levels.
 * _Usage_: The times, frequency and periodicity of use, the number of simultaneous accesses to plan for for the main use-cases, but also- for the exceptional use-cases
 * _Information_: The business domain the project encompasses, where the data will be stored, what amount of data is expected, what flow data will follow in the company's information systems
 * _Security_: The kind of risks and controls needed for people using the application
@@ -38,7 +38,7 @@ Defining the automation project scope means defining how it will be owned (gover
 Early on, the project team needs to figure out what type of an automation project they will create:
 
 * RPA or not RPA: when there are legacy systems to connect to, that are not reachable through Java or REST APIs, there is a need to insert small robots that will act as humans to copy/paste information from one system to the other or perform other low-value tasks along the process. The project then enters the xref:uipath#_job_configuration[Robotic Process Automation (RPA)] world, which Bonita supports with its partnership with UiPath. +
-* Web application or no web application: if there are not many users in the process, like the automated execution of a backup recovery plan in a data center, the automation project may not need a web application. Most of the time, it does. 
+* Web application or no web application: if there are not many users in the process, like the automated execution of a backup recovery plan in a data center, the automation project may not need a web application. Most of the time, it does.
 
 There are three main kinds of applications to choose from at an early stage, based on the type of interaction they create:
 
@@ -75,7 +75,7 @@ Through the process and user interfaces workshops, the business data model is id
 
 == Configuration - Installation
 
-While the project team works on the content of the project, the development team needs to xref:ROOT:setup-dev-environment-index.adoc[set up their development environment], to easily version and share the project, as well as automate the project builds. +
+While the project team works on the content of the project, the development team needs to xref:setup-dev-environment:setup-dev-environment-index.adoc[set up their development environment], to easily version and share the project, as well as automate the project builds. +
 For Subscription editions users, this is also the time to configure https://documentation.bonitasoft.com/bcd/latest/[Bonita Continuous Delivery]. +
 
 Moreover, if the project will be deployed on premises, the infrastructure team works on the installation of the non-production and production environments. +
@@ -83,20 +83,20 @@ There are many options for how Bonita can be installed: see the xref:ROOT:bonita
 
 == Implementation - Test I: Make sure the process does what it should
 
-=== Processes, Data, People 
+=== Processes, Data, People
 
 Using Bonita Studio, anyone trained to the https://www.bpmn.org/[Business Process Model and Notation] as a citizen developer or professional developer can quickly implement BPMN versions of the xref:ROOT:diagrams-index.adoc[processes],  xref:define-and-deploy-the-bdm.adoc[Business Data Model], specify the xref:documents-index.adoc[documents] handled by the processes, as well as create business variables in the processes. +
 
 It is also very easy to create the xref:ROOT:actors-index.adoc[actors] that will start the processes and execute each human task, create a xref:organization-overview.adoc[sandbox organization] in Bonita Studio, and then configure the mapping between each actor and the organization entities for testing purposes. +
-If the actor is linked to the process execution (like _the same person who executed the previous task_), an actor filter must be created as xref:ROOT:managing-extension-studio.adoc[an extension] by the professional developers and be xref:software-extensibility.adoc[made available] to the project. +
+If the actor is linked to the process execution (like _the same person who executed the previous task_), an actor filter must be created as xref:bonita-overview:managing-extension-studio.adoc[an extension] by the professional developers and be xref:software-extensibility.adoc[made available] to the project. +
 
 Then, for each process instantiation and human task, a xref:ROOT:contracts-and-contexts.adoc[_contract_] must be defined, that state to each form what a task needs to be executed, or what the process needs to start. The information needed can be a new information to create, or an existing information to edit. +
 This contract will be evaluated when the form presents its output to the process. +
 
 As for the user interfaces per se, at this stage, Bonita provides auto-generated forms that allow the early testing of the process execution. +
 
-=== Connectors 
-For now, connectors responses must be mocked by scripts made available by the professional developers to the project as xref:ROOT:managing-extension-studio.adoc[extensions]. +
+=== Connectors
+For now, connectors responses must be mocked by scripts made available by the professional developers to the project as xref:bonita-overview:managing-extension-studio.adoc[extensions]. +
 The exception to that could be the notifications (when a task is ready, when a task is executed), rendered in Bonita with an email connector. xref:ROOT:configure-email-connector.adoc[Configuring the email connectors] could help in gathering feedback in this first implementation phase.
 
 === Tips
@@ -120,7 +120,7 @@ All along this first implementation phase, feedback must be taken from the proce
 
 In Bonita Studio, in the pools _Execution_ properties (instantiation form and case overview), and in each human tasks _Execution_ properties (task forms), you will find a tool that creates the first version of the forms, based on the contracts. These first versions can be customized later on. +
 
-=== Application pages 
+=== Application pages
 
 Besides the forms, and following the findings of the UI workshops, application pages may be needed to display generic information about business data. They can also replace a form when all the user needs to do is clicking on a _Approve_ or _Reject_ button.+
 If the project is a Case Management project, you can customize the provided project. +
@@ -142,7 +142,7 @@ You can either create an application from scratch, or customize a Bonita applica
 In this latter case, choose well, as each application is devoted to a special business need:
 
 * Bonita Super Administrator application: bootstrap Bonita after the deployment in a non-production or production environment
-* Bonita Administrator application: monitor the execution of the process instances and troubleshoot 
+* Bonita Administrator application: monitor the execution of the process instances and troubleshoot
 * Bonita User Application: Start processes and execute tasks
 * Bonita Application Directory application: display all applications the logged user can access
 * Adaptive Case Management example for Case Management. Note that this example is only available for the Enterprise edition.
@@ -173,15 +173,15 @@ However, our team of Professional Services consultants can assist you in the cus
 To know about the pages that can be customized, go to the xref:ROOT:create-or-modify-a-page.adoc#[create a page] documentation page.
 
 === Connectors - final implementation
-To use a connector, it must first be declared as a dependency of the project. This is done from the Studio xref:ROOT:managing-extension-studio.adoc[_Extensions_] page. The connector can be found in Bonita Marketplace or can be xref:software-extensibility.adoc[made available] the professional developers of the project team. +
+To use a connector, it must first be declared as a dependency of the project. This is done from the Studio xref:bonita-overview:managing-extension-studio.adoc[_Extensions_] page. The connector can be found in Bonita Marketplace or can be xref:software-extensibility.adoc[made available] the professional developers of the project team. +
 In this phase, attach the real connectors implementation to the relevant steps. +
-Note that it can be more efficient to split steps with both user activity and connector activity into two steps, a human task for the user and a system task for the connector. + 
+Note that it can be more efficient to split steps with both user activity and connector activity into two steps, a human task for the user and a system task for the connector. +
 
-=== Testing 
+=== Testing
 
 . Test each connector independently using the connector wizard *_Test_* button. +
 . You can validate a process definition in Bonita Studio, in the *Details* panel, *Validation status* tab. The validation status indicates any errors or omissions in the definition. Correct any errors flagged in validation before testing the process
-. Then, test each process individually (run the process by clicking *_Run_*). You need to xref:ROOT:process-configuration-overview.adoc[configure] the process before testing it locally. 
+. Then, test each process individually (run the process by clicking *_Run_*). You need to xref:ROOT:process-configuration-overview.adoc[configure] the process before testing it locally.
 . Test the application. Make sure the user interfaces display the right information, and gather the right information. Run usability testing sessions with end-users.
 
 == From development to production
