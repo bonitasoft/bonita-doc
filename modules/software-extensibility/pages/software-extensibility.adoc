@@ -65,7 +65,7 @@ Note that although the page framework provided in the product is stable, we cann
 
 === Custom widgets
 
-If the standard UI Designer xref:ROOT:widgets.adoc[widgets] do not meet your needs, you can create a xref:custom-widgets.adoc[custom widget].
+If the standard UI Designer xref:ROOT:widgets.adoc[widgets] do not meet your needs, you can create a xref:pages-and-forms:custom-widgets.adoc[custom widget].
 You can then use your custom widget in pages, forms, and fragments.
 
 === Living Application Themes

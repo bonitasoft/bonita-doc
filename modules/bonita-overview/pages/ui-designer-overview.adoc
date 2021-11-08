@@ -31,7 +31,7 @@ Each widget accounts for an item of information to be entered or displayed in a 
 You cannot leave empty space between widgets. If you try to drop a widget that is not adjacent to another, the drop will fail. +
 When the widget is dropped, you need to specify the widget width, up to a maximum of 12 units (default value).
 
-There is a set of xref:ROOT:widgets.adoc[standard widgets]. If these do not meet your needs, you can define a xref:custom-widgets.adoc[custom widget].
+There is a set of xref:ROOT:widgets.adoc[standard widgets]. If these do not meet your needs, you can define a xref:pages-and-forms:custom-widgets.adoc[custom widget].
 
 There are also some structure widgets called containers, which you can use to structure a page.
 
