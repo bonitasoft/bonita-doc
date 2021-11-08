@@ -70,7 +70,7 @@ A second way to create a custom theme is starting from a new custom theme in Stu
 A theme can only be associated with an application to define the style. It cannot itself be used as a simple application page.
 
 Themes are xref:ROOT:resource-management.adoc[added, exported, edited, and deleted] as resources in Bonita Administrator Application. +
-In Non-Production or Production environements, a theme is imported as a .zip archive containing a `page.properties` file and a `resources` folder.
+In Non-Production or Production environments, a theme is imported as a .zip archive containing a `page.properties` file and a `resources` folder.
 
 == Live Update
 
@@ -78,8 +78,8 @@ xref:ROOT:live-update.adoc[Live update] allows the Administrator to update one e
 
 === Edit the layout
 
-You can xref:ROOT:resource-management.adoc]#modify[edit the content of a theme] by installing a new version.
+You can xref:ROOT:resource-management.adoc#modify[edit the content of a theme] by installing a new version.
 
 === Modify the pages in an application
 
-You can xref:ROOT:applications.adoc]#define-navigation[link another theme to an application] in the application descriptor.
+You can xref:ROOT:applications.adoc#define-navigation[link another theme to an application] in the application descriptor.

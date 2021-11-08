@@ -110,7 +110,7 @@ Here is an example of html page that:
 
 This page can be hosted on a different domain, and thanks to the CORS filter, the requests will be successfully processed.
 
-_*Important Note 1:* this example works on a bundle where the link:csrf-security[CSRF security filter is activated]. As the header "X-Bonita-API-Token" is set with the "session apiToken"._
+_*Important Note 1:* this example works on a bundle where the xref:csrf-security.adoc[CSRF security filter is activated]. As the header "X-Bonita-API-Token" is set with the "session apiToken"._
 
 [source,html]
 ----
@@ -123,7 +123,7 @@ _*Important Note 1:* this example works on a bundle where the link:csrf-security
 
         <script type="text/javascript">
 			var bonitaServerPath;
-			
+
             function loginToBonita() {
                 var myHeaders = new Headers();
                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");

@@ -47,7 +47,7 @@ If this is the case, you will not be taken to the login page and will directly l
 
 When navigating to this page, the Administrator can view what layout and theme a linked with the application, but also all pages used by the application as well as the navigation structure. +
 There is no view of the processes used in the application, nor the Business Data Model, nor the organization. +
-An Adminitrator must check that all these required elements are available in the Bonita Runtime so the application runs smoothly. +
+An Administrator must check that all these required elements are available in the Bonita Runtime so the application runs smoothly. +
 To do so, click on _BPM_>__Processes__, _Organization_, and _BDM_.
 
 === Export an application
