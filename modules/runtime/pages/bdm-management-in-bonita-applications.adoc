@@ -20,7 +20,7 @@ Only one model can be deployed at a time in the Bonita Runtime, so make sure it 
 The Business Objects must match the structure used by the deployed processes. Make sure that when modifying the Business Data Model, the processes are modified accordingly.
 ====
 
-. To import the Business Data Model created in Bonita  Studio, first xref:ROOT:define-and-deploy-the-bdm.adoc[export the Business Data Model] from Bonita  Studio where it was designed.
+. To import the Business Data Model created in Bonita  Studio, first xref:data:define-and-deploy-the-bdm.adoc[export the Business Data Model] from Bonita  Studio where it was designed.
 . In the Bonita Runtime, log in as the technical user (default login 'install', default password 'install').
 . Go to the *BPM Services* menu.
 . Click on *Pause* to xref:ROOT:pause-and-resume-bpm-services.adoc[pause] the tenant.
@@ -45,7 +45,7 @@ Please note that existing business database tables will be modified definitively
 ====
 
 . It is highly recommended to back up the database before proceeding.
-. xref:ROOT:define-and-deploy-the-bdm.adoc[Export the Business Data Model] from Bonita Studio where it was designed.
+. xref:data:define-and-deploy-the-bdm.adoc[Export the Business Data Model] from Bonita Studio where it was designed.
 . Go to the _BDM_ menu.
 . Click on the _Install_ button
 . Choose the file containing the Business Data Model exported from Bonita Studio

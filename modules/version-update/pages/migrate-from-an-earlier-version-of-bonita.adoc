@@ -37,7 +37,7 @@ The following are not migrated automatically:
 * +++<a id="bdm_redeploy">++++++</a>+++Business Data Model, and the business database: if the updating path includes version `7.0.0`,`7.2.0` or `7.2.4`, the Business Data Model must be redeployed after the update. To do so:
   . Before the update, log into the Super Administrator application
   . Pause the BPM Services
-  . xref:ROOT:define-and-deploy-the-bdm.adoc[Redeploy the BDM] once the update is done.
+  . xref:data:define-and-deploy-the-bdm.adoc[Redeploy the BDM] once the update is done.
   Otherwise, no action is required.
 * Custom connectors, actor filers, data types: These might continue to work in the new version, but should be tested, depending on your custom code.
 * Custom pages: These might continue to work in the new version, but should be tested depending on your custom code.

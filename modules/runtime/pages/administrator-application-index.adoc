@@ -48,7 +48,7 @@ xref:ROOT:licenses.adoc[[.card-title]#License# [.card-body.card-content-overflow
 
 [.card.card-index]
 --
-xref:ROOT:define-and-deploy-the-bdm.adoc[[.card-title]#BDM creation# [.card-body.card-content-overflow]#pass:q[Define business objects, their attributes, and their relationships]#]
+xref:data:define-and-deploy-the-bdm.adoc[[.card-title]#BDM creation# [.card-body.card-content-overflow]#pass:q[Define business objects, their attributes, and their relationships]#]
 --
 
 [.card.card-index]

@@ -47,20 +47,20 @@ However, it is not required to use all the concepts to create a valid Bonita Aut
 |-
 
 
-|=== 
+|===
 
 === Data
 [cols="1,1,1,1,1"]
 |===
 |Element |Description |Create/Provided | Tool | Alternative
 
-|xref:ROOT:define-and-deploy-the-bdm.adoc[Business Data Model] (BDM)
+|xref:data:define-and-deploy-the-bdm.adoc[Business Data Model] (BDM)
 |Structure of the business data used by your processes
 |Create
 |Studio
 |External data base w/ provided connector
 
-|=== 
+|===
 
 === Identity Management
 [cols="1,1,1,1,1"]
@@ -103,7 +103,7 @@ However, it is not required to use all the concepts to create a valid Bonita Aut
 |Studio or xref:ROOT:customize-living-application-theme.adoc[Dedicated SDK] (custom theme)
 |--
 
-|=== 
+|===
 
 The concepts of Application descriptors, Application pages, layouts and themes are only used by Application. A Bonita Automation project without applications won't use those concepts.
 
@@ -137,7 +137,7 @@ Extensions can be developed outside of the Studio with your favorite IDE.
 |===
 
 == Bonita Project Composition
-Extensions are re-usable elements, they can be shared between projects. 
+Extensions are re-usable elements, they can be shared between projects.
 Extensions are added to Bonita Automation projects as Maven dependencies.
 
 In the Studio, extensions are managed in a xref:ROOT:managing_extension_studio.adoc[dedicated view].

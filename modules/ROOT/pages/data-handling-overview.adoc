@@ -5,7 +5,7 @@ How to effectively use the different kinds of data available within Bonita Platf
 
 In a BPM-based application, use:
 
-* xref:ROOT:define-and-deploy-the-bdm.adoc[Business variables] for information that:
+* xref:data:define-and-deploy-the-bdm.adoc[Business variables] for information that:
  ** is mostly used by Bonita
  ** has meaning after a process instance is archived
  ** is used at several places in the process

@@ -6,7 +6,7 @@ The Bonita platform provides a means to define, manipulate and store your busine
 
 Data management involves several steps:
 
-* Create the xref:ROOT:define-and-deploy-the-bdm.adoc[Business Data Model (BDM)]. This is the definition of the types of data you will deal with in your processes and applications.
+* Create the xref:data:define-and-deploy-the-bdm.adoc[Business Data Model (BDM)]. This is the definition of the types of data you will deal with in your processes and applications.
 * Declare xref:declare-business-variables.adoc[business variables] in the process definition. Variables are used to make the link between your process definition and the data it needs to create, read, update, and delete. Data can be created as part of process execution (on start or on a task) but processes can also read and update data created by other processes and of course can choose to delete data.
 * Define process and task xref:ROOT:contracts-and-contexts.adoc[contracts]. Contracts define the information process accepts from the user submitting the form.
 

@@ -39,7 +39,7 @@ Another REST API Extensions example with SQL data source is available on http://
 == Create a REST API Extension
 
 Bonita offers the possibility to extend the set of existing REST API with custom extension that let you enrich your forms and applications with specific needs.
-They can be used to query xref:ROOT:define-and-deploy-the-bdm.adoc[business data], Bonita Engine APIs, or an external information system (such as a database, web service, LDAP directory...). They also help to keep a clean separation between the front-end (forms, pages, and interfaces visible to users) and the back-end (processes).
+They can be used to query xref:data:define-and-deploy-the-bdm.adoc[business data], Bonita Engine APIs, or an external information system (such as a database, web service, LDAP directory...). They also help to keep a clean separation between the front-end (forms, pages, and interfaces visible to users) and the back-end (processes).
 We provide a Maven archetype to help you to bootstrap a REST API Extension project. The source code of the archetype is available https://github.com/bonitasoft/bonita-rest-api-extension-archetype[here].
 
 === Prerequisites

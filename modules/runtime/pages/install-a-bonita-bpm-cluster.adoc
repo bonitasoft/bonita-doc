@@ -42,7 +42,7 @@ When done you will have a database with all tables created and with a table `CON
 
 . Ensure that you meet the  xref:ROOT:hardware-and-software-requirements.adoc[requirements].
 . xref:ROOT:database-configuration.adoc#database_creation[Create the database].
-. In case you use  xref:ROOT:define-and-deploy-the-bdm.adoc[Business data],  xref:database-configuration.adoc#database_creation[create a database for the Business Data].
+. In case you use  xref:data:define-and-deploy-the-bdm.adoc[Business data],  xref:database-configuration.adoc#database_creation[create a database for the Business Data].
 . Download a Bonita  xref:ROOT:tomcat-bundle.adoc[Tomcat bundle] and unzip it in your chosen folder.
 . Edit file *`setup/database.properties`* and modify the properties to suit your databases (Bonita internal database & Business Data database). Beware of  xref:ROOT:bonita-platform-setup.adoc#backslash_support[backslash characters].
 

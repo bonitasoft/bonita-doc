@@ -52,7 +52,7 @@ xref:ROOT:process-management-index.adoc[[.card-title]#Process Management as an A
 
 [.card.card-index]
 --
-xref:ROOT:define-and-deploy-the-bdm.adoc[[.card-title]#BDM creation# [.card-body.card-content-overflow]#pass:q[Define business objects, their attributes, and their relationships]#]
+xref:data:define-and-deploy-the-bdm.adoc[[.card-title]#BDM creation# [.card-body.card-content-overflow]#pass:q[Define business objects, their attributes, and their relationships]#]
 --
 
 [.card.card-index]

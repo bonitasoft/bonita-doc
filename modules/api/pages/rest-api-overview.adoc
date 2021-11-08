@@ -211,7 +211,7 @@ Example
 The required object is specified with a set of filters in the request URL. The URL parameters must be URL-encoded.
 
 Results are returned in a paged list, so you have to specify the page (counting from zero), and the number of results per page (count), additionally you can define a sort key (order). You can see the total number of matching results in the HTTP response header Content-Range.
-If you are searching for business data using a custom query, there must be a xref:ROOT:define-and-deploy-the-bdm.adoc[count query in the BDM]. If there is no count query, results from a custom query on business data cannot be paged properly (the header Content-Range will be absent).
+If you are searching for business data using a custom query, there must be a xref:data:define-and-deploy-the-bdm.adoc[count query in the BDM]. If there is no count query, results from a custom query on business data cannot be paged properly (the header Content-Range will be absent).
 For business data default queries, the count query is defined automatically.
 
 The available filters are the attributes of the item plus some specific filters defined by each item.

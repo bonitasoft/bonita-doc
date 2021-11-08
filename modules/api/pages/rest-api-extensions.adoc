@@ -4,7 +4,7 @@
 
 {description}
 
-REST API extensions can be used to query xref:ROOT:define-and-deploy-the-bdm.adoc[business data], Bonita Engine APIs, or an external information system (such as a database, web service, LDAP directory...). They also help to keep a clean separation between the front-end (forms, pages, and interfaces visible to users) and the back-end (processes).
+REST API extensions can be used to query xref:data:define-and-deploy-the-bdm.adoc[business data], Bonita Engine APIs, or an external information system (such as a database, web service, LDAP directory...). They also help to keep a clean separation between the front-end (forms, pages, and interfaces visible to users) and the back-end (processes).
 
 == Prerequisites
 
