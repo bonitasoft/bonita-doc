@@ -37,7 +37,7 @@ Defining the automation project scope means defining how it will be owned (gover
 
 Early on, the project team needs to figure out what type of an automation project they will create:
 
-* RPA or not RPA: when there are legacy systems to connect to, that are not reachable through Java or REST APIs, there is a need to insert small robots that will act as humans to copy/paste information from one system to the other or perform other low-value tasks along the process. The project then enters the xref:uipath#_job_configuration[Robotic Process Automation (RPA)] world, which Bonita supports with its partnership with UiPath. +
+* RPA or not RPA: when there are legacy systems to connect to, that are not reachable through Java or REST APIs, there is a need to insert small robots that will act as humans to copy/paste information from one system to the other or perform other low-value tasks along the process. The project then enters the xref:process:uipath.adoc#_job_configuration[Robotic Process Automation (RPA)] world, which Bonita supports with its partnership with UiPath. +
 * Web application or no web application: if there are not many users in the process, like the automated execution of a backup recovery plan in a data center, the automation project may not need a web application. Most of the time, it does.
 
 There are three main kinds of applications to choose from at an early stage, based on the type of interaction they create:
@@ -79,7 +79,7 @@ While the project team works on the content of the project, the development team
 For Subscription editions users, this is also the time to configure https://documentation.bonitasoft.com/bcd/latest/[Bonita Continuous Delivery]. +
 
 Moreover, if the project will be deployed on premises, the infrastructure team works on the installation of the non-production and production environments. +
-There are many options for how Bonita can be installed: see the xref:ROOT:bonita-bpm-installation-overview.adoc[Installation overview] for details.
+There are many options for how Bonita can be installed: see the xref:runtime:runtime-installation-index.adoc[Installation overview] for details.
 
 == Implementation - Test I: Make sure the process does what it should
 

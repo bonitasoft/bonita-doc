@@ -11,7 +11,7 @@ For Enterprise, Performance, Efficiency, and Teamwork editions only.
 
 *Important notes:*
 
-* This documentation applies to an existing and working Bonita installation (see the xref:ROOT:bonita-bpm-installation-overview.adoc[installation instructions]).
+* This documentation applies to an existing and working Bonita installation (see the xref:runtime:runtime-installation-index.adoc[installation instructions]).
 * In order to have functioning Active Directory/LDAP authentication, the user login (username) must exist both in the LDAP directory and in the Bonita database (user password is checked against the LDAP server but user information is read from Bonita database).  We recommend that you use the xref:ROOT:ldap-synchronizer.adoc[LDAP synchronizer] to create Bonita users in a Bonita database.
 
 == Overview
