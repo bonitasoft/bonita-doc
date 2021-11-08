@@ -4576,7 +4576,7 @@ The methods used for this resource are:
 `/API/bpm/connectorInstance` +
 _Example_:
  ** Get information about connectors attached to a flow node with instanceId 15 :``/API/bpm/connectorInstance?p=0&c=10&f=containerId%3d15``
- ** Get information about connectors attached to a process instance with instanceId https://github.com/bonitasoft/bonita-doc/commit/4781948523999597477[`4781948`]: `/API/bpm/connectorInstance?p=0&c=10&f=containerId%3d4781948523999597477`
+ ** Get information about connectors attached to a process instance with instanceId `4781948`: `/API/bpm/connectorInstance?p=0&c=10&f=containerId%3d4781948523999597477`
 * *Method* +
 `GET`
 * *Data Params* +
