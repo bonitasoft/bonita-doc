@@ -3,7 +3,7 @@
 
 This page summarizes the User Interface resources needed to create an application with Bonita.
 
-Your process-based application can use xref:pages-develoment.adoc[pages] and xref:forms-development.adoc[forms] to show or collect information in a browser. +
+Your process-based application can use xref:pages-development.adoc[pages] and xref:forms-development.adoc[forms] to show or collect information in a browser. +
 The overall structure of the application and the display of graphical elements in handled by the xref:layout-development.adoc[layout]. +
 The look and feel of the application, layout, forms, and pages is handled by the xref:theme-development.adoc[theme].
 

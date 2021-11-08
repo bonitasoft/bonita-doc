@@ -4,8 +4,7 @@
 This page explains what a user with the _Administrator_ profile in Bonita Portal can see and do about the users of the deployed organization.
 
 Here is a view of this page:
-image:images/UI2021.1/user-list-portal.png[Administrator user list Portal]
-// {.img-responsive}
+image:images/UI2021.1/users-portal.png[Administrator user list Portal]
 
 == Create a user
 

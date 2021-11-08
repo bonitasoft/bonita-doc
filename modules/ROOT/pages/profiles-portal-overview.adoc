@@ -41,13 +41,14 @@ This profile is also mapped to the xref:user-application-overview.adoc[Bonita Us
 
 By default, its gives access to the Administrator navigation of Bonita Portal. It includes:
 
-* xref:_process-maintenance.adoc[Process Management] and xref:analytics.adoc[Analytics]
+* xref:admin-application-process-list.adoc[Process Management] and xref:analytics.adoc[Analytics]
 * xref:organization-in-bonita-bpm-portal-overview.adoc[Organization Management]
 * xref:bdm-management-in-bonita-bpm-portal.adoc[Business Data Model Management]
 * xref:applications.adoc[Applications Management]
 * xref:managing-look-feel.adoc[Portal Look & Feel Management]
-* xref:license-info.adoc[License Information] (Enterprise, Performance, Efficiency, and Teamwork editions only)
-  This profile is also mapped to the xref:admin-application-overview.adoc[Bonita Administrator Application], bringing about the same value but with more customization options.
+* xref:licenses.adoc[License Information] (Enterprise, Performance, Efficiency, and Teamwork editions only)
+
+This profile is also mapped to the xref:admin-application-overview.adoc[Bonita Administrator Application], bringing about the same value but with more customization options.
 
 === Process manager
 

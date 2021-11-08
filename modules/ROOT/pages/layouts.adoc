@@ -25,8 +25,8 @@ xref:live-update.adoc[Live update] allows the Administrator to update one elemen
 
 === Edit the layout
 
-You can xref:resource-management.adoc]#modify[edit the content of a layout] by installing a new version.
+You can xref:resource-management.adoc#modify[edit the content of a layout] by installing a new version.
 
 === Modify the pages in an application
 
-You can xref:applications.adoc]#define-navigation[link another layout to an application] in the application descriptor.
+You can xref:applications.adoc#define-navigation[link another layout to an application] in the application descriptor.

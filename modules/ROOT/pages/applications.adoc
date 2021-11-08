@@ -46,7 +46,7 @@ If this is the case, you will not be taken to the login page and will directly l
 
 When navigating to this page, the Administrator can view what layout and theme a linked with the application, but also all pages used by the application as well as the navigation structure. +
 There is no view of the processes used in the application, nor the Business Data Model, nor the organization. +
-An Adminitrator must check that all these required elements are available in the Bonita Runtime so the application runs smoothly. +
+An Administrator must check that all these required elements are available in the Bonita Runtime so the application runs smoothly. +
 To do so, click on _BPM_>__Processes__, _Organization_, and _BDM_.
 
 === Export an application
@@ -203,7 +203,7 @@ There are two aspects to updating an application: changing the application defin
 
 * To edit the metadata, click the Edit button. In the popup, modify the information about the application, then click *_Save_*.
 * To edit the layout, see <<layout,Specifying application layout>>.
-* To edit the theme, see <<theme,Specifying application theme>>. Note that the end user will see this modification with a delay (due to the xref:cache-configuration-and-policy.adoc]#portal_and_mobile[cache policy])
+* To edit the theme, see <<theme,Specifying application theme>>. Note that the end user will see this modification with a delay (due to the xref:cache-configuration-and-policy.adoc#portal_and_mobile[cache policy])
 * To edit the pages, go to the Pages zone. You can add a page by clicking *_Add_*. You can remove a page by clicking the trashcan icon for that page.
 Note that if you remove a page, the related menu items are automatically removed from the navigation.
 * To edit the navigation, go to the Navigation zone. You can add a menu or menu item by clicking *_Add_*. You can remove a menu or menu item by clicking the trashcan icon for that page.

@@ -76,4 +76,4 @@ xref:live-update.adoc[Live update] allows the Administrator to update one elemen
 * Push the changed platform configuration into database using the _setup tool_.
 * Restart Tomcat bundle
 
-You can xref:resource-management.adoc]#modify[edit the content of a REST API extension] by installing a new version.
+You can xref:resource-management.adoc#modify[edit the content of a REST API extension] by installing a new version.

@@ -1,5 +1,5 @@
 = Release notes
-:description: +++<a id="renaming">++++++</a>+++
+:description: This pages describes the main new values, improvements, technical updates and other changes that have been brought to this latest Bonita main version.
 
 [#renaming]
 
@@ -77,8 +77,8 @@ Starting now, you can use it as is, but you can also customize the pages that ha
 It replicates the current Administrator Portal profile, except for the _Analytics_ page, available in the Enterprise edition.
 
 image:images/tv.png[videos]  Get an insight of this new value in this video in https://www.youtube.com/watch?v=R0-hnCy7Weg&list=PLvvoQatxaHOOcS6mu3PUFmVFd1lItLaXs&index=4[english], https://www.youtube.com/watch?v=gUwxFM6AfvQ&list=PLvvoQatxaHOPWv6rMQPNIxzZjW6BNg75K&index=4[french], or https://www.youtube.com/watch?v=fNQ-0hFTyxs&list=PLvvoQatxaHOMepAeo0jDrIR9hHfzK1NPn&index=4[spanish].
-[#maintenance-compatibility]
 
+[#maintenance-compatibility]
 === Development Suite supports multi-maintenance versions
 
 For a given YEAR.NUM version of the development suite (Studio and UI Designer), you can now seamlessly work on projects that have a different maintenance version (but the same version).
@@ -160,8 +160,6 @@ You can now configure Bonita to allow Bonita Engine to create user accounts on t
 Find more information on how to configure it xref:single-sign-on-with-saml.adoc[here].
 
 image:images/tv.png[videos]  Get an insight of this new value in this video in https://www.youtube.com/watch?v=VsEybo_TU08&list=PLvvoQatxaHOOcS6mu3PUFmVFd1lItLaXs&index=3[english], https://www.youtube.com/watch?v=VxahUIUJpMo&list=PLvvoQatxaHOPWv6rMQPNIxzZjW6BNg75K&index=3[french], or https://www.youtube.com/watch?v=Ls_x2q46mtQ&list=PLvvoQatxaHOMepAeo0jDrIR9hHfzK1NPn&index=3[spanish].
-[#maintenance-compatibility]
-
 
 ==== REST API and portal login
 
@@ -393,7 +391,7 @@ A standalone docker image that package the LDAP Synchronizer was released under 
 
 == Known issues
 
-=== Email connector 
+=== Email connector
 
 The rich text editor used to edit an email message does not work on Linux since the `libwebkit2gtk-4.0-37` package has been updated to `2.32.0+`. Last known working version of the package is `2.28.1-1`. Linux users can use the plain text editor or a script expression to edit their email's message body.
 
