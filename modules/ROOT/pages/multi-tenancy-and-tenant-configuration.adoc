@@ -1,5 +1,5 @@
 = Multi-tenant configuration for a Bonita platform
-:description: (Deprecated). One single platform to admininstrate with multiple logical engines. Described what a Tenant is and how to setup Bonita with Multi-tenancy.
+:description: (Deprecated). One single platform to administrate with multiple logical engines. Described what a Tenant is and how to setup Bonita with Multi-tenancy.
 
 [WARNING]
 ====
@@ -19,7 +19,7 @@ For customers already in a multi-tenant architecture:
 For customers considering a multi-tenant architecture:
 
  * Multi Tenancy being deprecated, current Bonitasoft's official recommendation is to use multiple instances of Bonita Runtime for every separate entity, or to subscribe to *Bonita Cloud* with as many Runtimes as there are required entities. By entities, we mean either different end-customers, or different internal departments/subsidiaries. Such a multi-runtime approach allows:
- 
+
 ** a specific configuration, independent software versions, infrastructure resources (CPU, memory, disk) and platform lifecycle for each platform (increased flexibility, customization capacities)
 ** the physical segregation of resources and data (increased security)
 ** the possibility to split public/private Cloud instances
