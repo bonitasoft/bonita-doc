@@ -58,7 +58,7 @@ xref:how-an-event-is-executed.adoc[[.card-title]#Events execution# [.card-body.c
 
 [.card.card-index]
 --
-xref:how-a-bdm-is-deployed.adoc[[.card-title]#Business data technical handling# [.card-body.card-content-overflow]#pass:q[Sequence of actions and states at BDM installation and update]#]
+xref:how-a-bdm-is-deployed.adoc[[.card-title]#BDM technical handling# [.card-body.card-content-overflow]#pass:q[Sequence of actions and states at BDM installation and update]#]
 --
 
 [.card.card-index]
