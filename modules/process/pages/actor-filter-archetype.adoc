@@ -48,7 +48,7 @@ Follow the http://maven.apache.org/guides/mini/guide-naming-conventions.html[mav
  ** java
  ** groovy
  ** kotlin
-* *wrapper* _(optional)_: install a https://github.com/takari/maven-wrapper[Maven wrapper, window = "_blank"]. Available values: 
+* *wrapper* _(optional)_: install a https://github.com/takari/maven-wrapper[Maven wrapper, window = "_blank"]. Available values:
  ** true _(default)_
  ** false
 
@@ -195,8 +195,8 @@ The implementation sources contain all the logic of the actor filter:
 
 The archetype offers the possibility to generate the default sources in Java, Groovy or Kotlin. The build result will always be a Java archive (jar) and some Zip archives (assemblies), no matters the language selected.
 
-The entry point of the implementation sources must extend the https://javadoc.bonitasoft.com/api/{varVersion}/org/bonitasoft/engine/filter/AbstractUserFilter.html[__AbstractUserFilter__, window="_blank"] class
-or implement https://javadoc.bonitasoft.com/api/{varVersion}/org/bonitasoft/engine/filter/UserFilter.html[__UserFilter__, window="_blank"] interface.
+The entry point of the implementation sources must extend the https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/filter/AbstractUserFilter.html[__AbstractUserFilter__, window="_blank"] class
+or implement https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/filter/UserFilter.html[__UserFilter__, window="_blank"] interface.
 
 ===== Add multiple implementations
 
@@ -205,7 +205,7 @@ To add a new implementation create a `.impl` file in the `src/main/resources-fil
 ==== Build the project
 
 Build the project by typing the following command at the root of the project:
- 
+
 [source,bash]
 ----
 ./mvnw clean install

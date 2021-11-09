@@ -2,7 +2,7 @@
 :page-aliases: ROOT:performance-tuning.adoc
 :description: Learn how to tune the Bonita Engine to optimize the performance of Bonita Runtime in your environment.
 
-{description} 
+{description}
 
 In this page, we assume that you are familiar with Java threads, concurrent execution, XML, DB connection pools, your DB instance, cache policies, scheduling, connectors, network speed, I/O, Java Virtual Machine configuration, JTA and transaction management. +
 You need to know how to xref:ROOT:runtime-installation-index.adoc[install] and xref:runtime-configuration-index.adoc[configure] Bonita Runtime.
@@ -194,7 +194,7 @@ The connector service executes connectors. To improve tenant isolation (and to p
 The configuration of the thread pool of this service is independent of the configuration of the work service.
 If you have processes that use a lot of connectors, then you can have more threads to execute connectors. See the xref:ROOT:connectors-execution.adoc[connector execution] page for details on how connectors are executed.
 
-The Connector service is configured in `bonita-tenant-community-custom.properties` and `bonita-tenant-sp-custom.properties` (cf link:BonitaBPM_platform_setup[platform setup])
+The Connector service is configured in `bonita-tenant-community-custom.properties` and `bonita-tenant-sp-custom.properties` (cf xref:bonita-bpm-platform-setup.adoc[platform setup])
 
 Community:
 

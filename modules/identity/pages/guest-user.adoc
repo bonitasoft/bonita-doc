@@ -54,26 +54,26 @@ update the file `authenticationManager-config.properties` as follows:
 Make sure to set the username and password of the guest user account created in the section <<prerequisite,Guest profile and dedicated user account>>.
  The property "auth.tenant.guest.apps" contains the list of URL tokens of the applications that require public access (in this example, "public" and "guest"). Replace it with your applications tokens
 
-. Use the link:BonitaBPM_platform_setup[platform setup tool] again to save your changes into the database (Eg. setup.sh/.bat push). +
+. Use the xref:BonitaBPM_platform_setup.adoc[platform setup tool] again to save your changes into the database (Eg. setup.sh/.bat push). +
 Restart Bonita server.
 . If your configuration is correct you should be able to access your public application directly with the URL `http://<host>:<port>/bonita/apps/<app token>` without being logged in first. +
 You are done.
 
 [NOTE.bonitacloud,caption=Bonita Cloud]
 ====
-In Bonita Cloud, to change the configuration files to autorize Guest User, you just have to open a support ticket and we'll apply the change on the requested environment for you. 
+In Bonita Cloud, to change the configuration files to authorize Guest User, you just have to open a support ticket and we'll apply the change on the requested environment for you.
 ====
 
 == Starting a process as guest user
 
 You may require your public living application to provide a link to start a process instance (case). In order for the process instantiation form to be displayed to a guest in an application, what you need to do is:
 
-* add the guest user account in the actor mapping of the actor which is defined as xref:process:actors.adoc#_set_the_initiator[initiator of the process]
+* add the guest user account in the actor mapping of the actor which is defined as xref:process:actors.adoc#initiator[initiator of the process]
 * make sure the REST API authorization mechanism allows the guest user to start the process instance.
 
-In order for the authorization filter to let the guest user make the necessary API requests, the best solution is to activate the link:rest-api-authorization#dynamic_authorization[dynamic authorisation checking] for those requests :
+In order for the authorization filter to let the guest user make the necessary API requests, the best solution is to activate the xref:rest-api-authorization.adoc#dynamic_authorization[dynamic authorization checking] for those requests :
 
-. Use the link:BonitaBPM_platform_setup[platform setup tool] to retrieve the current configuration (Eg. setup.sh/.bat pull). You need to execute the following actions in the folder of the tenant in which the applications which requires public access are deployed.
+. Use the xref:BonitaBPM_platform_setup.adoc[platform setup tool] to retrieve the current configuration (Eg. setup.sh/.bat pull). You need to execute the following actions in the folder of the tenant in which the applications which requires public access are deployed.
 . In the tenant_portal folder of the target tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
 update the file `dynamic-permissions-checks-custom.properties` to uncomment 3 lines as follows (they may already be uncommented if you use the dynamic authorisation checking instead of the default static authorization checking) :
 +
@@ -93,7 +93,7 @@ update the file `dynamic-permissions-checks-custom.properties` to uncomment 3 li
 +
 [NOTE]
 ====
-This modification will activate the link:rest-api-authorization#dynamic_authorization[dynamic authorisation checking] instead of the default static authorization checking for the following request : `GET|bpm/process`, `GET|bpm/process/\*/contract`, `POST|bpm/process/*/instantiation`. It does not impact only the guest user access to these resources but the whole organization. +
+This modification will activate the xref:rest-api-authorization.adoc#dynamic_authorization[dynamic authorization checking] instead of the default static authorization checking for the following request : `GET|bpm/process`, `GET|bpm/process/\*/contract`, `POST|bpm/process/*/instantiation`. It does not impact only the guest user access to these resources but the whole organization. +
 When a user tries to get the contract or general information of a process it will make sure he is either:
 
  ** a member of the actor mapping of the process
@@ -109,7 +109,7 @@ When someone tries to start a process, it will make sure he is either:
 
 If in your process instantiation form you make other requests to Bonita REST API, you may need to uncomment more lines in `dynamic-permissions-checks-custom.properties` accordingly.
 
-. Use the link:BonitaBPM_platform_setup[platform setup tool] again to save your changes into the database (Eg. setup.sh/.bat push). +
+. Use the xref:BonitaBPM_platform_setup.adoc[platform setup tool] again to save your changes into the database (Eg. setup.sh/.bat push). +
 Restart Bonita server.
 . If your configuration is correct a guest user should be able to start a process instance (case) without being logged in first. +
 You are done.
@@ -117,15 +117,15 @@ You are done.
 == Login behaviour
 
 The default Bonita application layout handles the guest user account by providing a "Sign in" link instead of the user modal link in the header. +
-If you use the SSO property to hide the sign out link (`logout.link.hidden` in `authenticationManager-config.properties`), the sign in link will also not be displayed.
+If you use the SSO property to hide the sign-out link (`logout.link.hidden` in `authenticationManager-config.properties`), the sign-in link will also not be displayed.
 
 == SSO configuration
 
 The guest user access can work even if the platform is configured for single sign on with SAML, Kerberos or CAS.
 
-For SSO with link:single-sign-on-with-saml[SAML] and link:single-sign-on-with-kerberos[Kerberos], the guest user access will bypass SSO authentication, so if you activate the feature, you don't need to do anything particular in the SSO configuration or in the IdP. The only constraint is that *the password of the guest user account needs to different from its username* in order for the engine authentication service to allow to log in as guest.
+For SSO with xref:single-sign-on-with-saml.adoc[SAML] and xref:single-sign-on-with-kerberos.adoc[Kerberos], the guest user access will bypass SSO authentication, so if you activate the feature, you don't need to do anything particular in the SSO configuration or in the IdP. The only constraint is that *the password of the guest user account needs to different from its username* in order for the engine authentication service to allow to log in as guest.
 
-For link:single-sign-on-with-cas[CAS], the guest user acount should exist in the accounts of the CAS server with the username/password configured in `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/authenticationManager-config.properties` and the following lines should be uncommented in the file `+++<BUNDLE_HOME>+++/setup/platform_conf/current/tenants/+++<TENANT_ID>+++/tenant_engine/bonita-tenant-sp-custom.properties :+++</TENANT_ID>++++++</BUNDLE_HOME>+++
+For xref:single-sign-on-with-cas.adoc[CAS], the guest user account should exist in the accounts of the CAS server with the username/password configured in `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/authenticationManager-config.properties` and the following lines should be uncommented in the file `+++<BUNDLE_HOME>+++/setup/platform_conf/current/tenants/+++<TENANT_ID>+++/tenant_engine/bonita-tenant-sp-custom.properties :+++</TENANT_ID>++++++</BUNDLE_HOME>+++
 
 [source, properties]
 ----

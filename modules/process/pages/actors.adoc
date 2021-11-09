@@ -48,6 +48,8 @@ See xref:ROOT:custom-user-information-in-bonita-bpm-studio.adoc[Custom User Info
 
 See xref:ROOT:custom-user-information-in-bonita-applications.adoc[Custom User Information in Bonita Apps]
 
+[#initiator]
+
 == Set the initiator
 
 The initiator is the user who starts a process instance. For a process that is started by a person, you must specify at least one actor to be the initiator. Any user who maps to this actor can then start a process instance. If a process is started automatically (for example on a schedule), it is not necessary to designate an initiator.

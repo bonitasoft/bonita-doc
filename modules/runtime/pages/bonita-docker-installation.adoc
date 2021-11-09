@@ -133,9 +133,9 @@ This image is built from the following https://github.com/Bonitasoft-Community/b
 
 ==== Using docker-compose
 
-Create a file stack.yml with the following content (remember to replace the `<hostname>` with the one used in the licence generation command):
+Create a file `docker-compose.yml` with the following content
 
-[source,shell script,subs="+macros"]
+[source,yaml]
 ----
 # Use tech_user/secret as user/password credentials
 version: '3'
@@ -175,25 +175,23 @@ services:
       - |
         set -e
         echo 'Waiting for Postgres to be available'
-        export PGPASSWORD="$$POSTGRES_ENV_POSTGRES_PASSWORD"
+        export PGPASSWORD=$${POSTGRES_ENV_POSTGRES_PASSWORD}
         maxTries=10
-        while [ "$$maxTries" -gt 0 ] && ! psql -h "$$DB_HOST" -U 'postgres' -c '\l'; do
+        while [[ "$$maxTries" -gt 0 ]] && ! psql -h $${DB_HOST} -U 'postgres' -c '\l'; do
             let maxTries--
             sleep 1
         done
-        echo
-        if [ "$$maxTries" -le 0 ]; then
+        if [[ "$$maxTries" -le 0 ]]; then
             echo >&2 'error: unable to contact Postgres after 10 tries'
             exit 1
         fi
         exec /opt/files/startup.sh
-volumes:
-  bonita-lic:
-    external:
-      name: bonita-lic
 ----
 
-Run `docker stack deploy -c stack.yml bonita`  or `docker-compose -f stack.yml up`, wait for it to initialize completely, and visit `+http://swarm-ip:8080+`, `+http://localhost:8080+`, or `+http://host-ip:8080+` (as appropriate).
+* Replace `<hostname>` with the one used in the licence generation command
+* Replace `~/bonita-lic` with the folder containing the license (on Windows use `/` and avoid `~`)
+
+Run `docker-compose up`, wait for it to initialize completely, and visit `+http://localhost:8080+`, or `+http://host-ip:8080+` (as appropriate).
 
 ==== PostgreSQL as an installed service
 

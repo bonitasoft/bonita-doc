@@ -1,8 +1,8 @@
 = Profiles management in Bonita Administration Application
 :page-aliases: ROOT:admin-application-profiles-list.adoc
-:description: This page explains what a user with the _Administrator_ profile can do with profiles in link:admin-application-overview[Bonita Administrator Application].
+:description: This page explains what a user with the Administrator profile can do with profiles in Bonita Administrator Application.
 
-This page explains what a user with the _Administrator_ profile can do with profiles in link:admin-application-overview[Bonita Administrator Application].
+This page explains what a user with the _Administrator_ profile can do with profiles in xref:admin-application-overview.adoc[Bonita Administrator Application].
 
 In all Bonita editions, Administrators can change the mapping between a provided profile (User and Administrator) and the organization entities (user, groups, roles, and memberships). +
 In Enterprise, Performance, Efficiency, and Teamwork editions, there is one more provided profile: Process Manager.
