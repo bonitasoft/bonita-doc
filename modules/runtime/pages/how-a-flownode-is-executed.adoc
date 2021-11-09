@@ -13,11 +13,7 @@ The execution of a flow node can come from:
 
 === API call
 
-[cols=2*]
-|===
-| When the call comes from the API (generally a human task executed from an application), some verifications are done, contract data are checked and stored in database, then a work is triggered to execute the flow node. See the [[work page
-| Work-execution]] for details.
-|===
+When the call comes from the API (generally a human task executed from an application), some verifications are done, contract data are checked and stored in database, then a work is triggered to execute the flow node. See the xref:work-execution.adoc[work page Work-execution] for details.
 
 === Internal Bonita Engine trigger of a work
 
