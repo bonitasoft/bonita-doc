@@ -23,7 +23,7 @@ xref:work-locking.adoc[[.card-title]#Work locking# [.card-body.card-content-over
 
 [.card.card-index]
 --
-xref:execution-sequence-states-and-transactions.adoc[[.card-title]#BPM execution sequence, states, and transactions# [.card-body.card-content-overflow]#pass:q[Concepts needed to understand BPM elements execution]#]
+xref:execution-sequence-states-and-transactions.adoc[[.card-title]#BPM execution details# [.card-body.card-content-overflow]#pass:q[All about execution sequences, states, and transactions]#]
 --
 
 [.card.card-index]
