@@ -123,9 +123,9 @@ When you launch Bonita Studio for the first time, you need to install a license:
 
 . Click *_Copy to clipboard_* to copy the request key from the pop-up
 . Use the generated request key to request a license on the https://customer.bonitasoft.com/license/request[Customer Service Center]
-. *_Check_* your email box (after a few minutes) and open the email from _link:mailto:no-reply@bonitasoft.com[no-reply@bonitasoft.com]_
+. *_Check_* your email box (after a few minutes) and open the email from `no-reply@bonitasoft.com`
 . *_Download_* the attached file (.lic)
-. Go back to your Bonita Studio, click _*Install license...*_, and select your .lic file.
+. Go back to your Bonita Studio, click *_Install license..._*, and select your .lic file.
 
 [#enable_cache]
 
@@ -133,7 +133,7 @@ When you launch Bonita Studio for the first time, you need to install a license:
 
 Bonita Studio 7.8 only support Java 8. If you have multiple versions of Java installed on your computer you might need to specify which Java Virtual Machine (JVM) to use.
 
-To specify the JVM version use to run the Studio you first need to identify the appropriate file to edit. For example if you launch the Studio using `BonitaStudioCommunity.exe`, the file to edit will be `BonitaStudioCommunity.ini`. This file is located in your Studio installation folder.
+To specify the JVM version used to run the Studio you first need to identify the appropriate file to edit. For example if you launch the Studio using `BonitaStudioCommunity.exe`, the file to edit will be `BonitaStudioCommunity.ini`. This file is located in your Studio installation folder.
 
 Next you need to add a -vm option and the path to the Java runtime in the ini file (each of them on a new line). Note the format of the -vm option − it is important to be exact:
 
