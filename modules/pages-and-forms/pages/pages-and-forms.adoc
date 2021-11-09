@@ -1,5 +1,5 @@
 
-= Pages and forms, and all other UI elements
+= Pages, forms, and all other UI elements
 :page-aliases: ROOT:pages-and-forms.adoc
 :description: Everything you need to know to create a great user experience based on process execution.
 
