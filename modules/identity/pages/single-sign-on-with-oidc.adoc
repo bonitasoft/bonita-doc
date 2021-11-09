@@ -15,7 +15,7 @@ OpenID Connect configuration is at tenant level. Each tenant can use a different
 
 [NOTE]
 ====
-Bonita uses http://www.keycloak.org/[Keycloak] OIDC Service client adapter. It has been extended to support other OIDC providers than Keycloak.  
+Bonita uses http://www.keycloak.org/[Keycloak] OIDC Service client adapter. It has been extended to support other OIDC providers than Keycloak. +
 Authentication in Bonita with OIDC has been tested with both Keycloak server and Google's OpenID Connect endpoint.
 ====
 
@@ -81,7 +81,7 @@ edit the `authenticationManager-config.properties` as follows:
     -->  logout.link.hidden=true
 ----
 +
-Make sure to link:multi-tenancy-and-tenant-configuration#toc2[set the right tenant admin username].
+Make sure to xref:ROOT:multi-tenancy-and-tenant-configuration.adoc[set the right tenant admin username].
  It is recommended to also replace the value of the passphrase (property `auth.passphrase`) which is used by the engine to verify the authentication request.
  The value must be the same as in the file *bonita-tenant-sp-custom.properties*. +
  If you need users to be able to log in without having an account on the IDP, you can authorize it by setting the property `oidc.auth.standard.allowed` to true. Users will then be able to log in using the Bonita login page (`/login.jsp`) provided they have a Bonita account and their password is different from their username. +
@@ -186,7 +186,7 @@ NOTE: Activating this option means any user authorized by the IdP to access Boni
   *** `connection-pool-size` for the pool of connection to the OIDC provider server (20 by default)
   *** `truststore` path to a truststore file for OIDC provider servers requiring HTTPS. It should contain one or more trusted host certificates or certificate authorities. You can create this truststore by extracting the public certificate of the OIDC server's SSL keystore. This property is mandatory if you OIDC provider requires HTTPS unless you set `disable-trust-manager` property to `true`. If the truststore requires a password, you also need to add the property `truststore-password`.
   *** `client-keystore` path to a keystore file containing client certificate for two-way SSL when the OIDC client adapter makes HTTPS requests to the OIDC provider server. You also need to add the properties `client-keystore-password` (password for the client keystore) and  `client-key-password` (password for the client's key).
-  *** `verify-token-audience` can be set to `true` to verify, when accessing the REST API with a Bearer authentication, that the access token audience (`aud` claim) contains the client Id (`resource` property). In Authorization Code Flow, this verification is always done and cannot be disabled. 
+  *** `verify-token-audience` can be set to `true` to verify, when accessing the REST API with a Bearer authentication, that the access token audience (`aud` claim) contains the client Id (`resource` property). In Authorization Code Flow, this verification is always done and cannot be disabled.
   *** `redirect-rewrite-rules` can be used to modify the path section of the redirect URI sent to the OIDC provider with the authentication or code exchange requests. By default the URI sent is the request URI as seen by Bonita OIDC module, but if Bonita is behind a reverse proxy for example, the path of the URI seen by Bonita OIDC module may be the one of the internal URI used by the reverse proxy and not the one of URI the OIDC provider needs to redirect the user agent (web browser) to. The value of this property is an object where each attribute key is a regular expression to which the Redirect URI path is to be matched and the attribute value is the replacement String. The other parts of the URI like the protocol, domain, port or query string cannot be modified. Here is an example removing "/bonita" from the redirect URI:
 +
 ----
@@ -397,7 +397,7 @@ Once you obtained the Access token, you can make your REST API request in a norm
 [NOTE]
 ====
 
-If the OIDC provider returns opaque access token (non JWT), then Bonita OIDC client module will use UserInfo OIDC endpoint to validate the token and retrieve the user claims. Make sure the property `user-info-url` is correct in the file `keycloak-oidc.json`. 
+If the OIDC provider returns opaque access token (non JWT), then Bonita OIDC client module will use UserInfo OIDC endpoint to validate the token and retrieve the user claims. Make sure the property `user-info-url` is correct in the file `keycloak-oidc.json`.
 ====
 
 === CORS
