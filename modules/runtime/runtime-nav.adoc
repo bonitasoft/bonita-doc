@@ -11,7 +11,7 @@
    **** xref:connectors-execution.adoc[Connectors]
    **** xref:timers-execution.adoc[Timers]
    **** xref:how-an-event-is-executed.adoc[Events]
-  *** xref:how-a-bdm-is-deployed.adoc[Business data technical handling]
+  *** xref:how-a-bdm-is-deployed.adoc[BDM technical handling]
   *** xref:fault-tolerance.adoc[Fault tolerance mechanisms]
  ** xref:bonita-applications-deep-dive.adoc[Applications deep dive]
   *** xref:bonita-applications-interface-overview.adoc[Overview]   
