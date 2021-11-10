@@ -84,7 +84,7 @@ On the https://customer.bonitasoft.com/[Customer Portal], there is also an examp
 
 == Reuse Bonita Portal content
 
-You can reuse pages from the Bonita Portal in your custom pages. For example, in a page that gives details of a case history, you could include the live case status diagram to show the current status. For example, for case 1 of process definition https://github.com/bonitasoft/bonita-doc/commit/8270554088248243867[`8270554`], include these lines in your custom page definition:
+You can reuse pages from the Bonita Portal in your custom pages. For example, in a page that gives details of a case history, you could include the live case status diagram to show the current status. For example, for case 1 of process definition `8270554`, include these lines in your custom page definition:
 
 [source,groovy]
 ----

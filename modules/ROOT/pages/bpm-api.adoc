@@ -888,7 +888,7 @@ Task fields to update (forbidden fields are : caseId, processId, name, executedB
 
 * *URL* +
 `/API/bpm/task` +
-_Example_: Get ten first tasks for process id https://github.com/bonitasoft/bonita-doc/commit/8410739119827826184[`8410739`] order by state `/API/bpm/task?c=10&p=0&f=processId=8410739119827826184&o=state`
+_Example_: Get ten first tasks for process id `8410739` order by state `/API/bpm/task?c=10&p=0&f=processId=8410739119827826184&o=state`
 * *Method* +
 `GET`
 * *Data Params*
@@ -1577,7 +1577,7 @@ JSON representation of an archived task
 
 * *URL* +
 `/API/bpm/archivedTask` +
-_Example_: Search ten first archived task of process https://github.com/bonitasoft/bonita-doc/commit/8410739119827826184[`8410739`] order by name: `/API/bpm/archivedTask?c=10&p=0&f=processId=8410739119827826184&o=name`
+_Example_: Search ten first archived task of process `8410739` order by name: `/API/bpm/archivedTask?c=10&p=0&f=processId=8410739119827826184&o=name`
 * *Method* +
 `GET`
 * *Data Params* +
@@ -2498,7 +2498,7 @@ Use a GET method to search actors for a given process id.
 
 * *URL* +
 `/API/bpm/actor` +
-_Example_: Count the actor members of actors of the process with id https://github.com/bonitasoft/bonita-doc/commit/4758765[`4758765`] `/API/bpm/actor?p=0&c=10&f=process_id=4758765&n=users&n=group&n=roles&n=memberships`
+_Example_: Count the actor members of actors of the process with id `4758765` `/API/bpm/actor?p=0&c=10&f=process_id=4758765&n=users&n=group&n=roles&n=memberships`
 * *Method* +
 `GET`
 * *Data Params* +
@@ -4266,7 +4266,7 @@ The `d` (deploy) used to xref:rest-api-overview.adoc#extend-resource[extend resp
 
 * *URL* +
   `/API/bpm/processSupervisor` +
-_Example_: Get the supervisors of type `User` for the process https://github.com/bonitasoft/bonita-doc/commit/8040901857674754544[`8040901`]: `API/bpm/processSupervisor?c=5&d=user_id&f=process_id%3D8040901857674754544&f=user_id%3D>0&f=group_id%3D-1&f=role_id%3D-1&p=0`
+_Example_: Get the supervisors of type `User` for the process `8040901`: `API/bpm/processSupervisor?c=5&d=user_id&f=process_id%3D8040901857674754544&f=user_id%3D>0&f=group_id%3D-1&f=role_id%3D-1&p=0`
 * *Method* +
 `GET`
 * *Data Params* +
@@ -4462,7 +4462,7 @@ Use a GET method with filters to search for connector dependencies.
 
 * *URL* +
 `/API/bpm/processConnectorDependency` +
-_Example_: Get connector dependencies of the email connector (version 1.0.0) of the process with id = https://github.com/bonitasoft/bonita-doc/commit/4971555129176049183[`4971555`]: `/API/bpm/processConnectorDependency?c=10&p=0&f=connector_process_id=4971555129176049183&f=connector_name=email&f=connector_version=1.0.0`
+_Example_: Get connector dependencies of the email connector (version 1.0.0) of the process id `4971555`: `/API/bpm/processConnectorDependency?c=10&p=0&f=connector_process_id=4971555129176049183&f=connector_name=email&f=connector_version=1.0.0`
 * *Method* +
 `GET`
 * *Data Params* +
@@ -4576,7 +4576,7 @@ The methods used for this resource are:
 `/API/bpm/connectorInstance` +
 _Example_:
  ** Get information about connectors attached to a flow node with instanceId 15 :``/API/bpm/connectorInstance?p=0&c=10&f=containerId%3d15``
- ** Get information about connectors attached to a process instance with instanceId https://github.com/bonitasoft/bonita-doc/commit/4781948523999597477[`4781948`]: `/API/bpm/connectorInstance?p=0&c=10&f=containerId%3d4781948523999597477`
+ ** Get information about connectors attached to a process instance with instanceId `4781948`: `/API/bpm/connectorInstance?p=0&c=10&f=containerId%3d4781948523999597477`
 * *Method* +
 `GET`
 * *Data Params* +
