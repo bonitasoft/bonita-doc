@@ -3,7 +3,7 @@
 
 [WARNING]
 ====
-This feature was deprecated in Bonita v2021.1. This means that Multi-tenant architecture will continue to work in Bonita for existing Bonita subscription customers,
+This feature was deprecated in Bonita 2021.1. This means that Multi-tenant architecture will continue to work in Bonita for existing Bonita subscription customers,
 but it will not be offered to new customers, nor offered as a modification for existing Bonita subscription customers who are not already using multi-tenancy.
 ====
 
