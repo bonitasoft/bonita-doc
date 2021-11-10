@@ -127,7 +127,7 @@ Stop current node :
 
 [WARNING]
 ====
-This feature was deprecated in Bonita v2021.1. 
+This feature was deprecated in Bonita 2021.1. 
 ====
 
 [NOTE]
