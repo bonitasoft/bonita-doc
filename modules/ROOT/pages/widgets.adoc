@@ -289,8 +289,8 @@ You can customize default display for zebra-striping or bordered. Here is an exa
 
 This styling can be done in the theme.css file in Bonita Studio part to customize *all* the tables. You need to use the following css selector:
 
-....
-```
+[source, css]
+----
 .table-striped > tbody > tr:nth-of-type(odd) {
   // Put you custome styling here
   background-color: chartreuse;
@@ -300,24 +300,24 @@ This styling can be done in the theme.css file in Bonita Studio part to customiz
   // Put you custome styling here
   background-color: black;
 }
-```
-....
+----
 
 In some case, you want override your theme to display custom style for only *one specific table*, to do this:
 
 * For table widget, in CSS Classes in property panel, add a class, `zebra-custom` for example
 * Add the following class in style.css asset
-+
-----
- .zebra-custom .table-striped > tbody > tr:nth-of-type(odd) {
-   // Put you custome styling here
-   background-color: chartreuse;
-  }
 
-  .zebra-custom .table-striped > tbody > tr:nth-of-type(even) {
-    // Put you custome styling here
-    background-color: black;
-  }
+[source, css]
+----
+.zebra-custom .table-striped > tbody > tr:nth-of-type(odd) {
+  // Put you custome styling here
+  background-color: chartreuse;
+}
+
+.zebra-custom .table-striped > tbody > tr:nth-of-type(even) {
+  // Put you custome styling here
+  background-color: black;
+}
 ----
 
 NOTE: In embedded Table widget documentation you can found an example for bordered custom style.

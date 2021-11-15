@@ -1,6 +1,6 @@
 = Profile Editor
 :page-aliases: profileCreation.adoc
-
+:experimental: // activate the 'menu' macro
 :description: Build a profile to customize the user's environment, define page listing and who can access it.
 
 {description}
