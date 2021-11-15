@@ -85,10 +85,10 @@ There are many options for how Bonita can be installed: see the xref:runtime:run
 
 === Processes, Data, People
 
-Using Bonita Studio, anyone trained to the https://www.bpmn.org/[Business Process Model and Notation] as a citizen developer or professional developer can quickly implement BPMN versions of the xref:ROOT:diagrams-index.adoc[processes], xref:data:define-and-deploy-the-bdm.adoc[Business Data Model], specify the xref:documents-index.adoc[documents] handled by the processes, as well as create business variables in the processes. +
+Using Bonita Studio, anyone trained to the https://www.bpmn.org/[Business Process Model and Notation] as a citizen developer or professional developer can quickly implement BPMN versions of the xref:process:diagrams-index.adoc[processes], xref:data:define-and-deploy-the-bdm.adoc[Business Data Model], specify the xref:data:documents-index.adoc[documents] handled by the processes, as well as create business variables in the processes. +
 
 It is also very easy to create the xref:ROOT:actors-index.adoc[actors] that will start the processes and execute each human task, create a xref:organization-overview.adoc[sandbox organization] in Bonita Studio, and then configure the mapping between each actor and the organization entities for testing purposes. +
-If the actor is linked to the process execution (like _the same person who executed the previous task_), an actor filter must be created as xref:bonita-overview:managing-extension-studio.adoc[an extension] by the professional developers and be xref:software-extensibility.adoc[made available] to the project. +
+If the actor is linked to the process execution (like _the same person who executed the previous task_), an actor filter must be created as xref:bonita-overview:managing-extension-studio.adoc[an extension] by the professional developers and be xref:software-extensibility:software-extensibility.adoc[made available] to the project. +
 
 Then, for each process instantiation and human task, a xref:ROOT:contracts-and-contexts.adoc[_contract_] must be defined, that state to each form what a task needs to be executed, or what the process needs to start. The information needed can be a new information to create, or an existing information to edit. +
 This contract will be evaluated when the form presents its output to the process. +
@@ -128,7 +128,7 @@ The create-or-modify-a-page.adoc [creation of pages] is done directly in the UI 
 
 From the UI Designer, you can also define the xref:ROOT:layout-development.adoc[_layout_] of the application, although Bonita provides an efficient xref:bonita-layout.adoc[default Layout]. +
 A xref:applications:customize-living-application-theme.adoc[_theme_] can also be defined to match the graphical design charter of the company. This can be done my customizing one of Bonita's provided themes. +
-The theme needs some coding (CSS, html) skills to be created or customized. Once developed in the developer's favorite IDE, it needs to be made available to the project as an xref:ROOT:software-extensibility.adoc[extension].
+The theme needs some coding (CSS, html) skills to be created or customized. Once developed in the developer's favorite IDE, it needs to be made available to the project as an xref:software-extensibility:software-extensibility.adoc[extension].
 
 === Profiles and applications
 
@@ -173,7 +173,7 @@ However, our team of Professional Services consultants can assist you in the cus
 To know about the pages that can be customized, go to the xref:ROOT:create-or-modify-a-page.adoc#[create a page] documentation page.
 
 === Connectors - final implementation
-To use a connector, it must first be declared as a dependency of the project. This is done from the Studio xref:bonita-overview:managing-extension-studio.adoc[_Extensions_] page. The connector can be found in Bonita Marketplace or can be xref:software-extensibility.adoc[made available] the professional developers of the project team. +
+To use a connector, it must first be declared as a dependency of the project. This is done from the Studio xref:bonita-overview:managing-extension-studio.adoc[_Extensions_] page. The connector can be found in Bonita Marketplace or can be xref:software-extensibility:software-extensibility.adoc[made available] the professional developers of the project team. +
 In this phase, attach the real connectors implementation to the relevant steps. +
 Note that it can be more efficient to split steps with both user activity and connector activity into two steps, a human task for the user and a system task for the connector. +
 

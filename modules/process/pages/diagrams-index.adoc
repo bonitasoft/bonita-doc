@@ -5,7 +5,7 @@
 {description}
 
 [.card-section]
-== All you need to efficienlty draw your processes
+== All you need to efficiently draw your processes
 
 [.card.card-index]
 --
