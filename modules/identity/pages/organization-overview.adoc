@@ -14,7 +14,7 @@ There are two stages to specify who will perform a step in a process:
 When you define a process, you define who will carry out a step in the process by specifying an actor. For example, if a step can be done by any member of the HR team, you could call the actor _hr_, or if a step can only be done by the sales team manager in Europe, you could call the actor _sales_mgr_europe_.
 
 A user is a person who has a username and a password in a Bonita organization, and can therefore perform steps in a process.
-Before you deploy a process, you need to xref:ROOT:actors.adoc[map the process actors]. This mapping defines who can carry out steps in the process.
+Before you deploy a process, you need to xref:process:actors.adoc[map the process actors]. This mapping defines who can carry out steps in the process.
 
 == What is an organization?
 

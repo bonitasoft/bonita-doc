@@ -15,7 +15,7 @@ Discover more in the following pages.
 
 [.card.card-index]
 --
-xref:ROOT:actors.adoc[[.card-title]#Actors of processes# [.card-body.card-content-overflow]#pass:q[Define actors in a process, and map them depending on the target environment]#]
+xref:actors.adoc[[.card-title]#Actors of processes# [.card-body.card-content-overflow]#pass:q[Define actors in a process, and map them depending on the target environment]#]
 --
 
 [.card.card-index]

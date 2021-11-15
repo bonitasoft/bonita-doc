@@ -21,4 +21,4 @@ You can create additional actor filters to meet the needs of your process. An ac
 An actor filter definition defines the properties of the actor filter and defines the wizard that used to configure the actor filter when it is used in a process. An actor filter implementation consists of a set of properties and a Java class.
 You can create additional actor filters by using the xref:ROOT:actor-filter-archetype.adoc[dedicated Maven archetype] and install it in your projects.
 
-For details of how to apply an actor filter to a task or lane, see xref:ROOT:actors.adoc[Actors].
+For details of how to apply an actor filter to a task or lane, see xref:actors.adoc[Actors].

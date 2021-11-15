@@ -1,13 +1,11 @@
 = How tos
-:description: blabla
 
-blabla
 [.card-section]
 == Theme1
 
 [.card.card-index]
 --
-xref:ROOT:actors.adoc[[.card-title]#How to 1# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:process:actors.adoc[[.card-title]#How to 1# [.card-body.card-content-overflow]#pass:q[TODO]#]
 --
 
 [.card.card-index]
