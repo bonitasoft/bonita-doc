@@ -72,7 +72,7 @@ Starting the development of an application from scratch may not be the most effi
 
 [.card.card-index]
 --
-xref:ROOT:user-application-overview.adoc[[.card-title]#Bonita User Application# [.card-body.card-content-overflow]#pass:q[Start process instances and execute tasks using a generic tasklist]#]
+xref:runtime:user-application-overview.adoc[[.card-title]#Bonita User Application# [.card-body.card-content-overflow]#pass:q[Start process instances and execute tasks using a generic tasklist]#]
 --
 
 [.card.card-index]

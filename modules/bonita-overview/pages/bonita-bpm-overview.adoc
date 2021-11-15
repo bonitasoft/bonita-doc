@@ -89,7 +89,7 @@ xref:runtime:runtime-installation-index.adoc#platform[[.card-title]#Install Boni
 
 [.card.card-index]
 --
-xref:ROOT:user-application-overview.adoc[[.card-title]#Bonita User application# [.card-body.card-content-overflow]#pass:q[An example of a todo list-based application provided by Bonita]#]
+xref:runtime:user-application-overview.adoc[[.card-title]#Bonita User application# [.card-body.card-content-overflow]#pass:q[An example of a todo list-based application provided by Bonita]#]
 --
 
 [.card.card-index]

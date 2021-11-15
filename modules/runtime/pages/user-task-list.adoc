@@ -1,9 +1,8 @@
 = User task list
 :page-aliases: ROOT:user-task-list.adoc
-:description: This page explains what a user can see and do about tasks in the xref:ROOT:user-application-overview.adoc[Bonita User Application]. +
+:description: This page explains what a user can see and do about tasks in the Bonita User Application.
 
-
-{description} +
+This page explains what a user can see and do about tasks in the xref:user-application-overview.adoc[Bonita User Application]. +
 _Users_ can view lists of tasks assigned to their team, assign a task to themselves, view lists of tasks assigned to them inside a team, work on the tasks, view the "Done" tasks on different processes, and release tasks (depending on their status).
 
 == Overview

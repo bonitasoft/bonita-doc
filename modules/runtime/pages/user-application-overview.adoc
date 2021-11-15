@@ -1,10 +1,8 @@
 = Bonita User Application
 :page-aliases: ROOT:user-application-overview.adoc
-:description: This pages describes Bonita User Application: its values, how to access it, and how to customize it. +
+:description: This pages describes Bonita User Application: its values, how to access it, and how to customize it.
 
 {description}
-
-{description} +
 
 == Value
 

@@ -1,8 +1,8 @@
 = User Case list in Bonita Application
 :page-aliases: ROOT:user-application-case-list.adoc
-:description: This page explains what a user with the _User_ profile can see and do about cases (the process instances) in xref:ROOT:user-application-overview.adoc[Bonita User Application].
+:description: This page explains what a user with the User profile can see and do about cases (the process instances) in Bonita User Application.
 
-{description} +
+This page explains what a user with the _User_ profile can see and do about cases (the process instances) in xref:user-application-overview.adoc[Bonita User Application]. +
 It describes the value and details of the User Case List in Bonita User Application, as well as its related pages Case Details and Case Overview.
 
 This page has been created using our https://community.bonitasoft.com/blog/development-ui-designer-page-done-bonitasoft[R&D best practices].
