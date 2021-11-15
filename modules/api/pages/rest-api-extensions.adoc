@@ -20,7 +20,7 @@ There is some additional prerequisites when creating a REST API extension:
 
 * Basic knowledge of Maven
 * *Access to http://central.maven.org/maven2[Maven central repository]*.
-* More information on maven configuration xref:ROOT:configure-maven.adoc[here]
+* More information on maven configuration xref:setup-dev-environment:configure-maven.adoc[here]
 
 === Generate a new REST API extension skeleton
 
