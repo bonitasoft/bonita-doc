@@ -19,7 +19,7 @@ xref:ROOT:import-export-an-organization.adoc[[.card-title]#Install/export an org
 
 [.card.card-index]
 --
-xref:ROOT:admin-application-groups-list.adoc[[.card-title]#Manage groups# [.card-body.card-content-overflow]#pass:q[The first axis of organizational structure]#]
+xref:admin-application-groups-list.adoc[[.card-title]#Manage groups# [.card-body.card-content-overflow]#pass:q[The first axis of organizational structure]#]
 --
 
 [.card.card-index]
