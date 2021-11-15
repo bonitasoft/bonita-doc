@@ -90,7 +90,7 @@ Using Bonita Studio, anyone trained to the https://www.bpmn.org/[Business Proces
 It is also very easy to create the xref:ROOT:actors-index.adoc[actors] that will start the processes and execute each human task, create a xref:identity:organization-overview.adoc[sandbox organization] in Bonita Studio, and then configure the mapping between each actor and the organization entities for testing purposes. +
 If the actor is linked to the process execution (like _the same person who executed the previous task_), an actor filter must be created as xref:bonita-overview:managing-extension-studio.adoc[an extension] by the professional developers and be xref:software-extensibility:software-extensibility.adoc[made available] to the project. +
 
-Then, for each process instantiation and human task, a xref:ROOT:contracts-and-contexts.adoc[_contract_] must be defined, that state to each form what a task needs to be executed, or what the process needs to start. The information needed can be a new information to create, or an existing information to edit. +
+Then, for each process instantiation and human task, a xref:data:contracts-and-contexts.adoc[_contract_] must be defined, that state to each form what a task needs to be executed, or what the process needs to start. The information needed can be a new information to create, or an existing information to edit. +
 This contract will be evaluated when the form presents its output to the process. +
 
 As for the user interfaces per se, at this stage, Bonita provides auto-generated forms that allow the early testing of the process execution. +

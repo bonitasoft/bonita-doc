@@ -312,7 +312,7 @@ It means that if one or more processes on the target server uses 6.x forms or ov
 * If you are updating from a Bonita 6.x version, follow this procedure:
  . Update to Bonita 7.0.0 using the Migration Tool 1.x.
  . Update to the last 7.7.x version, using the Migration Tool 2.x.
- . Redesign your processes to use contracts at process instantiation and task execution levels, and recreate all your forms and case overview pages in Bonita Studio using the UI Designer or your favorite IDE, so that they use xref:ROOT:contracts-and-contexts.adoc[contracts]. For more information, go to  xref:migrate-a-form-from-6-x.adoc[migrate a form from 6.x]
+ . Redesign your processes to use contracts at process instantiation and task execution levels, and recreate all your forms and case overview pages in Bonita Studio using the UI Designer or your favorite IDE, so that they use xref:data:contracts-and-contexts.adoc[contracts]. For more information, go to  xref:migrate-a-form-from-6-x.adoc[migrate a form from 6.x]
  . Upload the new version of all your processes using contracts, new forms, and new case overview pages.
  . Make sure the versions of the processes using 6.x forms have no more running instances, and disable them.
  . Perform the updating procedure to the desired version.

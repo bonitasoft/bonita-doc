@@ -85,7 +85,7 @@ This variable is evaluated every time the value of `userId` changes. Also, if `u
 API URL: `+../API/bpm/humanTask/{{taskId}}+`
 * Retrieve a xref:ROOT:bdm-api.adoc[business object] with name `businessDataName` associated with the case with id `caseId`: +
 API URL: `+../API/bdm/businessDataReference/{{caseId}}/{{businessDataName}}+`
-* Retrieve business data using the reference link in the xref:ROOT:contracts-and-contexts.adoc[context] when building a form: +
+* Retrieve business data using the reference link in the xref:data:contracts-and-contexts.adoc[context] when building a form: +
 API URL: `../{{context.myBusinessData_ref.link}}`
 * Retrieve lazy references of a business data field using `lazyRef` filter in an External API variable: +
 API URL: `{{myBusinessData | lazyRef : 'relationName'}}` where `myBusinessData` is an External API variable retrieving a business data from the context like in the above example and `relationName` the name of the lazy relation field to retrieve.
@@ -122,7 +122,7 @@ A binding is dynamic, so every time the value of a variable changes, the whole d
 
 == In Bonita forms
 
-One of the goals of the UI Designer is to enable you to build forms for process instantiation and human tasks execution. The xref:ROOT:contracts-and-contexts.adoc[contract] eases the decoupling between the user views and the process. When a form is submitted for process instantiation or human task execution, the UI Designer sends data to fulfill the contract.
+One of the goals of the UI Designer is to enable you to build forms for process instantiation and human tasks execution. The xref:data:contracts-and-contexts.adoc[contract] eases the decoupling between the user views and the process. When a form is submitted for process instantiation or human task execution, the UI Designer sends data to fulfill the contract.
 
 To ease the definition of the form data to send back to the process, when you create a form from the Bonita Studio, the UI Designer generates the following variables:
 

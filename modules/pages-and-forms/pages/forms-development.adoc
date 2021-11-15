@@ -25,9 +25,9 @@ To migrate your processes still using them, follow those xref:ROOT:migrate-a-for
 
 == Form types
 
-A xref:ROOT:contracts-and-contexts.adoc[context] is the set of data provided by the process instance or task instance to the form. There is no context for a process instantiation form.
+A xref:data:contracts-and-contexts.adoc[context] is the set of data provided by the process instance or task instance to the form. There is no context for a process instantiation form.
 
-A xref:ROOT:contracts-and-contexts.adoc[contract] is the definition of that data that the form returns to the process instance. There is no contract for an overview form.
+A xref:data:contracts-and-contexts.adoc[contract] is the definition of that data that the form returns to the process instance. There is no contract for an overview form.
 
 == Testing and debugging
 

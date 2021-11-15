@@ -10,7 +10,7 @@ It is a web-based tool that is launched from Bonita Studio. +
 A page is defined in HTML extended by the AngularJS JavaScript framework. Use the UI Designer to create and update pages for business applications, forms to start process instances or execute human tasks, and application layouts that apply to all pages of an application.
 
 * Create pages directly in the Bonita UI designer.
-* Start form design in Bonita Studio from the appropriate xref:ROOT:contracts-and-contexts.adoc[contract].
+* Start form design in Bonita Studio from the appropriate xref:data:contracts-and-contexts.adoc[contract].
 * Create xref:ROOT:layouts.adoc[layouts] by duplicating the Bonita Layout available in the Bonita Administrator Application, "Resources" tab and then updating it.
 
 You can import an existing page, form, or layout to edit, or duplicate existing ones.
@@ -63,7 +63,7 @@ Select a human task or a pool, go to the *Details* panel, *Execution* tab. Then 
 * *_Instantiation form_* for a form to start a process instance
 * *_Form_* for a form on a human task
 
-With the form type set to *UI Designer*, you can select a form from the dropdown list and click the pencil icon to edit it, or you can choose *Create a new form*. This is the way to go to create forms as the Studio will auto-generate a form based on the process instantiation or task execution xref:ROOT:contracts-and-contexts.adoc[contract].
+With the form type set to *UI Designer*, you can select a form from the dropdown list and click the pencil icon to edit it, or you can choose *Create a new form*. This is the way to go to create forms as the Studio will auto-generate a form based on the process instantiation or task execution xref:data:contracts-and-contexts.adoc[contract].
 
 You can also create a customized *overview form*, to display a summary of the case to the users, either in a case details page, or in the tasklist, to give some context to the task to do. +
 To do so, go to the pool *Details* panel, *Execution* tab, and click *_Overview page*. +
