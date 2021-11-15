@@ -36,7 +36,7 @@ xref:ROOT:pages.adoc[[.card-title]#Pages# [.card-body.card-content-overflow]#pas
 
 [.card.card-index]
 --
-xref:ROOT:profiles.adoc[[.card-title]#Profiles# [.card-body.card-content-overflow]#pass:q[Entities of the organization who can access the application]#]
+xref:identity:profiles-overview.adoc[[.card-title]#Profiles# [.card-body.card-content-overflow]#pass:q[Entities of the organization who can access the application]#]
 --
 
 [.card.card-index]
@@ -96,5 +96,5 @@ xref:ROOT:use-bonita-acm.adoc[[.card-title]#Adaptive Case Management example# [.
 
 [.card.card-index]
 --
-xref:ROOT:applications-deep-dive-index.adoc[[.card-title]#Applications deep dive# [.card-body.card-content-overflow]#pass:q[Applications under the hood, and the four Bonita applications]#]
+xref:runtime:bonita-applications-deep-dive.adoc[[.card-title]#Applications deep dive# [.card-body.card-content-overflow]#pass:q[Applications under the hood, and the four Bonita applications]#]
 --
