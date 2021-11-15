@@ -28,7 +28,7 @@ To remove a parameter, select it in the table of parameters and click *Remove*.
 
 == Configuring parameter values
 
-Parameter values are set in Bonita Studio when the process is configured (see the xref:ROOT:process-configuration-overview.adoc[process configuration overview] for other details of how to configure a process).
+Parameter values are set in Bonita Studio when the process is configured (see the xref:process:process-configuration-index.adoc[process configuration overview] for other details of how to configure a process).
 
 To set a parameter value:
 

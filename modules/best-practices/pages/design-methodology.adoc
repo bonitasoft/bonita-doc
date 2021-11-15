@@ -181,13 +181,13 @@ Note that it can be more efficient to split steps with both user activity and co
 
 . Test each connector independently using the connector wizard *_Test_* button. +
 . You can validate a process definition in Bonita Studio, in the *Details* panel, *Validation status* tab. The validation status indicates any errors or omissions in the definition. Correct any errors flagged in validation before testing the process
-. Then, test each process individually (run the process by clicking *_Run_*). You need to xref:ROOT:process-configuration-overview.adoc[configure] the process before testing it locally.
+. Then, test each process individually (run the process by clicking *_Run_*). You need to xref:process:process-configuration-index.adoc[configure] the process before testing it locally.
 . Test the application. Make sure the user interfaces display the right information, and gather the right information. Run usability testing sessions with end-users.
 
 == From development to production
 
 When local testing is complete, the processes are ready to be deployed and the application is ready to be put into user acceptance testing, staging, and then production environments. +
-You need to xref:ROOT:process-configuration-overview.adoc[configure] each process for deployment before deploying into a new environment. +
+You need to xref:process:process-configuration-index.adoc[configure] each process for deployment before deploying into a new environment. +
 Continuous Delivery can be achived thanks to https://documentation.bonitasoft.com/bcd/latest/[Bonita Continuous Delivery] (Subscription editions only).
 
 == Go to production
