@@ -84,7 +84,7 @@ xref:ROOT:engine-architecture-overview.adoc[[.card-title]#Bonita Engine# [.card-
 
 [.card.card-index]
 --
-xref:runtime:runtime-installation-index.adoc#platform[[.card-title]#Install Bonita Runtime# [.card-body.card-content-overflow]#pass:q[Install Bonita Engine and Bonita provided applications]#]
+xref:runtime:runtime-installation-index.adoc[[.card-title]#Install Bonita Runtime# [.card-body.card-content-overflow]#pass:q[Install Bonita Engine and Bonita provided applications]#]
 --
 
 [.card.card-index]
