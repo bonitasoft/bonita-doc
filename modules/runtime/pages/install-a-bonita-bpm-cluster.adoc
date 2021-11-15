@@ -43,7 +43,7 @@ When done you will have a database with all tables created and with a table `CON
 . Ensure that you meet the  xref:ROOT:hardware-and-software-requirements.adoc[requirements].
 . xref:ROOT:database-configuration.adoc#database_creation[Create the database].
 . In case you use  xref:data:define-and-deploy-the-bdm.adoc[Business data],  xref:database-configuration.adoc#database_creation[create a database for the Business Data].
-. Download a Bonita  xref:ROOT:tomcat-bundle.adoc[Tomcat bundle] and unzip it in your chosen folder.
+. Download a Bonita  xref:tomcat-bundle.adoc[Tomcat bundle] and unzip it in your chosen folder.
 . Edit file *`setup/database.properties`* and modify the properties to suit your databases (Bonita internal database & Business Data database). Beware of  xref:runtime:bonita-platform-setup.adoc#backslash_support[backslash characters].
 
 In the following steps, you will update the configuration files that are in the `setup/platform_conf/initial` folder of the platform setup tool.
@@ -165,7 +165,7 @@ In this case you already have a Bonita Platform running as single node installat
 
 Some properties of the Bonita Platform need to be changed, through  xref:runtime:bonita-platform-setup.adoc[Bonita platform setup tool], in order to make your installation work as a cluster node.
 
-* Download Bonita xref:ROOT:tomcat-bundle.adoc[Tomcat bundle], that contains the platform setup tool, and unzip it in your chosen folder.
+* Download Bonita xref:tomcat-bundle.adoc[Tomcat bundle], that contains the platform setup tool, and unzip it in your chosen folder.
 * Go into the `setup` folder: `cd ./setup/`
 * Configure the Setup Tool as described in the  xref:runtime:bonita-platform-setup.adoc[platform setup tool page]
 * Run the `setup.sh pull` or `setup.bat pull`. This will retrieve the configuration of your platform under `platform_conf/current` folder.

@@ -58,4 +58,4 @@ Each queriable log type can be turned off individually with its associated prope
 `bonita.tenant.queriable.log.ACTOR_CREATED.INTERNAL=false`
 `bonita.tenant.queriable.log.APPLICATION_PAGE_DELETED.INTERNAL=false`
 . Use the xref:runtime:bonita-platform-setup.adoc[Platform configuration setup tool] to push the configuration in the database: `./setup.sh push`
-. xref:ROOT:tomcat-bundle.adoc#start[Restart] the application server
+. xref:runtime:tomcat-bundle.adoc#start[Restart] the application server

@@ -8,7 +8,7 @@
 
 The platform is the part of the system that is common to all tenants. The platform administrator can manage xref:ROOT:platform-api.adoc[through the API] the platform level resources (including starting/stopping all services of the platform and managing tenants). He can also access the license information (for Enterprise editions). +
 Its username and password are defined in a configuration file and need to be changed for any other usage of a Bonita Tomcat bundle than local development (see
-xref:ROOT:tomcat-bundle.adoc#tomcat-bundle-installation[Bonita Tomcat bundle installation procedure] for more information on how to proceed.
+xref:runtime:tomcat-bundle.adoc#tomcat-bundle-installation[Bonita Tomcat bundle installation procedure] for more information on how to proceed.
 Its default credentials are:
 
 * username: `platformAdmin`

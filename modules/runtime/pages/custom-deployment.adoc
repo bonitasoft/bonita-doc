@@ -6,7 +6,7 @@
 
 [WARNING]
 ====
-Remember that the recommended way of installing Bonita is to use the provided xref:ROOT:tomcat-bundle.adoc[Tomcat] bundle. +
+Remember that the recommended way of installing Bonita is to use the provided xref:tomcat-bundle.adoc[Tomcat] bundle. +
 It saves you from doing all the following configuration at hand, as the xref:runtime:bonita-platform-setup.adoc[setup tool] included handles it automatically.
 ====
 
