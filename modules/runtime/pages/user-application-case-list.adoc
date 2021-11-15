@@ -86,7 +86,7 @@ They can be updated anytime during the lifetime of the case. +
 Search keys are optional and it is possible to define up to five search keys for a process. +
 All available search keys are displayed for a given case. +
 Technical note: There is a database index for each search key. +
-To know more about how to implement search keys, go to the xref:ROOT:define-a-search-index.adoc[search keys] page.
+To know more about how to implement search keys, go to the xref:data:define-a-search-index.adoc[search keys] page.
 
 ==== Search keys filter results
 
