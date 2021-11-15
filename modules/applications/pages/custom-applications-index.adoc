@@ -4,7 +4,7 @@
 
 {description}
 
-An application is a navigation of pages that can be accessed by a xref:ROOT:profiles-overview.adoc[Profile]. +
+An application is a navigation of pages that can be accessed by a xref:identity:profiles-overview.adoc[Profile]. +
 It is created and operated within Bonita Platform: created with Bonita Studio and UI Designer, deployed with Bonita Continuous Delivery, run by Bonita Runtime.
 
 Its purpose is to display and structure the right information and provide the right controls at the right time to the profiles, so they can efficiently perform their tasks. +

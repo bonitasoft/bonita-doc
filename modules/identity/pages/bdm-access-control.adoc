@@ -18,7 +18,7 @@ You will find below examples of both use-cases.
 == Use of profiles
 
 Most of the time, the access logic applies to several users, based on a combination of their roles/groups in the organization.
-For that reason, Bonita takes advantage of the capability to define xref:ROOT:profiles-overview.adoc[profiles] in Bonita Studio. +
+For that reason, Bonita takes advantage of the capability to define xref:profiles-overview.adoc[profiles] in Bonita Studio. +
 We are making profiles an effective way to map people to Bonita items: living application access, BDM access control rules (starting in Bonita 7.7), actor mapping or more in the future. +
 Granting access to a business object or some attributes of a business object to a given profile means granting access to all users mapped to this profile.
 

@@ -132,7 +132,7 @@ The theme needs some coding (CSS, html) skills to be created or customized. Once
 
 === Profiles and applications
 
-From the studio, the xref:ROOT:profiles-overview.adoc[profiles] are created to grant access to the future applications, mapping each profile with organization entities. +
+From the studio, the xref:identity:profiles-overview.adoc[profiles] are created to grant access to the future applications, mapping each profile with organization entities. +
 Defining the xref:ROOT:application-creation.adoc[application] then comes down to binding together project elements: a profile, some pages, a layout, and a theme. +
 The application descriptor also allows for the creation of a name, a URL token, the application two-level navigation and the designation of the home page. +
 The link between an application and the processes that run in the background is created by the BPM API called by the clickable elements contained in the pages. There is no need to formally declare such a link. +
@@ -196,7 +196,7 @@ Continuous Delivery can be achived thanks to https://documentation.bonitasoft.co
 Before you can run a process in production, you need to define your organization with entries for all process users, groups, and roles. You also need to map the process actors to the real people who will carry out process steps. This is most of the time achieved thanks to an LDAP, and system administrators will then use Bonita xref:ROOT:ldap-synchronizer.adoc[LDAP synchronizer].
 
 === Permissions
-xref:ROOT:rest-api-authorization.adoc[REST API extensions, static and dynamic API security rules], xref:identity:bdm-access-control.adoc[BDM access control], xref:process:actor-filtering.adoc[actor filters], xref:process:actors.adoc[actor mapping], xref:profiles-overview.adoc[profiles] need to be specified and/or doulbe-checked at that time, to make sure that accesses are given to the right people for the right data.
+xref:ROOT:rest-api-authorization.adoc[REST API extensions, static and dynamic API security rules], xref:identity:bdm-access-control.adoc[BDM access control], xref:process:actor-filtering.adoc[actor filters], xref:process:actors.adoc[actor mapping], xref:identity:profiles-overview.adoc[profiles] need to be specified and/or double-checked at that time, to make sure that accesses are given to the right people for the right data.
 
 
 === Translation
