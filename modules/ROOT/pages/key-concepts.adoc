@@ -43,7 +43,7 @@ Typically, the organization corresponds to the hierarchy of teams within your bu
 If your clients and suppliers have access to your processes, those users must also be included in the organization. +
 You can also feed the Bonita Runtime by synchronizing with an external LDAP directory. +
 During process modelling, you need to create a draft organization in Bonita Studio with the main entities (groups, roles) to map it to process actors. +
-See the xref:ROOT:organization-overview.adoc[Organization overview] for details.
+See the xref:identity:organization-overview.adoc[Organization overview] for details.
 
 == Actors
 

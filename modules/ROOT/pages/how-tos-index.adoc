@@ -1,4 +1,4 @@
-= How tos 
+= How tos
 :description: blabla
 
 blabla
@@ -17,5 +17,5 @@ xref:ROOT:actor-filtering.adoc[[.card-title]#How to 2# [.card-body.card-content-
 
 [.card.card-index]
 --
-xref:ROOT:organization-overview.adoc[[.card-title]#How to 3# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:identity:organization-overview.adoc[[.card-title]#How to 3# [.card-body.card-content-overflow]#pass:q[TODO]#]
 --

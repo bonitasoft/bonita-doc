@@ -67,7 +67,7 @@ However, it is not required to use all the concepts to create a valid Bonita Aut
 |===
 |Element |Description |Create/Provided | Tool | Alternative
 
-|xref:ROOT:organization-overview.adoc[Organization] (for "Actors" and "Profiles")
+|xref:identity:organization-overview.adoc[Organization] (for "Actors" and "Profiles")
 |The definition of the user base that will use the processes (includes users, roles and groups)
 |Example provided/Create
 |Studio/Admin Application/LDAP synchronizer(Enterprise Edition only)

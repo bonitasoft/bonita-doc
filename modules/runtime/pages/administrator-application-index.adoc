@@ -58,7 +58,7 @@ xref:ROOT:bdm-management-in-bonita-applications.adoc[[.card-title]#BDM managemen
 
 [.card.card-index]
 --
-xref:ROOT:organization-overview.adoc[[.card-title]#Organization creation# [.card-body.card-content-overflow]#pass:q[Create users, roles, groups, and memberships]#]
+xref:identity:organization-overview.adoc[[.card-title]#Organization creation# [.card-body.card-content-overflow]#pass:q[Create users, roles, groups, and memberships]#]
 --
 
 [.card.card-index]

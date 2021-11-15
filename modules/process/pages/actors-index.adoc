@@ -1,4 +1,4 @@
-= Actors 
+= Actors
 :page-aliases: ROOT:actors-index.adoc
 :description: Actors are indirections between the processes and entities of the organization. They are used to define the candidates who can perform a given human task.
 
@@ -33,5 +33,5 @@ xref:ROOT:actor-filter-archetype.adoc[[.card-title]#Create an actor filter# [.ca
 
 [.card.card-index]
 --
-xref:ROOT:organization-overview.adoc[[.card-title]#Organization# [.card-body.card-content-overflow]#pass:q[Users, roles, groups, memberships to map to the actors]#]
+xref:identity:organization-overview.adoc[[.card-title]#Organization# [.card-body.card-content-overflow]#pass:q[Users, roles, groups, memberships to map to the actors]#]
 --

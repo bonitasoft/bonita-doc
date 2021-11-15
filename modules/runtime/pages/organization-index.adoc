@@ -47,5 +47,5 @@ xref:ROOT:admin-application-profiles-list.adoc[[.card-title]#Manage profiles# [.
 
 [.card.card-index]
 --
-xref:ROOT:organization-overview.adoc[[.card-title]#Create an organization# [.card-body.card-content-overflow]#pass:q[Define the organization structure at development time]#]
+xref:identity:organization-overview.adoc[[.card-title]#Create an organization# [.card-body.card-content-overflow]#pass:q[Define the organization structure at development time]#]
 --
