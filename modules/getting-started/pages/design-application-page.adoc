@@ -24,7 +24,7 @@ For this example, we will build a basic page that displays, in a table, all the 
 image:images/getting-started-tutorial/design-application-page/creation-of-an-application-page.gif[Creation of an application page]
 // {.img-responsive .img-thumbnail}
 
-On the new page, using the xref:ROOT:data-management.adoc[data management] capabilities, the UI Designer can automatically create xref:variables.adoc[variables] to retrieve business data and generate the user interface:
+On the new page, using the xref:data:data-management.adoc[data management] capabilities, the UI Designer can automatically create xref:variables.adoc[variables] to retrieve business data and generate the user interface:
 
 . At the top left corner of the UI Designer, click on  *Data model* image:images/getting-started-tutorial/design-application-page/data-model.png[Data model button]
 . In the list of business objects, select the _Claim_ object and drag and drop it into the empty space of the page
