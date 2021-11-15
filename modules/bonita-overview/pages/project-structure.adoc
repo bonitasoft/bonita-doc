@@ -79,7 +79,7 @@ However, it is not required to use all the concepts to create a valid Bonita Aut
 |===
 |Element |Description |Create/Provided | Tool | Alternative
 
-|xref:ROOT:applicationcreation.adoc[Application descriptor]
+|xref:applications:application-creation.adoc[Application descriptor]
 |Defines the *living applications*: group of pages with a specific them for a given user profile
 |Create
 |Studio/Admin Application

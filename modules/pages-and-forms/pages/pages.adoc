@@ -56,7 +56,7 @@ For all information about developping a custom page, visit xref:ROOT:pages-devel
 
 == Use in applications
 
-Once the pages are all made available in the Resources tab of Bonita Administrator Application, they can be used to xref:ROOT:applicationCreation.adoc[create applications]. +
+Once the pages are all made available in the Resources tab of Bonita Administrator Application, they can be used to xref:applications:application-creation.adoc[create applications]. +
 We highly recommend that the creation of applications is done in Bonita Studio, to be managed with all the other resources of the project in the Version Control System (Git).
 
 == Live update

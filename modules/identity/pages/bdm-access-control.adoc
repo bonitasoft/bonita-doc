@@ -132,7 +132,7 @@ To manage this and other differences between what profiles can access, you have 
 * manage it on the same page and make its display conditional.
 To do so, in the property *hidden* of the dedicated input, click the *fx* button to make it an expression, and write `$item.medicalComment == null || $item.medicalComment == undefined`.
 
-Create a new application descriptor using the xref:ROOT:applicationCreation.adoc[application editor] in the Studio:
+Create a new application descriptor using the xref:applications:application-creation.adoc[application editor] in the Studio:
 
 * Set the application token: _leaveRequest_
 * Set the Application Profile: _User_
@@ -340,7 +340,7 @@ In the UI Designer, create an application page _displayInvoices_  :
     ***** An input ( *Label:* Address, *Value:* $item.customer.address, *hidden:* `$item.customer.address == null || $item.customer.address == undefined`)
     ***** An input(*Label:* Quantity, *Value:* $item.quantity)
 
-Create a new application descriptor using the xref:ROOT:applicationCreation.adoc[application editor] in the Studio:
+Create a new application descriptor using the xref:applications:application-creation.adoc[application editor] in the Studio:
 
 * Set the application token: invoices
 * Set the Application Profile: User
@@ -515,10 +515,10 @@ In the UI Designer:, create an application page (_reviewRequests_):
  ** *Value* : selectedSubject
 * Add a Table widget to the page (to display the requests):
  ** *Headers* : Id, Subject, Content, Medical comment, Student (constants)
- ** *Content* : requestList (script, click the fx icon to switch from contstant to script)
+ ** *Content* : requestList (script, click the fx icon to switch from constant to script)
  ** *Column keys* : persistenceId, subject, content, medicalComment, student.fullname
 
-In the Studio, create an xref:ROOT:applicationCreation.adoc[application descriptor]:
+In the Studio, create an xref:applications:application-creation.adoc[application descriptor]:
 
 * Set the application token: _TeacherApp_
 * Set the application profile: _Teachers_

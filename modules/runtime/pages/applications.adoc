@@ -31,7 +31,7 @@ An application requires the following to be available:
 == Application creation
 
 Even though you can create applications from the Bonita Administrator Application, these would not be taken into account in Bonita Studio nor the project sources. +
-So we strongly encourage your team to create applications in xref:ROOT:applicationCreation.adoc[Bonita Studio].
+So we strongly encourage your team to create applications in xref:applications:application-creation.adoc[Bonita Studio].
 
 == Application management
 
