@@ -9,7 +9,7 @@ but it will not be offered to new customers, nor offered as a modification for e
 
 [NOTE]
 ====
-Important note: As mentioned in the release note, Bonita Enterprise customers need a contractual agreement to create additional tenants. For any new tenant creation, any general or contractual question related to Multi-tenancy, please contact your customer success representative.
+As mentioned in the release note, Bonita Enterprise customers need a contractual agreement to create additional tenants. For any new tenant creation, any general or contractual question related to Multi-tenancy, please contact your customer success representative.
 ====
 
 For customers already in a multi-tenant architecture:
