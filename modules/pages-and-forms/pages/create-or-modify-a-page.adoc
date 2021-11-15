@@ -7,7 +7,7 @@
 == User Interfaces development overview
 
 Your automation project can use xref:ROOT:pages.adoc[pages] to display information and provide interaction controls to the end-users or administrators. +
-It most of the times uses xref:ROOT:forms.adoc[forms] to display and collect new or edited information. +
+It most of the times uses xref:forms.adoc[forms] to display and collect new or edited information. +
 Forms and pages are made of containers and widgets. +
 Some containers and widgets can be grouped in xref:ROOT:fragments.adoc[fragments], in order to be reused in several pages or forms. +
 
@@ -27,7 +27,7 @@ The following chapters give more information on how to develop all the others el
 
 == Create a form
 
-In a Bonita project architecture, xref:ROOT:forms.adoc[forms] are embedded in the pools. Their creation is very linked to the process step they "feed", in a way. +
+In a Bonita project architecture, xref:forms.adoc[forms] are embedded in the pools. Their creation is very linked to the process step they "feed", in a way. +
 It is recommended to define the xref:ROOT:contracts-and-contexts.adoc[contract] in its _Execution / Contract_ property tab before to create the form, so the Studio will generate a form according to the contract. +
 Forms can be created at different level:
 

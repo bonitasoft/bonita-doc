@@ -15,7 +15,7 @@ xref:ROOT:create-or-modify-a-page.adoc[[.card-title]#Create or modify UI element
 
 [.card.card-index]
 --
-xref:ROOT:forms.adoc[[.card-title]#Forms# [.card-body.card-content-overflow]#pass:q[The user interfaces closely tied to processes]#]
+xref:forms.adoc[[.card-title]#Forms# [.card-body.card-content-overflow]#pass:q[The user interfaces closely tied to processes]#]
 --
 
 [.card.card-index]

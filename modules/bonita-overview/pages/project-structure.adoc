@@ -28,7 +28,7 @@ However, it is not required to use all the concepts to create a valid Bonita Aut
 |Studio
 |--
 
-|xref:ROOT:forms.adoc[Forms]
+|xref:pages-and-forms:forms.adoc[Forms]
 |Web interfaces to interact with processes (to instantiate a process and for human tasks)
 |Create
 |UI Designer
