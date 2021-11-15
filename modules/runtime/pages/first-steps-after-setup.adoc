@@ -106,7 +106,7 @@ NOTE: do not create a user or an administrator with the same login and password 
 . Go to *Organization* > *Profiles*. Click on triple dots button for "Administrator" profile.
 . Under "Users mapping", click on "Add a user".
 . Select your user and click on "Add" button. Log out as the Technical user and log back in as the newly created user with administrative rights.
-. Create xref:ROOT:admin-application-users-list.adoc[users with the standard profile].
+. Create xref:admin-application-users-list.adoc[users with the standard profile].
 . You can add newly created users to the "User" (standard) profile or to a custom profile.
 
 If you already have a system that stores information about end users, you can use it to create user accounts in Bonita.

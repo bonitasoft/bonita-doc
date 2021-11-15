@@ -29,7 +29,7 @@ xref:admin-application-roles-list.adoc[[.card-title]#Manage roles# [.card-body.c
 
 [.card.card-index]
 --
-xref:ROOT:admin-application-users-list.adoc[[.card-title]#Manage users# [.card-body.card-content-overflow]#pass:q[The elementary units of the organization, and their details]#]
+xref:admin-application-users-list.adoc[[.card-title]#Manage users# [.card-body.card-content-overflow]#pass:q[The elementary units of the organization, and their details]#]
 --
 
 [.card.card-index]

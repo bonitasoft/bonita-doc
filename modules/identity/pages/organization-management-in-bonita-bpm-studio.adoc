@@ -59,7 +59,7 @@ You can import an organization definition in the XML file that was exported from
 
 Open the organization you want to export from the project explorer and click on *_Export_* in the top bar of the organization.
 
-To prepare your production system (unless you are using the LDAP synchronizer), you must create the organization that you need for all the processes that will be deployed, export it from Bonita Studio, and import it into Bonita Applications. After the organization is imported into Bonita Applications, you can xref:runtime:admin-application-groups-list.adoc[manage groups], xref:runtime:admin-application-roles-list.adoc[roles], and xref:admin-application-users-list.adoc[users] in the organization.
+To prepare your production system (unless you are using the LDAP synchronizer), you must create the organization that you need for all the processes that will be deployed, export it from Bonita Studio, and import it into Bonita Applications. After the organization is imported into Bonita Applications, you can xref:runtime:admin-application-groups-list.adoc[manage groups], xref:runtime:admin-application-roles-list.adoc[roles], and xref:runtime:admin-application-users-list.adoc[users] in the organization.
 
 == Modifying an organization
 
