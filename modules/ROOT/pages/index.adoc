@@ -8,7 +8,7 @@ Learn how to get the most out of the Bonita Platform and all of its components.
 
 [.card.card-index]
 --
-xref:ROOT:what-is-bonita-index.adoc[[.card-title]#What is Bonita?# [.card-body.card-content-overflow]#pass:q[A useful overview (our purpose, artifacts to create, platform architecture)!]#]
+xref:bonita-overview:what-is-bonita-index.adoc[[.card-title]#What is Bonita?# [.card-body.card-content-overflow]#pass:q[A useful overview (our purpose, artifacts to create, platform architecture)!]#]
 --
 
 [.card.card-index]
