@@ -10,7 +10,7 @@ To learn more on how to create REST API Extensions, refer to the xref:api:rest-a
 
 REST API Extensions are xref:ROOT:resource-management.adoc[managed] as resources.
 
-REST API Extensions use the same authorization mechanism as the standard Bonita REST APIs. When you import the extension, the information in `page.properties` is used to create the appropriate resource permission mappings in Bonita (see xref:ROOT:rest-api-authorization.adoc[REST API authorization] for information about REST API security configuration).
+REST API Extensions use the same authorization mechanism as the standard Bonita REST APIs. When you import the extension, the information in `page.properties` is used to create the appropriate resource permission mappings in Bonita (see xref:identity:rest-api-authorization.adoc[REST API authorization] for information about REST API security configuration).
 
 [NOTE]
 ====

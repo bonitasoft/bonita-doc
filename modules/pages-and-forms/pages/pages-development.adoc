@@ -43,7 +43,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse response, Page
 === Permissions for custom pages
 
 If your custom page is an HTML page using the Web REST API,
-you need to specify the xref:ROOT:rest-api-authorization.adoc[REST API authorizations] that a user needs to have in order to access the resources in the custom page.
+you need to specify the xref:identity:rest-api-authorization.adoc[REST API authorizations] that a user needs to have in order to access the resources in the custom page.
 These resource authorizations are defined in the `page.properties` file. If your custom page is written in Groovy and uses the Bonita Engine Java APIs, you do not need to specify any resource authorization.
 
 For each REST resource accessed in the page, specify the authorization needed for each method used. +
@@ -59,7 +59,7 @@ description=Organization viewer page. You cannot modify the organization from th
 resources=[GET|identity/user, GET|identity/personalcontactdata, GET|identity/professionalcontactdata, GET|identity/role, GET|identity/group, GET|identity/membership, GET|customuserinfo/user, GET|customuserinfo/definition, GET|customuserinfo/value]
 ----
 
-When a user is given access to this page because they are in a profile that contains it or that is mapped to an application that contains the page, then this user is granted, upon login, the permissions associated to these resources (see xref:ROOT:rest-api-authorization.adoc[REST API authorizations] for more details).
+When a user is given access to this page because they are in a profile that contains it or that is mapped to an application that contains the page, then this user is granted, upon login, the permissions associated to these resources (see xref:identity:rest-api-authorization.adoc[REST API authorizations] for more details).
 
 === Debugging a custom page in development
 

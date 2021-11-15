@@ -11,7 +11,7 @@ Profiles work as permissions to give access to:
 
 * xref:ROOT:applications.adoc[Living Applications]
 * Defined objects and attributes of the BDM (through xref:ROOT:access-control-api.adoc[BDM Access Control])
-* xref:ROOT:rest-api-authorization.adoc[REST API extension permissions]
+* xref:identity:rest-api-authorization.adoc[REST API extension permissions]
 
 One organization entity can be mapped to several profiles. In Bonita Applications, a logged-in user can switch between his/her profiles in the navigation bar.
 

@@ -26,7 +26,7 @@ An application requires the following to be available:
 
 * The xref:ROOT:bdm-management-in-bonita-applications.adoc[Business Data Model] (BDM) must be deployed
 * The xref:ROOT:organization-in-bonita-applications-overview.adoc[organization] data must be deployed, so that application users can log in.
-* The access xref:ROOT:rest-api-authorization.adoc[authorizations] that grant users access to the application resources must be defined.
+* The access xref:identity:rest-api-authorization.adoc[authorizations] that grant users access to the application resources must be defined.
 
 == Application creation
 
@@ -177,7 +177,7 @@ If you are setting up a new production environment by importing all the data, im
 * processes (including forms)
 * applications
 
-You will also need to apply any xref:ROOT:rest-api-authorization.adoc[custom authorization] definitions.
+You will also need to apply any xref:identity:rest-api-authorization.adoc[custom authorization] definitions.
 
 To import applications:
 
