@@ -288,7 +288,7 @@ and dynamic check scripts available immediately.
 
 == User login
 
-When a user logs in, after the user is xref:ROOT:user-authentication-overview.adoc[authenticated], a map of `LoggedUserPermissions` is created.
+When a user logs in, after the user is xref:user-authentication-overview.adoc[authenticated], a map of `LoggedUserPermissions` is created.
 `LoggedUserPermissions` is a combination of the information from `compound-permissions-mapping.properties` and
 `CustomUserPermissionsMapping` that is relevant to the user.
 It takes into account all the profiles assigned to the user, not only the current profile, so when you change profile the map does not need to be recreated.

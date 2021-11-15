@@ -89,7 +89,7 @@ These methods manipulate files with formats that are versioned. Newer versions o
 In Teamwork, Efficiency, Performance and Enterprise editions
 
 From Bonita 6.3, the Engine authentication service is considered to be an official extension point of the solution. It is now safe to provide your own implementation of this service to better fit the needs of your projects.
-xref:ROOT:user-authentication-overview.adoc[Default authentication implementations] are provided allow to check user credentials from the Bonita database, LDAP or a CAS SSO server (using JAAS).
+xref:identity:user-authentication-overview.adoc[Default authentication implementations] are provided allow to check user credentials from the Bonita database, LDAP or a CAS SSO server (using JAAS).
 To implement an Authentication Service, provide a Java class respecting the Authentication Service interface.
 
 === Event handlers
