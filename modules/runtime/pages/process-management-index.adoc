@@ -1,4 +1,4 @@
-= Process Management 
+= Process Management
 :page-aliases: ROOT:process-management-index.adoc
 :description: This page gives an easy access to all Bonita Administrator Application features releated to process management
 
@@ -14,7 +14,7 @@ xref:ROOT:monitoring.adoc[[.card-title]#Monitoring# [.card-body.card-content-ove
 
 [.card.card-index]
 --
-xref:ROOT:admin-application-process-list.adoc[[.card-title]#Process list# [.card-body.card-content-overflow]#pass:q[View all processes and versions deployed in Bonita Runtime]#]
+xref:admin-application-process-list.adoc[[.card-title]#Process list# [.card-body.card-content-overflow]#pass:q[View all processes and versions deployed in Bonita Runtime]#]
 --
 
 [.card.card-index]

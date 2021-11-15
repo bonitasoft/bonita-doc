@@ -35,7 +35,7 @@ By default, it gives access to the Bonita User Application.
 
 By default, it gives access to Bonita Administrator Application, which includes:
 
-* xref:ROOT:admin-application-process-list.adoc[Process Management]
+* xref:admin-application-process-list.adoc[Process Management]
 * xref:ROOT:organization-in-bonita-applications-overview.adoc[Organization Management]
 * xref:ROOT:bdm-management-in-bonita-applications.adoc[Business Data Model Management]
 * xref:applications.adoc[Applications Management]
