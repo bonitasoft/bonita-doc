@@ -1,6 +1,7 @@
 = Define who can do what
-:description: getting started tutorial - define who can do what
 :page-aliases: ROOT:define-who-can-do-what.adoc
+:experimental: // activate the 'menu' macro
+:description: getting started tutorial - define who can do what
 
 Up to this point, when you execute the process you are acting as a single user (username: _walter.bates_, password: _bpm_) who can perform all user tasks. In a scenario closer to a real life use case, there are different types of users: customers (who can submit claims), employees (who answer claims) and the manager of the user who provides the answer (who interacts with unsatisfied customers).
 

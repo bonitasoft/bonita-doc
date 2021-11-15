@@ -1,6 +1,7 @@
 = Start building an application: draw a BPMN process diagram
-:description: getting started tutorial - draw a BPMN process diagram
 :page-aliases: ROOT:draw-bpmn-diagram.adoc
+:experimental: // activate the 'menu' macro
+:description: getting started tutorial - draw a BPMN process diagram
 
 Now that you have your development environment (i.e. Bonita Studio) up and running, you are ready to start building your first Bonita Living Application.
 

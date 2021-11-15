@@ -7,7 +7,7 @@
 
 == Definition
 
-=== Fonctional
+=== Functional
 
 Profiles work as permissions to give access to xref:ROOT:applications.adoc[Living Applications]
 

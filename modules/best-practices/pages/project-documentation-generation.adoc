@@ -1,5 +1,6 @@
 = Generate project documentation
 :page-aliases: ROOT:project-documentation-generation.adoc
+:experimental: // activate the 'menu' macro
 :description: How to generate the project documentation in Bonita Studio.
 
 How to generate the project documentation in Bonita Studio.
@@ -29,7 +30,7 @@ However, we provide examples to make your life easier and a framework so that bu
 
 == Generating the documentation
 
-Right-click on your project and select the `Documentation > Generate` menu:
+Right-click on your project and select the `menu:Documentation[Generate]` menu:
 
 image::images/doc-generation/generate_doc_menu.png[Generate documentation]
 
