@@ -37,7 +37,7 @@ This can be used to force the default language if needed (by simply providing a 
 
 == Select a language in a Bonita application
 
-To select another language, if the application uses the default xref:ROOT:bonita-layout.adoc[Bonita layout]:
+To select another language, if the application uses the default xref:bonita-layout.adoc[Bonita layout]:
 
 . Click on the username or icon in the top right corner of the application header
 . In the modal window, go to the language section and select a language from the drop-down list
@@ -49,7 +49,7 @@ image:images/UI2021.1/select-language.png[Select language]
 
 == Select a language in a Custom Application
 
-If the application uses the default xref:ROOT:bonita-layout.adoc[Bonita layout], the header is the same as a Bonita Application, so the procedure is the same. +
+If the application uses the default xref:bonita-layout.adoc[Bonita layout], the header is the same as a Bonita Application, so the procedure is the same. +
 If the layout has been customized, users need to refer to the internally documented procedure.
 
 == Add a new language
