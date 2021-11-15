@@ -15,7 +15,7 @@ Profiles work as permissions to give access to:
 
 One organization entity can be mapped to several profiles. In Bonita Applications, a logged-in user can switch between his/her profiles in the navigation bar.
 
-In development, the creation and edition of profiles is done through the xref:ROOT:profileCreation.adoc[profile editor] in Bonita Studio. +
+In development, the creation and edition of profiles is done through the xref:identity:profile-creation.adoc[profile editor] in Bonita Studio. +
 In non-production and production, an Administrator can use the _Organization_>__Profiles__ menu of Bonita Administrator Application.
 
 [NOTE]

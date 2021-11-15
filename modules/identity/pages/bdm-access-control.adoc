@@ -258,7 +258,7 @@ Define an _Invoice_ business object, with the following attributes:
 * In your organization create two groups, 'Order picker' and 'Sales', and two roles 'Member' and 'Novice member'.
 * Create some users with the membership 'Member of Order picker', some others with 'Novice member of Sales', and some with 'Member of Sales'.
 * Check that all users are also mapped with the default profile _User_.
-* Define three custom profiles using the xref:ROOT:profileCreation.adoc[profile editor] in the Studio:
+* Define three custom profiles using the xref:identity:profile-creation.adoc[profile editor] in the Studio:
  ** *Order picker*, mapped with the group 'Order picker'
  ** *Experienced Sales*, mapped with the membership 'Member of Sales'
  ** *Novice Sales*, mapped with the membership 'Novice member of Sales'
@@ -481,7 +481,7 @@ ORDER BY r.persistenceId
 . In your organization create two groups, 'Physics' and 'Mathematics', and a role 'Teacher'
 . Create some users with the membership 'Teacher of Physics', some others with 'Teacher of Mathematics'
 . Check that all users are also mapped with the default profile _User_.
-. Define three custom profiles using the xref:ROOT:profileCreation.adoc[profile editor] in the Studio:
+. Define three custom profiles using the xref:identity:profile-creation.adoc[profile editor] in the Studio:
  ** *PhysicsTeachers*, mapped with the membership 'Teacher of Physics'
  ** *MathematicsTeachers*, mapped with the membership 'Teacher of Mathematics'
  ** *Teachers*, mapped with role 'Teachers'
