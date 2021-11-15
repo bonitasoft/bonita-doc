@@ -7,7 +7,7 @@
 == Overview
 
 In Bonita 7.5, we introduced the possibility to manage application descriptors from the Studio. +
-It accounts for an additional step to ease the management of xref:ROOT:applications.adoc[Living Applications] in Bonita, since our objective is to offer a unique application deployment artifact, managed from the Studio. +
+It accounts for an additional step to ease the management of xref:runtime:applications.adoc[Living Applications] in Bonita, since our objective is to offer a unique application deployment artifact, managed from the Studio. +
 Then, all resources used by applications will be centralized and shared by the Bonita development suite: Bonita Studio and the UI Designer.
 
 == Definition

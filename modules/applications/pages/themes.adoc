@@ -82,4 +82,4 @@ You can xref:ROOT:resource-management.adoc#modify[edit the content of a theme] b
 
 === Modify the pages in an application
 
-You can xref:ROOT:applications.adoc#define-navigation[link another theme to an application] in the application descriptor.
+You can xref:runtime:applications.adoc#define-navigation[link another theme to an application] in the application descriptor.

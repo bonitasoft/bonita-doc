@@ -77,7 +77,7 @@ The resource is installed.
 
 If you have specified a resource permission that is not defined in the xref:identity:rest-api-authorization.adoc[REST API authorization configuration] and REST API authorization is configured to be on, you will see an error message.
 
-After a resource is installed, it can be used in an xref:ROOT:applications.adoc[application].
+After a resource is installed, it can be used in an xref:runtime:applications.adoc[application].
 
 [WARNING]
 ====

@@ -9,7 +9,7 @@ _Users_ can view lists of tasks assigned to their team, assign a task to themsel
 == Overview
 
 Starting with Bonita 7.3, users benefit from a configurable task list, to manage tasks involving human actors from all processes in a more efficient fashion.
-This page is also made available as a custom page in Bonita Administrator Application > "Resources" tab, to be used in any xref:ROOT:applications.adoc[application], for any user-type profile.
+This page is also made available as a custom page in Bonita Administrator Application > "Resources" tab, to be used in any xref:applications.adoc[application], for any user-type profile.
 
 Here are the values of the user task list:
 

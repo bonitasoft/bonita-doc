@@ -9,7 +9,7 @@
 A profile is an indirection to some entities of the organization: users, groups, roles, and/or memberships.
 Profiles work as permissions to give access to:
 
-* xref:ROOT:applications.adoc[Living Applications]
+* xref:applications.adoc[Living Applications]
 * Defined objects and attributes of the BDM (through xref:ROOT:access-control-api.adoc[BDM Access Control])
 * xref:identity:rest-api-authorization.adoc[REST API extension permissions]
 
@@ -38,7 +38,7 @@ By default, it gives access to Bonita Administrator Application, which includes:
 * xref:ROOT:admin-application-process-list.adoc[Process Management]
 * xref:ROOT:organization-in-bonita-applications-overview.adoc[Organization Management]
 * xref:ROOT:bdm-management-in-bonita-applications.adoc[Business Data Model Management]
-* xref:ROOT:applications.adoc[Applications Management]
+* xref:applications.adoc[Applications Management]
 * xref:ROOT:licenses.adoc[License Information] (Enterprise, Performance, Efficiency, and Teamwork editions only)
  This profile is also mapped to the xref:ROOT:admin-application-overview.adoc[Bonita Administrator Application], bringing about the same value but with more customization options.
 

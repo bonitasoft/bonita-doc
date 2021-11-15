@@ -9,7 +9,7 @@
 
 === Fonctional
 
-Profiles work as permissions to give access to xref:ROOT:applications.adoc[Living Applications]
+Profiles work as permissions to give access to xref:runtime:applications.adoc[Living Applications]
 
 A profile is made of a name, a description, and a mapping with the organization entities.
 When used to access a Living Application, the application menu is defined in the xref:ROOT:applicationCreation.adoc[application descriptor] itself.

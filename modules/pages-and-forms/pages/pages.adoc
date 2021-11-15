@@ -65,8 +65,8 @@ xref:ROOT:live-update.adoc[Live update] allows the Administrator to update one e
 
 === Edit a page
 
-You can xref:ROOT:resource-management.adoc]#modify[edit the content of a page] by installing a new version of a page.
+You can xref:ROOT:resource-management.adoc#modify[edit the content of a page] by installing a new version of a page.
 
 === Modify the pages in an application
 
-You can modify the pages in an application by xref:ROOT:applications.adoc]#specify-pages[mapping other pages] in the application descriptor, and/or xref:applications.adoc]]#define-navigation[creating, moving, or deleting menus or menu options].
+You can modify the pages in an application by xref:ROOT:applications.adoc#specify-pages[mapping other pages] in the application descriptor, and/or xref:applications.adoc#define-navigation[creating, moving, or deleting menus or menu options].

@@ -97,7 +97,7 @@ To do so:
 . Find the .zip archive to be added
 . Click on _Install_. If a resource with the same name already exists, an error message is displayed. Updating the resource (see below) may be the option.
 
-After a resource is installed, it can be used in an xref:ROOT:applications.adoc[application].
+After a resource is installed, it can be used in an xref:applications.adoc[application].
 
 [WARNING]
 ====
