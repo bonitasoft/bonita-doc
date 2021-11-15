@@ -37,4 +37,4 @@ and import it into Bonita Administrator Application.
 
 To export the organization, go to the *Organization* menu and choose *Export...*. You
 can then xref:ROOT:import-export-an-organization.adoc[import the organization into Bonita Administrator Application]. After the organization is imported,
-you can xref:runtime:admin-application-groups-list.adoc[manage the groups], xref:admin-application-roles-list.adoc[roles], and xref:admin-application-users-list.adoc[users] in the organization.
+you can xref:runtime:admin-application-groups-list.adoc[manage the groups], xref:runtime:admin-application-roles-list.adoc[roles], and xref:admin-application-users-list.adoc[users] in the organization.

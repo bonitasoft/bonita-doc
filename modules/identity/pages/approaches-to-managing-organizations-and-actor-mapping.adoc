@@ -27,7 +27,7 @@ A membership is a combination of a group and a role.
 If you are using the Bonita Enterprise, Performance, Efficiency, or Teamwork edition, you can xref:ROOT:admin-application-process-list.adoc[define the actor mapping in Bonita Administrator Application] after a process is deployed. +
 For the Community edition, you xref:process:actors.adoc[specify the actor mapping in Bonita Studio], so you need to xref:organization-management-in-bonita-bpm-studio.adoc[define the roles and memberships in Bonita Studio]. However, you only need to create the roles and memberships that are used in actor mappings.
 
-In the Bonita Administrator Application, xref:ROOT:admin-application-roles-list.adoc[define the roles and memberships] used in the actor mappings, and xref:admin-application-users-list.adoc[specify the roles of the users]. User roles are specified using a membership.
+In the Bonita Administrator Application, xref:runtime:admin-application-roles-list.adoc[define the roles and memberships] used in the actor mappings, and xref:admin-application-users-list.adoc[specify the roles of the users]. User roles are specified using a membership.
 
 == Maintain organization manually
 
