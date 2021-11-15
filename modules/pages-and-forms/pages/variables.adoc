@@ -66,7 +66,7 @@ Business data variables will be always an array that contains the result of quer
 [NOTE]
 ====
 
-Read xref:ROOT:ui-designer-overview.adoc#_integration_with_bonita_platform[Integration with Bonita Platform] to know how Business Data are connected with Bonita Platform.
+Read xref:bonita-overview:ui-designer-overview.adoc#_integration_with_bonita_platform[Integration with Bonita Platform] to know how Business Data are connected with Bonita Platform.
 ====
 
 === External API

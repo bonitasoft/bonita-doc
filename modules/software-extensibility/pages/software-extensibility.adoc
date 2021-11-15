@@ -60,7 +60,7 @@ In Community, Teamwork, Efficiency, Performance and Enterprise editions
 
 A xref:ROOT:pages.adoc[custom page] is a page that you can add into Bonita Administrator Application to form part of an application or to customize information provided in default Application pages.
 To implement a page, you need to provide HTML, CSS and Javascript resources respecting some packaging constraints.
-You can create a page using the xref:ROOT:ui-designer-overview.adoc[UI designer], which automatically creates a well-formed page.
+You can create a page using the xref:bonita-overview:ui-designer-overview.adoc[UI designer], which automatically creates a well-formed page.
 Note that although the page framework provided in the product is stable, we cannot guarantee that all custom pages will work with future versions, because this depends on how the page was implemented.
 
 === Custom widgets

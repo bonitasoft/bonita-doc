@@ -43,7 +43,7 @@ xref:ROOT:bonita-studio.adoc[[.card-title]#Bonita Studio# [.card-body.card-conte
 
 [.card.card-index]
 --
-xref:ROOT:ui-designer-overview.adoc[[.card-title]#Bonita UI Designer# [.card-body.card-content-overflow]#pass:q[Create the User Interfaces of you applications]#]
+xref:ui-designer-overview.adoc[[.card-title]#Bonita UI Designer# [.card-body.card-content-overflow]#pass:q[Create the User Interfaces of you applications]#]
 --
 
 [.card.card-index]

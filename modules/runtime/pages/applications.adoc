@@ -87,7 +87,7 @@ To change the application layout:
 
 ==== Updating the theme
 
-Each application is associated with a xref:ROOT:themes.adoc[theme] that defines the application appearance. All pages developed with the xref:ui-designer-overview.adoc[UI Designer] will automatically benefit of application theme.
+Each application is associated with a xref:ROOT:themes.adoc[theme] that defines the application appearance. All pages developed with the xref:bonita-overview:ui-designer-overview.adoc[UI Designer] will automatically benefit of application theme.
 
 To update the application theme:
 

@@ -8,7 +8,7 @@ There are some extra things to consider when creating a form compared with a pag
 
 == Form sources
 
-Starting with Bonita 7.X, you are recommended to use xref:ROOT:ui-designer-overview.adoc[Bonita UI Designer] to create forms for Bonita processes. +
+Starting with Bonita 7.X, you are recommended to use xref:bonita-overview:ui-designer-overview.adoc[Bonita UI Designer] to create forms for Bonita processes. +
 Bonita UI Designer forms enable you to take full advantage of the separation between the process definition and the UI definition, by using contracts.
 
 You can also use external forms referenced by URL. If an external URL is being used, the information submitted to the Engine by the form must fulfill the contract.
