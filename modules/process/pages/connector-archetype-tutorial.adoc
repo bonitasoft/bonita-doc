@@ -41,7 +41,7 @@ If you are using Power Shell make sure to use quotes for the parameters: mvn arc
 
 [CAUTION]
 ====
-Be sure to use the xref:product-versioning#_technical_id[technical id] of your Bonita version.
+Be sure to use the xref:version-update:product-versioning.adoc#_technical_id[technical id] of your Bonita version.
 ====
 
 Add the following properties and dependencies to the existing ones in the pom.xml:
