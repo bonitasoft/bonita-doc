@@ -61,7 +61,7 @@ Custom user information enables custom details to be added to a user in the Orga
 === In Bonita Studio:
 
 Use the *Custom* tab in *Organization users* to add Custom information to a user. +
-This xref:ROOT:custom-user-information-in-bonita-bpm-studio.adoc[custom information is defined in Bonita Studio], then applied to an actor filter, and when deployed in Bonita Applications, enables the filtering of users mapped to tasks.
+This xref:custom-user-information-in-bonita-bpm-studio.adoc[custom information is defined in Bonita Studio], then applied to an actor filter, and when deployed in Bonita Applications, enables the filtering of users mapped to tasks.
 
 The custom user information is saved in the Organization schema and published, so it can be used in Bonita Applications.
 
@@ -71,7 +71,7 @@ When the process is deployed in Bonita Applications in a production environment,
 However, the value associated with a filter definition can be modified by a user with an admin profile. +
 The organization will be modified on the remote server. This enables tasks to be re-assigned to users in processes that are already deployed, which is then used to filter users for tasks.
 
-See xref:ROOT:custom-user-information-in-bonita-bpm-studio.adoc[custom user information in Bonita Studio] for setting the definition and values for the filter
+See xref:custom-user-information-in-bonita-bpm-studio.adoc[custom user information in Bonita Studio] for setting the definition and values for the filter
 
 === In Bonita Applications:
 

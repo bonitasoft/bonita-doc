@@ -44,7 +44,7 @@ To define actors for a process:
 . For each lane, define the actor. You can either select an actor that was defined for the pool, by selecting the actor from the drop-down list, or you can use an actor filter.
 . For each step, define the actor. You can use the actor defined for the lane, or specify an actor for the step. To specify an actor for the step, you can either select an actor that was defined for the pool, by selecting the actor from the drop-down list, or you can use an actor filter.
 
-See xref:ROOT:custom-user-information-in-bonita-bpm-studio.adoc[Custom User Information in Bonita Studio]
+See xref:identity:custom-user-information-in-bonita-bpm-studio.adoc[Custom User Information in Bonita Studio]
 
 See xref:ROOT:custom-user-information-in-bonita-applications.adoc[Custom User Information in Bonita Apps]
 
