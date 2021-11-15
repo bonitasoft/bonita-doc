@@ -74,7 +74,7 @@ In Non-Production or Production environments, a theme is imported as a .zip arch
 
 == Live Update
 
-xref:ROOT:live-update.adoc[Live update] allows the Administrator to update one element of the application in a situation of emergency.
+xref:runtime:live-update.adoc[Live update] allows the Administrator to update one element of the application in a situation of emergency.
 
 === Edit the layout
 

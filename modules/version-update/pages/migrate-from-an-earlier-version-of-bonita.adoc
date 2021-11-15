@@ -330,7 +330,7 @@ The disabled processes with 6.x forms cannot be enabled again post update. +
 
 Having 6.x *case overview* pages on your processes will not prevent the update of the runtime. However, they will all be replaced by the default 7.x case overview page, created with the UI Designer.
 It means that you might want to redo the case overview pages as well as the forms, especially if you have configured a custom case overview page for your processes in version 6.x. +
-Alternatively, you can also xref:ROOT:live-update.adoc[live update] the case overview page after the update is complete. (Enterprise, Performance, and Efficiency editions only).
+Alternatively, you can also xref:runtime:live-update.adoc[live update] the case overview page after the update is complete. (Enterprise, Performance, and Efficiency editions only).
 
 [#update-case-overview-pages]
 

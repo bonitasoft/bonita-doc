@@ -62,7 +62,7 @@ Still, to delete an application, click on the _Delete- icon
 
 === Live update
 
-In the details page of an application, you can xref:ROOT:live-update.adoc[Live Update] the elements mapped with the application descriptor:
+In the details page of an application, you can xref:live-update.adoc[Live Update] the elements mapped with the application descriptor:
 
 * the layout
 * the theme
@@ -213,10 +213,10 @@ You can reorder menus and menu items by dragging and dropping them.
 [discrete]
 ==== Updating application resources
 
-Some resources of an application can be updated live without needing to stop the processes or require users to log out of the application. xref:ROOT:live-update.adoc[Live update] is primarily intended for rapid deployment of updates in a pre-production test environment. It can be used to deploy updates in a production environment, but in most production environments applications and their components are versioned, so a planned roll-out is more typical.
+Some resources of an application can be updated live without needing to stop the processes or require users to log out of the application. xref:live-update.adoc[Live update] is primarily intended for rapid deployment of updates in a pre-production test environment. It can be used to deploy updates in a production environment, but in most production environments applications and their components are versioned, so a planned roll-out is more typical.
 
 You can use live update for the following resources:
 
-* xref:ROOT:live-update.adoc[Pages and forms]
-* xref:ROOT:live-update.adoc[Parameters]
-* xref:ROOT:live-update.adoc[Connectors]
+* xref:live-update.adoc[Pages and forms]
+* xref:live-update.adoc[Parameters]
+* xref:live-update.adoc[Connectors]

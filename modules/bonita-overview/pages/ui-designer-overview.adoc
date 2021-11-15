@@ -77,7 +77,7 @@ To use a page in a business application, export it from the Bonita UI designer, 
 
 To use a form in a process, map it in the Bonita Studio to the relevant process or human task. It will be automatically packaged in the .bar archive ready to deploy in the Bonita Administrator Application.
 
-You can xref:ROOT:live-update.adoc[update a form in production], by exporting a new version of the form from the Bonita UI designer, importing it into the relevant process in the Bonita Adminsitrator Application, and then mapping it to the relevant task or process start event.
+You can xref:runtime:live-update.adoc[update a form in production], by exporting a new version of the form from the Bonita UI designer, importing it into the relevant process in the Bonita Adminsitrator Application, and then mapping it to the relevant task or process start event.
 
 To use a layout in a business application, export it from the Bonita UI designer, import it in the Bonita Administrator Application, "Resources" tab, and map it as the layout of the relevant application.
 

@@ -20,7 +20,7 @@ To view the user's detailed information:
 
 == Live Update
 
-The Administrator can xref:ROOT:live-update.adoc[Live Update] a user:
+The Administrator can xref:live-update.adoc[Live Update] a user:
 
 * create
 * deactivate

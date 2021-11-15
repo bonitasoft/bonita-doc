@@ -77,7 +77,7 @@ To do so:
 
 == Live Update
 
-The Administrator can xref:ROOT:live-update.adoc[Live Update] the resource list:
+The Administrator can xref:live-update.adoc[Live Update] the resource list:
 
 * install
 * delete

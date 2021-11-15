@@ -61,7 +61,7 @@ We highly recommend that the creation of applications is done in Bonita Studio, 
 
 == Live update
 
-xref:ROOT:live-update.adoc[Live update] allows the Administrator to update one element of the application in a situation of emergency.
+xref:runtime:live-update.adoc[Live update] allows the Administrator to update one element of the application in a situation of emergency.
 
 === Edit a page
 

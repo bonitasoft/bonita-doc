@@ -16,7 +16,7 @@ On this page, an Administrator can:
 
 == Live Update
 
-The Administrator can xref:ROOT:live-update.adoc[Live Update] a role:
+The Administrator can xref:live-update.adoc[Live Update] a role:
 
 * create
 * delete
