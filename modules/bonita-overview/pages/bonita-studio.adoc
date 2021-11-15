@@ -17,7 +17,7 @@ Bonita Studio is not intended for any use other than development. As a consequen
 
 == Main features
 
-* xref:ROOT:diagram-overview.adoc[Draw processes] on the whiteboard
+* xref:process:diagram-overview.adoc[Draw processes] on the whiteboard
 * xref:data:define-and-deploy-the-bdm.adoc[Define the Business Data Model], business variables, and xref:data:contracts-and-contexts.adoc[contracts]
 * Define the xref:identity:organization-overview.adoc[organization] and xref:process:actors.adoc[actors]
 * xref:ROOT:managing_extension_studio.adoc[Manage the project extensions]

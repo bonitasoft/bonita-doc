@@ -9,7 +9,7 @@
 
 [.card.card-index]
 --
-xref:ROOT:diagram-overview.adoc[[.card-title]#Diagram overview# [.card-body.card-content-overflow]#pass:q[The bascis of diagram usage]#]
+xref:diagram-overview.adoc[[.card-title]#Diagram overview# [.card-body.card-content-overflow]#pass:q[The bascis of diagram usage]#]
 --
 
 [.card.card-index]

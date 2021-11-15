@@ -37,4 +37,4 @@ A submenu of the last ten diagrams you have modified is displayed. Click the *_n
 
 == Drawing processes
 
-To learn how to draw a process, go to the xref:ROOT:draw-bpmn-diagram#_create_the_process_diagram[Getting started tutorial], or read this xref:diagram-overview.adoc[documentation page].
+To learn how to draw a process, go to the xref:ROOT:draw-bpmn-diagram#_create_the_process_diagram[Getting started tutorial], or read this xref:process:diagram-overview.adoc[documentation page].
