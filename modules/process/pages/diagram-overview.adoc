@@ -13,10 +13,11 @@ There is no link between the process diagram version and the pool version.
 To create a new process diagram in Bonita Studio, choose *New* from the Cool bar, or click on the *_Create_* button on the Process Diagram card of the project overview. Give your process diagram a name, and optionally set the version number and add a description. +
 You can also turn on or off validation of your process diagram. If validation is on, any errors in your diagram structure are flagged with a red x icon. This helps you correct errors as you build your process diagram, instead of correcting them all at the end.
 
-To open an existing diagram, expand the *Process diagrams* node in the project explorer and double click on the corresponding process diagram. You can also use the project overview. Click on the *Process diagram* card title to see all the process diagrams of your project. Click on the *Open* button to open the corresponding process diagram.
+To open an existing diagram, expand the *Process diagrams* node in the project explorer and double-click on the corresponding process diagram. You can also use the project overview. Click on the *Process diagram* card title to see all the process diagrams of your project. Click on the *Open* button to open the corresponding process diagram.
 
-You can access the process diagram context menu by right clicking on the corresponding process diagram in the project explorer. 
+You can access the process diagram context menu by right-clicking on the corresponding process diagram in the project explorer.
 From this context menu you can perform several actions on your process diagram:
+
 * Duplicate
 * Rename
 * Deploy
