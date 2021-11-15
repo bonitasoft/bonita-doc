@@ -36,5 +36,5 @@ you must create the organization that you need for all the processes that will b
 and import it into Bonita Administrator Application.
 
 To export the organization, go to the *Organization* menu and choose *Export...*. You
-can then xref:ROOT:import-export-an-organization.adoc[import the organization into Bonita Administrator Application]. After the organization is imported,
+can then xref:runtime:import-export-an-organization.adoc[import the organization into Bonita Administrator Application]. After the organization is imported,
 you can xref:runtime:admin-application-groups-list.adoc[manage the groups], xref:runtime:admin-application-roles-list.adoc[roles], and xref:runtime:admin-application-users-list.adoc[users] in the organization.
