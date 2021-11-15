@@ -113,7 +113,7 @@ The new logo is applied.
 Bonita default layout is made to adapt to a mobile screen size.  +
 ====
 
-. Create a new xref:ROOT:layout-development.adoc[layout] and make it available like a page (UI Designer or *Resources* if created in another IDE)
+. Create a new xref:applications:layout-development.adoc[layout] and make it available like a page (UI Designer or *Resources* if created in another IDE)
 . In the *Look & Feel* section of the application descriptor, clear the current layout content
 . Start typing the name of the layout
 . Select the new one from the autocomplete list

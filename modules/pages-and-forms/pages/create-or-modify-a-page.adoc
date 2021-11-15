@@ -11,7 +11,7 @@ It most of the times uses xref:ROOT:forms.adoc[forms] to display and collect new
 Forms and pages are made of containers and widgets. +
 Some containers and widgets can be grouped in xref:ROOT:fragments.adoc[fragments], in order to be reused in several pages or forms. +
 
-The overall graphical structure of the application is handled by the xref:ROOT:layout-development.adoc[layout]. +
+The overall graphical structure of the application is handled by the xref:applications:layout-development.adoc[layout]. +
 The look and feel of the application, layout, forms, and pages is handled by the xref:ROOT:themes.adoc[theme].
 
 Forms are embedded in the processes, whereas pages, layouts, and themes are referred to in the application descriptor. +
@@ -88,7 +88,7 @@ For more technical information about the pages, visit xref:ROOT:pages-developmen
 
 Use the same sequence of steps than to create a page from scratch.
 
-For more technical information about layouts, visit the xref:ROOT:layout-development.adoc[dedicated documentation page].
+For more technical information about layouts, visit the xref:applications:layout-development.adoc[dedicated documentation page].
 
 == Create a fragment
 

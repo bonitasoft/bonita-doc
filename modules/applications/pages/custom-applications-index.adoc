@@ -41,7 +41,7 @@ xref:identity:profiles-overview.adoc[[.card-title]#Profiles# [.card-body.card-co
 
 [.card.card-index]
 --
-xref:ROOT:layout-development.adoc[[.card-title]#Layout# [.card-body.card-content-overflow]#pass:q[The visual structure of the application]#]
+xref:layout-development.adoc[[.card-title]#Layout# [.card-body.card-content-overflow]#pass:q[The visual structure of the application]#]
 --
 
 [.card.card-index]
