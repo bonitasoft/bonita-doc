@@ -49,4 +49,4 @@ image:images/getting-started-tutorial/configure-email-connector/configure-email-
 
 Run the process with the connector configured, and see a new incoming email in the FakeSMTP user interface when task _Deal with unsatisfied customer_ becomes available.
 
-You have now a process definition that uses a wide range of Bonita features. In the xref:ROOT:design-application-page.adoc[next chapters], we will create an application on top of this process.
+You have now a process definition that uses a wide range of Bonita features. In the xref:design-application-page.adoc[next chapters], we will create an application on top of this process.

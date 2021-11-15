@@ -1,4 +1,4 @@
-= Getting Started Tutorial 
+= Getting Started Tutorial
 :description: To get started with Bonita, learn how to create your first complete living application.
 :page-aliases: ROOT:getting-started-index.adoc
 
@@ -61,7 +61,7 @@ xref:ROOT:configure-email-connector.adoc[[.card-title]#Configure an email connec
 
 [.card.card-index]
 --
-xref:ROOT:design-application-page.adoc[[.card-title]#Design an application page# [.card-body.card-content-overflow]#pass:q[Pages can display more generic information than tasks forms]#]
+xref:design-application-page.adoc[[.card-title]#Design an application page# [.card-body.card-content-overflow]#pass:q[Pages can display more generic information than tasks forms]#]
 --
 
 [.card.card-index]
