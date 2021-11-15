@@ -9,7 +9,7 @@ An expression is a simple statement; a script is a sequence of expressions, and 
 
 This page explains the features of Bonita Studio that enable you to use expressions and scripts.
 
-Note that the expression editor cannot be used in the UI Designer, which has a different concept model for xref:ROOT:variables.adoc[data].
+Note that the expression editor cannot be used in the UI Designer, which has a different concept model for xref:pages-and-forms:variables.adoc[data].
 
 [WARNING]
 ====

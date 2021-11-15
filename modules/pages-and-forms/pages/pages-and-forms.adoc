@@ -35,7 +35,7 @@ xref:ROOT:pages-development.adoc[[.card-title]#Pages development# [.card-body.ca
 
 [.card.card-index]
 --
-xref:ROOT:variables.adoc[[.card-title]#Variables in the UI Designer# [.card-body.card-content-overflow]#pass:q[A means for both business data handling and UI dynamicity]#]
+xref:variables.adoc[[.card-title]#Variables in the UI Designer# [.card-body.card-content-overflow]#pass:q[A means for both business data handling and UI dynamicity]#]
 --
 
 [.card.card-index]

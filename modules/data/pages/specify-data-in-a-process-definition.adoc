@@ -14,7 +14,7 @@ You can define a variable at process, task, or form level:
 
 See also: +
 xref:ROOT:data-handling-overview.adoc[Data types and defining a variable] +
-xref:ROOT:variables.adoc[Data handling in a form]
+xref:pages-and-forms:variables.adoc[Data handling in a form]
 
 image::images/images-6_0/variables_scope.png[Scope of variables]
 
