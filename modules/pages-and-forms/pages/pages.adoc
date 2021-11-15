@@ -69,4 +69,4 @@ You can xref:ROOT:resource-management.adoc#modify[edit the content of a page] by
 
 === Modify the pages in an application
 
-You can modify the pages in an application by xref:ROOT:applications.adoc#specify-pages[mapping other pages] in the application descriptor, and/or xref:applications.adoc#define-navigation[creating, moving, or deleting menus or menu options].
+You can modify the pages in an application by xref:runtime:applications.adoc#specify-pages[mapping other pages] in the application descriptor, and/or xref:applications.adoc#define-navigation[creating, moving, or deleting menus or menu options].
