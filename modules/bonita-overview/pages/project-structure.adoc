@@ -34,7 +34,7 @@ However, it is not required to use all the concepts to create a valid Bonita Aut
 |UI Designer
 |Use BPM REST API
 
-|xref:ROOT:creating-an-actor-filter.adoc[Actor filter]
+|xref:process:actor-filtering.adoc[Actor filter]
 |Filters users that can access a human task in a process
 |A couple are provided in the Marketplace and you can create custom actor filters
 |Studio or xref:ROOT:actor-filter-archetype.adoc[Dedicated SDK] (custom actor filters)
