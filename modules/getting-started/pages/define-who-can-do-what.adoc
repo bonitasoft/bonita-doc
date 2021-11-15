@@ -76,7 +76,7 @@ At this stage, if you try to run the process, you will see that _walter.bates_ c
 ====
 
 Currently, the task _Read the answer and rate it_ is available to all users in the group _/acme/hr_, but it should only be available to the user who started the process (_walter.bates_). Similarly, the task _Deal with unsatisfied customer_ is available to everyone, when it should only be available to the manager of the user who completed the task _Review and answer claim_. +
-To refine this, we will configure an xref:ROOT:actor-filtering.adoc[actor filters].
+To refine this, we will configure an xref:process:actor-filtering.adoc[actor filters].
 
 [NOTE]
 ====

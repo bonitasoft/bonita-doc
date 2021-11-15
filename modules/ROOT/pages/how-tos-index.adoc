@@ -12,7 +12,7 @@ xref:ROOT:actors.adoc[[.card-title]#How to 1# [.card-body.card-content-overflow]
 
 [.card.card-index]
 --
-xref:ROOT:actor-filtering.adoc[[.card-title]#How to 2# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:process:actor-filtering.adoc[[.card-title]#How to 2# [.card-body.card-content-overflow]#pass:q[TODO]#]
 --
 
 [.card.card-index]

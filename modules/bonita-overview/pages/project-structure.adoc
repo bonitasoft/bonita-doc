@@ -122,7 +122,7 @@ Extensions can be developed outside of the Studio with your favorite IDE.
 |When the provided connector do not cover your requirements
 |xref:ROOT:connector-archetype.adoc[Dedicated SDK]
 
-|xref:ROOT:actor-filtering.adoc[Actor Filters]
+|xref:process:actor-filtering.adoc[Actor Filters]
 |When the provided actor filter do not cover your requirements
 |xref:ROOT:actor-filter-archetype.adoc[Dedicated SDK]
 

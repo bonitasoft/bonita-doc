@@ -20,7 +20,7 @@ xref:ROOT:actors.adoc[[.card-title]#Actors of processes# [.card-body.card-conten
 
 [.card.card-index]
 --
-xref:ROOT:actor-filtering.adoc[[.card-title]#Actor filters# [.card-body.card-content-overflow]#pass:q[Learn how to set a specific set of actors for a task]#]
+xref:actor-filtering.adoc[[.card-title]#Actor filters# [.card-body.card-content-overflow]#pass:q[Learn how to set a specific set of actors for a task]#]
 --
 
 [.card.card-index]
