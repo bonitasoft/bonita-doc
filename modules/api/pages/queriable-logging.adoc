@@ -47,7 +47,7 @@ Each queriable log type can be turned off individually with its associated prope
 
 === Find the list of properties
 
-* You can deactivate the logging on all the events listed xref:ROOT:event-handlers.adoc#_event_list[here].
+* You can deactivate the logging on all the events listed xref:integration:event-handlers.adoc#_event_list[here].
 * Or, you can also find a set of properties for each product version. You'll find them in a java library: The `bonita-tenant-sp.xml` file contains the list of properties, and it is packed into the `/server/webapps/bonita/WEB-INF/lib/bonita-server-sp-[BonitaVersion].jar` file.
 
 === Disable the Queriable Logs

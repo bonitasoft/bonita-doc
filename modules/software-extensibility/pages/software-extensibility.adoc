@@ -97,7 +97,7 @@ To implement an Authentication Service, provide a Java class respecting the Auth
 In Teamwork, Efficiency, Performance and Enterprise editions
 
 An event handler is an extension to the engine that is configured to run when a specified event occurs. An event is a change to any object in the database.
-To xref:ROOT:event-handlers.adoc[implement an event handler], you need to provide a Java class respecting the Handler interface.
+To xref:integration:event-handlers.adoc[implement an event handler], you need to provide a Java class respecting the Handler interface.
 
 === Bonita Runtime languages
 
