@@ -371,4 +371,4 @@ sysprop.bonita.db.vendor=h2
 java.vm.vendor=Ubuntu
 ----
 
-Read the xref:https://github.com/apangin/jattach[official jattach documentation] for a complete list of supported commands.
+Read the https://github.com/apangin/jattach[official jattach documentation] for a complete list of supported commands.

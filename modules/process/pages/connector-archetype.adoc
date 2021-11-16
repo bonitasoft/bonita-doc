@@ -25,6 +25,8 @@ mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeA
 [CAUTION]
 ====
 Make sure that you are not executing the command from an existing maven project.
+
+If you are using Power Shell make sure to use quotes for the parameters : mvn archetype:generate "-DarchetypeGroupId=org.bonitasoft.archetypes" "-DarchetypeArtifactId=bonita-connector-archetype"
 ====
 
 You'll then have to specify interactively the properties of your project:
@@ -45,7 +47,7 @@ Follow the http://maven.apache.org/guides/mini/guide-naming-conventions.html[mav
  ** java
  ** groovy
  ** kotlin
- * *wrapper* _(optional)_: install a https://github.com/takari/maven-wrapper[Maven wrapper, window = "_blank"]. Available values: 
+ * *wrapper* _(optional)_: install a https://github.com/takari/maven-wrapper[Maven wrapper, window = "_blank"]. Available values:
  ** true _(default)_
  ** false
 
@@ -217,8 +219,8 @@ The implementation sources contain all the logic of the connector:
 
 The archetype offers the possibility to generate the default sources in Java, Groovy or Kotlin. The build result will always be a Java archive (jar) and some Zip archives (assemblies), no matters the language selected.
 
-The entry point of the implementation sources must either extend the https://javadoc.bonitasoft.com/api/{varVersion}/org/bonitasoft/engine/connector/AbstractConnector.html[__AbstractConnector__, window="_blank"] class
-or implement https://javadoc.bonitasoft.com/api/{varVersion}/org/bonitasoft/engine/connector/Connector.html[__Connector__, window="_blank"] interface.
+The entry point of the implementation sources must either extend the https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/connector/AbstractConnector.html[__AbstractConnector__, window="_blank"] class
+or implement https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/connector/Connector.html[__Connector__, window="_blank"] interface.
 
 Example (using _Groovy_):
 
@@ -294,7 +296,7 @@ If you want to build a single zip assembly containing a specific implementation 
 === Build a connector project
 
 Build the project by typing the following command at the root of the project:
- 
+
 [source,bash]
 ----
 ./mvnw clean package

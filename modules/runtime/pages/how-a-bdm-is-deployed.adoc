@@ -1,4 +1,4 @@
-= How Business Data Model (BDM) is handled in the code
+= Business Data Model technical handling
 :page-aliases: ROOT:how-a-bdm-is-deployed.adoc
 :description: Learn how the engine handles the BDM code generation, database support, deployment and redeployment.
 

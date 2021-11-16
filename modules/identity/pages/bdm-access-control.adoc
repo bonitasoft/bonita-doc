@@ -1,10 +1,11 @@
 = BDM access control
 :page-aliases: ROOT:bdm-access-control.adoc
+:experimental: // activate the 'menu' macro
 :description: This page explains how to protect the access to your BDM through REST API calls via a white list mechanism. This protection does not secure access to BDM through DAO.
 
 [NOTE]
 ====
-for Enterprise, Performance and Efficiency editions only. +
+For Enterprise, Performance and Efficiency editions only. +
 ====
 
 == Overview

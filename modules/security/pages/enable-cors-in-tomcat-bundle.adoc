@@ -15,7 +15,7 @@ ____
 
 By configuring the CORS filter on the tomcat bundle, you will be able to access the Bonita REST API from a page
  hosted on a different domain from the one of the tomcat bundle.
- 
+
 [NOTE]
 ====
 When Bonita web application is configured for authentication with OpenID Connect, CORS is handled by the OIDC module, so you don't need to configure the CORS filter as described below. Instead you need to configure the file *keycloak-oidc.json* as explained in the xref:ROOT:single-sign-on-with-oidc.adoc#_cors[OpenID Connect SSO configuration page].
@@ -26,7 +26,8 @@ When Bonita web application is configured for authentication with OpenID Connect
 === Add CORS filter
 
 Edit the web.xml of the bonita.war to add the CORS filter:
-_*Important Note:* to use this configuration, you will need to replace the `ALLOWED_ORIGIN_LIST` by your own allowed origin list._
+
+*_Important Note:_* to use this configuration, you will need to replace the `ALLOWED_ORIGIN_LIST` by your own allowed origin list.
 
 [source,xml]
 ----
@@ -72,15 +73,15 @@ _*Important Note:* to use this configuration, you will need to replace the `ALLO
 </filter-mapping>
 ----
 
-_*Important Note 1:* The filter must be inserted in the file webapps/bonita/WEB-INF/web.xml (not in the Tomcat conf/web.xml)_
+*_Important Note 1_*: The filter must be inserted in the file webapps/bonita/WEB-INF/web.xml (not in the Tomcat conf/web.xml)
 
-_*Important Note 2:* It must be the first filter, inserted right after the </error-page> tag_
+*_Important Note 2:_* It must be the first filter, inserted right after the </error-page> tag
 
-For more information visite the link:https://tomcat.apache.org/tomcat-9.0-doc/config/filter.html#CORS_Filter[CORS filter documentation]
+For more information visit the https://tomcat.apache.org/tomcat-9.0-doc/config/filter.html#CORS_Filter[CORS filter documentation]
 
 === Choose cookies SameSite Policy
 
-With Bonita server's default configuration, cookies will be automatically passed with a same-site request, or a cross-site top-level navigation with a "safe" HTTP method (GET/HEAD/OPTIONS). This behavior is related to the link:https://blog.chromium.org/2020/02/samesite-cookie-changes-in-february.html[standard cookie policy rules] enforced by recent web browser versions.
+With Bonita server's default configuration, cookies will be automatically passed with a same-site request, or a cross-site top-level navigation with a "safe" HTTP method (GET/HEAD/OPTIONS). This behavior is related to the https://blog.chromium.org/2020/02/samesite-cookie-changes-in-february.html[standard cookie policy rules] enforced by recent web browser versions.
 
 If you want to perform "unsafe" CORS requests (which means performing a POST/PUT/DELETE request)
 you will need to modify the tomcat `conf/context.xml` file, to set sameSiteCookies to "none" instead of "lax".
@@ -95,9 +96,8 @@ you will need to modify the tomcat `conf/context.xml` file, to set sameSiteCooki
 
 [WARNING]
 ====
-
 Using sameSiteCookies="none" will also force you to use xref:ROOT:ssl.adoc[secure HTTP (HTTPS) on your Bonita server]. +
-For more information regarding this constraint, see link:https://blog.chromium.org/2019/10/developers-get-ready-for-new.html[here].
+For more information regarding this constraint, see https://blog.chromium.org/2019/10/developers-get-ready-for-new.html[here].
 ====
 
 == HTML Example test page

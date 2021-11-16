@@ -18,12 +18,12 @@ xref:work-execution.adoc[[.card-title]#Works execution# [.card-body.card-content
 
 [.card.card-index]
 --
-xref:work-locking.adoc[[.card-title]#Work locking# [.card-body.card-content-overflow]#pass:q[why, when, and how works are locked]#]
+xref:work-locking.adoc[[.card-title]#Work locking# [.card-body.card-content-overflow]#pass:q[Why, when, and how works are locked]#]
 --
 
 [.card.card-index]
 --
-xref:execution-sequence-states-and-transactions.adoc[[.card-title]#BPM execution sequence, states, and transactions# [.card-body.card-content-overflow]#pass:q[Concepts needed to understand BPM elements execution]#]
+xref:execution-sequence-states-and-transactions.adoc[[.card-title]#BPM execution details# [.card-body.card-content-overflow]#pass:q[All about execution sequences, states, and transactions]#]
 --
 
 [.card.card-index]
@@ -58,7 +58,7 @@ xref:how-an-event-is-executed.adoc[[.card-title]#Events execution# [.card-body.c
 
 [.card.card-index]
 --
-xref:how-a-bdm-is-deployed.adoc[[.card-title]#Business data handling at code level# [.card-body.card-content-overflow]#pass:q[Sequence of actions and states at BDM installation and update]#]
+xref:how-a-bdm-is-deployed.adoc[[.card-title]#BDM technical handling# [.card-body.card-content-overflow]#pass:q[Sequence of actions and states at BDM installation and update]#]
 --
 
 [.card.card-index]
