@@ -55,9 +55,6 @@ Some configuration files from the bundle will overwrite some default tomcat conf
 with care in a tomcat where other applications are already installed.
 ====
 
-[WARNING]
-====
-
 === Data sources configuration
 
 . Open the file `TOMCAT_DIRECTORY/conf/Catalina/localhost/bonita.xml`
