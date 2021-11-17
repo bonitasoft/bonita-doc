@@ -4,3 +4,5 @@
  ** xref:workspaces-and-repositories.adoc[Workspaces and projects]
  ** xref:shared-project.adoc[Set up Bonita Studio with GitHub]
  ** xref:migrate-a-svn-repository-to-github.adoc[How to migrate an SVN repository into a Git repository]
+ ** xref:log-files.adoc[Log files]
+ ** xref:logging.adoc[Logs]
