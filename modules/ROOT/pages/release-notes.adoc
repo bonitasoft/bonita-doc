@@ -273,8 +273,8 @@ A standalone docker image that package the LDAP Synchronizer was released under 
 
 ==== Fixes in Bonita Runtime (including Portal)
 
-* RUNTIME-45 -	Narayana / ARJUNA : Frequent WARN messages in the log files
-* RUNTIME-590 -	Method onPrepareStatement not called in 2021.1 and 2021.2 with postgres breaks the search case insensitivity
+* RUNTIME-45 -	Narayana / ARJUNA : Frequent warning messages in log files
+* RUNTIME-590 -	Method onPrepareStatement with postgres breaks the search case insensitivity
 
 === Fixes in Bonita 2021.1-0915 (2021-09-15)
 
