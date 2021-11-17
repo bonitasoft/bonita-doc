@@ -1,4 +1,4 @@
-= Bonita engine dependencies (7.12.8)
+= Bonita engine dependencies (7.12.9)
 :description: List all dependencies uses for Bonita Engine
 
 
