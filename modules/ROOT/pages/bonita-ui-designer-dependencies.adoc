@@ -1,5 +1,5 @@
 = Bonita-ui-designer 1.12.47 dependencies for Bonita 2021.1
-
+:page-aliases: ui-designer-dependencies.adoc
 
 == UI-Designer Backend dependencies
 
