@@ -263,6 +263,19 @@ Use BPMN 2 importer for model exchange with third-party editors.
 A standalone docker image that package the LDAP Synchronizer was released under the name `quay.io/bonitasoft/bonita-ldap-synchronizer`
 
 == Bug fixes
+=== Fixes in Bonita 2021.1-1116 (2021-11-16)
+
+==== Fixes in Bonita Development Suite (Studio and UI Designer)
+
+* STUDIO-4121 - 7.12.7 studio get workspace corrupt when swiching projects
+* STUDIO-4126 - Process execution errors: bcd-dependencies:7.11.5 generates a .bar different from Studio 7.11.5
+* UID-432 - When openning a pop-up with a widget selected in whiteboard, the keybinding could get unexpected errors
+
+==== Fixes in Bonita Runtime (including Portal)
+
+* RUNTIME-45 -	Narayana / ARJUNA : Frequent warning messages in log files
+* RUNTIME-590 -	Method onPrepareStatement with postgres breaks the search case insensitivity
+
 === Fixes in Bonita 2021.1-0915 (2021-09-15)
 
 ==== Fixes in Bonita Development Suite (Studio and UI Designer)
