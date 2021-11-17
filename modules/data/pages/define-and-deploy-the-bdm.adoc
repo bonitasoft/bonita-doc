@@ -48,7 +48,7 @@ A package is defined by its name, which must be a Java package name. It is highl
 Packages can be seen as logical containers, a package should contain business objects related to each other. +
 As example, a package _com.company.product_ could contain the objects `Car` and `Wheel`, a package _com.company.finance_ could contain the objects `Bill` and `Loan`.
 
-A business object definition consists of the following:	
+A business object definition consists of the following:
 
 * An object name. This must be a Java class name (starting with a capital letter), because a business object is implemented as a Java class.
 
@@ -160,7 +160,7 @@ There are two options for loading complex business objects: *lazy* or *eager*. +
 
   ** the object's children are not edited very often in the cases lifetime
   ** the parent object along with all its children can get big, vertically and/or horizontally
-  
+
 * With eager loading, the parent object instance and the children objects instances are loaded at the same time. This is the option to choose when:
 
   ** the object's children can be edited quite often in the cases lifetime
@@ -171,7 +171,7 @@ Choosing the right option is not easy. The default option is lazy loading, but y
 [WARNING]
 ====
 If you are not sure about the final size of the parent object with children, we do strongly recommend to use the default *lazy* loading option. Indeed, the *eager* loading option can have a huge impact on the Bonita Runtime performance, due to the additional data load and maintenance of the information in memory. +
-Based on your analysis if you decide to use the eager mode, we recommend to test it with a test dataset that is the size of your production's expected dataset. 
+Based on your analysis if you decide to use the eager mode, we recommend to test it with a test dataset that is the size of your production's expected dataset.
 ====
 
 === Multi-instantiation using business object variables in a list
@@ -451,7 +451,7 @@ You can use an alternative database `SchemaManager` implementation. A `SchemaMan
 Business Data Model. As our third-party persistence layer _Hibernate_ does not support all type of schema updates, you may want to use a SchemaManager that does *not* update the database
 tables directly, but rather let you (or your Database Administrator) update the database "manually".
 
-For that, you can use the alternative we provide, by uncommenting the following lines in file `platform_conf/current/tenants/[TENANT_ID]/tenant_engine//bonita-tenants-custom.xml` using xref:ROOT:bonita-platform-setup.adoc#update_platform_conf[setup tool].
+For that, you can use the alternative we provide, by uncommenting the following lines in file `platform_conf/current/tenants/[TENANT_ID]/tenant_engine//bonita-tenants-custom.xml` using xref:runtime:bonita-platform-setup.adoc#update_platform_conf[setup tool].
 
 [source,xml]
 ----

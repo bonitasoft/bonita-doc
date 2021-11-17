@@ -74,7 +74,7 @@ In Non-Production or Production environments, a theme is imported as a .zip arch
 
 == Live Update
 
-xref:ROOT:live-update.adoc[Live update] allows the Administrator to update one element of the application in a situation of emergency.
+xref:runtime:live-update.adoc[Live update] allows the Administrator to update one element of the application in a situation of emergency.
 
 === Edit the layout
 
@@ -82,4 +82,4 @@ You can xref:ROOT:resource-management.adoc#modify[edit the content of a theme] b
 
 === Modify the pages in an application
 
-You can xref:ROOT:applications.adoc#define-navigation[link another theme to an application] in the application descriptor.
+You can xref:runtime:applications.adoc#define-navigation[link another theme to an application] in the application descriptor.

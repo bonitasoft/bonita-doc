@@ -17,7 +17,7 @@ xref:ROOT:actor-filter-archetype.adoc[[.card-title]#Actor Filters# [.card-body.c
 
 [.card.card-index]
 --
-xref:ROOT:customize-living-application-theme.adoc[[.card-title]#Themes# [.card-body.card-content-overflow]#pass:q[Discover how to create your custom living application themes]#]
+xref:applications:customize-living-application-theme.adoc[[.card-title]#Themes# [.card-body.card-content-overflow]#pass:q[Discover how to create your custom living application themes]#]
 --
 
 [.card.card-index]
@@ -27,5 +27,5 @@ xref:ROOT:rest-api-extension-archetype.adoc[[.card-title]#REST API Extensions# [
 
 [.card.card-index]
 --
-xref:ROOT:custom-widgets.adoc[[.card-title]#Custom Widgets# [.card-body.card-content-overflow]#pass:q[Discover how to create your custom widgets]#]
+xref:pages-and-forms:custom-widgets.adoc[[.card-title]#Custom Widgets# [.card-body.card-content-overflow]#pass:q[Discover how to create your custom widgets]#]
 --

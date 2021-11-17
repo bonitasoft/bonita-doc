@@ -46,7 +46,7 @@ What should not be done is:
 
 [NOTE]
 ====
-If you still want to perform Network call or Bonita platform java APIs calls, you can do it by triggering those calls asynchronously using e.g. a message queue or an ExecutorService. 
+If you still want to perform Network call or Bonita platform java APIs calls, you can do it by triggering those calls asynchronously using e.g. a message queue or an ExecutorService.
 Please note that the handler is triggered during the execution of a transaction so it's better to trigger the processing after the current transaction. This can be done by registering a `javax.transaction.Synchronization` using the `javax.transaction.TransactionManager`
 ====
 
@@ -155,7 +155,7 @@ public class EventHandlerExample implements SHandler<SEvent> {
 
 === Register an event handler
 
-An event handler is registered on an event by adding an entry to the appropriate map. The list of handlers registered can be extended in the xref:ROOT:bonita-platform-setup.adoc[`bonita-tenant-sp-custom.xml`] file:
+An event handler is registered on an event by adding an entry to the appropriate map. The list of handlers registered can be extended in the xref:runtime:bonita-platform-setup.adoc[`bonita-tenant-sp-custom.xml`] file:
 
 [source,xml]
 ----

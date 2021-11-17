@@ -1,8 +1,8 @@
 = User Case list in Bonita Application
 :page-aliases: ROOT:user-application-case-list.adoc
-:description: This page explains what a user with the _User_ profile can see and do about cases (the process instances) in xref:ROOT:user-application-overview.adoc[Bonita User Application].
+:description: This page explains what a user with the User profile can see and do about cases (the process instances) in Bonita User Application.
 
-{description} +
+This page explains what a user with the _User_ profile can see and do about cases (the process instances) in xref:user-application-overview.adoc[Bonita User Application]. +
 It describes the value and details of the User Case List in Bonita User Application, as well as its related pages Case Details and Case Overview.
 
 This page has been created using our https://community.bonitasoft.com/blog/development-ui-designer-page-done-bonitasoft[R&D best practices].
@@ -86,7 +86,7 @@ They can be updated anytime during the lifetime of the case. +
 Search keys are optional and it is possible to define up to five search keys for a process. +
 All available search keys are displayed for a given case. +
 Technical note: There is a database index for each search key. +
-To know more about how to implement search keys, go to the xref:ROOT:define-a-search-index.adoc[search keys] page.
+To know more about how to implement search keys, go to the xref:data:define-a-search-index.adoc[search keys] page.
 
 ==== Search keys filter results
 

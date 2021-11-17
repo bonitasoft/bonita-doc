@@ -1,15 +1,14 @@
 = User task list
 :page-aliases: ROOT:user-task-list.adoc
-:description: This page explains what a user can see and do about tasks in the xref:ROOT:user-application-overview.adoc[Bonita User Application]. +
+:description: This page explains what a user can see and do about tasks in the Bonita User Application.
 
-
-{description} +
+This page explains what a user can see and do about tasks in the xref:user-application-overview.adoc[Bonita User Application]. +
 _Users_ can view lists of tasks assigned to their team, assign a task to themselves, view lists of tasks assigned to them inside a team, work on the tasks, view the "Done" tasks on different processes, and release tasks (depending on their status).
 
 == Overview
 
 Starting with Bonita 7.3, users benefit from a configurable task list, to manage tasks involving human actors from all processes in a more efficient fashion.
-This page is also made available as a custom page in Bonita Administrator Application > "Resources" tab, to be used in any xref:ROOT:applications.adoc[application], for any user-type profile.
+This page is also made available as a custom page in Bonita Administrator Application > "Resources" tab, to be used in any xref:applications.adoc[application], for any user-type profile.
 
 Here are the values of the user task list:
 

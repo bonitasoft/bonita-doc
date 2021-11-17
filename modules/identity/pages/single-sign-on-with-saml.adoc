@@ -61,7 +61,7 @@ To configure Bonita for SAML:
 
 . If you do not already have one:
  .. Download a Subscription edition bundle from the https://customer.bonitasoft.com/[Customer Service Center]
- .. xref:ROOT:tomcat-bundle.adoc[Configure] it as needed
+ .. xref:runtime:tomcat-bundle.adoc[Configure] it as needed
  .. Run it a first time, so that the first default tenant is created (TENANT_ID = 1)
  .. Stop it before modifying the configuration files below
 . In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,

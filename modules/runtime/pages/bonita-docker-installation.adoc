@@ -220,7 +220,7 @@ Now you can access the Bonita Runtime on localhost:8080/bonita and login using: 
 
 == Secure your remote access
 
-This docker image ensures to activate by default both static and dynamic authorization checks on xref:ROOT:rest-api-authorization.adoc[REST API]. To be coherent it also deactivates the HTTP API.
+This docker image ensures to activate by default both static and dynamic authorization checks on xref:identity:rest-api-authorization.adoc[REST API]. To be coherent it also deactivates the HTTP API.
 But for specific needs you can override this behavior by setting HTTP_API to true and REST_API_DYN_AUTH_CHECKS to false :
 
 [source,shell script,subs="+macros"]
@@ -341,7 +341,7 @@ Setup tool can be used outside the Docker container directly by downloading the 
 The setup tool needs to be able to access the database. Because of that, if the database is in a docker container, its port must be exposed to the host.
 ====
 
-See xref:ROOT:bonita-platform-setup.adoc#update_platform_conf[setup tool page] for more information.
+See xref:runtime:bonita-platform-setup.adoc#update_platform_conf[setup tool page] for more information.
 
 
 == Troubleshoot and debug problems inside a Docker container

@@ -4,7 +4,7 @@
 
 Up to this point, when you execute the process you are acting as a single user (username: _walter.bates_, password: _bpm_) who can perform all user tasks. In a scenario closer to a real life use case, there are different types of users: customers (who can submit claims), employees (who answer claims) and the manager of the user who provides the answer (who interacts with unsatisfied customers).
 
-To define "who can do what," define the xref:ROOT:actors.adoc[actors] who can start a process perform a task or and map them to the "real" users in the xref:organization-overview.adoc[organization].
+To define "who can do what," define the xref:process:actors.adoc[actors] who can start a process perform a task or and map them to the "real" users in the xref:identity:organization-overview.adoc[organization].
 
 The first step in the configuration of "who can do what" is to create xref:ROOT:pools-and-lanes.adoc[lanes] within the pool. We already have one default lane for employees. Let's add another lane for customers, and another one for managers:
 
@@ -76,7 +76,7 @@ At this stage, if you try to run the process, you will see that _walter.bates_ c
 ====
 
 Currently, the task _Read the answer and rate it_ is available to all users in the group _/acme/hr_, but it should only be available to the user who started the process (_walter.bates_). Similarly, the task _Deal with unsatisfied customer_ is available to everyone, when it should only be available to the manager of the user who completed the task _Review and answer claim_. +
-To refine this, we will configure an xref:ROOT:actor-filtering.adoc[actor filters].
+To refine this, we will configure an xref:process:actor-filtering.adoc[actor filters].
 
 [NOTE]
 ====

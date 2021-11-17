@@ -2,7 +2,7 @@
 :page-aliases: ROOT:bdm-in-rest-api.adoc
 :description: Learn best practices when developing a REST API Extension accessing Business Data.
 
-Learn best practices when developing a xref:ROOT:rest-api-extensions.adoc[REST API Extension] accessing xref:define-and-deploy-the-bdm.adoc[Business Data]. +
+Learn best practices when developing a xref:api:rest-api-extensions.adoc[REST API Extension] accessing xref:data:define-and-deploy-the-bdm.adoc[Business Data]. +
 Special attention is paid on performance matters.
 
 == First use case
@@ -11,7 +11,7 @@ Image below shows the BDM model used for the first use-case:
 
 image::images/bdm_model_for_rest_api_01.png[BDM model used]
 
-Note that the relationships from car to wheel1, wheel2, wheel3, wheel4 are *xref:ROOT:define-and-deploy-the-bdm.adoc#lazy_eager_loading[lazy] loaded* (in the Studio, it is
+Note that the relationships from car to wheel1, wheel2, wheel3, wheel4 are *xref:data:define-and-deploy-the-bdm.adoc#lazy_eager_loading[lazy] loaded* (in the Studio, it is
 configured by selecting the `Only load related objects when needed` radio button).
 
 == Groovy code sample
@@ -24,7 +24,7 @@ Below is an example of a REST API extension groovy script that accesses the Busi
 *Good practices* are:
 
 * If lazy loaded objects are not necessary in the response, ONLY extract the information needed. This avoids costly loading of unnecessary objects.
-* If lazy loaded objects should always be returned in the response, consider changing the relation from xref:ROOT:define-and-deploy-the-bdm.adoc#lazy_eager_loading['lazy' to 'eager']
+* If lazy loaded objects should always be returned in the response, consider changing the relation from xref:data:define-and-deploy-the-bdm.adoc#lazy_eager_loading['lazy' to 'eager']
 in the model.
 ====
 

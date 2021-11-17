@@ -14,11 +14,11 @@ The following standard actor filters are provided in the Bonita Marketplace:
 * _Initiator_ assigns the task to the user who initiated the process.
 * _Initiator manager_ assigns the task to the manager of the user who initiated the process.
 * _User manager_ assigns the task to the manager of the user who would be assigned to the task if the filter were not present.
-* _Users with Custom information_ is a new actor filter used to assign tasks to users based on xref:ROOT:custom-user-information-in-bonita-bpm-studio.adoc[custom information] (available from 6.3.2).
+* _Users with Custom information_ is a new actor filter used to assign tasks to users based on xref:identity:custom-user-information-in-bonita-bpm-studio.adoc[custom information] (available from 6.3.2).
 
 You can create additional actor filters to meet the needs of your process. An actor filter consists of a definition and an implementation. This means that you can modify the definition and implementation independently. For example, if you update the implementation to improve performance, there is no need to modify the definition.
 
 An actor filter definition defines the properties of the actor filter and defines the wizard that used to configure the actor filter when it is used in a process. An actor filter implementation consists of a set of properties and a Java class.
 You can create additional actor filters by using the xref:ROOT:actor-filter-archetype.adoc[dedicated Maven archetype] and install it in your projects.
 
-For details of how to apply an actor filter to a task or lane, see xref:ROOT:actors.adoc[Actors].
+For details of how to apply an actor filter to a task or lane, see xref:actors.adoc[Actors].

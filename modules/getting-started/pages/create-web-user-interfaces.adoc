@@ -2,7 +2,7 @@
 :description: getting started tutorial - create web user interfaces
 :page-aliases: ROOT:create-web-user-interfaces.adoc
 
-Generally, a user usually drives process execution using web interfaces. Bonita provides xref:ROOT:ui-designer-overview.adoc[the UI Designer] to easily create such interfaces.
+Generally, a user usually drives process execution using web interfaces. Bonita provides xref:bonita-overview:ui-designer-overview.adoc[the UI Designer] to easily create such interfaces.
 
 [NOTE]
 ====

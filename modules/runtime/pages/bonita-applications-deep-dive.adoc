@@ -15,7 +15,7 @@ xref:ROOT:bonita-applications-interface-overview.adoc[[.card-title]#Overview# [.
 
 [.card.card-index]
 --
-xref:ROOT:cache-configuration-and-policy.adoc[[.card-title]#Cache management# [.card-body.card-content-overflow]#pass:q[Cache policies and how to configure the caching mechanism]#]
+xref:cache-configuration-and-policy.adoc[[.card-title]#Cache management# [.card-body.card-content-overflow]#pass:q[Cache policies and how to configure the caching mechanism]#]
 --
 
 [.card.card-index]
@@ -26,15 +26,15 @@ xref:ROOT:log-in-and-log-out.adoc[[.card-title]#Login mechanism# [.card-body.car
 [.card-section]
 == Bonita Applications
 Bonitasoft developers develop Bonita using Bonita. +
-This is why Bonita comes with four embedded applications, with different status: 
+This is why Bonita comes with four embedded applications, with different status:
 
 * Core applications. They are critical to the good operation of Bonita in a Production environment. They can be customized but they cannot be deleted:
-  ** Application Directory 
+  ** Application Directory
   ** Super Administrator
 * Generic applications. They are fully functional, can be customized, but can also be deleted if not useful in a Production environment:
   ** Administrator
   ** User
-  
+
 [.card.card-index]
 --
 xref:ROOT:application-directory.adoc[[.card-title]#Application directory# [.card-body.card-content-overflow]#pass:q[The logged user's catalog of applications... and more]#]
@@ -52,7 +52,7 @@ xref:ROOT:admin-application-overview.adoc[[.card-title]#Administrator# [.card-bo
 
 [.card.card-index]
 --
-xref:ROOT:user-application-overview.adoc[[.card-title]#User# [.card-body.card-content-overflow]#pass:q[Process start and task execution using a generic tasklist]#]
+xref:user-application-overview.adoc[[.card-title]#User# [.card-body.card-content-overflow]#pass:q[Process start and task execution using a generic tasklist]#]
 --
 
 [.card-section]

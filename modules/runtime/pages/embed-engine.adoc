@@ -56,7 +56,7 @@ For now, only the following configuration is supported:
 
 In subscription edition, the url of the license can be configured using `com.bonitasoft.engine.license-file-url`
 
-All other configuration can be customized using the standard bonita configuration tool xref:ROOT:bonita-platform-setup.adoc[Platform setup tool]
+All other configuration can be customized using the standard bonita configuration tool xref:runtime:bonita-platform-setup.adoc[Platform setup tool]
 
 === Example
 

@@ -72,6 +72,6 @@ You will be able to access the APIs using the following path: "../API/{API name}
 
 === Theme access
 
-If your page is viewed in an application, you will have access facilities for xref:ROOT:applications.adoc[the application theme].
+If your page is viewed in an application, you will have access facilities for xref:runtime:applications.adoc[the application theme].
 
 The `Theme.css` is directly accessible by adding the following link in `index.html`: `<link href="../theme/theme.css" rel="stylesheet" />`

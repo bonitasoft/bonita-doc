@@ -12,13 +12,13 @@ For Enterprise, Performance and Efficiency editions only. +
 
 {description} +
 The BDM access control feature, available in Bonita Studio, allows to grant access to entire business objects or access to some attributes of business objects. +
-To grant access to specific instances of business objects, you will need to use xref:ROOT:rest-api-authorization.adoc[Rest api authorizations].
+To grant access to specific instances of business objects, you will need to use xref:rest-api-authorization.adoc[Rest api authorizations].
 You will find below examples of both use-cases.
 
 == Use of profiles
 
 Most of the time, the access logic applies to several users, based on a combination of their roles/groups in the organization.
-For that reason, Bonita takes advantage of the capability to define xref:ROOT:profiles-overview.adoc[profiles] in Bonita Studio. +
+For that reason, Bonita takes advantage of the capability to define xref:profiles-overview.adoc[profiles] in Bonita Studio. +
 We are making profiles an effective way to map people to Bonita items: living application access, BDM access control rules (starting in Bonita 7.7), actor mapping or more in the future. +
 Granting access to a business object or some attributes of a business object to a given profile means granting access to all users mapped to this profile.
 
@@ -132,7 +132,7 @@ To manage this and other differences between what profiles can access, you have 
 * manage it on the same page and make its display conditional.
 To do so, in the property *hidden* of the dedicated input, click the *fx* button to make it an expression, and write `$item.medicalComment == null || $item.medicalComment == undefined`.
 
-Create a new application descriptor using the xref:ROOT:applicationCreation.adoc[application editor] in the Studio:
+Create a new application descriptor using the xref:applications:application-creation.adoc[application editor] in the Studio:
 
 * Set the application token: _leaveRequest_
 * Set the Application Profile: _User_
@@ -258,7 +258,7 @@ Define an _Invoice_ business object, with the following attributes:
 * In your organization create two groups, 'Order picker' and 'Sales', and two roles 'Member' and 'Novice member'.
 * Create some users with the membership 'Member of Order picker', some others with 'Novice member of Sales', and some with 'Member of Sales'.
 * Check that all users are also mapped with the default profile _User_.
-* Define three custom profiles using the xref:ROOT:profileCreation.adoc[profile editor] in the Studio:
+* Define three custom profiles using the xref:identity:profile-creation.adoc[profile editor] in the Studio:
  ** *Order picker*, mapped with the group 'Order picker'
  ** *Experienced Sales*, mapped with the membership 'Member of Sales'
  ** *Novice Sales*, mapped with the membership 'Novice member of Sales'
@@ -340,7 +340,7 @@ In the UI Designer, create an application page _displayInvoices_  :
     ***** An input ( *Label:* Address, *Value:* $item.customer.address, *hidden:* `$item.customer.address == null || $item.customer.address == undefined`)
     ***** An input(*Label:* Quantity, *Value:* $item.quantity)
 
-Create a new application descriptor using the xref:ROOT:applicationCreation.adoc[application editor] in the Studio:
+Create a new application descriptor using the xref:applications:application-creation.adoc[application editor] in the Studio:
 
 * Set the application token: invoices
 * Set the Application Profile: User
@@ -408,7 +408,7 @@ Access to data is now controlled by the BDM Access Control file just deployed. T
 
 === III - Grant access to business object instances. Requests on marks
 
-To grant access to specific instances of business objects, you will need to use xref:ROOT:rest-api-authorization.adoc[rest-api authorizations].
+To grant access to specific instances of business objects, you will need to use xref:rest-api-authorization.adoc[rest-api authorizations].
 
 [NOTE]
 ====
@@ -481,7 +481,7 @@ ORDER BY r.persistenceId
 . In your organization create two groups, 'Physics' and 'Mathematics', and a role 'Teacher'
 . Create some users with the membership 'Teacher of Physics', some others with 'Teacher of Mathematics'
 . Check that all users are also mapped with the default profile _User_.
-. Define three custom profiles using the xref:ROOT:profileCreation.adoc[profile editor] in the Studio:
+. Define three custom profiles using the xref:identity:profile-creation.adoc[profile editor] in the Studio:
  ** *PhysicsTeachers*, mapped with the membership 'Teacher of Physics'
  ** *MathematicsTeachers*, mapped with the membership 'Teacher of Mathematics'
  ** *Teachers*, mapped with role 'Teachers'
@@ -515,10 +515,10 @@ In the UI Designer:, create an application page (_reviewRequests_):
  ** *Value* : selectedSubject
 * Add a Table widget to the page (to display the requests):
  ** *Headers* : Id, Subject, Content, Medical comment, Student (constants)
- ** *Content* : requestList (script, click the fx icon to switch from contstant to script)
+ ** *Content* : requestList (script, click the fx icon to switch from constant to script)
  ** *Column keys* : persistenceId, subject, content, medicalComment, student.fullname
 
-In the Studio, create an xref:ROOT:applicationCreation.adoc[application descriptor]:
+In the Studio, create an xref:applications:application-creation.adoc[application descriptor]:
 
 * Set the application token: _TeacherApp_
 * Set the application profile: _Teachers_
@@ -536,12 +536,12 @@ Make sure the living application works fine, and that while selecting subject fr
 . Modify the file _database.properties_, so it points to the target database. In our example we will use the provided h2 database.
 . Add the following line to your _database.properties_ file :
 `h2.database.dir=/home/dolgonos/Desktop/BonitaStudioSubscription-7.7.0-SNAPSHOT/workspace/default/h2_database/`
-. Run _setup pull_. For more details on what this command does, see xref:ROOT:bonita-platform-setup.adoc[Bonita Platform Setup].
+. Run _setup pull_. For more details on what this command does, see xref:runtime:bonita-platform-setup.adoc[Bonita Platform Setup].
 . Go the _/BonitaStudioSubscription-7.7.0/workspace/tomcat/setup/platform_conf/current/tenants/1/tenant_portal/_ folder that has just appeared.
 . Open the _dynamic-permissions-checks-custom.properties_, and add the following line:
 `GET|bdm/businessData/com.company.model.Request=[check|SubjectTeacherPermissionRule]`
 This line indicates that before executing any query on the com.company.model.Request object types in the BDM, a verification has to be run. In this case, this is a groovy script, _SubjectTeacherPermissionRule.groovy_ (created in step 7).
-For more information about dynamic security and how it works with Bonita, see xref:ROOT:rest-api-authorization.adoc[Rest API authorization].
+For more information about dynamic security and how it works with Bonita, see xref:rest-api-authorization.adoc[Rest API authorization].
 . Go to _/BonitaStudioSubscription-7.7.0/workspace/tomcat/setup/platform_conf/current/tenants/1/tenant_security_scripts_. Create a file _SubjectTeacherPermissionRule.groovy_, with the following content:
 
 [source,groovy]

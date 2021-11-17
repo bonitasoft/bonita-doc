@@ -109,16 +109,16 @@ that take volume in the database and that slows some queries down.
 
 == Connectors
 
-If a connector execution duration exceeds the configured timeout (300 seconds by default), an exception will be raised in the log: 
+If a connector execution duration exceeds the configured timeout (300 seconds by default), an exception will be raised in the log:
 [source,log]
 ----
 Caused by: org.bonitasoft.engine.connector.exception.SConnectorException: The connector timed out
----- 
+----
 [NOTE]
 ====
 The connector execution with timeout is a Subscription feature for Teamwork, Efficiency, Performance, and Enterprise editions only.
 ====
-This timeout can be increased in the Connector service configuration in  `bonita-tenant-sp-custom.properties` (See xref:ROOT:BonitaBPM_platform_setup.adoc[platform setup]) by increasing the value of the property `bonita.tenant.connector.timeout`.  
+This timeout can be increased in the Connector service configuration in  `bonita-tenant-sp-custom.properties` (See xref:bonita-platform-setup.adoc[platform setup]) by increasing the value of the property `bonita.tenant.connector.timeout`.
 
 Additionally, any connectors longer than 10 seconds will produce a warning log.
 See xref:ROOT:performance-tuning.adoc#connector_service[connector service] for more information.

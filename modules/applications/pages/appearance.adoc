@@ -7,7 +7,7 @@
 == Apply an application resource theme
 
 Page and form appearance is based on the Bootstrap v3.3.2 CSS framework. To define the appearance of a page or form you can use an application xref:ROOT:themes.adoc[theme resource], apply a Boostrap theme, or manually add a custom CSS class that you implement.
-By default, pages designed with the UI Designer are deployed in an xref:ROOT:applications.adoc[application] and use the theme chosen for the application.
+By default, pages designed with the UI Designer are deployed in an xref:runtime:applications.adoc[application] and use the theme chosen for the application.
 
 == Apply a Boostrap CSS theme
 

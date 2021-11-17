@@ -134,7 +134,7 @@ To configure Bonita for Kerberos:
 
 . If you do not already have one:
  .. Download a Subscription edition bundle from the customer portal
- .. xref:tomcat-bundle.adoc#configuration[Configure] it as needed
+ .. xref:runtime:tomcat-bundle.adoc#configuration[Configure] it as needed
  .. Run it a first time, so that the first default tenant is created (TENANT_ID = 1)
  .. Stop it before modifying the configuration files below
 . You will need to edit the Kerberos configuration file in order to select the desired encryption types used to secure the communication. In the following folder `<BUNDLE_HOME>/server/conf`,

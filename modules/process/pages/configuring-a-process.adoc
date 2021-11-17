@@ -27,4 +27,4 @@ The following items can be configured:
 * xref:ROOT:managing-dependencies.adoc[Process dependencies]
 * Run user
 
-After deployment, depending on the Bonita edition that you are using, you can xref:ROOT:live-update.adoc[update the process configuration in production] for some aspects of the process.
+After deployment, depending on the Bonita edition that you are using, you can xref:runtime:live-update.adoc[update the process configuration in production] for some aspects of the process.

@@ -36,7 +36,7 @@ You need to <<migrate,add authorization to your custom pages>> before you activa
 
 [NOTE.bonitacloud,caption=Bonita Cloud]
 ====
-In Bonita Cloud, to change the properties files and apply Rest Authorization, you just have to open a support ticket and we'll apply the change on the requested environment for you ! 
+In Bonita Cloud, to change the properties files and apply Rest Authorization, you just have to open a support ticket and we'll apply the change on the requested environment for you !
 ====
 
 
@@ -54,7 +54,7 @@ These files grant permissions to sets of users based on profile or user name.
 You cannot remove permissions in a configuration file, so you must ensure that the default definitions grant the minimum permissions that you want to give to any user.
 
 The default versions of these files are located in `setup/platform_conf/initial/tenant_template_portal`.
-In order to change the configuration on an installation whose platform has already been initialized, use the xref:ROOT:bonita-platform-setup.adoc[platform setup tool] to
+In order to change the configuration on an installation whose platform has already been initialized, use the xref:runtime:bonita-platform-setup.adoc[platform setup tool] to
 retrieve the current configuration and update the files in `setup/platform_conf/current/tenants/[tenantId]/tenant_portal`.
 Then use the tool again to save your changes into the database.
 
@@ -174,9 +174,9 @@ If the platform has never been started yet:
 
 If the platform has already been started:
 
-* use the xref:ROOT:bonita-platform-setup.adoc[platform setup tool] to retrieve the current configuration
+* use the xref:runtime:bonita-platform-setup.adoc[platform setup tool] to retrieve the current configuration
 * add the script to the `setup/platform_conf/current/tenants/[tenantId]/tenant_security_scripts` folder
-* then use the xref:ROOT:bonita-platform-setup.adoc[platform setup tool] again to push the new / modified scripts to database
+* then use the xref:runtime:bonita-platform-setup.adoc[platform setup tool] again to push the new / modified scripts to database
 
 The `tenant_security_scripts` folder contains a script sample that can be used to write your own.
 Bonita also provides default scripts that should fit common usages. They are packages internally in the binaries, but the
@@ -288,7 +288,7 @@ and dynamic check scripts available immediately.
 
 == User login
 
-When a user logs in, after the user is xref:ROOT:user-authentication-overview.adoc[authenticated], a map of `LoggedUserPermissions` is created.
+When a user logs in, after the user is xref:user-authentication-overview.adoc[authenticated], a map of `LoggedUserPermissions` is created.
 `LoggedUserPermissions` is a combination of the information from `compound-permissions-mapping.properties` and
 `CustomUserPermissionsMapping` that is relevant to the user.
 It takes into account all the profiles assigned to the user, not only the current profile, so when you change profile the map does not need to be recreated.
@@ -314,7 +314,7 @@ Depending on the permissions that a user of the page already has, it might be ne
 [WARNING]
 ====
 
-If the page declares resources provided by a xref:ROOT:rest-api-extensions.adoc[REST API extension], then the REST API extension must be deployed before the page,
+If the page declares resources provided by a xref:api:rest-api-extensions.adoc[REST API extension], then the REST API extension must be deployed before the page,
 otherwise the compound permissions won't be automatically created when deploying the page, and you will need to redeploy the page after deploying the REST API extension.
 ====
 
@@ -339,7 +339,7 @@ For example, to add the permission to the user walter.bates (username), add the 
 
 Starting with the Bonita efficiency subscription edition, you can use a simpler mechanism to grant or deny access to BDM objects or some of their attributes to specific profiles, using the BDM Access Control feature.
 It is also possible to protect instances of the BDM objects, using REST API authorizations.
-For more details see : xref:ROOT:bdm-access-control.adoc[BDM access control]
+For more details see : xref:bdm-access-control.adoc[BDM access control]
 
 == Activating and deactivating authorization
 

@@ -33,8 +33,8 @@ Rarely, when a form is used by multiple processes, it can be deployed as a "Reso
 
 == Live update
 
-xref:ROOT:live-update.adoc[Live update] allows the Administrator to update one element of the application in a situation of emergency. +
-You can xref:ROOT:live-update.adoc#form-list[update the form in the list] and xref:live-update.adoc#form-mapping[modify the mapping with the process]. +
+xref:runtime:live-update.adoc[Live update] allows the Administrator to update one element of the application in a situation of emergency. +
+You can xref:runtime:live-update.adoc#form-list[update the form in the list] and xref:runtime:live-update.adoc#form-mapping[modify the mapping with the process]. +
 You can also xref:ROOT:resource-management.adoc#modify[edit] a global form as a resource in Bonita Administrator Application.
 
 To know more about the development of forms, go to the xref:ROOT:forms-development.adoc[dedicated documentation page].

@@ -12,7 +12,7 @@ In the case of Bonita Runtime, after the update, a process continues to run unch
 
 [.card.card-index]
 --
-xref:ROOT:product-versioning.adoc[[.card-title]#Bonita versions# [.card-body.card-content-overflow]#pass:q[When and How Bonita is released / What the versioning implies]#]
+xref:product-versioning.adoc[[.card-title]#Bonita versions# [.card-body.card-content-overflow]#pass:q[When and How Bonita is released / What the versioning implies]#]
 --
 
 [.card.card-index]
@@ -22,7 +22,7 @@ xref:ROOT:update-studio.adoc[[.card-title]#Updating Bonita Studio# [.card-body.c
 
 [.card.card-index]
 --
-xref:ROOT:migrate-from-an-earlier-version-of-bonita-bpm.adoc[[.card-title]#Updating Bonita Runtime# [.card-body.card-content-overflow]#pass:q[At a glance: Flow, Best Practices and caveat]#]
+xref:migrate-from-an-earlier-version-of-bonita.adoc[[.card-title]#Updating Bonita Runtime# [.card-body.card-content-overflow]#pass:q[At a glance: Flow, Best Practices and caveat]#]
 --
 
 [.card.card-index]

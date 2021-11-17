@@ -102,7 +102,7 @@ When generating a Form from a contract, a Text widget is created to display erro
 To display contextual information of the task or the process instance in a form, you can leverage the business data and document references made publicly available through the context. The notion of context is available at two levels : process instance and human task. The context is a list of references to the business data and documents manipulated by the process instance during its execution.
 Currently, context is the same for a human task and its process instance. All the business data and documents defined are public.
 
-Limitation : there is currently no way to customize which business data or document are public in Community edition. When using an Enterprise edition, you may want to use the xref:ROOT:bdm-access-control.adoc[BDM Access Control] to protect data access.
+Limitation : there is currently no way to customize which business data or document are public in Community edition. When using an Enterprise edition, you may want to use the xref:identity:bdm-access-control.adoc[BDM Access Control] to protect data access.
 
 == +++<a name="form-generation">++++++</a>+++ Form generation
 
