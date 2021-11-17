@@ -8,6 +8,7 @@
    **** xref:profile-creation.adoc[Profile editor]
   *** xref:special-users.adoc[Special users]
   *** xref:rest-api-authorization.adoc[REST API authorization]
+   **** xref:api-permissions-overview.adoc[API permissions overview]
   *** xref:custom-authorization-rule-mapping.adoc[Authorization rules]
   *** xref:bdm-access-control.adoc[BDM access control]
  ** Authentication

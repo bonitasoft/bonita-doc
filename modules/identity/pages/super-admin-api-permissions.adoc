@@ -1,0 +1,190 @@
+= Super Administrator user REST API permissions
+:description: This page explains the REST API permissions for the Super Administrator user.
+
+{description}. More information about how this page is structured can be found in xref:api-permissions-overview.adoc[this page]. +
+This user is linked to the Bonita Super Administrator Application by default. More information about this application can be found in the xref:runtime:super-administrator-application-overview.adoc[Super Administrator Application overview].
+
+== Accessible pages
+* Bonita Layout
+* Tenant Status
+* User List
+* User Details
+* Group List
+* Role List
+* Install/Export Organization
+* Profile List
+* BDM
+* Resource List
+* Application List
+* Application Details
+
+== Accessible permissions
+** application_visualization
+** profile_visualization
+** tenant_platform_visualization
+** organization_visualization
+** avatars
+** tenant_platform_management
+** license
+** process_comment
+** organization_management
+** download_document
+** profile_member_visualization
+** profile_management
+** profile_member_management
+** bdm_access_control
+** bdm_management
+** bdm_visualization
+** page_management
+** form_visualization
+** application_management
+
+== Accessible APIs
+* GET
+** identity/user
+** identity/personalcontactdata
+** identity/professionalcontactdata
+** identity/role
+** identity/group
+** identity/membership
+** customuserinfo/user
+** customuserinfo/definition
+** customuserinfo/value
+** bpm/comment
+** bpm/archivedComment
+** portal/profile
+** portal/bonitaPage
+** portal/page
+** portal/profileEntry
+** portal/profileMember
+** userXP/profile
+** userXP/profileEntry
+** userXP/profileMember
+** userXP/bonitaPage
+** system/session
+** system/log
+** system/tenant
+** system/feature
+** system/license
+** system/monitoring
+** system/i18nlocale
+** system/i18ntranslation
+** platform/platform
+** platform/jvmDynamic
+** platform/jvmStatic
+** platform/systemProperty
+** platform/tenant
+** tenant/bdm
+** living/application
+** living/application-page
+** living/application-menu
+** bdm/businessData
+** bdm/businessDataReference
+** bdm/businessDataQuery
+** accessControl/bdm
+** form/mapping
+** API/avatars
+** portal/custom-page/API/avatars
+** API/documentDownload
+** portal/custom-page/API/documentDownload
+** portal/documentDownload
+** API/formsDocumentImage
+** portal/custom-page/API/formsDocumentImage
+** portal/formsDocumentImage
+** portal/custom-page/API/formsDocumentDownload
+** portal/formsDocumentDownload
+** portal/exportOrganization
+** API/exportOrganization
+** portal/custom-page/API/exportOrganization
+** portal/pageDownload
+** API/pageDownload
+** portal/exportProfiles
+** API/exportProfiles
+** portal/exportAccessControl
+** API/applicationIcon
+** portal/downloadDocument
+** portal/custom-page/API/downloadDocument
+* POST
+** identity/user
+** identity/personalcontactdata
+** identity/professionalcontactdata
+** identity/role
+** identity/group
+** identity/membership
+** customuserinfo/definition
+** bpm/comment
+** portal/profile
+** portal/page
+** portal/profileEntry
+** portal/profileMember
+** userXP/profile
+** userXP/profileEntry
+** userXP/profileMember
+** platform/platform
+** platform/tenant
+** tenant/bdm
+** living/application
+** living/application-page
+** living/application-menu
+** API/imageUpload
+** API/pageUpload
+** API/profilesUpload
+** application/import
+** organization/import
+** profile/import
+** bdmAccessControl/install
+** bdmAccessControl/validation
+* PUT
+** identity/user
+** identity/personalcontactdata
+** identity/professionalcontactdata
+** identity/role
+** identity/group
+** identity/membership
+** customuserinfo/value
+** portal/profile
+** portal/page
+** portal/profileEntry
+** userXP/profile
+** userXP/profileEntry
+** system/tenant
+** platform/platform
+** platform/tenant
+** living/application
+** living/application-page
+** living/application-menu
+* DELETE
+** identity/user
+** identity/role
+** identity/group
+** identity/membership
+** customuserinfo/definition
+** portal/profile
+** portal/page
+** portal/profileEntry
+** portal/profileMember
+** userXP/profile
+** userXP/profileEntry
+** userXP/profileMember
+** platform/platform
+** platform/tenant
+** living/application
+** living/application-page
+** living/application-menu
+** accessControl/bdm
+** API/avatars
+** API/applicationIcon
+
+== Subscription Editions
+
+These are additional REST APIs that you have access to when you are using the Enterprise, Performance, Efficiency or Teamwork edition of Bonita.
+
+=== Additional accessible pages
+* License page
+
+=== Additional accessible permissions
+** platform_management
+
+=== Additional accessible APIs
+* GET
+** platform/license
