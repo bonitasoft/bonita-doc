@@ -1,4 +1,5 @@
 = Dependencies for bonita-data-repository 7.12.9
+:page-aliases: bonita-data-repositories-dependencies.adoc
 
 == NodeJS Dependencies
 
