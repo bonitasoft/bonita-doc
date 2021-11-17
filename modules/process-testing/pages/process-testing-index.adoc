@@ -1,13 +1,13 @@
-= Test
+= Processes automated tests
 
 :description: integeration test bonita processes applications junit ci continuous integration
 
-Learn to create and execute integration tests on your Bonita processes to improve the quality and the durability of your developments. +
-Some developer skills are required to follow this documentation and, generally, to write process integration tests.
+Learn how to write and execute integration tests for your Bonita processes to improve the quality and the durability of your developments using the Bonita test toolkit. +
+Developer skills are required to follow this documentation and, generally, to write process integration tests.
 
 [NOTE]
 ====
-Integrations tests are built uppon the Bonita Test Toolkit, which is only available for Enterprise, Performance, Efficiency and teamwork editions only. 
+Integrations tests are built upon the Bonita Test Toolkit, which is only available for Enterprise, Performance, Efficiency and Teamwork editions only. 
 
 However, it is based on the open source https://github.com/bonitasoft/bonita-java-client[Bonita Java Client] to make HTTP calls to the Bonita runtime. Any user can make their own test toolkit using this client. 
 ====
@@ -19,7 +19,7 @@ In the world of development, writing tests is not an option. It is the best way 
 This applies to Bonita processes. For each process, an integration test should be written, to validate that the process executes correctly depending on the inputs, that after each task the platform is in the expected state and so on.
 
 The Bonita Test Toolkit offers the possibility to write such tests. It performs HTTP calls on the targeted Bonita platform to start and execute cases, and make assertions at any time on the state of the platform, the content of the data... +
-It is written is Java, and should be used with a Java test framework like JUnit. 
+It is a Java library and can be integrated with many existing test frameworks like JUnit 5, Spock, Cucumber...etc. 
 
 [.card-section]
 == Sections

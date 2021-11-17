@@ -8,13 +8,13 @@ No matter where is your platform running and what kind of process is installed o
 
 [NOTE]
 ====
-Integrations tests are built uppon the Bonita Test Toolkit, which is only available for Enterprise, Performance, Efficiency and teamwork editions only. 
+Integrations tests are built upon the Bonita Test Toolkit, which is only available for Enterprise, Performance, Efficiency and Teamwork editions only. 
 
 However, it is based on the open source https://github.com/bonitasoft/bonita-java-client[Bonita Java Client] to make HTTP calls to the Bonita runtime. Any user can make their own test toolkit using this client. 
 ====
 
 [#project-example]
-== Create and deploy a process to test
+== Test environment setup
 
 We will briefly describe in this section the process used in the test xref:quick-start-test[below]. It is not mandatory to reproduce this process to write a first test, any kind a basic process can be used. +
 In this process, we are going to create a dinosaur with a name, a color, and decide if he's hungry or not. Depending on his hungry state, he will go to hunt or go to sleep.
