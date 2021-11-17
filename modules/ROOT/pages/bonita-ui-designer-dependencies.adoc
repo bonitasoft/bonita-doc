@@ -1,4 +1,4 @@
-= Bonita-ui-designer 1.12.0-SNAPSHOT dependencies for Bonita 2021.1
+= Bonita-ui-designer 1.12.47 dependencies for Bonita 2021.1
 :page-aliases: ui-designer-dependencies.adoc
 
 == UI-Designer Backend dependencies
@@ -43,7 +43,7 @@
 | commons-codec (commons-codec) | 1.10 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
-| commons-io (commons-io) | 2.4 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+| commons-io (commons-io) | 2.10.0 | https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
 | commons-logging (commons-logging) | 1.2 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
@@ -73,7 +73,7 @@
 | httpcore (org.apache.httpcomponents) | 4.4.6 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
-| maven-artifact (org.apache.maven) | 3.3.3 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
+| maven-artifact (org.apache.maven) | 3.8.1 | https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
 | aspectjrt (org.aspectj) | 1.8.5 | http://www.eclipse.org/legal/epl-v10.html[Eclipse Public License - v 1.0] 
@@ -82,13 +82,13 @@
 | aspectjweaver (org.aspectj) | 1.8.5 | http://www.eclipse.org/legal/epl-v10.html[Eclipse Public License - v 1.0] 
 
 
-| ui-designer-backend-contract (org.bonitasoft.web) | 1.12.0-SNAPSHOT | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
+| ui-designer-backend-contract (org.bonitasoft.web) | 1.12.47 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
-| ui-designer-backend-migrationReport (org.bonitasoft.web) | 1.12.0-SNAPSHOT | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
+| ui-designer-backend-migrationReport (org.bonitasoft.web) | 1.12.47 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
-| ui-designer-frontend (org.bonitasoft.web) | 1.12.0-SNAPSHOT | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
+| ui-designer-frontend (org.bonitasoft.web) | 1.12.47 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
 | commons-compiler (org.codehaus.janino) | 2.7.8 | http://dist.codehaus.org/janino/new_bsd_license.txt[New BSD License] 
@@ -97,7 +97,7 @@
 | janino (org.codehaus.janino) | 2.7.8 | http://dist.codehaus.org/janino/new_bsd_license.txt[New BSD License] 
 
 
-| plexus-utils (org.codehaus.plexus) | 3.0.20 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+| plexus-utils (org.codehaus.plexus) | 3.2.1 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
 | ecj (org.eclipse.jdt) | 3.14.0 | http://www.eclipse.org/legal/epl-v10.html[Eclipse Public License] 
@@ -278,6 +278,8 @@
 
 |===
 
+Note: The angular version 1.8.x is a "dependency" of angular-filter. In fact, this package does not use this dependency,
+so UI Designer does not embed angular 1.8.x
 
 
 == Living application page dependencies
