@@ -30,6 +30,12 @@ contentType=layout
 
 If a resource contains both `Index.groovy` and `index.html`, the Groovy class takes precedence.
 
+[NOTE]
+
+====
+To insert line breaks in a page.properties file, end the line that preceeds the line break with a "\".
+====
+
 == Authorization permissions for resources
 
 If you are using xref:rest-api-authorization.adoc[REST API authorization] and your resource needs the Web REST API,
