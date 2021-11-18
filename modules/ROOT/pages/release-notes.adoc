@@ -267,7 +267,7 @@ A standalone docker image that package the LDAP Synchronizer was released under 
 
 ==== Fixes in Bonita Development Suite (Studio and UI Designer)
 
-* UID-432 - When openning a pop-up with a widget selected in whiteboard, the key bindings could get unexpected errors
+* UID-432 - When opening a pop-up with a widget selected in the whiteboard, the key bindings could get unexpected errors
 * STUDIO-4126 - Process execution errors: bcd-dependencies 7.11.5 generates a .bar different from Studio 7.11.5
 * STUDIO-4121 - Bonita Studio gets its workspace corrupted when switching projects
 
