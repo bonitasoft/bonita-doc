@@ -22,7 +22,9 @@ The first step is to generate  the maven project using the archetype:
 
 [source,bash]
 ----
-mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-connector-archetype
+mvn archetype:generate /
+    -DarchetypeGroupId=org.bonitasoft.archetypes /
+    -DarchetypeArtifactId=bonita-connector-archetype
 ----
 
 [CAUTION]
