@@ -13,7 +13,7 @@ The complete solution can be downloaded link:{attachmentsdir}/test-framework-qui
 ====
 Integrations tests are built upon the Bonita Test Toolkit, which is only available for Enterprise, Performance, Efficiency and Teamwork editions only. 
 
-However, it is based on the open source https://github.com/bonitasoft/bonita-java-client[Bonita Java Client] to make HTTP calls to the Bonita runtime. Any user can make their own test toolkit using this client. 
+However, it is based on the open source https://github.com/bonitasoft/bonita-java-client[Bonita Java Client] to make HTTP calls to the Bonita runtime. Any user can make his own test toolkit using this client. 
 ====
 
 [#project-example]
