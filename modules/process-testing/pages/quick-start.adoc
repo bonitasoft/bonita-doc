@@ -21,8 +21,6 @@ The Bonita test toolkit is only available for Enterprise, Performance, Efficienc
 We will briefly describe in this section the process used in the test xref:quick-start-test[below]. It is not mandatory to reproduce this process to write a first test, any kind a basic process can be used. +
 In this process, we are going to create a dinosaur with a name, a color, and decide if he's hungry or not. Depending on his hungry state, he will go to hunt or go to sleep.
 
-The link:{attachmentsdir}/study-leave-template.docx[template example]
-
 The following Business Data Model is used: 
 
 [caption=""]

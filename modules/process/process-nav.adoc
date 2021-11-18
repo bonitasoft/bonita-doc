@@ -49,5 +49,6 @@
   *** xref:configuring-a-process.adoc[Configure a process]
   *** xref:managing-dependencies.adoc[Manage process dependencies]
  ** xref:project-deploy-in-dev-suite.adoc[Deployment in Bonita Studio]
- ** xref:process-testing:process-testing-index.adoc[Process testing]
+ ** Process testing
+  *** xref:process-testing:process-testing-overview.adoc[Overview]
   *** xref:process-testing:quick-start.adoc[Quick start]
