@@ -1,6 +1,7 @@
 = Create web user interfaces (forms)
-:description: getting started tutorial - create web user interfaces
 :page-aliases: ROOT:create-web-user-interfaces.adoc
+:experimental: // activate the 'menu' macro
+:description: getting started tutorial - create web user interfaces
 
 Generally, a user usually drives process execution using web interfaces. Bonita provides xref:bonita-overview:ui-designer-overview.adoc[the UI Designer] to easily create such interfaces.
 
