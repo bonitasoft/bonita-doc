@@ -1,4 +1,4 @@
-== Cache configuration and policy
+= Cache configuration and policy
 :page-aliases: ROOT:cache-configuration-and-policy.adoc
 :description: Learn how to configure Living Application cache.
 
@@ -6,7 +6,7 @@
 
 Details about this cache configuration impact for the end user, and tutorial on modification of this configuration.
 
-=== Cache policy over view
+== Cache policy over view
 
 The default cache policy configured on your bonita bundle will allow your browser to store recently used information so that
 it can be quickly accessed at a later time, thereby improving performance.
@@ -17,7 +17,7 @@ This cache policy will have impacts on the Living applications display time and 
 
 Note that in every cases, custom pages and forms take advantage of the cache mechanism in an Application.
 
-==== Development configuration
+=== Development configuration
 
 By default cache is disabled for the web server embedded by Bonita studio, as it is more comfortable to realise development without cache.
 But you can decide to activate cache, to be closer to the production display time. To do this,
