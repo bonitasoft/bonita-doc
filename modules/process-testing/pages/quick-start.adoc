@@ -1,33 +1,22 @@
-= Create process integration tests
+= Quick start
 :description: This pages describes how to write process integration tests using the Bonita Test Toolkit.
 
-{description}
+Create and execute a first integration test on a basic Bonita process.
+
+This quick start tutorial assumes that a Bonita platform is running at `http://localhost:8080/bonita` (Bonita Studio default for example). On this platform, a small BDM and basic process using this BDM are installed. +
+No matter where is your platform running and what kind of process is installed on it, you should be able to follow this quick start tutorial and adapt it to your use case.
+
+// Those two source folders are not distributed through a Git repository because it contains code for subscription users. The day the test toolkit becomes a community value this can be changed.
+The complete solution can be downloaded link:{attachmentsdir}/test-framework-quick-start.zip[here], and the Bonita project used in the solution link:{attachmentsdir}/bonita-test-framework-quick-start.bos[here].
 
 [NOTE]
 ====
-The Bonita Test Toolkit is only available for Enterprise, Performance, Efficiency and teamwork editions only. 
-
-However, it is based on the open source https://github.com/bonitasoft/bonita-java-client[Bonita Java Client] to make HTTP calls to the Bonita runtime. Any user can make their own test toolkit using this client. 
+Integrations tests are built upon the Bonita Test Toolkit, based on the open source https://github.com/bonitasoft/bonita-java-client[Bonita Java Client]. +
+The Bonita test toolkit is only available for Enterprise, Performance, Efficiency and Teamwork editions. 
 ====
 
-Some developer skills are required to follow this documentation page and, generally, to write process integration tests.
-
-== Motivations
-
-In the world of development, writing tests is not an option. It is the best way to ensure that a product fulfill its requirements, and that existing features won't be broken by future developments. 
-
-This applies to Bonita processes. For each process, an integration test should be written, to validate that the process executes correctly depending on the inputs, that after each task the platform is in the expected state and so on.
-
-The Bonita Test Toolkit offers the possibility to write such tests. It performs HTTP calls on the targeted Bonita platform to start and execute cases, and make assertions at any time on the state of the platform, the content of the data... +
-It is written is Java, and should be used with a Java test framework like JUnit. 
-
-== Quick start
-
-This quick start tutorial assumes that a Bonita platform is running at `http://localhost:8080/bonita` (Bonita Studio default for example). On this platform, a small BDM and basic process using this BDM is installed (described xref:project-example[in the paragraph below]). +
-No matter where is your platform running and what kind of process is installed on it, you should be able to follow this quick start tutoriel and adapt it to your use case.
-
 [#project-example]
-=== Create and deploy a process to test
+== Test environment setup
 
 We will briefly describe in this section the process used in the test xref:quick-start-test[below]. It is not mandatory to reproduce this process to write a first test, any kind a basic process can be used. +
 In this process, we are going to create a dinosaur with a name, a color, and decide if he's hungry or not. Depending on his hungry state, he will go to hunt or go to sleep.
@@ -46,14 +35,14 @@ The following Business Data Model is used:
 
 The following process is used: 
 
-image::images/integration-test-quick-start-process.png[Quick start process example]
+image::images/quick-start-process.png[Quick start process example]
 
 The process contains a business data `dinosaur` of type `com.company.model.Dinosaur`. + 
 On the task `createDinosaur`, a contract is defined to instantiate this business data. +
 If the field `hungry` is set to `true`, then the path to the task `goToHunt` is selected, else its the path to the task `goToSleep`.
 
 [#quick-start-test]
-=== Create a Bonita test project
+== Create a Bonita test project
 
 Create a new Maven project with the following pom.xml: 
 
@@ -160,7 +149,7 @@ In `src-test/java/com/company/test`, create a class `ProcessIT.java` with the fo
 
 [source, java]
 ----
-package com.company.test;
+package com.company.bonitasoft.test;
 
 import static com.bonitasoft.test.toolkit.predicate.ProcessInstancePredicates.containsPendingUserTasks;
 import static com.bonitasoft.test.toolkit.predicate.ProcessInstancePredicates.processInstanceArchived;
@@ -176,14 +165,16 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
+import com.bonitasoft.test.toolkit.BonitaTestToolkit;
 import com.bonitasoft.test.toolkit.contract.ComplexInputBuilder;
 import com.bonitasoft.test.toolkit.contract.ContractBuilder;
 import com.bonitasoft.test.toolkit.junit.extension.BonitaTestExtension;
 import com.bonitasoft.test.toolkit.junit.extension.BonitaTestExtension.Configuration;
 import com.bonitasoft.test.toolkit.model.BusinessData;
+import com.bonitasoft.test.toolkit.model.QueryResult;
 import com.bonitasoft.test.toolkit.model.Task;
 
-class ProcessIT {
+class CreateDinosaurIT {
 
     @RegisterExtension
     static BonitaTestExtension bonitaExtension = new BonitaTestExtension(Configuration.builder()
@@ -223,7 +214,8 @@ class ProcessIT {
         assertThat(processInstance.getFirstTask("goToHunt").isArchived()).isTrue();
 
         // Data assertions
-        List<BusinessData> businessData = businessObject.query("findByName", List.of("name=Tyrannosaurus"), 0, 10);
+        QueryResult queryResult = businessObject.query("findByName", List.of("name=Tyrannosaurus"), 0, 10);
+        List<BusinessData> businessData = queryResult.getResults();
         assertThat(businessData).hasSize(1);
         assertThat(businessData.get(0).getStringField("name")).isEqualTo("Tyrannosaurus");
         assertThat(businessData.get(0).getStringField("color")).isEqualTo("Brown");
@@ -246,6 +238,11 @@ class ProcessIT {
 
 Using Maven command line
 
-```shell
+[source, bash]
+----
+# Parameters 'bonita.url', 'tech.user' and 'tech.password' are optionals. 
+# Use them if your runtime runs on an other URL than localhost:8080/bonita, 
+# or with technical user credentials different than install / install. 
+
 mvn verify [-Dbonita.url=<TARGET_RUNTIME_URL> -Dtech.user=<TECHNICAL_USER_USERNAME> -Dtech.password=<TECHNICAL_USER_PASSWORD>]
-```
+----
