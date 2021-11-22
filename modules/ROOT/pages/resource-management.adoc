@@ -31,7 +31,6 @@ contentType=layout
 If a resource contains both `Index.groovy` and `index.html`, the Groovy class takes precedence.
 
 [NOTE]
-
 ====
 To insert line breaks in a page.properties file, end the line that preceeds the line break with a "\".
 ====
