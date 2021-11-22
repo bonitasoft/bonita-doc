@@ -4,7 +4,7 @@
 
 {description}
 
-An application is a navigation of pages that can be accessed by a xref:ROOT:profiles-overview.adoc[Profile]. +
+An application is a navigation of pages that can be accessed by a xref:identity:profiles-overview.adoc[Profile]. +
 It is created and operated within Bonita Platform: created with Bonita Studio and UI Designer, deployed with Bonita Continuous Delivery, run by Bonita Runtime.
 
 Its purpose is to display and structure the right information and provide the right controls at the right time to the profiles, so they can efficiently perform their tasks. +
@@ -36,17 +36,17 @@ xref:ROOT:pages.adoc[[.card-title]#Pages# [.card-body.card-content-overflow]#pas
 
 [.card.card-index]
 --
-xref:ROOT:profiles.adoc[[.card-title]#Profiles# [.card-body.card-content-overflow]#pass:q[Entities of the organization who can access the application]#]
+xref:identity:profiles-overview.adoc[[.card-title]#Profiles# [.card-body.card-content-overflow]#pass:q[Entities of the organization who can access the application]#]
 --
 
 [.card.card-index]
 --
-xref:ROOT:layout-development.adoc[[.card-title]#Layout# [.card-body.card-content-overflow]#pass:q[The visual structure of the application]#]
+xref:layout-development.adoc[[.card-title]#Layout# [.card-body.card-content-overflow]#pass:q[The visual structure of the application]#]
 --
 
 [.card.card-index]
 --
-xref:ROOT:customize-living-application-theme.adoc[[.card-title]#Theme# [.card-body.card-content-overflow]#pass:q[The graphical details that create a visual identity]#]
+xref:customize-living-application-theme.adoc[[.card-title]#Theme# [.card-body.card-content-overflow]#pass:q[The graphical details that create a visual identity]#]
 --
 
 [.card.card-index]
@@ -61,7 +61,7 @@ xref:ROOT:multi-language-applications.adoc[[.card-title]#Multi-language applicat
 
 
 [.card-section]
-== The resources 
+== The resources
 
 Starting the development of an application from scratch may not be the most efficient way to go. If your project implies:
 
@@ -69,10 +69,10 @@ Starting the development of an application from scratch may not be the most effi
 * That an administrator-like user monitors the health of process execution and fixes the potential errors, you may want to try and use or customize our *Bonita Administrator Application*
 * Specific pages showing specific business data, you may want to *borrow a project created by a Community member and customize it*
 * Adaptive Case Management, with non-sequential parts in the processes to let the knowledge workers' expertise decide which tasks to do and which ones to skip for a dedicated case, you may check our *ACM example*
-  
+
 [.card.card-index]
 --
-xref:ROOT:user-application-overview.adoc[[.card-title]#Bonita User Application# [.card-body.card-content-overflow]#pass:q[Start process instances and execute tasks using a generic tasklist]#]
+xref:runtime:user-application-overview.adoc[[.card-title]#Bonita User Application# [.card-body.card-content-overflow]#pass:q[Start process instances and execute tasks using a generic tasklist]#]
 --
 
 [.card.card-index]
@@ -96,5 +96,5 @@ xref:ROOT:use-bonita-acm.adoc[[.card-title]#Adaptive Case Management example# [.
 
 [.card.card-index]
 --
-xref:ROOT:applications-deep-dive-index.adoc[[.card-title]#Applications deep dive# [.card-body.card-content-overflow]#pass:q[Applications under the hood, and the four Bonita applications]#]
+xref:runtime:bonita-applications-deep-dive.adoc[[.card-title]#Applications deep dive# [.card-body.card-content-overflow]#pass:q[Applications under the hood, and the four Bonita applications]#]
 --

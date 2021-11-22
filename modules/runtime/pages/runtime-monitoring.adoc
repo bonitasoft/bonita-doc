@@ -138,7 +138,7 @@ These credentials can be consulted and modified:
 
 == Configuration
 
-Retrieve xref:bonita-platform-setup.adoc#update_platform_conf[current configuration] by running:
+Retrieve xref:runtime:bonita-platform-setup.adoc#update_platform_conf[current configuration] by running:
 
 [source,bash]
 ----
@@ -186,7 +186,7 @@ To change any value, *uncomment the line by removing the # character*, and chang
 <<<<<<< HEAD
 Then xref:bonita-platform-setup.adoc#update_platform_conf[push your configuration changes] to database:
 =======
-Then xref:ROOT:BonitaBPM_platform_setup.adoc#update_platform_conf[push your configuration changes] to database:
+Then xref:runtime:bonita-platform-setup.adoc#update_platform_conf[push your configuration changes] to database:
 >>>>>>> 187a556f53880b07b19092b89569b23a866eb244
 
 [source,bash]

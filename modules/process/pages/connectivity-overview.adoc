@@ -44,7 +44,7 @@ To add a connector to a pool or task:
 
 == Connectors and forms
 
-In Bonita 6.x, you could add a connector to a form. This is no longer possible with forms created with the UI Designer. To achieve the same result, create a xref:ROOT:rest-api-extensions.adoc[REST API extension]. There is an example showing how to execute SQL queries on a external database.
+In Bonita 6.x, you could add a connector to a form. This is no longer possible with forms created with the UI Designer. To achieve the same result, create a xref:api:rest-api-extensions.adoc[REST API extension]. There is an example showing how to execute SQL queries on a external database.
 
 == Edit a connector
 

@@ -42,7 +42,7 @@ If you need more fine tuning or if you cannot update the reverse proxy configura
 == Configure Bonita Engine and Tomcat for CAS
 
 . The CAS implementation relies on JAAS, and is defined in the BonitaAuthentication module of the JAAS configuration file. +
-Set the Java system property `java.security.auth.login.config` in the Tomcat startup script to point to the JAAS configuration file, xref:ROOT:bonita-platform-setup.adoc[`BUNDLE_HOME/server/conf/jaas-standard.cfg`].
+Set the Java system property `java.security.auth.login.config` in the Tomcat startup script to point to the JAAS configuration file, xref:runtime:bonita-platform-setup.adoc[`BUNDLE_HOME/server/conf/jaas-standard.cfg`].
 +
 For example, on Linux, edit `BUNDLE_HOME/setup/tomcat-templates/setenv.sh`, uncomment the line that defines `SECURITY_OPTS`, and insert the variable `SECURITY_OPTS` in the line `CATALINA_OPTS=..`.
 +

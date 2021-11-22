@@ -7,11 +7,11 @@
 == Difference between page and form
 
 The UI Designer is a tool for creating pages and forms to use in a BPM application. +
-A form is mapped to process instantiation or to a human task and must fulfill a xref:ROOT:contracts-and-contexts.adoc[contract]. To gather the inputs that will be sent to the contract, it embeds input fields and a submit button. A page is not mapped to any part of a process, it displays business information and gives access to forms or action buttons that send information to the process. Besides this, there is no difference between a page and a form, so the procedure for designing them is the same. This documentation uses the term _page_ for both pages and forms, unless otherwise stated.
+A form is mapped to process instantiation or to a human task and must fulfill a xref:data:contracts-and-contexts.adoc[contract]. To gather the inputs that will be sent to the contract, it embeds input fields and a submit button. A page is not mapped to any part of a process, it displays business information and gives access to forms or action buttons that send information to the process. Besides this, there is no difference between a page and a form, so the procedure for designing them is the same. This documentation uses the term _page_ for both pages and forms, unless otherwise stated.
 
 == Page structure
 
-A page consists of widgets that are arranged in rows, and optionally, containers. The UI Designer provides a set of default widgets that you can use to design a page. The default widgets are available from the palette panel, which is on the left side of the Page editor. A widget has properties that control how it appears and how it is used. There are some general properties that all widgets have, and some properties that are specific to the widget type. You can also create xref:ROOT:custom-widgets.adoc[custom widgets].
+A page consists of widgets that are arranged in rows, and optionally, containers. The UI Designer provides a set of default widgets that you can use to design a page. The default widgets are available from the palette panel, which is on the left side of the Page editor. A widget has properties that control how it appears and how it is used. There are some general properties that all widgets have, and some properties that are specific to the widget type. You can also create xref:custom-widgets.adoc[custom widgets].
 
 Each widget in the palette has a description. To show a widget description, just roll over the widget in the palette.
 

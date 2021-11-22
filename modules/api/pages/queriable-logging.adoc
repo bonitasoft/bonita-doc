@@ -44,18 +44,18 @@ The queriable logger service stores log message in the Bonita Engine back-end da
 == Disabling the Queriable logger
 
 Each queriable log type can be turned off individually with its associated property. The properties must be listed into the `/setup/platform_conf/current/tenants/[tenantId]/tenant_engine/bonita-tenant-sp-custom.properties` file.
- 
+
 === Find the list of properties
 
-* You can deactivate the logging on all the events listed xref:ROOT:event-handlers.adoc#_event_list[here]. 
+* You can deactivate the logging on all the events listed xref:integration:event-handlers.adoc#_event_list[here].
 * Or, you can also find a set of properties for each product version. You'll find them in a java library: The `bonita-tenant-sp.xml` file contains the list of properties, and it is packed into the `/server/webapps/bonita/WEB-INF/lib/bonita-server-sp-[BonitaVersion].jar` file.
 
 === Disable the Queriable Logs
 
-. Use the xref:ROOT:bonita-platform-setup.adoc[Platform configuration setup tool] to pull the configuration on the disk: `./setup.sh pull`
+. Use the xref:runtime:bonita-platform-setup.adoc[Platform configuration setup tool] to pull the configuration on the disk: `./setup.sh pull`
 . Edit the `/setup/platform_conf/current/tenants/[tenantId]/tenant_engine/bonita-tenant-sp-custom.properties` file.
-. Add one line per property for each type of queriable log you want to disable, and set it to false, e.g.: 
+. Add one line per property for each type of queriable log you want to disable, and set it to false, e.g.:
 `bonita.tenant.queriable.log.ACTOR_CREATED.INTERNAL=false`
 `bonita.tenant.queriable.log.APPLICATION_PAGE_DELETED.INTERNAL=false`
-. Use the xref:ROOT:bonita-platform-setup.adoc[Platform configuration setup tool] to push the configuration in the database: `./setup.sh push`
-. xref:ROOT:tomcat-bundle.adoc#start[Restart] the application server
+. Use the xref:runtime:bonita-platform-setup.adoc[Platform configuration setup tool] to push the configuration in the database: `./setup.sh push`
+. xref:runtime:tomcat-bundle.adoc#start[Restart] the application server

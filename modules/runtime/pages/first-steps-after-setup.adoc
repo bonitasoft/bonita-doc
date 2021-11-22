@@ -44,10 +44,10 @@ In Bonita, connectors enable connections to your local information system or onl
 
 ==== Limit the usage of Bonita REST API
 
-If you want to restrict the authorization granted to the default profiles, it is highly recommended to activate the Dynamic authorization checking on the bonita REST APIs access (See xref:ROOT:rest-api-authorization.adoc[REST API Authorization]).
+If you want to restrict the authorization granted to the default profiles, it is highly recommended to activate the Dynamic authorization checking on the bonita REST APIs access (See xref:identity:rest-api-authorization.adoc[REST API Authorization]).
 To do so:
 
-. Use the setup tool to get the current configuration of Bonita Platform from the database: `setup.sh pull` (See xref:ROOT:bonita-platform-setup.adoc[Setup tool])
+. Use the setup tool to get the current configuration of Bonita Platform from the database: `setup.sh pull` (See xref:runtime:bonita-platform-setup.adoc[Setup tool])
 . Edit the file: `/setup/platform_conf/current/tenant_template_portal/security-config.properties`
 . Make sure this line is set to `true`: `security.rest.api.authorizations.check.enabled true`
 . Then edit the file: `/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/dynamic-permissions-checks-custom.properties`
@@ -69,7 +69,7 @@ PUT|bpm/humanTask=[profile|Administrator, check|org.bonitasoft.permissions.TaskP
 ----
 
 . Save the changes made in file  `/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/dynamic-permissions-checks-custom.properties`.
-. Use the setup tool to push the current configuration of Bonita Platform from the database: `setup.sh push` (See xref:ROOT:bonita-platform-setup.adoc[Setup tool])
+. Use the setup tool to push the current configuration of Bonita Platform from the database: `setup.sh push` (See xref:runtime:bonita-platform-setup.adoc[Setup tool])
 
 For a maximum security, uncomment the entire file on production, so that the  REST API authorization are more restrictive. Then authorize the REST API access by commenting them out one by one as needed.
 
@@ -91,7 +91,7 @@ Authentication is the process of verification that an individual, entity or webs
 
 Input validation is performed to ensure only properly formed data is entering the workflow in an information system, preventing malformed data from persisting in the database and triggering malfunction of various downstream components.If you use BonitaStudio for developing your forms, then define authorized min and max values, max length and type for input fields.
 
-For more information, please take look at the xref:ROOT:rest-api-authorization.adoc[REST API authorization] and the other features relating to xref:user-authentication-overview.adoc[security and authentication] that are available in Bonita and in your operating system, and update your platform as required for your production environment.
+For more information, please take look at the xref:identity:rest-api-authorization.adoc[REST API authorization] and the other features relating to xref:identity:user-authentication-overview.adoc[security and authentication] that are available in Bonita and in your operating system, and update your platform as required for your production environment.
 
 == Create a Bonita administrator profile
 
@@ -106,7 +106,7 @@ NOTE: do not create a user or an administrator with the same login and password 
 . Go to *Organization* > *Profiles*. Click on triple dots button for "Administrator" profile.
 . Under "Users mapping", click on "Add a user".
 . Select your user and click on "Add" button. Log out as the Technical user and log back in as the newly created user with administrative rights.
-. Create xref:ROOT:admin-application-users-list.adoc[users with the standard profile].
+. Create xref:admin-application-users-list.adoc[users with the standard profile].
 . You can add newly created users to the "User" (standard) profile or to a custom profile.
 
 If you already have a system that stores information about end users, you can use it to create user accounts in Bonita.

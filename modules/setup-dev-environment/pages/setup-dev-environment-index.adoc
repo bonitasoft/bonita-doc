@@ -5,7 +5,7 @@
 {description}
 
 [.card-section]
-== Customize, share, automate 
+== Customize, share, automate
 
 [.card.card-index]
 --
@@ -14,7 +14,7 @@ xref:ROOT:bonita-bpm-studio-preferences.adoc[[.card-title]#Bonita Studio configu
 
 [.card.card-index]
 --
-xref:ROOT:configure-maven.adoc[[.card-title]#How to configure Maven# [.card-body.card-content-overflow]#pass:q[A central piece of your Bonita projects]#]
+xref:configure-maven.adoc[[.card-title]#How to configure Maven# [.card-body.card-content-overflow]#pass:q[A central piece of your Bonita projects]#]
 --
 
 [.card.card-index]

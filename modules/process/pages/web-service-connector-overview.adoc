@@ -16,7 +16,7 @@
 
 To format your entries according to SOAP specifications, go to http://www.w3.org/TR/soap12-part1/#intro[SOAP!]
 
-See a working example of a web service connector in this xref:ROOT:web-service-tutorial.adoc[tutorial].
+See a working example of a web service connector in this xref:process:web-service-tutorial.adoc[tutorial].
 
 [WARNING]
 ====

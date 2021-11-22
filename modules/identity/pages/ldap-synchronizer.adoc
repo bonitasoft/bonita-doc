@@ -635,7 +635,7 @@ search2.force_add_non_existing_users  =  false
 == Using the LDAP synchronizer in a non-default tenant
 
 *Installation:* The LDAP Synchronizer is installed on the platform as described above.
-After installation, Check that the  xref:ROOT:profiles-overview.adoc["User" profile] is defined for the tenant.
+After installation, Check that the  xref:profiles-overview.adoc["User" profile] is defined for the tenant.
 The default tenant has a "User" profile by default, but it must be created manually when a tenant is created.
 The LDAP synchronizer will fail if this profile is not defined.
 

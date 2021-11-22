@@ -32,7 +32,7 @@ Once you know which business object you want to use, you can either:
 
 Drag and drop a Business Object in the whiteboard.
 A configuration wizard appears: provide information on how to retrieve elements of this Business Object.
-You can find information on how to use this wizard from the xref:ROOT:variables.adoc[Business Data Variables] page.
+You can find information on how to use this wizard from the xref:pages-and-forms:variables.adoc[Business Data Variables] page.
 
 image::images/uid_data_management_wizard.png[data_management_wizard]
 

@@ -9,7 +9,7 @@
 
 [.card.card-index]
 --
-xref:engine-deep-dive.adoc[[.card-title]#Bonita Engine deep dive# [.card-body.card-content-overflow]#pass:q[Discover what runs under Bonita's hood]#]
+xref:engine-deep-dive-index.adoc[[.card-title]#Bonita Engine deep dive# [.card-body.card-content-overflow]#pass:q[Discover what runs under Bonita's hood]#]
 --
 
 [.card.card-index]
@@ -29,7 +29,7 @@ xref:runtime-configuration-index.adoc[[.card-title]#Configuration# [.card-body.c
 
 [.card.card-index]
 --
-xref:runtime-administration-index.adoc[[.card-title]#Administration# [.card-body.card-content-overflow]#pass:q[Production content, clustering and backups]#]
+xref:administration-index.adoc[[.card-title]#Administration# [.card-body.card-content-overflow]#pass:q[Production content, clustering and backups]#]
 --
 
 [.card.card-index]
@@ -42,5 +42,5 @@ xref:runtime-optimization-index.adoc[[.card-title]#Optimization# [.card-body.car
 
 [.card.card-index]
 --
-xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[[.card-title]#Update Bonita Runtime# [.card-body.card-content-overflow]#pass:q[At a glance: Flow, Best Practices and caveat]#]
+xref:version-update:migrate-from-an-earlier-version-of-bonita.adoc[[.card-title]#Update Bonita Runtime# [.card-body.card-content-overflow]#pass:q[At a glance: Flow, Best Practices and caveat]#]
 --

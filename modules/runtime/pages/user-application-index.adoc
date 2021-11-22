@@ -9,7 +9,7 @@
 
 [.card.card-index]
 --
-xref:ROOT:user-application-overview.adoc[[.card-title]#Application overview# [.card-body.card-content-overflow]#pass:q[Values, details, and customization]#]
+xref:user-application-overview.adoc[[.card-title]#Application overview# [.card-body.card-content-overflow]#pass:q[Values, details, and customization]#]
 --
 
 [.card.card-index]

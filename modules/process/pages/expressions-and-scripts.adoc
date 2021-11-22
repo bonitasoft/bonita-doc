@@ -9,7 +9,7 @@ An expression is a simple statement; a script is a sequence of expressions, and 
 
 This page explains the features of Bonita Studio that enable you to use expressions and scripts.
 
-Note that the expression editor cannot be used in the UI Designer, which has a different concept model for xref:ROOT:variables.adoc[data].
+Note that the expression editor cannot be used in the UI Designer, which has a different concept model for xref:pages-and-forms:variables.adoc[data].
 
 [WARNING]
 ====
@@ -162,5 +162,5 @@ Data in this case, refers to documents, business objects, pages, process comment
 ====
 
 For documents, you should use the xref:ROOT:documents.adoc[document type] provided in the Studio and the associated xref:operations.adoc[operations] related to this document type.
-For business objects, you should use the xref:ROOT:define-and-deploy-the-bdm.adoc[BDM type] provided in the Studio and the associated xref:operations.adoc[operations] related to this BDM type.
+For business objects, you should use the xref:data:define-and-deploy-the-bdm.adoc[BDM type] provided in the Studio and the associated xref:operations.adoc[operations] related to this BDM type.
 For other use case you may want to use a xref:ROOT:connectors-overview.adoc[connector] to perform those write operations.

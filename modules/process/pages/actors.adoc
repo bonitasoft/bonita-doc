@@ -17,7 +17,7 @@ This action prevents concurrent actions from several candidates on a single user
 Note that if the task assignee realizes that he/she cannot actually perform a user task instance he/she can release it. Releasing a user task instance will make it available again to all the initial candidates.
 ====
 
-In order to define the candidates of a user task instance Bonita offers two alternatives: actor and xref:ROOT:actor-filtering.adoc[actor filters].
+In order to define the candidates of a user task instance Bonita offers two alternatives: actor and xref:actor-filtering.adoc[actor filters].
 
 == Define an actor
 
@@ -44,7 +44,7 @@ To define actors for a process:
 . For each lane, define the actor. You can either select an actor that was defined for the pool, by selecting the actor from the drop-down list, or you can use an actor filter.
 . For each step, define the actor. You can use the actor defined for the lane, or specify an actor for the step. To specify an actor for the step, you can either select an actor that was defined for the pool, by selecting the actor from the drop-down list, or you can use an actor filter.
 
-See xref:ROOT:custom-user-information-in-bonita-bpm-studio.adoc[Custom User Information in Bonita Studio]
+See xref:identity:custom-user-information-in-bonita-bpm-studio.adoc[Custom User Information in Bonita Studio]
 
 See xref:ROOT:custom-user-information-in-bonita-applications.adoc[Custom User Information in Bonita Apps]
 

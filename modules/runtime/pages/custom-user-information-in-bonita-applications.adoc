@@ -1,8 +1,8 @@
 = Custom User Information Management
 :page-aliases: ROOT:custom-user-information-in-bonita-bpm-portal.adoc, ROOT:custom-user-information-in-bonita-applications.adoc
-:description: This page explains what a user with the _Administrator_ profile in Bonita Portal or in the xref:ROOT:admin-application-overview.adoc[Bonita Administrator Application] can see and do with custom information xref:custom-user-information-in-bonita-bpm-studio.adoc[created at development time] about the users.
+:description: This page explains what a user with the Administrator profile in Bonita Portal or in the Bonita Administrator Application can see and do with custom information created at development time about the users.
 
-{description}
+This page explains what a user with the _Administrator_ profile in Bonita Portal or in the xref:ROOT:admin-application-overview.adoc[Bonita Administrator Application] can see and do with custom information xref:identity:custom-user-information-in-bonita-bpm-studio.adoc[created at development time] about the users.
 
 Administrators can view and update Custom User Information.
 
@@ -22,11 +22,11 @@ The Administrator cannot create a CUI nor edit a CUI definition.
 ====
 
 if no customer user definitions are set in Bonita Studio, then no information will be displayed in the Bonita Administrator Application. +
-However, definitions can be created and edited using the xref:ROOT:customuserinfo-api.adoc[Web REST API]. +
+However, definitions can be created and edited using the xref:api:customuserinfo-api.adoc[Web REST API]. +
 The Organization .xml file can also be exported from Bonita Administrator Application, modified by hand externally, and then re-imported back into Bonita Administrator Application, although we strongly advise to always modify resources from the development environment and then deploy iteratively on the test environments until the Production environment.
 ====
 
-See xref:ROOT:custom-user-information-in-bonita-bpm-studio.adoc[Custom User Information in Bonita Studio]
+See xref:identity:custom-user-information-in-bonita-bpm-studio.adoc[Custom User Information in Bonita Studio]
 
 == View / Edit custom information for a user
 

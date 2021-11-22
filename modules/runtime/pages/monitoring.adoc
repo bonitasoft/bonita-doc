@@ -1,6 +1,6 @@
 = Monitor open cases
 :page-aliases: ROOT:monitoring.adoc
-:description: This page describes the "Monitor open cases" page in the Bonita Administrator Application. +
+:description: This page describes the "Monitor open cases" page in the Bonita Administrator Application.
 
 
 {description} +

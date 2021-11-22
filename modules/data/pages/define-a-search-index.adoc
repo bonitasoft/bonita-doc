@@ -1,5 +1,5 @@
 = Search keys
-:page-aliases: ROOT:define-a-search-index.adoc
+:page-aliases: ROOT:define-a-search-index.adoc, ROOT:search-index.adoc
 :description: Learn how you can set and use Bonita Search Keys to easily search for business values defined on your processes
 
 {description}

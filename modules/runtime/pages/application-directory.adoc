@@ -10,13 +10,13 @@ On the developer side, this application embeds error pages for 403 (forbidden), 
 Those pages will be displayed for all applications, provided or custom, given such errors occur when trying to display a page. +
 
 On the user side, the Application Directory displays all applications that the logged user has access to. +
-The access rights are managed through xref:ROOT:profiles-overview.adoc[profiles]. +
+The access rights are managed through xref:identity:profiles-overview.adoc[profiles]. +
 Since a user can be mapped to multiple profiles, and since each profile can be mapped to multiple applications, all users need a place to centralize all Bonita applications they can access. +
 
 This application is diplayed when a user:
 
 * accesses the root of Bonita web application (`/bonita` or `/` if context root is configured to target Bonita web application)
-* lands on an error page and clicks on the "Go to homepage" button 
+* lands on an error page and clicks on the "Go to homepage" button
 
 When a user uses valid URLs for Bonita, they can always access the list of their applications by using the mosaic icon to switch from the current to another application. +
 
@@ -31,11 +31,11 @@ You will be logged in as the default user of the deployed organization. This def
 By default, in our provided ACME organization, the default user is Walter Bates, logged as "walter.bates", with password "bpm". +
 The default application is the Application Directory.
 
-To access its content: 
+To access its content:
 
 . From the Application Directory, click on the Bonita Administrator application (also accessible as Walter Bates)
 . In the menu, click on "Applications"
-. On the "Bonita Application Directory" row, click on the "..." _View application details_ icon 
+. On the "Bonita Application Directory" row, click on the "..." _View application details_ icon
 
 
 == Status
@@ -47,7 +47,7 @@ It is also the reason why the list of pages is fixed, and no navigation can be c
 
 However, it is customizable in quite a few ways, as explained below.
 
-== Customization 
+== Customization
 
 On the application details page, you will be able to edit:
 
@@ -64,9 +64,9 @@ To update the logo:
 The new logo is applied.
 
 To update the layout and/or theme:
-. Create a new xref:ROOT:layout-development.adoc[layout] and/or xref:customize-living-application-theme.adoc[theme]
+. Create a new xref:applications:layout-development.adoc[layout] and/or xref:applications:customize-living-application-theme.adoc[theme]
 . Go the _Resources_ tab
-. Install it 
+. Install it
 . Go back to the application details
 . Click on the current layout or theme
 . Select the new one from the drop down list

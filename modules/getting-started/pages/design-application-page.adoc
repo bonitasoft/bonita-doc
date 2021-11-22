@@ -9,7 +9,7 @@ A Bonita application is the answer. The first step to build such an application 
 [NOTE]
 ====
 
-xref:ROOT:ui-designer-overview.adoc[Pages] in Bonita are a lot like forms. They are created with the UI Designer with the same sets of widgets. The main difference is that they are not bound to a process definition (like instantiation forms and user tasks forms). An application page can display business data values, charts and even let the user start a process or execute a task by displaying the appropriate form.
+xref:bonita-overview:ui-designer-overview.adoc[Pages] in Bonita are a lot like forms. They are created with the UI Designer with the same sets of widgets. The main difference is that they are not bound to a process definition (like instantiation forms and user tasks forms). An application page can display business data values, charts and even let the user start a process or execute a task by displaying the appropriate form.
 ====
 
 For this example, we will build a basic page that displays, in a table, all the claims that have been submitted. To create a new page:
@@ -24,7 +24,7 @@ For this example, we will build a basic page that displays, in a table, all the 
 image:images/getting-started-tutorial/design-application-page/creation-of-an-application-page.gif[Creation of an application page]
 // {.img-responsive .img-thumbnail}
 
-On the new page, using the xref:ROOT:data-management.adoc[data management] capabilities, the UI Designer can automatically create xref:variables.adoc[variables] to retrieve business data and generate the user interface:
+On the new page, using the xref:data:data-management.adoc[data management] capabilities, the UI Designer can automatically create xref:pages-and-forms:variables.adoc[variables] to retrieve business data and generate the user interface:
 
 . At the top left corner of the UI Designer, click on  *Data model* image:images/getting-started-tutorial/design-application-page/data-model.png[Data model button]
 . In the list of business objects, select the _Claim_ object and drag and drop it into the empty space of the page
