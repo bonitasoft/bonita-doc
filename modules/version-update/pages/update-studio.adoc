@@ -32,7 +32,7 @@ For example, your production runtime can be in 2021.1-0408 and your Studio in 20
 When you clone an existing project from an older version of the same base version the target runtime version is not automatically updated. +
 This allow others contributors of the project to keep using an older Studio version without needing to install additional dependencies. +
 While it is fine to reference a different target runtime version than the one currently run by the Studio, you can update this version from the `Edit project information...` contextual menu or using the pencil button in the project Overview. +
-When updating this version ensure that other collaborators:
+Before updating this version ensure that other collaborators:
 
 * Are using the same Studio version
 or
