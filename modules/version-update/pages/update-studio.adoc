@@ -29,18 +29,19 @@ For example, your production runtime can be in 2021.1-0408 and your Studio in 20
 
 === Project update
 
-When you clone an existing project from an older version of the same base version the target runtime version is not automatically updated. +
-This allows others contributors of the project to keep using an older Studio version without needing to install additional dependencies. +
-While it is fine to reference a different target runtime version than the one currently run by the Studio, you can update this version from the `Edit project information...` contextual menu or using the pencil button in the project Overview. +
-Before updating this version ensure that other collaborators:
+When cloning an existing project from an older version of the same base version, the target runtime version is not automatically updated. +
+It allows other project contributors to keep using an older Studio version without needing to install additional dependencies. +
+It is perfectly fine to reference a different target runtime version than the one currently run by the Studio.+
+However, you can update this version from the `Edit project information...` contextual menu or by using the pencil button in the project Overview. +
+Before updating this version ensure that collaborators of the project have either:
 
-* Are using the same Studio version
+* Installed the same Studio version
 
 or
 
-* Have installed the required dependencies for this version:
+* Installed the required dependencies for this version:
 ** By installing and starting a Studio of this version at least once
-** By downloading those dependencies from the https://customer.bonitasoft.com[Customer Service Center] (Maven repository) and copying its content into their local Maven repository
+** By downloading those dependencies from the https://customer.bonitasoft.com[Customer Service Center] (Maven repository) and copying them into their local Maven repository
 
 Keeping the target runtime version up-to-date may be useful in some cases like including bug fixes or having a reliable dependency resolution in case of dependencies updates (CVE fixes).
 
