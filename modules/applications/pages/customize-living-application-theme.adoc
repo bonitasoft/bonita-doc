@@ -36,6 +36,7 @@ To create your theme project, prompt a terminal and enter the following command:
 Make sure that you are not executing the command from an existing maven project.
 ====
 
+[source,bash]
 ----
 mvn archetype:generate \
     -DarchetypeGroupId=org.bonitasoft.archetypes \
