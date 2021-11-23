@@ -231,7 +231,6 @@ If you migrate from an earlier version of Bonita, you can now delete them if you
 
 == Bug fixes
 
-
 === Fixes in Bonita 2021.2-u1
 
 ==== Fixes in Bonita Development Suite (Studio and UI Designer)
