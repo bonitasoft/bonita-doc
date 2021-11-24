@@ -27,6 +27,25 @@ Maintenance versions are cross-compatible, meaning that it is not required that 
 
 For example, your production runtime can be in 2021.1-0408 and your Studio in 2021.1-0218.
 
+=== Project update
+
+When cloning an existing project from an older version of the same base version, the target runtime version is not automatically updated. +
+This behavior allows other project contributors to keep using an older Studio version without needing to install additional dependencies. +
+It is perfectly fine to reference a different target runtime version than the one currently run by the Studio.+
+However, you can update this version from the `Edit project information...` contextual menu or by using the pencil button in the project Overview. +
+Before updating this version ensure that collaborators of the project have either:
+
+* Installed the same Studio version
+
+or
+
+* Installed the required dependencies for this version:
+** By installing and starting a Studio of this version at least once
+** By downloading those dependencies from the https://customer.bonitasoft.com[Customer Service Center] (Maven repository) and copying them into their local Maven repository
+
+Keeping the target runtime version up-to-date may be useful in some cases like including bug fixes or having a reliable dependency resolution in case of dependencies updates (CVE fixes).
+
+
 == Updating your project to the project composition
 
 Version 2021.2 introduces major changes to the way Bonita Studio manages projects. When importing or cloning your project in this version or any later version, it will be transformed into a Maven project. +
