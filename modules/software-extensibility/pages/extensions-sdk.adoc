@@ -4,6 +4,8 @@
 {description}
 
 
+[.card-section]
+
 [.card.card-index]
 --
 xref:ROOT:connector-archetype.adoc[[.card-title]#Connector Maven Archetype# [.card-body.card-content-overflow]#pass:q[Create custom Connectors]#]
