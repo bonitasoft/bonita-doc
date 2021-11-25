@@ -1,2 +1,3 @@
 * xref:software-extensibility.adoc[Extensions]
+ ** xref:extensions-sdk.adoc[Extension SDKs]
  ** xref:custom-library-development.adoc[Custom library development]
