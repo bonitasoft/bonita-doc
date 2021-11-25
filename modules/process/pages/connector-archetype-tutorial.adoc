@@ -33,6 +33,7 @@ If you are using Power Shell make sure to use quotes for the parameters: mvn arc
 ====
 
 You'll then have to specify interactively the properties of your project:
+
 * *groupId*: com.company.connector
 * *artifactId*: connector-starwars
 * *version*: 1.0.0
