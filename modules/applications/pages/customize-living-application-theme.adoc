@@ -40,18 +40,24 @@ Make sure that you are not executing the command from an existing maven project.
 ----
 mvn archetype:generate \
     -DarchetypeGroupId=org.bonitasoft.archetypes \
-    -DarchetypeArtifactId=bonita-theme-archetype \
-    -DgroupId=com.company.api \
-    -DartifactId=my-theme \
-    -Dversion=0.0.1-SNAPSHOT \
-    -Dname=myTheme \
-    -DdisplayName="My Theme"
+    -DarchetypeArtifactId=bonita-theme-archetype
 ----
 
-_The parameter values for 'archetypeGroupId' and 'archetypeArtifactId' cannot be changed, else you won't use the right archetype. +
-Feel free to edit the others, respecting the maven naming conventions_.
+You'll then have to specify interactively the properties of your project:
+
+* *groupId:* the group id of your Theee.
+* *artifactId:* the artifact id of your Theme.
+ ** Must match the following regex: `+^[a-zA-Z0-9\-]+$+`.
+ ** Example: _my-rest-api_.
+* *version:* the version of your Theme _(default value: 1.0-SNAPSHOT)_.
+* *package* the package in which the source files will be created _(default value: the group id of the theme)_.
+* *displayName*: the display name for your them (displayed in the Bonita Administrator Application & Studio).
+* *name*: the name of your theme.
 
 A folder named _[your artifact id]_ is created, with your theme project, ready to use.
+
+Warning
+You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you’ll bypass the validation performed on the properties content.
 
 == Project structure
 
