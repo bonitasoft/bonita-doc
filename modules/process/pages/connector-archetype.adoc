@@ -24,7 +24,7 @@ mvn archetype:generate /
   -DarchetypeArtifactId=bonita-connector-archetype
 ----
 
-[CAUTION]
+[WARNING]
 ====
 Make sure that you are not executing the command from an existing maven project.
 
