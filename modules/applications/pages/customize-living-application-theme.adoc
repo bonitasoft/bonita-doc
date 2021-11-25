@@ -30,11 +30,6 @@ We provide a maven archetype to help you to bootstrap a theme project outside of
 A https://maven.apache.org/archetype/index.html[maven archetype] is a maven project templating toolkit. This archetype allows you to bootstrap a theme project on your file system. A theme project is a maven project. It can be built, tested and then imported into Bonita from the Bonita Administrator Application.
 
 To create your theme project, prompt a terminal and enter the following command:
-[WARNING]
-====
-
-Make sure that you are not executing the command from an existing maven project.
-====
 
 [source,bash]
 ----
@@ -42,6 +37,13 @@ mvn archetype:generate \
     -DarchetypeGroupId=org.bonitasoft.archetypes \
     -DarchetypeArtifactId=bonita-theme-archetype
 ----
+
+[WARNING]
+====
+Make sure that you are not executing the command from an existing maven project.
+
+If you are using Power Shell make sure to use quotes for the parameters : mvn archetype:generate "-DarchetypeGroupId=org.bonitasoft.archetypes" "-DarchetypeArtifactId=bonita-theme-archetype"
+====
 
 You'll then have to specify interactively the properties of your project:
 
@@ -56,8 +58,15 @@ You'll then have to specify interactively the properties of your project:
 
 A folder named _[your artifact id]_ is created, with your theme project, ready to use.
 
-Warning
+[CAUTION]
+====
+Be sure to use the xref:version-update:product-versioning.adoc#_technical_id[technical id] of your Bonita version.
+====
+
+[TIP]
+====
 You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you’ll bypass the validation performed on the properties content.
+====
 
 == Project structure
 
