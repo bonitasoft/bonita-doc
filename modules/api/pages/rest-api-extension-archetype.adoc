@@ -71,80 +71,28 @@ If you are using Power Shell make sure to use quotes for the parameters: mvn arc
   -DarchetypeArtifactId=bonita-rest-api-extension-archetype
 ----
 
-You'll then have to specify interactively the properties of your project.
+You'll then have to specify interactively the properties of your project:
 
-==== Archetype properties
+* *groupId:* the group id of your REST API Extension.
+* *artifactId:* the artifact id of your REST API Extension.
+ ** Must match the following regex: `+^[a-zA-Z0-9\-]+$+`
+ ** Example: _my-rest-api_
+* *version:* the version of your REST API Extension _(default value: 1.0-SNAPSHOT)_
+Follow the http://maven.apache.org/guides/mini/guide-naming-conventions.html[maven naming convention guide]
+* *package* the package in which the source files will be created _(default value: the group id of the connector)_
+* *apiDisplayName*: the display name for your api extension (displayed in the Bonita Administrator Application)
+* *apiName*: the name of your api extension. You must enter an url friendly name without blanks.
+* *bonitaVersion:* the targeted technical Bonita version (e.g. 7.12.3)
+ ** A Bonita REST API Extension project depends on _org.bonitasoft.engine:bonita-common_. To avoid potential conflicts / errors at runtime, you should use the Bonita version of your runtime environment.
+* *httpVerb*: The http verb of your api extension (GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS, TRACE)
+* *language*: the language used in the connector project. Available values:
+ ** java
+ ** groovy
+ ** kotlin
+* *pathTemplate*: URL path template. Resulting url: ../API/extension/myRestExtA
 
-|===
-| Parameter | Required | Default value | Description
-
-| -DbonitaVersion
-| *true*
-|
-| You can choose the version of the dependent bonita artifacts. *Minimum version is 7.0.1.*
-
-| -Dsp
-| false
-| false
-| If set to true, project will use Bonita subscription dependencies. *This implies you have made bonita subscription artifacts available for maven (in your local repository or enterprise repository)*
-
-| -Dlanguage
-| *true*
-|
-| You can choose between `groovy`, `java` or `kotlin`.
-
-| -Dwrapper
-| false
-| true
-| If set to true, project will setup a https://github.com/takari/maven-wrapper[maven wrapper]
-
-| -DapiName
-| *true*
-|
-| Set the name of your api extension. You must enter an url friendly name without blanks.
-
-| -DapiDisplayName
-| *true*
-|
-| A display name for your api extension (displayed in the Bonita Administrator Application)
-
-| -DapiDesc
-| false
-| My Rest API extension description
-| A short description of the purpose of your api extension (displayed in the Bonita Administrator Application)
-
-| -DhttpVerb
-| *true*
-|
-| The http verb of your api extension
-
-| -DpathTemplate
-| *true*
-|
-| URL path template. Resulting url: ../API/extension/myRestExtApi
-
-| -DpermissionNames
-| false
-| myRestAPIPermission
-| Define permission list (comma separated value), specify permissions a user need to have in order access this REST API extension
-
-| -DurlParameters
-| false
-| !
-| Define a list (comma separated value) of url parameters.
-
-| -DbdmGroupId
-| false
-| !
-| Define a BDM groupId name to enable BDM dependencies
-
-| -DbdmVersion
-| false
-| !
-| Define a BDM version name to enable BDM dependencies
-|===
-
-⚠️ You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
+Warning
+You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you’ll bypass the validation performed on the properties content.
 
 ==== Generated project
 
