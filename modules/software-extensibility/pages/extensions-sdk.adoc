@@ -1,0 +1,25 @@
+= Extensions Source Development Kits(SDK)
+:description: Several *S*ource *D*evelopment *K*its are provided so that you can extend your automation project
+
+{description}
+
+
+[.card.card-index]
+--
+xref:ROOT:connector-archetype.adoc[[.card-title]#Connector Maven Archetype# [.card-body.card-content-overflow]#pass:q[Create custom Connectors]#]
+--
+
+[.card.card-index]
+--
+xref:actor-filter-archetype.adoc[[.card-title]#Actor Filter Maven Archetype# [.card-body.card-content-overflow]#pass:q[Create custom Actor Filters]#]
+--
+
+[.card.card-index]
+--
+xref:rest-api-extension-archetype.adoc[[.card-title]#REST API Extension Maven Archetype# [.card-body.card-content-overflow]#pass:q[Create REST API Extensions]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:customize-living-application-theme.adoc[[.card-title]#Theme Maven Archetype# [.card-body.card-content-overflow]#pass:q[Create custom Themes]#]
+--
