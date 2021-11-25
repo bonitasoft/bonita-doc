@@ -38,7 +38,7 @@ mvn archetype:generate /
 
 You'll then have to specify interactively the properties of your project:
 
-* *groupId:* the group id of your connector.
+* *groupId:* the group id of your actor filter.
 * *artifactId:* the artifact id of your filter
  ** Must match the following regex: `+^[a-zA-Z0-9\-]+$+`
  ** Example: _my-custom-filter_
