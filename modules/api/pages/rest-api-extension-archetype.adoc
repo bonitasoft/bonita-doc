@@ -97,7 +97,28 @@ Be sure to use the xref:version-update:product-versioning.adoc#_technical_id[tec
 [TIP]
 ====
 You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you’ll bypass the validation performed on the properties content.
+
+Example
+
+[source,bash]
+----
+mvn archetype:generate \
+    -DarchetypeGroupId=org.bonitasoft.archetypes \
+    -DarchetypeArtifactId=bonita-rest-api-extension-archetype \
+    -DgroupId=org.company.api \
+    -DartifactId=my-rest-api \
+    -Dversion=0.0.1-SNAPSHOT \
+    -Dlanguage=java \
+    -DbonitaVersion=7.12.1 \
+    -DapiName=myRestApi \
+    -DpathTemplate=my-rest-api \
+    -DapiDisplayName="My REST API" \
+    -DurlParameters=p,c \
+    -DhttpVerb=GET
+----
+
 ====
+
 
 ==== Generated project
 
