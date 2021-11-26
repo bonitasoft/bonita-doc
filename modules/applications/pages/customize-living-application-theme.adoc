@@ -66,6 +66,20 @@ Be sure to use the xref:version-update:product-versioning.adoc#_technical_id[tec
 [TIP]
 ====
 You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you’ll bypass the validation performed on the properties content.
+
+Example:
+
+[source,bash]
+----
+mvn archetype:generate \
+    -DarchetypeGroupId=org.bonitasoft.archetypes \
+    -DarchetypeArtifactId=bonita-theme-archetype \
+    -DgroupId=org.company.theme \
+    -DartifactId=my-theme \
+    -Dversion=0.0.1-SNAPSHOT \
+    -Dname=myTheme \
+    -DdisplayName="My Theme" 
+----
 ====
 
 == Project structure
