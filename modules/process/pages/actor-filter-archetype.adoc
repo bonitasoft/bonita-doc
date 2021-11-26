@@ -68,6 +68,22 @@ Be sure to use the xref:version-update:product-versioning.adoc#_technical_id[tec
 [TIP]
 ====
 You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
+
+Example:
+[source,bash]
+----
+mvn -B archetype:generate \
+  -DarchetypeGroupId=org.bonitasoft.archetypes \
+  -DarchetypeArtifactId=bonita-actorfilter-archetype \
+  -DgroupId=com.acme.bonita.actorfilter \
+  -DartifactId=ACME-bonita-actorfilter \
+  -Dversion=1.0-SNAPSHOT \
+  -Dpackage=com.acme.bonita.actorfilter \
+  -DbonitaVersion=7.13.0 \
+  -DclassName=filterbymanager \
+  -Dlanguage=java \
+  -Dwrapper=true
+----
 ====
 
 === Actor filter development
