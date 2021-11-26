@@ -30,9 +30,9 @@ If you are using Power Shell make sure to use quotes for the parameters: mvn arc
 
 [source,bash]
 ----
-mvn archetype:generate /
-    -DarchetypeGroupId=org.bonitasoft.archetypes /
-    -DarchetypeArtifactId=bonita-actorfilter-archetype /
+mvn archetype:generate \
+    -DarchetypeGroupId=org.bonitasoft.archetypes \
+    -DarchetypeArtifactId=bonita-actorfilter-archetype \
     -DarchetypeVersion=1.0.0
 ----
 
