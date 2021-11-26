@@ -8,6 +8,10 @@ One single platform to administrate with multiple logical engines. Discover what
 
 For Enterprise and Performance editions only.
 ====
+[IMPORTANT]
+====
+Bonita Enterprise customers need a contractual agreement to create additional tenants. For any new tenant creation, any general or contractual question related to Multi-tenancy, please contact your customer success representative.
+====
 
 == Platform architecture
 
