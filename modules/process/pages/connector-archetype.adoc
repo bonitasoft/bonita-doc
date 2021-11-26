@@ -19,12 +19,12 @@ To create your connector project, prompt a terminal and enter the following comm
 
 [source,bash]
 ----
-mvn archetype:generate /
-  -DarchetypeGroupId=org.bonitasoft.archetypes /
+mvn archetype:generate \
+  -DarchetypeGroupId=org.bonitasoft.archetypes \
   -DarchetypeArtifactId=bonita-connector-archetype
 ----
 
-[CAUTION]
+[WARNING]
 ====
 Make sure that you are not executing the command from an existing maven project.
 
@@ -55,9 +55,30 @@ Follow the http://maven.apache.org/guides/mini/guide-naming-conventions.html[mav
 
 A folder named _[your artifact id]_ is created, with your Bonita connector project, ready to use.
 
+[CAUTION]
+====
+Be sure to use the xref:version-update:product-versioning.adoc#_technical_id[technical id] of your Bonita version.
+====
+
 [TIP]
 ====
 You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
+
+Example:
+[source,bash]
+----
+mvn -B archetype:generate \
+  -DarchetypeGroupId=org.bonitasoft.archetypes \
+  -DarchetypeArtifactId=bonita-connector-archetype \
+  -DgroupId=com.acme.bonita.connectors \
+  -DartifactId=ACME-bonita-connectors \
+  -Dversion=1.0-SNAPSHOT \
+  -Dpackage=com.acme.bonita.connectors \
+  -DbonitaVersion=7.13.0 \
+  -DclassName=SAPMultiFunction \
+  -Dlanguage=java \
+  -Dwrapper=true
+----
 ====
 
 == Connector development
