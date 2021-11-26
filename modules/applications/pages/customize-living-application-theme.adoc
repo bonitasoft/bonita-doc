@@ -50,7 +50,7 @@ You'll then have to specify interactively the properties of your project:
 * *groupId:* the group id of your Theee.
 * *artifactId:* the artifact id of your Theme.
  ** Must match the following regex: `+^[a-zA-Z0-9\-]+$+`.
- ** Example: _my-rest-api_.
+ ** Example: _my-theme_.
 * *version:* the version of your Theme _(default value: 1.0-SNAPSHOT)_.
 * *package* the package in which the source files will be created _(default value: the group id of the theme)_.
 * *displayName*: the display name for your them (displayed in the Bonita Administrator Application & Studio).

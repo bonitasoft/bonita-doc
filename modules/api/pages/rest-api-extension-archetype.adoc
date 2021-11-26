@@ -57,7 +57,7 @@ To create your Rest API Extension project, prompt a terminal and enter the follo
 
 [source,bash]
 ----
- $ mvn archetype:generate /
+mvn archetype:generate /
   -DarchetypeGroupId=org.bonitasoft.archetypes /
   -DarchetypeArtifactId=bonita-rest-api-extension-archetype
 ----
