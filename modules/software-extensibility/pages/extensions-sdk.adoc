@@ -25,3 +25,4 @@ xref:api:rest-api-extension-archetype.adoc[[.card-title]#REST API Extension Mave
 [.card.card-index]
 --
 xref:applications:customize-living-application-theme.adoc[[.card-title]#Theme Maven Archetype# [.card-body.card-content-overflow]#pass:q[Create custom Themes]#]
+--
