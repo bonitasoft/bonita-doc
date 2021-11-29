@@ -244,6 +244,7 @@ If you migrate from an earlier version of Bonita, you can now delete them if you
 * STUDIO-4122 - Documentation generation fails with decision table
 * STUDIO-4118 - Projects are lost by the Studio whereas there are on the disk
 * STUDIO-4180 - Update extension fails because an optional value is not present
+* STUDIO-4188 - Can't swith to a bonita project anymore after renaming it
 
 ==== Fixes in Bonita Runtime (including Administrator app & User app)
 
