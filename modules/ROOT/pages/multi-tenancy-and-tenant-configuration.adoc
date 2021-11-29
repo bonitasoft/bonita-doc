@@ -3,14 +3,9 @@
 
 One single platform to administrate with multiple logical engines. Discover what is a Tenant and how to setup Bonita with Multi-tenancy.
 
-[NOTE]
-====
-For Enterprise and Performance editions only.
-====
-
 [WARNING]
 ====
-This feature was deprecated in Bonita 2021.1. This means that Multi-tenant architecture will continue to work in Bonita for existing Bonita subscription customers,
+This feature was deprecated in Bonita 2021.1. This means that Multi-tenant architecture will continue to work in Bonita for existing Bonita Enterprise and Performance subscription customers,
 but it will not be offered to new customers, nor offered as a modification for existing Bonita subscription customers who are not already using multi-tenancy.
 ====
 
