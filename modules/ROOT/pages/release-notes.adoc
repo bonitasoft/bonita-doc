@@ -244,21 +244,21 @@ If you migrate from an earlier version of Bonita, you can now delete them if you
 * STUDIO-4122 - Documentation generation fails with decision table
 * STUDIO-4118 - Projects are lost by the Studio whereas there are on the disk
 * STUDIO-4180 - Update extension fails because an optional value is not present
-* STUDIO-4188 - Can't swith to a bonita project anymore after renaming it
+* STUDIO-4188 - Switch to a bonita project after renaming it
 
 ==== Fixes in Bonita Runtime (including Administrator app & User app)
 
 * RUNTIME-597 - [Custom API Extension] The redirect mechanism impacts rest api extension response
-* RUNTIME-593 - Several dependency issues
-* RUNTIME-586 - CORS requests do not work with OIDC for preflight requests
-* RUNTIME-563 - The case comments in the task details disappear when a task is completed.
-* RUNTIME-542 - Adding a comment when you execute a task with no form on behalf of someone else does not work
-* RUNTIME-541 - Process instances started on someones behalf are not displayed as such in the case Details page
-* RUNTIME-537 - Execute the task on behalf of someone from new Admin Task Details does not set the executedBySubstitute
+* RUNTIME-593 - Several third party libraries dependency issues
+* RUNTIME-586 - CORS requests enabled to work with OpenID Connect for preflight requests
+* RUNTIME-563 - The case comments in the task details disappears after a task is completed
+* RUNTIME-542 - Have the possibility to add a comment when you execute a task with no form on someone else's behalf
+* RUNTIME-541 - Process instances started on someones behalf displayed as such in the case Details page
+* RUNTIME-537 - Execute the task on behalf of someone from new Admin Task Details sets the executedBySubstitute
 * RUNTIME-527 - Case details and Task details does not display 'displayDescription'
-* RUNTIME-518 - REST API caseVariable return 500 when p greater than number results in database
-* RUNTIME-473 - generateRequestKey script and Bonita Tomcat are not bound to use the very same 'java' binary
-* RUNTIME-472 - Redirection after User login gets 403
+* RUNTIME-518 - REST API caseVariable returns 500 error message when p greater than number results in database
+* RUNTIME-473 - generateRequestKey script and Bonita Tomcat bound to use the very same 'java' binary
+* RUNTIME-472 - Redirection to login page after logout of Super Admin user
 
 === Fixes in Bonita 2021.2
 
