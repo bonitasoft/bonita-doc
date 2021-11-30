@@ -237,7 +237,7 @@ If you migrate from an earlier version of Bonita, you can now delete them if you
 
 * STUDIO-4169 - Maven zip dependencies cannot be retrieved from Studio (REST API, Themes)
 * STUDIO-4159 - Invalid Search index reference in operations
-* STUDIO-4158 - dead lock while building process with LA build command
+* STUDIO-4158 - Deadlock while building process with LA build command
 * STUDIO-4156 - "Initializing portal..." in window when user click on Applications in the Studio
 * STUDIO-4148 - Missing DAO and new Object created in the BDM : Expression Editor is not up-to-date
 * STUDIO-4135 - Import bos broken if project's name contains accents or quotes
