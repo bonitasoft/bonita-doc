@@ -21,13 +21,50 @@ A technical Id also exists for Bonita components, and it follows the usual seman
 
 For example, upgrading from a 2021.1-0205 to a 2021.1-0401 will not require any migration. However, upgrades from a 7.11.5 to a 2021.1-0205 will require a migration.
 
-Technical Id Bonita version correspondence table
+Here is a Bonita Platform version / Technical Id / UI Designer version correspondence table:
 
 |===
-| Bonita Version | Technical Id
+| Bonita Platform version | Technical Id | UI Designer version
+
+| 2021.1-1116
+| 7.12.9
+| 1.12.46
+
+| 2021.1-0915
+| 7.12.8
+| 1.12.46
+
+| 2021.1-0811
+| 7.12.7
+| 1.12.46
+
+| 2021.1-0702
+| 7.12.5
+| 1.12.46
+
+| 2021.1-0617
+| 7.12.4
+| 1.12.45
+
+| 2021.1-0408
+| 7.12.3
+| 1.12.44
+
+| 2021.1-0218
+| 7.12.2
+| 1.12.44
 
 | 2021.1
-| 7.12.z
+| 7.12.1
+| 1.12.41
+
+| 7.11.5
+| 7.11.5
+| 1.11.62
+
+| 7.10.6
+| 7.10.6
+| 1.10.60
 |===
 
 == Artifact version
