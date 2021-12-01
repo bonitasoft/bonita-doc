@@ -246,7 +246,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 * STUDIO-4180 - Updating an extension fails because an optional value is not present
 * STUDIO-4188 - Switching to a Bonita project is not possible after renaming it
 
-==== Fixes in Bonita Runtime (including Bonita Administrator application & Bonita User application)
+==== Fixes in Bonita Runtime (including Bonita Applications)
 
 * RUNTIME-472 - Loging out of the Super Administration application and in with another credentials gives a 403 error
 * RUNTIME-473 - generateRequestKey script and Bonita Tomcat do not use the same 'java' binary
