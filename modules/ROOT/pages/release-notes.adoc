@@ -267,14 +267,14 @@ A standalone docker image that package the LDAP Synchronizer was released under 
 
 ==== Fixes in Bonita Development Suite (Studio and UI Designer)
 
-* UID-432 - When opening a pop-up with a widget selected in the whiteboard, the key bindings could get unexpected errors
-* STUDIO-4126 - Process execution errors: bcd-dependencies 7.11.5 generates a .bar different from Studio 7.11.5
 * STUDIO-4121 - Bonita Studio gets its workspace corrupted when switching projects
+* STUDIO-4126 - Process execution errors: bcd-dependencies 7.11.5 generates a .bar different from Studio 7.11.5
+* UID-432 - When opening a pop-up with a widget selected in the whiteboard, the key bindings could get unexpected errors
 
 ==== Fixes in Bonita Runtime (including Portal)
 
-* RUNTIME-590 -	Method onPrepareStatement with PostgreSQL breaks the search case insensitivity
 * RUNTIME-45 -	Narayana / ARJUNA : Frequent warning messages in log files
+* RUNTIME-590 -	Method onPrepareStatement with PostgreSQL breaks the search case insensitivity
 
 === Fixes in Bonita 2021.1-0915 (2021-09-15)
 
@@ -284,9 +284,9 @@ A standalone docker image that package the LDAP Synchronizer was released under 
 
 ==== Fixes in Bonita Runtime (including Portal)
 
-* RUNTIME-479 -	Update OpenSSL version in Docker images
-* RUNTIME-271 -	Portal: Archived cases query fails with 'operator does not exist' error when filtering on process name
 * RUNTIME-229 -	Missing content-type header in several REST API responses
+* RUNTIME-271 -	Portal: Archived cases query fails with 'operator does not exist' error when filtering on process name
+* RUNTIME-479 -	Update OpenSSL version in Docker images
 * RUNTIME-497 -	Integrate jattach inside official docker image
 
 === Fixes in Bonita 2021.1-0811 (2021-08-11)
@@ -305,9 +305,9 @@ A standalone docker image that package the LDAP Synchronizer was released under 
 
 ==== Fixes in Bonita Development Suite (Studio and UI Designer)
 
-* UID-453	- Responsiveness: Help in editor help is not displayed
-* UID-369	- Property type changes of target widgets are not mapped when using Switch feature
 * UID-165	- When modifying and saving an asset, pressing SUPPR removes the selected widget
+* UID-369	- Property type changes of target widgets are not mapped when using Switch feature
+* UID-453	- Responsiveness: Help in editor help is not displayed
 
 
 ==== Fixes in Bonita Runtime (including Portal)
@@ -318,61 +318,61 @@ A standalone docker image that package the LDAP Synchronizer was released under 
 
 ==== Fixes in Bonita Development Suite (Studio and UI Designer)
 
-* UID-440 - dataTable does not sort date-related columns when source is "Variable"
-* UID-439 - Issue exporting and importing a custom widget with assets
-* UID-431 - Layout title metadata displayed and persisted instead of the living app display name when the living application link is shared
-* UID-425 - Japanese locale correspondence table is wrong
-* UID-362 - Import custom widgets does not import assets
-* UID-298 - Error when entering a description for a fragment
-* STUDIO-3979 - multiInstantiator variable cannot use the Java setter operator in operation
-* STUDIO-3965 - Active organization preference is not stored
-* STUDIO-3953 - Improve LA-Builder build performence
 * STUDIO-3948 - Git clone should not display migration warning message when not causing breaking changes
+* STUDIO-3953 - Improve LA-Builder build performence
+* STUDIO-3965 - Active organization preference is not stored
+* STUDIO-3979 - multiInstantiator variable cannot use the Java setter operator in operation
+* UID-298 - Error when entering a description for a fragment
+* UID-362 - Import custom widgets does not import assets
+* UID-425 - Japanese locale correspondence table is wrong
+* UID-431 - Layout title metadata displayed and persisted instead of the living app display name when the living application link is shared
+* UID-439 - Issue exporting and importing a custom widget with assets
+* UID-440 - dataTable does not sort date-related columns when source is "Variable"
 
 ==== Fixes in Bonita Runtime (including Portal)
 
-* RUNTIME-297 - start-bonita.sh can't be launched from outside of bundle directory
-* RUNTIME-293 - Session fixation protection breaks some SAML features
-* RUNTIME-212 - Process manager typo into dynamic-permissions-checks(-custom).properties file
 * RUNTIME-33 - Impossible to install a valid BDM after an attempts to install an invalid BDM
+* RUNTIME-212 - Process manager typo into dynamic-permissions-checks(-custom).properties file
+* RUNTIME-293 - Session fixation protection breaks some SAML features
+* RUNTIME-297 - start-bonita.sh can't be launched from outside of bundle directory
 
 
 === Fixes in Bonita 2021.1-0408 (2021-04-08)
 
 ==== Fixes in Bonita Development Suite (Studio and UI Designer)
 
-* UID-413 -	BDM "exploration" failing when the description is on several lines, or contains double quotes
-* STUDIO-3880 -	[Investigate] Editing domain can be null on an opended diagram
-* STUDIO-3875 -	Issue with "Switch project" function
-* STUDIO-3844 -	git clone failing with misleading error
-* STUDIO-3843 -	Performance issue with groovy autocomplete on windows
-* STUDIO-3840 -	Project switch doesn't work when Application editor is opened
 * STUDIO-3757 -	SAP connector cannot create data
+* STUDIO-3840 -	Project switch doesn't work when Application editor is opened
+* STUDIO-3843 -	Performance issue with groovy autocomplete on windows
+* STUDIO-3844 -	git clone failing with misleading error
+* STUDIO-3875 -	Issue with "Switch project" function
+* STUDIO-3880 -	[Investigate] Editing domain can be null on an opended diagram
+* UID-413 -	BDM "exploration" failing when the description is on several lines, or contains double quotes
 
 ==== Fixes in Bonita Runtime (including Portal)
 
-* RUNTIME-154 -	REGRESSION: BDM deployment fails with unclear error after migration to 7.11 + on Oracle. On other db vendors, some table constraints (foreign keys...) are duplicated
-* RUNTIME-148 -	LDAP Synch: problem while resolving an LDAP group member makes synchronization fail and exit
-* RUNTIME-137 -	REGRESSION: BDM deployment errors are not raising the actual Hibernate exception root cause
 * RUNTIME-131 -	Error 500 when accessing BPM services page
+* RUNTIME-137 -	REGRESSION: BDM deployment errors are not raising the actual Hibernate exception root cause
+* RUNTIME-148 -	LDAP Synch: problem while resolving an LDAP group member makes synchronization fail and exit
+* RUNTIME-154 -	REGRESSION: BDM deployment fails with unclear error after migration to 7.11 + on Oracle. On other db vendors, some table constraints (foreign keys...) are duplicated
 
 === Fixes in Bonita 2021.1-0218 (2021-02-18)
 
 ==== Fixes in Bonita Development Suite (Studio and UI Designer)
 
-* STUDIO-3830 - Performance decreases direly as the number of diagrams and process definitions in the project increases
-* STUDIO-3835 - Expression dialog is slow to open
-* STUDIO-3819 - Documentation generation is missing task contract inputs
 * STUDIO-3766 - Missing scroll bar on BDM editor queries table
 * STUDIO-3800 - Validation error in a process when the call Activity does not have a version
+* STUDIO-3819 - Documentation generation is missing task contract inputs
+* STUDIO-3830 - Performance decreases direly as the number of diagrams and process definitions in the project increases
+* STUDIO-3835 - Expression dialog is slow to open
 * UID-364 - When the first fileUpload widget is removed from a collection, the new first widget still displays the file chosen in the removed item
 
 ==== Fixes in Bonita Runtime (including Portal)
 
-* RUNTIME-69 - LDAP Synch: NullPointerException during manager synchronization makes synchronization fail and exit
-* RUNTIME-63 - Different xstream 1.4.14 and 1.4.13 versions between Bonita 7.11.4 and 7.12.0
-* RUNTIME-62 - Only finished gateway should be selected as a recover candidate
 * RUNTIME-50 - LDAP Synch: LDAP group objectclass check should be case insensitive
+* RUNTIME-62 - Only finished gateway should be selected as a recover candidate
+* RUNTIME-63 - Different xstream 1.4.14 and 1.4.13 versions between Bonita 7.11.4 and 7.12.0
+* RUNTIME-69 - LDAP Synch: NullPointerException during manager synchronization makes synchronization fail and exit
 
 === Fixes in Bonita 2021.1 (2021-01-28)
 
