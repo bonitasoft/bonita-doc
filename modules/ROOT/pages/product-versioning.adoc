@@ -65,15 +65,6 @@ Here is a Bonita Platform version / Technical Id / UI Designer version correspon
 | 2021.1
 | 7.12.1
 | 1.12.41
-
-| 7.11.5
-| 7.11.5
-| 1.11.62
-
-| 2020-10-01
-| 7.10.6
-| 7.10.6
-| 1.10.60
 |===
 
 == Artifact version
