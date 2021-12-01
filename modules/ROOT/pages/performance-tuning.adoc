@@ -391,6 +391,14 @@ Notably, we recommend you to set the initial (`-Xms`) and maximum (`-Xmx`) heap 
 This reduces the likelihood of the JVM garbage collector starting. +
 While the garbage collector is running, it prevents creation of new objects, which slows down the application server.
 
+===== Garbage Collector
+We recommend to update the Garbage collector parameters to use the following ones, depending on wether you use Java 8 or java 11:  +
+
+* Edit file `setup/tomcat-templates/setenv.sh`
+* In the line: `CATALINA_OPTS=` 
+** If you use *java 8* add: `-XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:ParallelGCThreads=10 -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -Xloggc:${CATALINA_BASE}/logs/gc-$(date +%Y_%m_%d-%H_%M).log`
+** If you use *java 11* add: `-XX:+UseParallelGC -XX:ParallelGCThreads=10 -Xlog:gc*:file=${CATALINA_BASE}/logs/gc-$(date +%Y_%m_%d-%H_%M).log:time,uptime,hostname,pid:filecount=5,filesize=20M`
+
 [#network]
 [#hardware]
 
