@@ -29,7 +29,7 @@ Here is a Bonita Platform version / Technical Id / UI Designer version correspon
 | 2021-11-19
 | 2021.1-1116
 | 7.12.9
-| 1.12.46
+| 1.12.47
 
 | 2021-09-15
 | 2021.1-0915
