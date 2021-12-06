@@ -22,8 +22,17 @@ The first step is to generate  the maven project using the archetype:
 
 [source,bash]
 ----
-mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-connector-archetype
+mvn archetype:generate \
+    -DarchetypeGroupId=org.bonitasoft.archetypes \
+    -DarchetypeArtifactId=bonita-connector-archetype
 ----
+
+[WARNING]
+====
+If you are using Power Shell make sure to use quotes for the parameters: mvn archetype:generate "-DarchetypeGroupId=org.bonitasoft.archetypes" "-DarchetypeArtifactId=bonita-connector-archetype"
+====
+
+You'll then have to specify interactively the properties of your project:
 
 * *groupId*: com.company.connector
 * *artifactId*: connector-starwars
@@ -36,7 +45,7 @@ mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeA
 
 [CAUTION]
 ====
-Be sure to use the xref:product-versioning#_technical_id[technical id] of your Bonita version.
+Be sure to use the xref:version-update:product-versioning.adoc#_technical_id[technical id] of your Bonita version.
 ====
 
 Add the following properties and dependencies to the existing ones in the pom.xml:
@@ -612,7 +621,7 @@ This token will be used by maven to authenticate to Github packages. You can fol
 
 [TIP]
 ====
-Bonita Studio embbed a user interface to easily configure maven and encrypt passwords. See xref:ROOT:configure-maven.adoc[Configure Maven using Bonita Studio].
+Bonita Studio embbed a user interface to easily configure maven and encrypt passwords. See xref:setup-dev-environment:configure-maven.adoc[Configure Maven using Bonita Studio].
 ====
 
 Now that the token is created, you have to update your local maven configuration. It means editing the file `~/.m2/settings.xml`. +
@@ -700,12 +709,12 @@ _If you already configured maven on your computer to deploy the connector on Git
 ====
 
 To retrieve an extension from a repository, some maven configuration must be done in Bonita Studio. The idea is to declare the repository as accessible (i.e extensions can be retrieved from this repository), and to configure credentials if required. +
-Bonita Studio comes with a handy user interface to update xref:configure-maven[Maven configuration]. +
+Bonita Studio comes with a handy user interface to update xref:setup-dev-environment:configure-maven.adoc[Maven configuration]. +
 There is two things to configure to let the Studio retrieve extensions from Github packages: +
 
 1 - Add the repository in the configuration
 
-To create a new repository, follow those xref:configure-maven#repositories[instructions], using the following parameters:
+To create a new repository, follow those xref:setup-dev-environment:configure-maven.adoc#repositories[instructions], using the following parameters:
 
 - **ID**: `githubPackages`
 - **Name**: 1Github packages1
@@ -720,13 +729,13 @@ To configure the credentials for a repository, you will have to create a _server
 
 Before to create a server, make sure that you have an xref:#token[access token] with at least read access.
 
-To create a new server, follow those xref:configure-maven#servers[instructions], using the following parameters:
+To create a new server, follow those xref:setup-dev-environment:configure-maven.adoc#servers[instructions], using the following parameters:
 
 - **ID**: `githubPackages`
 - **Username**: Your github username
 - **Password**: The access token
 
-It is recommended to xref:configure-maven#encryption[encrypt] passwords if the configuration file is shared. However, if the access token has only read access you might want to share the real usable value and not an uncrypted unusable value, in this case do not encrypt it.
+It is recommended to xref:setup-dev-environment:configure-maven.adoc#encryption[encrypt] passwords if the configuration file is shared. However, if the access token has only read access you might want to share the real usable value and not an uncrypted unusable value, in this case do not encrypt it.
 
 Bonita Studio is now correctly configured to retrieve extensions from this private maven repository!
 

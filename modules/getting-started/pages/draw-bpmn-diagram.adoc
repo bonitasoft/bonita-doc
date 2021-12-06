@@ -1,6 +1,7 @@
 = Start building an application: draw a BPMN process diagram
-:description: getting started tutorial - draw a BPMN process diagram
 :page-aliases: ROOT:draw-bpmn-diagram.adoc
+:experimental: // activate the 'menu' macro
+:description: getting started tutorial - draw a BPMN process diagram
 
 Now that you have your development environment (i.e. Bonita Studio) up and running, you are ready to start building your first Bonita Living Application.
 
@@ -17,13 +18,11 @@ Here is an overview of process execution:
 
 [NOTE]
 ====
-
 To design this process we will use the Business Process Model and Notation (BPMN) standard. You don't need to learn everything about BPMN to follow this tutorial but, if you would like to know more, you can read the https://www.bonitasoft.com/library/ultimate-guide-bpmn[Ultimate Guide to BPMN 2.0].
 ====
 
 [WARNING]
 ====
-
 We will use an iterative approach in the process development. This means that in the first iteration, we will have a few limitations:
 
 * a single user will perform all the tasks
@@ -39,11 +38,10 @@ The first step is the design of the process "happy path."
 
 [NOTE]
 ====
-
 While drawing the model, you will use and learn about some basic BPMN elements used in most process diagrams:
 
 * xref:ROOT:pools-and-lanes.adoc[Pool]: a pool is a container for a process in a diagram.
-* xref:ROOT:pools-and-lanes.adoc[Lanes]: a lane is a division of a pool. Typically, a lane contains all the tasks assigned to one link:actors[actor].
+* xref:ROOT:pools-and-lanes.adoc[Lanes]: a lane is a division of a pool. Typically, a lane contains all the tasks assigned to one actor.
 * xref:ROOT:events.adoc[Start and end events]: a start event is at the start of a process flow, and an end event is at the end of a flow.
 * xref:ROOT:diagram-tasks.adoc[Tasks]: a task is a type of activity in a process.
 * xref:ROOT:gateways.adoc[Gateways]: gateways are used to control how sequence flows interact within a process.
@@ -143,7 +141,6 @@ image::images/getting-started-tutorial/draw-bpmn-diagram/process-diagram-before-
 
 [NOTE]
 ====
-
 Now you can see a validation error on the gateway. The error is displayed because we didn't define the conditions for process execution when it reaches the gateway. Trying to execute the process will fail because the process execution engine cannot determine which path to follow.
 ====
 
@@ -158,7 +155,6 @@ image::images/getting-started-tutorial/draw-bpmn-diagram/transitions-name-and-co
 
 [NOTE]
 ====
-
 *Default flow* means that the transition will be activated only if all other conditions configured on the gateway outgoing transitions are _false_ (boolean value).
 ====
 
@@ -172,13 +168,11 @@ Configure the condition on the transition from the gateway to the _Deal with uns
 
 [WARNING]
 ====
-
 Due to the static value _true_, this version of the process will always go through the _Deal with unsatisfied customer_ task.
 ====
 
 [NOTE]
 ====
-
 To make the error go away, refresh the diagram validation. At the bottom of the screen, select the *Validation status* tab and click on *Refresh*. You should have only five warnings left.
 ====
 
@@ -206,13 +200,11 @@ image:images/getting-started-tutorial/draw-bpmn-diagram/run-process.gif[Process 
 
 [NOTE]
 ====
-
 When you click on the *Run* button, the process definition and its dependencies are built, packaged and deployed in the Bonita Studio test environment. A user is logged in by default (username: _walter.bates_, password: _bpm_) and the auto-generated start form for the process is opened in your web browser. If you submit the instantiation form, it will start a new process instance (or case) and load the user task list in the Bonita User Application. In the task list, you can't immediately submit a user task because, by default, all users (of the test organization) are candidates to perform the tasks of the process. In order to act on the task you need first to "claim" it, which then makes you the only one - among all the possible candidates - who can do perform an action on it.
 ====
 
 [NOTE]
 ====
-
 You can view process instance information in the xref:ROOT:cases.adoc[*Cases*] section of the Bonita User Application. Switch between *Open cases* and *Archived cases* to view the ongoing process instances or see completed ones. Note that if you want to start a second case (i.e. a process instance), you must go into the Bonita User Application *Processes* menu and click on the *Start a new case* button (i.e. the "play" icon in the *Action* column) next to the process definition name. If you click on *Run* from Bonita Studio, it will clean / overwrite any information related to any process with same name and version, including previous cases. Note that if you did any modifications to your project, you probably want to click on *Run* to be sure that the latest version is deployed.
 ====
 

@@ -1,21 +1,19 @@
-= How tos 
-:description: blabla
+= How tos
 
-blabla
 [.card-section]
 == Theme1
 
 [.card.card-index]
 --
-xref:ROOT:actors.adoc[[.card-title]#How to 1# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:process:actors.adoc[[.card-title]#How to 1# [.card-body.card-content-overflow]#pass:q[TODO]#]
 --
 
 [.card.card-index]
 --
-xref:ROOT:actor-filtering.adoc[[.card-title]#How to 2# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:process:actor-filtering.adoc[[.card-title]#How to 2# [.card-body.card-content-overflow]#pass:q[TODO]#]
 --
 
 [.card.card-index]
 --
-xref:ROOT:organization-overview.adoc[[.card-title]#How to 3# [.card-body.card-content-overflow]#pass:q[TODO]#]
+xref:identity:organization-overview.adoc[[.card-title]#How to 3# [.card-body.card-content-overflow]#pass:q[TODO]#]
 --

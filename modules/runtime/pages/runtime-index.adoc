@@ -9,27 +9,32 @@
 
 [.card.card-index]
 --
-xref:ROOT:runtime-installation-index.adoc[[.card-title]#Installation# [.card-body.card-content-overflow]#pass:q[The different flavors of Bonita Runtime]#]
+xref:engine-deep-dive-index.adoc[[.card-title]#Bonita Engine deep dive# [.card-body.card-content-overflow]#pass:q[Discover what runs under Bonita's hood]#]
 --
 
 [.card.card-index]
 --
-xref:ROOT:runtime-configuration-index.adoc[[.card-title]#Configuration# [.card-body.card-content-overflow]#pass:q[The essential steps to setup Bonita Runtime]#]
+xref:bonita-applications-deep-dive.adoc[[.card-title]#Applications deep dive# [.card-body.card-content-overflow]#pass:q[How applications are run, and what Bonita applications are]#]
 --
 
 [.card.card-index]
 --
-xref:ROOT:runtime-administration-index.adoc[[.card-title]#Project Administration# [.card-body.card-content-overflow]#pass:q[How to add and update projects elements on Bonita Runtime]#]
+xref:runtime-installation-index.adoc[[.card-title]#Installation# [.card-body.card-content-overflow]#pass:q[The different flavors of Bonita Runtime]#]
 --
 
 [.card.card-index]
 --
-xref:ROOT:engine-deep-dive-index.adoc[[.card-title]#Bonita Engine deep dive# [.card-body.card-content-overflow]#pass:q[The under-the-hood activities of Bonita Runtime]#]
+xref:runtime-configuration-index.adoc[[.card-title]#Configuration# [.card-body.card-content-overflow]#pass:q[The essential steps to setup Bonita Runtime]#]
 --
 
 [.card.card-index]
 --
-xref:ROOT:runtime-optimization-index.adoc[[.card-title]#Optimization# [.card-body.card-content-overflow]#pass:q[Monitoring, Troubleshooting, and Tuning capabilities]#]
+xref:administration-index.adoc[[.card-title]#Administration# [.card-body.card-content-overflow]#pass:q[Production content, clustering and backups]#]
+--
+
+[.card.card-index]
+--
+xref:runtime-optimization-index.adoc[[.card-title]#Optimization# [.card-body.card-content-overflow]#pass:q[Monitoring, Troubleshooting, and Tuning capabilities]#]
 --
 
 [.card-section]
@@ -37,5 +42,5 @@ xref:ROOT:runtime-optimization-index.adoc[[.card-title]#Optimization# [.card-bod
 
 [.card.card-index]
 --
-xref:ROOT:migrate-from-an-earlier-version-of-bonita-bpm.adoc[[.card-title]#Update Bonita Runtime# [.card-body.card-content-overflow]#pass:q[At a glance: Flow, Best Practices and caveat]#]
+xref:version-update:migrate-from-an-earlier-version-of-bonita.adoc[[.card-title]#Update Bonita Runtime# [.card-body.card-content-overflow]#pass:q[At a glance: Flow, Best Practices and caveat]#]
 --

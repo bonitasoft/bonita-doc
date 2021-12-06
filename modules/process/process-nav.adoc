@@ -41,7 +41,9 @@
     **** xref:script.adoc[Script]
     **** xref:twitter.adoc[Twitter]
     **** xref:uipath.adoc[UiPath]
-    **** xref:web-service-connector-overview.adoc[Web service]
+    **** Web service
+        ***** xref:web-service-connector-overview.adoc[Connector web service]
+        ***** xref:web-service-tutorial.adoc[Web service tutorial]
  ** xref:process-configuration-index.adoc[Process configuration]
   *** xref:environments.adoc[Environments]
   *** xref:configuring-a-process.adoc[Configure a process]

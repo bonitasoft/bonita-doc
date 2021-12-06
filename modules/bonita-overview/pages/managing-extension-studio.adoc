@@ -25,10 +25,10 @@ The Bonita Marketplace contains all the extensions provided and supported by Bon
 === From a Maven repository
 If the extensions you are looking for are available in public or private Maven repositories, use their maven coordinates (group ID, artifact ID & Version) to add them to your project.
 
-You might need to xref:ROOT:configure-maven.adoc[configure your Maven settings] to access such repositories. By default, only the Maven central repository is accessible.
+You might need to xref:setup-dev-environment:configure-maven.adoc[configure your Maven settings] to access such repositories. By default, only the Maven central repository is accessible.
 
 === From a local file
-For extensions that aren't published in a Maven repository, you can add them from a local file on your computer. Imported extensions are added in the project internal store, an hidden folder in a Bonita project. The internal store is exported with the project (in the .bos archive), and is added to the Git repository of the project. 
+For extensions that aren't published in a Maven repository, you can add them from a local file on your computer. Imported extensions are added in the project internal store, an hidden folder in a Bonita project. The internal store is exported with the project (in the .bos archive), and is added to the Git repository of the project.
 
 [CAUTION]
 ====
@@ -49,4 +49,4 @@ Extensions coming from the Bonita Market place can automatically be updated to t
 Other extensions can be updated manually with the "Update" button. This button is always displayed and can also be used to downgrade an extension. Depending on the change, you may have to manually update your project consequently.
 
 == Detailed extension view
-Details are available for extensions of type _Connector_, _Actor filter_ and _REST API Extensions_. They contain details on the content and the usages of the extension, and can be accessed by clicking on the extension title. 
+Details are available for extensions of type _Connector_, _Actor filter_ and _REST API Extensions_. They contain details on the content and the usages of the extension, and can be accessed by clicking on the extension title.

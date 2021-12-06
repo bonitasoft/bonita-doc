@@ -1,4 +1,4 @@
-= Bonita-ui-designer 1.12.0-SNAPSHOT dependencies for Bonita 2021.1
+= Bonita-ui-designer 1.13.0-SNAPSHOT dependencies for Bonita 2021.2
 
 
 == UI-Designer Backend dependencies
@@ -16,172 +16,220 @@
 | logback-core (ch.qos.logback) | 1.2.3 | http://www.eclipse.org/legal/epl-v10.html[Eclipse Public License - v 1.0] http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License] 
 
 
-| jackson-annotations (com.fasterxml.jackson.core) | 2.11.1 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+| jackson-annotations (com.fasterxml.jackson.core) | 2.12.3 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
 
 
-| jackson-core (com.fasterxml.jackson.core) | 2.11.1 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+| jackson-core (com.fasterxml.jackson.core) | 2.12.3 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
 
 
-| jackson-databind (com.fasterxml.jackson.core) | 2.11.1 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+| jackson-databind (com.fasterxml.jackson.core) | 2.12.3 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
 
 
-| jackson-datatype-joda (com.fasterxml.jackson.datatype) | 2.11.1 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+| jackson-datatype-jdk8 (com.fasterxml.jackson.datatype) | 2.12.3 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
 
 
-| classmate (com.fasterxml) | 1.3.1 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+| jackson-datatype-jsr310 (com.fasterxml.jackson.datatype) | 2.12.3 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
 
 
-| handlebars-jackson2 (com.github.jknack) | 4.0.6 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+| jackson-module-parameter-names (com.fasterxml.jackson.module) | 2.12.3 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
 
 
-| handlebars (com.github.jknack) | 4.0.6 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+| classmate (com.fasterxml) | 1.5.1 | https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
-| guava (com.google.guava) | 18.0 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+| handlebars-jackson2 (com.github.jknack) | 4.2.0 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
 
 
-| commons-codec (commons-codec) | 1.10 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
+| handlebars (com.github.jknack) | 4.2.0 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
 
 
-| commons-io (commons-io) | 2.4 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+| commons-codec (commons-codec) | 1.15 | https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
-| commons-logging (commons-logging) | 1.2 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+| commons-io (commons-io) | 2.10.0 | https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
+
+
+| micrometer-core (io.micrometer) | 1.7.1 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+
+
+| jakarta.annotation-api (jakarta.annotation) | 1.3.5 | http://www.eclipse.org/legal/epl-2.0[EPL 2.0] https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE] 
+
+
+| jakarta.validation-api (jakarta.validation) | 2.0.2 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License 2.0] 
+
+
+| javax.annotation-api (javax.annotation) | 1.3.2 | https://github.com/javaee/javax.annotation/blob/master/LICENSE[CDDL + GPLv2 with classpath exception] 
 
 
 | javax.inject (javax.inject) | 1 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
 
 
-| javax.servlet-api (javax.servlet) | 3.0.1 | https://glassfish.dev.java.net/nonav/public/CDDL+GPL.html[CDDL + GPLv2 with classpath exception] 
+| validation-api (javax.validation) | 2.0.1.Final | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License 2.0] 
 
 
-| validation-api (javax.validation) | 1.1.0.Final | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+| commons-lang3 (org.apache.commons) | 3.12.0 | https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
-| joda-time (joda-time) | 2.7 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache 2] 
+| httpclient (org.apache.httpcomponents) | 4.5.13 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
-| antlr4-runtime (org.antlr) | 4.5.1-1 | http://www.antlr.org/license.html[The BSD License] 
+| httpcore (org.apache.httpcomponents) | 4.4.14 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
-| commons-lang3 (org.apache.commons) | 3.3.2 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+| log4j-api (org.apache.logging.log4j) | 2.14.1 | https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
-| httpclient (org.apache.httpcomponents) | 4.5.3 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
+| log4j-to-slf4j (org.apache.logging.log4j) | 2.14.1 | https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
-| httpcore (org.apache.httpcomponents) | 4.4.6 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
+| maven-artifact (org.apache.maven) | 3.8.1 | https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
-| maven-artifact (org.apache.maven) | 3.3.3 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
+| tomcat-embed-core (org.apache.tomcat.embed) | 9.0.48 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
-| aspectjrt (org.aspectj) | 1.8.5 | http://www.eclipse.org/legal/epl-v10.html[Eclipse Public License - v 1.0] 
+| tomcat-embed-el (org.apache.tomcat.embed) | 9.0.48 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
-| aspectjweaver (org.aspectj) | 1.8.5 | http://www.eclipse.org/legal/epl-v10.html[Eclipse Public License - v 1.0] 
+| tomcat-embed-websocket (org.apache.tomcat.embed) | 9.0.48 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
-| ui-designer-backend-contract (org.bonitasoft.web) | 1.12.0-SNAPSHOT | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
+| aspectjrt (org.aspectj) | 1.9.6 | http://www.eclipse.org/legal/epl-v10.html[Eclipse Public License - v 1.0] 
 
 
-| ui-designer-backend-migrationReport (org.bonitasoft.web) | 1.12.0-SNAPSHOT | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
+| aspectjweaver (org.aspectj) | 1.9.6 | http://www.eclipse.org/legal/epl-v10.html[Eclipse Public License - v 1.0] 
 
 
-| ui-designer-frontend (org.bonitasoft.web) | 1.12.0-SNAPSHOT | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
+| ui-designer-artifact-builder (org.bonitasoft.web) | 1.13.0-SNAPSHOT | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
-| commons-compiler (org.codehaus.janino) | 2.7.8 | http://dist.codehaus.org/janino/new_bsd_license.txt[New BSD License] 
+| ui-designer-backend-contract (org.bonitasoft.web) | 1.13.0-SNAPSHOT | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
-| janino (org.codehaus.janino) | 2.7.8 | http://dist.codehaus.org/janino/new_bsd_license.txt[New BSD License] 
+| ui-designer-backend-migrationReport (org.bonitasoft.web) | 1.13.0-SNAPSHOT | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
-| plexus-utils (org.codehaus.plexus) | 3.0.20 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+| ui-designer-frontend (org.bonitasoft.web) | 1.13.0-SNAPSHOT | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
-| ecj (org.eclipse.jdt) | 3.14.0 | http://www.eclipse.org/legal/epl-v10.html[Eclipse Public License] 
+| commons-compiler (org.codehaus.janino) | 3.1.4 | https://spdx.org/licenses/BSD-3-Clause.html[BSD-3-Clause] 
 
 
-| jetty-client (org.eclipse.jetty) | 9.4.14.v20181114 | http://www.apache.org/licenses/LICENSE-2.0[Apache Software License - Version 2.0] http://www.eclipse.org/org/documents/epl-v10.php[Eclipse Public License - Version 1.0] 
+| janino (org.codehaus.janino) | 3.1.4 | https://spdx.org/licenses/BSD-3-Clause.html[BSD-3-Clause] 
 
 
-| jetty-http (org.eclipse.jetty) | 9.4.14.v20181114 | http://www.apache.org/licenses/LICENSE-2.0[Apache Software License - Version 2.0] http://www.eclipse.org/org/documents/epl-v10.php[Eclipse Public License - Version 1.0] 
+| plexus-utils (org.codehaus.plexus) | 3.2.1 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
-| jetty-io (org.eclipse.jetty) | 9.4.14.v20181114 | http://www.apache.org/licenses/LICENSE-2.0[Apache Software License - Version 2.0] http://www.eclipse.org/org/documents/epl-v10.php[Eclipse Public License - Version 1.0] 
+| jgettext (org.fedorahosted.tennera) | 0.15.1 | http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License] 
 
 
-| jetty-security (org.eclipse.jetty) | 9.4.14.v20181114 | http://www.apache.org/licenses/LICENSE-2.0[Apache Software License - Version 2.0] http://www.eclipse.org/org/documents/epl-v10.php[Eclipse Public License - Version 1.0] 
+| jakarta.el (org.glassfish) | 3.0.3 | http://www.eclipse.org/legal/epl-2.0[EPL 2.0] https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE] 
 
 
-| jetty-server (org.eclipse.jetty) | 9.4.14.v20181114 | http://www.apache.org/licenses/LICENSE-2.0[Apache Software License - Version 2.0] http://www.eclipse.org/org/documents/epl-v10.php[Eclipse Public License - Version 1.0] 
+| HdrHistogram (org.hdrhistogram) | 2.1.12 | http://creativecommons.org/publicdomain/zero/1.0/[Public Domain, per Creative Commons CC0] https://opensource.org/licenses/BSD-2-Clause[BSD-2-Clause] 
 
 
-| jetty-util (org.eclipse.jetty) | 9.4.14.v20181114 | http://www.apache.org/licenses/LICENSE-2.0[Apache Software License - Version 2.0] http://www.eclipse.org/org/documents/epl-v10.php[Eclipse Public License - Version 1.0] 
+| hibernate-validator (org.hibernate.validator) | 6.2.0.Final | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License 2.0] 
 
 
-| jgettext (org.fedorahosted.tennera) | 0.13 | http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License] 
+| jboss-logging (org.jboss.logging) | 3.4.2.Final | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, version 2.0] 
 
 
-| javax.el (org.glassfish) | 3.0.1-b08 | https://glassfish.dev.java.net/nonav/public/CDDL+GPL.html[CDDL + GPLv2 with classpath exception] 
+| jsoup (org.jsoup) | 1.13.1 | https://jsoup.org/license[The MIT License] 
 
 
-| hibernate-validator (org.hibernate) | 5.4.1.Final | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
+| LatencyUtils (org.latencyutils) | 2.0.3 | http://creativecommons.org/publicdomain/zero/1.0/[Public Domain, per Creative Commons CC0] 
 
 
-| jboss-logging (org.jboss.logging) | 3.3.0.Final | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, version 2.0] 
+| smiley-http-proxy-servlet (org.mitre.dsmiley.httpproxy) | 1.12 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
 
 
-| jsoup (org.jsoup) | 1.8.1 | http://jsoup.com/license[The MIT License] 
+| lombok (org.projectlombok) | 1.18.20 | https://projectlombok.org/LICENSE[The MIT License] 
 
 
-| smiley-http-proxy-servlet (org.mitre.dsmiley.httpproxy) | 1.10 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+| jul-to-slf4j (org.slf4j) | 1.7.31 | http://www.opensource.org/licenses/mit-license.php[MIT License] 
 
 
-| rhino (org.mozilla) | 1.7R4 | http://www.mozilla.org/MPL/2.0/index.txt[Mozilla Public License, Version 2.0] 
+| slf4j-api (org.slf4j) | 1.7.31 | http://www.opensource.org/licenses/mit-license.php[MIT License] 
 
 
-| lombok (org.projectlombok) | 1.18.4 | https://projectlombok.org/LICENSE[The MIT License] 
+| spring-boot-actuator-autoconfigure (org.springframework.boot) | 2.5.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| jcl-over-slf4j (org.slf4j) | 1.7.30 | https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
+| spring-boot-actuator (org.springframework.boot) | 2.5.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| slf4j-api (org.slf4j) | 1.7.30 | http://www.opensource.org/licenses/mit-license.php[MIT License] 
+| spring-boot-autoconfigure (org.springframework.boot) | 2.5.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-aop (org.springframework) | 5.2.3.RELEASE | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-boot-configuration-processor (org.springframework.boot) | 2.5.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-beans (org.springframework) | 5.2.3.RELEASE | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-boot-starter-actuator (org.springframework.boot) | 2.5.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-context (org.springframework) | 5.2.3.RELEASE | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-boot-starter-aop (org.springframework.boot) | 2.5.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-core (org.springframework) | 5.2.3.RELEASE | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-boot-starter-json (org.springframework.boot) | 2.5.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-expression (org.springframework) | 5.2.3.RELEASE | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-boot-starter-logging (org.springframework.boot) | 2.5.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-jcl (org.springframework) | 5.2.3.RELEASE | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-boot-starter-tomcat (org.springframework.boot) | 2.5.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-messaging (org.springframework) | 5.2.3.RELEASE | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-boot-starter-validation (org.springframework.boot) | 2.5.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-web (org.springframework) | 5.2.3.RELEASE | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-boot-starter-web (org.springframework.boot) | 2.5.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-webmvc (org.springframework) | 5.2.3.RELEASE | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-boot-starter-websocket (org.springframework.boot) | 2.5.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-websocket (org.springframework) | 5.2.3.RELEASE | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-boot-starter (org.springframework.boot) | 2.5.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| zt-zip (org.zeroturnaround) | 1.8 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+| spring-boot (org.springframework.boot) | 2.5.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+
+
+| spring-aop (org.springframework) | 5.3.8 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+
+
+| spring-beans (org.springframework) | 5.3.8 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+
+
+| spring-context (org.springframework) | 5.3.8 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+
+
+| spring-core (org.springframework) | 5.3.8 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+
+
+| spring-expression (org.springframework) | 5.3.8 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+
+
+| spring-jcl (org.springframework) | 5.3.8 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+
+
+| spring-messaging (org.springframework) | 5.3.8 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+
+
+| spring-web (org.springframework) | 5.3.8 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+
+
+| spring-webmvc (org.springframework) | 5.3.8 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+
+
+| spring-websocket (org.springframework) | 5.3.8 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+
+
+| snakeyaml (org.yaml) | 1.28 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
+
+
+| zt-zip (org.zeroturnaround) | 1.14 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
 
 
 |===
@@ -194,17 +242,35 @@
 | Name | Version | Licenses
 
 
+| @babel/code-frame | 7.12.11 | MIT 
+
+| @babel/helper-validator-identifier | 7.12.11 | MIT 
+
+| @babel/highlight | 7.10.4 | MIT 
+
 | @bonitasoft/query-selector | 1.0.8 | LicenseRef-LICENSE 
 
-| ace-builds | 1.1.9 | BSD MIT* 
+| @bonitasoft/uid-input | 0.1.2 | GPL-2.0* 
+
+| @bonitasoft/uid-text | 0.1.2 | GPL-2.0* 
+
+| ace-builds | 1.1.9 | BSD* 
+
+| acorn-jsx | 5.3.1 | MIT 
+
+| acorn | 7.4.1 | MIT 
+
+| ajv | 6.12.6 | MIT 
+
+| amdefine | 1.0.1 | BSD-3-Clause OR MIT 
+
+| angular-animate | 1.3.20 | MIT 
 
 | angular-animate | 1.4.7 | MIT 
 
-| angular-bootstrap | 1.3.3 | MIT 
-
 | angular-cookies | 1.4.7 | MIT 
 
-| angular-dynamic-locale | 0.1.29 | MIT License, http://www.opensource.org/licenses/MIT MIT* 
+| angular-dynamic-locale | 0.1.29 | MIT* 
 
 | angular-filter | 0.5.17 | MIT 
 
@@ -212,72 +278,680 @@
 
 | angular-mocks | 1.4.7 | MIT 
 
-| angular-moment | 0.9.0 | MIT 
+| angular-moment | 0.9.0 | MIT* 
 
-| angular-recursionhelper | 1.0.3 | MIT 
+| angular-recursion | 1.0.5 | MIT 
 
 | angular-resizable | 1.2.0 | MIT 
 
 | angular-sanitize | 1.4.7 | MIT 
 
-| angular-sha | 0.2.1 | MIT 
-
 | angular-switcher | 0.2.7 | MIT 
 
-| angular-ui-ace | 0.1.1 | UNKNOWN 
+| angular-ui-bootstrap | 0.13.4 | MIT 
 
-| angular-ui-router | 0.2.13 | MIT* 
+| angular-ui-bootstrap | 1.3.3 | MIT 
 
 | angular-ui-validate | 1.2.2 | MIT 
 
+| angular | 1.3.20 | MIT 
+
 | angular | 1.4.14 | MIT 
+
+| angular | 1.4.5 | MIT 
 
 | angular | 1.4.7 | MIT 
 
-| angular | 1.8.0 | MIT 
+| angular | 1.8.2 | MIT 
 
-| bonita-js-components | 0.5.3 | GPL 
+| ansi-colors | 1.1.0 | MIT 
+
+| ansi-escapes | 4.3.1 | MIT 
+
+| ansi-gray | 0.1.1 | MIT 
+
+| ansi-regex | 0.2.1 | MIT 
+
+| ansi-regex | 4.1.0 | MIT 
+
+| ansi-regex | 5.0.0 | MIT 
+
+| ansi-styles | 1.1.0 | MIT 
+
+| ansi-styles | 3.2.1 | MIT 
+
+| ansi-styles | 4.3.0 | MIT 
+
+| ansi-wrap | 0.1.0 | MIT 
+
+| argparse | 1.0.10 | MIT 
+
+| arr-diff | 4.0.0 | MIT 
+
+| arr-union | 3.1.0 | MIT 
+
+| array-find-index | 1.0.2 | MIT 
+
+| asn1 | 0.2.4 | MIT 
+
+| assert-plus | 1.0.0 | MIT 
+
+| assign-symbols | 1.0.0 | MIT 
+
+| astral-regex | 1.0.0 | MIT 
+
+| asynckit | 0.4.0 | MIT 
+
+| aws-sign2 | 0.7.0 | Apache-2.0 
+
+| aws4 | 1.11.0 | MIT 
+
+| balanced-match | 1.0.0 | MIT 
+
+| bcrypt-pbkdf | 1.0.2 | BSD-3-Clause 
+
+| bonita-js-components | 0.5.26 | Custom: https://travis-ci.org/bonitasoft/bonita-js-components.svg 
+
+| bootstrap | 3.3.2 | MIT 
 
 | bootstrap | 3.3.6 | MIT 
 
-| bootstrap | 4.5.0 | MIT 
+| bootstrap | 4.5.3 | MIT 
 
-| font-awesome | undefined | OFL-1.1 MIT CC-BY-3.0 
+| brace-expansion | 1.1.11 | MIT 
 
-| identicon.js | 1.0.0 | BSD MIT* 
+| callsites | 3.1.0 | MIT 
 
-| jquery | undefined | MIT 
+| camelcase-keys | 2.1.0 | MIT 
 
-| jsSHA | 2.0.2 | BSD MIT* 
+| camelcase | 2.1.1 | MIT 
 
-| less | 1.7.0 | UNKNOWN 
+| canonical-path | 0.0.2 | MIT 
 
-| lit-element | 2.3.1 | BSD-3-Clause 
+| caseless | 0.12.0 | Apache-2.0 
 
-| lit-html | 1.2.1 | BSD-3-Clause 
+| chalk | 0.5.1 | MIT 
+
+| chalk | 2.4.2 | MIT 
+
+| chalk | 4.1.0 | MIT 
+
+| chardet | 0.7.0 | MIT 
+
+| clean-css | 2.1.8 | MIT 
+
+| cli-cursor | 3.1.0 | MIT 
+
+| cli-width | 3.0.0 | ISC 
+
+| clone-stats | 0.0.1 | MIT 
+
+| clone | 0.2.0 | MIT 
+
+| color-convert | 1.9.3 | MIT 
+
+| color-convert | 2.0.1 | MIT 
+
+| color-name | 1.1.3 | MIT 
+
+| color-name | 1.1.4 | MIT 
+
+| color-support | 1.1.3 | ISC 
+
+| combined-stream | 1.0.8 | MIT 
+
+| commander | 2.1.0 | MIT* 
+
+| concat-map | 0.0.1 | MIT 
+
+| core-util-is | 1.0.2 | MIT 
+
+| cross-spawn | 6.0.5 | MIT 
+
+| currently-unhandled | 0.4.1 | MIT 
+
+| dashdash | 1.14.1 | MIT 
+
+| dateformat | 1.0.12 | MIT 
+
+| debug | 4.3.1 | MIT 
+
+| decamelize | 1.2.0 | MIT 
+
+| deep-is | 0.1.3 | MIT 
+
+| delayed-stream | 1.0.0 | MIT 
+
+| doctrine | 3.0.0 | Apache-2.0 
+
+| duplexer2 | 0.0.2 | BSD* 
+
+| ecc-jsbn | 0.1.2 | MIT 
+
+| emoji-regex | 7.0.3 | MIT 
+
+| emoji-regex | 8.0.0 | MIT 
+
+| error-ex | 1.3.2 | MIT 
+
+| escape-string-regexp | 1.0.5 | MIT 
+
+| eslint-scope | 5.1.1 | BSD-2-Clause 
+
+| eslint-utils | 1.4.3 | MIT 
+
+| eslint-visitor-keys | 1.3.0 | Apache-2.0 
+
+| eslint | 6.8.0 | MIT 
+
+| espree | 6.2.1 | BSD-2-Clause 
+
+| esprima | 4.0.1 | BSD-2-Clause 
+
+| esquery | 1.3.1 | BSD-3-Clause 
+
+| esrecurse | 4.3.0 | BSD-2-Clause 
+
+| estraverse | 4.3.0 | BSD-2-Clause 
+
+| estraverse | 5.2.0 | BSD-2-Clause 
+
+| esutils | 2.0.3 | BSD-2-Clause 
+
+| extend-shallow | 3.0.2 | MIT 
+
+| extend | 1.3.0 | MIT* 
+
+| extend | 3.0.2 | MIT 
+
+| external-editor | 3.1.0 | MIT 
+
+| extsprintf | 1.3.0 | MIT 
+
+| extsprintf | 1.4.0 | MIT 
+
+| fancy-log | 1.3.3 | MIT 
+
+| fast-deep-equal | 3.1.3 | MIT 
+
+| fast-json-stable-stringify | 2.1.0 | MIT 
+
+| fast-levenshtein | 2.0.6 | MIT 
+
+| figures | 3.2.0 | MIT 
+
+| file-entry-cache | 5.0.1 | MIT 
+
+| find-index | 0.1.1 | MIT 
+
+| find-up | 1.1.2 | MIT 
+
+| first-chunk-stream | 1.0.0 | MIT 
+
+| flat-cache | 2.0.1 | MIT 
+
+| flatted | 2.0.2 | ISC 
+
+| font-awesome | 4.7.0 | (OFL-1.1 AND MIT) 
+
+| forever-agent | 0.6.1 | Apache-2.0 
+
+| form-data | 2.3.3 | MIT 
+
+| fs.realpath | 1.0.0 | ISC 
+
+| function-bind | 1.1.1 | MIT 
+
+| functional-red-black-tree | 1.0.1 | MIT 
+
+| gaze | 0.5.2 | MIT 
+
+| get-stdin | 4.0.1 | MIT 
+
+| getpass | 0.1.7 | MIT 
+
+| glob-parent | 5.1.1 | ISC 
+
+| glob-stream | 3.1.18 | MIT 
+
+| glob-watcher | 0.0.6 | MIT 
+
+| glob2base | 0.0.12 | MIT 
+
+| glob | 3.1.21 | BSD* 
+
+| glob | 4.5.3 | ISC 
+
+| glob | 7.1.6 | ISC 
+
+| globals | 12.4.0 | MIT 
+
+| globule | 0.1.0 | MIT 
+
+| graceful-fs | 1.2.3 | BSD* 
+
+| graceful-fs | 3.0.12 | ISC 
+
+| graceful-fs | 4.2.4 | ISC 
+
+| grunt-bump | 0.0.11 | UNKNOWN 
+
+| gulp-eslint | 6.0.0 | MIT 
+
+| gulp-ngdocs | 0.2.13 | MIT 
+
+| gulp-util | 3.0.0 | MIT 
+
+| har-schema | 2.0.0 | ISC 
+
+| har-validator | 5.1.5 | MIT 
+
+| has-ansi | 0.1.0 | MIT 
+
+| has-flag | 3.0.0 | MIT 
+
+| has-flag | 4.0.0 | MIT 
+
+| has | 1.0.3 | MIT 
+
+| hosted-git-info | 2.8.8 | ISC 
+
+| http-signature | 1.2.0 | MIT 
+
+| iconv-lite | 0.4.24 | MIT 
+
+| identicon.js | 1.0.0 | BSD* 
+
+| ignore | 4.0.6 | MIT 
+
+| import-fresh | 3.2.2 | MIT 
+
+| imurmurhash | 0.1.4 | MIT 
+
+| indent-string | 2.1.0 | MIT 
+
+| inflight | 1.0.6 | ISC 
+
+| inherits | 1.0.2 | ISC* 
+
+| inherits | 2.0.4 | ISC 
+
+| inquirer | 7.3.3 | MIT 
+
+| is-arrayish | 0.2.1 | MIT 
+
+| is-core-module | 2.2.0 | MIT 
+
+| is-extendable | 1.0.1 | MIT 
+
+| is-extglob | 2.1.1 | MIT 
+
+| is-finite | 1.1.0 | MIT 
+
+| is-fullwidth-code-point | 2.0.0 | MIT 
+
+| is-fullwidth-code-point | 3.0.0 | MIT 
+
+| is-glob | 4.0.1 | MIT 
+
+| is-plain-object | 2.0.4 | MIT 
+
+| is-typedarray | 1.0.0 | MIT 
+
+| is-utf8 | 0.2.1 | MIT 
+
+| isarray | 0.0.1 | MIT 
+
+| isexe | 2.0.0 | ISC 
+
+| isobject | 3.0.1 | MIT 
+
+| isstream | 0.1.2 | MIT 
+
+| jquery | 1.9.1 | MIT 
+
+| jquery | 3.6.0 | MIT 
+
+| js-tokens | 4.0.0 | MIT 
+
+| js-yaml | 3.14.1 | MIT 
+
+| jsbn | 0.1.1 | MIT 
+
+| json-schema-traverse | 0.4.1 | MIT 
+
+| json-schema | 0.2.3 | AFLv2.1 BSD 
+
+| json-stable-stringify-without-jsonify | 1.0.1 | MIT 
+
+| json-stringify-safe | 5.0.1 | ISC 
+
+| jsprim | 1.4.1 | MIT 
+
+| jssha | 2.0.2 | BSD* 
+
+| less | 1.7.0 | Apache v2 
+
+| levn | 0.3.0 | MIT 
+
+| lit-element | 2.4.0 | BSD-3-Clause 
+
+| lit-html | 1.3.0 | BSD-3-Clause 
 
 | lit-translate | 1.2.1 | MIT 
 
-| moment | 2.9.0 | MIT* 
+| load-json-file | 1.1.0 | MIT 
+
+| lodash._escapehtmlchar | 2.4.1 | MIT 
+
+| lodash._escapestringchar | 2.4.1 | MIT 
+
+| lodash._htmlescapes | 2.4.1 | MIT 
+
+| lodash._isnative | 2.4.1 | MIT 
+
+| lodash._objecttypes | 2.4.1 | MIT 
+
+| lodash._reinterpolate | 2.4.1 | MIT 
+
+| lodash._reunescapedhtml | 2.4.1 | MIT 
+
+| lodash._shimkeys | 2.4.1 | MIT 
+
+| lodash.defaults | 2.4.1 | MIT 
+
+| lodash.escape | 2.4.1 | MIT 
+
+| lodash.isobject | 2.4.1 | MIT 
+
+| lodash.keys | 2.4.1 | MIT 
+
+| lodash.template | 2.4.1 | MIT 
+
+| lodash.templatesettings | 2.4.1 | MIT 
+
+| lodash.values | 2.4.1 | MIT 
+
+| lodash | 1.0.2 | MIT 
+
+| lodash | 2.4.1 | MIT 
+
+| lodash | 2.4.2 | MIT 
+
+| lodash | 4.17.20 | MIT 
+
+| loud-rejection | 1.6.0 | MIT 
+
+| lru-cache | 2.7.3 | ISC 
+
+| map-obj | 1.0.1 | MIT 
+
+| marked | 0.3.2 | MIT 
+
+| meow | 3.7.0 | MIT 
+
+| merge-stream | 0.1.5 | MIT 
+
+| mime-db | 1.44.0 | MIT 
+
+| mime-types | 2.1.27 | MIT 
+
+| mime | 1.2.11 | MIT* 
+
+| mimic-fn | 2.1.0 | MIT 
+
+| minimatch | 0.2.14 | MIT 
+
+| minimatch | 2.0.10 | ISC 
+
+| minimatch | 3.0.4 | ISC 
+
+| minimist | 0.2.1 | MIT 
+
+| minimist | 1.2.5 | MIT 
+
+| mkdirp | 0.3.5 | MIT 
+
+| mkdirp | 0.5.5 | MIT 
+
+| moment | 2.9.0 | MIT 
 
 | mousetrap | 1.6.5 | Apache-2.0 WITH LLVM-exception 
 
-| ng-sortable | 1.1.8 | MIT 
+| ms | 2.1.2 | MIT 
 
-| ngUpload | 0.5.16 | MIT* 
+| multipipe | 0.1.2 | MIT 
 
-| ngstorage | 0.3.10 | MIT 
+| mute-stream | 0.0.8 | ISC 
 
-| ngstorage | 0.3.11 | MIT* 
+| natives | 1.1.6 | ISC 
+
+| natural-compare | 1.4.0 | MIT 
+
+| ng-sortable | 0.1.0 | MIT* 
+
+| ng-sortable | 1.3.1 | MIT 
+
+| ngUpload | 0.5.16 | MIT 
+
+| ngstorage | 0.3.11 | MIT 
+
+| ngstorage | 0.3.9 | MIT 
+
+| nice-try | 1.0.5 | MIT 
+
+| normalize-package-data | 2.5.0 | BSD-2-Clause 
+
+| oauth-sign | 0.9.0 | Apache-2.0 
+
+| object-assign | 4.1.1 | MIT 
+
+| once | 1.4.0 | ISC 
+
+| onetime | 5.1.2 | MIT 
+
+| optionator | 0.8.3 | MIT 
+
+| ordered-read-streams | 0.1.0 | MIT 
+
+| os-tmpdir | 1.0.2 | MIT 
 
 | page-builder | 0.0.1 | GPL-2.0 
 
-| sockjs | 0.3.4 | UNKNOWN 
+| parent-module | 1.0.1 | MIT 
 
-| stomp-websocket | 2.3.4 | Apache-2.0 
+| parse-json | 2.2.0 | MIT 
+
+| parse-node-version | 1.0.1 | MIT 
+
+| path-exists | 2.1.0 | MIT 
+
+| path-is-absolute | 1.0.1 | MIT 
+
+| path-key | 2.0.1 | MIT 
+
+| path-parse | 1.0.6 | MIT 
+
+| path-type | 1.1.0 | MIT 
+
+| path | 0.4.9 | UNKNOWN 
+
+| performance-now | 2.1.0 | MIT 
+
+| pify | 2.3.0 | MIT 
+
+| pinkie-promise | 2.0.1 | MIT 
+
+| pinkie | 2.0.4 | MIT 
+
+| plugin-error | 1.0.1 | MIT 
+
+| prelude-ls | 1.1.2 | MIT 
+
+| progress | 2.0.3 | MIT 
+
+| psl | 1.8.0 | MIT 
+
+| punycode | 2.1.1 | MIT 
+
+| qs | 6.5.2 | BSD-3-Clause 
+
+| read-pkg-up | 1.0.1 | MIT 
+
+| read-pkg | 1.1.0 | MIT 
+
+| readable-stream | 1.0.34 | MIT 
+
+| readable-stream | 1.1.14 | MIT 
+
+| redent | 1.0.0 | MIT 
+
+| regexpp | 2.0.1 | MIT 
+
+| repeating | 2.0.1 | MIT 
+
+| request | 2.88.2 | Apache-2.0 
+
+| resolve-from | 4.0.0 | MIT 
+
+| resolve | 1.19.0 | MIT 
+
+| restore-cursor | 3.1.0 | MIT 
+
+| rimraf | 2.6.3 | ISC 
+
+| run-async | 2.4.1 | MIT 
+
+| rxjs | 6.6.3 | Apache-2.0 
+
+| safe-buffer | 5.2.1 | MIT 
+
+| safer-buffer | 2.1.2 | MIT 
+
+| semver | 1.1.4 | MIT 
+
+| semver | 5.7.1 | ISC 
+
+| semver | 6.3.0 | ISC 
+
+| shebang-command | 1.2.0 | MIT 
+
+| shebang-regex | 1.0.0 | MIT 
+
+| sigmund | 1.0.1 | ISC 
+
+| signal-exit | 3.0.3 | ISC 
+
+| slice-ansi | 2.1.0 | MIT 
+
+| source-map | 0.1.43 | BSD 
+
+| spdx-correct | 3.1.1 | Apache-2.0 
+
+| spdx-exceptions | 2.3.0 | CC-BY-3.0 
+
+| spdx-expression-parse | 3.0.1 | MIT 
+
+| spdx-license-ids | 3.0.7 | CC0-1.0 
+
+| sprintf-js | 1.0.3 | BSD-3-Clause 
+
+| sshpk | 1.16.1 | MIT 
+
+| stompjs | 2.3.4-next | Apache-2.0 
+
+| string-width | 3.1.0 | MIT 
+
+| string-width | 4.2.0 | MIT 
+
+| string_decoder | 0.10.31 | MIT 
+
+| strip-ansi | 0.3.0 | MIT 
+
+| strip-ansi | 5.2.0 | MIT 
+
+| strip-ansi | 6.0.0 | MIT 
+
+| strip-bom | 1.0.0 | MIT 
+
+| strip-bom | 2.0.0 | MIT 
+
+| strip-indent | 1.0.1 | MIT 
+
+| strip-json-comments | 3.1.1 | MIT 
+
+| supports-color | 0.2.0 | MIT 
+
+| supports-color | 5.5.0 | MIT 
+
+| supports-color | 7.2.0 | MIT 
+
+| table | 5.4.6 | BSD-3-Clause 
+
+| text-table | 0.2.0 | MIT 
+
+| through2 | 0.5.1 | MIT 
+
+| through2 | 0.6.1 | MIT 
+
+| through2 | 0.6.5 | MIT 
+
+| through | 2.3.8 | MIT 
+
+| time-stamp | 1.1.0 | MIT 
+
+| tmp | 0.0.33 | MIT 
+
+| tough-cookie | 2.5.0 | BSD-3-Clause 
+
+| trim-newlines | 1.0.0 | MIT 
+
+| tslib | 1.14.1 | 0BSD 
+
+| tunnel-agent | 0.6.0 | Apache-2.0 
+
+| tweetnacl | 0.14.5 | Unlicense 
+
+| type-check | 0.3.2 | MIT 
+
+| type-fest | 0.11.0 | (MIT OR CC0-1.0) 
+
+| type-fest | 0.8.1 | (MIT OR CC0-1.0) 
+
+| unique-stream | 1.0.0 | BSD* 
+
+| uri-js | 4.4.0 | BSD-2-Clause 
+
+| uuid | 3.4.0 | MIT 
+
+| v8-compile-cache | 2.2.0 | MIT 
+
+| validate-npm-package-license | 3.0.4 | Apache-2.0 
+
+| verror | 1.10.0 | MIT 
+
+| vinyl-fs | 0.3.7 | MIT 
+
+| vinyl | 0.2.3 | MIT 
+
+| vinyl | 0.4.6 | MIT 
+
+| which | 1.3.1 | ISC 
+
+| word-wrap | 1.2.3 | MIT 
+
+| wrappy | 1.0.2 | ISC 
+
+| write | 1.0.3 | MIT 
+
+| xtend | 3.0.0 | MIT 
+
+| xtend | 4.0.2 | MIT 
 
 |===
 
+Note: The angular version 1.8.x is a "dependency" of angular-filter. In fact, this package does not use this dependency,
+so UI Designer does not embed angular 1.8.x
 
 
 == Living application page dependencies
@@ -298,7 +972,9 @@
 
 | bootstrap | 3.3.5 | MIT 
 
-| jquery | undefined | MIT 
+| jquery | 3.6.0 | MIT 
+
+| ui-designer-backend | 1.13.0 | GPL-2.0 
 
 |===
 

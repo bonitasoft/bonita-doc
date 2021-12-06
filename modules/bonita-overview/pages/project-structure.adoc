@@ -22,19 +22,19 @@ However, it is not required to use all the concepts to create a valid Bonita Aut
 |===
 |Element |Description |Create/Provided | Tool | Alternative
 
-|xref:ROOT:diagram-overview.adoc[Diagrams]
+|xref:process:diagram-overview.adoc[Diagrams]
 |BPMN diagram that describes your business processes
 |Create
 |Studio
 |--
 
-|xref:ROOT:forms.adoc[Forms]
+|xref:pages-and-forms:forms.adoc[Forms]
 |Web interfaces to interact with processes (to instantiate a process and for human tasks)
 |Create
 |UI Designer
 |Use BPM REST API
 
-|xref:ROOT:creating-an-actor-filter.adoc[Actor filter]
+|xref:process:actor-filtering.adoc[Actor filter]
 |Filters users that can access a human task in a process
 |A couple are provided in the Marketplace and you can create custom actor filters
 |Studio or xref:ROOT:actor-filter-archetype.adoc[Dedicated SDK] (custom actor filters)
@@ -47,27 +47,27 @@ However, it is not required to use all the concepts to create a valid Bonita Aut
 |-
 
 
-|=== 
+|===
 
 === Data
 [cols="1,1,1,1,1"]
 |===
 |Element |Description |Create/Provided | Tool | Alternative
 
-|xref:ROOT:define-and-deploy-the-bdm.adoc[Business Data Model] (BDM)
+|xref:data:define-and-deploy-the-bdm.adoc[Business Data Model] (BDM)
 |Structure of the business data used by your processes
 |Create
 |Studio
 |External data base w/ provided connector
 
-|=== 
+|===
 
 === Identity Management
 [cols="1,1,1,1,1"]
 |===
 |Element |Description |Create/Provided | Tool | Alternative
 
-|xref:ROOT:organization-overview.adoc[Organization] (for "Actors" and "Profiles")
+|xref:identity:organization-overview.adoc[Organization] (for "Actors" and "Profiles")
 |The definition of the user base that will use the processes (includes users, roles and groups)
 |Example provided/Create
 |Studio/Admin Application/LDAP synchronizer(Enterprise Edition only)
@@ -79,7 +79,7 @@ However, it is not required to use all the concepts to create a valid Bonita Aut
 |===
 |Element |Description |Create/Provided | Tool | Alternative
 
-|xref:ROOT:applicationcreation.adoc[Application descriptor]
+|xref:applications:application-creation.adoc[Application descriptor]
 |Defines the *living applications*: group of pages with a specific them for a given user profile
 |Create
 |Studio/Admin Application
@@ -100,10 +100,10 @@ However, it is not required to use all the concepts to create a valid Bonita Aut
 |xref:ROOT:themes.adoc[Theme]
 |Defines the look and feel of your application
 |A default theme is provided and you can create custom theme
-|Studio or xref:ROOT:customize-living-application-theme.adoc[Dedicated SDK] (custom theme)
+|Studio or xref:applications:customize-living-application-theme.adoc[Dedicated SDK] (custom theme)
 |--
 
-|=== 
+|===
 
 The concepts of Application descriptors, Application pages, layouts and themes are only used by Application. A Bonita Automation project without applications won't use those concepts.
 
@@ -122,13 +122,13 @@ Extensions can be developed outside of the Studio with your favorite IDE.
 |When the provided connector do not cover your requirements
 |xref:ROOT:connector-archetype.adoc[Dedicated SDK]
 
-|xref:ROOT:actor-filtering.adoc[Actor Filters]
+|xref:process:actor-filtering.adoc[Actor Filters]
 |When the provided actor filter do not cover your requirements
 |xref:ROOT:actor-filter-archetype.adoc[Dedicated SDK]
 
 |Theme
 |When the provided theme do not cover your requirements
-|xref:ROOT:customize-living-application-theme.adoc[Dedicated SDK]
+|xref:applications:customize-living-application-theme.adoc[Dedicated SDK]
 
 |REST API Extension
 |To interact with third party system outside processes, to make advanced BDM queries or API calls (read only)
@@ -137,7 +137,7 @@ Extensions can be developed outside of the Studio with your favorite IDE.
 |===
 
 == Bonita Project Composition
-Extensions are re-usable elements, they can be shared between projects. 
+Extensions are re-usable elements, they can be shared between projects.
 Extensions are added to Bonita Automation projects as Maven dependencies.
 
 In the Studio, extensions are managed in a xref:ROOT:managing_extension_studio.adoc[dedicated view].
@@ -145,5 +145,5 @@ In the Studio, extensions are managed in a xref:ROOT:managing_extension_studio.a
 [NOTE]
 ====
 Even if it is possible to manually import extensions in Bonita Studio, it is highly recommended to publish your extensions on public or private maven repositories.
-xref:connector-archetype#_6_publish_the_connector_on_github_packages[Here] is an example on how to deploy an extension on Github packages.
+xref:process:connector-archetype-tutorial#_6_publish_the_connector_on_github_packages[Here] is an example on how to deploy an extension on Github packages.
 ====

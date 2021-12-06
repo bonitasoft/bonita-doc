@@ -2,7 +2,7 @@
 :page-aliases: ROOT:update-studio.adoc
 :description: How to update your existing Bonita Studio to a newer version.
 
-{description} 
+{description}
 
 == Updating to a new Main version
 
@@ -27,6 +27,25 @@ Maintenance versions are cross-compatible, meaning that it is not required that 
 
 For example, your production runtime can be in 2021.1-0408 and your Studio in 2021.1-0218.
 
+=== Project update
+
+When cloning or importing an existing project from an older version of the same base version, the target runtime version is not automatically updated. +
+This behavior allows other project contributors to keep using an older Studio version without needing to install additional dependencies. +
+It is perfectly fine to reference a different target runtime version than the one currently run by the Studio.+
+However, you can update this version from the `Edit project information...` contextual menu or by using the pencil button in the project Overview. +
+Before updating this version ensure that collaborators of the project have either:
+
+* Installed the same Studio version
+
+or
+
+* Installed the required dependencies for this version:
+** By installing and starting a Studio of this version at least once
+** By downloading those dependencies from the https://customer.bonitasoft.com[Customer Service Center] (Maven repository) and copying them into their local Maven repository
+
+Keeping the target runtime version up-to-date may be useful in some cases like including bug fixes or having a reliable dependency resolution in case of dependencies updates (CVE fixes).
+
+
 == Updating your project to the project composition
 
 Version 2021.2 introduces major changes to the way Bonita Studio manages projects. When importing or cloning your project in this version or any later version, it will be transformed into a Maven project. +
@@ -36,7 +55,7 @@ All your project dependencies (connectors, libraries, actor filters...) will the
 
 In the BOS import wizard, an additional step has been added. Bonita Studio is going to scan your project dependencies and try to find them on the configured Maven repositories (by default Maven Central is configured).
 
-If the dependencies are found then they will be used as remote dependencies (not copied in your project) otherwise they will be copied in the project and will be committed with your project sources. 
+If the dependencies are found then they will be used as remote dependencies (not copied in your project) otherwise they will be copied in the project and will be committed with your project sources.
 
 In both cases, dependencies that are in the project but are not used will not be added in the migrated project unless you add them manually (by ticking the corresponding checkboxes).
 
@@ -45,19 +64,19 @@ You can also remove the other dependencies (at your own risk).
 === Project cloning
 
 If your project is cloned through GIT, there is no extra step in the wizard. The migration is automatically applied to the checkouted branch. +
-A `MIGRATION_NOTES.adoc` file is generated at the root of the project to detail the major changes occuring at migration. +
+A `MIGRATION_NOTES.adoc` file is generated at the root of the project to detail the major changes occurring at migration. +
 It is up to you to keep it in the project or not (later migrations will be appended to this file if it exists.)
 
 The dependencies are also analyzed by the studio but the result of the analysis is directly applied to your project. +
 The studio is going to scan your project dependencies and try to find them on the configured Maven repositories (by default Maven Central is configured).
 
-If the dependencies are found, then they will be used as remote dependencies (not committed in your project), otherwise they will be added to the project local repository store and will be committed to your project. 
+If the dependencies are found, then they will be used as remote dependencies (not committed in your project), otherwise they will be added to the project local repository store and will be committed to your project.
 
 === Impact on Extension creation
 
 [CAUTION]
 ====
-From Bonita 2021.2 on, it will no longer be possible to create connectors, actor filters, and themes from Bonita Studio. You will have to use the corresponding xref:software-extensibility.doc[Maven archetypes].
+From Bonita 2021.2 on, it will no longer be possible to create connectors, actor filters, and themes from Bonita Studio. You will have to use the corresponding xref:software-extensibility:software-extensibility.adoc[Maven archetypes].
 ====
 
 If your project already has actor filters, connectors, or themes, you will still be able to edit them from Bonita Studio. However, we recommend migrating them to standalone dependencies.

@@ -71,7 +71,7 @@ If you remove bonita webapp folder while Tomcat is running, Tomcat server consid
 The upgrade is now finished, you can verify that you are now running an Enterprise edition in the Super Administrator application; the edition displayed in the "BPM Services" page should indicate Enterprise edition.
 
 Once you have started Bonita Enterprise Runtime at least once, you can pull your Enterprise configuration (`<install>/setup/setup(.sh/.bat) pull`)
-and change the Enterprise-specific configuration files to match your needs. See xref:ROOT:BonitaBPM_platform_setup.adoc[Bonita Runtime setup tool] for details about
+and change the Enterprise-specific configuration files to match your needs. See xref:runtime:bonita-platform-setup.adoc[Bonita Runtime setup tool] for details about
 how to apply configuration changes.
 
 == Downgrade

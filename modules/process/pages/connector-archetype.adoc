@@ -19,12 +19,16 @@ To create your connector project, prompt a terminal and enter the following comm
 
 [source,bash]
 ----
-mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-connector-archetype
+mvn archetype:generate \
+  -DarchetypeGroupId=org.bonitasoft.archetypes \
+  -DarchetypeArtifactId=bonita-connector-archetype
 ----
 
-[CAUTION]
+[WARNING]
 ====
 Make sure that you are not executing the command from an existing maven project.
+
+If you are using Power Shell make sure to use quotes for the parameters : mvn archetype:generate "-DarchetypeGroupId=org.bonitasoft.archetypes" "-DarchetypeArtifactId=bonita-connector-archetype"
 ====
 
 You'll then have to specify interactively the properties of your project:
@@ -36,7 +40,7 @@ You'll then have to specify interactively the properties of your project:
 * *version:* the version of your connector _(default value: 1.0-SNAPSHOT)_
 Follow the http://maven.apache.org/guides/mini/guide-naming-conventions.html[maven naming convention guide]
 * *package* the package in which the connector source files will be created _(default value: the group id of the connector)_
-* *bonitaVersion:* the xref:product-versioning#_technical_id[technical id] of the targeted Bonita version
+* *bonitaVersion:* the xref:version-update:product-versioning.adoc#_technical_id[technical id] of the targeted Bonita version
  ** A Bonita connector project depends on _org.bonitasoft.engine:bonita-common_. To avoid potential conflicts / errors at runtime, you should use the technical id of the Bonita version of your runtime environment (ex: 7.13.0 for Bonita 2021.2).
 * *className:* the class name of your connector
  ** Must match the following regex: `+^[a-zA-Z_$][a-zA-Z\d_$]+$+` (A Java classname valid identifier)
@@ -45,15 +49,36 @@ Follow the http://maven.apache.org/guides/mini/guide-naming-conventions.html[mav
  ** java
  ** groovy
  ** kotlin
- * *wrapper* _(optional)_: install a https://github.com/takari/maven-wrapper[Maven wrapper, window = "_blank"]. Available values: 
+ * *wrapper* _(optional)_: install a https://github.com/takari/maven-wrapper[Maven wrapper, window = "_blank"]. Available values:
  ** true _(default)_
  ** false
 
 A folder named _[your artifact id]_ is created, with your Bonita connector project, ready to use.
 
+[CAUTION]
+====
+Be sure to use the xref:version-update:product-versioning.adoc#_technical_id[technical id] of your Bonita version.
+====
+
 [TIP]
 ====
 You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
+
+Example:
+[source,bash]
+----
+mvn -B archetype:generate \
+  -DarchetypeGroupId=org.bonitasoft.archetypes \
+  -DarchetypeArtifactId=bonita-connector-archetype \
+  -DgroupId=com.acme.bonita.connectors \
+  -DartifactId=ACME-bonita-connectors \
+  -Dversion=1.0-SNAPSHOT \
+  -Dpackage=com.acme.bonita.connectors \
+  -DbonitaVersion=7.13.0 \
+  -DclassName=SAPMultiFunction \
+  -Dlanguage=java \
+  -Dwrapper=true
+----
 ====
 
 == Connector development
@@ -217,8 +242,8 @@ The implementation sources contain all the logic of the connector:
 
 The archetype offers the possibility to generate the default sources in Java, Groovy or Kotlin. The build result will always be a Java archive (jar) and some Zip archives (assemblies), no matters the language selected.
 
-The entry point of the implementation sources must either extend the https://javadoc.bonitasoft.com/api/{varVersion}/org/bonitasoft/engine/connector/AbstractConnector.html[__AbstractConnector__, window="_blank"] class
-or implement https://javadoc.bonitasoft.com/api/{varVersion}/org/bonitasoft/engine/connector/Connector.html[__Connector__, window="_blank"] interface.
+The entry point of the implementation sources must either extend the https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/connector/AbstractConnector.html[__AbstractConnector__, window="_blank"] class
+or implement https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/connector/Connector.html[__Connector__, window="_blank"] interface.
 
 Example (using _Groovy_):
 
@@ -294,7 +319,7 @@ If you want to build a single zip assembly containing a specific implementation 
 === Build a connector project
 
 Build the project by typing the following command at the root of the project:
- 
+
 [source,bash]
 ----
 ./mvnw clean package
@@ -304,5 +329,5 @@ A connector project is built using Maven, and especially the https://maven.apach
 
 The default build output is:
 
-*  `target/[artifact id]-[artifact version].jar` : This jar can be xref:ROOT:managing-extension-studio.adoc[installed in a Bonita project] from the Studio.
+*  `target/[artifact id]-[artifact version].jar` : This jar can be xref:bonita-overview:managing-extension-studio.adoc[installed in a Bonita project] from the Studio.
 *  `target/[artifact id]-[artifact version]-impl.zip` : An archive containing a single implementation.footnote:liveupdate[]

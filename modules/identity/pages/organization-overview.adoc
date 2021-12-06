@@ -14,7 +14,7 @@ There are two stages to specify who will perform a step in a process:
 When you define a process, you define who will carry out a step in the process by specifying an actor. For example, if a step can be done by any member of the HR team, you could call the actor _hr_, or if a step can only be done by the sales team manager in Europe, you could call the actor _sales_mgr_europe_.
 
 A user is a person who has a username and a password in a Bonita organization, and can therefore perform steps in a process.
-Before you deploy a process, you need to xref:ROOT:actors.adoc[map the process actors]. This mapping defines who can carry out steps in the process.
+Before you deploy a process, you need to xref:process:actors.adoc[map the process actors]. This mapping defines who can carry out steps in the process.
 
 == What is an organization?
 
@@ -61,7 +61,7 @@ Custom user information enables custom details to be added to a user in the Orga
 === In Bonita Studio:
 
 Use the *Custom* tab in *Organization users* to add Custom information to a user. +
-This xref:ROOT:custom-user-information-in-bonita-bpm-studio.adoc[custom information is defined in Bonita Studio], then applied to an actor filter, and when deployed in Bonita Applications, enables the filtering of users mapped to tasks.
+This xref:custom-user-information-in-bonita-bpm-studio.adoc[custom information is defined in Bonita Studio], then applied to an actor filter, and when deployed in Bonita Applications, enables the filtering of users mapped to tasks.
 
 The custom user information is saved in the Organization schema and published, so it can be used in Bonita Applications.
 
@@ -71,7 +71,7 @@ When the process is deployed in Bonita Applications in a production environment,
 However, the value associated with a filter definition can be modified by a user with an admin profile. +
 The organization will be modified on the remote server. This enables tasks to be re-assigned to users in processes that are already deployed, which is then used to filter users for tasks.
 
-See xref:ROOT:custom-user-information-in-bonita-bpm-studio.adoc[custom user information in Bonita Studio] for setting the definition and values for the filter
+See xref:custom-user-information-in-bonita-bpm-studio.adoc[custom user information in Bonita Studio] for setting the definition and values for the filter
 
 === In Bonita Applications:
 

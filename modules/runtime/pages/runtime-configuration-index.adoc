@@ -9,7 +9,7 @@
 
 [.card.card-index]
 --
-xref:ROOT:bonita-platform-setup.adoc[[.card-title]#Setup tool# [.card-body.card-content-overflow]#pass:q[Retrieve, update, and push configuration values to the database]#]
+xref:runtime:bonita-platform-setup.adoc[[.card-title]#Setup tool# [.card-body.card-content-overflow]#pass:q[Retrieve, update, and push configuration values to the database]#]
 --
 
 [.card.card-index]

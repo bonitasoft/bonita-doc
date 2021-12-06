@@ -8,11 +8,11 @@
 
 A REST API Extension example resource and API extension viewer page are provided in the Bonita Administrator Application, in the "Resources" tab.
 
-To use the examples, define a xref:ROOT:rest-api-authorization.adoc#custom-permissions-mapping[custom permissions] mapping for `demoPermission`:
+To use the examples, define a xref:identity:rest-api-authorization.adoc#custom-permissions-mapping[custom permissions] mapping for `demoPermission`:
 
 In a Tomcat bundle:
 
-* Retrieve platform configuration using the xref:ROOT:BonitaBPM_platform_setup.adoc#update_platform_conf[setup tool].
+* Retrieve platform configuration using the xref:runtime:bonita-platform-setup.adoc#update_platform_conf[setup tool].
 * Edit `platform_conf/current/tenants/<TENANT_ID>/tenant_portal/custom-permissions-mapping.properties`.
 * Add the following line: `profile|User=[demoPermission]`.
 * Push the changed platform configuration into database using the _setup tool_.
@@ -39,7 +39,7 @@ Another REST API Extensions example with SQL data source is available on http://
 == Create a REST API Extension
 
 Bonita offers the possibility to extend the set of existing REST API with custom extension that let you enrich your forms and applications with specific needs.
-They can be used to query xref:ROOT:define-and-deploy-the-bdm.adoc[business data], Bonita Engine APIs, or an external information system (such as a database, web service, LDAP directory...). They also help to keep a clean separation between the front-end (forms, pages, and interfaces visible to users) and the back-end (processes).
+They can be used to query xref:data:define-and-deploy-the-bdm.adoc[business data], Bonita Engine APIs, or an external information system (such as a database, web service, LDAP directory...). They also help to keep a clean separation between the front-end (forms, pages, and interfaces visible to users) and the back-end (processes).
 We provide a Maven archetype to help you to bootstrap a REST API Extension project. The source code of the archetype is available https://github.com/bonitasoft/bonita-rest-api-extension-archetype[here].
 
 === Prerequisites
@@ -55,88 +55,70 @@ A https://maven.apache.org/archetype/index.html[maven archetype] is a maven proj
 
 To create your Rest API Extension project, prompt a terminal and enter the following command:
 
+[source,bash]
+----
+mvn archetype:generate \
+  -DarchetypeGroupId=org.bonitasoft.archetypes \
+  -DarchetypeArtifactId=bonita-rest-api-extension-archetype
+----
+
 [WARNING]
 ====
-
 Make sure that you are not executing the command from an existing maven project.
+
+If you are using Power Shell make sure to use quotes for the parameters: mvn archetype:generate "-DarchetypeGroupId=org.bonitasoft.archetypes" "-DarchetypeArtifactId=bonita-rest-api-extension-archetype"
 ====
 
- $ mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-rest-api-extension-archetype
+You'll then have to specify interactively the properties of your project:
 
-You'll then have to specify interactively the properties of your project.
+* *groupId:* the group id of your REST API Extension.
+* *artifactId:* the artifact id of your REST API Extension.
+ ** Must match the following regex: `+^[a-zA-Z0-9\-]+$+`
+ ** Example: _my-rest-api_
+* *version:* the version of your REST API Extension _(default value: 1.0-SNAPSHOT)_
+Follow the http://maven.apache.org/guides/mini/guide-naming-conventions.html[maven naming convention guide]
+* *package* the package in which the source files will be created _(default value: the group id of the connector)_
+* *apiDisplayName*: the display name for your api extension (displayed in the Bonita Administrator Application)
+* *apiName*: the name of your api extension. You must enter an url friendly name without blanks.
+* *bonitaVersion:* the targeted technical Bonita version (e.g. 7.12.3)
+ ** A Bonita REST API Extension project depends on _org.bonitasoft.engine:bonita-common_. To avoid potential conflicts / errors at runtime, you should use the Bonita version of your runtime environment.
+* *httpVerb*: The http verb of your api extension (GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS, TRACE)
+* *language*: the language used in the connector project. Available values:
+ ** java
+ ** groovy
+ ** kotlin
+* *pathTemplate*: URL path template. Resulting url: ../API/extension/myRestExtA
 
-==== Archetype properties
+[CAUTION]
+====
+Be sure to use the xref:version-update:product-versioning.adoc#_technical_id[technical id] of your Bonita version.
+====
 
-|===
-| Parameter | Required | Default value | Description
+[TIP]
+====
+You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you’ll bypass the validation performed on the properties content.
 
-| -DbonitaVersion
-| *true*
-|
-| You can choose the version of the dependent bonita artifacts. *Minimum version is 7.0.1.*
+Example:
 
-| -Dsp
-| false
-| false
-| If set to true, project will use Bonita subscription dependencies. *This implies you have made bonita subscription artifacts available for maven (in your local repository or enterprise repository)*
+[source,bash]
+----
+mvn archetype:generate \
+    -DarchetypeGroupId=org.bonitasoft.archetypes \
+    -DarchetypeArtifactId=bonita-rest-api-extension-archetype \
+    -DgroupId=org.company.api \
+    -DartifactId=my-rest-api \
+    -Dversion=0.0.1-SNAPSHOT \
+    -Dlanguage=java \
+    -DbonitaVersion=7.12.1 \
+    -DapiName=myRestApi \
+    -DpathTemplate=my-rest-api \
+    -DapiDisplayName="My REST API" \
+    -DurlParameters=p,c \
+    -DhttpVerb=GET
+----
 
-| -Dlanguage
-| *true*
-|
-| You can choose between `groovy`, `java` or `kotlin`.
+====
 
-| -Dwrapper
-| false
-| true
-| If set to true, project will setup a https://github.com/takari/maven-wrapper[maven wrapper]
-
-| -DapiName
-| *true*
-|
-| Set the name of your api extension. You must enter an url friendly name without blanks.
-
-| -DapiDisplayName
-| *true*
-|
-| A display name for your api extension (displayed in the Bonita Administrator Application)
-
-| -DapiDesc
-| false
-| My Rest API extension description
-| A short description of the purpose of your api extension (displayed in the Bonita Administrator Application)
-
-| -DhttpVerb
-| *true*
-|
-| The http verb of your api extension
-
-| -DpathTemplate
-| *true*
-|
-| URL path template. Resulting url: ../API/extension/myRestExtApi
-
-| -DpermissionNames
-| false
-| myRestAPIPermission
-| Define permission list (comma separated value), specify permissions a user need to have in order access this REST API extension
-
-| -DurlParameters
-| false
-| !
-| Define a list (comma separated value) of url parameters.
-
-| -DbdmGroupId
-| false
-| !
-| Define a BDM groupId name to enable BDM dependencies
-
-| -DbdmVersion
-| false
-| !
-| Define a BDM version name to enable BDM dependencies
-|===
-
-⚠️ You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
 
 ==== Generated project
 
@@ -171,7 +153,7 @@ resources=[GET|extension/demoHeaders,POST|extension/demoXml,PUT|extension/putRes
 ----
 
 If the page declares its resources correctly, then every user able to access this page (because they have the right profile for the Living Application) will also be automatically granted the necessary permissions to call the REST API Extensions. This works the same way as with the other resources of the REST API. +
-However, if you need to grant access to this REST API Extensions to some users regardless of the pages they have access to, then you need to add xref:ROOT:rest-api-authorization.adoc#custom-permissions-mapping[custom permissions] for these users. +
+However, if you need to grant access to this REST API Extensions to some users regardless of the pages they have access to, then you need to add xref:identity:rest-api-authorization.adoc#custom-permissions-mapping[custom permissions] for these users. +
 In order to do so, edit `custom-permissions-mapping.properties` to give the permissions (value of the property `apiExtension.permissions`) declared in the page.properties of the REST API Extensions to the required profiles or users.
 
 [NOTE]
@@ -189,4 +171,4 @@ If you want to enable the debug mode, you can activate it in Bonita Studio "Serv
 
 === Configure the authorization
 
-To configure the REST API authorization, checkout the dedicated xref:ROOT:rest-api-authorization.adoc[documentation page]. Note that you can reuse existing permissions that are already mapped to provided profiles (User, Administrator).
+To configure the REST API authorization, checkout the dedicated xref:identity:rest-api-authorization.adoc[documentation page]. Note that you can reuse existing permissions that are already mapped to provided profiles (User, Administrator).

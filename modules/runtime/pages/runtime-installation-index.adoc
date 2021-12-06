@@ -14,7 +14,7 @@ xref:ROOT:hardware-and-software-requirements.adoc[[.card-title]#Hardware and sof
 
 [.card.card-index]
 --
-xref:ROOT:tomcat-bundle.adoc[[.card-title]#Bonita bundle# [.card-body.card-content-overflow]#pass:q[Install and configure Bonita in its application server]#]
+xref:tomcat-bundle.adoc[[.card-title]#Bonita bundle# [.card-body.card-content-overflow]#pass:q[Install and configure Bonita in its application server]#]
 --
 
 [.card.card-index]

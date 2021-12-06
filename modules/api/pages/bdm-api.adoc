@@ -4,7 +4,7 @@
 
 {description}
 
-Access to the BDM Rest APIs depends on the xref:ROOT:rest-api-authorization.adoc[REST API authorization] settings.
+Access to the BDM Rest APIs depends on the xref:identity:rest-api-authorization.adoc[REST API authorization] settings.
 
 == Business Data
 
@@ -322,11 +322,10 @@ JSON representation of query result
 
 [WARNING]
 ====
+*Deprecated (since 7.0.0)*
 
-Deprecated (since 7.0.0)
-
-Use link:bpm-api#retrieve-the-case-context[case context API] to get business data references for a case
-and link:bpm-api#retrieve-the-usertask-context[task context API] to get business data references for a task.
+Use xref:bpm-api.adoc#retrieve-the-case-context[case context API] to get business data references for a case
+and xref:bpm-api.adoc#retrieve-the-usertask-context[task context API] to get business data references for a task.
 ====
 
 [discrete]

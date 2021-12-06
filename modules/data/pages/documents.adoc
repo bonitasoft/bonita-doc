@@ -13,7 +13,7 @@
 
 == Status in Bonita
 
-Although documents stand for business information to share / update / upload / download / delete / store within the life time of a process instance, they are not part of the xref:ROOT:define-and-deploy-the-bdm.adoc[Business Data Model] in Bonita. +
+Although documents stand for business information to share / update / upload / download / delete / store within the life time of a process instance, they are not part of the xref:define-and-deploy-the-bdm.adoc[Business Data Model] in Bonita. +
 They account for a specific type of process data.
 
 == Document definition

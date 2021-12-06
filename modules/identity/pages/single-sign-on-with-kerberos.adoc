@@ -134,7 +134,7 @@ To configure Bonita for Kerberos:
 
 . If you do not already have one:
  .. Download a Subscription edition bundle from the customer portal
- .. link:_basic-bonita-platform-installation[Configure] it as needed
+ .. xref:runtime:tomcat-bundle.adoc#configuration[Configure] it as needed
  .. Run it a first time, so that the first default tenant is created (TENANT_ID = 1)
  .. Stop it before modifying the configuration files below
 . You will need to edit the Kerberos configuration file in order to select the desired encryption types used to secure the communication. In the following folder `<BUNDLE_HOME>/server/conf`,
@@ -207,7 +207,7 @@ edit the authenticationManager-config.properties as follows:
 ----
 +
 
-Make sure to link:multi-tenancy-and-tenant-configuration[set the right tenant admin username].
+Make sure to xref:multi-tenancy-and-tenant-configuration.adoc[set the right tenant admin username].
 It is recommended to also replace the value of the passphrase (property auth.passphrase) which is used by the engine to verify the authentication request.
 The value must be the same as in the file *bonita-tenant-sp-custom.properties*. +
 If the users need to bypass kerberos authentication method, you can authorize it by setting the property `kerberos.auth.standard.allowed` to true. Users will then be able to log in using the Bonita Login page (/login.jsp) provided they have a Bonita account and their password is different from their username. +

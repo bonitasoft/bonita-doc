@@ -1,0 +1,67 @@
+= Bonita Engine deep dive 
+:description: This page describes the core elements to know about Bonita Engine to start mastering what goes on under Bonita's hood.
+
+{description}
+
+[.card-section]
+== Bonita under the hood
+
+[.card.card-index]
+--
+xref:engine-architecture-overview.adoc[[.card-title]#Architecture overview# [.card-body.card-content-overflow]#pass:q[Overview, APIs, and packaging]#]
+--
+
+[.card.card-index]
+--
+xref:work-execution.adoc[[.card-title]#Works execution# [.card-body.card-content-overflow]#pass:q[Basic flow and error management]#]
+--
+
+[.card.card-index]
+--
+xref:work-locking.adoc[[.card-title]#Work locking# [.card-body.card-content-overflow]#pass:q[Why, when, and how works are locked]#]
+--
+
+[.card.card-index]
+--
+xref:execution-sequence-states-and-transactions.adoc[[.card-title]#BPM execution details# [.card-body.card-content-overflow]#pass:q[All about execution sequences, states, and transactions]#]
+--
+
+[.card.card-index]
+--
+xref:how-a-flownode-is-executed.adoc[[.card-title]#Flow node execution# [.card-body.card-content-overflow]#pass:q[Sequence of actions and states at flow nodes execution and completion]#]
+--
+
+[.card.card-index]
+--
+xref:how-a-process-is-completed.adoc[[.card-title]#Process execution# [.card-body.card-content-overflow]#pass:q[Sequence of actions and states at process execution and completion]#]
+--
+
+[.card.card-index]
+--
+xref:how-a-call-activity-is-executed.adoc[[.card-title]#Call activities execution# [.card-body.card-content-overflow]#pass:q[Sequence of actions and states at call activity execution and completion]#]
+--
+
+[.card.card-index]
+--
+xref:connectors-execution.adoc[[.card-title]#Connectors execution# [.card-body.card-content-overflow]#pass:q[Sequence of actions and states at connectors execution and completion]#]
+--
+
+[.card.card-index]
+--
+xref:timers-execution.adoc[[.card-title]#Timers execution# [.card-body.card-content-overflow]#pass:q[Sequence of actions and states at timers execution and completion]#]
+--
+
+[.card.card-index]
+--
+xref:how-an-event-is-executed.adoc[[.card-title]#Events execution# [.card-body.card-content-overflow]#pass:q[Sequence of actions and states at events execution and completion]#]
+--
+
+[.card.card-index]
+--
+xref:how-a-bdm-is-deployed.adoc[[.card-title]#BDM technical handling# [.card-body.card-content-overflow]#pass:q[Sequence of actions and states at BDM installation and update]#]
+--
+
+[.card.card-index]
+--
+xref:fault-tolerance.adoc[[.card-title]#Fault tolerance mechanism# [.card-body.card-content-overflow]#pass:q[How Bonita Engine can recover from some errors]#]
+--

@@ -1,6 +1,7 @@
 = Configure an email connector
-:description: getting started tutorial - configure email connector
 :page-aliases: ROOT:configure-email-connector.adoc
+:experimental: // activate the 'menu' macro
+:description: getting started tutorial - configure email connector
 
 Bonita provides connectors for a process to interact with external systems, such as publishing a document on a CMS, calling a REST API, or sending an email. In this example we will configure an email connector, to send a notification to the manager that the task _Deal with unsatisfied customer_ requires their attention.
 
@@ -12,7 +13,7 @@ A xref:ROOT:connectors-overview.adoc[connector] is a piece of code that is execu
 
 To avoid settings that are specific to a real email provider, use a tool for a fake email server "FakeSMTP":
 
-. Download FakeSMTP from this link: http://nilhcem.github.com/FakeSMTP/downloads/fakeSMTP-latest.zip
+. Download FakeSMTP from this link: https://nilhcem.github.io/FakeSMTP/downloads/fakeSMTP-latest.zip
 . Unzip the file
 . Run FakeSMTP by double-clicking on the JAR file, or by running this shell command: `java -jar fakeSMTP-2.0.jar`
 . When the user interface is displayed, set the *listening port* to _2525_
@@ -35,7 +36,7 @@ Now that you have a fake email server running, configure the email connector on 
  ** SMTP port: _2525_ (the port number specified in FakeSMTP)
  ** SSL (in the *Security* section): _unchecked_
 . Click on *Next*
-. Enter link:mailto:_no-reply@acme.com_[_no-reply@acme.com_] in the *From* field
+. Enter `no-reply@acme.com` in the *From* field
 . Use the image:images/getting-started-tutorial/configure-email-connector/pencil.png[pencil icon] icon to edit the expression of the *To* field
 . Set the *Expression type* to *Script*
 . Paste the following Groovy script into the code editing zone: `apiAccessor.getIdentityAPI().getUserContactData(taskAssigneeId, false).email`
@@ -49,4 +50,4 @@ image:images/getting-started-tutorial/configure-email-connector/configure-email-
 
 Run the process with the connector configured, and see a new incoming email in the FakeSMTP user interface when task _Deal with unsatisfied customer_ becomes available.
 
-You have now a process definition that uses a wide range of Bonita features. In the xref:ROOT:design-application-page.adoc[next chapters], we will create an application on top of this process.
+You have now a process definition that uses a wide range of Bonita features. In the xref:design-application-page.adoc[next chapters], we will create an application on top of this process.

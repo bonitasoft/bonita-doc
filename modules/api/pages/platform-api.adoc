@@ -125,6 +125,17 @@ Stop current node :
 
 == Tenant
 
+[WARNING]
+====
+This feature was deprecated in Bonita 2021.1. 
+====
+
+[NOTE]
+====
+Important note:  Bonita Enterprise customers need a contractual agreement to create additional tenants. For any new tenant creation, any general or contractual question related to Multi-tenancy, please contact your customer success representative.
+====
+
+
 [discrete]
 ==== Description
 

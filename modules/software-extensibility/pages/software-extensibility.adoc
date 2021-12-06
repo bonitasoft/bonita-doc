@@ -17,19 +17,19 @@ These extension points are guaranteed to be stable across versions of Bonita 7: 
 
 === Connectors
 
-Bonita comes with more than 80 xref:ROOT:connectivity-overview.adoc[standard connectors] to the major information system components: major databases (Oracle, Microsoft, Postgres, etc.), SOAP Webservice, Salesforce, Email, etc.
+Bonita comes with more than 80 xref:process:connectivity-overview.adoc[standard connectors] to the major information system components: major databases (Oracle, Microsoft, Postgres, etc.), SOAP Webservice, Salesforce, Email, etc.
 
-However you create your own connectors to have new connectivity capabilities for processes.
+However, you create your own connectors to have new connectivity capabilities for processes.
 
-Connectors are developped outside the Studio with a dedicated Maven archetype. Consult this page for more information: xref:ROOT:connector-archetype.adoc[Create a connector].
+Connectors are developed outside the Studio with a dedicated Maven archetype. Consult this page for more information: xref:process:connector-archetype.adoc[Create a connector].
 
 Custom connectors are added to a Bonita project from the xref:ROOT:managing_extension_studio.adoc[extension view].
 
 === Actor filters
 
-Bonita comes with a set of xref:ROOT:actor-filtering.adoc[standard actor filters] that can be used to reduce the list of candidates for process tasks.
+Bonita comes with a set of xref:process:actor-filtering.adoc[standard actor filters] that can be used to reduce the list of candidates for process tasks.
 
-Actor filters are developped outside the Studio with a dedicated Maven archetype. Consult this page for more information:xref:ROOT:actor-filter-archetype.adoc[Create an actor filter]
+Actor filters are developed outside the Studio with a dedicated Maven archetype. Consult this page for more information: xref:ROOT:actor-filter-archetype.adoc[Create an actor filter].
 
 Custom actor filters are added to a Bonita project from the xref:ROOT:managing_extension_studio.adoc[extension view].
 
@@ -45,12 +45,12 @@ ProcessBuilder and Business Objects DAO are examples of APIs that can be leverag
 
 === REST API
 
-The xref:ROOT:rest-api-overview.adoc[REST APIs] enable you to integrate your Bonita processes into your application and execute operations on Bonita objects including business objects.
+The xref:api:rest-api-overview.adoc[REST APIs] enable you to integrate your Bonita processes into your application and execute operations on Bonita objects including business objects.
 Pages and forms created with the UI designer rely on the REST APIs to manage data.
 
-In addition to the standard APIs and resources, you can define xref:ROOT:rest-api-extensions.adoc[REST API extensions].
+In addition to the standard APIs and resources, you can define xref:api:rest-api-extensions.adoc[REST API extensions].
 
-REST API Extension can either be created in the xref:ROOT:rest-api-extensions.adoc[Studio] or with the xref:rest-api-extension-archetype.adoc[dedicated Maven archetype].
+REST API Extension can either be created in the xref:api:rest-api-extensions.adoc[Studio] or with the xref:api:rest-api-extension-archetype.adoc[dedicated Maven archetype].
 
 Custom REST API extensions developed with the Maven archetype are added to a Bonita project from the xref:ROOT:managing_extension_studio.adoc[extension view].
 
@@ -60,17 +60,17 @@ In Community, Teamwork, Efficiency, Performance and Enterprise editions
 
 A xref:ROOT:pages.adoc[custom page] is a page that you can add into Bonita Administrator Application to form part of an application or to customize information provided in default Application pages.
 To implement a page, you need to provide HTML, CSS and Javascript resources respecting some packaging constraints.
-You can create a page using the xref:ROOT:ui-designer-overview.adoc[UI designer], which automatically creates a well-formed page.
+You can create a page using the xref:bonita-overview:ui-designer-overview.adoc[UI designer], which automatically creates a well-formed page.
 Note that although the page framework provided in the product is stable, we cannot guarantee that all custom pages will work with future versions, because this depends on how the page was implemented.
 
 === Custom widgets
 
-If the standard UI Designer xref:ROOT:widgets.adoc[widgets] do not meet your needs, you can create a xref:custom-widgets.adoc[custom widget].
+If the standard UI Designer xref:ROOT:widgets.adoc[widgets] do not meet your needs, you can create a xref:pages-and-forms:custom-widgets.adoc[custom widget].
 You can then use your custom widget in pages, forms, and fragments.
 
 === Living Application Themes
 
-Custom themes are developed outside the Studio with a dedicated Maven archetype. Consult this page for more information: xref:ROOT:customize-living-application-theme.adoc[Create an theme]
+Custom themes are developed outside the Studio with a dedicated Maven archetype. Consult this page for more information: xref:applications:customize-living-application-theme.adoc[Create an theme].
 
 === Import and export exchange files
 
@@ -89,7 +89,7 @@ These methods manipulate files with formats that are versioned. Newer versions o
 In Teamwork, Efficiency, Performance and Enterprise editions
 
 From Bonita 6.3, the Engine authentication service is considered to be an official extension point of the solution. It is now safe to provide your own implementation of this service to better fit the needs of your projects.
-xref:ROOT:user-authentication-overview.adoc[Default authentication implementations] are provided allow to check user credentials from the Bonita database, LDAP or a CAS SSO server (using JAAS).
+xref:identity:user-authentication-overview.adoc[Default authentication implementations] are provided allow to check user credentials from the Bonita database, LDAP or a CAS SSO server (using JAAS).
 To implement an Authentication Service, provide a Java class respecting the Authentication Service interface.
 
 === Event handlers
@@ -97,7 +97,7 @@ To implement an Authentication Service, provide a Java class respecting the Auth
 In Teamwork, Efficiency, Performance and Enterprise editions
 
 An event handler is an extension to the engine that is configured to run when a specified event occurs. An event is a change to any object in the database.
-To xref:ROOT:event-handlers.adoc[implement an event handler], you need to provide a Java class respecting the Handler interface.
+To xref:integration:event-handlers.adoc[implement an event handler], you need to provide a Java class respecting the Handler interface.
 
 === Bonita Runtime languages
 

@@ -21,12 +21,12 @@ In a Non-Production or Production environment, a layout is imported as a .zip ar
 
 == Live update
 
-xref:ROOT:live-update.adoc[Live update] allows the Administrator to update one element of the application in a situation of emergency.
+xref:runtime:live-update.adoc[Live update] allows the Administrator to update one element of the application in a situation of emergency.
 
 === Edit the layout
 
-You can xref:ROOT:resource-management.adoc]#modify[edit the content of a layout] by installing a new version.
+You can xref:ROOT:resource-management.adoc#modify[edit the content of a layout] by installing a new version.
 
 === Modify the pages in an application
 
-You can xref:ROOT:applications.adoc]#define-navigation[link another layout to an application] in the application descriptor.
+You can xref:runtime:applications.adoc#define-navigation[link another layout to an application] in the application descriptor.

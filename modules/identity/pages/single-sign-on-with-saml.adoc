@@ -15,7 +15,6 @@ SAML configuration is at tenant level. Each tenant can use a different authentic
 
 [NOTE]
 ====
-
 Bonita uses http://www.keycloak.org/[Keycloak] as SAML Service Provider adapter.
 ====
 
@@ -24,7 +23,6 @@ Bonita uses http://www.keycloak.org/[Keycloak] as SAML Service Provider adapter.
 This is an overview that relates the steps required to integrate a bonita bundle with an SAML Identity Provider.
 
 image:images/saml-overview.png[Authentication over SAML]
-// {.img-responsive}
 
 Here are some details about the Bonita SAML2 module,
 it is composed of:
@@ -63,7 +61,7 @@ To configure Bonita for SAML:
 
 . If you do not already have one:
  .. Download a Subscription edition bundle from the https://customer.bonitasoft.com/[Customer Service Center]
- .. xref:ROOT:tomcat-bundle.adoc[Configure] it as needed
+ .. xref:runtime:tomcat-bundle.adoc[Configure] it as needed
  .. Run it a first time, so that the first default tenant is created (TENANT_ID = 1)
  .. Stop it before modifying the configuration files below
 . In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
@@ -94,11 +92,11 @@ edit the authenticationManager-config.properties as follows:
 ----
 +
 
-Make sure to link:multi-tenancy-and-tenant-configuration[set the right tenant admin username].
- It is recommended to also replace the value of the passphrase (property auth.passphrase) which is used by the engine to verify the authentication request.
- The value must be the same as in the file *bonita-tenant-sp-custom.properties*. +
- If you need users to be able to log in without having an account on the IDP, you can authorize it by setting the property `saml.auth.standard.allowed` to true. Users will then be able to log in using the Bonita login page (/login.jsp) provided they have a bonita account and their password is different from their username. +
- If only a limited group of users need to bypass SAML authentication method, you can restrain it by setting the property `saml.auth.standard.allowed` to false and setting the property `auth.tenant.standard.whitelist` with the list of authorized usernames (comma separated).
+Make sure to xref:ROOT:multi-tenancy-and-tenant-configuration.adoc[set the right tenant admin username].
+It is recommended to also replace the value of the passphrase (property auth.passphrase) which is used by the engine to verify the authentication request.
+The value must be the same as in the file *bonita-tenant-sp-custom.properties*. +
+If you need users to be able to log in without having an account on the IDP, you can authorize it by setting the property `saml.auth.standard.allowed` to true. Users will then be able to log in using the Bonita login page (/login.jsp) provided they have a bonita account and their password is different from their username. +
+If only a limited group of users needs to bypass SAML authentication method, you can restrain it by setting the property `saml.auth.standard.allowed` to false and setting the property `auth.tenant.standard.whitelist` with the list of authorized usernames (comma separated).
 
 . In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
 edit the file bonita-tenant-sp-custom.properties as follows:
@@ -203,28 +201,30 @@ The policy can either be FROM_NAME_ID or FROM_ATTRIBUTE (in that case you need t
 
 [NOTE]
 ====
-
 If your you don't have a certificate for your Bonita server, the `CertificatePem` element can be replaced with a `PublicKeyPem` element containing the public key for the Bonita server.
 ====
 
 [NOTE]
 ====
-
 About SAML assertions encryption by the IdP: When the assertions encryption is active, the IdP uses a random key which in turn is encrypted with the SP's public key. +
 The SP uses its private key to decrypt the random key which in turn is used to decrypt the SAML assertion.
 This ensures that only the SP can decrypt the SAML assertion.
 ====
 
-[NOTE]
+[WARNING]
 ====
 
+Due to an https://issues.redhat.com/browse/KEYCLOAK-4377[issue] with the version of Keycloak embedded in this version of Bonita, responses that are both signed and encrypted cannot be validated. As a result, the IdP needs to either sign the request or encrypt it (but not both) for the single sign on to work with Bonita.
+====
+
+[NOTE]
+====
 If your IdP neither requires the SSO requests to be signed nor encrypts its own responses, you can remove the Keys node from the SP and set the attributes signaturesRequired, signRequest and signResponse to false. +
 If your IdP responses are not signed, you can remove the Keys node from the IDP and set the attributes validateRequestSignature and validateResponseSignature to false.
 ====
 
 [NOTE]
 ====
-
 More configuration options can be found in https://www.keycloak.org/docs/latest/securing_apps/index.html#_saml-general-config[Keycloak official documentation]
 ====
 
@@ -277,7 +277,6 @@ Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, t
 
 [WARNING]
 ====
-
 If your Bonita platform is behind a reverse proxy or a load balancer, You need to make sure the reverse proxy / load balancer is configured
 to include the correct headers for the host (and the protocol if needed) to the requests and the application server is configured to use these headers (it is usually the case by default). +
 This is required so that `HttpServletRequest.getRequestURL` returns the URL used by the user and not the internal URL used by the reverse proxy. +
@@ -303,7 +302,6 @@ Your IdP should declare a Service Provider named `bonita` (or the value of the `
 
 [NOTE]
 ====
-
 If the IdP declares a redirect/target URL, it might override the target URL set by the Service Provider request, and you may always end up on the same page after logging in. In that case, try to remove the redirect URL. Bonita supports redirection to the URL initially requested after logging in on the IdP, provided the IdP doesn't force this URL.
 ====
 
@@ -320,7 +318,6 @@ To do this, set the `logout.link.hidden` option to `true` in `authenticationMana
 
 [NOTE]
 ====
-
 When a user logs out from the IdP directly, Bonita Runtime's session will remain active. The user's session time to live will be reset
 to the configured session timeout value upon each user interaction with the server.
 ====
@@ -338,7 +335,6 @@ To setup Bonita for global logout:
 
 [NOTE]
 ====
-
 If the single logout flow supported by your IdP is not the same as the one supported by Bonita platform, the preferred solution to handle it anyway is to intercept the requests to /logoutService and handle the logout programmatically.
 ====
 

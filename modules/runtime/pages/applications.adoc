@@ -13,10 +13,10 @@ image:images/UI2021.1/admin_applications.png[Administrator Applications]
 Bonita allows companies to build business and process-centered web applications that provide access to operational dashboards and pages. +
 An application is a collection of pages and processes that meets a business need. It contains some or all of the following:
 
-* xref:ROOT:pages.adoc[Pages] and xref:forms.adoc[Forms]: the user interface components of the application. An application must contain at least one page.
-* xref:ROOT:admin-application-process-list.adoc[Processes]: the logic execution components of the application. An application must contain at least one process. A process can contain xref:forms.adoc[forms], which are the user interface of the process.
+* xref:ROOT:pages.adoc[Pages] and xref:pages-and-forms:forms.adoc[Forms]: the user interface components of the application. An application must contain at least one page.
+* xref:admin-application-process-list.adoc[Processes]: the logic execution components of the application. An application must contain at least one process. A process can contain xref:pages-and-forms:forms.adoc[forms], which are the user interface of the process.
 * xref:ROOT:data-handling-overview.adoc[Data]: the business information created, transformed, and/or deleted by the processes, and presented in pages and forms.
-* xref:ROOT:rest-api-extensions.adoc[REST API extensions]: called from pages or forms to retrieve data to be presented to the user.
+* xref:api:rest-api-extensions.adoc[REST API extensions]: called from pages or forms to retrieve data to be presented to the user.
 * xref:ROOT:layouts.adoc[Layout]: the frame in which application pages are displayed.
 * xref:ROOT:themes.adoc[Theme]: the appearance of application pages, including fonts and colors.
 
@@ -26,12 +26,12 @@ An application requires the following to be available:
 
 * The xref:ROOT:bdm-management-in-bonita-applications.adoc[Business Data Model] (BDM) must be deployed
 * The xref:ROOT:organization-in-bonita-applications-overview.adoc[organization] data must be deployed, so that application users can log in.
-* The access xref:ROOT:rest-api-authorization.adoc[authorizations] that grant users access to the application resources must be defined.
+* The access xref:identity:rest-api-authorization.adoc[authorizations] that grant users access to the application resources must be defined.
 
 == Application creation
 
 Even though you can create applications from the Bonita Administrator Application, these would not be taken into account in Bonita Studio nor the project sources. +
-So we strongly encourage your team to create applications in xref:ROOT:applicationCreation.adoc[Bonita Studio].
+So we strongly encourage your team to create applications in xref:applications:application-creation.adoc[Bonita Studio].
 
 == Application management
 
@@ -47,7 +47,7 @@ If this is the case, you will not be taken to the login page and will directly l
 
 When navigating to this page, the Administrator can view what layout and theme a linked with the application, but also all pages used by the application as well as the navigation structure. +
 There is no view of the processes used in the application, nor the Business Data Model, nor the organization. +
-An Adminitrator must check that all these required elements are available in the Bonita Runtime so the application runs smoothly. +
+An Administrator must check that all these required elements are available in the Bonita Runtime so the application runs smoothly. +
 To do so, click on _BPM_>__Processes__, _Organization_, and _BDM_.
 
 === Export an application
@@ -62,7 +62,7 @@ Still, to delete an application, click on the _Delete- icon
 
 === Live update
 
-In the details page of an application, you can xref:ROOT:live-update.adoc[Live Update] the elements mapped with the application descriptor:
+In the details page of an application, you can xref:live-update.adoc[Live Update] the elements mapped with the application descriptor:
 
 * the layout
 * the theme
@@ -87,7 +87,7 @@ To change the application layout:
 
 ==== Updating the theme
 
-Each application is associated with a xref:ROOT:themes.adoc[theme] that defines the application appearance. All pages developed with the xref:ui-designer-overview.adoc[UI Designer] will automatically benefit of application theme.
+Each application is associated with a xref:ROOT:themes.adoc[theme] that defines the application appearance. All pages developed with the xref:bonita-overview:ui-designer-overview.adoc[UI Designer] will automatically benefit of application theme.
 
 To update the application theme:
 
@@ -177,7 +177,7 @@ If you are setting up a new production environment by importing all the data, im
 * processes (including forms)
 * applications
 
-You will also need to apply any xref:ROOT:rest-api-authorization.adoc[custom authorization] definitions.
+You will also need to apply any xref:identity:rest-api-authorization.adoc[custom authorization] definitions.
 
 To import applications:
 
@@ -204,7 +204,7 @@ There are two aspects to updating an application: changing the application defin
 
 * To edit the metadata, click the Edit button. In the popup, modify the information about the application, then click *_Save_*.
 * To edit the layout, see <<layout,Specifying application layout>>.
-* To edit the theme, see <<theme,Specifying application theme>>. Note that the end user will see this modification with a delay (due to the xref:ROOT:cache-configuration-and-policy.adoc#applications[cache policy])
+* To edit the theme, see <<theme,Specifying application theme>>. Note that the end user will see this modification with a delay (due to the xref:cache-configuration-and-policy.adoc#applications[cache policy])
 * To edit the pages, go to the Pages zone. You can add a page by clicking *_Add_*. You can remove a page by clicking the trashcan icon for that page.
 Note that if you remove a page, the related menu items are automatically removed from the navigation.
 * To edit the navigation, go to the Navigation zone. You can add a menu or menu item by clicking *_Add_*. You can remove a menu or menu item by clicking the trashcan icon for that page.
@@ -213,10 +213,10 @@ You can reorder menus and menu items by dragging and dropping them.
 [discrete]
 ==== Updating application resources
 
-Some resources of an application can be updated live without needing to stop the processes or require users to log out of the application. xref:ROOT:live-update.adoc[Live update] is primarily intended for rapid deployment of updates in a pre-production test environment. It can be used to deploy updates in a production environment, but in most production environments applications and their components are versioned, so a planned roll-out is more typical.
+Some resources of an application can be updated live without needing to stop the processes or require users to log out of the application. xref:live-update.adoc[Live update] is primarily intended for rapid deployment of updates in a pre-production test environment. It can be used to deploy updates in a production environment, but in most production environments applications and their components are versioned, so a planned roll-out is more typical.
 
 You can use live update for the following resources:
 
-* xref:ROOT:live-update.adoc[Pages and forms]
-* xref:ROOT:live-update.adoc[Parameters]
-* xref:ROOT:live-update.adoc[Connectors]
+* xref:live-update.adoc[Pages and forms]
+* xref:live-update.adoc[Parameters]
+* xref:live-update.adoc[Connectors]

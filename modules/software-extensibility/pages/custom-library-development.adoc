@@ -17,19 +17,19 @@
 ====
 In the below example we use Maven as the project build tool, but it is also possible to use Gradle if it is the tool of your choice.
 ====
- 
+
 The example will externalize a function used in the xref:ROOT:define-who-can-do-what.adoc[Define who can do what] article.
- 
+
 === Choose your preferred tools
 
 You are free to choose the IDE of your choice to develop your library (Eclipse IDE, IntelliJ IDEA, VS Code...).
 You can also choose between `Java 11` or `Groovy 3` as target programming language.
-The following example will use `Java` and `Maven`, but other options are possible. 
+The following example will use `Java` and `Maven`, but other options are possible.
 
 To follow this tutorial you will need to install:
 
 * A https://adoptopenjdk.net/[JDK 11]
-* https://maven.apache.org/download.cgi[Maven] 
+* https://maven.apache.org/download.cgi[Maven]
 * The https://git-scm.com/downloads[Git SCM Client] (Optional)
 
 An Internet connection with access to Maven Central is required.
@@ -72,7 +72,7 @@ At the root of this folder create a `pom.xml` file.
 This library will be executed in the Bonita Runtime that already comes with `provided` dependencies in its class-path.
 To avoid dependencies conflicts between our custom library and the Bonita Runtime, we can use a https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#bill-of-materials-bom-poms[**Bill Of Material** (BOM), window = "_blank"].
 
-First, we need to define the target Bonita runtime version. You must use the xref:ROOT:product-versioning.adoc#_technical_id[technical id] as version. Add a `bonita-runtime.version` property in the `properties` section of the pom.xml:
+First, we need to define the target Bonita runtime version. You must use the xref:version-update:product-versioning.adoc#_technical_id[technical id] as version. Add a `bonita-runtime.version` property in the `properties` section of the pom.xml:
 
 [source, xml]
 ----
@@ -155,8 +155,8 @@ Maven projects have a default folder structure to find source files to build:
 * Resources are expected in the `src/main/resources` folder
 * Test resources are expected in the `src/test/resources` folder
 
-Create a `Users.java` Java class as entry point for our function. 
-This source must be in `src/main/java` folder. 
+Create a `Users.java` Java class as entry point for our function.
+This source must be in `src/main/java` folder.
 In addition, it must respect java package convention.
 So the file must be created in the `src/main/java/org/bonitasoft/extension/` folder as `org.bonitasoft.extension` will be our class package.
 
@@ -178,9 +178,9 @@ public class Users {
     private static final Logger LOGGER = LoggerFactory.getLogger(Users.class); <1>
 
     /**
-     * 
+     *
      * Retrieves the user id of the user who executed the given taskName in the given process instance
-     * 
+     *
      * @param apiAccessor, a {@link APIAccessor}
      * @param rootProcessInstanceId, the id of the root process instance
      * @param taskName, the name of the task
@@ -193,15 +193,15 @@ public class Users {
     public static long getUserWhoExecutedTaskWithName(APIAccessor apiAccessor, <2>
             long rootProcessInstanceId,
             String taskName) throws SearchException {
-        
+
         if(taskName == null || taskName.isBlank()) {
             throw new IllegalArgumentException("taskName cannot be null or empty");
         }
-        
+
         if(apiAccessor == null) {
             throw new IllegalArgumentException("apiAccessor cannot be null");
         }
-        
+
         LOGGER.debug("Searching user who executed task {} in process instance {}", taskName, rootProcessInstanceId);
 
         var executedBy = apiAccessor.getProcessAPI()
@@ -216,9 +216,9 @@ public class Users {
                 .map(ArchivedHumanTaskInstance::getExecutedBy)
                 .orElseThrow(() -> new IllegalArgumentException(String.format(
                         "No terminated task %s found in process instance %s", taskName, rootProcessInstanceId)));
-        
+
         LOGGER.debug("User with id {} has executed task {} in process instance {}", executedBy, taskName, rootProcessInstanceId);
-        
+
         return executedBy;
 
     }
@@ -375,7 +375,7 @@ class UsersTest {
                 () -> Users.getUserWhoExecutedTaskWithName(apiAccessor, 1L, taskName));
 
     }
-    
+
     @Test
     void testGetUserWhoExecutedTaskWithNameThrowsIllegalArgumentExceptionWhenAPIAccessorIsNull() throws SearchException {
         // Expect
@@ -446,7 +446,7 @@ It should build a coverage report in `target/site/jacoco/index.html`.
 
 == Source control and continuous delivery (Optional)
 
-While optional, it is highly recommended to use a SCM to ease the collaboration around this project. You also want to use a Continuous Integration environment that will build and test your library as often as required. For the sake of this example we will use Git and GitHub  
+While optional, it is highly recommended to use a SCM to ease the collaboration around this project. You also want to use a Continuous Integration environment that will build and test your library as often as required. For the sake of this example we will use Git and GitHub
 but other options are available.
 
 === Git (Source Control Management)
@@ -480,12 +480,12 @@ buildNumber.properties
 .classpath
 .project
 .settings/
- 
+
 # Intellij
 .idea/
 *.iml
 *.iws
- 
+
 # Mac
 .DS_Store
 ----
@@ -534,7 +534,7 @@ If your refresh the GitHub project repository page (https://github.com/<owner>/b
 
 ===== Add a README.md
 
-A highly recommended practice is to add a `README.md` file at the root of your project. 
+A highly recommended practice is to add a `README.md` file at the root of your project.
 This piece of documentation aims at helping other contributors quickly jump into the project.
 It should contain a small description of the purpose of the project, how to set up a development environment, and any kind of information that you consider relevant.
 
@@ -563,7 +563,7 @@ This library provide a set of additional functions to deal with Bonita users.
     ```shell
     $ git clone https://github.com/<owner>/bonita-extension-library.git
     ```
-    
+
 1. At the root of the repository run:
 
     ```shell
@@ -647,7 +647,7 @@ jobs:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
-          
+
       - name: Setup Java
         uses: actions/setup-java@v2
         with:
@@ -655,7 +655,7 @@ jobs:
 
       - name: Build
         run: ./mvnw -B -ntp clean verify
-    
+
       - name: Generate JaCoCo Badge
         uses: cicirello/jacoco-badge-generator@v2.4.1
         with:
@@ -666,7 +666,7 @@ jobs:
         with:
           default_author: github_actions
           message: 'commit badge'
-          add: '*.svg'        
+          add: '*.svg'
 ----
 
 ==== Release workflow
@@ -693,22 +693,22 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        
+
       - name: Setup Java
         uses: actions/setup-java@v2
         with:
           distribution: adopt
           java-version: 11
           server-id: github
-          
+
       - name: Configure Git user
         run: |
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
-      
-      - name: Build Release 
+
+      - name: Build Release
         run: ./mvnw --batch-mode release:prepare -DreleaseVersion=${{ github.event.inputs.version }} <1>
-    
+
       - name: Create Github Release
         id: create_release
         uses: actions/create-release@latest
@@ -719,17 +719,17 @@ jobs:
           release_name: Release v${{ github.event.inputs.version }}
           draft: false
           prerelease: false
-     
+
       - name: Upload Release Asset
-        id: upload-asset 
+        id: upload-asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above 
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above
           asset_path: target/bonita-extension-library-${{ github.event.inputs.version }}.jar
           asset_name: bonita-extension-library-${{  github.event.inputs.version }}.jar
-          asset_content_type: application/java-archive   
+          asset_content_type: application/java-archive
 ----
 <1> We call the `release:prepare` goal of the `maven-release-plugin` to create and build a tag with the given version.
 
@@ -750,7 +750,7 @@ The released `jar` file will be attached to a GitHub release and you may use thi
 
 
 
- 
+
 
 
 

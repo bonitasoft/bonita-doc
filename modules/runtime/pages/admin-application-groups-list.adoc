@@ -1,9 +1,8 @@
 = Group list in Bonita Administrator Application
 :page-aliases: ROOT:admin-application-groups-list.adoc
-:description: This page explains what a user with the _Administrator_ profile can see and do about groups (of the organization) in link:admin-application-overview[Bonita Administrator Application]. +
+:description: This page explains what a user with the Administrator profile can see and do about groups in Bonita Administrator Application.
 
-
-{description} +
+This page explains what a user with the _Administrator_ profile can see and do about groups (of the organization) in xref:admin-application-overview.adoc[Bonita Administrator Application]. +
 To easily manipulate users with the same rights, it is possible to group them together. +
 Groups can be defined in the organization, users can then be added to groups, and groups can be used to map actors or profiles or other permissions in Bonita.
 
@@ -26,7 +25,7 @@ On this page, an Administrator can:
 
 == Live Update
 
-The Administrator can xref:ROOT:live-update.adoc[Live Update] a group:
+The Administrator can xref:live-update.adoc[Live Update] a group:
 
 * create
 * delete
@@ -67,7 +66,7 @@ Bonita does not accept the '/' character in the group name field. A group name t
 In the way we conceive the way a user pertains to an organization, it is only possible to add both a role and a group (what we call a membership) to a user.  +
 For example, "Assistant"(role) of "Human Resources"(group).
 
-. Go to _Organization_/_Users_. You navigate to the xref:ROOT:admin-application-users-list.adoc[Users] page.
+. Go to _Organization_/_Users_. You navigate to the xref:admin-application-users-list.adoc[Users] page.
 . In the row of a user, click on the _View user details_ icon
 . Click on _Profiles_ / _Memberships_
 . To delete a membership, click on the _Delete_ icon of an existing membership

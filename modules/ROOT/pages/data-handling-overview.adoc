@@ -5,7 +5,7 @@ How to effectively use the different kinds of data available within Bonita Platf
 
 In a BPM-based application, use:
 
-* xref:ROOT:define-and-deploy-the-bdm.adoc[Business variables] for information that:
+* xref:data:define-and-deploy-the-bdm.adoc[Business variables] for information that:
  ** is mostly used by Bonita
  ** has meaning after a process instance is archived
  ** is used at several places in the process
@@ -30,9 +30,9 @@ Key benefits of using business data:
 * Improved performance compared with process variables or external databases
 * Easier application maintenance
 
-An application page accesses business data using the xref:ROOT:bdm-api.adoc[bdm REST API]. A page also contains page xref:variables.adoc[variables], which have no meaning outside the page.
+An application page accesses business data using the xref:ROOT:bdm-api.adoc[bdm REST API]. A page also contains page xref:pages-and-forms:variables.adoc[variables], which have no meaning outside the page.
 
-The data that is passed from a form to a process is defined using a xref:ROOT:contracts-and-contexts.adoc[contract]. Define a contract for process instantiation and for each human task.
+The data that is passed from a form to a process is defined using a xref:data:contracts-and-contexts.adoc[contract]. Define a contract for process instantiation and for each human task.
 These contracts are part of the process definition.
-A form has access to business data and documents using the xref:ROOT:contracts-and-contexts.adoc[context] and the xref:rest-api-overview.adoc[REST API].
-A form also contains form xref:ROOT:variables.adoc[variables], which have no meaning outside the form.
+A form has access to business data and documents using the xref:data:contracts-and-contexts.adoc[context] and the xref:rest-api-overview.adoc[REST API].
+A form also contains form xref:pages-and-forms:variables.adoc[variables], which have no meaning outside the form.
