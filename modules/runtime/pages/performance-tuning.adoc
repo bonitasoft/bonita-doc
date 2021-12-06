@@ -403,7 +403,7 @@ While the garbage collector is running, it prevents creation of new objects, whi
 We recommend to update the Garbage Collector parameters to use the following ones (`UseParallelGC` has been proven more eficient than `UseParNewGC` in our experience):
 
 * Edit file `setup/tomcat-templates/setenv.sh`
-* In the line: `CATALINA_OPTS=` 
+* In the line: `CATALINA_OPTS=`
 * Add: `-XX:+UseParallelGC -XX:ParallelGCThreads=10 -Xlog:gc*:file=${CATALINA_BASE}/logs/gc-$(date +%Y_%m_%d-%H_%M).log:time,uptime,hostname,pid:filecount=5,filesize=20M`
 
 
