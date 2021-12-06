@@ -400,7 +400,7 @@ This reduces the likelihood of the JVM garbage collector starting. +
 While the garbage collector is running, it prevents creation of new objects, which slows down the application server.
 
 ===== Garbage Collector
-We recommend to update the Garbage Collector parameters to use the following ones:
+We recommend to update the Garbage Collector parameters to use the following ones (`UseParallelGC` has been proven more eficient than `UseParNewGC` in our experience):
 
 * Edit file `setup/tomcat-templates/setenv.sh`
 * In the line: `CATALINA_OPTS=` 
