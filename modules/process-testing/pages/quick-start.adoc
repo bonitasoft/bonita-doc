@@ -149,30 +149,24 @@ In `src-test/java/com/company/test`, create a class `ProcessIT.java` with the fo
 
 [source, java]
 ----
-package com.company.bonitasoft.test;
+package com.company.bonita.test;
 
-import static com.bonitasoft.test.toolkit.predicate.ProcessInstancePredicates.containsPendingUserTasks;
-import static com.bonitasoft.test.toolkit.predicate.ProcessInstancePredicates.processInstanceArchived;
-import static com.bonitasoft.test.toolkit.predicate.ProcessInstancePredicates.processInstanceStarted;
-import static com.bonitasoft.test.toolkit.predicate.TaskPredicates.hasCandidates;
-import static com.bonitasoft.test.toolkit.predicate.TaskPredicates.taskArchived;
-import static com.bonitasoft.test.toolkit.predicate.TaskPredicates.taskReady;
+import static com.bonitasoft.test.toolkit.predicate.ProcessInstancePredicates.*;
+import static com.bonitasoft.test.toolkit.predicate.TaskPredicates.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;
 
 import java.util.List;
-
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.RegisterExtension;
-
 import com.bonitasoft.test.toolkit.BonitaTestToolkit;
+import com.bonitasoft.test.toolkit.BonitaTestToolkitFactory.Configuration;
 import com.bonitasoft.test.toolkit.contract.ComplexInputBuilder;
 import com.bonitasoft.test.toolkit.contract.ContractBuilder;
 import com.bonitasoft.test.toolkit.junit.extension.BonitaTestExtension;
-import com.bonitasoft.test.toolkit.junit.extension.BonitaTestExtension.Configuration;
 import com.bonitasoft.test.toolkit.model.BusinessData;
-import com.bonitasoft.test.toolkit.model.QueryResult;
+import com.bonitasoft.test.toolkit.model.BusinessObjectDAO;
 import com.bonitasoft.test.toolkit.model.Task;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
 class CreateDinosaurIT {
 
@@ -184,15 +178,15 @@ class CreateDinosaurIT {
             .build()); <1>
 
     @Test
-    void should_create_an_hungry_tyrannosaurus(BonitaTestToolkit toolkit) throws Exception {  <2>
+    void should_create_an_hungry_tyrannosaurus(BonitaTestToolkit toolkit) {  <2>
         var user = toolkit.getUser("walter.bates"); <3>
-        var processDef = toolkit.getProcessDefinition("create-dinosaur"); <4>
-        var businessObject = toolkit.getBusinessOject("com.company.model.Dinosaur"); <5>
+        var processDef = toolkit.getProcessDefinition("Dinosaur"); <4>
+        final BusinessObjectDAO<BusinessData> businessObjectDAO = toolkit.getBusinessObjectDAO("com.company.model.Dinosaur"); <5>
 
-        assertThat(businessObject.findAll(0, 10)).isEmpty();
+        assertThat(businessObjectDAO.find(0, 10)).isEmpty();
 
         var processInstance = processDef.startProcessFor(user); <6>
-        
+
         await().until(processInstance, processInstanceStarted()
                 .and(containsPendingUserTasks("CreateDinosaur"))); <7>
 
@@ -202,7 +196,7 @@ class CreateDinosaurIT {
                 .booleanInput("hungry", true);
         var task1Contract = ContractBuilder.newContract().complexInput("dinosaurInput", complexInputBuilder).build(); <8>
         var task1 = processInstance.getFirstPendingUserTask("CreateDinosaur"); <9>
-       
+
         await().until(task1, hasCandidates(user)
                 .and(taskReady()));
 
@@ -214,8 +208,7 @@ class CreateDinosaurIT {
         assertThat(processInstance.getFirstTask("goToHunt").isArchived()).isTrue();
 
         // Data assertions
-        QueryResult queryResult = businessObject.query("findByName", List.of("name=Tyrannosaurus"), 0, 10);
-        List<BusinessData> businessData = queryResult.getResults();
+        final List<BusinessData> businessData = businessObjectDAO.query("findByName", List.of("name=Tyrannosaurus"), 0, 10);
         assertThat(businessData).hasSize(1);
         assertThat(businessData.get(0).getStringField("name")).isEqualTo("Tyrannosaurus");
         assertThat(businessData.get(0).getStringField("color")).isEqualTo("Brown");
@@ -228,7 +221,7 @@ class CreateDinosaurIT {
 <2> The `BonitaTestToolkit`, injected by the `BonitaTestExtension`, is the main entry point to interact with the targeted Bonita platform.
 <3> The toolkit offers the possibility to retrieve an existing user on the targeted Bonta platform. Users are used to execute processes during the test scenario.
 <4> A process definition represents a deployed process on the targeted Bonita platform. It is used to start cases of a given process.
-<5> Using the toolkit, you can create a `BusinessObject`. It has to match an existing BusinessObject defined in the installed Business Data Model, and is used to retrieve instances of this business object.
+<5> Using the toolkit, you can create a `BusinessObjectDAO`. It has to match an existing BusinessObject defined in the installed Business Data Model, and is used to retrieve instances of this business object.
 <6> The process under test is started using its process definition.
 <7> Using the `awaitility` library and the `TaskPredicates` factory offers the possibility to express assertions on asynchronous Bonita concepts (task executions, process instantiation...).
 <8> Contracts can be built using a `ContractBuilder` and a `ComplexInputBuilder` if required. It creates a key-value model representing the contract required to execute the task.
