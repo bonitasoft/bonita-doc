@@ -6,10 +6,11 @@
 
 If you want to find out how to customize authentication refer to the dedicated documentation pages:
 
-* xref:ROOT:active-directory-or-ldap-authentication.adoc[LDAP server / Active Directory]
-* xref:ROOT:single-sign-on-with-cas.adoc[CAS single sign-on (SSO)]
-* xref:ROOT:single-sign-on-with-saml.adoc[Single sign-on with SAML (SSO)]
-* xref:ROOT:single-sign-on-with-kerberos.adoc[Single sign-on with Kerberos (SSO)]
+* xref:identity:active-directory-or-ldap-authentication.adoc[LDAP server / Active Directory]
+* xref:identity:single-sign-on-with-cas.adoc[CAS single sign-on (SSO)]
+* xref:identity:single-sign-on-with-saml.adoc[Single sign-on with SAML (SSO)]
+* xref:identity:single-sign-on-with-kerberos.adoc[Single sign-on with Kerberos (SSO)]
+* xref:identity:single-sign-on-with-oidc.adoc[Single sign-on with OIDC (SSO)]
 
 == Bonita Runtime authentication scenario
 
