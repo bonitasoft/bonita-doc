@@ -281,6 +281,20 @@ Two datasources are defined:
 
 Note that the sum of the maximum values configured for bonitaDS and bonitaSequenceManagerDS should be less than or equal to the maximum number of simultaneous connections allowed to your database.
 
+TIP: While the configuration of the 2 provided datasources works,
+some improvements can be made (and were added in later bonita versions)
+----
+Add/replace the following parameters in TOMCAT_HOME/setup/tomcat-templates/bonita.xml
+(or TOMCAT_HOME/conf/Catalina/localhost/bonita.xml if you don't start tomcat using the start-bonita.sh/.bat script):
+
+testWhileIdle="false"
+softMinEvictableIdleTimeMillis="-1"
+timeBetweenEvictionRunsMillis="60000"
+minEvictableIdleTimeMillis="60000"
+----
+
+What those (and others) parameters do is described in more details in the https://commons.apache.org/proper/commons-dbcp/configuration.html[official documentation].
+
 [discrete]
 ===== bonitaSequenceManagerDS
 
