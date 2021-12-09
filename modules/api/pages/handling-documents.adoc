@@ -182,7 +182,7 @@ def deleteArchivedDocumentsOlderThan(ProcessAPI processAPI, long archivedDate) {
 	def searchResult = searchArchivedDocumentsOlderThanArchivedDate(processAPI, archivedDate, startIndex, maxResults)
 	while(searchResult.count > 0){
 		searchResult.result.each { archivedDocument ->
-			processAPI.deleteContentOfArchivedDocument(archivedDocument.contentStorageId.toLong());
+			processAPI.deleteContentOfArchivedDocument(archivedDocument.getId());
 		}
 		startIndex += maxResults
 		searchResult = searchArchivedDocumentsOlderThanArchivedDate(processAPI, archivedDate, startIndex, maxResults)
