@@ -1,6 +1,6 @@
 = Getting Started Tutorial
 :description: To get started with Bonita, learn how to create your first complete living application.
-:page-aliases: ROOT:getting-started-index.adoc, Root:tutorial-overview.adoc
+:page-aliases: ROOT:getting-started-index.adoc, ROOT:tutorial-overview.adoc
 
 {description}
 
