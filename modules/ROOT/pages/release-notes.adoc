@@ -226,72 +226,71 @@ Bonita Tomcat bundle 2021.2 does not include anymore the following example pages
 - Groovy example page
 - HTML example page
 
-If you migrate from an earlier version of Bonita, you can now delete them if you do not use them (previously, they could not be deleted).
+If you update Bonita from an earlier version, you can now delete them if you do not use them (previously, they could not be deleted).
 
 
 == Bug fixes
 
-=== Fixes in Bonita 2021.2-u1
+=== Fixes in Bonita 2021.2-u1 (2021-11-26)
 
-==== Fixes in Bonita Development Suite (Studio and UI Designer)
+==== Fixes in Bonita Studio (including Bonita UI Designer)
 
-* STUDIO-4169 - Maven zip dependencies cannot be retrieved from Studio (REST API, Themes)
-* STUDIO-4159 - Invalid Search index reference in operations
-* STUDIO-4158 - Deadlock while building process with LA build command
-* STUDIO-4156 - "Initializing portal..." in window when user click on Applications in the Studio
-* STUDIO-4148 - Missing DAO and new Object created in the BDM : Expression Editor is not up-to-date
-* STUDIO-4135 - Import bos broken if project's name contains accents or quotes
+* STUDIO-4118 - Projects are lost by the studio whereas there are on the disk
 * STUDIO-4122 - Documentation generation fails with decision table
-* STUDIO-4118 - Projects are lost by the Studio whereas there are on the disk
-* STUDIO-4180 - Update extension fails because an optional value is not present
-* STUDIO-4188 - Switch to a bonita project after renaming it
+* STUDIO-4135 - Import .bos is broken if project name contains accents or quotes
+* STUDIO-4148 - Missing DAO and new Object created in the BDM: Expression Editor is not up-to-date
+* STUDIO-4156 - "Initializing portal..." in a window when the user clicks on Applications in the Studio
+* STUDIO-4158 - Deadlock while building process with LA build command
+* STUDIO-4159 - Invalid Search key reference in operations
+* STUDIO-4169 - Maven .zip dependencies cannot be retrieved from Bonita Studio (REST API extensions, themes)
+* STUDIO-4180 - Updating an extension fails because an optional value is not present
+* STUDIO-4188 - Switching to a Bonita project is not possible after renaming it
 
-==== Fixes in Bonita Runtime (including Administrator app & User app)
+==== Fixes in Bonita Runtime (including Bonita Applications)
 
-* RUNTIME-597 - [Custom API Extension] The redirect mechanism impacts rest api extension response
+* RUNTIME-472 - Loging out of the Super Administration application and in with another credentials gives a 403 error
+* RUNTIME-473 - generateRequestKey script and Bonita Tomcat do not use the same 'java' binary
+* RUNTIME-518 - REST API caseVariable returns a 500 error message when p is greater than the number of results in the database
+* RUNTIME-527 - Case details and Task details do not display 'displayDescription'
+* RUNTIME-537 - Execute the task on behalf of someone from the new Admin Task Details does not set the executedBySubstitute
+* RUNTIME-541 - Process instances started on someone's behalf are not displayed as such in the Case Details page
+* RUNTIME-542 - It is not possible to add a comment when you execute a task with no form on someone else's behalf
+* RUNTIME-563 - The case comments in the task details disappear after a task is completed
+* RUNTIME-586 - CORS requests do not work with OpenID Connect for preflight requests
 * RUNTIME-593 - Several third party libraries dependency issues
-* RUNTIME-586 - CORS requests enabled to work with OpenID Connect for preflight requests
-* RUNTIME-563 - The case comments in the task details disappears after a task is completed
-* RUNTIME-542 - Have the possibility to add a comment when you execute a task with no form on someone else's behalf
-* RUNTIME-541 - Process instances started on someones behalf displayed as such in the case Details page
-* RUNTIME-537 - Execute the task on behalf of someone from new Admin Task Details sets the executedBySubstitute
-* RUNTIME-527 - Case details and Task details does not display 'displayDescription'
-* RUNTIME-518 - REST API caseVariable returns 500 error message when p greater than number results in database
-* RUNTIME-473 - generateRequestKey script and Bonita Tomcat bound to use the very same 'java' binary
-* RUNTIME-472 - Redirection to login page after logout of Super Admin user
+* RUNTIME-597 - The redirect mechanism on REST API extension response sends to the html page response of custom pages
 
-=== Fixes in Bonita 2021.2
+=== Fixes in Bonita 2021.2 (2021-09-23)
 
-==== Fixes in Studio and UI Designer
+==== Fixes in Bonita Studio (including Bonita UI Designer)
 
+* STUDIO-3793 - UIPath connector is not working with cloud orchestrator
+* STUDIO-3875 - Issue with "Switch project" function
+* STUDIO-3880 - Editing domain can be null on an opended diagram
+* STUDIO-3898 - Model - annotations are positioned relatively to lanes coordinates (not absolute)
+* STUDIO-3936 - EMF resources not in synch after using Git operations
+* STUDIO-3953 - LA Builder is slow
+* STUDIO-3962 - Release note view is broken on windows
+* STUDIO-4043 - errors while importing .bos in studio
+* STUDIO-4066 - java.lang.NullPointerException at build when wrong variable entered in script but not shown in validation
+* STUDIO-4086 - Expression editor inserts the wrong operator ' =<' instead of '<=' in groovy script
+* STUDIO-4113 - Process Validation freezes after process import
+* STUDIO-4126 - Process execution errors: bcd-dependencies:7.11.5 generates a .bar different from Studio 7.11.5
 * UID-459 - BO variable cannot be edited in fragment after workspace import from previous version and error message is wrong
 
-* STUDIO-4126 - Process execution errors: bcd-dependencies:7.11.5 generates a .bar different from Studio 7.11.5
-* STUDIO-4113 - Process Validation freezes after process import
-* STUDIO-4086 - Expression editor inserts the wrong operator ' =<' instead of '<=' in groovy script
-* STUDIO-4066 - java.lang.NullPointerException at build when wrong variable entered in script but not shown in validation
-* STUDIO-4043 - errors while importing .bos in studio
-* STUDIO-3962 - Release note view is broken on windows
-* STUDIO-3953 - LA Builder is slow
-* STUDIO-3936 - EMF resources not in synch after using Git operations
-* STUDIO-3898 - Model - annotations are positioned relatively to lanes coordinates (not absolute)
-* STUDIO-3880 - Editing domain can be null on an opended diagram
-* STUDIO-3875 - Issue with "Switch project" function
-* STUDIO-3793 - UIPath connector is not working with cloud orchestrator
+==== Fixes in Bonita Runtime 
 
-==== Fixes in Bonita Runtime
-
-* RUNTIME-479 - CVEs in OpenSSL version in Docker images
-* RUNTIME-447 - Security vulnerability REST API portal/runreport open to all profiles
-* RUNTIME-271 - Archived cases query fails with 'operator does not exist' error when filtering on process name
-* RUNTIME-261 - BDM installation failed when a bdm was already installed
-* RUNTIME-138 - Entire BDM install history lost when BDM deployment issue
-* RUNTIME-132 - [SAML] Getting the default loging page when signing in on a guest app
-* RUNTIME-84 - Loading a class with Class.forName can keep references in VirtualClassloader
-* RUNTIME-70 - BDM schemas changes are not rolled back after a failed installation of a new BDM over an existing one
-* RUNTIME-34 - Install a BDM with an invalid custom query fail silently
-* RUNTIME-27 - Services resume failures after the la-deployer detects bdm deployment timeout
 * RUNTIME-23 - Installing BDM with a wrong custom query corrupts the BDM database without any rollback option
+* RUNTIME-27 - Services resume failures after the la-deployer detects bdm deployment timeout
+* RUNTIME-34 - Install a BDM with an invalid custom query fail silently
+* RUNTIME-70 - BDM schemas changes are not rolled back after a failed installation of a new BDM over an existing one
+* RUNTIME-84 - Loading a class with Class.forName can keep references in VirtualClassloader
+* RUNTIME-132 - [SAML] Getting the default loging page when signing in on a guest app
+* RUNTIME-138 - Entire BDM install history lost when BDM deployment issue
+* RUNTIME-261 - BDM installation failed when a bdm was already installed
+* RUNTIME-271 - Archived cases query fails with 'operator does not exist' error when filtering on process name
+* RUNTIME-447 - Security vulnerability REST API portal/runreport open to all profiles
+* RUNTIME-479 - CVEs in OpenSSL version in Docker images
 
 == Known issues
 
