@@ -5226,7 +5226,7 @@ Signal events are caught by processes using `catch signal event` flow nodes (Sta
 
 ==== Methods
 
-The methods used for this resource is:
+The method used for this resource is:
 
 * POST - Broadcast a signal event
 
