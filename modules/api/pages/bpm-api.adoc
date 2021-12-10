@@ -5233,10 +5233,18 @@ The method used for this resource is:
 ==== Broadcast a signal event
 
 * *URL* +
-`/API/bpm/signal/:name`
+`/API/bpm/signal`
 
 * *Method* +
 `POST`
+
+* *Request body* +
+[source,json]
+----
+{
+  "name" : "signal name"
+}
+----
 
 * *Success Response*
  ** *Code*: 204
