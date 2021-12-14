@@ -3,3 +3,4 @@ modules/ROOT/pages/index.adoc merge=ours
 modules/ROOT/pages/bonita-ui-designer-dependencies.adoc merge=ours
 modules/ROOT/pages/bonita-data-repository-dependencies.adoc merge=ours
 modules/ROOT/pages/bonita-engine-dependencies.adoc merge=ours
+modules/ROOT/pages/product-versioning.adoc merge=ours
