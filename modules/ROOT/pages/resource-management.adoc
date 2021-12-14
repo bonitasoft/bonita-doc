@@ -32,7 +32,13 @@ If a resource contains both `Index.groovy` and `index.html`, the Groovy class ta
 
 [NOTE]
 ====
-To insert line breaks in a page.properties file, end the line that precedes the line break with a `\`.
+To insert line breaks in a page.properties file, end the line that precedes the line break with a `\`.  +
+For example:
+```
+apiExtensions=example1RestAPI, example2RestAPI, example3RestAPI, example4RestAPI, \ 
+example5RestAPI, example6RestAPI, example7RestAPI, example8RestAPI, \
+example9RestAPI, example10RestAPI
+```
 ====
 
 == Authorization permissions for resources
