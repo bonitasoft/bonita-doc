@@ -51,7 +51,7 @@ Software required for Bonita Platform.
 | 8.2 64 bits
 
 | Ubuntu
-| 18.04 LTS 64 bits
+| 20.04 LTS 64 bits
 
 | *Java Virtual Machine*
 |
