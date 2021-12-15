@@ -5214,3 +5214,37 @@ When not set, the type is guessed using the value. Be careful as it can lead to 
 
 * *Success Response*
  ** *Code*: 204
+ 
+[#signal]
+
+=== Signal
+
+==== Description
+
+Use this resource to broadcast a BPM signal event.
+Signal events are caught by processes using `catch signal event` flow nodes (Start, intermediate or boundary).
+
+==== Methods
+
+The method used for this resource is:
+
+* POST - Broadcast a signal event
+
+==== Broadcast a signal event
+
+* *URL* +
+`/API/bpm/signal`
+
+* *Method* +
+`POST`
+
+* *Request body* +
+[source,json]
+----
+{
+  "name" : "signal name"
+}
+----
+
+* *Success Response*
+ ** *Code*: 204
