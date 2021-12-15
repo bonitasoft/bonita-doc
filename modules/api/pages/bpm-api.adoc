@@ -1954,6 +1954,66 @@ A JSON representation of the retrieved activity variable
 }
 ----
 
+=== ArchivedActivityVariable
+
+==== Description
+
+This resource enables you to retrieve the value of a specific archived variable name for a specific case (or process instance). Only persistent variables are concerned by this resource, not transient variables.
+
+==== Identifier
+
+The `sourcedObjectId` of the archived activity variable (a long value).
+
+==== Representation
+
+[source,json]
+----
+{
+  "name": "The name of the archived activity variable",
+  "description": "The description of the variable, if any",
+  "type": "The fully qualified class name of the variable type",
+  "containerId": "The ID of the activity containing this variable (same as the one passed as parameter)",
+  "containerType" : "ACTIVITY_INSTANCE",
+  "value": "the value of this variable. The format of the value depends on the type of the variable",
+  "archivedDate" : "dd-MM-yyyy HH:mm:ss.SSS",
+  "sourcedObjectId": "42"
+}
+----
+
+==== Methods
+
+The methods available for this resource are:
+
+* GET - Read an existing archived activity instance variable
+
+==== Retrieving a archived activity instance variable
+
+* *URL* +
+`/API/bpm/archivedActivityVariable/:activityId/:variableName`
+ ** activityId: the identifier of the activity from which to retrieve the variable
+ ** variableName: the name of the variable to retrieve +
+_Example_: `API/bpm/archivedActivityVariable/20004/RequestValidationData`
+* *Method* +
+`GET`
+* *Success Response* +
+A JSON representation of the retrieved archived activity variable
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+{
+  "sourceObjectId":5010,
+  "name":"RequestValidationData",
+  "description":null,
+  "className":"java.lang.String",
+  "containerId":"20004",
+  "containerType" : "ACTIVITY_INSTANCE",
+  "value":"Confirmed",
+  "archivedDate" : "04-02-1985 09:20:30.123"
+}
+----
+
 === CaseVariable
 
 ==== Description
@@ -2058,6 +2118,101 @@ A representation of a list of case variables
     "value":"1FFL54184KOL",
     "case_id":"11754",
     "type":"java.lang.Long"
+  }
+]
+----
+
+=== ArchivedCaseVariable
+
+==== Description
+
+List or find case variables. A case is an instance of a process.
+
+==== Identifier
+
+The `sourceObjectId` of the archived case variable (a long value).
+
+==== Representation
+
+[source,json]
+----
+{
+  "description":"Detailed description of the case variable, as set in the definition at design-time",
+  "name":"name of the variable in the case",
+  "value":"the current value of the case variable",
+  "case_id":"ID of the case this variable belongs to",
+  "type":"the Java type of the variable",
+  "archivedDate" : "dd-MM-yyyy HH:mm:ss.SSS",
+  "sourceObjectId": "42" // ID of the variable before it was archived
+}
+----
+
+==== Methods
+
+The methods used for this resource are:
+
+* GET - Search for an archived case variables from its case ID, or find a single case variable from case ID and variable name
+
+==== Get an archived case variable
+
+* *URL* +
+`/API/bpm/archivedCaseVariable/:caseId/:variableName`
+* *Method* +
+`GET`
+* *Success Response* +
+An archived case variable representation
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+{
+  "description":"",
+  "name":"myInvoiceAmount",
+  "value":"14.2",
+  "case_id":"1",
+  "type":"java.lang.Float",
+  "archivedDate" : "dd-MM-yyyy HH:mm:ss.SSS",
+  "sourceObjectId": "42" // ID of the variable before it was archived
+  
+}
+----
+
+==== Get the list of archived case variables
+
+* *URL* +
+`/API/bpm/archivedCaseVariable` +
+_Example_: `/API/bpm/archivedCaseVariable?p=0&c=10&f=case\_id%3d11754`
+* *Method* +
+`GET`
+* *Data Params* +
+`p` and `c` must be used for result pagination. +
+`f = case_id%3d[caseId]` to indicate that you want to add a filter on 'case_id' with value [caseId] (%3d is the URL-encoded '=' (equals) sign)
+* *Success Response* +
+A representation of a list of archived case variables
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+[
+  {
+    "description":"",
+    "name":"myInvoiceAmount",
+    "value":"14.2",
+    "case_id":"11754",
+    "type":"java.lang.Float",
+    "archivedDate" : "12-12-2012 12:12:12.120",
+    "sourceObjectId" : "42"
+  },
+  {
+    "description":"invoice reference",
+    "name":"myInvoiceReference",
+    "value":"1FFL54184KOL",
+    "case_id":"11754",
+    "type":"java.lang.Long",
+    "archivedDate" : "01-01-2021 03:10:38.520",
+    "sourceObjectId" : "13"
   }
 ]
 ----
