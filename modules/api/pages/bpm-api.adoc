@@ -1975,7 +1975,7 @@ The `sourcedObjectId` of the archived activity variable (a long value).
   "containerId": "The ID of the activity containing this variable (same as the one passed as parameter)",
   "containerType" : "ACTIVITY_INSTANCE",
   "value": "the value of this variable. The format of the value depends on the type of the variable",
-  "archivedDate" : "dd-MM-yyyy HH:mm:ss.SSS",
+  "archivedDate" : "yyyy-MM-dd HH:mm:ss.SSS",
   "sourcedObjectId": "42"
 }
 ----
@@ -2010,7 +2010,7 @@ A JSON representation of the retrieved archived activity variable
   "containerId":"20004",
   "containerType" : "ACTIVITY_INSTANCE",
   "value":"Confirmed",
-  "archivedDate" : "04-02-1985 09:20:30.123"
+  "archivedDate" : "1985-02-04 09:20:30.123"
 }
 ----
 
@@ -2142,7 +2142,7 @@ The `sourceObjectId` of the archived case variable (a long value).
   "value":"the current value of the case variable",
   "case_id":"ID of the case this variable belongs to",
   "type":"the Java type of the variable",
-  "archivedDate" : "dd-MM-yyyy HH:mm:ss.SSS",
+  "archivedDate" : "yyyy-MM-dd HH:mm:ss.SSS",
   "sourceObjectId": "42" // ID of the variable before it was archived
 }
 ----
@@ -2172,7 +2172,7 @@ An archived case variable representation
   "value":"14.2",
   "case_id":"1",
   "type":"java.lang.Float",
-  "archivedDate" : "dd-MM-yyyy HH:mm:ss.SSS",
+  "archivedDate" : "yyyy-MM-dd HH:mm:ss.SSS",
   "sourceObjectId": "42" // ID of the variable before it was archived
   
 }
@@ -2202,7 +2202,7 @@ A representation of a list of archived case variables
     "value":"14.2",
     "case_id":"11754",
     "type":"java.lang.Float",
-    "archivedDate" : "12-12-2012 12:12:12.120",
+    "archivedDate" : "2012-12-12 12:12:12.120",
     "sourceObjectId" : "42"
   },
   {
@@ -2211,7 +2211,7 @@ A representation of a list of archived case variables
     "value":"1FFL54184KOL",
     "case_id":"11754",
     "type":"java.lang.Long",
-    "archivedDate" : "01-01-2021 03:10:38.520",
+    "archivedDate" : "2021-01-01 03:10:38.520",
     "sourceObjectId" : "13"
   }
 ]
