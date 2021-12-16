@@ -71,7 +71,7 @@ All Search requests done using **search terms** are case-insensitive but **filte
 | no
 
 | Hello Charles
-| `searchBuilder.searchTerm( "Hello Charles")`
+| `searchBuilder.searchTerm("Hello Charles")`
 | yes
 
 | Hello Charles
