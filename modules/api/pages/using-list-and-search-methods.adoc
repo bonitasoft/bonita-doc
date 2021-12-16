@@ -57,7 +57,7 @@ sob.differentFrom</b>(HumanTaskInstanceSearchDescriptor.ASSIGNEE_ID, myUser.getI
 
 WARNING: On Oracle database, search is case-sensitive.
 
-All Search done using search terms are case-insensitive but not filter.
+All Search requests done using **search terms** are case-insensitive but **filtering** IS case-sensitive.
 
 |===
 | Phrase in database | Search string | Matches
