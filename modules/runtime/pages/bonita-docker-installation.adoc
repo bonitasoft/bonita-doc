@@ -135,7 +135,7 @@ This image is built from the following https://github.com/Bonitasoft-Community/b
 
 Create a file `docker-compose.yml` with the following content
 
-[source,yaml]
+[source,yaml,subs="+macros"]
 ----
 # Use tech_user/secret as user/password credentials
 version: '3'
@@ -227,11 +227,11 @@ Now you can access the Bonita Runtime on localhost:8080/bonita and login using: 
 == Secure your remote access
 
 This docker image ensures to activate by default both static and dynamic authorization checks on xref:identity:rest-api-authorization.adoc[REST API]. To be coherent it also deactivates the HTTP API.
-But for specific needs you can override this behavior by setting HTTP_API to true and REST_API_DYN_AUTH_CHECKS to false :
+But for specific needs you can override this behavior by setting HTTP_API to true and COM_BONITASOFT_ENGINE_AUTHORIZATION_REST_DYNAMIC_CHECK_ENABLE to false :
 
 [source,shell script,subs="+macros"]
 ----
-docker run  -e HTTP_API=true -e REST_API_DYN_AUTH_CHECKS=false --name bonita -v bonita-lic:/opt/bonita_lic/ -h <hostname> -d -p 8080:8080  quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
+docker run  -e HTTP_API=true -e COM_BONITASOFT_ENGINE_AUTHORIZATION_REST_DYNAMIC_CHECK_ENABLE=false --name bonita -v bonita-lic:/opt/bonita_lic/ -h <hostname> -d -p 8080:8080  quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
 == Environment variables
@@ -263,6 +263,12 @@ This optional environment variable is used in conjunction with `MONITORING_PASSW
 This optional environment variable is used in conjunction with `MONITORING_USERNAME` to define the access to the xref:runtime-monitoring.adoc#_prometheus_publisher[Prometheus monitoring endpoint], which is protected with https://en.wikipedia.org/wiki/Basic_access_authentication[BASIC Auth access]. If it is not specified, the default monitoring username `mon1tor1ng_adm1n` will be used.
 
 === REST_API_DYN_AUTH_CHECKS
+
+Deprecated, now you can use xref:#dynamic-check-enable[COM_BONITASOFT_ENGINE_AUTHORIZATION_REST_DYNAMIC_CHECK_ENABLE] instead.
+
+[#dynamic-check-enable]
+
+=== COM_BONITASOFT_ENGINE_AUTHORIZATION_REST_DYNAMIC_CHECK_ENABLE (Subscription editions only)
 
 This optional environment variable is used to enable/disable dynamic authorization checking on Bonita REST API. The default value is true, which will activate dynamic authorization checking.
 

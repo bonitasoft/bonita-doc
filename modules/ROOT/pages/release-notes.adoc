@@ -40,6 +40,10 @@ As a consequence, the following environment properties were removed:
 * `DB_ADMIN_USER`
 * `DB_ADMIN_PASS`
 
+To rationalize the Bonita configuration variables, some properties have been renamed:
+
+* [.line-through]#`REST_API_DYN_AUTH_CHECKS`# flag is replaced by `COM_BONITASOFT_ENGINE_AUTHORIZATION_REST_DYNAMIC_CHECK_ENABLE`. See xref:runtime:bonita-docker-installation.adoc#dynamic-check-enable[dedicated section] for details.
+
 == Feature deprecations and removals
 
 == Bug fixes

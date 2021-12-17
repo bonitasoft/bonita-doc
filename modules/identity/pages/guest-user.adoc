@@ -75,7 +75,7 @@ In order for the authorization filter to let the guest user make the necessary A
 
 . Use the xref:runtime:bonita-platform-setup.adoc[platform setup tool] to retrieve the current configuration (Eg. setup.sh/.bat pull). You need to execute the following actions in the folder of the tenant in which the applications which requires public access are deployed.
 . In the tenant_portal folder of the target tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
-update the file `dynamic-permissions-checks-custom.properties` to uncomment 3 lines as follows (they may already be uncommented if you use the dynamic authorisation checking instead of the default static authorization checking) :
+update the file `dynamic-permissions-checks-custom.properties` to uncomment 3 lines as follows (they may already be uncommented if you use the dynamic authorization checking instead of the default static authorization checking) :
 +
 [source, properties]
 ----

@@ -22,7 +22,7 @@ Upon login, a user is granted a set of permissions. These permissions define the
 == Summary
 
 For a new Bonita installation, a basic set of authorization checks is activated by default for the REST API. But you might also want to <<activate,deactivate the engine HTTP API>>.
-Here are the key points of the authorizations configuration :
+Here are the key points of the authorization's configuration :
 
 * The static checks (activated by default on a fresh installation) create an authorization layer that exactly matches the standard Bonita Applications features and profiles.
 If you are using the Bonita Applications, you do not need to configure anything.
@@ -30,9 +30,6 @@ If you are using the Bonita Applications, you do not need to configure anything.
 The configuration file defines standard rules for the most frequent cases, so all you need to do is uncomment the rules you want to apply.
 * If you add a custom page, include a resources=[ list ] in your page.properties to specify which resources your custom page requires the users to have access to.
 * If the previous points do not meet your security needs, you can still manually customize the configuration and rules as much as you want.
-
-If you have migrated your platform from a version of Bonita earlier than 6.4.0, security is deactivated by default.
-You need to <<migrate,add authorization to your custom pages>> before you activate authorization.
 
 [NOTE.bonitacloud,caption=Bonita Cloud]
 ====
@@ -50,7 +47,7 @@ The static phase uses a set of configuration files:
 * `compound-permissions-mapping-*.properties`
 * `custom-permissions-mapping.properties`
 
-These files grant permissions to sets of users based on profile or user name.
+These files grant permissions to sets of users based on profile or username.
 You cannot remove permissions in a configuration file, so you must ensure that the default definitions grant the minimum permissions that you want to give to any user.
 
 The default versions of these files are located in `setup/platform_conf/initial/tenant_template_portal`.
@@ -136,9 +133,19 @@ In this example, the `custom_process_manager_permission` can be defined in the `
 
 == Dynamic authorization checking
 
+[NOTE]
+====
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
+
+[WARNING]
+====
+From Bonita version 2022.1, Dynamic authorization checking is enabled by default.
+====
+
 If the static authorization checks are not suitable for your applications, you can override the rules as you want using dynamic checks.
 A user is then granted a permission only if the dynamic check authorizes it.
-A dynamic check is implemented as sequence of conditions, including a Groovy script.
+A dynamic check is implemented as a sequence of conditions, including a Groovy script.
 This enables you to tailor the permissions needed to access a resource using dynamic information related to processes.
 
 A dynamic authorization check for a resource is specified by a line in the file `dynamic-permissions-checks-custom.properties`.
@@ -146,7 +153,7 @@ The line specifies the checks to be made for a request type for a method.
 There can be several terms in the line. Checking stops when the system returns success, indicating that the user is authorized.
 For example: `POST|bpm/case=[user|william.jobs, user|walter.bates, profile|Administrator, profile|User, check|org.bonitasoft.permissions.CasePermissionRule]`
 
-This specifies that a POST action can be done for a case resource if the user is william.jobs or walter.bates,
+This specifies that a `POST` action can be done for a `case` resource if the user is william.jobs or walter.bates,
 or any user with the Administrator profile, or any user with the User profile, or if the CasePermissionRule grants authorization.
 
 A `check` term indicates the name of a class to be called. The class must implement `org.bonitasoft.engine.api.permission.PermissionRule`.
@@ -158,13 +165,23 @@ The `dynamic-permissions-checks.properties` file contains a placeholder line for
 [source,properties]
 ----
 ## CasePermissionRule
-    #GET|bpm/case=[profile|Administrator, check|org.bonitasoft.permissions.CasePermissionRule]
-    #POST|bpm/case=[profile|Administrator, check|org.bonitasoft.permissions.CasePermissionRule]
-    #DELETE|bpm/case=[profile|Administrator, check|org.bonitasoft.permissions.CasePermissionRule]
-    #GET|bpm/archivedCase=[profile|Administrator, check|org.bonitasoft.permissions.CasePermissionRule]
+#GET|bpm/case=[profile|Administrator, check|org.bonitasoft.permissions.CasePermissionRule]
+#POST|bpm/case=[profile|Administrator, check|org.bonitasoft.permissions.CasePermissionRule]
+#DELETE|bpm/case=[profile|Administrator, check|org.bonitasoft.permissions.CasePermissionRule]
+#GET|bpm/archivedCase=[profile|Administrator, check|org.bonitasoft.permissions.CasePermissionRule]
 ----
 
-To specify a dynamic check for a method and resource, uncomment the line in the file `dynamic-permissions-checks-custom.properties` and add the conditions.
+By default, dynamic checks are enabled.
+
+To *completely disable* dynamic checks, simply either:
+
+* set the Environment variable `COM_BONITASOFT_ENGINE_AUTHORIZATION_REST_DYNAMIC_CHECK_ENABLE=false`
+* or add the Java System property `-Dcom.bonitasoft.engine.authorization.rest.dynamic.check.enable=false` to your `setEnv[.sh|.bat]` tomcat startup script.
+
+To disable a single dynamic check for a method and resource, comment out the corresponding line in the file `dynamic-permissions-checks-custom.properties`.
+
+To add a custom dynamic check for a method and resource, add your line in the file `dynamic-permissions-checks-custom.properties` following the example above.
+
 If you specify a condition that calls a Groovy script, you must add the new script:
 
 If the platform has never been started yet:
@@ -194,7 +211,7 @@ or under 'current/tenants/TENANT_ID/tenant_security_scripts/' if the platform ha
 ====
 
 Do *not* modify file `dynamic-permissions-checks.properties` directly, as it is reserved for examples, and may be overwritten during migration to a newer version.
-Custom values should be added manually in file `dynamic-permissions-checks`*`-custom`*`.properties`
+Custom values should be added manually in file `dynamic-permissions-checks**-custom**.properties`
 ====
 
 [discrete]
@@ -320,13 +337,13 @@ otherwise the compound permissions won't be automatically created when deploying
 
 == Authorization and custom profiles
 
-When a new xref:ROOT:custom-profiles.adoc[custom profile] is created, the permissions mappings are updated in the configuration files and in the cache.
+When a new xref:identity:profile-creation.adoc[custom profile] is created, the permissions mappings are updated in the configuration files and in the cache.
 It is not necessary to restart the application server to activate security for the new custom profile.
 
 == Granting permissions to a given resource
 
 If you only develop custom pages and you declare the resources they use properly, you should never have to create custom permissions.
-However, you may need to do so if you need to manually grant permissions to a given REST API resource (so that it can be called programatically for example). In order to do that, you need to:
+However, you may need to do so if you need to manually grant permissions to a given REST API resource (so that it can be called programmatically for example). In order to do that, you need to:
 
 . Look into the file `resources-permissions-mapping.properties` for the permissions that grant access to the resource.
 For example, in order to perform a GET on `bpm/task`, I can see that I need the permission `flownode_visualization` (syntax: `GET|bpm/task=[flownode_visualization]`)
