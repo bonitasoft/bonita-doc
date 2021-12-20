@@ -1,4 +1,4 @@
-= Generate project documentation
+= Teamwork: Project documentation
 :page-aliases: ROOT:project-documentation-generation.adoc
 :experimental: // activate the 'menu' macro
 :description: How to generate the project documentation in Bonita Studio.

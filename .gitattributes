@@ -5,3 +5,4 @@ modules/ROOT/pages/bonita-data-repository-dependencies.adoc merge=ours
 modules/ROOT/pages/bonita-engine-dependencies.adoc merge=ours
 modules/ROOT/pages/bonita-web-dependencies.adoc merge=ours
 modules/ROOT/pages/portal-js-dependencies.adoc merge=ours
+modules/ROOT/pages/product-versioning.adoc merge=ours
