@@ -29,19 +29,20 @@ Bonita Engine uses SLF4J to create the logs as well as some Bonita dependencies 
 
 SLF4J is a facade for various logging frameworks, and a logging framework must be available as the back-end. By default, Bonita uses JUL (Java Util Logging) as a the back-end to SLF4J.
 
-By default in the Bonita Runtime, all logs are sent to the JUL framework. To configure what is logged and where it is stored, edit the logging.properties file located in `conf` folder (see the http://tomcat.apache.org/tomcat-9.0-doc/logging.html[Apache Tomcat logging documentation]) of the Bonita Bundle.
+By default, in the Bonita Runtime, all logs are sent to the Log4j2 logger. To configure what is logged and where it is stored, edit the `log4j2-loggers.xml` and `log4j2-appenders.xml` file located in `conf` folder of the Bonita Bundle.
+See https://logging.apache.org/log4j/2.x/manual/configuration.html#Loggers[Log4j website]
 
-For the Bonita Runtime embedded in the Bonita Studio, the JUL configuration file is located in the Studio installation folder under
-`workspace/tomcat/conf`. After editing this file, restart Bonita by going to the *Server* menu and selecting the *Restart web server* option.
+For the Bonita Runtime embedded in the Bonita Studio, the Log4j2 configuration files are located in the Studio installation folder under
+`workspace/tomcat/conf`. After editing this file, Log4j2 should automatically reload the configuration without having to restart.
 
-Here is an example of the JUL configuration for the logger used in the <<your_log,example below>>:
+Here is an example of the Log4j2 configuration for the logger used in the <<your_log,example below>>:
 
-[source,properties]
+[source,xml]
 ----
-# Set log level to "finest" for newly created connector
-org.mycompany.connector.level = FINEST
-# Set log level to "finest" for Groovy script
-org.bonitasoft.groovy.script.level = FINEST
+<!-- Set log level to "finest" for newly created connector -->
+<Logger name="org.mycompany.connector" level="TRACE"/>
+<!-- Set log level to "finest" for Groovy script -->
+<Logger name="org.bonitasoft.groovy.script" level="TRACE"/>
 ----
 
 === Bonita Studio
@@ -92,12 +93,12 @@ In Bonita Studio you have access to the following log files :
 
 ==== Packages
 
-Logs are configured via the class package names and the main packages are `org.bonitasoft` and `com.bonitasoft` for subscription edition. +
+Logs are configured via the class package names, and the main packages are `org.bonitasoft` and `com.bonitasoft` for subscription edition. +
 Change these packages value to change the Bonita global log level.
 
 ==== Bonita Bundle
 
-On a Bonita bundle, you can configure the log level and you can access the log files directly, in `BUNDLE_HOME/logs`.
+On a Bonita bundle, you can configure the log level, and you can access the log files directly, in `BUNDLE_HOME/logs`.
 Each file name includes the date when the file was created. Log files:
 
 * _bonita.date_.log is the Bonita log file.
