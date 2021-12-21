@@ -52,7 +52,6 @@ sob.differentFrom</b>(HumanTaskInstanceSearchDescriptor.ASSIGNEE_ID, myUser.getI
 ----
 
 
-[#case_sensitivity]
 == Case sensitivity
 
 WARNING: On Oracle database, search is case-sensitive.
