@@ -310,11 +310,31 @@ These variables are used in conjunction to create a new user, set that user's pa
 
 === BONITA_SERVER_LOGGING_FILE, BONITA_SETUP_LOGGING_FILE
 
+WARNING: DEPRECATED See xref:#logger_configuration[how to configure logger]
+
 Since Bonita 7.9 BONITA_SERVER_LOGGING_FILE and BONITA_SETUP_LOGGING_FILE can be used to update logging configuration.
 
-`BONITA_SERVER_LOGGING_FILE` default value is /opt/bonita/server/conf/logging.properties.
+`BONITA_SERVER_LOGGING_FILE` default value is `/opt/bonita/conf/logs/log4j2-appenders.xml,/opt/bonita/conf/logs/log4j2-loggers.xml`
 
-`BONITA_SETUP_LOGGING_FILE` default value is /opt/bonita/setup/logback.xml.
+`BONITA_SETUP_LOGGING_FILE` default value is `/opt/bonita/setup/logback.xml`
+
+
+[#logger_configuration]
+== Logger configuration
+
+The logger can be configured by mounting a volume on folder `/opt/bonita/conf/logs` containing the configuration files.
+
+the volume must contain the 2 files
+https://github.com/bonitasoft/bonita-distrib/blob/dev/tomcat-resources/tomcat-distrib-for-bonita/src/main/resources/tomcat/server/conf/log4j2-loggers.xml[log4j2-loggers.xml]
+and
+https://github.com/bonitasoft/bonita-distrib/blob/dev/tomcat-resources/tomcat-distrib-for-bonita/src/main/resources/tomcat/server/conf/log4j2-appenders.xml[log4j2-appenders.xml]
+
+
+[NOTE]
+====
+Log4j2 automatically reloads configuration files when there is a change. However, if the file is invalid, the initial version
+of that file is used instead, and is not reloaded unless one of the other watched file is changed.
+====
 
 == Migrating from an earlier version of Bonita
 

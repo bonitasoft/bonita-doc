@@ -25,6 +25,27 @@ These credentials can be consulted and modified:
 
 == Technical updates
 
+===  Log4j2 Logger
+
+Bonita Runtime now use Log4j2 as logger.
+One of the great feature that it brings is the automatic reload of configuration files. There is no more need
+to restart the platform if you only want to change a log level.
+More information on how to use it in the docker image xref:runtime:bonita-docker-installation.adoc#logger_configuration[here] and in the bundle xref:setup-dev-environment:logging.adoc#_logging_configuration[here].
+
+
+[WARNING]
+====
+If, in previous version, you customized the `logging.properties` file, you should update `log4j2-loggers.xml` as described in the documentation
+xref:runtime:bonita-docker-installation.adoc#logger_configuration[here] and xref:setup-dev-environment:logging.adoc#_logging_configuration[here].
+
+A conversion table between logger levels in JUL and in Log4j2 is available
+https://logging.apache.org/log4j/2.x/log4j-jul/index.html[here]
+
+If you want to continue using the previous log format, the previous pattern is present in the `log4j2-appenders.xml` file but commented out.
+
+The Tomcat bundle does not log anymore in the console but only in `bonita.log` file. The previous behavior can be activated by activating the `Console` appender in `log4j2-appenders.xml`
+====
+
 === Docker image
 
 Folder structure inside Bonita Docker images has been simplified: instead of having /opt/bonita/BonitaCommunity-{bonitaVersion} or /opt/bonita/BonitaSubscription-{bonitaVersion}, we now simply have */opt/bonita*. +
