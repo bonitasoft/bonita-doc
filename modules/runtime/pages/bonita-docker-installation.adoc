@@ -326,8 +326,8 @@ https://github.com/bonitasoft/bonita-distrib/blob/dev/tomcat-resources/tomcat-di
 
 [NOTE]
 ====
-Log4j2 automatically reload configuration files when there is a change. However, if the file is invalid, the initial version
-of that file is used instead and is not reloaded unless one of the other watched file is changed.
+Log4j2 automatically reloads configuration files when there is a change. However, if the file is invalid, the initial version
+of that file is used instead, and is not reloaded unless one of the other watched file is changed.
 ====
 
 == Migrating from an earlier version of Bonita

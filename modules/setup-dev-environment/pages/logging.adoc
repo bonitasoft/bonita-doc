@@ -39,9 +39,9 @@ Here is an example of the Log4j2 configuration for the logger used in the <<your
 
 [source,xml]
 ----
-<!-- Set log level to "finest" for newly created connector -->
+<!-- Set log level to "TRACE" for newly created connector -->
 <Logger name="org.mycompany.connector" level="TRACE"/>
-<!-- Set log level to "finest" for Groovy script -->
+<!-- Set log level to "TRACE" for Groovy script -->
 <Logger name="org.bonitasoft.groovy.script" level="TRACE"/>
 ----
 
