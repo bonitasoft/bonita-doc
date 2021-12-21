@@ -54,7 +54,6 @@ sob.differentFrom</b>(HumanTaskInstanceSearchDescriptor.ASSIGNEE_ID, myUser.getI
 
 == Case sensitivity
 
-WARNING: On Oracle database, search is case-sensitive.
 
 All Search requests done using **search terms** are case-insensitive but **filtering** IS case-sensitive.
 
@@ -77,6 +76,8 @@ All Search requests done using **search terms** are case-insensitive but **filte
 | `searchBuilder.searchTerm("hello charles")`
 | yes
 |===
+
+WARNING: On Oracle database, search is case-sensitive.
 
 [#word_based_search]
 == Word-based search
