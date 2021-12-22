@@ -44,7 +44,8 @@
     **** Web service
         ***** xref:web-service-connector-overview.adoc[Connector web service]
         ***** xref:web-service-tutorial.adoc[Web service tutorial]
- ** xref:process-configuration-index.adoc[Process configuration]
+    **** xref:sharepointexample.adoc[Sharepoint]
+** xref:process-configuration-index.adoc[Process configuration]
   *** xref:environments.adoc[Environments]
   *** xref:configuring-a-process.adoc[Configure a process]
   *** xref:managing-dependencies.adoc[Manage process dependencies]
