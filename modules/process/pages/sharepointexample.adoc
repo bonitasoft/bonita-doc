@@ -14,7 +14,7 @@ Before you can request a token, your application must be registered in the https
 Go to Azure Active Directory and choose App registrations. Create a New registration, provide a new name for your application and select the account type.
 For your newly registered application, you then need to expose an API (add a scope and authorized client application using its Client ID).
 Finally, you need to add API permissions. It is a good practice to add only the permissions that you need in order to limit the security risks, and decide whether only Read permissions would be enough for certain objects or if you need to give ReadWrite access. You can use the online https://developer.microsoft.com/en-us/graph/graph-explorer[Graph Explorer] to help you determine which permissions you need to add. You can execute sample queries and it will show you the list of permissions used.
-image::images/images/graphexplorer.jpg[Graph Explorer]
+image:images/graphexplorer.jpg[Graph Explorer]
 
 == REST API connector configuration
 Generate token
