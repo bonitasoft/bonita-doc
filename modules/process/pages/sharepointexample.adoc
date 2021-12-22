@@ -17,7 +17,7 @@ Finally, you need to add API permissions. It is a good practice to add only the 
 image:images/graphexplorer.jpg[Graph Explorer]
 
 == REST API connector configuration
-Generate token
+=== Generate token
 You can use the POST connector and generate a token that you can then use for other actions.
 The URL to call is:
 [source,groovy]
