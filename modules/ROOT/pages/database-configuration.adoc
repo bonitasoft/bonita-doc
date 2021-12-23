@@ -307,6 +307,8 @@ ALTER USER bonita quota unlimited on users;
 
 ==== Microsoft SQL Server
 
+Use the default collation determined by the host OS's locale. 
+
 ===== XA Transactions
 
 To support XA transactions, SQL Server requires a specific configuration.
