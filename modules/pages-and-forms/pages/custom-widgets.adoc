@@ -2,7 +2,7 @@
 :page-aliases: ROOT:custom-widgets.adoc
 :description: To extend the standard widgets, develop your custom widgets using HTML, AngularJS and Javascript.
 
-{To extend the xref:ROOT:widgets.adoc[standard widgets], develop your custom widgets using HTML, AngularJS and Javascript.}
+To extend the xref:ROOT:widgets.adoc[standard widgets], develop your custom widgets using HTML, AngularJS and Javascript.
 
 After creation, custom widgets are available in the palette to design pages, application layouts, forms or fragments.
 
