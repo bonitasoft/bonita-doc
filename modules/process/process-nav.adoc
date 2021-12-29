@@ -36,6 +36,8 @@
     **** xref:ldap.adoc[LDAP]
     **** xref:messaging.adoc[Messaging]
     **** xref:generate-pdf-from-an-office-document.adoc[Document converter]
+    **** xref:rest.adoc[REST]
+        ***** xref:sharepointexample.adoc[Connecting to Sharepoint with REST]
     **** xref:salesforce.adoc[Salesforce]
     **** xref:sap-jco-3.adoc[SAP]
     **** xref:script.adoc[Script]
@@ -44,7 +46,6 @@
     **** Web service
         ***** xref:web-service-connector-overview.adoc[Connector web service]
         ***** xref:web-service-tutorial.adoc[Web service tutorial]
-    **** xref:sharepointexample.adoc[Sharepoint]
 ** xref:process-configuration-index.adoc[Process configuration]
   *** xref:environments.adoc[Environments]
   *** xref:configuring-a-process.adoc[Configure a process]
