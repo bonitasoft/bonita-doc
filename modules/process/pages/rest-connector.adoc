@@ -14,7 +14,9 @@ The available REST connectors are:
 * PUT: Use the POST HTTP verb to updates data to a third-party
 * PUT FILE: : Use the POST HTTP verb to updates files to a third-party
 
-== Connector parameters
+REST connectors support SSL and a proxy settings.
+
+== Connector Basic Parameters
 
 |===
 | Parameter name | Required information
