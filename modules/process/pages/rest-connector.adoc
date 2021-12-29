@@ -11,10 +11,10 @@ The available REST connectors are:
 * DELETE: Use the DELETE HTTP verb to delete resources on a third-party
 * POST: Use the POST HTTP verb to upload data to a third-party
 * POST FILE: Use the POST HTTP verb to upload files to a third-party
-* PUT: Use the POST HTTP verb to updates data to a third-party
-* PUT FILE: : Use the POST HTTP verb to updates files to a third-party
+* PUT: Use the POST HTTP verb to update data to a third-party
+* PUT FILE: Use the POST HTTP verb to update files to a third-party
 
-REST connectors support SSL and a proxy settings.
+REST connectors support SSL and proxy settings.
 
 == Connector Basic Parameters
 
