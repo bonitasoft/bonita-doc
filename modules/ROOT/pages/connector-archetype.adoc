@@ -56,7 +56,7 @@ Follow the http://maven.apache.org/guides/mini/guide-naming-conventions.html[mav
 
 A folder named _[your artifact id]_ is created, with your Bonita connector project, ready to use.
 
-[Tip]
+[TIP]
 ====
 You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
 
