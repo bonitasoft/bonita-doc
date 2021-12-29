@@ -36,7 +36,7 @@
     **** xref:ldap.adoc[LDAP]
     **** xref:messaging.adoc[Messaging]
     **** xref:generate-pdf-from-an-office-document.adoc[Document converter]
-    **** xref:rest.adoc[REST]
+    **** xref:rest-connector.adoc[REST]
         ***** xref:sharepointexample.adoc[Connecting to Sharepoint with REST]
     **** xref:salesforce.adoc[Salesforce]
     **** xref:sap-jco-3.adoc[SAP]
