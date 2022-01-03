@@ -67,6 +67,10 @@ To rationalize the Bonita configuration variables, some properties have been ren
 
 == Feature deprecations and removals
 
+=== REST API
+
+* It is not possible anymore to filter page using the `isHidden` attribute on the api `API/portal/page`. That field was not used and always false.
+
 == Bug fixes
 
 == Known issues
