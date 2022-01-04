@@ -1,0 +1,18 @@
+name: Commit Message format check
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  check-for-cc:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: check-for-cc
+        id: check-for-cc
+        uses: agenthunt/conventional-commit-checker-action@v1.0.0
+        with:
+          pr-body-regex: '(.*\n*)+(.*)'
