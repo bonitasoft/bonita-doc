@@ -8,6 +8,7 @@ asciidoc:
     javadocVersion: 7.13
     crowdinBonitaVersion: 7.13
     # page attributes
+    page-pagination: true # display links to previous/next pages at the bottom of the page
     page-editable: true
     page-out-of-support: false
 nav:
