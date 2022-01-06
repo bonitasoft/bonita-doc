@@ -508,6 +508,17 @@ SQL> SELECT name, value FROM v$parameter
 ----
 
 ====
+
+[#SQLServer2017]
+== Migrating to Bonita 7.11+ using SQL Server
+
+Bonita 7.11+ supports SQL Server 2017 version. To migrate to Bonita 7.11+ when using SQL Server, please follow this procedure:
+
+* ensure your Bonita platform is shut down
+* in a first step, run Bonita migration tool to update Bonita platform to version 7.11.0 or newer, following the procedure above
+* then upgrade your SQL Server database server to version 2017
+* once done, you can restart your updated Bonita platform
+
 [#maintenanceVersionCompatible]
 
 == Migrate between maintenance versions of Bonita in Bonita 7.11+

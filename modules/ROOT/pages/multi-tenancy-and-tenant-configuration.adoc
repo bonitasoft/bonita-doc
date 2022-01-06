@@ -1,6 +1,11 @@
 = Multi-tenant configuration for a Bonita platform
 :description: (Deprecated). One single platform to administrate with multiple logical engines. Described what a Tenant is and how to setup Bonita with Multi-tenancy.
 
+[NOTE]
+====
+For Enterprise and Performance editions only.
+====
+
 [WARNING]
 ====
 This feature is deprecated. +
