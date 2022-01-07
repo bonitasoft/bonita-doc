@@ -1,7 +1,7 @@
 = The Bonita test extension
 :description: Discover the Bonita test extension, a JUnit 5 extension that parametrize the Bonita client used in integration tests.
 
-The Bonita test extension is a JUnit 5 extension. It is the entry point to create Bonita integration tests, it allows to parametrize the behavior of the Bonita client used in the tests, and to inject the Bonita Test Toolkit.
+The Bonita test extension is the entry point to create Bonita integration tests. It allows to specify some behaviors, and to inject the Bonita Test Toolkit in the test methods.
 
 [NOTE]
 ====
@@ -13,7 +13,7 @@ The Bonita Test Toolkit is only available for Enterprise, Performance, Efficienc
 
 The Bonita test extension is a JUnit 5 extension, it has to be registered using the annotation `org.junit.jupiter.api.extension.RegisterExtension`.
 
-The following elements can be configured in the extension: 
+The following elements can be configured: 
 
 **- Target runtime URL**: The targeted Bonita runtime URL. It is used to perform HTTP requests to interact with this runtime.
 
