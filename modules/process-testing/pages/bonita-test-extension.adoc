@@ -30,7 +30,7 @@ The following elements can be configured:
             .clearBDM() <4>
             .build());
 ----
-<1> The JUnit 5 annotation use dot register th extension.
+<1> The JUnit 5 annotation used to register the extension.
 <2> The targeted runtime URL.
 <3> If called then process instances will be deleted before tests execution.
 <4> If called then the BDM database will be cleared before tests execution.
