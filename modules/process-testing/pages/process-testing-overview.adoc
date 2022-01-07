@@ -30,7 +30,7 @@ xref:quick-start.adoc[[.card-title]#Quick start# [.card-body.card-content-overfl
 
 [.card.card-index]
 --
-xref:bonita-test-extension.adoc[[.card-title]#Users# [.card-body.card-content-overflow]#pass:q[Discover the Bonita Test Extension to parametrize your tests.]#]
+xref:bonita-test-extension.adoc[[.card-title]#Bonita test extension# [.card-body.card-content-overflow]#pass:q[Discover the Bonita Test Extension to parametrize your tests.]#]
 --
 
 [.card.card-index]
