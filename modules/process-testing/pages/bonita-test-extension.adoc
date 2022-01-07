@@ -1,0 +1,36 @@
+= The Bonita test extension
+:description: Discover the Bonita test extension, a JUnit 5 extension that parametrize the Bonita client used in integration tests.
+
+The Bonita test extension is a JUnit 5 extension. It is the entry point to create Bonita integration tests, it allows to parametrize the behavior of the Bonita client used in the tests, and to inject the Bonita Test Toolkit.
+
+[NOTE]
+====
+Integrations tests are built upon the Bonita Test Toolkit, based on the open source https://github.com/bonitasoft/bonita-java-client[Bonita Java Client]. +
+The Bonita Test Toolkit is only available for Enterprise, Performance, Efficiency and Teamwork editions. 
+====
+
+== Create and configure the Bonita test extension
+
+The Bonita test extension is a JUnit 5 extension, it has to be registered using the annotation `org.junit.jupiter.api.extension.RegisterExtension`.
+
+The following elements can be configured in the extension: 
+
+**- Target runtime URL**: The targeted Bonita runtime URL. It is used to perform HTTP requests to interact with this runtime.
+
+**- Delete process instances**: Whether all existing process instances (including archived instances and their documents) should be deleted before tests execution.
+
+**- Clear BDM**: Whether the BDM database of the targeted Bonita should be cleared before tests execution. All existing business data will be removed.
+
+[source, Java]
+----
+ @RegisterExtension <1>
+    static BonitaTestExtension bonitaExtension = new BonitaTestExtension(Configuration.builder()
+            .targetRuntimeURL("http://localhost:8080/bonita") <2>
+            .deleteProcessInstances() <3>
+            .clearBDM() <4>
+            .build());
+----
+<1> The JUnit 5 annotation use dot register th extension.
+<2> The targeted runtime URL.
+<3> If called then process instances will be deleted before tests execution.
+<4> If called then the BDM database will be cleared before tests execution.
