@@ -21,16 +21,39 @@ The following elements can be configured:
 
 **- Clear BDM**: Whether the BDM database of the targeted Bonita should be cleared before tests execution. All existing business data will be removed.
 
+The extension can be registered through the annotation `BonitaTests` or manually.
+
+=== Register the extension using the annotation BonitaTests
+
+This annotation has to be added on the test class. It provides default values for the parameters: 
+
+- _clearBDM_ default value: `false`
+- _deleteProcessInstances_ default value: `false`
+- _targetRuntimeURL_ default value: `http://localhost:8080/bonita`
+
 [source, Java]
 ----
- @RegisterExtension <1>
-    static BonitaTestExtension bonitaExtension = new BonitaTestExtension(Configuration.builder()
-            .targetRuntimeURL("http://localhost:8080/bonita") <2>
-            .deleteProcessInstances() <3>
-            .clearBDM() <4>
-            .build());
+@BonitaTests(clearBDM = true, deleteProcessInstances = true, targetRuntimeURL = "<RUNTIME-URL>")
+class processIT {
+    ...
+}
 ----
-<1> The JUnit 5 annotation used to register the extension.
-<2> The targeted runtime URL.
-<3> If called then process instances will be deleted before tests execution.
-<4> If called then the BDM database will be cleared before tests execution.
+
+=== Register the extension manually
+
+The extension can be registered manually, using the JUnit 5 annotation `RegisterExtension`.  The `targetRuntimeURL` attribute has to be specify.
+
+[source, Java]
+----
+class processIT {
+
+    @RegisterExtension
+    static BonitaTestExtension bonitaExtension = new BonitaTestExtension(Configuration.builder()
+            .targetRuntimeURL("http://localhost:8080/bonita")
+            .deleteProcessInstances()
+            .clearBDM()
+            .build());
+
+    ...
+}
+----

@@ -161,21 +161,15 @@ import com.bonitasoft.test.toolkit.BonitaTestToolkit;
 import com.bonitasoft.test.toolkit.BonitaTestToolkitFactory.Configuration;
 import com.bonitasoft.test.toolkit.contract.ComplexInputBuilder;
 import com.bonitasoft.test.toolkit.contract.ContractBuilder;
-import com.bonitasoft.test.toolkit.junit.extension.BonitaTestExtension;
+import com.bonitasoft.test.toolkit.junit.extension.BonitaTests;
 import com.bonitasoft.test.toolkit.model.BusinessData;
 import com.bonitasoft.test.toolkit.model.BusinessObjectDAO;
 import com.bonitasoft.test.toolkit.model.Task;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
+@BonitaTests(clearBDM = true, deleteProcessInstances = true) <1>
 class CreateDinosaurIT {
-
-    @RegisterExtension
-    static BonitaTestExtension bonitaExtension = new BonitaTestExtension(Configuration.builder()
-            .targetRuntimeURL("http://localhost:8080/bonita")
-            .deleteProcessInstances()
-            .clearBDM()
-            .build()); <1>
 
     @Test
     void should_create_an_hungry_tyrannosaurus(BonitaTestToolkit toolkit) {  <2>
@@ -217,7 +211,7 @@ class CreateDinosaurIT {
 
 }
 ----
-<1> `BonitaTestExtension` is a JUnit5 extension. It's a convenient way to setup a Bonita test class. This extension allows to inject a `BonitaTestToolkit` correctly instantiated in test methods.
+<1> `BonitaTests` is an annotation that register a JUnit 5 extension. It's a convenient way to setup a Bonita test class. This extension allows to inject a `BonitaTestToolkit` correctly instantiated in test methods.
 <2> The `BonitaTestToolkit`, injected by the `BonitaTestExtension`, is the main entry point to interact with the targeted Bonita platform.
 <3> The toolkit offers the possibility to retrieve an existing user on the targeted Bonta platform. Users are used to execute processes during the test scenario.
 <4> A process definition represents a deployed process on the targeted Bonita platform. It is used to start cases of a given process.

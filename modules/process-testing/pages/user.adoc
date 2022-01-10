@@ -16,14 +16,8 @@ Users are mainly used to start processes and execute tasks. Any user in the orga
 
 [source, Java]
 ----
+@BonitaTests(clearBDM = true, deleteProcessInstances = true)
 class ProcessIT {
-
-    @RegisterExtension
-    static BonitaTestExtension bonitaExtension = new BonitaTestExtension(Configuration.builder()
-            .targetRuntimeURL("http://localhost:8080/bonita")
-            .deleteProcessInstances()
-            .clearBDM()
-            .build());
 
     @Test
     void should_retrieve_user(BonitaTestToolkit toolkit) {  <1>
