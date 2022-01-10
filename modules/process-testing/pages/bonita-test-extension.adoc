@@ -1,0 +1,59 @@
+= The Bonita test extension
+:description: Discover the Bonita test extension, a JUnit 5 extension that parametrize the Bonita client used in integration tests.
+
+The Bonita test extension is the entry point to create Bonita integration tests. It allows to specify some behaviors, and to inject the Bonita Test Toolkit in the test methods.
+
+[NOTE]
+====
+Integrations tests are built upon the Bonita Test Toolkit, based on the open source https://github.com/bonitasoft/bonita-java-client[Bonita Java Client]. +
+The Bonita Test Toolkit is only available for Enterprise, Performance, Efficiency and Teamwork editions. 
+====
+
+== Create and configure the Bonita test extension
+
+The Bonita test extension is a JUnit 5 extension, it has to be registered using the annotation `org.junit.jupiter.api.extension.RegisterExtension`.
+
+The following elements can be configured: 
+
+**- Target runtime URL**: The targeted Bonita runtime URL. It is used to perform HTTP requests to interact with this runtime.
+
+**- Delete process instances**: Whether all existing process instances (including archived instances and their documents) should be deleted before tests execution.
+
+**- Clear BDM**: Whether the BDM database of the targeted Bonita should be cleared before tests execution. All existing business data will be removed.
+
+The extension can be registered through the annotation `BonitaTests` or manually.
+
+=== Register the extension using the annotation BonitaTests
+
+This annotation has to be added on the test class. It provides default values for the parameters: 
+
+- _clearBDM_ default value: `false`
+- _deleteProcessInstances_ default value: `false`
+- _targetRuntimeURL_ default value: `http://localhost:8080/bonita`
+
+[source, Java]
+----
+@BonitaTests(clearBDM = true, deleteProcessInstances = true, targetRuntimeURL = "<RUNTIME-URL>")
+class processIT {
+    ...
+}
+----
+
+=== Register the extension manually
+
+The extension can be registered manually, using the JUnit 5 annotation `RegisterExtension`.  The `targetRuntimeURL` attribute has to be specify.
+
+[source, Java]
+----
+class processIT {
+
+    @RegisterExtension
+    static BonitaTestExtension bonitaExtension = new BonitaTestExtension(Configuration.builder()
+            .targetRuntimeURL("http://localhost:8080/bonita")
+            .deleteProcessInstances()
+            .clearBDM()
+            .build());
+
+    ...
+}
+----

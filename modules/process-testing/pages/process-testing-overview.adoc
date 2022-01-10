@@ -27,3 +27,13 @@ It is a Java library and can be integrated with many existing test frameworks li
 --
 xref:quick-start.adoc[[.card-title]#Quick start# [.card-body.card-content-overflow]#pass:q[Create a first integration test on a basic process]#]
 --
+
+[.card.card-index]
+--
+xref:bonita-test-extension.adoc[[.card-title]#Bonita test extension# [.card-body.card-content-overflow]#pass:q[Discover the Bonita Test Extension to parametrize your tests.]#]
+--
+
+[.card.card-index]
+--
+xref:user.adoc[[.card-title]#Users# [.card-body.card-content-overflow]#pass:q[Manage users in your integration tests]#]
+--
