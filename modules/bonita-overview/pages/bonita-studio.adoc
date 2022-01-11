@@ -125,7 +125,7 @@ Increase this value in Bonita Studio preferences \-> Server settings \-> Tomcat 
 
 ==== Bonita Studio installation fails due to JVM errors
 
-A given Bonita Studio version can only run with some specifics Java versions (xref:ROOT:hardware-and-software-requirements.adoc[hardware and software requirements]). 
+A given Bonita Studio version can only run with some specifics Java versions (xref:ROOT:hardware-and-software-requirements.adoc[hardware and software requirements]). +
 *Symptom:* +
 You encounter error messages about the JVM during the installation. +
 *Potential causes:* +
