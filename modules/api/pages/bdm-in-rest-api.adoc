@@ -76,7 +76,7 @@ class CarManagement implements RestApiController {
 }
 ----
 
-== Rest API Response content
+== REST API Response content
 
 Below is an example of the resulting response (the json is formatted to improve readability):
 
@@ -127,7 +127,9 @@ Note that Wheels are not returned, only necessary information is fetched. +
 As a result, performance is efficient
 ====
 
-== Troubleshooting bad practices
+== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+
+You will find below bad practices to avoid:
 
 [WARNING]
 ====
