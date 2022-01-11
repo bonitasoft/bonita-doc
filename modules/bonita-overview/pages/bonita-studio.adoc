@@ -130,7 +130,7 @@ A given Bonita Studio version can only run with some specifics Java versions (xr
 You encounter error messages about the JVM during the installation. +
 *Potential causes:* +
 Bad Java installations, or incompatibilities between a given Java version and Bitrock (Bitrock is the install builder used to install Bonita, it has the responsibility to detect the JRE used to install Bonita. Some defects on a given version could lead to incompatibility). +
-*Solution:*
+*Solution:* +
 First, ensure that a valid Java version is available. You can for exemple type _java -version_ on a terminal, and informations about the main Java version used will be displayed. +
 If you need another version:
   . Remove the installed Java versions
@@ -142,7 +142,7 @@ If you need another version:
 Bonita Studio needs to retrieve some remote assets from Github.  
 *Symptom:* +
 The download of those assets fails with the above exception. +
-*Potnetial cause:* +
+*Potential cause:* +
 It may be due to an out-dated installation of Java. +
 *Solution:* +
 https://adoptopenjdk.net/[Install] the latest xref:ROOT:hardware-and-software-requirements.adoc[supported Java] package.
