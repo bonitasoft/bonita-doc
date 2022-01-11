@@ -139,7 +139,7 @@ If you need another version:
 
 === java.security.cert.CertificateException: No subject alternative DNS name matching github-releases.githubusercontent.com found.
 
-Bonita Studio needs to retrieve some remote assets from Github.  
+Bonita Studio needs to retrieve some remote assets from Github. +
 *Symptom:* +
 The download of those assets fails with the above exception. +
 *Potential cause:* +
