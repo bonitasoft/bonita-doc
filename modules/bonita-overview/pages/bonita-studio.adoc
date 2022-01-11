@@ -123,7 +123,7 @@ Memory issue with the default `-Xmx` used for the tomcat server because connecto
 *Potential solution:* +
 Increase this value in Bonita Studio preferences \-> Server settings \-> Tomcat Maximum memory allocation. +
 
-==== Bonita Studio installation fails due to JVM errors
+=== Bonita Studio installation fails due to JVM errors
 
 A given Bonita Studio version can only run with some specifics Java versions (xref:ROOT:hardware-and-software-requirements.adoc[hardware and software requirements]). +
 *Symptom:* +
