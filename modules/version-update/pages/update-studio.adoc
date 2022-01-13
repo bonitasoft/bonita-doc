@@ -31,7 +31,7 @@ For example, your production runtime can be in 2021.1-0408 and your Studio in 20
 
 When cloning or importing an existing project from an older version of the same base version, the target runtime version is not automatically updated. +
 This behavior allows other project contributors to keep using an older Studio version without needing to install additional dependencies. +
-It is perfectly fine to reference a different target runtime version than the one currently run by the Studio.+
+It is perfectly fine to reference a different target runtime version than the one currently run by the Studio. +
 However, you can update this version from the `Edit project information...` contextual menu or by using the pencil button in the project Overview. +
 Before updating this version ensure that collaborators of the project have either:
 
@@ -50,6 +50,11 @@ Keeping the target runtime version up-to-date may be useful in some cases like i
 
 Version 2021.2 introduces major changes to the way Bonita Studio manages projects. When importing or cloning your project in this version or any later version, it will be transformed into a Maven project. +
 All your project dependencies (connectors, libraries, actor filters...) will then be managed with Maven.
+
+[INFO]
+====
+All pre-existing custom extensions (actor filters, REST API Extensions, Themes & connectors) will not be migrated to Maven projects and will remain in their pre-2021.2 form. However they remain compatible with your project. Moving to the 2021.2 version does not require any re-write of your custom extensions. We do recommend migrating them to standalone dependencies as Maven project to fully take advantage of the project composition.
+====
 
 === BOS Import
 
