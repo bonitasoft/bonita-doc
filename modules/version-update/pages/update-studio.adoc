@@ -51,7 +51,7 @@ Keeping the target runtime version up-to-date may be useful in some cases like i
 Version 2021.2 introduces major changes to the way Bonita Studio manages projects. When importing or cloning your project in this version or any later version, it will be transformed into a Maven project. +
 All your project dependencies (connectors, libraries, actor filters...) will then be managed with Maven.
 
-[INFO]
+[NOTE]
 ====
 All pre-existing custom extensions (actor filters, REST API Extensions, Themes & connectors) will not be migrated to Maven projects and will remain in their pre-2021.2 form. However they remain compatible with your project. Moving to the 2021.2 version does not require any re-write of your custom extensions. We do recommend migrating them to standalone dependencies as Maven project to fully take advantage of the project composition.
 ====
