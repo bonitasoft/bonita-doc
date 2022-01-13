@@ -93,6 +93,15 @@ You will find out advanced report design documentation:
 * https://github.com/opensagres/xdocreport.samples[Report samples]
 * ...
 
-== Troubleshooting
+== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
-You may encounter memory issues using this connector as it has substantial size of dependencies. To workaround those issues you may increase the maximum memory allocation value of the Tomcat server JVM. Go to Preferences \-> Server settings \-> Increase the Tomcat Maximum memory allocation (`-Xmx` JVM argument) value to *1024* (512 by default). Do not forget to use the same value when configuring your production Bundle.
+*Symptom:* +
+You may encounter some delays in the response time while using this connector.
+*Cause:* +
+This is due to memory issues as it has substantial size of dependencies. +
+*Potential solution:*
+You may increase the maximum memory allocation value of the Tomcat server JVM. +
+Do do so:
+. Go to *Preferences* \ *Server settings*
+. Increase the Tomcat Maximum memory allocation (`-Xmx` JVM argument) value to *1024* (512 by default). 
+Do not forget to use the same value when configuring your Production Bundle.
