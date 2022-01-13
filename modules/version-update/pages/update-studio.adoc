@@ -53,7 +53,7 @@ All your project dependencies (connectors, libraries, actor filters...) will the
 
 [NOTE]
 ====
-All pre-existing custom extensions (actor filters, REST API Extensions, Themes & connectors) will not be migrated to Maven projects and will remain in their pre-2021.2 form. However they remain compatible with your project. Moving to the 2021.2 version does not require any re-write of your custom extensions. We do recommend migrating them to standalone dependencies as Maven project to fully take advantage of the project composition.
+All pre-existing custom extensions (actor filters, REST API Extensions, Themes & connectors) will not be migrated to Maven projects and will remain in their pre-2021.2 form. However they remain compatible with your project. Moving to the 2021.2 version does not require any re-write of your custom extensions. We do recommend migrating them to standalone dependencies as Maven projects to fully take advantage of the project composition.
 ====
 
 === BOS Import
