@@ -30,7 +30,7 @@ contentType=layout
 
 If a resource contains both `Index.groovy` and `index.html`, the Groovy class takes precedence.
 
-[NOTE]
+[TIP]
 ====
 To insert line breaks in a page.properties file, end the line that precedes the line break with a `\`.  +
 For example:
@@ -39,6 +39,7 @@ apiExtensions=example1RestAPI, example2RestAPI, example3RestAPI, example4RestAPI
 example5RestAPI, example6RestAPI, example7RestAPI, example8RestAPI, \
 example9RestAPI, example10RestAPI
 ```
+For more information on advanced properties file (line break, natural lines, logical lines...) please refer to the https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Properties.html#load(java.io.Reader)[official documentation] 
 ====
 
 == Authorization permissions for resources
