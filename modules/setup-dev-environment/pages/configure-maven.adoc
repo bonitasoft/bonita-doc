@@ -22,7 +22,7 @@ If your artifacts are published on maven central, you do not need to add any ext
 You might need to configure a xref:proxies[Proxy] if you are behind a firewall. 
 ====
 
-To configure a new Maven repository, click on *_Preferences_* (from the coolbar) -> *_Extensions_*, and select the tab *_Repositories_*.
+To configure a new Maven repository, click on *_Preferences_* (from the coolbar) -> *_Maven_*, and select the tab *_Repositories_*.
 
 You can add a new Repository to the selected profile by clicking on the Add button, or edit an existing one by selecting it. +
 The UI offers the possibiliy to edit the ID, the name and the URL of the repository, and to define policies for Releases and Snapshots artifacts. +
@@ -41,7 +41,7 @@ Credentials can be *username/password* or *privateKey/passphrase* if you use ssh
 If you use a private key to login to the server (ssh), make sure that the password field is empty. Otherwise, the key will be ignored. 
 ====
 
-To configure a new Maven server, click on *_Preferences_* (from the coolbar) -> *_Extensions_*, and select the tab *_Servers_*.
+To configure a new Maven server, click on *_Preferences_* (from the coolbar) -> *_Maven_*, and select the tab *_Servers_*.
 
 You can add a new Server by clicking on the Add button, or edit an existing one by selecting it. +
 The UI offers the possibility to select the ID of an existing xref:repositories[repository] / xref:mirrors[mirror] for this server, to select the authentication mode and to store the credentials. +
@@ -63,7 +63,7 @@ If you update the master password, all passwords have to be encrypted again.
 
 You can configure a proxy to use for some or all of your HTTP requests with Maven.
 
-To configure a new Maven proxy, click on *_Preferences_* (from the coolbar) -> *_Extensions_*, and select the tab *_Proxies_*.
+To configure a new Maven proxy, click on *_Preferences_* (from the coolbar) -> *_Maven_*, and select the tab *_Proxies_*.
 
 You can add a new Proxy by clicking on the Add button, or edit an existing one by selecting it. +
 _Protocol_, _Host_ and _Port_ refers to the `protocol://host:port` of your proxy. + 
@@ -76,7 +76,7 @@ You might need to define several proxies, but keep in mind that only one proxy c
 
 Maven offers the possibility to configure https://maven.apache.org/guides/mini/guide-mirror-settings.html[mirrors] for some or all your repositories. 
 
-To configure a new Maven mirror, click on *_Preferences_* (from the coolbar) -> *_Extensions_*, and select the tab *_Mirrors_*.
+To configure a new Maven mirror, click on *_Preferences_* (from the coolbar) -> *_Maven_*, and select the tab *_Mirrors_*.
 
 You can add a new Mirror by clicking on the Add button, or edit an existing one by selecting it. +
 A mirror is defined by an _ID_, a _name_, an _URL_ and a field _mirrorOf_. +
