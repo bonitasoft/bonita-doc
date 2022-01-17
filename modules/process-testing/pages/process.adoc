@@ -29,7 +29,6 @@ class ProcessIT {
     void should_retrieve_process_definitions(BonitaTestToolkit toolkit) {
         ProcessDefinition processDef1 = toolkit.getProcessDefinition(PROCESS_NAME); <1>
         ProcessDefinition processDef2 = toolkit.getProcessDefinition(PROCESS_NAME,  PROCESS_VERSION); <2>
-        ...
     }
 }
 ----
@@ -51,7 +50,6 @@ class ProcessIT {
     void should_retrieve_process_initiators(BonitaTestToolkit toolkit) {
         ProcessDefinition processDef = toolkit.getProcessDefinition(PROCESS_NAME); 
         Set<User> initiators = processDef.getInitiators();
-        ...
     }
 }
 ----
@@ -136,7 +134,7 @@ class ProcessIT {
     private static final String TASK_NAME = "aTask";
 
     @Test
-    void should_update_process_parameter(BonitaTestToolkit toolkit) {
+    void retrieve_tasks(BonitaTestToolkit toolkit) {
         ProcessDefinition processDef = toolkit.getProcessDefinition(PROCESS_NAME);
 
         // Tasks
@@ -146,8 +144,8 @@ class ProcessIT {
 
         // Pending user tasks
         List<UserTask> allPendingUserTasks = processdef.searchPendingUserTasks(); <4>
-        List<UserTask> allPendingUserTasksWithAGivenName = processdef.searchPendingUserTasks(String name); <5>
-        UserTask firstPendingUserTaskWithAGivenName = getFirstPendingUserTask(String name); <6>
+        List<UserTask> allPendingUserTasksWithAGivenName = processdef.searchPendingUserTasks(TASK_NAME); <5>
+        UserTask firstPendingUserTaskWithAGivenName = getFirstPendingUserTask(TASK_NAME); <6>
     }
 }
 ----
@@ -185,7 +183,7 @@ class ProcessIT {
     private static final String PROCESS_NAME = "myProcess";
 
     @Test
-    void should_update_process_parameter(BonitaTestToolkit toolkit) {
+    void use_process_predicates(BonitaTestToolkit toolkit) {
         ProcessDefinition processDef = toolkit.getProcessDefinition(PROCESS_NAME);
         User user = toolkit.getUser(USER_NAME);
 
@@ -199,7 +197,7 @@ class ProcessIT {
 ----
 <1> Verify that an instance of the process _myProcess_ can be started by the user _walter.bates_
 <2> Verify that the process _myProcess_ has 1 active process instance.
-<3> Verify that the process _myProcess_ has 2 archived process instance.
+<3> Verify that the process _myProcess_ has 2 archived process instances.
 
 === Process instance predicates
 
@@ -217,7 +215,7 @@ class ProcessIT {
     private static final String TIMER_NAME = "timer";
 
     @Test
-    void should_update_process_parameter(BonitaTestToolkit toolkit) {
+    void use_process_predicates(BonitaTestToolkit toolkit) {
         ProcessDefinition processDef = toolkit.getProcessDefinition(PROCESS_NAME);
         User user = toolkit.getUser(USER_NAME);
 
