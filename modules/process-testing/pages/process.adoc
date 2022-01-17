@@ -19,16 +19,15 @@ A process definition can be retrieved using the Bonita test toolkit, the process
 
 [source, Java]
 ----
-@BonitaTests(clearBDM = true, deleteProcessInstances = true)
+@BonitaTests
 class ProcessIT {
 
     private static final String PROCESS_NAME = "myProcess";
-    private static final String PROCESS_VERSION = "1.0.0";
 
     @Test
     void should_retrieve_process_definitions(BonitaTestToolkit toolkit) {
         ProcessDefinition processDef1 = toolkit.getProcessDefinition(PROCESS_NAME); <1>
-        ProcessDefinition processDef2 = toolkit.getProcessDefinition(PROCESS_NAME,  PROCESS_VERSION); <2>
+        ProcessDefinition processDef2 = toolkit.getProcessDefinition(PROCESS_NAME,  "1.0.0"); <2>
     }
 }
 ----
@@ -41,14 +40,12 @@ The process initiators are the users that can start an instance of the process. 
 
 [source, Java]
 ----
-@BonitaTests(clearBDM = true, deleteProcessInstances = true)
+@BonitaTests
 class ProcessIT {
-
-    private static final String PROCESS_NAME = "myProcess";
 
     @Test
     void should_retrieve_process_initiators(BonitaTestToolkit toolkit) {
-        ProcessDefinition processDef = toolkit.getProcessDefinition(PROCESS_NAME); 
+        ProcessDefinition processDef = toolkit.getProcessDefinition("myProcess"); 
         Set<User> initiators = processDef.getInitiators();
     }
 }
@@ -60,21 +57,17 @@ A case can be started from the process definition. It requires a xref:user.adoc[
 
 [source, Java]
 ----
-@BonitaTests(clearBDM = true, deleteProcessInstances = true)
+@BonitaTests
 class ProcessIT {
-
-    private static final String USER_NAME = "walter.bates";
-    private static final String PROCESS_NAME_1 = "myProcess1";
-    private static final String PROCESS_NAME_2 = "myProcess2";
 
     @Test
     void should_start_process_instances(BonitaTestToolkit toolkit) {
-        User walter = toolkit.getUser(USER_NAME);
+        User walter = toolkit.getUser("walter.bates");
 
-        ProcessDefinition processDef1 = toolkit.getProcessDefinition(PROCESS_NAME_1);
+        ProcessDefinition processDef1 = toolkit.getProcessDefinition("myProcess1");
         ProcessInstance processInstance1 = processDef1.startProcessFor(walter); <1>
 
-        ProcessDefinition processDef2 = toolkit.getProcessDefinition(PROCESS_NAME_2);
+        ProcessDefinition processDef2 = toolkit.getProcessDefinition("myProcess2");
         Contract contract = createContract(); <2>
         ProcessInstance processInstance2 = processDef2.startProcessFor(walter, contract); <3>
     }
@@ -100,12 +93,11 @@ Parameter values are always retrieved and passed as String.
 @BonitaTests(clearBDM = true, deleteProcessInstances = true)
 class ProcessIT {
 
-    private static final String PROCESS_NAME = "myProcess";
     private static final String BOOLEAN_PARAMETER_NAME = "debugMode";
 
     @Test
     void should_update_process_parameter(BonitaTestToolkit toolkit) {
-        ProcessDefinition processDef = toolkit.getProcessDefinition(PROCESS_NAME);
+        ProcessDefinition processDef = toolkit.getProcessDefinition("myProcess");
         assertThat(processDef.getParameterValue(BOOLEAN_PARAMETER_NAME)).isEqualTo("false"); <1>
         processDef.updateParameterValue(BOOLEAN_PARAMETER_NAME, "true"); <2>
         assertThat(processDef.getParameterValue(BOOLEAN_PARAMETER_NAME)).isEqualTo("true"); <3>
@@ -127,15 +119,14 @@ The `ProcessInstance` object offers some convenient methods to retrieve the task
 
 [source, Java]
 ----
-@BonitaTests(clearBDM = true, deleteProcessInstances = true)
+@BonitaTests
 class ProcessIT {
 
-    private static final String PROCESS_NAME = "myProcess";
     private static final String TASK_NAME = "aTask";
 
     @Test
     void retrieve_tasks(BonitaTestToolkit toolkit) {
-        ProcessDefinition processDef = toolkit.getProcessDefinition(PROCESS_NAME);
+        ProcessDefinition processDef = toolkit.getProcessDefinition("myProcess");
 
         // Tasks
         List<Task> allTasks = processDef.searchTasks(); <1>
@@ -176,16 +167,13 @@ Here are the available predicates for definitions:
 
 [source, Java]
 ----
-@BonitaTests(clearBDM = true, deleteProcessInstances = true)
+@BonitaTests
 class ProcessIT {
-
-    private static final String USER_NAME = "walter.bates";
-    private static final String PROCESS_NAME = "myProcess";
 
     @Test
     void use_process_predicates(BonitaTestToolkit toolkit) {
-        ProcessDefinition processDef = toolkit.getProcessDefinition(PROCESS_NAME);
-        User user = toolkit.getUser(USER_NAME);
+        ProcessDefinition processDef = toolkit.getProcessDefinition("myProcess");
+        User user = toolkit.getUser("walter.bates");
 
         await().until(processDef, ProcessDefinitionPredicates.canBeStartedBy(user)); <1>
 
@@ -208,16 +196,10 @@ Here are the available predicates for process instances:
 @BonitaTests(clearBDM = true, deleteProcessInstances = true)
 class ProcessIT {
 
-    private static final String USER_NAME = "walter.bates";
-    private static final String PROCESS_NAME = "myProcess";
-    private static final String TASK_NAME_1 = "task1";
-    private static final String TASK_NAME_2 = "task2";
-    private static final String TIMER_NAME = "timer";
-
     @Test
     void use_process_predicates(BonitaTestToolkit toolkit) {
-        ProcessDefinition processDef = toolkit.getProcessDefinition(PROCESS_NAME);
-        User user = toolkit.getUser(USER_NAME);
+        ProcessDefinition processDef = toolkit.getProcessDefinition("myProcess");
+        User user = toolkit.getUser("walter.bates");
 
         ProcessInstance processInstance = processDef.startProcessFor(user);
 
@@ -230,10 +212,10 @@ class ProcessIT {
         await().until(processInstance, ProcessInstancePredicates.processInstanceCancelled()); <7>
         await().until(processInstance, ProcessInstancePredicates.processInstanceHasError()); <8>
 
-        await().until(processInstance, ProcessInstancePredicates.containsPendingUserTasks(TASK_NAME_1, TASK_NAME_2)); <9>
+        await().until(processInstance, ProcessInstancePredicates.containsPendingUserTasks("task1", "task2")); <9>
         await().until(processInstance, ProcessInstancePredicates.hasActiveFlowNodes(1)); <10>
         await().until(processInstance, ProcessInstancePredicates.hasFailedFlowNodes(0)); <11>
-        await().until(processInstance, ProcessInstancePredicates.hasTimerEventTrigger(TIMER_NAME)); <12>
+        await().until(processInstance, ProcessInstancePredicates.hasTimerEventTrigger("timer")); <12>
     }
 }
 ----
