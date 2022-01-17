@@ -3,7 +3,6 @@
 
 [NOTE]
 ====
-
 For Subscription editions only. +
 If your Bonita Subscription has been purchased before 2021, this Add-on can be purchased on top of your subscription.
 If you have purchased or renewed your Bonita Subscription in 2021 or after, BCD is fully part of your subscription.
