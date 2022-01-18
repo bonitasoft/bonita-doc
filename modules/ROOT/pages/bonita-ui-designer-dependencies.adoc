@@ -1,4 +1,4 @@
-= Bonita-ui-designer 1.13.0-SNAPSHOT dependencies for Bonita 2021.2
+= Bonita-ui-designer 1.13.22 dependencies for Bonita 2021.2
 
 
 == UI-Designer Backend dependencies
@@ -100,16 +100,16 @@
 | aspectjweaver (org.aspectj) | 1.9.6 | http://www.eclipse.org/legal/epl-v10.html[Eclipse Public License - v 1.0] 
 
 
-| ui-designer-artifact-builder (org.bonitasoft.web) | 1.13.0-SNAPSHOT | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
+| ui-designer-artifact-builder (org.bonitasoft.web) | 1.13.22 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
-| ui-designer-backend-contract (org.bonitasoft.web) | 1.13.0-SNAPSHOT | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
+| ui-designer-backend-contract (org.bonitasoft.web) | 1.13.22 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
-| ui-designer-backend-migrationReport (org.bonitasoft.web) | 1.13.0-SNAPSHOT | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
+| ui-designer-backend-migrationReport (org.bonitasoft.web) | 1.13.22 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
-| ui-designer-frontend (org.bonitasoft.web) | 1.13.0-SNAPSHOT | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
+| ui-designer-frontend (org.bonitasoft.web) | 1.13.22 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
 | commons-compiler (org.codehaus.janino) | 3.1.4 | https://spdx.org/licenses/BSD-3-Clause.html[BSD-3-Clause] 
