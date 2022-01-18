@@ -1,0 +1,38 @@
+= REST connectors
+:description: Bonita native REST connectors allow to connect Bonita processes to any third-party with REST APIs.
+
+{description}
+
+== Overview
+
+The available REST connectors are:
+
+* GET: Use the GET HTTP verb to retrieve resources from a third-party
+* DELETE: Use the DELETE HTTP verb to delete resources on a third-party
+* POST: Use the POST HTTP verb to upload data to a third-party
+* POST FILE: Use the POST HTTP verb to upload files to a third-party
+* PUT: Use the POST HTTP verb to update data to a third-party
+* PUT FILE: Use the POST HTTP verb to update files to a third-party
+
+REST connectors support SSL and proxy settings.
+
+== Connector Basic Parameters
+
+|===
+| Parameter name | Required information
+
+| URL
+| The REST service URL that identifies the resource
+
+| Content Type
+| The content type used in the payload: application/json, application/octet-stream, application/xml, application/x-www-form-urlencoded, text/html, text/plain, plain/xml
+
+| Charset
+| The charset used in the payload (by default UTF-8)
+
+| Payload
+| There are two ways to authenticate with a Json token (highly recommended) or with a P12 file
+
+| Document
+| For the PUT FILE and POST FILE connectors, the file to upload or update
+|===

@@ -10,7 +10,7 @@ After years of semantic versioning, and one release trying calendar versioning, 
 
 * YYYY is the year of the release
 * # is the release number of the "main" release
-* uX is for the _update_ number: 0 for the "main", and then each "maintenance" release gets an increment of 1. 
+* uX is for the _update_ number: 0 for the "main", and then each "maintenance" release gets an increment of 1.
 
 For example:
 
@@ -20,7 +20,7 @@ For example:
 Keep in mind that:
 
 * Two main versions are released every year
-* A new maintenance version is made available at least every month to our customers 
+* A new maintenance version is made available at least every month to our customers
 * All maintenance versions are cross-compatible for the same main version. For example, transitioning from a *2021.2*-u1 to a *2021.1*-u3 will not require any Bonita database update procedure. However, transitioning from a *7.11*.5 to a *2021.2*-u2 will require a Bonita database update procedure.
 
 == Technical Id
@@ -28,18 +28,24 @@ Keep in mind that:
 A technical Id also exists for Bonita components, and it follows the usual semantic versioning X.Y.Z:
 
 * X is the major version number. It changes when non-backward compatible changes are implemented.
-* Y is the minor version number. It changes when backward compatible features are added. 
-* Z is the maintenance version number. The maintenance versions contain fixes. 
+* Y is the minor version number. It changes when backward compatible features are added.
+* Z is the maintenance version number. The maintenance versions contain fixes.
 
-Technical Id Bonita version correspondence table
+Here is a Bonita Platform version / Technical Id / UI Designer version correspondence table:
 
 |===
-| Bonita Version | Technical Id
+| Release date | Bonita Platform version | Technical Id | UI Designer version
 
-| 2021.1
-| 7.12.z
-| 2021.2
-| 7.13.z
+| 2021-12-01
+| 2021.2-u1
+| 7.13.1
+| 1.13.20
+
+| 2021-09-30
+| 2021.2-u0
+| 7.13.0
+| 1.13.20
+
 |===
 
 == Artifact version

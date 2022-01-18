@@ -46,7 +46,8 @@ The Tomcat bundle is based on a standard Tomcat installation with the following 
 * `setup/tomcat-templates/bonita.xml`: Tomcat context configuration for Bonita web application. Define data sources used by Bonita Engine.
 * `server/conf/catalina.properties`: modified to include lib/bonita folder to Tomcat classpath.
 * `server/conf/context.xml`: modified to add JTA support using Narayana library.
-* `server/conf/logging.properties`: modified to create a log file dedicated to Bonita.
+* `server/conf/log4j2-loggers.xml`: log4j2 loggers level.
+* `server/conf/log4j2-appenders.xml`: log4j2 appenders configuration.
 * `server/conf/server.xml`: modified to add listener for Narayana and h2 (see below for modification needed if you want to switch to another RDBMS).
 * `server/conf/jbossts-properties.xml`: configuration files for Narayana transaction manager.
 * `server/lib/bonita`: extra libraries needed by Bonita. The following libraries are included: Narayana JTA Transaction Manager, h2, SLF4J.

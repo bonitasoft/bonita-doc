@@ -1,0 +1,233 @@
+= Processes in integration tests
+:description: Manage process in integration tests using the Bonita test toolkit
+
+Learn to start and execute processes in your integration tests using the Bonita test toolkit.
+
+[NOTE]
+====
+Integrations tests are built upon the Bonita Test Toolkit, based on the open source https://github.com/bonitasoft/bonita-java-client[Bonita Java Client]. +
+The Bonita Test Toolkit is only available for Enterprise, Performance, Efficiency and Teamwork. editions. 
+====
+
+== Process definition
+
+A process definition represents an existing process deployed on the targeted runtime. It is used to get general information on the process, manage process instances and process parameters. 
+
+=== Retrieve a process definition
+
+A process definition can be retrieved using the Bonita test toolkit, the process name and optionally the process version. If the process version is not specified then the latest deployed version is retrieved (and not the latest version).
+
+[source, Java]
+----
+@BonitaTests
+class ProcessIT {
+
+    private static final String PROCESS_NAME = "myProcess";
+
+    @Test
+    void should_retrieve_process_definitions(BonitaTestToolkit toolkit) {
+        ProcessDefinition processDef1 = toolkit.getProcessDefinition(PROCESS_NAME); <1>
+        ProcessDefinition processDef2 = toolkit.getProcessDefinition(PROCESS_NAME,  "1.0.0"); <2>
+    }
+}
+----
+<1> The process is retrieved without specifying the version -> the latest deployed version is retrieved.
+<2> The process is retrieved is a given version.
+
+=== Retrieve process initiators
+
+The process initiators are the users that can start an instance of the process. They can be retrieved through the process definition.
+
+[source, Java]
+----
+@BonitaTests
+class ProcessIT {
+
+    @Test
+    void should_retrieve_process_initiators(BonitaTestToolkit toolkit) {
+        ProcessDefinition processDef = toolkit.getProcessDefinition("myProcess"); 
+        Set<User> initiators = processDef.getInitiators();
+    }
+}
+----
+
+=== Start a process
+
+A case can be started from the process definition. It requires a xref:user.adoc[user] to start the process and optionally a xref:contract.adoc[contract]. 
+
+[source, Java]
+----
+@BonitaTests
+class ProcessIT {
+
+    @Test
+    void should_start_process_instances(BonitaTestToolkit toolkit) {
+        User walter = toolkit.getUser("walter.bates");
+
+        ProcessDefinition processDef1 = toolkit.getProcessDefinition("myProcess1");
+        ProcessInstance processInstance1 = processDef1.startProcessFor(walter); <1>
+
+        ProcessDefinition processDef2 = toolkit.getProcessDefinition("myProcess2");
+        Contract contract = createContract(); <2>
+        ProcessInstance processInstance2 = processDef2.startProcessFor(walter, contract); <3>
+    }
+}
+----
+<1> An instance of `myProcess1` is started for the user walter bates, withtout a contract.
+<2> A contract to instantiate the second process is created in a dedicated method (more details about contract creation xref:contract.adoc[here]).
+<3> An instance of `myProcess2` is started for the user walter bates with a contract.
+
+=== Read and update process parameters
+
+Process parameters are available from the process definition, and can be updated. +
+
+[CAUTION]
+====
+If you update a process parameter it will be updated for all existing and coming process instances.
+====
+
+Parameter values are always retrieved and passed as String.
+
+[source, Java]
+----
+@BonitaTests(clearBDM = true, deleteProcessInstances = true)
+class ProcessIT {
+
+    private static final String BOOLEAN_PARAMETER_NAME = "debugMode";
+
+    @Test
+    void should_update_process_parameter(BonitaTestToolkit toolkit) {
+        ProcessDefinition processDef = toolkit.getProcessDefinition("myProcess");
+        assertThat(processDef.getParameterValue(BOOLEAN_PARAMETER_NAME)).isEqualTo("false"); <1>
+        processDef.updateParameterValue(BOOLEAN_PARAMETER_NAME, "true"); <2>
+        assertThat(processDef.getParameterValue(BOOLEAN_PARAMETER_NAME)).isEqualTo("true"); <3>
+    }
+}
+----
+<1> We check first that the debug mode is off -> the parameter value is equal to 'false'.
+<2> We turn on the debug mode -> the parameter value is equal to 'true'.
+<3> We finally check that the parameter value has been correctly updated.
+
+== Process instance
+
+A process instance represents an existing case of a process, active or archived. +
+From a process instance, you can get some genral informations on the case, retrieve and execute tasks, and finally access to all the elments of the case.
+
+=== Tasks
+
+The `ProcessInstance` object offers some convenient methods to retrieve the tasks of case. If a task is a pending user task it can then be executed. xref:task.adoc[More details about tasks here].
+
+[source, Java]
+----
+@BonitaTests
+class ProcessIT {
+
+    private static final String TASK_NAME = "aTask";
+
+    @Test
+    void retrieve_tasks(BonitaTestToolkit toolkit) {
+        ProcessDefinition processDef = toolkit.getProcessDefinition("myProcess");
+
+        // Tasks
+        List<Task> allTasks = processDef.searchTasks(); <1>
+        List<Task> allTasksWithAGivenName = processDef.searchTasks(TASK_NAME); <2>
+        Task firstTaskWithAGivenName = processDef.getFirstTask(TASK_NAME); <3>
+
+        // Pending user tasks
+        List<UserTask> allPendingUserTasks = processdef.searchPendingUserTasks(); <4>
+        List<UserTask> allPendingUserTasksWithAGivenName = processdef.searchPendingUserTasks(TASK_NAME); <5>
+        UserTask firstPendingUserTaskWithAGivenName = getFirstPendingUserTask(TASK_NAME); <6>
+    }
+}
+----
+<1> Retrieve all the tasks (user, service, script...) that have been executed or are ready.
+<2> Retrieve all the tasks (user, service, script...) *with a given name* that have been executed or are ready. Several tasks can have the same name if they are in different processes, and one of the process call the other one with a call activity.
+<3> Retrieve *the first* task (user, service, script...) *with a given name* that has been executed or is ready.
+<4> Retrieve all the pending user tasks.
+<5> Retrieve all the pending user tasks *with a given name*.
+<6> Retrieve *the first* pending user task *with a given name*.
+
+=== Case elements
+
+Many elements of a case can be retrieved through the process instance: 
+
+- xref:business-data.adoc[Business data] and xref:variable.adoc[Process variables]
+- xref:connector.adoc[Connectors]
+- xref:document.adoc[Documents]
+- xref:timer.adoc[Timers]
+
+== Process predicates
+
+In order to make asynchronous assertions on processes (using for example http://www.awaitility.org/[Awaitility]), some convenient predicates come with the Bonita test tookit. It allows to ensure in a scenario that the system is in the expected state before to continue. +
+For example, it is possible to use the predicate `hasProcessInstances(int numberOfProcessInstances)` on a process definition to ensure that a case has been correctly started before to continue. Awaitility (or any other asynchronous library) will check this predicate at a given frequency, and will throw an error if the timeout is reached (i.e the case has not been started in time).
+
+=== Process definition predicates
+
+Here are the available predicates for definitions:
+
+[source, Java]
+----
+@BonitaTests
+class ProcessIT {
+
+    @Test
+    void use_process_predicates(BonitaTestToolkit toolkit) {
+        ProcessDefinition processDef = toolkit.getProcessDefinition("myProcess");
+        User user = toolkit.getUser("walter.bates");
+
+        await().until(processDef, ProcessDefinitionPredicates.canBeStartedBy(user)); <1>
+
+        await().until(processDef, ProcessDefinitionPredicates.hasProcessInstances(1)); <2>
+
+        await().until(processDef, ProcessDefinitionPredicates.hasArchivedProcessInstances(2)); <3>
+    }
+}
+----
+<1> Verify that an instance of the process _myProcess_ can be started by the user _walter.bates_
+<2> Verify that the process _myProcess_ has 1 active process instance.
+<3> Verify that the process _myProcess_ has 2 archived process instances.
+
+=== Process instance predicates
+
+Here are the available predicates for process instances:
+
+[source, Java]
+----
+@BonitaTests(clearBDM = true, deleteProcessInstances = true)
+class ProcessIT {
+
+    @Test
+    void use_process_predicates(BonitaTestToolkit toolkit) {
+        ProcessDefinition processDef = toolkit.getProcessDefinition("myProcess");
+        User user = toolkit.getUser("walter.bates");
+
+        ProcessInstance processInstance = processDef.startProcessFor(user);
+
+        await().until(processInstance, ProcessInstancePredicates.hasBeenStartedBy(user)); <1>
+        await().until(processInstance, ProcessInstancePredicates.processInstanceStarted()); <2>
+        await().until(processInstance, ProcessInstancePredicates.processInstanceCompleted()); <3>
+        await().until(processInstance, ProcessInstancePredicates.processInstanceArchived()); <4>
+        await().until(processInstance, ProcessInstancePredicates.processInstanceSuspended()); <5>
+        await().until(processInstance, ProcessInstancePredicates.processInstanceAborted()); <6>
+        await().until(processInstance, ProcessInstancePredicates.processInstanceCancelled()); <7>
+        await().until(processInstance, ProcessInstancePredicates.processInstanceHasError()); <8>
+
+        await().until(processInstance, ProcessInstancePredicates.containsPendingUserTasks("task1", "task2")); <9>
+        await().until(processInstance, ProcessInstancePredicates.hasActiveFlowNodes(1)); <10>
+        await().until(processInstance, ProcessInstancePredicates.hasFailedFlowNodes(0)); <11>
+        await().until(processInstance, ProcessInstancePredicates.hasTimerEventTrigger("timer")); <12>
+    }
+}
+----
+<1> Verify that the process instance has been started by the user _walter.bates_.
+<2> Verify that the process instance is in the state `started`.
+<3> Verify that the process instance is in the state `completed`.
+<4> Verify that the process instance is in the state `archived`.
+<5> Verify that the process instance is in the state `suspended`.
+<6> Verify that the process instance is in the state `aborted`.
+<7> Verify that the process instance is in the state `cancelled`.
+<8> Verify that the process instance has errors.
+<9> Verify that the user tasks _task1_ and _task2_ are pending.
+<10> Verify that the instance has 1 active flow node.
+<11> Verify that the instance has 0 failed flow node.
+<12> Verify that the instance has an active timer event trigger named _timer_.

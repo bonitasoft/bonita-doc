@@ -135,7 +135,7 @@ This image is built from the following https://github.com/Bonitasoft-Community/b
 
 Create a file `docker-compose.yml` with the following content
 
-[source,yaml]
+[source,yaml,subs="+macros"]
 ----
 # Use tech_user/secret as user/password credentials
 version: '3'
@@ -227,11 +227,11 @@ Now you can access the Bonita Runtime on localhost:8080/bonita and login using: 
 == Secure your remote access
 
 This docker image ensures to activate by default both static and dynamic authorization checks on xref:identity:rest-api-authorization.adoc[REST API]. To be coherent it also deactivates the HTTP API.
-But for specific needs you can override this behavior by setting HTTP_API to true and REST_API_DYN_AUTH_CHECKS to false :
+But for specific needs you can override this behavior by setting HTTP_API to true and COM_BONITASOFT_ENGINE_AUTHORIZATION_REST_DYNAMIC_CHECK_ENABLE to false :
 
 [source,shell script,subs="+macros"]
 ----
-docker run  -e HTTP_API=true -e REST_API_DYN_AUTH_CHECKS=false --name bonita -v bonita-lic:/opt/bonita_lic/ -h <hostname> -d -p 8080:8080  quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
+docker run  -e HTTP_API=true -e COM_BONITASOFT_ENGINE_AUTHORIZATION_REST_DYNAMIC_CHECK_ENABLE=false --name bonita -v bonita-lic:/opt/bonita_lic/ -h <hostname> -d -p 8080:8080  quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
 == Environment variables
@@ -263,6 +263,12 @@ This optional environment variable is used in conjunction with `MONITORING_PASSW
 This optional environment variable is used in conjunction with `MONITORING_USERNAME` to define the access to the xref:runtime-monitoring.adoc#_prometheus_publisher[Prometheus monitoring endpoint], which is protected with https://en.wikipedia.org/wiki/Basic_access_authentication[BASIC Auth access]. If it is not specified, the default monitoring username `mon1tor1ng_adm1n` will be used.
 
 === REST_API_DYN_AUTH_CHECKS
+
+Deprecated, now you can use xref:#dynamic-check-enable[COM_BONITASOFT_ENGINE_AUTHORIZATION_REST_DYNAMIC_CHECK_ENABLE] instead.
+
+[#dynamic-check-enable]
+
+=== COM_BONITASOFT_ENGINE_AUTHORIZATION_REST_DYNAMIC_CHECK_ENABLE (Subscription editions only)
 
 This optional environment variable is used to enable/disable dynamic authorization checking on Bonita REST API. The default value is true, which will activate dynamic authorization checking.
 
@@ -304,11 +310,31 @@ These variables are used in conjunction to create a new user, set that user's pa
 
 === BONITA_SERVER_LOGGING_FILE, BONITA_SETUP_LOGGING_FILE
 
+WARNING: DEPRECATED See xref:#logger_configuration[how to configure logger]
+
 Since Bonita 7.9 BONITA_SERVER_LOGGING_FILE and BONITA_SETUP_LOGGING_FILE can be used to update logging configuration.
 
-`BONITA_SERVER_LOGGING_FILE` default value is /opt/bonita/server/conf/logging.properties.
+`BONITA_SERVER_LOGGING_FILE` default value is `/opt/bonita/conf/logs/log4j2-appenders.xml,/opt/bonita/conf/logs/log4j2-loggers.xml`
 
-`BONITA_SETUP_LOGGING_FILE` default value is /opt/bonita/setup/logback.xml.
+`BONITA_SETUP_LOGGING_FILE` default value is `/opt/bonita/setup/logback.xml`
+
+
+[#logger_configuration]
+== Logger configuration
+
+The logger can be configured by mounting a volume on folder `/opt/bonita/conf/logs` containing the configuration files.
+
+the volume must contain the 2 files
+https://github.com/bonitasoft/bonita-distrib/blob/dev/tomcat-resources/tomcat-distrib-for-bonita/src/main/resources/tomcat/server/conf/log4j2-loggers.xml[log4j2-loggers.xml]
+and
+https://github.com/bonitasoft/bonita-distrib/blob/dev/tomcat-resources/tomcat-distrib-for-bonita/src/main/resources/tomcat/server/conf/log4j2-appenders.xml[log4j2-appenders.xml]
+
+
+[NOTE]
+====
+Log4j2 automatically reloads configuration files when there is a change. However, if the file is invalid, the initial version
+of that file is used instead, and is not reloaded unless one of the other watched file is changed.
+====
 
 == Migrating from an earlier version of Bonita
 

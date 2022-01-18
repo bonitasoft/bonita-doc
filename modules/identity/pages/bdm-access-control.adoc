@@ -542,7 +542,7 @@ Make sure the living application works fine, and that while selecting subject fr
 `GET|bdm/businessData/com.company.model.Request=[check|SubjectTeacherPermissionRule]`
 This line indicates that before executing any query on the com.company.model.Request object types in the BDM, a verification has to be run. In this case, this is a groovy script, _SubjectTeacherPermissionRule.groovy_ (created in step 7).
 For more information about dynamic security and how it works with Bonita, see xref:rest-api-authorization.adoc[Rest API authorization].
-. Go to _/BonitaStudioSubscription-7.7.0/workspace/tomcat/setup/platform_conf/current/tenants/1/tenant_security_scripts_. Create a file _SubjectTeacherPermissionRule.groovy_, with the following content:
+. Go to _/BonitaStudioSubscription-{bonitaVersion}/workspace/tomcat/setup/platform_conf/current/tenants/1/tenant_security_scripts_. Create a file _SubjectTeacherPermissionRule.groovy_, with the following content:
 
 [source,groovy]
 ----

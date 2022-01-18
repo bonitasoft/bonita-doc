@@ -1,0 +1,47 @@
+= Users in integration tests
+:description: Manage users in integration tests using the Bonita test toolkit
+
+To start processes or execute human tasks in integration tests, users from the deployed organization must be used. +
+This page details how to retrieve users in integration tests using the Bonita Test Toolkit.
+
+[NOTE]
+====
+Integrations tests are built upon the Bonita Test Toolkit, based on the open source https://github.com/bonitasoft/bonita-java-client[Bonita Java Client]. +
+The Bonita Test Toolkit is only available for Enterprise, Performance, Efficiency and Teamwork editions. 
+====
+
+== Retrieve a User
+
+Users are mainly used to start processes and execute tasks. Any user in the organization can be retrieved using its username and the Bonita Test Toolkit: 
+
+[source, Java]
+----
+@BonitaTests(clearBDM = true, deleteProcessInstances = true)
+class ProcessIT {
+
+    @Test
+    void should_retrieve_user(BonitaTestToolkit toolkit) {  <1>
+        User user = toolkit.getUser("walter.bates"); <2>
+        ...
+    }
+}
+----
+<1> A `BonitaTestToolkit` is injected by the `BonitaTestExtension`
+<2> The user Walter Bates is retrieved using its username (`walter.bates`).
+
+[NOTE]
+====
+The user password is not required to retrieve the user, why? 
+
+Because the Bonita Test Toolkit only authenticates with the technical user. It executes processes and tasks for a given user, but it is always the technical user that is logged in (it uses the _execute as_ feature).
+====
+
+== Configure the technical user
+
+As explained above, the test toolkit only use the technical user. The credentials of the technical user are retrieved through the system properties `tech.user` and `tech.password`. +
+The default values are [_username_: `install`, _password_:  `install`].
+
+Those properties can be set through Maven properties when running the tests: 
+
+`mvn clean verify -Dtech.user=<username> -Dtech.password=<password>`
+
