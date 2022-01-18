@@ -30,10 +30,50 @@ xref:quick-start.adoc[[.card-title]#Quick start# [.card-body.card-content-overfl
 
 [.card.card-index]
 --
-xref:bonita-test-extension.adoc[[.card-title]#Bonita test extension# [.card-body.card-content-overflow]#pass:q[Discover the Bonita Test Extension to parametrize your tests.]#]
+xref:bonita-test-extension.adoc[[.card-title]#Bonita test extension# [.card-body.card-content-overflow]#pass:q[Discover the Bonita Test Extension to parametrize integration tests]#]
 --
 
 [.card.card-index]
 --
-xref:user.adoc[[.card-title]#Users# [.card-body.card-content-overflow]#pass:q[Manage users in your integration tests]#]
+xref:user.adoc[[.card-title]#Users# [.card-body.card-content-overflow]#pass:q[Manage users in integration tests]#]
+--
+
+[.card.card-index]
+--
+xref:process.adoc[[.card-title]#Processes# [.card-body.card-content-overflow]#pass:q[Manipulate process definitions and instances in integration tests]#]
+--
+
+[.card.card-index]
+--
+xref:task.adoc[[.card-title]#Tasks# [.card-body.card-content-overflow]#pass:q[Execute tasks in integration tests]#]
+--
+
+[.card.card-index]
+--
+xref:contract.adoc[[.card-title]#Contracts# [.card-body.card-content-overflow]#pass:q[Create contracts to start processes or execute tasks]#]
+--
+
+[.card.card-index]
+--
+xref:business-data.adoc[[.card-title]#Contracts# [.card-body.card-content-overflow]#pass:q[Retrieve the business data of a given case]#]
+--
+
+[.card.card-index]
+--
+xref:variable.adoc[[.card-title]#Variables# [.card-body.card-content-overflow]#pass:q[Retrieve the process variables of a given case]#]
+--
+
+[.card.card-index]
+--
+xref:document.adoc[[.card-title]#Documents# [.card-body.card-content-overflow]#pass:q[Retrieve the documents of a given case]#]
+--
+
+[.card.card-index]
+--
+xref:connector.adoc[[.card-title]#Connectors# [.card-body.card-content-overflow]#pass:q[Get connectors meta information or execution information]#]
+--
+
+[.card.card-index]
+--
+xref:timer.adoc[[.card-title]#Timers# [.card-body.card-content-overflow]#pass:q[Get timers meta information and execute them]#]
 --

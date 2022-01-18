@@ -45,7 +45,7 @@ The extension can be registered manually, using the JUnit 5 annotation `Register
 
 [source, Java]
 ----
-class processIT {
+class ProcessIT {
 
     @RegisterExtension
     static BonitaTestExtension bonitaExtension = new BonitaTestExtension(Configuration.builder()
