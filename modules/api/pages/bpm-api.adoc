@@ -2126,7 +2126,7 @@ A representation of a list of case variables
 
 ==== Description
 
-List or find case variables. A case is an instance of a process.
+List or find archived case variables. A case is an instance of a process.
 
 ==== Identifier
 
