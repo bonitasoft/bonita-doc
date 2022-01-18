@@ -725,6 +725,6 @@ The LDAP Synchronizer is using the Engine HTTP API of the product but it's not a
  </servlet>
 ----
 *Docker image solution:* Run the docker image with *-e HTTP_API=true*: +
-`docker run -e HTTP_API=true -e COM_BONITASOFT_ENGINE_AUTHORIZATION_REST_DYNAMIC_CHECK_ENABLE=false --name bonita -v ./bonita-lic/:/opt/bonita_lic/ -h localhost -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:{bonitaVersion}`
+`docker run -e HTTP_API=true -e BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED=false --name bonita -v ./bonita-lic/:/opt/bonita_lic/ -h localhost -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:{bonitaVersion}`
 
 See the page xref:runtime:bonita-docker-installation.adoc#_http_api[Deploy Bonita Runtime with Docker] for more information.

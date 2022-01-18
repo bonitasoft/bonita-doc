@@ -175,8 +175,8 @@ By default, dynamic checks are enabled.
 
 To *completely disable* dynamic checks, simply either:
 
-* set the Environment variable `COM_BONITASOFT_ENGINE_AUTHORIZATION_REST_DYNAMIC_CHECK_ENABLE=false`
-* or add the Java System property `-Dcom.bonitasoft.engine.authorization.rest.dynamic.check.enable=false` to your `setEnv[.sh|.bat]` tomcat startup script.
+* set the Environment variable `BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED=false`
+* or add the Java System property `-Dbonita.runtime.authorization.dynamic-check.enabled=false` to your `setEnv[.sh|.bat]` tomcat startup script.
 
 To disable a single dynamic check for a method and resource, comment out the corresponding line in the file `dynamic-permissions-checks-custom.properties`.
 
