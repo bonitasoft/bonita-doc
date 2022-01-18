@@ -1,4 +1,6 @@
+
 = Bonita web dependencies
+:description: List all dependencies uses for Bonita web
 
 == console-common
 
@@ -31,13 +33,13 @@
 
 | org.bonitasoft.engine
 | bonita-client
-| 7.13.0
+| 7.13.2-20220118.014428-69
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-common
-| 7.13.0
+| 7.13.2-20220118.014428-69
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
@@ -54,6 +56,9 @@
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 |=== 
 
+= Bonita web dependencies
+:description: List all dependencies uses for Bonita web
+
 == console-server
 
 |===
@@ -61,43 +66,43 @@
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.12.3
+| 2.12.6
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-csv
-| 2.12.3
+| 2.12.6
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-smile
-| 2.12.3
+| 2.12.6
 | http://github.com/FasterXML/jackson-dataformats-binary[http://github.com/FasterXML/jackson-dataformats-binary]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-xml
-| 2.12.3
+| 2.12.6
 | https://github.com/FasterXML/jackson-dataformat-xml[https://github.com/FasterXML/jackson-dataformat-xml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-yaml
-| 2.12.3
+| 2.12.6
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.module
 | jackson-module-jaxb-annotations
-| 2.12.3
+| 2.12.6
 | https://github.com/FasterXML/jackson-modules-base[https://github.com/FasterXML/jackson-modules-base]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.module
 | jackson-module-jsonSchema
-| 2.12.3
+| 2.12.6
 | https://github.com/FasterXML/jackson-module-jsonSchema[https://github.com/FasterXML/jackson-module-jsonSchema]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -139,7 +144,7 @@
 
 | org.apache.httpcomponents
 | httpclient
-| 4.5.12
+| 4.5.13
 | http://hc.apache.org/httpcomponents-client[http://hc.apache.org/httpcomponents-client]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -151,31 +156,31 @@
 
 | org.bonitasoft.console
 | console-common
-| 7.13.0
+| 7.13.2-20220118.145703-40
 | N/A
 |  -
 
 | org.bonitasoft.engine
 | bonita-client
-| 7.13.0
+| 7.13.2-20220118.014428-69
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-common
-| 7.13.0
+| 7.13.2-20220118.014428-69
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-server
-| 7.13.0
+| 7.13.2-20220118.014428-69
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.web
 | bonita-web-extensions
-| 7.13.0
+| 7.13.2-20220118.022620-40
 | http://www.bonitasoft.com[http://www.bonitasoft.com]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
@@ -240,6 +245,9 @@
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 |=== 
 
+= Bonita web dependencies
+:description: List all dependencies uses for Bonita web
+
 == console-common-sp
 
 |===
@@ -247,7 +255,7 @@
 
 | com.bonitasoft.engine
 | bonita-client-sp
-| 7.13.0
+| 7.13.2-20220118.014428-69
 | N/A
 |  -
 
@@ -259,10 +267,13 @@
 
 | org.bonitasoft.console
 | console-common
-| 7.13.0
+| 7.13.2-20220118.145703-40
 | N/A
 |  -
 |=== 
+
+= Bonita web dependencies
+:description: List all dependencies uses for Bonita web
 
 == console-server-sp
 
@@ -271,33 +282,27 @@
 
 | com.bonitasoft.engine
 | bonita-client-sp
-| 7.13.0
+| 7.13.2-20220118.014428-69
 | N/A
 |  -
 
 | com.bonitasoft.engine
 | bonita-common-sp
-| 7.13.0
+| 7.13.2-20220118.014428-69
 | N/A
 |  -
 
 | com.bonitasoft.engine
 | bonita-server-sp
-| 7.13.0
+| 7.13.2-20220118.014428-69
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | com.bonitasoft.web
 | bonita-web-extensions-sp
-| 7.13.0
+| 7.13.2-20220118.022623-40
 | http://www.bonitasoft.com[http://www.bonitasoft.com]
 |  -
-
-| com.google.code.gson
-| gson
-| 2.2.2
-| http://code.google.com/p/google-gson/[http://code.google.com/p/google-gson/]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | commons-fileupload
 | commons-fileupload
@@ -323,6 +328,12 @@
 | http://spnego.sourceforge.net/[http://spnego.sourceforge.net/]
 |  http://www.gnu.org/licenses/lgpl-3.0.html[GNU Lesser General Public License v3.0]
 
+| org.apache.santuario
+| xmlsec
+| 2.1.7
+| https://santuario.apache.org/[https://santuario.apache.org/]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+
 | org.apache.xbean
 | xbean-classloader
 | 3.7
@@ -331,19 +342,19 @@
 
 | org.bonitasoft.console
 | console-common-sp
-| 7.13.0
+| 7.13.2-20220118.145707-40
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-server
-| 7.13.0
+| 7.13.2-20220118.145704-40
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-server
-| 7.13.0
+| 7.13.2-20220118.145704-40
 | N/A
 |  -
 
