@@ -226,7 +226,7 @@ Using Maven command line
 
 [source, bash]
 ----
-# Parameters 'bonita.url', 'bonita.tech.user' and 'bonita,tech.password' are optionals. 
+# Parameters 'bonita.url', 'bonita.tech.user' and 'bonita.tech.password' are optionals. 
 # Use them if your runtime runs on an other URL than localhost:8080/bonita, 
 # or with technical user credentials different than install / install. 
 
