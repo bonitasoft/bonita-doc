@@ -1,7 +1,7 @@
 = Processes in integration tests
 :description: Manage process in integration tests using the Bonita test toolkit
 
-Learn to start and execute processes in your integration tests using the Bonita test toolkit.
+Learn to start and execute processes in integration tests using the Bonita test toolkit.
 
 [NOTE]
 ====
@@ -115,7 +115,7 @@ From a process instance, you can get some general information on the case, retri
 
 === Tasks
 
-The `ProcessInstance` object offers some convenient methods to retrieve the tasks of the case. If a task is a pending user task it can then be executed. xref:task.adoc[More details about tasks here].
+The `ProcessInstance` object offers some convenient methods to retrieve the tasks of a case. If a task is a pending user task it can then be executed. xref:task.adoc[More details about tasks here].
 
 [source, Java]
 ----
@@ -126,17 +126,19 @@ class ProcessIT {
 
     @Test
     void retrieve_tasks(BonitaTestToolkit toolkit) {
+        User walter = toolkit.getUser("walter.bates");
         ProcessDefinition processDef = toolkit.getProcessDefinition("myProcess");
+        ProcessInstance processInstance = processDef.startProcessFor(walter);
 
         // Tasks
-        List<Task> allTasks = processDef.searchTasks(); <1>
-        List<Task> allTasksWithAGivenName = processDef.searchTasks(TASK_NAME); <2>
-        Task firstTaskWithAGivenName = processDef.getFirstTask(TASK_NAME); <3>
+        List<Task> allTasks = processInstance.searchTasks(); <1>
+        List<Task> allTasksWithAGivenName = processInstance.searchTasks(TASK_NAME); <2>
+        Task firstTaskWithAGivenName = processInstance.getFirstTask(TASK_NAME); <3>
 
         // Pending user tasks
-        List<UserTask> allPendingUserTasks = processdef.searchPendingUserTasks(); <4>
-        List<UserTask> allPendingUserTasksWithAGivenName = processdef.searchPendingUserTasks(TASK_NAME); <5>
-        UserTask firstPendingUserTaskWithAGivenName = getFirstPendingUserTask(TASK_NAME); <6>
+        List<UserTask> allPendingUserTasks = processInstance.searchPendingUserTasks(); <4>
+        List<UserTask> allPendingUserTasksWithAGivenName = processInstance.searchPendingUserTasks(TASK_NAME); <5>
+        UserTask firstPendingUserTaskWithAGivenName = processInstance.getFirstPendingUserTask(TASK_NAME); <6>
     }
 }
 ----
