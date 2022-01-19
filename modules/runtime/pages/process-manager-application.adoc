@@ -3,9 +3,7 @@
 
 [NOTE]
 ====
-For Subscription editions only. +
-If your Bonita Subscription has been purchased before 2021, this Add-on can be purchased on top of your subscription.
-If you have purchased or renewed your Bonita Subscription in 2021 or after, BCD is fully part of your subscription.
+For Enterprise, Performance, Efficiency and Teamwork editions only.
 ====
 
 This page explains how to create your own custom process manager application. +
@@ -43,18 +41,19 @@ Currently, the Monitoring page is made using a different technology than UI Desi
 
 The modifications that you will need to do are quite simple:
 
-1. Though not necessary, I highly recommend re-saving your pages with a different name. This will prevent the pages from being over-written if you need to re-import the default pages.
+1. Though not necessary, it is highly recommended to re-save your pages with a different name. This will prevent these pages from being over-written if you need to re-import the default pages.
 2. Add an api call to get current user session. Create a new "External API" variable called `session` with the value `../API/system/session/unusedId`
-3. Add `&f=supervisor_id={{session.user_id}}` to the variables of the "External API" type (except for the `session` variable that we created).
+3. Make all API calls provide only the processes/cases/tasks that he supervises by adding `&f=supervisor_id={{session.user_id}}` to the variables of the "External API" type (except for the `session` variable that we created).
 
+[#application-creation]
 == Application creation
 
-After all the menu pages have been modified, we can proceed with the application creation. We can create the application from scratch, but it's easier to : +
+After all the menu pages have been modified, the application can be created. To do so : +
 
 1. Export the Bonita Administrator Application from the Application List and import it into the Bonita Studio
 2. Delete any orphan page that isn't mentioned in the list above
 3. Delete all, but the BPM menu from the "Navigation" section
-4. Create application pages in the "Navigation" menu using the menu pages that we mentioned above. Make sure to keep the tokens of the pages as the ones from the Administrator application, since the pages make use of the specific tokens or, if you modify the tokens, modify the pages to also use the correct urls.
+4. Create application pages in the "Navigation" menu using the menu pages that we mentioned above. It is highly recommended to not modify the tokens of the pages, since the pages use of the specific tokens. If you modify the tokens, make sure to modify the pages to also use the correct urls.
 5. Rename your application and modify the application token
 
-After doing all of those, you can deploy the finished "Process manager" application.
+The "Process manager" application is now complete, ready to be deployed and used.
