@@ -1,12 +1,12 @@
 = The Bonita test extension
 :description: Discover the Bonita test extension, a JUnit 5 extension that parametrize the Bonita client used in integration tests.
 
-The Bonita test extension is the entry point to create Bonita integration tests. It allows to specify some behaviors, and to inject the Bonita Test Toolkit in the test methods.
+The Bonita test extension is the entry point to create Bonita integration tests. It allows to specify some behaviors, and to inject the Bonita Test Toolkit into the test methods.
 
 [NOTE]
 ====
-Integrations tests are built upon the Bonita Test Toolkit, based on the open source https://github.com/bonitasoft/bonita-java-client[Bonita Java Client]. +
-The Bonita Test Toolkit is only available for Enterprise, Performance, Efficiency and Teamwork editions. 
+Integrations tests are built upon the Bonita Test Toolkit, based on the open-source https://github.com/bonitasoft/bonita-java-client[Bonita Java Client]. +
+The Bonita Test Toolkit is only available for Enterprise, Performance, Efficiency, and Teamwork editions. 
 ====
 
 == Create and configure the Bonita test extension
@@ -41,7 +41,7 @@ class processIT {
 
 === Register the extension manually
 
-The extension can be registered manually, using the JUnit 5 annotation `RegisterExtension`.  The `targetRuntimeURL` attribute has to be specify.
+The extension can be registered manually, using the JUnit 5 annotation `RegisterExtension`.  The `targetRuntimeURL` attribute has to be specified.
 
 [source, Java]
 ----
