@@ -38,7 +38,7 @@ Because the Bonita Test Toolkit only authenticates with the technical user. It e
 
 == Configure the technical user
 
-As explained above, the test toolkit only use the technical user. The credentials of the technical user are retrieved through the system properties `tech.user` and `tech.password`. +
+As explained above, the test toolkit only uses the technical user. The credentials of the technical user are retrieved through the system properties `tech.user` and `tech.password`. +
 The default values are [_username_: `install`, _password_:  `install`].
 
 Those properties can be set through Maven properties when running the tests: 
