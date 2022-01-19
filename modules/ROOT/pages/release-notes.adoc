@@ -241,9 +241,9 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 * STUDIO-4219 - Can't remove servlet api in a 2021.2-u2 migrated project 
 * STUDIO-4221 - Stack trace and diagram not displayed when reopening studio 
 * STUDIO-4223 - Unexpected error when updating connector version from SNAPSHOT to final release 
-* STUDIO-4228 - Case visu page is blank / Missing Pool--1.0.bar/resources/process.bpmn file when bar file generated with Project Explorer - RightClick - Build 
+* STUDIO-4228 - Missing Pool--1.0.bar/resources/process.bpmn file when bar file generated with Project Explorer - RightClick - Build 
 * STUDIO-4230 - NPE in Project explorer and lib folder 
-* UID-589 - BDR: redirect stdout and stderr in log file, or at least catch parsing errors 
+* UID-589 - BDR: Redirect stdout and stderr in log file
 * UID-596 - BDR: Error in GraphQL parsing should not prevent to use UID data management 
 * UID-616 - BDR : GraphQL schema generation issue with custom queries 
 * UID-617 - BDM is deployed according to the Studio but UID cannot access it 
