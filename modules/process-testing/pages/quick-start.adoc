@@ -11,15 +11,15 @@ The complete solution can be downloaded link:{attachmentsdir}/test-framework-qui
 
 [NOTE]
 ====
-Integrations tests are built upon the Bonita Test Toolkit, based on the open source https://github.com/bonitasoft/bonita-java-client[Bonita Java Client]. +
-The Bonita Test Toolkit is only available for Enterprise, Performance, Efficiency and Teamwork editions. 
+Integrations tests are built upon the Bonita Test Toolkit, based on the open-source https://github.com/bonitasoft/bonita-java-client[Bonita Java Client]. +
+The Bonita Test Toolkit is only available for Enterprise, Performance, Efficiency, and Teamwork editions. 
 ====
 
 [#project-example]
 == Test environment setup
 
-We will briefly describe in this section the process used in the test xref:quick-start-test[below]. It is not mandatory to reproduce this process to write a first test, any kind a basic process can be used. +
-In this process, we are going to create a dinosaur with a name, a color, and decide if he's hungry or not. Depending on his hungry state, he will go to hunt or go to sleep.
+We will briefly describe in this section the process used in the test xref:quick-start-test[below]. It is not mandatory to reproduce this process to write the first test, any basic process can be used. +
+In this process, we are going to create a dinosaur with a name, a color, and decide if he's hungry or not. Depending on his hungry state, he will go hunting or to sleep.
 
 The following Business Data Model is used: 
 
@@ -211,9 +211,9 @@ class CreateDinosaurIT {
 
 }
 ----
-<1> `BonitaTests` is an annotation that register a JUnit 5 extension. It's a convenient way to setup a Bonita test class. This extension allows to inject a `BonitaTestToolkit` correctly instantiated in test methods.
+<1> `BonitaTests` is an annotation that register a JUnit 5 extension. It's a convenient way to set up a Bonita test class. This extension allows injecting a `BonitaTestToolkit` correctly instantiated in test methods.
 <2> The `BonitaTestToolkit`, injected by the `BonitaTestExtension`, is the main entry point to interact with the targeted Bonita platform.
-<3> The toolkit offers the possibility to retrieve an existing user on the targeted Bonta platform. Users are used to execute processes during the test scenario.
+<3> The toolkit offers the possibility to retrieve an existing user on the targeted Bonta platform. These users are used to execute processes during the test scenario.
 <4> A process definition represents a deployed process on the targeted Bonita platform. It is used to start cases of a given process.
 <5> Using the toolkit, you can create a `BusinessObjectDAO`. It has to match an existing BusinessObject defined in the installed Business Data Model, and is used to retrieve instances of this business object.
 <6> The process under test is started using its process definition.
