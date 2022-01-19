@@ -231,6 +231,29 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 
 == Bug fixes
 
+=== Fixes in Bonita 2021.2-u2 (2022-01-19)
+
+==== Fixes in Bonita Studio (including Bonita UI Designer)
+
+* STUDIO-4141 - Error while importing .bos file off-line if dependencies not already present in local Maven repository 
+* STUDIO-4149 - When importing old version projects from GIT and SVN, the Studio does not detect unnecessary dependency libraries
+* STUDIO-4191 - When importing extension from a jar/zip file, version is read from filename and not from pom.xml 
+* STUDIO-4219 - Can't remove servlet api in a 2021.2-u2 migrated project 
+* STUDIO-4221 - Stack trace and diagram not displayed when reopening studio 
+* STUDIO-4223 - Unexpected error when updating connector version from SNAPSHOT to final release 
+* STUDIO-4228 - Case visu page is blank / Missing Pool--1.0.bar/resources/process.bpmn file when bar file generated with Project Explorer - RightClick - Build 
+* STUDIO-4230 - NPE in Project explorer and lib folder 
+* UID-589 - BDR: redirect stdout and stderr in log file, or at least catch parsing errors 
+* UID-596 - BDR: Error in GraphQL parsing should not prevent to use UID data management 
+* UID-616 - BDR : GraphQL schema generation issue with custom queries 
+* UID-617 - BDM is deployed according to the Studio but UID cannot access it 
+
+==== Fixes in Bonita Runtime (including Bonita Applications)
+
+* RUNTIME-292 - CleanInvalidSessions concurrency issue 
+* RUNTIME-590 - Method onPrepareStatement not called in 2021.1 and 2021.2 with postgres breaks the search case insensitivity
+* RUNTIME-675 - [Organization][ImportPolicy] IGNORE_DUPLICATES update manager relationship
+
 === Fixes in Bonita 2021.2-u1 (2021-11-26)
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
