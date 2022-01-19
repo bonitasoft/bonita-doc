@@ -55,7 +55,7 @@ xref:contract.adoc[[.card-title]#Contracts# [.card-body.card-content-overflow]#p
 
 [.card.card-index]
 --
-xref:business-data.adoc[[.card-title]#Contracts# [.card-body.card-content-overflow]#pass:q[Retrieve the business data of a given case]#]
+xref:business-data.adoc[[.card-title]#Business data# [.card-body.card-content-overflow]#pass:q[Retrieve the business data of a given case]#]
 --
 
 [.card.card-index]
