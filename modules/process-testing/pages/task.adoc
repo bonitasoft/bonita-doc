@@ -60,7 +60,7 @@ class ProcessIT {
 ----
 <1> Retrieve the pending task _aTask_ from the process instance.
 <2> Create a contract from a dedicated method to execute the task (more details about contract creation xref:contract.adoc[here]).
-<3> Retrieve the candidates of the task (i.e the users that can be assigned to the task), and ensure that walter is the only candidate (the predicate `hasCandidates(String... candidates)` can be used to check the candidates in case there is an actor filter that takes time).
+<3> Retrieve the candidates of the task (i.e the users that can be assigned to the task), and ensure that walter is the only candidate (the predicate `hasCandidates(User... candidates)` can be used to check the candidates in case there is an actor filter that takes time).
 <4> Assign the task to a user.
 <5> Execute the task with or without a contract. The task must have been already assigned.
 <6> Assign and execute the task with or without a contract. If the task is already assigned to an other user, it will be reassigned to the new user before to be executed.
