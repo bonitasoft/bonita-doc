@@ -1,7 +1,7 @@
 = Processes in integration tests
 :description: Manage process in integration tests using the Bonita test toolkit
 
-Learn to start and execute processes in your integration tests using the Bonita test toolkit.
+Learn to start and execute processes in integration tests using the Bonita test toolkit.
 
 [NOTE]
 ====
@@ -115,7 +115,7 @@ From a process instance, you can get some general information on the case, retri
 
 === Tasks
 
-The `ProcessInstance` object offers some convenient methods to retrieve the tasks of the case. If a task is a pending user task it can then be executed. xref:task.adoc[More details about tasks here].
+The `ProcessInstance` object offers some convenient methods to retrieve the tasks of a case. If a task is a pending user task it can then be executed. xref:task.adoc[More details about tasks here].
 
 [source, Java]
 ----
@@ -126,17 +126,19 @@ class ProcessIT {
 
     @Test
     void retrieve_tasks(BonitaTestToolkit toolkit) {
+        User walter = toolkit.getUser("walter.bates");
         ProcessDefinition processDef = toolkit.getProcessDefinition("myProcess");
+        ProcessInstance processInstance = processDef.startProcessFor(walter);
 
         // Tasks
-        List<Task> allTasks = processDef.searchTasks(); <1>
-        List<Task> allTasksWithAGivenName = processDef.searchTasks(TASK_NAME); <2>
-        Task firstTaskWithAGivenName = processDef.getFirstTask(TASK_NAME); <3>
+        List<Task> allTasks = processInstance.searchTasks(); <1>
+        List<Task> allTasksWithAGivenName = processInstance.searchTasks(TASK_NAME); <2>
+        Task firstTaskWithAGivenName = processInstance.getFirstTask(TASK_NAME); <3>
 
         // Pending user tasks
-        List<UserTask> allPendingUserTasks = processdef.searchPendingUserTasks(); <4>
-        List<UserTask> allPendingUserTasksWithAGivenName = processdef.searchPendingUserTasks(TASK_NAME); <5>
-        UserTask firstPendingUserTaskWithAGivenName = getFirstPendingUserTask(TASK_NAME); <6>
+        List<UserTask> allPendingUserTasks = processInstance.searchPendingUserTasks(); <4>
+        List<UserTask> allPendingUserTasksWithAGivenName = processInstance.searchPendingUserTasks(TASK_NAME); <5>
+        UserTask firstPendingUserTaskWithAGivenName = processInstance.getFirstPendingUserTask(TASK_NAME); <6>
     }
 }
 ----
@@ -193,6 +195,8 @@ Here are the available predicates for process instances:
 
 [source, Java]
 ----
+import static com.bonitasoft.test.toolkit.predicate.ProcessDefinitionPredicates.*;
+
 @BonitaTests(clearBDM = true, deleteProcessInstances = true)
 class ProcessIT {
 
@@ -203,31 +207,19 @@ class ProcessIT {
 
         ProcessInstance processInstance = processDef.startProcessFor(user);
 
-        await().until(processInstance, ProcessInstancePredicates.hasBeenStartedBy(user)); <1>
-        await().until(processInstance, ProcessInstancePredicates.processInstanceStarted()); <2>
-        await().until(processInstance, ProcessInstancePredicates.processInstanceCompleted()); <3>
-        await().until(processInstance, ProcessInstancePredicates.processInstanceArchived()); <4>
-        await().until(processInstance, ProcessInstancePredicates.processInstanceSuspended()); <5>
-        await().until(processInstance, ProcessInstancePredicates.processInstanceAborted()); <6>
-        await().until(processInstance, ProcessInstancePredicates.processInstanceCancelled()); <7>
-        await().until(processInstance, ProcessInstancePredicates.processInstanceHasError()); <8>
+        await("Process instance has been started by walter").until(processInstance, hasBeenStartedBy(user));
+        await("Process instance is started").until(processInstance, processInstanceStarted());
+        await("Process instance is completed").until(processInstance, processInstanceCompleted());
+        await("Process instance is archived").until(processInstance, processInstanceArchived());
+        await("Process instance is suspended").until(processInstance, processInstanceSuspended());
+        await("Process instance is aborted").until(processInstance, processInstanceAborted());
+        await("Process instance is cancelled").until(processInstance, processInstanceCancelled());
+        await("Process instance has error").until(processInstance, processInstanceHasError());
 
-        await().until(processInstance, ProcessInstancePredicates.containsPendingUserTasks("task1", "task2")); <9>
-        await().until(processInstance, ProcessInstancePredicates.hasActiveFlowNodes(1)); <10>
-        await().until(processInstance, ProcessInstancePredicates.hasFailedFlowNodes(0)); <11>
-        await().until(processInstance, ProcessInstancePredicates.hasTimerEventTrigger("timer")); <12>
+        await("The user tasks 'task1' and 'task2' are pending").until(processInstance, containsPendingUserTasks("task1", "task2"));
+        await("One flow node is active").until(processInstance, hasActiveFlowNodes(1));
+        await("Two flow nodes failed").until(processInstance, hasFailedFlowNodes(0));
+        await("The timer event trigger 'timer' is waiting").until(processInstance, hasTimerEventTrigger("timer"));
     }
 }
 ----
-<1> Verify that the process instance has been started by the user _walter.bates_.
-<2> Verify that the process instance is in the state `started`.
-<3> Verify that the process instance is in the state `completed`.
-<4> Verify that the process instance is in the state `archived`.
-<5> Verify that the process instance is in the state `suspended`.
-<6> Verify that the process instance is in the state `aborted`.
-<7> Verify that the process instance is in the state `cancelled`.
-<8> Verify that the process instance has errors.
-<9> Verify that the user tasks _task1_ and _task2_ are pending.
-<10> Verify that the instance has 1 active flow node.
-<11> Verify that the instance has 0 failed flow node.
-<12> Verify that the instance has an active timer event trigger named _timer_.

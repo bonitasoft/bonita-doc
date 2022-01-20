@@ -1,3 +1,100 @@
-= Tasks
+= Tasks in integration tests
+:description: Manage tasks in integration tests using the Bonita test toolkit
 
-_Coming soon_
+Learn to execute tasks and to validate their states in integration tests using the Bonita test toolkit.
+
+[NOTE]
+====
+Integrations tests are built upon the Bonita Test Toolkit, based on the open source https://github.com/bonitasoft/bonita-java-client[Bonita Java Client]. +
+The Bonita Test Toolkit is only available for Enterprise, Performance, Efficiency and Teamwork. editions. 
+====
+
+== Retrieve tasks
+
+Any task (user task, service task...) defined on a process can be retrieved through the xref:process.adoc#_tasks[process instance]. +
+Keep in mind that only tasks that *have been executed or are ready* can be retrieved, incoming tasks are not accessible.
+
+A task is returned as an object `Task` or `UserTask` (which extends `Task`). + 
+It offers the possiblity to retrieve some meta information about the task, its state, and gives access to eventual xref:variable.adoc[variables] and xref:connector.adoc[connectors].
+
+Besides that, a user task provides information about candidates, assignee, due date, and can be assigned and executed.
+
+== Assign and execute user tasks
+
+User tasks can be executed using the corresponding process instances to advance processes: 
+
+[source, Java]
+----
+@BonitaTests
+class ProcessIT {
+
+    @Test
+    void assign_and_execute_tasks(BonitaTestToolkit toolkit) {
+        User walter = toolkit.getUser("walter.bates");
+        ProcessDefinition processDef = toolkit.getProcessDefinition("myProcess");
+        ProcessInstance processInstance = processDef.startProcessFor(walter);
+        Task userTask = processInstance.getFirstPendingUserTask("aTask"); <1>
+        Contract contract = createContract(); <2>
+
+        // Check the candidates of a task
+        Set<User> candidates = userTask.getCandidates(); <3>
+        assertThat(candidates).containsExactly(walter);
+
+        // Assign a task to a user
+        userTask.assignTo(walter); <4>
+
+        // Execute an assigned task, with or without a contract.
+        userTask.execute(); <5>
+        userTask.execute(contract);
+
+        // Assign and execute a task, with or without a contract.
+        userTask.execute(walter); <6>
+        userTask.execute(walter, contract);
+
+        // Use the provided predicates to ensure that a taks has been correctly executed before to continue.
+        await("The task 'aTask' has been completed").until(userTask, hasBeenExecutedBy(walter) <7>
+                .and(taskArchived())
+                .and(taskCompleted()));
+    }
+}
+----
+<1> Retrieve the pending task _aTask_ from the process instance.
+<2> Create a contract from a dedicated method to execute the task (more details about contract creation xref:contract.adoc[here]).
+<3> Retrieve the candidates of the task (i.e the users that can be assigned to the task), and ensure that walter is the only candidate (the predicate `hasCandidates(User... candidates)` can be used to check the candidates in case there is an actor filter that takes time).
+<4> Assign the task to a user.
+<5> Execute the task with or without a contract. The task must have been already assigned.
+<6> Assign and execute the task with or without a contract. If the task is already assigned to an other user, it will be reassigned to the new user before to be executed.
+<7> Wait until the task is completed before to continue. Mor details about task predicates in the dedicated section xref:_task_predicates[bellow].
+
+== Task predicates
+
+In order to make asynchronous assertions on processes (using for example http://www.awaitility.org/[Awaitility]), some convenient predicates come with the Bonita test tookit. It allows to ensure in a scenario that the system is in the expected state before to continue. +
+For example, it is possible to use the predicate `taskCompleted()` on a user task to ensure that a task has been correctly executed before to continue. Awaitility (or any other asynchronous library) will check this predicate at a given frequency, and will throw an error if the timeout is reached (i.e the case has not been started in time).
+
+[source, Java]
+----
+import static com.bonitasoft.test.toolkit.predicate.ProcessInstancePredicates.*;
+
+@BonitaTests
+class ProcessIT {
+
+    @Test
+    void atask_predicates(BonitaTestToolkit toolkit) {
+        User walter = toolkit.getUser("walter.bates");
+        User helen = toolkit.getUser("helen.kelly");
+        ProcessDefinition processDef = toolkit.getProcessDefinition("myProcess");
+        ProcessInstance processInstance = processDef.startProcessFor(walter);
+        Task userTask = processInstance.getFirstPendingUserTask("aTask");
+
+
+        await("The task 'aTask' is not assigned").until(userTask, isNotAssigned());
+        await("The task 'aTask' has 2 candidates: walter and helen").until(userTask, hasCandidates(walter, helen));
+        await("The task 'aTask' is assigned to walter").until(userTask, isAssignedTo(walter));
+        await("The task 'aTask' is ready").until(userTask, taskReady());
+        await("The task 'aTask' has been executed by walter").until(userTask, hasBeenExecutedBy(walter));
+        await("The task 'aTask' is completed").until(userTask, taskCompleted());
+        await("The task 'aTask' is archived").until(userTask, taskArchived());
+        await("The task 'aTask' has failed").until(userTask, taskFailed());
+    }
+}
+----
