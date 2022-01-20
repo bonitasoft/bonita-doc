@@ -1,6 +1,6 @@
 = Processes automated tests
 
-:description: integeration test bonita processes applications junit ci continuous integration
+:description: integration test bonita processes applications junit ci continuous integration
 
 Learn how to write and execute integration tests for your Bonita processes to improve the quality and the durability of your developments using the Bonita Test Toolkit. +
 Developer skills are required to follow this documentation and, generally, to write process integration tests.

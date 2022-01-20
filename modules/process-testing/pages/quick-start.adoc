@@ -64,7 +64,6 @@ Create a new Maven project with the following pom.xml:
         <maven.compiler.target>11</maven.compiler.target>
         <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
         <maven-dependency-plugin.version>3.2.0</maven-dependency-plugin.version>
-        <maven-project-info-plugin.version>3.1.2</maven-project-info-plugin.version>
     
         <!-- Bonita -->
         <bonita-test-toolkit.version>0.0.1-SNAPSHOT</bonita-test-toolkit.version>
@@ -227,9 +226,18 @@ Using Maven command line
 
 [source, bash]
 ----
-# Parameters 'bonita.url', 'tech.user' and 'tech.password' are optionals. 
+# Parameters 'bonita.url', 'bonita.tech.user' and 'bonita.tech.password' are optionals. 
 # Use them if your runtime runs on an other URL than localhost:8080/bonita, 
 # or with technical user credentials different than install / install. 
 
-mvn verify [-Dbonita.url=<TARGET_RUNTIME_URL> -Dtech.user=<TECHNICAL_USER_USERNAME> -Dtech.password=<TECHNICAL_USER_PASSWORD>]
+mvn verify [-Dbonita.url=<TARGET_RUNTIME_URL> -Dbonita.tech.user=<TECHNICAL_USER_USERNAME> -Dbonita.tech.password=<TECHNICAL_USER_PASSWORD>]
 ----
+
+==== Advanced usage
+
+The test toolkit communicate with the target Bonita Runtime using HTTP. 
+It is possible to fine tune some HTTP specific options using the following arguments:
+
+* `-Dbonita.client.disable.certificate.check=true|false` Default is `false`. Disable SSL certificate check when connecting to remote runtime using HTTPS.
+* `-Dbonita.client.http.connection.timeout=10` Default is `10`. Timeout in seconds used for the HTTP connection timeout.
+
