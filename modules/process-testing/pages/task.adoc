@@ -15,13 +15,13 @@ Any task (user task, service task...) defined on a process can be retrieved thro
 Keep in mind that only tasks that *have been executed or are ready* can be retrieved, incoming tasks are not accessible.
 
 A task is returned as an object `Task` or `UserTask` (which extends `Task`). + 
-It offers the possiblity to retrieve sone meta information about the task, its state, and gives access to eventual xref:variable.adoc[variables] and xref:connector.adoc[connectors].
+It offers the possiblity to retrieve some meta information about the task, its state, and gives access to eventual xref:variable.adoc[variables] and xref:connector.adoc[connectors].
 
 Besides that, a user task provides information about candidates, assignee, due date, and can be assigned and executed.
 
 == Assign and execute user tasks
 
-User tasks can be executed from using the corresponding process instances to advance processes: 
+User tasks can be executed using the corresponding process instances to advance processes: 
 
 [source, Java]
 ----
