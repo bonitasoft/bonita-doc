@@ -38,7 +38,7 @@ class ProcessIT {
 
         // Check the candidates of a task
         Set<User> candidates = userTask.getCandidates(); <3>
-        assertThat(candidates).extracting(User::getUserName).containsExactly(walter.getUserName());
+        assertThat(candidates).containsExactly(walter);
 
         // Assign a task to a user
         userTask.assignTo(walter); <4>
@@ -52,7 +52,7 @@ class ProcessIT {
         userTask.execute(walter, contract);
 
         // Use the provided predicates to ensure that a taks has been correctly executed before to continue.
-        await().until(userTask, hasBeenExecutedBy(walter) <7>
+        await("The task 'aTask' has been completed").until(userTask, hasBeenExecutedBy(walter) <7>
                 .and(taskArchived())
                 .and(taskCompleted()));
     }
@@ -60,7 +60,7 @@ class ProcessIT {
 ----
 <1> Retrieve the pending task _aTask_ from the process instance.
 <2> Create a contract from a dedicated method to execute the task (more details about contract creation xref:contract.adoc[here]).
-<3> Retrieve the candidates of the task (i.e the users that can be assigned to the task), and ensure that walter is the only candidate.
+<3> Retrieve the candidates of the task (i.e the users that can be assigned to the task), and ensure that walter is the only candidate (the predicate `hasCandidates(String... candidates)` can be used to check the candidates in case there is an actor filter that takes time).
 <4> Assign the task to a user.
 <5> Execute the task with or without a contract. The task must have been already assigned.
 <6> Assign and execute the task with or without a contract. If the task is already assigned to an other user, it will be reassigned to the new user before to be executed.
@@ -73,6 +73,8 @@ For example, it is possible to use the predicate `taskCompleted()` on a user tas
 
 [source, Java]
 ----
+import static com.bonitasoft.test.toolkit.predicate.ProcessInstancePredicates.*;
+
 @BonitaTests
 class ProcessIT {
 
@@ -85,22 +87,14 @@ class ProcessIT {
         Task userTask = processInstance.getFirstPendingUserTask("aTask");
 
 
-        await().until(userTask, isNotAssigned()); <1>
-        await().until(userTask, hasCandidates(walter, helen)); <2>
-        await().until(userTask, isAssignedTo(walter)); <3>
-        await().until(userTask, taskReady()); <4>
-        await().until(userTask, hasBeenExecutedBy(walter)); <5>
-        await().until(userTask, taskCompleted()); <6>
-        await().until(userTask, taskArchived()); <7>
-        await().until(userTask, taskFailed()); <8>
+        await("The task 'aTask' is not assigned").until(userTask, isNotAssigned());
+        await("The task 'aTask' has 2 candidates: walter and helen").until(userTask, hasCandidates(walter, helen));
+        await("The task 'aTask' is assigned to walter").until(userTask, isAssignedTo(walter));
+        await("The task 'aTask' is ready").until(userTask, taskReady());
+        await("The task 'aTask' has been executed by walter").until(userTask, hasBeenExecutedBy(walter));
+        await("The task 'aTask' is completed").until(userTask, taskCompleted());
+        await("The task 'aTask' is archived").until(userTask, taskArchived());
+        await("The task 'aTask' has failed").until(userTask, taskFailed());
     }
 }
 ----
-<1> Verify that the user task has no assignee.
-<2> Verify that the user task has two candidates: walter and helen.
-<3> Verify that the user task is assigned to walter.
-<4> Verify that the user task is ready.
-<5> Verify that the user taks has been executed by walter.
-<6> Verify that the user task is completed.
-<7> Verify that the user task is archived.
-<8> Verify that the user task has failed. 
