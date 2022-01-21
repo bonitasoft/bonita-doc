@@ -1,3 +1,112 @@
-= Contracts
+= Contracts in integration tests
+:description: Learn to create contracts to start process or execute tasks in integration tests using the Bonita test toolkit.
 
-_Coming soon_
+{description} +
+There is two ways to create contracts: using the Java builder or from a JSon file in the classpath. The Java builder is handy for small contracts but can become tedious for large and complex contract.
+
+[NOTE]
+====
+Integrations tests are built upon the Bonita Test Toolkit, based on the open source https://github.com/bonitasoft/bonita-java-client[Bonita Java Client]. +
+The Bonita Test Toolkit is only available for Enterprise, Performance, Efficiency and Teamwork. editions. 
+====
+
+== Create contracts using the Java builder
+
+The Java builder allows to create contracts by specifying contract inputs one by one. +
+It is a pretty handy way to create small contracts, but for large contracts it is recommended to store theme in dedicated JSon files and to retrieve them xref:_retrieve_contracts_from_files[from the classpath].
+
+=== Simple contract inputs
+
+Simple contract inputs are inputs of type `Text`, `Integer`, `Double`, `Boolean`, `Date`, `LocalDate`, `LocalDateTime`, `OffsetDateTime` and `FileInputValue`. Those inputs car be multiple or not. +
+Simple contract inputs can be added to the contract being built by using the corresponding Java method from the builder: 
+
+[source, Java]
+----
+var contract = ContractBuilder.newContract()
+    .textInput("textContractInput", "value")
+    .multipleTextInput("multipleTextCntractInput", List.of("value1", "value2"))
+    .integerInput("intergerContractInput", 1)
+    .decimalInput("decimalContractInput", 1.0)
+    .booleanInput("booleanContractInput", true)
+    .dateInput("dateContractInput", new Date())
+    .localDateInput("localDateContractInput", LocalDate.now())
+    .localDateTimeInput("localDateTimeContractInput", LocalDateTime.now())
+    .offsetDateTimeInput("offsetDateTimeContractInput", OffsetDateTime.now())
+    .fileInput("fileContractInput", "classpathURL") <1>
+    .build();
+
+var contractWithMultipleInputs = ContractBuilder.newContract()
+    .multipleTextInput("multipleTextContractInput", List.of("value1", "value2"))
+    .multipleIntegerInput("multipleIntegerContractInput", List.of(1, 2))
+    .multipleDecimalInput("multipleDecimalContractInput", List.of(1.0, 2.0))
+    .multipleBooleanInput("multipleBooleanContractInput", List.of(true, false))
+    .multipleDateInput("multipleDateContractInput", List.of(new Date(), new Date()))
+    .multipleLocalDateInput("multipleLocalDateContractInput", List.of(LocalDate.now(), LocalDate.now()))
+    .multipleLocalDateTimeInput("multipleLocalDateTimeContractInput", List.of(LocalDateTime.now(), LocalDateTime.now()))
+    .multipleOffsetDateTimeInput("multipleOffsetDateTimeContractInput", List.of(OffsetDateTime.now(), OffsetDateTime.now()))
+    .multipleFileInput("multipleFileContractInput", List.of("classpathURL1", "classpathURL2"))
+    .build();
+----
+<1> For file contract inputs, the file to use must be added to the classpath, and the corresponding path has to be used in the contratc builder. For example, put your files in `src/test/resources/documents` and use the URL `/documents/<FILE NAME>`.
+
+=== Complex contract inputs
+
+A complex contract input has for value a list of contract inputs (simple or complex), It can be seen as a tree. +
+It is built like a simple contract input, but with a dedicated layer for the value : 
+
+[source, Java]
+----
+ContractBuilder.newContract()
+    .complexInput("complexContractInput", ComplexInputBuilder.complexInput()
+        .localDateInput("localDateContractInput", LocalDate.now())
+        .textInput("textContractInput", "value"))
+    .build();
+----
+
+To build a contract with several layers of complex contract inputs, chain them in the builder: 
+
+[source, Java]
+----
+ContractBuilder.newContract()
+    .complexInput("parentComplexContractInput", ComplexInputBuilder.complexInput() <1>
+        .localDateInput("localDateContractInput", LocalDate.now())
+        .textInput("textContractInput", "value")
+        .complexInput("childComplexContractInput", ComplexInputBuilder.complexInput() <2>
+            .booleanInput("booleanContractInput", true)))
+    .build();
+----
+<1> The first layer of contract input, the parent complex contract input which contains all the other contract inputs.
+<2> The second layer of contract input, a child complex contract input which contains other contract inputs.
+
+Has you can see, if a contract contains several layers of complex contract inputs with a lot of fields, using the Java builder to create the contract can become tedious. For such situations, it is recommended to extract the comtract in a dedicated JSon file and to retrieve them xref:_retrieve_contracts_from_files[from the classpath].
+
+== Retrieve contracts from files in the classpath
+
+Contracts can be stored in JSon files, and then retrieve at runtime from the classpath resources. This allows to extract the contract definition and the values in a dedicated file, which is easier to read and to maintain, especially for large and complex contracts. 
+
+A contract JSon file works as a key-value model, the key is the name of the contract input and the value the value of the contract input:
+
+[source, JSon]
+----
+{
+    "textContractInput" : "value",
+    "booleanContractInput" : true,
+    "dateContractInput" : "2021-10-10T00:00:00Z",
+	"complexContractInput" : {
+		"integerContractInput" : 1,
+	 	"localDateTimeContractInput" : "2021-02-10T12:23:32",
+	},
+	"multipleFileContractInput" : [
+        "/documents/docA.txt",
+		"/documents/docB.txt"
+    ]
+}
+----
+
+Contract JSon files have to be available from the classpath at runtime. + 
+To do so, put them for example in a folder `src/test/resources/contracts/`, and then use them in your tests: 
+
+[source, Java]
+----
+var contract = ContractBuilder.newContract().fromClasspathResource("/contracts/<CONTRACT FILE NAME>.json");
+----
