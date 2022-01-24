@@ -47,12 +47,12 @@ var contractWithMultipleInputs = ContractBuilder.newContract()
     .multipleFileInput("multipleFileContractInput", List.of("classpathURL1", "classpathURL2"))
     .build();
 ----
-<1> For file contract inputs, the file to use must be added to the classpath, and the corresponding path has to be used in the contratc builder. For example, put your files in `src/test/resources/documents` and use the URL `/documents/<FILE NAME>`.
+<1> For file contract inputs, the file to use must be added to the classpath, and the corresponding path has to be used in the contratc builder. For example, put your files in `src/test/resources/documents` and retrieve the resource URL like this: `MyTest.class.getResource("/documents/<FILE NAME>")`.
 
 === Complex contract inputs
 
 A complex contract input has for value a list of contract inputs (simple or complex), It can be seen as a tree. +
-It is built like a simple contract input, but with a dedicated layer for the value : 
+It is built like a simple contract input, but with a dedicated builder for the value : 
 
 [source, Java]
 ----
@@ -63,7 +63,7 @@ ContractBuilder.newContract()
     .build();
 ----
 
-To build a contract with several layers of complex contract inputs, chain them in the builder: 
+To build a contract with several levels of complex contract inputs, chain them in the builder: 
 
 [source, Java]
 ----
@@ -75,10 +75,10 @@ ContractBuilder.newContract()
             .booleanInput("booleanContractInput", true)))
     .build();
 ----
-<1> The first layer of contract input, the parent complex contract input which contains all the other contract inputs.
-<2> The second layer of contract input, a child complex contract input which contains other contract inputs.
+<1> The first level of contract input, the parent complex contract input which contains all the other contract inputs.
+<2> The second level of contract input, a child complex contract input which contains other contract inputs.
 
-Has you can see, if a contract contains several layers of complex contract inputs with a lot of fields, using the Java builder to create the contract can become tedious. For such situations, it is recommended to extract the comtract in a dedicated JSon file and to retrieve them xref:_retrieve_contracts_from_files[from the classpath].
+If a contract contains several levels of complex contract inputs with a lot of fields, using the Java builder to create the contract can become tedious. When a contract only contains static values, you may extract the contract in an external JSon file and retrieve them xref:_retrieve_contracts_from_files[from the classpath] to keep the test class concise.
 
 == Retrieve contracts from files in the classpath
 
