@@ -139,8 +139,9 @@ class ProcessIT {
 
         assertThatThrownBy(() -> processDef.startProcessFor(walter, invalidContract))
                         .isInstanceOf(StartProcessException.class)
-                        .hasMessageContaining("The input [birthdate] cannot be in the futur!");
+                        .hasMessageContaining("The input [birthdate] cannot be in the futur!"); <1>
     }
 
 }
 ----
+<1> The error message is the one defined in the technical message field of the constraint.
