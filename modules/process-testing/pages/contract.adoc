@@ -32,7 +32,7 @@ var contract = ContractBuilder.newContract()
     .localDateInput("localDateContractInput", LocalDate.now())
     .localDateTimeInput("localDateTimeContractInput", LocalDateTime.now())
     .offsetDateTimeInput("offsetDateTimeContractInput", OffsetDateTime.now())
-    .fileInput("fileContractInput", "classpathURL") <1>
+    .fileInput("fileContractInput", "classpathResourceURL") <1>
     .build();
 
 var contractWithMultipleInputs = ContractBuilder.newContract()
