@@ -118,7 +118,7 @@ var contract = ContractBuilder.newContract().fromClasspathResource("/contracts/<
 A contract is made of contract inputs and constraints. Constraints are used to ensure the integrity of contracts inputs. +
 It is possible to validate in an integration test that for a given set of input a constraint fails:
 
-In the following example, we have a contract for a business object `Person`, with to contract inputs: a name and a birthdate. We also have a constraint on the birthdate: it cannot be in the futur. The test validate that if the birthdateContractInput is a date in the futur, then in instanciation of the process fails.
+In the following example, we have a contract for a business object `Person`, with two contract inputs: a name and a birthdate. We also have a constraint on the birthdate: it cannot be in the futur. The test validate that if the birthdateContractInput is a date in the futur, then in instanciation of the process fails.
 
 [source, Java]
 ----
