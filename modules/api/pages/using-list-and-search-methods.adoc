@@ -51,8 +51,35 @@ sob.or();
 sob.differentFrom</b>(HumanTaskInstanceSearchDescriptor.ASSIGNEE_ID, myUser.getId());
 ----
 
-[#word_based_search]
 
+== Case sensitivity
+
+
+All Search requests done using **search terms** are case-insensitive but **filtering** IS case-sensitive.
+
+|===
+| Phrase in database | Search string | Matches
+
+| Hello Charles
+| `searchBuilder.filter("name", "Hello Charles")`
+| yes
+
+| Hello Charles
+| `searchBuilder.filter("name", "hello charles")`
+| no
+
+| Hello Charles
+| `searchBuilder.searchTerm("Hello Charles")`
+| yes
+
+| Hello Charles
+| `searchBuilder.searchTerm("hello charles")`
+| yes
+|===
+
+WARNING: On Oracle database, search is case-sensitive.
+
+[#word_based_search]
 == Word-based search
 
 By default, search uses a "starts by" algorithm for searching, and finds matches where the search string occurs at the start of a phrase.
@@ -63,22 +90,22 @@ For example:
 | Phrase in database | Search string | Matches with "starts with" | Matches with word-based search
 
 | Hello Charles
-| charles
+| `charles`
 | no
 | yes
 
 | Hello Charles
-| he
+| `he`
 | yes
 | yes
 
 | Hello Charles
-| carl
+| `carl`
 | no
 | no
 
 | Hello_Charles
-| ch
+| `ch`
 | no
 | no
 |===
