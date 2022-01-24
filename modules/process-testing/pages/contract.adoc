@@ -1,8 +1,8 @@
 = Contracts in integration tests
-:description: Learn to create contracts to start process or execute tasks in integration tests using the Bonita test toolkit.
+:description: Learn to create contracts to start processes or execute tasks in integration tests using the Bonita test toolkit.
 
 {description} +
-There is two ways to create contracts: using the Java builder or from a JSon file in the classpath. The Java builder is handy for small contracts but can become tedious for large and complex contract.
+There are two ways to create contracts: using the Java builder or from a JSon file in the classpath. The Java builder is handy for small contracts but can become tedious for large and complex contracts.
 
 [NOTE]
 ====
