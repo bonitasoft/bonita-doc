@@ -2,7 +2,7 @@
 :description: Learn to create contracts to start processes or execute tasks in integration tests using the Bonita test toolkit.
 
 {description} +
-There are two ways to create contracts: using the Java builder or from a JSon file in the classpath. The Java builder is handy for small contracts but can become tedious for large and complex contracts.
+There are two ways to create contracts: using the Java builder or from a JSon file in the classpath. The Java builder is handy for small contracts but can become tedious for large and complex contracts. In an other hand, it allows to use dynamic values for contract inputs.
 
 [NOTE]
 ====
@@ -13,7 +13,8 @@ The Bonita Test Toolkit is only available for Enterprise, Performance, Efficienc
 == Create contracts using the Java builder
 
 The Java builder allows to create contracts by specifying contract inputs one by one. +
-It is a pretty handy way to create small contracts, but for large contracts it is recommended to store theme in dedicated JSon files and to retrieve them xref:_retrieve_contracts_from_files[from the classpath].
+It is a pretty handy way to create small contracts, and it gives the possibility to use dynamic values for contract inputs (the persistence ID of a business object crated during the test for example). +
+For large and static contracts it is recommended to store theme in dedicated JSon files and to retrieve them xref:_retrieve_contracts_from_files[from the classpath].
 
 === Simple contract inputs
 
@@ -91,7 +92,7 @@ A contract JSon file works as a key-value model, the key is the name of the cont
 {
     "textContractInput" : "value",
     "booleanContractInput" : true,
-    "dateContractInput" : "2021-10-10T00:00:00Z",
+    "dateContractInput" : "2021-10-10T00:00:00Z", <1>
 	"complexContractInput" : {
 		"integerContractInput" : 1,
 	 	"localDateTimeContractInput" : "2021-02-10T12:23:32",
@@ -102,6 +103,7 @@ A contract JSon file works as a key-value model, the key is the name of the cont
     ]
 }
 ----
+<1> All dates (`LocalDate`, `LocaDateTime`, `OffsetDateTime` and `Date`) are passed as `String` using the https://en.wikipedia.org/wiki/ISO_8601[ISO_8601] standard format.
 
 Contract JSon files have to be available from the classpath at runtime. + 
 To do so, put them for example in a folder `src/test/resources/contracts/`, and then use them in your tests: 
