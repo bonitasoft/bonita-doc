@@ -112,3 +112,34 @@ To do so, put them for example in a folder `src/test/resources/contracts/`, and 
 ----
 var contract = ContractBuilder.newContract().fromClasspathResource("/contracts/<CONTRACT FILE NAME>.json");
 ----
+
+== Test contract constraints
+
+A contract is made of contract inputs and constraints. Constraints are used to ensure the integrity of contracts inputs. +
+It is possible to validate in an integration test that for a given set of input a constraint fails:
+
+In the following example, we have a contract for a business object `Person`, with to contract inputs: a name and a birthdate. We also have a constraint on the birthdate: it cannot be in the futur. The test validate that if the birthdateContractInput is a date in the futur, then in instanciation of the process fails.
+
+[source, Java]
+----
+@BonitaTests
+class ProcessIT {
+
+    @Test
+    void should_fail_on_birthdate_constraint(BonitaTestToolkit toolkit) {
+        User walter = toolkit.getUser("walter.bates");
+        ProcessDefinition processDef = toolkit.getProcessDefinition("myProcess");
+
+        var invalidContract = ContractBuilder.newContract()
+            .complexInput("personContractInput", ComplexInputBuilder.complexInput()
+                .textInput("name", "Adrien"))
+                .localDateInput("birthdate", LocalDate.now().plusDays(1))
+            .build();
+
+        assertThatThrownBy(() -> processDef.startProcessFor(walter, invalidContract))
+                        .isInstanceOf(StartProcessException.class)
+                        .hasMessageContaining("The input [birthdate] cannot be in the futur!");
+    }
+
+}
+----
