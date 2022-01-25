@@ -9,6 +9,6 @@ asciidoc:
     crowdinBonitaVersion: 7.12
     # page attributes
     page-editable: true
-    page-out-of-support: true
+    page-out-of-support: false
 nav:
   - modules/ROOT/taxonomy.adoc
