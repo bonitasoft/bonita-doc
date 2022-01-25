@@ -90,9 +90,11 @@ Then click *_Next_*.
 == image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
 
-*Issue*: LDAP Connector fails to manage more than 1000 users.
+*Issue*: +
+LDAP Connector fails to manage more than 1000 users.
 
-*Symptoms*: When using the LDAP Connector to get information from your LDAP Active Directory, for example the users and emails inside the process, the process fails on the connector with the trace:
+*Symptoms*: +
+When using the LDAP Connector to get information from your LDAP Active Directory, for example the users and emails inside the process, the process fails on the connector with the trace:
 
 [source,log]
 ----
@@ -120,14 +122,14 @@ Then click *_Next_*.
             ... 12 more
 ----
 
-*Root cause*: Your LDAP Active Directory is using the pagination. Generally on LDAP Server using the pagination, the page size is set to 1000.  
+*Cause*: +
+Your LDAP Active Directory is using the pagination. Generally on LDAP Server using the pagination, the page size is set to 1000. +
 
 By default, the pagination is not managed by the LDAP Connector since is not supported by all LDAP servers. So if your LDAP Active Directory is using the pagination, it will not be handle by the connector and will make it fail after 1000 users.  
 
-*Solutions*:  
+*Solutions*: +
 
-1. Increase the page size on your Active Directory by increasing the value of MaxPageSize : https://support.microsoft.com/en-us/kb/315071
-
-2. Develop a Custom LDAP Connector managing the pagination of your Active Directory. +
-Do to so, you can read the xref:ROOT:connector-archetype.adoc[documentation page on the connector archetype.]
+A. Increase the page size on your Active Directory by increasing the value of MaxPageSize : https://support.microsoft.com/en-us/kb/315071
+B. Develop a Custom LDAP Connector managing the pagination of your Active Directory. +
+To do so, you can read the xref:ROOT:connector-archetype.adoc[documentation page on the connector archetype.]
   
