@@ -20,5 +20,5 @@ jobs:
       uses: bonitasoft/pr-diff-checker-action@1.0.0
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        diffDoesNotContain: '["https://documentation.bonitasoft.com/"]'
+        diffDoesNotContain: '["https://documentation.bonitasoft.com/", "Bonita BPM"]'
         extensionsToCheck: '[".adoc"]'
