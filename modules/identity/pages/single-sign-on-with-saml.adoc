@@ -294,6 +294,7 @@ If you need more fine tuning or if you cannot update the reverse proxy configura
 Your IdP should declare a Service Provider named `bonita` (or the value of the `entityID` set in the file *keycloack-saml.xml* of Bonita bundle if it is different) with the following configuration:
 
 * ACS URL or SAML Processing URL: `http[s]://<bundle host>:<port>/bonita/saml`
+* recipient URL (`destination` attribute in the SAML response) if configurable on your IdP should be set with the same value as the ACS: `http[s]://<bundle host>:<port>/bonita/saml`
 * request binding and response binding configured with the same values as in *keycloack-saml.xml* (`POST` or `REDIRECT`)
 * `Client signature required` configured with the same values as the property `signRequest` in *keycloack-saml.xml*
 * if the IdP requires the client Bonita server (the SP) to sign its requests, make sure the IdP has access to Bonita server's certificate (the same that has been set in the SP:Keys:Key section of the *keycloak-saml.xml*)
@@ -424,6 +425,16 @@ Caused by: java.lang.RuntimeException: Sp signing key must have a PublicKey or C
 
 * Make sure you have encryption="true" inside the Key node of the SP.
 * Add Bonita server's private key in the Keys:Key section of the SP.
+****
+
+****
+*Symptom:* After successfully logging in on the IdP and being redirected to Bonita there is a 403 on the ACS request and the following message appears in the Bonita server log :
+[source,log]
+----
+org.keycloak.adapters.saml.profile.webbrowsersso.WebBrowserSsoAuthenticationHandler Error extracting SAML assertion: null.
+----
+*Problem:* Some IdPs dissociate the Recipient URL from the Assertion Consumer Service (ACS) URL in the SAML service configuration. +
+*Solution:* The workaround for this issue is to make sure to set the Recipient parameter in the IdP configuration with the same value as the ACS of the service provider (`http[s]://<bundle host>:<port>/bonita/saml`), so that the `destination` attribute is present in the SAML response. This issue hapens when the Recipient URL is left empty resulting to an empty `destination` attribute in the SAML response.
 ****
 
 == Manage passwords
