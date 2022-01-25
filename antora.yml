@@ -15,6 +15,7 @@ asciidoc:
     # page attributes
     page-pagination: true # display links to previous/next pages at the bottom of the page
     page-editable: true
+    page-out-of-support: false
     page-next-release: true # TODO: When releasing beta version, set this field to false
     page-hide-search-bar: true # TODO: When releasing beta version, set this field to false
 nav:
