@@ -50,7 +50,7 @@ The script `setup` comes with 4 commands:
 +
 It creates the database tables and pushes the initial configuration in the database. +
 This initial configuration is taken from the `platform_conf/initial` folder. +
-It is run by the global script `start_bonita`, but you can also insert it in your own scripts.
+It is run by the global script `start_bonita`, but you can also insert it in your own scripts. +
 It prepares the Runtime for a first start, but it will not initialize the default tenant.
 +
 Eg. `setup.sh init` +
