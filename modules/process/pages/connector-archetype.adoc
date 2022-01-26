@@ -310,6 +310,16 @@ class Connector extends AbstractConnector {
 The methods _validateInputParameters_ and _executeBusinessLogic_ must be implemented, and are called by the Bonita engine when the connector is executed. +
 The methods _connect_ and _disconnect_ can be used to open and close a connection to a remote server.  The life cycle of the connection will then be managed by the Bonita Runtime.
 
+
+[NOTE]
+====
+If possible, make the connector implementation idempotent. Subsequent execution of the same connector instance should
+not have additional side effects. This ensures, in rare case of failure when the engine is unable
+to determine if the connector was executed or not, that not unwanted side effects are produced.
+
+See xref:runtime:connectors-execution.adoc[connectors execution] for more information on how failures are handled on connectors.
+====
+
 ==== Add multiple implementations
 
 To add a new implementation create a `.impl` file in the `src/main/resources-filtered/` folder. They will be added to the `all` zip archive at build time. It is recommended to use the maven properties for implementation id and version.
