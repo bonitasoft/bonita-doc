@@ -22,7 +22,8 @@ It is a reactive system, when an incident happens during the execution of a work
 analyses the exception and determine if the work should be retried automatically or not.
 
 When the exception is retryable, the platform queues the work again, with a delay. That can be done up to 10 times
-with the delay increasing gradually from 1 second to more than 1 hour by default.
+with the delay increasing gradually from 1 second to more than 1 hour by default. +
+The exact delay is randomized, to avoid repeated congestion situations (a typical case of those are database deadlocks, when retrying all the failed works at the same time will lead to more deadlocks).
 
 See xref:ROOT:work-execution.adoc[Work execution] and xref:work-execution-audit.adoc[Work executiuon audit] for more details.
 
