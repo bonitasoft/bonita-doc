@@ -1,3 +1,112 @@
-= Business data
+= Business data in integration tests
+:description: Learn to retrieve business data from cases in integration tests.
 
-_comming soon_
+Validate the values of business data during the execution of a process is one of the main purposes of integration tests. +
+Business data can be retrieved from a process instance at any time during a test, so their values can be validated as much as necessary to ensure that the process behave correctly.
+
+[NOTE]
+====
+Integrations tests are built upon the Bonita Test Toolkit, based on the open source https://github.com/bonitasoft/bonita-java-client[Bonita Java Client]. +
+The Bonita Test Toolkit is only available for Enterprise, Performance, Efficiency and Teamwork. editions. 
+====
+
+== Retrieve the value of a business data
+
+A business data is defined at process level, it represents a business objects from the xref:data:define-and-deploy-the-bdm.adoc[Business Data Model]. +
+It can be retrieved at any time during a test from the corresponding xref:process.adoc[process instance], archived or not.
+
+There are two ways to retrieve the value of a business data: 
+- As a generic Object `BusinessData`
+- As a typed Object `T` representing your business object
+
+The first method is the default one, it doesn't require any additional development to be used and it is fully functional. +
+The second one is a bit more expensive since it requires a Java model matching the Business Data Model, but then it eases the use of the business data by provinding a direct access to the fields.
+
+=== As a generic Object
+
+Any business data be retrieved as a generic Object using its name. The generic Object `BusinessData` gives access to the fields generically: it uses the name and the type of the field to retrieve it.
+
+[source, Java]
+----
+@BonitaTests
+class ProcessIT {
+
+    @Test
+    void retrieve_business_data(BonitaTestToolkit toolkit) {
+        User user = toolkit.getUser("walter.bates");
+        ProcessDefinition processDef = toolkit.getProcessDefinition("myProcess");
+        ProcessInstance processInstance = processDef.startProcessFor(user);
+
+        BusinessData parentObjectData = processInstance.getBusinessData("parentObject"); <1>
+
+        BusinessData singleRef = parentObjectData.getReference("singleRef"); <2>
+
+        Integer intField = singleRef.getIntegerField("intField"); <3>
+        LocalDate localDateField = singleRef.getLocalDateField("dateOnlyField"); <4>
+        List<Long> multipleLongField = singleRef.getMultipleLongField("multiLongField"); <5>
+    }
+}
+----
+<1> A business data is retrieve from the process instance as a generic object, using the business data name.
+<2> A complex field is retrieve from the generic business data: the method `getReference` is used to indicate that the field to retrieve is a reference (i.e a complex field), and the name of the field is passed to the method. Lazy and eager references are retrieved the same way.
+<3> An integer field is retrieved from the previous reference, using the appropriate method and the name of the field.
+<4> A local date field is retrieved from the previous reference, using the appropriate method and the name of the field.
+<5> A multiple long field is retrieved from the previous reference, using the appropriate method and the name of the field. As the field is multiple, the returned value is a list.
+
+=== As a typed Object
+
+To retrieve a business data as a typed Object, a Java model matching the BDM is required. +
+This eases the use of the business data since fields are retrieved using direct methods (no need to pass the name and the type of a field to get it), but it can increase the maintenance cost: each time the BDM is updated the Java model might to be updated too.
+
+[CAUTION] 
+====
+The Java model has to contain getters for all the fields in the BDM. Those getter names must match the field names according correctly: `myField` -> `getMyField()`.
+====
+
+[source, Java]
+----
+@BonitaTests
+class ProcessIT {
+
+    interface TestBusinessDataModel { <1>
+        
+        interface ParentObject {
+            
+            long getPersistenceId();
+            
+            ChildReference getSingleRef();
+        }
+        
+        interface ChildReference {
+            
+            long getPersistenceId();
+            
+            Integer getIntegerField();
+
+            LocalDate getLocalDateField();
+            
+            List<Long> getMultipleLongField();
+        }
+    }
+
+    @Test
+    void retrieve_business_data(BonitaTestToolkit toolkit) {
+        User user = toolkit.getUser("walter.bates");
+        ProcessDefinition processDef = toolkit.getProcessDefinition("myProcess");
+        ProcessInstance processInstance = processDef.startProcessFor(user);
+
+        ParentObject typedParentObjectData = processInstance.getBusinessData("parentObject", ParentObject.class); <2>
+
+        ChildReference typedSingleRef = typedParentObjectData.getSingleRef(); <3>
+
+        Integer intField = typedSingleRef.getIntegerField(); <4>
+        LocalDate localDateField = typedSingleRef.getLocalDateField();
+        List<Long> multipleLongField = typedSingleRef.getMultipleLongField();
+    }
+
+}
+----
+<1> An Interface matching the Business Data Model is created.
+<2> The business data is retrieved from the process instance using its name and the type of the business data -> An object of type `ParentObject` is returned.
+<3> The complex field `singleRef` is retrieve using the Java method `getSingleRef()`. An object of type `ChildReference` is returned.
+<4> All simple fields from the `ChildReference` object can be retrieved using the corresponding Java method.
