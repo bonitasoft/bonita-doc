@@ -359,7 +359,7 @@ If the HTTP response's status is `401 Unauthorized`:
 If the HTTP response's status is `416 Range Not Satisfiable`:
 
 This error can happen on xref:#resource_search[search requests] with pagination when a firewall is blocking the response.
-Bonita REST API is using the `content-range` response headers to return pagiunation information and some firewalls may block this usage.
+Bonita REST API is using the `content-range` response headers to return pagination information and some firewalls may prevent this usage.
 
 * If you have a firewall with an option "Allow HTTP partial response" in its configuration, make sure it is enabled at least for you Bonita runtime server address.
 * Make sure your firewall or your reverse proxy doesn't have any other option that could block this response header
