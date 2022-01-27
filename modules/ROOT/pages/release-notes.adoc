@@ -251,6 +251,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
 * RUNTIME-292 - CleanInvalidSessions concurrency issue 
+* RUNTIME-495 - Make datasource configuration robust to network idle connection closure
 * RUNTIME-590 - Method onPrepareStatement not called in 2021.1 and 2021.2 with postgres breaks the search case insensitivity
 * RUNTIME-675 - [Organization][ImportPolicy] IGNORE_DUPLICATES update manager relationship
 
