@@ -353,3 +353,13 @@ If the HTTP response's status is `401 Unauthorized`:
 * if one of the PUT, DELETE or POST method is used, make sure that the `X-Bonita-API-Token` header is included
 * if the X-Bonita-API-Token header is included, make sure that the value is the same as the one of the cookie generated during the last login
 * Maybe a logout was issued or the session has expired; try to log in again, and re run the request with the new cookies and the new value for the `X-Bonita-API-Token` header.
+
+===== HTTP/1.1 416 Content Range Not Satisfiable
+
+If the HTTP response's status is `416 Range Not Satisfiable`:
+
+This error can happen on xref:#resource_search[search requests] with pagination when a firewall is blocking the response.
+Bonita REST API is using the `content-range` response headers to return pagiunation information and some firewalls may block this usage.
+
+* If you have a firewall with an option "Allow HTTP partial response" in its configuration, make sure it is enabled at least for you Bonita runtime server address.
+* Make sure your firewall or your reverse proxy doesn't have any other option that could block this response header
