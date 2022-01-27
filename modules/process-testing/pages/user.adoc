@@ -16,7 +16,7 @@ Users are mainly used to start processes and execute tasks. Any user in the orga
 
 [source, Java]
 ----
-@BonitaTests(clearBDM = true, deleteProcessInstances = true)
+@BonitaTests
 class ProcessIT {
 
     @Test
@@ -36,12 +36,69 @@ The user password is not required to retrieve the user, why?
 Because the Bonita Test Toolkit only authenticates with the technical user. It executes processes and tasks for a given user, but it is always the technical user that is logged in (it uses the _execute as_ feature).
 ====
 
+== Find users by group
+
+Retrieves a paginated list of users belonging to a group of the organization
+
+[source, Java]
+----
+@BonitaTests
+class ProcessIT {
+
+    @Test
+    void should_retrieve_user_in_group(BonitaTestToolkit toolkit) {
+        List<User> users = toolkit.findUsersInGroup("/acme/production/rd", 0, 10); <1>
+        ...
+    }
+}
+----
+<1> Takes a `groupPath` parameter to identify a given group in the target runtime organization.
+
+[WARNING]
+====
+It does not retrieve users belonging to sub groups.
+====
+
+== Find users by role
+
+Retrieves a paginated list of users having a given role in the organization
+
+[source, Java]
+----
+@BonitaTests
+class ProcessIT {
+
+    @Test
+    void should_retrieve_user_with_role(BonitaTestToolkit toolkit) {
+        List<User> users = toolkit.findUsersWithRole("manager", 0, 10);
+        ...
+    }
+}
+----
+
+== Find users by membership
+
+Retrieves a paginated list of users having a given role in the organization
+
+[source, Java]
+----
+@BonitaTests
+class ProcessIT {
+
+    @Test
+    void should_retrieve_user_with_membership(BonitaTestToolkit toolkit) {
+        List<User> users = toolkit.findUsersWithMembership("/acme/production/rd", "manager", 0, 10);
+        ...
+    }
+}
+----
+
 == Configure the technical user
 
-As explained above, the test toolkit only uses the technical user. The credentials of the technical user are retrieved through the system properties `tech.user` and `tech.password`. +
+As explained above, the test toolkit only uses the technical user. The credentials of the technical user are retrieved through the system properties `bonita.tech.user` and `bonita.tech.password`. +
 The default values are [_username_: `install`, _password_:  `install`].
 
 Those properties can be set through Maven properties when running the tests: 
 
-`mvn clean verify -Dtech.user=<username> -Dtech.password=<password>`
+`mvn clean verify -Dbonita.tech.user=<username> -Dbonita.tech.password=<password>`
 
