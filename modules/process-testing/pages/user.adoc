@@ -56,7 +56,7 @@ class ProcessIT {
 
 [WARNING]
 ====
-Does not retrieves users belonging to sub groups.
+It does not retrieve users belonging to sub groups.
 ====
 
 == Find users by role
