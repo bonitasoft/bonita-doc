@@ -313,7 +313,7 @@ The methods _connect_ and _disconnect_ can be used to open and close a connectio
 
 [NOTE]
 ====
-If possible, make the connector implementation idempotent. Subsequent execution of the same connector instance should
+If possible, make the connector implementation idempotent. Subsequent executions of the same connector instance should
 not have additional side effects. This ensures, in rare case of failure when the engine is unable
 to determine if the connector was executed or not, that not unwanted side effects are produced.
 
