@@ -28,7 +28,7 @@ Configuring an LDAP connector with the wizard:
 | number
 
 | Protocol
-| LDAP directory port number
+| LDAP, LDAPS or TLS
 | select
 
 | user
