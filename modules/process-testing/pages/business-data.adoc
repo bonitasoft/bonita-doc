@@ -2,7 +2,8 @@
 :description: Learn to retrieve business data from cases in integration tests.
 
 Validate the values of business data during the execution of a process is one of the main purposes of integration tests. +
-Business data can be retrieved from a process instance at any time during a test, so their values can be validated as much as necessary to ensure that the process behave correctly.
+Business data can be retrieved from a process instance at any time during a test, so their values can be validated as much as necessary to ensure that the process behave correctly. +
+The Bonita test toolkit also offers the possibility to retrieve any existing business data in the BDM database. It is different because these business data are not retrieved according to a specific case, but using existing _queries_ (default or custom).
 
 [NOTE]
 ====
@@ -10,7 +11,7 @@ Integrations tests are built upon the Bonita Test Toolkit, based on the open sou
 The Bonita Test Toolkit is only available for Enterprise, Performance, Efficiency and Teamwork. editions. 
 ====
 
-== Retrieve the value of a business data
+== Retrieve the value of a business data from a process instance
 
 A business data is defined at process level, it represents a business objects from the xref:data:define-and-deploy-the-bdm.adoc[Business Data Model]. +
 It can be retrieved at any time during a test from the corresponding xref:process.adoc[process instance], archived or not.
@@ -110,3 +111,76 @@ class ProcessIT {
 <2> The business data is retrieved from the process instance using its name and the type of the business data -> An object of type `ParentObject` is returned.
 <3> The complex field `singleRef` is retrieve using the Java method `getSingleRef()`. An object of type `ChildReference` is returned.
 <4> All simple fields from the `ChildReference` object can be retrieved using the corresponding Java method.
+
+== Retrieve business data using BDM queries
+
+The Bonita test toolkit offers the possibility to create a _DAO (Data Access Object)_ for all business objects defined in the business data model. These DAO can be generic or typed, and give the possibility to retrieve business data from the BDM database using _queries_ (default or custom). 
+
+The difference between using a generic or a typed dao is the same as for business data retrieved from process instances: +
+Whereas the generic option doesn't require any development and is fully functional, the typed option requires the development of a Java model matching the business data model but objects returned by the queries will be correctly typed.
+
+=== Using a generic DAO
+
+A generic DAO can be created at any time from the bonita test toolkit. It requires the fully qualified name of the associated business object, and then gives access to the query generically. The business data returned by the queries are also generic.
+
+[source, Java]
+----
+@BonitaTests
+class ProcessIT {
+
+    @Test
+    void retrieve_business_data_through_dao(BonitaTestToolkit toolkit) {
+        BusinessObjectDAO<BusinessData> parentObjectDAO = toolkit.getBusinessObjectDAO("com.company.model.MyObject"); <1>
+
+        List<BusinessData> findResult = parentObject.find(0, 100));<2>
+        BusinessData singleQueryResult = parentObject.querySingle("singleQueryName", List.of("parameterName=value"))); <3>
+        List<BusinessData> multipleQueryResult = parentObject.query("multipleQueryName", List.of("parameterName=value"), 0, 100)); <4>
+
+        Integer countForFind = parentObject.querySingle("countForFind", List.of(), Integer.class)); <5>
+        
+        assertThatThrownBy(() -> parentObject.querySingle("countForFind", List.of())).isInstanceOf(BusinessDataQueryException.class); <6>
+    }
+}
+----
+<1> A generic DAO is retrieved from the toolkit using the business object fully qualified name.
+<2> Call the default query `find` using the dedicated method, to retrieve the first 100 business data.
+<3> Call the single query `singleQueryName` which return a single value. This query has one parameter.
+<4> Call the query `multipleQueryName` which return a list. This query has one parameter.
+<5> Call the single query `countForFind`. This query is a _count_, it counts the number of values that would be returned by the associated query. The return type (`Integer`) has to be passed to the generic DAO for count queries.
+<6> If the return type is not excplicitly set for a count query an error is thrown.
+
+=== Using a typed DAO
+
+A typed DAO works in the exacte same way as a generic DAO, but the returned objects are typed correctly. +
+A typed DAO can be created at any time from the bonita test toolkit. It requires the type and the fully qualified name of the associated business object.
+
+[source, Java]
+----
+@BonitaTests
+class ProcessIT {
+
+    interface MyObject { <1>
+            
+        long getPersistenceId();
+        
+        Integer getIntegerField();
+
+        LocalDate getLocalDateField();
+        
+        List<Long> getMultipleLongField();
+    }
+
+    @Test
+    void retrieve_business_data_through_dao(BonitaTestToolkit toolkit) {
+        BusinessObjectDAO<MyObject> parentObjectDAO = toolkit.getBusinessObjectDAO("com.company.model.MyObject", MyObject.class); <2>
+
+        List<MyObject> findResult = parentObject.find(0, 100));<3>
+        MyObject singleQueryResult = parentObject.querySingle("singleQueryName", List.of("parameterName=value"))); <4>
+        ...
+    }
+}
+----
+<1> A Java model matching the business object `com.company.model.MyObject` is created.
+<2> A typed DAO for is created using the fully qualified name of the business object and the type of the object in the test Java model.
+<3> The query find is called, a list of `MyObject` is returned.
+<4> The single query `singleQueryName` is called, an object `MyObject` is returned.
