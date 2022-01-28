@@ -26,12 +26,12 @@ These credentials can be consulted and modified:
 
 === Dynamic authorization checking active by default (Subscription editions)
 
-xref:identity:rest-api-authorization.adoc#dynamic_authorization[Dynamic authorization checking] is now only available in the *Enterprise* editions, and is*active by default* for new installations. +
+xref:identity:rest-api-authorization.adoc#dynamic_authorization[Dynamic authorization checking] is now only available in the *Enterprise* editions, and is also *active by default* for new installations. +
 Existing installations that update to 2022.1 stay *unchanged*, but we encourage customers to activate dynamic authorization checking, once they have benched that the performance cost is reasonable.
 
-Community users that update to 2022.1 simply lose the possibility to use dynamic authorization checking.
-Their potential previous configuration regarding dynamic authorizations is kept unchanged during the update procedure,
-to be used as a reference for custom usage, or ready to use for a potential upgrade to Enterprise edition.
+For Community users who update to 2022.1, dynamic authorization checking does not work anymore. +
+However, the configuration stays unchanged, even if it is not used anymore. +
+If they want to reuse the configuration in a custom manner, or upgrade to Enterprise edition, the configuration will be back there and fully functional.
 
 == Technical updates
 
