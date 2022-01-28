@@ -17,6 +17,7 @@ A business data is defined at process level, it represents a business objects fr
 It can be retrieved at any time during a test from the corresponding xref:process.adoc[process instance], archived or not.
 
 There are two ways to retrieve the value of a business data: 
+
 - As a generic Object `BusinessData`
 - As a typed Object `T` representing your business object
 
@@ -25,7 +26,7 @@ The second one is a bit more expensive since it requires a Java model matching t
 
 === As a generic Object
 
-Any business data be retrieved as a generic Object using its name. The generic Object `BusinessData` gives access to the fields generically: it uses the name and the type of the field to retrieve it.
+Any business data can be retrieved as a generic Object using its name. The generic Object `BusinessData` gives access to the fields generically: it uses the name and the type of the field to retrieve it.
 
 [source, Java]
 ----
@@ -57,7 +58,7 @@ class ProcessIT {
 === As a typed Object
 
 To retrieve a business data as a typed Object, a Java model matching the BDM is required. +
-This eases the use of the business data since fields are retrieved using direct methods (no need to pass the name and the type of a field to get it), but it can increase the maintenance cost: each time the BDM is updated the Java model might to be updated too.
+This eases the use of the business data since fields are retrieved using direct methods (no need to pass the name and the type of a field to get it), but it can increase the maintenance cost: each time the BDM is updated, the Java model might need to be updated too.
 
 [CAUTION] 
 ====
@@ -108,7 +109,7 @@ class ProcessIT {
 }
 ----
 <1> An Interface matching the Business Data Model is created.
-<2> The business data is retrieved from the process instance using its name and the type of the business data -> An object of type `ParentObject` is returned.
+<2> A business data is retrieved from the process instance using its name and the type of the business data -> An object of type `ParentObject` is returned.
 <3> The complex field `singleRef` is retrieve using the Java method `getSingleRef()`. An object of type `ChildReference` is returned.
 <4> All simple fields from the `ChildReference` object can be retrieved using the corresponding Java method.
 
@@ -117,7 +118,7 @@ class ProcessIT {
 The Bonita test toolkit offers the possibility to create a _DAO (Data Access Object)_ for all business objects defined in the business data model. These DAO can be generic or typed, and give the possibility to retrieve business data from the BDM database using _queries_ (default or custom). 
 
 The difference between using a generic or a typed dao is the same as for business data retrieved from process instances: +
-Whereas the generic option doesn't require any development and is fully functional, the typed option requires the development of a Java model matching the business data model but objects returned by the queries will be correctly typed.
+Whereas the generic option doesn't require any development and is fully functional, the typed option requires the development of a Java model matching the business data model, but objects returned by the queries will be correctly typed.
 
 === Using a generic DAO
 
@@ -151,7 +152,7 @@ class ProcessIT {
 
 === Using a typed DAO
 
-A typed DAO works in the exacte same way as a generic DAO, but the returned objects are typed correctly. +
+A typed DAO works in the exact same way as a generic DAO, but the returned objects are typed correctly. +
 A typed DAO can be created at any time from the bonita test toolkit. It requires the type and the fully qualified name of the associated business object.
 
 [source, Java]
@@ -180,7 +181,7 @@ class ProcessIT {
     }
 }
 ----
-<1> A Java model matching the business object `com.company.model.MyObject` is created.
-<2> A typed DAO for is created using the fully qualified name of the business object and the type of the object in the test Java model.
+<1> An Interface matching the Business Data Model is created.
+<2> A typed DAO is created using the fully qualified name of the business object and the type of the object in the test Java model.
 <3> The query find is called, a list of `MyObject` is returned.
 <4> The single query `singleQueryName` is called, an object `MyObject` is returned.
