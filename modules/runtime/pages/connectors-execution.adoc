@@ -34,7 +34,7 @@ image::images/connector_execution_timeout.png[Connector execution with timeout]
 === Connector failure handling
 
 When a connector fails, it is put as failed and the exception can be retrieved
-using the xref:api:bpm-api.adoc#connector-failure[dedicated api].
+using the xref:api:bpm-api.adoc#_connectorfailure[dedicated api].
 
 Then the connector can be manually be replayed using the xref:api:bpm-api.adoc#activity-replay[activityReplay api].
 

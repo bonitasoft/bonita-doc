@@ -4553,7 +4553,6 @@ Mandatory filters: connector_process_id, connector_name, connector_version
 ]
 ----
 
-[#connector-failure]
 === ConnectorFailure
 
 ==== Description
