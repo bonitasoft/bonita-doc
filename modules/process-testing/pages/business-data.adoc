@@ -108,7 +108,7 @@ class ProcessIT {
 
 }
 ----
-<1> An Interface matching the Business Data Model is created.
+<1> An interface matching the Business Data Model is created.
 <2> A business data is retrieved from the process instance using its name and the type of the business data -> An object of type `ParentObject` is returned.
 <3> The complex field `singleRef` is retrieve using the Java method `getSingleRef()`. An object of type `ChildReference` is returned.
 <4> All simple fields from the `ChildReference` object can be retrieved using the corresponding Java method.
@@ -118,7 +118,7 @@ class ProcessIT {
 The Bonita test toolkit offers the possibility to create a _DAO (Data Access Object)_ for all business objects defined in the business data model. These DAO can be generic or typed, and give the possibility to retrieve business data from the BDM database using _queries_ (default or custom). 
 
 The difference between using a generic or a typed dao is the same as for business data retrieved from process instances: +
-Whereas the generic option doesn't require any development and is fully functional, the typed option requires the development of a Java model matching the business data model, but objects returned by the queries will be correctly typed.
+While the generic option doesn't require any development and is fully functional, the typed option requires the development of a Java model matching the business data model in order to manipulate strongly typed objects when using Business data.
 
 === Using a generic DAO
 
@@ -152,7 +152,7 @@ class ProcessIT {
 
 === Using a typed DAO
 
-A typed DAO works in the exact same way as a generic DAO, but the returned objects are typed correctly. +
+A typed DAO works in the exact same way as a generic DAO, but the returned objects are strongly typed. +
 A typed DAO can be created at any time from the bonita test toolkit. It requires the type and the fully qualified name of the associated business object.
 
 [source, Java]
@@ -181,7 +181,7 @@ class ProcessIT {
     }
 }
 ----
-<1> An Interface matching the Business Data Model is created.
+<1> An interface matching the Business Data Model is created.
 <2> A typed DAO is created using the fully qualified name of the business object and the type of the object in the test Java model.
-<3> The query find is called, a list of `MyObject` is returned.
+<3> The `find` query is executed and a list of `MyObject` is returned.
 <4> The single query `singleQueryName` is called, an object `MyObject` is returned.
