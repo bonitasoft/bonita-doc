@@ -65,7 +65,7 @@ If they want to reuse the configuration in a custom manner or upgrade to Enterpr
 === Other changes
 
 === Connector Retry
-When the engine fails to evaluate output operations of a connector, the connector is no more automatically retried. It could be an issue to re-execute a connector because, connectors might have side effects. It is the choice of the administrator of the platform to re-execute the connector or not. See xref:runtime:connectors-execution.adoc[documentation about connector execution] for details about connector failure and replay.
+When the engine fails to evaluate output operations of a connector, the connector is no more automatically retried. It could be an issue to re-execute a connector because connectors might have side effects. It is the choice of the administrator of the platform to re-execute the connector or not. See xref:runtime:connectors-execution.adoc[documentation about connector execution] for details about connector failure and replay.
 
 == Technical updates
 
