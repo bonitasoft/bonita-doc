@@ -227,11 +227,11 @@ Now you can access the Bonita Runtime on localhost:8080/bonita and login using: 
 == Secure your remote access
 
 This docker image ensures to activate by default both static and dynamic authorization checks on xref:identity:rest-api-authorization.adoc[REST API]. To be coherent it also deactivates the HTTP API.
-But for specific needs you can override this behavior by setting HTTP_API to true and COM_BONITASOFT_ENGINE_AUTHORIZATION_REST_DYNAMIC_CHECK_ENABLE to false :
+But for specific needs you can override this behavior by setting HTTP_API to true and BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED to false :
 
 [source,shell script,subs="+macros"]
 ----
-docker run  -e HTTP_API=true -e COM_BONITASOFT_ENGINE_AUTHORIZATION_REST_DYNAMIC_CHECK_ENABLE=false --name bonita -v bonita-lic:/opt/bonita_lic/ -h <hostname> -d -p 8080:8080  quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
+docker run  -e HTTP_API=true -e BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED=false --name bonita -v bonita-lic:/opt/bonita_lic/ -h <hostname> -d -p 8080:8080  quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
 == Environment variables
@@ -264,13 +264,13 @@ This optional environment variable is used in conjunction with `MONITORING_USERN
 
 === REST_API_DYN_AUTH_CHECKS
 
-Deprecated, now you can use xref:#dynamic-check-enable[COM_BONITASOFT_ENGINE_AUTHORIZATION_REST_DYNAMIC_CHECK_ENABLE] instead.
+Deprecated, now you can use xref:#dynamic-check-enable[BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED] instead.
 
 [#dynamic-check-enable]
 
-=== COM_BONITASOFT_ENGINE_AUTHORIZATION_REST_DYNAMIC_CHECK_ENABLE (Subscription editions only)
+=== BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED (Subscription editions only)
 
-This optional environment variable is used to enable/disable dynamic authorization checking on Bonita REST API. The default value is true, which will activate dynamic authorization checking.
+This optional environment variable is used to enable/disable dynamic authorization checking on Bonita REST API. The default value is *true*, which will activate dynamic authorization checking.
 
 === HTTP_API
 

@@ -175,8 +175,8 @@ By default, dynamic checks are enabled.
 
 To *completely disable* dynamic checks, simply either:
 
-* set the Environment variable `COM_BONITASOFT_ENGINE_AUTHORIZATION_REST_DYNAMIC_CHECK_ENABLE=false`
-* or add the Java System property `-Dcom.bonitasoft.engine.authorization.rest.dynamic.check.enable=false` to your `setEnv[.sh|.bat]` tomcat startup script.
+* set the Environment variable `BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED=false`
+* or add the Java System property `-Dbonita.runtime.authorization.dynamic-check.enabled=false` to your `setEnv[.sh|.bat]` tomcat startup script.
 
 To disable a single dynamic check for a method and resource, comment out the corresponding line in the file `dynamic-permissions-checks-custom.properties`.
 
@@ -395,30 +395,15 @@ edit `web.xml` and comment out the following definitions:
 [discrete]
 ==== Running in debug mode
 
-If debug mode is activated, whenever you update a configuration file or a dynamic check script, the changes take effect immediately.
+To optimize performance in production, Bonita caches the dynamic check scripts for faster subsequent executions.
 
-To activate debug mode, edit `security-config.properties` and set the value of the `security.rest.api.authorizations.check.debug` property to `true`, then restart the application server.
+If debug mode is activated, Bonita will reload the dynamic check scripts each time they are executed. It allows to rapidly validate your script at *development* time.
 
-To deactivate authorization, set the property to `false`, then restart the application server. Debug mode should be deactivated in production, so as not to impact performance.
+To activate debug mode, edit `bonita-platform-sp.properties` and set the value of the `bonita.runtime.authorization.dynamic-check.debug` property to `true`, then restart the application server.
 
-[#migrate]
+Then, each time you change a dynamic check script, simply update it in database using xref:runtime:bonita-platform-setup.adoc#update_platform_conf[Setup tool] (`./setup.sh push`). The script will be reloaded at next execution (next time you call a URL that matches this dynamic rule).
 
-[discrete]
-==== Migration
-
-When you migrate from a version earlier than 6.4.0, authorization is configured to be off (`security.rest.api.authorizations.check.enabled` is set to `false`).
-
-If you have an existing custom page and want to activate authorization, you need to add permissions to the definition of the custom page.
-To add authorization to an existing custom page:
-
-. Export the xref:ROOT:pages.adoc[custom page].
-. Update the page properties with xref:ROOT:pages.adoc[permissions].
-. Activate authorization, by editing `security-config.properties` and setting the value of the `security.rest.api.authorizations.check.enabled` property to `true`.
-. Restart the application server.
-. Import the xref:ROOT:pages.adoc[custom page].
-
-If you have an existing custom profile, the permissions relating to the profiles is automatically added to the permissions files, so you do not need to update the profile.
-However, if a custom profile use a custom page, you must update the custom page definition to add permissions before you activate authorization.
+To deactivate authorization, set the above property to `false`, then restart the application server. Debug mode should be deactivated in production, so as not to impact performance.
 
 == Permissions and resources
 
