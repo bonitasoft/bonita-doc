@@ -1,4 +1,4 @@
-= Creating a process manager application
+= Create a process manager application
 :description: This page explains how to create your own custom process manager application
 
 [NOTE]
@@ -19,7 +19,7 @@ The main menu of the application will require four pages.
 * Case list
 * Task list
 
-In addition to those, there are some orphan pages that are required by the above ones :
+In addition to those, some orphan pages are required by the above ones :
 
 * Process details
 * Process visualization
@@ -39,7 +39,7 @@ You don't need to export and modify the orphan pages.
 Currently, the Monitoring page is made using a different technology than UI Designer, and thus it cannot be edited.
 ====
 
-The modifications that you will need to do are quite simple:
+Perform the following modifications to the 4 menu pages:
 
 1. Though not necessary, it is highly recommended to re-save your pages with a different name. This will prevent these pages from being over-written if you need to re-import the default pages.
 2. Add an api call to get current user session. Create a new "External API" variable called `session` with the value `../API/system/session/unusedId`
