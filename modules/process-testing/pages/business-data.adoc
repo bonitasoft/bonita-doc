@@ -50,7 +50,7 @@ class ProcessIT {
 }
 ----
 <1> A business data is retrieve from the process instance as a generic object, using the business data name.
-<2> A complex field is retrieve from the generic business data: the method `getReference` is used to indicate that the field to retrieve is a reference (i.e a complex field), and the name of the field is passed to the method. Lazy and eager references are retrieved the same way.
+<2> A relation field is retrieve from the generic business data: the method `getReference` is used to indicate that the field to retrieve is a reference (i.e a relation field), and the name of the field is passed to the method. Lazy and eager references are retrieved the same way.
 <3> An integer field is retrieved from the previous reference, using the appropriate method and the name of the field.
 <4> A local date field is retrieved from the previous reference, using the appropriate method and the name of the field.
 <5> A multiple long field is retrieved from the previous reference, using the appropriate method and the name of the field. As the field is multiple, the returned value is a list.
@@ -110,7 +110,7 @@ class ProcessIT {
 ----
 <1> An interface matching the Business Data Model is created.
 <2> A business data is retrieved from the process instance using its name and the type of the business data -> An object of type `ParentObject` is returned.
-<3> The complex field `singleRef` is retrieve using the Java method `getSingleRef()`. An object of type `ChildReference` is returned.
+<3> The relation field `singleRef` is retrieved using the Java method `getSingleRef()`. An object of type `ChildReference` is returned.
 <4> All simple fields from the `ChildReference` object can be retrieved using the corresponding Java method.
 
 == Retrieve business data using BDM queries
