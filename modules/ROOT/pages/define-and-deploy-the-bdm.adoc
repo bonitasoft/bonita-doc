@@ -252,6 +252,7 @@ The version of those artifacts is fixed to 1.0.
 You have the possibility to edit the group id of those artifacts from the BDM edition wizard. +
 Those maven artifacts are meant to be used from REST API extensions, using the following dependencies:
 
+[source,xml]
 ----
 <dependency>
 	<groupId>[YOUR GROUP ID]</groupId>
