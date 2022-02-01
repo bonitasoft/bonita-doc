@@ -31,6 +31,21 @@ A typical example of this is if the custom code in a groovy connector falls into
 
 image::images/connector_execution_timeout.png[Connector execution with timeout]
 
+=== Connector failure handling
+
+When a connector fails, it is put as failed and the exception can be retrieved
+using the xref:api:bpm-api.adoc#_connectorfailure[dedicated api].
+
+Then the connector can be manually be replayed using the xref:api:bpm-api.adoc#activity-replay[activityReplay api].
+
+
+[NOTE]
+====
+On rare cases, when an error occurs on a connector and the engine is unable to mark it as failed
+(this might be caused by the engine being unable to get a new sql connection), the connector will automatically be retried.
+That is why it is best to have idempotent connector implementations.
+====
+
 == Configuration
 
 The size of the pool to execute connector and the timeout can be configured as described in xref:ROOT:performance-tuning.adoc#connector_service[Connector service performance tuning page]
