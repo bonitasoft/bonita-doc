@@ -1,4 +1,4 @@
-= Bonita BPM Documentation
+= Bonita Documentation
 :description: Learn how to use the Bonita Platform and all of its components.
 
 [NOTE]
