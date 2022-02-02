@@ -231,6 +231,19 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 
 == Bug fixes
 
+=== Fixes in Bonita 2021.2-u3 (2022-02-02)
+
+==== Fixes in Bonita Studio (including Bonita UI Designer)
+
+* STUDIO-4235 - [Proxy][BDM] Impossible to create a contract from a business variable 
+* STUDIO-4251 - Applications and REST api menus are not disabled when they should be 
+
+==== Fixes in Bonita Runtime (including Bonita Applications)
+
+* RUNTIME-717 - "404 error page" makes the 404 response code being lost causing the original URL not to be preserved in the HTTP session 
+* RUNTIME-786 - Automatic redirection to standard error page causes the loss of the x-bonita-api-token request header 
+* RUNTIME-842 - 8 times more SQL queries generated with 7.13.x than the 7.11.x 
+
 === Fixes in Bonita 2021.2-u2 (2022-01-19)
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
