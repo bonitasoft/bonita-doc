@@ -1,0 +1,60 @@
+= Create a process manager application
+:description: This page explains how to create your own custom process manager application
+
+[NOTE]
+====
+For Enterprise, Performance, Efficiency and Teamwork editions only.
+====
+
+This page explains how to create your own custom process manager application. +
+This application functions like the Administrator application, but has a smaller scope, one that only controls processes, cases and tasks. +
+Creating such an application follows the same steps as the creation of any xref:applications:application-creation.adoc[other custom application].
+
+== Pages
+
+The main menu of the application will require four pages.
+
+* Monitoring
+* Process list
+* Case list
+* Task list
+
+[#orphan-pages-list]
+In addition to those, some orphan pages are required by the above ones :
+
+* Process details
+* Process visualization
+* Case details
+* Case visualization
+* Task details
+
+== Page modifications
+
+The above-mentioned menu pages are the same as the ones that are part of the Administrator application, but they only show the processes/cases/tasks that the user supervises. +
+In order to make the menu pages do so, you need to export them from the Administrator Resource List and edit them using the UI Designer.
+You don't need to export and modify the orphan pages.
+
+[WARNING]
+====
+
+Currently, the Monitoring page is made using a different technology than UI Designer, and thus it cannot be edited.
+====
+
+Perform the following modifications to the 4 menu pages:
+
+1. Though not necessary, it is highly recommended to re-save your pages with a different name. This will prevent these pages from being over-written if you need to re-import the default pages.
+2. Add an api call to get current user session. Create a new "External API" variable called `session` with the value `../API/system/session/unusedId`
+3. Since a process manager only supervises a subpart of all the processes/cases/tasks, some API calls must be updated to only retrieve the expected processes/cases/tasks. To do so, the filter `supervisor_id` has to be used with the current user ID: Add `&f=supervisor_id={{session.user_id}}` to the variables of the "External API" type (except for the `session` variable that we created).
+
+[#application-creation]
+== Application creation
+
+After all the menu pages have been modified, the application can be created. To do so : +
+
+1. Export the Bonita Administrator Application from the Application List and import it into the Bonita Studio
+2. Delete any orphan page that isn't mentioned in the xref:#orphan-pages-list[orphan pages list]
+3. Delete all, but the BPM menu from the "Navigation" section
+4. Create application pages in the "Navigation" menu using the menu pages that we mentioned above. It is highly recommended to not modify the tokens of the pages, since the pages use of the specific tokens. If you modify the tokens, make sure to modify the pages to also use the correct urls.
+5. Rename your application and modify the application token
+
+The "Process manager" application is now complete, ready to be deployed and used.
