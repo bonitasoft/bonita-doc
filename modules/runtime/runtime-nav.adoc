@@ -37,6 +37,7 @@
   *** xref:administrator-application-index.adoc[Bonita Administrator application]
    **** xref:admin-application-overview.adoc[Overview]
    **** xref:process-management-index.adoc[Process Management]
+    ***** xref:process-manager-application.adoc[Create a process manager application]
     ***** xref:monitoring.adoc[Monitoring]
     ***** xref:admin-application-process-list.adoc[Process list]
     ***** xref:import-and-export-a-process.adoc[Import and export a process]

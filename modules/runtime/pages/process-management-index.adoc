@@ -9,6 +9,11 @@
 
 [.card.card-index]
 --
+xref:process-manager-application.adoc[[.card-title]#Create a process manager application# [.card-body.card-content-overflow]#pass:q[Create your own custom process manager application]#]
+--
+
+[.card.card-index]
+--
 xref:ROOT:monitoring.adoc[[.card-title]#Monitoring# [.card-body.card-content-overflow]#pass:q[Follow high-level process execution for fast error discovery and recovery]#]
 --
 
