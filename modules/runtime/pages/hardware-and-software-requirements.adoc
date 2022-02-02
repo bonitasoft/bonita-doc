@@ -42,13 +42,13 @@ Software required for Bonita Platform.
 |
 
 | Microsoft Windows Server
-| 2016 64 bits
+| 2019 64 bits
 
 | Red Hat Enterprise Linux
-| 8.2 64 bits
+| 8.4 64 bits
 
 | CentOS
-| 8.2 64 bits
+| 8.4 64 bits
 
 | Ubuntu
 | 20.04 LTS 64 bits
@@ -78,7 +78,7 @@ Software required for Bonita Platform.
 | 12.6 and higher in the 12.x line
 
 | SQL Server
-| 2017
+| 2019
 
 | Oracle
 | 19c (19.3.0.0.0) (see note 5)
