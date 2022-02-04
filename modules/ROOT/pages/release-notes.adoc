@@ -8,8 +8,7 @@ The 2022.1 is in development.
 
 == New values added
 
-=== Bonita Test Toolkit
-For Teamwork, Efficiency, Performance, and Enterprise editions only
+=== Bonita Test Toolkit (Subscription editions)
 
 When working on complex, core, and critical automation projects it is critical to ensure the right business logic is applied.
 Secure your automation project with the new development suite component: the Bonita Test Toolkit. 
