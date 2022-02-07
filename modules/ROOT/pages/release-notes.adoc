@@ -95,6 +95,7 @@ The SVN feature is now deprecated. We recommand that you migrate your repositori
 
 * Deprecated: filter page using the `isHidden` attribute on the api `API/portal/page`. That field is not used anymore and is always false.
 The platform produces a warning log if the filter is set and ignores it.
+* Removed: the `ReportingAPI` is removed.
 
 == Bug fixes
 
