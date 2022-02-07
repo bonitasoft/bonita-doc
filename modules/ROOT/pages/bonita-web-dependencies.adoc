@@ -44,13 +44,13 @@
 
 | org.bonitasoft.engine
 | bonita-client
-| 7.12.9
+| 7.12.10
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-common
-| 7.12.9
+| 7.12.10
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
@@ -81,43 +81,43 @@
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.12.3
+| 2.12.6
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-csv
-| 2.12.3
+| 2.12.6
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-smile
-| 2.12.3
+| 2.12.6
 | http://github.com/FasterXML/jackson-dataformats-binary[http://github.com/FasterXML/jackson-dataformats-binary]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-xml
-| 2.12.3
+| 2.12.6
 | https://github.com/FasterXML/jackson-dataformat-xml[https://github.com/FasterXML/jackson-dataformat-xml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-yaml
-| 2.12.3
+| 2.12.6
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.module
 | jackson-module-jaxb-annotations
-| 2.12.3
+| 2.12.6
 | https://github.com/FasterXML/jackson-modules-base[https://github.com/FasterXML/jackson-modules-base]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.module
 | jackson-module-jsonSchema
-| 2.12.3
+| 2.12.6
 | https://github.com/FasterXML/jackson-module-jsonSchema[https://github.com/FasterXML/jackson-module-jsonSchema]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -159,7 +159,7 @@
 
 | org.apache.httpcomponents
 | httpclient
-| 4.5.12
+| 4.5.13
 | http://hc.apache.org/httpcomponents-client[http://hc.apache.org/httpcomponents-client]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -171,31 +171,31 @@
 
 | org.bonitasoft.console
 | console-common
-| 7.12.9
+| 7.12.10
 | N/A
 |  -
 
 | org.bonitasoft.engine
 | bonita-client
-| 7.12.9
+| 7.12.10
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-common
-| 7.12.9
+| 7.12.10
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.forms
 | forms-server
-| 7.12.9
+| 7.12.10
 | N/A
 |  -
 
 | org.bonitasoft.web
 | bonita-web-extensions
-| 7.12.9
+| 7.12.10
 | http://www.bonitasoft.com[http://www.bonitasoft.com]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
@@ -280,13 +280,13 @@
 
 | org.bonitasoft.console
 | console-client
-| 7.12.9
+| 7.12.10
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-common-sp
-| 7.12.9
+| 7.12.10
 | N/A
 |  -
 |=== 
@@ -299,7 +299,7 @@
 
 | com.bonitasoft.engine
 | bonita-client-sp
-| 7.12.9
+| 7.12.10
 | N/A
 |  -
 
@@ -311,7 +311,7 @@
 
 | org.bonitasoft.console
 | console-common
-| 7.12.9
+| 7.12.10
 | N/A
 |  -
 |=== 
@@ -324,19 +324,19 @@
 
 | com.bonitasoft.engine
 | bonita-client-sp
-| 7.12.9
+| 7.12.10
 | N/A
 |  -
 
 | com.bonitasoft.engine
 | bonita-common-sp
-| 7.12.9
+| 7.12.10
 | N/A
 |  -
 
 | com.bonitasoft.web
 | bonita-web-extensions-sp
-| 7.12.9
+| 7.12.10
 | http://www.bonitasoft.com[http://www.bonitasoft.com]
 |  -
 
@@ -420,31 +420,31 @@
 
 | org.bonitasoft.console
 | bos-mobile-sp
-| 7.12.9
+| 7.12.10
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-common-sp
-| 7.12.9
+| 7.12.10
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-server
-| 7.12.9
+| 7.12.10
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-server
-| 7.12.9
+| 7.12.10
 | N/A
 |  -
 
 | org.bonitasoft.forms
 | forms-server-sp
-| 7.12.9
+| 7.12.10
 | N/A
 |  -
 
