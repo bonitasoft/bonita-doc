@@ -1,4 +1,4 @@
-= Bonita engine dependencies (7.12.9)
+= Bonita engine dependencies (7.12.10)
 :description: List all dependencies uses for Bonita Engine
 
 
@@ -10,25 +10,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.12.3
+| 2.12.6
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.12.3
+| 2.12.6
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.12.3
+| 2.12.6
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.12.3
+| 2.12.6
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -101,25 +101,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.12.3
+| 2.12.6
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.12.3
+| 2.12.6
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.12.3
+| 2.12.6
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.12.3
+| 2.12.6
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -191,7 +191,7 @@
 
 | org.apache.httpcomponents
 | httpclient
-| 4.5.12
+| 4.5.13
 | http://hc.apache.org/httpcomponents-client[http://hc.apache.org/httpcomponents-client]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -203,7 +203,7 @@
 
 | org.apache.httpcomponents
 | httpmime
-| 4.5.12
+| 4.5.13
 | http://hc.apache.org/httpcomponents-client[http://hc.apache.org/httpcomponents-client]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -258,25 +258,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.12.3
+| 2.12.6
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.12.3
+| 2.12.6
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.12.3
+| 2.12.6
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.12.3
+| 2.12.6
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -390,7 +390,7 @@
 
 | net.bytebuddy
 | byte-buddy
-| 1.10.2
+| 1.10.22
 | N/A
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -426,7 +426,7 @@
 
 | org.dom4j
 | dom4j
-| 2.1.1
+| 2.1.3
 | http://dom4j.github.io/[http://dom4j.github.io/]
 |  https://github.com/dom4j/dom4j/blob/master/LICENSE[BSD 3-clause New License]
 
@@ -462,13 +462,13 @@
 
 | org.hibernate
 | hibernate-core
-| 5.4.10.Final
+| 5.4.32.Final
 | http://www.hibernate.org/orm/5.4[http://www.hibernate.org/orm/5.4]
 |  http://www.opensource.org/licenses/LGPL-2.1[GNU Library General Public License v2.1 or later]
 
 | org.hibernate.common
 | hibernate-commons-annotations
-| 5.1.0.Final
+| 5.1.2.Final
 | http://hibernate.org[http://hibernate.org]
 |  http://www.opensource.org/licenses/LGPL-2.1[GNU Library General Public License v2.1 or later]
 
@@ -480,13 +480,13 @@
 
 | org.jboss
 | jandex
-| 2.1.1.Final
+| 2.2.3.Final
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.jboss.logging
 | jboss-logging
-| 3.3.2.Final
+| 3.4.1.Final
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
@@ -601,33 +601,15 @@
 
 | ch.qos.logback
 | logback-classic
-| 1.2.3
+| 1.2.8
 | http://www.qos.ch[http://www.qos.ch]
 |  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
 
 | ch.qos.logback
 | logback-core
-| 1.2.3
+| 1.2.8
 | http://www.qos.ch[http://www.qos.ch]
 |  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
-
-| com.github.ben-manes.caffeine
-| caffeine
-| 2.6.2
-| https://github.com/ben-manes/caffeine[https://github.com/ben-manes/caffeine]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
-
-| com.github.waffle
-| waffle-jna
-| 1.9.1
-| https://waffle.github.com/waffle/[https://waffle.github.com/waffle/]
-|  https://raw.github.com/Waffle/waffle/master/LICENSE[Eclipse Public License]
-
-| com.google.protobuf
-| protobuf-java
-| 3.6.1
-| https://developers.google.com/protocol-buffers/[https://developers.google.com/protocol-buffers/]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.h2database
 | h2
@@ -673,21 +655,9 @@
 
 | mysql
 | mysql-connector-java
-| 8.0.14
+| 8.0.27
 | http://dev.mysql.com/doc/connector-j/en/[http://dev.mysql.com/doc/connector-j/en/]
 |  The GNU General Public License, v2 with FOSS exception
-
-| net.java.dev.jna
-| jna
-| 4.5.1
-| https://github.com/java-native-access/jna[https://github.com/java-native-access/jna]
-|  http://www.gnu.org/licenses/licenses.html[LGPL, version 2.1]
-
-| net.java.dev.jna
-| jna-platform
-| 4.5.1
-| https://github.com/java-native-access/jna[https://github.com/java-native-access/jna]
-|  http://www.gnu.org/licenses/licenses.html[LGPL, version 2.1]
 
 | org.apache.commons
 | commons-lang3
@@ -695,35 +665,15 @@
 | https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
-          | org.osgi
-          | org.osgi.core
-          | 4.3.1
-          | 
-  http://www.osgi.org
-[http://www.osgi.org]
-          |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
-
-| org.osgi
-| org.osgi.enterprise
-| 4.2.0
-| N/A
-|  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
-
 | org.postgresql
 | postgresql
-| 42.2.13
+| 42.2.14
 | https://jdbc.postgresql.org/[https://jdbc.postgresql.org/]
 |  https://jdbc.postgresql.org/about/license.html[BSD-2-Clause]
 
 | org.slf4j
-| jcl-over-slf4j
-| 1.7.25
-| http://www.slf4j.org[http://www.slf4j.org]
-|  http://www.opensource.org/licenses/mit-license.php[MIT License]
-
-| org.slf4j
 | slf4j-api
-| 1.7.30
+| 1.7.32
 | http://www.slf4j.org[http://www.slf4j.org]
 |  http://www.opensource.org/licenses/mit-license.php[MIT License]
 
@@ -820,25 +770,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.12.3
+| 2.12.6
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.12.3
+| 2.12.6
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.12.3
+| 2.12.6
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.12.3
+| 2.12.6
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -917,25 +867,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.12.3
+| 2.12.6
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.12.3
+| 2.12.6
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.12.3
+| 2.12.6
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.12.3
+| 2.12.6
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1007,7 +957,7 @@
 
 | org.apache.httpcomponents
 | httpclient
-| 4.5.12
+| 4.5.13
 | http://hc.apache.org/httpcomponents-client[http://hc.apache.org/httpcomponents-client]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -1019,7 +969,7 @@
 
 | org.apache.httpcomponents
 | httpmime
-| 4.5.12
+| 4.5.13
 | http://hc.apache.org/httpcomponents-client[http://hc.apache.org/httpcomponents-client]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -1074,25 +1024,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.12.3
+| 2.12.6
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.12.3
+| 2.12.6
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.12.3
+| 2.12.6
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.12.3
+| 2.12.6
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1260,7 +1210,7 @@
 
 | net.bytebuddy
 | byte-buddy
-| 1.10.2
+| 1.10.22
 | N/A
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -1302,7 +1252,7 @@
 
 | org.apache.httpcomponents
 | httpclient
-| 4.5.12
+| 4.5.13
 | http://hc.apache.org/httpcomponents-client[http://hc.apache.org/httpcomponents-client]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -1326,7 +1276,7 @@
 
 | org.dom4j
 | dom4j
-| 2.1.1
+| 2.1.3
 | http://dom4j.github.io/[http://dom4j.github.io/]
 |  https://github.com/dom4j/dom4j/blob/master/LICENSE[BSD 3-clause New License]
 
@@ -1362,19 +1312,19 @@
 
 | org.hibernate
 | hibernate-core
-| 5.4.10.Final
+| 5.4.32.Final
 | http://www.hibernate.org/orm/5.4[http://www.hibernate.org/orm/5.4]
 |  http://www.opensource.org/licenses/LGPL-2.1[GNU Library General Public License v2.1 or later]
 
 | org.hibernate
 | hibernate-ehcache
-| 5.4.10.Final
+| 5.4.32.Final
 | http://www.hibernate.org/orm/5.4[http://www.hibernate.org/orm/5.4]
 |  http://www.opensource.org/licenses/LGPL-2.1[GNU Library General Public License v2.1 or later]
 
 | org.hibernate.common
 | hibernate-commons-annotations
-| 5.1.0.Final
+| 5.1.2.Final
 | http://hibernate.org[http://hibernate.org]
 |  http://www.opensource.org/licenses/LGPL-2.1[GNU Library General Public License v2.1 or later]
 
@@ -1386,13 +1336,13 @@
 
 | org.jboss
 | jandex
-| 2.1.1.Final
+| 2.2.3.Final
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.jboss.logging
 | jboss-logging
-| 3.3.2.Final
+| 3.4.1.Final
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
@@ -1507,33 +1457,15 @@
 
 | ch.qos.logback
 | logback-classic
-| 1.2.3
+| 1.2.8
 | http://www.qos.ch[http://www.qos.ch]
 |  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
 
 | ch.qos.logback
 | logback-core
-| 1.2.3
+| 1.2.8
 | http://www.qos.ch[http://www.qos.ch]
 |  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
-
-| com.github.ben-manes.caffeine
-| caffeine
-| 2.6.2
-| https://github.com/ben-manes/caffeine[https://github.com/ben-manes/caffeine]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
-
-| com.github.waffle
-| waffle-jna
-| 1.9.1
-| https://waffle.github.com/waffle/[https://waffle.github.com/waffle/]
-|  https://raw.github.com/Waffle/waffle/master/LICENSE[Eclipse Public License]
-
-| com.google.protobuf
-| protobuf-java
-| 3.6.1
-| https://developers.google.com/protocol-buffers/[https://developers.google.com/protocol-buffers/]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.h2database
 | h2
@@ -1579,21 +1511,9 @@
 
 | mysql
 | mysql-connector-java
-| 8.0.14
+| 8.0.27
 | http://dev.mysql.com/doc/connector-j/en/[http://dev.mysql.com/doc/connector-j/en/]
 |  The GNU General Public License, v2 with FOSS exception
-
-| net.java.dev.jna
-| jna
-| 4.5.1
-| https://github.com/java-native-access/jna[https://github.com/java-native-access/jna]
-|  http://www.gnu.org/licenses/licenses.html[LGPL, version 2.1]
-
-| net.java.dev.jna
-| jna-platform
-| 4.5.1
-| https://github.com/java-native-access/jna[https://github.com/java-native-access/jna]
-|  http://www.gnu.org/licenses/licenses.html[LGPL, version 2.1]
 
 | org.apache.commons
 | commons-lang3
@@ -1601,35 +1521,15 @@
 | https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
-          | org.osgi
-          | org.osgi.core
-          | 4.3.1
-          | 
-  http://www.osgi.org
-[http://www.osgi.org]
-          |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
-
-| org.osgi
-| org.osgi.enterprise
-| 4.2.0
-| N/A
-|  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
-
 | org.postgresql
 | postgresql
-| 42.2.13
+| 42.2.14
 | https://jdbc.postgresql.org/[https://jdbc.postgresql.org/]
 |  https://jdbc.postgresql.org/about/license.html[BSD-2-Clause]
 
 | org.slf4j
-| jcl-over-slf4j
-| 1.7.25
-| http://www.slf4j.org[http://www.slf4j.org]
-|  http://www.opensource.org/licenses/mit-license.php[MIT License]
-
-| org.slf4j
 | slf4j-api
-| 1.7.30
+| 1.7.32
 | http://www.slf4j.org[http://www.slf4j.org]
 |  http://www.opensource.org/licenses/mit-license.php[MIT License]
 
