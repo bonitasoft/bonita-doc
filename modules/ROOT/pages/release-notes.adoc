@@ -242,7 +242,8 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 
 * RUNTIME-717 - "404 error page" makes the 404 response code being lost causing the original URL not to be preserved in the HTTP session 
 * RUNTIME-786 - Automatic redirection to standard error page causes the loss of the x-bonita-api-token request header 
-* RUNTIME-842 - 8 times more SQL queries generated with 7.13.x than the 7.11.x 
+* RUNTIME-842 - 8 times more SQL queries generated with 7.13.x than the 7.11.x
+* RUNTIME-302 - Retry mechanism vs congestion situations
 
 === Fixes in Bonita 2021.2-u2 (2022-01-19)
 
