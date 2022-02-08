@@ -100,3 +100,7 @@ The platform produces a warning log if the filter is set and ignores it.
 == Bug fixes
 
 == Known issues
+
+=== Bonita Studio
+
+* The `Run As JUnit test` action for Groovy REST API Extension project is broken (https://bugs.eclipse.org/bugs/show_bug.cgi?id=578535[Eclipse issue])
