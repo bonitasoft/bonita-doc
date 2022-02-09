@@ -1,4 +1,4 @@
-= Bonita engine dependencies (7.13.3)
+= Bonita engine dependencies (7.14.0.beta-01)
 :description: List all dependencies uses for Bonita Engine
 
 
@@ -349,6 +349,12 @@
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
+| jakarta.transaction
+| jakarta.transaction-api
+| 1.3.3
+| https://projects.eclipse.org/projects/ee4j.jta[https://projects.eclipse.org/projects/ee4j.jta]
+|  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
+
 | javax.activation
 | javax.activation-api
 | 1.2.0
@@ -366,12 +372,6 @@
 | 2.2
 | https://github.com/javaee/jpa-spec[https://github.com/javaee/jpa-spec]
 |  http://www.eclipse.org/legal/epl-v10.html[Eclipse Public License v1.0]
-
-| javax.transaction
-| jta
-| 1.1
-| http://java.sun.com/products/jta[http://java.sun.com/products/jta]
-|  https://opensource.org/licenses/CDDL-1.0[COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0]
 
 | javax.xml.bind
 | jaxb-api
@@ -1185,31 +1185,31 @@
 
 | com.hazelcast
 | hazelcast
-| 3.12.5
+| 4.1
 | http://www.hazelcast.com/[http://www.hazelcast.com/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.hazelcast
 | hazelcast-aws
-| 2.4
+| 3.3
 | http://www.hazelcast.com/[http://www.hazelcast.com/]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+|  http://hazelcast.com/hazelcast-community-license[The Hazelcast Community License]
 
 | com.hazelcast
 | hazelcast-hibernate53
-| 1.3.2
+| 2.1.1
 | http://www.hazelcast.com/[http://www.hazelcast.com/]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+|  http://hazelcast.com/hazelcast-community-license[The Hazelcast Community License]
 
 | com.hazelcast
 | hazelcast-kubernetes
-| 1.5
+| 2.2
 | http://github.com/hazelcast/hazelcast-kubernetes[http://github.com/hazelcast/hazelcast-kubernetes]
 |  http://www.apache.org/licenses/LICENSE-2.0[APACHE LICENSE 2.0]
 
 | com.hazelcast
 | hazelcast-spring
-| 3.12.5
+| 4.1
 | http://www.hazelcast.com/[http://www.hazelcast.com/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1309,6 +1309,12 @@
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
+| jakarta.transaction
+| jakarta.transaction-api
+| 1.3.3
+| https://projects.eclipse.org/projects/ee4j.jta[https://projects.eclipse.org/projects/ee4j.jta]
+|  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
+
 | javax.activation
 | javax.activation-api
 | 1.2.0
@@ -1326,12 +1332,6 @@
 | 2.2
 | https://github.com/javaee/jpa-spec[https://github.com/javaee/jpa-spec]
 |  http://www.eclipse.org/legal/epl-v10.html[Eclipse Public License v1.0]
-
-| javax.transaction
-| jta
-| 1.1
-| http://java.sun.com/products/jta[http://java.sun.com/products/jta]
-|  https://opensource.org/licenses/CDDL-1.0[COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0]
 
 | javax.xml.bind
 | jaxb-api
