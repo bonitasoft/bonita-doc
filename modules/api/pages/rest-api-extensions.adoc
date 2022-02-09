@@ -216,9 +216,10 @@ Those dependencies are automatically added when a REST API Extension is created 
 
 Be aware that a poor implementation of a custom REST API accessing BDM objects can lead to poor performance results. See the xref:ROOT:bdm-in-rest-api.adoc[best practice] on this matter.
 
-== Troubleshooting
+== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
-* I get the following stacktrace when using `java.time` Date types (LocalDate, LocalDateTime...) in my Rest API Extension
+*Symptom:* +
+I get the following stacktrace when using `java.time` Date types (LocalDate, LocalDateTime...) in my Rest API Extension
 
 [source,log]
 ----
@@ -251,8 +252,10 @@ java.lang.StackOverflowError
 	at groovy.json.JsonOutput.writeObject(JsonOutput.java:294)
 ----
 
+*Cause:* +
 The http://docs.groovy-lang.org/3.0.8/html/gapi/groovy/json/JsonBuilder.html[`groovy.json.JSONBuilder`] does not support `java.time` Date types serialization in groovy 2.4.x version.
 
+*Solution:* +
 As a workaround you have to format dates in a new data structure before using the JSONBuilder.
 
 Example:
