@@ -13,7 +13,7 @@ asciidoc:
     page-editable: true
     page-out-of-support: false
     page-next-release: false
-    page-hide-search-bar: false
+    page-hide-search-bar: true
 nav:
   - modules/ROOT/release-note-nav.adoc
   - modules/bonita-overview/bonita-overview-nav.adoc
