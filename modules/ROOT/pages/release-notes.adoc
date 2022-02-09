@@ -3,104 +3,19 @@
 
 [NOTE]
 ====
-The 2022.1 is in development.
+The 2022.2 is in development.
 ====
 
 == New values added
-
-=== Bonita Test Toolkit (Subscription editions)
-
-When working on complex, core, and critical automation projects it is critical to ensure the right business logic is applied.
-Secure your automation project with the new development suite component: the Bonita Test Toolkit. 
-
-This toolkit allows professional developers to write end-to-end or integration test scenarios for your automation project. It provides powerful methods to execute all the steps of a process and check the corresponding outputs (statuses, business data, tasks used)
-
-It can be used in any IDE and can easily be integrated into a Continuous Integration.
-
-More information in the dedicated documentation: Bonita Test Toolkit.
 
 == Improvements
 
 == Functional changes
 
-=== Prometheus monitoring active by default (Subscription editions)
-
-From Bonita 2022.1, xref:runtime-monitoring.adoc#_prometheus_publisher[the Prometheus metrics publisher] is now active by default, and can be disabled if needed. +
-Its access is now protected with Basic Auth authentication to protect against DOS attacks. +
-Thus, when reaching the prometheus metrics endpoint, typically https://localhost:8080/bonita/metrics, you will have to manually enter the configured username and password information for your access to be granted.
-
-These credentials can be consulted and modified:
-
-* in the <BONITA>/server/conf/tomcat-users.xml file in a *Bonita Tomcat bundle*
-* using xref:bonita-docker-installation.adoc#_monitoring_username[specific Environment parameters] when starting a *Bonita Docker image*
-
-
-=== Dynamic authorization checking active by default (Subscription editions)
-
-xref:identity:rest-api-authorization.adoc#dynamic_authorization[Dynamic authorization checking] is now only available in the *Enterprise* editions, and is also *active by default* for new installations. +
-Existing installations that update to 2022.1 stay *unchanged*, but we encourage customers to activate dynamic authorization checking, once they have benched that the performance cost is reasonable.
-
-For Community users who update to 2022.1, dynamic authorization checking does not work anymore. +
-However, the configuration stays unchanged, even if it is not used anymore. +
-If they want to reuse the configuration in a custom manner, or upgrade to Enterprise edition, the configuration will be back there and fully functional.
-
 == Technical updates
 
-===  Log4j2 Logger
-
-Bonita Runtime now use Log4j2 as logger.
-One of the great feature that it brings is the automatic reload of configuration files. There is no more need
-to restart the platform if you only want to change a log level.
-More information on how to use it in the docker image xref:runtime:bonita-docker-installation.adoc#logger_configuration[here] and in the bundle xref:setup-dev-environment:logging.adoc#_logging_configuration[here].
-
-
-[WARNING]
-====
-If, in previous version, you customized the `logging.properties` file, you should update `log4j2-loggers.xml` as described in the documentation
-xref:runtime:bonita-docker-installation.adoc#logger_configuration[here] and xref:setup-dev-environment:logging.adoc#_logging_configuration[there].
-
-A conversion table between logger levels in JUL and in Log4j2 is available
-https://logging.apache.org/log4j/2.x/log4j-jul/index.html[here]
-
-If you want to continue using the previous log format, the previous pattern is present in the `log4j2-appenders.xml` file but commented out.
-
-The Tomcat bundle does not log anymore in the console but only in `bonita.log` file. The previous behavior can be activated by setting the system property `-Dbonita.runtime.logger.sysout=Console` in tomcat's `setEnv.sh`
-====
-
-=== Docker image
-
-Folder structure inside Bonita Docker images has been simplified: instead of having /opt/bonita/BonitaCommunity-{bonitaVersion} or /opt/bonita/BonitaSubscription-{bonitaVersion}, we now simply have */opt/bonita*. +
-If you have scripts using the former folder structure, please update them.
-
-The docker image does not create the database schema and the associated user anymore. The database must be created before the image starts. We provide pre-configured database images with already created existing schema and users https://hub.docker.com/r/bonitasoft/bonita-postgres
-
-As a consequence, the following environment properties were removed:
-
-* `ENSURE_DB_CHECK_AND_CREATION`
-* `DB_DROP_EXISTING`
-* `BIZ_DB_DROP_EXISTING`
-* `DB_ADMIN_USER`
-* `DB_ADMIN_PASS`
-
-To rationalize the Bonita configuration variables, some properties have been renamed:
-
-* [.line-through]#`REST_API_DYN_AUTH_CHECKS`# flag is replaced by `BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED`. See xref:runtime:bonita-docker-installation.adoc#dynamic-check-enable[dedicated section] for details.
-
 == Feature deprecations and removals
-
-=== SVN
-The SVN feature is now deprecated. We recommand that you migrate your repositories to a GIT repository. This xref:setup-dev-environment:migrate-a-svn-repository-to-github.adoc[page] describes how to migrate a SVN repository to Github.
-
-=== REST API
-
-* Deprecated: filter page using the `isHidden` attribute on the api `API/portal/page`. That field is not used anymore and is always false.
-The platform produces a warning log if the filter is set and ignores it.
-* Removed: the `ReportingAPI` is removed.
 
 == Bug fixes
 
 == Known issues
-
-=== Bonita Studio
-
-* The `Run As JUnit test` action for Groovy REST API Extension project is broken (https://bugs.eclipse.org/bugs/show_bug.cgi?id=578535[Eclipse issue])
