@@ -9,7 +9,7 @@ prerelease: alpha
 asciidoc:
   attributes:
     bonitaVersion: 2022.2
-    bonitaTechnicalVersion: '7.14.0' # latest public community version
+    bonitaTechnicalVersion: '7.15.0' # latest public community version
     javadocVersion: 7.15
     crowdinBonitaVersion: 7.15
     # page attributes
