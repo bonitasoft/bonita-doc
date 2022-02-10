@@ -21,7 +21,18 @@ More information in the dedicated documentation: Bonita Test Toolkit.
 
 == Improvements
 
-=== 
+=== Runtime Health check endpoint
+
+A health check endpoint has been added to the Bonita Runtime to help you monitor the status of your runtime.
+
+This end-point is avaiable on the https://myruntime/bonita/healthz url and provides key information such the runtime status(OK, NOK), the platform state or the number of days until the license expiration.
+
+Its access is now protected with Basic Auth authentication to protect against DOS attacks.
+
+These credentials can be consulted and modified:
+
+* in the <BONITA>/server/conf/tomcat-users.xml file in a *Bonita Tomcat bundle*
+* using xref:bonita-docker-installation.adoc#_monitoring_username[specific Environment parameters] when starting a *Bonita Docker image*
 
 == Functional changes
 
