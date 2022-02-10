@@ -179,6 +179,7 @@ We will first create a data model, and then a Retrofit service typed with this m
 The model should match the API response structure, else some custom convertors are required. +
 Here is an example of an API call and the response:
 
+[source]
 ----
 GET /api/people/?search=yoda
 ----
