@@ -21,7 +21,7 @@ More information in the dedicated documentation: Bonita Test Toolkit.
 
 == Improvements
 
-=== Runtime Health check endpoint
+=== Runtime Health check endpoint (Subscription editions)
 
 A health check endpoint has been added to the Bonita Runtime to help you monitor the status of your runtime.
 
