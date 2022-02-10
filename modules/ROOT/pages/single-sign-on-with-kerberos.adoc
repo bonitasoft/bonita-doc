@@ -312,7 +312,7 @@ net.sourceforge.spnego.handlers = 5bonita.org.apache.juli.AsyncFileHandler
 net.sourceforge.spnego.level = ALL
 ----
 +
-* Update the existing lines (to set the level to `ALL`):
+- Update the existing lines (to set the level to `ALL`):
 +
 [source,properties]
 ----

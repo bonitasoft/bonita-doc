@@ -9,6 +9,16 @@ This guide assumes you have a working docker environment.
 
 To start the latest release
 
+[source,bash]
+----
+docker run --name bonita -d -p 8080:8080 bonita
+----
+
+To start the latest subscription release
+
+____
+Information on how to access Quay.io can be found https://customer.bonitasoft.com/download/request[here]
+
 
 // for the 'subs' parameter, see https://docs.asciidoctor.org/asciidoc/latest/subs/apply-subs-to-blocks/
 [source,shell script,subs="+macros"]
@@ -63,6 +73,7 @@ Answer the questions related to the license you want. This will print out the re
 
 Retrieve the licence from the customer portal and place into one folder that will be mounted as a volume of the docker container. In this example, we will use `~/bonita-lic/.`.
 
+[source,bash]
 ----
 cp ~/Downloads/BonitaSubscription-7.7-Cloud_Techuser-<hostname>-20170124-20170331.lic ~/bonita-lic/.
 ----
@@ -97,7 +108,14 @@ Run the container as follows in order to get an interactive `bash` shell session
 
 [source,shell script,subs="+macros"]
 ----
-docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ -it -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}] bash
+docker run --name bonita -it -p 8080:8080 bonita bash
+----
+
+*Subscription release*
+
+[source,shell script,subs="+macros"]
+----
+docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ -it -p 8080:8080 quay.io/bonitasoft/bonita-subscription:${varVersion}.0 bash
 ----
 
 Then run `/opt/files/startup.sh` inside the container to start Tomcat. In order to stop Tomcat inside the container, press `Ctrl-C`. +
@@ -114,6 +132,7 @@ You can work with either a PostgreSQL Container, or PostgreSQL as an installed s
 
 Bonita needs to enable XA transactions in postgres, to do that we set the max_prepared_transactions to 100 (bigger than 0):
 
+[source,bash]
 ----
 docker run --name mydbpostgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres:11.2 -c 'max_prepared_transactions=100'
 ----
@@ -191,6 +210,7 @@ Run `docker stack deploy -c stack.yml bonita`  or `docker-compose -f stack.yml u
 
 If you don't want to run your database in a docker container, the following file `env.txt` needs to be configured and provided to the docker run command:
 
+[source,properties]
 ----
 ENSURE_DB_CHECK_AND_CREATION=false
 DB_VENDOR=postgres

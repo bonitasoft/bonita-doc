@@ -41,11 +41,12 @@ If a resource contains both `Index.groovy` and `index.html`, the Groovy class ta
 ====
 To insert line breaks in a page.properties file, end the line that precedes the line break with a `\`.  +
 For example:
-```
+[source,properties]
+----
 apiExtensions=example1RestAPI, example2RestAPI, example3RestAPI, example4RestAPI, \
 example5RestAPI, example6RestAPI, example7RestAPI, example8RestAPI, \
 example9RestAPI, example10RestAPI
-```
+----
 For more information on advanced properties file (line break, natural lines, logical lines...) please refer to the https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Properties.html#load(java.io.Reader)[official documentation]
 ====
 
@@ -67,8 +68,7 @@ The following example shows the permissions defined for a page that enables a us
 name=custompage_orgViewer
 displayName=Organization viewer
 description=Organization viewer page. You cannot modify the organization from this page.
-resources=[GET|identity/user, GET|identity/personalcontactdata, GET|identity/professionalcontactdata, GET|identity/role,
-   GET|identity/group, GET|identity/membership, GET|customuserinfo/user, GET|customuserinfo/definition, GET|customuserinfo/value]
+resources=[GET|identity/user, GET|identity/personalcontactdata, GET|identity/professionalcontactdata, GET|identity/role, GET|identity/group, GET|identity/membership, GET|customuserinfo/user, GET|customuserinfo/definition, GET|customuserinfo/value]
 contentType=page
 ----
 
