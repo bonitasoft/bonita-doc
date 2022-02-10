@@ -101,6 +101,14 @@ The platform produces a warning log if the filter is set and ignores it.
 
 == Known issues
 
+===Fixes in Bonita 2022.1
+
+====Fixes in Bonita Runtime
+
+* RUNTIME-178	- Case deletion throws 500 instead of 404 when the case does not exist.
+* RUNTIME-4777 - Case overview does not paginate attached document list
+
+
 === Bonita Studio
 
 * The `Run As JUnit test` action for Groovy REST API Extension project is broken (https://bugs.eclipse.org/bugs/show_bug.cgi?id=578535[Eclipse issue])
