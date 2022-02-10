@@ -34,6 +34,10 @@ These credentials can be consulted and modified:
 * in the <BONITA>/server/conf/tomcat-users.xml file in a *Bonita Tomcat bundle*
 * using xref:bonita-docker-installation.adoc#_monitoring_username[specific Environment parameters] when starting a *Bonita Docker image*
 
+=== Changing the Log level without restart
+
+It is now possible to change the log level of your platform without restarting it thanks to Log4j2 (see the technical updates chapter)
+
 == Functional changes
 
 === Prometheus monitoring active by default (Subscription editions)
