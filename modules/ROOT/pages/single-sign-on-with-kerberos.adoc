@@ -247,12 +247,13 @@ Make sure to set your principal user name and password.
 	   <constructor-arg name="identityService" ref="identityService" />
 	   <constructor-arg name="configuredPassphrase" value="${authentication.service.ref.passphrase}" />
    </bean>
-    ```
+----
 +
 7. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
   edit the file bonita-tenant-sp-custom.properties as follows:
 +
-    ```properties
+[source,properties]
+----
 # Authentication service to use. Some are natively provided:
 # authenticationService
 #   * binded to bonita authentication mode
@@ -281,7 +282,7 @@ authentication.service.ref.name=passphraseOrPasswordAuthenticationService
 		#authenticator.delegate=casAuthenticatorDelegate
 		#authentication.delegate.cas.server.url.prefix=http://ip_address:port
 		#authentication.delegate.cas.service.url=http://ip_address:port/bonita/loginservice
-    ```
+----
 +
     It is recommended to also replace the value of the passphrase (property auth.passphrase). The value must be the same as in the file **authenticationManager-config.properties** updated previously.
 +
@@ -290,12 +291,12 @@ authentication.service.ref.name=passphraseOrPasswordAuthenticationService
 
 Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `kerberos.auth.standard.allowed` to true or define a whitelist with the property `auth.tenant.standard.whitelist`) to be able to log in without an account on AD.
 
-## Logout behavior
+== Logout behavior
 
 The most commonly used solution is to hide the logout button from the portal. Users are logged in as long as they don't close their web browser (unless their session times out).
 To do this, set the `logout.link.hidden` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
 
-## Troubleshoot
+== Troubleshoot
 
 To troubleshoot Kerberos SSO login issues, you need to add a logging handler for the package `net.sourceforge.spnego` and increase the [log level](logging.md) to `ALL` for the packages `org.bonitasoft`, `com.bonitasoft`, and `net.sourceforge.spnego` in order for errors to be displayed in the log files bonita-\*.log (by default, they are not).
 
@@ -303,12 +304,13 @@ In order to do that in a Tomcat bundle, you need to edit the file \`&lt;BUNDLE_H
 
 - Add the lines:
 +
-```properties
+[source,properties]
+----
 net.sourceforge.spnego.handlers = 5bonita.org.apache.juli.AsyncFileHandler
 net.sourceforge.spnego.level = ALL
 ----
 +
-* Update the existing lines (to set the level to `ALL`):
+- Update the existing lines (to set the level to `ALL`):
 +
 [source,properties]
 ----

@@ -25,6 +25,7 @@ To create your actor filter project, prompt a terminal and enter the following c
 Make sure that you are not executing the command from an existing maven project.
 ====
 
+[source,bash]
 ----
 mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-actorfilter-archetype -DarchetypeVersion=1.0.0
 ----
