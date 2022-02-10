@@ -110,6 +110,8 @@ The SVN feature is now deprecated. We recommand that you migrate your repositori
 The platform produces a warning log if the filter is set and ignores it.
 * Removed: the `ReportingAPI` is removed.
 
+=== Multi tenancy Services
+
 == Bug fixes
 
 ===Fixes in Bonita 2022.1
