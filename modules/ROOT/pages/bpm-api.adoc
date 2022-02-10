@@ -5073,12 +5073,11 @@ A JSON representation of a long value with attribute name "executionDate"
  ** *Code*: 200
  ** *Payload*:
 +
+[source,json]
 ----
-```json
 {
     "executionDate": 1433980484194
 }
-```
 ----
 +
 [#message]

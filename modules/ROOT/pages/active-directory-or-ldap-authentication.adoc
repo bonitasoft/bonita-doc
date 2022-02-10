@@ -158,6 +158,7 @@ You should have a certificate from the ldaps server (i.e. certificate.pem).
 * Put the certificate.pem file into this folder.
 * Move to this directory and create a keystore with the keytool command (keytool is part of JDK):
 +
+[source,bash]
 ----
 keytool -importcert  -alias yourAlisaName -file certificate.pem -keystore certificateStore.jks
 ----

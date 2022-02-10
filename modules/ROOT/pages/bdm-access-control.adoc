@@ -468,6 +468,7 @@ Define a _Request_ business object, with the following attributes:
 
 Define a custom query on the _Request_ object, _findBySubject_:
 
+[source,sql]
 ----
 SELECT r
 FROM Request r
