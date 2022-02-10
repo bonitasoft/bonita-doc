@@ -1,12 +1,18 @@
 = Migration tool changelog
 :page-aliases: ROOT:migration-tool.adoc
-:description: This is the changelog of the migration tool.
+:description: This is the changelog of the Migration Tool.
 
-This is the changelog of the migration tool.
+This is the changelog of the Migration Tool.
 
 All changes in the Migration Tool are logged: from the version that was delivered with the oldest supported version of Bonita to the one delivered with the latest version of Bonita.
 This is due to the fact that improvements in any version of the Migration Tool can affect all supported versions of Bonita.
-This changelog must be read before xref:ROOT:migrate-from-an-earlier-version-of-bonita.adoc[migrating to a newer version of Bonita].
+This changelog must be read before xref:ROOT:migrate-from-an-earlier-version-of-bonita.adoc[updating to a newer version of Bonita].
+
+== 2.55.1 - September, 23rd, 2021 (Bonita 2021.2(7.13))
+
+This version of the migration tool migrates Bonita up to version Bonita 2021.2(7.13)
+
+* RUNTIME-699	- Migration breaks on custom profiles migration with error "Cannot invoke method getAt() on null object"
 
 == 2.54.0 - January 28th, 2021 (Bonita 2021.1(7.12))
 
