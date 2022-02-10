@@ -80,7 +80,15 @@ If you want to continue using the previous log format, the previous pattern is p
 The Tomcat bundle does not log anymore in the console but only in `bonita.log` file. The previous behavior can be activated by setting the system property `-Dbonita.runtime.logger.sysout=Console` in tomcat's `setEnv.sh`
 ====
 
-=== Docker image
+=== Enterprise Docker image 
+
+Docker image is now focused on the RUN phase, environment preparation will be handle apart (as on-premise installations) so docker image does not create anymore the database schema and the associated user. Still, the database must be created before the docker image starts. We provide pre-configured database images with included schema and users Docker Hub. 
+
+LDAP Syncronizer  is now out of Bonita docker image and is available as an independent docker image ready to use (available on quay.io)
+
+For assuring a smooth and obvious Runtime confirmation management, environment properties and configuration variables nomenclature has been reviewed to provide an homogeneity among all of them. See dedicated documentation for details. 
+
+Robustness and self recovery capabilities added to the datasource to overcome to network lags. 
 
 Folder structure inside Bonita Docker images has been simplified: instead of having /opt/bonita/BonitaCommunity-{bonitaVersion} or /opt/bonita/BonitaSubscription-{bonitaVersion}, we now simply have */opt/bonita*. +
 If you have scripts using the former folder structure, please update them.
@@ -108,9 +116,11 @@ The SVN feature is now deprecated. We recommand that you migrate your repositori
 
 * Deprecated: filter page using the `isHidden` attribute on the api `API/portal/page`. That field is not used anymore and is always false.
 The platform produces a warning log if the filter is set and ignores it.
-* Removed: the `ReportingAPI` is removed.
+* Removed: the `ReportingAPI` is removed as well as its associated engine API.
 
-=== Multi tenancy Services
+=== Multi-Tenancy
+The create tenant method has been deprecated following our 2021.1 decision to deprecate the Multi-Tenants architecture
+
 
 == Bug fixes
 
