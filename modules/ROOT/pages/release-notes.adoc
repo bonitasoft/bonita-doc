@@ -25,7 +25,7 @@ More information in the dedicated documentation: Bonita Test Toolkit.
 
 A health check endpoint has been added to the Bonita Runtime to help you monitor the status of your runtime.
 
-This end-point is avaiable on the https://myruntime/bonita/healthz url and provides key information such the runtime status(OK, NOK), the platform state or the number of days until the license expiration.
+This end-point is available on the https://myruntime/bonita/healthz URL and provides key information such as the runtime status(OK, NOK), the platform state, or the number of days until the license expiration.
 
 Its access is now protected with Basic Auth authentication to protect against DOS attacks.
 
@@ -42,9 +42,9 @@ It is now possible to change the log level of your platform without restarting i
 
 === Prometheus monitoring active by default (Subscription editions)
 
-From Bonita 2022.1, xref:runtime-monitoring.adoc#_prometheus_publisher[the Prometheus metrics publisher] is now active by default, and can be disabled if needed. +
+From Bonita 2022.1, xref:runtime-monitoring.adoc#_prometheus_publisher[the Prometheus metrics publisher] is now active by default and can be disabled if needed. +
 Its access is now protected with Basic Auth authentication to protect against DOS attacks. +
-Thus, when reaching the prometheus metrics endpoint, typically https://localhost:8080/bonita/metrics, you will have to manually enter the configured username and password information for your access to be granted.
+Thus, when reaching the Prometheus metrics endpoint, typically https://localhost:8080/bonita/metrics, you will have to manually enter the configured username and password information for your access to be granted.
 
 These credentials can be consulted and modified:
 
@@ -59,13 +59,13 @@ Existing installations that update to 2022.1 stay *unchanged*, but we encourage 
 
 For Community users who update to 2022.1, dynamic authorization checking does not work anymore. +
 However, the configuration stays unchanged, even if it is not used anymore. +
-If they want to reuse the configuration in a custom manner, or upgrade to Enterprise edition, the configuration will be back there and fully functional.
+If they want to reuse the configuration in a custom manner or upgrade to Enterprise edition, the configuration will be back there and fully functional.
 
 == Technical updates
 
 ===  Log4j2 Logger
 
-Bonita Runtime now use Log4j2 as logger.
+Bonita Runtime now uses Log4j2 as logger.
 One of the great feature that it brings is the automatic reload of configuration files. There is no more need
 to restart the platform if you only want to change a log level.
 More information on how to use it in the docker image xref:runtime:bonita-docker-installation.adoc#logger_configuration[here] and in the bundle xref:setup-dev-environment:logging.adoc#_logging_configuration[here].
@@ -86,13 +86,13 @@ The Tomcat bundle does not log anymore in the console but only in `bonita.log` f
 
 === Enterprise Docker image 
 
-Docker image is now focused on the RUN phase, environment preparation will be handle apart (as on-premise installations) so docker image does not create anymore the database schema and the associated user. Still, the database must be created before the docker image starts. We provide pre-configured database images with included schema and users Docker Hub. 
+Docker image is now focused on the RUN phase, environment preparation will be handled apart (as on-premise installations) so docker image does not create anymore the database schema and the associated user. Still, the database must be created before the docker image starts. We provide pre-configured database images with included schema and users Docker Hub. 
 
-LDAP Syncronizer  is now out of Bonita docker image and is available as an independent docker image ready to use (available on quay.io)
+LDAP Synchronizer  is now out of Bonita docker image and is available as an independent docker image ready to use (available on quay.io)
 
-For assuring a smooth and obvious Runtime confirmation management, environment properties and configuration variables nomenclature has been reviewed to provide an homogeneity among all of them. See dedicated documentation for details. 
+For assuring a smooth and obvious Runtime confirmation management, environment properties and configuration variables nomenclature has been reviewed to provide homogeneity among all of them. See dedicated documentation for details. 
 
-Robustness and self recovery capabilities added to the datasource to overcome to network lags. 
+Robustness and self-recovery capabilities were added to the data source to overcome network lags. 
 
 Folder structure inside Bonita Docker images has been simplified: instead of having /opt/bonita/BonitaCommunity-{bonitaVersion} or /opt/bonita/BonitaSubscription-{bonitaVersion}, we now simply have */opt/bonita*. +
 If you have scripts using the former folder structure, please update them.
@@ -114,7 +114,7 @@ To rationalize the Bonita configuration variables, some properties have been ren
 == Feature deprecations and removals
 
 === SVN
-The SVN feature is now deprecated. We recommand that you migrate your repositories to a GIT repository. This xref:setup-dev-environment:migrate-a-svn-repository-to-github.adoc[page] describes how to migrate a SVN repository to Github.
+The SVN feature is now deprecated. We recommend that you migrate your repositories to a GIT repository. This xref:setup-dev-environment:migrate-a-svn-repository-to-github.adoc[page] describes how to migrate a SVN repository to Github.
 
 === REST API
 
