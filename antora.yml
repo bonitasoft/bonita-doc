@@ -1,11 +1,9 @@
 name: bonita
 title: Bonita
 # TODO: When releasing beta version, put version: 2022.2
-version: 1
-# TODO: When releasing beta version, remove this line
-display_version: 2022.2-alpha
+version: 2022.2
 # TODO: When releasing beta version, replace alpha by beta
-prerelease: alpha
+prerelease: -alpha
 asciidoc:
   attributes:
     bonitaVersion: 2022.2
