@@ -21,6 +21,8 @@ More information in the dedicated documentation: Bonita Test Toolkit.
 
 == Improvements
 
+=== 
+
 == Functional changes
 
 === Prometheus monitoring active by default (Subscription editions)
@@ -99,8 +101,6 @@ The platform produces a warning log if the filter is set and ignores it.
 
 == Bug fixes
 
-== Known issues
-
 ===Fixes in Bonita 2022.1
 
 ====Fixes in Bonita Runtime
@@ -108,6 +108,7 @@ The platform produces a warning log if the filter is set and ignores it.
 * RUNTIME-178	- Case deletion throws 500 instead of 404 when the case does not exist.
 * RUNTIME-4777 - Case overview does not paginate attached document list
 
+== Known issues
 
 === Bonita Studio
 
