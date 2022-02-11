@@ -86,7 +86,7 @@ The Tomcat bundle does not log anymore in the console but only in `bonita.log` f
 
 === Enterprise Docker image 
 
-Docker image is now focused on the RUN phase, environment preparation will be handled apart (as on-premise installations) so docker image does not create anymore the database schema and the associated user. Still, the database must be created before the docker image starts. We provide pre-configured database images with included schema and users Docker Hub. 
+Docker image is now focused on the RUN phase, environment preparation will be handled apart (as on-premise installations) so docker image does not create anymore the database schema and the associated user. Still, the database must be created before the docker image starts. We provide pre-configured database images with included schema and users on Docker Hub. 
 
 LDAP Synchronizer  is now out of Bonita docker image and is available as an independent docker image ready to use (available on quay.io)
 
