@@ -1,0 +1,51 @@
+= Docker Healthcheck mechanism
+:description: How the underlying healthcheck mechanism works in the Bonita docker image
+
+
+== API health endpoints
+The Bonita docker image provides one API endpoint, /healthz to indicate the current state of the platform (accessed by the URL https://<serverURL>/bonita/healthz).
+A call to the URL will typically return the following information in JSON format:
+
+[source,json]
+----
+{"status":"ok","ip":"<Server IP>",
+"jvmUptimeSeconds":"437",
+"platformState":"STARTED",
+"platformVersion":"7.14.0-SNAPSHOT",
+"platformNodeStarted":"true",
+"defaultTenantState":"ACTIVATED",
+"licenseExpirationDays":"28",
+"defaultTenantIsPaused":"false",
+"executionTimeMillis":"7"}
+----
+
+The most common "unhealthy" state will be that the /healthz URL is not accessible.
+
+== Security
+
+The /healthz endpoint is protected by a username/password authentication. The default values are username: monitoring / password: mon1tor1ng_adm1n.
+It is very much recommended to change those values. It's done by overriding the following environment properties:
+
+[source,text]
+----
+ENV MONITORING_USERNAME
+ENV MONITORING_PASSWORD
+----
+
+It's typically done when staring up the Bonita docker image:
+
+[source,shell script]
+----
+docker run -p 8080:8080 -v ~/lic:/opt/bonita_lic/ -e MONITORING_USERNAME=<YourUsername> -e MONITORING_PASSWORD=<YourPassword> --name bonita-sp quay.io/bonitasoft-rd/bonita-subscription:latest
+----
+
+Alternatively, these properties can be all centralized with others in a bonita.env file
+
+[source,shell script]
+----
+docker run -p 8080:8080 -v ~/lic:/opt/bonita_lic/ --env-file ~/bonita.env --name bonita-sp quay.io/bonitasoft-rd/bonita-subscription:latest
+----
+
+== Internal Workings
+The /healthz endpoint is an internal class that retrieves various information through the PlatformAPI.java.
+If one of the requested information cannot be retrieved (ie. if the API call raises an exception), the endpoint will return a status "error" with a stacktrace.
