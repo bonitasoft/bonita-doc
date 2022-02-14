@@ -5250,6 +5250,10 @@ _Example_: `/API/bpm/timerEventTrigger?caseId=4025&p=0&c=10&`
 `GET`
 * *Data Params*
  ** `caseId`: ID of the case (Process instance)
+ ** f: Filters allowed in the api url.
+  *** name: The name of BPM timer event trigger. ex: f=name=MyBoundaryEvent
+  *** executionDate: Timestamp (in millisecond) of the date of the BPM timer event trigger.  ex: f=executionDate=1644331888385
+  *** eventInstanceId: ID of the task that contains the BPM timer event trigger. ex: f=eventInstanceId=6001
 * *Success Response* +
 A JSON representation of a list of timer event triggers, as described above
  ** *Code*: 200
