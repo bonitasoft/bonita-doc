@@ -342,9 +342,9 @@ $  curl -b saved_cookies.txt -X POST --url 'http://localhost:8080/bonita/API/bpm
 $ curl -b saved_cookies.txt -X GET --url 'http://localhost:8080/bonita/logoutservice?redirect=false'
 ----
 
-==== Troubleshooting
+== Troubleshooting
 
-===== HTTP/1.1 401 Unauthorized
+=== HTTP/1.1 401 Unauthorized
 
 If the HTTP response's status is `401 Unauthorized`:
 
@@ -354,7 +354,7 @@ If the HTTP response's status is `401 Unauthorized`:
 * if the X-Bonita-API-Token header is included, make sure that the value is the same as the one of the cookie generated during the last login
 * Maybe a logout was issued or the session has expired; try to log in again, and re run the request with the new cookies and the new value for the `X-Bonita-API-Token` header.
 
-===== HTTP/1.1 416 Content Range Not Satisfiable
+=== HTTP/1.1 416 Content Range Not Satisfiable
 
 If the HTTP response's status is `416 Range Not Satisfiable`:
 
