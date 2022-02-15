@@ -24,7 +24,7 @@ The most common "unhealthy" state will be that the /healthz URL is not accessibl
 == Security
 
 The /healthz endpoint is protected by a username/password authentication. The default values are username: monitoring / password: mon1tor1ng_adm1n.
-It is very much recommended to change those values. It's done by overriding the following environment properties:
+It is very much recommended to change those values. It can be done by overriding the following environment properties:
 
 [source,text]
 ----
@@ -32,14 +32,14 @@ ENV MONITORING_USERNAME
 ENV MONITORING_PASSWORD
 ----
 
-It's typically done when staring up the Bonita docker image:
+It should be done when staring up the Bonita docker image:
 
 [source,shell script]
 ----
 docker run -p 8080:8080 -v ~/lic:/opt/bonita_lic/ -e MONITORING_USERNAME=<YourUsername> -e MONITORING_PASSWORD=<YourPassword> --name bonita-sp quay.io/bonitasoft-rd/bonita-subscription:latest
 ----
 
-Alternatively, these properties can be all centralized with others in a bonita.env file
+Alternatively, these properties can be centralized along with others in a bonita.env file
 
 [source,shell script]
 ----
