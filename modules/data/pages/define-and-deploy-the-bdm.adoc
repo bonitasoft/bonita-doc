@@ -168,6 +168,17 @@ There are two options for loading complex business objects: *lazy* or *eager*. +
 
 Choosing the right option is not easy. The default option is lazy loading, but you may override this for any business object by configuring it to use eager loading when you specify the object relationship properties. +
 
+[Note]
+====
+From a technical point of view: the bdm schema is managed by hibernate. The parent object is retrieved by a SELECT sql request.
+With EAGER loading, this request is then "enhanced" by adding an OUTER JOIN statement for each child object marked as eager.
+While it guarantees that everything is loaded in a single database request, it can lead to very heavy sql queries. It is especially problematic with more complex bdm schemas and can lead to excessive memory and processing power consumption.
+
+Lazy loading, by contrast, retrieves only the parent object. When accessing one of it's child object, a new SELECT statement will be generated.
+In practice, if we take a parent object with N children, if we were to load all of them, it will either generate a single request with N outer joins when the children are marked EAGER, or, N+1 SELECT requests when they are marked lazy.
+The tradeoff between those two options is execution time vs memory consumtion.
+====
+
 [WARNING]
 ====
 If you are not sure about the final size of the parent object with children, we do strongly recommend to use the default *lazy* loading option. Indeed, the *eager* loading option can have a huge impact on the Bonita Runtime performance, due to the additional data load and maintenance of the information in memory. +
