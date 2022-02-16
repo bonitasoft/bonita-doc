@@ -34,6 +34,8 @@
      ****** xref:admin-application-profiles-list.adoc[Profiles]
    **** xref:admin-application-resources-list.adoc[Resources]
    **** xref:applications.adoc[Applications]
+  *** xref:docker-deep-dive.adoc[Docker deep dive]
+   **** xref:healthcheck-mechanism.adoc[Healthcheck mechanism]
   *** xref:administrator-application-index.adoc[Bonita Administrator application]
    **** xref:admin-application-overview.adoc[Overview]
    **** xref:process-management-index.adoc[Process Management]

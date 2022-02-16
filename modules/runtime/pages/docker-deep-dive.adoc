@@ -1,0 +1,13 @@
+= Docker deep dive
+:description: This page gives an easy access to some of the internal workings of the Bonita docker image.
+
+{description}
+
+
+[.card-section]
+== Docker Healthcheck mechanism
+
+[.card.card-index]
+--
+xref:healthcheck-mechanism.adoc[[.card-title]#Overview# [.card-body.card-content-overflow]#pass:q[How Bonita docker healthcheck works]#]
+--
