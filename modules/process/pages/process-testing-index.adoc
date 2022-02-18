@@ -30,7 +30,7 @@ To write automated integration test scenarios for your automation project you ca
 
 It can be used in any IDE and can easily be integrated into a Continuous Integration.
 
-More information in the dedicated documentation: Bonita Test Toolkit.
+More information in the dedicated documentation: https://documentation.bonitasoft.com/test-toolkit/1.0/process-testing-overview[Bonita Test Toolkit].
 
 
 == Unit Testing
