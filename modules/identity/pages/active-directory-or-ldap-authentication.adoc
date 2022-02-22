@@ -254,7 +254,7 @@ BonitaAuthentication-1 {
 
 The Active Directory configuration has been tested in single domain configuration. If you a running with multiple domains it's likely that the user will have to type a username including domain name when logging in.
 
-== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+== image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
 === Logs
 
