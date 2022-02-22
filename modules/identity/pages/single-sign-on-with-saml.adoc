@@ -339,7 +339,9 @@ To setup Bonita for global logout:
 If the single logout flow supported by your IdP is not the same as the one supported by Bonita platform, the preferred solution to handle it anyway is to intercept the requests to /logoutService and handle the logout programmatically.
 ====
 
-== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+== image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+
+=== Logs
 
 To troubleshoot SSO login issues, you need to increase the xref:ROOT:logging.adoc[log level] to `FINE` for the packages `org.bonitasoft`, `com.bonitasoft`, and `ALL` for `org.keycloak` in order for errors to be displayed in the log files `bonita-*.log` (by default, they are not).
 
@@ -364,7 +366,9 @@ com.bonitasoft.level = FINE
 === Common error examples
 
 ****
-*Symptom:* After configuring SAML SSO in Bonita, the Bonita login page does not redirect to the SSO login page. +
+*Symptom:* +
+After configuring SAML SSO in Bonita, the Bonita login page does not redirect to the SSO login page. +
+
 *Possible Solutions:*
 
 * Check all the Bonita configuration settings are correct.
@@ -373,7 +377,8 @@ com.bonitasoft.level = FINE
 ****
 
 ****
-*Symptom:* The following stacktrace appears in the Bonita server log :
+*Symptom:* +
+The following stacktrace appears in the Bonita server log :
 
 [source,log]
 ----
@@ -386,12 +391,16 @@ Caused by: java.lang.RuntimeException: Sp signing key must have a PublicKey or C
 	... 51 more
 ----
 
-*Problem:* The signing of the requests has been enabled in the *keycloak-saml.xml* file, but there is no \<CertificatePem> in the Keys:Key section of the SP. +
-*Solution:* Add Bonita server's certificate in the Keys:Key section of the SP.
+*Cause:* +
+The signing of the requests has been enabled in the *keycloak-saml.xml* file, but there is no \<CertificatePem> in the Keys:Key section of the SP. +
+
+*Solution:* +
+Add Bonita server's certificate in the Keys:Key section of the SP.
 ****
 
 ****
-*Symptom:* The following stacktrace appears in the Bonita server log :
+*Symptom:* +
+The following stacktrace appears in the Bonita server log :
 
 [source,log]
 ----
@@ -401,15 +410,21 @@ Caused by: java.lang.RuntimeException: Sp signing key must have a PublicKey or C
 	(...)
 ----
 
-*Problem:* The SAML module of the Bonita server has tried to validate the signature of the response sent by the IdP using the \<CertificatePem> stored in the IDP:Keys:Key section of the *keycloak-saml.xml* file, but:
+*Cause:* +
+The SAML module of the Bonita server has tried to validate the signature of the response sent by the IdP using the \<CertificatePem> stored in the IDP:Keys:Key section of the *keycloak-saml.xml* file, but:
 
 * either the validation has failed because the private key used by the IdP to sign the response does not match the certificate used by the SAML module.
 * or the IdP does not really sign the response (in that case, by activating all the logs for the `org.keyclock` package, you should also see a message `Cannot find Signature element`). +
-*Solution:* Make sure the certificate in the Keys:Key section of the IdP is indeed the one belonging to the private key being used by the IdP to sign its responses. Also make sure the IdP is configured to indeed sign the response. If not you can also change the IDP:Keys:Key section of the *keycloak-saml.xml* to put signing to false and the IDP:SingleSignOnService section to put validateResponseSignature to false.
+
+*Solution:* +
+Make sure the certificate in the Keys:Key section of the IdP is indeed the one belonging to the private key being used by the IdP to sign its responses. +
+Also make sure the IdP is configured to indeed sign the response. +
+If not, you can also change the IDP:Keys:Key section of the *keycloak-saml.xml* to put signing to false and the IDP:SingleSignOnService section to put validateResponseSignature to false.
 ****
 
 ****
-*Symptom:* The following stacktrace appears in the Bonita server log :
+*Symptom:* +
+The following stacktrace appears in the Bonita server log :
 
 [source,log]
 ----
@@ -420,7 +435,9 @@ Caused by: java.lang.RuntimeException: Sp signing key must have a PublicKey or C
 	(...)
 ----
 
-*Problem:* The IdP has sent an encrypted assertion in its response, but the SAML module can not find Bonita server's private key in the *keycloak-saml.xml* file, and so it can not decrypt the assertion. +
+*Cause:* +
+The IdP has sent an encrypted assertion in its response, but the SAML module can not find Bonita server's private key in the *keycloak-saml.xml* file, and so it can not decrypt the assertion. +
+
 *Solution:*
 
 * Make sure you have encryption="true" inside the Key node of the SP.
@@ -428,13 +445,19 @@ Caused by: java.lang.RuntimeException: Sp signing key must have a PublicKey or C
 ****
 
 ****
-*Symptom:* After successfully logging in on the IdP and being redirected to Bonita there is a 403 on the ACS request and the following message appears in the Bonita server log :
+*Symptom:* +
+After successfully logging in on the IdP and being redirected to Bonita there is a 403 on the ACS request and the following message appears in the Bonita server log :
+
 [source,log]
 ----
 org.keycloak.adapters.saml.profile.webbrowsersso.WebBrowserSsoAuthenticationHandler Error extracting SAML assertion: null.
 ----
-*Problem:* Some IdPs dissociate the Recipient URL from the Assertion Consumer Service (ACS) URL in the SAML service configuration. +
-*Solution:* The workaround for this issue is to make sure to set the Recipient parameter in the IdP configuration with the same value as the ACS of the service provider (`http[s]://<bundle host>:<port>/bonita/saml`), so that the `destination` attribute is present in the SAML response. This issue hapens when the Recipient URL is left empty resulting to an empty `destination` attribute in the SAML response.
+*Problem:* +
+Some IdPs dissociate the Recipient URL from the Assertion Consumer Service (ACS) URL in the SAML service configuration. +
+
+*Solution:* +
+The workaround for this issue is to make sure to set the Recipient parameter in the IdP configuration with the same value as the ACS of the service provider (`http[s]://<bundle host>:<port>/bonita/saml`), so that the `destination` attribute is present in the SAML response. +
+This issue hapens when the Recipient URL is left empty resulting to an empty `destination` attribute in the SAML response.
 ****
 
 == Manage passwords
