@@ -126,7 +126,7 @@ Note that Wheels are not returned, only necessary information is fetched. +
 As a result, performance is efficient
 ====
 
-== image:ROOT:images/troubleshooting.png Troubleshooting
+== image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
 You will find below bad practices to avoid:
 
