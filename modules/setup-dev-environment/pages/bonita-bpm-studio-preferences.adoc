@@ -147,7 +147,7 @@ The Tomcat configuration files are located in the Bonita Studio `workspace/tomca
 For more details, see the http://tomcat.apache.org/tomcat-9.0-doc/[Tomcat documentation].
 
 
-== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+== image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
 ****
 *Symptom:* +
