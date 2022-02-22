@@ -220,6 +220,7 @@ When I run Bonita Setup Tool, I get the exception `Cannot determine database ven
 The property `db.vendor` is not found when reading file `database.properties`.
 
 *Solution*: +
+
 . Edit file `database.properties`
 . Ensure there is a valid `db.vendor` value. 
 . Also ensure the line is not commented (no `#` at the beginning of the line)
