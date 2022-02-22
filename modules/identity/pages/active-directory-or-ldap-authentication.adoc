@@ -254,7 +254,9 @@ BonitaAuthentication-1 {
 
 The Active Directory configuration has been tested in single domain configuration. If you a running with multiple domains it's likely that the user will have to type a username including domain name when logging in.
 
-== Troubleshooting
+== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+
+=== Logs
 
 If necessary, you can edit your configuration to have additional logs (please note, a server restart will be required for the new configuration to be taken into account, though):
 
@@ -264,12 +266,16 @@ If necessary, you can edit your configuration to have additional logs (please no
 === Common error examples
 
 ****
-*Symptom:* You see the following error in your logs:
+*Symptom:* +
+You see the following error in your logs:
 
 [source,log]
 ----
 Caused by: javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed:sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
 ----
+
+*Cause:* +
+The certificate cannot be found.
 
 *Possible Solutions:*
 
@@ -284,14 +290,16 @@ Caused by: javax.net.ssl.SSLHandshakeException: sun.security.validator.Validator
 ****
 
 ****
-*Symptom:* You see the following error in your logs (it may sometimes be necessary to have set the `-Djavax.net.debug=all` system property before hand):
+*Symptom:* +
+You see the following error in your logs (it may sometimes be necessary to have set the `-Djavax.net.debug=all` system property before hand):
 
 [source,log]
 ----
 javax.net.ssl.SSLHandshakeException: java.security.cert.CertificateException: No subject alternative DNS name matching my.ldap.server found.
 ----
 
-*Problem:* The enpoint identification (i.e. hostname verification) check is failing to validate the LDAP server's certificate because its subject does not match the hostname specified in the LDAPS url.
+*Cause:* +
+The enpoint identification (i.e. hostname verification) check is failing to validate the LDAP server's certificate because its subject does not match the hostname specified in the LDAPS url.
 
 *Possible Solutions:*
 
@@ -301,7 +309,8 @@ javax.net.ssl.SSLHandshakeException: java.security.cert.CertificateException: No
 ****
 
 ****
-*Symptom:* The following stacktrace appears in the Bonita server log:
+*Symptom:* +
+The following stacktrace appears in the Bonita server log:
 
 [source,log]
 ----
@@ -312,7 +321,8 @@ at com.sun.security.auth.module.LdapLoginModule.login(LdapLoginModule.java:565)
 Caused by: javax.naming.AuthenticationException: [LDAP: error code 49 - 80090308: LdapErr: DSID-XXXXXXXX, comment: AcceptSecurityContext error, data YYY, vZZZZ..]
 ----
 
-*Problem:* As per LDAP standard, error code 49 means: "Invalid credentials" (i.e. the user credentials presented in the bind operation are not valid). +
+*Cause:* +
+As per LDAP standard, error code 49 means: "Invalid credentials" (i.e. the user credentials presented in the bind operation are not valid). +
 When connecting to Active Directory, this error may appear for multiple reasons. The AD-specific error code is the one (`YYY`) after "data" in the error message:
 
 [%autowidth,frame=all,grid=all]
