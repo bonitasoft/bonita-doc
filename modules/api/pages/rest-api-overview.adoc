@@ -343,24 +343,34 @@ $  curl -b saved_cookies.txt -X POST --url 'http://localhost:8080/bonita/API/bpm
 $ curl -b saved_cookies.txt -X GET --url 'http://localhost:8080/bonita/logoutservice'
 ----
 
-== Troubleshooting
+== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
-=== HTTP/1.1 401 Unauthorized
+****
+*Symptom:* +
+HTTP/1.1 401 Unauthorized
 
-If the HTTP response's status is `401 Unauthorized`:
+*Cause:* +
+The logged user has no permission to access the resources.
 
-* make sure that the cookies have been transfered with the call
-* make sure that the cookies transfered are the ones generated during the last sucessfull login call
+*Solution:* +
+
+* make sure that the cookies have been transferred with the call
+* make sure that the cookies transferred are the ones generated during the last sucessfull login call
 * if one of the PUT, DELETE or POST method is used, make sure that the `X-Bonita-API-Token` header is included
 * if the X-Bonita-API-Token header is included, make sure that the value is the same as the one of the cookie generated during the last login
-* Maybe a logout was issued or the session has expired; try to log in again, and re run the request with the new cookies and the new value for the `X-Bonita-API-Token` header.
+* Maybe a logout was issued or the session has expired; try to log in again, and re-run the request with the new cookies and the new value for the `X-Bonita-API-Token` header.
+****
 
-=== HTTP/1.1 416 Content Range Not Satisfiable
+****
+*Symptom:* +
+HTTP/1.1 416 Content Range Not Satisfiable
 
-If the HTTP response's status is `416 Range Not Satisfiable`:
-
+*Cause:*
 This error can happen on xref:#resource_search[search requests] with pagination when a firewall is blocking the response.
 Bonita REST API is using the `content-range` response headers to return pagination information and some firewalls may prevent this usage.
 
-* If you have a firewall with an option "Allow HTTP partial response" in its configuration, make sure it is enabled at least for you Bonita runtime server address.
+*Solutions:*
+
+* If you have a firewall with an option "Allow HTTP partial response" in its configuration, make sure it is enabled at least for you Bonita Runtime server address.
 * Make sure your firewall or your reverse proxy doesn't have any other option that could block this response header
+****
