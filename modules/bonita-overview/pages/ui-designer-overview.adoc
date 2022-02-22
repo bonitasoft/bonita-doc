@@ -1,6 +1,7 @@
 = UI Designer overview
 :description: The UI Designer is a wysiwyg development environment for creating pages and forms for a Bonita application.
 :page-aliases: ROOT:ui-designer-overview.adoc
+:experimental:
 
 {description}
 
@@ -131,9 +132,8 @@ If your project is under version control and you rename an artifact, you could l
 You started your Bonita Studio today, and when you try to open a form from your process or open the UI Designer from the studio, the UI Designer doesn't open and you see a *404 Error* or a *blank page*. 
 
 *Cause*: +
-
 _Identify the cause_ +
-The UI Designer has a log file that you can consult, either from Bonita Studio _Help_ menu > _Bonita UI-Designer_ log: +
+The UI Designer has a log file that you can consult, either from menu:Bonita Studio[Help > Bonita UI-Designer log] menu: +
 image:images/ui-designer-troubleshooting/uid-logs.png[Open UI Designer log from the Studio]
 // {.img-responsive}
  +
@@ -279,7 +279,6 @@ NotFoundException: File not found: [SmartFragment.json]
  ** No error, file is automatically re-generated
 
 *Solution*: +
-
 In the case of a missing file, there are several ways to fix this error:
 
 * You are NOT using Git
