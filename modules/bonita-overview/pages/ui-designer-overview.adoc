@@ -132,8 +132,7 @@ You started your Bonita Studio today, and when you try to open a form from your 
 
 *Cause*: +
 
-_Identify the cause_
-
+_Identify the cause_ +
 The UI Designer has a log file that you can consult, either from Bonita Studio _Help_ menu > _Bonita UI-Designer_ log: +
 image:images/ui-designer-troubleshooting/uid-logs.png[Open UI Designer log from the Studio]
 // {.img-responsive}
@@ -157,8 +156,7 @@ Wrapped by: org.springframework.beans.factory.UnsatisfiedDependencyException: Er
 [...]
 ----
 
-_The cause_
-
+_The cause_ +
 Oops, some artifacts from the UI Designer got corrupted in your git repository!
 
 Most of the time, and this is the case in this example, it's because of a *missing file in your repository*. It may be for different reasons: switch on a wrong git branch, file deleted by error, wrong commit, ...
@@ -177,8 +175,7 @@ Depending on the type of the file missing, other error messages could be (where 
 The error message may vary depending on the Bonita version.
 ====
 
-_Expected files for the different artifacts_
-
+_Expected files for the different artifacts_ +
 If you extended the Input standard widget, and called it SmartInput.
 You should have the following files in your +++<ProjectDir>+++/web_widgets directory:+++</ProjectDir>+++
 
@@ -190,7 +187,7 @@ customSmartInput (the custom widget directory)
 	customSmartInput.tpl.html
 ----
 
-If you created a page called SmartPage:
+If you created a page called SmartPage: +
 You should have the following files in your +++<ProjectDir>+++/web_pages directory (the content may vary if you added some assets):+++</ProjectDir>+++
 
 ----
@@ -204,7 +201,7 @@ SmartPage (the page directory)
         localization.json
 ----
 
-If you created a fragment called SmartFragment:
+If you created a fragment called SmartFragment: +
 You should have the following files in your +++<ProjectDir>+++/web_fragments directory:+++</ProjectDir>+++
 
 ----
@@ -213,8 +210,7 @@ SmartFragment (the fragment directory)
 	SmartFragment.json
 ----
 
-_Error messages_
-
+_Error messages_ +
 * Custom widget missing
  ** 7.10 7.11 7.12
 +
@@ -282,7 +278,7 @@ NotFoundException: File not found: [SmartFragment.json]
 * Fragment js file missing
  ** No error, file is automatically re-generated
 
-*Solution*:
+*Solution*: +
 
 In the case of a missing file, there are several ways to fix this error:
 
@@ -295,7 +291,7 @@ In the case of a missing file, there are several ways to fix this error:
 
 Here are some examples of common mistakes:
 
-* You didn't pull the correct branch, you need to do the right pull.
+* You did not pull the correct branch, you need to do the right pull.
 * You have a merge conflict, you need to fix that conflict.
 * Somebody removed a file by error
  ** You can retrieve the file from a previous commit.
