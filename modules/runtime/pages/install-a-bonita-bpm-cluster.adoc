@@ -240,17 +240,18 @@ You can configure the cluster name through Hazelcast or by updating `bonita-plat
 
 == image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
-*Symptom*: I regularly get this warning message when 2 or more nodes are started in cluster:
+*Symptom*: +
+I regularly get this warning message when 2 or more nodes are started in cluster:
 
 [source,log]
 ----
 2016-06-13 11:41:22.783 +0200 WARNING: org.bonitasoft.engine.scheduler.impl.BonitaJobStoreCMT This scheduler instance (...) is still active but was recovered by another instance in the cluster.  This may cause inconsistent behavior.
 ----
 
-*Root cause*:
+*Cause*: +
 The clocks of the servers are not synchronized.
 
-*Resolution*:
-The system time of all cluster nodes must be maintained in synchronization with time servers.
-It is a good idea to have also the db server system time synchronized too.
+*Solution*: +
+The system time of all cluster nodes must be maintained in synchronization with time servers. +
+It is a good idea to have also the db server system time synchronized too. +
 Synchronize the system time of all nodes and restart application servers.
