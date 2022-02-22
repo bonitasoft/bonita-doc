@@ -1,4 +1,4 @@
-= Bonita Runtime setup tool
+= Bonita Runtime Setup Tool
 :page-aliases: ROOT:BonitaBPM_platform_setup.adoc, ROOT:bonita-bpm-platform-setup.adoc, ROOT:bonita-platform-setup.adoc
 :description: This page explains how to use the setup tool to configure Bonita Runtime (properties, permissions, license install...).
 
