@@ -343,7 +343,7 @@ $  curl -b saved_cookies.txt -X POST --url 'http://localhost:8080/bonita/API/bpm
 $ curl -b saved_cookies.txt -X GET --url 'http://localhost:8080/bonita/logoutservice'
 ----
 
-== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+== image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
 ****
 *Symptom:* +
