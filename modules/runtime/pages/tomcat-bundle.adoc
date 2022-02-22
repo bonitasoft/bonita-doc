@@ -213,7 +213,7 @@ To update Bonita configuration after the first run, take a look at the xref:runt
 
 To update the licenses after the first run, take a look at the xref:runtime:bonita-platform-setup.adoc#update_platform_conf[platform setup tool]
 
-== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+== image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
 *Symptom*: +
 When I run `start-bonita.sh` or `start-bonita.bat`, I get the error message `Invalid Java version 1.8. Please set JRE_HOME or JAVA_HOME system variable to a JRE / JDK 11, or add the 'java' version 11 to your PATH`
