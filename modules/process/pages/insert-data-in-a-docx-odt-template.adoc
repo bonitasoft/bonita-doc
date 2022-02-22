@@ -1,6 +1,7 @@
 = Insert data in a .docx/.odt template connector
 :page-aliases: ROOT:insert-data-in-a-docx-odt-template.adoc
 :description: The *insert data in a .docx/.odt template* fills a specified template file by inserting values coming from the current process instance.
+:experimental:
 
 {description}
 
@@ -27,7 +28,7 @@ Tested versions are *Microsoft Word 2007/2010*. This connector may work with lat
 
 ==== Create a `field`
 
-* Insertion > QuickPart > Field...
+* menu:Insertion[QuickPart > Field...]
 * Select FusionField (or MergeField in some Word versions) and use a template (see Velocity templating language) as field name (eg: $\{name}, ${user.Name}...etc)
 * Click OK
 
@@ -38,7 +39,7 @@ Tested versions are *Microsoft Word 2007/2010*. This connector may work with lat
 
 === Using LibreOffice (odt)
 
-* Insert > Fields > More fields...
+* menu:Insert[Fields > More fields...]
 * Go to Variables tab, select UserField and use a template (see Velocity templating language) as value (eg: $\{name}, ${user.Name}...etc)
 * Choose Text format
 * Click Insert +
@@ -96,12 +97,15 @@ You will find out advanced report design documentation:
 == image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
 *Symptom:* +
-You may encounter some delays in the response time while using this connector.
+You may encounter some delays in the response time while using this connector. +
+
 *Cause:* +
 This is due to memory issues as it has substantial size of dependencies. +
+
 *Potential solution:*
 You may increase the maximum memory allocation value of the Tomcat server JVM. +
+
 Do do so:
-. Go to *Preferences* \ *Server settings*
+. Go to menu:Preferences[Server settings]
 . Increase the Tomcat Maximum memory allocation (`-Xmx` JVM argument) value to *1024* (512 by default). 
 Do not forget to use the same value when configuring your Production Bundle.
