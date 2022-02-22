@@ -106,6 +106,7 @@ This is due to memory issues as it has substantial size of dependencies. +
 You may increase the maximum memory allocation value of the Tomcat server JVM. +
 
 Do do so:
+
 . Go to menu:Preferences[Server settings]
 . Increase the Tomcat Maximum memory allocation (`-Xmx` JVM argument) value to *1024* (512 by default). 
 Do not forget to use the same value when configuring your Production Bundle.
