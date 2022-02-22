@@ -1,4 +1,4 @@
-= Single sign-on with Kerberos
+= Single Sign-On with Kerberos
 :page-aliases: ROOT:single-sign-on-with-kerberos.adoc
 :description: This pages explains how to configure your Bonita Platform system to use the Kerberos protocol to provide single sign-on (SSO).
 
@@ -296,7 +296,7 @@ Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, t
 The most commonly used solution is to hide the logout button from the Bonita Layout. Users are logged in as long as they don't close their web browser and their session does not time out. +
 To do this, set the `logout.link.hidden` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
 
-== Troubleshooting
+== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
 To troubleshoot Kerberos SSO login issues, you need to add a logging handler for the package `net.sourceforge.spnego` and increase the xref:ROOT:logging.adoc[log level] to `ALL` for the packages `org.bonitasoft`, `com.bonitasoft`, and `net.sourceforge.spnego` in order for errors to be displayed in the log files bonita-*.log (by default, they are not).
 
