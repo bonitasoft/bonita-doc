@@ -8,18 +8,19 @@ This guide assumes you have a working docker environment.
 
 == Quick start
 
-To start the latest release
+To start the latest Community release:
 
 [source,bash]
 ----
 docker run --name bonita -d -p 8080:8080 bonita
 ----
 
-To start the latest subscription release
+To start the latest Subscription release:
 
-____
+[NOTE]
+====
 Information on how to access Quay.io can be found https://customer.bonitasoft.com/download/request[here]
-
+====
 
 // for the 'subs' parameter, see https://docs.asciidoctor.org/asciidoc/latest/subs/apply-subs-to-blocks/
 [source,shell script,subs="+macros"]
