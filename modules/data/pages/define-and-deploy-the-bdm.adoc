@@ -168,7 +168,7 @@ There are two options for loading complex business objects: *lazy* or *eager*. +
 
 Choosing the right option is not easy. The default option is lazy loading, but you may override this for any business object by configuring it to use eager loading when you specify the object relationship properties. +
 
-[Note]
+[NOTE]
 ====
 From a technical point of view: the bdm schema is managed by hibernate. The parent object is retrieved by a SELECT sql request.
 With EAGER loading, this request is then "enhanced" by adding an OUTER JOIN statement for each child object marked as eager.
