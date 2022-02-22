@@ -1,6 +1,7 @@
 = Bonita Studio
 :description: Discover what Bonita Studio is, as well as its main features.
 :page-aliases: ROOT:bonita-studio.adoc
+:experimental:
 
 Discover what Bonita Studio is, as well as its main features.
 
@@ -73,27 +74,31 @@ xref:ROOT:update-studio.adoc[[.card-title]#Update Bonita Studio# [.card-body.car
 
 In case of trouble when running Bonita Studio, you might want to take a look at log files.
 
-Studio log file can be displayed from Bonita Studio in "Help" \-> "Show Bonita Studio log" menu.
+Studio log file can be displayed from Bonita Studio in menu:Help[Show Bonita Studio log] menu.
 
 If Studio fails to start, you can open the log file manually. File is named `.log` and is located in `<studio_folder>/workspace/.metadata` folder. +
 Note that the folder might be hidden and the file might not be displayed if you choose to hide file extensions in your file manager.
 
 === JVM terminated. Exit code=1
 
+****
 *Symptom:* +
 If when launching the Studio you get an error message "JVM terminated. Exit code=1" +
 *Cause:* +
 You may try to launch Bonita Studio with a version of the JVM that is not supported. +
 *Solution:* +
 See above "Configure Bonita Studio to use a specific JVM" how to force the JVM to use.
+****
 
 === OutOfMemory error in Bonita Studio
 
+****
 *Symptom:* +
 After installation, you might see an `OutOfMemory` error in Bonita Studio. +
 *Cause:* +
 This error sometimes occurs when importing a large process definition. +
 The log messages are similar to the following:
+****
 
 [source,log]
 ----
@@ -107,24 +112,30 @@ java.lang.reflect.InvocationTargetException
 Caused by: java.lang.OutOfMemoryError: GC overhead limit exceeded
 ----
 
+****
 *Solution:* +
 You need to increase the memory allocated to the JVM that runs Bonita Studio. +
 To do so:
+
   . Edit the `*.ini` file that corresponds to the executable you use to launch the Studio 
   . Modify this line: `-Xmx512m` to `-Xmx1024m` (or higher).
   . Restart Bonita Studio.
+****
 
 === OutOfMemory error in Bonita Studio embedded Tomcat server
 
+****
 *Symptoms:* +
 Long response time +
 *Cause:* +
 Memory issue with the default `-Xmx` used for the tomcat server because connectors used have a large amount of dependencies. +
 *Potential solution:* +
-Increase this value in Bonita Studio preferences \-> Server settings \-> Tomcat Maximum memory allocation. +
+Increase this value in menu:Bonita Studio Preferences[Server settings > Tomcat Maximum memory allocation]. +
+****
 
 === Bonita Studio installation fails due to JVM errors
 
+****
 A given Bonita Studio version can only run with some specifics Java versions (xref:ROOT:hardware-and-software-requirements.adoc[hardware and software requirements]). +
 *Symptom:* +
 You encounter error messages about the JVM during the installation. +
@@ -133,12 +144,15 @@ Bad Java installations, or incompatibilities between a given Java version and Bi
 *Solution:* +
 First, ensure that a valid Java version is available. You can for exemple type _java -version_ on a terminal, and informations about the main Java version used will be displayed. +
 If you need another version:
+
   . Remove the installed Java versions
   . Download the last stable build of the required Java version https://www.oracle.com/technetwork/java/javase/downloads/index.html[on the Oracle website] 
   . Install it properly. 
+****
 
 === java.security.cert.CertificateException: No subject alternative DNS name matching github-releases.githubusercontent.com found.
 
+****
 Bonita Studio needs to retrieve some remote assets from Github. +
 *Symptom:* +
 The download of those assets fails with the above exception. +
@@ -146,3 +160,4 @@ The download of those assets fails with the above exception. +
 It may be due to an out-dated installation of Java. +
 *Solution:* +
 https://adoptopenjdk.net/[Install] the latest xref:ROOT:hardware-and-software-requirements.adoc[supported Java] package.
+****
