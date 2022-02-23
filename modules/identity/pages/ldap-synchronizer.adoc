@@ -718,7 +718,9 @@ The LDAP Synchronizer is using the Engine HTTP API of Bonita but it is not activ
 *Solution for on-premise bundle types of installations:* +
 
 . Configure the .zip bundle you have downloaded from the Customer Service Center
-. Edit the `/server/webapps/bonita/WEB-INF/web.xml` file and make sure these lines are not commented:
+. Edit the `/server/webapps/bonita/WEB-INF/web.xml` file 
+. Make sure these lines are not commented:
+
 [source,xml]
 ----
  <servlet>
