@@ -315,7 +315,7 @@ com.bonitasoft.level = FINE
 *Symptom:* +
 After configuring OIDC SSO in Bonita, the Bonita login page appears and you are not redirected to the SSO login page. +
 
-*Possible Solutions:*
+*Possible solutions:*
 
 * Check all the Bonita configuration settings are correct.
 * Make sure `setup[.sh][.bat] push` has been executed and the server restarted after the changes.
@@ -350,7 +350,6 @@ We recommend that you use LDAP as your master source for information, synchroniz
 
 [NOTE]
 ====
-
 By default the xref:ROOT:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `oidc.auth.standard.allowed` in *authenticationManager-config.properties*), users won't be able to log in with the Bonita login page directly without going through the OIDC provider authentication. +
 ====
 
