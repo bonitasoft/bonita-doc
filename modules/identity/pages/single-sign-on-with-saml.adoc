@@ -369,7 +369,7 @@ com.bonitasoft.level = FINE
 *Symptom:* +
 After configuring SAML SSO in Bonita, the Bonita login page does not redirect to the SSO login page. +
 
-*Possible Solutions:*
+*Possible solutions:*
 
 * Check all the Bonita configuration settings are correct.
 * Make sure `setup[.sh][.bat] push` has been executed and the server restarted after the changes.
