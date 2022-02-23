@@ -277,7 +277,7 @@ Caused by: javax.net.ssl.SSLHandshakeException: sun.security.validator.Validator
 *Cause:* +
 The certificate cannot be found.
 
-*Possible Solutions:*
+*Possible solutions:*
 
 * Make sure you have imported the public certificate of the LDAP server into the truststore being used by the application server.
 * Make sure the imported certificate has not expired.
@@ -301,7 +301,7 @@ javax.net.ssl.SSLHandshakeException: java.security.cert.CertificateException: No
 *Cause:* +
 The enpoint identification (i.e. hostname verification) check is failing to validate the LDAP server's certificate because its subject does not match the hostname specified in the LDAPS url.
 
-*Possible Solutions:*
+*Possible solutions:*
 
 * Make sure the server name used in the _ldaps://_ address of the LdapLoginModule's _userProvider_ matches that of the LDAP server's certificate.
 * Have the LDAP server use a certificate with a subject (or at least a subject alternative name) that matches the server's domain name (so the one used in the ldaps:// addresse of the LdapLoginModule).
@@ -357,7 +357,7 @@ When connecting to Active Directory, this error may appear for multiple reasons.
 | user account locked
 |===
 
-*Possible Solutions:*
+*Possible solutions:*
 
 * *52e*: invalid credentials +
 `LDAP: error code 49 - 80090308: LdapErr: DSID-0C0903A9, comment: AcceptSecurityContext error, data 52e, v1db1`. +
