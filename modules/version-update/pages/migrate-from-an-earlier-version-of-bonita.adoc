@@ -552,17 +552,17 @@ some changes have been introduced.
 
 In addition, if your application connects to Bonita Engine using the HTTP access mode, see the xref:api:configure-client-of-bonita-bpm-engine[bonita-client library] documentation page.
 
-== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+== image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
-=== Timers are stuck after updating to Bonita 7.10.0 or greater versions
+=== Timers are stuck
 
-_Symptom_: When updating to Bonita 7.10.0 or a greater version, the timers on processes do not work anymore.
-
-_Cause_: A bug in the pause/resume mechanism of tenant services, fixed in Bonita 7.12.1.
-This issue happens because the xref:ROOT:pause-and-resume-bpm-services.adoc[BPM services] were paused before the update was performed.
-
-_Solution_: If the BPM services were paused before the update or had to be paused for whatever reason, then to resolve this,
-you need to execute the following database requests after the update completes, and before you restart your Bonita Runtime:
+*Symptom:* +
+When updating to Bonita 7.10.0 or a greater version, the timers on processes do not work anymore. +
+*Cause:* +
+A bug in the pause/resume mechanism of tenant services, fixed in Bonita 7.12.1. +
+This issue happens because the xref:ROOT:pause-and-resume-bpm-services.adoc[BPM services] were paused before the update was performed. +
+*Solution:* +
+Execute the following database requests after the update completes, and *before you restart* your Bonita Runtime:
 
 [source,sql]
 ----
@@ -580,18 +580,17 @@ After this operation, the table QRTZ_PAUSED_TRIGGER_GRPS should be empty, and al
 This issue is fixed in Bonita 7.11.6, without any action required from the platform administrator.
 ====
 
-_Symptom_: After updating to a Bonita version comprised between 7.11.0 and 7.11.5, after re-installing/updating the BDM, some foreign key constraints are effectively duplicated: there are foreign keys that refer to the same columns and tables, but with a different name.
+*Symptom:* +
+After updating to a Bonita version comprised between 7.11.0 and 7.11.5, and after re-installing/updating the BDM, some foreign key constraints are duplicated: there are foreign keys that refer to the same columns and tables, but with a different name. +
+*Cause:* +
+A bug was introduced in Bonita 7.11.0 by updating an external library, Hibernate, from version 4 to 5. This new version introduces xref:https://hibernate.atlassian.net/browse/HHH-13779[a known bug]. +
+*Solution:* +
+Doing nothing is an option, as there is no change in Bonita's behavior. +
+If you wish to clean your BDM database, follow the procedure below:
 
-_Cause_: A bug was introduced in Bonita 7.11.0 by upgrading an external library, Hibernate, from version 4 to 5. This new version introduces xref:https://hibernate.atlassian.net/browse/HHH-13779[a known bug].
-
-_Solution_: Doing nothing is an option, as there is no change in Bonita's behaviour. If you wish to clean your BDM database, follow the procedure below:
-
-
-- Stop your bonita server
-
-- Open the database in an edition tool (or execute in command line the relevant commands):
-
-First, select all the foreign keys on a table of *your BDM objects*:
+. Stop your bonita server
+. Open the database in an edition tool (or execute in command line the relevant commands):
+.. First, select all the foreign keys on a table of *your BDM objects*:
 
 ==== MySQL
 [source,sql]
@@ -629,13 +628,11 @@ FROM pg_catalog.pg_constraint r
 WHERE r.conrelid = '<your_table_name>'::regclass AND r.contype = 'f' ORDER BY 1
 ----
 
-- These requests will give you all the foreign keys on a table.
-Among these, search for duplicated ones: the duplicated foreign keys should have the following names: `*FK_*<hash>` & `*FK*<another_hash>`. The two different names should be for keys referencing the same columns on the same table.
-Delete the one named: `*FK_*<hash>`.
-
-- Repeat for all the tables of your BDM database.
-
-- Start your Bonita Runtime
+.. These requests will give you all the foreign keys on a table.
+.. Among these, search for duplicated ones: the duplicated foreign keys should have the following names: `*FK_*<hash>` & `*FK*<another_hash>`. The two different names should be for keys referencing the same columns on the same table.
+.. Delete the one named: `*FK_*<hash>`.
+. Repeat for all the tables of your BDM database.
+. Start your Bonita Runtime
 
 [NOTE]
 ====
