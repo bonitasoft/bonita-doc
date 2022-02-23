@@ -594,7 +594,8 @@ If you wish to clean your BDM database, follow the procedure below:
 . Stop your Bonita Runtime
 . Open the database in an edition tool (or execute in command line the relevant commands):
 .. First, select all the foreign keys on a table of *your BDM objects*:
-
++
+--
 *MySQL*
 [source,sql]
 ----
@@ -630,12 +631,14 @@ pg_catalog.pg_get_constraintdef(r.oid, true) as condef
 FROM pg_catalog.pg_constraint r
 WHERE r.conrelid = '<your_table_name>'::regclass AND r.contype = 'f' ORDER BY 1
 ----
+--
++
 
- b. These requests will give you all the foreign keys on a table.
- c. Among these, search for duplicated ones: the duplicated foreign keys should have the following names: `*FK_*<hash>` & `*FK*<another_hash>`. The two different names should be for keys referencing the same columns on the same table.
- d. Delete the one named: `*FK_*<hash>`.
-3. Repeat for all the tables of your BDM database.
-4. Start your Bonita Runtime
+.. These requests will give you all the foreign keys on a table.
+.. Among these, search for duplicated ones: the duplicated foreign keys should have the following names: `*FK_*<hash>` & `*FK*<another_hash>`. The two different names should be for keys referencing the same columns on the same table.
+.. Delete the one named: `*FK_*<hash>`.
+. Repeat for all the tables of your BDM database.
+. Start your Bonita Runtime
 
 [NOTE]
 ====
