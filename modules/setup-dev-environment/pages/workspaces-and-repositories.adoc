@@ -1,5 +1,6 @@
 = Workspaces and projects
 :page-aliases: ROOT:workspaces-and-repositories.adoc
+:experimental:
 :description: Organize and share your Bonita project using workspaces and projects in order to ease developers team collaboration.
 
 {description}
@@ -306,36 +307,38 @@ To restore an older point:
 
 **** 
 *Symptom:* +
-I see this type of message in the Studio log, but when I open the URL in my browser, it works fine*: `!MESSAGE An exception occurred during push on URI http://your_remote_git_repository/repository/my_bonita_repo.git: http://your_remote_git_repository/repository/my_bonita_repo.git: 503 Service Unavailable`. +
+I see this type of message in the Studio log, but when I open the URL in my browser, it works fine: +
+`!MESSAGE An exception occurred during push on URI http://your_remote_git_repository/repository/my_bonita_repo.git: http://your_remote_git_repository/repository/my_bonita_repo.git: 503 Service Unavailable`. +
 *Cause:* +
 You probably connect to the internet through a Proxy. +
 *Solution:* +
-you need to configure Proxy Settings in the xref:bonita-bpm-studio-preferences.adoc[Studio preferences].+
+Configure Proxy Settings in the xref:bonita-bpm-studio-preferences.adoc[Studio preferences].+
 ****
 
 ****
 *Symptom:* +
-My diagram has many validation issues after a clone / a switch branch operation +
+My diagram has many validation issues after a clone / a switch branch operation. +
 *Cause:* +
-Keep in mind that Bonita artifacts (Business Data Model, Organization, Profiles, Applications, Pages ...) are not redeployed when you perform a clone or a switch branch operation. +
+Keep in mind that Bonita elements (Business Data Model, Organization, Profiles, Applications, Pages ...) are not redeployed when you perform a clone or a switch branch operation. +
 *Solution:* +
 If you switch from a branch A to a branch B, you may need for example to deploy manually your BDM to ensure that all the business objects specific to the branch B are available.
 ****
 
 ****
 *Symptom:* +
-My git history view is empty. +
+My Git history view is empty. +
 *Cause:* +
-The history view is based on  the active editor or the current selection (in Eclipse, a selection is a file selected in a package explorer). Sometimes you can manage to open the history view without having any active editor and nothing selected (which is often the case in Bonita because we only provide a package explorer in the REST API extensions editor) \-> the history view does not display anything. +
+The history view is based on the active editor or the current selection (in Eclipse, a selection is a file selected in a package explorer). +
+Sometimes you can manage to open the history view without having any active editor and nothing selected (which is often the case in Bonita because we only provide a package explorer in the REST API extensions editor) \-> the history view does not display anything. +
 *Solution:* +
 Just open a diagram for example and then re-open your history view.
 ****
 
 ****
 *Symptom:* +
-Error in cloning a repository hosted on Azure DevOps with HTTPS through SSO. +
+Error while cloning a repository hosted on Azure DevOps with HTTPS through SSO. +
 *Cause*: +
-When authentication to Azure DevOps Git repository uses SSO, cloning using HTTPS and Microsoft dedicated Eclipse plugin is not supported (e.g. `+https://user@dev.azure.com/organization/repository/_git/repository+`). 
+When authentication to Azure DevOps Git repository uses SSO, cloning using HTTPS and Microsoft dedicated Eclipse plugin is not supported (e.g. `+https://user@dev.azure.com/organization/repository/_git/repository+`). +
 *Solution:* +
 Use SSH URL instead (e.g. `git@ssh.dev.azure.com:v3/user/organization/repository`) +
 ****
@@ -348,12 +351,12 @@ This might happen if you have enabled the _two factor authentication_ on your Gi
 *Solution:* +
 You must use an https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line[access token] to be able to use HTTPS with the _two factor authentication_ activated. +
 Once the token is created, use it instead of your password. +
-An other solution is to use https://help.github.com/en/articles/connecting-to-github-with-ssh[ssh].
+Another solution is to use https://help.github.com/en/articles/connecting-to-github-with-ssh[ssh].
 ****
 
 ****
 *Symptom:* +
-I have _invalid privatekey_ issues when I try to use Git with ssh on macOs. +
+I have _invalid privatekey_ issues when I try to use Git with SSH on macOs. +
 *Cause:* +
 Since the macOs mojave update, the ssh-keygen default export format has changed. The new format is not compatible with all Eclipse versions. +
 *Solution:* +
@@ -366,7 +369,9 @@ Use the following command to force ssh-keygen to export the private key as PEM f
 *Symptom:* +
 My Studio crashed and I have lost my projects in my workspace. +
 *Solution:* +
-Since 2021.2-u1, you can enable the workspace recovery mode that will synchronize the file system and Bonita Studio's workspace. +
-Open the `BonitaStudio*.ini` file matching the executable name (in the Bonita installation folder, next to the workspace folder) and set the value of the system property `workspace.recovery.mode` to `true`. Then, restart Bonita Studio. +
-In the Studio logs, you should see that the recovery mode is enabled and the import operation of the missing projects into the workspace. Once the recovery operation done, you may want to disable the workspace recovery mode by resetting the property value to `false` in the `.ini` file.
+Since 2021.2-u1, you can enable the workspace recovery mode that will synchronize the file system and Bonita Studio's workspace: +
+
+. Open the `BonitaStudio*.ini` file matching the executable name (in the Bonita installation folder, next to the workspace folder) 
+. Set the value of the system property `workspace.recovery.mode` to `true`. 
+. Restart Bonita Studio. In menu:Help[Bonita Studio logs], you should see that the recovery mode is enabled and the import operation of the missing projects into the workspace. Once the recovery operation is done, you may want to disable the workspace recovery mode by resetting the property value to `false` in the `.ini` file.
 ****
