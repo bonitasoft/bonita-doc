@@ -6,13 +6,11 @@ Discover how to create a cluster from scratch, convert a single node into a clus
 
 [NOTE]
 ====
-
 The cluster feature is a Subscription feature for *Enterprise* and *Performance* edition only.
 ====
 
 [WARNING]
 ====
-
 It is possible to manage the lifecycle of a node using the API to connect directly to the node, but this bypasses the load balancer so should be done with care and only in exceptional circumstances.
 ====
 
@@ -188,8 +186,7 @@ Uncomment and change the line:
 
 === Configure nodes to run on this cluster
 
-The configuration of the node you were using is still valid. You should be able to run it without any issue.
-
+The configuration of the node you were using is still valid. You should be able to run it without any issue. +
 If your Bonita installation is behind a proxy or is installed inside a Docker container, please refer to the
 
 <<install_first_node,Install a first node part>>.
@@ -216,10 +213,10 @@ The node is now removed from the cluster.
 
 To dismantle a cluster:
 
-. Disable processes.
-. Allow current activity instances to complete.
-. When each node has finished executing, stop it.
-. When all nodes have been stopped, update the load balancer to remove the cluster.
+. Disable processes
+. Allow current activity instances to complete
+. When each node has finished executing, stop it
+. When all nodes have been stopped, update the load balancer to remove the cluster
 
 The individual nodes can now be used as standalone Bonita server, provided the following change in the configuration is done:
 Update file `bonita-platform-sp-custom.properties` located in the `platform_engine` folder of the configuration, use the  xref:runtime:bonita-platform-setup.adoc#configuration_files[platform setup tool] to update it and set back the *`bonita.cluster`* property to *`false`*.
@@ -253,5 +250,5 @@ The clocks of the servers are not synchronized.
 
 *Solution*: +
 The system time of all cluster nodes must be maintained in synchronization with time servers. +
-It is a good idea to have also the db server system time synchronized too. +
-Synchronize the system time of all nodes and restart application servers.
+It is a good idea to have the database server system time synchronized too. +
+Synchronize the system times of all nodes and restart application servers.
