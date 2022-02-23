@@ -1,5 +1,6 @@
 = Bonita Studio preferences and configuration
 :page-aliases: ROOT:bonita-bpm-studio-preferences.adoc
+:experimental:
 :description: Learn about deployment, web and other Bonita Studio preferences, as well as the Bonita Studio embedded Tomcat configuration.
 
 Learn about deployment, web and other Bonita Studio preferences, as well as the Bonita Studio embedded Tomcat configuration.
@@ -170,4 +171,4 @@ java.net.UnknownHostException: www.bonitasoft.com
 You connect to the internet through Proxy.
 
 *Solution:* +
-You need to configure your HTTP Proxy settings in the Studio Preferences > Web > Proxy. 
+Configure your HTTP Proxy settings in the menu:Studio Preferences[Web > Proxy]. 
