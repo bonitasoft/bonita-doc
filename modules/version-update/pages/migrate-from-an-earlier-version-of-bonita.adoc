@@ -555,7 +555,7 @@ In addition, if your application connects to Bonita Engine using the HTTP access
 == image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
 === Timers are stuck
-
+****
 *Symptom:* +
 When updating to Bonita 7.10.0 or a greater version, the timers on processes do not work anymore. +
 *Cause:* +
@@ -571,6 +571,7 @@ UPDATE QRTZ_TRIGGERS SET TRIGGER_STATE = 'WAITING' WHERE TRIGGER_STATE = 'PAUSED
 ----
 
 After this operation, the table QRTZ_PAUSED_TRIGGER_GRPS should be empty, and all the triggers in the QRTZ_TRIGGERS table should be in state _waiting_, and not _paused_.
+****
 
 [#fk_troubleshoot]
 === Some foreign keys are duplicated
@@ -580,6 +581,7 @@ After this operation, the table QRTZ_PAUSED_TRIGGER_GRPS should be empty, and al
 This issue is fixed in Bonita 7.11.6, without any action required from the platform administrator.
 ====
 
+****
 *Symptom:* +
 After updating to a Bonita version comprised between 7.11.0 and 7.11.5, and after re-installing/updating the BDM, some foreign key constraints are duplicated: there are foreign keys that refer to the same columns and tables, but with a different name. +
 *Cause:* +
@@ -588,11 +590,11 @@ A bug was introduced in Bonita 7.11.0 by updating an external library, Hibernate
 Doing nothing is an option, as there is no change in Bonita's behavior. +
 If you wish to clean your BDM database, follow the procedure below:
 
-. Stop your bonita server
+. Stop your Bonita Runtime
 . Open the database in an edition tool (or execute in command line the relevant commands):
 .. First, select all the foreign keys on a table of *your BDM objects*:
 
-==== MySQL
+*MySQL*
 [source,sql]
 ----
 SELECT
@@ -604,7 +606,7 @@ REFERENCED_TABLE_SCHEMA = '<your_business_data_db_name>' AND
 REFERENCED_TABLE_NAME = '<your_table_name>';
 ----
 
-==== MS SQL Server
+*MS SQL Server*
 
 [source,sql]
 ----
@@ -618,7 +620,7 @@ parent_object_id = OBJECT_ID('<your_table_name>') OR
 referenced_object_id = OBJECT_ID('<your_table_name>')
 ----
 
-==== PostgreSQL
+*PostgreSQL*
 
 [source,sql]
 ----
