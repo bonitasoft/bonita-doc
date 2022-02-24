@@ -15,12 +15,6 @@ Discover how to administer, monitor and manage a Bonita cluster.
 Back up your cluster in the same as you would xref:ROOT:back-up-bonita-bpm-platform.adoc[back up a standalone Bonita system], by backing up the database.
 You also need to back up the load balancer (see your load balancer documentation for details of how to do this).
 
-== Troubleshooting
-
-Each Bonita Engine maintains its own log file on the node at `<BUNDLE_HOME>/logs/bonita.`_`date`_`.log`, where _`date`_ is the date the file is created.
-In addition, there is an incident file `<BUNDLE_HOME>/logs/tenants/[TENANT_ID]/incident.log` (where `[TENANT_ID]` is the ID of the tenant on which the error
-occurred) that is used as a last resort to record an error that cannot be handled, such as failure to access the database.
-
 == Monitoring a process
 
 To monitor a process in a cluster, use the Bonita Applications as usual. The information presented applies to process activity on all nodes in the cluster.
@@ -37,3 +31,9 @@ You can also xref:ROOT:manage-a-process.adoc[deploy a process using the API], ex
 == Managing your organization in a cluster
 
 The organization data used by Bonita is stored in the database, so only has to be configured once. It can be maintained from any Bonita Application in the cluster.
+
+== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+
+Each Bonita Engine maintains its own log file on the node at `<BUNDLE_HOME>/logs/bonita.`_`date`_`.log`, where _`date`_ is the date the file is created.
+In addition, there is an incident file `<BUNDLE_HOME>/logs/tenants/[TENANT_ID]/incident.log` (where `[TENANT_ID]` is the ID of the tenant on which the error
+occurred) that is used as a last resort to record an error that cannot be handled, such as failure to access the database.

@@ -1,4 +1,4 @@
-= Bonita Runtime setup tool
+= Bonita Runtime Setup Tool
 :page-aliases: ROOT:BonitaBPM_platform_setup.adoc, ROOT:bonita-bpm-platform-setup.adoc, ROOT:bonita-platform-setup.adoc
 :description: This page explains how to use the setup tool to configure Bonita Runtime (properties, permissions, license install...).
 
@@ -211,24 +211,34 @@ Or also if you need to use a specific *database Driver* java class name:
 
 *But in most cases, you don't need to modify this file.*
 
-== Troubleshooting
+== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
-'''
+****
 
-*Issue*: When I run Platform setup tool, I get the exception `Cannot determine database vendor (valid values are h2, postgres, sqlserver, oracle, mysql).`
+*Symptom*: +
+When I run Bonita Setup Tool, I get the exception `Cannot determine database vendor (valid values are h2, postgres, sqlserver, oracle, mysql).`
 
-*Potential cause*: property `db.vendor` is not found when reading file `database.properties`
+*Potential cause*: +
+The property `db.vendor` is not found when reading file `database.properties`.
 
-*Solution*: Edit file `database.properties` and ensure there is a valid `db.vendor` value. Also ensure the line is not commented (no `#` at the beginning of the line)
+*Solution*: +
 
-'''
+. Edit file `database.properties`
+. Ensure there is a valid `db.vendor` value. 
+. Also ensure the line is not commented (no `#` at the beginning of the line)
+
+****
 
 [#backslash_support]
 
-*Issue*: My database name / password / ... contains a backslash (`\`) character. It seems to be ignored in file `database.properties`
+****
+*Symptom*: +
+My database name / password / ... contains a backslash (`\`) character. It seems to be ignored in file `database.properties`.
 
-*Cause*: Backslash (`\`) characters are special characters in a .properties file
+*Cause*: +
+Backslash (`\`) characters are special characters in a .properties file.
 
-*Solution*: Replace your backslash (`\`) characters by double-backslashes (`\\`) everywhere in file `database.properties` (and also in file `internal.properties` if you have modified it)
+*Solution*: +
+Replace your backslash (`\`) characters by double-backslashes (`\\`) everywhere in file `database.properties` (and also in file `internal.properties` if you have modified it)
 
-'''
+****
