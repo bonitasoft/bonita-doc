@@ -1,22 +1,10 @@
 = Getting Started Tutorial
-:description: To get started with Bonita, learn how to create your first application, with all its main elements.
+:description: To get started with Bonita, learn how to create your first application, with all the main elements it is made of.
 :page-aliases: ROOT:getting-started-index.adoc, ROOT:tutorial-overview.adoc
 
 {description}
 
 This _Claim management_ example demonstrates an application that offers customized user interfaces to end-users while structured processes run in the background, to deliver the full potential of Bonita. +
-
-Through this tutorial, you will learn how to create:
-
-* a BPMN diagram and process
-* the Business Data Model
-* business variables in the process
-* contracts between the process and the user interfaces
-* actors of the processes 
-* actor filters
-* a connector
-* an application page
-* an application descriptor
 
 You will then be able to adapt and extend this example to fit your own needs.
 
@@ -28,17 +16,9 @@ You will then be able to adapt and extend this example to fit your own needs.
 This can be useful to compare your creations with the already implemented example, or just to learn by watching how it has been implemented. +
 ====
 
-[.card-section]
-== Prerequisite
-
-[.card.card-index]
---
-xref:ROOT:bonita-studio-download-installation.adoc[[.card-title]#Bonita Studio Installation# [.card-body.card-content-overflow]#pass:q[Bonita's principal tool to create the main elements of your projects]#]
---
-
 To download the example from Bonita Studio:
 
-. Open Bonita Studio
+. Open Bonita Studio (see the prerequisite below)
 . On the Welcome page, in the _Resources_ tile at the bottom right, click on *Import the Getting Started example*
 . In the _Import .bos archive_ modal window that opens, you can see that the example will be imported in a new Bonita project by default
 . Click on the *Details* button, and learn about the main elements it contains by opening all sections of the _Archive_ column 
@@ -49,6 +29,14 @@ To download the example from Bonita Studio:
 . Let all elements of the list checked and click on "Deploy" again
 . Click on the "Close" button to stay in Bonita Studio and start following the tutorial. 
 . You can find the whole content of the Getting Started project in the "Explorer" tab on the left. Just click on the arrow to expand it
+
+[.card-section]
+== Prerequisite
+
+[.card.card-index]
+--
+xref:ROOT:bonita-studio-download-installation.adoc[[.card-title]#Bonita Studio Installation# [.card-body.card-content-overflow]#pass:q[Bonita's principal tool to create the main elements of your projects]#]
+--
 
 [.card-section]
 == The 9-step hands-on journey to your first Bonita Application
