@@ -1,4 +1,4 @@
-= Performance troubleshooting
+= image:images/troubleshooting.png[troubleshooting-icon] Performance troubleshooting
 :page-aliases: ROOT:performance-troubleshooting.adoc
 :description: Learn how to monitor your Bonita Platform and troubleshoot performance issues.
 

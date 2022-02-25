@@ -216,9 +216,10 @@ Those dependencies are automatically added when a REST API Extension is created 
 
 Be aware that a poor implementation of a custom REST API accessing BDM objects can lead to poor performance results. See the xref:ROOT:bdm-in-rest-api.adoc[best practice] on this matter.
 
-== Troubleshooting
+== image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
-* I get the following stacktrace when using `java.time` Date types (LocalDate, LocalDateTime...) in my Rest API Extension
+*Symptom:* +
+I get the following stacktrace when using `java.time` Date types (LocalDate, LocalDateTime...) in my REST API Extension
 
 [source,log]
 ----
@@ -251,8 +252,10 @@ java.lang.StackOverflowError
 	at groovy.json.JsonOutput.writeObject(JsonOutput.java:294)
 ----
 
+*Cause:* +
 The http://docs.groovy-lang.org/3.0.8/html/gapi/groovy/json/JsonBuilder.html[`groovy.json.JSONBuilder`] does not support `java.time` Date types serialization in groovy 2.4.x version.
 
+*Solution:* +
 As a workaround you have to format dates in a new data structure before using the JSONBuilder.
 
 Example:
@@ -269,7 +272,6 @@ return buildResponse(responseBuilder, HttpServletResponse.SC_OK,new JsonBuilder(
 
 [NOTE]
 ====
-
 We do not recommend to manage time zone at the Rest API level, as the local of the Rest API server, the Bonita Engine server, and the End User machine could be different.
 So we encourage you to manipulate UTC dates only server-side.
 You can see how we xref:ROOT:datetimes-management-tutorial.adoc#_date_and_time_displayed_in_the_user_time_zone[manage the time zone using the date time picker]. This time zone should only be managed in the end user interface.
