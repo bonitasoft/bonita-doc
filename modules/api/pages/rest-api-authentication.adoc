@@ -87,7 +87,7 @@ Let's list processes from the API by providing authentication information.
 $ curl -b saved_cookies.txt -X GET --url 'http://localhost:8080/bonita/API/bpm/process?c=100&p=0'
 ----
 
-Let's start a 'Create supplier' process instance (from Procurement example) by providing the X-Bonita-API-Token header, the required body and the 'Create supplier' id (5975558489041216684).
+Let's create a new 'Create supplier' process instance (from Procurement example) by providing the X-Bonita-API-Token header, the required body and the 'Create supplier' id (5975558489041216684).
 
 [source,bash]
 ----
