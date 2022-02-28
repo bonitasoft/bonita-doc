@@ -22,7 +22,6 @@ If you have already created your own xref:ROOT:actors-index.adoc[actors] for you
 
 [NOTE]
 ====
-
 For Enterprise, Performance, Efficiency and Teamwork editions only.
 ====
 
