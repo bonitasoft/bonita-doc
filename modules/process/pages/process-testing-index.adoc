@@ -27,7 +27,7 @@ For Enterprise, Performance, Efficiency and Teamwork editions only.
 
 To write automated integration test scenarios for your automation project you can use the Bonita Test Toolkit. It provides powerful methods to execute all the steps of a process and check the corresponding outputs (statuses, business data, tasks used)
 
-It can be used in any IDE and can easily be integrated into a Continuous Integration.
+It can be used in any IDE and can be integrated into a Continuous Integration.
 
 More information in the dedicated documentation: xref:test-toolkit:ROOT:process-testing-overview.adoc[Bonita Test Toolkit] 
 
