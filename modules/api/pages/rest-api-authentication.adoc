@@ -109,10 +109,10 @@ To log out, use the following request:
 Not setting the redirect parameter to `true` means that the service will not redirect to the login page after logging out.
 
 [discrete]
-==== Troubleshooting
+=== Troubleshooting
 
 [discrete]
-===== HTTP/1.1 401 Unauthorized
+==== HTTP/1.1 401 Unauthorized
 
 If the HTTP response's status is `401 Unauthorized`:
 
