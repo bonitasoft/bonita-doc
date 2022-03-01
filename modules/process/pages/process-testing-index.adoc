@@ -18,6 +18,22 @@ If you have already created your own xref:ROOT:actors-index.adoc[actors] for you
 . Select the process pool
 . Click on the *Configure* icon of the Studio coolbar and configure the _Actor mapping_
 
+== Integration Testing
+
+[NOTE]
+====
+For Enterprise, Performance, Efficiency and Teamwork editions only.
+====
+
+To write automated integration test scenarios for your automation project you can use the Bonita Test Toolkit. It provides powerful methods to execute all the steps of a process and check the corresponding outputs (statuses, business data, tasks used)
+
+It can be used in any IDE and can be integrated into a Continuous Integration.
+
+More information in the dedicated documentation: xref:test-toolkit:ROOT:process-testing-overview.adoc[Bonita Test Toolkit] 
+
+
+== Unit Testing
+
 == Performance testing
 In addition to functional testing during development, we recommend that you monitor the system load. This will help evaluate the performance, so you can make your processes efficient.
 
