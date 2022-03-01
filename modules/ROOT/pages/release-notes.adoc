@@ -237,10 +237,10 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 
 * STUDIO-4217 Empty error dialog
 * STUDIO-4227 On exit, clean database checkbox has no effect
-* STUDIO-4262 Error when openning the Studio
+* STUDIO-4262 Error when opening the Studio
 * STUDIO-4263 Java Doc not shown in the groovy Script when mouseOver
 * STUDIO-4268 Dependency with invalid pom corrupt the project
-* UID-613 DCVE-2021-44228 - Upgrade log4j
+* UID-613 CVE-2021-44228 - Upgrade log4j
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
