@@ -359,19 +359,16 @@ apiClient.getProcessAPI().deleteProcessDefinition(processDefinitionId)
 
 [NOTE]
 ====
-
 You can directly disable and delete a process by calling the wrapper API method:
 
 [source,java]
 ----
 apiClient.getProcessAPI().disableAndDeleteProcessDefinition(processDefinitionId)
 ----
-
 ====
 
 [WARNING]
 ====
-
 Be aware that to be able to delete a process, you must ensure that all running process instances and all
 archived (finished) process instances are deleted first:
 
@@ -382,3 +379,4 @@ while (apiClient.getProcessAPI().deleteProcessInstances(processDefinitionId, 0, 
 // Delete all archived process instances:
 while (apiClient.getProcessAPI().deleteArchivedProcessInstances(processDefinitionId, 0, 100) > 0) { }
 ----
+====

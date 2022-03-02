@@ -1,11 +1,8 @@
 = Build Bonita Community edition from the source
-:description: :doctype: book
-
-:doctype: book
 
 Bonita is an opensource Digital Process Automation platform, you can therefore build Bonita Community edition from the source.
 
-= Prerequisites
+== Prerequisites
 
 All source code of Bonita solution is available from the https://github.com/bonitasoft[Bonitasoft GitHub organization]. Each component of the solution has a dedicated repository (e.g. https://github.com/bonitasoft/bonita-engine[Engine repository]).
 
@@ -35,7 +32,7 @@ BS-8375
 Note that you can run Bonita on Windows but you cannot build Bonita on Windows (known limitation).
 ====
 
-= Building Bonita
+== Building Bonita
 
 In order to build Bonita you need to use the script provided in https://github.com/Bonitasoft-Community/Build-Bonita[Build Bonita] GitHub project. Use the branch of the project that match the version you want to build.
 

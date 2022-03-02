@@ -61,17 +61,13 @@ There are various ways to access the Engine APIs provided by Bonita Engine. Choo
 The access modes rely on different technologies and have different benefits and drawbacks. In this section, we will describe the performance characteristics of each mode.
 
 [#local]
-
-[discrete]
-==== Local access
+=== Local access
 
 This is undoubtedly the fastest way to access this engine, because it means a direct Java call with nothing additional between client and server. +
 The deployment constraint is that the client of the engine must be located in the same JVM as the engine server.
 
 [#remote]
-
-[discrete]
-==== Remote access
+=== Remote access
 
 The remote access modes enable you to have an engine client connected remotely to the engine server.
 
@@ -84,24 +80,19 @@ If you have a client located in the same JVM as your server, configure it to use
 You can then configure other clients to use one of the remote modes but you do not penalize the client able to leverage the local access performance.
 
 [#ejb3]
-
-[discrete]
-===== EJB3 (deprecated, removed in 7.10)
+==== EJB3 (deprecated, removed in 7.10)
 
 EJB3 access is serialized data using RMI protocol. +
 This protocol comes with a cost, and this cost is dependent of the implementation in the EJB container you are using.
 
 [#http]
-
-[discrete]
-===== HTTP
+==== HTTP
 
 The HTTP access mode is available using our natively provided link:configure-client-of-bonita-bpm-engine[bonita-client library]. It can also be used from other
 technologies like PHP, .Net or Javascript (in that case, you need to develop your our client).
 
 [WARNING]
 ====
-
 We do not guarantee to keep the http protocol stable, so we strongly recommend that you use
 
 * the standard bonita-client library
@@ -124,9 +115,7 @@ open source library
 Data sent is serialized using a Java library called XStream. This serialization also has a cost.
 
 [#rest]
-
-[discrete]
-===== REST
+==== REST
 
 This method of accessing the Bonita capabilities is not yet integrated as an engine service but exists as a web application service accessed using the xref:rest-api-overview.adoc[Web REST API].
 No details are provided here as it is currently out of scope. +
@@ -147,9 +136,7 @@ This means that every thread that deals with process execution applies the follo
 The great benefit of this is that the caller is not locked while the engine processes something that might be long (such as a long sequence of tasks with connectors.).
 
 [#client_threads]
-
-[discrete]
-==== Client Threads
+=== Client Threads
 
 Client threads are responsible for a large part of the load generated inside the engine. +
 The number of client threads is related to the number of parallel users.
@@ -165,9 +152,7 @@ If you are running Bonita Engine inside a container, the maximum number of clien
    The WildFly administrator guide lacks some information about advanced worker configuration. Undertow (WildFly web service handler) relies on the http://docs.jboss.org/xnio/3.0/api/org/xnio/Options.html[XNIO API] for creating Worker threads. See https://developer.jboss.org/thread/241230?start=0&tstart=0[IO Worker configuration for Undertow] for information about worker configuration.
 
 [#work_service]
-
-[discrete]
-==== Work service
+=== Work service
 
 The work service is responsible for asynchronously processing execution of process instances. The work service has its own thread pool, which can be configured for each tenant. +
 This is one of the key configurations to optimize, because even though there are many client threads, client threads are held only for a short time before being released, and then execution flow continues using work service threads. +
@@ -202,9 +187,7 @@ It is essential to ensure that the queue never becomes full (`queueCapacity` is 
 If the queue becomes full, the application restarts in order to force the engine to generate all work from the database. This means that work is lost.
 
 [#connector_service]
-
-[discrete]
-==== Connector service
+=== Connector service
 
 The connector service executes connectors. To improve tenant isolation (and to protect against denial-of-service attacks), the default implementation of the connector service has its own threadpool and requires executes connectors in a separate thread from the worker. +
 The configuration of the threadpool of this service must be correlated to the configuration of the work service. +
@@ -226,9 +209,7 @@ bonita.tenant.connector.timeout=300
 For details of these parameters, see <<work_service,Work service>>.
 
 [#scheduler_service]
-
-[discrete]
-==== Scheduler service
+=== Scheduler service
 
 The Scheduler service is responsible for executing jobs. +
 A job is executed inside a thread of the scheduler service. +
@@ -244,9 +225,7 @@ bonita.platform.scheduler.batchsize=1000
 ----
 
 [#db_connections]
-
-[discrete]
-==== Database connections
+=== Database connections
 
 Two datasources are defined:
 
@@ -255,13 +234,12 @@ Two datasources are defined:
 
 Note that the sum of the maximum values configured for bonitaDS and bonitaSequenceManagerDS should be less than or equal to the maximum number of simultaneous connections allowed to your database.
 
-[discrete]
-===== bonitaSequenceManagerDS
+
+==== bonitaSequenceManagerDS
 
 This datasource needs only a few connections: between 5 or 10% of bonitaDS number should be sufficient. However, this is closely correlated to the <<volume,range size>>.
 
-[discrete]
-===== bonitaDS
+==== bonitaDS
 
 This datasource requires a higher value, because Bonita Engine stores almost everything in the database.
 This means that every single thread from any of the entry points requires a database connection through bonitaDS. +
@@ -270,9 +248,7 @@ The desired number of parallel processing threads is the sum of the number of wo
 (see <<scheduler_service,Scheduler Service>>) plus a percentage of the number of concurrently external API calls (see <<client_threads,Client threads>>).
 
 [#datasource_settings]
-
-[discrete]
-==== Datasources settings
+=== Datasources settings
 
 You need to configure the maximum pool size for datasources (the following paths are for bundle users):
 
@@ -286,15 +262,12 @@ For WildFly:
 * For both bonitaDS and bonitaSequenceManagerDS, edit `server/default/deploy/bonita-ds.xml` and set `<max-pool-size>yourvalue</max-pool-size>`.
 
 [#volume]
-
 == Volume
 
 This section deals with some aspects of engine configurations that have a performance impact in the case of high volume.
 
 [#seq_mgr]
-
-[discrete]
-==== Sequence manager
+=== Sequence manager
 
 Bonita Engine manages a dedicated sequence for each table for ID generation.
 This implementation allows fast delivery of IDs and a single point of usage inside the application: the persistence service.
@@ -313,8 +286,7 @@ The sequence manager configuration is in `bonita-platform-community-custom.prope
 The sequence manager has its own database connection. +
 This should be appropriately sized for the number of times the sequence manager will query the database, which is a consequence of the range size values. See <<db_connections,Database connections>>.
 
-[discrete]
-==== Persistence cache
+=== Persistence cache
 
 For the Teamwork, Efficiency, Performance and Enterprise editions, Bonita Engine has a cache providing a persistence layer using Hibernate caching.
 
@@ -349,7 +321,7 @@ A soft-locked cache entry was expired by the underlying Ehcache. If this happens
 
 <a id="app_cache"/>
 
-#### Application cache
+=== Application cache
 
 Bonita Engine uses an application cache to store specific objects. The default implementation of this service relies on EhCache. It is configured in these files:
 
@@ -376,7 +348,7 @@ The following cache configurations can be defined:
 
 <a id="jvm"/>
 
-#### Java Virtual Machine
+=== Java Virtual Machine
 
 You can configure the JVM settings for the engine to tune performance.
 Check the [JVM documentation](http://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html) for details of the available settings.
@@ -388,7 +360,7 @@ While the garbage collector is running, it prevents creation of new objects, whi
 <a id="network"/>
 <a id="hardware"/>
 
-## Hardware and network
+== Hardware and network
 
 This section deals with performance impact of hardware elements.
 
@@ -403,7 +375,7 @@ In case of issues, you should monitor these two elements and consider improvemen
 Network connectivity also impacts access to the engine APIs when you are not using local access, that is,
 if you are using [EJB3](#ejb3), [HTTP](#http), [REST](#rest).
 
-## Database, Transaction Manager, and logs
+== Database, Transaction Manager, and logs
 
 This section is a reminder about some of the main dependencies Bonita Engine has that have a strong impact on the performance of the whole system.
 
@@ -413,7 +385,7 @@ In most cases, the key things to consider are the [database](#db), [transaction 
 
 <a id="db"/>
 
-#### Database
+=== Database
 
 Bonita Engine uses the database heavily, so in consequence a slow database makes the engine slow.
 
@@ -427,7 +399,7 @@ To find the right characteristic to optimize, one good starting point is to cons
 
 <a id="tm"/>
 
-#### Transaction manager
+=== Transaction manager
 
 Bonita Engine is natively compatible with the Java Transaction API. This means transaction management relies on a transaction manager.
 If you are using a JEE Application server, then you only have to configure Bonita Engine to use the transaction manager that is provided.
@@ -438,7 +410,7 @@ For example, in [Bitronix](https://github.com/bitronix/btm/wiki/JDBC-pools-confi
 
 <a id="logs"/>
 
-#### Logs
+=== Logs
 
 In general, increasing the log level is useful for debugging but has a performance cost.
 With this in mind, [define the log level for technical logs, queriable logs and archives](set-log-and-archive-levels.md).
@@ -446,7 +418,7 @@ With this in mind, [define the log level for technical logs, queriable logs and 
 Remember that Bonita Engine dependencies also have their own log and debug options that may impact strongly the system performance.
 Be sure to configure these appropriately.
 
-## Connector time tracker
+== Connector time tracker
 
 It is now possible to track the duration of actions in a connector using a new time tracker. The tracker service tracks several connector lifecycle operations.
 This service can impact performance so is disabled by default.
@@ -487,27 +459,21 @@ The non-relevant options will be ignored at execution. Note that `memory` and `c
 == Process design, event handlers, and cron jobs
 
 [#process_design]
-
-[discrete]
-==== Process design
+=== Process design
 
 There are several things you can do during the process design to reduce performance overheads. +
 This is mostly related to reducing usage of extension points when possible. +
 Consider carefully your usage of connectors, groovy scripts, XML and serializable data.
 
 [#event_handlers]
-
-[discrete]
-==== Event handlers
+=== Event handlers
 
 Events handlers are extensions of the engine configuration. +
 You can add event handlers for several purposes and you can configure which events you want to catch. +
 We strongly recommend that you add only appropriate handlers and carefully code the handler filters to handle only those events that you are interested in.
 
 [#cron]
-
-[discrete]
-==== Cron jobs
+=== Cron jobs
 
 Bonita Engine uses the xref:engine-architecture-overview.adoc[Scheduler service] to trigger jobs in a recurrent manner.
 
