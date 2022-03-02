@@ -68,4 +68,4 @@ To upload the organization data:
 . Specify the username of the user that will be used to log into the Bonita Runtime when a process is started from Bonita Studio. This user must be from the organization you have selected.
 . Click Deploy.
 
-After it has been uploaded, you can xref:ROOT:organization-in-bonita-applications-overview.adoc[modify the organization in Bonita Applications].
+After it has been uploaded, you can xref:runtime:organization-index.adoc[modify the organization in Bonita Applications].

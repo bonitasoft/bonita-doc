@@ -25,7 +25,7 @@ An application is a collection of pages and processes that meets a business need
 An application requires the following to be available:
 
 * The xref:ROOT:bdm-management-in-bonita-applications.adoc[Business Data Model] (BDM) must be deployed
-* The xref:ROOT:organization-in-bonita-applications-overview.adoc[organization] data must be deployed, so that application users can log in.
+* The xref:runtime:organization-index.adoc[organization] data must be deployed, so that application users can log in.
 * The access xref:identity:rest-api-authorization.adoc[authorizations] that grant users access to the application resources must be defined.
 
 == Application creation
