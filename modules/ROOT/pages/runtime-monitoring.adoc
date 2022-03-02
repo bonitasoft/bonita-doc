@@ -201,7 +201,7 @@ Then xref:BonitaBPM_platform_setup.adoc#update_platform_conf[push your configura
 
 Then restart the Tomcat server for the changes to take effect.
 
-This exposes all activated metrics (see <<activating-specific-metric-indicators,above>>) at endpoint:
+This exposes all activated metrics (see activating-specific-metric-indicators, above) at endpoint:
 
  http://<SERVER_URL>/bonita/metrics
 
