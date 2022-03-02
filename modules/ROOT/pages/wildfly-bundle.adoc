@@ -3,7 +3,7 @@
 
 You will find here the mandatory and optional steps needed to install and configure the WildFly bundle to run the Bonita platform.
 
-The WildFly bundle is a zip archive that contains the Red Hat WildFly Java EE application server packaged with Bonita and xref:BonitaBPM_platform_setup.adoc]#platform_setup_tool[Bonita platform setup tool].
+The WildFly bundle is a zip archive that contains the Red Hat WildFly Java EE application server packaged with Bonita and xref:BonitaBPM_platform_setup.adoc#platform_setup_tool[Bonita platform setup tool].
 The WildFly bundle is a regular zip archive based on the WildFly zip distribution.
 
 == Installation of the WildFly bundle
@@ -81,7 +81,7 @@ The license file will be sent to you by email.
 
 When you receive your license:
 If this is your first installation, copy the file to the `<WILDFLY_HOME>/setup/platform_conf/licenses` folder before starting the bundle.
-If this is a license update, use xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[the _Platform setup tool_].
+If this is a license update, use xref:BonitaBPM_platform_setup.adoc#update_platform_conf[the _Platform setup tool_].
 
 === Change the default credentials (optional, recommended for production)
 
@@ -127,9 +127,9 @@ If you just want to try Bonita Platform with the embedded H2 database (only for 
 For production, you are recommended to use one of the supported databases, with the following steps.
 ====
 
-. Make sure xref:database-configuration.adoc]#database_creation[your databases are created] and xref:database-configuration.adoc]]#specific_database_configuration[customized to work with Bonita].
-. Edit file `<WILDFLY_HOME>/setup/database.properties` and modify the properties to suit your databases (Bonita internal database & Business Data database). Beware of xref:BonitaBPM_platform_setup.adoc]#backslash_support[backslash characters].
-. If you use *Microsoft SQL Server* or *Oracle* database, copy your xref:database-configuration.adoc]#proprietary_jdbc_drivers[jdbc driver] in `<WILDFLY_HOME>/setup/lib` folder.
+. Make sure xref:database-configuration.adoc#database_creation[your databases are created] and xref:database-configuration.adoc]]#specific_database_configuration[customized to work with Bonita].
+. Edit file `<WILDFLY_HOME>/setup/database.properties` and modify the properties to suit your databases (Bonita internal database & Business Data database). Beware of xref:BonitaBPM_platform_setup.adoc#backslash_support[backslash characters].
+. If you use *Microsoft SQL Server* or *Oracle* database, copy your xref:database-configuration.adoc#proprietary_jdbc_drivers[jdbc driver] in `<WILDFLY_HOME>/setup/lib` folder.
 . Run `<WILDFLY_HOME>\start-bonita.bat` (Windows system) or `<WILDFLY_HOME>/start-bonita.sh (Unix system)` to run Bonita WildFly bundle (see <<wildfly_start,WildFly start script>>)
 
 [NOTE]
@@ -147,7 +147,7 @@ The *start-bonita* script does the following:
  .. copies your database vendor-specific drivers into `+<WILDFLY_HOME>/server/modules/**/main/+` folders
 . Starts the WildFly bundle
 
-For advanced server configuration needs: check out xref:BonitaBPM_platform_setup.adoc]#run_bundle_configure[Bundle configuration] to finely tune your WildFly bundle, using templates used by Bonita.
+For advanced server configuration needs: check out xref:BonitaBPM_platform_setup.adoc#run_bundle_configure[Bundle configuration] to finely tune your WildFly bundle, using templates used by Bonita.
 ====
 
 [#start]
@@ -180,18 +180,18 @@ Once you have your WildFly bundle up and running, complete these xref:first-step
 
 === Configuration update
 
-To update the configuration after the first run please take a look at the xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[_Platform setup tool_]
+To update the configuration after the first run please take a look at the xref:BonitaBPM_platform_setup.adoc#update_platform_conf[_Platform setup tool_]
 
 [NOTE]
 ====
 
 File `database.properties` is the only entry point to configure the WildFly environment and the
-xref:BonitaBPM_platform_setup.adoc]#configure_tool[Bonita Platform configuration]
+xref:BonitaBPM_platform_setup.adoc#configure_tool[Bonita Platform configuration]
 ====
 
 === License update
 
-To update the licenses after the first run, take a look at the xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[platform setup tool]
+To update the licenses after the first run, take a look at the xref:BonitaBPM_platform_setup.adoc#update_platform_conf[platform setup tool]
 
 == Troubleshooting
 
