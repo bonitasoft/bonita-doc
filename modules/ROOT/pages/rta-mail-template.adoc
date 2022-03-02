@@ -1,7 +1,4 @@
 = How to use the rich textarea widget in a mail template
-:description: :doctype: book
-
-:doctype: book
 :experimental:
 
 Learn how to use a mail template in a form with the rich textarea widget: the leave request management process example.
@@ -136,7 +133,7 @@ Once this task is completed, a new _Check email content_ human task is available
 Here, the out of office mail message has been validated and the way the mail server handle the out of office mail configuration for a given user depends on the mail server provider and will not be detailed here. +
 It will use a connector that will send the appropriate information via an external API.
 
-= Form for 'Check Email content' task
+== Form for 'Check Email content' task
 
 On 'Check Email content' task, in the menu:Execution[Form] pane, use the pencil :fa-pencil: icon to generate a default form from the contract. +
 It will look like this:
