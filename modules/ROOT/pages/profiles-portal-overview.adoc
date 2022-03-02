@@ -69,7 +69,7 @@ This simplifies process testing (log in as any user to see any Portal content).
 
 == Custom profiles
 
-In addition to the default profiles, users of Enterprise, Performance and Efficiency editions can create xref:custom-profiles.adoc[custom profiles]. +
+In addition to the default profiles, users of Enterprise, Performance and Efficiency editions can create xref:profiles-overview.adoc#_custom_profiles.adoc[custom profiles]. +
 To create a custom profile, use the xref:profileCreation.adoc[profile editor] in Bonita Studio, and map it to entities of the organization. +
 If a custom profile is created to give access to custom content in Bonita Portal, its Portal menu (navigation structure and pages) must also be defined in the profile.
 We highly recommend to create the profiles in Bonita Studio so the custom profiles are versioned with the whole project and maintained consistently. +
