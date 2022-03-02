@@ -33,7 +33,7 @@ Moreover, UiPath provides native activities to interact with Bonita in order to 
 
 === Modal container to create pop-ins
 
-A new xref:widgets.adoc]#modal-container[_Modal_ container] is now available in the UI Designer palette, that open over the content of a page/form/layout.
+A new xref:widgets.adoc#modal-container[_Modal_ container] is now available in the UI Designer palette, that open over the content of a page/form/layout.
 To manage such containers, the _Button_ widget gains two actions: "Open modal" and "Close modal".
 
 [#kerberos]
@@ -58,14 +58,14 @@ From the page or form editors, right by the "Save" button, a click on the arrow 
 
 === Bonita callback method
 
-A new xref:bpm-api.adoc]#message[REST API sendMessage] is available for when Bonita has launched an external service (like UiPath or DocuSign) and needs to be called back in an asynchronous manner.
+A new xref:bpm-api.adoc#message[REST API sendMessage] is available for when Bonita has launched an external service (like UiPath or DocuSign) and needs to be called back in an asynchronous manner.
 
 [#translate-expression]
 
 === In the UI Designer, strings in JavaScript expressions can now be translated
 
 When writing the content of a variable of type JavaScript Expression, you may want to translate the strings withing.
-Autocompletion (_ctrl+space_) now offers a new service for translation: xref:multi-language-pages.adoc]#uiTranslate[uiTranslate()].
+Autocompletion (_ctrl+space_) now offers a new service for translation: xref:multi-language-pages.adoc#uiTranslate[uiTranslate()].
 This gives the opportunity to get such strings available for translation in the _localization.json_ asset of the UI Designer artifact.
 
 [#metadata]

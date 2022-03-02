@@ -1,10 +1,12 @@
+= Set up KPI's
+
 In order to use the KPI feature, you need to:
 
 . Create a KPI definition
 . Attach the KPI definition to a task or to a pool
 . Configure the JDBC driver as a process dependency
 
-=== Create a KPI definition
+== Create a KPI definition
 
 When creating a KPI definition, you must specify its database connection settings and its structure.
 
@@ -34,7 +36,7 @@ image::images/images-6_0/editKPI.png[KPI fields]
 +
 .. Click on *_Create_*.
 
-=== Attach a KPI definition to a task or a pool
+== Attach a KPI definition to a task or a pool
 
 Once you have specified a KPI definition, you may to attach it multiple times and at different levels:
 
@@ -60,7 +62,7 @@ Follow these instructions to attach a KPI:
 .. Specify its value with an expression (a constant, a parameter, or a variable).
 . Click on *_Finish_*.
 
-=== Configure the JDBC driver as a process dependency
+== Configure the JDBC driver as a process dependency
 
 When your KPIs are attached to your process, add a JDBC driver dependency to your process.
 
@@ -80,6 +82,6 @@ This implementation option is better for performance and flexibility reasons:
 
 The disadvantage with this implementation option is that it requires basic SQL knowledge because you have to write insertion queries manually.
 
-To configure this option, use a xref:_database.adoc[database connector] to insert a row in the reporting database.
+To configure this option, use a xref:list-of-database-connectors.adoc[database connector] to insert a row in the reporting database.
 
 Use the datasource database connector with connection pooling for improved performance.

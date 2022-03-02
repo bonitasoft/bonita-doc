@@ -86,7 +86,7 @@ Authentication is the process of verification that an individual, entity or webs
 
 Input validation is performed to ensure only properly formed data is entering the workflow in an information system, preventing malformed data from persisting in the database and triggering malfunction of various downstream components.If you use BonitaStudio for developing your forms, then define authorized min and max values, max length and type for input fields.
 
-For more information, please take look at the xref:rest-api-authorization.adoc[REST API authorization] and the other features relating to xref:_security-and-authentication.adoc[security and authentication] that are available in Bonita and in your operating system, and update your platform as required for your production environment.
+For more information, please take look at the xref:rest-api-authorization.adoc[REST API authorization] and the other features relating to security and authentication that are available in Bonita and in your operating system, and update your platform as required for your production environment.
 
 == Create a Bonita Portal administrator
 
