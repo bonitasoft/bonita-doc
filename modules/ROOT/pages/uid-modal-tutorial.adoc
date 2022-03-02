@@ -6,7 +6,7 @@ A nice aspect of Bonita UI Designer is that it allows users to apply or customiz
 [WARNING]
 ====
 
-*:fa-exclamation-triangle: Warning:* This tutorial is deprecated starting with Bonita 7.8 because of the introduction of the modal container as a provided container. For more information, read the xref:widgets.adoc]#modal-container[modal container] page.
+*:fa-exclamation-triangle: Warning:* This tutorial is deprecated starting with Bonita 7.8 because of the introduction of the modal container as a provided container. For more information, read the xref:widgets.adoc#modal-container[modal container] page.
 ====
 
 Throughout this tutorial you will see how to build a modal window using only CSS.
