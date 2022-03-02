@@ -207,7 +207,7 @@ edit the authenticationManager-config.properties as follows:
 ----
 +
 
-Make sure to xref:multi-tenancy-and-tenant-configuration.adoc[set the right tenant admin username].
+Make sure to xref:ROOT:multi-tenancy-and-tenant-configuration.adoc[set the right tenant admin username].
 It is recommended to also replace the value of the passphrase (property auth.passphrase) which is used by the engine to verify the authentication request.
 The value must be the same as in the file *bonita-tenant-sp-custom.properties*. +
 If the users need to bypass kerberos authentication method, you can authorize it by setting the property `kerberos.auth.standard.allowed` to true. Users will then be able to log in using the Bonita Login page (/login.jsp) provided they have a Bonita account and their password is different from their username. +

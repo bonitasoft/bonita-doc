@@ -9,7 +9,6 @@ Bonita Automation projects are based on processes but also data, user interfaces
 
 [.text-center]
 image:images/BonitaProjectElements.png[]
-// {.img-responsive .img-thumbnail}
 
 [NOTE]
 ====
@@ -140,7 +139,7 @@ Extensions can be developed outside of the Studio with your favorite IDE.
 Extensions are re-usable elements, they can be shared between projects.
 Extensions are added to Bonita Automation projects as Maven dependencies.
 
-In the Studio, extensions are managed in a xref:ROOT:managing_extension_studio.adoc[dedicated view].
+In the Studio, extensions are managed in a xref:managing-extension-studio.adoc[dedicated view].
 
 [NOTE]
 ====
