@@ -78,9 +78,9 @@ To use a UI page or form that was created in lower version than 7.4, you need to
 Follow this few steps to update your page or form:
 
 In UI designer:
-1) xref:create-or-modify-a-page.adoc]#import[*Import*] the page from 7.3.X or lower version.
-1) xref:create-or-modify-a-page.adoc]#export[*Export*] the page you previously imported.
+1) xref:create-or-modify-a-page.adoc#import[*Import*] the page from 7.3.X or lower version.
+1) xref:create-or-modify-a-page.adoc#export[*Export*] the page you previously imported.
 
 In the portal as Administrator:
 1) Go on Resources entry.
-1) xref:resource-management.adoc]#modify[Edit the existing page] by uploading the new one.
+1) xref:resource-management.adoc#modify[Edit the existing page] by uploading the new one.

@@ -435,4 +435,4 @@ Here is the subset of pages filtered by the SAML filter:
 
 REST API are not part of them, but if an http session already exists thanks to cookies, REST API can be used.
 
-The recommended way to authenticate to Bonita Portal to use the REST API is to use the xref:rest-api-overview.adoc]#bonita-authentication[login service]..
+The recommended way to authenticate to Bonita Portal to use the REST API is to use the xref:rest-api-overview.adoc#bonita-authentication[login service]..

@@ -45,7 +45,7 @@ Reminder: such edited JavaScript won't be readable back to the UI Designer, and 
 The exported .zip still contains the JSON file, and this is the file used by the UI Designer.
 * Living Application layout doesn't reload when user selects another menu option
 As a consequence, the new content is displayed faster.
-Attention: if your applications layout is based on the default layout, see how to xref:customize-living-application-layout.adoc]#improve-navigation[update your custom layout] to take advantage of this improvement.
+Attention: if your applications layout is based on the default layout, see how to xref:customize-living-application-layout.adoc#improve-navigation[update your custom layout] to take advantage of this improvement.
 * If your pages call REST API extensions on BDM data, a new documentation page has been created to help you make them as efficient as possible.
 
 Performances on realistic pages show a 20% improvement with an Ethernet connection, and a 40% improvement on 3G.

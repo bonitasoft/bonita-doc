@@ -33,7 +33,7 @@ As mentioned before, xref:bonita-bpm-portal-interface-overview.adoc[Bonita Porta
 
 But Bonita Portal is also the tool used by the tenant administrator to xref:processes.adoc[install, deploy and manage processes] and to xref:applications.adoc[build applications]. We use the word "tenant" here, in case the platform would be made of xref:multi-tenancy-and-tenant-configuration.adoc[several tenants].
 
-To install Bonita Engine and Bonita Portal in a qualification or production environment, xref:bonita-bpm-installation-overview.adoc]#platform[install Bonita Platform].
+To install Bonita Engine and Bonita Portal in a qualification or production environment, xref:bonita-bpm-installation-overview.adoc#platform[install Bonita Platform].
 
 In Bonita Studio, once a process is ready, you can xref:build-a-process-for-deployment.adoc[build] it and deploy it on your Bonita qualification or production platform.
 
