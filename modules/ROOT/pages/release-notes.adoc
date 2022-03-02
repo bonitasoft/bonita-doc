@@ -67,7 +67,7 @@ This is different from Bonita Portal Task List where the user needs to click on 
 From the Studio, the theme can now be created as any other part of a Living Application, from the Development Menu and from the Project Explorer "New" option.
 It is packaged as a Maven project, just like the REST API extensions, and is nested in the Bonita project.
 A theme created in the Studio can be deployed to the Portal, and managed (open, edit, delete) as any other element of the application.
-The theme is taken into account in xref:bcd::index.adoc[Bonita Continuous Delivery], through the builder and the deployer.
+The theme is taken into account in xref:bcd:ROOT:index.adoc[Bonita Continuous Delivery], through the builder and the deployer.
 For more information on how to use it, go to the xref:customize-living-application-theme.adoc[dedicated documentation].
 
 ==== View a UI Designer artifact within an application theme while developing

@@ -8,7 +8,7 @@ must configure the connection to the remote engine (the _server_)
 
 The engine (the _server_) must also be configured to accept the connection.
 
-NOTE: the Bonita Portal can be configured to be used as a Client of the Bonita Engine. See the xref:two-main-types-of-deployment.adoc[Alternate Bonita Deployment]
+NOTE: the Bonita Portal can be configured to be used as a Client of the Bonita Engine.
 documentation for more information
 
 [#client_config]
