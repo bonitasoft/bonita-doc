@@ -231,13 +231,13 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 
 == Bug fixes
 
-=== Fixes in Bonita 2021.2-u4 (2022-03-01)
+=== Fixes in Bonita 2021.2-u4 (2022-03-02)
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
 
 * STUDIO-4217 Empty error dialog when deleting a connector
-* STUDIO-4227 On exit, clean database checkbox has no effect
-* STUDIO-4262 Error when opening the Studio
+* STUDIO-4227 On exit, clean database checkbox has no effect when the runtime is not started
+* STUDIO-4262 Project overview editor in error when opening the Studio adfter a crash
 * STUDIO-4263 Java Doc not shown in the groovy Script when mouseOver
 * STUDIO-4268 Dependency with invalid pom corrupts the project
 * UID-613 CVE-2021-44228 - Upgrade log4j
@@ -245,6 +245,8 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
 * RUNTIME-885 CVE-2022-25237 Advisory: Authorization Bypass
+* RUNTIME-918 Change engine datasources configuration to put back removeAbandonned
+* RUNTIME-919 [CVE] XStream CVE-2021-43859
 
 === Fixes in Bonita 2021.2-u3 (2022-02-02)
 
