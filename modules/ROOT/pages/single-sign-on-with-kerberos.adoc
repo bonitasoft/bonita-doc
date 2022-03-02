@@ -3,7 +3,6 @@
 
 [NOTE]
 ====
-
 For Enterprise, Performance, Efficiency, and Teamwork editions only.
 ====
 
@@ -15,7 +14,6 @@ Kerberos configuration is at tenant level. Each tenant can use a different authe
 
 [NOTE]
 ====
-
 Bonita uses http://spnego.sourceforge.net/[Spnego] library that allows to request tickets using the Kerberos protocol.
 ====
 
@@ -24,7 +22,6 @@ Bonita uses http://spnego.sourceforge.net/[Spnego] library that allows to reques
 Kerberos SSO with AD relies on a minimum on 3 physical machines that are member of the same AD domain:
 
 image:images/kerberos-ad.png[Kerberos with AD]
-// {.img-responsive}
 
 * Domain Controller: the AD domain controller providing the SSO tickets through the Kerberos KDC component.
 * Service Server: the server on which resides the service we want to access (Bonita for instance). This server is referred to as the "Principal". It uses the credentials of an AD service account and is member of the domain.
@@ -35,7 +32,6 @@ image:images/kerberos-ad.png[Kerberos with AD]
 The target architecture for integrating Kerberos SSO with Bonita and Spnego will involve a custom web application filter: Bonita Kerberos filter.
 
 image:images/kerberos-overview.png[Authentication over Kerberos]
-// {.img-responsive}
 
 The scenario covered by the filter is the following:
 
@@ -49,7 +45,6 @@ The Spnego authenticator will then verify the user's Kerberos tickets if present
 
 [WARNING]
 ====
-
 Bonita "username" should match the authenticated user login returned in the client response. +
 You can configure Bonita engine to create the accounts on the fly in the database when a user accessing Bonita is already authenticated with Kerberos (see the configuration of `bonita-tenant-sp-custom.properties` in the 6th section of the chapter "Configure Bonita Bundle for Kerberos").
 ====
@@ -289,9 +284,10 @@ If you want Bonita engine to create the accounts on the fly when a user accessin
 NOTE: Activating this option means any user logged in on the domain trying to access Bonita will have an account created automatically in Bonita Database.
 
 . If your Domain Controller is correctly configured, you are done. +
-Then you can start the bundle and try to access a portal page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are automatically logged in.
+Then you can start the bundle and try to access a portal page, an app page or a form URL (or just `http ://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are automatically logged in.
 
-Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `kerberos.auth.standard.allowed` to true or define a whitelist with the property `auth.tenant.standard.whitelist`) to be able to log in without an account on AD.
+
+Note that if you try to access `http ://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `kerberos.auth.standard.allowed` to true or define a whitelist with the property `auth.tenant.standard.whitelist`) to be able to log in without an account on AD.
 
 == Logout behavior
 
