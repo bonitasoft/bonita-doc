@@ -320,7 +320,7 @@ otherwise the compound permissions won't be automatically created when deploying
 
 == Authorization and custom profiles
 
-When a new xref:custom-profiles.adoc[custom profile] is created, the permissions mappings are updated in the configuration files and in the cache.
+When a new xref:profiles-overview.adoc#_custom_profiles[custom profile] is created, the permissions mappings are updated in the configuration files and in the cache.
 It is not necessary to restart the application server to activate security for the new custom profile.
 
 == Granting permissions to a given resource

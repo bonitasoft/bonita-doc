@@ -41,4 +41,4 @@ Bonita Studio and Bonita Portal manage the features available according to the p
 
 In Bonita Studio, a user selects a profile at login, and can change profile at any time. The application developer profile gives access to all features of Bonita Studio. You can also configure the features that are visible to your profile, hiding items that are not relevant to your activity, to make the interface cleaner and easier to navigate.
 
-In Bonita Portal, a profile is associated to a login, and by default only a user with the administrator profile can xref:profiles-overview.adoc[change the profile of a user.] A user can have any number of profiles. It is also possible to define xref:custom-profiles.adoc[custom profiles].
+In Bonita Portal, a profile is associated to a login, and by default only a user with the administrator profile can xref:profiles-overview.adoc[change the profile of a user.] A user can have any number of profiles. It is also possible to define xref:profiles-overview.adoc#_custom_profiles[custom profiles].

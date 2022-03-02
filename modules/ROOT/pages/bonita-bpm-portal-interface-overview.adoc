@@ -46,7 +46,7 @@ Moreover, for Bonitasoft as for its users, applications are free from the Google
 == Custom User Interfaces
 
 You can also create views that fit users' needs better than the provided User Interfaces. +
-In Bonita Portal, this has been made possible through the concept of xref:custom-profiles.adoc[custom profiles] with new Portal navigations _made of Bonita pages and/or custom pages_. +
+In Bonita Portal, this has been made possible through the concept of xref:profiles-overview.adoc#_custom_profiles[custom profiles] with new Portal navigations _made of Bonita pages and/or custom pages_. +
 Then, with Bonita 7.0, Living applications have given the possibility to create applications _made of custom pages_, with their own look & feel. The pages can be created with Bonita UI Designer or in another environment. +
 With Bonita 2021.1 and the availability of Administrator and User Applications, Living applications can be _made of Bonita pages and/or custom pages_ too.
 
@@ -56,5 +56,5 @@ To know more about how to create an application, or create an application from a
 ====
 
 Again, as Bonita Portal will be replaced by applications in next versions of Bonita, we strongly advise you *not* to create Custom profiles with custom Portal navigations anymore, but applications. +
-For more information on how to migrate existing Custom profiles with Portal views into applications, go to the dedicated xref:custom-profiles.adoc[documentation page].
+For more information on how to migrate existing Custom profiles with Portal views into applications, go to the dedicated xref:profiles-overview.adoc#_custom_profiles[documentation page].
 ====
