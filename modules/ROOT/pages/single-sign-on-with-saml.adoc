@@ -310,7 +310,7 @@ If your Bonita platform is configured to manage authentication over SAML, when u
 Therefore they are not logged out of all applications that are using the IdP.
 To avoid this, you have two options :
 
-==== Hide the logout button of the portal
+=== Hide the logout button of the portal
 
 This is the most commonly used solution. Users are logged in as long as they don't close their web browser (unless their session times out).
 To do this, set the `logout.link.hidden` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
@@ -322,7 +322,7 @@ When a user logs out from the IdP directly, Bonita Portal's session will remain 
 to the configured session timeout value upon each user interaction with the server.
 ====
 
-==== Setup Bonita platform for SAML global logout
+=== Setup Bonita platform for SAML global logout
 
 Global logout allows to log out from the Identity Provider as well as all the registered Service Providers when logging out from Bonita platform. This is sometimes required for example if users are on public computers.
 As Identity Providers do not necessarily support single logout and have different ways of handling it (there are several SAML Single Logout methods), Bonita only offers SAML global logout as an experimental feature. Meaning that this feature has only been tested with Keycloack server acting as Identity Provider.

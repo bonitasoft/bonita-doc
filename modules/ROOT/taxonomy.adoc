@@ -281,7 +281,6 @@
  ** xref:git-versioning-community-edition.adoc[Use Git for versioning with Community Edition]
  ** xref:migrate-a-svn-repository-to-github.adoc[Migrate a SVN repository to a Git repository]
  ** xref:configure-maven.adoc[Configure Maven]
- ** xref:uid-vertical-tabs-container-tutorial.adoc[Create a vertical tabs container for all devices]
  ** xref:groovy-in-bonita.adoc[Use Groovy in Bonita]
  ** xref:responsiveness-with-community-edition.adoc[Create a responsive web application with Community edition]
  ** xref:use-bonita-acm.adoc[Enable Adaptive Case Management with Bonita]
