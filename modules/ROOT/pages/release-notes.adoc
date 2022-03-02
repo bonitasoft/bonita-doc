@@ -8,7 +8,7 @@
 === Collaborative development with Git (starting with Teamwork edition)
 
 Working as a team on a Bonita project, securing resources on a shared server, and keeping track of the resources revisions is now possible with the integration of Eclipse http://wiki.eclipse.org/EGit/User_Guide[EGit plug-in] in Bonita Studio, as well as the creation of a dedicated gitignore file.
-Managing branches, viewing the differences between two revisions of a file, or between the local and remote repositories, as well as managing conflicts for a given file can be performed. Find more in the dedicated xref:workspaces-and-repositories.adoc]#git[documentation page section] and in the howto: xref:share-a-repository-on-github.adoc[Share a repository on GitHub].
+Managing branches, viewing the differences between two revisions of a file, or between the local and remote repositories, as well as managing conflicts for a given file can be performed. Find more in the dedicated xref:workspaces-and-repositories.adoc#git[documentation page section] and in the howto: xref:share-a-repository-on-github.adoc[Share a repository on GitHub].
 Combining Git capabilities with https://documentation.bonitasoft.com/bcd/2.0/[Bonita Continuous Delivery add-on] offers best of breed technologies for multi-disciplinary teams to sustain a DevOps approach.
 
 [#bdm-access-control]
@@ -41,11 +41,11 @@ The new default case overview page is now designed in the UI Designer and it dis
 
 === LDAP synchronizer to synchronize Custom User Information too (starting with Teamwork edition)
 
-More information than groups can now be synchronized from a Company's LDAP into a Bonita organization: the xref:ldap-synchronizer.adoc]#cui[LDAP synchronizer] can input those additional fields into xref:custom-user-information-in-bonita-bpm-studio.adoc[Custom User Information]. Such information is defined in Bonita Studio, and viewed or edited in Bonita Administrator Portal, and is used in actor filters for better task allocation.
+More information than groups can now be synchronized from a Company's LDAP into a Bonita organization: the xref:ldap-synchronizer.adoc#cui[LDAP synchronizer] can input those additional fields into xref:custom-user-information-in-bonita-bpm-studio.adoc[Custom User Information]. Such information is defined in Bonita Studio, and viewed or edited in Bonita Administrator Portal, and is used in actor filters for better task allocation.
 
 [#readable-names]
 
-=== xref:ui-designer-overview.adoc]#readable-page-name[Readable UI Designer artifact names] in Bonita repositories
+=== xref:ui-designer-overview.adoc#readable-page-name[Readable UI Designer artifact names] in Bonita repositories
 
 New pages, forms, layouts, and fragments created with Bonita UI Designer now use the name given by the developer as IDs in the repository.
 Easier to find when they need to be updated.

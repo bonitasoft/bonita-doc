@@ -3,7 +3,7 @@
 
 You will find here the mandatory and optional steps needed to install and configure the Tomcat bundle to run the Bonita platform.
 
-The Tomcat bundle is a .zip archive that contains the Apache Tomcat Java EE application server prepackaged along with Bonita and xref:BonitaBPM_platform_setup.adoc]#platform_setup_tool[Bonita platform setup tool].
+The Tomcat bundle is a .zip archive that contains the Apache Tomcat Java EE application server prepackaged along with Bonita and xref:BonitaBPM_platform_setup.adoc#platform_setup_tool[Bonita platform setup tool].
 The Tomcat bundle is a regular .zip archive based on Tomcat zip distribution.
 
 [WARNING]
@@ -150,9 +150,9 @@ If you just want to try Bonita Platform with the embedded H2 database (only for 
 For production, you are recommended to use one of the supported databases, with the following steps.
 ====
 
-. Make sure xref:database-configuration.adoc]#database_creation[your databases are created] and xref:database-configuration.adoc]]#specific_database_configuration[customized to work with Bonita].
-. Edit file `<TOMCAT_HOME>/setup/database.properties` and modify the properties to suit your databases (Bonita internal database & Business Data database). Beware of xref:BonitaBPM_platform_setup.adoc]#backslash_support[backslash characters].
-. If you use *Microsoft SQL Server* or *Oracle* database, copy your xref:database-configuration.adoc]#proprietary_jdbc_drivers[jdbc driver] in `<TOMCAT_HOME>/setup/lib/` folder.
+. Make sure xref:database-configuration.adoc#database_creation[your databases are created] and xref:database-configuration.adoc#specific_database_configuration[customized to work with Bonita].
+. Edit file `<TOMCAT_HOME>/setup/database.properties` and modify the properties to suit your databases (Bonita internal database & Business Data database). Beware of xref:BonitaBPM_platform_setup.adoc#backslash_support[backslash characters].
+. If you use *Microsoft SQL Server* or *Oracle* database, copy your xref:database-configuration.adoc#proprietary_jdbc_drivers[jdbc driver] in `<TOMCAT_HOME>/setup/lib/` folder.
 . Run `<TOMCAT_HOME>\setup\start-bonita.bat` (Windows system) or `<TOMCAT_HOME>/setup/start-bonita.sh` (Unix system) to run Bonita Tomcat bundle (see <<tomcat_start,Tomcat start script>>)
 
 [NOTE]
@@ -171,7 +171,7 @@ The *start-bonita* script does the following:
  .. copies your database vendor-specific drivers from `<TOMCAT_HOME>/setup/lib` to `<TOMCAT_HOME>/setup/server/lib/bonita`
 . Starts the Tomcat bundle
 
-For advanced server configuration needs: check out xref:BonitaBPM_platform_setup.adoc]#run_bundle_configure[Bundle configuration] to finely tune your Tomcat bundle, using templates used by Bonita.
+For advanced server configuration needs: check out xref:BonitaBPM_platform_setup.adoc#run_bundle_configure[Bundle configuration] to finely tune your Tomcat bundle, using templates used by Bonita.
 ====
 
 [#start]
@@ -206,19 +206,19 @@ Once you have your Tomcat bundle up and running, complete these xref:first-steps
 
 === Configuration update
 
-To update Bonita configuration after the first run, take a look at the xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[platform setup tool]
+To update Bonita configuration after the first run, take a look at the xref:BonitaBPM_platform_setup.adoc#update_platform_conf[platform setup tool]
 
 [NOTE]
 ====
 
 
-* The file `database.properties` is the entry point to configure the xref:BonitaBPM_platform_setup.adoc]#run_bundle_configure[Tomcat environment] and the xref:BonitaBPM_platform_setup.adoc]]#configure_tool[Bonita Platform configuration].
+* The file `database.properties` is the entry point to configure the xref:BonitaBPM_platform_setup.adoc#run_bundle_configure[Tomcat environment] and the xref:BonitaBPM_platform_setup.adoc#configure_tool[Bonita Platform configuration].
 * You can use command line arguments to specify database properties directly from the command line. Use `<TOMCAT_HOME>/setup/setup.sh --help` on Linux or `<TOMCAT_HOME>\setup\setup.bat --help` on Windows to have a list of available options.
 ====
 
 === License update
 
-To update the licenses after the first run, take a look at the xref:BonitaBPM_platform_setup.adoc]#update_platform_conf[platform setup tool]
+To update the licenses after the first run, take a look at the xref:BonitaBPM_platform_setup.adoc#update_platform_conf[platform setup tool]
 
 == Troubleshooting
 

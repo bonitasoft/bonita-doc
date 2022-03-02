@@ -8,7 +8,7 @@ For Enterprise, Performance, Efficiency, and Teamwork editions only.
 ====
 
 This page explains how to push an existing Bonita repository on https://github.com/[GitHub] to share it with teammates. +
-For more information on Git integration in Bonita Studio, you can read the xref:workspaces-and-repositories.adoc]#git[reference documentation page].
+For more information on Git integration in Bonita Studio, you can read the xref:workspaces-and-repositories.adoc#git[reference documentation page].
 
 == Create an empty GitHub repository
 
@@ -36,15 +36,15 @@ If the content to share belongs to the `default` repository, you need to create 
 a.  On GitHub, navigate to the main page of the repository. Under the repository name, click on "Clone or download". In the Clone with HTTPs section, click on the icon to copy the clone URL for the repository. +
 b. In the studio, paste the URL in the URI text input +
 c. Do not select anything in the "Protocol" drop down list, nor write anything on the "Port" input field +
-c. If needed, enter your GitHub username and password in the Authentication form +
-d. Click on "Next" +
-e. By convention, the default Git branch is named `master`, but you can change this here. +
-f. You can also change the pulling strategy (default is `merge`) +
-g. Click on "Next" +
-h. Click on "Finish" (Push will be done in a background job, visible at the bottom right corner of the studio window) +
-i. When the Push is done, a push confirmation dialog is displayed
+d. If needed, enter your GitHub username and password in the Authentication form +
+e. Click on "Next" +
+f. By convention, the default Git branch is named `master`, but you can change this here. +
+g. You can also change the pulling strategy (default is `merge`) +
+h. Click on "Next" +
+i. Click on "Finish" (Push will be done in a background job, visible at the bottom right corner of the studio window) +
+j. When the Push is done, a push confirmation dialog is displayed
 
-You might encounter some issues if the two factor authentiation is activated on your github account, see the xref:workspaces-and-repositories.adoc]#git-troubleshooting[Git trouble shooting section].
+You might encounter some issues if the two factor authentiation is activated on your github account, see the xref:workspaces-and-repositories.adoc#git-troubleshooting[Git trouble shooting section].
 
 . To validate that the push has actually been done, you can check your repository on GitHub
 

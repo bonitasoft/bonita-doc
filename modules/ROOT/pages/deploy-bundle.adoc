@@ -97,7 +97,7 @@ JTA data source (managed by Bitronix)
 
 You need to add your jdbc driver in TOMCAT_HOME/lib.
 MySQL and PostgreSQL drivers can be found in deploy bundle under DEPLOY_ZIP_HOME/setup/lib directory. For other RDBMS,
-use the xref:database-configuration.adoc]#proprietary_jdbc_drivers[jdbc driver] provided by your RDBMS vendor
+use the xref:database-configuration.adoc#proprietary_jdbc_drivers[jdbc driver] provided by your RDBMS vendor
 
 [#wildfly-installation]
 
@@ -160,12 +160,12 @@ When you receive your license, copy the file to the `DEPLOY_ZIP_HOME/setup/platf
 
 == Database initialization
 
-We assume here that the database has already been xref:database-configuration.adoc]#database_creation[created and configured for Bonita].
+We assume here that the database has already been xref:database-configuration.adoc#database_creation[created and configured for Bonita].
 Once created and configured you need to initialize it using the setup tool provided in the deploy bundle archive.
 This will create database schema and initial values.
 
-. In DEPLOY_ZIP_HOME/setup folder, edit the file database.properties with properties matching your rdbms. Beware of xref:BonitaBPM_platform_setup.adoc]#backslash_support[backslash characters].
-. In DEPLOY_ZIP_HOME/setup/lib add your jdbc driver if needed (only for Microsoft SQL Server or Oracle, see xref:database-configuration.adoc]#proprietary_jdbc_drivers[proprietary jdbc drivers])
+. In DEPLOY_ZIP_HOME/setup folder, edit the file database.properties with properties matching your rdbms. Beware of xref:BonitaBPM_platform_setup.adoc#backslash_support[backslash characters].
+. In DEPLOY_ZIP_HOME/setup/lib add your jdbc driver if needed (only for Microsoft SQL Server or Oracle, see xref:database-configuration.adoc#proprietary_jdbc_drivers[proprietary jdbc drivers])
 . In DEPLOY_ZIP_HOME/setup folder, run `setup.(sh|bat) init`
 
 == Next steps
