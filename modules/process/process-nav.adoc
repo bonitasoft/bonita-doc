@@ -52,5 +52,5 @@
   *** xref:managing-dependencies.adoc[Manage process dependencies]
  ** xref:project-deploy-in-dev-suite.adoc[Deployment in Bonita Studio]
  ** xref:process-testing-index.adoc[Process testing]
-  *** xref:log-files.adoc[Log files]
-  *** xref:logging.adoc[Logs]
+  *** xref:setup-dev-environment:log-files.adoc[Log files]
+  *** xref:setup-dev-environment:logging.adoc[Logs]
