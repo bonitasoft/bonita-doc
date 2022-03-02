@@ -182,7 +182,7 @@ As announced in the previous release, the support for EJB communication to Bonit
 
 In versions 7.9.1-7.9.x the provided themes were embedding font-awesome. The library was removed in favor of adding the webfonts directly in the pages in order to avoid version conflicts. If you were using a provided theme and any font-awesome icon, either:
 
-* create a custom theme out of the provided themes and add the font-awesome library to it (as explained in the xref:7.9@themes.adoc[documentation for version 7.9])
+* create a custom theme out of the provided themes and add the font-awesome library to it
 * add the font-awesome webfonts to your page
 
 == Bug fixes

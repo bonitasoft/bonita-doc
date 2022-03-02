@@ -47,7 +47,6 @@ Performance tuning checklist of best practises:
 * If your database is PostgreSQL, follow <<postgresql-performance-tuning,our recommendations>>.
 
 [#engine_access]
-
 == Engine access
 
 This section deals with performance impact of your choice of xref:engine-api-overview.adoc[Engine access mode].
@@ -56,17 +55,13 @@ There are various ways to access the Engine APIs provided by Bonita Engine. Choo
 The access modes rely on different technologies and have different benefits and drawbacks. In this section, we will describe the performance characteristics of each mode.
 
 [#local]
-
-[discrete]
-==== Local access
+=== Local access
 
 This is undoubtedly the fastest way to access this engine, because it means a direct Java call with nothing additional between client and server. +
 The deployment constraint is that the client of the engine must be located in the same JVM as the engine server.
 
 [#remote]
-
-[discrete]
-==== Remote access
+=== Remote access
 
 The remote access modes enable you to have an engine client connected remotely to the engine server.
 
@@ -79,9 +74,7 @@ If you have a client located in the same JVM as your server, configure it to use
 You can then configure other clients to use one of the remote modes but you do not penalize the client able to leverage the local access performance.
 
 [#http]
-
-[discrete]
-===== HTTP
+==== HTTP
 
 The HTTP access mode is available using our natively provided xref:configure-client-of-bonita-bpm-engine.adoc[bonita-client library]. It can also be used from other
 technologies like PHP, .Net or Javascript (in that case, you need to develop your our client).
@@ -106,9 +99,7 @@ open source library
 Data sent is serialized using a Java library called XStream. This serialization also has a cost.
 
 [#rest]
-
-[discrete]
-===== REST
+==== REST
 
 This method of accessing the Bonita capabilities is not yet integrated as an engine service but exists as a web application service accessed using the xref:rest-api-overview.adoc[Web REST API].
 No details are provided here as it is currently out of scope. +
@@ -129,9 +120,7 @@ This means that every thread that deals with process execution applies the follo
 The great benefit of this is that the caller is not locked while the engine processes something that might be long (such as a long sequence of tasks with connectors.).
 
 [#client_threads]
-
-[discrete]
-==== Client Threads
+=== Client Threads
 
 Client threads are responsible for a large part of the load generated inside the engine. +
 The number of client threads is related to the number of parallel users.
@@ -145,9 +134,7 @@ If you are running Bonita Engine inside a container, the maximum number of clien
    See the http://tomcat.apache.org/tomcat-8.5-doc/[Tomcat documentation] for information about the `maxThreads` parameter.
 
 [#work_service]
-
-[discrete]
-==== Work service
+=== Work service
 
 The work service is responsible for asynchronously processing execution of process instances. The work service has its own thread pool, which can be configured for each tenant. +
 This is one of the key configurations to optimize, because even though there are many client threads, client threads are held only for a short time before being released, and then execution flow continues using work service threads. +
@@ -183,9 +170,7 @@ It is essential to ensure that the queue never becomes full (`queueCapacity` is 
 If the queue becomes full, the application restarts in order to force the engine to generate all work from the database. This means that work is lost.
 
 [#connector_service]
-
-[discrete]
-==== Connector service
+=== Connector service
 
 The connector service executes connectors. To improve tenant isolation (and to protect against denial-of-service attacks), the default implementation of the connector service has its own threadpool and requires executes connectors in a separate thread from the worker. +
 The configuration of the threadpool of this service is independent of the configuration of the work service.
@@ -213,9 +198,7 @@ bonita.tenant.connector.timeout=300
 For details of these parameters, see <<work_service,Work service>>.
 
 [#scheduler_service]
-
-[discrete]
-==== Scheduler service
+=== Scheduler service
 
 The Scheduler service is responsible for executing jobs. +
 A job is executed inside a thread of the scheduler service. +
@@ -232,9 +215,7 @@ bonita.platform.scheduler.batchsize=1000
 ----
 
 [#db_connections]
-
-[discrete]
-==== Database connections
+=== Database connections
 
 Two datasources are defined:
 
@@ -243,13 +224,11 @@ Two datasources are defined:
 
 Note that the sum of the maximum values configured for bonitaDS and bonitaSequenceManagerDS should be less than or equal to the maximum number of simultaneous connections allowed to your database.
 
-[discrete]
-===== bonitaSequenceManagerDS
+==== bonitaSequenceManagerDS
 
 This datasource needs only a few connections: between 5 or 10% of bonitaDS number should be sufficient. However, this is closely correlated to the <<volume,range size>>.
 
-[discrete]
-===== bonitaDS
+==== bonitaDS
 
 This datasource requires a higher value, because Bonita Engine stores almost everything in the database.
 This means that every single thread from any of the entry points requires a database connection through bonitaDS. +
@@ -258,9 +237,7 @@ The desired number of parallel processing threads is the sum of the number of wo
 (see <<scheduler_service,Scheduler Service>>) plus a percentage of the number of concurrently external API calls (see <<client_threads,Client threads>>).
 
 [#datasource_settings]
-
-[discrete]
-==== Datasources settings
+=== Datasources settings
 
 You need to configure the maximum pool size for datasources (the following paths are for bundle users):
 
@@ -271,15 +248,12 @@ For Tomcat, edit file `setup/tomcat-templates/bonita.xml`:
 * If necessary, for the Business Data feature, do the same for the datasources 'RawBusinessDataDS' and 'NotManagedBizDataDS'.
 
 [#volume]
-
 == Volume
 
 This section deals with some aspects of engine configurations that have a performance impact in the case of high volume.
 
 [#seq_mgr]
-
-[discrete]
-==== Sequence manager
+=== Sequence manager
 
 Bonita Engine manages a dedicated sequence for each table for ID generation.
 This implementation allows fast delivery of IDs and a single point of usage inside the application: the persistence service.
@@ -298,8 +272,7 @@ The sequence manager configuration is in `bonita-platform-community-custom.prope
 The sequence manager has its own database connection. +
 This should be appropriately sized for the number of times the sequence manager will query the database, which is a consequence of the range size values. See <<db_connections,Database connections>>.
 
-[discrete]
-==== Persistence cache
+=== Persistence cache
 
 For the Teamwork, Efficiency, Performance and Enterprise editions, Bonita Engine has a cache providing a persistence layer using Hibernate caching.
 
@@ -332,9 +305,7 @@ A soft-locked cache entry was expired by the underlying Ehcache. If this happens
 ----
 
 [#app_cache]
-
-[discrete]
-==== Application cache
+=== Application cache
 
 Bonita Engine uses an application cache to store specific objects. The default implementation of this service relies on EhCache. It is configured in these files:
 
@@ -380,9 +351,7 @@ The following cache configurations can be defined:
 |===
 
 [#jvm]
-
-[discrete]
-==== Java Virtual Machine
+=== Java Virtual Machine
 
 You can configure the JVM settings for the engine to tune performance. +
 Check the http://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html[JVM documentation] for details of the available settings.
@@ -391,7 +360,7 @@ Notably, we recommend you to set the initial (`-Xms`) and maximum (`-Xmx`) heap 
 This reduces the likelihood of the JVM garbage collector starting. +
 While the garbage collector is running, it prevents creation of new objects, which slows down the application server.
 
-===== Garbage Collector
+==== Garbage Collector
 We recommend to update the Garbage collector parameters to use the following ones (`UseParallelGC` has been proven more eficient than `UseParNewGC` in our experience), depending on wether you use Java 8 or Java 11:  +
 
 * Edit file `setup/tomcat-templates/setenv.sh`
@@ -401,7 +370,6 @@ We recommend to update the Garbage collector parameters to use the following one
 
 [#network]
 [#hardware]
-
 == Hardware and network
 
 This section deals with performance impact of hardware elements.
@@ -426,9 +394,7 @@ Some of them are key for the system and you should pay a lot of attention to the
 In most cases, the key things to consider are the <<db,database>>, <<tm,transaction manager>>, and <<logs,logs>>.
 
 [#db]
-
-[discrete]
-==== Database
+=== Database
 
 Bonita Engine uses the database heavily, so in consequence a slow database makes the engine slow.
 
@@ -442,9 +408,7 @@ To find the right characteristic to optimize, one good starting point is to cons
 <<postgresql-performance-tuning,Specific PostgreSQL performance tuning>> is given as a database tuning reference.
 
 [#tm]
-
-[discrete]
-==== Transaction manager
+=== Transaction manager
 
 Bonita Engine is natively compatible with the Java Transaction API. This means transaction management relies on a transaction manager.
 
@@ -455,9 +419,7 @@ The most common configuration to change here would be `com.arjuna.ats.arjuna.coo
 More details on the configuration can be found in the http://narayana.io/docs/product/index.html#d0e3473[Narayana documentation].
 
 [#logs]
-
-[discrete]
-==== Logs
+=== Logs
 
 In general, increasing the log level is useful for debugging but has a performance cost. +
 With this in mind, xref:set-log-and-archive-levels.adoc[define the log level for technical logs, queriable logs and archives].
@@ -505,27 +467,21 @@ The non-relevant options will be ignored at execution. Note that `memory` and `c
 == Process design, event handlers, and cron jobs
 
 [#process_design]
-
-[discrete]
-==== Process design
+=== Process design
 
 There are several things you can do during the process design to reduce performance overheads. +
 This is mostly related to reducing usage of extension points when possible. +
 Consider carefully your usage of connectors, groovy scripts, XML and serializable data.
 
 [#event_handlers]
-
-[discrete]
-==== Event handlers
+=== Event handlers
 
 Events handlers are extensions of the engine configuration. +
 You can add event handlers for several purposes and you can configure which events you want to catch. +
 We strongly recommend that you add only appropriate handlers and carefully code the handler filters to handle only those events that you are interested in.
 
 [#cron]
-
-[discrete]
-==== BPMN Timers execution
+=== BPMN Timers execution
 
 Bonita Engine uses the xref:engine-architecture-overview.adoc[Scheduler service] to trigger timers.
 
@@ -546,9 +502,7 @@ They are not read subsequently, so changing the values in `bonita-tenant-communi
 For value definition, and information about how to update the Quartz trigger tables, see the http://www.quartz-scheduler.org/documentation/[Quartz documentation] about Cron Triggers.
 
 [#postgresql-performance-tuning]
-
-[discrete]
-==== PostgreSQL performance tuning
+=== PostgreSQL performance tuning
 
 Here is Bonita advice to finely tune PostgreSQL database server performance.
 
