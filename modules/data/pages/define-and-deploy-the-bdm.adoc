@@ -156,13 +156,11 @@ When you create a process that uses a business object with a composition or aggr
 
 There are two design patterns for loading business objects: *LAZY* or *EAGER*. +
 
-* With LAZY design pattern, only the parent object instance is loaded at initialization. To load the children objects instances, additional REST API calls should be made. 
-This is the option to choose when:
+* With LAZY design pattern, only the parent object instance is loaded at initialization. To load the children objects instances, additional REST API calls should be made. This is the option to choose when:
   ** object's children are not edited very often in case's lifetime
   ** parent object along with all its children loading can get heavy, vertically and/or horizontally
 
-* With EAGER design pattern, both, parent object instance and children objects instances are loaded on the spot.
-This is the option to choose when:
+* With EAGER design pattern, both, parent object instance and children objects instances are loaded on the spot. This is the option to choose when:
   ** object's children can be edited quite often in case's lifetime
   ** parent object along with all it's children are neither very deep nor large
 
