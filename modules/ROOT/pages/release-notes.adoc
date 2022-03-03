@@ -239,13 +239,13 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 * STUDIO-4227 On exit, clean database checkbox has no effect when the runtime is not started
 * STUDIO-4262 Project overview editor in error when opening the Studio adfter a crash
 * STUDIO-4268 Dependency with invalid pom corrupts the project
-* UID-613 log4j version update (CVE-2021-44228)
+* UID-613 log4j version update
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
-* RUNTIME-885 Authorization Bypass (CVE-2022-25237)
+* RUNTIME-885 [Security] Authorization Bypass
 * RUNTIME-918 Change engine datasources configuration to put back removeAbandonned
-* RUNTIME-919 XStream version update (CVE-2021-43859)
+* RUNTIME-919 XStream version update
 
 === Fixes in Bonita 2021.2-u3 (2022-02-02)
 
