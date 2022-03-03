@@ -152,7 +152,7 @@ When you create a process that uses a business object with a composition or aggr
 
 [#lazy_eager_loading]
 
-=== Loading in Hibernate
+=== Loading BDM objects
 
 There are two design patterns for loading business objects: *LAZY* or *EAGER*. +
 
@@ -179,8 +179,8 @@ The tradeoff between those two design patterns is execution time vs memory consu
 
 [WARNING]
 ====
-If you are not sure about the final size of BDM schema, we do *strongly* recommend to use the default *LAZY* loading design pattern. Indeed, *EAGER* loading design pattern can have a huge impact on the Bonita Runtime performance, due to the additional data load and information maintenance in memory. +
-Based on your tecnical analysis, if you still decide to use *EAGER* design pattern, *we strongly recommend thorough testing with a test dataset having the size of your production's expected dataset*.
+If you are not sure about the final size of BDM schema, we do *strongly* recommend to use the default *LAZY* loading design pattern. Indeed, *EAGER* loading design pattern can have a huge impacts on the Bonita Runtime performance, due to the additional data load and information maintenance in memory. +
+If you still decide to use *EAGER* design pattern, *we strongly recommend thorough testing with a test dataset having the size of your production's expected dataset*.
 ====
 
 === Multi-instantiation using business object variables in a list
