@@ -141,7 +141,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.18
+| 1.4.19
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -309,7 +309,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.18
+| 1.4.19
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -1005,7 +1005,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.18
+| 1.4.19
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -1245,7 +1245,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.18
+| 1.4.19
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
