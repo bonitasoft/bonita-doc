@@ -164,7 +164,7 @@ There are two design patterns for loading business objects: *LAZY* or *EAGER*. +
   ** object's children can be edited quite often in case's lifetime
   ** parent object along with all it's children are neither very deep nor large
 
-Choosing the right design pattern depends on your needs and BDM schema definition. *In Bonita Runtime, the default design pattern is LAZY loading.* If necessary, you can override this for any business object by configuring it to use eager loading when specifying the object relationship properties. +
+Choosing the right design pattern depends on your needs and BDM schema definition. *In Bonita Runtime, the default design pattern is LAZY loading.* If necessary, you can override this for any business object by configuring it to use EAGER loading when specifying the object relationship properties. +
 
 ==== Lazy/Eager loading internal workings
 From a technical point of view: the BDM schema is managed by hibernate. The parent object is retrieved with a SELECT SQL request.
