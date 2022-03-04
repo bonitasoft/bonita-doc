@@ -58,7 +58,7 @@ The initiator is the user who starts a process instance. For a process that is s
 
 [NOTE]
 ====
-To use actor filters in your processes, you first need to import the corresponding extensions from the xref:ROOT:managing_extension_studio.adoc[extension view].
+To use actor filters in your processes, you first need to import the corresponding extensions from the xref:bonita-overview:managing-extension-studio.adoc[extension view].
 ====
 
 To specify an actor filter, click *_Set..._*, choose one of the predefined actor filters from the list, and follow the instructions in the wizard to configure the actor selector.

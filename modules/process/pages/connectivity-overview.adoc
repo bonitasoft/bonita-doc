@@ -25,7 +25,7 @@ A task connector _in_ is executed before the task executes. This means it can be
 
 [NOTE]
 ====
-To use connectors in your processes, you first need to import the corresponding extensions from the xref:ROOT:managing_extension_studio.adoc[extension view].
+To use connectors in your processes, you first need to import the corresponding extensions from the xref:bonita-overview:managing-extension-studio.adoc[extension view].
 ====
 
 To add a connector to a pool or task:

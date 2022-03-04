@@ -270,6 +270,7 @@ The query can be either a default or a custom query.
 `http://../API/bdm/businessData/_businessDataType_?q=_queryName_&p=0&c=10&f=param=value` +
 _Example_: Call the findEmployeeByFirstNameAndLastName query :
 +
+[source]
 ----
 /API/bdm/businessData/com.company.model.Employee?q=findEmployeeByFirstNameAndLastName&p=0&c=10&f=firstName=John&f=lastName=Doe
 ----

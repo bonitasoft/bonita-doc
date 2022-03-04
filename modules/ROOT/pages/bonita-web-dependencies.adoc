@@ -56,9 +56,6 @@
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 |=== 
 
-= Bonita web dependencies
-:description: List all dependencies uses for Bonita web
-
 == console-server
 
 |===
@@ -245,9 +242,6 @@
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 |=== 
 
-= Bonita web dependencies
-:description: List all dependencies uses for Bonita web
-
 == console-common-sp
 
 |===
@@ -271,9 +265,6 @@
 | N/A
 |  -
 |=== 
-
-= Bonita web dependencies
-:description: List all dependencies uses for Bonita web
 
 == console-server-sp
 

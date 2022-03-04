@@ -1,7 +1,6 @@
 = Bonita engine dependencies (7.14.0.beta-01)
 :description: List all dependencies uses for Bonita Engine
 
-
 == bonita-common
 
 |===
@@ -141,7 +140,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.18
+| 1.4.19
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -309,7 +308,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.18
+| 1.4.19
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -757,9 +756,15 @@
 | https://commons.apache.org/proper/commons-text[https://commons.apache.org/proper/commons-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
+| org.checkerframework
+| checker-qual
+| 3.5.0
+| https://checkerframework.org[https://checkerframework.org]
+|  http://opensource.org/licenses/MIT[The MIT License]
+
 | org.postgresql
 | postgresql
-| 42.2.14
+| 42.3.3
 | https://jdbc.postgresql.org/[https://jdbc.postgresql.org/]
 |  https://jdbc.postgresql.org/about/license.html[BSD-2-Clause]
 
@@ -999,7 +1004,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.18
+| 1.4.19
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -1239,7 +1244,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.18
+| 1.4.19
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -1759,9 +1764,15 @@
 | https://commons.apache.org/proper/commons-text[https://commons.apache.org/proper/commons-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
+| org.checkerframework
+| checker-qual
+| 3.5.0
+| https://checkerframework.org[https://checkerframework.org]
+|  http://opensource.org/licenses/MIT[The MIT License]
+
 | org.postgresql
 | postgresql
-| 42.2.14
+| 42.3.3
 | https://jdbc.postgresql.org/[https://jdbc.postgresql.org/]
 |  https://jdbc.postgresql.org/about/license.html[BSD-2-Clause]
 

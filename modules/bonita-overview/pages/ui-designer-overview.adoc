@@ -1,6 +1,7 @@
 = UI Designer overview
 :description: The UI Designer is a wysiwyg development environment for creating pages and forms for a Bonita application.
 :page-aliases: ROOT:ui-designer-overview.adoc
+:experimental:
 
 {description}
 
@@ -127,17 +128,12 @@ If your project is under version control and you rename an artifact, you could l
 
 == image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
-=== My UI Designer is broken and return a 404 error or a blank page
+*Symptom*: +
+You started your Bonita Studio today, and when you try to open a form from your process or open the UI Designer from the studio, the UI Designer doesn't open and you see a *404 Error* or a *blank page*. 
 
-You started your Studio today, and when you try to open a form from your process or open the UI Designer from the Studio, the UI Designer doesn't open and you see a 404 Error or a blank page. This page will help you fix this problem.
-
-==== Problem
-
-You started your Studio today, and when you try to open a form from your process or open the UI Designer from the Studio, the UI Designer doesn't open and you see a *404 Error* or a *blank page*.
-
-==== How to identify the root cause?
-
-The UI Designer has a log file that you can consult, either from the Studio Menu > Bonita UI-Designer log: +
+*Cause*: +
+_Identify the cause_ +
+The UI Designer has a log file that you can consult, either from menu:Bonita Studio[Help > Bonita UI-Designer log] menu: +
 image:images/ui-designer-troubleshooting/uid-logs.png[Open UI Designer log from the Studio]
 // {.img-responsive}
  +
@@ -160,11 +156,10 @@ Wrapped by: org.springframework.beans.factory.UnsatisfiedDependencyException: Er
 [...]
 ----
 
-==== Why do you have this error?
-
+_The cause_ +
 Oops, some artifacts from the UI Designer got corrupted in your git repository!
 
-Most of the time, and this is the case in this example, it's because of a missing file in your repository. It may be for different reasons: switch on a wrong git branch, file deleted by error, wrong commit, ...
+Most of the time, and this is the case in this example, it's because of a *missing file in your repository*. It may be for different reasons: switch on a wrong git branch, file deleted by error, wrong commit, ...
 
 In the error above, for example, the log file says: "Could not load component, unexpected structure in the file [timelineWidget.json] ... Build error for timelineWidget.json".
 
@@ -177,11 +172,10 @@ Depending on the type of the file missing, other error messages could be (where 
 [WARNING]
 ====
 
-The error message may vary depending on the Bonita version
+The error message may vary depending on the Bonita version.
 ====
 
-===== Expected files for the different artifacts
-
+_Expected files for the different artifacts_ +
 If you extended the Input standard widget, and called it SmartInput.
 You should have the following files in your +++<ProjectDir>+++/web_widgets directory:+++</ProjectDir>+++
 
@@ -193,7 +187,7 @@ customSmartInput (the custom widget directory)
 	customSmartInput.tpl.html
 ----
 
-If you created a page called SmartPage:
+If you created a page called SmartPage: +
 You should have the following files in your +++<ProjectDir>+++/web_pages directory (the content may vary if you added some assets):+++</ProjectDir>+++
 
 ----
@@ -207,7 +201,7 @@ SmartPage (the page directory)
         localization.json
 ----
 
-If you created a fragment called SmartFragment:
+If you created a fragment called SmartFragment: +
 You should have the following files in your +++<ProjectDir>+++/web_fragments directory:+++</ProjectDir>+++
 
 ----
@@ -216,10 +210,7 @@ SmartFragment (the fragment directory)
 	SmartFragment.json
 ----
 
-===== Error messages
-
-====== Custom widget
-
+_Error messages_ +
 * Custom widget missing
  ** 7.10 7.11 7.12
 +
@@ -272,8 +263,6 @@ NotFoundException: Controller not found for [customSmartInput.ctrl.js]
 * Custom widget js file missing
  ** No error, file is re-generated
 
-====== Fragment
-
 * Entire fragment folder is missing
  ** Same error for all versions
 +
@@ -289,20 +278,19 @@ NotFoundException: File not found: [SmartFragment.json]
 * Fragment js file missing
  ** No error, file is automatically re-generated
 
-==== Solution
-
+*Solution*: +
 In the case of a missing file, there are several ways to fix this error:
 
-===== 1. You are NOT using Git
+* You are NOT using Git
 
-* Option A: You have a backup of your repository and you can add the missing file in your repository again.
-* Option B: If it's default widget, you can find the file in your local studio workspace and add it to your repository.
+** Option A: You have a backup of your repository and you can add the missing file in your repository again.
+** Option B: If it's default widget, you can find the file in your local studio workspace and add it to your repository.
 
-===== 2. You ARE using Git
+* You ARE using Git
 
 Here are some examples of common mistakes:
 
-* You didn't pull the correct branch, you need to do the right pull.
+* You did not pull the correct branch, you need to do the right pull.
 * You have a merge conflict, you need to fix that conflict.
 * Somebody removed a file by error
  ** You can retrieve the file from a previous commit.
