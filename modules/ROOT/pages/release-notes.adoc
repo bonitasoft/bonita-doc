@@ -243,7 +243,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
-* RUNTIME-885 [Security] Authorization Bypass
+* RUNTIME-885 [Security] Issue with authorization mechaninsm
 * RUNTIME-918 Change engine datasources configuration to put back removeAbandonned
 * RUNTIME-919 XStream version update
 
