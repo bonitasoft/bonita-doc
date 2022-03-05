@@ -174,6 +174,11 @@ The methods used for this resource are:
 [discrete]
 ==== Get a tenant
 
+[WARNING]
+====
+This method was deprecated in Bonita 2021.1.
+====
+
 * *URL* +
 `/API/platform/tenant/:id`
 * *Method* +
@@ -199,6 +204,11 @@ The platform in JSON
 
 [discrete]
 ==== Create a tenant
+
+[WARNING]
+====
+This method was deprecated in Bonita 2021.1.
+====
 
 Create a new tenant on the platform.
 
@@ -241,6 +251,11 @@ the created tenant as JSON
 [discrete]
 ==== Update a tenant
 
+[WARNING]
+====
+This method was deprecated in Bonita 2021.1.
+====
+
 Attributes of the tenant can be changed, and it can be activated or deactivated at the same time.
 
 * *URL* +
@@ -279,6 +294,11 @@ The updated tenant as JSON
 
 [discrete]
 ==== Delete a tenant
+
+[WARNING]
+====
+This method was deprecated in Bonita 2021.1.
+====
 
 A tenant can only be deleted if it is in DEACTIVATED state.
 

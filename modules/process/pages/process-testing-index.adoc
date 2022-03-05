@@ -18,6 +18,19 @@ If you have already created your own xref:ROOT:actors-index.adoc[actors] for you
 . Select the process pool
 . Click on the *Configure* icon of the Studio coolbar and configure the _Actor mapping_
 
+== Integration Testing
+
+[NOTE]
+====
+For Enterprise, Performance, Efficiency and Teamwork editions only.
+====
+
+To write automated integration test scenarios for your automation project you can use the Bonita Test Toolkit. It provides powerful methods to execute all the steps of a process and check the corresponding outputs (statuses, business data, tasks used)
+
+It can be used in any IDE and can be integrated into a Continuous Integration.
+
+More information in the dedicated documentation: xref:test-toolkit:ROOT:process-testing-overview.adoc[Bonita Test Toolkit] 
+
 == Performance testing
 In addition to functional testing during development, we recommend that you monitor the system load. This will help evaluate the performance, so you can make your processes efficient.
 
@@ -28,20 +41,10 @@ When you have finished developing your process, we also recommend that you perfo
 
 [.card.card-index]
 --
-xref:ROOT:configure-a-test-organization.adoc[[.card-title]#Configure a test organization# [.card-body.card-content-overflow]#pass:q[Create only the main entities of the target organization]#]
+xref:configuring-a-process.adoc[[.card-title]#Configure a process# [.card-body.card-content-overflow]#pass:q[Prepare each process to be deployed in each target environment]#]
 --
 
 [.card.card-index]
 --
-xref:ROOT:configuring-a-process.adoc[[.card-title]#Configure a process# [.card-body.card-content-overflow]#pass:q[Prepare each process to be deployed in each target environment]#]
---
-
-[.card.card-index]
---
-xref:ROOT:run-a-process-from-bonita-bpm-studio-for-testing.adoc[[.card-title]#Run a process from Bonita Studio# [.card-body.card-content-overflow]#pass:q[Simulate the final process execution]#]
---
-
-[.card.card-index]
---
-xref:ROOT:log-files.adoc[[.card-title]#Studio log files# [.card-body.card-content-overflow]#pass:q[Log files content for easy monitoring and troubleshooting]#]
+xref:setup-dev-environment:log-files.adoc[[.card-title]#Studio log files# [.card-body.card-content-overflow]#pass:q[Log files content for easy monitoring and troubleshooting]#]
 --
