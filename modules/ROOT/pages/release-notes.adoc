@@ -41,6 +41,23 @@ It is now possible to change the log level of your platform without restarting i
 
 == Functional changes
 
+=== Engine HTTP APIs protected with Basic Auth
+
+Engine HTTP APIs are used to access Bonita Engine Java APIs directly through HTTP.
+Their access is now protected with Basic Access authentication. +
+
+In Bonita Tomcat bundle:
+
+* HTTP APIs are *active by default*, and *default* credentials are:
+** username: `http-api`
+** password: `h11p-@p1`
+
+In Bonita Docker image:
+
+* HTTP APIs are *disabled by default*, and *default* credentials are:
+** username: `http-api`
+** No default password. xref:runtime:bonita-docker-installation.adoc#_http_api_password[One must be provided], otherwise the Docker container will refuse to start.
+
 === Prometheus monitoring active by default (Subscription editions)
 
 From Bonita 2022.1, xref:runtime-monitoring.adoc#_prometheus_publisher[the Prometheus metrics publisher] is now active by default and can be disabled if needed. +
