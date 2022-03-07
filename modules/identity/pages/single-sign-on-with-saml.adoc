@@ -277,7 +277,7 @@ Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, t
 
 [WARNING]
 ====
-If your Bonita platform is behind a reverse proxy or a load balancer, You need to make sure the reverse proxy / load balancer is configured
+If your Bonita Runtime is behind a reverse proxy or a load balancer, You need to make sure the reverse proxy / load balancer is configured
 to include the correct headers for the host (and the protocol if needed) to the requests and the application server is configured to use these headers (it is usually the case by default). +
 This is required so that `HttpServletRequest.getRequestURL` returns the URL used by the user and not the internal URL used by the reverse proxy. +
 For example, if you are running Apache >=2.0.31 as reverse proxy, this configuration is controlled by the property http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypreservehost[ProxyPreserveHost] that will override the `Host:` header. +
@@ -323,9 +323,9 @@ When a user logs out from the IdP directly, Bonita Runtime's session will remain
 to the configured session timeout value upon each user interaction with the server.
 ====
 
-=== Setup Bonita platform for SAML global logout
+=== Setup Bonita Runtime for SAML global logout
 
-Global logout allows to log out from the Identity Provider as well as all the registered Service Providers when logging out from Bonita platform. This is sometimes required for example if users are on public computers.
+Global logout allows to log out from the Identity Provider as well as all the registered Service Providers when logging out from Bonita Runtime. This is sometimes required for example if users are on public computers.
 As Identity Providers do not necessarily support single logout and have different ways of handling it (there are several SAML Single Logout methods), Bonita only offers SAML global logout as an experimental feature. Meaning that this feature has only been tested with Keycloack server acting as Identity Provider.
 Therefore, there is no guaranty that the global logout will work with your Identity Provider. However, if your IdP supports the Service Provider initiated flow of SAML's Web Browser Single Logout profile, single logout is likely to work.
 To setup Bonita for global logout:
@@ -338,6 +338,43 @@ To setup Bonita for global logout:
 ====
 If the single logout flow supported by your IdP is not the same as the one supported by Bonita platform, the preferred solution to handle it anyway is to intercept the requests to /logoutService and handle the logout programmatically.
 ====
+
+== Manage passwords
+
+When your Bonita platform is configured to manage authentication over SAML, the user password are managed in your SAML Identity Provider (IdP).
+However, when you create a user in Bonita Applications, specifying a password is mandatory. This password is ignored when logging in with the IdP.
+
+== LDAP synchronizer and SAML
+
+If you are using an LDAP service and the xref:ROOT:ldap-synchronizer.adoc[LDAP synchronizer] to manage your user data, +
+you can continue to do this and manage authentication over SAML. +
+The LDAP synchronizer user must be registered in Bonita (no need for an SAML IdP account). It is recommended though to use the tenant admin account.
+We recommend that you use LDAP as your master source for information, synchronizing the relevant information with your Bonita platform.
+
+[NOTE]
+====
+
+By default the xref:ROOT:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `saml.auth.standard.allowed` in *authenticationManager-config.properties*), users won't be able to log in with the Bonita login page directly without going through the IdP. +
+====
+
+== Single sign-on with SAML using the REST API
+
+SAML is a browser-oriented protocol (based on http automatic redirection, forms, etc...), therefore only resources that require a direct access from a web browser are handled by the SAML filter.
+Access to other resources won't trigger an SAML authentication process.
+Here is the subset of pages filtered by the SAML filter:
+
+* /saml
+* /samlLogout
+* /portal/homepage
+* /portal/resource/*
+* /portal/form/*
+* /mobile/*
+* /apps/*
+* /logoutservice
+
+REST API are not part of them, but if an http session already exists thanks to cookies, REST API can be used.
+
+The recommended way to authenticate in Bonita Runtime, in order to use the REST API, is to use the xref:ROOT:rest-api-overview.adoc#bonita-authentication[login service].
 
 == image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
@@ -459,40 +496,3 @@ Some IdPs dissociate the Recipient URL from the Assertion Consumer Service (ACS)
 The workaround for this issue is to make sure to set the Recipient parameter in the IdP configuration with the same value as the ACS of the service provider (`http[s]://<bundle host>:<port>/bonita/saml`), so that the `destination` attribute is present in the SAML response. +
 This issue hapens when the Recipient URL is left empty resulting to an empty `destination` attribute in the SAML response.
 ****
-
-== Manage passwords
-
-When your Bonita platform is configured to manage authentication over SAML, the user password are managed in your SAML Identity Provider (IdP).
-However, when you create a user in Bonita Applications, specifying a password is mandatory. This password is ignored when logging in with the IdP.
-
-== LDAP synchronizer and SAML
-
-If you are using an LDAP service and the xref:ROOT:ldap-synchronizer.adoc[LDAP synchronizer] to manage your user data, +
-you can continue to do this and manage authentication over SAML. +
-The LDAP synchronizer user must be registered in Bonita (no need for an SAML IdP account). It is recommended though to use the tenant admin account.
-We recommend that you use LDAP as your master source for information, synchronizing the relevant information with your Bonita platform.
-
-[NOTE]
-====
-
-By default the xref:ROOT:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username. So, even if you allow standard authentication (by setting the property `saml.auth.standard.allowed` in *authenticationManager-config.properties*), users won't be able to log in with the Bonita login page directly without going through the IdP. +
-====
-
-== Single sign-on with SAML using the REST API
-
-SAML is a browser-oriented protocol (based on http automatic redirection, forms, etc...), therefore only resources that require a direct access from a web browser are handled by the SAML filter.
-Access to other resources won't trigger an SAML authentication process.
-Here is the subset of pages filtered by the SAML filter:
-
-* /saml
-* /samlLogout
-* /portal/homepage
-* /portal/resource/*
-* /portal/form/*
-* /mobile/*
-* /apps/*
-* /logoutservice
-
-REST API are not part of them, but if an http session already exists thanks to cookies, REST API can be used.
-
-The recommended way to authenticate in Bonita Runtime, in order to use the REST API, is to use the xref:ROOT:rest-api-overview.adoc#bonita-authentication[login service].
