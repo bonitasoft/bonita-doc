@@ -92,9 +92,9 @@ The Tomcat bundle does not log anymore in the console but only in `bonita.log` f
 
 === Enterprise Docker image 
 
-Docker image is now focused on the RUN phase, environment preparation will be handled apart (as on-premise installations) so docker image does not create anymore the database schema and the associated user. Still, the database must be created before the docker image starts. We provide pre-configured database images with included schema and users on Docker Hub. 
+Docker image is now focused on the RUN phase, environment preparation will be handled apart (as on-premise installations) so docker image does not create anymore the database schema and the associated user. Still, the database must be created before the docker image starts. We provide pre-configured database images with included schema and users on xref:https://hub.docker.com/u/bonitasoft[Docker Hub].
 
-LDAP Synchronizer  is now out of Bonita docker image and is available as an independent docker image ready to use (available on quay.io)
+LDAP Synchronizer is now out of Bonita docker image and is available as an independent docker image ready to use (available on quay.io)
 
 For assuring a smooth and obvious Runtime confirmation management, environment properties and configuration variables nomenclature has been reviewed to provide homogeneity among all of them. See dedicated documentation for details. 
 
@@ -117,6 +117,20 @@ To rationalize the Bonita configuration variables, some properties have been ren
 
 * [.line-through]#`REST_API_DYN_AUTH_CHECKS`# flag is replaced by `BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED`. See xref:runtime:bonita-docker-installation.adoc#dynamic-check-enable[dedicated section] for details.
 
+
+To make the Bonita Docker image easier to configure, some new xref:runtime:bonita-docker-installation.adoc#_environment_variables[environment variables have been added]:
+
+* HTTP_API_USERNAME
+* HTTP_API_PASSWORD
+* JMX_REMOTE_ACCESS
+* REMOTE_IP_VALVE_ENABLED
+* ACCESSLOGS_STDOUT_ENABLED
+* ACCESSLOGS_FILES_ENABLED
+* ACCESSLOGS_PATH
+* ACCESSLOGS_PATH_APPEND_HOSTNAME
+* ACCESSLOGS_MAX_DAYS
+* HTTP_MAX_THREADS
+
 == Feature deprecations and removals
 
 === SVN
@@ -129,7 +143,7 @@ The platform produces a warning log if the filter is set and ignores it.
 * Removed: the `ReportingAPI` is removed as well as its associated engine API.
 
 === Multi-Tenancy
-The create tenant method has been deprecated following our 2021.1 decision to deprecate the Multi-Tenants architecture
+The create tenant method has been deprecated following our 2021.1 decision to deprecate the Multi-Tenants architecture.
 
 
 == Bug fixes
