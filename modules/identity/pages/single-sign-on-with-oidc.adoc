@@ -271,7 +271,7 @@ to the configured session timeout value upon each user interaction with the serv
 ====
 
 [discrete]
-==== Setup Bonita platform for OIDC logout
+==== Setup Bonita Runtime for OIDC logout
 
 Global logout allows to log out from the OIDC provider as well as all the registered Service Providers when logging out from Bonita platform. This is sometimes required for example if users are on public computers.
 As OIDC Providers do not necessarily support single logout and have different ways of handling it (there are several OIDC Single Logout methods), Bonita only offers OIDC logout through an OIDC logout URL that the IpP should provide and support.
@@ -283,58 +283,8 @@ To setup Bonita for OIDC logout:
 [NOTE]
 ====
 
-If the logout flow supported by your OIDC provider is not the same as the one supported by Bonita platform, the preferred solution to handle it anyway is to intercept the requests to /logoutService and handle the logout programmatically.
+If the logout flow supported by your OIDC provider is not the same as the one supported by Bonita Runtime, the preferred solution to handle it anyway is to intercept the requests to /logoutService and handle the logout programmatically.
 ====
-
-== image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
-
-=== Logs
-
-To troubleshoot SSO login issues, you need to increase the xref:ROOT:logging.adoc[log level] to `FINE` for the packages `org.bonitasoft`, `com.bonitasoft`, and `ALL` for `org.keycloak` in order for errors to be displayed in the log files `bonita-*.log` (by default, they are not).
-
-In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/logging.properties.`
-
-* Make sure the following lines are not commented or add them if they are not present (the syntaxe of the first line with `class\` is necessary because of the way the loggers are created in Keycloak):
-+
-----
-class\ org.keycloak.level = ALL
-org.keycloak.level = ALL
-----
-
-* Update the existing lines (to set the level to `FINE`):
-+
-----
-org.bonitasoft.level = FINE
-com.bonitasoft.level = FINE
-----
-
-[discrete]
-=== Common error examples
-
-****
-*Symptom:* +
-After configuring OIDC SSO in Bonita, the Bonita login page appears and you are not redirected to the SSO login page. +
-
-*Possible solutions:*
-
-* Check all the Bonita configuration settings are correct.
-* Make sure `setup[.sh][.bat] push` has been executed and the server restarted after the changes.
-* Try cleaning the cache and cookies of the web browser.
-****
-
-****
-*Symptom:* +
-After logging in on the OIDC provider, you are redirected to Bonita but you get a 403 error. +
-
-*Cause:* +
-Either Bonita OIDC module does not manage to obtain the access tokens, or you don't have the required rights to access the page (when trying to display a page of an application without having the required profile for example). +
-
-*Solution:* +
-Check the logs:
-
-* If you see a message `failed to turn code into token`, it meens you are in the first situation. The next lines in the logs should indicate the origin of the problem. Usually, you will need to update the file *keycloak-oidc.json* to match the configuration of Bonita client declared on the OIDC provider. For example, you may get the following error in the logs: `Unauthorized client` with as error description: `invalid client secret`. In this case, just fix the client secret in the file *keycloak-oidc.json* (and push the new configuration into database using the setup tool).
-* If you don't see any keycloak message, then it probably means the user trying to log in just does not have the required profile to see the application. Go to the profile list page and check the profile associated with the application to make sure the user has this profile.
-****
 
 == Manage passwords
 
@@ -431,3 +381,53 @@ You don't need to configure any xref:security:enable-cors-in-tomcat-bundle.adoc#
 ==== Configure the Identity Provider
 
 In your OIDC identity provider (IdP) configuration, you should make sure the `bonita` OIDC Service Provider declares the URLs of the domains where the pages requiring calls to Bonita REST API are hosted (or `*` if you want to allow all origins) as `Allowed CORS web origins`.
+
+== image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+
+=== Logs
+
+To troubleshoot SSO login issues, you need to increase the xref:ROOT:logging.adoc[log level] to `FINE` for the packages `org.bonitasoft`, `com.bonitasoft`, and `ALL` for `org.keycloak` in order for errors to be displayed in the log files `bonita-*.log` (by default, they are not).
+
+In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/logging.properties.`
+
+* Make sure the following lines are not commented or add them if they are not present (the syntaxe of the first line with `class\` is necessary because of the way the loggers are created in Keycloak):
++
+----
+class\ org.keycloak.level = ALL
+org.keycloak.level = ALL
+----
+
+* Update the existing lines (to set the level to `FINE`):
++
+----
+org.bonitasoft.level = FINE
+com.bonitasoft.level = FINE
+----
+
+[discrete]
+=== Common error examples
+
+****
+*Symptom:* +
+After configuring OIDC SSO in Bonita, the Bonita login page appears and you are not redirected to the SSO login page. +
+
+*Possible solutions:*
+
+* Check all the Bonita configuration settings are correct.
+* Make sure `setup[.sh][.bat] push` has been executed and the server restarted after the changes.
+* Try cleaning the cache and cookies of the web browser.
+****
+
+****
+*Symptom:* +
+After logging in on the OIDC provider, you are redirected to Bonita but you get a 403 error. +
+
+*Cause:* +
+Either Bonita OIDC module does not manage to obtain the access tokens, or you don't have the required rights to access the page (when trying to display a page of an application without having the required profile for example). +
+
+*Solution:* +
+Check the logs:
+
+* If you see a message `failed to turn code into token`, it meens you are in the first situation. The next lines in the logs should indicate the origin of the problem. Usually, you will need to update the file *keycloak-oidc.json* to match the configuration of Bonita client declared on the OIDC provider. For example, you may get the following error in the logs: `Unauthorized client` with as error description: `invalid client secret`. In this case, just fix the client secret in the file *keycloak-oidc.json* (and push the new configuration into database using the setup tool).
+* If you don't see any keycloak message, then it probably means the user trying to log in just does not have the required profile to see the application. Go to the profile list page and check the profile associated with the application to make sure the user has this profile.
+****
