@@ -1,11 +1,11 @@
-= Migrate a live environment to upgrade the version
+= Migrate a live environment to update the version
 :description: Service stopped: Migrate the data, install a new environment, test non-migrated elements behavior and compatibility with new bonita version
 
 Service stopped: Migrate the data, install a new environment, test non-migrated elements behavior and compatibility with new bonita version
 
 == Overview
 
-This page explains how to migrate your platform to a newer version of Bonita.
+This page explains how to migrate your platform to a newer Bonita version.
 
 You can migrate your platform using the `Bonita Migration Tool`. There are 2 versions of the migration tool:
 
@@ -36,10 +36,10 @@ You are recommended not to start 7.0.0 after you migrate to it, but to proceed i
 ====
 
 *RDBMS requirements:*
-The version targeted may not support the version of the database that is being migrated. You may then need to upgrade the version of your database prior to running the migration tool.
+The version targeted may not support the version of the database that is being migrated. You may then need to update the version of your database prior to running the migration tool.
 
 * Please check the xref:hardware-and-software-requirements.adoc[database requirements].
-* If you need to upgrade your database:
+* If you need to update your database:
  ** Please make sure to apply all the xref:database-configuration.adoc#specific_database_configuration[RDBMS customisations required by Bonita] when setting up the new version.
 ====
 
@@ -47,7 +47,7 @@ The version targeted may not support the version of the database that is being m
 The tool migrates your platform (_bonita_home_ folder and the database). You cannot xref:upgrade-from-community-to-a-subscription-edition.adoc[change edition] while migrating.
 
 * If you are running a Bonita Subscription Pack edition, you need a valid license for your target version.
-* If you are upgrading to a new maintenance version and not changing the minor version number (for example, you are migrating from x.y.0 to x.y.1), your current license remains valid after migration.
+* If you are updating to a new maintenance version and not changing the minor version number (for example, you are migrating from x.y.0 to x.y.1), your current license remains valid after migration.
 
 [NOTE]
 ====
@@ -65,7 +65,7 @@ The _Bonita Migration Tool_ contains a set of script that execute changes on the
 This tool is provided as a zip archive and contains an executable script that will determine your current configuration and ask you in which version you want to migrate.
 
 The migration is step-wise by maintenance version and the script manages the sequence of steps from your current version to the target version.
-After each minor or maintenance version upgrade, you have the option to pause or continue to the next step.
+After each minor or maintenance version update, you have the option to pause or continue to the next step.
 
 The migration script migrates the following:
 
