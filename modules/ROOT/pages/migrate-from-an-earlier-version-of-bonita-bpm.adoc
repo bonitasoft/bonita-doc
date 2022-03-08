@@ -1,4 +1,4 @@
-= Migrate a live environment to update the version
+= Bonita Runtime version update
 :description: Service stopped: Migrate the data, install a new environment, test non-migrated elements behavior and compatibility with new bonita version
 
 Service stopped: Migrate the data, install a new environment, test non-migrated elements behavior and compatibility with new bonita version
@@ -114,7 +114,7 @@ Furthermore, from the database point of view, as any operations on a production 
 Therefore, it is strongly recommended to do a  xref:back-up-bonita-bpm-platform.adoc[backup of your database] before starting the migration.
 ====
 
-== Estimate time required
+== Estimate required time
 
 The platform must be shut down during migration.
 The time required depends on several factors including the database volume, the number of versions between the source version and the
