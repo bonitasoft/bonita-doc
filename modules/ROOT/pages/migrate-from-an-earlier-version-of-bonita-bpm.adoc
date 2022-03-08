@@ -36,10 +36,10 @@ You are recommended not to start 7.0.0 after you migrate to it, but to proceed i
 ====
 
 *RDBMS requirements:*
-The version targeted may not support the version of the database that is being migrated. You may then need to update the version of your database prior to running the migration tool.
+The version targeted may not support the version of the database that is being migrated. You may then need to upgrade the version of your database prior to running the migration tool.
 
 * Please check the xref:hardware-and-software-requirements.adoc[database requirements].
-* If you need to update your database:
+* If you need to upgrade your database:
  ** Please make sure to apply all the xref:database-configuration.adoc#specific_database_configuration[RDBMS customisations required by Bonita] when setting up the new version.
 ====
 
