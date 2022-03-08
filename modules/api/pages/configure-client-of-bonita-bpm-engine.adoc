@@ -88,20 +88,16 @@ org.bonitasoft.engine.api-type = LOCAL
 
 === Server configuration to accept HTTP Connection
 
-By default the xref:runtime:tomcat-bundle.adoc[Tomcat bundle] is configured to accept connection for HTTP connections.
+By default, the xref:runtime:tomcat-bundle.adoc[Tomcat bundle] is configured to accept connection over HTTP.
 
-It is configured in the `web.xml` file of the web application like this:
+To *deactivate* HTTP connections:
 
-[source,xml]
-----
-<servlet>
-    <servlet-name>HttpAPIServlet</servlet-name>
-    <servlet-class>org.bonitasoft.engine.api.internal.servlet.HttpAPIServlet</servlet-class>
-</servlet>
-----
+* either add a Java system property `-Dhttp.api=false` to file `setEnv.[sh|bat]` inside tomcat bundle (in folder `setup/tomcat_templates/`)
+* or set an environment variable `HTTP_API=false` before launching Bonita Tomcat bundle
+
 
 [WARNING]
 ====
 
-This HTTP access  is not secured, it should not be exposed outside a trusted area. We recommend you to deactivate it if you expose directly your deployment to the outside world.
+This HTTP access is not secured, it should not be exposed outside a trusted area. We recommend you to deactivate it if you expose directly your deployment to the outside world.
 ====

@@ -325,8 +325,8 @@ It is not necessary to restart the application server to activate security for t
 
 == Granting permissions to a given resource
 
-If you only develop custom pages and you declare the resources they use properly, you should never have to create custom permissions.
-However, you may need to do so if you need to manually grant permissions to a given REST API resource (so that it can be called programatically for example). In order to do that, you need to:
+If you only develop custom pages, and you declare the resources they use properly, you should never have to create custom permissions.
+However, you may need to do so if you need to manually grant permissions to a given REST API resource (so that it can be called programmatically for example). In order to do that, you need to:
 
 . Look into the file `resources-permissions-mapping.properties` for the permissions that grant access to the resource.
 For example, in order to perform a GET on `bpm/task`, I can see that I need the permission `flownode_visualization` (syntax: `GET|bpm/task=[flownode_visualization]`)
@@ -350,28 +350,11 @@ To activate authorization, edit `security-config.properties` and set the value o
 To deactivate authorization, set the property to `false`, then restart the application server.
 
 If you activate authorization, you must also deactivate the HTTP API, so that is cannot be used to bypass the authorization settings.
-To do this, you can either filter the HTTP API in the Tomcat configuration (that is, accept only specific IP addresses), or you can
-deactivate the `HttpAPIServlet`. To deactivate the servlet, go to the `webapps/bonita/WEB-INF` folder of your web server,
-edit `web.xml` and comment out the following definitions:
+To do this, you can:
 
-[source,xml]
-----
-    <!-- For engine HTTP API -->
-    <!--
-    <servlet>
-        <servlet-name>HttpAPIServlet</servlet-name>
-        <servlet-class>org.bonitasoft.engine.api.internal.servlet.HttpAPIServlet</servlet-class>
-    </servlet>
-    -->
+* either add a Java system property `-Dhttp.api=false` to file `setEnv.[sh|bat]` inside tomcat bundle (in folder `setup/tomcat_templates/`)
+* or set an environment variable `HTTP_API=false` before launching Bonita Tomcat bundle
 
-
-    <!--
-     <servlet-mapping>
-         <servlet-name>HttpAPIServlet</servlet-name>
-         <url-pattern>/serverAPI/*</url-pattern>
-     </servlet-mapping>
-     -->
-----
 
 [#debug]
 
