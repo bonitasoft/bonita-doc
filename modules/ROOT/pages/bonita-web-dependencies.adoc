@@ -44,13 +44,13 @@
 
 | org.bonitasoft.engine
 | bonita-client
-| 7.12.10
+| 7.12.11
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-common
-| 7.12.10
+| 7.12.11
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
@@ -68,7 +68,7 @@
 
 | org.springframework
 | spring-core
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 |=== 
@@ -171,37 +171,37 @@
 
 | org.bonitasoft.console
 | console-common
-| 7.12.10
+| 7.12.11
 | N/A
 |  -
 
 | org.bonitasoft.engine
 | bonita-client
-| 7.12.10
+| 7.12.11
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-common
-| 7.12.10
+| 7.12.11
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.forms
 | forms-server
-| 7.12.10
+| 7.12.11
 | N/A
 |  -
 
 | org.bonitasoft.web
 | bonita-web-extensions
-| 7.12.10
+| 7.12.11
 | http://www.bonitasoft.com[http://www.bonitasoft.com]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.codehaus.groovy
 | groovy-all
-| 2.4.20
+| 2.4.21
 | http://groovy-lang.org[http://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -243,13 +243,13 @@
 
 | org.springframework
 | spring-core
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-web
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -280,13 +280,13 @@
 
 | org.bonitasoft.console
 | console-client
-| 7.12.10
+| 7.12.11
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-common-sp
-| 7.12.10
+| 7.12.11
 | N/A
 |  -
 |=== 
@@ -299,7 +299,7 @@
 
 | com.bonitasoft.engine
 | bonita-client-sp
-| 7.12.10
+| 7.12.11
 | N/A
 |  -
 
@@ -311,7 +311,7 @@
 
 | org.bonitasoft.console
 | console-common
-| 7.12.10
+| 7.12.11
 | N/A
 |  -
 |=== 
@@ -324,19 +324,19 @@
 
 | com.bonitasoft.engine
 | bonita-client-sp
-| 7.12.10
+| 7.12.11
 | N/A
 |  -
 
 | com.bonitasoft.engine
 | bonita-common-sp
-| 7.12.10
+| 7.12.11
 | N/A
 |  -
 
 | com.bonitasoft.web
 | bonita-web-extensions-sp
-| 7.12.10
+| 7.12.11
 | http://www.bonitasoft.com[http://www.bonitasoft.com]
 |  -
 
@@ -394,6 +394,12 @@
 | http://commons.apache.org/proper/commons-math/[http://commons.apache.org/proper/commons-math/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
+| org.apache.santuario
+| xmlsec
+| 2.1.7
+| https://santuario.apache.org/[https://santuario.apache.org/]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+
 | org.apache.xbean
 | xbean-classloader
 | 3.7
@@ -420,37 +426,37 @@
 
 | org.bonitasoft.console
 | bos-mobile-sp
-| 7.12.10
+| 7.12.11
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-common-sp
-| 7.12.10
+| 7.12.11
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-server
-| 7.12.10
+| 7.12.11
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-server
-| 7.12.10
+| 7.12.11
 | N/A
 |  -
 
 | org.bonitasoft.forms
 | forms-server-sp
-| 7.12.10
+| 7.12.11
 | N/A
 |  -
 
 | org.codehaus.groovy
 | groovy-all
-| 2.4.20
+| 2.4.21
 | http://groovy-lang.org[http://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
