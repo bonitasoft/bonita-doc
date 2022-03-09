@@ -435,7 +435,7 @@ In Bonita Studio the loggers to see denied REST resources access are already con
 * Check the logs and look for a message starting by `Unauthorized access to ...`.
 ** If the access was denied by a dynamic permission rule, the log message will indicate which one
 ** If the access was denied by static permissions, the log message will indicate which static permissions can grant access to the resource
-* If the access should be granted for the logged in user, either fix the rule or the stic permissions
+* If the access should be granted for the logged in user, either fix the rule or the static permissions
 * If the access was denied as expected, fix the page that contain the request to update/remove the request
 ****
 
