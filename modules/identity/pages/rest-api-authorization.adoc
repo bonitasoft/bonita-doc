@@ -405,6 +405,39 @@ Then, each time you change a dynamic check script, simply update it in database 
 
 To deactivate authorization, set the above property to `false`, then restart the application server. Debug mode should be deactivated in production, so as not to impact performance.
 
+
+== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+
+To troubleshoot REST API permissions issues, you need to increase the xref:ROOT:logging.adoc[log level] to `DEBUG` (or `TRACE` for even more logs) for the packages `org.bonitasoft.authorization` and `com.bonitasoft.authorization` in order requests attempts to be displayed in the log files `bonita-*.log` (by default, they are not).
+
+In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/log4j2-loggers.xml.
+
+* Make sure the following lines are not commented or add them if they are not present :
+
+[source,xml]
+----
+    <Logger level="TRACE" name="org.bonitasoft.engine.authorization"/>
+    <Logger level="TRACE" name="com.bonitasoft.engine.authorization"/>
+----
+
+[NOTE]
+====
+In Bonita Studio the loggers to see denied REST resources access are already configured in order to help troubleshooting 403 errors.
+====
+
+=== Common error examples
+
+****
+*Symptom:* Getting a 403 response for some requests +
+*Possible Solutions:*
+
+* Check the logs and look for a message starting by `Unauthorized access to ...`.
+** If the access was denied by a dynamic permission rule, the log message will indicate which one
+** If the access was denied by static permissions, the log message will indicate which static permissions can grant access to the resource
+* If the access should be granted for the logged in user, either fix the rule or the stic permissions
+* If the access was denied as expected, fix the page that contain the request to update/remove the request
+****
+
 == Permissions and resources
 
-You can find the rest API authorizations xref:api-permissions-overview.adoc[in this page].
+You can find the default REST API authorizations xref:api-permissions-overview.adoc[in this page].
