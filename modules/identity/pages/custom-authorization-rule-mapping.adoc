@@ -4,6 +4,11 @@
 
 {description}
 
+[NOTE]
+====
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
+====
+
 == Introduction
 
 This tutorial explains how to customize authorization rule mapping.
