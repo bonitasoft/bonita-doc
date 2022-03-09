@@ -1,4 +1,4 @@
-= Bonita engine dependencies (7.12.10)
+= Bonita engine dependencies (7.12.11)
 :description: List all dependencies uses for Bonita Engine
 
 
@@ -143,7 +143,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.18
+| 1.4.19
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -300,7 +300,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.18
+| 1.4.19
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -420,7 +420,7 @@
 
 | org.codehaus.groovy
 | groovy-all
-| 2.4.20
+| 2.4.21
 | http://groovy-lang.org[http://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -528,49 +528,49 @@
 
 | org.springframework
 | spring-aop
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jdbc
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-tx
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -655,7 +655,7 @@
 
 | mysql
 | mysql-connector-java
-| 8.0.27
+| 8.0.28
 | http://dev.mysql.com/doc/connector-j/en/[http://dev.mysql.com/doc/connector-j/en/]
 |  The GNU General Public License, v2 with FOSS exception
 
@@ -665,9 +665,15 @@
 | https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
+| org.checkerframework
+| checker-qual
+| 3.5.0
+| https://checkerframework.org[https://checkerframework.org]
+|  http://opensource.org/licenses/MIT[The MIT License]
+
 | org.postgresql
 | postgresql
-| 42.2.14
+| 42.3.3
 | https://jdbc.postgresql.org/[https://jdbc.postgresql.org/]
 |  https://jdbc.postgresql.org/about/license.html[BSD-2-Clause]
 
@@ -679,49 +685,49 @@
 
 | org.springframework
 | spring-aop
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jdbc
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-tx
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -909,7 +915,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.18
+| 1.4.19
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -1052,10 +1058,40 @@
 | https://github.com/bohnman/squiggly-filter-jackson[https://github.com/bohnman/squiggly-filter-jackson]
 |  https://raw.githubusercontent.com/bohnman/squiggly-filter-jackson/master/LICENSE.md[BSD License]
 
+| com.google.code.findbugs
+| jsr305
+| 3.0.2
+| http://findbugs.sourceforge.net/[http://findbugs.sourceforge.net/]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| com.google.errorprone
+| error_prone_annotations
+| 2.5.1
+| N/A
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache 2.0]
+
+| com.google.guava
+| failureaccess
+| 1.0.1
+| https://github.com/google/guava/[https://github.com/google/guava/]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
 | com.google.guava
 | guava
-| 19.0
-| https://guava-libraries.googlecode.com/[https://guava-libraries.googlecode.com/]
+| 30.1.1-jre
+| https://github.com/google/guava/[https://github.com/google/guava/]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+
+| com.google.guava
+| listenablefuture
+| 9999.0-empty-to-avoid-conflict-with-guava
+| N/A
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| com.google.j2objc
+| j2objc-annotations
+| 1.3
+| https://github.com/google/j2objc/[https://github.com/google/j2objc/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.hazelcast
@@ -1108,7 +1144,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.18
+| 1.4.19
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -1268,9 +1304,15 @@
 | http://geronimo.apache.org/maven/xbean/3.7/xbean-classloader[http://geronimo.apache.org/maven/xbean/3.7/xbean-classloader]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
+| org.checkerframework
+| checker-qual
+| 3.8.0
+| https://checkerframework.org[https://checkerframework.org]
+|  http://opensource.org/licenses/MIT[The MIT License]
+
 | org.codehaus.groovy
 | groovy-all
-| 2.4.20
+| 2.4.21
 | http://groovy-lang.org[http://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1384,49 +1426,49 @@
 
 | org.springframework
 | spring-aop
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jdbc
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-tx
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -1511,7 +1553,7 @@
 
 | mysql
 | mysql-connector-java
-| 8.0.27
+| 8.0.28
 | http://dev.mysql.com/doc/connector-j/en/[http://dev.mysql.com/doc/connector-j/en/]
 |  The GNU General Public License, v2 with FOSS exception
 
@@ -1521,9 +1563,15 @@
 | https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
+| org.checkerframework
+| checker-qual
+| 3.5.0
+| https://checkerframework.org[https://checkerframework.org]
+|  http://opensource.org/licenses/MIT[The MIT License]
+
 | org.postgresql
 | postgresql
-| 42.2.14
+| 42.3.3
 | https://jdbc.postgresql.org/[https://jdbc.postgresql.org/]
 |  https://jdbc.postgresql.org/about/license.html[BSD-2-Clause]
 
@@ -1535,49 +1583,49 @@
 
 | org.springframework
 | spring-aop
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jdbc
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-tx
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
