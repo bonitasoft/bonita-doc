@@ -405,7 +405,6 @@ Then, each time you change a dynamic check script, simply update it in database 
 
 To deactivate authorization, set the above property to `false`, then restart the application server. Debug mode should be deactivated in production, so as not to impact performance.
 
-
 == image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
 To troubleshoot REST API permissions issues, you need to increase the xref:ROOT:logging.adoc[log level] to `DEBUG` (or `TRACE` for even more logs) for the packages `org.bonitasoft.authorization` and `com.bonitasoft.authorization` in order requests attempts to be displayed in the log files `bonita-*.log` (by default, they are not).
