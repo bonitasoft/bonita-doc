@@ -4,10 +4,6 @@
 
 {description}
 
-[NOTE]
-====
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
-====
 
 == Introduction
 
