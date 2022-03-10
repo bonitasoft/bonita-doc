@@ -275,11 +275,11 @@ This optional environment variable is used in conjunction with TENANT_PASSWORD t
 
 === MONITORING_USERNAME
 
-This optional environment variable is used in conjunction with `MONITORING_PASSWORD` to define the access to the xref:runtime-monitoring.adoc#_prometheus_publisher[Prometheus monitoring endpoint], which is protected with https://en.wikipedia.org/wiki/Basic_access_authentication[BASIC Auth access]. If it is not specified, the default monitoring username `monitoring` will be used.
+This optional environment variable is used in conjunction with `MONITORING_PASSWORD` to define the access to endpoints protected with https://en.wikipedia.org/wiki/Basic_access_authentication[BASIC Auth access]: the xref:runtime-monitoring.adoc#_prometheus_publisher[Monitoring endpoint], the xref:runtime-monitoring.adoc#_jmx_publisher[Jmx publisher], and the xref:healthcheck-mechanism.adoc#_api_health_endpoints[API health endpoints]. If it is not specified, the default monitoring username `monitoring` will be used.
 
 === MONITORING_PASSWORD
 
-This optional environment variable is used in conjunction with `MONITORING_USERNAME` to define the access to the xref:runtime-monitoring.adoc#_prometheus_publisher[Prometheus monitoring endpoint], which is protected with https://en.wikipedia.org/wiki/Basic_access_authentication[BASIC Auth access]. If it is not specified, the default monitoring username `mon1tor1ng_adm1n` will be used.
+This optional environment variable is used in conjunction with `MONITORING_USERNAME` to define the access to endpoints protected with https://en.wikipedia.org/wiki/Basic_access_authentication[BASIC Auth access]: the xref:runtime-monitoring.adoc#_prometheus_publisher[Monitoring endpoint], the xref:runtime-monitoring.adoc#_jmx_publisher[Jmx publisher], and the xref:healthcheck-mechanism.adoc#_api_health_endpoints[API health endpoints]., the default monitoring password `mon1tor1ng_adm1n` will be used.
 
 === REST_API_DYN_AUTH_CHECKS
 
