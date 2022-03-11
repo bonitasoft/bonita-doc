@@ -149,7 +149,7 @@ docker run --name bonita_postgres -h <hostname> -v bonita-lic:/opt/bonita_lic/ -
 
 Create a file stack.yml with the following content (remember to replace the `<hostname>` with the one used in the licence generation command):
 
-[source,shell script,subs="+macros"]
+[source,yaml,subs="+macros"]
 ----
 # Use tech_user/secret as user/password credentials
 version: '3'
