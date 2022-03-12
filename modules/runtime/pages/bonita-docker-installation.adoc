@@ -117,7 +117,7 @@ docker run --name bonita -it -p 8080:8080 bonita bash
 
 [source,shell script,subs="+macros"]
 ----
-docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ -it -p 8080:8080 quay.io/bonitasoft/bonita-subscription:${varVersion}.0 bash
+docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ -it -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]-XXXX bash
 ----
 
 Then run `/opt/files/startup.sh` inside the container to start Tomcat. In order to stop Tomcat inside the container, press `Ctrl-C`. +
@@ -193,9 +193,9 @@ services:
       - |
         set -e
         echo 'Waiting for Postgres to be available'
-        export PGPASSWORD=$${POSTGRES_ENV_POSTGRES_PASSWORD}
+        export PGPASSWORD=\$${POSTGRES_ENV_POSTGRES_PASSWORD}
         maxTries=10
-        while [[ "$$maxTries" -gt 0 ]] && ! psql -h $${DB_HOST} -U 'postgres' -c '\l'; do
+        while [[ "$$maxTries" -gt 0 ]] && ! psql -h \$${DB_HOST} -U 'postgres' -c '\l'; do
             let maxTries--
             sleep 1
         done
@@ -208,6 +208,7 @@ services:
 
 * Replace `<hostname>` with the one used in the licence generation command
 * Replace `~/bonita-lic` with the folder containing the license (on Windows use `/` and avoid `~`)
+* leave double `$$` untouched
 
 Run `docker-compose up`, wait for it to initialize completely, and visit `+http://localhost:8080+`, or `+http://host-ip:8080+` (as appropriate).
 
