@@ -452,9 +452,7 @@ org.keycloak.adapters.saml.profile.webbrowsersso.WebBrowserSsoAuthenticationHand
 * Only if your Bonita server is xref:ssl.adoc[configured for HTTPS] (with the `secure="true"` cookies flag in conf/server.xml), you can update Tomcat configuration file `conf/context.xml`, to set sameSiteCookies to "none" instead of "lax". This will result in Bonita application cookies being sent in the request even if they were generated from a page of another domain
 [source,xml]
 ----
-    ...
     <CookieProcessor sameSiteCookies="none" />
-    ...
 ----
 * If your Bonita runtime server is not configured for HTTPS, then the only solution to keep the initially requested URL after being authenticated is to have the IdP and Bonita server in the same domain so that cookies are sent even with the default sameSite policy (using a reverse proxy for example).
 * Another option to not be redirected to Bonita home page after the authentication is to Force the systematic redirection to a specific application home page by defining it in the query string of the ACS URL in the IdP server's configuration : `http[s]://<bundle host>:<port>/bonita/saml?redirectTo=bonita/apps/myApp/home/`. However, with this solution, users will always be redirected to the same place after logging in.
