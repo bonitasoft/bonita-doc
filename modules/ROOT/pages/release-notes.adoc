@@ -279,6 +279,12 @@ Bonita Portal is still compatible with IE11 but will soon not be anymore.
 This feature was used to generate Java POJOs and XSD in Subscription editions. It is recommended to add your own Java model as jar file in the project classpath or create your xref:groovy-in-bonita.adoc#create-data-model[data model using Groovy objects].
 
 == Bug fixes
+=== Fixes in Bonita 7.11.7 (2022-03-15)
+
+==== Fixes in Bonita Runtime (including Portal)
+
+* RUNTIME-885 - [Security] Issue with authorization mechanism
+* RUNTIME-925 - [Security] Update several dependencies
 
 === Fixes in Bonita 7.11.6 (2021-05-25)
 
