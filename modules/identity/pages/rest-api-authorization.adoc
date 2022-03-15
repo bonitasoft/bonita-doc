@@ -349,7 +349,7 @@ To activate authorization, edit `security-config.properties` and set the value o
 
 To deactivate authorization, set the property to `false`, then restart the application server.
 
-If you activate authorization, you must also deactivate the HTTP API, so that is cannot be used to bypass the authorization settings.
+If you activate authorization, deactivate the HTTP API or it will be used to bypass the authorization settings.
 To do this, you can:
 
 * either add a Java system property `-Dhttp.api=false` to file `setEnv.[sh|bat]` inside tomcat bundle (in folder `setup/tomcat_templates/`)
@@ -361,7 +361,7 @@ To do this, you can:
 [discrete]
 ==== Running in debug mode
 
-If debug mode is activated, whenever you update a configuration file or a dynamic check script, the changes take effect immediately.
+If debug mode is activated, whenever you update a configuration file or a dynamic check script, the changes are effective immediately.
 
 To activate debug mode, edit `security-config.properties` and set the value of the `security.rest.api.authorizations.check.debug` property to `true`, then restart the application server.
 
@@ -370,11 +370,11 @@ To deactivate authorization, set the property to `false`, then restart the appli
 [#migrate]
 
 [discrete]
-==== Migration
+==== Update
 
-When you migrate from a version earlier than 6.4.0, authorization is configured to be off (`security.rest.api.authorizations.check.enabled` is set to `false`).
+When you update from a version earlier than 6.4.0, authorization is off by default (`security.rest.api.authorizations.check.enabled` is set to `false`).
 
-If you have an existing custom page and want to activate authorization, you need to add permissions to the definition of the custom page.
+If you have an existing custom page and want to activate authorization, you need to add permissions to custom's page definition.
 To add authorization to an existing custom page:
 
 . Export the xref:ROOT:pages.adoc[custom page].
@@ -383,7 +383,7 @@ To add authorization to an existing custom page:
 . Restart the application server.
 . Import the xref:ROOT:pages.adoc[custom page].
 
-If you have an existing custom profile, the permissions relating to the profiles is automatically added to the permissions files, so you do not need to update the profile.
+If you have an existing custom profile, the permissions relating to the profiles is automatically added to the permission files, so you do not need to update the profile.
 However, if a custom profile use a custom page, you must update the custom page definition to add permissions before you activate authorization.
 
 == Permissions and resources
