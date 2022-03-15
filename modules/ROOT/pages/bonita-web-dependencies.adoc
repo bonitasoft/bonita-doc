@@ -1,3 +1,5 @@
+= Bonita web dependencies
+:description: List all dependencies uses for Bonita web
 
 [discrete]
 === portal
