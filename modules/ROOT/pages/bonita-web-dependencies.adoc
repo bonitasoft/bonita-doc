@@ -1,4 +1,4 @@
-= Bonita web dependencies
+= Bonita web dependencies (7.11.7)
 :description: List all dependencies uses for Bonita web
 
 [discrete]
