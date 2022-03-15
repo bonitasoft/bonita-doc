@@ -22,25 +22,41 @@ then it tries to get the configuration set in system properties, finally it fall
 
 You can configure the connection to the engine directly using `org.bonitasoft.engine.util.APITypeManager`, please refer to the https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/util/APITypeManager.html[Javadoc].
 
-Here is an example of programmatic configuration to an engine
+Here are some examples of programmatic configuration to an engine
 
 [source,java]
 ----
 HashMap<String,String> parameters= new HashMap<>();
 parameters.put("server.url", "http://myserver.com:8080");
-parameters.put("application.name", "bonita-application");
-APITypeManager.setAPITypeAndParams(ApiAccessType.HTTP, parameters)
+parameters.put("application.name", "bonita");
+parameters.put("basicAuthentication.active", "true");
+parameters.put("basicAuthentication.username", "http-api");
+parameters.put("basicAuthentication.password", "h11p-@p1");
+APITypeManager.setAPITypeAndParams(ApiAccessType.HTTP, parameters);
+----
+
+[source,java]
+----
+System.setProperty("org.bonitasoft.engine.api-type", ApiAccessType.HTTP.name());
+System.setProperty("org.bonitasoft.engine.api-type.server.url", "http://myserver.com:8080");
+System.setProperty("org.bonitasoft.engine.api-type.application.name",  "bonita");
+System.setProperty("org.bonitasoft.engine.api-type.basicAuthentication.active", "true");
+System.setProperty("org.bonitasoft.engine.api-type.basicAuthentication.username",  "http-api");
+System.setProperty("org.bonitasoft.engine.api-type.basicAuthentication.password", "h11p-@p1");
 ----
 
 === Configure Client using System properties
 
-You can set the system property `org.bonitasoft.engine.api-type` to `HTTP` or `LOCAL`.
+You can set the system property `org.bonitasoft.engine.api-type` to `HTTP` or `LOCAL` as shown in the examples above.
 
 * `HTTP`:
- The `HTTP` connection mode will connect the client to the engine using the http protocol. This is the most common way to connect to engine remotly. +
+ The `HTTP` connection mode will connect the client to the engine using the http protocol. This is the most common way to connect to engine remotely. +
  When using `HTTP` mode, you must set the following system properties
  ** `org.bonitasoft.engine.api-type.server.url`: it is the url of the server, e.g. for a engine on the same host it can be `+http://localhost:8080+`
- ** `org.bonitasoft.engine.api-type.application.name`: it is the name of the web aplication on wich the engine HTTP API is deployed, e.g. `bonita`
+ ** `org.bonitasoft.engine.api-type.application.name`: it is the name of the web application on which the engine HTTP API is deployed, e.g. `bonita`
+ ** `org.bonitasoft.engine.api-type.basicAuthentication.active` (value `true`): it is now mandatory to connect to the engine through HTTP
+ ** `org.bonitasoft.engine.api-type.basicAuthentication.username` (default value "http-api"): the username to connect to the engine through HTTP
+ ** `org.bonitasoft.engine.api-type.basicAuthentication.password` (default value "h11p-@p1" in Tomcat bundle, no default value in Docker image): the password to connect to the engine through HTTP
 
 +
 In addition, starting from version 7.9.4, the number of connections used by the client can be configured with system property `org.bonitasoft.engine.api-type.connections.max`, the default is 20.
@@ -67,7 +83,7 @@ This is a legacy way to configure the connection to the remote engine.
 
 In this case you have to create a folder containing a `engine-client` directory and a `conf` subdirectory.
 This last subdirectory must contain a file named `bonita-client-custom.properties` having as content configuration of the engine client (see below).
-Finally set the System property `bonita.home` to the root folder you created.
+Finally, set the System property `bonita.home` to the root folder you created.
 
 Here is the default content of this configuration file, uncomment the part of the file corresponding to the type of connection you want and customize it according to your application.
 
@@ -100,8 +116,3 @@ It is configured in the `web.xml` file of the web application like this:
 </servlet>
 ----
 
-[WARNING]
-====
-
-This HTTP access  is not secured, it should not be exposed outside a trusted area. We recommend you to deactivate it if you expose directly your deployment to the outside world.
-====
