@@ -717,8 +717,8 @@ The LDAP Synchronizer is using the Engine HTTP API of the product, but it's not 
 
 *On-premise solution*:
 
-Configure the Bonita Tomcat bundle you have downloaded from the bonitasoft Customer Service Center to activate
-the Engine HTTP API:
+Configure the Bonita Tomcat bundle you have downloaded from the Bonitasoft Customer Service Center to activate
+the Engine HTTP API by: 
 
 * either add a Java system property `-Dhttp.api=true` to file `setEnv.[sh|bat]` inside tomcat bundle (in folder `setup/tomcat_templates/`)
 * or set an environment variable `HTTP_API=true` before launching Bonita Tomcat bundle
