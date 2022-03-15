@@ -99,5 +99,5 @@ To *deactivate* HTTP connections:
 [WARNING]
 ====
 
-This HTTP access is not secured, it should not be exposed outside a trusted area. We recommend you to deactivate it if you expose directly your deployment to the outside world.
+This HTTP access is not secured, it should not be exposed outside a trusted area. We recommend you to deactivate it if you expose directly your deployment to outside your company's networks. 
 ====
