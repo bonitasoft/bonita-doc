@@ -135,6 +135,6 @@ import org.bonitasoft.engine.search.SearchResult
 image:images/getting-started-tutorial/define-who-can-do-what/configure-user-manager-actor-filter.gif[Configure user manager actor filter for manager lane]
 // {.img-responsive .img-thumbnail}
 
-Run the process again, and this time only _mauro.zetticci_ should have access to _Read the answer and rate it_ and only _michael.morrison_ should have access to _Deal with unsatisfied customer_ (as the manager of both users who can complete the task _Review and answer claim_).
+Run the process again, and this time only _mauro.zetticci_ should have access to _Review and answer claim_ and only _michael.morrison_ should have access to _Deal with unsatisfied customer_ (as the manager of both users who can complete the task _Review and answer claim_).
 
 Now we have a fully customized process that processes data and dispatches tasks to appropriate users. The xref:configure-email-connector.adoc[next step] will be to make this process interact with the outside world.
