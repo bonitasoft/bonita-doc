@@ -1,136 +1,34 @@
-= Updating Bonita Runtime with Migration Tool 
-:description: This page explains how to update Bonita Runtime main version (single or multiple nodes) using Migration Tool.
+= Migrate a live environment to upgrade the version
+:description: Service stopped: Migrate the data, install a new environment, test non-migrated elements behavior and compatibility with new bonita version
 
 Service stopped: Migrate the data, install a new environment, test non-migrated elements behavior and compatibility with new bonita version
 
-[NOTE]
-====
-
-.*Updating* means moving from one Bonita version to a newer one, to benefit from:
-* new features (in Main versions)
-* technology updates (in Main versions)
-* bug fixes (in Maintenance versions)
- 
-====
-
 == Overview
 
-This page explains how to update your Bonita Runtime to a newer version.
-Short procedure : Service stopped, migrate the data, install a new environment, test non-migrated elements behavior and compatibility with new bonita version. 
-// add link to the paragraph below 
-Detailed procedure : Updating Bonita bundle: step-by-step procedure. 
+This page explains how to migrate your platform to a newer version of Bonita.
 
-There are 2 versions of Bonita Migration tool: 
-|===
-|*Tool* | *Use cases*
-| Bonita Migration Tool 1.x |From version *6.0.2* or later to any version up to *7.0.0*
-| Bonita Migration Tool 2.x |From version *7.0.0* or later to any version up to *7.13.0*
-|===
+You can migrate your platform using the `Bonita Migration Tool`. There are 2 versions of the migration tool:
 
-____
-WARNING : If you consider updating from Bonita 6.5.3 to Bonita 7.1.0, you must first update from Bonita 6.5.3 to Bonita 7.0.0 using Bonita Migration Tool 1.x, and then update from Bonita 7.0.0 to Bonita 7.1.0 using Bonita Migration Tool 2.x.
+* The version 1.x that migrate the platform from version 6.0.2 or later to any version up to 7.0.0
+* the version 2.x that migrate the platform from version 7.0.0 or later to any version up to the last one.
 
-You are *NOT* recommended to start Bonita 7.0.0 after you update to it, but to continue with the second phase of the update process.
-____
-
-== How works Bonita Migration Tool
-
-_Bonita Migration Tool_ contains a set of scripts that execute changes on the data for making it compatible with a newer version of Bonita Runtime. 
-The tool is provided as a zip archive that contains an executable script to determine your current version and to request the targeted main Bonita version for the update.
-The update process is step-based, with each maintenance version being equal to a step. The script manages the sequence of steps from your current version to the targeted version. After each main or maintenance version update
-
-=== Can the Update Tool be used for upgrade/downgrade between community and subscription?
-The answer is *“NO”*. 
-The Bonita Update Tool does not help you upgrade/downgrade between the community/subscription versions, so you cannot xref:upgrade-from-community-to-a-subscription-edition.adoc[change edition] at the same time as updating.
-
-=== Bonita version to target
-
-Always update to the latest maintenance release version of the chosen main release. Maintenance releases often contain bug fixes made shortly after the release of subsequent main releases.
-____
-*For example:* Bonita 7.13.2 contains fixes for certain bugs that were found earlier in the 7.13.x versions (like 7.13.0 and 7.13.1). To get all of those fixes, update to the 7.13.2 maintenance version instead of 7.13.1.
-____
-
-=== Download
-// add links to Bonita web site and Customer Service center => OK
-Download the target Bonita version bundle and the adequate update tool for your Edition from the http://www.bonitasoft.com/downloads[Bonitasoft web site] for Bonita Community edition or from the https://customer.bonitasoft.com/download/request[Customer Service Center] for Bonita Subscription editions. You will also have to download a Tomcat server that matches the target Bonita Runtime version. 
-
-=== Licenses
-If you are running a Bonita Subscription edition, you need a valid license for your Bonita target version. 
-If you are updating to a new maintenance version within the same main version, your license remains valid after the update. 
-
-== Things to know before launching the update
+For example, if you are migrating from 6.5.3 to 7.1.0, you must migrate from 6.5.3 to 7.0.0 using version 1.x of the _Bonita Migration Tool_, and then migrate from 7.0.0 to 7.1.0 using version 2.x.
 
 [CAUTION]
 ====
-.*Special attention required on:*
-* Several bugs affect legacy Bonita versions by preventing a smooth Bonita Runtime update with BPM services paused when:
-** The source version is older than Bonita 7.8.0, and the target version is between Bonita 7.8.0 and Bonita 7.11.5
-** The source version is older than Bonita 7.10.5 and the target version is older than Bonita 2021.1
-* Deployed process definitions: The processes will continue to run using the definition created in the previous Bonita version. 
+You should always migrate to the latest version of a major version. Usually, maintenance version might contain bug fixes made after the release of subsequent major or minor release.
+
+For example, the 6.5.4 release contains fixes to certain bugs that were found in early 7.x.y versions, up to 7.1.0.
+When you are ready to migrate from 6.5.4 to a 7.x.y version, make sure you migrate to at least 7.1.1 to be sure that these fixes are present in your new version after migration.
+To migrate from 6.5.4 to 7.1.1 or later there are two phases: first you upgrade to 7.0.0 then to the latest version.
+You are recommended not to start 7.0.0 after you migrate to it, but to proceed immediately with the second phase of the migration.
 ====
 
-.Before launching the update script, there are *manual activities* to be done, like: 
-* Go through the release notes of all the versions till the one targeted for the update, for changes/deprecations/removals and see if they impact your existing developments.
-____
-*For example:* when updating from 7.9.y to 7.10.0, you will need to read all the release notes in between those versions.
-____
+*JRE requirements:*
 
-// link to special cases and troubleshouting to be added => 
-* Go through the [Special cases] and [Troubleshooting] paragraphs below.
-
-* Runtime custom configuration. You will need to re-apply the customizations after the update process finishes. *If the target version of the update is Bonita 7.3 or greater, you can use xref:runtime:bonita-platform-setup.adoc[the setup tool] to push the configuration files.*
-
-* Process definition sources (.bos files) require a manual migration. First export then import them into the new Bonita Studio version.
-* Custom connectors, actor filers, data types, custom pages, RestAPI extensions: will for sure continue to work in the new version if no custom code has been added, default Bonita code. If you did add custom code, before starting the update, check in the release notes for any breaking changes and test them thoroughly after the update.
-* Check that the database version is up-to-date and supported by the new Bonita version.
-* Secure the update by doing backups. Better safe than sorry.
-
-.Following elements will be updated *automatically* when launching the update script:
-* Engine server
-* Engine database (including all data on active and archived process instances) 
-* Organization definition
-* Log files from the previous versions will not be touched. A new dedicated folder for the target version will be created to store the log files. 
-* Runtime data (in the database after Bonita Runtime 7.3)
-* Configuration files (in the database after Bonita Runtime 7.3) will be replaced with the default configuration files of the new version
-
-When the script has finished executing, you will have to complete the update procedure by unzipping and configuring new version’s bundle.
-
-// add link to the paragraph => 
-Go through the paragraph [Updating Bonita bundle: step-by-step procedure] for step-by-step instructions.
-
-=== BACKUPS 
-==== Configuration files 
-As mentioned above, during the update, Bonita configuration files will be reseted to the default version so that new settings could be applied (from the $BONITA_HOME folder before Bonita 7.3.0 or inside the database starting from Bonita 7.3.0 version). 
-
-Therefore, having a backup of your configuration files before launching the updating procedure is *HIGHLY* necessary, so you could merge custom properties and configurations to the target Bonita Runtime.
-
-.Starting with Bonita 7.3.Y, there is no more bonita home folder, which means that: 
-// link to setup tool 
-* if your current installation *DOES* have customized the configuration files, you will have to use xref:runtime:bonita-platform-setup.adoc[the setup tool] to push your customized configuration files to the database where the configuration is stored. 
-* if your current installation *DOES NOT* have customized configuration files, then you do not need to configure the bundle any further. 
-
-==== Database files 
-From database point of view, as any operation on a productive system, an update is not a zero-risk operation.
-*Therefore, it is necessary to backup your database before launching the updating procedure.*
-
-
-=== JRE requirements
-
-Based on your target Bonita version, check whether JRE update is required in your environment before launching the update process:  
-
-|===
-|*JRE version* |*Bonita version*
-|JRE version 7
-|If targeting an update from Bonita 7.0 to 7.4.x
-|JRE version 8
-|If targeting an update from Bonita 7.5 to Bonita 2021.1-0811
-|JRE version 11
-|If targeting an update from Bonita 2021.2 or greater
-|===
-
-For more info, see Support Guide and Supported Environment Matrix for Server.
-
-// VBO: stopped here with the changes=> 16/03/2022
+* Versions 7.0 to 7.4 only support JRE version 7. If you comes from older versions of Bonita supporting JRE 6, you must also upgrade your JRE to version 7.
+* Version 7.5 only supports JRE version 8. If migrating to version 7.5, please upgrade your JRE to version 8.
+* For more info, see Support Guide and Supported Environment Matrix for Server.
 
 [#rdbms_requirements]
 
@@ -609,7 +507,7 @@ some changes have been introduced.
 In addition, if your application connect to the Bonita Engine using the HTTP access mode, see the xref:configure-client-of-bonita-bpm-engine.adoc[bonita-client library]
 documentation page.
 
-== Troubleshooting
+== Migration troubleshooting
 
 === Timers are stuck after migrating to 7.10.0+
 
@@ -631,9 +529,9 @@ After this operation, the table QRTZ_PAUSED_TRIGGER_GRPS should be empty, and al
 
 == Addendum
 
-=== Connector details regarding update to 7.9
+=== Connector details regarding migration to 7.9
 
-For Bonita 7.9.0, the update step tries to migrate the _CMIS_, _Email_ and _Webservice_ connectors of the processes deployed on the platform, along with their dependencies, to allow the migrated platform to run on Java 11. +
+For Bonita 7.9.0, the migration step tries to migrate the _CMIS_, _Email_ and _Webservice_ connectors of the processes deployed on the platform, along with their dependencies, to allow the migrated platform to run on Java 11. +
 The step works at best effort:
 
 * It will try to upgrade all the connectors it can.
