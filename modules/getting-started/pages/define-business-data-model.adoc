@@ -32,7 +32,7 @@ image:images/getting-started-tutorial/define-business-data-model/define-business
 image:images/getting-started-tutorial/define-business-data-model/create-business-object-with-attributes.gif[Create business object with attributes]
 // {.img-responsive .img-thumbnail}
 
-. Click on *Finish* button
+. Click on *Deploy* button
 
 [NOTE]
 ====
