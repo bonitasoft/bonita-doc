@@ -21,7 +21,7 @@ Authentication in Bonita with OIDC has been tested with both Keycloak server and
 
 == OpenID Connect overview for Bonita
 
-Only the *Authorization Code Flow* of OpenID Connect is supported. Not the *Implicit Flow*.
+Only the *Authorization Code Flow* of OpenID Connect (with or without refresh token) is supported. Not the *Implicit Flow*.
 
 This is an overview that describes the steps of the authentication process on a Bonita bundle configured as an OIDC client:
 [#oidc-overview]
