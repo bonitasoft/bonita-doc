@@ -18,7 +18,7 @@ Here is an overview of process execution:
 [NOTE]
 ====
 
-To design this process we will use the Business Process Model and Notation (BPMN) standard. You don't need to learn everything about BPMN to follow this tutorial but, if you would like to know more, you can read the https://www.bonitasoft.com/library/ultimate-guide-bpmn[Ultimate Guide to BPMN 2.0].
+To design this process we will use the Business Process Model and Notation (BPMN) standard. You don't need to learn everything about BPMN to follow this tutorial but, if you would like to know more, you can read the https://www.bonitasoft.com/library/the-ultimate-guide-to-bpmn2[Ultimate Guide to BPMN 2.0].
 ====
 
 [WARNING]
