@@ -341,24 +341,24 @@ If the single logout flow supported by your IdP is not the same as the one suppo
 
 == image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
-To troubleshoot SSO login issues, you need to increase the xref:ROOT:logging.adoc[log level] to `FINE` for the packages `org.bonitasoft`, `com.bonitasoft`, and `ALL` for `org.keycloak` in order for errors to be displayed in the log files `bonita-*.log` (by default, they are not).
+To troubleshoot SSO login issues, you need to increase the xref:ROOT:logging.adoc[log level] to `DEBUG` for the packages `org.bonitasoft`, `com.bonitasoft`, and `TRACE` for `org.keycloak` in order for errors to be displayed in the log files `bonita-*.log` (by default, they are not).
 
-In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/logging.properties.
+In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/log4j2-loggers.xml`.
 
-* Make sure the following lines are not commented or add them if they are not present (the syntaxe of the first line with `class\` is necessary because of the way the loggers are created in Keycloak):
+* Make sure the following lines are not commented or add them if they are not present (the syntaxe of the line with `class org.keycloak` is necessary because of the way some of the loggers are created in Keycloak):
 
-[source,properties]
+[source,xml]
 ----
-class\ org.keycloak.level = ALL
-org.keycloak.level = ALL
+    <Logger level="TRACE" name="org.keycloak"/>
+    <Logger level="TRACE" name="class org.keycloak"/>
 ----
 
-* Update the existing lines (to set the level to `FINE`):
+* Update the existing lines (to set the level to `DEBUG`):
 
-[source,properties]
+[source,xml]
 ----
-org.bonitasoft.level = FINE
-com.bonitasoft.level = FINE
+    <Logger level="DEBUG" name="org.bonitasoft"/>
+    <Logger level="DEBUG" name="com.bonitasoft"/>
 ----
 
 === Common error examples
