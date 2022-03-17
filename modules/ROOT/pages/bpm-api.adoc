@@ -5,7 +5,7 @@ Easily retrieve human or service tasks, call activities, and subprocesses with B
 
 Documentation split : 
 
-* xref:pagesactivities-tasks-flow-nodes-API.adoc[Activities, Tasks and Flow nodes]
+* xref:activities-tasks-flow-nodes-API.adoc[Activities, Tasks and Flow nodes]
 * Data and CaseDocument 
 * Actors, Process and Connectors 
 * Cases (Process Instances) 
