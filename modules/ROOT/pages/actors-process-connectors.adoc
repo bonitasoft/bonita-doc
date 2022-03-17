@@ -1,0 +1,230 @@
+= Actors, process and Connectors
+:description: Easily retrieve human or service tasks, call activities, and subprocesses with BPM APIs. Perform maintenance tasks.
+
+Easily retrieve human or service tasks, call activities, and subprocesses with BPM APIs. Perform maintenance tasks.
+
+== Actors
+
+=== Actor
+
+==== Description
+
+Manage process actors.
+
+==== Identifier
+
+Simple, the ID of the object (a long value)
+
+==== Representation
+
+[source,json]
+----
+{
+  "id":"actor id",
+  "process_id":"process definition id",
+  "description":"a description of the actor",
+  "name":"name of the actor (as specified on human tasks and for the initiator of the process)",
+  "displayName":"the display name of the actor"
+}
+----
+
+==== Methods
+
+The methods used for this resource are:
+
+* GET - Read or search an actor
+* PUT - Update an actor
+
+==== Read an actor
+
+Use a GET method to retrieve information about an actor.
+
+* *URL* +
+`/API/bpm/actor/:actorId` +
+_Example_: Get the information about the actor with id=1\: `/API/bpm/actor/1`
+* *Method* +
+`GET`
+* *Success Response*
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+{
+  "id":"1",
+  "process_id":"4717422838168315799",
+  "description":"",
+  "name":"employee",
+  "displayName":"Employee actor"
+}
+----
+
+==== Search actors for a given process id
+
+Use a GET method to search actors for a given process id.
+
+* *URL* +
+`/API/bpm/actor` +
+_Example_: Count the actor members of actors of the process with id `4758765` `/API/bpm/actor?p=0&c=10&f=process_id=4758765&n=users&n=group&n=roles&n=memberships`
+* *Method* +
+`GET`
+* *Data Params* +
+xref:rest-api-overview.adoc#resource_search[Standard search parameters] are available.
+* *Success Response*
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+[
+  {
+    "id":"1",
+    "process_id":"4758765",
+    "description":"",
+    "name":"employee",
+    "displayName":"Employee actor"
+  }, {
+    "id":"2",
+    "process_id":"4758765",
+    "description":"",
+    "name":"customer",
+    "displayName":"Customer actor"
+  }
+]
+----
+
+==== Update an actor
+
+Use the PUT method to update an actor.
+Fields that can be upated are "displayName" and "description"
+
+* *URL* +
+`/API/bpm/actor/:actorId`
+* *Method* +
+`PUT`
+* *Request Payload*
++
+[source,json]
+----
+{
+  "displayName": "new display name",
+  "description": "new description"
+}
+----
+
+* *Success Response*
+ ** *Code*: 200
+
+=== ActorMember
+
+==== Description
+
+An actor member represents the association between the organization and the actor af a process. In an organization we have four member_types = USER, GROUP, ROLE and MEMBERSHIP (role in a group). You can assign a actor to a user by specifying a role and or a group, or specific user.
+
+==== Identifier
+
+Simple, the ID of the object (a long value)
+
+==== Representation
+
+[source,json]
+----
+{
+  "id":"actor member id",
+  "actor_id":"id of the actor for this mapping",
+  "role_id":"id of role, or -1 if the member type is not role",
+  "group_id":"id of group, or -1 if the member type is not group",
+  "user_id":"id of user, or -1 if the member type is not user"
+}
+----
+
+==== Methods
+
+The methods used for this resource are:
+
+* POST - Add a new actorMember
+* GET - Search actorMembers
+* DELETE - Remove an actorMember
+
+==== Add a new actorMember
+
+Use the POST method to create a new actorMember.
+
+* *URL* +
+`/API/bpm/actorMember`
+* *Method* +
+`POST`
+* *Request Payload* +
+Add a member_type = USER to the actor with id = 2.
++
+[source,json]
+----
+{
+  "actor_id":"2",
+  "member_type":"USER",
+  "user_id":"101"
+}
+----
++
+Add a member_type = MEMBERSHIP to the actor with id = 2.
++
+[source,json]
+----
+{
+  "id":"204",
+  "actor_id":"2",
+  "role_id":"-1",
+  "group_id":"-1",
+  "user_id":"101"
+}
+----
+
+* *Success Response*
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+{
+  "id":"206",
+  "actor_id":"2",
+  "role_id":"4",
+  "group_id":"8",
+  "user_id":"-1"
+}
+----
+
+==== Search actorMembers
+
+Use a GET method with filters and search terms to search for actorMembers.
+
+* *URL* +
+`/API/bpm/actorMember` +
+_Example_: ``
+* *Method* +
+``
+* *Data Params* +
+xref:rest-api-overview.adoc#resource_search[Standard search parameters] are available. +
+There is a mandatory filter on:
+ ** `actor\_id` For example, retrieve the actorMembers related to the specified actor_id. http://localhost:8080/bonita/API/bpm/actorMember?p=0&c=10&f=actor_id%3d1
+
++
+You can also filter also on:
+ ** `member\_type=user|role|group|roleAndGroup` retrieve only the actorMembers of type user. `/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1&f=member\_type%3duser`
+ ** `user\_id=:userId}`: retrieve only the actorMembers related to the specified user_id. `/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1&f=user\_id%3d101`
+ ** `role\_id=:roleId`: retrieve only the actorMembers related to the specified role_id. `/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1&f=role\_id%3d101`
+ ** `group\_id=:groupId`: retrieve only the actorMembers related to the specified group_id. `/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1&f=group\_id%3d101`
+* *Success Response* +
+An array of actorMember objects
+ ** *Code*: 200
+
+==== Delete an actorMember
+
+Use the DELETE method to delete an existing actorMember.
+
+* *URL* +
+`/API/bpm/actorMember/:id`
+* *Method* +
+`DELETE`
+* *Success Response*
+ ** *Code*: 200
