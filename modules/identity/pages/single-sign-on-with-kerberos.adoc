@@ -296,25 +296,24 @@ To do this, set the `logout.link.hidden` option to `true` in `authenticationMana
 
 == image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
-To troubleshoot Kerberos SSO login issues, you need to add a logging handler for the package `net.sourceforge.spnego` and increase the xref:ROOT:logging.adoc[log level] to `ALL` for the packages `org.bonitasoft`, `com.bonitasoft`, and `net.sourceforge.spnego` in order for errors to be displayed in the log files bonita-*.log (by default, they are not).
+To troubleshoot Kerberos SSO login issues, you need to add a logging handler for the package `net.sourceforge.spnego` and increase the xref:ROOT:logging.adoc[log level] to `TRACE` and `DEBUG` for the packages `org.bonitasoft.console`, `org.bonitasoft.engine.authentication`, `com.bonitasoft.engine.authentication`, and `net.sourceforge.spnego` in order for errors to be displayed in the log files bonita.log (by default, they are not).
 
-In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/logging.properties.
+In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/log4j2-loggers.xml`.
 
-* Add the lines:
+* Add the line:
 +
-[source,properties]
+[source,xml]
 ----
-net.sourceforge.spnego.handlers = 5bonita.org.apache.juli.AsyncFileHandler
-net.sourceforge.spnego.level = ALL
+    <Logger level="TRACE" name="net.sourceforge.spnego"/>
 ----
 +
-- Update the existing lines (to set the level to `ALL`):
+- Update the existing lines (to set the level to `TRACE` and `DEBUG`):
 +
-[source,properties]
+[source,xml]
 ----
-org.bonitasoft.console.common.server.auth.level = ALL
-org.bonitasoft.engine.authentication.level = ALL
-com.bonitasoft.engine.authentication.level = ALL
+    <Logger level="TRACE" name="org.bonitasoft.console"/>
+    <Logger level="DEBUG" name="com.bonitasoft.engine.authentication"/>
+    <Logger level="DEBUG" name="com.bonitasoft.engine.authentication"/>
 ----
 
 Edit the _logger_ tags which _category_ matches `org.bonitasoft.console.common.server.auth`, `org.bonitasoft.engine.authentication` and `com.bonitasoft.engine.authentication` packages: change the _level_ _name_ attribute of each _logger_ to `ALL` and add a new logger with the _category_ `net.sourceforge.spnego` (also with a _level_ _name_ set to `ALL`).
