@@ -1,3 +1,4 @@
+
 = Bonita web dependencies
 :description: List all dependencies uses for Bonita web
 
@@ -32,13 +33,13 @@
 
 | org.bonitasoft.engine
 | bonita-client
-| 7.14.0.beta-01
+| 7.14.0.rc-01
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-common
-| 7.14.0.beta-01
+| 7.14.0.rc-01
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
@@ -50,7 +51,7 @@
 
 | org.springframework
 | spring-core
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 |=== 
@@ -152,37 +153,37 @@
 
 | org.bonitasoft.console
 | console-common
-| 7.14.0.beta-01
+| 7.14.0.rc-01
 | N/A
 |  -
 
 | org.bonitasoft.engine
 | bonita-client
-| 7.14.0.beta-01
+| 7.14.0.rc-01
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-common
-| 7.14.0.beta-01
+| 7.14.0.rc-01
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-server
-| 7.14.0.beta-01
+| 7.14.0.rc-01
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.web
 | bonita-web-extensions
-| 7.14.0.beta-01
+| 7.14.0.rc-01
 | http://www.bonitasoft.com[http://www.bonitasoft.com]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.codehaus.groovy
 | groovy
-| 3.0.8
+| 3.0.9
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -224,7 +225,7 @@
 
 | org.springframework
 | spring-web
-| 5.2.15.RELEASE
+| 5.2.19.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -248,7 +249,7 @@
 
 | com.bonitasoft.engine
 | bonita-client-sp
-| 7.14.0.beta-01
+| 7.14.0.rc-01
 | N/A
 |  -
 
@@ -260,7 +261,7 @@
 
 | org.bonitasoft.console
 | console-common
-| 7.14.0.beta-01
+| 7.14.0.rc-01
 | N/A
 |  -
 |=== 
@@ -272,25 +273,25 @@
 
 | com.bonitasoft.engine
 | bonita-client-sp
-| 7.14.0.beta-01
+| 7.14.0.rc-01
 | N/A
 |  -
 
 | com.bonitasoft.engine
 | bonita-common-sp
-| 7.14.0.beta-01
+| 7.14.0.rc-01
 | N/A
 |  -
 
 | com.bonitasoft.engine
 | bonita-server-sp
-| 7.14.0.beta-01
+| 7.14.0.rc-01
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | com.bonitasoft.web
 | bonita-web-extensions-sp
-| 7.14.0.beta-01
+| 7.14.0.rc-01
 | http://www.bonitasoft.com[http://www.bonitasoft.com]
 |  -
 
@@ -332,19 +333,19 @@
 
 | org.bonitasoft.console
 | console-common-sp
-| 7.14.0.beta-01
+| 7.14.0.rc-01
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-server
-| 7.14.0.beta-01
+| 7.14.0.rc-01
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-server
-| 7.14.0.beta-01
+| 7.14.0.rc-01
 | N/A
 |  -
 
