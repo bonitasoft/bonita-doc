@@ -19,6 +19,7 @@ The ID of the activity (a long value).
 
 ==== Representation
 
+
 [source,json]
 ----
 {
