@@ -1,4 +1,5 @@
 = Update overview
+:page-aliases: migration-overview.adoc
 :description: Learn how to update Bonita Platform from an older version to a newer version.
 
 Learn how to update a Bonita Platform from an older version to a newer version.
@@ -14,7 +15,7 @@ Learn how to update a Bonita Platform from an older version to a newer version.
 
 == Updating your Bonita Runtime
 
-Based on your curent Bonita Runtime version and the targeted one, you will have to use at least one of the following tools. 
+Based on your current Bonita Runtime version and the targeted one, you will have to use at least one of the following tools.
 
 WARNING: You cannot update your platform from a version earlier than 6.0.2.
 
