@@ -288,7 +288,7 @@ If the logout flow supported by your OIDC provider is not the same as the one su
 
 == Troubleshoot
 
-To troubleshoot SSO login issues, you need to increase the xref:ROOT:logging.adoc[log level] to `DEBUG` for the packages `org.bonitasoft`, `com.bonitasoft`, and `TRACE` for `org.keycloak` in order for errors to be displayed in the log files `bonita-*.log` (by default, they are not).
+To troubleshoot SSO login issues, you need to increase the xref:ROOT:logging.adoc[log level] to `DEBUG` for the packages `org.bonitasoft`, `com.bonitasoft`, and `TRACE` for `org.keycloak` in order for errors to be displayed in the log files `bonita.log` (by default, they are not).
 
 In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/log4j2-loggers.xml`.
 

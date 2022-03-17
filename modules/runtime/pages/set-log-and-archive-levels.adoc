@@ -34,7 +34,7 @@ Bonita Engine uses SLF4J to log and Log4j2 as loggers implementation in the Tomc
 You can xref:ROOT:logging.adoc[configure the log level]. The log level can be set on several categories in the file `log4j2-loggers.xml`. Some loggers are very specific to a particular issue.
 For example:
 
-* If you have an issue related to the database access, it might be interesting to change the level of `org.hibernate` logger from the default, `WARNING`, to `DEBUG`.
+* If you have an issue related to the database access, it might be interesting to change the level of the logger `org.hibernate` from the default, `WARNING`, to `DEBUG`.
 * When debugging cache issues, change the level of the logger `net.sf.ehcache`.
 * For the process execution, the relevant properties are `org.bonitasoft` and (for Subscription editions) `com.bonitasoft`.
 

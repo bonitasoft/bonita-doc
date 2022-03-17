@@ -296,7 +296,7 @@ To do this, set the `logout.link.hidden` option to `true` in `authenticationMana
 
 == image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
-To troubleshoot Kerberos SSO login issues, you need to add a logging handler for the package `net.sourceforge.spnego` and increase the xref:ROOT:logging.adoc[log level] to `TRACE` and `DEBUG` for the packages `org.bonitasoft.console`, `org.bonitasoft.engine.authentication`, `com.bonitasoft.engine.authentication`, and `net.sourceforge.spnego` in order for errors to be displayed in the log files bonita-*.log (by default, they are not).
+To troubleshoot Kerberos SSO login issues, you need to add a logging handler for the package `net.sourceforge.spnego` and increase the xref:ROOT:logging.adoc[log level] to `TRACE` and `DEBUG` for the packages `org.bonitasoft.console`, `org.bonitasoft.engine.authentication`, `com.bonitasoft.engine.authentication`, and `net.sourceforge.spnego` in order for errors to be displayed in the log files bonita.log (by default, they are not).
 
 In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/log4j2-loggers.xml`.
 
