@@ -57,6 +57,7 @@ The controls they embed (buttons, links) can call BPM APIs that will trigger the
 
 === From an existing page
 You can easily duplicate an exiting page just by saving it under a different name.
+
 . From Bonita Studio coolbar, click on the *_UI Designer_* icon to open the UI Designer. +
 . Open the page you want to duplicate
 . Click on the *_Save_* button and select *_Save as_*
