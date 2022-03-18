@@ -89,8 +89,10 @@ If the platform has already been initialized, every update to the configuration 
 * `setup push`
 ====
 +
- .. Remove the comment flags from these lines:
-`authentication.service.ref.name=jaasAuthenticationService`
+ .. You must perform following changes:
+
+* Comment out the `authentication.service.ref.name=authenticationService` line
+* Add this new line: `authentication.service.ref.name=jaasAuthenticationService`
  .. *Optionally*, to enable xref:guest-user.adoc[guest user access], uncomment this lines:
 +
 ----
