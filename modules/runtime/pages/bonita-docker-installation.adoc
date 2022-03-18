@@ -117,7 +117,7 @@ docker run --name bonita -it -p 8080:8080 bonita bash
 
 [source,shell script,subs="+macros"]
 ----
-docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ -it -p 8080:8080 quay.io/bonitasoft/bonita-subscription:${varVersion}.0 bash
+docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ -it -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]-XXXX bash
 ----
 
 Then run `/opt/files/startup.sh` inside the container to start Tomcat. In order to stop Tomcat inside the container, press `Ctrl-C`. +
@@ -193,9 +193,9 @@ services:
       - |
         set -e
         echo 'Waiting for Postgres to be available'
-        export PGPASSWORD=$${POSTGRES_ENV_POSTGRES_PASSWORD}
+        export PGPASSWORD=\$${POSTGRES_ENV_POSTGRES_PASSWORD}
         maxTries=10
-        while [[ "$$maxTries" -gt 0 ]] && ! psql -h $${DB_HOST} -U 'postgres' -c '\l'; do
+        while [[ "$$maxTries" -gt 0 ]] && ! psql -h \$${DB_HOST} -U 'postgres' -c '\l'; do
             let maxTries--
             sleep 1
         done
@@ -208,6 +208,7 @@ services:
 
 * Replace `<hostname>` with the one used in the licence generation command
 * Replace `~/bonita-lic` with the folder containing the license (on Windows use `/` and avoid `~`)
+* leave double `$$` untouched
 
 Run `docker-compose up`, wait for it to initialize completely, and visit `+http://localhost:8080+`, or `+http://host-ip:8080+` (as appropriate).
 
@@ -250,7 +251,7 @@ But for specific needs you can override this behavior by setting HTTP_API to tru
 
 [source,shell script,subs="+macros"]
 ----
-docker run  -e HTTP_API=true -e BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED=false --name bonita -v bonita-lic:/opt/bonita_lic/ -h <hostname> -d -p 8080:8080  quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
+docker run -e HTTP_API=true -e HTTP_API_PASSWORD=S0me-h11p-s3cr3t -e BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED=false --name bonita -v bonita-lic:/opt/bonita_lic/ -h <hostname> -d -p 8080:8080  quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
 == Environment variables
@@ -275,11 +276,11 @@ This optional environment variable is used in conjunction with TENANT_PASSWORD t
 
 === MONITORING_USERNAME
 
-This optional environment variable is used in conjunction with `MONITORING_PASSWORD` to define the access to the xref:runtime-monitoring.adoc#_prometheus_publisher[Prometheus monitoring endpoint], which is protected with https://en.wikipedia.org/wiki/Basic_access_authentication[BASIC Auth access]. If it is not specified, the default monitoring username `monitoring` will be used.
+This optional environment variable is used in conjunction with `MONITORING_PASSWORD` to define the access to endpoints protected with https://en.wikipedia.org/wiki/Basic_access_authentication[BASIC Auth access]: the xref:runtime-monitoring.adoc#_prometheus_publisher[Monitoring endpoint], the xref:runtime-monitoring.adoc#_jmx_publisher[Jmx publisher], and the xref:healthcheck-mechanism.adoc#_api_health_endpoints[API health endpoints]. If it is not specified, the default monitoring username `monitoring` will be used.
 
 === MONITORING_PASSWORD
 
-This optional environment variable is used in conjunction with `MONITORING_USERNAME` to define the access to the xref:runtime-monitoring.adoc#_prometheus_publisher[Prometheus monitoring endpoint], which is protected with https://en.wikipedia.org/wiki/Basic_access_authentication[BASIC Auth access]. If it is not specified, the default monitoring username `mon1tor1ng_adm1n` will be used.
+This optional environment variable is used in conjunction with `MONITORING_USERNAME` to define the access to endpoints protected with https://en.wikipedia.org/wiki/Basic_access_authentication[BASIC Auth access]: the xref:runtime-monitoring.adoc#_prometheus_publisher[Monitoring endpoint], the xref:runtime-monitoring.adoc#_jmx_publisher[Jmx publisher], and the xref:healthcheck-mechanism.adoc#_api_health_endpoints[API health endpoints]., the default monitoring password `mon1tor1ng_adm1n` will be used.
 
 === REST_API_DYN_AUTH_CHECKS
 
@@ -292,19 +293,51 @@ Deprecated, now you can use xref:#dynamic-check-enable[BONITA_RUNTIME_AUTHORIZAT
 This optional environment variable is used to enable/disable dynamic authorization checking on Bonita REST API. The default value is *true*, which will activate dynamic authorization checking.
 
 === HTTP_API
-
 This optional environment variable is used to enable/disable the Bonita HTTP API. The default value is false, which will deactivate the HTTP API.
+From Bonita 2022.1, HTTP API is protected with https://en.wikipedia.org/wiki/Basic_access_authentication[Basic access authentication]. See the following 2 parameters to configure Basic access authentication.
+
+=== HTTP_API_USERNAME
+This optional environment variable is used to configure the HTTP API Basic access authentication username. The default value is *http-api*.
+
+=== HTTP_API_PASSWORD
+This optional environment variable is used to configure the HTTP API Basic access authentication password. There is no default value, and providing a value is mandatory if `HTTP_API=true`.
+
+=== JMX_REMOTE_ACCESS
+This optional environment variable is used to enable/disable the access to the https://docs.oracle.com/en/java/javase/11/management/using-jconsole.html[JMX console] from a remote machine. +
+Default value is *false*. +
+The host to connect to is the name / IP address of the bonita server, the port to connect to is 9000. +
+The credentials to connect are the environment variables xref:#MONITORING_USERNAME[MONITORING_USERNAME], xref:#MONITORING_PASSWORD[MONITORING_PASSWORD].
+
+=== REMOTE_IP_VALVE_ENABLED
+This optional environment variable allows to activate/deactivate xref:runtime:reverse-proxy-configuration.adoc[reverse proxy redirection]. Default value is *false*.
+
+=== ACCESSLOGS_STDOUT_ENABLED
+This optional environment variable allows to activate/deactivate writing Tomcat access logs to standard output. Default value is *false*.
+
+=== ACCESSLOGS_FILES_ENABLED
+This optional environment variable allows to activate/deactivate writing Tomcat access logs to a specific file. Default value is *false*.
+
+=== ACCESSLOGS_PATH
+If `ACCESSLOGS_FILES_ENABLED=true`, this optional environment variable precise the path to put access log files into.
+Default value is */opt/bonita/logs*.
+
+=== ACCESSLOGS_PATH_APPEND_HOSTNAME
+If `ACCESSLOGS_FILES_ENABLED=true`, this optional environment variable allows to append a subdirectory with the *hostname* to the full path of the directory to put access log files into.
+Default value is *false*.
+
+=== ACCESSLOGS_MAX_DAYS
+If `ACCESSLOGS_FILES_ENABLED=true`, this optional environment variable allows to automatically delete access log files after a certain number of days. Default value is *30*.
+
+=== HTTP_MAX_THREADS
+This optional environment variable allows to specify the maximum Http thread number Tomcat will use to serve HTTP/1.1 requests. Default value is *20*.
 
 === JAVA_OPTS
-
 This optional environment variable is used to customize JAVA_OPTS. The default value is -Xms1024m -Xmx1024m -XX:MaxPermSize=256m.
 
 === DB_VENDOR
-
 This environment variable is automatically set to postgres or mysql if the Bonita container is linked to a PostgreSQL or MySQL database using --link. The default value is h2. It can be overridden if you don't use the --link capability.
 
 === DB_HOST, DB_PORT
-
 These variables are optional, used in conjunction to configure the bonita image to reach the database instance. There are automatically set if --link is used to run the container.
 
 === DB_NAME, DB_USER, DB_PASS

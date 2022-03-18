@@ -152,26 +152,35 @@ When you create a process that uses a business object with a composition or aggr
 
 [#lazy_eager_loading]
 
-=== Loading
+=== Loading BDM objects
 
-There are two options for loading complex business objects: *lazy* or *eager*. +
+There are two design patterns for loading business objects: *LAZY* or *EAGER*. +
 
-* With lazy loading, the parent object instance is loaded. To load the children objects instances, additional REST API calls are made. This is the option to choose when:
+* With LAZY design pattern, only the parent object instance is loaded at initialization. To load the children objects instances, additional REST API calls should be made. This is the option to choose when:
+  ** object's children are not edited very often in case's lifetime
+  ** parent object along with all its children loading can get heavy, vertically and/or horizontally
 
-  ** the object's children are not edited very often in the cases lifetime
-  ** the parent object along with all its children can get big, vertically and/or horizontally
+* With EAGER design pattern, both, parent object instance and children objects instances are loaded on the spot. This is the option to choose when:
+  ** object's children can be edited quite often in case's lifetime
+  ** parent object along with all it's children are neither very deep nor large
 
-* With eager loading, the parent object instance and the children objects instances are loaded at the same time. This is the option to choose when:
+Choosing the right design pattern depends on your technical needs and BDM schema definition. *In Bonita Runtime, the default design pattern is LAZY loading.* If necessary, you can override this for any business object by configuring it to use EAGER loading when specifying the object relationship properties. +
 
-  ** the object's children can be edited quite often in the cases lifetime
-  ** the parent object along with all its children are neither very deep nor large
+==== LAZY/EAGER loading internal workings
+From a technical point of view: the BDM schema is managed by Hibernate. This means that the parent object is retrieved with a SELECT SQL request.
 
-Choosing the right option is not easy. The default option is lazy loading, but you may override this for any business object by configuring it to use eager loading when you specify the object relationship properties. +
+With *EAGER* loading, this request is then "enhanced" by adding an OUTER JOIN statement for each child object having EAGER as design pattern.
+While it guarantees that everything is loaded in a single database request, it can lead to very heavy SQL queries. It is especially problematic with complex BDM schemas and can lead to excessive memory and processing power consumption.
+
+With *LAZY* loading, by contrast, only the parent object is initialized on the spot. When accessing one of the child objects, a new SELECT statement will be generated.
+In practice, if we take a parent object with N children, if we were to load all of them on spot, it will either generate a single request with N OUTER JOINs when the children are marked EAGER, or, N+1 SELECT requests when they are marked LAZY.
+
+The tradeoff between those two design patterns is execution time vs memory consumption.
 
 [WARNING]
 ====
-If you are not sure about the final size of the parent object with children, we do strongly recommend to use the default *lazy* loading option. Indeed, the *eager* loading option can have a huge impact on the Bonita Runtime performance, due to the additional data load and maintenance of the information in memory. +
-Based on your analysis if you decide to use the eager mode, we recommend to test it with a test dataset that is the size of your production's expected dataset.
+If you are not sure about the final size of BDM schema, we do *strongly* recommend to use the default *LAZY* loading design pattern. Indeed, *EAGER* loading design pattern can have huge impacts on Bonita Runtime performance, due to the additional data load and information maintenance in memory. +
+If you still decide to use *EAGER* design pattern, *we strongly recommend thorough testing with a test dataset having the size of your production's expected dataset*.
 ====
 
 === Multi-instantiation using business object variables in a list

@@ -41,7 +41,7 @@ Best practice:
 * Use transient variables to store information temporarily in a process step or form.
 * Do not update the value of a transient variable.
 
-If the value of a transient variable is updated, this triggers a warning message in the log. You can deactivate these warnings by editing `logging.properties` and uncommenting the relvant section of the file.
+If the value of a transient variable is updated, this triggers a warning message in the log. You can deactivate these warnings by editing the file `<BUNDLE_HOME>/server/conf/log4j2-loggers.xml`.
 
 == Subprocess data
 

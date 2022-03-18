@@ -341,24 +341,24 @@ If the single logout flow supported by your IdP is not the same as the one suppo
 
 == image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
-To troubleshoot SSO login issues, you need to increase the xref:ROOT:logging.adoc[log level] to `FINE` for the packages `org.bonitasoft`, `com.bonitasoft`, and `ALL` for `org.keycloak` in order for errors to be displayed in the log files `bonita-*.log` (by default, they are not).
+To troubleshoot SSO login issues, you need to increase the xref:ROOT:logging.adoc[log level] to `DEBUG` for the packages `org.bonitasoft`, `com.bonitasoft`, and `TRACE` for `org.keycloak` in order for errors to be displayed in the log files `bonita-*.log` (by default, they are not).
 
-In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/logging.properties.
+In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/log4j2-loggers.xml`.
 
-* Make sure the following lines are not commented or add them if they are not present (the syntaxe of the first line with `class\` is necessary because of the way the loggers are created in Keycloak):
+* Make sure the following lines are not commented or add them if they are not present (the syntaxe of the line with `class org.keycloak` is necessary because of the way some of the loggers are created in Keycloak):
 
-[source,properties]
+[source,xml]
 ----
-class\ org.keycloak.level = ALL
-org.keycloak.level = ALL
+    <Logger level="TRACE" name="org.keycloak"/>
+    <Logger level="TRACE" name="class org.keycloak"/>
 ----
 
-* Update the existing lines (to set the level to `FINE`):
+* Update the existing lines (to set the level to `DEBUG`):
 
-[source,properties]
+[source,xml]
 ----
-org.bonitasoft.level = FINE
-com.bonitasoft.level = FINE
+    <Logger level="DEBUG" name="org.bonitasoft"/>
+    <Logger level="DEBUG" name="com.bonitasoft"/>
 ----
 
 === Common error examples
@@ -435,6 +435,20 @@ org.keycloak.adapters.saml.profile.webbrowsersso.WebBrowserSsoAuthenticationHand
 ----
 *Problem:* Some IdPs dissociate the Recipient URL from the Assertion Consumer Service (ACS) URL in the SAML service configuration. +
 *Solution:* The workaround for this issue is to make sure to set the Recipient parameter in the IdP configuration with the same value as the ACS of the service provider (`http[s]://<bundle host>:<port>/bonita/saml`), so that the `destination` attribute is present in the SAML response. This issue hapens when the Recipient URL is left empty resulting to an empty `destination` attribute in the SAML response.
+****
+
+****
+*Symptom:* After successfully logging in on the IdP and being redirected to Bonita, the URL initially requested is lost and users are redirected to the home page of Bonita server (by default `/bonita`). +
+*Problem:* When first accessing Bonita, a JSESSIONID cookie is created and the requested URL is stored in the associated HTTP session before the redirection to the IdP. After the authentication on the IdP, a request to the Assertion Consumer Service (ACS) URL (`/bonita/saml`) is made from another domain (the one of the IdP). Because of the https://developer.mozilla.org/fr/docs/Web/HTTP/Headers/Set-Cookie/SameSite#lax[Web Browsers policy regarding cookies], the JSESSIONID cookie that was first created is not sent (because the request is not made from a page of the same domain as the one of Bonita server). A new HTTP session is then created (with the associated JSESSIONID cookie) resulting in the requested URL stored in the first HTTP session being lost. +
+*Possible Solutions:*
+
+* Only if your Bonita server is xref:ssl.adoc[configured for HTTPS] (with the `secure="true"` cookies flag in conf/server.xml), you can update Tomcat configuration file `conf/context.xml`, to set sameSiteCookies to "none" instead of "lax". This will result in Bonita application cookies being sent in the request even if they were generated from a page of another domain
+[source,xml]
+----
+    <CookieProcessor sameSiteCookies="none" />
+----
+* If your Bonita runtime server is not configured for HTTPS, then the only solution to keep the initially requested URL after being authenticated is to have the IdP and Bonita server in the same domain so that cookies are sent even with the default sameSite policy (using a reverse proxy for example).
+* Another option to not be redirected to Bonita home page after the authentication is to Force the systematic redirection to a specific application home page by defining it in the query string of the ACS URL in the IdP server's configuration : `http[s]://<bundle host>:<port>/bonita/saml?redirectTo=bonita/apps/myApp/home/`. However, with this solution, users will always be redirected to the same place after logging in.
 ****
 
 == Manage passwords
