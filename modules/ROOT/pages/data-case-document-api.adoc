@@ -1,9 +1,11 @@
 = Data and Case Document 
-:description: Easily retrieve human or service tasks, call activities, and subprocesses with BPM APIs. Perform maintenance tasks.
+:description: Easily manage data and case documents with BPM APIs.
 
-Easily retrieve human or service tasks, call activities, and subprocesses with BPM APIs. Perform maintenance tasks.
+Easily manage data and case documents with BPM APIs.
 
 == Data
+
+[#data]
 
 === ActivityVariable
 
@@ -76,6 +78,8 @@ A JSON representation of the retrieved activity variable
 ----
 
 === CaseVariable
+
+[#case-variable]
 
 ==== Description
 
@@ -195,6 +199,8 @@ This resource is deprecated and may be removed in a future release. Instead, use
 ====
 
 == CaseDocument
+
+[#case-document]
 
 [discrete]
 ==== Description
