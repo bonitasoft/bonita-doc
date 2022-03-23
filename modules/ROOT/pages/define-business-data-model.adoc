@@ -21,9 +21,9 @@ In Bonita Studio, create a BDM:
 image:images/getting-started-tutorial/define-business-data-model/define-business-data-model-menu.png[Define business data model menu]
 // {.img-responsive .img-thumbnail}
 
-. Click on *Add* button
+. Click on *Add Object* button
 . Type the object name _Claim_ (objects name must always start with an uppercase letter)
-. In the *Attributes* tab, click on *Add* button
+. In the *Attributes* table, click on *Add* button
 . Add 3 attributes (attributes name must always start with a lowercase letter):
 . _description_ of type _STRING_ and _mandatory_ (check the checkbox in the *mandatory* column)
 . _answer_ of type _STRING_, _optional_
@@ -57,7 +57,7 @@ When you click on the "Finish" button three different operations are performed:
 
 ====
 
-Now you have a fully functional business data management model. You are ready to move to the next chapter and xref:declare-business-variables.adoc[start populating the database with data collected by the process].
+Now you have a fully functional business data model. You are ready to move to the next chapter and xref:declare-business-variables.adoc[start populating the database with data collected by the process].
 
 [NOTE]
 ====
