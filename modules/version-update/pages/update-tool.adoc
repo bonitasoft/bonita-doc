@@ -208,7 +208,7 @@ a|
 
 == Updating Bonita bundle: step-by-step procedure
 
-// image::images/images-6_0/update_bigsteps.png[Update steps]
+image::images/images-6_0/update_bigsteps.png[Update steps]
 
 === Database 
 .The steps are as follow:
