@@ -1,9 +1,10 @@
-:description: Easily retrieve human or service tasks, call activities, and subprocesses with BPM APIs. Perform maintenance tasks.
+:description: Easily manage activities, tasks and flow nodes with BPM APIs.
 
-Easily retrieve human or service tasks, call activities, and subprocesses with BPM APIs. Perform maintenance tasks.
+Easily manage activities, tasks and flow nodes with BPM APIs.
 
 == Activities and Tasks
 [#activity]
+[#task]
 
 === Activity
 
@@ -1812,4 +1813,453 @@ An array of archivedUserTask objects
 ----
 
 
+== Flow Nodes
+
+[#flow-node]
+
+=== Flow Node
+
+==== Description
+
+A flow node (gateway, event, or task) in an open instance of a process.
+
+==== Identifier
+
+The ID of the flowNode (a long).
+
+==== Representation
+
+[source,json]
+----
+{
+ "id": "the flow node id (long)",
+ "displayDescription": "the human readable flow node description (string)",
+ "executedBySubstitute": "the id (long) of the user who really performed this flow node in case where a substitute did it, or 0 if the flow node was not performed by a substitute",
+ "caseId": "the case id (long) that is associated with this flow node",
+ "parentCaseId": "the parent case id (long) that is associated with this flow node's case",
+ "rootCaseId": "the root case initiator id (long) that is associated with this flow node's case",
+ "processId": "the process id (long) that is associated with this flow node",
+ "rootContainerId": "the root process id (long) of the root case that is associated with this flow node",
+ "state": "the current state of the flow node (string,  for example, ready, completed, failed)",
+ "type": "the flow node type (string)",
+ "assigned_id": "the user id (long) that this flow node is assigned to, or 0 if it is unassigned",
+ "assigned_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when the current flow node was assigned, for example '2014-10-17 16:05:42.626'",
+ "executedBy": "the id (long) of the user who executed the flow node, or 0 if the flow node has not been executed",
+ "priority": "the priority (string) of the current flow node",
+ "actorId": "the id (long) of the actor that can execute this flow node, null otherwise",
+ "description": "the flow node description (string)",
+ "name": "the flow node name (string)",
+ "reached_state_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flow node reached the current state, for example '2014-10-17 16:05:42.626'",
+ "displayName": "the display name (string) of this flow node",
+ "dueDate": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flow node is due, for example '2014-10-17 16:05:42.626'",
+ "last_update_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flow node was last updated, for example '2014-10-17 16:05:42.626)",
+ "parentTaskId" : "in the case of a subtask, the parent task id (long)"
+}
+----
+
+==== Methods
+
+The methods used for this resource are:
+
+* GET - Read a flow node or search for a flow node
+* PUT - Replay a flow node (only in Enterprise and Performance editions)
+
+[#flownode-deploy]
+
+==== Response object extension (deploy query parameter)
+
+The `d` (deploy) used to xref:rest-api-overview.adoc#extend-resource[extend response object] can be used with :
+
+* processId: the id of the process that is associated with the activity
+* caseId: the id of the case that is associated with the activity
+* rootCaseId: the root case that is associated with this activity's case
+* parentCaseId: the parent case that is associated with this activity's case
+* rootContainerId: the root process of the root case that is associated with this activity
+* executedBy: the user who executed the activity
+* executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency, Performance and Enterprise editions)
+* actorId: the actor that can execute this activity
+* assigned_id: the user this activity is assigned to
+* parentTaskId: in the case of a subtask, the parent task
+
+==== Get a Flow Node
+
+Retrieve the flow node information of the given id.
+
+* *URL* +
+`/API/bpm/flowNode/:id`
+* *Method* +
+`GET`
+* *Data Params* +
+The deploy query parameter can be used.
+* *Success Response* +
+The JSON representation of the specified flownode
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+{
+  "displayDescription": "",
+  "executedBySubstitute": "0",
+  "processId": "7596769292810273901",
+  "parentCaseId": "1",
+  "state": "failed",
+  "rootContainerId": "1",
+  "type": "USER_TASK",
+  "assigned_id": "",
+  "assigned_date": "",
+  "id": "77456",
+  "executedBy": "0",
+  "caseId": "1",
+  "priority": "normal",
+  "actorId": "4",
+  "description": "",
+  "name": "Step1",
+  "reached_state_date": "2014-12-10 08:59:47.884",
+  "rootCaseId": "1",
+  "displayName": "Step1",
+  "dueDate": "2014-12-10 09:59:47.855",
+  "last_update_date": "2014-12-10 08:59:47.884"
+}
+----
+
+==== Search among Flow Nodes
+
+Search for flow nodes using given parameters. Flow nodes in states completed, cancelled, or aborted are not retrieved. The search returns an array of flow nodes.
+
+* *URL* +
+`/API/bpm/flowNode` +
+_Example_: Get all the active flow nodes named "Escalate", ordering the results by state: `/API/bpm/flowNode/?p=0&c=10&f=name%3dEscalate&o%3dstate`
+* *Method* +
+`GET`
+[#flownode-search-data-params]
+* *Data Params* +
+ xref:rest-api-overview.adoc#resource_search[Standard search parameters] are available. +
+The following parameters are available:
+ ** o:
+  *** name
+  *** displayName
+  *** state
+  *** processDefinitionId
+  *** parentProcessInstanceId
+  *** parentActivityInstanceId (if the retrieved flow nodes are activities, order by parent activity id)
+  *** rootProcessInstanceId
+  *** lastUpdateDate
+ ** s: search on any field that can be used to order results
+ ** f:
+  *** name
+  *** state
+  *** processId
+  *** parentCaseId
+  *** rootCaseId
+  *** last_update_date
+ ** d: extend resource response parameters of  <<flownode-deploy,this resource>> are available.
+* *Success Response* +
+An array of JSON representations of flow nodes
+ ** *Code*: 200
+
+==== Change a Flow Node state
+
+Replay the flow node. (only in Enterprise and Performance editions)
+
+* *URL* +
+`/API/bpm/flowNode/:id`
+* *Method* +
+`PUT`
+* *Request Payload*
++
+[source,json]
+----
+{
+  "state" : "replay"
+}
+----
+
+* *Success Response*
+ ** *Code*: 200
+
+=== ArchivedFlowNode
+
+==== Description
+
+A flow node (gateway or event or task) in an archived instance of a process.
+
+==== Identifier
+
+The ID of the flowNode (a long).
+
+==== Representation
+
+[source,json]
+----
+{
+  "id": "the flowNode id (long)",
+  "sourceObjectId": "the original id of the flowNode before it was archived",
+  "displayDescription": "the human readable flowNode description (string)",
+  "executedBySubstitute": "the id (long) of the user who really performed this flowNode in case where a substitute did it, or 0 if the flowNode was not performed by a substitute",
+  "caseId": "the case id (long) that is associated with this flowNode",
+  "parentCaseId": "the parent case id (long) that is associated with this flowNode's case",
+  "rootCaseId": "the root case initiator id (long) that is associated with this flowNode's case",
+  "processId": "the process id (long) that is associated with this flowNode",
+  "rootContainerId": "the root process id (long) of the root case that is associated with this flowNode",
+  "state": "the current state of the flowNode (string,  for example, ready, completed, failed)",
+  "type": "the flowNode type (string)",
+  "assigned_id": "the user id (long) that this flowNode is assigned to, or 0 if it is unassigned",
+  "assigned_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when the current flowNode was assigned, for example '2014-10-17 16:05:42.626'",
+  "executedBy": "the id (long) of the user who executed the flowNode, or 0 if the flowNode has not been executed",
+  "priority": "the priority (string) of the current flowNode",
+  "actorId": "the id (long) of the actor that can execute this flowNode, null otherwise",
+  "description": "the flowNode description (string)",
+  "name": "the flowNode name (string)",
+  "reached_state_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flowNode reached the current state, for example '2014-10-17 16:05:42.626'",
+  "displayName": "the display name (string) of this flowNode",
+  "dueDate": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flowNode is due, for example '2014-10-17 16:05:42.626'",
+  "archivedDate": "the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this flowNode was archived, for example '2014-10-17 16:05:42.626'",
+  "last_update_date": "the date ('yyyy-MM-dd HH:mm:ss.SSS') when this flowNode was last updated, for example '2014-10-17 16:05:42.626)",
+  "parentTaskId": "in the case of a subtask, the parent task id (long)"
+}
+----
+
+==== Methods
+
+The methods used for this resource are:
+
+* GET - Read a flow node or search for a flow node
+
+[#archived-flow-node-deploy]
+
+==== Response object extension (deploy query parameter)
+
+The `d` (deploy) used to  xref:rest-api-overview.adoc#extend-resource[extend response object] can be used with :
+
+* processId: the id of the process that is associated with the activity
+* caseId: the id of the case that is associated with the activity
+* rootCaseId: the root case that is associated with this activity's case
+* parentCaseId: the parent case that is associated with this activity's case
+* rootContainerId: the root process of the root case that is associated with this activity
+* executedBy: the user who executed the activity
+* executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency, Performance and Enterprise editions)
+* actorId: the actor that can execute this activity
+* assigned_id: the user this activity is assigned to
+* parentTaskId: in the case of a subtask, the parent task
+
+==== Get a Flow Node
+
+Retrieve the flow node information of the given id.
+
+* *URL* +
+`/API/bpm/archivedFlowNode/:id`
+* *Method* +
+`GET`
+* *Success Response* +
+The JSON representation of the specified flownode
+ ** *Code*: 200
+
+==== Search among flow nodes
+
+Search for flow nodes using given parameters. Flow nodes in state completed, cancelled, aborted are not retrieved. It returns an array of flow nodes.
+
+* *URL* +
+`/API/bpm/archivedFlowNode`
+* *Method* +
+`GET`
+* *Data Params* +
+ xref:rest-api-overview.adoc#resource_search[Standard search parameters] are available. +
+The following parameters are available:
+ ** o:
+  *** name
+  *** displayName
+  *** state
+  *** type
+  *** isTerminal
+  *** processId
+  *** caseId
+  *** archivedDate
+ ** s: search on any field that can be used to order results
+ ** f:
+  *** name
+  *** displayName
+  *** state
+  *** stateId
+  *** kind
+  *** terminal
+  *** processDefinitionId
+  *** parentProcessInstanceId
+  *** rootProcessInstanceId
+  *** parentActivityInstanceId
+  *** archivedDate
+  *** reachedStateDate
+  *** sourceObjectId
+ ** d: extend resource response parameters of  <<archived-flow-node-deploy,this resource>> are available.
+* *Success Response* +
+The JSON representation of the specified flownode
+ ** *Code*: 200
+
+[#timers]
+
+=== TimerEventTrigger
+
+==== Description
+
+Use this resource to search for BPM timer event triggers.
+The result enables you to to update the date and time at which the trigger should next execute.
+
+==== Identifier
+
+The ID of the timer event trigger (a long value), retrieved through search (GET method).
+
+==== Representation
+
+[source,json]
+----
+{
+  "id": "the ID of the timer returned",
+  "id_string": "number" (since 7.0.1)_,
+  "eventInstanceId": "the ID of the event instance to which this trigger is related",
+  "eventInstanceId_string": "number" (since 7.0.1),
+  "executionDate": "the long value of the next execution date (number of milliseconds from January 1st, 1970 00:00:00)",
+  "eventInstanceName": "the name of the event instance to which this trigger is related"
+}
+----
+
+The string representation added in 7.0.1 for Long attributes is a workaround for the JavaScript integer spectrum issue.
+
+==== Methods
+
+The methods used for this resource are:
+
+* GET - Search for timer event triggers related to a case, with optional search options
+* PUT - Update a timer event trigger next execution date
+
+==== Search for timer event triggers related to a case
+
+Search for BPM timer event triggers.
+
+* *URL* +
+`/API/bpm/timerEventTrigger` +
+_Example_: `/API/bpm/timerEventTrigger?caseId=4025&p=0&c=10&`
+* *Method* +
+`GET`
+* *Data Params*
+ ** `caseId`: ID of the case (Process instance)
+* *Success Response* +
+A JSON representation of a list of timer event triggers, as described above
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+[
+  {
+    "id":4015,
+    "id_string":"4015",
+    "eventInstanceId":2,
+    "eventInstanceId_string":"2",
+    "executionDate":1413980484194,
+    "eventInstanceName":"Minuterie1"
+  }
+]
+----
+
+==== Update a timer event trigger next execution date
+
+Specify the next execution date of a timer event trigger.
+
+* *URL* +
+`/API/bpm/timerEventTrigger/:timerEventTriggerID`
+* *Method* +
+`PUT`
+* *Request Payload* +
+A JSON representation of a long value with attribute name "executionDate"
++
+[source,json]
+----
+{
+  "executionDate": 1433980484194
+}
+----
+
+* *Success Response* +
+  The actual long value corresponding to the next execution date of the timer event trigger, as a long value
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+{
+    "executionDate": 1433980484194
+}
+----
++
+[#message]
+
+=== Message
+
+==== Description
+
+Use this resource to send BPM message events.
+Message events are caught by processes using `catch message event` flow nodes (Start, intermediate, boundary or receive tasks).
+
+==== Methods
+
+The methods used for this resource is:
+
+* POST - Send a message
+
+==== Send a message event
+
+* *Header* +
+`Content-Type : application/json`
+* *URL* +
+`/API/bpm/message`
+* *Method* +
+`POST`
+* *Request Payload*
++
+[source,json]
+----
+{
+  "messageName" : "myMessage" ,
+  "targetProcess": "processName",
+  "targetFlowNode": "catchMessageFlowNodeName", //Optional
+  "messageContent" : {
+      "data1" : {
+          "value" : "aValue" //Cannot be null
+       },
+      "data2" : {
+          "value" : 42, //Cannot be null or empty
+          "type" : "java.lang.Long" //Optional
+      },
+      ...
+  },
+  "correlations" : {
+      "key1" : {
+          "value" : "aValue" //Cannot be null
+      },
+      "key2" : {
+          "value" : 123, //Cannot be null or empty
+          "type" : "java.lang.Integer" //Optional
+      },
+      ... // 5 keys max
+  }
+}
+----
++
+_Supported value types in message content and correlations_ :
+
+ ** java.lang.String
+ ** java.lang.Boolean
+ ** java.lang.Integer
+ ** java.lang.Double
+ ** java.lang.Float
+ ** java.lang.Long
+ ** java.util.Date (Supports *ISO-8601* format, eg: `2013-01-02T02:42:12.17+02:00`)
+ ** java.time.LocalDate (Supports *ISO-8601* format, eg: `2018-02-04`)
+ ** java.time.LocalDateTime (Supports *ISO-8601* format, eg: `2018-02-04T10:30:15`)
+ ** java.time.OffsetDateTime (Supports *ISO-8601* format, eg: `2018-02-04T10:30:15+01:00`) +
+When not set, the type is guessed using the value. Be careful as it can lead to type inconsistency in the target process (eg: a java.lang.Long is expected and the guessed type is a java.lang.Integer)
+
+* *Success Response*
+ ** *Code*: 204
+ 
 
