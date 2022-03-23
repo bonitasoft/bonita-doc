@@ -1,7 +1,7 @@
-= Data and Case Document 
+= Data and Document 
 :description: Easily manage data and case documents with BPM APIs.
 
-Easily manage data and case documents with BPM APIs.
+Easily manage data and documents with BPM APIs.
 
 == Data
 
@@ -198,7 +198,7 @@ Use the document resource to access a document in an active case.
 This resource is deprecated and may be removed in a future release. Instead, use caseDocument or archivedCaseDocument.
 ====
 
-== CaseDocument
+== Case Document
 
 [#case-document]
 
