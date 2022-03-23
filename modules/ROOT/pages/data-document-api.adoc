@@ -1,4 +1,4 @@
-= Data and Document 
+= Data and Documents
 :description: Easily manage data and case documents with BPM APIs.
 
 Easily manage data and documents with BPM APIs.
