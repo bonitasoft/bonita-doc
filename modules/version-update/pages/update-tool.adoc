@@ -155,19 +155,56 @@ Particularly, if you use Oracle 12.2.0.x.y and are updating to Bonita 7.9.n or 7
 WARNING: Bonita Runtime must be shut down during update activities.
 The time required depends on several factors like your database volume, the gap between the source and the target version and your system configuration, hence it is difficult for Bonita to be precise about the required amount of time.
 However, the following example can be used as a guide:
+
+*From Bonita 7.13.3 to Bonita 7.14.0*
 [cols=2]
 |===
 |*Criteria*
 |*Data*
 |Database entries
-|60
+a|
+ * archive processes: 7,086,642
+ * processes: 147,903
+ * archive flownodes: 11,532,868
+ * flownodes: 147,903
+ * documents: 323,387
+ * connectors: 13,005
+ * tasks: 5,330,129
+ * cases: 2,460,816
+ * data instances: 142,186
 |Source version
-|66
+|7.13.3
 |Target version
-|11
+|7.14.0
 |Time required
-|12
+|< than 1 second
 |===
+
+*From Bonita 7.10.0 to Bonita 7.14.0*
+
+[cols=2]
+|===
+|*Criteria*
+|*Data*
+|Database entries
+a|
+ * archive processes: 5024
+ * processes: 2021
+ * archive flownodes: 86518
+ * flownodes: 2021
+ * documents: 7045
+ * connectors: 1001
+ * data instances: 2021
+|Source version
+|7.10.0
+|Target version
+|7.14.0
+|Time required
+a|
+ * ~ 18 seconds (without profiles associated to profile entries)
+ * ~ 4 minutes (with 10000 profiles but 1000 linked to ~6 profile entries => ~1000 applications generated)
+|===
+
 
 == Updating Bonita bundle: step-by-step procedure
 
@@ -213,7 +250,7 @@ For example, db.url=jdbc:mysql://localhost:3306/bonita-update?allowMultiQueries=
 
 . Pause the BPM Services before starting the update ONLY if your Bonita target version is older than 2021.1.
 . Stop the application server.
-// link to back up your runtime nodes => to decomment 
+// link to back up your runtime nodes => OK 
 . *IMPORTANT: Back up your xref:runtime:back-up-bonita-bpm-platform.adoc[runtime nodes and databases].*
 
 === Run Bonita Update Tool 
@@ -241,7 +278,9 @@ a|
 |
 |Bonita Update Tool 3.x
 |Subscription edition 
-|
+a| 
+ * bonita-update-tool-sp (Linux)
+ * bonita-update-tool-sp.bat (Windows)
 |===
 
 NOTE: Starting from *Bonita Migration Tool 2.44.1*, an additional script called _check-migration-dryrun_ is available. It can be used as a *pre-update check* as it does all the verification without actually migrating the elements. This is equivalent to running the migration script with a `--verify` option.
