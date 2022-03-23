@@ -86,7 +86,7 @@ xref:rest-api-overview.adoc#resource_search[Standard search parameters] are avai
   }, {
     "id":"2",
     "process_id":"4758765",
-    "description":"",
+    "description":"A customer actor",
     "name":"customer",
     "displayName":"Customer actor"
   }
