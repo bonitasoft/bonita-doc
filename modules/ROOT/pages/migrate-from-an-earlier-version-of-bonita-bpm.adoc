@@ -416,28 +416,29 @@ The update is now complete. If you were using a custom Look & Feel before updati
 
 == Updating processes with 6.x forms and case overview pages
 
-Until the version 7.0.0, Bonita used UI artifacts based on the Google Web Toolkit (GWT) technology: process instantiation, task execution forms and case overview page.
-The runtime support for those forms and pages was removed in 7.8.0.
+Until Bonita 7.0.0, Bonita used UI artifacts based on the Google Web Toolkit (GWT) technology: process instantiation forms, task execution forms and case overview page. The runtime support for those forms and pages was removed in 7.8.0.
 
-It means that if one or more processes on the migrated server uses 6.x forms or overview page, the update to a version above 7.7.x cannot be performed directly. The following lines explain how to update to a version 7.8.0.
+It means that if one or more processes on the target server uses 6.x forms or overview page, the migration to a Bonita 7.7.x and greater cannot be performed directly. The following lines explain how to migrate a process to Bonita 7.8.0, for example.
 
-Specifically if you are updating from a 6.x version:
+WARNING: The disabled processes with 6.x forms cannot be enabled again post update.
 
-* Update to the 7.0.0 using the Bonita Migration Tool 1.x.
-* Update to the last 7.7.x version, using the Bonita Migration Tool 2.x.
-* Redesign your process to use contracts at process instantiation and task execution levels, and recreate all your forms and case overview pages in the Studio using the UI Designer or your favorite IDE, so that they use  xref:contracts-and-contexts.adoc[contracts]. For more information, go to  xref:migrate-a-form-from-6-x.adoc[migrate a form from 6.x]
-* Upload the new version of all your processes using contracts, new forms, and new case overview pages.
-* Make sure the versions of the processes using 6.x forms have no more running instances, and disable them.
-* Perform the update to the desired version.
+|===
+| From a Bonita *6.x version* | From a Bonita *7.x version*
+a|
+. Update to Bonita 7.0.0 using the Migration Tool 1.x.
+. Update to the last 7.7.x version, using the Migration Tool 2.x.
+. Redesign your processes to use contracts at process instantiation and task execution levels, and recreate all your forms and case overview pages in Bonita Studio using the UI Designer or your favorite IDE, so that they use xref:contracts-and-contexts.adoc[contracts]. For more information, go to xref:migrate-a-form-from-6-x.adoc[migrate a form from 6.x]
+. Upload the new version of all your processes using contracts, new forms, and new case overview pages.
+. Make sure the versions of the processes using 6.x forms have no more running instances, and disable them.
+. Perform the updating procedure to the desired version.
+a|
+. Redesign all your forms in Bonita Studio using the UI Designer. For more information, see xref:migrate-a-form-from-6-x.adoc[how to migrate a form from 6.x]
+. Upload the new versions of all your processes using the new forms
+. Make sure the versions of your processes using 6.x forms have no more running instances
+. Disable them
+. Perform the updating procedure to the desired version
+|===
 
-If you are updating from a 7.x version:
-
-* Redesign all your forms in the Studio using the UI designer. See xref:migrate-a-form-from-6-x.adoc[here] for more info.
-* Upload the new version of all your processes using the new forms.
-* Disable the version of your processes using 6.x forms. Make sure they have no more running instances.
-* Perform the update to the desired version.
-
-The disabled processes with 6.x forms will not be able to be enabled again post update.
 Having 6.x case overview pages on your processes will not prevent updating the platform,
 however they will all be replaced by the default 7.x case overview page, created with the UI Designer.
 It means that you might want to redo the case overview page as well as the forms, especially if you have configure
