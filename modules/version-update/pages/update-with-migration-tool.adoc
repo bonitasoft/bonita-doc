@@ -1,6 +1,6 @@
 
 = Updating Bonita Runtime with Bonita Migration Tool
-:page-aliases: ROOT:migrate-from-an-earlier-version-of-bonita-bpm.adoc, ROOT:migrate-from-an-earlier-version-of-bonita.adoc, migrate-from-an-earlier-version-of-bonita.adoc
+:page-aliases: ROOT:migrate-from-an-earlier-version-of-bonita-bpm.adoc
 
 :description: Guide on how to update Bonita Runtime main version (single or multiple nodes) using Bonita Update Tool.
 
