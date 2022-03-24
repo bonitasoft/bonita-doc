@@ -24,9 +24,12 @@ WARNING: You cannot update your platform from a version earlier than 6.0.2.
 |From version *6.0.2* or later to any version up to *7.0.0*
 | Bonita Migration Tool 2.x | xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[Migration Tool Documentation]
 |From version *7.0.0* or later to any version up to *7.13.0*
-| Bonita Update Tool 2.x | xref:update-tool.adoc[Update Tool Documentation]
+| Bonita Update Tool 3.x | xref:update-tool.adoc[Update Tool Documentation]
 |From version *7.10.0* or later to any version up to *the latest*
 |===
+
+=== Happy update path 
+
 
 
 == Updating your Bonita Studio
