@@ -89,7 +89,7 @@ If the platform has already been initialized, every update to the configuration 
 * `setup push`
 ====
 +
- .. You must perform following changes:
+ .. You must perform the following changes:
 
 * Comment out the `authentication.service.ref.name=authenticationService` line
 * Add this new line: `authentication.service.ref.name=jaasAuthenticationService`
