@@ -26,7 +26,7 @@ Best practice:
 
 [WARNING]
 ====
-Business Object should not be stored in Process or activity data. They can only be stored in Business data and *Form* transient data.
+Business Object can only be stored in Business data variable. They should not be stored in Process variable or local task variable.
 ====
 
 There are also a number of variables that are provided by default in a process, such as the id of the current user. They are available through the xref:expressions-and-scripts.adoc[expression editor].
