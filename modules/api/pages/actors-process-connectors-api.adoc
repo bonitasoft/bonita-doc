@@ -1,0 +1,1279 @@
+= Actors, Process and Connectors
+
+:description: Easily manage actors, processes and connectors with BPM APIs.
+
+Easily manage actors, processes and connectors with BPM APIs.
+
+== Actors
+
+[#actor]
+
+=== Actor
+
+==== Description
+
+The concept of Actor defines who can perform a task or start a process.
+
+Manage process actors with BPM APIs.
+
+==== Identifier
+
+Simple, the ID of the object (a long value)
+
+==== Representation
+
+[source,json]
+----
+{
+  "id":"actor id",
+  "process_id":"process definition id",
+  "description":"a description of the actor",
+  "name":"name of the actor (as specified on human tasks and for the initiator of the process)",
+  "displayName":"the display name of the actor"
+}
+----
+
+==== Methods
+
+The methods used for this resource are:
+
+* GET - Read or search an actor
+* PUT - Update an actor
+
+==== Read an actor
+
+Use a GET method to retrieve information about an actor.
+
+* *URL* +
+`/API/bpm/actor/:actorId` +
+_Example_: Get the information about the actor with id=1\: `/API/bpm/actor/1`
+* *Method* +
+`GET`
+* *Success Response*
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+{
+  "id":"1",
+  "process_id":"4717422838168315799",
+  "description":"",
+  "name":"employee",
+  "displayName":"Employee actor"
+}
+----
+
+==== Search actors for a given process id
+
+Use a GET method to search actors for a given process id.
+
+* *URL* +
+`/API/bpm/actor` +
+_Example_: Count the actor members of actors of the process with id `4758765` `/API/bpm/actor?p=0&c=10&f=process_id=4758765&n=users&n=group&n=roles&n=memberships`
+* *Method* +
+`GET`
+* *Data Params* +
+xref:ROOT:rest-api-overview.adoc#resource_search[Standard search parameters] are available.
+* *Success Response*
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+[
+  {
+    "id":"1",
+    "process_id":"4758765",
+    "description":"",
+    "name":"employee",
+    "displayName":"Employee actor"
+  }, {
+    "id":"2",
+    "process_id":"4758765",
+    "description":"A customer actor",
+    "name":"customer",
+    "displayName":"Customer actor"
+  }
+]
+----
+
+==== Update an actor
+
+[#update-actor]
+
+Use the PUT method to update an actor.
+Fields that can be upated are "displayName" and "description"
+
+* *URL* +
+`/API/bpm/actor/:actorId`
+* *Method* +
+`PUT`
+* *Request Payload*
++
+[source,json]
+----
+{
+  "displayName": "new display name",
+  "description": "new description"
+}
+----
+
+* *Success Response*
+ ** *Code*: 200
+
+=== ActorMember
+
+==== Description
+
+An actor member represents the association between the organization and the actor af a process. In an organization we have four member_types = USER, GROUP, ROLE and MEMBERSHIP (role in a group). You can assign a actor to a user by specifying a role and or a group, or specific user.
+
+==== Identifier
+
+Simple, the ID of the object (a long value)
+
+==== Representation
+
+[source,json]
+----
+{
+  "id":"actor member id",
+  "actor_id":"id of the actor for this mapping",
+  "role_id":"id of role, or -1 if the member type is not role",
+  "group_id":"id of group, or -1 if the member type is not group",
+  "user_id":"id of user, or -1 if the member type is not user"
+}
+----
+
+==== Methods
+
+The methods used for this resource are:
+
+* POST - Add a new actorMember
+* GET - Search actorMembers
+* DELETE - Remove an actorMember
+
+==== Add a new actorMember
+
+Use the POST method to create a new actorMember.
+
+* *URL* +
+`/API/bpm/actorMember`
+* *Method* +
+`POST`
+* *Request Payload* +
+Add a member_type = USER to the actor with id = 2.
++
+[source,json]
+----
+{
+  "actor_id":"2",
+  "member_type":"USER",
+  "user_id":"101"
+}
+----
++
+Add a member_type = MEMBERSHIP to the actor with id = 2.
++
+[source,json]
+----
+{
+  "id":"204",
+  "actor_id":"2",
+  "role_id":"-1",
+  "group_id":"-1",
+  "user_id":"101"
+}
+----
+
+* *Success Response*
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+{
+  "id":"206",
+  "actor_id":"2",
+  "role_id":"4",
+  "group_id":"8",
+  "user_id":"-1"
+}
+----
+
+==== Search actorMembers
+
+Use a GET method with filters and search terms to search for actorMembers.
+
+* *URL* +
+`/API/bpm/actorMember` +
+_Example_: ``
+* *Method* +
+``
+* *Data Params* +
+xref:ROOT:rest-api-overview.adoc#resource_search[Standard search parameters] are available. +
+There is a mandatory filter on:
+ ** `actor\_id` For example, retrieve the actorMembers related to the specified actor_id. http://localhost:8080/bonita/API/bpm/actorMember?p=0&c=10&f=actor_id%3d1
+
++
+You can also filter also on:
+ ** `member\_type=user|role|group|roleAndGroup` retrieve only the actorMembers of type user. `/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1&f=member\_type%3duser`
+ ** `user\_id=:userId}`: retrieve only the actorMembers related to the specified user_id. `/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1&f=user\_id%3d101`
+ ** `role\_id=:roleId`: retrieve only the actorMembers related to the specified role_id. `/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1&f=role\_id%3d101`
+ ** `group\_id=:groupId`: retrieve only the actorMembers related to the specified group_id. `/API/bpm/actorMember?p=0&c=10&f=actor\_id%3d1&f=group\_id%3d101`
+* *Success Response* +
+An array of actorMember objects
+ ** *Code*: 200
+
+==== Delete an actorMember
+
+[#delete-actor]
+
+Use the DELETE method to delete an existing actorMember.
+
+* *URL* +
+`/API/bpm/actorMember/:id`
+* *Method* +
+`DELETE`
+* *Success Response*
+ ** *Code*: 200
+  
+
+== Process
+
+=== Process
+
+==== Description
+
+[#process]
+
+Deploy and manage xref:ROOT:key-concepts.adoc[process definitions]. In addition, you can instantiate a process, which will create a new process instance (<<case,case>>).
+
+==== Identifier
+
+The ID of the process definition (a long value).
+
+==== Representation
+
+[source,json]
+----
+{
+  "id":"the identifier of the process definition (long)",
+  "icon":"icon path (string)",
+  "displayDescription":"the human readable activity description (string)",
+  "deploymentDate":"the date when the process definition was deployed (date)",
+  "description":"the process description (string)",
+  "activationState":"the state of the process definition (ENABLED or DISABLED)",
+  "name":"the process name (string)",
+  "deployedBy":"the id of the user who deployed the process (integer)",
+  "displayName":"the human readable process description (string)",
+  "actorinitiatorid":"the id of the actor that can initiate cases of the process",
+  "last_update_date":"the date when the process definition was last updated (date)",
+  "configurationState":"the configuration state of the process (UNRESOLVED or RESOLVED)",
+  "version":"the version of the process (string)"
+}
+----
+
+==== Methods
+
+The methods used for this resource are:
+
+* POST - Create a process
+* GET - Read a process or search for a process
+* PUT - Update a process
+* DELETE - Delete a process and all its cases
+
+[#process-deploy]
+
+==== Response object extension (deploy query parameter)
+
+The `d` (deploy) used to xref:ROOT:rest-api-overview.adoc#extend-resource[extend response object] can be used with :
+
+* `deployedBy`
+
+==== Deploy a process definition
+
+A process resource is created using the content of a `.bar` file that has previously been xref:ROOT:manage-files-using-upload-servlet-and-rest-api.adoc[uploaded], using the `processUpload` servlet `+http://.../bonita/portal/processUpload+`,
+to get the process archive path.
+
+* *URL* +
+`/API/bpm/process`
+* *Method* +
+`POST`
+* *Request Payload*
++
+[source,javascript]
+----
+{
+  "fileupload": "D:\bonita-studio\BonitaSubscription-7.6.3\workspace\tomcat\bonita\client\tenants\1\tmp\tmp_4431838172282406107.bar" // the process archive path
+}
+----
+
+* *Success Response*
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+{
+  "id":"8216934689697197160","icon":"","displayDescription":"",
+  "deploymentDate":"2015-01-02, 15:04:30.527"
+  "description":"",
+  "activationState":"DISABLED",
+  "name":"Pool","deployedBy":"4",
+  "displayName":"Pool",
+  "actorinitiatorid":"3",
+  "last_update_date":"2015-01-02 5:04:30.587",
+  "configurationState":"RESOLVED","version":"1.0"
+}
+----
+
+==== Read a process
+
+Read a process definition
+
+* *URL* +
+`/API/bpm/process/:processId`
+* *Method* +
+`GET`
+* *Success Response*
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+{
+  "id":"1",
+  "icon":"/default/process.png",
+  "displayDescription":"process description",
+  "deploymentDate":"2015-01-02 14:21:18.421",
+  "description":"another process description",
+  "activationState":"ENABLED",
+  "name":"Pool1",
+  "deployedBy":"2",
+  "displayName":"Pool1",
+  "actorinitiatorid":"2",
+  "last_update_date":"2015-01-02 14:21:18.529",
+  "configurationState":"RESOLVED",
+  "version":"1.0"
+}
+----
+
+==== Update a process
+
+You can update the following fields of a process definition:
+
+* displayDescription
+* displayName
+* activationState (to toggle between the possible values, DISABLED and ENABLED)
+* *URL* +
+`/API/bpm/process/:processId`
+* *Method* +
+`PUT`
+* *Request Payload* +
+The fields to be updated, in JSON
++
+[source,json]
+----
+{
+  "displayName":"Leave booking process"
+}
+----
+
+* *Success Response*
+ ** *Code*: 200
+
+==== Delete a process
+
+You can delete a process based on its ID.
+
+[WARNING]
+====
+
+*Beware! Data loss risk!*
+Deleting a process will automatically delete all its cases (on-going and archived alike). Thus, the operation may take a long time, and fail if the transaction timeout is not large enough.
+This feature should only be used on non-production environments.
+*Please proceed at your own risk.*
+====
+
+* *URL* +
+`/API/bpm/process/:processId`
+* *Method* +
+`DELETE`
+* *Success Response*
+ ** *Code*: 200
+
+==== Delete processes in bulk
+
+You can also delete several processes.
+
+[WARNING]
+====
+
+*Beware! Data loss risk!*
+Deleting a process will automatically delete all its cases (on-going and archived alike). Thus, the operation may take a long time, and fail if the transaction timeout is not large enough.
+This feature should only be used on non-production environments.
+*Please proceed at your own risk.*
+====
+
+* *URL* +
+`/API/bpm/process`
+* *Method* +
+`DELETE`
+* *Request Payload*
+List of processes ids to delete
++
+[source,json]
+----
+["1", "2" , ...]
+----
+
+* *Success Response*
+ ** *Code*: 200
+
+==== Search for a process
+
+Search for processes that match the search criteria.
+
+* *URL* +
+`/API/bpm/process` +
+_Example_:
+* *Method* +
+`GET`
+* *Data Params* +
+xref:ROOT:rest-api-overview.adoc#resource_search[Standard search parameters] are available.
+ ** s: search on "name", "displayName" or "version"
+ ** o: can order by "name", "version", "deploymentDate", "deployedBy", "activationState", "configurationState", "processId", "displayName", "lastUpdateDate", "categoryId", "label". By default sort order is ASC (`%20asc` added to order). You can sort in reverse order by adding `%20desc` to order. Example: `/API/bpm/process?f=name=MyProcess&p=0&c=1&o=version%20desc&f=activationState=ENABLED`
+ ** f: can filter on "name", "version", "deploymentDate", "deployedBy", "activationState" with the value DISABLED or ENABLED, "configurationState" with the value UNRESOLVED, or RESOLVED, "processId", "displayName", "lastUpdateDate", "categoryId", "label", "supervisor_id"
+ ** d: extend resource response parameters of <<process-deploy,this resource>> are available.
+* *Success Response* +
+A JSON representation of the matched processes.
+ ** *Code*: 200
+
+==== Retrieve the design for a process
+
+Process design can be retrived client side.
+
+* *URL* +
+`/API/bpm/process/:processId/design`
+* *Method* +
+`GET`
+* *Success Response* +
+The process design object. The JSON returned is a representation of the https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[DesignProcessDefinition] instance of the given process id.
+ ** *Code*: 200
+
+[#instantiate_process]
+
+==== Instantiate a process
+
+===== Retrieve the instantiation contract for a process
+
+Process instantiation contract elements can be retrived client side.
+
+* *URL* +
+`/API/bpm/process/:processId/contract`
+* *Method* +
+`GET`
+* *Success Response* +
+The task contract elements
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+{
+  "constraints":[
+    {
+      "name":"ticket_account",
+      "expression":"ticket_account!=null && !ticket_account.toString().isEmpty()",
+      "explanation":"input ticket_account is mandatory",
+      "inputNames":[
+        "ticket_account"
+      ],
+      "constraintType":"MANDATORY"
+    },
+    {
+      "name":"ticket_description",
+      "expression":"ticket_description!=null && !ticket_description.toString().isEmpty()",
+      "explanation":"input ticket_description is mandatory",
+      "inputNames":[
+        "ticket_description"
+      ],
+      "constraintType":"MANDATORY"
+    },
+    {
+      "name":"ticket_subject",
+      "expression":"ticket_subject!=null && !ticket_subject.toString().isEmpty()",
+      "explanation":"input ticket_subject is mandatory",
+      "inputNames":[
+        "ticket_subject"
+      ],
+      "constraintType":"MANDATORY"
+    }
+  ],
+  "inputs":[
+    {
+      "description":null,
+      "name":"ticket_account",
+      "multiple":false,
+      "type":"TEXT",
+      "inputs":[]
+    },
+    {
+      "description":null,
+      "name":"ticket_description",
+      "multiple":false,
+      "type":"TEXT",
+      "inputs":[]
+    },
+    {
+      "description":null,
+      "name":"ticket_subject",
+      "multiple":false,
+      "type":"TEXT",
+      "inputs":[]
+    }
+  ]
+}
+----
+
+[#start-a-process-using-an-instantiation-contract]
+
+===== Start a process using an instantiation contract
+
+This method will create a new process instance (<<case,case>>)
+
+* *URL* +
+`/API/bpm/process/:processId/instantiation`
+* *Method* +
+`POST`
+* *Request Payload* +
+Contract element values
++
+[source,json]
+----
+{
+  "ticket_account":"CustomerA",
+  "ticket_description":"issue description",
+  "ticket_subject":"Issue 1"
+}
+----
+
+* *Success Response* +
+The created case ID 201 OK or a contract violation explanation in case of a 400 Bad request
+ ** *Code*: 201
+ ** *Payload*:
++
+[source,json]
+----
+{
+"caseId":"125713789879465465"
+}
+----
+* *Error Response*
+ ** *Code*: 400
+ ** *Payload*:
++
+[source,json]
+----
+{
+  "exception":"class org.bonitasoft.engine.bpm.contract.ContractViolationException",
+  "message":"USERNAME=walter.bates | Contract is not valid: ",
+  "explanations":[
+    "Expected input [ticket_account] is missing",
+    "Expected input [ticket_description] is missing",
+    "Expected input [ticket_subject] is missing"
+  ]
+}
+----
+
+=== Diagram (Subscription editions only)
+
+==== Description
+
+Use the diagram resource to access the process diagram xml representation. This is necessary for drawing the diagram.
+
+==== Identifier
+
+Simple, the ID of the process for which you want download the diagram
+
+==== Representation
+
+The XML encoding of the diagram.
+
+==== Methods
+
+The methods used for this resource are:
+
+* GET - Retrieve the XML definition of the diagram
+
+==== Retrieve a process diagram xml file
+
+* *URL* +
+`/API/bpm/diagram/:processId`
+* *Method* +
+`GET`
+* *Success Response* +
+Raw XML file containing the diagram definition
+ ** *Code*: 200
+
+=== ProcessParameter
+
+==== Description
+
+A process parameter is a variable attached to process. The parameter value is set at deployment, and applies to all cases of the process. This feature is available in Enterprise, Performance, Efficiency, and Teamwork editions.
+
+==== Identifier
+
+A compound identifier constructed from process_id/name where process_id is a long value and name is the name of the process parameter.
+
+==== Representation
+
+[source,json]
+----
+{
+  "process_id":"the identifier of the process definition",
+  "process_name":"the name of the related process",
+  "description":"the description of the parameter",
+  "name":"the name of the parameter",
+  "value":"the value of the parameter",
+  "process_version":"the version of the process",
+  "type":"the type of the parameter"
+}
+----
+
+==== Methods
+
+The methods used for this resource are:
+
+* GET - Read a resource or search for a resource
+* PUT - Update a resource
+
+==== Read a processParameter
+
+You can read a process parameter using its compound id (process_id/name)
+
+* *URL* +
+`/API/bpm/processParameter/:processId/:name`
+* *Method* +
+`GET`
+* *Request Payload*
++
+[source,json]
+----
+----
+
+* *Success Response* +
+Process parameter resource
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+{
+  "process_id": "4880205209556178729",
+  "process_name": "myProcessName",
+  "description": "myProcessDescription",
+  "name": "myParameterName",
+  "value": "myParameterValue",
+  "process_version": "1.0",
+  "type": "java.lang.String"
+}
+----
+
+==== Search for a processParameter
+
+When you search for a processParameter, do not provide the process_version or process_name. They are needed only when you read a processParameter.
+
+* *URL* +
+`/API/bpm/processParameter` +
+_Example_: `/API/bpm/processParameter?p=0&c=10&o=name%20ASC&f=process\_id%3d4880205209556178729`
+* *Method* +
+`GET`
+* *Data Params* +
+xref:ROOT:rest-api-overview.adoc#resource_search[Standard search parameters] are available.
+* *Success Response* +
+A array of process parameters
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+[
+  {
+    "process_id": "4880205209556178729",
+    "process_name": "",
+    "description": "",
+    "name": "d",
+    "value": "n",
+    "process_version": "",
+    "type": "java.lang.String"
+  }
+]
+----
+
+==== Update a processParameter (Subscription edition only)
+
+You can update only a process parameter value using the API. If you specify values for other fields in the update request, they are ignored.
+
+* *URL* +
+`/API/bpm/processParameter/:processId/:name`
+* *Method* +
+`PUT`
+* *Request Payload* +
+A process parameter resource
++
+[source,json]
+----
+{
+  "value":"myNewValue"
+}
+----
+
+* *Success Response*
+ ** *Code*: 200
+
+=== ProcessResolutionProblem
+
+==== Description
+
+This resource represents a problem in a process that needs to be resolved for the process to run. It can be an actor, a connector implementation, or a parameter (in the Enterprise, Performance, Efficiency, or Teamwork edition).
+
+==== Representation
+
+[source,json]
+----
+{
+  "message":"resolution problem",
+  "resource_id":"id of the unresolved resource",
+  "target_type":"the type of the unresolved resource (parameter, actor, or connector)"
+}
+----
+
+==== Methods
+
+The methods used for this resource are:
+
+* GET - search for process resolution problems
+
+==== Search for process resolution problems
+
+This is the only method supported by this resource. It should be used to list the problems that need to be solved before a process can be used.
+
+* *URL* +
+`/API/bpm/processResolutionProblem` +
+_Example_: `/API/bpm/processResolutionProblem?p=0&c=100&f=process\_id%3d8802838415753448432`
+* *Method* +
+`GET`
+* *Data Params* +
+xref:ROOT:rest-api-overview.adoc#resource_search[Standard search parameters] are available. +
+Filtering on the process definition ID is mandatory.
+ ** `f=process_id=<process_definition_id>`: this filter is used to indicate the target process
+* *Success Response* +
+A list of process resolution problems in JSON or an empty response body if there is no problem for the process
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+[
+  {
+    "message":"Actor 'Employee actor' does not contain any members",
+    "resource_id":"3","target_type":"actor"
+  },
+  {
+    "message":"Parameter 'username' is not set.",
+    "resource_id":"",
+    "target_type":"parameter"
+  }
+]
+----
+* *Error Response*
+ ** *Code*: 404 if the process does not exist
+
+=== ProcessSupervisor
+
+==== Description
+
+The process supervisor has management rights over a process. He can configure and monitor it.
+You can give the ProcessSupervisor rights to some users by specifying a role and or a group, or a specific user.
+In order to be able to manage the processes he supervises in the Bonita Applications, a user should also have the profile "Process Manager".
+
+==== Identifier
+
+A compound identifier constructed from process_id/user_id/role_id/group_id where all Ids are long values.
+
+==== Representation
+
+[source,json]
+----
+{
+  "process_id":"Id of the process",
+  "role_id":"Id of role, or -1 if the supervisor type is not role or membership",
+  "group_id":"Id of group, or -1 if the supervisor type is not group or membership",
+  "user_id":"Id of user, or -1 if the supervisor type is not user"
+}
+----
+
+==== Methods
+
+* POST - Add a process supervisor
+* GET - Search for process supervisors
+* DELETE - Remove a process supervisor
+
+[#process-supervisor-deploy]
+
+==== Response object extension (deploy query parameter)
+
+The `d` (deploy) used to xref:ROOT:rest-api-overview.adoc#extend-resource[extend response object] can be used with :
+
+* `role_id`
+* `group_id`
+* `user_id`
+
+==== Search for process supervisors of a given type (user, group, role or membership)
+
+* *URL* +
+  `/API/bpm/processSupervisor` +
+_Example_: Get the supervisors of type `User` for the process `8040901`: `API/bpm/processSupervisor?c=5&d=user_id&f=process_id%3D8040901857674754544&f=user_id%3D>0&f=group_id%3D-1&f=role_id%3D-1&p=0`
+* *Method* +
+`GET`
+* *Data Params* +
+xref:ROOT:rest-api-overview.adoc#resource_search[Standard search parameters] are available.
+ ** f: filter of the search, you need to specify the process_id, and then the user_id, group_id and role_id with one of them (two if you want to filter on group and role) set to `>0` and the other ones set to `-1`. E.g.: `f=process_id%3D8040901857674754544&f=user_id%3D>0&f=group_id%3D-1&f=role_id%3D-1`
+ ** d: extend resource response parameters of <<process-supervisor-deploy,this resource>> are available.
+* *Success Response* +
+JSON representations of matching process supervisors
+ ** *Code*: 200
+ ** *Payload*:
+
+[source,json]
+----
+[
+   {
+     "process_id":"8040901857674754544",
+     "user_id":{
+       "firstname":"April",
+       "icon":"icons/default/icon_user.png",
+       "creation_date":"2017-09-07 16:44:38.321",
+       "userName":"april.sanchez",
+       "title":"Mrs",
+       "created_by_user_id":"-1",
+       "enabled":"true",
+       "lastname":"Sanchez",
+       "last_connection":"",
+       "manager_id":"3",
+       "id":"2",
+       "job_title":"Compensation specialist",
+       "last_update_date":"2017-09-07 16:44:38.321"
+     },
+     "role_id":"-1",
+     "group_id":"-1"
+   },
+   {
+     "process_id":"8040901857674754544",
+     "user_id":{
+       "firstname":"Anthony",
+       "icon":"icons/default/icon_user.png",
+       "creation_date":"2017-09-07 16:44:38.456",
+       "userName":"anthony.nichols",
+       "title":"Mr",
+       "created_by_user_id":"-1",
+       "enabled":"true",
+       "lastname":"Nichols",
+       "last_connection":"",
+       "manager_id":"17",
+       "id":"18",
+       "job_title":"Account manager",
+       "last_update_date":"2017-09-07 16:44:38.456"
+     },
+     "role_id":"-1",
+     "group_id":"-1"
+   }
+ ]
+----
+
+==== Add a process Supervisor
+
+You can assign a process to a user, a group, a role, or a membership (role and group). Note that in order to be able to manage the processes he supervises in the portal, a user should also have the profile "Process Manager".
+
+* *URL* +
+`/API/bpm/processSupervisor`
+* *Method* +
+`POST`
+* *Request Payload* +
+The process definition id and either the user, role and/or group id.
+
+===== Add a process supervisor of type `User`
+
+[source,json]
+----
+{
+  "process_id":"5777042023671752656",
+  "user_id":"11"
+}
+----
+
+===== Add a process supervisor of type `Group`
+
+[source,json]
+----
+{
+  "process_id":"5777042023671752656",
+  "group_id":"2"
+}
+----
+
+===== Add a process supervisor of type `Role`
+
+[source,json]
+----
+{
+  "process_id":"5777042023671752656",
+  "role_id":"114"
+}
+----
+
+===== Add a process supervisor of type `Membership`
+
+[source,json]
+----
+{
+  "process_id":"5777042023671752656",
+  "role_id":"11",
+  "group_id":"2"
+}
+----
+
+* *Success Response* +
+The JSON representation of a process supervisor resource
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+{
+  "process_id":"5777042023671752656",
+  "user_id":"11",
+  "role_id":"-1",
+  "group_id":"-1"
+}
+----
+
+==== Delete a process supervisor
+
+You can delete a process supervisor by specifying its compound Id in the body of the request (process_id/user_id/role_id/group_id)
+
+* *URL* +
+`/API/bpm/processSupervisor`
+* *Method* +
+`DELETE`
+* *Request Payload*
++
+[source,json]
+----
+  ["8040901857674754544/11/-1/-1"]
+----
+
+* *Success Response*
+ ** *Code*: 200
+
+==== Delete process supervisors in bulk
+
+* *URL* +
+`/API/bpm/processSupervisor`
+* *Method* +
+`DELETE`
+* *Request Payload* +
+List of process supervisors Ids to delete
++
+[source,json]
+----
+  ["8040901857674754544/11/-1/-1","8040901857674754544/12/-1/-1"]
+----
+
+* *Success Response*
+ ** *Code*: 200
+ 
+ == Connectors
+ 
+ [#connector]
+
+=== ProcessConnectorDependency
+
+==== Description
+
+Use the processConnectorDependency resource to access connector dependencies.
+
+==== Identifier
+
+The object itself
+
+==== Representation
+
+[source,json]
+----
+{
+  "connector_version":"<connector version>",
+  "connector_process_id":"<process id>",
+  "filename":"<filename representing the connector>",
+  "connector_name":"<connector name>"
+}
+----
+
+==== Methods
+
+The methods used for this resource are:
+
+* GET - Search for connector dependencies
+
+==== Search for connector dependencies
+
+Use a GET method with filters to search for connector dependencies.
+
+* *URL* +
+`/API/bpm/processConnectorDependency` +
+_Example_: Get connector dependencies of the email connector (version 1.0.0) of the process id `4971555`: `/API/bpm/processConnectorDependency?c=10&p=0&f=connector_process_id=4971555129176049183&f=connector_name=email&f=connector_version=1.0.0`
+* *Method* +
+`GET`
+* *Data Params* +
+xref:ROOT:rest-api-overview.adoc#resource_search[Standard search parameters] are available. +
+Mandatory filters: connector_process_id, connector_name, connector_version
+* *Success Response*
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+[
+  {
+    "connector_version":"1.0.0",
+    "connector_process_id":"4971555129176049183",
+    "filename":"bonita-connector-email-impl-1.0.12.jar",
+    "connector_name":"email"
+  }, {
+    "connector_version":"1.0.0",
+    "connector_process_id":"4971555129176049183",
+    "filename":"mail-1.4.5.jar",
+    "connector_name":"email"
+  }
+]
+----
+
+=== ConnectorFailure
+
+==== Description
+
+Error message and stackTrace recorded when a connector fails during a process execution. Enterprise and Performance editions only.
+
+==== Identifier
+
+The ID of the connector failure (a long value).
+
+==== Representation
+
+[source,json]
+----
+{
+  "errorMessage":"the message of the connector failure",
+  "connectorInstanceId":"the ID of the connector instance (see connectorInstance resource documentation)",
+  "errorStackTrace":"the stack trace of the error"
+}
+----
+
+==== Methods
+
+The methods used for this resource are:
+
+* GET - Read a connector failure
+
+==== Read a connector failure
+
+Retrieve the information regarding the failure of the connector execution.
+
+* *URL* +
+`/API/bpm/connectorFailure/:connectorFailureId`
+* *Method* +
+`GET`
+* *Success Response* +
+A connectorFailure resource as JSON
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+{
+  "errorMessage":"Error while executing the groovy script",
+  "connectorInstanceId":"5",
+  "errorStackTrace":"org.bonitasoft.engine.core.connector.exception.SConnectorException: PROCESS_DEFINITION_ID=8030057793979348308 | PROCESS_NAME=Pool1 | PROCESS_VERSION=1.0 | PROCESS_INSTANCE_ID=5 | ROOT_PROCESS_INSTANCE_ID=5 | FLOW_NODE_DEFINITION_ID=-6089366458284481881 | FLOW_NODE_INSTANCE_ID=12 | FLOW_NODE_NAME=Étape1 | CONNECTOR_DEFINITION_IMPLEMENTATION_CLASS_NAME=expression execution connector | CONNECTOR_INSTANCE_ID=5 | org.bonitasoft.engine.connector.exception.SConnectorException: java.util.concurrent.ExecutionException: java.lang.Exception: Error while executing the groovy script\n\tat org.bonitasoft.engine.core.connector.impl.ConnectorServiceImpl.executeConnectorInClassloader(ConnectorServiceImpl.java:332)"
+}
+----
+
+[#connector-instance]
+
+=== ConnectorInstance
+
+==== Description
+
+Retrieve information about connector instances attached to a process or a flow node.
+
+==== Representation
+
+Returns a JSON array of connector details:
+
+[source,json]
+----
+{
+  "containerType":"string",
+  "connectorId":"string",
+  "id":"number",
+  "name":"string",
+  "activationEvent":"string",
+  "state":"string",
+  "containerId":"number",
+  "version":"string"
+}
+----
+
+==== Methods
+
+The methods used for this resource are:
+
+* GET - returns a JSON array of connector details
+
+==== Retrieve a list of connector instances attached to a process or a flow node
+
+* *URL* +
+`/API/bpm/connectorInstance` +
+_Example_:
+ ** Get information about connectors attached to a flow node with instanceId 15 :``/API/bpm/connectorInstance?p=0&c=10&f=containerId%3d15``
+ ** Get information about connectors attached to a process instance with instanceId `4781948`: `/API/bpm/connectorInstance?p=0&c=10&f=containerId%3d4781948523999597477`
+* *Method* +
+`GET`
+* *Data Params* +
+xref:ROOT:rest-api-overview.adoc#resource_search[Standard search parameters] are available.
+ ** `+f=containerId%3d{id}+`. The container ID of the process or flow node.
+* *Success Response* +
+A list of connector details
+ ** *Code*: 200
+ ** *Payload*: +
+Retrieve information about connectors attached to a flow node
++
+[source,json]
+----
+[
+  {
+    "containerType":"flowNode",
+    "connectorId":"scripting-groovy-script",
+    "id":"3",
+    "name":"hello world",
+    "activationEvent":"ON_FINISH",
+    "state":"TO_BE_EXECUTED",
+    "containerId":"15",
+    "version":"1.0.0"
+  },
+  {
+    "containerType":"flowNode",
+    "connectorId":"webservice",
+    "id":"4",
+    "name":"webService",
+    "activationEvent":"ON_FINISH",
+    "state":"TO_BE_EXECUTED",
+    "containerId":"15",
+    "version":"1.0.0"
+  }
+]
+----
++
+Retrieve information about connectors attached to a process instance
++
+[source,json]
+----
+[
+  {
+    "containerType":"process",
+    "connectorId":"database-access",
+    "id":"8",
+    "name":"my connector",
+    "activationEvent":"ON_FINISH",
+    "state":"TO_BE_EXECUTED",
+    "containerId":"4781948523999597477",
+    "version":"1.0.0"
+  }
+]
+----
+
+=== ArchivedConnectorInstance
+
+==== Description
+
+Retrieve information about archived connector instances attached to an archived process or an archived flow
+node.
+
+==== Representation
+
+[source,json]
+----
+{
+  "containerType":"the type (string) of the containing activity",
+  "connectorId":"the connector id (string)",
+  "id":"the identifier (long) of the connector instance",
+  "name":"the name (string) of the connector",
+  "activationEvent":"the name (string) of the event that activsted the connector instance",
+  "state":"the state (string) of the connector",
+  "archivedDate": "the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this connecctor instance was archived, for example '2014-10-17 16:05:42.626'",
+  "containerId":"the identifier (long) of the containing activity instance",
+  "version":"the connector version (string)"
+}
+----
+
+==== Methods
+
+The methods used for this resource are:
+
+* GET - returns a JSON array of archived connector details
+
+==== Retrieve a list of archived connector instances
+
+* *URL* +
+`/API/bpm/archivedConnectorInstance` +
+_Example_: Get information about archived instances sort by containerId DESC Request url: `/API/bpm/archivedConnectorInstance?p=0&c=10&o=containerId+DESC`
+* *Method* +
+`GET`
+* *Data Params* +
+xref:ROOT:rest-api-overview.adoc#resource_search[Standard search parameters] are available.
+* *Success Response* +
+A list of connector details
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+[
+  {
+    "containerType":"flowNode",
+    "connectorId":"scripting-groovy-script",
+    "id":"15",
+    "name":"connector1",
+    "activationEvent":"ON_ENTER",
+    "state":"DONE",
+    "archivedDate":"2014-12-01 16:39:19.041",
+    "containerId":"34"
+    "version":"1.0.0"
+  },
+  {
+    "containerType":"process",
+    "connectorId":"scripting-groovy-script",
+    "id":"16",
+    "name":"processConnector",
+    "activationEvent":"ON_FINISH",
+    "state":"DONE",
+    "archivedDate":"2014-12-01 16:39:19.097"
+    "containerId":"33",
+    "version":"1.0.0"
+  }
+]
+----
+
+
+ 
