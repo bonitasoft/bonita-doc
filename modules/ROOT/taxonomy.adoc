@@ -213,9 +213,10 @@
  ** xref:maintenance-operation.adoc[Bonita Runtime Maintenance Operations]
  ** xref:back-up-bonita-bpm-platform.adoc[Back up Bonita Platform]
  ** xref:configurable-archive.adoc[Configurable Archive]
- ** Migration
-  *** xref:migration-overview.adoc[Migration overview]
-  *** xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[Migrate from an earlier version of Bonita]
+ ** Update Bonita versions
+  *** xref:update-overview.adoc[Migration overview]
+  **** xref:update-with-migration-tool.adoc[Update with Migration Tool]
+  **** xref:update-with-update-tool.adoc[Update with Update Tool]
 * Development
  ** xref:software-extensibility.adoc[Platform extensibility overview]
  ** Connectors
