@@ -120,8 +120,8 @@ As mentioned above, during the update, Bonita configuration files will be resete
 Therefore, having a backup of your configuration files before launching the updating procedure is *HIGHLY* necessary, so you could merge custom properties and configurations to the target Bonita Runtime.
 
 .Starting with Bonita 7.3.Y, there is no more bonita home folder, which means that: 
-// link to setup tool 
-* if your current installation *DOES* have customized the configuration files, you will have to use xref:runtime:bonita-bpm-platform-setup.adoc[the setup tool] to push your customized configuration files to the database where the configuration is stored. 
+// link to setup tool => old module, add runtime
+* if your current installation *DOES* have customized the configuration files, you will have to use xref:ROOT:bonita-bpm-platform-setup.adoc[the setup tool] to push your customized configuration files to the database where the configuration is stored. 
 * if your current installation *DOES NOT* have customized configuration files, then you do not need to configure the bundle any further. 
 
 ==== Database files 
