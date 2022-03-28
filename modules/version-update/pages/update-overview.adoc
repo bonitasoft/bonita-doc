@@ -34,7 +34,7 @@ WARNING: You cannot update your platform from a version earlier than 6.0.2.
 
 == Updating your Bonita Studio
 
-To update to a newer version of Bonita Studio, install the new version using the xref:bonita-bpm-studio-installation.adoc[Studio installer wizard] for your operating system.
+To update to a newer version of Bonita Studio, install the new version using the xref:ROOT:bonita-bpm-studio-installation.adoc[Studio installer wizard] for your operating system.
 If you want to keep the artifacts in your workspace, select the option to migrate your workspace.
 
 WARNING: if you do not migrate your workspace, or if you use the OS-independent archive to install the new Bonita Studio,
