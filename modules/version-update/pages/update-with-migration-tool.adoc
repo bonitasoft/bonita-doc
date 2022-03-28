@@ -168,9 +168,6 @@ If an update is required, make sure to apply all the xref:ROOT:database-configur
 ____
 * If custom indexes have been added to certain tables in the engine database, they should be removed them before launching the update procedure. If not removed, the update procedure will not be completed.
 
-NOTE: There is no update for H2 database.
-
-
 [WARNING]
 ====
 
@@ -215,9 +212,6 @@ document: 7476
 | Time required:
 | 2.5 minutes
 |===
-
-
-
 
 == Updating Bonita bundle: step-by-step procedure
 
