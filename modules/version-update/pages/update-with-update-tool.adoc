@@ -31,7 +31,7 @@ The script manages the sequence of steps from your current version to the target
 
 === Can Bonita Update Tool be used to upgrade/downgrade between community and subscription?
 The answer is *“NO”*. 
-The Bonita Update Tool does not help you upgrade/downgrade between the community/subscription versions, so you cannot xref:upgrade-from-community-to-a-subscription-edition.adoc[change edition] at the same time as updating.
+The Bonita Update Tool does not help you upgrade/downgrade between the community/subscription versions, so you cannot xref:ROOT:upgrade-from-community-to-a-subscription-edition.adoc[change edition] at the same time as updating.
 
 === Bonita Runtime version to target
 Always update to the latest main release by using the Bonita Update Tool. Maintenance releases often contain bug fixes made shortly after the release of subsequent main releases.
@@ -75,7 +75,7 @@ ____
 * Go through the xref:update-with-update-tool.adoc#special-cases[Special cases] and xref:update-with-update-tool.adoc#troubleshooting[Troubleshooting] paragraphs below.
 
 // link to setup tool to be added => old module, new runtime
-* Runtime custom configuration. You will need to re-apply the customizations after the update process finishes. *If the target version of the update is Bonita 7.3 or greater, you can use xref:ROOT:bonita-platform-setup.adoc[the setup tool] to push the configuration files.*
+* Runtime custom configuration. You will need to re-apply the customizations after the update process finishes. *If the target version of the update is Bonita 7.3 or greater, you can use xref:ROOT:bonita-bpm-platform-setup.adoc[the setup tool] to push the configuration files.*
 
 * Process definition sources (.bos files) require a manual migration. First export then import them into the new Bonita Studio version.
 * Custom connectors, actor filers, data types, custom pages, RestAPI extensions: will for sure continue to work in the new version if no custom code has been added, default Bonita code. If you did add custom code, before starting the update, check in the release notes for any breaking changes and test them thoroughly after the update.
@@ -103,7 +103,7 @@ Therefore, having a backup of your configuration files before launching the upda
 
 .Starting with Bonita 7.3.Y, there is no more bonita home folder, which means that: 
 // link to setup tool => old module, new runtime
-* if your current installation *DOES* have customized the configuration files, you will have to use xref:ROOT:bonita-platform-setup.adoc[the setup tool] to push your customized configuration files to the database where the configuration is stored. 
+* if your current installation *DOES* have customized the configuration files, you will have to use xref:ROOT:bonita-bpm-platform-setup.adoc[the setup tool] to push your customized configuration files to the database where the configuration is stored. 
 * if your current installation *DOES NOT* have customized configuration files, then you do not need to configure the bundle any further. 
 
 ==== Database files 
@@ -206,7 +206,7 @@ a|
 
 == Updating Bonita bundle: step-by-step procedure
 
-image::images/images-6_0/update_bigsteps.png[Update steps]
+image::ROOT:images/images-6_0/update_bigsteps.png[Update steps]
 
 This section explains how to update a platform that uses one of the Bonita bundles.
 
@@ -298,7 +298,7 @@ The old Tomcat server cannot be used. You will have to install one that matches 
 . Unzip the target bundle version into a directory. In the steps below, this directory will be called bonita-target-version. 
 
 // link to configure the bundle to use the updated database => old module, new runtime
-. xref:ROOT:database-configuration.adoc[Configure the bundle to use the updated database.] Do not recreate the database and use xref:ROOT:bonita-platform-setup.adoc[the setup tool] of the bonita-target-version. Edit the bonita-target-version/setup/database.properties file to point to the updated database.
+. xref:ROOT:database-configuration.adoc[Configure the bundle to use the updated database.] Do not recreate the database and use xref:ROOT:bonita-bpm-platform-setup.adoc[the setup tool] of the bonita-target-version. Edit the bonita-target-version/setup/database.properties file to point to the updated database.
 . Reapply the configuration made to the runtime, using the setup tool of the bonita-target-version. 
 . Download the configuration from the database to the local disk.
 
@@ -311,7 +311,7 @@ The old Tomcat server cannot be used. You will have to install one that matches 
 ====
 You must reapply the configuration that had been done on the original instance’s BONITA_HOME into the bonita-target-version/setup/platform_conf/current
 // link to setup tool => old module, new runtime
-Please refer to the guide on updating the configuration file using the xref:ROOT:bonita-platform-setup.adoc[setup tool].
+Please refer to the guide on updating the configuration file using the xref:ROOT:bonita-bpm-platform-setup.adoc[setup tool].
 When done, push the updated configuration into the database: ./setup.sh push
 
 === Specific configuration
@@ -343,7 +343,7 @@ Put a new license in the database: see Runtime configuration for further details
 // link to Licenses => , old module, new runtime
 // * xref:ROOT:licenses.adoc[Licenses]
 // link to setup tool => old module, new runtime
-* xref:ROOT:bonita-platform-setup.adoc#update_platform_conf[Setup tool]
+* xref:ROOT:bonita-bpm-platform-setup.adoc#update_platform_conf[Setup tool]
 Then, install the new license.
 
 
