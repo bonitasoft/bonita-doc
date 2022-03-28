@@ -1,0 +1,629 @@
+= Data and Documents
+:description: Easily manage data and case documents with BPM APIs.
+
+Easily manage data and documents with BPM APIs.
+
+== Data
+
+[#data]
+
+=== ActivityVariable
+
+==== Description
+
+This resource enables you to retrieve the value of a specific variable name for a specific case (or process instance). Only persistent variables are concerned by this resource, not transient variables.
+
+==== Identifier
+
+The ID of the activity variable (a long value).
+
+==== Representation
+
+[source,json]
+----
+{
+  "tenantId": "The ID of the tenant where the current user is logged in (technical information)",
+  "tenantId_string": "number (since 7.0.1)",
+  "id":"_The identifier of the variable",
+  "id_string":"number (since 7.0.1)",
+  "name": "The name of the activity variable",
+  "description": "The description of the variable, if any",
+  "transientData": "FALSE",  //Always false (boolean)
+  "className": "The fully qualified class name of the variable type",
+  "containerId": "The ID of the activity containing this variable (same as the one passed as parameter) if the variable is defined at activity level, or ID of the process instance if the variable is defined on the process",
+  "containerId_string": "number" (since 7.0.1),
+  "containerType": "ACTIVITY_INSTANCE" | "PROCESS_INSTANCE" _depending on whether the variable is defined at activity or process level._,
+  "value": "the value of this variable. The format of the value depends on the type of the variable"
+}
+----
+
+The string representation added in 7.0.1 for Long attributes is a workaround for the JavaScript integer spectrum issue.
+
+==== Methods
+
+The methods available for this resource are:
+
+* GET - Read an existing non-finished activity instance variable
+
+==== Retrieving a activity instance variable
+
+* *URL* +
+`/API/bpm/activityVariable/:activityId/:variableName`
+ ** activity_id: the identifier of the activity from which to retrieve the variable
+ ** variable_name: the name of the variable to retrieve +
+_Example_: `API/bpm/activityVariable/20004/RequestValidationData`
+* *Method* +
+`GET`
+* *Success Response* +
+A JSON representation of the retrieved activity variable
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+{
+  "tenantId":0,
+  "tenantId_string":"0",
+  "id":5010,
+  "id_string":"5010",
+  "name":"RequestValidationData",
+  "description":null,
+  "transientData":false,
+  "className":"java.lang.String",
+  "containerId":20004,
+  "containerId_string":"20004",
+  "containerType":"ACTIVITY_INSTANCE",
+  "value":"Confirmed"
+}
+----
+
+=== CaseVariable
+
+[#case-variable]
+
+==== Description
+
+Search, count, find, or update case variable values. A case is an instance of a process.
+
+==== Identifier
+
+The ID of the case variable (a long value).
+
+==== Representation
+
+[source,json]
+----
+{
+  "description":"Detailed description of the case variable, as set in the definition at design-time",
+  "name":"name of the variable in the case",
+  "value":"the current value of the case variable",
+  "case_id":"ID of the case this variable belongs to",
+  "type":"the Java type of the variable"
+}
+----
+
+==== Methods
+
+The methods used for this resource are:
+
+* GET - Search for case variables from its case ID, or find a single case variable from case ID and variable name
+* PUT - Update a case variable value
+
+==== Get a case variable
+
+* *URL* +
+`/API/bpm/caseVariable/:caseId/:variableName`
+* *Method* +
+`GET`
+* *Success Response* +
+A case variable representation
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+{
+  "description":"",
+  "name":"myInvoiceAmount",
+  "value":"14.2",
+  "case_id":"1",
+  "type":"java.lang.Float"
+}
+----
+
+==== Update a case variable
+
+WARNING: only following types are supported for _javaTypeclassname_: java.lang.String, java.lang.Integer, java.lang.Double, java.lang.Long, java.lang.Boolean, java.util.Date
+
+* *URL* +
+`/API/bpm/caseVariable/:caseId/:variableName`
+* *Method* +
+`PUT`
+* *Request Payload*
++
+[source,json]
+----
+{
+  "type": "javaTypeclassname",
+  "value": "newValue"
+}
+----
+
+* *Success Response*
+ ** *Code*: 200
+
+==== Search for a list of case variables
+
+* *URL* +
+`/API/bpm/caseVariable` +
+_Example_: `/API/bpm/caseVariable?p=0&c=10&f=case\_id%3d11754`
+* *Method* +
+`GET`
+* *Data Params* +
+xref:rest-api-overview.adoc#resource_search[Standard search parameters] are available. +
+`f = case_id%3d[caseId]` to indicate that you want to add a filter on 'case_id' with value [caseId] (%3d is the URL-encoded '=' (equals) sign)
+* *Success Response* +
+A representation of a list of case variables
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+[
+  {
+    "description":"",
+    "name":"myInvoiceAmount",
+    "value":"14.2",
+    "case_id":"11754",
+    "type":"java.lang.Float"
+  },
+  {
+    "description":"invoice reference",
+    "name":"myInvoiceReference",
+    "value":"1FFL54184KOL",
+    "case_id":"11754",
+    "type":"java.lang.Long"
+  }
+]
+----
+
+=== Document
+
+==== Description
+
+Use the document resource to access a document in an active case.
+
+[CAUTION]
+====
+This resource is deprecated and may be removed in a future release. Instead, use caseDocument or archivedCaseDocument.
+====
+
+== Case Document
+
+[#case-document]
+
+[discrete]
+==== Description
+
+Use the case document resource to access a document in an active case. For archived cases and previous document versions use archivedCaseDocument.
+
+[WARNING]
+====
+`author` in the payload is deprecated: use `submittedBy`
+====
+
+[discrete]
+==== Identifier
+
+The ID of the document (a long value).
+
+[discrete]
+==== Representation
+
+[source,json]
+----
+{
+  "id":"documentId",
+  "creationDate":"date and time",
+  "author":"submittorUserId",
+  "index":"index in a list of documents, or -1 for a single document",
+  "contentMimetype":"MIMEtype",
+  "caseId":"caseId",
+  "contentStorageId":"storageId",
+  "isInternal":"true | false",
+  "description":" description",
+  "name":"name",
+  "fileName":"filename",
+  "submittedBy":"submittorUserId",
+  "url":"urlForDownload",
+  "version":"version"
+}
+----
+
+[discrete]
+==== Methods
+
+The methods used for this resource are:
+
+* POST - Create a resource
+* GET - Read a resource
+* PUT - Update a resource
+* DELETE - Remove a resource
+
+[#upload_casedoc]
+
+[discrete]
+==== Add a document to a case
+
+Use a POST method to add a document to a case. You can upload a document from the local file system or by URL. Specify the case id and the document name in the payload.
+The document description is optional: if you do not specify a description, the description in the response is empty. The response contains a version, which is managed automatically.
+You cannot currently retrieve a specific version of a document, only the most recent version. To retrieve earlier versions of a caseDocument, use the archivedCaseDocument resource.
+
+* *URL* +
+`/API/bpm/caseDocument`
+* *Method* +
+`POST`
+* *Request Payload* +
+_Example 1_: Upload `doc.jpg` from the tenant temporary upload folder to case 1 with the display name "Doc 1" and renaming the file into "document_1.jpg":
++
+[source,json]
+----
+{
+  "caseId": "1",
+  "file": "doc.jpg",
+  "name": "Doc 1",
+  "fileName": "document_1.jpg",
+  "description": "draft"
+}
+----
++
+_Example 2_: Upload `train_receipt.png` from my cloud drive to case 1 with the name "Train receipt":
++
+[source,json]
+----
+{
+  "caseId" : "1",
+  "url" : "http://cloud.storage.com/sites/chris/expenses/july_2014/train_receipt.png",
+  "name" : "Train receipt"
+}
+----
+
+* *Success Response*
+ ** *Code*: 200
+ ** *Payload*: +
+_Example 1_: +
+In this example, `isInternal` is set to `true` because the the document object contains the content directly.
++
+[source,json]
+----
+{
+  "id":"3",
+  "creationDate":"2014-10-09 16:45:36.658",
+  "author":"1",
+  "index":"-1",
+  "contentMimetype":"application/octet-stream",
+  "caseId":"1",
+  "contentStorageId":"4",
+  "isInternal":"true",
+  "description":"draft",
+  "name":"Doc 1",
+  "fileName":"document_1.jpg",
+  "submittedBy":"1",
+  "url":"documentDownload?fileName=document_1.jpg&contentStorageId=4",
+  "version":"1"
+}
+----
++
+_Example 2_: +
+In this example, `isInternal` is set to `false` because the document is specified by URL so the document object contains a reference to the content, not the content itself.
++
+[source,json]
+----
+{
+  "id":"4",
+  "creationDate":"2014-10-09 16:45:36.658",
+  "author":"1",
+  "index":"-1",
+  "contentMimetype":"image/png",
+  "caseId":"1",
+  "contentStorageId":"4",
+  "isInternal":"false",
+  "description":"draft",
+  "name":"Train receipt",
+  "fileName":"train_receipt.png",
+  "submittedBy":"1",
+  "url":"http://cloud.storage.com/sites/chris/expenses/july_2014/train_receipt.png",
+  "version":"1"
+}
+----
+
+[discrete]
+==== Get a document from a case
+
+Use a GET method to get a document from a case. First you get the document information, then you download the content.
+To get the document information, specify the document id in the URL. The document id is created when you upload a document to a case. There is no payload.
+
+* *URL* +
+`/API/bpm/caseDocument/:documentId``
+* *Method* +
+`GET`
+* *Success Response* +
+The response includes the "url" to use to download the content. Call the documentDownload servlet with this URL:
+`/portal/documentDownload?fileName=doc.jpg&contentStorageId=4`. +
+*Note:* The filename attribute is just a way to indicate to the browser under what name the document should be downloaded. There is no check to make sure that the filename passed matches he original one as the sensitive part is the content of the document not its name and when you develop a process/app you may want the documents to be downloaded under a specific name different from the initial document name. This is the purpose of this parameter.
+_Note_: Since Bonita 7.10, document url fileName is now URL encoded.
+This will avoid errors when a document to be downloaded contains special characters in its name. +
+In the previous versions, a workaround was necessary client-side using the javascript native function "encodeURI" to generate document download url. You can now remove this workaround.
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+{
+  "id":"3",
+  "creationDate":"2014-10-09 16:45:36.658",
+  "author":"1",
+  "index":"-1",
+  "contentMimetype":"application/octet-stream",
+  "caseId":"1",
+  "contentStorageId":"4",
+  "isInternal":"true",
+  "description":"draft",
+  "name":"Doc 1",
+  "fileName":"doc.jpg",
+  "submittedBy":"1",
+  "url":"documentDownload?fileName=doc.jpg&contentStorageId=4",
+  "version":"1"
+}
+----
+
+[discrete]
+==== Update a document in a case
+
+You update a document in a case by uploading a new version of the document using a PUT method.
+You can upload a document version from the local file system or by URL.
+The document name will be used in all the cases of the process, but the combination of case id and document name is unique.
+
+In the URL, you specify to supply the document id. This is included in the response when you first <<upload_casedoc,add a document to a case>>.
+
+The response to PUT methods is the same as for POST methods.
+
+* *URL* +
+`/API/bpm/caseDocument/:documentId`
+* *Method* +
+`PUT`
+* *Data Params*
+* *Request Payload* +
+Example 1: Update the document ExpensesPolicy in case 1 by uploading `Expense policy rev2.pdf` from the tenant temporary upload folder. The document id, 17 in this example, is specified in the URL. The description is optional. The filename allows to rename the file into "revision2.pdf" Method
++
+[source,json]
+----
+{
+  "file" : "Expense policy rev2.pdf",
+  "description" : "updated version of document"
+  "fileName": "revision2.pdf",
+}
+----
++
+Example 2: Update the document ExpensesPolicy in case 1 by uploading `Expense policy rev2.pdf` from my cloud drive. The document id is 17.
++
+[source,json]
+----
+{
+  "url" : "http://cloud.storage.com/sites/chris/expenses/july_2014/Expense policy rev2.pdf"
+}
+----
+
+* *Success Response*
+ ** *Code*: 200
+
+[discrete]
+==== Search for a document
+
+* *URL* +
+`/API/bpm/caseDocument` +
+_Example_: +
+Find all documents with a document name equal to doc1: `/API/bpm/caseDocument?p=0&c=10&f=name=doc1` +
+Find all documents with with any of the searchable fields starting with "doc". `/API/bpm/caseDocument?p=0&c=10&s=doc`
+* *Method* +
+`GET`
+* *Data Params* +
+xref:rest-api-overview.adoc#resource_search[Standard search parameters] are available. +
+It is possible to filter on three parameters: submittedBy, name and description.
+ ** `submittedBy="id"`: search for documents that were submitted by the user with the specified identifier.
+ ** `name="string"`: search for documents with names that contain _string_.
+Depending on the setting for xref:using-list-and-search-methods.adoc[word-based search], the search returns documents with _string_ at the start of the name or the start of a word in the name.
+ ** `description="string"`: search for documents with descriptions that contain _string_.
+Depending on the setting for xref:using-list-and-search-methods.adoc[word-based search], the search returns documents with _string_ at the start of the description or the start of a word in the description.
+* *Success Response* +
+A document object for each matching document
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+[
+  {
+    "id":"3",
+    "creationDate":"2014-10-09 16:45:36.658",
+    "author":"1",
+    "index":"-1",
+    "contentMimetype":"application/octet-stream",
+    "caseId":"1",
+    "contentStorageId":"4",
+    "isInternal":"true",
+    "description":"draft",
+    "name":"doc1",
+    "fileName":"doc.jpg",
+    "submittedBy":"1",
+    "url":"documentDownload?fileName=test.txt&contentStorageId=1",
+    "version":"1"
+  }, {
+    "id":"4",
+    "creationDate":"2014-10-09 16:45:36.658",
+    "author":"1",
+    "index":"-1",
+    "contentMimetype":"image/png",
+    "caseId":"1",
+    "contentStorageId":"4",
+    "isInternal":"false",
+    "description":"draft",
+    "name":"doc2",
+    "fileName":"train_receipt.png",
+    "submittedBy":"1",
+    "url":"http://cloud.storage.com/sites/chris/expenses/july_2014/train_receipt.png",
+    "version":"1"
+  }
+]
+----
+
+[discrete]
+==== Delete a document
+
+* *URL* +
+`/API/bpm/caseDocument/:documentId`
+* *Method* +
+`DELETE`
+* *Success Response*
+ ** *Code*: 200
+
+=== ArchivedCaseDocument
+
+==== Description
+
+Use the archived case document resource to access previous document versions for active and archived cases
+
+==== Identifier
+
+The ID of the document (a long value).
+
+==== Representation
+
+[source,json]
+----
+{
+  "id":"archivedDocumentId",
+  "creationDate":"date and time of the original document creation",
+  "author":"submittorUserId",
+  "index":"index in a list of documents. if -1 it represents a single document",
+  "contentMimetype":"MIMEtype",
+  "caseId":"caseId",
+  "contentStorageId":"storageId",
+  "isInternal":"true | false",
+  "description":" description",
+  "name":"name",
+  "fileName":"filename",
+  "submittedBy":"submittorUserId",
+  "url":"urlForDownload",
+  "version":"version",
+  "sourceObjectId":"originalDocumentId",
+  "archivedDate":"date and time of the archived document creation"
+}
+----
+
+==== Methods
+
+The methods used for this resource are:
+
+* GET - Read a resource
+* DELETE - Remove the physical file related to the specified id but keep the mapping for audit purposes
+
+==== Search for a document
+
+You can use a single GET method to return all the documents that match the specified filters.
+
+* *URL* +
+`/API/bpm/archivedCaseDocument` +
+_Examples_
+ ** List all versions of a simple document (knowing its current version Id) `/API/bpm/archivedCaseDocument?c=10&p=0&f=sourceObjectId=1`
+ ** List all versions of a list of document (knowing its name) `/API/bpm/archivedCaseDocument?c=10&p=0&f=name=MyDocList`
+ ** List all versions of all documents of the case of id `1`: `/API/bpm/archivedCaseDocument?c=10&p=0&f=caseId=1`
+ ** List all versions of all document of the archived case of id `1` `/API/bpm/archivedCaseDocument?c=10&p=0&f=archivedCaseId=1`
+ ** Combine different filters, for example list all versions of a list declared in a case (knowing list name and case id) `/API/bpm/archivedCaseDocument?c=10&p=0&f=caseId=1&f=name=myDocList&o=index ASC`
+
+Response payload
+
+* *Method* +
+`GET`
+* *Data Params* +
+xref:rest-api-overview.adoc#resource_search[Standard search parameters] are available. +
+It is possible to filter on the following parameters: sourceObjectId, caseId, archivedCaseId, submittedBy, name, description.
+ ** `sourceObjectId="id"`: search for documents by specifying the original document id.
+This is useful if you know the id of a caseDocument and you wish to retrieve all its previous versions..
+ ** `caseId="id"`: search for documents with the specified open case id.
+ ** `archivedCaseId="id"`: search for documents with the specified archvied case id.
+ ** `submittedBy="id"`: search for documents that were submitted by the user with the specified identifier.
+ ** `name="string"`: search for documents with names that contain _string_.
+Depending on the setting for xref:using-list-and-search-methods.adoc[word-based search], the search returns documents with _string_ at the start of the name or the start of a word in the name.
+ ** `description="string"`: search for documents with descriptions that contain _string_.
+Depending on the setting for xref:using-list-and-search-methods.adoc[word-based search], the search returns documents with _string_ at the start of the description or the start of a word in the description.
+* *Success Response* +
+An archived document object for each matching document
+ ** *Code*: 200
+ ** *Payload*:
++
+[source,json]
+----
+[{
+   "id":"1",
+   "creationDate":"2014-10-09 16:39:52.472",
+   "author":"1",
+   "index":"0",
+   "contentMimetype":"text/plain",
+   "caseId":"1",
+   "contentStorageId":"1",
+   "isInternal":"true",
+   "description":"",
+   "name":"myDoc",
+   "fileName":"test1.txt",
+   "submittedBy":"1",
+   "url":"documentDownload?fileName=test1.txt&contentStorageId=1",
+   "version":"1",
+   "sourceObjectId":"1",
+   "archivedDate":"2014-10-09 17:39:52.473"
+}, {
+   "id":"2",
+   "creationDate":"2014-10-09 16:39:52.473",
+   "author":"1",
+   "index":"1",
+   "contentMimetype":"text/plain",
+   "caseId":"1",
+   "contentStorageId":"2",
+   "isInternal":"true",
+   "description":"",
+   "name":"myDoc",
+   "fileName":"test2.txt",
+   "submittedBy":"1",
+   "url":"documentDownload?fileName=test2.txt&contentStorageId=2",
+   "version":"2",
+   "sourceObjectId":"1",
+   "archivedDate":"2014-10-09 18:39:52.473"
+}, {
+   "id":"3",
+   "creationDate":"2014-10-09 16:39:52.473",
+   "author":"1",
+   "index":"2",
+   "contentMimetype":"text/plain",
+   "caseId":"1",
+   "contentStorageId":"3",
+   "isInternal":"true",
+   "description":"",
+   "name":"myDoc",
+   "fileName":"test3.txt",
+   "submittedBy":"1",
+   "url":"documentDownload?fileName=test3.txt&contentStorageId=3",
+   "version":"3",
+   "sourceObjectId":"1",
+   "archivedDate":"2014-10-09 19:39:52.473"
+}]
+----
+
+==== Delete a document content
+
+Delete the document content with id 3
+
+* *URL* +
+`/API/bpm/archivedCaseDocument/:archivedCaseId`
+* *Method* +
+`DELETE`
+
