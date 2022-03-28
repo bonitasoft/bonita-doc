@@ -10,7 +10,7 @@ Learn how to update a Bonita Platform from an older version to a newer version.
 * new features (in Main versions)
 * technology updates (in Main versions)
 * bug fixes (in Maintenance versions)
- ====
+====
 
 == Updating your Bonita Runtime
 
