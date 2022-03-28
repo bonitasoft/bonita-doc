@@ -50,4 +50,4 @@ Note: you cannot import a process definition `.bos` file into a version of Bonit
 that was used to create it.
 
 A process definition created using a version 6.x of Bonita, or using 6.x forms or case overview pages, needs to have its task and instantiation forms modified in a previous version of
-Bonita (7.0.0 to 7.7.4) before migrating to this version. Bonita Studio 7.8 and above can't import these forms, which may result in data loss or process malfunctions. For more details see xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[platform migration].
+Bonita (7.0.0 to 7.7.4) before migrating to this version. Bonita Studio 7.8 and above can't import these forms, which may result in data loss or process malfunctions. For more details see xref:update-with-migration-tool.adoc[[platform migration].
