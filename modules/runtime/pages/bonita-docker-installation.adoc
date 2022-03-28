@@ -284,10 +284,6 @@ This optional environment variable is used in conjunction with `MONITORING_PASSW
 
 This optional environment variable is used in conjunction with `MONITORING_USERNAME` to define the access to endpoints protected with https://en.wikipedia.org/wiki/Basic_access_authentication[BASIC Auth access]: the xref:runtime-monitoring.adoc#_prometheus_publisher[Monitoring endpoint], the xref:runtime-monitoring.adoc#_jmx_publisher[Jmx publisher], and the xref:healthcheck-mechanism.adoc#_api_health_endpoints[API health endpoints]., the default monitoring password `mon1tor1ng_adm1n` will be used.
 
-=== REST_API_DYN_AUTH_CHECKS
-
-Deprecated, now you can use xref:#dynamic-check-enable[BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED] instead.
-
 [#dynamic-check-enable]
 
 === BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED (Subscription editions only)
@@ -317,10 +313,11 @@ This optional environment variable allows to activate/deactivate xref:runtime:re
 This optional environment variable allows to activate/deactivate writing Tomcat access logs to standard output. Default value is *false*.
 
 === ACCESSLOGS_FILES_ENABLED
-This optional environment variable allows to activate/deactivate writing Tomcat access logs to a specific file. Default value is *false*.
+This optional environment variable allows to activate/deactivate writing Tomcat access logs to a specific file. When activated, will write those logs to opt/bonita/logs/ *inside* the docker container.
+In practice, it is only useful when mounting a volume to the aforementioned directory. Default value is *false*.
 
 === ACCESSLOGS_PATH
-If `ACCESSLOGS_FILES_ENABLED=true`, this optional environment variable precise the path to put access log files into.
+If `ACCESSLOGS_FILES_ENABLED=true`, this optional environment variable overrides the default path to of the access log file.
 Default value is */opt/bonita/logs*.
 
 === ACCESSLOGS_PATH_APPEND_HOSTNAME
@@ -331,10 +328,12 @@ Default value is *false*.
 If `ACCESSLOGS_FILES_ENABLED=true`, this optional environment variable allows to automatically delete access log files after a certain number of days. Default value is *30*.
 
 === HTTP_MAX_THREADS
-This optional environment variable allows to specify the maximum Http thread number Tomcat will use to serve HTTP/1.1 requests. Default value is *20*.
+This optional environment variable allows to specify the maximum Http thread number Tomcat will use to serve HTTP/1.1 requests. Directly modifies the *maxThreads* parameter of default connector in the *server.xml* file of the Tomcat inside the docker container.
+More information on the usefulness of this parameter can be found https://tomcat.apache.org/tomcat-8.5-doc/config/http.html[here]. Default value is *20*.
 
 === JAVA_OPTS
 This optional environment variable is used to customize JAVA_OPTS. The default value is -Xms1024m -Xmx1024m -XX:MaxPermSize=256m.
+The syntax to use is ``-e JAVA_OPTS="-Xms2048m -Xmx2048m -XX:MaxPermSize=1024m"``
 
 === DB_VENDOR
 This environment variable is automatically set to postgres or mysql if the Bonita container is linked to a PostgreSQL or MySQL database using --link. The default value is h2. It can be overridden if you don't use the --link capability.
