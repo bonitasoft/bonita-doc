@@ -3,7 +3,7 @@
 
 Easily retrieve human or service tasks, call activities, and subprocesses with BPM APIs. Perform maintenance tasks.
 
-Documentation split : 
+Details available here : 
 
 * xref:activities-tasks-flow-nodes-api.adoc[Activities, Tasks and Flow nodes]
 * xref:data-document-api.adoc[Data and Documents]
