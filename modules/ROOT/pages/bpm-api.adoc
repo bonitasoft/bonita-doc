@@ -6,6 +6,6 @@ Easily retrieve human or service tasks, call activities, and subprocesses with B
 Details available here : 
 
 * xref:activities-tasks-flow-nodes-api.adoc[Activities, Tasks and Flow nodes]
-* xref:data-document-api.adoc[Data and Documents]
+* xref:data-documents-api.adoc[Data and Documents]
 * xref:actors-process-connectors-api.adoc[Actors, Process and Connectors]
 * xref:cases-process-instance-api.adoc[Cases (Process Instances)]
