@@ -379,10 +379,9 @@ Since Bonita 7.9 BONITA_SERVER_LOGGING_FILE and BONITA_SETUP_LOGGING_FILE can be
 The logger can be configured by mounting a volume on folder `/opt/bonita/conf/logs` containing the configuration files.
 
 the volume must contain the 2 files
-https://raw.githubusercontent.com/bonitasoft/bonita-distrib/dev/tomcat-resources/tomcat-distrib-for-bonita/src/main/resources/tomcat/server/conf/log4j2-loggers.xml[log4j2-loggers.xml]
+https://raw.githubusercontent.com/bonitasoft/bonita-distrib/{bonitaTechnicalVersion}/tomcat-resources/tomcat-distrib-for-bonita/src/main/resources/tomcat/server/conf/log4j2-loggers.xml[log4j2-loggers.xml]
 and
-https://raw.githubusercontent.com/bonitasoft/bonita-distrib/dev/docker/files/log4j2/log4j2-appenders.xml[log4j2-appenders.xml]
-
+https://raw.githubusercontent.com/bonitasoft/bonita-distrib/{bonitaTechnicalVersion}/docker/files/log4j2/log4j2-appenders.xml[log4j2-appenders.xml]
 
 [NOTE]
 ====
