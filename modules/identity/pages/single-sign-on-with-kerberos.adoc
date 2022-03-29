@@ -263,7 +263,7 @@ authentication.service.ref.passphrase=BonitaBPM
 
 # Create users on the fly, when they are missing from bonita but authenticated by the SSO. The user will belong to the group and role specified below.
 #authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable=true
-#authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipGroupPath=/ACME/HR
+#authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipGroupPath=/acme/hr
 #authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipRoleName=member
 
 # CAS authentication delegate : enables the user, providing login/password,
