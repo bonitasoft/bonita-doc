@@ -9,7 +9,7 @@ The purge tool is used to remove data from bonita archive tables. It is useful f
 
 fixes :
 
-- Fix: add methods to drop index if created at tool startup, this way allowing to re-run a previously stopped run withoutbeing blocked
+- Fix: add methods to drop index if created at tool startup, this way allowing to re-run a previously stopped run without being blocked
 
 Others :
 
