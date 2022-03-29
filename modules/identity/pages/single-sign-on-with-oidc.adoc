@@ -219,6 +219,42 @@ This can also be achieved by configuring the load balancer / reverse proxy so th
 If you need more fine tuning or if you cannot update the reverse proxy configuration, you can consult the official documentation for https://tomcat.apache.org/connectors-doc/common_howto/proxy.html[Tomcat]
 ====
 
+[NOTE]
+====
+
+If your Bonita plateform is behind a reverse proxy in charge of the HTTPS layer (Tomcat remains in HTTP), your need some additional configuration in order to have the desired `redirect_url` query param
+
+.<BUNDLE_HOME>/server/conf/server.xml
+[source,xml]
+----
+   <Valve className="org.apache.catalina.valves.RemoteIpValve"
+           internalProxies="10.10.12.15"
+           remoteIpHeader="x-forwarded-for"
+           remoteIpProxiesHeader="x-forward-by"
+           protocolHeader="x-forwarded-proto"/>
+
+----
+
+In addition, you can add some log to diagnose receivd headers:
+
+
+.<BUNDLE_HOME>/server/conf/server.xml
+[source,xml]
+----
+      <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
+               prefix="localhost_access_log" suffix=".txt"
+               pattern="Proto %{X-Forwarded-Proto}i Host %{X-Forwarded-Host}i For %{X-Forwarded-For}i By %{X-Forwarded-By}i %h %l %u %t &quot;%r&quot; %s %b"/>
+
+----
+
+
+More information on Tomcat offical documentation can be found in https://tomcat.apache.org/tomcat-9.0-doc/config/valve.html#Remote_IP_Valve [Remote_IP_Valve] and https://tomcat.apache.org/tomcat-9.0-doc/config/valve.html#Access_Log_Valve[Access_Log_Valve]
+
+====
+
+Once your Identity Provider is correctly configured (see the section _Configure the Identity Provider_), try to access any Bonita Application page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in). +
+Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected to the OIDC provider's authentication end point since this page needs to be accessible for the tenant administrator (or another user if you set the property `oidc.auth.standard.allowed` to `true`) to be able to log in without an account on the Identity Provider.
+
 == Configure the Identity Provider
 
 Your OIDC identity provider (IdP) should declare an OIDC Service Provider named (or whose client Id is) `bonita` (or the value of the `resource` property set in the file *keycloack-oidc.json* of Bonita bundle if it is different ) with the following configuration or the equivalent depending on your IdP:
