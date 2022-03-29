@@ -24,6 +24,11 @@ Best practice:
 * Define a variable at the lowest level possible, using a process variable only when required for the process flow.
 * Use the minimum number of variables possible; having an unnecessarily large set of variables has an impact on performance.
 
+[WARNING]
+====
+Business Object can only be stored in Business data variable. They should not be stored in Process variable or local task variable.
+====
+
 There are also a number of variables that are provided by default in a process, such as the id of the current user. They are available through the xref:expressions-and-scripts.adoc[expression editor].
 
 == Transient data
