@@ -208,8 +208,8 @@ Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, t
 ====
 
 If your Bonita platform is behind a reverse proxy or a load balancer, You need to make sure : +
-- the reverse proxy / load balancer is configured to include to the requests the correct headers for the host and the protocol (for example if the proxy / load balancer is in charge of the SSL/HTTPS layer) +
-- the application server is configured to use these headers (it is usually the case by default fot yhe `Host` header) +
+- the reverse proxy / load balancer is configured to include to the requests the correct headers for the host and  for the protocol (typically if the proxy / load balancer is in charge of the SSL/HTTPS layer) +
+- the application server is configured to use these headers (it is usually the case by default for the `Host` header) +
 This is required so that `HttpServletRequest.getRequestURL` returns the URL used by the user and not the internal URL used by the reverse proxy. So if redirect_uri` query param is not right in the OIDC provider 302 redirect response, it is likely that this configuration is missing. +
 For example, if you are running Apache >=2.0.31 as reverse proxy, this configuration is controlled by the property http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypreservehost[ProxyPreserveHost] that will override the `Host:` header. +
 This can also be achieved by configuring the load balancer / reverse proxy so that it sets the `X-Forwarded-` HTTP headers. For example :
@@ -217,7 +217,7 @@ This can also be achieved by configuring the load balancer / reverse proxy so th
     X-Forwarded-Proto: https
     X-Forwarded-Host: your.bonita.external.url.host
 ----
-In order for Tomcat server to use those headers, you can use Tomcat's RemoteIpValve. In order to do that, edit `<BUNDLE_HOME>/server/conf/server.xml` to add:
+In order for Tomcat server to use those headers, you can use Tomcat's RemoteIpValve. Edit `<BUNDLE_HOME>/server/conf/server.xml` to add:
 [source,xml]
 ----
    <Valve className="org.apache.catalina.valves.RemoteIpValve"
