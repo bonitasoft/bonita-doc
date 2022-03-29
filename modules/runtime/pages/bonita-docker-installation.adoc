@@ -313,7 +313,7 @@ This optional environment variable allows to activate/deactivate xref:runtime:re
 This optional environment variable allows to activate/deactivate writing Tomcat access logs to standard output. Default value is *false*.
 
 === ACCESSLOGS_FILES_ENABLED
-This optional environment variable allows to activate/deactivate writing Tomcat access logs to a specific file. When activated, will write those logs to opt/bonita/logs/ *inside* the docker container.
+This optional environment variable allows to activate/deactivate writing Tomcat access logs to a specific file. When activated, will write those logs to `/opt/bonita/logs/` *inside* the docker container.
 In practice, it is only useful when mounting a volume to the aforementioned directory. Default value is *false*.
 
 === ACCESSLOGS_PATH
