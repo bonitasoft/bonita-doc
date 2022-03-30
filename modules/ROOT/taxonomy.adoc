@@ -12,7 +12,6 @@
  ** xref:design-application-page.adoc[Design an application page]
  ** xref:create-application.adoc[Create an application]
 * xref:release-notes.adoc[Release notes]
-* xref:migration-tool.adoc[Migration tool change log]
 * Application and Process Design
  ** Application and process design overview
   *** xref:key-concepts.adoc[Key concepts]
@@ -217,6 +216,7 @@
   *** xref:version-update:update-overview.adoc[Update overview]
   **** xref:version-update:update-with-migration-tool.adoc[Update with Migration Tool]
   **** xref:version-update:update-with-update-tool.adoc[Update with Update Tool]
+  **** xref:version-update:update-tools-changelog.adoc[Update tools changelog]
 * Development
  ** xref:software-extensibility.adoc[Platform extensibility overview]
  ** Connectors
