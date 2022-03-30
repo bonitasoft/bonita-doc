@@ -10,12 +10,13 @@ This authorization mechanism ensures that users can only access the appropriate 
 This means, for example, that a user with only the User profile cannot access REST API resources intended for the Administrator.
 
 The authorization mechanism is a "white list" implementation.
-In Subscriptions editions It has two phases:
-* a dynamic phase, which can use uses a script to grant or deny authorization,
+In Subscriptions editions there are two phases:
+* a dynamic phase, which can use uses a script to grant or deny access to a resource,
 * a static phase, which is executed if there is no dynamic configuration for the resource. It checks in the static configuration to see whether the user is authorized to access a given resource or not.
-In community edition, only the static phase is executed.
+In community edition, only the static phase is executed. +
 
-To access a given resource, a user must have a certain permission.
+The static phase works the following way: +
+To access a given resource, a user must have one of the permissions associated with the resource.
 These permissions are defined as *_simple permissions_*, which are the smallest units of permission, or *_compound permissions_*, which are groups of simple permissions.
 Upon login, a user is granted a set of permissions. These permissions define the set of resources the user is authorized to access.
 
