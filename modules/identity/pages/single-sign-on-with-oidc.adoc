@@ -234,7 +234,7 @@ In addition, you can add some log to diagnose received headers in `<BUNDLE_HOME>
                prefix="localhost_access_log" suffix=".txt"
                pattern="Proto %{X-Forwarded-Proto}i Host %{X-Forwarded-Host}i For %{X-Forwarded-For}i By %{X-Forwarded-By}i %h %l %u %t &quot;%r&quot; %s %b"/>
 ----
-More information can be found in Tomcat offical documentation https://tomcat.apache.org/tomcat-9.0-doc/config/valve.html#Remote_IP_Valve [Remote_IP_Valve] and https://tomcat.apache.org/tomcat-9.0-doc/config/valve.html#Access_Log_Valve[Access_Log_Valve]
+More information can be found in Tomcat offical documentation https://tomcat.apache.org/tomcat-9.0-doc/config/valve.html#Remote_IP_Valve[Remote_IP_Valve] and https://tomcat.apache.org/tomcat-9.0-doc/config/valve.html#Access_Log_Valve[Access_Log_Valve]
 ====
 
 == Configure the Identity Provider
