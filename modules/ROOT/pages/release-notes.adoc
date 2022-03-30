@@ -1,11 +1,6 @@
 = Release notes
 :description: Bonita release note
 
-[NOTE]
-====
-The 2022.1 is now available for download. 
-====
-
 == New values added
 
 === Bonita Test Toolkit - *Subscription editions*
