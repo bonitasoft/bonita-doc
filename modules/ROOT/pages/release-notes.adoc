@@ -85,7 +85,7 @@ Obviously, you can develop a custom execution script or upgrade to Enterprise ed
 
 === Connector Retry
 
-When the engine fails to evaluate the output operations of a connector, the retry mechanism is not automaticac. It is the platform's administrator choice to re-execute the connector or not, based on the impact analysis. Go through the xref:runtime:connectors-execution.adoc[connector documentation] for details about connector failure and replay.
+When the engine fails to evaluate the output operations of a connector, the retry mechanism is not automatic. It is the platform's administrator choice to re-execute the connector or not, based on the impact analysis. Go through the xref:runtime:connectors-execution.adoc[connector documentation] for details about connector failure and replay.
 
 == Technical updates
 
