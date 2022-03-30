@@ -214,9 +214,9 @@
  ** xref:configurable-archive.adoc[Configurable Archive]
  ** Update Bonita versions
   *** xref:version-update:update-overview.adoc[Update overview]
-  **** xref:version-update:update-with-migration-tool.adoc[Update with Migration Tool]
-  **** xref:version-update:update-with-update-tool.adoc[Update with Update Tool]
-  **** xref:version-update:update-tools-changelog.adoc[Update tools changelog]
+  *** xref:version-update:update-with-migration-tool.adoc[Update with Migration Tool]
+  *** xref:version-update:update-with-update-tool.adoc[Update with Update Tool]
+  *** xref:version-update:update-tools-changelog.adoc[Update tools changelog]
 * Development
  ** xref:software-extensibility.adoc[Platform extensibility overview]
  ** Connectors
