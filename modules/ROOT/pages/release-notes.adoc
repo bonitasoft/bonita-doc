@@ -105,7 +105,7 @@ https://logging.apache.org/log4j/2.x/log4j-jul/index.html[here]
 
 If you want to continue using the previous log format, the previous pattern is present in the `log4j2-appenders.xml` file but commented out.
 
-The Tomcat bundle does not log anymore in the console but only in `bonita.log` file. The previous behavior can be activated by setting the system property `-Dbonita.runtime.logger.sysout=Console` in tomcat's `setEnv.sh`
+The Tomcat bundle does not log anymore in the console but only in `bonita.log` file. It can be changed in `log4j2-appenders.xml`
 ====
 
 === Enterprise Docker image 
