@@ -57,7 +57,8 @@ Configuration is different depending on the Bonita package:
 
 From Bonita 2022.1, the Prometheus metrics publisher is now active by default and can be disabled if needed. +
 Its access is now controlled with Basic Auth authentication to protect against DOS attacks. +
-Thus, when reaching the Prometheus metrics endpoint, typically https://localhost:8080/bonita/metrics, you will have to manually enter the configured username and password information for your access to be granted.
+
+This end-point is available on the 'https://<yourruntime>/bonita/healthz' URL, with the access protected with Basic Auth authentication.
 
 These credentials can be consulted: 
 
