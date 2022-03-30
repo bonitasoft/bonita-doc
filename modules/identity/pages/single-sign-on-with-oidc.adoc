@@ -208,8 +208,8 @@ Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, t
 ====
 
 If your Bonita platform is behind a reverse proxy or a load balancer, You need to make sure : +
-- the reverse proxy / load balancer is configured to include to the requests the correct headers for the host and  for the protocol (typically if the proxy / load balancer is in charge of the SSL/HTTPS layer) +
-- the application server is configured to use these headers (it is usually the case by default for the `Host` header) +
+- the reverse proxy / load balancer is configured to include in the requests the correct headers for the host and for the protocol (typically if the proxy / load balancer is in charge of the SSL/HTTPS layer) +
+- the application server is configured to use these headers (it is usually the case by default for the `Host` header but not for the `X-Forwarded-` headers) +
 This is required so that `HttpServletRequest.getRequestURL` returns the URL used by the user and not the internal URL used by the reverse proxy. So, if the query parameter `redirect_uri` is not right in the OIDC provider 302 redirect response, it is likely that this configuration is missing. +
 For example, if you are running Apache >=2.0.31 as reverse proxy, this configuration is controlled by the property http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypreservehost[ProxyPreserveHost] that will override the `Host:` header. +
 This can also be achieved by configuring the load balancer / reverse proxy so that it sets the `X-Forwarded-` HTTP headers. For example :
@@ -220,19 +220,19 @@ This can also be achieved by configuring the load balancer / reverse proxy so th
 In order for Tomcat server to use those headers, you can use Tomcat's RemoteIpValve. Edit `<BUNDLE_HOME>/server/conf/server.xml` to add:
 [source,xml]
 ----
-   <Valve className="org.apache.catalina.valves.RemoteIpValve"
-           internalProxies="replace_by_regex_of_iternal_proxies_IPs"
-           remoteIpHeader="x-forwarded-for"
-           remoteIpProxiesHeader="x-forward-by"
-           protocolHeader="x-forwarded-proto"
-           hostHeader="x-forwarded-host"/>
+    <Valve className="org.apache.catalina.valves.RemoteIpValve"
+            internalProxies="replace_by_regex_of_iternal_proxies_IPs"
+            remoteIpHeader="x-forwarded-for"
+            remoteIpProxiesHeader="x-forward-by"
+            protocolHeader="x-forwarded-proto"
+            hostHeader="x-forwarded-host"/>
 ----
 In addition, you can add some log to diagnose received headers in `<BUNDLE_HOME>/server/conf/server.xml`:
 [source,xml]
 ----
-      <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
-               prefix="localhost_access_log" suffix=".txt"
-               pattern="Proto %{X-Forwarded-Proto}i Host %{X-Forwarded-Host}i For %{X-Forwarded-For}i By %{X-Forwarded-By}i %h %l %u %t &quot;%r&quot; %s %b"/>
+    <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
+            prefix="localhost_access_log" suffix=".txt"
+            pattern="Proto %{X-Forwarded-Proto}i Host %{X-Forwarded-Host}i For %{X-Forwarded-For}i By %{X-Forwarded-By}i %h %l %u %t &quot;%r&quot; %s %b"/>
 ----
 More information can be found in Tomcat offical documentation https://tomcat.apache.org/tomcat-9.0-doc/config/valve.html#Remote_IP_Valve[Remote_IP_Valve] and https://tomcat.apache.org/tomcat-9.0-doc/config/valve.html#Access_Log_Valve[Access_Log_Valve]
 ====
