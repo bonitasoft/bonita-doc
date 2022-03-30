@@ -1,15 +1,22 @@
-= Migration tool changelog
-:description: This is the changelog of the migration tool.
+= Bonita Migration and Update tool changelog
 
-This is the changelog of the migration tool.
+:description: This is the changelog for Bonita Migration Tool and Bonita Update Tool. 
 
-All changes in the Migration Tool are logged: from the version that was delivered with the oldest supported version of Bonita to the one delivered with the latest version of Bonita.
-This is due to the fact that improvements in any version of the Migration Tool can affect all supported versions of Bonita.
-This changelog must be read before xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[migrating to a newer version of Bonita].
+This is the changelog for Bonita Migration Tool and Bonita Update Tool. 
+
+All changes in both tools are logged: from the version that was delivered with the oldest supported Bonita version to the latest one delivered. 
+
+This is due to the fact that improvements in any version of the tools can affect all supported Bonita versions. 
+This changelog must be read before xref:update-overview.adoc[updating to a newer version of Bonita].
+
+== 3.0.0 - March 30th, 2022 - Bonita Update Tool delivery 
+
+Bonita Update Tool handles updates from all Bonita 7.10 till the latest *main* Bonita version. 
+Maintenance versions updates do not require using Bonita Update Tool. 
 
 == 2.53.0 - October 1st, 2020 (Bonita 7.11.2, 7.10.6)
 
-This version of the migration tool migrates Bonita up to version 7.11 and 7.10.6
+This version updates Bonita up to version 7.11 and 7.10.6
 No bug fix.
 
 == 2.52.0 - June 18th, 2020 (Bonita 7.11.0)
