@@ -4,6 +4,6 @@
  ** xref:update-overview.adoc[Update Bonita Runtime]
   *** xref:update-with-migration-tool.adoc[Bonita Migration Tool]
   *** xref:update-with-update-tool.adoc[Bonita Update Tool]
-  *** xref:migration-tool.adoc[Migration tool changelog]
+  *** xref:update-tools-changelog.adoc[Update tools changelog]
  ** xref:migrate-a-form-from-6-x.adoc[Migrate a form from 6.x]
  ** xref:upgrade-from-community-to-a-subscription-edition.adoc[Upgrade from Community to Enterprise]
