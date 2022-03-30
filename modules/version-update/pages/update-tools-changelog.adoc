@@ -1,4 +1,4 @@
-= Bonita Migration and Update tool changelog
+= Bonita Migration and Bonita Update tool changelog
 
 :description: This is the changelog for Bonita Migration Tool and Bonita Update Tool. 
 
@@ -11,7 +11,7 @@ This changelog must be read before xref:update-overview.adoc[updating to a newer
 
 == 3.0.0 - March 30th, 2022 - Bonita Update Tool delivery 
 
-Bonita Update Tool handles updates from all Bonita 7.10 till the latest *main* Bonita version. 
+Bonita Update Tool handles updates from all Bonita 7.10 versions till the latest *main* Bonita version. 
 Maintenance versions updates do not require using Bonita Update Tool. 
 
 == 2.53.0 - October 1st, 2020 (Bonita 7.11.2, 7.10.6)
