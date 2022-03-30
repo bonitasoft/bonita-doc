@@ -33,15 +33,15 @@ WARNING : If you consider updating from Bonita 6.5.3 to Bonita 7.1.0, you must f
 You are *NOT* recommended to start Bonita 7.0.0 after you update to it, but to continue with the second phase of the update process.
 ____
 
-== How works Bonita Migration Tool
+== How does Bonita Migration Tool work?
 
 _Bonita Migration Tool_ contains a set of scripts that execute changes on the data for making it compatible with a newer version of Bonita Runtime. 
 The tool is provided as a zip archive that contains an executable script to determine your current version and to request the targeted main Bonita version for the update.
 The update process is step-based, with each maintenance version being equal to a step. The script manages the sequence of steps from your current version to the targeted version. After each main or maintenance version update
 
-=== Can the Update Tool be used for upgrade/downgrade between community and subscription?
+=== Can the Migration Tool be used for upgrade/downgrade between community and subscription?
 The answer is *“NO”*. 
-The Bonita Update Tool does not help you upgrade/downgrade between the community/subscription versions, so you cannot xref:upgrade-from-community-to-a-subscription-edition.adoc[change edition] at the same time as updating.
+The Bonita Migration Tool does not help you upgrade/downgrade between the community/subscription versions, so you cannot xref:upgrade-from-community-to-a-subscription-edition.adoc[change edition] at the same time as updating.
 
 === Bonita version to target
 
@@ -63,7 +63,7 @@ If you are updating to a new maintenance version within the same main version, y
 [CAUTION]
 ====
 .*Special attention required on:*
-* Several bugs affect legacy Bonita versions by preventing a smooth Bonita Runtime update with BPM services paused when:
+* Do not pause the BPM Services before the update. Several bugs affect legacy Bonita versions by preventing a smooth Bonita Runtime update with BPM services paused when:
 ** The source version is older than Bonita 7.8.0, and the target version is between Bonita 7.8.0 and Bonita 7.11.5
 ** The source version is older than Bonita 7.10.5 and the target version is older than Bonita 2021.1
 * Deployed process definitions: The processes will continue to run using the definition created in the previous Bonita version. 
@@ -81,7 +81,7 @@ ____
 * Runtime custom configuration. You will need to re-apply the customizations after the update process finishes. *If the target version of the update is Bonita 7.3 or greater, you can use xref:runtime:bonita-platform-setup.adoc[the setup tool] to push the configuration files.*
 
 * Process definition sources (.bos files) require a manual update. First export then import them into the new Bonita Studio version.
-* Custom connectors, actor filers, data types, custom pages, RestAPI extensions: will for sure continue to work in the new version if no custom code has been added, default Bonita code. If you did add custom code, before starting the update, check in the release notes for any breaking changes and test them thoroughly after the update.
+* Custom connectors, actor filers, data types, custom pages, RestAPI extensions: will for sure continue to work in the new version if no custom code has been added to the default Bonita code. If you did add custom code, before starting the update, check in the release notes for any breaking changes and test them thoroughly after the update.
 * Check that the database version is up-to-date and supported by the new Bonita version.
 * Secure the update by doing backups. Better safe than sorry.
 
@@ -142,7 +142,7 @@ The version targeted may not support the version of the database that is being m
 * If you need to upgrade your database:
  ** Please make sure to apply all the xref:database-configuration.adoc#specific_database_configuration[RDBMS customisations required by Bonita] when setting up the new version.
  ** Please make sure to use the xref:database-configuration.adoc#proprietary_jdbc_drivers[appropriate JDBC driver]
- ** WARNING: *Oracle database* requires to use the official driver for each specific version. Make sure your driver's checksum matches the Oracle official one for your xref:database-configuration.adoc#proprietary_jdbc_drivers[database version]
+ ** WARNING: *Oracle database* requires to use the official driver for each specific version. Make sure your driver's checksum matches the Oracle official one for your xref:database-configuration.adoc#proprietary_jdbc_drivers[database version], see xref:#oracle12[Oracle] below. 
 ====
 
 *Community/Subscription edition:*
@@ -183,7 +183,7 @@ The following are not updated automatically:
 * Configuration of the platform: Before 7.3 in the _Bonita Home_ folder and after 7.3 in database. Reapply your customizations manually after the update  script has finished (using xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool] if updated to 7.3.0+).
 * Deployed process definitions: The processes will continue to run using the definition created in the previous version of Bonita.
 * Process definition sources (`.bos` files): Update these by importing them into the new version of Bonita Studio.
-* +++<a id="bdm_redeploy">++++++</a>+++Business data model, and the business data database: if the update path include version `7.0.0`,`7.2.0` or `7.2.4`, the Business data model must be redeployed after update. You can pause the tenant before update, as a tenant admin, so that you'll be able to redeploy the BDM on a paused tenant once update is done, using xref:define-and-deploy-the-bdm.adoc[Define and deploy the BDM]). Otherwise, no action is required.
+* +++<a id="bdm_redeploy">++++++</a>+++Business data model, and the business data database: if the update path include version `7.0.0`,`7.2.0` or `7.2.4`, the Business data model must be redeployed after update. Only in that case, can you pause the tenant before update, as a tenant admin, so that you'll be able to redeploy the BDM on a paused tenant once update is done, using xref:define-and-deploy-the-bdm.adoc[Define and deploy the BDM]). Otherwise, no action is required.
 * Custom connectors, actor filers, data types: These might continue to work in the new version, but should be tested, depending on your custom code.
 * Custom pages: These might continue to work in the new version, but should be tested depending on your custom code.
 * Custom reports: These might continue to work in the new version, but should be tested depending on your custom code.
@@ -441,7 +441,7 @@ a|
 
 Having 6.x case overview pages on your processes will not prevent updating the platform,
 however they will all be replaced by the default 7.x case overview page, created with the UI Designer.
-It means that you might want to redo the case overview page as well as the forms, especially if you have configure
+It means that you might want to redo the case overview page as well as the forms, especially if you have configured
 a custom case overview page for your processes in version 6.x. Or (for Enterprise, Performance, and Efficiency editions only),
 you can live update it after update.
 
@@ -594,7 +594,8 @@ Please make sure to download the appropriate one:
 A Bonita cluster must have the same version of Bonita on all nodes. To update a cluster:
 
 . Download the Bonita Migration Tool:
- ** In version 1.x you need to download the tool for Performance cluster, the ordinary Performance migration tool does not support cluster update.
+ ** If you use Bonita Migration Tool 1.x you must download the tool for Performance cluster, the ordinary Performance migration tool does not support cluster update.
+ ** Otherwise, use Bonita Migration Tool 2.x.
 . Shutdown all cluster nodes.
 . On one node, follow the procedure above to update the platform.
 . When the migration is complete on one node, follow steps 12 to 16 on all the other nodes.
