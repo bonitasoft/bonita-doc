@@ -190,6 +190,7 @@ You will have the impression that the license is not valid, or not taken into ac
 
 - Cancel the modal window asking you for the license
 - In your File explorer, go to the folder where Bonita has been installed and launch BonitaStudioSubscription.exe
-- It will work just fine
+
+It will work just fine. 
 
 * The `Run As JUnit test` action for Groovy REST API Extension project is broken (https://bugs.eclipse.org/bugs/show_bug.cgi?id=578535[Eclipse issue])
