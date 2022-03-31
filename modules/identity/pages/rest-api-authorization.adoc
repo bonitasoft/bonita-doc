@@ -11,8 +11,10 @@ This means, for example, that a user with only the User profile cannot access RE
 
 The authorization mechanism is a "white list" implementation.
 In Subscriptions editions there are two phases:
-* a dynamic phase, which can use uses a script to grant or deny access to a resource,
+
+* a dynamic phase, which can use a script to grant or deny access to a resource,
 * a static phase, which is executed if there is no dynamic configuration for the resource. It checks in the static configuration to see whether the user is authorized to access a given resource or not.
+
 In community edition, only the static phase is executed. +
 
 The static phase works the following way: +
@@ -24,9 +26,12 @@ Upon login, a user is granted a set of permissions. These permissions define the
 
 For a new Bonita installation, a basic set of authorization checks is activated by default for the REST API. 
 Here are the key points of the authorization's configuration :
+
 * The static check creates an authorization layer that exactly matches the standard Bonita Applications features and profiles.
-* In addition in Bonita subscription editions a set of dynamic rules is active by default to set finer grain restrictions mostly based on BPM business rules (process actor mapping, supervisors...). +
+* In addition in Bonita subscription editions a set of dynamic rules is active by default to set finer grain restrictions mostly based on BPM business rules (process actor mapping, supervisors...).
+
 If you are using the Bonita Applications, you do not need to configure anything.
+
 * If you want to add extra authorization restrictions based on custom business rules, you can configure custom static permissions or implement your own dynamic rules (subscription editions).
 * If you add a custom page, include a resources=[ list ] in your page.properties to specify which resources your custom page requires the users to have access to.
 
