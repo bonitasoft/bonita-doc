@@ -177,8 +177,10 @@ The tenant creation method has been deprecated following our 2021.1 decision to 
 
 ==== Fixes in Bonita Runtime (including Bonita native Applications)
 
-* RUNTIME-178	- Case deletion throws 500 instead of 404 when the case does not exist.
-* RUNTIME-4777 - Case overview does not paginate attached document list
+* RUNTIME-178	- Case deletion throws 500 instead of 404 when the case does not exist
+* RUNTIME-477 - Case overview does not paginate attached document list
+* RUNTIME-814 - [Security] Update several dependencies
+* RUNTIME-885 - [Security] Issue with authorization mechanism
 
 == Known issues
 
