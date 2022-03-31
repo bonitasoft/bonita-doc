@@ -1,4 +1,4 @@
-= Dependencies for Bonita Portal-JS 7.14.0.beta-01
+= Dependencies for Bonita Portal-JS 7.15.0-SNAPSHOT
 
 
 == Community NodeJS dependencies
@@ -7,17 +7,17 @@
 | Name | Version | Licenses
 
 
-| angular-animate | 1.4.5 | [MIT]
+| angular-animate | 1.3.20 | [MIT]
 
-| angular-bootstrap | 0.13.4 | [MIT]
+| angular-animate | 1.4.5 | [MIT]
 
 | angular-cookies | 1.4.5 | [MIT]
 
-| angular-file-upload | 2.1.4 | [UNKNOWN]
+| angular-file-upload | 2.1.4 | [MIT*]
 
 | angular-gettext | 2.1.0 | [MIT]
 
-| angular-growl-v2 | 0.7.4 | [MIT]
+| angular-growl-v2 | 0.7.3 | [MIT]
 
 | angular-mocks | 1.4.5 | [MIT]
 
@@ -27,49 +27,299 @@
 
 | angular-touch | 1.4.5 | [MIT]
 
-| angular-ui-router | 0.2.15 | [MIT*]
+| angular-ui-bootstrap | 0.13.4 | [MIT]
 
 | angular-ui-tree | 2.9.0 | [MIT*]
 
-| angular-xeditable | 0.1.8 | [MIT]
+| angular-xeditable | 0.1.8 | [MIT*]
+
+| angular | 1.3.20 | [MIT]
 
 | angular | 1.4.5 | [MIT]
 
 | animate.css | 3.1.1 | [MIT*]
 
-| bonita-js-components | 0.5.23 | [GPL]
+| ansi-regex | 0.2.1 | [MIT]
 
-| bootstrap-tags | 1.1.3 | [MIT]
+| ansi-styles | 1.1.0 | [MIT]
+
+| array-find-index | 1.0.2 | [MIT]
+
+| balanced-match | 1.0.0 | [MIT]
+
+| bonita-js-components | 0.5.26 | [Custom: https://travis-ci.org/bonitasoft/bonita-js-components.svg]
+
+| bootstrap-tags | 1.1.3 | [UNLICENSED]
 
 | bootstrap-toggle | 2.0.0 | [MIT]
 
 | bootstrap | 3.3.2 | [MIT]
 
+| brace-expansion | 1.1.11 | [MIT]
+
+| builtin-modules | 1.1.1 | [MIT]
+
+| camelcase-keys | 2.1.0 | [MIT]
+
+| camelcase | 2.1.1 | [MIT]
+
+| canonical-path | 0.0.2 | [MIT]
+
+| chalk | 0.5.1 | [MIT]
+
+| clone-stats | 0.0.1 | [MIT]
+
+| clone | 0.2.0 | [MIT]
+
+| concat-map | 0.0.1 | [MIT]
+
+| core-util-is | 1.0.2 | [MIT]
+
+| currently-unhandled | 0.4.1 | [MIT]
+
+| dateformat | 1.0.12 | [MIT]
+
+| decamelize | 1.2.0 | [MIT]
+
+| duplexer2 | 0.0.2 | [BSD*]
+
+| error-ex | 1.3.1 | [MIT]
+
 | es5-shim | 4.1.1 | [MIT]
 
-| isteven-angular-multiselect | v4.0.0 | [MIT*]
+| escape-string-regexp | 1.0.5 | [MIT]
+
+| extend | 1.3.0 | [MIT*]
+
+| find-index | 0.1.1 | [MIT]
+
+| find-up | 1.1.2 | [MIT]
+
+| first-chunk-stream | 1.0.0 | [MIT]
+
+| gaze | 0.5.2 | [MIT]
+
+| get-stdin | 4.0.1 | [MIT]
+
+| glob-stream | 3.1.18 | [MIT]
+
+| glob-watcher | 0.0.6 | [MIT]
+
+| glob2base | 0.0.12 | [MIT]
+
+| glob | 3.1.21 | [BSD*]
+
+| glob | 4.5.3 | [ISC]
+
+| globule | 0.1.0 | [MIT]
+
+| graceful-fs | 1.2.3 | [BSD*]
+
+| graceful-fs | 3.0.12 | [ISC]
+
+| graceful-fs | 4.1.11 | [ISC]
+
+| gulp-ngdocs | 0.2.13 | [MIT]
+
+| gulp-util | 3.0.0 | [MIT]
+
+| has-ansi | 0.1.0 | [MIT]
+
+| hosted-git-info | 2.5.0 | [ISC]
+
+| indent-string | 2.1.0 | [MIT]
+
+| inflight | 1.0.6 | [ISC]
+
+| inherits | 1.0.2 | [ISC*]
+
+| inherits | 2.0.3 | [ISC]
+
+| is-arrayish | 0.2.1 | [MIT]
+
+| is-builtin-module | 1.0.0 | [MIT]
+
+| is-finite | 1.0.2 | [MIT]
+
+| is-utf8 | 0.2.1 | [MIT]
+
+| isarray | 0.0.1 | [MIT]
+
+| isteven-angular-multiselect | 4.0.0 | [MIT]
 
 | jquery-resizable-columns | 0.1.0 | [MIT]
 
 | jquery-ui | 1.10.4 | [MIT]
 
+| jquery | 1.9.1 | [MIT]
+
 | jquery | 2.1.4 | [MIT]
 
-| json3 | 3.2.6 | [MIT*]
+| json3 | 3.2.6 | [MIT]
 
-| keymaster | 1.6.3 | [MIT]
+| keymaster | 1.6.3 | [MIT*]
 
-| lodash | 4.16.4 | [MIT]
+| load-json-file | 1.1.0 | [MIT]
 
-| moment | 2.8.4 | [MIT*]
+| lodash._escapehtmlchar | 2.4.1 | [MIT]
+
+| lodash._escapestringchar | 2.4.1 | [MIT]
+
+| lodash._htmlescapes | 2.4.1 | [MIT]
+
+| lodash._isnative | 2.4.1 | [MIT]
+
+| lodash._objecttypes | 2.4.1 | [MIT]
+
+| lodash._reinterpolate | 2.4.1 | [MIT]
+
+| lodash._reunescapedhtml | 2.4.1 | [MIT]
+
+| lodash._shimkeys | 2.4.1 | [MIT]
+
+| lodash.defaults | 2.4.1 | [MIT]
+
+| lodash.escape | 2.4.1 | [MIT]
+
+| lodash.isobject | 2.4.1 | [MIT]
+
+| lodash.keys | 2.4.1 | [MIT]
+
+| lodash.template | 2.4.1 | [MIT]
+
+| lodash.templatesettings | 2.4.1 | [MIT]
+
+| lodash.values | 2.4.1 | [MIT]
+
+| lodash | 1.0.2 | [MIT]
+
+| lodash | 2.4.1 | [MIT]
+
+| lodash | 2.4.2 | [MIT]
+
+| lodash | 4.16.4 | [UNLICENSED]
+
+| loud-rejection | 1.6.0 | [MIT]
+
+| lru-cache | 2.7.3 | [ISC]
+
+| map-obj | 1.0.1 | [MIT]
+
+| marked | 0.3.2 | [MIT]
+
+| meow | 3.7.0 | [MIT]
+
+| merge-stream | 0.1.5 | [MIT]
+
+| minimatch | 0.2.14 | [MIT]
+
+| minimatch | 2.0.10 | [ISC]
+
+| minimist | 0.0.8 | [MIT]
+
+| minimist | 0.2.1 | [MIT]
+
+| minimist | 1.2.0 | [MIT]
+
+| mkdirp | 0.5.1 | [MIT]
+
+| moment | 2.8.4 | [MIT]
+
+| multipipe | 0.1.2 | [MIT]
+
+| natives | 1.1.6 | [ISC]
 
 | ng-sortable | 1.3.1 | [MIT]
 
-| ngToast | 1.5.6 | [MIT]
+| ng-toast | 1.5.6 | [MIT]
 
-| ngstorage | 0.3.9 | [MIT*]
+| ngstorage | 0.3.9 | [MIT]
+
+| normalize-package-data | 2.4.0 | [BSD-2-Clause]
+
+| number-is-nan | 1.0.1 | [MIT]
 
 | numeral | 1.5.3 | [MIT]
+
+| object-assign | 4.1.1 | [MIT]
+
+| once | 1.4.0 | [ISC]
+
+| ordered-read-streams | 0.1.0 | [MIT]
+
+| parse-json | 2.2.0 | [MIT]
+
+| path-exists | 2.1.0 | [MIT]
+
+| path-type | 1.1.0 | [MIT]
+
+| path | 0.4.9 | [UNKNOWN]
+
+| pify | 2.3.0 | [MIT]
+
+| pinkie-promise | 2.0.1 | [MIT]
+
+| pinkie | 2.0.4 | [MIT]
+
+| read-pkg-up | 1.0.1 | [MIT]
+
+| read-pkg | 1.1.0 | [MIT]
+
+| readable-stream | 1.0.34 | [MIT]
+
+| readable-stream | 1.1.14 | [MIT]
+
+| redent | 1.0.0 | [MIT]
+
+| repeating | 2.0.1 | [MIT]
+
+| semver | 5.4.1 | [ISC]
+
+| sigmund | 1.0.1 | [ISC]
+
+| signal-exit | 3.0.2 | [ISC]
+
+| spdx-correct | 1.0.2 | [Apache-2.0]
+
+| spdx-expression-parse | 1.0.4 | [(MIT AND CC-BY-3.0)]
+
+| spdx-license-ids | 1.2.2 | [Unlicense]
+
+| string_decoder | 0.10.31 | [MIT]
+
+| strip-ansi | 0.3.0 | [MIT]
+
+| strip-bom | 1.0.0 | [MIT]
+
+| strip-bom | 2.0.0 | [MIT]
+
+| strip-indent | 1.0.1 | [MIT]
+
+| supports-color | 0.2.0 | [MIT]
+
+| through2 | 0.5.1 | [MIT]
+
+| through2 | 0.6.1 | [MIT]
+
+| through2 | 0.6.5 | [MIT]
+
+| trim-newlines | 1.0.0 | [MIT]
+
+| unique-stream | 1.0.0 | [BSD*]
+
+| validate-npm-package-license | 3.0.1 | [Apache-2.0]
+
+| vinyl-fs | 0.3.7 | [MIT]
+
+| vinyl | 0.2.3 | [MIT]
+
+| vinyl | 0.4.6 | [MIT]
+
+| wrappy | 1.0.2 | [ISC]
+
+| xtend | 3.0.0 | [MIT]
+
+| xtend | 4.0.2 | [MIT]
 
 |===
 
@@ -82,23 +332,39 @@
 | Name | Version | Licenses
 
 
-| Snap.svg | 0.3.0 | Apache 2 Apache License v2 Apache* 
+| JSONStream | 1.3.5 | (MIT OR Apache-2.0) 
 
-| ace-builds | 1.1.9 | BSD MIT* 
+| ace-builds | 1.1.9 | BSD* 
+
+| acorn-node | 1.8.2 | Apache-2.0 
+
+| acorn-walk | 7.2.0 | MIT 
+
+| acorn | 4.0.13 | MIT 
+
+| acorn | 5.7.4 | MIT 
+
+| acorn | 7.4.1 | MIT 
+
+| align-text | 0.1.4 | MIT 
+
+| alter | 0.2.0 | MIT 
+
+| amdefine | 1.0.1 | BSD-3-Clause OR MIT 
+
+| angular-animate | 1.3.20 | MIT 
 
 | angular-animate | 1.4.5 | MIT 
 
-| angular-bootstrap | 0.13.4 | MIT 
-
 | angular-cookies | 1.4.5 | MIT 
 
-| angular-file-upload | 2.1.4 | UNKNOWN 
+| angular-file-upload | 2.1.4 | MIT* 
 
-| angular-filter | 0.4.9 | UNKNOWN 
+| angular-filter | 0.4.9 | MIT 
 
 | angular-gettext | 2.1.0 | MIT 
 
-| angular-growl-v2 | 0.7.4 | MIT 
+| angular-growl-v2 | 0.7.3 | MIT 
 
 | angular-mocks | 1.4.5 | MIT 
 
@@ -106,57 +372,765 @@
 
 | angular-sanitize | 1.4.5 | MIT 
 
-| angular-ui-ace | 0.2.3 | UNKNOWN 
-
-| angular-ui-router | 0.2.15 | MIT* 
+| angular-ui-bootstrap | 0.13.4 | MIT 
 
 | angular-ui-tree | 2.9.0 | MIT* 
 
-| angular-xeditable | 0.1.8 | MIT 
+| angular-xeditable | 0.1.8 | MIT* 
+
+| angular | 1.3.20 | MIT 
 
 | angular | 1.4.5 | MIT 
 
+| angular | 1.8.2 | MIT 
+
 | animate.css | 3.1.1 | MIT* 
 
-| bonita-js-components | 0.5.23 | GPL 
+| ansi-regex | 0.2.1 | MIT 
 
-| bootstrap-tags | 1.1.3 | MIT 
+| ansi-regex | 2.1.1 | MIT 
+
+| ansi-styles | 1.1.0 | MIT 
+
+| ansi-styles | 2.2.1 | MIT 
+
+| array-find-index | 1.0.2 | MIT 
+
+| asn1.js | 5.4.1 | MIT 
+
+| assert | 1.3.0 | MIT 
+
+| ast-traverse | 0.1.1 | MIT 
+
+| ast-types | 0.8.12 | MIT 
+
+| ast-types | 0.8.15 | MIT 
+
+| ast-types | 0.9.6 | MIT 
+
+| astw | 2.2.0 | MIT 
+
+| babel-core | 5.8.38 | MIT 
+
+| babel-plugin-constant-folding | 1.0.1 | MIT 
+
+| babel-plugin-dead-code-elimination | 1.0.2 | MIT 
+
+| babel-plugin-eval | 1.0.1 | MIT 
+
+| babel-plugin-inline-environment-variables | 1.0.1 | MIT 
+
+| babel-plugin-jscript | 1.0.4 | MIT 
+
+| babel-plugin-member-expression-literals | 1.0.1 | MIT 
+
+| babel-plugin-property-literals | 1.0.1 | MIT 
+
+| babel-plugin-proto-to-assign | 1.0.4 | MIT 
+
+| babel-plugin-react-constant-elements | 1.0.3 | MIT 
+
+| babel-plugin-react-display-name | 1.0.3 | MIT 
+
+| babel-plugin-remove-console | 1.0.1 | MIT 
+
+| babel-plugin-remove-debugger | 1.0.1 | MIT 
+
+| babel-plugin-runtime | 1.0.7 | MIT 
+
+| babel-plugin-undeclared-variables-check | 1.0.2 | MIT 
+
+| babel-plugin-undefined-to-void | 1.1.6 | MIT 
+
+| babelify | 6.4.0 | MIT 
+
+| babylon | 5.8.38 | MIT 
+
+| balanced-match | 1.0.0 | MIT 
+
+| base64-js | 0.0.8 | MIT 
+
+| bluebird | 2.11.0 | MIT 
+
+| bn.js | 4.12.0 | MIT 
+
+| bn.js | 5.2.0 | MIT 
+
+| bonita-js-components | 0.5.26 | Custom: https://travis-ci.org/bonitasoft/bonita-js-components.svg 
+
+| bootstrap-tags | 1.1.3 | UNLICENSED 
 
 | bootstrap-toggle | 2.0.0 | MIT 
 
 | bootstrap | 3.3.2 | MIT 
 
+| brace-expansion | 1.1.11 | MIT 
+
+| breakable | 1.0.0 | MIT 
+
+| brorand | 1.1.0 | MIT 
+
+| browser-pack | 5.0.1 | MIT 
+
+| browser-resolve | 1.11.3 | MIT 
+
+| browserify-aes | 1.2.0 | MIT 
+
+| browserify-cipher | 1.0.1 | MIT 
+
+| browserify-des | 1.0.2 | MIT 
+
+| browserify-rsa | 4.1.0 | MIT 
+
+| browserify-sign | 4.2.1 | ISC 
+
+| browserify-zlib | 0.1.4 | MIT 
+
+| browserify | 11.2.0 | MIT 
+
+| buffer-xor | 1.0.3 | MIT 
+
+| buffer | 3.6.2 | MIT 
+
+| builtin-modules | 1.1.1 | MIT 
+
+| builtin-status-codes | 1.0.0 | MIT 
+
+| builtins | 0.0.7 | MIT 
+
+| camelcase-keys | 2.1.0 | MIT 
+
+| camelcase | 1.2.1 | MIT 
+
+| camelcase | 2.1.1 | MIT 
+
+| canonical-path | 0.0.2 | MIT 
+
+| center-align | 0.1.3 | MIT 
+
+| chalk | 0.5.1 | MIT 
+
+| chalk | 1.1.3 | MIT 
+
+| cipher-base | 1.0.4 | MIT 
+
 | clipboard | 1.4.1 | MIT 
+
+| cliui | 2.1.0 | ISC 
+
+| clone-stats | 0.0.1 | MIT 
+
+| clone | 0.2.0 | MIT 
+
+| closest | 0.0.1 | MIT 
+
+| combine-source-map | 0.6.1 | MIT 
+
+| commander | 2.20.3 | MIT 
+
+| commondir | 0.0.1 | MIT* 
+
+| commoner | 0.10.8 | MIT 
+
+| component-event | 0.2.0 | MIT* 
+
+| concat-map | 0.0.1 | MIT 
+
+| concat-stream | 1.4.11 | MIT 
+
+| console-browserify | 1.2.0 | MIT 
+
+| constants-browserify | 0.0.1 | MIT 
+
+| convert-source-map | 1.1.3 | MIT 
+
+| convert-source-map | 1.8.0 | MIT 
+
+| core-js | 1.2.7 | MIT 
+
+| core-util-is | 1.0.2 | MIT 
+
+| create-ecdh | 4.0.4 | MIT 
+
+| create-hash | 1.2.0 | MIT 
+
+| create-hmac | 1.1.7 | MIT 
+
+| crypto-browserify | 3.12.0 | MIT 
+
+| currently-unhandled | 0.4.1 | MIT 
+
+| dateformat | 1.0.12 | MIT 
+
+| debug | 2.6.9 | MIT 
+
+| decamelize | 1.2.0 | MIT 
+
+| defined | 1.0.0 | MIT 
+
+| defs | 1.1.1 | MIT 
+
+| delegate-events | 1.1.1 | MIT* 
+
+| deps-sort | 1.3.9 | MIT 
+
+| des.js | 1.0.1 | MIT 
+
+| detect-indent | 3.0.1 | MIT 
+
+| detective | 4.7.1 | MIT 
+
+| diffie-hellman | 5.0.3 | MIT 
+
+| domain-browser | 1.1.7 | MIT 
+
+| duplexer2 | 0.0.2 | BSD* 
+
+| elliptic | 6.5.4 | MIT 
+
+| error-ex | 1.3.1 | MIT 
 
 | es5-shim | 4.1.1 | MIT 
 
-| isteven-angular-multiselect | v4.0.0 | MIT* 
+| escape-string-regexp | 1.0.5 | MIT 
 
-| jquery-mousewheel | 3.1.12 | MIT* 
+| esprima-fb | 15001.1001.0-dev-harmony-fb | BSD 
+
+| esprima | 2.7.3 | BSD-2-Clause 
+
+| esprima | 3.1.3 | BSD-2-Clause 
+
+| esutils | 2.0.3 | BSD-2-Clause 
+
+| events | 1.0.2 | MIT 
+
+| evp_bytestokey | 1.0.3 | MIT 
+
+| extend | 1.3.0 | MIT* 
+
+| find-index | 0.1.1 | MIT 
+
+| find-up | 1.1.2 | MIT 
+
+| first-chunk-stream | 1.0.0 | MIT 
+
+| foreach | 2.0.5 | MIT 
+
+| fs-readdir-recursive | 0.1.2 | MIT 
+
+| function-bind | 1.1.1 | MIT 
+
+| gaze | 0.5.2 | MIT 
+
+| get-stdin | 4.0.1 | MIT 
+
+| glob-stream | 3.1.18 | MIT 
+
+| glob-watcher | 0.0.6 | MIT 
+
+| glob2base | 0.0.12 | MIT 
+
+| glob | 3.1.21 | BSD* 
+
+| glob | 4.5.3 | ISC 
+
+| glob | 5.0.15 | ISC 
+
+| globals | 6.4.1 | MIT 
+
+| globule | 0.1.0 | MIT 
+
+| graceful-fs | 1.2.3 | BSD* 
+
+| graceful-fs | 3.0.12 | ISC 
+
+| graceful-fs | 4.1.11 | ISC 
+
+| graceful-fs | 4.2.9 | ISC 
+
+| gulp-ngdocs | 0.2.13 | MIT 
+
+| gulp-util | 3.0.0 | MIT 
+
+| has-ansi | 0.1.0 | MIT 
+
+| has-ansi | 2.0.0 | MIT 
+
+| has | 1.0.3 | MIT 
+
+| hash-base | 3.1.0 | MIT 
+
+| hash.js | 1.1.7 | MIT 
+
+| hmac-drbg | 1.0.1 | MIT 
+
+| home-or-tmp | 1.0.0 | MIT 
+
+| hosted-git-info | 2.6.0 | ISC 
+
+| htmlescape | 1.1.1 | MIT 
+
+| https-browserify | 0.0.1 | MIT 
+
+| iconv-lite | 0.4.24 | MIT 
+
+| ieee754 | 1.2.1 | BSD-3-Clause 
+
+| indent-string | 2.1.0 | MIT 
+
+| indexof | 0.0.1 | MIT* 
+
+| inflight | 1.0.6 | ISC 
+
+| inherits | 1.0.2 | ISC* 
+
+| inherits | 2.0.1 | ISC 
+
+| inherits | 2.0.3 | ISC 
+
+| inherits | 2.0.4 | ISC 
+
+| inline-source-map | 0.5.0 | MIT 
+
+| insert-module-globals | 6.6.3 | MIT 
+
+| invert-kv | 1.0.0 | MIT 
+
+| is-arrayish | 0.2.1 | MIT 
+
+| is-buffer | 1.1.6 | MIT 
+
+| is-builtin-module | 1.0.0 | MIT 
+
+| is-core-module | 2.8.1 | MIT 
+
+| is-finite | 1.0.2 | MIT 
+
+| is-integer | 1.0.7 | WTFPL OR ISC 
+
+| is-utf8 | 0.2.1 | MIT 
+
+| isarray | 0.0.1 | MIT 
+
+| isarray | 1.0.0 | MIT 
+
+| isteven-angular-multiselect | 4.0.0 | MIT 
+
+| jquery-mousewheel | 3.1.12 | MIT 
 
 | jquery-resizable-columns | 0.1.0 | MIT 
 
 | jquery-ui | 1.10.4 | MIT 
 
-| jquery.panzoom | 2.0.5 | UNKNOWN 
+| jquery.panzoom | 2.0.5 | Custom: https://travis-ci.org/timmywil/jquery.panzoom.png 
+
+| jquery | 1.9.1 | MIT 
 
 | jquery | 2.1.4 | MIT 
 
-| json3 | 3.2.6 | MIT* 
+| js-tokens | 1.0.1 | MIT 
 
-| keymaster | 1.6.3 | MIT 
+| jsesc | 0.5.0 | MIT 
 
-| lodash | 4.16.4 | MIT 
+| json-stable-stringify | 0.0.1 | MIT 
 
-| moment | 2.8.4 | MIT* 
+| json3 | 3.2.6 | MIT 
+
+| json5 | 0.4.0 | MIT 
+
+| jsonify | 0.0.0 | Public Domain 
+
+| jsonparse | 1.3.1 | MIT 
+
+| keymaster | 1.6.3 | MIT* 
+
+| kind-of | 3.2.2 | MIT 
+
+| labeled-stream-splicer | 1.0.2 | MIT 
+
+| lazy-cache | 1.0.4 | MIT 
+
+| lcid | 1.0.0 | MIT 
+
+| leven | 1.0.2 | MIT 
+
+| lexical-scope | 1.2.0 | MIT 
+
+| load-json-file | 1.1.0 | MIT 
+
+| lodash._escapehtmlchar | 2.4.1 | MIT 
+
+| lodash._escapestringchar | 2.4.1 | MIT 
+
+| lodash._htmlescapes | 2.4.1 | MIT 
+
+| lodash._isnative | 2.4.1 | MIT 
+
+| lodash._objecttypes | 2.4.1 | MIT 
+
+| lodash._reinterpolate | 2.4.1 | MIT 
+
+| lodash._reunescapedhtml | 2.4.1 | MIT 
+
+| lodash._shimkeys | 2.4.1 | MIT 
+
+| lodash.defaults | 2.4.1 | MIT 
+
+| lodash.escape | 2.4.1 | MIT 
+
+| lodash.isobject | 2.4.1 | MIT 
+
+| lodash.keys | 2.4.1 | MIT 
+
+| lodash.memoize | 3.0.4 | MIT 
+
+| lodash.template | 2.4.1 | MIT 
+
+| lodash.templatesettings | 2.4.1 | MIT 
+
+| lodash.values | 2.4.1 | MIT 
+
+| lodash | 1.0.2 | MIT 
+
+| lodash | 2.4.1 | MIT 
+
+| lodash | 2.4.2 | MIT 
+
+| lodash | 3.10.1 | MIT 
+
+| lodash | 4.16.4 | UNLICENSED 
+
+| longest | 1.0.1 | MIT 
+
+| loud-rejection | 1.6.0 | MIT 
+
+| lru-cache | 2.7.3 | ISC 
+
+| map-obj | 1.0.1 | MIT 
+
+| marked | 0.3.2 | MIT 
+
+| matches-selector | 0.0.1 | MIT 
+
+| md5.js | 1.3.5 | MIT 
+
+| meow | 3.7.0 | MIT 
+
+| merge-stream | 0.1.5 | MIT 
+
+| miller-rabin | 4.0.1 | MIT 
+
+| minimalistic-assert | 1.0.1 | ISC 
+
+| minimalistic-crypto-utils | 1.0.1 | MIT 
+
+| minimatch | 0.2.14 | MIT 
+
+| minimatch | 2.0.10 | ISC 
+
+| minimatch | 3.0.4 | ISC 
+
+| minimist | 0.0.8 | MIT 
+
+| minimist | 0.2.1 | MIT 
+
+| minimist | 1.2.0 | MIT 
+
+| mkdirp | 0.5.1 | MIT 
+
+| module-deps | 3.9.1 | MIT 
+
+| moment | 2.8.4 | MIT 
+
+| ms | 2.0.0 | MIT 
+
+| multipipe | 0.1.2 | MIT 
+
+| natives | 1.1.6 | ISC 
 
 | ng-sortable | 1.3.1 | MIT 
 
-| ngToast | 1.5.6 | MIT 
+| ng-toast | 1.5.6 | MIT 
 
-| ngstorage | 0.3.9 | MIT* 
+| ngstorage | 0.3.9 | MIT 
+
+| normalize-package-data | 2.4.0 | BSD-2-Clause 
+
+| number-is-nan | 1.0.1 | MIT 
 
 | numeral | 1.5.3 | MIT 
+
+| object-assign | 4.1.1 | MIT 
+
+| object-keys | 1.1.1 | MIT 
+
+| once | 1.4.0 | ISC 
+
+| ordered-read-streams | 0.1.0 | MIT 
+
+| os-browserify | 0.1.2 | MIT 
+
+| os-locale | 1.4.0 | MIT 
+
+| os-tmpdir | 1.0.2 | MIT 
+
+| output-file-sync | 1.1.2 | MIT 
+
+| pako | 0.2.9 | MIT 
+
+| parents | 1.0.1 | MIT 
+
+| parse-asn1 | 5.1.6 | ISC 
+
+| parse-json | 2.2.0 | MIT 
+
+| path-browserify | 0.0.1 | MIT 
+
+| path-exists | 1.0.0 | MIT 
+
+| path-exists | 2.1.0 | MIT 
+
+| path-is-absolute | 1.0.1 | MIT 
+
+| path-parse | 1.0.7 | MIT 
+
+| path-platform | 0.11.15 | MIT 
+
+| path-type | 1.1.0 | MIT 
+
+| path | 0.4.9 | UNKNOWN 
+
+| pbkdf2 | 3.1.2 | MIT 
+
+| pify | 2.3.0 | MIT 
+
+| pinkie-promise | 2.0.1 | MIT 
+
+| pinkie | 2.0.4 | MIT 
+
+| portaljs-sp | 0.0.0 | UNKNOWN 
+
+| private | 0.1.8 | MIT 
+
+| process-nextick-args | 2.0.0 | MIT 
+
+| process | 0.11.10 | MIT 
+
+| public-encrypt | 4.0.3 | MIT 
+
+| punycode | 1.3.2 | MIT 
+
+| punycode | 1.4.1 | MIT 
+
+| q | 1.5.1 | MIT 
+
+| querystring-es3 | 0.2.1 | MIT 
+
+| querystring | 0.2.0 | MIT 
+
+| randombytes | 2.1.0 | MIT 
+
+| randomfill | 1.0.4 | MIT 
+
+| read-only-stream | 1.1.1 | MIT 
+
+| read-pkg-up | 1.0.1 | MIT 
+
+| read-pkg | 1.1.0 | MIT 
+
+| readable-stream | 1.0.34 | MIT 
+
+| readable-stream | 1.1.14 | MIT 
+
+| readable-stream | 2.3.6 | MIT 
+
+| readable-stream | 3.6.0 | MIT 
+
+| readable-wrap | 1.0.0 | MIT 
+
+| recast | 0.10.33 | MIT 
+
+| recast | 0.10.43 | MIT 
+
+| recast | 0.11.23 | MIT 
+
+| redent | 1.0.0 | MIT 
+
+| regenerate | 1.3.3 | MIT 
+
+| regenerator | 0.8.40 | BSD* 
+
+| regexpu | 1.3.0 | MIT 
+
+| regjsgen | 0.2.0 | MIT 
+
+| regjsparser | 0.1.5 | BSD* 
+
+| repeat-string | 1.6.1 | MIT 
+
+| repeating | 1.1.3 | MIT 
+
+| repeating | 2.0.1 | MIT 
+
+| resolve | 1.1.7 | MIT 
+
+| resolve | 1.22.0 | MIT 
+
+| right-align | 0.1.3 | MIT 
+
+| ripemd160 | 2.0.2 | MIT 
+
+| safe-buffer | 5.1.2 | MIT 
+
+| safe-buffer | 5.2.1 | MIT 
+
+| safer-buffer | 2.1.2 | MIT 
+
+| semver | 5.5.0 | ISC 
+
+| sha.js | 2.4.11 | (MIT AND BSD-3-Clause) 
+
+| shasum | 1.0.2 | MIT 
+
+| shebang-regex | 1.0.0 | MIT 
+
+| shell-quote | 0.0.1 | MIT 
+
+| sigmund | 1.0.1 | ISC 
+
+| signal-exit | 3.0.2 | ISC 
+
+| simple-fmt | 0.1.0 | MIT 
+
+| simple-is | 0.2.0 | MIT 
+
+| slash | 1.0.0 | MIT 
+
+| snapsvg | 0.3.0 | Apache* 
+
+| source-map-support | 0.2.10 | MIT 
+
+| source-map | 0.1.32 | BSD 
+
+| source-map | 0.4.4 | BSD-3-Clause 
+
+| source-map | 0.5.7 | BSD-3-Clause 
+
+| spdx-correct | 3.0.0 | Apache-2.0 
+
+| spdx-exceptions | 2.1.0 | CC-BY-3.0 
+
+| spdx-expression-parse | 3.0.0 | MIT 
+
+| spdx-license-ids | 3.0.0 | CC0-1.0 
+
+| stable | 0.1.8 | MIT 
+
+| stream-browserify | 2.0.2 | MIT 
+
+| stream-combiner2 | 1.0.2 | MIT 
+
+| stream-http | 1.7.1 | MIT 
+
+| stream-splicer | 1.3.2 | MIT 
+
+| string_decoder | 0.10.31 | MIT 
+
+| string_decoder | 1.1.1 | MIT 
+
+| string_decoder | 1.3.0 | MIT 
+
+| stringmap | 0.2.2 | MIT 
+
+| stringset | 0.2.1 | MIT 
+
+| strip-ansi | 0.3.0 | MIT 
+
+| strip-ansi | 3.0.1 | MIT 
+
+| strip-bom | 1.0.0 | MIT 
+
+| strip-bom | 2.0.0 | MIT 
+
+| strip-indent | 1.0.1 | MIT 
+
+| subarg | 1.0.0 | MIT 
+
+| supports-color | 0.2.0 | MIT 
+
+| supports-color | 2.0.0 | MIT 
+
+| supports-preserve-symlinks-flag | 1.0.0 | MIT 
+
+| syntax-error | 1.4.0 | MIT 
+
+| through2 | 0.5.1 | MIT 
+
+| through2 | 0.6.1 | MIT 
+
+| through2 | 0.6.5 | MIT 
+
+| through2 | 1.1.1 | MIT 
+
+| through | 2.3.8 | MIT 
+
+| timers-browserify | 1.4.2 | MIT 
+
+| tiny-emitter | 1.2.0 | MIT 
+
+| to-fast-properties | 1.0.3 | MIT 
+
+| trim-newlines | 1.0.0 | MIT 
+
+| trim-right | 1.0.1 | MIT 
+
+| try-resolve | 1.0.1 | MIT 
+
+| tryor | 0.1.2 | MIT 
+
+| tty-browserify | 0.0.1 | MIT 
+
+| typedarray | 0.0.6 | MIT 
+
+| umd | 3.0.3 | MIT 
+
+| unique-stream | 1.0.0 | BSD* 
+
+| url | 0.10.3 | MIT 
+
+| user-home | 1.1.1 | MIT 
+
+| util-deprecate | 1.0.2 | MIT 
+
+| util | 0.10.3 | MIT 
+
+| util | 0.10.4 | MIT 
+
+| validate-npm-package-license | 3.0.3 | Apache-2.0 
+
+| vinyl-fs | 0.3.7 | MIT 
+
+| vinyl | 0.2.3 | MIT 
+
+| vinyl | 0.4.6 | MIT 
+
+| vm-browserify | 0.0.4 | MIT 
+
+| window-size | 0.1.4 | MIT 
+
+| wordwrap | 0.0.2 | MIT* 
+
+| wrappy | 1.0.2 | ISC 
+
+| xtend | 3.0.0 | MIT 
+
+| xtend | 4.0.1 | MIT 
+
+| xtend | 4.0.2 | MIT 
+
+| y18n | 3.2.2 | ISC 
+
+| yargs | 3.27.0 | MIT 
 
 |===
 
