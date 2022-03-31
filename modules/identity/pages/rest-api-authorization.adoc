@@ -22,15 +22,13 @@ Upon login, a user is granted a set of permissions. These permissions define the
 
 == Summary
 
-For a new Bonita installation, a basic set of authorization checks is activated by default for the REST API. But you might also want to <<activate,deactivate the engine HTTP API>>.
+For a new Bonita installation, a basic set of authorization checks is activated by default for the REST API. 
 Here are the key points of the authorization's configuration :
-
-* The static checks (activated by default on a fresh installation) create an authorization layer that exactly matches the standard Bonita Applications features and profiles.
+* The static check creates an authorization layer that exactly matches the standard Bonita Applications features and profiles.
+* In addition in Bonita subscription editions a set of dynamic rules is active by default to set finer grain restrictions mostly based on BPM business rules (process actor mapping, supervisors...). +
 If you are using the Bonita Applications, you do not need to configure anything.
-* If you want to add extra authorization restrictions based on business rules, turn on the dynamic checks that you want.
-The configuration file defines standard rules for the most frequent cases, so all you need to do is uncomment the rules you want to apply.
+* If you want to add extra authorization restrictions based on custom business rules, you can configure custom static permissions or implement your own dynamic rules (subscription editions).
 * If you add a custom page, include a resources=[ list ] in your page.properties to specify which resources your custom page requires the users to have access to.
-* If the previous points do not meet your security needs, you can still manually customize the configuration and rules as much as you want.
 
 [NOTE.bonitacloud,caption=Bonita Cloud]
 ====
@@ -366,30 +364,6 @@ For more details see : xref:bdm-access-control.adoc[BDM access control]
 To activate authorization, edit `security-config.properties` and set the value of the `security.rest.api.authorizations.check.enabled` property to `true`, then restart the application server.
 
 To deactivate authorization, set the property to `false`, then restart the application server.
-
-If you activate authorization, you must also deactivate the HTTP API, so that is cannot be used to bypass the authorization settings.
-To do this, you can either filter the HTTP API in the Tomcat configuration (that is, accept only specific IP addresses), or you can
-deactivate the `HttpAPIServlet`. To deactivate the servlet, go to the `webapps/bonita/WEB-INF` folder of your web server,
-edit `web.xml` and comment out the following definitions:
-
-[source,xml]
-----
-    <!-- For engine HTTP API -->
-    <!--
-    <servlet>
-        <servlet-name>HttpAPIServlet</servlet-name>
-        <servlet-class>org.bonitasoft.engine.api.internal.servlet.HttpAPIServlet</servlet-class>
-    </servlet>
-    -->
-
-
-    <!--
-     <servlet-mapping>
-         <servlet-name>HttpAPIServlet</servlet-name>
-         <url-pattern>/serverAPI/*</url-pattern>
-     </servlet-mapping>
-     -->
-----
 
 [#debug]
 
