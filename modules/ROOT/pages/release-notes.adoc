@@ -35,7 +35,7 @@ Credentials can be consulted here:
 * in the <BONITA>/server/conf/tomcat-users.xml file, in a *Bonita Tomcat bundle*
 * using xref:bonita-docker-installation.adoc#_monitoring_username[monitoring credentials], when starting a *Bonita Docker image*
 
-For more information, go visit xref:healthcheck-mechanism.adoc[the dedicated documentation page].
+For more information, go visit xref:runtime:healthcheck-mechanism.adoc[the dedicated documentation page].
 
 WARNING: Those credentials MUST be changed.
 
