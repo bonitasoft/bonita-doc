@@ -12,115 +12,117 @@ This toolkit allows professional developers to write end-to-end or integration t
 
 It can be used in any IDE and can easily be integrated into a Continuous Integration.
 
-More information in the dedicated documentation: xref:test-toolkit:ROOT:process-testing-overview.adoc[Bonita Test Toolkit].
+For more information, go visit the xref:test-toolkit:ROOT:process-testing-overview.adoc[dedicated new menu in the documentation web site].
 
 == Improvements
 
 === Runtime Health check endpoint - *Subscription editions*
 
-A healthcheck endpoint has been added to Bonita Runtime for helping you monitor the status of all engine layers, up to the database: 
+A healthcheck endpoint has been added to Bonita Runtime to help you monitor the status of all engine layers, up to the database: 
 
-* general status and connection type,
-* uptime in seconds,
-* platform state,
-* platform version,
-* platform node status started,
-* days till license expiration,
-* execution time in milliseconds. 
+* general status and connection type
+* uptime in seconds
+* platform state
+* platform version
+* platform node status started
+* days till license expiration
+* execution time in milliseconds 
 
-This end-point is available on the 'https://<yourruntime>/bonita/healthz' URL, with the access protected with Basic Auth authentication.
+This end-point is available on the 'https://<yourruntime>/bonita/healthz' URL, the access being protected with Basic Auth authentication.
 
 Credentials can be consulted here: 
 
-* in the <BONITA>/server/conf/tomcat-users.xml file in a *Bonita Tomcat bundle*
-* using xref:bonita-docker-installation.adoc#_monitoring_username[monitoring credentials] when starting a *Bonita Docker image*
+* in the <BONITA>/server/conf/tomcat-users.xml file, in a *Bonita Tomcat bundle*
+* using xref:bonita-docker-installation.adoc#_monitoring_username[monitoring credentials], when starting a *Bonita Docker image*
 
-WARNING: The credentials MUST be changed.
+For more information, go visit xref:healthcheck-mechanism.adoc[the dedicated documentation page].
+
+WARNING: Those credentials MUST be changed.
 
 === Changing the Log level without restart
 
-It is now possible to change the log level of your platform without restarting it thanks to Log4j2 (details available in the technical updates chapter)
+It is now possible to change the log level of Bonita Runtime without restarting it, thanks to Log4j2 (details available in the xref:release-notes.adoc#_log4j2_logger[*Technical updates*] chapter).
 
 == Functional changes
 
 === Engine HTTP APIs protected with Basic Auth
 
-Previously, engine HTTP APIs are used to access Bonita Engine Java APIs directly through HTTP.
-For Bonita 2022.2, their access is protected with Basic Access authentication. +
+Previously, engine HTTP APIs were used to access Bonita Engine Java APIs directly through HTTP.
+starting with Bonita 2022.1, their access is protected with Basic Access authentication. +
 
-Configuration is different depending on the Bonita package: 
+The configuration is different depending on the Bonita package: 
 
 * In Bonita Tomcat bundle, HTTP APIs are *active by default* and *default* credentials are the same as the ones used when configuring the client by using programmatic configuration. 
-* In Bonita Docker image, HTTP APIs are *disabled by default*, with `http-api` as the *default* username and no default password. The password must be provided otherwise, the Docker container will refuse to start.
+* In Bonita Docker image, HTTP APIs are *disabled by default*, with `http-api` as the *default* username, and no default password. The password must be provided, otherwise the Docker container will refuse to start.
 
 === Prometheus monitoring active by default - *Subscription editions*
 
-From Bonita 2022.1, the Prometheus metrics publisher is now active by default and can be disabled if needed. +
+From Bonita 2022.1 on, the Prometheus metrics publisher is now active by default and can be disabled if needed. +
 Its access is now controlled with Basic Auth authentication to protect against DOS attacks. +
 
 This end-point is available on the 'https://<yourruntime>/bonita/healthz' URL, with the access protected with Basic Auth authentication.
 
 These credentials can be consulted: 
 
-* in the <BONITA>/server/conf/tomcat-users.xml file in a *Bonita Tomcat bundle*
-* using xref:bonita-docker-installation.adoc#_monitoring_username[monitoring credentials] when starting a *Bonita Docker image*
+* in the <BONITA>/server/conf/tomcat-users.xml file, in a *Bonita Tomcat bundle*
+* using xref:bonita-docker-installation.adoc#_monitoring_username[monitoring credentials], when starting a *Bonita Docker image*
 
-WARNING: The credentials MUST be changed. 
+WARNING: Those credentials MUST be changed. 
 
 === Dynamic permissions authorization check is enabled by default - *Subscription editions*
 
-Dynamic permission authorization check is *active by default* for new *Enterprise* edition installations. +
+Dynamic permissions authorization check is *active by default* for new *Enterprise* edition installations. +
 When updating to 2022.1, the existing activated access control mechanism will not be changed. 
 A set of default dynamic rules are provided in Bonita Runtime. Go through them before creating custom ones for your application pages.  
 
 ____
 *This change can have an impact when updating a project in Bonita Studio for which permissions have been neglected.*
 
-For example, if a non-admin user was allowed to perform REST requests intended for administrators only, having dynamic permissions activated by default will not allow them access anymore. Pages with error 403 have been prepared for this case. You can xref:identity:rest-api-authorization.adoc#troubleshooting[troubleshoot] these issues using Bonita Engine logs.
+For example, if a non-admin user was allowed to perform REST requests intended for administrators only, having dynamic permissions activated by default will not allow this access anymore. Pages with "403 error" have been prepared for this case. You can xref:identity:rest-api-authorization.adoc#troubleshooting[troubleshoot] these issues using Bonita Engine logs.
 ____
 
 For Community users who update to 2022.1, dynamic permission authorization checks will not be executed anymore, even if the configuration stays unchanged.
-Obviously, you can develop a custom execution script or upgrade to Enterprise edition (as the configuration will not be changed by Bonita, it will be fully functional).
+Obviously, you can develop a custom execution script or upgrade to Bonita Enterprise edition (as the configuration will not be changed by Bonita, it will be fully functional).
 
 === Other changes
 
 === Connector Retry
 
-When the engine fails to evaluate the output operations of a connector, the retry mechanism is not automatic. It is the platform's administrator choice to re-execute the connector or not, based on the impact analysis. Go through the xref:runtime:connectors-execution.adoc[connector documentation] for details about connector failure and replay.
+When Bonita Engine fails to evaluate the output operations of a connector, the retry mechanism is not automatic. It is the platform administrator's choice to re-execute the connector or not, based on the impact analysis. Go through the xref:runtime:connectors-execution.adoc[connector documentation] for details about connector failure and replay.
 
 == Technical updates
 
 ===  Log4j2 Logger
 
-Bonita Runtime now uses Log4j2 as logger.
-One of the multitudes of advantages brought by this tool is the automatic reload of configuration files. There is no more need
-to restart the platform to have the log level change effective. In the configuration file, the log level can be changed *ON THE RUN* and can be different for each package. 
+Bonita Runtime now uses Log4j2 as its logger.
+One of the multitudes of advantages brought by this tool is the automatic reload of configuration files. There is no more need 
+to restart Bonita Runtime to have the log level change effective. In the configuration file, the log level can be changed *ON THE RUN* and can be different for each package. 
 ____
 For example: By changing the log level of the org.bonitasoft package and setting it to DEBUG, more information will be provided in the terminal at the next connection.
 ____
 
-More information on how to use it in the docker image xref:runtime:bonita-docker-installation.adoc#logger_configuration[here] and in the bundle xref:setup-dev-environment:logging.adoc#_logging_configuration[here].
+More information on how to use it in Bonita Docker image xref:runtime:bonita-docker-installation.adoc#logger_configuration[here] and in the bundle xref:setup-dev-environment:logging.adoc#_logging_configuration[here].
 
 
 [WARNING]
 ====
-If, in the previous version, you customized the `logging.properties` file, you should update `log4j2-loggers.xml` as described in the documentation
+If, in the previous version, you customized the `logging.properties` file, you should update `log4j2-loggers.xml` as described in the logger configuration documentation pages 
 xref:runtime:bonita-docker-installation.adoc#logger_configuration[here] and xref:setup-dev-environment:logging.adoc#_logging_configuration[there].
 
 A conversion table between logger levels in JUL and in Log4j2 is available
-https://logging.apache.org/log4j/2.x/log4j-jul/index.html[here]
+https://logging.apache.org/log4j/2.x/log4j-jul/index.html[here].
 
 If you want to continue using the previous log format, the previous pattern is present in the `log4j2-appenders.xml` file but commented.
 
-The Tomcat bundle does not log anymore in the console but only in `bonita.log` file. The previous behavior can be activated by setting the system property `-Dbonita.runtime.logger.sysout=Console` in tomcat's `setEnv.sh`
+The Tomcat bundle does not log anymore in the console but only in `bonita.log` file. The previous behavior can be activated by setting the system property `-Dbonita.runtime.logger.sysout=Console` in tomcat's `setEnv.sh`.
 ====
 
 === Enterprise Docker image 
 
-Docker image is now focused on the RUN phase, with environment preparation being handled as on-premise installations. This means that the database schema and the associated user will not be created when starting the docker image. The database has to be created before the docker image starts. 
+Docker image is now focused on the RUN phase, with environment preparation being handled as on-premise installations. This means that the database schema and the associated user will not be created when starting the Docker image. The database has to be created **before** the Docker image starts. 
 NOTE: We provide pre-configured database images with included schema and users on https://hub.docker.com/u/bonitasoft[Bonitasoft Docker Hub].
 
-LDAP Synchronizer is now out of Bonita docker image and is available as an independent docker image ready for download from quay.io xref:identity:ldap-synchronizer#_using_the_ldap_synchronizer_docker_image.adoc[as detailed in the documentation]. 
+LDAP Synchronizer is now out of Bonita Docker image and is available as an independent Docker image ready for download from quay.io xref:identity:ldap-synchronizer#_using_the_ldap_synchronizer_docker_image.adoc[as detailed in the documentation]. 
 
 Robustness and self-recovery capabilities were added to the data source to overcome network lags. 
 
@@ -128,7 +130,7 @@ Folder structure inside Bonita Docker images has been simplified: instead of hav
 
 WARNING: If you have scripts using the former folder structure, please update them.
 
-For assuring a smooth and intuitive Runtime configuration experience, environment properties and configuration variables naming have been reviewed.
+To ensure a smooth and intuitive Bonita Runtime configuration experience, environment properties and configuration variables naming have been reviewed.
 
 The following environment properties were removed:
 
@@ -158,12 +160,12 @@ Also, to make the Bonita Docker image configuration easier, new environment vari
 == Feature deprecations and removals
 
 === SVN
-The SVN feature is now deprecated. We recommend that you migrate your repositories to a GIT repository. This xref:setup-dev-environment:migrate-a-svn-repository-to-github.adoc[page] describes how to migrate an SVN repository to Github.
+The SVN feature is now deprecated. We recommend that you migrate your repositories to a GIT repository. This xref:setup-dev-environment:migrate-a-svn-repository-to-github.adoc[documentation page] describes how to migrate an SVN repository to Github.
 
 === REST API
 
 * Deprecated: filter page using the `isHidden` attribute on the api `API/portal/page`. That field is not used anymore and is always false.
-The platform produces a warning log if the filter is set and ignores it.
+Bonita Runtime produces a warning log if the filter is set and ignores it.
 * Removed: the `ReportingAPI` is removed as well as its associated engine API.
 
 === Multi-Tenancy
@@ -173,9 +175,9 @@ The tenant creation method has been deprecated following our 2021.1 decision to 
 
 == Bug fixes
 
-=== Fixes in Bonita 2022.1
+=== Fixes in Bonita 2022.1 (2022-03-30)
 
-==== Fixes in Bonita Runtime
+==== Fixes in Bonita Runtime (including Bonita native Applications)
 
 * RUNTIME-178	- Case deletion throws 500 instead of 404 when the case does not exist.
 * RUNTIME-4777 - Case overview does not paginate attached document list
@@ -184,5 +186,11 @@ The tenant creation method has been deprecated following our 2021.1 decision to 
 
 === Bonita Studio
 
+* Windows environments only: Launching Bonita Studio in any of the Subscription version with the installer (.exe file) leads to a minor issue on license management:
+Even if you provide the license in the installer, once the installation is done, Bonita Studio opens and asks for the license again.
+You will have the impression that the license is not valid, or not taken into account. This is not the case:
+- Cancel the modal window asking you for the license
+- In your File explorer, go to the folder where Bonita has been installed and launch BonitaStudioSubscription.exe
+- It will work just fine
+
 * The `Run As JUnit test` action for Groovy REST API Extension project is broken (https://bugs.eclipse.org/bugs/show_bug.cgi?id=578535[Eclipse issue])
-* Launching the enterprise Studio from the window installer does not work
