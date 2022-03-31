@@ -184,9 +184,10 @@ The tenant creation method has been deprecated following our 2021.1 decision to 
 
 === Bonita Studio
 
-* Windows environments only: Launching Bonita Studio in any of the Subscription version with the installer (.exe file) leads to a minor issue on license management:
-Even if you provide the license in the installer, once the installation is done, Bonita Studio opens and asks for the license again.
+* Windows environments only: Launching Bonita Studio in any of the Subscription version with the installer (.exe file) leads to a minor issue on license management: +
+Even if you provide the license in the installer, once the installation is done, Bonita Studio opens and asks for the license again. +
 You will have the impression that the license is not valid, or not taken into account. This is not the case:
+
 - Cancel the modal window asking you for the license
 - In your File explorer, go to the folder where Bonita has been installed and launch BonitaStudioSubscription.exe
 - It will work just fine
