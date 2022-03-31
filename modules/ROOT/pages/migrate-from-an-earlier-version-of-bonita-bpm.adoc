@@ -69,7 +69,9 @@ If you are updating to a new maintenance version within the same main version, y
 * Deployed process definitions: The processes will continue to run using the definition created in the previous Bonita version. 
 ====
 
-.Before launching the update script, there are *manual activities* to be done, like: 
+
+*Before launching* the update script, there are *manual activities* to be done, like: 
+
 * Go through the release notes of all the versions till the one targeted for the update, for changes/deprecations/removals and see if they impact your existing developments.
 ____
 *For example:* when updating from 7.9.y to 7.10.0, you will need to read all the release notes in between those versions.
@@ -78,8 +80,8 @@ ____
 // link to special cases and troubleshouting to be added => 
 * Go through the [Special cases] and [Troubleshooting] paragraphs below.
 
-* Runtime tomcat server custom configuration. You will need to re-apply your customizations after the update process finishes.
-* Runtime setup folder custom configuration are kept in the database. However, to benefit from the changes and improvments made in the product, you may want to compare the files you pull from your database and the target version files available in the `setup/platform_conf/initial` folder.  
+* Runtime tomcat server custom configuration: You will need to re-apply your customizations after the update process finishes.
+* Runtime setup folder custom configuration are kept in the database. However, to benefit from the changes and improvements made in the product, you may want to compare the files you pull from your database and the target version files available in the `setup/platform_conf/initial` folder.  
 * If you are updating from a version lower than 7.3, see special cases xref:#lower-7-3[Update from a Bonita version lower than 7.3] section below. 
 
 * Process definition sources (.bos files) require a manual update. First export then import them into the new Bonita Studio version.
@@ -87,18 +89,9 @@ ____
 * Check that the database version is up-to-date and supported by the new Bonita version.
 * Secure the update by doing backups. Better safe than sorry.
 
-.Following elements will be updated *automatically* when launching the update script:
-* Engine server
-* Engine database (including all data on active and archived process instances) 
-* Organization definition
-* Log files from the previous versions will not be touched. A new dedicated folder for the target version will be created to store the log files. 
-* Runtime data (in the database after Bonita Runtime 7.3)
-* Setup configuration files stored in the database will not be replaced by the target version new configuration files (unless you are updating from a version lower than 7.3. In that case, see special cases xref:#lower-7-3[Update from a Bonita version lower than 7.3] section below. )
 
-When the script has finished executing, you will have to complete the update procedure by unzipping and configuring new version’s bundle.
-
-// add link to the paragraph => 
-Go through the paragraph [Updating Bonita bundle: step-by-step procedure] for step-by-step instructions.
+*When the script has finished executing*, you will have to complete the update procedure by unzipping and configuring new version’s bundle.
+Go through the paragraph xref:#migrate[Updating Bonita bundle: step-by-step procedure] for step-by-step instructions.
 
 === BACKUPS 
 ==== Configuration files 
@@ -175,7 +168,7 @@ This tool is provided as a zip archive and contains an executable script that wi
 The update process is step-wise by maintenance version and the script manages the sequence of steps from your current version to the target version.
 After each minor or maintenance version upgrade, you have the option to pause or continue to the next step.
 
-Following elements will be updated automatically when launching the update script:
+Following elements will be *updated* automatically when launching the update script:
 
 * Engine server
 * Engine database, including all data on active and archived process instances
@@ -183,9 +176,9 @@ Following elements will be updated automatically when launching the update scrip
 * Runtime data in Bonita Home, _until 7.3_
 * Log files from the previous version are not impacted by update
 
-The following are not updated automatically:
+The following are *not updated* automatically:
 
-* Configuration of the platform: Your customization made in the setup configuration files in the source version will stay in the database. After the update script has finished, you can pull your configuration and update it with (using xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool]). If you are updating from a version lower than 7.3, see special cases xref:#lower-7-3[Update from a Bonita version lower than 7.3] section below. 
+* Configuration: Custom configurations made and pushed from the setup folder in the previous version are kept in the database. However, to benefit from the changes and improvements made in the product, you may want to compare the files you pull from your database and the target version files available in the setup/platform_conf/initial folder. If your previous version is lower than 7.3, see special cases xref:#lower-7-3[Update from a Bonita version lower than 7.3] section below.  
 * Deployed process definitions: The processes will continue to run using the definition created in the previous version of Bonita.
 * Process definition sources (`.bos` files): Update these by importing them into the new version of Bonita Studio.
 * +++<a id="bdm_redeploy">++++++</a>+++Business data model, and the business data database: if the update path include version `7.0.0`,`7.2.0` or `7.2.4`, the Business data model must be redeployed after update. Only in that case, can you pause the tenant before update, as a tenant admin, so that you'll be able to redeploy the BDM on a paused tenant once update is done, using xref:define-and-deploy-the-bdm.adoc[Define and deploy the BDM]). Otherwise, no action is required.
