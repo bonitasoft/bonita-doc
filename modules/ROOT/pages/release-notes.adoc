@@ -12,7 +12,7 @@ This toolkit allows professional developers to write end-to-end or integration t
 
 It can be used in any IDE and can easily be integrated into a Continuous Integration.
 
-More information in the dedicated documentation: xref:test-toolkit:ROOT:pages:process-testing-overview.adoc[Bonita Test Toolkit].
+More information in the dedicated documentation: xref:test-toolkit:ROOT:process-testing-overview.adoc[Bonita Test Toolkit].
 
 == Improvements
 
