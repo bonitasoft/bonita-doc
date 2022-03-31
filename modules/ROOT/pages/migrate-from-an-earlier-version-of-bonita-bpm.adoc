@@ -78,7 +78,9 @@ ____
 // link to special cases and troubleshouting to be added => 
 * Go through the [Special cases] and [Troubleshooting] paragraphs below.
 
-* Runtime custom configuration. You will need to re-apply the customizations after the update process finishes. *If the target version of the update is Bonita 7.3 or greater, you can use xref:runtime:bonita-platform-setup.adoc[the setup tool] to push the configuration files.*
+* Runtime tomcat server custom configuration. You will need to re-apply your customizations after the update process finishes.
+* Runtime setup folder custom configuration are kept in the database. However, to benefit from the changes and improvments made in the product, you may want to compare the files you pull from your database and the target version files available in the `setup/platform_conf/initial` folder.  
+* If you are updating from a version lower than 7.3, see special cases xref:#lower-7-3[Update from a Bonita version lower than 7.3] section below. 
 
 * Process definition sources (.bos files) require a manual update. First export then import them into the new Bonita Studio version.
 * Custom connectors, actor filers, data types, custom pages, RestAPI extensions: will for sure continue to work in the new version if no custom code has been added to the default Bonita code. If you did add custom code, before starting the update, check in the release notes for any breaking changes and test them thoroughly after the update.
@@ -91,7 +93,7 @@ ____
 * Organization definition
 * Log files from the previous versions will not be touched. A new dedicated folder for the target version will be created to store the log files. 
 * Runtime data (in the database after Bonita Runtime 7.3)
-* Configuration files (in the database after Bonita Runtime 7.3) will be replaced with the default configuration files of the new version
+* Setup configuration files stored in the database will not be replaced by the target version new configuration files (unless you are updating from a version lower than 7.3. In that case, see special cases xref:#lower-7-3[Update from a Bonita version lower than 7.3] section below. )
 
 When the script has finished executing, you will have to complete the update procedure by unzipping and configuring new version’s bundle.
 
@@ -100,14 +102,18 @@ Go through the paragraph [Updating Bonita bundle: step-by-step procedure] for st
 
 === BACKUPS 
 ==== Configuration files 
-As mentioned above, during the update, Bonita configuration files will be reseted to the default version so that new settings could be applied (from the $BONITA_HOME folder before Bonita 7.3.0 or inside the database starting from Bonita 7.3.0 version). 
+As mentioned above, unless you are updating from a version lower than 7.3, Bonita configuration files will not be reseted to the default version in the database. 
 
-Therefore, having a backup of your configuration files before launching the updating procedure is *HIGHLY* necessary, so you could merge custom properties and configurations to the target Bonita Runtime.
+However, having a backup of your configuration files before launching the updating procedure is *HIGHLY* recommended, in case you need to merge custom properties and configurations to the target Bonita Runtime. Use the xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool] to pull the configuration from the database: 
 
-.Starting with Bonita 7.3.Y, there is no more bonita home folder, which means that: 
-// link to setup tool 
-* if your current installation *DOES* have customized the configuration files, you will have to use xref:runtime:bonita-platform-setup.adoc[the setup tool] to push your customized configuration files to the database where the configuration is stored. 
-* if your current installation *DOES NOT* have customized configuration files, then you do not need to configure the bundle any further. 
+There is below a Linux example:
+[source,bash]
+----
+cd setup
+./setup.sh pull
+----
+
+If you are updating from a version lower than 7.3, see special cases xref:#lower-7-3[Update from a Bonita version lower than 7.3] section below.
 
 ==== Database files 
 From database point of view, as any operation on a productive system, an update is not a zero-risk operation.
@@ -154,9 +160,9 @@ The tool updates your platform (_bonita_home_ folder and the database). You cann
 [NOTE]
 ====
 
-Starting from version 7.3 there is no more _bonita home_ folder. This means that, if your installation does not have any custom change, then you do not need to configure the bundle any further for an installation updated in 7.3 or above.
+Starting from version 7.3 there is no more _bonita home_ folder. This means that, if you are updating from a version lower than 7.3 *AND* if your installation does not have any custom _bonita home_ or server configurations, then you do not need to configure the bundle any further for an installation updated in 7.3 or above.
 
-On the other hand, if you have customized your configuration, you will have to use the xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool] to send your customized configuration files to the database where configuration is stored, for versions 7.3 and above.
+On the other hand, if you are updating from a version lower than 7.3 *AND* you have customized your _bonita home_ folder or server configuration, you will have to use the xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool] to pull the default configuration from the database where configuration is stored, then re-apply your customized configuration in the files that you've pulled from the database, and finally use the xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool] to push your custom configuration in the database. You will also need to re-apply the specific configuration you might have made in the application server files. See special cases xref:#lower-7-3[Update from a Bonita version lower than 7.3] section below.  
 ====
 
 image::images/images-6_0/migration_bigsteps.png[Update steps]
@@ -175,12 +181,11 @@ Following elements will be updated automatically when launching the update scrip
 * Engine database, including all data on active and archived process instances
 * Organization definition
 * Runtime data in Bonita Home, _until 7.3_
-* Configuration files in Bonita Home, which are replaced with the default configuration files for the new version
 * Log files from the previous version are not impacted by update
 
 The following are not updated automatically:
 
-* Configuration of the platform: Before 7.3 in the _Bonita Home_ folder and after 7.3 in database. Reapply your customizations manually after the update  script has finished (using xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool] if updated to 7.3.0+).
+* Configuration of the platform: Your customization made in the setup configuration files in the source version will stay in the database. After the update script has finished, you can pull your configuration and update it with (using xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool]). If you are updating from a version lower than 7.3, see special cases xref:#lower-7-3[Update from a Bonita version lower than 7.3] section below. 
 * Deployed process definitions: The processes will continue to run using the definition created in the previous version of Bonita.
 * Process definition sources (`.bos` files): Update these by importing them into the new version of Bonita Studio.
 * +++<a id="bdm_redeploy">++++++</a>+++Business data model, and the business data database: if the update path include version `7.0.0`,`7.2.0` or `7.2.4`, the Business data model must be redeployed after update. Only in that case, can you pause the tenant before update, as a tenant admin, so that you'll be able to redeploy the BDM on a paused tenant once update is done, using xref:define-and-deploy-the-bdm.adoc[Define and deploy the BDM]). Otherwise, no action is required.
@@ -208,9 +213,8 @@ Then  xref:managing-look-feel.adoc[import] your updated custom Look & Feel into 
 ====
 
 *Important:* +
-The update operation resets the Bonita configuration files to default version for new settings to be applied (from the _$BONITA_HOME_ folder in <7.3.0 version or inside database in >=7.3.0).
-Therefore, you must do a  xref:bonita-bpm-platform-setup.adoc#update_platform_conf[backup of your configuration files] before starting the update. +
-You will need to merge custom properties and configurations to the updated environment.
+You must do a  xref:bonita-bpm-platform-setup.adoc#update_platform_conf[backup of your configuration files] before starting the update. +
+You might need to merge custom properties and configurations to the updated environment.
 
 Furthermore, from the database point of view, as any operations on a production system, updating is not a zero risk operation. +
 Therefore, it is strongly recommended to do a  xref:back-up-bonita-bpm-platform.adoc[backup of your database] before starting the update process.
@@ -299,7 +303,7 @@ Note: If you are using MySQL, add `?allowMultiQueries=true` to the URL. For exam
 ====
 
 . If you use a custom Look & Feel, xref:managing-look-feel.adoc[export] it, and then xref:managing-look-feel.adoc[restore the default Look & Feel].
-. If you use a Business data model that requires to be redeployed (see  <<bdm_redeploy,above>>), you can pause the tenant so that as a tenant admin, you'll be able to redeploy the BDM on a paused tenant once update process is done.
+. If you use a Business data model that requires to be redeployed (see  <<bdm_redeploy,above>>), you can pause the tenant so that as a tenant admin, you'll be able to redeploy the BDM on a paused tenant once update process is done. If your update path does not include version `7.0.0`,`7.2.0` or `7.2.4`, you don't need to redeploy the Business data model, so do not pause the tenant.
 
 [WARNING]
 ====
@@ -346,9 +350,7 @@ WARNING: Do not use the old application server: a new one needs to be installed 
 
  Do not recreate the database and use the setup tool of the `bonita-target-version` Edit the `bonita-target-version/setup/database.properties` file to point to the migrated database.
 
-. Reapply configuration made to the platform, using the setup tool of the `bonita-target-version`
-+
-Download the configuration from database to the local disk.
+. Download the configuration from database to the local disk using the setup tool of the `bonita-target-version`.
 +
 There is below a Linux example:
 +
@@ -358,7 +360,8 @@ cd setup
 ./setup.sh pull
 ----
 +
-You must reapply the configuration that had been done on the original instance's BONITA_HOME into the `bonita-target-version/setup/platform_conf/current`    ````
+. If you are updating from a version lower than 7.3, see special cases xref:#lower-7-3[Update from a Bonita version lower than 7.3] section below.  
+. After the setup `pull`, you can change your configuration into the `bonita-target-version/setup/platform_conf/current` folder. 
 +
 Please refer to the guide on updating the configuration file using the  xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool]
 +
@@ -450,6 +453,58 @@ you can live update it after update.
 
 Note: 6.x application resources have been removed too in 7.8.0, so if you are migrating a process that leverage this feature, you need to modify it (for example to use process dependencies instead (Configure > Process dependencies in Bonita Studio)).
 ====
+
+[#lower-7-3]
+
+== Updating from a Bonita version lower than 7.3 
+
+Starting from version 7.3 there is no more _bonita home_ folder. This means that, you will need to manually re-do all the configuration and customization that used to be stored in your _bonita home_ folder and in your server original version. 
+
+When updating from a version lower than 7.3, after the you run the migration tool, the default configuration files of the new version will be pushed in the database.  
+
+Therefore, if your installation didn't have any custom changes in the _bonita home_ folder, then you do not need to configure the bundle any further for an installation migrated in 7.3+ or greater.
+
+On the other hand, if you had customized your configuration in the _bonita home_ folder, you will have to use the xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool] to update the default configuration and apply yours to push it in the database where configuration is now stored.
+
+Here's how to reapply configuration made to the platform, using the setup tool of the `bonita-target-version`:   
+
+. Download the configuration from database to the local disk using the setup tool of the `bonita-target-version`.
++
+There is below a Linux example:
++
+[source,bash]
+----
+cd setup
+./setup.sh pull
+----
++
+
+. You must reapply the configuration that had been done on the original _bonita home_ folder into the `bonita-target-version/setup/platform_conf/current`. Please refer to the guide on updating the configuration file using the xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool]
+
+Some manual operation have to be done on files that are located in the _bonita home_ folder if version <7.3.0 or in the extracted platform_conf/current folder in version >=7.3.0. You need to merge the previous file version and the migrated one: 
+
+. In the case where deployed resources have required dedicated authorizations to use the REST API, these authorizations are not automatically migrated.  
+
+`tenants/[TENANT_ID]/conf/compound-permissions-mapping.properties` : contains list of permissions used for each resources  
+
+`tenants/[TENANT_ID]/conf/resources-permissions-mapping.properties` : contains permissions for REST API extensions  
+
+`tenants/[TENANT_ID]/conf/custom-permissions-mapping.properties` : contains custom permissions for users and profiles  
+
+`tenants/[TENANT_ID]/conf/dynamic-permissions-checks.properties` : used if dynamic check on permissions is enabled   
+
+You will have to reapply this configuration in the same files in `/setup/platform_conf/current/tenants/[TENANT_ID]/tenant_portal/` folder. 
+
+. When done, push the updated configuration into the database:
++
+[source,bash]
+----
+./setup.sh push
+----
++
+
+. If you have done specific configuration and customization in your server original version, re-do it by configuring the application server in bonita-target-version folder if target version is 7.3.n: customization, libs, transaction default timeout, etc.
+
 
 [#update-case-overview-pages]
 
