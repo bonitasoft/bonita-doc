@@ -185,3 +185,4 @@ The tenant creation method has been deprecated following our 2021.1 decision to 
 === Bonita Studio
 
 * The `Run As JUnit test` action for Groovy REST API Extension project is broken (https://bugs.eclipse.org/bugs/show_bug.cgi?id=578535[Eclipse issue])
+* Launching the enterprise Studio from the window installer does not work
