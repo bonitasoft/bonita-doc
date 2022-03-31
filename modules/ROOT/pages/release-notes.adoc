@@ -84,8 +84,6 @@ ____
 For Community users who update to 2022.1, dynamic permission authorization checks will not be executed anymore, even if the configuration stays unchanged.
 Obviously, you can develop a custom execution script or upgrade to Bonita Enterprise edition (as the configuration will not be changed by Bonita, it will be fully functional).
 
-=== Other changes
-
 === Connector Retry
 
 When Bonita Engine fails to evaluate the output operations of a connector, the retry mechanism is not automatic. It is the platform administrator's choice to re-execute the connector or not, based on the impact analysis. Go through the xref:runtime:connectors-execution.adoc[connector documentation] for details about connector failure and replay.
