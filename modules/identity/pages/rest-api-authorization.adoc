@@ -52,7 +52,7 @@ The static phase uses a set of configuration files:
 * `custom-permissions-mapping.properties`
 
 These files grant permissions to sets of users based on profile or username.
-You cannot remove permissions in a configuration file, so you must ensure that the default definitions grant the minimum permissions that you want to give to any user.
+You cannot deny permissions in the configuration files (it's a "white list" mechanism only), so you must ensure that the default definitions grant the minimum permissions that you want to give to any user.
 
 The default versions of these files are located in `setup/platform_conf/initial/tenant_template_portal`.
 In order to change the configuration on an installation whose platform has already been initialized, use the xref:runtime:bonita-platform-setup.adoc[platform setup tool] to
@@ -63,11 +63,11 @@ Then use the tool again to save your changes into the database.
 ==== Resources permissions mapping
 
 The `resources-permissions-mapping-*.properties` files define the mapping of REST resources to simple permissions.
-This tells you what permission is needed to access a given resource.
+This tells you what permission can grant you access to a given resource.
 
 For example: `GET|identity/user=[organization_visualization,organization_management]`
 
-This specifies that a user with the organization_visualization, or organization_management permissions can see information about users.
+This specifies that a user with the organization_visualization, *or* organization_management permissions can see information about users.
 
 By default, this file contains a mapping of each Bonita resources to at least one simple permission.
 You can modify the file `resources-permissions-mapping-custom.properties` to add your own mappings.
