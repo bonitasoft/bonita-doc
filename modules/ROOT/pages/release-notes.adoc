@@ -41,7 +41,7 @@ WARNING: Those credentials MUST be changed.
 
 === Changing the Log level without restart
 
-It is now possible to change the log level of Bonita Runtime without restarting it, thanks to Log4j2 (details available in the xref:release-notes.adoc#_log4j2_logger[*Technical updates*] chapter).
+It is now possible to change the log level of Bonita Runtime without restarting it, thanks to Log4j2 (details available in the xref:release-notes.adoc#_log4j2_logger[Technical updates] chapter).
 
 == Functional changes
 
