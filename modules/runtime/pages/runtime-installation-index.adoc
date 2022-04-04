@@ -10,7 +10,7 @@ Bonita Runtime is the Bonita Platform component that insures process execution a
 
 [.card.card-index]
 --
-xref:{bonitaDocVersion}@cloud::overview.adoc[Bonita Cloud].[[.card-title]#Bonita Cloud# [.card-body.card-content-overflow]#pass:q[If you have already purchased or want to know more about our offer with high added-value]#]
+xref:cloud::overview.adoc[Bonita Cloud].[[.card-title]#Bonita Cloud# [.card-body.card-content-overflow]#pass:q[If you have already purchased or want to know more about our offer with high added-value]#]
 --
 
 [.card-section]
