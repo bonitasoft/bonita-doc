@@ -1,11 +1,20 @@
 = Runtime installation
 :page-aliases: ROOT:runtime-installation-index.adoc
-:description: This pages gives an easy access to the technical requirements and available flavors in which Bonita Runtime comes. It also explains how to install a simple Runtime or a cluster.
+:description: This pages gives an easy access to Bonita Cloud documentation, but also to the technical requirements and available flavors in which Bonita Runtime comes. It also explains how to install Bonita in a cluster.
 
 {description}
+Bonita Runtime is the Bonita Platform component that insures process execution and standardized interaction between people, systems, and robots in Non-Production and Production environments.
 
 [.card-section]
-== Get started with Bonita in Non-Production and Production environments
+== The Bonita Cloud experience
+
+[.card.card-index]
+--
+xref:{bonitaDocVersion}@cloud::overview.adoc[Bonita Cloud].[[.card-title]#Bonita Cloud# [.card-body.card-content-overflow]#pass:q[If you have already purchased or want to know more about our offer with high added-value]#]
+--
+
+[.card-section]
+== Install Bonita on a server
 
 [.card.card-index]
 --
@@ -15,6 +24,16 @@ xref:ROOT:hardware-and-software-requirements.adoc[[.card-title]#Hardware and sof
 [.card.card-index]
 --
 xref:tomcat-bundle.adoc[[.card-title]#Bonita bundle# [.card-body.card-content-overflow]#pass:q[Install and configure Bonita in its application server]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:bonita-docker-installation.adoc[[.card-title]#Bonita Docker image# [.card-body.card-content-overflow]#pass:q[Step-by-step installation guide of Bonita in a Docker environment]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:overview-of-bonita-bpm-in-a-cluster.adoc[[.card-title]#Bonita cluster# [.card-body.card-content-overflow]#pass:q[Achieve high availability by setting up Bonita in a cluster]#]
 --
 
 [.card.card-index]
@@ -34,15 +53,13 @@ xref:ROOT:bonita-as-windows-service.adoc[[.card-title]#Bonita as a service# [.ca
 
 [.card.card-index]
 --
-xref:ROOT:bonita-docker-installation.adoc[[.card-title]#Bonita Docker image# [.card-body.card-content-overflow]#pass:q[Step-by-step installation guide of Bonita in a Docker environment]#]
---
-
-[.card.card-index]
---
 xref:ROOT:reverse-proxy-configuration.adoc[[.card-title]#Behind a reverse-proxy# [.card-body.card-content-overflow]#pass:q[Expose the web interface publicy while protecting the backend]#]
 --
 
+[.card-section]
+== Related topics
+
 [.card.card-index]
 --
-xref:ROOT:overview-of-bonita-bpm-in-a-cluster.adoc[[.card-title]#Bonita cluster# [.card-body.card-content-overflow]#pass:q[Achieve high availability by setting up Bonita in a cluster]#]
+xref:root:studio-installation-nav.adoc[Bonita Studio].[[.card-title]#Bonita Studio# [.card-body.card-content-overflow]#pass:q[Bonita Platform development environment, with is embedded Bonita Runtime]#]
 --
