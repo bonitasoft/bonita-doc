@@ -61,5 +61,5 @@ xref:ROOT:reverse-proxy-configuration.adoc[[.card-title]#Behind a reverse-proxy#
 
 [.card.card-index]
 --
-xref:root:studio-installation-nav.adoc[Bonita Studio].[[.card-title]#Bonita Studio# [.card-body.card-content-overflow]#pass:q[Bonita Platform development environment, with is embedded Bonita Runtime]#]
+xref:root:bonita-studio-download-installation.adoc[Bonita Studio].[[.card-title]#Bonita Studio# [.card-body.card-content-overflow]#pass:q[Bonita Platform development environment, with is embedded Bonita Runtime]#]
 --
