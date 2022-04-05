@@ -3,6 +3,7 @@
 :description: This pages gives an easy access to Bonita Cloud documentation, but also to the technical requirements and available flavors in which Bonita Runtime comes. It also explains how to install Bonita in a cluster.
 
 {description}
+
 Bonita Runtime is the Bonita Platform component that insures process execution and standardized interaction between people, systems, and robots in Non-Production and Production environments.
 
 [.card-section]
@@ -10,7 +11,7 @@ Bonita Runtime is the Bonita Platform component that insures process execution a
 
 [.card.card-index]
 --
-xref:cloud:ROOT:Overview.adoc[[.card-title]#Bonita Cloud# [.card-body.card-content-overflow]#pass:q[If you have already purchased or want to know more about our offer with high added-value]#]
+xref:cloud:ROOT:Overview.adoc[[.card-title]#Bonita Cloud# [.card-body.card-content-overflow]#pass:q[All you need to know about our offer with high added-value]#]
 --
 
 [.card-section]
@@ -61,5 +62,5 @@ xref:ROOT:reverse-proxy-configuration.adoc[[.card-title]#Behind a reverse-proxy#
 
 [.card.card-index]
 --
-xref:ROOT:bonita-studio-download-installation.adoc[[.card-title]#Bonita Studio# [.card-body.card-content-overflow]#pass:q[Bonita Platform development environment, with is embedded Bonita Runtime]#]
+xref:ROOT:bonita-studio-download-installation.adoc[[.card-title]#Bonita Studio# [.card-body.card-content-overflow]#pass:q[Install Bonita Platform development environment]#]
 --
