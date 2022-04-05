@@ -6,11 +6,22 @@ This is the changelog of the purge tool.
 
 The purge tool is used to remove data from bonita archive tables. It is useful for big production environments.
 
+== 1.0.4 - Mar 23, 2022
+
+fixes :
+
+- Fix: add methods to drop index if created at tool startup, this way allowing to re-run a previously stopped run without being blocked
+
+Others :
+
+- Run tests with MS SQL Server version *2019*
+- Doc: remove mentions of "Portal". Use "Bonita Applications" instead.
+
 == 1.0.3 - Feb 25, 2021
 
 fixes :
 
- - Fix usage print when no parameter is passed.
+- Fix: usage print when no parameter is passed.
 
 == 1.0.2 - Jul 21, 2020
 
