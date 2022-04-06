@@ -122,7 +122,7 @@ From database point of view, as any operation on a productive system, an update 
 ==== Configuration files 
 As mentioned above, unless you are updating from a version lower than 7.3, Bonita configuration files will not be reseted to the default version in the database. 
 
-However, having a backup of your configuration files before launching the updating procedure is *HIGHLY* recommended, in case you need to merge custom properties and configurations to the target Bonita Runtime. Use the xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool] to pull the configuration from the database and save a backup of your setup folder after the pull: 
+However, having a backup of your configuration files before launching the updating procedure is *HIGHLY* recommended, in case you need to merge custom properties and configurations to the target Bonita Runtime. Use the xref:ROOT:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool] to pull the configuration from the database and save a backup of your setup folder after the pull:
 
 There is below a Linux example:
 [source,bash]
@@ -338,7 +338,7 @@ cd setup
 . If you are updating from a version lower than 7.3, see special cases xref:#lower-7-3[Update from a Bonita version lower than 7.3] section below.  
 . After the setup `pull`, you can change your configuration into the `bonita-target-version/setup/platform_conf/current` folder. 
 +
-Please refer to the guide on updating the configuration file using the  xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool]
+Please refer to the guide on updating the configuration file using the  xref:ROOT:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool]
 +
 . When done, push the updated configuration into the database:
 +
@@ -447,7 +447,7 @@ When updating from a version lower than 7.3, after the you run the migration too
 
 Therefore, if your installation didn't have any custom changes in the _bonita home_ folder, then you do not need to configure the bundle any further for an installation migrated in 7.3+ or greater.
 
-On the other hand, if you had customized your configuration in the _bonita home_ folder, you will have to use the xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool] to update the default configuration and apply yours to push it in the database where configuration is now stored.
+On the other hand, if you had customized your configuration in the _bonita home_ folder, you will have to use the xref:ROOT:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool] to update the default configuration and apply yours to push it in the database where configuration is now stored.
 
 Here's how to reapply configuration made to the platform, using the setup tool of the `bonita-target-version`:   
 
@@ -462,7 +462,7 @@ cd setup
 ----
 +
 
-. You must then reapply the configuration that had been done on the original _bonita home_ folder into the `bonita-target-version/setup/platform_conf/current`. Please refer to the guide on updating the configuration file using the xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool]
+. You must then reapply the configuration that had been done on the original _bonita home_ folder into the `bonita-target-version/setup/platform_conf/current`. Please refer to the guide on updating the configuration file using the xref:ROOT:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool]
 
 Some manual operation have to be done on files that are located in the _bonita home_ folder if version <7.3.0 or in the extracted setup/platform_conf/current folder in target version >=7.3.0. You will need to check and merge the previous file version and the migrated one: 
 . In the case where deployed resources have required dedicated authorizations to use the REST API, these authorizations are not automatically migrated.  

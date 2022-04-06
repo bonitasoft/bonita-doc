@@ -102,7 +102,7 @@ From database point of view, as any operation on a productive system, an update 
 ==== Configuration files 
 As mentioned above, Runtime setup folder custom configuration made and pushed from the setup folder in the previous version will not be reseted to the default version in the database.
 
-However, having a backup of your configuration files before launching the updating procedure is *HIGHLY* recommended, in case you need to merge custom properties and configurations to the target Bonita Runtime. Use the xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool] to pull the configuration from the database and save a backup of your setup folder after the pull: 
+However, having a backup of your configuration files before launching the updating procedure is *HIGHLY* recommended, in case you need to merge custom properties and configurations to the target Bonita Runtime. Use the xref:ROOT:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool] to pull the configuration from the database and save a backup of your setup folder after the pull:
 
 There is below a Linux example:
 [source,bash]
@@ -311,7 +311,7 @@ cd setup
 
 . After the setup `pull`, you can change your configuration into the `bonita-target-version/setup/platform_conf/current` folder. 
 +
-Please refer to the guide on updating the configuration file using the xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool]
+Please refer to the guide on updating the configuration file using the xref:ROOT:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool]
 +
 . When done, push the updated configuration into the database:
 +
