@@ -1,5 +1,5 @@
 = Update overview
-:page-aliases: update-overview.adoc
+:page-aliases: ROOT:update-overview.adoc
 :description: Learn how to update Bonita Platform from an older version to a newer version.
 
 Learn how to update a Bonita Platform from an older version to a newer version.
