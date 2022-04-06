@@ -69,7 +69,7 @@ If you are updating to a new maintenance version within the same main version, y
 .*Special attention required on:*
 * *Custom reports :* Up to Bonita 2021.1 (Bonita Runtime 7.12) they may continue working, depending on the custom code you added. Starting with Bonita 2021.2 (Bonita Runtime 7.13), custom reports will not be supported in Bonita Runtime anymore. They have been replaced with a standalone Enterprise only - Reporting Application. 
 * When the *source version* is Bonita 7.0.0, 7.2.0 or 7.2.4 and BDM used, the BDM will have to be redeployed, once the update is done, in order to avoid getting errors in automated processes as the platform will be restarted after the update procedure. 
-* Do not pause the BPM Services before the update. Several bugs affect legacy Bonita versions by preventing a smooth Bonita Runtime update with BPM services paused when:
+* Do not pause the BPM Services before the update (unless your source version is than is higher than 2021.1). Several bugs affect legacy Bonita versions by preventing a smooth Bonita Runtime update with BPM services paused when:
 ** The source version is older than Bonita 7.8.0, and the target version is between Bonita 7.8.0 and Bonita 7.11.5
 ** The source version is older than Bonita 7.10.5 and the target version is older than Bonita 2021.1
 * Deployed process definitions: The processes will continue to run using the definition created in the previous Bonita version. 
@@ -271,7 +271,7 @@ For example, db.url=jdbc:mysql://localhost:3306/bonita-update?allowMultiQueries=
 [WARNING]
 ====
 
-*IMPORTANT:* Do *not* xref:ROOT:pause-and-resume-bpm-services.adoc[pause the BPM services] before you stop the application server, unless your Bonita target version is older than 2021.1, otherwise it will cause problems.
+*IMPORTANT:* Do *not* xref:ROOT:pause-and-resume-bpm-services.adoc[pause the BPM services] before you stop the application server, unless your Bonita target version is higher than 2021.1, otherwise it will cause problems.
 ====
 
 . Stop the application server.
