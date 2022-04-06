@@ -47,7 +47,7 @@ a| * After Bonita 7.11, benefiting from all the advantages do not require an upd
 == Updating your Bonita Studio
 
 To update to a newer version of Bonita Studio, install the new version using the xref:ROOT:bonita-bpm-studio-installation.adoc[Studio installer wizard] for your operating system.
-If you want to keep the artifacts in your workspace, select the option to migrate your workspace.
+Use that studio and switch workspace to the one containing your artifacts, they will be updated to the new version.
 
 WARNING: if you do not migrate your workspace, or if you use the OS-independent archive to install the new Bonita Studio,
 your workspace is not automatically migrated. In this case, you must manually export each item from the older Bonita Studio and import it into the newer version.
