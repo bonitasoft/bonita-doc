@@ -16,7 +16,7 @@ Guide on how to update Bonita Runtime main version (single or multiple nodes) us
 == Overview
 
 This page explains how to update Bonita Runtime starting from version 7.10.0 till the latest available Bonita Runtime version.
-Short procedure : Service stopped, migrate the data, install a new environment, test non-migrated elements behavior and compatibility with new bonita version. 
+Short procedure : Service stopped, update the data, install a new environment, test non-updated elements behavior and compatibility with new bonita version. 
 Detailed version : xref:update-with-update-tool.adoc#updating-bonita-bundle-step-by-step-procedure[Updating Bonita bundle: step-by-step procedure]. 
 
 There is only one version of Bonita Update Tool: Bonita Update Tool 3.x. 
@@ -64,9 +64,10 @@ If you are updating to a new maintenance version within the same main version, y
 ** The source version is older than Bonita 7.10.5 and the target version is older than Bonita 2021.1
 * Deployed process definitions: The processes will continue to run using the definition created in the previous Bonita version.
 * If you have added custom indexes to certain tables in the Engine database, you must remove them before updating to a later version. If you do not remove these indexes, the update process will not complete.
+* Process definition sources (.bos files) require a manual update. Update these by importing them into the new version of Bonita Studio.
 ====
 
-.Before launching the update script, there are *manual activities* to be done, like: 
+.Before launching the update script, there are *manual activities* to be done: 
 * Go through the release notes of all the versions till the one targeted for the update, for changes/deprecations/removals and see if they impact your existing developments.
 ____
 *For example:* when updating from 7.10.y to 7.11.0, you will need to read all the release notes in between those versions.
@@ -75,20 +76,18 @@ ____
 * Go through the xref:update-with-update-tool.adoc#special-cases[Special cases] and xref:update-with-update-tool.adoc#troubleshooting[Troubleshooting] paragraphs below.
 
 // link to setup tool to be added => old module, new runtime
-* Runtime custom configuration. You will need to re-apply the customizations after the update process finishes. *If the target version of the update is Bonita 7.3 or greater, you can use xref:ROOT:bonita-bpm-platform-setup.adoc[the setup tool] to push the configuration files.*
-
-* Process definition sources (.bos files) require a manual migration. First export then import them into the new Bonita Studio version.
-* Custom connectors, actor filers, data types, custom pages, RestAPI extensions: will for sure continue to work in the new version if no custom code has been added, default Bonita code. If you did add custom code, before starting the update, check in the release notes for any breaking changes and test them thoroughly after the update.
+* Secure the update by doing xref:#backups[backups]. Better safe than sorry.
 * Check that the database version is up-to-date and supported by the new Bonita version.
-* Secure the update by doing backups. Better safe than sorry. 
+* Runtime tomcat server custom configuration: You will need to re-apply your customizations after the update process finishes.
+* Runtime setup folder custom configuration is kept in the database: Custom configurations made and pushed from the setup folder in the previous version are kept in the database. However, to benefit from the changes and improvements made in the product, you may want to compare the files you pull from your database and the target version files available in the setup/platform_conf/initial folder.
+* Custom connectors, actor filers, data types, custom pages, RestAPI extensions: will for sure continue to work in the new version if no custom code has been added, default Bonita code. If you did add custom code, before starting the update, check in the release notes for any breaking changes and test them thoroughly after the update.
 
 .Following elements will be updated *automatically* when launching the update script:
 * Engine server
 * Engine database (including all data on active and archived process instances) 
 * Organization definition
 * Log files from the previous versions will not be touched. A new dedicated folder for the target version will be created to store the log files. 
-* Runtime data (in the database after Bonita Runtime 7.3)
-* Configuration files (in the database after Bonita Runtime 7.3) will be replaced with the default configuration files of the new version
+* Runtime data
 
 When the script has finished executing, you will have to complete the update procedure by unzipping and configuring new bundle's version.
 
@@ -96,22 +95,24 @@ When the script has finished executing, you will have to complete the update pro
 Go through the paragraph xref:update-with-update-tool.adoc#updating-bonita-bundle-step-by-step-procedure[Updating Bonita bundle: step-by-step procedure] for step-by-step instructions.
 
 === BACKUPS 
-==== Configuration files 
-As mentioned above, during the update, Bonita configuration files will be reseted to the default version so that new settings could be applied (from the $BONITA_HOME folder before Bonita 7.3.0 or inside the database starting from Bonita 7.3.0 version). 
-
-Therefore, having a backup of your configuration files before launching the updating procedure is *HIGHLY* necessary, so you could merge custom properties and configurations to the target Bonita Runtime.
-
-.Starting with Bonita 7.3.Y, there is no more bonita home folder, which means that: 
-// link to setup tool => old module, new runtime
-* if your current installation *DOES* have customized the configuration files, you will have to use xref:ROOT:bonita-bpm-platform-setup.adoc[the setup tool] to push your customized configuration files to the database where the configuration is stored. 
-* if your current installation *DOES NOT* have customized configuration files, then you do not need to configure the bundle any further. 
-
 ==== Database files 
 From database point of view, as any operation on a productive system, an update is not a zero-risk operation.
 *Therefore, it is necessary to backup your database before launching the updating procedure.*
 
+==== Configuration files 
+As mentioned above, Runtime setup folder custom configuration made and pushed from the setup folder in the previous version will not be reseted to the default version in the database.
+
+However, having a backup of your configuration files before launching the updating procedure is *HIGHLY* recommended, in case you need to merge custom properties and configurations to the target Bonita Runtime. Use the xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool] to pull the configuration from the database and save a backup of your setup folder after the pull: 
+
+There is below a Linux example:
+[source,bash]
+----
+cd setup
+./setup.sh pull
+----
+
 ==== Look&Feel 
-Starting with Bonita 2021.2(Bonita Runtime 7.13), Bonita Applications replaced Bonita Portal. If you need to use some of the Portal Look&Feel assets in the themes of your applications, make sure you create backups of those files before launching the updating procedure.
+Starting with Bonita 2021.2 (Bonita Runtime 7.13), Bonita Applications replaced Bonita Portal. If you need to use some of the Portal Look&Feel assets in the themes of your applications, make sure you create backups of those files before launching the updating procedure.
 
 === JRE requirements
 Based on your target Bonita version, check whether JRE update is required in your environment before launching the update process:  
@@ -121,7 +122,7 @@ Based on your target Bonita version, check whether JRE update is required in you
 |JRE version 11 | If targeting an update from Bonita 2021.2 or greater
 |===
 
-For more info, see Support Guide and Supported Environment Matrix for Server.
+For more info, see Support Guide and xref:ROOT:hardware-and-software-requirements.adoc[Supported Environment Matrix for Server].
 
 [#rdbms_requirements]
 
@@ -221,15 +222,10 @@ First, download the target version bundle and Bonita Update Tool for your editio
 [#rdbms_requirements]
 . Check that your current RDBMS version is compliant with the versions supported by the targeted version of Bonita xref:ROOT:hardware-and-software-requirements.adoc[(see RDBMS requirements)]
 . Unzip the Bonita Update Tool zip file into a dedicated directory that can be called bonita-update. 
-. Configure the database properties needed by the update script, by editing bonita-update/Config.properties with the following information:
+. Configure the database properties needed by the update script, by editing the *bonita-update/Config.properties* file with the following information:
 
 |===
 |*Property* |*Description* |*Example*
-|bonita.home
-|The location of the existing bonita_home. Required only until Bonita 7.3
-a| 
-* Linux : /opt/BPMN/bonita  
-* Windows : C:\\BPMN\\bonita
 |db.vendor
 |Database vendor
 |postgres
@@ -252,8 +248,11 @@ NOTE: If you are using MySQL, add ?allowMultiQueries=true to the URL.
 For example, db.url=jdbc:mysql://localhost:3306/bonita-update?allowMultiQueries=true.
 
 === Stop Bonita 
+[WARNING]
+====
+*IMPORTANT:* Do *not* xref:ROOT:pause-and-resume-bpm-services.adoc[pause the BPM services] before you stop the application server, unless your Bonita source version is higher than 2021.1, otherwise it will cause problems.
+====
 
-. Pause the BPM Services before starting the update ONLY if your Bonita target version is older than 2021.1.
 . Stop the application server.
 // link to back up your runtime nodes => old module, new runtime
 . *IMPORTANT: Back up your xref:ROOT:back-up-bonita-bpm-platform.adoc[runtime nodes and databases].*
@@ -275,7 +274,7 @@ a|
  * bonita-update-tool-sp.bat (Windows)
 |===
 
-NOTE: Starting from *Bonita Migration Tool 2.44.1*, an additional script called _check-migration-dryrun_ is available. It can be used as a *pre-update check* as it does all the verification without actually migrating the elements. This is equivalent to running the migration script with a `--verify` option.
+NOTE: A script called _check-update-dryrun_ is available. It can be used as a *pre-update check* as it does all the verification without actually updating the elements. This is equivalent to running the update script with a `--verify` option.
 
 === Update tool's execution
 
@@ -283,7 +282,7 @@ The script behind the Update tool detects the current version of Bonita and disp
 
 All along script's execution you will be informed of the advancement level with user messages, that you will be asked to confirm for proceeding to the next step. The messages contain important information and we strongly advice you to keep a foreground execution. In case you prefer a background execution without user messages, set to “true” ` (-Dauto.accept=true)` system property.
 
-At the end of the update script execution the new Runtime version, the database update, the time taken for migrating all the elements will be mentioned in a dedicated user message. 
+At the end of the update script execution, the new Runtime version, the database update and the time taken for migrating all the elements will be mentioned in a dedicated user message. 
 
 == After the update tool is completed
 
@@ -299,27 +298,30 @@ The old Tomcat server cannot be used. You will have to install one that matches 
 
 // link to configure the bundle to use the updated database => old module, new runtime
 . xref:ROOT:database-configuration.adoc[Configure the bundle to use the updated database.] Do not recreate the database and use xref:ROOT:bonita-bpm-platform-setup.adoc[the setup tool] of the bonita-target-version. Edit the bonita-target-version/setup/database.properties file to point to the updated database.
-. Reapply the configuration made to the runtime, using the setup tool of the bonita-target-version. 
-. Download the configuration from the database to the local disk.
 
-[NOTE] 
-====
-*An example for Linux*
+. Download the configuration from database to the local disk using the setup tool of the `bonita-target-version`.
++
+There is below a Linux example:
++
+[source,bash]
+----
+cd setup
+./setup.sh pull
+----
 
- cd setup
- ./setup.sh pull
-====
-You must reapply the configuration that had been done on the original instance’s BONITA_HOME into the bonita-target-version/setup/platform_conf/current
-// link to setup tool => old module, new runtime
-Please refer to the guide on updating the configuration file using the xref:ROOT:bonita-bpm-platform-setup.adoc[setup tool].
-When done, push the updated configuration into the database: ./setup.sh push
+. After the setup `pull`, you can change your configuration into the `bonita-target-version/setup/platform_conf/current` folder. 
++
+Please refer to the guide on updating the configuration file using the xref:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool]
++
+. When done, push the updated configuration into the database:
++
+[source,bash]
+----
+./setup.sh push
+----
 
 === Specific configuration
-If you have done specific configuration and customization actions in your server source version, re-do it by configuring the application server at : 
-|===
-|target version is older than Bonita 7.3.n | bonita-target-version/server
-|target version is Bonita 7.3.n or greater | bonita-target-version
-|===
+If you have done specific configuration and customization actions in your server source version, re-do it by configuring the application server in folder  bonita-target-version/server.
 
 ==== Manual operations 
 . Perform a diff between the source version and the target version of tenants/[TENANT_ID]/conf/compound-permissions-mapping.properties and put the additional lines into the file tenants/[TENANT_ID]/conf/compound-permissions-mapping-custom.properties
