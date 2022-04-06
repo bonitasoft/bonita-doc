@@ -29,7 +29,7 @@ To know more, go to xref:bonita-bpm-studio-installation.adoc[Bonita Studio insta
 
 Bonita Platform can be installed in several ways:
 
-* If you want to migrate an existing installation to the latest version follow the xref:migrate-from-an-earlier-version-of-bonita-bpm.adoc[migration guide].
+* If you want to migrate an existing installation to the latest version follow the xref:version-update:update-with-migration-tool.adoc[migration guide].
 * If you want to do a fresh install, get our xref:tomcat-bundle.adoc[prepackaged bundle] that include an Application Server
 * If you want to do a custom installation, see xref:custom-deployment.adoc[Custom Deployment].
 
