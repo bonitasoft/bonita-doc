@@ -134,4 +134,4 @@ When only upgrade to a maintenance version of the same release you will not need
 * Start nodes with the newer version one by one
 
 
-When migration to a different release of the Bonita Runtime, the database also needs to be migrated. See xref:ROOT:migrate-from-an-earlier-version-of-bonita.adoc#migrateCluster[here]
+When migration to a different release of the Bonita Runtime, the database also needs to be migrated. See xref:version-update:update-with-migration-tool.adoc[here]
