@@ -17,7 +17,7 @@ Here is an overview of process execution:
 * Once this task is done the process will be completed
 
 [TIP]
-. xref:getting-started:getting-started-index.adoc#_download_the_example_from_bonita_studio[Downloaded Getting Started Tutorial example]
+.xref:getting-started:getting-started-index.adoc#_download_the_example_from_bonita_studio[Downloaded Getting Started Tutorial example]
 ====
 You can look at the diagram already drawn: In the project explorer, click on the *process diagrams* arrow, and then double-clik on *claimManagementDiagram-1.0.proc*.
 ====
@@ -76,7 +76,7 @@ image:images/getting-started-tutorial/draw-bpmn-diagram/rename.png[Rename contex
 image:images/getting-started-tutorial/draw-bpmn-diagram/choose-new-name-version.png[Choose a new name and version pop-up window]
 
 [TIP]
-. xref:getting-started:getting-started-index.adoc#_download_the_example_from_bonita_studio[Downloaded Getting Started Tutorial example]
+.xref:getting-started:getting-started-index.adoc#_download_the_example_from_bonita_studio[Downloaded Getting Started Tutorial example]
 ====
 For _Diagram Version_ and _Pool version_, input _"2.0"_. 
 ====
