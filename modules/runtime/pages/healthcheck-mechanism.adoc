@@ -11,7 +11,7 @@ A call to the URL will typically return the following information in JSON format
 {"status":"ok","ip":"<Server IP>",
 "jvmUptimeSeconds":"437",
 "platformState":"STARTED",
-"platformVersion":"7.14.0-SNAPSHOT",
+"platformVersion":"7.14.0",
 "platformNodeStarted":"true",
 "defaultTenantState":"ACTIVATED",
 "licenseExpirationDays":"28",

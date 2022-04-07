@@ -10,26 +10,30 @@ This authorization mechanism ensures that users can only access the appropriate 
 This means, for example, that a user with only the User profile cannot access REST API resources intended for the Administrator.
 
 The authorization mechanism is a "white list" implementation.
-It has two phases,
-a dynamic phase, which uses a script to grant or deny authorization,
-and a static phase, which checks in the static configuration to see whether the user is authorized to access a given resource.
-The static configuration is fixed when the application server is started.
+In Subscriptions editions there are two phases:
 
-To access a given resource, a user must have a certain permission.
+* a dynamic phase, which can use a script to grant or deny access to a resource,
+* a static phase, which is executed if there is no dynamic configuration for the resource. It checks in the static configuration to see whether the user is authorized to access a given resource or not.
+
+In community edition, only the static phase is executed. +
+
+The static phase works the following way: +
+To access a given resource, a user must have one of the permissions associated with the resource.
 These permissions are defined as *_simple permissions_*, which are the smallest units of permission, or *_compound permissions_*, which are groups of simple permissions.
 Upon login, a user is granted a set of permissions. These permissions define the set of resources the user is authorized to access.
 
 == Summary
 
-For a new Bonita installation, a basic set of authorization checks is activated by default for the REST API. But you might also want to <<activate,deactivate the engine HTTP API>>.
+For a new Bonita installation, a basic set of authorization checks is activated by default for the REST API. 
 Here are the key points of the authorization's configuration :
 
-* The static checks (activated by default on a fresh installation) create an authorization layer that exactly matches the standard Bonita Applications features and profiles.
+* The static check creates an authorization layer that exactly matches the standard Bonita Applications features and profiles.
+* In addition in Bonita subscription editions a set of dynamic rules is active by default to set finer grain restrictions mostly based on BPM business rules (process actor mapping, supervisors...).
+
 If you are using the Bonita Applications, you do not need to configure anything.
-* If you want to add extra authorization restrictions based on business rules, turn on the dynamic checks that you want.
-The configuration file defines standard rules for the most frequent cases, so all you need to do is uncomment the rules you want to apply.
+
+* If you want to add extra authorization restrictions based on custom business rules, you can configure custom static permissions or implement your own dynamic rules (subscription editions).
 * If you add a custom page, include a resources=[ list ] in your page.properties to specify which resources your custom page requires the users to have access to.
-* If the previous points do not meet your security needs, you can still manually customize the configuration and rules as much as you want.
 
 [NOTE.bonitacloud,caption=Bonita Cloud]
 ====
@@ -48,7 +52,7 @@ The static phase uses a set of configuration files:
 * `custom-permissions-mapping.properties`
 
 These files grant permissions to sets of users based on profile or username.
-You cannot remove permissions in a configuration file, so you must ensure that the default definitions grant the minimum permissions that you want to give to any user.
+You cannot deny permissions in the configuration files (it's a "white list" mechanism only), so you must ensure that the default definitions grant the minimum permissions that you want to give to any user.
 
 The default versions of these files are located in `setup/platform_conf/initial/tenant_template_portal`.
 In order to change the configuration on an installation whose platform has already been initialized, use the xref:runtime:bonita-platform-setup.adoc[platform setup tool] to
@@ -59,11 +63,11 @@ Then use the tool again to save your changes into the database.
 ==== Resources permissions mapping
 
 The `resources-permissions-mapping-*.properties` files define the mapping of REST resources to simple permissions.
-This tells you what permission is needed to access a given resource.
+This tells you what permission can grant you access to a given resource.
 
 For example: `GET|identity/user=[organization_visualization,organization_management]`
 
-This specifies that a user with the organization_visualization, or organization_management permissions can see information about users.
+This specifies that a user with the organization_visualization, *or* organization_management permissions can see information about users.
 
 By default, this file contains a mapping of each Bonita resources to at least one simple permission.
 You can modify the file `resources-permissions-mapping-custom.properties` to add your own mappings.
@@ -342,8 +346,8 @@ It is not necessary to restart the application server to activate security for t
 
 == Granting permissions to a given resource
 
-If you only develop custom pages and you declare the resources they use properly, you should never have to create custom permissions.
-However, you may need to do so if you need to manually grant permissions to a given REST API resource (so that it can be called programmatically for example). In order to do that, you need to:
+If you only develop custom pages and the resources they use are declared properly, no custom permissions should be created.
+However, you may need to do so if you need to manually grant permissions to a given REST API resource (so that it can be called automatically). In order to do that, you need to:
 
 . Look into the file `resources-permissions-mapping.properties` for the permissions that grant access to the resource.
 For example, in order to perform a GET on `bpm/task`, I can see that I need the permission `flownode_visualization` (syntax: `GET|bpm/task=[flownode_visualization]`)
@@ -366,29 +370,13 @@ To activate authorization, edit `security-config.properties` and set the value o
 
 To deactivate authorization, set the property to `false`, then restart the application server.
 
-If you activate authorization, you must also deactivate the HTTP API, so that is cannot be used to bypass the authorization settings.
-To do this, you can either filter the HTTP API in the Tomcat configuration (that is, accept only specific IP addresses), or you can
-deactivate the `HttpAPIServlet`. To deactivate the servlet, go to the `webapps/bonita/WEB-INF` folder of your web server,
-edit `web.xml` and comment out the following definitions:
 
-[source,xml]
-----
-    <!-- For engine HTTP API -->
-    <!--
-    <servlet>
-        <servlet-name>HttpAPIServlet</servlet-name>
-        <servlet-class>org.bonitasoft.engine.api.internal.servlet.HttpAPIServlet</servlet-class>
-    </servlet>
-    -->
+If you activate authorization, deactivate the HTTP API or it will be used to bypass the authorization settings.
+To do this, you can:
 
+* either add a Java system property `-Dhttp.api=false` to file `setEnv.[sh|bat]` inside tomcat bundle (in folder `setup/tomcat_templates/`)
+* or set an environment variable `HTTP_API=false` before launching Bonita Tomcat bundle
 
-    <!--
-     <servlet-mapping>
-         <servlet-name>HttpAPIServlet</servlet-name>
-         <url-pattern>/serverAPI/*</url-pattern>
-     </servlet-mapping>
-     -->
-----
 
 [#debug]
 
