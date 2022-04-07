@@ -3,9 +3,9 @@
 :experimental: // activate the 'menu' macro
 :description: getting started tutorial - draw a BPMN process diagram
 
-Now that you have your development environment (i.e. Bonita Studio) up and running, you are ready to start building your first Bonita Living Application.
+Now that you have your development environment (i.e. Bonita Studio) up and running, you are ready to start building your first Bonita Application.
 
-In this tutorial you will build a *claims management solution*. Making sure that claims are handled and answered in a timely manner by the appropriate employee(s) can be key to customer satisfaction. It is also a good fit for a process-based application that uses automation. We will of course drastically simplify the application in this tutorial so you can focus on learning about Bonita and not about claims management!
+In this tutorial you will build a _claims management application. Making sure that claims are handled and answered in a timely manner by the appropriate employee(s) can be key to customer satisfaction. It is also a good fit for a process-based application that uses automation. We will of course drastically simplify the application in this tutorial so you can focus on learning about Bonita and not about claims management!
 
 Here is an overview of process execution:
 
@@ -16,21 +16,22 @@ Here is an overview of process execution:
 * If the rating is lower than 3 an extra task will be assigned to the manager of the employee to work with this customer who is not really satisfied. The manager will be notified by email that a task Deal with unsatisfied customer requires their attention.
 * Once this task is done the process will be completed
 
-[NOTE]
+[TIP]
 ====
-To design this process we will use the Business Process Model and Notation (BPMN) standard. You don't need to learn everything about BPMN to follow this tutorial but, if you would like to know more, you can read the https://www.bonitasoft.com/library/the-ultimate-guide-to-bpmn2[Ultimate Guide to BPMN 2.0].
+You can look at the diagram already drawn in the Getting Started project ready for download on Bonita Studio's Welcome page:
+
+. In the project explorer, click on the *process diagrams* arrow, and then double-clik on *claimManagementDiagram-1.0.proc*
 ====
 
-[WARNING]
-====
+To design this process we will use the Business Process Model and Notation (BPMN) standard. You do not need to learn everything about BPMN to follow this tutorial but, if you would like to know more, you can read the https://www.bonitasoft.com/library/the-ultimate-guide-to-bpmn2[Ultimate Guide to BPMN 2.0].
+
 We will use an iterative approach in the process development. This means that in the first iteration, we will have a few limitations:
 
 * a single user will perform all the tasks
-* we won't collect data from the user
+* we will not collect data from the user
 * the process will follow a single path - in this case the one for an unsatisfied customer - which will be called "happy path" because its design is the best case scenario to run the entire process smoothly.
 
 As we introduce data in our process definition and configure actors, a user will be able to input data in web forms, the process will follow paths that depend on data values, and different users will be involved.
-====
 
 == Create the process diagram
 
@@ -72,6 +73,11 @@ Rename the diagram and the pool:
 image:images/getting-started-tutorial/draw-bpmn-diagram/rename.png[Rename contextual menu]
 . In the pop-up window, enter the new name for the diagram: _ClaimsManagementDiagram_, and for the pool: _ClaimsManagement_
 image:images/getting-started-tutorial/draw-bpmn-diagram/choose-new-name-version.png[Choose a new name and version pop-up window]
+
+TIP
+====
+If you have downloaded the Getting Started Tutorial project, for _Diagram Version_ and _Pool version_, input _"2.0"_. 
+====
 
 Rename the start event (i.e. the green disc on the left hand side of the process):
 
