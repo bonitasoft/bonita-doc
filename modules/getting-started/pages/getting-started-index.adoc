@@ -11,13 +11,17 @@ You will then be able to adapt and extend this example to fit your own needs.
 [NOTE]
 ====
 
-* If you have any problems while working through this tutorial, you can https://community.bonitasoft.com/questions-and-answers[ask for help on the Bonita Community web site] and/or open an issue on the Bonita https://bonita.atlassian.net/projects/BBPMC/issues[Community issue tracker]. +
-
-* This example has also been implemented and packaged to be downloaded from Bonita Studio's Welcome page (see below). +
-This can be useful to compare your creations with the already implemented example, or just to learn by watching how it has been implemented. +
+If you have any problems while working through this tutorial, you can https://community.bonitasoft.com/questions-and-answers[ask for help on the Bonita Community web site] and/or open an issue on the Bonita https://bonita.atlassian.net/projects/BBPMC/issues[Community issue tracker]. +
 ====
 
-To *download the example* from Bonita Studio:
+[TIPS]
+====
+This example has also been implemented and packaged to be downloaded from Bonita Studio's Welcome page (see below). +
+This can be useful to compare your creations with the already implemented example, or just to learn by watching how it has been implemented. +
+Follow the tips like this one all through the tutorial to manage both your creation and the downloaded project.
+====
+
+== Download the example from Bonita Studio:
 
 . Install and open xref:ROOT:bonita-studio-download-installation.adoc[Bonita Studio]
 . On the Welcome page, in the _Resources_ tile at the bottom right, click on *Import the Getting Started example*
