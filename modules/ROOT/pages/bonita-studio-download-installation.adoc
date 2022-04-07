@@ -139,4 +139,10 @@ image::getting-started:images/getting-started-tutorial/installation/ui-designer-
 
 == Ready to move on
 
-You have successfully installed Bonita Studio, and the tools and test environment are up and running.
+You have successfully installed Bonita Studio, the tools and test environment are up and running.+
+You can now:
+
+* xref:setup-dev-environment:bonita-bpm-studio-preferences.adoc[configure your development environment]
+* xref:best-practices:project-best-practices-index.adoc[learn about project best practices]
+* xref:getting-started:getting-started-index.adoc[follow the Getting Started Tutorial]
+* xref:process:diagrams-index.adoc[start creating your project]
