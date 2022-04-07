@@ -23,9 +23,19 @@ You can look at the diagram already drawn: In the _Project explorer_ area, doubl
 ====
 
 == Forewords
-To design this process we will use the Business Process Model and Notation (BPMN) standard. You do not need to learn everything about BPMN to follow this tutorial but, if you would like to know more, you can read the https://www.bonitasoft.com/library/the-ultimate-guide-to-bpmn2[Ultimate Guide to BPMN 2.0].
+=== BPMN basic elements 
+To design this process we will use the Business Process Model and Notation (BPMN) standard. +
+You do not need to learn everything about BPMN to follow this tutorial but, if you would like to know more, you can read the https://www.bonitasoft.com/library/the-ultimate-guide-to-bpmn2[Ultimate Guide to BPMN 2.0].
+Here are the basic BPMN elements used in most process diagrams:
 
-As we recommend to do for every project, we use an iterative approach in the project development. +
+* xref:ROOT:pools-and-lanes.adoc[Pool]: container of the process definition in a diagram
+* xref:ROOT:pools-and-lanes.adoc[Lanes]: divisions of a pool. Typically, a lane contains all the tasks assigned to one actor
+* xref:ROOT:events.adoc[Start and end events]: start and end of a process sequence
+* xref:ROOT:diagram-tasks.adoc[Tasks]: types of activity in a process
+* xref:ROOT:gateways.adoc[Gateways]: controllers of the different paths of a process sequence
+
+=== Iterative approach
+Also, as we recommend to do for every project, we use an iterative approach in the project development. +
 Therefore, in this first iteration:
 
 * a single user will perform all the tasks
@@ -36,19 +46,7 @@ As we configure actors, create business data and improve the user interfaces, di
 
 == Create the process diagram
 
-The first step is the design of the process "happy path."
-
-[NOTE]
-====
-While drawing the model, you will use and learn about some basic BPMN elements used in most process diagrams:
-
-* xref:ROOT:pools-and-lanes.adoc[Pool]: a pool is a container for a process in a diagram.
-* xref:ROOT:pools-and-lanes.adoc[Lanes]: a lane is a division of a pool. Typically, a lane contains all the tasks assigned to one actor.
-* xref:ROOT:events.adoc[Start and end events]: a start event is at the start of a process flow, and an end event is at the end of a flow.
-* xref:ROOT:diagram-tasks.adoc[Tasks]: a task is a type of activity in a process.
-* xref:ROOT:gateways.adoc[Gateways]: gateways are used to control how sequence flows interact within a process.
-====
-
+The first step is the design of the process "happy path." +
 Create a new diagram:
 
 . In the Bonita Studio menu, click on menu:File[New diagram].
