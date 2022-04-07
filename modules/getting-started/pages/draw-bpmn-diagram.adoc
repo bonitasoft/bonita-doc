@@ -74,7 +74,7 @@ image:images/getting-started-tutorial/draw-bpmn-diagram/rename.png[Rename contex
 . In the pop-up window, enter the new name for the diagram: _ClaimsManagementDiagram_, and for the pool: _ClaimsManagement_
 image:images/getting-started-tutorial/draw-bpmn-diagram/choose-new-name-version.png[Choose a new name and version pop-up window]
 
-TIP
+[TIP]
 ====
 If you have downloaded the Getting Started Tutorial project, for _Diagram Version_ and _Pool version_, input _"2.0"_. 
 ====
