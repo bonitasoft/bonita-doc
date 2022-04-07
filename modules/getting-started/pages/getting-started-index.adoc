@@ -11,31 +11,32 @@ You will then be able to adapt and extend this example to fit your own needs.
 [NOTE]
 ====
 
-* If you have any problems while working through this tutorial, you can https://community.bonitasoft.com/questions-and-answers[ask for help on the Bonita Community web site] and/or open an issue on the Bonita https://bonita.atlassian.net/projects/BBPMC/issues[Community issue tracker].
+* If you have any problems while working through this tutorial, you can https://community.bonitasoft.com/questions-and-answers[ask for help on the Bonita Community web site] and/or open an issue on the Bonita https://bonita.atlassian.net/projects/BBPMC/issues[Community issue tracker]. +
+
 * This example has also been implemented and packaged to be downloaded from Bonita Studio's Welcome page (see below). +
 This can be useful to compare your creations with the already implemented example, or just to learn by watching how it has been implemented. +
 ====
 
-To download the example from Bonita Studio:
+To *download the example* from Bonita Studio:
 
-. Open Bonita Studio (see the prerequisite below)
+. Install and open xref:ROOT:bonita-studio-download-installation.adoc[Bonita Studio]
 . On the Welcome page, in the _Resources_ tile at the bottom right, click on *Import the Getting Started example*
 . In the _Import .bos archive_ modal window that opens, you can see that the example will be imported in a new Bonita project by default
 . Click on the *Details* button, and learn about the main elements it contains by opening all sections of the _Archive_ column 
-. Now click on the *Extensions* button, and learn about the extensions already created and packaged with the project
-(Don't worry: you will learn more about those "elements" and "extensions" while going through the tutorial)
-. Click on the "Import" button to finalize the importation operation. You get a list of the dependencies imported
-. Click on the "Deploy" button to be able to view the user interfaces in the embedded Bonita Runtime
-. Let all elements of the list checked and click on "Deploy" again
-. Click on the "Close" button to stay in Bonita Studio and start following the tutorial. 
-. You can find the whole content of the Getting Started project in the "Explorer" tab on the left. Just click on the arrow to expand it
+. Now click on the *Extensions* button, and learn about the extensions already created and packaged with the project +
+ (Do not worry: you will learn more about those "elements" and "extensions" while going through the tutorial)
+. Click on the *Import* button to finalize the importation operation. You get a list of the dependencies imported
+. Click on the *Deploy* button to be able to view the user interfaces in the embedded Bonita Runtime
+. Let all elements of the list checked and click on *Deploy* again
+. Click on the *Close* button to stay in Bonita Studio and start following the tutorial. 
+. You can find the whole content of the Getting Started project in the _Explorer_ tab on the left. Just click on the arrow to expand it.
 
 [.card-section]
 == Prerequisite
 
 [.card.card-index]
 --
-xref:ROOT:bonita-studio-download-installation.adoc[[.card-title]#Bonita Studio Installation# [.card-body.card-content-overflow]#pass:q[Bonita's principal tool to create the main elements of your projects]#]
+xref:ROOT:bonita-studio-download-installation.adoc[[.card-title]#Bonita Studio Installation# [.card-body.card-content-overflow]#pass:q[The tool to create the main elements of a project]#]
 --
 
 [.card-section]
