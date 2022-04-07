@@ -19,7 +19,7 @@ Here is an overview of process execution:
 [TIP]
 .xref:getting-started:getting-started-index.adoc#_download_the_example_from_bonita_studio[Downloaded Getting Started Tutorial example]
 ====
-You can look at the diagram already drawn: In the project explorer, click on the *process diagrams* arrow, and then double-clik on *claimManagementDiagram-1.0.proc*.
+You can look at the diagram already drawn: In the _Project explorer_ area, double-click on *Process diagrams*, and then on *ClaimManagementDiagram-1.0.proc*.
 ====
 
 == Forewords
