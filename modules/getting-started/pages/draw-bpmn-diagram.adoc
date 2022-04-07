@@ -17,21 +17,22 @@ Here is an overview of process execution:
 * Once this task is done the process will be completed
 
 [TIP]
+. xref:getting-started:getting-started-index.adoc#_download_the_example_from_bonita_studio[Downloaded Getting Started Tutorial example]
 ====
-You can look at the diagram already drawn in the Getting Started project ready for download on Bonita Studio's Welcome page:
-
-. In the project explorer, click on the *process diagrams* arrow, and then double-clik on *claimManagementDiagram-1.0.proc*
+You can look at the diagram already drawn: In the project explorer, click on the *process diagrams* arrow, and then double-clik on *claimManagementDiagram-1.0.proc*.
 ====
 
+== Forewords
 To design this process we will use the Business Process Model and Notation (BPMN) standard. You do not need to learn everything about BPMN to follow this tutorial but, if you would like to know more, you can read the https://www.bonitasoft.com/library/the-ultimate-guide-to-bpmn2[Ultimate Guide to BPMN 2.0].
 
-We will use an iterative approach in the process development. This means that in the first iteration, we will have a few limitations:
+As we recommend to do for every project, we use an iterative approach in the project development. +
+Therefore, in this first iteration:
 
 * a single user will perform all the tasks
 * we will not collect data from the user
 * the process will follow a single path - in this case the one for an unsatisfied customer - which will be called "happy path" because its design is the best case scenario to run the entire process smoothly.
 
-As we introduce data in our process definition and configure actors, a user will be able to input data in web forms, the process will follow paths that depend on data values, and different users will be involved.
+As we configure actors, create business data and improve the user interfaces, different users will be involved, they will be able to input data in web forms, and the process will follow paths that depend on data values.
 
 == Create the process diagram
 
@@ -75,8 +76,9 @@ image:images/getting-started-tutorial/draw-bpmn-diagram/rename.png[Rename contex
 image:images/getting-started-tutorial/draw-bpmn-diagram/choose-new-name-version.png[Choose a new name and version pop-up window]
 
 [TIP]
+. xref:getting-started:getting-started-index.adoc#_download_the_example_from_bonita_studio[Downloaded Getting Started Tutorial example]
 ====
-If you have downloaded the Getting Started Tutorial project, for _Diagram Version_ and _Pool version_, input _"2.0"_. 
+For _Diagram Version_ and _Pool version_, input _"2.0"_. 
 ====
 
 Rename the start event (i.e. the green disc on the left hand side of the process):
@@ -147,7 +149,7 @@ image::images/getting-started-tutorial/draw-bpmn-diagram/process-diagram-before-
 
 [NOTE]
 ====
-Now you can see a validation error on the gateway. The error is displayed because we didn't define the conditions for process execution when it reaches the gateway. Trying to execute the process will fail because the process execution engine cannot determine which path to follow.
+Now you can see a validation error on the gateway. The error is displayed because we did not define the conditions for process execution when it reaches the gateway. + Trying to execute the process will fail because the process execution engine cannot determine which path to follow.
 ====
 
 Configure the conditions required to define the path to follow when executing the process. Conditions are defined on the gateway outgoing transitions (i.e. the arrows going out of the gateway):
