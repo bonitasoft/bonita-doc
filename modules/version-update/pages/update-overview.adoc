@@ -1,5 +1,5 @@
 = Update overview
-:page-aliases: ROOT:update-overview.adoc
+:page-aliases: ROOT:update-overview.adoc, ROOT:migration-overview.adoc, ROOT:migrate-from-an-earlier-version-of-bonita-bpm.adoc
 :description: Learn how to update Bonita Platform from an older version to a newer version.
 
 Learn how to update a Bonita Platform from an older version to a newer version.
