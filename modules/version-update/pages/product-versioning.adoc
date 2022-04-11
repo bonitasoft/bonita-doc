@@ -36,37 +36,17 @@ Here is a Bonita Platform version / Technical Id / UI Designer version correspon
 |===
 | Release date | Bonita Platform version | Technical Id | UI Designer version
 
-| 2022-03-03
-| 2021.2-u4
-| 7.13.4
-| 1.13.23
-
-| 2022-02-02
-| 2021.2-u3
-| 7.13.3
-| 1.13.22
-
-| 2022-01-19
-| 2021.2-u2
-| 7.13.2
-| 1.13.22
-
-| 2021-11-26
-| 2021.2-u1
-| 7.13.1
-| 1.13.20
-
-| 2021-09-23
-| 2021.2-u0
-| 7.13.0
-| 1.13.20
+| 2022-03-30
+| 2022.1-u0
+| 7.14.0
+| 1.14.10
 
 |===
 
-== Artifact version
+== Element version
 
-In addition to the platform version, most artifacts have a model version. Bonita Studio and UI Designer use this model version to determine if the corresponding artifact is compatible. +
-If the artifacts are incompatible, then either Bonita Studio migrates the artifacts (when the model version is lower than the Bonita Studio version), or you will have to update your studio to a compatible version. +
+In addition to the platform version, most elements have a model version. Bonita Studio and UI Designer use this model version to determine if the corresponding element is compatible. +
+If the elements are incompatible, then either Bonita Studio migrates the element (when the model version is lower than the Bonita Studio version), or you will have to update your studio to a compatible version. +
 
 Example:
 
@@ -92,7 +72,7 @@ In the case below, my diagram model version is "7.12.1-001". I will not be able 
 ----
 <1> bonita version and model version declarations
 
-The following artifacts have model versions:
+The following elements have model versions:
 
 * Diagrams
 * Organization
@@ -110,27 +90,27 @@ These model versions should not change between maintenance versions of a given m
 [NOTE]
 ====
 
-Changing the main version does not imply that the model version of all artifacts will change: in some cases, updating to a new main version will not require to migrate the artifacts.
+Changing the main version does not imply that the model version of all elements will change: in some cases, updating to a new main version will not require to migrate the elements.
 ====
 
 == Version checks in Bonita Studio and UI Designer
 
 === Studio
 
-Bonita Studio will check the model version of every artifact of a given project when cloning or importing it. The artifact model version will also be checked when importing artifacts individually.
+Bonita Studio will check the model version of every element of a given project when cloning or importing it. The element model version will also be checked when importing elements individually.
 
-The model versions of all artifacts are also checked when deploying a project. Finally, the model version is checked when an artifact is opened.
+The model versions of all elements are also checked when deploying a project. Finally, the model version is checked when an element is opened.
 
-To check the compatibility of your artifacts manually, you can use the "Validate" action in the project's context menu or via the File menu.
+To check the compatibility of your elements manually, you can use the "Validate" action in the project's context menu or via the File menu.
 
-You will not be able to work with incompatible artifacts nor deploy them. However, it is possible to migrate older artifacts.
+You will not be able to work with incompatible elements nor deploy them. However, it is possible to migrate older elements.
 
 === UI Designer
 
-The UI Designer will check the model version of all artifacts when it is launched and when a given artifact is opened. You will not be able to work with incompatible artifacts. However, you will be able to migrate older artifacts.
+The UI Designer will check the model version of all elements when it is launched and when a given element is opened. You will not be able to work with incompatible elements. However, you will be able to migrate older elements.
 
 [WARNING]
 ====
 
-Artifact migration is not reversible. Once the studio or UI Designer has migrated an artifact, it is no longer compatible with the previous version of the Bonita component.
+Element migration is not reversible. Once the studio or UI Designer has migrated an element, it is no longer compatible with the previous version of the Bonita component.
 ====
