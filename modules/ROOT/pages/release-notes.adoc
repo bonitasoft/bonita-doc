@@ -115,7 +115,7 @@ that looks like:
 .Pre-2021.2 Custom Profile example
 image::images/temp-release-notes-specific/custom_profile.png[Previous Custom Profile,600]
 
-In Bonita 2021.2, custom profile navigation has been removed, and thus profiles with navigation are automatically converted into custom applications by the xref:version-update:migrate-from-an-earlier-version-of-bonita.adoc[migration tool].
+In Bonita 2021.2, custom profile navigation has been removed, and thus profiles with navigation are automatically converted into custom applications by the xref:version-update:update-with-migration-tool.adoc[migration tool].
 
 Here is what it looks like after conversion:
 
@@ -251,13 +251,13 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
 
-* STUDIO-4235 - [Proxy][BDM] Impossible to create a contract from a business variable 
-* STUDIO-4251 - Applications and REST api menus are not disabled when they should be 
+* STUDIO-4235 - [Proxy][BDM] Impossible to create a contract from a business variable
+* STUDIO-4251 - Applications and REST api menus are not disabled when they should be
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
-* RUNTIME-717 - "404 error page" makes the 404 response code being lost causing the original URL not to be preserved in the HTTP session 
-* RUNTIME-786 - Automatic redirection to standard error page causes the loss of the x-bonita-api-token request header 
+* RUNTIME-717 - "404 error page" makes the 404 response code being lost causing the original URL not to be preserved in the HTTP session
+* RUNTIME-786 - Automatic redirection to standard error page causes the loss of the x-bonita-api-token request header
 * RUNTIME-842 - 8 times more SQL queries generated with 7.13.x than the 7.11.x
 * RUNTIME-302 - Retry mechanism vs congestion situations
 
@@ -265,22 +265,22 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
 
-* STUDIO-4141 - Error while importing .bos file off-line if dependencies not already present in local Maven repository 
+* STUDIO-4141 - Error while importing .bos file off-line if dependencies not already present in local Maven repository
 * STUDIO-4149 - When importing old version projects from GIT and SVN, the Studio does not detect unnecessary dependency libraries
-* STUDIO-4191 - When importing extension from a jar/zip file, version is read from filename and not from pom.xml 
-* STUDIO-4219 - Can't remove servlet api in a 2021.2-u2 migrated project 
-* STUDIO-4221 - Stack trace and diagram not displayed when reopening studio 
-* STUDIO-4223 - Unexpected error when updating connector version from SNAPSHOT to final release 
-* STUDIO-4228 - Missing Pool--1.0.bar/resources/process.bpmn file when bar file generated with Project Explorer - RightClick - Build 
-* STUDIO-4230 - NPE in Project explorer and lib folder 
+* STUDIO-4191 - When importing extension from a jar/zip file, version is read from filename and not from pom.xml
+* STUDIO-4219 - Can't remove servlet api in a 2021.2-u2 migrated project
+* STUDIO-4221 - Stack trace and diagram not displayed when reopening studio
+* STUDIO-4223 - Unexpected error when updating connector version from SNAPSHOT to final release
+* STUDIO-4228 - Missing Pool--1.0.bar/resources/process.bpmn file when bar file generated with Project Explorer - RightClick - Build
+* STUDIO-4230 - NPE in Project explorer and lib folder
 * UID-589 - BDR: Redirect the UID parsing errors to the Studio log file
-* UID-596 - BDR: Error in GraphQL parsing should not prevent to use UID data management 
-* UID-616 - BDR : GraphQL schema generation issue with custom queries 
-* UID-617 - BDM is deployed according to the Studio but UID cannot access it 
+* UID-596 - BDR: Error in GraphQL parsing should not prevent to use UID data management
+* UID-616 - BDR : GraphQL schema generation issue with custom queries
+* UID-617 - BDM is deployed according to the Studio but UID cannot access it
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
-* RUNTIME-292 - CleanInvalidSessions concurrency issue 
+* RUNTIME-292 - CleanInvalidSessions concurrency issue
 * RUNTIME-495 - Make datasource configuration robust to network idle connection closure
 * RUNTIME-590 - Method onPrepareStatement not called in 2021.1 and 2021.2 with postgres breaks the search case insensitivity
 * RUNTIME-675 - [Organization][ImportPolicy] IGNORE_DUPLICATES update manager relationship
@@ -333,7 +333,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 * STUDIO-4126 - Process execution errors: bcd-dependencies:7.11.5 generates a .bar different from Studio 7.11.5
 * UID-459 - BO variable cannot be edited in fragment after workspace import from previous version and error message is wrong
 
-==== Fixes in Bonita Runtime 
+==== Fixes in Bonita Runtime
 
 * RUNTIME-23 - Installing BDM with a wrong custom query corrupts the BDM database without any rollback option
 * RUNTIME-27 - Services resume failures after the la-deployer detects bdm deployment timeout
