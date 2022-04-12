@@ -1,0 +1,19 @@
+= Docker image
+:page-aliases: docker-deep-dive.adoc
+:description: This page gives access to Bonita Docker image installation and configuration procedures, to the security aspects to pay attention to, and to its health check mechanism.
+
+{description}
+
+
+[.card-section]
+== Docker installation details
+
+[.card.card-index]
+--
+xref:bonita-docker-installation.adoc[[.card-title]#Installation procedure# [.card-body.card-content-overflow]#pass:q[The first step to deploy Bonita Runtime with Docker]#]
+--
+
+[.card.card-index]
+--
+xref:healthcheck-mechanism.adoc[[.card-title]#Health check mechanism# [.card-body.card-content-overflow]#pass:q[How Bonita docker healthcheck works]#]
+--
