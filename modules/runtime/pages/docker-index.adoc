@@ -1,6 +1,6 @@
 = Docker image
 :page-aliases: docker-deep-dive.adoc
-:description: This page gives access to Bonita Docker image installation and configuration procedures, to the security aspects to pay attention to, and to its health check mechanism.
+:description: This page gives access to Bonita Docker image installation and configuration procedures, to the security aspects to pay attention to, and to its healthcheck mechanism.
 
 {description}
 
@@ -15,5 +15,5 @@ xref:bonita-docker-installation.adoc[[.card-title]#Installation procedure# [.car
 
 [.card.card-index]
 --
-xref:healthcheck-mechanism.adoc[[.card-title]#Health check mechanism# [.card-body.card-content-overflow]#pass:q[How Bonita docker healthcheck works]#]
+xref:healthcheck-mechanism.adoc[[.card-title]#Healthcheck mechanism# [.card-body.card-content-overflow]#pass:q[How Bonita docker healthcheck works]#]
 --
