@@ -51,7 +51,7 @@
  ** xref:runtime-installation-index.adoc[Installation]
   *** xref:hardware-and-software-requirements.adoc[Hardware and software requirements]
   *** xref:tomcat-bundle.adoc[Bonita bundle]
-  *** xref:docker-deep-dive.adoc[Docker image]
+  *** xref:docker-index.adoc[Docker image]
    **** xref:bonita-docker-installation.adoc[Installation]
    **** xref:healthcheck-mechanism.adoc[Healthcheck mechanism]
   *** Bonita in a cluster
