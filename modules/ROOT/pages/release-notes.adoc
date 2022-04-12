@@ -16,6 +16,11 @@ The 2022.2 is in development.
 
 == Technical updates
 
+== Feature deprecations and removals
+
+=== SVN
+
+SVN integration in Bonita Studio Subscription has been removed. You may migrate an existing SVN repository to a Git repository following this xref:migrate-a-svn-repository-to-github.adoc[guide].
 
 
 == Bug fixes
