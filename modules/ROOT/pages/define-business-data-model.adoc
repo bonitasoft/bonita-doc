@@ -16,7 +16,7 @@ You can read the chapter about xref:data-handling-overview.adoc[data handling] f
 
 In Bonita Studio, create a BDM:
 
-. Go to menu:Development[Business Data Model > Define...] menu
+. Click on the "+" button in the coolbar and select the "Business Data Model" entry
 +
 image:images/getting-started-tutorial/define-business-data-model/define-business-data-model-menu.png[Define business data model menu]
 // {.img-responsive .img-thumbnail}
@@ -32,27 +32,25 @@ image:images/getting-started-tutorial/define-business-data-model/define-business
 image:images/getting-started-tutorial/define-business-data-model/create-business-object-with-attributes.gif[Create business object with attributes]
 // {.img-responsive .img-thumbnail}
 
+. Save your work (Ctrl+S)
 . Click on *Deploy* button
 
 [NOTE]
 ====
-
 *Mandatory* on a object attribute means that the object cannot be created with an empty value. If the *mandatory* option is not checked, it means that an object can be created with an empty value, for the attribute "not mandatory" (i.e. optional). In our example, the _answer_ attribute is optional because at process start it will be empty. Later in the process execution, an employee will provide an answer and doing so will be mandatory (but this will not be enforced by BDM definition).
 ====
 
 [WARNING]
 ====
-
-When you edit the BDM in Bonita Studio, it is always recommended to reset the database after doing any modification on the model. Check the checkbox "Reset BDM database," available in the pop-up window display when you validate your modifications.
+When you edit the BDM in Bonita Studio, it is always recommended to reset the database after doing any modification on the model. You may use the "Clean and Deploy" action available in editor toolbar. It will delete the BDM content and recreate all the database tables.
 ====
 
 [NOTE]
 ====
 
-When you click on the "Finish" button three different operations are performed:
+When you click on the "Deploy" button different operations are performed:
 
-* BDM definition is saved in your project (under *Business Data Model* category)
-* Java classes are generated, compiled, packaged and the resulting jar file is added to your project (under *Java dependencies* category)
+* Java classes are generated, compiled, packaged and the resulting jar file is added to your project dependencies
 * Tables are created in the Bonita Studio embedded test database
 
 ====
