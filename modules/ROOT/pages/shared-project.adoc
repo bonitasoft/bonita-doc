@@ -84,8 +84,10 @@ Git workflow offers a lot of other features that are not directly integrated in 
 The following authentication methods are supported:
 
 * Login and password
-* Login and token - use the password field for the token value
+* Login and token - use the password field for the token value 
 * Ssh Key
+
+WARNING: Github requires a https://github.com/settings/tokens[personal access token] as credentials password when using HTTPS protocol. 
 
 [#git-troubleshooting]
 
