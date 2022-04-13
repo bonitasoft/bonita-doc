@@ -46,7 +46,7 @@ Here is a Bonita Platform version / Technical Id / UI Designer version correspon
 == Artifact version
 
 In addition to the platform version, most artifacts have a model version. Bonita Studio and UI Designer use this model version to determine if the corresponding artifact is compatible. +
-If the artifacts are incompatible, then either Bonita Studio migrates the artifact (when the model version is lower than the Bonita Studio version), or you will have to update your studio to a compatible version. +
+If the artifact is incompatible, then either Bonita Studio migrates the artifact (when the model version is lower than the Bonita Studio version), or you will have to update your studio to a compatible version. +
 
 Example:
 
