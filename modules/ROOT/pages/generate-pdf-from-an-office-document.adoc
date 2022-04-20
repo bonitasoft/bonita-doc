@@ -20,12 +20,34 @@ UTF-8 is assumed if you do not specify the encoding (that is, if the field is le
 
 WARNING: As an example when using special characters like '€' with an invalid encoding will generate a PDF without those characters.
 
+== Fonts
+
+Be careful to have all fonts used in your docx/odt file properly installed on the server running Bonita when converting to PDF. Otherwise, you might have inconsistencies between a development environment using Windows and a production environment on Linux.
+
+The connector loads fonts from the following folders:
+
+* On Windows: 
+** `c:/windows/fonts`
+** `c:/winnt/fonts`
+** `d:/windows/fonts`
+** `d:/winnt/fonts`
+* On Linux: 
+** `/usr/share/X11/fonts`
+** `/usr/X/lib/X11/fonts`
+** `/usr/openwin/lib/X11/fonts`
+** `/usr/share/fonts`
+** `/usr/X11R6/lib/X11/fonts`
+* On MacOs: 
+** `/Library/Fonts`
+** `/System/Library/Fonts`
+
+
 == Known limitations
 
 [WARNING]
-====
+----
 There are known issues when adding an image in a docx using drag'n drop instead of copy/paste. The image is not rendered properly when converted into PDF.
-====
+----
 
 Rendering issues (at worst the element will not be visible in the generated PDF; at best, it will be visible but not exactly as in the Office document):
 
@@ -40,7 +62,8 @@ Rendering issues (at worst the element will not be visible in the generated PDF;
 * Image positioning
 * Drawing shapes
 * Alignment of some text elements
-* HTML conversion generates a single html file. For that matter, linked resources (like images, ...) are not supported. If you have images, use PDF conversion instead. +
+* HTML conversion generates a single html file. For that matter, linked resources (like images, ...) are not supported. If you have images, use PDF conversion instead.
+
 This connector is build upon *XdocReport* third party library, for more information check their Wiki at https://github.com/opensagres/xdocreport/wiki
 
 == Troubleshooting
