@@ -21,6 +21,10 @@ Detailed version : xref:update-with-update-tool.adoc#updating-bonita-bundle-step
 
 There is only one version of Bonita Update Tool: Bonita Update Tool 3.x. 
 
+== Pre-requisite
+
+The Update Tool requires a Java 11 JRE
+
 == How works Bonita Update Tool
 
 _Bonita Update Tool_ contains a set of scripts that execute changes on the data for making it compatible with a newer main version of Bonita Runtime. 
