@@ -89,16 +89,6 @@ This example shows how to configure SSL with a keystore for Bonita on Tomcat.
 +
 [source,xml]
 ----
-<!-- Comment out the HTTP connector: -->
-<!--
-<Connector port="8080" protocol="HTTP/1.1"
-connectionTimeout="20000"
-maxThreads="20"
-redirectPort="8443"
-maxPostSize="-1"
-URIEncoding="UTF-8" />
--->
-
 <Connector port="8443"
 protocol="org.apache.coyote.http11.Http11NioProtocol"
 SSLEnabled="true"
