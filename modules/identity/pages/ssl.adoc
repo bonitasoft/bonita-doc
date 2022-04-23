@@ -99,7 +99,7 @@ URIEncoding="UTF-8"
 keystoreFile="${catalina.base}/conf/ssl/keystore"
 keystorePass="password!"
 SSLVerifyClient="optional"
-SSLProtocol="TLSv1"></Connector>
+SSLProtocol="TLSv1.2"></Connector>
 ----
 +
 . Edit `BUNDLE_HOME/webapps/bonita/WEB-INF/web.xml` and add the following security definition:
