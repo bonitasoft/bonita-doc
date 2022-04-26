@@ -176,6 +176,9 @@ The tenant creation method has been deprecated following our 2021.1 decision to 
 
 === Fixes in Bonita 2022.1 (2022-03-30)
 
+For the users of Bonita Community edition, Bonita 2022.1 also comes with all the bug fixes released in the Maintenance versions of Bonita 2021.2. +
+You can access the list by checking the "What's new in Bonita 2021.2" page, in the "Bug fixes" section.
+
 ==== Fixes in Bonita Runtime (including Bonita native Applications)
 
 * RUNTIME-178	- Case deletion throws 500 instead of 404 when the case does not exist
