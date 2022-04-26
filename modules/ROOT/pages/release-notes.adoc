@@ -318,7 +318,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 === Fixes in Bonita 2021.2 (2021-09-23)
 
 For the users of Bonita Community edition, Bonita 2021.2 also comes with all the bug fixes included in the Maintenance versions of Bonita 2021.1. +
-See the list in xref:2021.1@Bonita:ROOT:release-notes#_fixes_in_bonita_2021_1_0307_2022_03_07.adoc[Bonita 2021.1 release notes].
+See the list in xref:2021.1@Bonita:ROOT:release-notes.adoc[Bonita 2021.1 release notes].
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
 
