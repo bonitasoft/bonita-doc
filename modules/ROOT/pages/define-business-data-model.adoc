@@ -1,5 +1,5 @@
 = Define business data model (BDM)
-:description: :experimental:
+:description: Explain how to define, manipulate and store your business data.
 
 :experimental:
 
@@ -19,7 +19,6 @@ In Bonita Studio, create a BDM:
 . Click on the "+" button in the coolbar and select the "Business Data Model" entry
 +
 image:images/getting-started-tutorial/define-business-data-model/define-business-data-model-menu.png[Define business data model menu]
-// {.img-responsive .img-thumbnail}
 
 . Click on *Add Object* button
 . Type the object name _Claim_ (objects name must always start with an uppercase letter)
@@ -30,7 +29,6 @@ image:images/getting-started-tutorial/define-business-data-model/define-business
 . _satisfactionLevel_ of type _INTEGER_, _optional_
 +
 image:images/getting-started-tutorial/define-business-data-model/create-business-object-with-attributes.gif[Create business object with attributes]
-// {.img-responsive .img-thumbnail}
 
 . Save your work (Ctrl+S)
 . Click on *Deploy* button
@@ -42,7 +40,7 @@ image:images/getting-started-tutorial/define-business-data-model/create-business
 
 [WARNING]
 ====
-When you edit the BDM in Bonita Studio, it is always recommended to reset the database after doing any modification on the model. You may use the "Clean and Deploy" action available in editor toolbar. It will delete the BDM content and recreate all the database tables.
+When you edit the BDM in Bonita Studio, it is always recommended resetting the database after doing any modification on the model. Check the checkbox "Reset BDM database," available in the pop-up window display when you validate your modifications.
 ====
 
 [NOTE]
@@ -52,15 +50,17 @@ When you click on the "Deploy" button different operations are performed:
 
 * Java classes are generated, compiled, packaged and the resulting jar file is added to your project dependencies
 * Tables are created in the Bonita Studio embedded test database
-
 ====
 
 Now you have a fully functional business data model. You are ready to move to the next chapter and xref:declare-business-variables.adoc[start populating the database with data collected by the process].
 
 [NOTE]
 ====
+Bonita Studio uses h2 to provide the database for testing. (You can use other types of databases such as Oracle, PostgreSQL, MySQL and SQL Server for production).
 
-Bonita Studio uses h2 to provide the database for testing. (We recommend you to use other types of databases such as Oracle, PostgreSQL, MySQL and SQL Server for production). Bonita Studio provides two database schemas: one for the Bonita Engine and one dedicated to BDM.
-You can view the tables created in the h2 BDM database by clicking on menu:Development[Business Data Model > Browse data (h2 console)...]. In the h2 console (a web interface) you can see that a table named "CLAIM" was created. You can run an SQL query such as `SELECT * FROM CLAIM` which should return an empty result as there is no data yet. +
+Bonita Studio provides two database schemas: one for the Bonita Engine and one dedicated to BDM.
+You can view the tables created in the h2 BDM database by clicking in the Bonita Studio menu on menu:Development[Business Data Model > Browse data (h2 console)...].
+In the h2 console (a web interface) you can see that a table named "CLAIM" was created. You can run an SQL query such as `SELECT * FROM CLAIM` which should return an empty result as there is no data yet.
+
 You can also xref:data-management.adoc#_exploring_the_bdm[graphically explore the BDM database schema] by clicking on menu:Development[Business Data Model > Explore model (GraphQL voyager)...].
 ====
