@@ -9,7 +9,7 @@
 [WARNING]
 ====
 To enable AngularJS extended support, UI Designer has been migrated to the latest AngularJS version (1.8.0).
-Your code potentially needs to be updated, especially if you created custom widgets.
+Your code may need to be updated, especially if you created custom widgets.
 ====
 
 If you defined custom widgets, or added JavaScript assets to your UI elements, they should be migrated from AngularJS 1.3 to AngularJS 1.8.
@@ -21,6 +21,8 @@ However, you will find below the most common changes to apply for your migration
 ====
 
 == Migrating custom widgets
+
+You will find in this section some very common cases. This is obviously not an exhaustive list, which can be found in the https://docs.angularjs.org/guide/migration[Migrating an App to a newer version] documentation.
 
 If you defined custom widgets, you should check that:
 
@@ -82,6 +84,8 @@ After:
 ```
 
 == Migrating JavaScript assets
+
+You will find in this section some very common cases. This is obviously not an exhaustive list, which can be found in the https://docs.angularjs.org/guide/migration[Migrating an App to a newer version] documentation.
 
 If you added some Javascript assets to one of your Page, Form or Layout, you should check:
 
