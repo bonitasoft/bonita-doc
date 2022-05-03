@@ -1,4 +1,4 @@
- * xref:pages-and-forms.adoc[Pages and forms]  
+ * xref:pages-and-forms.adoc[Pages and forms]
  ** xref:create-or-modify-a-page.adoc[Create or modify UI elements]
  ** xref:forms.adoc[Forms overview]
  ** xref:forms-development.adoc[Forms development]
@@ -11,8 +11,9 @@
  ** xref:custom-widgets.adoc[Create a custom widget]
  ** xref:fragments.adoc[Fragments]
  ** xref:assets.adoc[Assets]
+ ** xref:angularjs-18-migration.adoc[Migration to AngularJS 1.8]
  ** How-tos
-  *** xref:manage-control-in-forms.adoc[How to control and validate forms in the UI Designer]     
+  *** xref:manage-control-in-forms.adoc[How to control and validate forms in the UI Designer]
   *** xref:uid-case-overview-tutorial.adoc[How to customize the case overview page]
   *** xref:datetimes-management-tutorial.adoc[How to manage dates and times in BDM and User Interfaces]
   *** xref:rta-mail-template.adoc[How to use the rich text area widget in a mail template]
