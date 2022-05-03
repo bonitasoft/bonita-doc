@@ -1,3 +1,4 @@
+
 = Bonita web dependencies
 :description: List all dependencies uses for Bonita web
 
@@ -32,13 +33,13 @@
 
 | org.bonitasoft.engine
 | bonita-client
-| 7.14.0.beta-01
+| 7.14.1
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-common
-| 7.14.0.beta-01
+| 7.14.1
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
@@ -50,7 +51,7 @@
 
 | org.springframework
 | spring-core
-| 5.2.15.RELEASE
+| 5.2.21.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 |=== 
@@ -62,7 +63,7 @@
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.12.6
+| 2.12.6.1
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -152,37 +153,37 @@
 
 | org.bonitasoft.console
 | console-common
-| 7.14.0.beta-01
+| 7.14.1
 | N/A
 |  -
 
 | org.bonitasoft.engine
 | bonita-client
-| 7.14.0.beta-01
+| 7.14.1
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-common
-| 7.14.0.beta-01
+| 7.14.1
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-server
-| 7.14.0.beta-01
+| 7.14.1
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.web
 | bonita-web-extensions
-| 7.14.0.beta-01
+| 7.14.1
 | http://www.bonitasoft.com[http://www.bonitasoft.com]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.codehaus.groovy
 | groovy
-| 3.0.8
+| 3.0.9
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -224,7 +225,7 @@
 
 | org.springframework
 | spring-web
-| 5.2.15.RELEASE
+| 5.2.21.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -248,7 +249,7 @@
 
 | com.bonitasoft.engine
 | bonita-client-sp
-| 7.14.0.beta-01
+| 7.14.1
 | N/A
 |  -
 
@@ -260,7 +261,7 @@
 
 | org.bonitasoft.console
 | console-common
-| 7.14.0.beta-01
+| 7.14.1
 | N/A
 |  -
 |=== 
@@ -272,25 +273,25 @@
 
 | com.bonitasoft.engine
 | bonita-client-sp
-| 7.14.0.beta-01
+| 7.14.1
 | N/A
 |  -
 
 | com.bonitasoft.engine
 | bonita-common-sp
-| 7.14.0.beta-01
+| 7.14.1
 | N/A
 |  -
 
 | com.bonitasoft.engine
 | bonita-server-sp
-| 7.14.0.beta-01
+| 7.14.1
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | com.bonitasoft.web
 | bonita-web-extensions-sp
-| 7.14.0.beta-01
+| 7.14.1
 | http://www.bonitasoft.com[http://www.bonitasoft.com]
 |  -
 
@@ -318,12 +319,6 @@
 | http://spnego.sourceforge.net/[http://spnego.sourceforge.net/]
 |  http://www.gnu.org/licenses/lgpl-3.0.html[GNU Lesser General Public License v3.0]
 
-| org.apache.santuario
-| xmlsec
-| 2.1.7
-| https://santuario.apache.org/[https://santuario.apache.org/]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
-
 | org.apache.xbean
 | xbean-classloader
 | 3.7
@@ -332,19 +327,19 @@
 
 | org.bonitasoft.console
 | console-common-sp
-| 7.14.0.beta-01
+| 7.14.1
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-server
-| 7.14.0.beta-01
+| 7.14.1
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-server
-| 7.14.0.beta-01
+| 7.14.1
 | N/A
 |  -
 
@@ -356,25 +351,25 @@
 
 | org.keycloak
 | keycloak-adapter-core
-| 6.0.1
+| 17.0.0
 | http://keycloak.org/keycloak-adapter-core[http://keycloak.org/keycloak-adapter-core]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.keycloak
 | keycloak-saml-adapter-api-public
-| 6.0.1
+| 17.0.0
 | http://keycloak.org/keycloak-saml-adapter-api-public[http://keycloak.org/keycloak-saml-adapter-api-public]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.keycloak
 | keycloak-saml-servlet-filter-adapter
-| 6.0.1
+| 17.0.0
 | http://keycloak.org/keycloak-saml-servlet-filter-adapter[http://keycloak.org/keycloak-saml-servlet-filter-adapter]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.keycloak
 | keycloak-servlet-filter-adapter
-| 6.0.1
+| 17.0.0
 | http://keycloak.org/keycloak-servlet-filter-adapter[http://keycloak.org/keycloak-servlet-filter-adapter]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
