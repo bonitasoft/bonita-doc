@@ -16,6 +16,11 @@ The 2022.2 is in development.
 
 == Technical updates
 
+UI Designer has been migrated to AngularJS 1.8, to enable AngularJS extended support.
+It may imply some updates in the UI designer elements.
+
+See xref:angularjs-18-migration.adoc[Migration to AngularJS 1.8] for details.
+
 == Feature deprecations and removals
 
 === SVN

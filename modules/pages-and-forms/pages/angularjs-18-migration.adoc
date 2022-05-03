@@ -8,7 +8,7 @@
 
 [WARNING]
 ====
-To enable AngularJS extended support, UI Designer has been migrated to the latest AngularJS version (1.8.0).
+To enable AngularJS extended support, UI Designer has been migrated to the latest AngularJS version (1.8.2).
 Your code may need to be updated, especially if you created custom widgets.
 ====
 
@@ -22,12 +22,13 @@ However, you will find below the most common changes to apply for your migration
 
 == Migrating custom widgets
 
-You will find in this section some very common cases. This is obviously not an exhaustive list, which can be found in the https://docs.angularjs.org/guide/migration[Migrating an App to a newer version] documentation.
+You will find in this section some very common cases.
+This is obviously not an exhaustive list, which can be found in the https://docs.angularjs.org/guide/migration[Migrating an App to a newer version] documentation.
 
 If you defined custom widgets, you should check that:
 
-* The Controller code, and the potential assets, does not contain deprecated `$http` callbacks (`$http.success` and `$http.error`)
-* The Template does not contain `ng-messages` and `ng-messages-include` in the same `<div>` element
+* The *controller* code, and the potential assets, does not contain deprecated `$http` callbacks (`$http.success` and `$http.error`)
+* The *template* does not contain `ng-messages` and `ng-messages-include` in the same `<div>` element
 
 If you find such patterns, please change your code as follows:
 (extract from https://docs.angularjs.org/guide/migration[Migrating an App to a newer version])
@@ -83,15 +84,36 @@ After:
 </div>
 ```
 
-== Migrating JavaScript assets
+== Migrating a page, form or layout
 
-You will find in this section some very common cases. This is obviously not an exhaustive list, which can be found in the https://docs.angularjs.org/guide/migration[Migrating an App to a newer version] documentation.
+You will find in this section some very common cases.
+This is obviously not an exhaustive list, which can be found in the https://docs.angularjs.org/guide/migration[Migrating an App to a newer version] documentation.
 
-If you added some Javascript assets to one of your Page, Form or Layout, you should check:
+=== JavaScript assets
 
-* The Javascript code does not contain deprecated `$http` callbacks (`$http.success` and `$http.error`)
+If you added some Javascript assets to one of your page, form or layout, you should check that:
+
+* The JavaScript code does not contain deprecated `$http` callbacks (`$http.success` and `$http.error`)
 
 To fix this, please apply the change described above.
+
+=== Interpolation
+
+Another possible issue is related to interpolation.
+In a page, form or layout, if a property is bound to a variable which returns a json value, and you get the variable name instead of its json value,
+you will have to apply a json filter.
+
+Before:
+``` html
+<span>{{ myObject }}</span>
+```
+
+After:
+``` html
+<span>{{ myObject | json }}</span>
+```
+
+See https://docs.angularjs.org/guide/migration#-interpolate-[$interpolate] for details.
 
 == Testing your application
 
