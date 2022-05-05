@@ -20,10 +20,10 @@ UI Designer has been migrated to AngularJS 1.8, to enable AngularJS extended sup
 
 [WARNING]
 ====
-Your UID applications must be extensively tested to verify if any updates are required on your side to support this new version.
+Your UI Designer applications must be extensively tested to verify if any updates are required on your side to support this new version.
 ====
 
-See xref:angularjs-18-migration.adoc[Migration to AngularJS 1.8] for details.
+See xref:angularjs-1-8-migration.adoc[Migration to AngularJS 1.8] for details.
 
 == Feature deprecations and removals
 
