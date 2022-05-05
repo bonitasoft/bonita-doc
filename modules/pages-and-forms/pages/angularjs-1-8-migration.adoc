@@ -1,5 +1,5 @@
 = Migration to AngularJS 1.8
-:page-aliases: ROOT:angularjs-18-migration.adoc
+:page-aliases: ROOT:angularjs-1-8-migration.adoc
 :description: Guidance to migrate your UI Designer pages, forms or custom widgets to AngularJS 1.8.
 
 {description}

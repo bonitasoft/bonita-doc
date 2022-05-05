@@ -11,7 +11,7 @@
  ** xref:custom-widgets.adoc[Create a custom widget]
  ** xref:fragments.adoc[Fragments]
  ** xref:assets.adoc[Assets]
- ** xref:angularjs-18-migration.adoc[Migration to AngularJS 1.8]
+ ** xref:angularjs-1-8-migration.adoc[Migration to AngularJS 1.8]
  ** How-tos
   *** xref:manage-control-in-forms.adoc[How to control and validate forms in the UI Designer]
   *** xref:uid-case-overview-tutorial.adoc[How to customize the case overview page]
