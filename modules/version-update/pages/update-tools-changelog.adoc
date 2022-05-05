@@ -9,6 +9,18 @@ All changes in both tools are logged: from the version that was delivered with t
 This is due to the fact that improvements in any version of the tools can affect all supported Bonita versions. 
 This changelog must be read before xref:update-overview.adoc[updating to a newer version of Bonita].
 
+== 3.0.1 - May 05th, 2022 - Bonita Update Tool delivery
+
+Bonita Update Tool handles updates from all Bonita 7.10 versions till the latest *main* Bonita version.
+
+* RUNTIME-1010 	- Migration to 7.14 via 7.13 nullify CONTENT of an entry in PAGE table on *Oracle*
+
+== 2.55.1 - May 05th, 2022 (Bonita 2021.2(7.13))
+
+This version of the migration tool migrates Bonita up to version Bonita 2021.2(7.13)
+
+* RUNTIME-1010	- Migration to 7.14 via 7.13 nullify CONTENT of an entry in PAGE table on *Oracle*
+
 == 3.0.0 - March 30th, 2022 - Bonita Update Tool delivery 
 
 Bonita Update Tool handles updates from all Bonita 7.10 versions till the latest *main* Bonita version. 
