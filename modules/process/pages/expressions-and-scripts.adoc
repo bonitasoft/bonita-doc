@@ -101,31 +101,6 @@ In order to reuse some Groovy code you need to:
 * Configure your process(es) dependencies to include the required Groovy script file(s)
 * In the expression editor, select the *Script* type and as part of your code call the method(s) declared previously
 
-===== Create Groovy class
-
-To create a groovy class:
-
-* Right click on *My Project* from the *Project explorer* tree view, then *New* > *Groovy class...*.
-* Enter a name for the new Groovy class (e.g. `MyClass`) and optionally for the package name (e.g. `com.mypackage`).
-* Click on *Finish* button. This will open the Groovy script editor.
-
-Note that the newly created Groovy script file is stored as part of your project.
-
-===== Declares methods
-
-In the previously created Groovy class you can declares methods (static or not). For example:
-
-[source,groovy]
-----
-package com.mypackage
-
-class MyClass {
-	static def myMethod(String input) {
-		return "Hello ${input}"
-	}
-}
-----
-
 ===== Configure process dependencies
 
 If you plan to use a Groovy method, for example to process the output of a connector, you first need to add the Groovy script file as a dependency of your process:
