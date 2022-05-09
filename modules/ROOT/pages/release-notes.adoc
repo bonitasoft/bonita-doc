@@ -183,7 +183,7 @@ The tenant creation method has been deprecated following our 2021.1 decision to 
 * STUDIO-4296 - Start after install fails to validate license
 * STUDIO-4297 - [Expression editor] Invalid Constant expression type resolution
 * STUDIO-4305 - "Save" label is disabled when it shouldn't
-* STUDIO-4309 - After generating a pdf from the documentation, some symbols cant be displayed
+* STUDIO-4309 - After generating a pdf from the documentation, some symbols can't be displayed
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
