@@ -169,8 +169,10 @@ services:
       - -c
       - max_prepared_transactions=100
   bonita:
-    image: bonita:7.14.0
-    hostname: custom-hostname.example.com
+    image: quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
+    hostname: <hostname>
+    volumes:
+      - ~/bonita-lic:/opt/bonita_lic/
     ports:
       - 8080:8080
     environment:
@@ -187,6 +189,8 @@ services:
       - TENANT_PASSWORD=secret
       - PLATFORM_LOGIN=pfadmin
       - PLATFORM_PASSWORD=pfsecret
+      - MONITORING_USERNAME=monitorAdmin
+      - MONITORING_PASSWORD=monitor_Secr3t-P455w0rD
     restart: on-failure:2
     depends_on:
       - db
