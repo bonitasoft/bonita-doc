@@ -178,12 +178,12 @@ The tenant creation method has been deprecated following our 2021.1 decision to 
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
 
-* STUDIO-4187 - The evaluate dialog cannot be resized, some fields can be hidden which make the feature unusable.
+* STUDIO-4187 - The evaluate dialog cannot be resized, some fields can be hidden which make the feature unusable
 * STUDIO-4279 - Use H2 driver on setup tool instead of server folder of distrib
 * STUDIO-4296 - Start after install fails to validate license
 * STUDIO-4297 - [Expression editor] Invalid Constant expression type resolution
-* STUDIO-4305 - "Save" label is disabled when it shouldn't
-* STUDIO-4309 - After generating a pdf from the documentation, some symbols can't be displayed
+* STUDIO-4305 - "Save" label is disabled when it should not
+* STUDIO-4309 - After generating a pdf from the documentation, some symbols cannot be displayed
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
