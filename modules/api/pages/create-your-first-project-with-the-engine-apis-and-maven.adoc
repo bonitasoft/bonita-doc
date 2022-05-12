@@ -56,9 +56,10 @@ The first action of the client must be to log in. This example shows how to log 
 Map<String, String> settings = new HashMap<String, String>();
 settings.put("server.url", "http://localhost:8080");
 settings.put("application.name", "bonita");
+// HTTP Basic Auth is active by default on server-side:
 settings.put("basicAuthentication.active", "true");
-settings.put("basicAuthentication.username", "http-api");
-settings.put("basicAuthentication.password", "h11p-@p1");
+settings.put("basicAuthentication.username", "http-api");  // default value, can be changed server-side in file <BONITA>/server/conf/tomcat-users.xml
+settings.put("basicAuthentication.password", "h11p-@p1");  // default value, can be changed server-side in file <BONITA>/server/conf/tomcat-users.xml
 APITypeManager.setAPITypeAndParams(ApiAccessType.HTTP, settings);
 
 // First of all, let's log in on the engine:

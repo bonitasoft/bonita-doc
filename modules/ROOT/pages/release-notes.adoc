@@ -52,7 +52,9 @@ starting with Bonita 2022.1, their access is protected with Basic Access authent
 
 The configuration is different depending on the Bonita package:
 
-* In Bonita Tomcat bundle, HTTP APIs are *active by default* and *default* credentials are the same as the ones used when configuring the client by using programmatic configuration.
+* In Bonita Tomcat bundle, HTTP APIs are *active by default*, and *default* credentials are (they can be changed in file `<BONITA>/server/conf/tomcat-users.xml`):
+    ** username: `http-api`
+    ** password: `h11p-@p1`
 * In Bonita Docker image, HTTP APIs are *disabled by default*, with `http-api` as the *default* username, and no default password. The password must be provided, otherwise the Docker container will refuse to start.
 
 === Prometheus monitoring active by default - *Subscription editions*
@@ -121,7 +123,7 @@ The Tomcat bundle does not log anymore in the console but only in `bonita.log` f
 Docker image is now focused on the RUN phase, with environment preparation being handled as on-premise installations. This means that the database schema and the associated user will not be created when starting the Docker image. The database has to be created **before** the Docker image starts.
 NOTE: We provide pre-configured database images with included schema and users on https://hub.docker.com/u/bonitasoft[Bonitasoft Docker Hub].
 
-LDAP Synchronizer is now out of Bonita Docker image and is available as an independent Docker image ready for download from quay.io xref:identity:ldap-synchronizer#_using_the_ldap_synchronizer_docker_image.adoc[as detailed in the documentation].
+LDAP Synchronizer is now out of Bonita Docker image and is available as an independent Docker image ready for download from quay.io xref:identity:ldap-synchronizer.adoc#_using_the_ldap_synchronizer_docker_image[as detailed in the documentation].
 
 Robustness and self-recovery capabilities were added to the data source to overcome network lags.
 
