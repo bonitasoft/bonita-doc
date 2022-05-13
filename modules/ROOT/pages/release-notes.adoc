@@ -52,9 +52,7 @@ starting with Bonita 2022.1, their access is protected with Basic Access authent
 
 The configuration is different depending on the Bonita package:
 
-* In Bonita Tomcat bundle, HTTP APIs are *active by default*, and *default* credentials are (they can be changed in file `<BONITA>/server/conf/tomcat-users.xml`):
-    ** username: `http-api`
-    ** password: `h11p-@p1`
+* In Bonita Tomcat bundle, HTTP APIs are *active by default*, and *default* credentials of xref:api:configure-client-of-bonita-bpm-engine.adoc#configure-client-using-programmatic-configuration[client configuration using programmatic configuration]. They can be changed in file `<BONITA>/server/conf/tomcat-users.xml`. 
 * In Bonita Docker image, HTTP APIs are *disabled by default*, with `http-api` as the *default* username, and no default password. The password must be provided, otherwise the Docker container will refuse to start.
 
 === Prometheus monitoring active by default - *Subscription editions*
