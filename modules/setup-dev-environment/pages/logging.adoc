@@ -49,9 +49,9 @@ Here is an example of the Log4j2 configuration for the logger used in the <<your
 
 To change the Bonita Studio log level (usually to debug Studio), go to the Studio installation folder, configuration directory, and edit the `config.ini` file. You need to set the property `eclipse.log.level` to one of the following values: INFO, WARNING or ERROR.
 
-== How to include logging in your development on Bonita
+== How to use a Logger in your development on Bonita
 
-When you write Groovy scripts or Java code to be included in a process (for example, to create a new connector implementation), logging is usually required. The recommended option is to use http://www.slf4j.org/[SLF4J] in order to log messages. SLF4J is included in the Bonita dependencies so you can use it without adding extra dependencies. However, to get completion for SLF4J classes during development you need to add the slf4j-api jar file temporarily to your process dependencies (click *_Configure_* then choose *Application dependencies*).
+When you write Groovy scripts or Java code to be included in a process (for example, to create a new connector implementation), logging is usually required. The recommended option is to use http://www.slf4j.org/[SLF4J] in order to log messages. SLF4J API is included in the Bonita dependencies so you can use it without adding extra dependencies. 
 
 This is an example of how to log debug information in a Groovy script. Note that we recommend that you use a logger name that starts with "org.bonitasoft", so that the default Bonita logging configuration is applied to your logger. Also, ending your logger name with a name similar to the Groovy script will be helpful to identify source of the message.
 
