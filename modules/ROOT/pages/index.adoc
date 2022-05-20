@@ -98,5 +98,5 @@ https://www.bonitasoft.com/library/ultimate-guide-bpmn[[.card-title]#The Ultimat
 
 [.card.card-index]
 --
-https://documentation.bonitasoft.com/javadoc/api/{varVersion}/index.html[[.card-title]#Javadoc# [.card-body.card-content-overflow]#pass:q[The API documentation extracted from our source code]#]
+https://javadoc.bonitasoft.com/api/{varVersion}/index.html[[.card-title]#Javadoc# [.card-body.card-content-overflow]#pass:q[The API documentation extracted from our source code]#]
 --
