@@ -123,8 +123,7 @@ Use an online Json checker to make sure there are no format errors in the file. 
 }
 ----
 
-// IMPORTANT: links to attachments change in Antora 3.0. See https://docs.antora.org/antora/3.0/whats-new/#attachment-resource-ids and https://docs.antora.org/antora/3.0/page/attachments/
-You can link:{attachmentsdir}/localization.json[download a copy of this `localization.json` file] for testing.
+You can  xref:attachment$localization.json[download a copy of this `localization.json` file] for testing.
 
 In the UI Designer, import this file as an asset of the travel tool page. This will replace any existing `localization.json` file. Save the page.
 
