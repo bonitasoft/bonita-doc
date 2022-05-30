@@ -1,5 +1,5 @@
 = Update overview
-:page-aliases: ROOT:update-overview.adoc
+:page-aliases: ROOT:update-overview.adoc, ROOT:migration-overview.adoc, ROOT:migrate-from-an-earlier-version-of-bonita-bpm.adoc, ROOT:migrate-from-an-earlier-version-of-bonita.adoc
 :description: Learn how to update Bonita Platform from an older version to a newer version.
 
 Learn how to update a Bonita Platform from an older version to a newer version.
@@ -28,19 +28,19 @@ WARNING: You cannot update your platform from a version earlier than 6.0.2.
 |From version *7.10.0* or later to any version up to *the latest*
 |===
 
-=== Update happy path 
+=== Update happy path
 
-There are three Bonita tools that can be used for updating Bonita Runtime. 
-In case you are wondering which one to choose depending on your Bonita version, here's an idea : 
+There are three Bonita tools that can be used for updating Bonita Runtime.
+In case you are wondering which one to choose depending on your Bonita version, here's an idea :
 
 |===
 |*Source version* | *Target version*| *Update path*
 | 6.x.y |7.x.y | *Use Bonita Migration Tool 1.x*
 | 7.9.y or any Bonita version before 7.10 | 7.13.y | *Use Bonita Migration Tool 2.x*
-| 7.10.1 | 7.10.5 
-a| * You still have to go through the update process for maintenance 
+| 7.10.1 | 7.10.5
+a| * You still have to go through the update process for maintenance
 * *Use Bonita Migration Tool 2.x*
-| 7.10.y | latest Bonita 
+| 7.10.y | latest Bonita
 a| * After Bonita 7.11, benefiting from all the advantages do not require an update
 * *Use Bonita Update Tool 3.x*
 |===

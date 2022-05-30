@@ -199,7 +199,8 @@ You can now build, package, deploy and execute this process definition in the Bo
 . You can click on *Take* and execute for both tasks, _Read the answer and rate it_ and _Deal with unsatisfied customer_, to finish the process execution
 . In the menu, click on *Cases* image:images/getting-started-tutorial/draw-bpmn-diagram/cases.png[Cases button]
 . Click on the *Archived cases* tab
-. Click on the *View case overview* action (i.e. the "eye" icon) to display the overview form with information about process execution
+. Click "..." button on the corresponding case to open it
+. Click on the *Overview* button to display the overview form with information about process execution
 
 image:images/getting-started-tutorial/draw-bpmn-diagram/run-process.gif[Process execution]
 // {.img-responsive .img-thumbnail}
