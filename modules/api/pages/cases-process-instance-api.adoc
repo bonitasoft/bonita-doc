@@ -701,7 +701,7 @@ You can delete an archived case by using its identifier. An archived case is lin
 * *Success Response*
  ** *Code*: 200
 
-=== CaseInfo
+=== CaseInfo (Subscription editions only)
 
 ==== Description
 
@@ -735,7 +735,7 @@ The method used for this resource is:
 
 ==== Retrieve counters for case flow nodes
 
-Retrieve information about the flow nodes of the case identified by the given ID. This feature is available in Enterprise, Performance, Efficiency, and Teamwork editions.
+Retrieve information about the flow nodes of the case identified by the given ID.
 
 * *URL* +
 `/API/bpm/caseInfo/:id`
