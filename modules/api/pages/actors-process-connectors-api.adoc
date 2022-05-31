@@ -617,7 +617,6 @@ The methods used for this resource are:
 Raw XML file containing the diagram definition
  ** *Code*: 200
 
-
 === ProcessInfo (Subscription editions only)
 
 ==== Description
