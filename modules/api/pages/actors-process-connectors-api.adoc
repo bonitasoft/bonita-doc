@@ -617,6 +617,71 @@ The methods used for this resource are:
 Raw XML file containing the diagram definition
  ** *Code*: 200
 
+
+=== ProcessInfo (Subscription editions only)
+
+==== Description
+
+Retrieves the execution data of all open cases of a process. It returns counters for each flow node in the process, showing the number of flow node instances that are in executing, ready, or failed state. If there are no flow node instances in a running state, no counter is returned for that state for the flow node.
+
+==== Identifier
+
+The ID of the process (a long value).
+
+==== Representation
+
+[source,json]
+----
+{
+  "processDefinitionId": "process identifier",
+  "flowNodeStatesCounters": {
+    "Flow Node name from Studio": {
+      "executing": "number of instance of the given Flow Node in executing state",
+      "ready": "number of instance of the given Flow Node in ready state",
+      "failed": "number of instance of the given Flow Node in failed state",
+    }
+  }
+}
+----
+
+==== Methods
+
+The method used for this resource is:
+
+* GET - Read a resource
+
+==== Retrieve counters for process flow nodes
+
+Retrieve information about the flow nodes of the process identified by the given ID.
+
+* *URL* +
+`/API/bpm/processInfo/:id`
+* *Method* +
+`GET`
+* *Success Response* +
+The JSON representation of the case information
+ ** *Code*: 200
+ ** *Payload*: +
+In this example, counters are returned for two flow nodes in the process, Step1 and Step3. For Step3, there are no flow nodes in ready state, so no counter is returned for this. Possible states keys are: `ready`, `executing`, `waiting`, `initializing`, `failed`, `completing`.
++
+[source,json]
+----
+{
+  "processDefinitionId": "123",
+  "flowNodeStatesCounters": {
+    "Step1": {
+      "failed": "2",
+      "ready": "1",
+      "executing": "5"
+    },
+    "Step3": {
+      "executing": "10",
+      "failed": "2"
+    }
+  }
+}
+----
+
 === ProcessParameter
 
 ==== Description
