@@ -735,7 +735,7 @@ The method used for this resource is:
 
 ==== Retrieve counters for case flow nodes
 
-Retrieve information about the flow nodes of the case identified by the given ID.
+Retrieve information about the flow nodes of the case identified by the given ID. This feature is available in Enterprise, Performance, Efficiency, and Teamwork editions.
 
 * *URL* +
 `/API/bpm/caseInfo/:id`
