@@ -44,8 +44,9 @@ Perform the following modifications to the 4 menu pages:
 
 1. Though not necessary, it is highly recommended to re-save your pages with a different name. This will prevent these pages from being over-written if you need to re-import the default pages.
 2. Add an api call to get current user session. Create a new "External API" variable called `session` with the value `../API/system/session/unusedId`
-3. Since a process manager only supervises a subpart of all the processes/cases/tasks, some API calls must be updated to only retrieve the expected processes/cases/tasks. To do so, the filter `supervisor_id` has to be used with the current user ID: Add `&f=supervisor_id={{session.user_id}}` to the query parameters inside the "Javascript expression" type variables that ended with "Ctrl" on its name. For example; on the process list page, inside "enabledProcessCtrl" and "disabledProcessCtrl", add `"&f=supervisor_id=" + $data.session.user_id` filter string to the "queryParameters" variable.
-
+3. Since a process manager only supervises a subpart of all the processes/cases/tasks, some API calls must be updated to only retrieve the expected processes/cases/tasks. The filter `supervisor_id` has to be used with the current user ID in order to get the subpart of all elements that he manages. +
+To do so, modify all the query parameters functions, inside the "Javascript expression" type variables, who's names end with "Ctrl". Add ` + "&f=supervisor_id=" + $data.session.user_id` to the result of all such functions. To find such variables easier, you can just type "ctrl" in the variables search bar. +
+For example: on the process list page, inside "enabledProcessCtrl" and "disabledProcessCtrl", add `"&f=supervisor_id=" + $data.session.user_id` string to the "queryParameters" variable.
 ==== Updating the Monitoring page
 [start=4]
 4. To update the Monitoring page, unzip the monitoring page that we exported in the step above.
@@ -76,12 +77,12 @@ getLoggedInUserIdAndDisplayPage();
 ....
 [start=7]
 7. Save the file and close it.
-8. Now, open the "page.properties" file located at the root folder, and change the displayname, name, and description to make it different than the Monitoring page of the Bonita Admin Application. For example;
+8. Now, open the "page.properties" file located at the root folder, and change the displayname, name, and description to make it different than the Monitoring page of the Bonita Admin Application. For example:
 `displayName= Bonita Process Manager Monitoring`,
 `name= custompage_processManagerMonitoringBonita`,
 `description= As per your requirement`
 9. Save the file and close it.
-10. Select the "resources" folder and "page.properties" file and zip it.
+10. Select the "resources" folder and "page.properties" file and create a zip of the files.
 
 [#process-manager-application-creation]
 == Process manager application creation
