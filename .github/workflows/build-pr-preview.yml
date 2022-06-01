@@ -34,6 +34,8 @@ jobs:
       DOC_SITE_BRANCH: master
       PR_NUMBER: ${{ github.event.pull_request.number }}
       CLOUD_BRANCH: 'master'
+      # Needed to build the 'cloud' doc
+      BCD_BRANCH: '3.6'
     steps:
       - name: Get documentation site source code
         if: github.event.action != 'closed'
@@ -56,5 +58,5 @@ jobs:
           failOnError: true
           teardown: 'true'
           build: |
-            ./build-preview.bash --use-multi-repositories --component-with-branches "${{ env.COMPONENT_NAME }}":"${{ env.BRANCH_NAME }}" --component-with-branches cloud:"${{ env.CLOUD_BRANCH }}" --pr "${{ env.PR_NUMBER }}" --site-url "${{ env.PREVIEW_URL }}"
+            ./build-preview.bash --use-multi-repositories --component-with-branches "${{ env.COMPONENT_NAME }}":"${{ env.BRANCH_NAME }}" --component-with-branches cloud:"${{ env.CLOUD_BRANCH }}" --component-with-branches bcd:"${{ env.BCD_BRANCH }}" --pr "${{ env.PR_NUMBER }}" --site-url "${{ env.PREVIEW_URL }}"
             ls -lh build/site
