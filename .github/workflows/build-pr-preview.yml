@@ -60,5 +60,5 @@ jobs:
           failOnError: true
           teardown: 'true'
           build: |
-            ./build-preview.bash --use-multi-repositories --component-with-branches "${{ env.COMPONENT_NAME }}":"${{ env.BRANCH_NAME }},${{ BONITA_BRANCH_FOR_CLOUD }}" --component-with-branches cloud:"${{ env.CLOUD_BRANCH }}" --component-with-branches bcd:"${{ env.BCD_BRANCH }}" --component-with-branches test-toolkit:"${{ env.TOOLKIT_BRANCH }} --pr "${{ env.PR_NUMBER }}" --site-url "${{ env.PREVIEW_URL }}"
+            ./build-preview.bash --use-multi-repositories --component-with-branches "${{ env.COMPONENT_NAME }}":"${{ env.BRANCH_NAME }},${{ env.BONITA_BRANCH_FOR_CLOUD }}" --component-with-branches cloud:"${{ env.CLOUD_BRANCH }}" --component-with-branches bcd:"${{ env.BCD_BRANCH }}" --component-with-branches test-toolkit:"${{ env.TOOLKIT_BRANCH }} --pr "${{ env.PR_NUMBER }}" --site-url "${{ env.PREVIEW_URL }}"
             ls -lh build/site
