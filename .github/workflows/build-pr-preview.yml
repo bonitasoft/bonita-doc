@@ -34,6 +34,10 @@ jobs:
       DOC_SITE_BRANCH: master
       PR_NUMBER: ${{ github.event.pull_request.number }}
       CLOUD_BRANCH: 'master'
+      # Needed to build the 'cloud' doc
+      BCD_BRANCH: '3.6'
+      BONITA_BRANCH_FOR_CLOUD: '2022.1'
+      TOOLKIT_BRANCH: '1.0'
     steps:
       - name: Get documentation site source code
         if: github.event.action != 'closed'
@@ -56,5 +60,5 @@ jobs:
           failOnError: true
           teardown: 'true'
           build: |
-            ./build-preview.bash --use-multi-repositories --component-with-branches "${{ env.COMPONENT_NAME }}":"${{ env.BRANCH_NAME }}" --component-with-branches cloud:"${{ env.CLOUD_BRANCH }}" --pr "${{ env.PR_NUMBER }}" --site-url "${{ env.PREVIEW_URL }}"
+            ./build-preview.bash --use-multi-repositories --component-with-branches "${{ env.COMPONENT_NAME }}":"${{ env.BRANCH_NAME }},${{ env.BONITA_BRANCH_FOR_CLOUD }}" --component-with-branches cloud:"${{ env.CLOUD_BRANCH }}" --component-with-branches bcd:"${{ env.BCD_BRANCH }}" --component-with-branches test-toolkit:"${{ env.TOOLKIT_BRANCH }} --pr "${{ env.PR_NUMBER }}" --site-url "${{ env.PREVIEW_URL }}"
             ls -lh build/site
