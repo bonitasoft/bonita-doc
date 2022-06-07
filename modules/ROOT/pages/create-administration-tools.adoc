@@ -280,14 +280,6 @@ import org.bonitasoft.engine.search.SearchOptionsBuilder;
 import org.bonitasoft.engine.search.SearchResult;
 import org.bonitasoft.engine.session.APISession;
 
-/**
- *
- */
-
-/**
- * @author John Doe
- *
- */
 public class ListFailedTasksCmd implements Callable<Void> {
     private static final String ROW_SEPARATOR = "\n";
 	private static final String COL_SEPARATOR = "\t";
