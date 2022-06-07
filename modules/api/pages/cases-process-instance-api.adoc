@@ -701,7 +701,7 @@ You can delete an archived case by using its identifier. An archived case is lin
 * *Success Response*
  ** *Code*: 200
 
-=== CaseInfo
+=== CaseInfo (Subscription editions only)
 
 ==== Description
 
@@ -745,7 +745,7 @@ Retrieve information about the flow nodes of the case identified by the given ID
 The JSON representation of the case information
  ** *Code*: 200
  ** *Payload*: +
-In this example, counters are returned for two flow nodes in the case, Step1 and Step3. For Step3, there are no flow nodes in ready state, so no counter is returned for this.
+In this example, counters are returned for two flow nodes in the case, Step1 and Step3. For Step3, there are no flow nodes in ready state, so no counter is returned for this. Possible states keys are: `ready`, `executing`, `waiting`, `initializing`, `failed`, `completing`, `completed`, `skipped`, `cancelled`, `aborted`.
 +
 [source,json]
 ----
