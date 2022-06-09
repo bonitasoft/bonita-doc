@@ -15,18 +15,18 @@ Creating such an application follows the same steps as the creation of any xref:
 The main menu of the application will require four pages.
 
 * Monitoring
-* Process list
-* Case list
-* Task list
+* Admin Process list
+* Admin Case list
+* Admin Task list
 
 [#process-manager-orphan-pages-list]
 In addition to those, some orphan pages are required by the above ones :
 
-* Process details
+* Admin Process details
 * Process visualization
-* Case details
+* Admin Case details
 * Case visualization
-* Task details
+* Admin Task details
 
 == Process manager pages modifications
 
@@ -37,14 +37,52 @@ You don't need to export and modify the orphan pages.
 [WARNING]
 ====
 
-Currently, the Monitoring page is made using a different technology than UI Designer, and thus it cannot be edited.
+Currently, the Monitoring page is made using a different technology than UI Designer, and thus it needs to be updated differently.
 ====
 
 Perform the following modifications to the 4 menu pages:
 
 1. Though not necessary, it is highly recommended to re-save your pages with a different name. This will prevent these pages from being over-written if you need to re-import the default pages.
 2. Add an api call to get current user session. Create a new "External API" variable called `session` with the value `../API/system/session/unusedId`
-3. Since a process manager only supervises a subpart of all the processes/cases/tasks, some API calls must be updated to only retrieve the expected processes/cases/tasks. To do so, the filter `supervisor_id` has to be used with the current user ID: Add `&f=supervisor_id={{session.user_id}}` to the variables of the "External API" type (except for the `session` variable that we created).
+3. Since a process manager only supervises a subpart of all the processes/cases/tasks, some API calls must be updated to only retrieve the expected processes/cases/tasks. The filter `supervisor_id` has to be used with the current user ID in order to get the subpart of all elements that he manages. +
+To do so, modify all the query parameters functions, inside the "Javascript expression" type variables, who's names end with "Ctrl". Add ` + "&f=supervisor_id=" + $data.session.user_id` to the result of all such functions. To find such variables easier, you can just type "ctrl" in the variables search bar. +
+For example: on the process list page, inside "enabledProcessCtrl" and "disabledProcessCtrl", add `"&f=supervisor_id=" + $data.session.user_id` string to the "queryParameters" variable.
+==== Updating the Monitoring page
+[start=4]
+4. To update the Monitoring page, unzip the monitoring page that we exported in the step above.
+5. Open the "index.html" file located inside the resources folder.
+6. Add the following lines of codes after the "getPortalUrl" function inside the "<script>" tag.
+
+....
+function getLoggedInUserIdAndDisplayPage() {
+    var myHeaders = new Headers();
+    var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        credentials: 'include'
+    };
+
+    fetch(getPortalUrl() + "/API/system/session/unusedId", requestOptions)
+        .then(response => {
+            if (!response.ok) {
+                throw Error(response.status);
+            }
+            response.json().then(function(json) {
+                window.location.replace(getPortalUrl() + '/portal.js/' + window.location.search + '#/pm/monitoring?supervisor_id=' + json.user_id);
+            });
+        })
+        .catch(error => {document.getElementById("error").innerHTML += "<br/> &#x26a0; Unable to retrieve authentication token from session. " + error;});
+};
+getLoggedInUserIdAndDisplayPage();
+....
+[start=7]
+7. Save the file and close it.
+8. Now, open the "page.properties" file located at the root folder, and change the displayname, name, and description to make it different than the Monitoring page of the Bonita Admin Application. For example:
+`displayName= Bonita Process Manager Monitoring`,
+`name= custompage_processManagerMonitoringBonita`,
+`description= As per your requirement`
+9. Save the file and close it.
+10. Select the "resources" folder and "page.properties" file and create a zip of the files.
 
 [#process-manager-application-creation]
 == Process manager application creation
