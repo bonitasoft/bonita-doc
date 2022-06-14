@@ -32,6 +32,8 @@ We will use an iterative approach in the process development. This means that in
 As we introduce data in our process definition and configure actors, a user will be able to input data in web forms, the process will follow paths that depend on data values, and different users will be involved.
 ====
 
+== Create your project
+
 == Create the process diagram
 
 The first step is the design of the process "happy path."
