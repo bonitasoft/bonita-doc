@@ -14,7 +14,23 @@ The 2022.2 is in development.
 
 === Development suite changes
 
-====
+==== A new first-start flow for the Studio
+
+When launched for the first time, the Studio will no longer start a default project. The goal is to make this first start less cumbersome.
+To increase user guidance, the Welcome page has been improved to have clear call-to-action buttons.
+
+==== Bonita Marketplace - Display installed extension
+
+To help users' awareness on the extensions installed in their project while browsing the Bonita Marketplace, a new filter was added to display the already installed extensions.
+
+==== Detecting issue with extension when importing them
+
+With the previous version, you could import malformed extensions in your project without any warnings. This would lead to errors downstream and confusion for users.
+From now, when importing or updating an extension the Studio will detect the issues and inform the user.
+
+==== Improved guidance when the actor mapping is not defined
+
+With the previous version, if the actor mapping of a process wasn't defined an unclear error message would be displayed to the user. To help our users move forward with the deployment of their processes, we've improved the error detection to provide a clear message when this issue occurs.
 
 == Functional changes
 
