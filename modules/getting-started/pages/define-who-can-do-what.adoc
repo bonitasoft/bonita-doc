@@ -51,15 +51,12 @@ image:images/getting-started-tutorial/define-who-can-do-what/map-actor-to-lane.g
 
 "Actor" identifies a collection of users. To define the actual users, we need to configure the actors and map them with groups, roles, users, etc of an organization. We will use the Bonita Acme test organization for this example:
 
-. In the Bonita Studio menu, click on the menu:Server[Configure] image:images/getting-started-tutorial/define-who-can-do-what/configure.png[Configure button icon]
+. In the Bonita Studio coolbar, click on *Configure*
 . Select _Employee actor_
 . Click on *Groups...*
 . Unselect _/acme_
 . Select _/acme/production/services_. We will identify this group of employee users as the support team in charge of answering claims. In the test organization, two users belong to this group: _mauro.zetticci_ and _thomas.wallis_. The manager of both users is: _michael.morrison_
 . Click on *Finish*
-+
-image:images/getting-started-tutorial/define-who-can-do-what/configure-actor-mapping.gif[Configure actor mapping for customer actor]
-// {.img-responsive .img-thumbnail}
 
 . Select *Customer actor*
 . Click on *Groups...*
