@@ -47,7 +47,7 @@ A new project is created. Only one project can be active at a time.
 
 You can export all the content from a project for exchange or backup purposes:
 
-. Click on *File* > *Export project
+. Click on *File* > *Export project*
 . Choose a location on your local drive to store the archive and click on *Finish*.
 
 The exported archive can then be shared with other studios of the same version or newer.
