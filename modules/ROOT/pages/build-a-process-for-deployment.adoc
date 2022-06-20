@@ -35,6 +35,6 @@ To prepare your production system (unless you are using a Subscription editions 
 you must create the organization that you need for all the processes that will be deployed, export it from Bonita Studio,
 and import it into Bonita Administrator Application.
 
-To export the organization, go to the *Organization* menu and choose *Export...*. You
+To export the organization, right click on the corresponding organization in the project explorer and choose *Export...*. You
 can then xref:runtime:import-export-an-organization.adoc[import the organization into Bonita Administrator Application]. After the organization is imported,
 you can xref:runtime:admin-application-groups-list.adoc[manage the groups], xref:runtime:admin-application-roles-list.adoc[roles], and xref:runtime:admin-application-users-list.adoc[users] in the organization.
