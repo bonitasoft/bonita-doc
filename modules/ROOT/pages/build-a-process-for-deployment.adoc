@@ -11,7 +11,7 @@ You also need to initialize the organization information needed in Bonita Applic
 A process is deployed by installing a business archive (.bar) file in Bonita Administrator Application.
 To create the business archive you can :
 
-. Choose *Build...* from the *Server* menu.
+. In the *Project Explorer* right click on the *Process Diagrams* entry and select *Build...*.
 . Select the process to be exported.
 . Specify whether you want to export a configuration with the process.
 Exporting a configuration will export all the information and other items that you configured, including connectors and dependencies.
