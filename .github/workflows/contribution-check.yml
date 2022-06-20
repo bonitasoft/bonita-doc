@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: Check PR content
-      uses: bonitasoft/actions/packages/pr-diff-checker-action@1.1.0
+      uses: bonitasoft/actions/packages/pr-diff-checker@1.1.0
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         diffDoesNotContain: '["https://documentation.bonitasoft.com/", "Bonita BPM"]'
