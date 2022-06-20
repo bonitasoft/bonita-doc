@@ -58,10 +58,7 @@ While drawing the model, you will use and learn about some basic BPMN elements u
 
 Create a new diagram:
 
-. In the Bonita Studio menu, click on menu:File[New diagram].
-+
-image:images/getting-started-tutorial/draw-bpmn-diagram/new-diagram.gif[Add user task]
-// {.img-responsive .img-thumbnail}
+. In the Bonita Studio coolbar, click on *New* then on *Process diagram*
 
 The new diagram includes:
 
