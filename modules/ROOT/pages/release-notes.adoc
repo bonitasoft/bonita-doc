@@ -171,8 +171,42 @@ Bonita Runtime produces a warning log if the filter is set and ignores it.
 
 The tenant creation method has been deprecated following our 2021.1 decision to deprecate the Multi-Tenants architecture.
 
+=== Potential need of declaring external Maven Repository
+
+From version 2022.1-u2, if you embed *bonita-server(-sp).jar* in your application, you need to declare some new Maven Repository in you pom.xml / build.gradle. This is due to some Security Fix that requires a dependency that is NOT present in default Maven Repository (aka Maven Central). To do so, add the following code:
+
+==== Pom.xml
+
+```xml
+<repositories>
+    [...]
+    <repository>
+        <id>terracotta.org</id>
+        <name>terracotta.org</name>
+        <url>https://repo.terracotta.org/maven2/</url>
+    </repository>
+</repositories>
+```
+
+==== build.gradle
+
+[source,groovy]
+----
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://repo.terracotta.org/maven2/'
+    }
+}
+----
 
 == Bug fixes
+
+=== Fixes in Bonita 2022.1-u2 (2022-0X-YY)
+
+==== Fixes in Bonita Runtime (including Bonita Applications)
+
+* RUNTIME-991  - [Security] Update several dependencies for 2022.1-u2 (see xref:#_potential_need_of_declaring_external_maven_repository[specific note]])
 
 === Fixes in Bonita 2022.1-u1 (2022-05-03)
 
