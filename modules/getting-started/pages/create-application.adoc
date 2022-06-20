@@ -11,7 +11,7 @@ The page you have created in the UI Designer, as well as the forms, have been au
 
 To create the application, add a new application descriptor:
 
-. In the Bonita Studio menu click on menu:Development[Application descriptors > New]
+. In the Bonita Studio coolbar, click on *New* then on *Application descriptor*
 . A guidance pop-up appears. Click on *OK*
 . Click on *Add a new application descriptor*. In the pop-up window, type _claims_ in the *Application Token* field, and _Claims_ as *Display name*.
 
