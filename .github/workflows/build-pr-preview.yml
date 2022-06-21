@@ -37,8 +37,7 @@ jobs:
       CLOUD_BRANCH: 'master'
       # Needed to build the 'cloud' doc
       BCD_BRANCH: '3.6'
-      BONITA_BRANCH_FOR_CLOUD: '2022.1'
-      TOOLKIT_BRANCH: '1.0'
+      BONITA_BRANCH_FOR_CLOUD: '2022.1'      
     steps:
       - name: Get documentation site source code
         if: github.event.action != 'closed'
