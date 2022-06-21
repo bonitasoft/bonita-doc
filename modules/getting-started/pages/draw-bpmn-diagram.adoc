@@ -170,7 +170,7 @@ Configure the condition on the transition from the gateway to the _Deal with uns
 . Name the transition _Bad_
 . Go in menu:General[General] tab
 . In *Condition* type the value _true_
-. In the Bonita Studio menu, click on menu:File[Save]
+. Right click anywhere on the diagram view and select *Save*
 
 [WARNING]
 ====
