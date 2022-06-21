@@ -32,7 +32,6 @@ jobs:
       COMPONENT_NAME: bonita
       # Except if you want to test in progress work that your content depends on, keep it set to master
       DOC_SITE_BRANCH: master
-      TOOLKIT_BRANCH: '1.0'
       PR_NUMBER: ${{ github.event.pull_request.number }}
       CLOUD_BRANCH: 'master'
       # Needed to build the 'cloud' doc
