@@ -24,7 +24,7 @@ There is some additional prerequisites when creating a REST API extension:
 
 === Generate a new REST API extension skeleton
 
-. In the *Development* menu, choose *REST API Extension* then *New...*.
+. From the project contextual menu, choose *New* then *REST API Extension...*.
 . Enter a *Name*, for example _User information REST API Extension_.
 . Enter a *Description*, for example _Query Bonita Engine to retrieve user information_.
 . Enter a package name, use to set the artifact *Group id*, for example: _com.company.rest.api_
@@ -161,16 +161,14 @@ Studio let you build and deploy the REST API extension in the embedded test envi
 
 First step is to configure security mapping for your extension in Studio embedded test environment:
 
-. In the *Development* menu, choose *REST API Extension* then *Edit permissions mapping*.
+. Open the *REST API Extension* contextual menu then *Edit permissions mapping*.
 . Append this line at the end of the file:
 `profile|User=[read_user_information]` This means that anyone logged in with the user profile is granted this permission.
 . Save and close the file.
 
 Now you can actually build and deploy the extension:
 
-. In the *Development* menu, choose *REST API Extension* > *Deploy...*
-. Select the userInformationRestAPIExtension REST API extension.
-. Click on *Deploy* button.
+. Open the *userInformationRestAPIExtension* project contextual menu, choose *Deploy*
 . In the coolbar, click the *Applications* icon. This opens the Bonita Application Directory in your browser.
 . Go to Bonita Administrator Application
 . Go to the *Resources* tab, and check that the User information REST API extension is in the list of REST API extension resources.
