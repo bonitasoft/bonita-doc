@@ -1,4 +1,4 @@
-= Bonita-ui-designer 1.14.14 dependencies for Bonita 2022.1
+= Bonita-ui-designer 1.15.1 dependencies for Bonita 2022.2
 
 
 == UI-Designer Backend dependencies
@@ -10,28 +10,28 @@
 | antlr (antlr) | 2.7.7 | http://www.antlr.org/license.html[BSD License] 
 
 
-| logback-classic (ch.qos.logback) | 1.2.11 | http://www.eclipse.org/legal/epl-v10.html[Eclipse Public License - v 1.0] http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License] 
+| logback-classic (ch.qos.logback) | 1.2.9 | http://www.eclipse.org/legal/epl-v10.html[Eclipse Public License - v 1.0] http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License] 
 
 
-| logback-core (ch.qos.logback) | 1.2.11 | http://www.eclipse.org/legal/epl-v10.html[Eclipse Public License - v 1.0] http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License] 
+| logback-core (ch.qos.logback) | 1.2.9 | http://www.eclipse.org/legal/epl-v10.html[Eclipse Public License - v 1.0] http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License] 
 
 
-| jackson-annotations (com.fasterxml.jackson.core) | 2.13.2 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+| jackson-annotations (com.fasterxml.jackson.core) | 2.13.1 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
 
 
-| jackson-core (com.fasterxml.jackson.core) | 2.13.2 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+| jackson-core (com.fasterxml.jackson.core) | 2.13.1 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
 
 
-| jackson-databind (com.fasterxml.jackson.core) | 2.13.2.2 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+| jackson-databind (com.fasterxml.jackson.core) | 2.13.1 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
 
 
-| jackson-datatype-jdk8 (com.fasterxml.jackson.datatype) | 2.13.2 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+| jackson-datatype-jdk8 (com.fasterxml.jackson.datatype) | 2.13.1 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
 
 
-| jackson-datatype-jsr310 (com.fasterxml.jackson.datatype) | 2.13.2 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+| jackson-datatype-jsr310 (com.fasterxml.jackson.datatype) | 2.13.1 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
 
 
-| jackson-module-parameter-names (com.fasterxml.jackson.module) | 2.13.2 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+| jackson-module-parameter-names (com.fasterxml.jackson.module) | 2.13.1 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
 
 
 | classmate (com.fasterxml) | 1.5.1 | https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
@@ -49,7 +49,7 @@
 | commons-io (commons-io) | 2.10.0 | https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
-| micrometer-core (io.micrometer) | 1.8.4 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
+| micrometer-core (io.micrometer) | 1.8.1 | http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0] 
 
 
 | jakarta.annotation-api (jakarta.annotation) | 1.3.5 | http://www.eclipse.org/legal/epl-2.0[EPL 2.0] https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE] 
@@ -76,22 +76,22 @@
 | httpcore (org.apache.httpcomponents) | 4.4.15 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
-| log4j-api (org.apache.logging.log4j) | 2.17.2 | https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
+| log4j-api (org.apache.logging.log4j) | 2.17.0 | https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
-| log4j-to-slf4j (org.apache.logging.log4j) | 2.17.2 | https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
+| log4j-to-slf4j (org.apache.logging.log4j) | 2.17.0 | https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
 | maven-artifact (org.apache.maven) | 3.8.1 | https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
-| tomcat-embed-core (org.apache.tomcat.embed) | 9.0.60 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
+| tomcat-embed-core (org.apache.tomcat.embed) | 9.0.56 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
-| tomcat-embed-el (org.apache.tomcat.embed) | 9.0.60 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
+| tomcat-embed-el (org.apache.tomcat.embed) | 9.0.56 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
-| tomcat-embed-websocket (org.apache.tomcat.embed) | 9.0.60 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
+| tomcat-embed-websocket (org.apache.tomcat.embed) | 9.0.56 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
 
 
 | aspectjrt (org.aspectj) | 1.9.7 | https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt[Eclipse Public License - v 2.0] 
@@ -100,16 +100,16 @@
 | aspectjweaver (org.aspectj) | 1.9.7 | https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt[Eclipse Public License - v 2.0] 
 
 
-| ui-designer-artifact-builder (org.bonitasoft.web) | 1.14.14 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
+| ui-designer-artifact-builder (org.bonitasoft.web) | 1.15.1 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
-| ui-designer-backend-contract (org.bonitasoft.web) | 1.14.14 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
+| ui-designer-backend-contract (org.bonitasoft.web) | 1.15.1 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
-| ui-designer-backend-migrationReport (org.bonitasoft.web) | 1.14.14 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
+| ui-designer-backend-migrationReport (org.bonitasoft.web) | 1.15.1 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
-| ui-designer-frontend (org.bonitasoft.web) | 1.14.14 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
+| ui-designer-frontend (org.bonitasoft.web) | 1.15.1 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
 | commons-compiler (org.codehaus.janino) | 3.1.6 | https://spdx.org/licenses/BSD-3-Clause.html[BSD-3-Clause] 
@@ -130,10 +130,10 @@
 | HdrHistogram (org.hdrhistogram) | 2.1.12 | http://creativecommons.org/publicdomain/zero/1.0/[Public Domain, per Creative Commons CC0] https://opensource.org/licenses/BSD-2-Clause[BSD-2-Clause] 
 
 
-| hibernate-validator (org.hibernate.validator) | 6.2.3.Final | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License 2.0] 
+| hibernate-validator (org.hibernate.validator) | 6.2.0.Final | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License 2.0] 
 
 
-| jboss-logging (org.jboss.logging) | 3.4.3.Final | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, version 2.0] 
+| jboss-logging (org.jboss.logging) | 3.4.2.Final | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, version 2.0] 
 
 
 | jsoup (org.jsoup) | 1.14.2 | https://jsoup.org/license[The MIT License] 
@@ -148,82 +148,82 @@
 | lombok (org.projectlombok) | 1.18.22 | https://projectlombok.org/LICENSE[The MIT License] 
 
 
-| jul-to-slf4j (org.slf4j) | 1.7.36 | http://www.opensource.org/licenses/mit-license.php[MIT License] 
+| jul-to-slf4j (org.slf4j) | 1.7.32 | http://www.opensource.org/licenses/mit-license.php[MIT License] 
 
 
-| slf4j-api (org.slf4j) | 1.7.36 | http://www.opensource.org/licenses/mit-license.php[MIT License] 
+| slf4j-api (org.slf4j) | 1.7.32 | http://www.opensource.org/licenses/mit-license.php[MIT License] 
 
 
-| spring-boot-actuator-autoconfigure (org.springframework.boot) | 2.6.6 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-boot-actuator-autoconfigure (org.springframework.boot) | 2.6.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-boot-actuator (org.springframework.boot) | 2.6.6 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-boot-actuator (org.springframework.boot) | 2.6.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-boot-autoconfigure (org.springframework.boot) | 2.6.6 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-boot-autoconfigure (org.springframework.boot) | 2.6.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-boot-configuration-processor (org.springframework.boot) | 2.6.6 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-boot-configuration-processor (org.springframework.boot) | 2.6.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-boot-starter-actuator (org.springframework.boot) | 2.6.6 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-boot-starter-actuator (org.springframework.boot) | 2.6.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-boot-starter-aop (org.springframework.boot) | 2.6.6 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-boot-starter-aop (org.springframework.boot) | 2.6.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-boot-starter-json (org.springframework.boot) | 2.6.6 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-boot-starter-json (org.springframework.boot) | 2.6.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-boot-starter-logging (org.springframework.boot) | 2.6.6 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-boot-starter-logging (org.springframework.boot) | 2.6.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-boot-starter-tomcat (org.springframework.boot) | 2.6.6 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-boot-starter-tomcat (org.springframework.boot) | 2.6.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-boot-starter-validation (org.springframework.boot) | 2.6.6 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-boot-starter-validation (org.springframework.boot) | 2.6.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-boot-starter-web (org.springframework.boot) | 2.6.6 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-boot-starter-web (org.springframework.boot) | 2.6.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-boot-starter-websocket (org.springframework.boot) | 2.6.6 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-boot-starter-websocket (org.springframework.boot) | 2.6.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-boot-starter (org.springframework.boot) | 2.6.6 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-boot-starter (org.springframework.boot) | 2.6.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-boot (org.springframework.boot) | 2.6.6 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-boot (org.springframework.boot) | 2.6.2 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-aop (org.springframework) | 5.3.18 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-aop (org.springframework) | 5.3.14 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-beans (org.springframework) | 5.3.18 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-beans (org.springframework) | 5.3.14 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-context (org.springframework) | 5.3.18 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-context (org.springframework) | 5.3.14 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-core (org.springframework) | 5.3.18 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-core (org.springframework) | 5.3.14 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-expression (org.springframework) | 5.3.18 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-expression (org.springframework) | 5.3.14 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-jcl (org.springframework) | 5.3.18 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-jcl (org.springframework) | 5.3.14 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-messaging (org.springframework) | 5.3.18 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-messaging (org.springframework) | 5.3.14 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-web (org.springframework) | 5.3.18 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-web (org.springframework) | 5.3.14 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-webmvc (org.springframework) | 5.3.18 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-webmvc (org.springframework) | 5.3.14 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
-| spring-websocket (org.springframework) | 5.3.18 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
+| spring-websocket (org.springframework) | 5.3.14 | https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0] 
 
 
 | snakeyaml (org.yaml) | 1.29 | http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0] 
@@ -346,7 +346,9 @@
 
 | bcrypt-pbkdf | 1.0.2 | BSD-3-Clause 
 
-| bonita-js-components | 0.6.1 | Custom: https://travis-ci.org/bonitasoft/bonita-js-components.svg 
+| bonita-js-components | 0.5.26 | Custom: https://travis-ci.org/bonitasoft/bonita-js-components.svg 
+
+| bootstrap | 3.3.2 | MIT 
 
 | bootstrap | 3.4.1 | MIT 
 
@@ -602,7 +604,7 @@
 
 | isstream | 0.1.2 | MIT 
 
-| jquery | 3.5.1 | MIT 
+| jquery | 1.9.1 | MIT 
 
 | jquery | 3.6.0 | MIT 
 
