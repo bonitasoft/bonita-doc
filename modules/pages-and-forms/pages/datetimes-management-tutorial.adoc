@@ -18,7 +18,7 @@ The following sections show how to create, update, and display an _Employee_ obj
 [discrete]
 ==== Define the business data
 
-. In the studio, open the Business Data Model editor (in menu *Development* > *Business Data Model* > *Manage...*)
+. In the studio, open the Business Data Model editor (From *Project Overview*)
 . Create a *business object* _Employee_ with an attribute _birthdate_ of type *DATE ONLY* (this type replaces the type *DATE (NOT RECOMMENDED)* that is more difficult to handle as it also includes time information)
 . Create a new process
 . In the process *Data* tab, create a new *business variable* _employee_ of the type _Employee_
@@ -114,7 +114,7 @@ The following sections show how to create, update, and display a _Flight_ object
 [discrete]
 ==== Define the business data
 
-. In the studio, open the Business Data Model editor (in menu *Development* > *Business Data Model* > *Manage...*)
+. In the studio, open the Business Data Model editor (From *Project Overview*)
 . Create a *business object* _Flight_ with an attribute _departureTime_ of type *DATE-TIME (NO TIME ZONE)*
 . Create a new process
 . In the process *Data* tab, create a new *business variable* _flight_ of the type _Flight_
@@ -205,7 +205,7 @@ The following sections show how to create, update, and display a _Meeting_ objec
 [discrete]
 ==== Define the business data
 
-. In the studio, open the Business Data Model editor (in menu *Development* > *Business Data Model* > *Manage...*)
+. In the studio, open the Business Data Model editor (from *Project Overview*)
 . Create a *business object* _Meeting_ with an attribute _startTime_ of type *DATE-TIME (TIME ZONE)*
 . Create a new process
 . In the process *Data* tab, create a new *business variable* _meeting_ of the type _Meeting_

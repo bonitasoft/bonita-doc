@@ -34,7 +34,7 @@ image:images/leave_request_management_process_tasklist.png[Process]
 
 Then, define a business object that will hold the leave requests data:
 
-. Go to the *Development* > *Business Data Model* > *Manage* menu option
+. From the project explorer, double click on your Business Data Model to open it
 . Add a business object named _LeaveRequest_ (with an upper case "L"), with 4 attributes:
 
 * _startDate_: as a DATE. Set it as mandatory
