@@ -46,6 +46,13 @@ For Community users who update to 2022.2, if you need this API resource, you can
 
 == Technical updates
 
+UI Designer frontend has been migrated to AngularJS 1.8, to enable AngularJS extended support.
+
+[WARNING]
+====
+Only the UID application has been upgrade to AngularJS 1.8. Your application are still generated with AngularJS 1.3. Stay tune for upgrade of this part.
+====
+
 
 == Feature deprecations and removals
 
