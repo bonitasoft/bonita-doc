@@ -173,7 +173,11 @@ The tenant creation method has been deprecated following our 2021.1 decision to 
 
 === Potential need of declaring external Maven Repository
 
-From version 2022.1-u2, if you embed *bonita-server(-sp).jar* in your application, you need to declare additional Maven Repository in your pom.xml / build.gradle. This is due to Security Fixes that required the use of a dependency NOT present in default Maven Repository (aka Maven Central). To do so, add the following code:
+From version 2022.1-u2, if you embed *bonita-server(-sp).jar* in your application, you need to configure an additional Maven Repository. This is due to Security Fixes that required the use of a dependency NOT present in default Maven Repository (aka Maven Central).
+
+To do so, you can abstract this additional complexity by putting this configuration in your https://maven.apache.org/repository-management.html[enterprise repository manager] which acts as a proxy to any external repositories you may have.
+
+You can also simply add it in your pom.xml / build.gradle (or globally in your Maven settings.xml):
 
 ==== Pom.xml
 
@@ -199,8 +203,6 @@ repositories {
     }
 }
 ----
-
-Of course, you can abstract this additional complexity by putting this configuration in your https://maven.apache.org/repository-management.html[enterprise repository manager] which acts a proxy to any external repositories you may have.
 
 == Bug fixes
 
