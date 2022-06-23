@@ -200,6 +200,8 @@ repositories {
 }
 ----
 
+Of course, you can abstract this additional complexity by putting this configuration in your https://maven.apache.org/repository-management.html[enterprise repository manager] which acts a proxy to any external repositories you may have.
+
 == Bug fixes
 
 === Fixes in Bonita 2022.1-u2 (2022-0X-YY)
