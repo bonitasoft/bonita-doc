@@ -46,7 +46,7 @@ For Community users who update to 2022.2, if you need this API resource, you can
 
 == Technical updates
 
-UI Designer frontend has been migrated to AngularJS 1.8, to enable AngularJS extended support.
+UI Designer frontend has been migrated to AngularJS 1.8.
 
 [WARNING]
 ====
