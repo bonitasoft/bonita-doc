@@ -22,8 +22,8 @@ Some new values are available, starting with the Efficiency Edition of Bonita:
   * As the bpmn-libraty improves, we will add more interactivity and more information to provide a better monitoring capacity
   * Since the pages have been recreated with the UI Designer, developers can:
         
-        * Use this widget in their own application pages. The widget has been wrapped into a fragment that makes it very easy to use.
-        * Offer process execution data visualization to users of their applications, by adjusting the permissions accordingly
+        ** Use this widget in their own application pages. The widget has been wrapped into a fragment that makes it very easy to use.
+        ** Offer process execution data visualization to users of their applications, by adjusting the permissions accordingly
 
 To know more, visit the xref:....[how to page dedicated to the use of this fragment]
 
