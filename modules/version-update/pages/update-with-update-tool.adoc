@@ -448,9 +448,15 @@ If you have applications that have Bonita as client, you will have to change you
 For backward compatibility checks, refer to the xref:ROOT:release-notes.adoc[release notes].
 
 // link to bonita client library => to decomment
- In addition, if your application connects to Bonita Engine using the HTTP access mode, see the xref:api:configure-client-of-bonita-bpm-engine.adoc[bonita-client library] documentation page.
+In addition, if your application connects to Bonita Engine using the HTTP access mode, see the xref:api:configure-client-of-bonita-bpm-engine.adoc[bonita-client library] documentation page.
 
 == Troubleshooting
+
+=== Translation are missing in application directory app
+
+_Symptom:_ Starting from Bonita 2021.2, when creating an application using pages available in ressources list of previous Bonita versions, translations may be missing in Bonita Application Directory. 
+_Cause:_ The translations are in localization.json and not in the exported pages. 
+_Solution:_ If an app has been created using a page exported from the resources list in a certain version, you will need to either reexport the pages from the new version or update your app by adding the localization.json of the new version. This way the right translations will be available. 
 
 === Timers are stuck after updating to Bonita 7.10.0 or greater versions
 
