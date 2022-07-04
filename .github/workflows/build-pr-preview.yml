@@ -11,6 +11,8 @@ on:
 jobs:
   build_preview:
     runs-on: ubuntu-20.04
+    permissions:
+      pull-requests: write # surge-preview write PR comments    
     env:
       COMPONENT_NAME: bonita
       # Except if you want to test in progress work that your content depends on, keep it set to master
