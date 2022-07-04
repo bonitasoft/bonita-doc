@@ -1,0 +1,131 @@
+= Access to Bonita Repository Manager
+:page-aliases: ROOT:bonita-repository-access.adoc
+:description: Setup access to Bonita Repository Manager to download development dependencies.
+
+{description}
+
+== Ask for credentials to your account manager
+
+Once your request handled, your account manager will be able to provide you with valid credentials.
+This credentials will last as long as your subscription but you won't need to change them if you extend that subscription.
+
+Credentials includes:
+
+* A login
+* A token
+
+== Maven
+
+Starting from Bonita xxx, Bonita Studio uses https://maven.apache.org/[maven] internally to resolve required dependencies.
+
+[NOTE]
+====
+In the below example we use Maven as the project build tool for extension projects, but it is also possible to use Gradle if it is the tool of your choice.
+====
+
+An Internet connection is required.
+
+=== Maven settings overview
+
+Once you were granted with Bonita Repository Manager credentials, you have to tell https://maven.apache.org/configure.html[configure] `maven` to use Bonita release repository.
+
+This is done in a file named https://maven.apache.org/settings.html[settings.xml] which is present by convention in the following default place : `$HOME/.m2/settings.xml`
+
+[source, xml]
+.Sample sections of settings.xml
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <localRepository/>
+  <interactiveMode/>
+  <offline/>
+  <pluginGroups/>
+  <servers/>
+  <mirrors/>
+  <proxies/>
+  <profiles/>
+  <activeProfiles/>
+</settings>
+----
+
+=== Bonita repositories declaration
+
+In this `settings.xml` file you have to declare Bonita release repository to let maven know that some dependencies can be found there.
+In the following code snippet, you'll find how to declare new https://maven.apache.org/settings.html#Repositories[repositories] to maven.
+
+[source, xml]
+.Part of settings.xml
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <!-- ...  -->
+    <profiles>
+        <profile>
+            <id>bonitasoft</id>
+            <repositories>
+                <repository>
+                    <id>bonitasoft-releases</id>
+                    <name>Bonitasoft Releases</name>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <url>https://bonitasoft.jfrog.io/artifactory/maven</url>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>bonitasoft-releases</id>
+                    <name>Bonitasoft Releases</name>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <url>https://bonitasoft.jfrog.io/artifactory/maven</url>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+    <!-- ...  -->
+  <activeProfiles>
+    <activeProfile>bonitasoft</activeProfile>
+  </activeProfiles>
+
+</settings>
+----
+
+[IMPORTANT]
+====
+Don't forget to mark bonitasoft profile as `active` in the `activeProfiles` section or the declared repositories won't be used for dependency resolution
+====
+
+
+=== Authentication
+
+Now that maven is aware of bonita repositories, we have to give it the credentials to be be allowed to download artifacts. Here is the simple way to specify credentials to use with https://maven.apache.org/settings.html#Servers[repoitory servers] but we strongly advice users to use https://maven.apache.org/guides/mini/guide-encryption.html[password encryption] to enforce security.
+
+[source, xml]
+.Server authentication in settings.xml
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <!-- ...  -->
+    <servers>
+        <server>
+            <!-- This server ID must be the same as the one use for repository declaration ! -->
+            <id>bonitasoft-releases</id>
+            <username>MY_LOGIN</username>
+            <password>MY_BONITA_REPOSITORY_TOKEN</password>
+        </server>
+    </servers>
+    <!-- ...  -->
+</settings>
+----
