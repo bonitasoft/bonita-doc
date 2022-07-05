@@ -7,7 +7,7 @@ Learn how to use the multi-tenant to multi-runtime tool to convert a multi-tenan
 
 == Principle of work
 As a pre-requisite, you will need to mount one database dump per tenants in your environment.
-The tool is will then erase everything not related to the tenant specified in parameter from the given database.
+The tool will then erase everything not related to the tenant specified in parameter from the given database.
 You will need to run the tool once for every database dump.
 
 == Detailed usage
