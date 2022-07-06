@@ -5,8 +5,12 @@
 
 Learn how to use the multi-tenant to multi-runtime tool to convert a multi-tenant platform into a multi-runtime one.
 
+Multi-tenancy is deprecated in Bonita, and disappears with Bonita 7.16 (2023.1). If you used multi-tenancy, you need to run this conversion tool before updating to 7.16.
+
+image:version-update:mtmr-general-idea-schema.svg[General idea of the conversion tool,width=700]
+
 == Principle of work
-As a pre-requisite, you will need to mount one database dump per tenants in your environment.
+As a pre-requisite, you will need to dump your current database and mount one new database dump per tenant in your environment.
 The tool will then erase everything not related to the tenant specified in parameter from the given database.
 You will need to run the tool once for every database dump.
 
@@ -25,15 +29,16 @@ You will need to specify the username/password, as well as your connection infor
 
 Then run the following command in a terminal next to the bin folder:
 
-`
-bin/multitenant-to-multiruntime-tool(.bat) <tenantId>
-`
+`bin/multitenant-to-multiruntime-tool(.bat) <tenantId>`
 
 The tool will delete all the tenants as well as all their associated data, except the one provided in parameter. The one remaining tenant will then be set as the new default tenant.
 After the execution completes, you will have to upload a new license file before you can use this new  database with a bonita platform. Use the setup tool to do it, as usual.
 
 NB: This tool does not change anything in the BDM database, if any is used. You will have to manage it manually.
-If you were using separate BDM datasources (one per tenant typically), you will also need to modify the 'bonita-tenant-community-custom.properties' file as appropriate.
+
+If you were using separate BDM datasources (one per tenant typically), you will also need to modify the `bonita-tenant-community-custom.properties` file as appropriate.
+
+If you were using the same datasource for the BDM of all your tenants, you will need to manually separate the BDM database tables into separate databases and modify the `bonita-tenant-community-custom.properties` file of each runtime to point to the appropriate database.
 
 === Troubleshooting
 
@@ -51,16 +56,16 @@ the amount of rows to delete in tables. Tables that contain binaries, and are vo
 Typical culprits on production databases are the *document*, *arch_flownode_instance*,*arch_process_instance* tables.
 
 === Postgres
-The test was done on a generated database, with the following postgres optimizations: xref:ROOT:performance-tuning.adoc#postgresql-performance-tuning[how to finely tune performance for PostgreSQL].
+The test was done on a generated database, with the following postgres optimizations: xref:runtime:performance-tuning.adoc#postgresql-performance-tuning[how to finely tune performance for PostgreSQL].
 
 |===
-|rowcounts |total_size
+|rowcount |total_size
 
 |46498496 |28 GB
 |===
 
 |===
-|table |rowcounts |total_size
+|table |rowcount |total_size
 
 |public.arch_flownode_instance   | 17032708|9800 MB
 |public.arch_process_instance    | 10734189|5060 MB
@@ -184,13 +189,13 @@ Deleting other tenants from table queriable_log ...
 The tests were done on a real-life database
 
 |===
-|rowcounts|total_size
+|rowcount|total_size
 
 |24117868|25022 MB
 |===
 
 |===
-|table                    |rowcounts|total_size
+|table                    |rowcount|total_size
 
 |document                 |    12044|7264 MB
 |arch_flownode_instance   | 12395035|6114 MB
@@ -310,13 +315,13 @@ Deleting other tenants from table tenant ...
 === SQLServer
 The tests were done on a generated database
 |===
-|rowcounts|total_size
+|rowcount|total_size
 
 |13736918|10124.97 MB
 |===
 
 |===
-|table                    |RowCounts|Used_MB
+|table                    |rowcount|Used_MB
 
 |arch_flownode_instance   | 12785160|9310.61
 |arch_process_instance    |   404550| 191.05
@@ -405,7 +410,7 @@ Overall, really good performance on SQlServer
 === Oracle
 The tests were done on a generated database
 |===
-|rowcounts
+|rowcount
 
 |28242229
 |===
