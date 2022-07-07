@@ -1,46 +1,49 @@
-= Multi-Tenant to Multi-Runtime conversion tool
+= Bonita Multi-Tenant to Multi-Runtime conversion tool
 :description: This pages describes how to use the multi-tenant to multi-runtime conversion tool
 
 {description}
 
 Learn how to use the multi-tenant to multi-runtime tool to convert a multi-tenant platform into a multi-runtime one.
 
-Multi-tenancy is deprecated in Bonita, and disappears with Bonita 7.16 (2023.1). If you used multi-tenancy, you need to run this conversion tool before updating to 7.16.
+WARNING: Multi-tenancy is deprecated starting from Bonita 2021.1 (technical version 7.12) and will be removed technically with Bonita 2023.1 (technical version 7.16).
+*If you are using multi-tenancy, you will have to run this conversion tool before updating to 7.16.*
 
 image:version-update:mtmr-general-idea-schema.svg[General idea of the conversion tool,width=700]
 
-== Principle of work
-As a pre-requisite, you will need to dump your current database and mount one new database dump per tenant in your environment.
-The tool will then erase everything not related to the tenant specified in parameter from the given database.
-You will need to run the tool once for every database dump.
+== Overview
+The tool will delete everything not related to the tenant specified in the parameter from the given database, this means you will need to dump your current database and mount one new database dump per tenant in your environment. The tool will have to be executed for every database dump.
 
-== Detailed usage
+== How works Bonita Multi-tenant to Multi-Runtime conversion tool 
 === Pre-requisites
-* Java 11+
-* A database of a bonita multi-tenant platform. +
-The idea is to restore a dump of your production database to where you want one of your new bonita runtimes to run in the future, and then to run this tool on it.
-You will need to do it for each of your tenants.
-* This tool works on databases of bonita platforms in version 7.11, 7.12, 7.13, 7.14 or 7.15.
-* It is not recommended to have a bonita platform running on the database during the operation.
+* The tool requires Java 11+ JRE
+* A database of a Bonita Multi-tenant Platform. +
+The aim is to restore a dump of your production database where you want one of your new Bonita Runtimes to run in the future, and then to run the tool on it.
+You will need to do it for each of the tenants you want to keep using.
+* This tool works on Bonita Platform Databases in version 7.11, 7.12, 7.13, 7.14 or 7.15.
+* During the operation, a Bonita Platform *should NOT* be running on the database.
 
-=== Usage
-Specify your database connection information in the application.properties file.
-You will need to specify the username/password, as well as your connection information (uncomment & fill in the corresponding template).
+=== Usage: step-by-step procedure
 
-Then run the following command in a terminal next to the bin folder:
+* Specify your database connection information in the application.properties file.
+* You will need to specify the username/password, as well as your connection information (uncomment & fill in the corresponding template).
+* Then run the following command in a terminal next to the bin folder: `bin/multitenant-to-multiruntime-tool(.bat) <tenantId>`
 
-`bin/multitenant-to-multiruntime-tool(.bat) <tenantId>`
+____
+The tool will delete all the tenants as well as all their associated data, except the one provided in the parameter. The chosen tenant will then be set as the default tenant.
+____
 
-The tool will delete all the tenants as well as all their associated data, except the one provided in parameter. The one remaining tenant will then be set as the new default tenant.
-After the execution completes, you will have to upload a new license file before you can use this new  database with a bonita platform. Use the setup tool to do it, as usual.
+* After the execution completes, you will have to upload a new license file before you can use the new database with a Bonita Platform. Use the setup tool to do it, as usual.
 
-NB: This tool does not change anything in the BDM database, if any is used. You will have to manage it manually.
+[NOTE]
+====
+The tool does not change anything in the BDM database. You will have to manage it manually.
 
 If you were using separate BDM datasources (one per tenant typically), you will also need to modify the `bonita-tenant-community-custom.properties` file as appropriate.
 
 If you were using the same datasource for the BDM of all your tenants, you will need to manually separate the BDM database tables into separate databases and modify the `bonita-tenant-community-custom.properties` file of each runtime to point to the appropriate database.
+====
 
-=== Troubleshooting
+=== Error Management
 
 * In case of errors during execution, the first step to take is to re-launch the tool. It will automatically pick up the work where it failed/stopped the first time.
 This works particularly well for temporary problems, like a lost connection to the database.
@@ -50,13 +53,13 @@ This works particularly well for temporary problems, like a lost connection to t
 
 == Performance data
 
-The tool was tested on all 4 databases, both with generated & real life databases.
-Generally speaking, the bigger the database, the more time the execution will take. The biggest impact on execution time is made by
-the amount of rows to delete in tables. Tables that contain binaries, and are voluminous on disk as a result go relatively quickly.
-Typical culprits on production databases are the *document*, *arch_flownode_instance*,*arch_process_instance* tables.
+The tool was tested on the Bonita supported databases, either on technically generated & production databases.
+The execution time depends on the size of your database. The biggest impact on execution time is linked to rows deletion from the tables. Tables that contain binaries and are voluminous on disk as a result go relatively quickly.
+Typical culprits on production databases are the *document*, *arch_flownode_instance*, *arch_process_instance* tables.
 
 === Postgres
-The test was done on a generated database, with the following postgres optimizations: xref:runtime:performance-tuning.adoc#postgresql-performance-tuning[how to finely tune performance for PostgreSQL].
+
+The test was done on a technically generated database, with the following postgres optimizations: xref:runtime:performance-tuning.adoc#postgresql-performance-tuning[how to finely tune performance for PostgreSQL].
 
 |===
 |rowcount |total_size
@@ -148,8 +151,10 @@ The test was done on a generated database, with the following postgres optimizat
 |public.multi_biz_data           |      0.0|8192 bytes
 |===
 
-Result: Execution completed in 1,980,462 ms (33 Minutes 0 Seconds). +
-Some Highlights from the execution logs:
+*Result:* Execution completed in 1,980,462 ms (33 Minutes 0 Seconds). +
+
+Highlights from the execution logs: 
+
 [source,text]
 ----
 Deleting other tenants from table document_mapping ...
@@ -186,7 +191,7 @@ Deleting other tenants from table queriable_log ...
 
 === Mysql
 
-The tests were done on a real-life database
+The tests were done on a production database. 
 
 |===
 |rowcount|total_size
@@ -277,10 +282,12 @@ The tests were done on a real-life database
 |QRTZ_SCHEDULER_STATE     |        0|0 MB
 
 |===
-Result: Execution completed in 10,513,866 ms (2 Hours 55 Minutes 13 Seconds)
+
+*Result:* Execution completed in 10,513,866 ms (2 Hours 55 Minutes 13 Seconds)
+
 Mysql performances are slow compared to postgres and other databases.
 
-Some highlight from logs :
+Highlights from execution logs:
 [source,text]
 ----
 Deleting other tenants from table arch_contract_data ...
@@ -313,7 +320,9 @@ Deleting other tenants from table tenant ...
 ----
 
 === SQLServer
-The tests were done on a generated database
+
+The tests were done on a technically generated database. 
+
 |===
 |rowcount|total_size
 
@@ -404,11 +413,13 @@ The tests were done on a generated database
 |waiting_event            |        0|   0.00
 |===
 
-Result: Execution completed in 3,003,733 ms (50 Minutes 3 Seconds)
-Overall, really good performance on SQlServer
+*Result:* Execution completed in 3,003,733 ms (50 Minutes 3 Seconds)
+Overall, really good performance on SQLServer. 
 
 === Oracle
-The tests were done on a generated database
+
+The tests were done on a technically generated database. 
+
 |===
 |rowcount
 
@@ -498,5 +509,5 @@ The tests were done on a generated database
 |queriablelog_p           |         0
 |===
 
-Results: Execution completed in 1973144 ms (32 Minutes 53 Seconds)
-Overall really good performance on Oracle
+*Results:* Execution completed in 1973144 ms (32 Minutes 53 Seconds)
+Overall really good performance on Oracle. 
