@@ -215,7 +215,7 @@ image::ROOT:images/images-6_0/update_bigsteps.png[Update steps]
 
 This section explains how to update a platform that uses one of the Bonita bundles.
 
-First, download the target version bundle and Bonita Update Tool for your edition:
+.First, download the target version bundle and Bonita Update Tool for your edition:
 * from the http://www.bonitasoft.com/downloads[Bonitasoft site] for Bonita Community edition
 * from the https://customer.bonitasoft.com/download/request[Customer Service Center] for Bonita Subscription Pack editions
 
@@ -258,7 +258,7 @@ For example, db.url=jdbc:mysql://localhost:3306/bonita-update?allowMultiQueries=
 
 . Stop the application server.
 // link to back up your runtime nodes => old module, new runtime
-. *IMPORTANT: Back up your xref:ROOT:back-up-bonita-bpm-platform.adoc[runtime nodes and databases].*
+. *IMPORTANT:* *Back up your xref:ROOT:back-up-bonita-bpm-platform.adoc[runtime nodes and databases].*
 
 === Run Bonita Update Tool
 . Go to the directory containing Bonita Update Tool/Bonita Migration Tool.
@@ -381,12 +381,15 @@ The main parts that require attention and testing are connectors and custom code
 
 Also, custom connectors, groovy scripts, REST API extensions etc. are not migrated and might not work as expected in Java 11.
 
-Special attention has to be given to custom code dependencies, as they might:
+.Special attention has to be given to custom code dependencies, as they might:
 * either not work in Java 11,
 * work fine but be in conflict with Bonita dependencies
 * the script might use dependencies previously included in Bonita, but accessible in a different version.
 
-ERROR: Thorough testing has to be carried out to ensure there is no regression when migrating Bonita to version 7.9 and greater.
+[WARNING]
+====
+Thorough testing has to be carried out to ensure there is no regression when migrating Bonita to version 7.9 and greater.
+====
 
 === Updating to Bonita 7.11 or a greater version using Oracle
 Bonita 7.11 and greater versions support Oracle 19c version.
