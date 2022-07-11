@@ -4,6 +4,7 @@
 
 {description}
 
+[#credentials]
 == Ask for credentials to your account manager
 
 Once your request handled, your account manager will be able to provide you with valid credentials.
@@ -133,3 +134,16 @@ Now that maven is aware of bonita repositories, we have to give it the credentia
 === Maven configuration in Bonita Studio
 
 If you want to set up access to Bonita Repository Manager using Bonita Studio, please refer to the dedicated page on how to xref:setup-dev-environment:configure-maven.adoc[configure Maven from Bonita Studio].
+
+== Docker
+
+=== Authentication
+
+To be able to pull a Docker image from Bonita Repository Manager, you need to log in using https://docs.docker.com/engine/reference/commandline/login/[docker login] command line:
+
+[source,bash]
+----
+docker login bonitasoft.jfrog.io
+----
+
+Use the xref:credentials[credentials] provided by your account manager.
