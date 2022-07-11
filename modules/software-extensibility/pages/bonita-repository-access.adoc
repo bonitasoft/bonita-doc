@@ -129,3 +129,7 @@ Now that maven is aware of bonita repositories, we have to give it the credentia
     <!-- ...  -->
 </settings>
 ----
+
+=== Maven configuration in Bonita Studio
+
+If you want to set up access to Bonita Repository Manager using Bonita Studio, please refer to the dedicated page on how to xref:setup-dev-environment:configure-maven.adoc[configure Maven from Bonita Studio].
