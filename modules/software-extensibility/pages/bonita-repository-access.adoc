@@ -1,13 +1,13 @@
-= Access to Bonita Repository Manager
+= Access to Bonita Repository Manager (Subscription editions only)
 :page-aliases: ROOT:bonita-repository-access.adoc
-:description: Setup access to Bonita Repository Manager to download development dependencies.
+:description: Set up access to Bonita Repository Manager to download development dependencies.
 
 {description}
 
 == Ask for credentials to your account manager
 
 Once your request handled, your account manager will be able to provide you with valid credentials.
-This credentials will last as long as your subscription but you won't need to change them if you extend that subscription.
+These credentials will last as long as your subscription, but you won't need to change them if you extend that subscription.
 
 Credentials includes:
 
@@ -108,7 +108,7 @@ Don't forget to mark bonitasoft profile as `active` in the `activeProfiles` sect
 
 === Authentication
 
-Now that maven is aware of bonita repositories, we have to give it the credentials to be be allowed to download artifacts. Here is the simple way to specify credentials to use with https://maven.apache.org/settings.html#Servers[repoitory servers] but we strongly advice users to use https://maven.apache.org/guides/mini/guide-encryption.html[password encryption] to enforce security.
+Now that maven is aware of bonita repositories, we have to give it the credentials to be allowed to download artifacts. Here is the simple way to specify credentials to use with https://maven.apache.org/settings.html#Servers[repository servers] but we strongly advice users to use https://maven.apache.org/guides/mini/guide-encryption.html[password encryption] to enforce security.
 
 [source, xml]
 .Server authentication in settings.xml
