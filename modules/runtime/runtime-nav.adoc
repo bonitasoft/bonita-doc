@@ -48,6 +48,7 @@
    **** xref:user-process-list.adoc[Process list]
    **** xref:user-application-case-list.adoc[Case list]
    **** xref:user-task-list.adoc[Task list]
+  *** xref:reporting-app.adoc[Bonita Reporting App]
  ** xref:runtime-installation-index.adoc[Installation]
   *** xref:hardware-and-software-requirements.adoc[Hardware and software requirements]
   *** xref:tomcat-bundle.adoc[Bonita bundle]
