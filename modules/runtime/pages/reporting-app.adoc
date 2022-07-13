@@ -2,6 +2,7 @@
 
 :description: An application for analytics and reporting. 
 
+
 {description} +
 Bonita Reporting app will enable you to view statistics and to extract process execution reports with meaningful data from Bonita, for process performance analysis and for pinpointing areas of improvement.
 
@@ -10,12 +11,15 @@ Bonita Reporting app will enable you to view statistics and to extract process e
 
 *For Enterprise, Performance, Efficiency, and Teamwork editions only.*
 
-In keeping with Bonitasoft’s promise to continuously deliver valuable, high quality features, we had to relinquish the Analytics and Reports page starting from Bonita 2021.2. Bonita Reporting App, is a Bonita application compatible with Bonita 2021.2 and available for download on the Customer Portal/Customer Service Center.
+In keeping with Bonitasoft’s promise to continuously deliver valuable, high quality features, we had to relinquish the Analytics and Reports page starting from Bonita 2021.2.
+
+Bonita Reporting App, is a Bonita application compatible with Bonita 2021.2 and available for download on the Customer Portal/Customer Service Center.
 
 An Enterprise licence is required. 
 ====
 
 == Overview 
+
 The bonita-dashboard-app-1.1.1.jar, contains two reports “Process Historical Data” and “Human tasks historical data”.  
 
 === Process historical data
@@ -31,6 +35,7 @@ For analyzing human actions in cases of a chosen process in a defined period of 
 On the analysis page you’ll have the possibility to create the graph with tasks average handling time and/or download the file with detailed archived human tasks data in .csv format inside a zip. This enables the data to be sorted and filtered.
 
 == Diferentiators 
+
 . A Bonita application, hence by using the Organization Management it can be available to specific users 
 . Reports already known by customer with an improved performance
 . New user interface 
