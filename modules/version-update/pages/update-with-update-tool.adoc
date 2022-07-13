@@ -451,7 +451,7 @@ If you have applications that have Bonita as client, you will have to change you
 For backward compatibility checks, refer to the xref:ROOT:release-notes.adoc[release notes].
 
 // link to bonita client library => to decomment
-In addition, if your application connects to Bonita Engine using the HTTP access mode, see the xref:ROOT:configure-client-of-bonita-bpm-engine.adoc[bonita-client library] documentation page.
+In addition, if your application connects to Bonita Engine using the HTTP access mode, see the xref:api:configure-client-of-bonita-bpm-engine.adoc[bonita-client library] documentation page.
 
 == Troubleshooting
 
