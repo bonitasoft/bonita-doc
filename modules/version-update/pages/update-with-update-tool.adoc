@@ -455,7 +455,7 @@ In addition, if your application connects to Bonita Engine using the HTTP access
 
 == Troubleshooting
 
-=== Translation are missing in application directory app
+=== Translation are missing in Application Directory and Admin Case list
 
 _Symptom:_ Starting from Bonita 2021.2, when creating an application using pages available in ressources list of previous Bonita versions, translations may be missing in Bonita Application Directory. 
 _Cause:_ The translations are in localization.json and not in the exported pages. 
