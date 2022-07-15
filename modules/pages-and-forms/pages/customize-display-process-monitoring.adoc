@@ -46,5 +46,9 @@ From your page, create a processId or caseId variable, which will contain the id
 
 image:images/process-visu-page-fragment.png[Process visualization page fragment variable, 300]
 
-
+[NOTE]
+====
+The BPMN diagram display is provided by the xref:https://github.com/process-analytics[Process Analytics] bpmn-visualization library, an open-source TypeScript library for visualizing process execution data on BPMN diagrams. +
+You are welcome to contribute to this project!
+====
 
