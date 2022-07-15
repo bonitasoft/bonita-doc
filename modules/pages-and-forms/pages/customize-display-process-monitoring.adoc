@@ -1,0 +1,51 @@
+= How to customize the display of process execution monitoring
+:page-aliases: ROOT:customize-display-process-monitoring.adoc
+:description: Learn how to modify the process/case visualization page using the UI Designer, or embed the BPMN diagram fragment in your own page.
+
+{description}
+
+== Modify the process or case visualization page
+
+You may want to re-use the process or case visualization page from the *_Administrator Application_*.
+
+To do so:
+
+. From Bonita Studio coolbar, click on the *_Applications_* icon, and open the *_Administrator Application_*
+. Go to the *_Resources_* menu, filter by page, and find the *_Bonita Admin Process Visualization_*  or *_Bonita Admin Case Visualization_* page (you may have to click on the *_Load more resources_* link)
+. Export the page by clicking on the download icon
+. From Bonita Studio coolbar, click on the *_UI Designer_* icon to open the UI Designer
+. Import the page in the UI Designer
+
+You can now rename and modify the page for your needs, and use it in any Bonita application.
+
+== Embed the BPMN diagram fragment in your own page
+
+=== Understanding the fragment
+
+You may be interested in embedding the BPMN diagram only in your page.
+To do so, follow the steps above to import the process or case visualization page in the UI Designer.
+Doing this, a new fragment appears in the UI Designer home page, in the *_Fragments_* tab: *_processProcessVisu_* or *_processCaseVisu_*.
+
+Open it, to understand its content.
+As you can see, it embed the bpmnVisu custom widget, and includes some variables to get the BPMN diagram, and information about the process or case.
+Note that it also includes a variable to check the licence, and another one (allCaseInfo) dedicated for testing.
+
+[NOTE]
+====
+The processId (or caseId) variable is shown as *_Exposed_*: this means the variable is defined in the hosting page: this is the interface between the page and the fragment.
+====
+
+image:images/process-visu-fragment-variables.png[Process visualization fragment variables]
+
+
+=== Embed the fragment in your page
+Now, you can open your page, and drag & drop the fragment in your page, from the *_Fragments_* tab of the library panel.
+
+Selecting the fragment in the white screen, you can see a *_Bindable fragment data_* section in the property panel: this is the interface with the fragment, where you provide the caseId or processId.
+
+From your page, create a processId or caseId variable, which will contain the id of the required process or case you want to monitor.
+
+image:images/process-visu-page-fragment.png[Process visualization page fragment variable]
+
+
+
