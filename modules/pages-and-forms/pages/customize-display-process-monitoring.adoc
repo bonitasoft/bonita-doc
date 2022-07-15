@@ -24,19 +24,18 @@ You can now rename and modify the page for your needs, and use it in any Bonita 
 
 You may be interested in embedding the BPMN diagram only in your page.
 To do so, follow the steps above to import the process or case visualization page in the UI Designer.
-Doing this, a new fragment appears in the UI Designer home page, in the *_Fragments_* tab: *_processProcessVisu_* or *_processCaseVisu_*.
+Doing this, a new fragment appears in the UI Designer home page, in the *_Fragments_* tab: *_fragmentProcessVisu_* or *_fragmentCaseVisu_*.
 
-Open it, to understand its content.
-As you can see, it embed the bpmnVisu custom widget, and includes some variables to get the BPMN diagram, and information about the process or case.
-Note that it also includes a variable to check the licence, and another one (allCaseInfo) dedicated for testing.
+Open it, to understand its content. +
+As you can see, it embeds the bpmnVisu custom widget, and includes some variables to get the BPMN diagram, and information about the process or case. +
+Note that it also includes a variable to check the licence, and another one (*_allCaseInfo_*) dedicated for testing.
+
+image:images/process-visu-fragment-variables.png[Process visualization fragment variables]
 
 [NOTE]
 ====
 The processId (or caseId) variable is shown as *_Exposed_*: this means the variable is defined in the hosting page: this is the interface between the page and the fragment.
 ====
-
-image:images/process-visu-fragment-variables.png[Process visualization fragment variables]
-
 
 === Embed the fragment in your page
 Now, you can open your page, and drag & drop the fragment in your page, from the *_Fragments_* tab of the library panel.
@@ -45,7 +44,7 @@ Selecting the fragment in the white screen, you can see a *_Bindable fragment da
 
 From your page, create a processId or caseId variable, which will contain the id of the required process or case you want to monitor.
 
-image:images/process-visu-page-fragment.png[Process visualization page fragment variable]
+image:images/process-visu-page-fragment.png[Process visualization page fragment variable, 300]
 
 
 
