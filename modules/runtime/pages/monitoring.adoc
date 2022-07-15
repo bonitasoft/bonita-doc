@@ -28,15 +28,19 @@ You can filter the table to show only a specified process, or process and versio
 Process Managers can see only the processes they manage.
 
 From a row in the table, you can click the _List_ icon to see a list of cases of the process.
-You can also open a diagram of a process, by clicking on the _Picture_ icon for the process. On the diagram, you can see the number and state of cases in progress at each step.
-Put your mouse hover any node to see an explanation of the display.
+
+You can also open a diagram of a process, by clicking on the _Picture_ icon for the process. On the diagram, you can see the number and state of cases in progress at each step. +
+Put your mouse hover any node to see an explanation of the display. +
+Zoom in the diagram with either the mouse wheel or the zoom buttons. Once zoomed in, you can drag the diagram. +
+Resize your browser window and click on the *_Reset_* button to fit the diagram to your window.
 
 The process diagram is constructed from the deployed process definition. This means that some details visible in Bonita Studio, such as descriptions are not available.
 
+You can customize the diagram page, or embed the BPMN diagram in your own page: see xref:ROOT:customize-display-process-monitoring.adoc[How to customize the display of process execution monitoring].
+
 [NOTE]
 ====
-
-Note: if a process was deployed from a .bar file created in Bonita Studio 6.3 or earlier, the diagram display is not available.
+If a process was deployed from a .bar file created in Bonita Studio 6.3 or earlier, the diagram display is not available.
 This is because some details of the `.bar` structure have changed.
 To see the diagram for such a process, export the process definition from Bonita Studio 6.3 as a `.bos` file, import it into Bonita Studio 6.4 or later, generate a new `.bar` file, and deploy it.
 ====

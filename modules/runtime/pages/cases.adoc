@@ -37,11 +37,17 @@ If you want to go back to the default view settings, clear your browser cache an
 
 From this table, you can delete a case or several cases. Select the cases you want to delete, and click on _Delete_. Confirm in the popup that you want to delete the selected cases.
 
-if you are using the Enterprise, Performance or Efficiency edition, you can also open the diagram of a case (case visualization), by clicking on the _Picture_ icon for the case.
-On the diagram, colored flags on the steps show the number of step instances in the possible states. Click on _Show key_ to see an explanation of the display.
+if you are using the Enterprise, Performance or Efficiency edition, you can also open the diagram of a case (case visualization), by clicking on the _Picture_ icon for the case. +
+On the diagram, colored flags on the steps show the number of step instances in the possible states. +
+Put your mouse hover any node to see an explanation of the display. +
+Zoom in the diagram with either the mouse wheel or the zoom buttons. Once zoomed in, you can drag the diagram. +
+Resize your browser window and click on the *_Reset_* button to fit the diagram to your window.
+
 Remember that a failure at a step does not necessarily mean that the case has failed entirely, but it might indicate that some action is needed, perhaps to xref:ROOT:admin-application-task-list.adoc#_replay_a_failed_task[replay a connector].
 
 The process diagram is constructed from the deployed process definition. This means that some details visible in Bonita Studio, such as annotations, are not available.
+
+You can customize the diagram page, or embed the BPMN diagram in your own page: see xref:ROOT:customize-display-process-monitoring.adoc[How to customize the display of process execution monitoring].
 
 [NOTE]
 ====
