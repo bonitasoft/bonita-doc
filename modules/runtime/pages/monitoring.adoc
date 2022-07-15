@@ -29,7 +29,7 @@ Process Managers can see only the processes they manage.
 
 From a row in the table, you can click the _List_ icon to see a list of cases of the process.
 You can also open a diagram of a process, by clicking on the _Picture_ icon for the process. On the diagram, you can see the number and state of cases in progress at each step.
-Click on the _Show key_ button to see an explanation of the display.
+Put your mouse hover any node to see an explanation of the display.
 
 The process diagram is constructed from the deployed process definition. This means that some details visible in Bonita Studio, such as descriptions are not available.
 
