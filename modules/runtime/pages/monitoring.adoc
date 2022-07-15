@@ -36,7 +36,8 @@ Resize your browser window and click on the *_Reset_* button to fit the diagram 
 
 The process diagram is constructed from the deployed process definition. This means that some details visible in Bonita Studio, such as descriptions are not available.
 
-You can customize the diagram page, or embed the BPMN diagram in your own page: see xref:ROOT:customize-display-process-monitoring.adoc[How to customize the display of process execution monitoring].
+You can customize the diagram page, or embed the BPMN diagram in your own page: see <next line to uncomment before merge>
+//xref:ROOT:customize-display-process-monitoring.adoc[How to customize the display of process execution monitoring].
 
 [NOTE]
 ====
