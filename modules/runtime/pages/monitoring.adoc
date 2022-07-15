@@ -34,8 +34,6 @@ Put your mouse hover any node to see an explanation of the display. +
 Zoom in the diagram with either the mouse wheel or the zoom buttons. Once zoomed in, you can drag the diagram. +
 Resize your browser window and click on the *_Reset_* button to fit the diagram to your window.
 
-The process diagram is constructed from the deployed process definition. This means that some details visible in Bonita Studio, such as descriptions are not available.
-
 You can customize the diagram page, or embed the BPMN diagram in your own page: see <next line to uncomment before merge>
 //xref:ROOT:customize-display-process-monitoring.adoc[How to customize the display of process execution monitoring].
 
