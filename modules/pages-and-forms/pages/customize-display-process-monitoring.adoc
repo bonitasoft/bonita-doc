@@ -12,7 +12,7 @@ To do so:
 
 . From Bonita Studio coolbar, click on the *_Applications_* icon, and open the *_Administrator Application_*
 . Go to the *_Resources_* menu, filter by page, and find the *_Bonita Admin Process Visualization_*  or *_Bonita Admin Case Visualization_* page (you may have to click on the *_Load more resources_* link)
-. Export the page by clicking on the download icon
+. Export the page by clicking on the *_Export_* button image:images/images-6_0/pb-export.png[Export button]
 . From Bonita Studio coolbar, click on the *_UI Designer_* icon to open the UI Designer
 . Import the page in the UI Designer
 

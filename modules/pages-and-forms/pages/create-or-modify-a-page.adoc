@@ -101,7 +101,7 @@ For more technical information about the pages, visit xref:ROOT:pages-developmen
 
 . In Bonita Studio, go to the _Project Explorer_
 . Open the project, and the _Pages/Forms/Layouts_ section
-. Douvle click on _Bonita layout_. This automatically opens the UI Designer with the layout ready to edit.
+. Double click on _Bonita layout_. This automatically opens the UI Designer with the layout ready to edit.
 . Edit it and save it with another name
 
 === From scratch
@@ -112,7 +112,8 @@ For more technical information about layouts, visit the xref:applications:layout
 
 == Create a fragment
 
-Use the same sequence of steps than to create a page from scratch.
+Use the same sequence of steps than to create a page.
+An example on how to use a Bonita fragment: xref:ROOT:customize-display-process-monitoring.adoc[How to customize the display of process execution monitoring].
 
 
 == Responsiveness
