@@ -5,14 +5,13 @@
 
 Learn how to use the multi-tenant to multi-runtime tool to convert a multi-tenant platform into a multi-runtime one.
 
-WARNING: xref:ROOT:multi-tenancy-and-tenant-configuration.adoc[Multi-tenancy] is deprecated starting from Bonita 2021.1 (technical version 7.12) and will be removed technically with Bonita 2023.1 (technical version 7.16).
-*If you are using multi-tenancy, you will have to run this conversion tool before updating to 7.16.*
+WARNING: xref:ROOT:multi-tenancy-and-tenant-configuration.adoc[Multi-tenancy] is deprecated starting from Bonita 2021.1 (technical version 7.12). *If you are using multi-tenancy, you will have to run this conversion tool before updating to the Bonita version without multi-tenancy.*
 
 image:version-update:mtmr-general-idea-schema.svg[General idea of the conversion tool,width=700]
 
 == Overview
 
-Following the commercial depreciation of multi-tenancy use by customers starting with Bonita 2021.1, the technical depreciation will be effective starting with Bonita 2023.1. The technical solution proposed by Bonitasoft for customers willing to have separate Bonita engine database (Oracle, SQL, postgres, etc.) per applications/processes, will be multi-runtimes. 
+Following the commercial depreciation of multi-tenancy use by customers starting with Bonita 2021.1, the technical depreciation . The technical solution proposed by Bonitasoft for customers willing to have separate Bonita engine database (Oracle, SQL, postgres, etc.) per applications/processes, will be multi-runtimes. 
 
 In order to prepare the technical conversion from multi-tenancy to multi-runtime, Bonitasoft developped a dedicated tool, that will have to be run once for every tenant that has to be kept, each one with a new Bonita engine database instance.
 
