@@ -12,25 +12,22 @@ image:version-update:mtmr-general-idea-schema.svg[General idea of the conversion
 
 == Overview
 
+Following the commercial depreciation of multi-tenancy use by customers starting with Bonita 2021.1, the technical depreciation will be effective starting with Bonita 2023.1. The technical solution proposed by Bonitasoft for customers willing to have separate Bonita engine database (Oracle, SQL, postgres, etc.) per applications/processes, will be multi-runtimes. 
 
-Following the commercial depreciation of multi-tenancy use by customer willing to have separate BDMs, the technical depreciation will be effective with Bonita 2023.1. The technical solution for customers willing to have separate BDMs per applications/processes proposed by Bonitasoft will be multi-runtimes. 
+In order to prepare the technical conversion from multi-tenancy to multi-runtime, Bonitasoft developped a dedicated tool, that will have to be run once for every tenant that has to be kept, each one with a new Bonita engine database instance.
 
+During the execution, the tool will delete everything not related to the tenant specified in the parameter from the given Bonita engine database. This means you will need to create a new Bonita engine database per tenant you want to keep, dump your current Bonita engine database and load it for each new instance. 
 
-In order to prepare the technical conversion from multi-tenancy to multi-runtime, Bonitasoft developped a dedicated tool, that will have to be run once for every tenant to be kept. 
-
-
-The tool will delete everything not related to the tenant specified in the parameter from the given database, this means you will need to dump your current database and mount one new database dump per tenant in your environment. 
-
-NOTE: The tool will have to be executed for every database dump.
+WARNING: The tool will have to be executed for every tenant you want to keep, with a dedicated Bonita engine database instance.
 
 == How works Bonita Multi-tenant to Multi-Runtime conversion tool 
+
 === Pre-requisites
 * The tool requires Java 11+ JRE
-* A database of a Bonita Multi-tenant Platform. +
-The aim is to restore a dump of your production database where you want one of your new Bonita Runtimes to run in the future, and then to run the tool on it.
-You will need to do it for each of the tenants you want to keep using.
+* Database with Bonita Multi-tenant Platform. +
+* Same number of Bonita engine database instances as the tenant you want to keep. 
 * This tool works on Bonita Platform Databases in version 7.11, 7.12, 7.13, 7.14 or 7.15.
-* During the operation, a Bonita Platform *should NOT* be running on the database.
+* During the conversion operation, the Bonita Platform *should NOT* be running on the database.
 
 === Usage: step-by-step procedure
 
