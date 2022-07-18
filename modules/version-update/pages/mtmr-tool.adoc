@@ -30,23 +30,27 @@ WARNING: The tool will have to be executed for every tenant you want to keep, wi
 
 === Usage: step-by-step procedure
 
+* Configure the Bonita engine database instances. 
+* Stop Bonita Platform. 
+* Create the Bonita engine database dump. 
 * Specify your database connection information in the application.properties file.
 * You will need to specify the username/password, as well as your connection information (uncomment & fill in the corresponding template).
+* Load the dump on each Bonita engine database instance *BEFORE* the next step
 * Then run the following command in a terminal next to the bin folder: `bin/multitenant-to-multiruntime-tool(.bat) <tenantId>`
 
 ____
 The tool will delete all the tenants as well as all their associated data, except the one provided in the parameter. The chosen tenant will then be set as the default tenant.
 ____
 
-* After the execution completes, you will have to upload a new license file before you can use the new database with a Bonita Platform. Use the setup tool to do it, as usual.
+* Once the execution completes, you will have to upload a new license file before you can use the new database with a Bonita Platform. Use the setup tool to do it, as usual.
 
 [NOTE]
 ====
 The tool does not change anything in the BDM database. You will have to manage it manually.
 
-If you were using separate BDM datasources (one per tenant typically), you will also need to modify the `bonita-tenant-community-custom.properties` file as appropriate.
+If you were using separate Bonita engine datasources (one per tenant typically), you will also need to modify the `bonita-tenant-community-custom.properties` file as appropriate.
 
-If you were using the same datasource for the BDM of all your tenants, you will need to manually separate the BDM database tables into separate databases and modify the `bonita-tenant-community-custom.properties` file of each runtime to point to the appropriate database.
+If you were using the same datasource for the Bonita engine databases of all your tenants, you will need to manually separate the Bonita engine database tables into separate ones, then modify the `bonita-tenant-community-custom.properties` file of each runtime, so it point to the appropriate database.
 ====
 
 === Error Management
