@@ -24,7 +24,7 @@ The bonita-dashboard-app-1.1.1.jar, contains two reports “Process Historical D
 
 === Process historical data
 
-For analyzing zases execution data of a chosen process in a defined period of time.
+For analyzing cases execution data of a chosen process in a defined period of time.
 
 On the analysis page you’ll have the possibility to create the graph with cases average time and/or download the file with detailed archived cases data in .csv format inside a zip. This enables the data to be sorted and filtered.
 
