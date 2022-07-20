@@ -2,6 +2,7 @@
 
 :description: An application for analytics and reporting. 
 
+{description} 
 
 Bonita Reporting app will enable you to view statistics and to extract process execution reports with meaningful data from Bonita, for process performance analysis and for pinpointing areas of improvement.
 
