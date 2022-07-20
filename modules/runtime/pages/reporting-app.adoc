@@ -24,7 +24,7 @@ The bonita-dashboard-app-1.1.1.jar, contains two reports “Process Historical D
 
 First, you will have to choose the process re. You can refine the selection criteria and number of displayed processes (max 20). From the list of processes that respond to selection criteria, choose the one you want to analyze. After that you will get redirected to the analysis page. 
 
-image:images/reporting-app-selection-page.png[Process selection]
+image:images/reporting-app-process-selection-page.png[Process selection]
 
 === Process historical data
 
@@ -32,11 +32,15 @@ For analyzing cases execution data of a chosen process in a defined period of ti
 
 On the analysis page you’ll have the possibility to create the graph with cases average time and/or download the file with detailed archived cases data in .csv format inside a zip. This enables the data to be sorted and filtered.
 
+image:images/reporting-app-process-historical-fdata-page.png[Process historical data]
+
 === Human tasks historical data
 
 For analyzing human actions in cases of a chosen process in a defined period of time. 
 
 On the analysis page you’ll have the possibility to create the graph with tasks average handling time and/or download the file with detailed archived human tasks data in .csv format inside a zip. This enables the data to be sorted and filtered.
+
+image:images/reporting-app-human-tasks-page.png[Human tasks data]
 
 == Diferentiators 
 
