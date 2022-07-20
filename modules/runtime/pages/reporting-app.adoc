@@ -3,42 +3,39 @@
 :description: An application for analytics and reporting. 
 
 
-{description} +
 Bonita Reporting app will enable you to view statistics and to extract process execution reports with meaningful data from Bonita, for process performance analysis and for pinpointing areas of improvement.
+
+
+In keeping with Bonitasoft’s promise to continuously deliver valuable, high quality features, we had to relinquish the Analytics and Reports page starting from Bonita 2021.2.
 
 [NOTE]
 ====
 
 *For Enterprise, Performance, Efficiency, and Teamwork editions only.*
 
-In keeping with Bonitasoft’s promise to continuously deliver valuable, high quality features, we had to relinquish the Analytics and Reports page starting from Bonita 2021.2.
+Bonita Reporting App is available for download on the Customer Portal/Customer Service Center.
 
-Bonita Reporting App, is a Bonita application compatible with Bonita 2021.2 and available for download on the Customer Portal/Customer Service Center.
+A customer account is required for downloading the .jar , that contains “Process Historical Data” report and “Human tasks historical data”.
 
-An Enterprise licence is required. 
 ====
 
 == Overview 
 
 The bonita-dashboard-app-1.1.1.jar, contains two reports “Process Historical Data” and “Human tasks historical data”.  
 
-First, you will have to choose the process re. You can refine the selection criteria and number of displayed processes (max 20). From the list of processes that respond to selection criteria, choose the one you want to analyze. After that you will get redirected to the analysis page. 
+First, you will have to choose the process which you want to analyse. From the list of processes responding to selection criteria, select the one you want to analyze. After that you will get redirected to the reporting pages. 
 
 image:images/reporting-app-process-selection-page.png[Process selection]
 
 === Process historical data
 
-For analyzing cases execution data of a chosen process in a defined period of time.
+On report’s page, based on *cases execution data in a defined period of time analysis*, you’ll have the possibility to generate the graph with cases average time and/or download the file with detailed archived cases data in .csv format inside a zip. This enables you to analyse it your chosen analytics tool. 
 
-On the analysis page you’ll have the possibility to create the graph with cases average time and/or download the file with detailed archived cases data in .csv format inside a zip. This enables the data to be sorted and filtered.
-
-image:images/reporting-app-process-historical-fdata-page.png[Process historical data]
+image:images/reporting-app-process-historical-data-page.png[Process historical data]
 
 === Human tasks historical data
 
-For analyzing human actions in cases of a chosen process in a defined period of time. 
-
-On the analysis page you’ll have the possibility to create the graph with tasks average handling time and/or download the file with detailed archived human tasks data in .csv format inside a zip. This enables the data to be sorted and filtered.
+On report’s page, based on *human actions in cases during a defined period of time*, you’ll have the possibility to generate the graph showing tasks average handling time and/or download detailed archived human tasks data, packaged in a .csv format file inside a zip. This enables you to analyse it your chosen analytics tool. 
 
 image:images/reporting-app-human-tasks-page.png[Human tasks data]
 
