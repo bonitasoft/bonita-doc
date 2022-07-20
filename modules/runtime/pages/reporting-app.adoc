@@ -22,6 +22,8 @@ An Enterprise licence is required.
 
 The bonita-dashboard-app-1.1.1.jar, contains two reports “Process Historical Data” and “Human tasks historical data”.  
 
+image:reporting-app-human-tasks-page.png[Process selection]
+
 === Process historical data
 
 For analyzing cases execution data of a chosen process in a defined period of time.
