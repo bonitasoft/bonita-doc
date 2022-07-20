@@ -24,7 +24,7 @@ The bonita-dashboard-app-1.1.1.jar, contains two reports “Process Historical D
 
 First, you will have to choose the process re. You can refine the selection criteria and number of displayed processes (max 20). From the list of processes that respond to selection criteria, choose the one you want to analyze. After that you will get redirected to the analysis page. 
 
-image:runtime:images:reporting-app-human-tasks-page.png[Process selection]
+image:images:reporting-app-selection-page.png[Process selection]
 
 === Process historical data
 
