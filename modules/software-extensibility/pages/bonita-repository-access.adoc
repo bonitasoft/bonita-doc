@@ -7,12 +7,12 @@
 [#credentials]
 == Ask for credentials to your account manager
 
-Once your request handled, your account manager will be able to provide you with valid credentials.
-These credentials will last as long as your subscription, but you won't need to change them if you extend that subscription.
+Once your subscription is registered, your account manager will automatically receive an email with valid credentials.
+These credentials will last as long as your subscription, but you will not need to change them if you extend that subscription.
 
-Credentials includes:
+Credentials are unique per subscription and include:
 
-* A login
+* A login (the email used for the subscription)
 * A token
 
 == Maven
@@ -21,7 +21,7 @@ Starting from Bonita xxx, Bonita Studio uses https://maven.apache.org/[maven] in
 
 [NOTE]
 ====
-In the below example we use Maven as the project build tool for extension projects, but it is also possible to use Gradle if it is the tool of your choice.
+In the below example, we use Maven as the project build tool for extension projects. But it is also possible to use Gradle if it is the tool of your choice.
 ====
 
 An Internet connection is required.
@@ -30,7 +30,7 @@ An Internet connection is required.
 
 Once you were granted with Bonita Repository Manager credentials, you have to tell https://maven.apache.org/configure.html[configure] `maven` to use Bonita release repository.
 
-This is done in a file named https://maven.apache.org/settings.html[settings.xml] which is present by convention in the following default place : `$HOME/.m2/settings.xml`
+This is done in a file named https://maven.apache.org/settings.html[settings.xml] which is present by convention in the following default place: `$HOME/.m2/settings.xml`
 
 [source, xml]
 .Sample sections of settings.xml
@@ -53,7 +53,7 @@ This is done in a file named https://maven.apache.org/settings.html[settings.xml
 === Bonita repositories declaration
 
 In this `settings.xml` file you have to declare Bonita release repository to let maven know that some dependencies can be found there.
-In the following code snippet, you'll find how to declare new https://maven.apache.org/settings.html#Repositories[repositories] to maven.
+In the following code snippet, you will find how to declare new https://maven.apache.org/settings.html#Repositories[repositories] to maven.
 
 [source, xml]
 .Part of settings.xml
@@ -103,13 +103,13 @@ In the following code snippet, you'll find how to declare new https://maven.apac
 
 [IMPORTANT]
 ====
-Don't forget to mark bonitasoft profile as `active` in the `activeProfiles` section or the declared repositories won't be used for dependency resolution
+Do not forget to mark bonitasoft profile as `active` in the `activeProfiles` section or the declared repositories will not be used for dependency resolution.
 ====
 
 
 === Authentication
 
-Now that maven is aware of bonita repositories, we have to give it the credentials to be allowed to download artifacts. Here is the simple way to specify credentials to use with https://maven.apache.org/settings.html#Servers[repository servers] but we strongly advice users to use https://maven.apache.org/guides/mini/guide-encryption.html[password encryption] to enforce security.
+Now that maven is aware of Bonita repositories, we have to give it the credentials to be allowed to download artifacts. Here is the simple way to specify credentials to use with https://maven.apache.org/settings.html#Servers[repository servers] but we strongly advice users to use https://maven.apache.org/guides/mini/guide-encryption.html[password encryption] to enforce security.
 
 [source, xml]
 .Server authentication in settings.xml
