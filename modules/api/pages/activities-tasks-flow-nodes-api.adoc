@@ -582,12 +582,13 @@ xref:ROOT:rest-api-overview.adoc#resource_search[Standard search parameters] are
  ** o: name, priority, dueDate, state, processDefinitionId, processInstanceId,
 parentActivityInstanceId, assigneeId, parentContainerId, displayName, reachedStateDate
  ** s: search on any field that can be used to order results
- ** f: assigned_id, user_id, state, name, displayName, processDefinitionId, caseId, parentCaseId, rootCaseId
+ ** f: assigned_id, user_id, show_assigned_to_others, state, name, displayName, processDefinitionId, caseId, parentCaseId, rootCaseId
 
 +
 For instance, you can filter on:
  ** `+assigned_id={user_id}+`: retrieve only the human tasks assigned to the specified ID. For example, retrieve the human tasks assigned to user with id 2: `/API/bpm/humanTask?p=0&c=10&f=assigned_id%3d2`
- ** `+user_id={user_id}+`: retrieve the human tasks assigned or pending for the specified ID. For example, retrieve the human tasks assigned or pending for user with id 2: `/API/bpm/humanTask?p=0&c=10&f=user_id%3d2`
+ ** `+user_id={user_id}+`: retrieve the human tasks assigned or pending for the specified ID. For example, retrieve the human tasks assigned or pending for user with id 2: `/API/bpm/humanTask?p=0&c=10&f=user_id%3d2` +
+  This filter can be combined with `+show_assigned_to_others=true+` in order to retrieve also tasks assigned by others and that are qualified for the given `+{user_id}+`
  ** `state=`: retrieve only the archived user tasks with the specified state. For example, retrieve the skipped tasks: `/API/bpm/humanTask?p=0&c=10&f=state=skipped`
  ** `name=`: retrieve only the human tasks with the specified name. For example, retrieve the human tasks with the name "Analyse Case": `/API/bpm/humanTask?p=0&c=10&f=name=Analyse Case`
  ** `displayName=`: retrieve only the archived user tasks with the specified displayName. For example, retrieve the human tasks with the displayName "Analyse Case": `/API/bpm/humanTask?p=0&c=10&f=displayName=Analyse Case`
