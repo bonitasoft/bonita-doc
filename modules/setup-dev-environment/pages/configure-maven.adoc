@@ -84,6 +84,6 @@ The _ID_ is used by xref:servers[servers] to reference the mirror if it is prote
 The _URL_ is simply the base URL of the mirror, used by maven to connect to a repository rather than the original repository URL. +
 The field _mirrorOf_ refers to the id of the repository that this is a mirror of. https://maven.apache.org/guides/mini/guide-mirror-settings.html#advanced-mirror-specification[Advanced use cases] are supported, like using `*` to mirror all repositories.
 
-== Add Bonita Repository Manager (Subscription editions only)
+== Add Bonita Artifact Repository (Subscription editions only)
 
-Please refer to the page xref:software-extensibility:bonita-repository-access.adoc[Access to Bonita Repository Manager] to get the information needed to set up the access to Bonita Repository Manager. Then use the steps described above to add Bonita Repository Manager into your Bonita Studio.
+Please refer to the page xref:software-extensibility:bonita-repository-access.adoc[Access to Bonita Artifact Repository] to get the information needed to set up the access to Bonita Artifact Repository. Then use the steps described above to add Bonita Artifact Repository into your Bonita Studio.

@@ -1,6 +1,6 @@
-= Access to Bonita Repository Manager (Subscription editions only)
+= Access to Bonita Artifact Repository (Subscription editions only)
 :page-aliases: ROOT:bonita-repository-access.adoc
-:description: Set up access to Bonita Repository Manager to download development dependencies.
+:description: Set up access to Bonita Artifact Repository to download development dependencies.
 
 {description}
 
@@ -17,7 +17,7 @@ Credentials are unique per subscription and include:
 
 == Maven
 
-Starting from Bonita xxx, Bonita Studio uses https://maven.apache.org/[maven] internally to resolve required dependencies.
+Starting from Bonita 2021.2, Bonita Studio uses https://maven.apache.org/[maven] internally to resolve required dependencies.
 
 [NOTE]
 ====
@@ -28,7 +28,7 @@ An Internet connection is required.
 
 === Maven settings overview
 
-Once you were granted with Bonita Repository Manager credentials, you have to tell https://maven.apache.org/configure.html[configure] `maven` to use Bonita release repository.
+Once you were granted with Bonita Artifact Repository credentials, you have to tell https://maven.apache.org/configure.html[configure] `maven` to use Bonita release repository.
 
 This is done in a file named https://maven.apache.org/settings.html[settings.xml] which is present by convention in the following default place: `$HOME/.m2/settings.xml`
 
@@ -133,13 +133,13 @@ Now that maven is aware of Bonita repositories, we have to give it the credentia
 
 === Maven configuration in Bonita Studio
 
-If you want to set up access to Bonita Repository Manager using Bonita Studio, please refer to the dedicated page on how to xref:setup-dev-environment:configure-maven.adoc[configure Maven from Bonita Studio].
+If you want to set up access to Bonita Artifact Repository using Bonita Studio, please refer to the dedicated page on how to xref:setup-dev-environment:configure-maven.adoc[configure Maven from Bonita Studio].
 
 == Docker
 
 === Authentication
 
-To be able to pull a Docker image from Bonita Repository Manager, you need to log in using https://docs.docker.com/engine/reference/commandline/login/[docker login] command line:
+To be able to pull a Docker image from Bonita Artifact Repository, you need to log in using https://docs.docker.com/engine/reference/commandline/login/[docker login] command line:
 
 [source,bash]
 ----
