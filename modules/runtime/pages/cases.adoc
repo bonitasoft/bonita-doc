@@ -38,7 +38,7 @@ If you want to go back to the default view settings, clear your browser cache an
 From this table, you can delete a case or several cases. Select the cases you want to delete, and click on _Delete_. Confirm in the popup that you want to delete the selected cases.
 
 if you are using the Enterprise, Performance or Efficiency edition, you can also open the diagram of a case (case visualization), by clicking on the _Picture_ icon for the case. +
-On the diagram, colored flags on the steps show the number of step instances in the possible states. +
+On the diagram, colored flags on the steps show the number of step instances in each state. +
 Put your mouse hover any node to see an explanation of the display. +
 Zoom in the diagram with either the mouse wheel or the zoom buttons. Once zoomed in, you can drag the diagram. +
 Resize your browser window and click on the *_Reset_* button to fit the diagram to your window.
