@@ -74,7 +74,7 @@ To customize a page provided by Bonita:
 . From Bonita Studio coolbar, click on the *_Applications_* icon, and open the *_Administrator Application_*
 . Go to the *_Resources_* menu, find the page, and and check its description to make sure it is a page done with Bonita UI Designer
 . Export the page
-. From Bonita Studio coolbar, click on the *_UI Designer_* icon to open the UI Designer
+. From Bonita Studio coolbar, click on the *_UI Designer_* icon to open Bonita UI Designer
 . Import the page in the UI Designer
 
 Note that by doing so, if the page embed fragments and custom widgets, they are added to the UI Designer palette.
