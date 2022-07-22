@@ -4,6 +4,11 @@
 
 {description}
 
+[NOTE]
+====
+This is only available in Enterprise, Efficiency and Performance editions.
+====
+
 == Modify the process or case visualization page
 
 You may want to re-use the content of process or case visualization page from the *_Administrator Application_*.
