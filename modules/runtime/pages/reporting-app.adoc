@@ -40,10 +40,10 @@ On report’s page, based on *human actions in cases during a defined period of 
 
 image:images/reporting-app-human-tasks-page.png[Human tasks data]
 
-== Diferentiators 
+== Advantages 
 
-. A Bonita application, hence by using the Organization Management it can be available to specific users 
-. Reports already known by customer with an improved performance
+. Reporting App is a Bonita application, hence it is compatible with Bonita ressources. For exemple, Organization Management can be used to have the application available to specific users. 
+. The reports are a combination of the already known reports in Jasper and customer feedback, along with an improved performance. 
 . New user interface 
 
 
