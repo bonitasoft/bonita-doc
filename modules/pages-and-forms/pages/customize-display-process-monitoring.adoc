@@ -28,7 +28,7 @@ Doing this, a new fragment appears in the UI Designer home page, in the *_Fragme
 
 Open it, to understand its content. +
 As you can see, it embeds the *_bpmnVisu_* custom widget, and includes some variables to get the BPMN diagram, and information about the process or case. +
-Note that it also includes a variable to check the licence, and another one (*_allCaseInfo_*) dedicated for testing.
+Note that it also includes a variable to check the availability of the feature, and another one (*_allCaseInfo_*) dedicated for testing.
 
 image:images/process-visu-fragment-variables.png[Process visualization fragment variables]
 
