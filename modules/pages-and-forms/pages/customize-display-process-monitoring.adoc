@@ -6,7 +6,7 @@
 
 == Modify the process or case visualization page
 
-You may want to re-use the process or case visualization page from the *_Administrator Application_*.
+You may want to re-use the content of process or case visualization page from the *_Administrator Application_*.
 
 To do so:
 
