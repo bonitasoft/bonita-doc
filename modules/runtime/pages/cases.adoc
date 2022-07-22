@@ -6,6 +6,8 @@
 
 Those users can view a list of open or archived cases, as well as cases with failures, access the case details and overview, the pending tasks for this case, the process definition of this case, and write a comment in open cases.
 
+NOTE: Starting with Bonita 2022.2, bpmn-visualization library of https://process-analytics.dev/[Bonita's Process Analytics project] has been integrated in process and case visualization diagram.
+
 Here is a view of the page:
 image:images/UI2021.1/admin-case-list.png[Admin Case list]
 // {.img-responsive}
@@ -37,17 +39,22 @@ If you want to go back to the default view settings, clear your browser cache an
 
 From this table, you can delete a case or several cases. Select the cases you want to delete, and click on _Delete_. Confirm in the popup that you want to delete the selected cases.
 
-if you are using the Enterprise, Performance or Efficiency edition, you can also open the diagram of a case (case visualization), by clicking on the _Picture_ icon for the case.
-On the diagram, colored flags on the steps show the number of step instances in the possible states. Click on _Show key_ to see an explanation of the display.
+If you are using the Enterprise, Performance or Efficiency edition, you can also open the diagram of a case (case visualization), by clicking on the _Picture_ icon for the case. +
+On the diagram, colored flags on the steps show the number of step instances in each state. +
+Put your mouse hover any step to see an explanation of the display. +
+Zoom in the diagram with either _Ctrl+mouse wheel_ or the zoom buttons. If you are using a Mac with a Magic Mouse, prefer the zoom buttons. +
+Once zoomed in, you can drag the diagram. +
+Resize your browser window and click on the *_Reset_* button to fit the diagram to your window.
+
 Remember that a failure at a step does not necessarily mean that the case has failed entirely, but it might indicate that some action is needed, perhaps to xref:ROOT:admin-application-task-list.adoc#_replay_a_failed_task[replay a connector].
 
-The process diagram is constructed from the deployed process definition. This means that some details visible in Bonita Studio, such as annotations, are not available.
+You can customize the diagram page, or embed the BPMN diagram in your own page: see xref:pages-and-forms:customize-display-process-monitoring.adoc[How to customize the display of process execution monitoring].
 
 [NOTE]
 ====
 
-if a process was deployed from a .bar file created in Bonita Studio 6.3 or earlier, the diagram display is not available. This is because some details of the .bar structure have changed.
-To see the diagram for such a process, export the process definition from Bonita Studio 6.3 as a .bos file, import it into Bonita Studio 6.4 or later, generate a new .bar file, and deploy it.
+* If a process was deployed from a .bar file created in Bonita Studio 6.3 or earlier, the diagram display is not available. This is because some details of the .bar structure have changed. To see the diagram for such a process, export the process definition from Bonita Studio 6.3 as a .bos file, import it into Bonita Studio 6.4 or later, generate a new .bar file, and deploy it.
+* In the process and case diagram of Bonita 2022.2, you may notice the highlight is missing. This, and other values are under development and will be delivered soon.
 ====
 
 == Add a comment to a case
