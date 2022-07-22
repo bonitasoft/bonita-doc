@@ -40,7 +40,7 @@ The processId (or caseId) variable is shown as *_Exposed_*: this means the varia
 === Embed the fragment in your page
 Now, you can open your page, and drag & drop the fragment in your page, from the *_Fragments_* tab of the palette.
 
-Selecting the fragment in the white screen, you can see a *_Bindable fragment data_* section in the property panel: this is the interface with the fragment, where you provide the caseId or processId.
+Selecting the fragment in the white board, you can see a *_Bindable fragment data_* section in the properties panel: this is the interface with the fragment, where you provide the caseId or processId.
 
 From your page, create a processId or caseId variable, which will contain the id of the required process or case you want to monitor.
 
