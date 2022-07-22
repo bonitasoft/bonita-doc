@@ -34,7 +34,7 @@ This is why Bonita comes with four embedded applications, with different status:
 * Generic applications. They are fully functional, can be customized and can be deleted if not useful in a Production environment:
   ** Administrator
   ** User
-* Bonita applications. They are developped by Bonitasoft and delivered as independent applications. You can download them from the Customer Portal/Customer Service Center and install by folowing the same way as custom applications: 
+* Bonita applications. They are developped by Bonitasoft and delivered as independent applications. You can download them from the Customer Portal/Customer Service Center and can be installed by folowing the same process as xref:applications.adoc[for any other application]: 
   ** Reporting App
 
 [.card.card-index]
