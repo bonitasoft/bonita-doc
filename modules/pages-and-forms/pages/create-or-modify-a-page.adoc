@@ -112,7 +112,7 @@ For more technical information about layouts, visit the xref:applications:layout
 
 == Create a fragment
 
-Use the same sequence of steps than to create a page.
+Use the same sequence of steps as to create a page.
 An example on how to use a Bonita fragment: xref:ROOT:customize-display-process-monitoring.adoc[How to customize the display of process execution monitoring].
 
 
