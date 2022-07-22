@@ -11,7 +11,7 @@ In this page, _Administrators_ and _Process Managers_ can have a complete view o
 
 *For Enterprise, Performance and Efficiency editions only.*
 
-Starting with Bonita 2022.2, bpmn-visualization library of https://process-analytics.dev/[Bonita's Process Analytics project] has been integrated in process and case visualization diagram.  
+Starting with Bonita 2022.2, bpmn-visualization library of https://process-analytics.dev/[Bonita's Process Analytics project] has been integrated in process and case visualization diagram.
 ====
 
 Here is a view of the Monitoring page
@@ -33,7 +33,8 @@ From a row in the table, you can click the _List_ icon to see a list of cases of
 
 You can also open the diagram of a process, by clicking on the _Picture_ icon for the process. On the diagram, you can see the number and state of cases in progress at each step. +
 Put your mouse hover any step to see an explanation of the display. +
-Zoom in the diagram with either the mouse wheel or the zoom buttons. Once zoomed in, you can drag the diagram. +
+Zoom in the diagram with either _Ctrl+mouse wheel_ or the zoom buttons. If you are using a Mac with a Magic Mouse, prefer the zoom buttons. +
+Once zoomed in, you can drag the diagram. +
 Resize your browser window and click on the *_Reset_* button to fit the diagram to your window.
 
 You can customize the diagram page, or embed the BPMN diagram in your own page: see xref:pages-and-forms:customize-display-process-monitoring.adoc[How to customize the display of process execution monitoring].
@@ -42,5 +43,5 @@ You can customize the diagram page, or embed the BPMN diagram in your own page: 
 ====
 * If a process was deployed from a .bar fivisualization diagram contains le created in Bonita Studio 6.3 or earlier, the diagram display is not available.
 This is because some details of the `.bar` structure have changed. To see the diagram for such a process, export the process definition from Bonita Studio 6.3 as a `.bos` file, import it into Bonita Studio 6.4 or later, generate a new `.bar` file, and deploy it.
-* In the process and case diagram of Bonita 2022.2, you may notice the highlight is missing. This, and other values are under development and will be delivered soon. 
+* In the process and case diagram of Bonita 2022.2, you may notice the highlight is missing. This, and other values are under development and will be delivered soon.
 ====
