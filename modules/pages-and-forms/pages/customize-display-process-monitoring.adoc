@@ -48,7 +48,7 @@ image:images/process-visu-page-fragment.png[Process visualization page fragment 
 
 [NOTE]
 ====
-The BPMN diagram display is provided by the xref:https://github.com/process-analytics[Process Analytics] bpmn-visualization library, an open-source TypeScript library for visualizing process execution data on BPMN diagrams. +
+The BPMN diagram display is provided by the https://github.com/process-analytics[Process Analytics] https://github.com/process-analytics/bpmn-visualization-js[bpmn-visualization library], an open-source TypeScript library for visualizing process execution data on BPMN diagrams. +
 You are welcome to contribute to this project!
 ====
 
