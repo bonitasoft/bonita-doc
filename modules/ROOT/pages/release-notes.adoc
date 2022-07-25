@@ -234,6 +234,29 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 
 == Bug fixes
 
+=== Fixes in Bonita 2021.2-u5 (2022-07-25)
+
+==== Fixes in Bonita Studio (including Bonita UI Designer)
+
+* STUDIO-4056 Unable to launch Studio when the installation folder contains a hash (#)
+* STUDIO-4170 Groovy script contract input dependencies not automatically updated if contract input is changed from single to multiple (or viceversa)
+* STUDIO-4263 Java Doc not shown in the groovy Script when mouseOver
+* STUDIO-4275 Messaging: multi environment isn't enterprise anymore
+* STUDIO-4281 [Concurrency] Classloader issues with bonita project plugin execution
+* STUDIO-4367 Cannot add a Maven dependency with classifier via Overview -> Extensions -> ...
+* STUDIO-4386 SAP connector wizard: the Test connection button does not work
+
+==== Fixes in Bonita Runtime (including Bonita Applications)
+
+* RUNTIME-881 Case visualization is not showing the trace in Archive cases
+* RUNTIME-888 Application directory is not translated in French
+* RUNTIME-960 Update Mysql driver to 8.0.28
+* RUNTIME-961 Update Spring to 5.2.22.RELEASE
+* RUNTIME-1011 ProcessId parameter in URL is not taken into account in admin case list
+* RUNTIME-1156 BConf file deployment is broken for non-existing processes
+* RUNTIME-1275 Bonita-sp- maven-repository 7.13.x contains extra files
+* RUNTIME-1302 IllegalStateException is generated during the connect() method call of the SAP connector
+
 === Fixes in Bonita 2021.2-u4 (2022-03-03)
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
