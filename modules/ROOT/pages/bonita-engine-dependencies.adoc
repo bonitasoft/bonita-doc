@@ -1,4 +1,4 @@
-= Bonita engine dependencies (7.13.4)
+= Bonita engine dependencies (7.13.5)
 :description: List all dependencies uses for Bonita Engine
 
 
@@ -9,7 +9,7 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.12.6
+| 2.12.6.20220326
 | N/A
 |  N/A
 
@@ -27,7 +27,7 @@
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.12.6
+| 2.12.6.1
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -99,7 +99,7 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.12.6
+| 2.12.6.20220326
 | N/A
 |  N/A
 
@@ -117,7 +117,7 @@
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.12.6
+| 2.12.6.1
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -255,7 +255,7 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.12.6
+| 2.12.6.20220326
 | N/A
 |  N/A
 
@@ -273,7 +273,7 @@
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.12.6
+| 2.12.6.1
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -609,49 +609,49 @@
 
 | org.springframework
 | spring-aop
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jdbc
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-tx
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -741,7 +741,7 @@
 
 | mysql
 | mysql-connector-java
-| 8.0.27
+| 8.0.28
 | http://dev.mysql.com/doc/connector-j/en/[http://dev.mysql.com/doc/connector-j/en/]
 |  The GNU General Public License, v2 with FOSS exception
 
@@ -777,49 +777,49 @@
 
 | org.springframework
 | spring-aop
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jdbc
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-tx
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -867,7 +867,7 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.12.6
+| 2.12.6.20220326
 | N/A
 |  N/A
 
@@ -885,7 +885,7 @@
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.12.6
+| 2.12.6.1
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -963,7 +963,7 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.12.6
+| 2.12.6.20220326
 | N/A
 |  N/A
 
@@ -981,7 +981,7 @@
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.12.6
+| 2.12.6.1
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1119,7 +1119,7 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.12.6
+| 2.12.6.20220326
 | N/A
 |  N/A
 
@@ -1137,7 +1137,7 @@
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.12.6
+| 2.12.6.1
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1377,7 +1377,7 @@
 
 | org.antlr
 | antlr4-runtime
-| 4.6
+| 4.7.2
 | http://www.antlr.org[http://www.antlr.org]
 |  http://www.antlr.org/license.html[The BSD License]
 
@@ -1617,49 +1617,49 @@
 
 | org.springframework
 | spring-aop
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jdbc
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-tx
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -1749,7 +1749,7 @@
 
 | mysql
 | mysql-connector-java
-| 8.0.27
+| 8.0.28
 | http://dev.mysql.com/doc/connector-j/en/[http://dev.mysql.com/doc/connector-j/en/]
 |  The GNU General Public License, v2 with FOSS exception
 
@@ -1785,49 +1785,49 @@
 
 | org.springframework
 | spring-aop
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jdbc
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-tx
-| 5.2.15.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
