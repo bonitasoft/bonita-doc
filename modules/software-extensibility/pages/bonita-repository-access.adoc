@@ -28,7 +28,7 @@ Credentials are unique per subscription and include:
 [#maven]
 == Maven
 
-Starting from Bonita 2021.2, Bonita Studio uses https://maven.apache.org/[maven] internally to resolve required dependencies.
+Starting from Bonita 2021.2, Bonita Studio uses https://maven.apache.org/[Maven] internally to resolve required dependencies.
 
 [NOTE]
 ====
@@ -39,7 +39,7 @@ An Internet connection is required.
 
 === Maven settings overview
 
-Once you were granted with Bonita Artifact Repository credentials, you have to tell https://maven.apache.org/configure.html[configure] `maven` to use Bonita Maven repository.
+Once you were granted with Bonita Artifact Repository credentials, you have to tell https://maven.apache.org/configure.html[configure] `Maven` to use Bonita Maven repository.
 
 This is done in a file named https://maven.apache.org/settings.html[settings.xml] which is present by convention in the following default place: `$HOME/.m2/settings.xml`
 
@@ -63,8 +63,8 @@ This is done in a file named https://maven.apache.org/settings.html[settings.xml
 
 === Bonita Maven repository declaration
 
-In this `settings.xml` file you have to declare Bonita Maven repository to let maven know that some dependencies can be found there.
-In the following code snippet, you will find how to declare new https://maven.apache.org/settings.html#Repositories[repositories] to maven.
+In this `settings.xml` file you have to declare Bonita Maven repository to let Maven know that some dependencies can be found there.
+In the following code snippet, you will find how to declare new https://maven.apache.org/settings.html#Repositories[repositories] to Maven.
 
 [source, xml]
 .Part of settings.xml
@@ -120,7 +120,7 @@ Do not forget to mark `bonitasoft` profile as `active` in the `activeProfiles` s
 
 === Authentication
 
-Now that maven is aware of Bonita Maven repository, we have to give it the credentials to be allowed to download artifacts. Here is the simple way to specify credentials to use with https://maven.apache.org/settings.html#Servers[repository servers] but we strongly advice users to use https://maven.apache.org/guides/mini/guide-encryption.html[password encryption] to enforce security.
+Now that Maven is aware of Bonita Maven repository, we have to give it the credentials to be allowed to download artifacts. Here is the simple way to specify credentials to use with https://maven.apache.org/settings.html#Servers[repository servers] but we strongly advice users to use https://maven.apache.org/guides/mini/guide-encryption.html[password encryption] feature to enforce security.
 
 [source, xml]
 .Server authentication in settings.xml
