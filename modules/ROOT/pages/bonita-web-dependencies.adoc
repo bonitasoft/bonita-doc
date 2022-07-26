@@ -13,33 +13,33 @@
 | https://commons.apache.org/proper/commons-io/[https://commons.apache.org/proper/commons-io/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
-| javax.servlet
-| javax.servlet-api
-| 4.0.1
-| https://javaee.github.io/servlet-spec/[https://javaee.github.io/servlet-spec/]
-|  https://oss.oracle.com/licenses/CDDL+GPL-1.1[CDDL + GPLv2 with classpath exception]
+| jakarta.servlet
+| jakarta.servlet-api
+| 4.0.4
+| https://projects.eclipse.org/projects/ee4j.servlet[https://projects.eclipse.org/projects/ee4j.servlet]
+|  http://www.eclipse.org/legal/epl-2.0https://www.gnu.org/software/classpath/license.html[EPL 2.0GPL2 w/ CPE]
 
 | net.sf.ehcache
 | ehcache
-| 2.10.9.2
+| 2.10.10.3.24
 | http://ehcache.org[http://ehcache.org]
 |  src/assemble/EHCACHE-CORE-LICENSE.txt[The Apache Software License, Version 2.0]
 
 | org.apache.commons
 | commons-lang3
-| 3.11
+| 3.12.0
 | https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | org.bonitasoft.engine
 | bonita-client
-| 7.14.0.beta-01
+| 7.15.0.beta-01
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-common
-| 7.14.0.beta-01
+| 7.15.0.beta-01
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
@@ -51,7 +51,7 @@
 
 | org.springframework
 | spring-core
-| 5.2.15.RELEASE
+| 5.3.21
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 |=== 
@@ -63,43 +63,43 @@
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.12.6
+| 2.13.2.2
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-csv
-| 2.12.6
+| 2.13.2
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-smile
-| 2.12.6
+| 2.13.2
 | http://github.com/FasterXML/jackson-dataformats-binary[http://github.com/FasterXML/jackson-dataformats-binary]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-xml
-| 2.12.6
+| 2.13.2
 | https://github.com/FasterXML/jackson-dataformat-xml[https://github.com/FasterXML/jackson-dataformat-xml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-yaml
-| 2.12.6
+| 2.13.2
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.module
 | jackson-module-jaxb-annotations
-| 2.12.6
+| 2.13.2
 | https://github.com/FasterXML/jackson-modules-base[https://github.com/FasterXML/jackson-modules-base]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.module
 | jackson-module-jsonSchema
-| 2.12.6
+| 2.13.2
 | https://github.com/FasterXML/jackson-module-jsonSchema[https://github.com/FasterXML/jackson-module-jsonSchema]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -135,7 +135,7 @@
 
 | org.apache.commons
 | commons-lang3
-| 3.11
+| 3.12.0
 | https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -153,37 +153,37 @@
 
 | org.bonitasoft.console
 | console-common
-| 7.14.0.beta-01
+| 7.15.0.beta-01
 | N/A
 |  -
 
 | org.bonitasoft.engine
 | bonita-client
-| 7.14.0.beta-01
+| 7.15.0.beta-01
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-common
-| 7.14.0.beta-01
+| 7.15.0.beta-01
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-server
-| 7.14.0.beta-01
+| 7.15.0.beta-01
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.web
 | bonita-web-extensions
-| 7.14.0.beta-01
+| 7.15.0.beta-01
 | http://www.bonitasoft.com[http://www.bonitasoft.com]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.codehaus.groovy
 | groovy
-| 3.0.8
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -225,7 +225,7 @@
 
 | org.springframework
 | spring-web
-| 5.2.15.RELEASE
+| 5.3.21
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -249,7 +249,7 @@
 
 | com.bonitasoft.engine
 | bonita-client-sp
-| 7.14.0.beta-01
+| 7.15.0.beta-01
 | N/A
 |  -
 
@@ -261,7 +261,7 @@
 
 | org.bonitasoft.console
 | console-common
-| 7.14.0.beta-01
+| 7.15.0.beta-01
 | N/A
 |  -
 |=== 
@@ -273,25 +273,25 @@
 
 | com.bonitasoft.engine
 | bonita-client-sp
-| 7.14.0.beta-01
+| 7.15.0.beta-01
 | N/A
 |  -
 
 | com.bonitasoft.engine
 | bonita-common-sp
-| 7.14.0.beta-01
+| 7.15.0.beta-01
 | N/A
 |  -
 
 | com.bonitasoft.engine
 | bonita-server-sp
-| 7.14.0.beta-01
+| 7.15.0.beta-01
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | com.bonitasoft.web
 | bonita-web-extensions-sp
-| 7.14.0.beta-01
+| 7.15.0.beta-01
 | http://www.bonitasoft.com[http://www.bonitasoft.com]
 |  -
 
@@ -319,12 +319,6 @@
 | http://spnego.sourceforge.net/[http://spnego.sourceforge.net/]
 |  http://www.gnu.org/licenses/lgpl-3.0.html[GNU Lesser General Public License v3.0]
 
-| org.apache.santuario
-| xmlsec
-| 2.1.7
-| https://santuario.apache.org/[https://santuario.apache.org/]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
-
 | org.apache.xbean
 | xbean-classloader
 | 3.7
@@ -333,19 +327,19 @@
 
 | org.bonitasoft.console
 | console-common-sp
-| 7.14.0.beta-01
+| 7.15.0.beta-01
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-server
-| 7.14.0.beta-01
+| 7.15.0.beta-01
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-server
-| 7.14.0.beta-01
+| 7.15.0.beta-01
 | N/A
 |  -
 
@@ -357,25 +351,25 @@
 
 | org.keycloak
 | keycloak-adapter-core
-| 6.0.1
+| 17.0.1
 | http://keycloak.org/keycloak-adapter-core[http://keycloak.org/keycloak-adapter-core]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.keycloak
 | keycloak-saml-adapter-api-public
-| 6.0.1
+| 17.0.1
 | http://keycloak.org/keycloak-saml-adapter-api-public[http://keycloak.org/keycloak-saml-adapter-api-public]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.keycloak
 | keycloak-saml-servlet-filter-adapter
-| 6.0.1
+| 17.0.1
 | http://keycloak.org/keycloak-saml-servlet-filter-adapter[http://keycloak.org/keycloak-saml-servlet-filter-adapter]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.keycloak
 | keycloak-servlet-filter-adapter
-| 6.0.1
+| 17.0.1
 | http://keycloak.org/keycloak-servlet-filter-adapter[http://keycloak.org/keycloak-servlet-filter-adapter]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
