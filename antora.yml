@@ -1,15 +1,15 @@
 name: bonita
 title: Bonita
 # TODO: When releasing beta version, put version: 2022.2
-version: 2022.2
+version: 2023.1
 # TODO: When releasing beta version, replace alpha by beta
 prerelease: -alpha
 asciidoc:
   attributes:
-    bonitaVersion: 2022.2
-    bonitaTechnicalVersion: '7.15.0' # latest public community version
-    javadocVersion: 7.15
-    crowdinBonitaVersion: 7.15
+    bonitaVersion: 2023.1
+    bonitaTechnicalVersion: '7.16.0' # latest public community version
+    javadocVersion: 7.16
+    crowdinBonitaVersion: 7.16
     # page attributes
     page-pagination: true # display links to previous/next pages at the bottom of the page
     page-editable: true
