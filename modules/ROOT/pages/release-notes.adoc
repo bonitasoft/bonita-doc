@@ -50,7 +50,11 @@ With the previous version, if the actor mapping of a process was not defined, an
 
 ==== New Menus for Bonita Studio
 
-The menus have been reviewed for an easier user journey. 
+The menus have been reviewed for an easier user journey.
+
+==== Added Environment duplication feature
+
+With the previous versions, creating a new environment required to set up the whole project configuration entirely, including configuration of each process, what could be time consuming and error prone with big projects. From now on, users can create environments starting from duplicating an existing one. 
 
 == Functional changes
 
