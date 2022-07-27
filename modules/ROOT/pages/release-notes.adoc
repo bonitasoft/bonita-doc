@@ -3,7 +3,7 @@
 
 [NOTE]
 ====
-The 2022.2 is in qualification.
+The 2022.2 is in Beta.
 ====
 
 == New added values
@@ -15,7 +15,7 @@ The deliverable of this project is called the _bpmn-visualization library_ . You
 Till Bonita 2022.2, another library has been used to display process execution data for administrators at both process and case levels. This library had some limitations and was not easy to improve with new features. +
 Hence, integrating the bpmn-visualization library to Bonita, was a very natural choice. +
 
-The new values are available for Bonita Subscription Editions starting with the Efficiency.
+The new values are available for Bonita Subscription Editions starting with the Efficiency edition.
   
   * Bonita Administration application users will get a faster and more robust view on the process execution data (thanks to the library and new REST APIs)
   * As the bpmn-visualization library evolves, more interactivity and information for a better monitoring capacity will be provided
