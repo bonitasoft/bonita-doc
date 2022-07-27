@@ -7,7 +7,7 @@ Learn how to use the multi-tenant to multi-runtime tool to convert a multi-tenan
 
 WARNING: xref:ROOT:multi-tenancy-and-tenant-configuration.adoc[Multi-tenancy] is deprecated starting from Bonita 2021.1 (technical version 7.12). *If you are using multi-tenancy, you will have to run this conversion tool before updating to the Bonita version without multi-tenancy.*
 
-image:version-update:mtmr-general-idea-schema.svg[General idea of the conversion tool]
+image:version-update:mtmr-general-idea-schema.svg[General idea of the conversion tool, width=800]
 
 == Overview
 
