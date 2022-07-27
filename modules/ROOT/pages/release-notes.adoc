@@ -22,7 +22,7 @@ The new values are available for Bonita Subscription Editions starting with the 
   * Since the pages have been created by using Bonita UI Designer, developers can:
         
         ** Use the custom widget embedded in the new pages in their own application pages. The widget has been wrapped into a fragment that makes it very easy to use.
-        ** Offer process execution data visualization to specific users by adjusting the permissions accordingly
+        ** Modify the process or case visualization page, and use it in any Bonita application
 
 For more details, check xref:pages-and-forms:customize-display-process-monitoring.adoc[How to page to customize the display of process execution monitoring]
 
