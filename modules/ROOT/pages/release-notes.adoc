@@ -26,6 +26,13 @@ The new values are available for Bonita Subscription Editions starting with the 
 
 For more details, check xref:pages-and-forms:customize-display-process-monitoring.adoc[How to page to customize the display of process execution monitoring]
 
+=== Bonita Reporting Application 
+
+Here it comes, Bonita Reporting Application is now available for download on Bonita’s Customer Service Center/Customer Portal and is compatible starting with Bonita 2021.2. 
+
+A subscription account is required for downloading the .jar , that contains “Process Historical Data” and “Human tasks historical data” reports, designed for process performance and human tasks execution analysis. More details are available in the dedicated documentation page xref:runtime:reporting-app.adoc[Bonita application for analytics and reporting].
+
+
 == Improvements
 
 === Development suite changes
