@@ -69,6 +69,16 @@ You can easily duplicate an exiting page just by saving it under a different nam
 
 Only Bonita pages created with the UI Designer can be customized in the UI Designer. Indeed, as Bonita applications have evolved in several phases, so did the frameworks in which their pages have been made.
 
+To customize a page provided by Bonita:
+
+. From Bonita Studio coolbar, click on the *_Applications_* icon, and open the *_Administrator Application_*
+. Go to the *_Resources_* menu, find the page, and and check its description to make sure it is a page done with Bonita UI Designer
+. Export the page
+. From Bonita Studio coolbar, click on the *_UI Designer_* icon to open Bonita UI Designer
+. Import the page in the UI Designer
+
+Note that by doing so, if the page embed fragments and custom widgets, they are also imported and added to the UI Designer palette.
+
 You can find the list of pages ready for customization in a xref:ROOT:pages.adoc#_List_of_Bonita_Applications_customizable_pages[dedicated documentation page].
 
 For more technical information about the pages, visit xref:ROOT:pages-development.adoc[the dedicated documentation page].
@@ -91,7 +101,7 @@ For more technical information about the pages, visit xref:ROOT:pages-developmen
 
 . In Bonita Studio, go to the _Project Explorer_
 . Open the project, and the _Pages/Forms/Layouts_ section
-. Douvle click on _Bonita layout_. This automatically opens the UI Designer with the layout ready to edit.
+. Double click on _Bonita layout_. This automatically opens the UI Designer with the layout ready to edit.
 . Edit it and save it with another name
 
 === From scratch
@@ -102,7 +112,8 @@ For more technical information about layouts, visit the xref:applications:layout
 
 == Create a fragment
 
-Use the same sequence of steps than to create a page from scratch.
+Use the same sequence of steps as to create a page.
+An example on how to use a Bonita fragment: xref:ROOT:customize-display-process-monitoring.adoc[How to customize the display of process execution monitoring].
 
 
 == Responsiveness
