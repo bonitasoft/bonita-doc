@@ -152,7 +152,7 @@ Starting from Bonita 2021.2, Bonita Studio uses https://maven.apache.org/[Maven]
 If you want to set up access to Bonita Artifact Repository using Bonita Studio, please refer to the dedicated page on how to xref:setup-dev-environment:configure-maven.adoc[configure Maven from Bonita Studio].
 
 
-== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+== image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
 === ERROR: Could not find artifact in central
 
