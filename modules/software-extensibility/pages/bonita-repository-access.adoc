@@ -20,28 +20,29 @@ For now on, only xref:test-toolkit:ROOT:process-testing-overview.adoc[Bonita Tes
 Once your subscription is registered, your account manager will automatically receive an email with valid credentials.
 These credentials will last as long as your subscription, but you will not need to change them if you extend that subscription.
 
-Credentials are unique per subscription and include:
+Credentials are unique per subscription access and include:
 
-* A login (the email used for the subscription)
-* A token
+* A subscription access login (the email used for the subscription)
+* A subscription access token
 
 [#maven]
 == Maven
-
-Starting from Bonita 2021.2, Bonita Studio uses https://maven.apache.org/[Maven] internally to resolve required dependencies.
 
 [NOTE]
 ====
 In the below example, we use Maven as the project build tool for extension projects. But it is also possible to use Gradle if it is the tool of your choice.
 ====
 
+[IMPORTANT]
+====
 An Internet connection is required.
+====
 
 === Maven settings overview
 
 Once you were granted with Bonita Artifact Repository credentials, you have to tell https://maven.apache.org/configure.html[configure] `Maven` to use Bonita Maven repository.
 
-This is done in a file named https://maven.apache.org/settings.html[settings.xml] which is present by convention in the following default place: `$HOME/.m2/settings.xml`
+This is done in a file named `settings.xml`. The file location depends on your Maven installation, which is explained on https://maven.apache.org/settings.html[Maven official documentation].
 
 [source, xml]
 .Sample sections of settings.xml
@@ -120,7 +121,7 @@ Do not forget to mark `bonitasoft` profile as `active` in the `activeProfiles` s
 
 === Authentication
 
-Now that Maven is aware of Bonita Maven repository, we have to give it the credentials to be allowed to download artifacts. Here is the simple way to specify credentials to use with https://maven.apache.org/settings.html#Servers[repository servers] but we strongly advice users to use https://maven.apache.org/guides/mini/guide-encryption.html[password encryption] feature to enforce security.
+Now that Maven is aware of Bonita Maven repository, you have to give it the credentials to be allowed to download artifacts. Credentials are defined in the https://maven.apache.org/settings.html#Servers[repository servers] section. We strongly advise you to use https://maven.apache.org/guides/mini/guide-encryption.html[password encryption] feature to enforce security.
 
 [source, xml]
 .Server authentication in settings.xml
@@ -134,8 +135,10 @@ Now that Maven is aware of Bonita Maven repository, we have to give it the crede
         <server>
             <!-- This server ID must be the same as the one use for repository declaration ! -->
             <id>bonitasoft-releases</id>
-            <username>MY_LOGIN</username>
-            <password>MY_BONITA_REPOSITORY_TOKEN</password>
+            <!-- The login associated to your subscription access -->
+            <username>SUBSCRIPTION_ACCESS_LOGIN</username>
+            <!-- The token after encryption associated to your subscription access -->
+            <password>SUBSCRIPTION_ACCESS_ENCRYPTED_TOKEN</password>
         </server>
     </servers>
     <!-- ...  -->
@@ -143,5 +146,7 @@ Now that Maven is aware of Bonita Maven repository, we have to give it the crede
 ----
 
 === Maven configuration in Bonita Studio
+
+Starting from Bonita 2021.2, Bonita Studio uses https://maven.apache.org/[Maven] internally to resolve required dependencies.
 
 If you want to set up access to Bonita Artifact Repository using Bonita Studio, please refer to the dedicated page on how to xref:setup-dev-environment:configure-maven.adoc[configure Maven from Bonita Studio].
