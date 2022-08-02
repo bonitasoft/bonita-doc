@@ -254,7 +254,9 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 * RUNTIME-961 Update Spring to 5.2.22.RELEASE
 * RUNTIME-1011 ProcessId parameter in URL is not taken into account in admin case list
 * RUNTIME-1156 BConf file deployment is broken for non-existing processes
+* RUNTIME-1220 Admin case list doesn't have 'case_delete' permissions
 * RUNTIME-1275 Bonita-sp- maven-repository 7.13.x contains extra files
+* RUNTIME-1296 Missing REST API static permissions
 * RUNTIME-1302 IllegalStateException is generated during the connect() method call of the SAP connector
 
 === Fixes in Bonita 2021.2-u4 (2022-03-03)
