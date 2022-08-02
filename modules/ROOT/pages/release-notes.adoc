@@ -250,8 +250,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 
 * RUNTIME-881 Case visualization is not showing the trace in Archive cases
 * RUNTIME-888 Application directory is not translated in French
-* RUNTIME-960 Update Mysql driver to 8.0.28
-* RUNTIME-961 Update Spring to 5.2.22.RELEASE
+* RUNTIME-956 [Security] Update several dependencies
 * RUNTIME-1011 ProcessId parameter in URL is not taken into account in admin case list
 * RUNTIME-1156 BConf file deployment is broken for non-existing processes
 * RUNTIME-1220 Admin case list doesn't have 'case_delete' permissions
