@@ -69,11 +69,11 @@ In some cases, one of your extension may have missing transitive dependency beca
 ====
 Both workarounds are not ideal.
 
-In the first case their is a risk that the version provided by the runtime is not compatible with the extension. You will also be more at risk with further version update if the provided dependency is updated/removed as it will be only be detect at runtime.
+In the first case there is a risk that the version provided by the runtime is not compatible with the extension. You will also be more at risk with further version update if the provided dependency is updated/removed as it will be only be detect at runtime.
 
-In the second case you might have classloading issues as two versions of the same dependency in your runtime classloader. Bonita supports to a ceratain extents this scenario but there are edge case not properly supported (eg: sl4j-api static factories...etc). In addition, when your extension is updated, that transitive depdencency verison might become irrelevant.
+In the second case you might have classloading issues as two versions of the same dependency are loaded in your runtime classloader. Bonita supports to a certain extent this scenario but there are edge cases not properly supported (eg: sl4j-api static factories...etc). In addition, when your extension is updated, that transitive depencency version might become irrelevant.
 
-The recommendation is to properly test your extension against the target runtime version to guarantee a proper dependency management is done on the extension side. Make a new release of your extension if required when updating the bonita version.
+The recommendation is to properly test your extension against the target runtime version to guarantee a proper dependency management is done on the extension side. Make a new release of your extension if required when updating from one bonita runtime version to another.
 
 Example: 
 My extension required `commons-lang3` in `3.11` version and it's working fine in `2021.2`.
