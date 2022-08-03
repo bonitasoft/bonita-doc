@@ -66,7 +66,7 @@ In some cases, one of your extension may have missing transitive dependency beca
 * Explicitly add this dependency in your extensions with the required version (Project Overview > Extensions > Add a custom extension > Other...).
 
 [WARNING]
-----
+====
 Both workarounds are not ideal.
 
 In the first case their is a risk that the version provided by the runtime is not compatible with the extension. You will also be more at risk with further version update if the provided dependency is updated/removed as it will be only be detect at runtime.
@@ -81,7 +81,7 @@ I update my project to `2022.2` and now I got missing dependency configuration e
 In `2022.2` the `commons-lang3` dependency has been updated to `3.12.0` so I need to update the version of `commons-lang3` in my extension and make a new version compatible with `2022.2`. 
 
 It can be done by updating to the `bonita-runtime-bom` to `7.15.0` when your are using the BOM in your extension.
-----
+====
 
 
 
