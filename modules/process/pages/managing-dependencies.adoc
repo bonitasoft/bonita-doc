@@ -55,6 +55,33 @@ If you want to develop custom extensions for your processes, it is highly recomm
 
 This will help Maven selecting the matching versions if you are using a dependency already available in the Bonita runtime. When it is the case a warning should be displayed by your IDE. You can remove the version and set the scope to _provided_.
 
+== Troubleshooting 
+
+=== Missing dependencies in my configurations after a project migration
+
+When a project is migrated the target runtime version is updated and some provided dependencies may changes (version update or dependencies removed). 
+In some cases, one of your extension may have missing transitive dependency because the provided version provided by the runtime is not the same as the one expected by the extension. You can mitigate this issue by:
+
+* Removing this dependency from your configurations. The runtime dependency version will be used at runtime.
+* Explicitly add this dependency in your extensions with the required version (Project Overview > Extensions > Add a custom extension > Other...).
+
+[WARNING]
+----
+Both workarounds are not ideal.
+
+In the first case their is a risk that the version provided by the runtime is not compatible with the extension. You will also be more at risk with further version update if the provided dependency is updated/removed as it will be only be detect at runtime.
+
+In the second case you might have classloading issues as two versions of the same dependency in your runtime classloader. Bonita supports to a ceratain extents this scenario but there are edge case not properly supported (eg: sl4j-api static factories...etc). In addition, when your extension is updated, that transitive depdencency verison might become irrelevant.
+
+The recommendation is to properly test your extension against the target runtime version to guarantee a proper dependency management is done on the extension side. Make a new release of your extension if required when updating the bonita version.
+
+Example: 
+My extension required `commons-lang3` in `3.11` version and it's working fine in `2021.2`.
+I update my project to `2022.2` and now I got missing dependency configuration errors for `commons-lang3-3.11.jar`.
+In `2022.2` the `commons-lang3` dependency has been updated to `3.12.0` so I need to update the version of `commons-lang3` in my extension and make a new version compatible with `2022.2`. 
+
+It can be done by updating to the `bonita-runtime-bom` to `7.15.0` when your are using the BOM in your extension.
+----
 
 
 
