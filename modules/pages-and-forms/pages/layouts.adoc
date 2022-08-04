@@ -1,0 +1,32 @@
+= Layouts in the UI Designer
+:page-aliases: ROOT:layouts.adoc
+:description: Discover how to use variables in the UI Designer to manage information in artifacts.
+
+{description}
+
+== Create a layout
+
+=== From the provided Bonita layout
+==== If you have not installed any Bonita application in your project in Bonita Studio
+
+. From Bonita Studio, click on the *_Applications_* icon and select either the Administrator or Super Administrator application
+. Go to the *_Resources_* menu option
+. If needed, filter the type by _Layout_, and select *_Bonita Layout_*
+. Click on the *_Export_* button
+. From Bonita Studio, click on the *_UI Designer_* icon to open the UI Designer
+. Click on the *_Import_* button
+. Find the Bonita layout you have exported and load it
+. Edit it and save it with another name
+
+==== If you have installed a Bonita application
+
+. In Bonita Studio, go to the _Project Explorer_
+. Open the project, and the _Pages/Forms/Layouts_ section
+. Double click on _Bonita layout_. This automatically opens the UI Designer with the layout ready to edit.
+. Edit it and save it with another name
+
+=== From scratch
+
+Use the same sequence of steps than to create a page from scratch.
+
+For more technical information about layouts, visit the xref:applications:layout-development.adoc[dedicated documentation page].

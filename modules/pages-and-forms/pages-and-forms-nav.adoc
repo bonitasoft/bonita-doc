@@ -1,6 +1,7 @@
  * xref:pages-and-forms.adoc[Pages and forms]
  ** xref:forms.adoc[Forms overview]
  ** xref:pages.adoc[Pages overview]
+ ** xref:layouts.adoc[Layouts overview]
  ** xref:variables.adoc[Variables in the UI Designer]
  ** xref:widgets.adoc[Widgets]
  ** xref:widget-properties.adoc[Widget properties]

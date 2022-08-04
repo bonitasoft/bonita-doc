@@ -28,6 +28,8 @@ You can also convert a plain container used in a page, a form, a layout or a fra
 . Click the *_Save_* button.
 . The Fragment editor opens.
 
+An example on how to use a Bonita fragment: xref:ROOT:customize-display-process-monitoring.adoc[How to customize the display of process execution monitoring].
+
 == Update a fragment
 
 Fragments are listed in the Fragments tab of the UI Designer home page. Click the name of a fragment to open it in the Fragment editor.
