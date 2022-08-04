@@ -19,13 +19,13 @@ Concretely, it means that to add an extension to your Bonita project (a connecto
 [TIP]
 ====
 If your artifacts are published on maven central, you do not need to add any extra configuration, it is the default repository used by Maven. +
-You might need to configure a xref:proxies[Proxy] if you are behind a firewall. 
+You might need to configure a xref:proxies[Proxy] if you are behind a firewall.
 ====
 
 To configure a new Maven repository, click on *_Preferences_* (from the coolbar) -> *_Maven_*, and select the tab *_Repositories_*.
 
 You can add a new Repository to the selected profile by clicking on the Add button, or edit an existing one by selecting it. +
-The UI offers the possibiliy to edit the ID, the name and the URL of the repository, and to define policies for Releases and Snapshots artifacts. +
+The UI offers the possibility to edit the ID, the name and the URL of the repository, and to define policies for Releases and Snapshots artifacts. +
 If you need to configure credentials for your repository, you'll have to create a xref:servers[Server] that references this repository ID. +
 The UI does not offer the possibility to add and configure plugin repositories, since they are not used by Bonita.
 
@@ -38,7 +38,7 @@ Credentials can be *username/password* or *privateKey/passphrase* if you use ssh
 
 [IMPORTANT]
 ====
-If you use a private key to login to the server (ssh), make sure that the password field is empty. Otherwise, the key will be ignored. 
+If you use a private key to log in to the server (ssh), make sure that the password field is empty. Otherwise, the key will be ignored.
 ====
 
 To configure a new Maven server, click on *_Preferences_* (from the coolbar) -> *_Maven_*, and select the tab *_Servers_*.
@@ -50,12 +50,12 @@ The UI does not offer the possibility to edit directory and file permissions sin
 [#encryption]
 Maven support https://maven.apache.org/guides/mini/guide-encryption.html[password encryption], so does Bonita. +
 It is recommended to use password encryption when Maven settings are shared. +
-To encrypt a password, you must first define a master password, at the top of the UI. This master password is saved in `~/.m2/settings-security.xml`, and is used as an encryption key to encryt and decrypt other passwords. It means that you cannot decrypt an encrypted password without the master password. So if your passwords are encrypted, you can share the settings file freely, it won't be possible to use them without the master password (which should never be shared). +
+To encrypt a password, you must first define a master password, at the top of the UI. This master password is saved in `~/.m2/settings-security.xml`, and is used as an encryption key to encrypt and decrypt other passwords. It means that you cannot decrypt an encrypted password without the master password. So if your passwords are encrypted, you can share the settings file freely, it won't be possible to use them without the master password (which should never be shared). +
 Once you defined a master password (automatically encrypted using an internal maven key), you can encrypt your passwords using the encrypt button in the UI.
 
 [WARNING]
 ====
-If you update the master password, all passwords have to be encrypted again. 
+If you update the master password, all passwords have to be encrypted again.
 ====
 
 [#proxies]
@@ -66,7 +66,7 @@ You can configure a proxy to use for some or all of your HTTP requests with Mave
 To configure a new Maven proxy, click on *_Preferences_* (from the coolbar) -> *_Maven_*, and select the tab *_Proxies_*.
 
 You can add a new Proxy by clicking on the Add button, or edit an existing one by selecting it. +
-_Protocol_, _Host_ and _Port_ refers to the `protocol://host:port` of your proxy. + 
+_Protocol_, _Host_ and _Port_ refers to the `protocol://host:port` of your proxy. +
 The field _nonProxyHosts_ refers to the list of hosts that should not be proxied. The delimiter of the list is the expected type of the proxy server, usually a pipe or a comma. +
 You can configure credentials if your proxy requires authentication. It is recommended to xref:encryption[encrypt] your passwords if the maven configuration file is shared. +
 You might need to define several proxies, but keep in mind that only one proxy can be active at a time. To activate a proxy, select it on the list and click on the button `activate`.
@@ -74,7 +74,7 @@ You might need to define several proxies, but keep in mind that only one proxy c
 [#mirrors]
 == Add a new Maven mirror
 
-Maven offers the possibility to configure https://maven.apache.org/guides/mini/guide-mirror-settings.html[mirrors] for some or all your repositories. 
+Maven offers the possibility to configure https://maven.apache.org/guides/mini/guide-mirror-settings.html[mirrors] for some or all your repositories.
 
 To configure a new Maven mirror, click on *_Preferences_* (from the coolbar) -> *_Maven_*, and select the tab *_Mirrors_*.
 
@@ -82,4 +82,8 @@ You can add a new Mirror by clicking on the Add button, or edit an existing one 
 A mirror is defined by an _ID_, a _name_, an _URL_ and a field _mirrorOf_. +
 The _ID_ is used by xref:servers[servers] to reference the mirror if it is protected by authentication. +
 The _URL_ is simply the base URL of the mirror, used by maven to connect to a repository rather than the original repository URL. +
-The field _mirrorOf_ reffers to the id of the repository that this is a mirror of. https://maven.apache.org/guides/mini/guide-mirror-settings.html#advanced-mirror-specification[Advanced use cases] are supported, like using `*` to mirror all repositories.
+The field _mirrorOf_ refers to the id of the repository that this is a mirror of. https://maven.apache.org/guides/mini/guide-mirror-settings.html#advanced-mirror-specification[Advanced use cases] are supported, like using `*` to mirror all repositories.
+
+== Setup the access to Bonita Artifact Repository (Subscription editions only)
+
+Please refer to the page xref:software-extensibility:bonita-repository-access.adoc[Access to Bonita Artifact Repository] to get the information needed to set up the access to Bonita Artifact Repository. Then use the steps described above to add Bonita Artifact Repository into your Bonita Studio.
