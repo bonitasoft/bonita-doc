@@ -10,11 +10,6 @@
 
 [.card.card-index]
 --
-xref:ROOT:create-or-modify-a-page.adoc[[.card-title]#Create or modify UI elements# [.card-body.card-content-overflow]#pass:q[All UI elements and how they fit together]#]
---
-
-[.card.card-index]
---
 xref:forms.adoc[[.card-title]#Forms# [.card-body.card-content-overflow]#pass:q[The user interfaces closely tied to processes]#]
 --
 
