@@ -31,9 +31,11 @@ This is why Bonita comes with four embedded applications, with different status:
 * Core applications. They are critical to the good operation of Bonita in a Production environment. They can be customized but they cannot be deleted:
   ** Application Directory
   ** Super Administrator
-* Generic applications. They are fully functional, can be customized, but can also be deleted if not useful in a Production environment:
+* Generic applications. They are fully functional, can be customized and can be deleted if not useful in a Production environment:
   ** Administrator
   ** User
+* Bonita applications. They are developped by Bonitasoft and delivered as independent applications. You can download them from the Customer Portal/Customer Service Center and can be installed by folowing the same process as xref:applications.adoc[custom applications]: 
+  ** Reporting App
 
 [.card.card-index]
 --
@@ -53,6 +55,11 @@ xref:ROOT:admin-application-overview.adoc[[.card-title]#Administrator# [.card-bo
 [.card.card-index]
 --
 xref:user-application-overview.adoc[[.card-title]#User# [.card-body.card-content-overflow]#pass:q[Process start and task execution using a generic tasklist]#]
+--
+
+[.card.card-index]
+--
+xref:reporting-app.adoc[[.card-title]#Reporting App# [.card-body.card-content-overflow]#pass:q[View statistics and extract execution reports for process performance analysis]#]
 --
 
 [.card-section]
