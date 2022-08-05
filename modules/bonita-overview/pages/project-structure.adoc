@@ -84,19 +84,19 @@ However, it is not required to use all the concepts to create a valid Bonita Aut
 |Studio/Admin Application
 |xml editor
 
-|xref:ROOT:pages.adoc[Application pages]
+|xref:pages-and-forms:pages.adoc[Application pages]
 |Web pages used within your applications
 |Create
 |UI Designer
 |Front-end framework
 
-|xref:ROOT:layouts.adoc[Layout]
+|xref:applications:layout-development.adoc[Layout]
 |Used to define the main frame of an application.
 |Provided
 |UI Designer
 |Front-end framework
 
-|xref:ROOT:themes.adoc[Theme]
+|xref:applications:themes.adoc[Theme]
 |Defines the look and feel of your application
 |A default theme is provided and you can create custom theme
 |Studio or xref:applications:customize-living-application-theme.adoc[Dedicated SDK] (custom theme)
