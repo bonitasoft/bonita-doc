@@ -51,9 +51,13 @@ You can also use data binding and specify a variable to populate the list of ava
 
 === Checkbox widget
 
+image::images/widgets/checkbox.png[checkbox,align="left"]
+
 Use a checkbox widget to create a unique checkbox. The value property will be true or false, depending on the checked value of the checkbox.
 
 === Checklist widget
+
+image::images/widgets/checklist.png[checklist,align="left"]
 
 Use a checklist widget to create a set of checkboxes for the available values, from which the users picks any number of values. To define the *available values*, you can provide a comma-separated list for simple values (for example: red, green, blue), or bind to a variable that holds an array of values. +
 If the values are JavaScript objects, you can also specify a *displayed key* that identifies the attribute to be used to label the checkboxes and a *returned key* so *selected value* will return only a specific key rather that the whole corresponding object.
@@ -64,6 +68,8 @@ WARNING: Do not bind the *Selected values* property to a specific item from the 
 
 === Radio buttons widget
 
+image::images/widgets/radio.png[radio,align="left"]
+
 Use a radio button widget to create a set of radio buttons for the available values, from which the user picks one value. +
 To define the *available values*, you can provide a comma-separated list for simple values (for example: red, green, blue), or bind to a variable that holds an array of values. +
 If the values are JavaScript objects, you can also specify a *displayed key* that identifies the attribute to be used to label the radio buttons and a *returned key* so *selected value* will return only a specific key rather that the whole corresponding object.
@@ -73,6 +79,7 @@ The selected value should be bound to a variable that will hold the data for the
 [#date-picker]
 
 === Date picker widget
+image::images/widgets/date-picker.png[date-picker,align="left"]
 
 Use a Date picker widget to display a calendar from which the user can select a date or set a date manually (e.g., a date of birth). +
 To select a date and a time (e.g., to schedule a meeting), use the Date time picker widget instead.
@@ -96,6 +103,8 @@ The calendar can be localized with the usual localization mechanism (localizatio
 
 === Date time picker widget
 
+image::images/widgets/date-time-picker.png[date-time-picker,align="left"]
+
 Use a Date time picker widget to display a calendar from which the user can select a date and a time or set them manually (e.g., to schedule a meeting). +
 To select only a date (e.g., a date of birth), use the Date picker widget instead.
 
@@ -113,9 +122,13 @@ The calendar can be localized with the usual localization mechanism (localizatio
 
 === File upload widget
 
+image::images/widgets/upload.png[upload,align="left"]
+
 Use an upload widget to perform a file upload (POST) on the specified *URL*. Data returned by the server is stored in the *value* property.
 
 === Button widget
+
+image::images/widgets/button.png[button,align="left"]
 
 Use a button widget to enable to user to trigger an action. The button can perform a `PUT`, `POST`, `GET` (from 7.1.3), or `DELETE` (from 7.1.3) request and send data to a given URL. +
 You can use a variable to hold the resulting data after success or failure.
@@ -135,6 +148,8 @@ Every action, except for the `Close modal`, can close the modal when it succeeds
 When inside a form container, the button is automatically disabled while the form is invalid.
 
 === Save button widget
+
+image::images/widgets/savebutton.png[savebutton,align="left"]
 
 Use the Save button widget to store data in the browser LocalStorage.
 For instance, to let users save the draft of the current form, bind the *formInput* variable of your form to the *value* property.

@@ -1,0 +1,6 @@
+= How to manage financial data in your User Interfaces
+:page-aliases: ROOT:manage-financial-data.adoc
+:description: Learn how to create forms using UI Designer that can read or write financial data over your processes and BDMs.
+
+{description}
+

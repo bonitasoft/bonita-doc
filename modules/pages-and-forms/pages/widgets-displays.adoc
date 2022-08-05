@@ -9,6 +9,8 @@ Use a display widget for information that the user can read on a page. This incl
 
 === Table widget
 
+image::images/widgets/table.png[table,align="left"]
+
 Use a table widget to display data in a table. In order to display the data, first define the *headers* property with a comma-separated list of column headings. +
 Then bind the *content* to an array of JavaScript objects. +
 Finally, provide a comma-separated list for the *columns keys* indicating the attribute to display in each column.
@@ -66,6 +68,8 @@ NOTE: In embedded Table widget documentation you can found an example for border
 
 === Data table widget
 
+image::images/widgets/datatable.png[datatable,align="left"]
+
 NOTE: Read xref:ROOT:widgets.adoc#_table_widget[Table widget] section to know how you can customize display of your data table widget.
 
 An extended table widget that provides column sorting, filtering, and paging in addition to the standard table widget facilities.
@@ -117,6 +121,8 @@ NOTE: it is only possible to filter on attributes that are searchable in the RES
 
 === Image widget
 
+image::images/widgets/image.png[image,align="left"]
+
 Use an image widget to display an image. The image widget is able to display images from local assets or an image from a URL:
 
 * To use an image asset in the image widget, set the *Source type* property to _Asset_, and then enter the image name in the *Asset name* input field.
@@ -125,6 +131,8 @@ Use an image widget to display an image. The image widget is able to display ima
 *_Note_*: Applies from _7.0.2_
 
 === Chart widget
+
+image::images/widgets/chart.png[chart,align="left"]
 
 Use the chart widget to create a graphical display of data to ease understanding. This widget is based on angular-chart-0.8.1, which is based on Chart.js. +
 For information, see the http://jtblin.github.io/angular-chart.js/[Angular chart documentation] or http://www.chartjs.org/docs/[Chart.js documentation].
