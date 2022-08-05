@@ -1,0 +1,311 @@
+= Access to Bonita Artifact Repository (Subscription editions only)
+:page-aliases: ROOT:bonita-repository-access.adoc
+:description: Set up access to Bonita Artifact Repository to download development dependencies.
+
+{description}
+
+[#bonita-artifact-repository]
+== What is Bonita Artifact Repository?
+
+Bonita Artifact Repository is a solution to get Maven artifacts produced by Bonitasoft, which can be consumed as dependencies in downstream projects.
+
+[WARNING]
+====
+For now on, only xref:test-toolkit:ROOT:process-testing-overview.adoc[Bonita Test Toolkit] is available on Bonita Artifact Repository.
+====
+
+[#credentials]
+== Ask for credentials to your account manager
+
+Once your subscription is registered, your account manager will automatically receive an email with valid credentials.
+These credentials will last as long as your subscription, but you will not need to change them if you extend that subscription.
+
+Credentials are unique per subscription access and include:
+
+* A subscription access login (the email used for the subscription)
+* A subscription access token
+
+[#maven]
+== Maven
+
+[NOTE]
+====
+In the below example, we use Maven as the project build tool for extension projects. But it is also possible to use Gradle if it is the tool of your choice.
+====
+
+[IMPORTANT]
+====
+An Internet connection is required.
+====
+
+=== Maven settings overview
+
+Once you were granted with Bonita Artifact Repository credentials, you have to tell https://maven.apache.org/configure.html[configure] `Maven` to use Bonita Maven repository.
+
+This is done in a file named `settings.xml`. The file location depends on your Maven installation, which is explained on https://maven.apache.org/settings.html[Maven official documentation].
+
+[source, xml]
+.Sample sections of settings.xml
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <localRepository/>
+  <interactiveMode/>
+  <offline/>
+  <pluginGroups/>
+  <servers/>
+  <mirrors/>
+  <proxies/>
+  <profiles/>
+  <activeProfiles/>
+</settings>
+----
+
+=== Bonita Maven repository declaration
+
+In this `settings.xml` file you have to declare Bonita Maven repository to let Maven know that some dependencies can be found there.
+In the following code snippet, you will find how to declare new https://maven.apache.org/settings.html#Repositories[repositories] to Maven.
+
+[source, xml]
+.Part of settings.xml
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <!-- ...  -->
+    <profiles>
+        <profile>
+            <id>bonitasoft</id>
+            <repositories>
+                <repository>
+                    <id>bonitasoft-releases</id>
+                    <name>Bonitasoft Releases</name>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <url>https://bonitasoft.jfrog.io/artifactory/maven</url>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>bonitasoft-releases</id>
+                    <name>Bonitasoft Releases</name>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <url>https://bonitasoft.jfrog.io/artifactory/maven</url>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+    <!-- ...  -->
+  <activeProfiles>
+    <activeProfile>bonitasoft</activeProfile>
+  </activeProfiles>
+
+</settings>
+----
+
+[IMPORTANT]
+====
+Do not forget to mark `bonitasoft` profile as `active` in the `activeProfiles` section or the declared repositories will not be used for dependency resolution.
+====
+
+
+=== Authentication
+
+Now that Maven is aware of Bonita Maven repository, you have to give it the credentials to be allowed to download artifacts. Credentials are defined in the https://maven.apache.org/settings.html#Servers[repository servers] section. We strongly advise you to use https://maven.apache.org/guides/mini/guide-encryption.html[password encryption] feature to enforce security.
+
+[source, xml]
+.Server authentication in settings.xml
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <!-- ...  -->
+    <servers>
+        <server>
+            <!-- This server ID must be the same as the one use for repository declaration ! -->
+            <id>bonitasoft-releases</id>
+            <!-- The login associated to your subscription access -->
+            <username>SUBSCRIPTION_ACCESS_LOGIN</username>
+            <!-- The token after encryption associated to your subscription access -->
+            <password>SUBSCRIPTION_ACCESS_ENCRYPTED_TOKEN</password>
+        </server>
+    </servers>
+    <!-- ...  -->
+</settings>
+----
+
+=== Maven configuration in Bonita Studio
+
+Starting from Bonita 2021.2, Bonita Studio uses https://maven.apache.org/[Maven] internally to resolve required dependencies.
+
+If you want to set up access to Bonita Artifact Repository using Bonita Studio, please refer to the dedicated page on how to xref:setup-dev-environment:configure-maven.adoc[configure Maven from Bonita Studio].
+
+
+== image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+
+=== ERROR: Could not find artifact in central
+
+*Symptom:* +
+Your Maven build fails with an equivalent error:
+
+[source,log]
+----
+[ERROR] Failed to execute goal on project XXX: Could not resolve dependencies for project XXX: Could not find artifact com.bonitasoft:bonita-test-toolkit:jar:1.0.0 in central (https://repo.maven.apache.org/maven2)
+----
+
+*Cause:* +
+
+- The active profile in your `settings.xml` file is missing ;
+- Or the active profile is not matching the ID in the `<profiles></profiles>` section.
+
+Example:
+
+[source, xml]
+----
+<settings>
+    <profiles>
+        <profile>
+            <id>bonitasoft</id> <!-- ID of your profile containing Bonita Maven repository definition -->
+            <repositories>
+                <!-- ... -->
+            </repositories>
+            <pluginRepositories>
+                <!-- ... -->
+            </pluginRepositories>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>foobar</activeProfile> <!-- Incorrect ID! -->
+    </activeProfiles>
+</settings>
+----
+
+*Solution:* +
+The active profile must match the profile ID containing Bonita Maven repository definition.
+
+Example:
+
+[source, xml]
+----
+<settings>
+    <profiles>
+        <profile>
+            <id>bonitasoft</id>
+            <repositories>
+                <!-- ... -->
+            </repositories>
+            <pluginRepositories>
+                <!-- ... -->
+            </pluginRepositories>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>bonitasoft</activeProfile> <!-- Correct ID -->
+    </activeProfiles>
+</settings>
+----
+
+
+=== ERROR: authentication failed / status: 401 Unauthorized
+
+*Symptom:* +
+Your Maven build fails with an equivalent error:
+
+[source,log]
+----
+[ERROR] Failed to execute goal on project XXX: Could not resolve dependencies for project XXX: Failed to collect dependencies at com.bonitasoft:bonita-test-toolkit:jar:1.0.0: Failed to read artifact descriptor for com.bonitasoft:bonita-test-toolkit:jar:1.0.0: Could not transfer artifact com.bonitasoft:bonita-test-toolkit:pom:1.0.0 from/to bonitasoft-releases (https://bonitasoft.jfrog.io/artifactory/maven): authentication failed for https://bonitasoft.jfrog.io/artifactory/maven/com/bonitasoft/bonita-test-toolkit/1.0.0/bonita-test-toolkit-1.0.0.pom, status: 401 Unauthorized
+----
+
+*Cause:* +
+
+- The `<server></server>` section is missing in your `settings.xml` file ;
+- Or the ID in the `<server></server>` section is not matching the ID of the repositories' definition ;
+- Or you set an incorrect username in the `<server></server>` section. It should be the email used for your Bonita subscription ;
+- Or you set an incorrect password in the `<server></server>` section. It should be encrypted and that so, it starts and ends with curly braces (i.e. `<password>{MZ8lWg+K9FA9B0qh/RkJgN}</password>`). You also need to https://maven.apache.org/guides/mini/guide-encryption.html#escaping-curly-brace-literals-in-your-password-since-maven-2-2-0[escape curly-brace literals in your password].
+
+Example:
+
+[source, xml]
+----
+<settings>
+    <profiles>
+        <profile>
+            <id>bonitasoft</id>
+            <repositories>
+                <repository>
+                    <id>bonitasoft-releases</id> <!-- ID of the Bonita Maven repository definition -->
+                    <!-- ... -->
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>bonitasoft-releases</id> <!-- ID of the Bonita Maven plugin repository definition -->
+                    <!-- ... -->
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>bonitasoft</activeProfile>
+    </activeProfiles>
+    <servers>
+        <server>
+            <id>foobar</id> <!-- Incorrect ID! -->
+            <username>foo</username> <!-- Incorrect username! -->
+            <password>bar</password> <!-- Incorrect password! -->
+        </server>
+    </servers>
+</settings>
+----
+
+*Solution:* +
+
+- The server ID must match the ID of the repositories' definition ;
+- The username should be an email format, the email used for your Bonita subscription ;
+- The password should be encrypted, it is the exact output of Maven command line `mvn --encrypt-master-password <password>`.
+
+Example:
+
+[source, xml]
+----
+<settings>
+    <profiles>
+        <profile>
+            <id>bonitasoft</id>
+            <repositories>
+                <repository>
+                    <id>bonitasoft-releases</id> <!-- ID of the Bonita Maven repository definition -->
+                    <!-- ... -->
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>bonitasoft-releases</id> <!-- ID of the Bonita Maven plugin repository definition -->
+                    <!-- ... -->
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>bonitasoft</activeProfile>
+    </activeProfiles>
+    <servers>
+        <server>
+            <id>bonitasoft-releases</id> <!-- Correct ID -->
+            <username>walter.bates@acme.com</username> <!-- Example of a correct username -->
+            <password>{MZ8lWg+K9FA9B0qh/RkJgN}</password> <!-- Example of a correct encrypted password -->
+        </server>
+    </servers>
+</settings>
+----
