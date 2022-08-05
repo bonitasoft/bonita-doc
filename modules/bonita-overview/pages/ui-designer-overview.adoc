@@ -12,7 +12,7 @@ A page is defined in HTML extended by the AngularJS JavaScript framework. Use th
 
 * Create pages directly in the Bonita UI designer.
 * Start form design in Bonita Studio from the appropriate xref:data:contracts-and-contexts.adoc[contract].
-* Create xref:ROOT:layouts.adoc[layouts] by duplicating the Bonita Layout available in the Bonita Administrator Application, "Resources" tab and then updating it.
+* Create xref:pages-and-forms:layouts.adoc[layouts] by duplicating the Bonita Layout available in the Bonita Administrator Application, "Resources" tab and then updating it.
 
 You can import an existing page, form, or layout to edit, or duplicate existing ones.
 

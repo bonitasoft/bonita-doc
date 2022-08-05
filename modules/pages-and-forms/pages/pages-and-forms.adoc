@@ -31,17 +31,17 @@ The following chapters give more information on how to develop all the others el
 
 [.card.card-index]
 --
-xref:forms.adoc[[.card-title]#Forms# [.card-body.card-content-overflow]#pass:q[The user interfaces closely tied to processes]#]
+xref:forms.adoc[[.card-title]#Forms# [.card-body.card-content-overflow]#pass:q[The user interfaces forms]#]
 --
 
 [.card.card-index]
 --
-xref:ROOT:pages.adoc[[.card-title]#Pages# [.card-body.card-content-overflow]#pass:q[The user interfaces composing Living Applications]#]
+xref:pages.adoc[[.card-title]#Pages# [.card-body.card-content-overflow]#pass:q[The user interfaces pages]#]
 --
 
 [.card.card-index]
 --
-xref:ROOT:layouts.adoc[[.card-title]#Layouts# [.card-body.card-content-overflow]#pass:q[The user interfaces layouts]#]
+xref:layouts.adoc[[.card-title]#Layouts# [.card-body.card-content-overflow]#pass:q[The user interfaces layouts]#]
 --
 
 [.card.card-index]
@@ -51,27 +51,27 @@ xref:variables.adoc[[.card-title]#Variables in the UI Designer# [.card-body.card
 
 [.card.card-index]
 --
-xref:ROOT:widgets.adoc[[.card-title]#Widgets# [.card-body.card-content-overflow]#pass:q[The Bonita-provided UI bits and pieces]#]
+xref:widgets.adoc[[.card-title]#Widgets# [.card-body.card-content-overflow]#pass:q[The Bonita-provided UI bits and pieces]#]
 --
 
 [.card.card-index]
 --
-xref:ROOT:widget-properties.adoc[[.card-title]#Widget properties# [.card-body.card-content-overflow]#pass:q[How to make the best use out of them]#]
+xref:widget-properties.adoc[[.card-title]#Widget properties# [.card-body.card-content-overflow]#pass:q[How to make the best use out of widgets]#]
 --
 
 [.card.card-index]
 --
-xref:ROOT:repeat-a-container-for-a-collection-of-data.adoc[[.card-title]#Repeatable container# [.card-body.card-content-overflow]#pass:q[A very special property to create great lists]#]
+xref:repeat-a-container-for-a-collection-of-data.adoc[[.card-title]#Repeatable container# [.card-body.card-content-overflow]#pass:q[A very special property to create great lists]#]
 --
 
 [.card.card-index]
 --
-xref:ROOT:fragments.adoc[[.card-title]#Fragments# [.card-body.card-content-overflow]#pass:q[Groups of widgets saved together for reusability]#]
+xref:fragments.adoc[[.card-title]#Fragments# [.card-body.card-content-overflow]#pass:q[Groups of widgets saved together for reusability]#]
 --
 
 [.card.card-index]
 --
-xref:ROOT:assets.adoc[[.card-title]#Assets# [.card-body.card-content-overflow]#pass:q[Private resources of a page]#]
+xref:assets.adoc[[.card-title]#Assets# [.card-body.card-content-overflow]#pass:q[Private resources of a page]#]
 --
 
 == Responsiveness
