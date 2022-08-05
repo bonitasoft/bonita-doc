@@ -26,6 +26,8 @@ include::widgets-displays.adoc[]
 
 == File viewer widget
 
+image::images/widgets/fileviewer.png[fileviewer,align="left"]
+
 Use the file viewer widget to preview or download a file or a process document in any UI Designer artifact (page or form for instance).
 You can display a document in a modal dialog box or directly in a page.
 
@@ -41,6 +43,8 @@ Limitation: adding several types of `FileViewer` in a page is not supported.
 [#rich-text-area]
 
 == Rich Text Area widget
+
+image::images/widgets/rich-text-area.png[rich-text-area,align="left"]
 
 Use the rich text area widget to edit HTML formatted text in any UI Designer artifact (page or form for instance).
 
