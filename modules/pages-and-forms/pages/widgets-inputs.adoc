@@ -12,14 +12,24 @@ The sections below describe the available input widgets.
 
 === Plain input widget
 
-Use the input widget on a form or page. There are four types of input:
+image::images/widgets/input.png[input,align="left"]
+
+There are four types of input:
 
 * text: a free-form text field
 * email: an email address
 * number: a decimal or integer number
 * password: like text but each character is replaced by an asterisk.
 
+=== Currency input widget
+
+Use the currency input widget to enable input of display financial data.
+The widget is flexible enough to allow
+
 === Text area and rich text area widgets
+
+image::images/widgets/text-area.png[text-area,align="left"]
+image::images/widgets/rich-text-area.png[rich-text-area,align="right"]
 
 Use the text area input widgets on a form or page to collect large text. +
 The rich text area allows the user to format and style their input, add images, links, and so on. +
@@ -27,9 +37,13 @@ You can customize the toolbar for the end-users by selecting options among the a
 
 === Autocomplete widget
 
+image::images/widgets/autocomplete.png[autocomplete,align="left"]
+
 Use an autocomplete widget to offer the user a list of possible values based on data entered in the field. For example, in a firstName field, if the user types _chri_, the values _chris_, _christine_, _christian_, _christiane_ are proposed. The user selects the correct value. To define the *available values*, bind a data source to initialize the suggestions. For suggestions that are an array of objects, you can specify a *displayed key* to identify the attribute to show as a suggestion in the widget. The value must be bound to a variable that will hold the selected suggestion.
 
 === Select widget
+
+image::images/widgets/select.png[select,align="left"]
 
 Use a select widget to offer the user a drop-down list of values. The user selects the required value. +
 The *available values* property is used to populate the list of available values. Alternatively for simple data, you can provide a comma-separated list of values (for example, red, green, blue). +
