@@ -17,3 +17,4 @@
   *** xref:datetimes-management-tutorial.adoc[How to manage dates and times in BDM and User Interfaces]
   *** xref:rta-mail-template.adoc[How to use the rich text area widget in a mail template]
   *** xref:customize-display-process-monitoring.adoc[How to customize the display of process execution monitoring]
+  *** xref:manage-financial-data.adoc[How to manage financial data from your BDM to your User Interfaces]
