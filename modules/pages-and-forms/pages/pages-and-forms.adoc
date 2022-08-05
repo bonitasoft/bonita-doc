@@ -1,4 +1,3 @@
-
 = Pages, forms, and all other UI elements
 :page-aliases: ROOT:pages-and-forms.adoc
 :description: Guidance to create and modify User Interfaces with Bonita UI Designer around process execution.
