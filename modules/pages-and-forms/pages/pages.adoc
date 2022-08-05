@@ -9,7 +9,7 @@ They are xref:ROOT:resource-management.adoc[added, exported, edited, and deleted
 
 == Create a page
 
-xref:ROOT:pages.adoc[Pages] are created independently from the processes. They are used to display business information that group several processes and several instances of the processes in an efficient view, a list of requests, for example. +
+Pages are created independently from the processes. They are used to display business information that group several processes and several instances of the processes in an efficient view, a list of requests, for example. +
 The controls they embed (buttons, links) can call BPM APIs that will trigger the display of the process instantiation form, or the execution of a task.
 
 === From scratch
@@ -32,6 +32,10 @@ You can easily duplicate an exiting page just by saving it under a different nam
 
 === From a Bonita provided page
 
+Bonita Runtime comes with some provided pages to use in applications. They are wrapped pages developed in other technologies than Bonita UI Designer (AngularJS, React). +
+Starting with Bonita 2021.1, you can also download Bonita User application and Bonita Administrator applications (from Bonita Studio Welcome page), and get more provided pages, developped with Bonita UI Designer. +
+Such UI Designer pages can be customized in the UI Designer, to better fit the needs of the end-users.
+
 Only Bonita pages created with the UI Designer can be customized in the UI Designer. Indeed, as Bonita applications have evolved in several phases, so did the frameworks in which their pages have been made.
 
 To customize a page provided by Bonita:
@@ -43,22 +47,6 @@ To customize a page provided by Bonita:
 . Import the page in the UI Designer
 
 Note that by doing so, if the page embed fragments and custom widgets, they are also imported and added to the UI Designer palette.
-
-You can find the list of pages ready for customization in a xref:ROOT:pages.adoc#_List_of_Bonita_Applications_customizable_pages[dedicated documentation page].
-
-For more technical information about the pages, visit xref:ROOT:pages-development.adoc[the dedicated documentation page].
-
-
-
-
-
-
-
-== Provided pages
-
-Bonita Runtime comes with some provided pages to use in applications. They are wrapped pages developed in other technologies than Bonita UI Designer (AngularJS, React). +
-Starting with Bonita 2021.1, you can also download Bonita User application and Bonita Administrator applications (from Bonita Studio Welcome page), and get more provided pages, developped with Bonita UI Designer. +
-Such UI Designer pages can be customized in the UI Designer, to better fit the needs of the end-users.
 
 === List of Bonita Applications customizable pages
 
@@ -101,8 +89,6 @@ A few examples of custom pages:
 * Provide a busy user with a filtered view of the task list.
 * Provide an administrator with a multi-attribute search facility.
 * Integrate a page from an external application.
-
-For all information about developping a custom page, visit xref:ROOT:pages-development.adoc[the dedicated documentation page].
 
 == Use in applications
 

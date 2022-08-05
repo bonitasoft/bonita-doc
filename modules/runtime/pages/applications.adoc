@@ -18,7 +18,7 @@ An application is a collection of pages and processes that meets a business need
 * xref:ROOT:data-handling-overview.adoc[Data]: the business information created, transformed, and/or deleted by the processes, and presented in pages and forms.
 * xref:api:rest-api-extensions.adoc[REST API extensions]: called from pages or forms to retrieve data to be presented to the user.
 * xref:applications:layout-development.adoc[Layout]: the frame in which application pages are displayed.
-* xref:pages-and-forms:themes.adoc[Theme]: the appearance of application pages, including fonts and colors.
+* xref:applications:themes.adoc[Theme]: the appearance of application pages, including fonts and colors.
 
 == Application prerequisites
 
@@ -87,7 +87,7 @@ To change the application layout:
 
 ==== Updating the theme
 
-Each application is associated with a xref:layout-development:themes.adoc[theme] that defines the application appearance. All pages developed with the xref:bonita-overview:ui-designer-overview.adoc[UI Designer] will automatically benefit of application theme.
+Each application is associated with a xref:applications:themes.adoc[theme] that defines the application appearance. All pages developed with the xref:bonita-overview:ui-designer-overview.adoc[UI Designer] will automatically benefit of application theme.
 
 To update the application theme:
 
