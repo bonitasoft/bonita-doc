@@ -1,7 +1,13 @@
 == Containers
 
+[.float-group]
+--
+[.left]
+image::images/widgets/containers.png[containers,align="left"]
+
 A container is a special kind of widget that contains other widgets. You can create nested containers. A typical use for containers is to control the main layout of your page. For example, if you want to create a two-column layout, you will start your page by adding two containers on the same row, each one spanning six columns of the page. A page does not need to have a container, but it is useful. +
 By default, a container contains one row, where you can drop component widgets or containers. You can also make the page layout dynamic by xref:ROOT:repeat-a-container-for-a-collection-of-data.adoc[repeating a container to display a collection of data].
+--
 
 === Adding a widget to a row
 
