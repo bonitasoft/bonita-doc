@@ -86,3 +86,8 @@ xref:ROOT:datetimes-management-tutorial.adoc[[.card-title]#How to manage dates a
 --
 xref:rta-mail-template.adoc[[.card-title]#How to use the rich text area widget in a mail template# [.card-body.card-content-overflow]#pass:q[]#]
 --
+
+[.card.card-index]
+--
+xref:manage-financial-data[[.card-title]#How to manage financial data from your BDM to your User Interfaces# [.card-body.card-content-overflow]#pass:q[]#]
+--
