@@ -14,7 +14,11 @@ A page consists of widgets that are arranged in rows, and optionally, containers
 The UI Designer provides a set of default widgets that you can use to design a page. The default widgets are available from the palette panel, which is on the left side of the Page editor. A widget has properties that control how it appears and how it is used. There are some general properties that all widgets have, and some properties that are specific to the widget type. You can also create xref:custom-widgets.adoc[custom widgets].
 Each widget in the palette has a description. To show a widget description, just roll over the widget in the palette.
 
-image::images/widgets/page-rows-and-widgets.png[page-rows-and-widgets-palette,align="left"]
+[.float-group]
+--
+[.left]
+image::images/widgets/page-rows-and-widgets.png[page-rows-and-widgets-palette]
+--
 
 include::widgets-containers.adoc[]
 
