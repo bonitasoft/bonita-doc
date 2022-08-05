@@ -79,7 +79,7 @@ The selected value should be bound to a variable that will hold the data for the
 [#date-picker]
 
 === Date picker widget
-image::images/widgets/date-picker.png[date-picker,align="left"]
+image::images/widgets/datepicker.png[datepicker,align="left"]
 
 Use a Date picker widget to display a calendar from which the user can select a date or set a date manually (e.g., a date of birth). +
 To select a date and a time (e.g., to schedule a meeting), use the Date time picker widget instead.
@@ -103,7 +103,7 @@ The calendar can be localized with the usual localization mechanism (localizatio
 
 === Date time picker widget
 
-image::images/widgets/date-time-picker.png[date-time-picker,align="left"]
+image::images/widgets/datetimepicker.png[datetimepicker,align="left"]
 
 Use a Date time picker widget to display a calendar from which the user can select a date and a time or set them manually (e.g., to schedule a meeting). +
 To select only a date (e.g., a date of birth), use the Date picker widget instead.
