@@ -39,7 +39,7 @@ For more information, go visit xref:runtime:healthcheck-mechanism.adoc[the dedic
 
 WARNING: Those credentials MUST be changed.
 
-=== Changing the Log level without restart
+=== Log level change without restart
 
 It is now possible to change the log level of Bonita Runtime without restarting it, thanks to Log4j2 (details available in the xref:release-notes.adoc#_log4j2_logger[Technical updates] chapter).
 
@@ -52,7 +52,7 @@ starting with Bonita 2022.1, their access is protected with Basic Access authent
 
 The configuration is different depending on the Bonita package:
 
-* In Bonita Tomcat bundle, HTTP APIs are *active by default* and *default* credentials are the same as the ones used when configuring the client by using programmatic configuration.
+* In Bonita Tomcat bundle, HTTP APIs are *active by default*, and *default* credentials of xref:api:configure-client-of-bonita-bpm-engine.adoc#configure-client-using-programmatic-configuration[client configuration using programmatic configuration] are used. They can be changed in file `<BONITA>/server/conf/tomcat-users.xml`. 
 * In Bonita Docker image, HTTP APIs are *disabled by default*, with `http-api` as the *default* username, and no default password. The password must be provided, otherwise the Docker container will refuse to start.
 
 === Prometheus monitoring active by default - *Subscription editions*
@@ -121,7 +121,7 @@ The Tomcat bundle does not log anymore in the console but only in `bonita.log` f
 Docker image is now focused on the RUN phase, with environment preparation being handled as on-premise installations. This means that the database schema and the associated user will not be created when starting the Docker image. The database has to be created **before** the Docker image starts.
 NOTE: We provide pre-configured database images with included schema and users on https://hub.docker.com/u/bonitasoft[Bonitasoft Docker Hub].
 
-LDAP Synchronizer is now out of Bonita Docker image and is available as an independent Docker image ready for download from quay.io xref:identity:ldap-synchronizer#_using_the_ldap_synchronizer_docker_image.adoc[as detailed in the documentation].
+LDAP Synchronizer is now out of Bonita Docker image and is available as an independent Docker image ready for download from quay.io xref:identity:ldap-synchronizer.adoc#_using_the_ldap_synchronizer_docker_image[as detailed in the documentation].
 
 Robustness and self-recovery capabilities were added to the data source to overcome network lags.
 
@@ -171,8 +171,46 @@ Bonita Runtime produces a warning log if the filter is set and ignores it.
 
 The tenant creation method has been deprecated following our 2021.1 decision to deprecate the Multi-Tenants architecture.
 
+=== Potential need of declaring external Maven Repository
+
+From version 2022.1-u2, if you embed *bonita-server(-sp).jar* in your application, you need to configure an additional Maven Repository. This is due to Security Fixes that required the use of a dependency NOT present in default Maven Repository (aka Maven Central).
+
+To do so, you can abstract this additional complexity by putting this configuration in your https://maven.apache.org/repository-management.html[enterprise repository manager] which acts as a proxy to any external repositories you may have.
+
+You can also simply add it in your pom.xml / build.gradle (or globally in your Maven settings.xml):
+
+==== Pom.xml
+
+```xml
+<repositories>
+    [...]
+    <repository>
+        <id>terracotta.org</id>
+        <name>terracotta.org</name>
+        <url>https://repo.terracotta.org/maven2/</url>
+    </repository>
+</repositories>
+```
+
+==== build.gradle
+
+[source,groovy]
+----
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://repo.terracotta.org/maven2/'
+    }
+}
+----
 
 == Bug fixes
+
+=== Fixes in Bonita 2022.1-u2 (2022-0X-YY)
+
+==== Fixes in Bonita Runtime (including Bonita Applications)
+
+* RUNTIME-991  - [Security] Update several dependencies for 2022.1-u2 (see xref:#_potential_need_of_declaring_external_maven_repository[specific note]])
 
 === Fixes in Bonita 2022.1-u1 (2022-05-03)
 

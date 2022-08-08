@@ -17,7 +17,7 @@ xref:ROOT:design-methodology.adoc[In this page], find the 6 project phases we re
 == image:images/tv.png[Videos] Videos
 
 === A user-centered approach to make the automation project a success
-* https://www.bonitasoft.com/videos/user-centered-design-guarantee-your-business-process-automation-projects-succeed[In English]
+* https://www.bonitasoft.com/videos/user-centered-design-guarantee-that-your-business-process-automation-projects-succeed[In English]
 * https://fr.bonitasoft.com/videos/user-centered-design-gage-du-succes-de-vos-projets-dautomatisation-des-processus-metiers[In French]
 
 === Generic process automation advices

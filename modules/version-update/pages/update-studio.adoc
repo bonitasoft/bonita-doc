@@ -86,7 +86,7 @@ If the dependencies are found, then they will be used as remote dependencies (no
 
 [CAUTION]
 ====
-From Bonita 2021.2 on, it will no longer be possible to create connectors, actor filters, and themes from Bonita Studio. You will have to use the corresponding xref:software-extensibility:software-extensibility.adoc[Maven archetypes].
+From Bonita 2021.2 on, it will no longer be possible to create connectors, actor filters, groovy scripts and themes from Bonita Studio. You will have to use the corresponding xref:software-extensibility:software-extensibility.adoc[Maven archetypes].
 ====
 
-If your project already has actor filters, connectors, or themes, you will still be able to edit them from Bonita Studio. However, we recommend migrating them to standalone dependencies.
+If your project already has actor filters, connectors, groovy scripts or themes, you will still be able to edit them from Bonita Studio. However, we recommend migrating them to standalone dependencies.
