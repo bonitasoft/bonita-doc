@@ -53,7 +53,7 @@ It can be prefilled with an HTML template.
 
 A options toolbar exposed to end users can be customized and localized with the usual xref:ROOT:multi-language-pages.adoc[localization mechanism] (localization.json file).
 
-== Widget Actions
+== "Widget actions" Menu
 
 From the properties panel header, the "Widget actions" menu provides a list of actions for the selected widget.
 
