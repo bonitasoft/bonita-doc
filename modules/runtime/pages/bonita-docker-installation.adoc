@@ -8,14 +8,14 @@ This guide assumes you have a working docker environment.
 
 == Quick start
 
-To start the latest Community release:
+To start the latest Community release - only main versions:
 
 [source,bash]
 ----
 docker run --name bonita -d -p 8080:8080 bonita
 ----
 
-To start the latest Subscription release:
+To start the latest Subscription release - only main and maintenance versions:
 
 [NOTE]
 ====
