@@ -4,3 +4,65 @@
 
 {description}
 
+NOTE: This tutorial is mostly illustrated using the link:https://github.com/Bonitasoft-Community/expense-report-example[Expense Report community example].
+
+== Define a price amount in your Business Data Model
+
+Add a specific price attribute in your Business Data Model.
+
+image::images/financial-data-tutorial/BDM.png[BDM]
+
+WARNING: Be sure to select DOUBLE type to avoid rounding issues back and forth with the UI elements.
+
+== Read a price amount from the BDM to your UI
+
+image::images/financial-data-tutorial/Display.png[Display]
+
+1. Use xref:ROOT:data-management.adoc[Data Management] to load your Business Object in your page.
+In the above example, all existing ExpenseReportLine are queried into UI variable expenseReportLines.
+
+2. Drag and drog a new Currency Input widget from the UI-Designer palette to your page.
+Set the currency widget Read-only property to yes.
+
+3. Bind the currency widget Value property to your Business Object price attribute.
+In the above example, the widget valeu is bound to the price of the first ExpenseReportLine in the list.
+
+== Write a price amount from your UI to the BDM
+
+NOTE: In Bonita, writing to a BDM object always goes through a Process.
+
+1. In your process, create the proper Business Object in a Business or a Process variable
+2. Use a ROOT:contracts-and-contexts.adoc[Contract] to explicit what data should get out of your UI form
+Warning: financial data might appear as Decimal type.
+
+image::images/financial-data-tutorial/Contract.png[Contract]
+3. Create the form with an output that respect the contract - it is strongly advised to use ROOT:contracts-and-contexts.adoc[Forms Generation].
+3. In your form, create a Currency Widget
+And bind it's Value property to your form output
+
+== Configure your widget
+
+Fine tune your target currency using the Currency Widget properties.
+You can use respective min/max currency widget properties to limit the user input values.
+All widget properties can be changed dynamically depending on application specific parameters (locale, language, expense limit, ...).
+
+NOTE: negative amounts can be managed by the Currency Widget.
+
+== Do mathematical operations in the UI
+
+If there is a big chance financial or bugdetary logic to be implemented into an application backend,
+it could be usefull in some cases to provide guidance in the UI, as the user complete a form or a page, that do require price-based computations
+(price sums, quantity multiplication, percentage).
+
+Here is an example of how to sum to inputs prices from scratch in an UI-Designer page:
+1. Drag and drop two Currency Widgets
+2. Create two variables 'var1' and 'var2' and bind them respectively to both widgets Value properties
+Variable types can be any static type (JSON or String).
+3. Create a third variable called 'sum', of type "Javascript expression".
+Set it with return $data.var1 + $data.var2;
+4. Create a new Currency Widget.
+Set it to read only. Bind it's Value property to the sum variable.
+
+image::images/financial-data-tutorial/UIComputation.png[UIComputation]
+
+That's it: the thirs widget will contain the addition of values of both others.
