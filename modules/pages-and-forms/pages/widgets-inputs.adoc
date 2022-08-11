@@ -25,8 +25,8 @@ There are four types of input:
 
 image::images/widgets/currency-input.png[currency-input]
 
-Use the currency input widget to enable input or display of financial data.
-The widget is flexible enough to allow any currency, tune the number of decimal digits, choose the symbol position.
+Use the currency input widget to input or display financial data. +
+The widget is flexible enough to allow any currency, tune the number of decimal digits, choose the symbol position. +
 Decimal and thousands separators can be also fine-tuned.
 
 === Text area and rich text area widgets
