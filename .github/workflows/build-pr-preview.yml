@@ -17,15 +17,13 @@ jobs:
       COMPONENT_NAME: bonita
       # Except if you want to test in progress work that your content depends on, keep it set to master
       # Also update the path to the action from the bonita-documentation-site repository
-      # TODO use master when available
-      DOC_SITE_BRANCH: chore/remove_duplications_in_surge_preview_workflow
+      DOC_SITE_BRANCH: master
     steps:
       - name: Compute environment variables
         run: |
           echo "BRANCH_NAME=$(echo ${GITHUB_HEAD_REF#refs/heads/})" >> $GITHUB_ENV
       - name: Build and publish PR preview
-        # TODO use master when available
-        uses: bonitasoft/bonita-documentation-site/.github/actions/build-and-publish-pr-preview/@chore/remove_duplications_in_surge_preview_workflow
+        uses: bonitasoft/bonita-documentation-site/.github/actions/build-and-publish-pr-preview/@master
         with:
           surge-token: ${{ secrets.SURGE_TOKEN_DOC }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
