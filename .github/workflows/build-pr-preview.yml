@@ -15,9 +15,6 @@ jobs:
       pull-requests: write # surge-preview write PR comments    
     env:
       COMPONENT_NAME: bonita
-      # Except if you want to test in progress work that your content depends on, keep it set to master
-      # Also update the path to the action from the bonita-documentation-site repository
-      DOC_SITE_BRANCH: master
     steps:
       - name: Compute environment variables
         run: |
@@ -27,6 +24,6 @@ jobs:
         with:
           surge-token: ${{ secrets.SURGE_TOKEN_DOC }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          doc-site-branch: ${{ env.DOC_SITE_BRANCH }}
+          doc-site-branch: master
           build-preview-command: |-
             ./build-preview.bash --branch "${{ env.BRANCH_NAME }}" --component "${{ env.COMPONENT_NAME }}"
