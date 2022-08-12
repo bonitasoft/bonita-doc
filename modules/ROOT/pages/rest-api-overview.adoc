@@ -1,7 +1,7 @@
 = REST API Overview with a Getting started example
 :description: The REST API lets you access the data with HTTP requests; it is useful when implementing rich web forms / pages for a good user experience.
 
-The REST API lets you access the data with HTTP requests; it is useful when implementing rich web forms / pages for a good user experience.
+{description}
 
 == Overview
 
@@ -341,6 +341,11 @@ $  curl -b saved_cookies.txt -X POST --url 'http://localhost:8080/bonita/API/bpm
 ----
 $ curl -b saved_cookies.txt -X GET --url 'http://localhost:8080/bonita/logoutservice'
 ----
+
+== Additional tools
+
+* An open source https://github.com/bonitasoft/bonita-java-client[java client] is implemented above the HTTP API. It is available on https://search.maven.org/search?q=g:%22org.bonitasoft.web%22%20AND%20a:%22bonita-java-client%22[Maven central].
+* An https://www.openapis.org/[OpenAPI specification] is also available as a `yaml` descriptor or a `json` https://www.postman.com/collection/[Postman collection] https://github.com/bonitasoft/bonita-openapi/releases[here].
 
 == Troubleshooting
 
