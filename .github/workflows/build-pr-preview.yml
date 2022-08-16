@@ -17,8 +17,12 @@ jobs:
       COMPONENT_NAME: bonita
     steps:
       - name: Compute environment variables
+        # TODO the branch name is not available in the repository when the PR is created from a fork repo
         run: |
           echo "BRANCH_NAME=$(echo ${GITHUB_HEAD_REF#refs/heads/})" >> $GITHUB_ENV
+          echo "GITHUB_HEAD_REF: ${GITHUB_HEAD_REF}"
+          echo "GITHUB_REF_NAME: ${GITHUB_REF_NAME}"
+          echo "GITHUB_REF: ${GITHUB_REF}"
       - name: Build and publish PR preview
         uses: bonitasoft/bonita-documentation-site/.github/actions/build-and-publish-pr-preview/@master
         with:
