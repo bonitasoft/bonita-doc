@@ -1,8 +1,7 @@
 name: bonita
 title: Bonita
-# TODO: When releasing beta version, put version: 2022.2
 version: 2023.1
-# TODO: When releasing beta version, replace alpha by beta
+# TODO: When releasing beta version, replace alpha by beta. Remove when releasing GA
 prerelease: -alpha
 asciidoc:
   attributes:
@@ -14,8 +13,8 @@ asciidoc:
     page-pagination: true # display links to previous/next pages at the bottom of the page
     page-editable: true
     page-out-of-support: false
-    page-next-release: true # TODO: When releasing beta version, set this field to false
-    page-hide-search-bar: true # TODO: When releasing beta version, set this field to false
+    page-next-release: true # TODO: When releasing GA version, set this field to false
+    page-hide-search-bar: false
 nav:
   - modules/ROOT/release-note-nav.adoc
   - modules/bonita-overview/bonita-overview-nav.adoc
