@@ -72,7 +72,7 @@ edit the `authenticationManager-config.properties` as follows:
     -->  oidc.filter.active = true
     -->  oidc.auth.standard.allowed = true
     -->  oidc.logout.url = http://localhost:9090/auth/realms/bonita/protocol/openid-connect/logout
-    -->  oidc.logout.url.redirectQuery = ?redirect_uri={encodedRedirectUri}
+    -->  oidc.logout.url.redirectQuery = ?post_logout_redirect_uri={encodedRedirectUri}&id_token_hint={idToken}
     -->  auth.tenant.admin.username = install
     -->  auth.passphrase = BonitaBPM
          (...)
@@ -183,6 +183,7 @@ NOTE: Activating this option means any user authorized by the IdP to access Boni
  ** `enable-cors` is required only if you want to be able to use Bonita REST API from a web application located on a different domain from your Bonita installation's. It comes with additional options `cors-max-age`, `cors-allowed-methods`, `cors-allowed-headers`, `cors-exposed-headers`. You can check Keycloak https://www.keycloak.org/docs/latest/securing_apps/#_java_adapter_config[client adpter config documentation] for more information.
  ** `credentials` you can set it with an object containing either a `secret`,`jwt` or `secret-jwt` attribute if Bonita client is configured with a confidential access type in the OIDC provider (`public-client` is set to `false`). See https://www.keycloak.org/docs/latest/securing_apps/#_client_authentication_adapter[Keycloak's client authentication documentation] for more information.
  ** Some additional properties no present in the default file can be useful:
+  *** `discovery-url` can be used if the OIDC provider provides a discovery URL for OIDC configuration (".well-known") to replace the 6 properties `auth-url`, `token-url`, `logout-url`, `token-issuer-uri`, `user-info-url` and `jwks-url`. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
   *** `connection-pool-size` for the pool of connection to the OIDC provider server (20 by default)
   *** `truststore` path to a truststore file for OIDC provider servers requiring HTTPS. It should contain one or more trusted host certificates or certificate authorities. You can create this truststore by extracting the public certificate of the OIDC server's SSL keystore. This property is mandatory if you OIDC provider requires HTTPS unless you set `disable-trust-manager` property to `true`. If the truststore requires a password, you also need to add the property `truststore-password`.
   *** `client-keystore` path to a keystore file containing client certificate for two-way SSL when the OIDC client adapter makes HTTPS requests to the OIDC provider server. You also need to add the properties `client-keystore-password` (password for the client keystore) and  `client-key-password` (password for the client's key).
