@@ -217,6 +217,7 @@ repositories {
 * STUDIO-4383 - Fix a regression from 2022.1-u1 where some variable or parameters references type may be lost during edition.
 * STUDIO-4388 - Fix a regression where the Bonita code templates where not available in the script editor content assist.
 * STUDIO-4399 - Fix a race condition issue when switching project.
+* UID-675 - Fix generated `page.properties` file to include fragments resources
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
