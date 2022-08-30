@@ -208,9 +208,20 @@ repositories {
 
 === Fixes in Bonita 2022.1-u2 (2022-0X-YY)
 
+==== Fixes in Bonita Studio (including Bonita UI Designer)
+
+* STUDIO-4237 - Improve BPMN2 export when using messages not defined in the same diagram.
+* STUDIO-4366 - Fix `View source` link on extension card when maven propreties are used in the `scmUrl` tag.
+* STUDIO-4367 - Fix `Add custom extension` when the dependency has a classifier.
+* STUDIO-4381 - Fix import artifacts order to have a consistent migration.
+* STUDIO-4383 - Fix a regression from 2022.1-u1 where some variable or parameters references type may be lost during edition.
+* STUDIO-4388 - Fix a regression where the Bonita code templates where not available in the script editor content assist.
+* STUDIO-4399 - Fix a race condition issue when switching project.
+
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
 * RUNTIME-991  - [Security] Update several dependencies for 2022.1-u2 (see xref:#_potential_need_of_declaring_external_maven_repository[specific note]])
+
 
 === Fixes in Bonita 2022.1-u1 (2022-05-03)
 
