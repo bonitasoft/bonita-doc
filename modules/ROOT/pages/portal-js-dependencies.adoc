@@ -1,4 +1,4 @@
-= Dependencies for Bonita Portal-JS 7.14.1
+= Dependencies for Bonita Portal-JS 7.14.2
 
 
 == Community NodeJS dependencies
@@ -720,7 +720,7 @@
 
 | jquery-ui | 1.10.4 | MIT 
 
-| jquery.panzoom | 3.1.1 | MIT 
+| jquery.panzoom | 3.2.3 | MIT 
 
 | jquery | 3.5.1 | MIT 
 
