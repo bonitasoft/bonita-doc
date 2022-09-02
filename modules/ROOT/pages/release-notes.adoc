@@ -39,7 +39,7 @@ For more information, go visit xref:runtime:healthcheck-mechanism.adoc[the dedic
 
 WARNING: Those credentials MUST be changed.
 
-=== Changing the Log level without restart
+=== Log level change without restart
 
 It is now possible to change the log level of Bonita Runtime without restarting it, thanks to Log4j2 (details available in the xref:release-notes.adoc#_log4j2_logger[Technical updates] chapter).
 
@@ -171,8 +171,71 @@ Bonita Runtime produces a warning log if the filter is set and ignores it.
 
 The tenant creation method has been deprecated following our 2021.1 decision to deprecate the Multi-Tenants architecture.
 
+=== Potential need of declaring external Maven Repository
+
+From version 2022.1-u2, if you embed *bonita-server(-sp).jar* in your application, you need to configure an additional Maven Repository. This is due to Security Fixes that required the use of a dependency NOT present in default Maven Repository (aka Maven Central).
+
+To do so, you can abstract this additional complexity by putting this configuration in your https://maven.apache.org/repository-management.html[enterprise repository manager] which acts as a proxy to any external repositories you may have.
+
+You can also simply add it in your pom.xml / build.gradle (or globally in your Maven settings.xml):
+
+==== Pom.xml
+
+```xml
+<repositories>
+    [...]
+    <repository>
+        <id>terracotta.org</id>
+        <name>terracotta.org</name>
+        <url>https://repo.terracotta.org/maven2/</url>
+    </repository>
+</repositories>
+```
+
+==== build.gradle
+
+[source,groovy]
+----
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://repo.terracotta.org/maven2/'
+    }
+}
+----
 
 == Bug fixes
+
+=== Fixes in Bonita 2022.1-u2 (2022-0X-YY)
+
+==== Fixes in Bonita Studio (including Bonita UI Designer)
+
+* STUDIO-4237 - Improve BPMN2 export when using messages not defined in the same diagram.
+* STUDIO-4366 - Fix `View source` link on extension card when maven propreties are used in the `scmUrl` tag.
+* STUDIO-4367 - Fix `Add custom extension` when the dependency has a classifier.
+* STUDIO-4381 - Fix import artifacts order to have a consistent migration.
+* STUDIO-4383 - Fix a regression from 2022.1-u1 where some variable or parameters references type may be lost during edition.
+* STUDIO-4388 - Fix a regression where the Bonita code templates where not available in the script editor content assist.
+* STUDIO-4399 - Fix a race condition issue when switching project.
+* STUDIO-4400 - Fix [Organization] Password resolution
+* UID-675 - Fix generated `page.properties` file to include fragments resources
+
+==== Fixes in Bonita Runtime (including Bonita Applications)
+
+* RUNTIME-211 - Access to a non existing token in an app raise a 403 instead of a 404
+* RUNTIME-334 - Fix REST API ../API/identity/user/-1?d=professionalData as it returns the list of users
+* RUNTIME-335 - Fix REST API ../API/identity/user/-1 as it returns a APIMissingIdException
+* RUNTIME-869 - Administrator app - BPM process: The 2 Popups to Disable and Enable installed process do not close
+* RUNTIME-978 - Organisation import does not update 'lastUpdate' field in user entries
+* RUNTIME-1011 - ProcessId in URL not taken into account in admin case list
+* RUNTIME-1156 - BConf file deployment is broken for non existing processes
+* RUNTIME-1217 - Process and case visu only display the diagram
+* RUNTIME-1220 - [Web] Admin case list doesn't have 'case_delete' permissions
+* RUNTIME-1234 - [Security] Update several dependencies for 2022.1-u2 (see xref:#_potential_need_of_declaring_external_maven_repository[specific note]])
+* RUNTIME-1273 - Admin app BPM pages should be editable in subscription editions
+* RUNTIME-1275 - bonita-sp- maven-repository 7.13.x contains extra files
+* RUNTIME-1296 - Missing REST API static permissions
+* RUNTIME-1390 - issuedFor (azp) claim in OIDC ID token should be treated as optional
 
 === Fixes in Bonita 2022.1-u1 (2022-05-03)
 
