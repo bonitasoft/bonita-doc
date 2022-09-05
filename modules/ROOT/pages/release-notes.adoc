@@ -206,7 +206,7 @@ repositories {
 
 == Bug fixes
 
-=== Fixes in Bonita 2022.1-u2 (2022-0X-YY)
+=== Fixes in Bonita 2022.1-u3 (2022-09-07)
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
 
@@ -231,7 +231,7 @@ repositories {
 * RUNTIME-1156 - BConf file deployment is broken for non existing processes
 * RUNTIME-1217 - Process and case visu only display the diagram
 * RUNTIME-1220 - [Web] Admin case list doesn't have 'case_delete' permissions
-* RUNTIME-1234 - [Security] Update several dependencies for 2022.1-u2 (see xref:#_potential_need_of_declaring_external_maven_repository[specific note]])
+* RUNTIME-1234 - [Security] Update several dependencies for 2022.1-u3 (see xref:#_potential_need_of_declaring_external_maven_repository[specific note]])
 * RUNTIME-1273 - Admin app BPM pages should be editable in subscription editions
 * RUNTIME-1275 - bonita-sp- maven-repository 7.13.x contains extra files
 * RUNTIME-1296 - Missing REST API static permissions
