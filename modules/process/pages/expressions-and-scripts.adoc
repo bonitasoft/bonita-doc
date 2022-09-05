@@ -94,7 +94,8 @@ def questionnaireVar = questionnaireDAO.findByPersistenceId(editquestionnaireInp
 
 [WARNING]
 ====
-Defining Groovy scripts inside the Bonita project is deprecated since 2022.1. We recommend using xref:software-extensibility:custom-library-development.adoc[custom library extensions] in your project instead.  
+Defining Groovy scripts inside the Bonita project is deprecated since 2022.1. We recommend using xref:software-extensibility:custom-library-development.adoc[custom library extensions] in your project instead.
+
 You may still use your existing scripts when upgrading from a previous version, but you can't create new ones and should move them in a specific extension.
 ====
 
@@ -135,9 +136,9 @@ You can xref:ROOT:logging.adoc[add logging] to Groovy scripts or Java code that 
 ==== Scripts in right operands of operations at task level
 
 Scripts can be used to define the result of the right operand of an xref:ROOT:operations.adoc[operation]. Those scripts are created in the same editor as the others, and can also call external methods and resources, but are designed as read-only scripts in the product.
+
 [WARNING]
 ====
-
 It means that trying to directly write data to the database in those scripts (using java API methods), while it _might_ work, is considered as a bad practice, and the behaviour of those scripts is not guaranteed across versions of the product.
 Data in this case, refers to documents, business objects, pages, process commentaries.
 ====
