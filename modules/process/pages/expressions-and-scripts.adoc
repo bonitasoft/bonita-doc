@@ -92,7 +92,7 @@ def questionnaireVar = questionnaireDAO.findByPersistenceId(editquestionnaireInp
 
 ==== User defined functions
 
-NOTE: Defining Groovy scripts inside the Bonita project is deprecated since 2022.1. We recommend using xref:software-extensibility/custom-library-development.adoc[custom library extensions] in your project instead. You may still use your existing scripts when upgrading from a previous version, but you can't create new ones and should move them in a specific extension.
+NOTE: Defining Groovy scripts inside the Bonita project is deprecated since 2022.1. We recommend using xref:bonita:software-extensibility/custom-library-development.adoc[custom library extensions] in your project instead. You may still use your existing scripts when upgrading from a previous version, but you can't create new ones and should move them in a specific extension.
 
 If a same piece of script code is needed in different locations you might want to define it once and reused it in order to avoid duplication.
 
