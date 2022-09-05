@@ -92,11 +92,13 @@ def questionnaireVar = questionnaireDAO.findByPersistenceId(editquestionnaireInp
 
 ==== User defined functions
 
+NOTE: Defining Groovy scripts inside the Bonita project is deprecated since 2022.1. We recommend using xref:software-extensibility/custom-library-development.adoc[custom library extensions] in your project instead. You may still use your existing scripts when upgrading from a previous version, but you can't create new ones and should move them in a specific extension.
+
 If a same piece of script code is needed in different locations you might want to define it once and reused it in order to avoid duplication.
 
 In order to reuse some Groovy code you need to:
 
-* Create a Groovy class that will be stored as part of your project in Bonita Studio
+* Create a Groovy class that will be stored as part of your project in Bonita Studio (Removed in 2021.2)
 * Declare in the Groovy class one or several methods to store your code
 * Configure your process(es) dependencies to include the required Groovy script file(s)
 * In the expression editor, select the *Script* type and as part of your code call the method(s) declared previously
