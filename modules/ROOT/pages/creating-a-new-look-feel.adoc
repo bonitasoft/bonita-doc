@@ -3,7 +3,7 @@
 
 {description}
 
-Since the xref:ROOT:portal-removal[removal of Portal in 2021.2], the Look & Feel was re-packaged in the bundle itself. You can find it in the `server/webapps/bonita/portal-theme` folder. For a reference about the contained files go to xref:2021.1:bonita:ROOT:creating-a-new-look-feel[the previous version of Bonita]. +
+Since the xref:ROOT:portal-removal[removal of Portal in 2021.2], the Look & Feel was re-packaged in the bundle itself. You can find it in the `server/webapps/bonita/portal-theme` folder. For a reference about the contained files go to xref:2021.1@bonita::creating-a-new-look-feel[the previous version of Bonita]. +
 
 The two places that still use the old Look & Feel are old pages not made using the UI Designer and the Bonita Login page. +
 Those old pages take into account the theme of your application. If you want to modify their style, we strongly suggest xref:applications:themes[you change the theme]. +
