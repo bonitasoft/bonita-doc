@@ -13,9 +13,6 @@ jobs:
     runs-on: ubuntu-20.04
     permissions:
       pull-requests: write # surge-preview write PR comments
-    env:
-      COMPONENT_NAME: bonita
-      COMPONENT_BRANCH_NAME: ${{ github.head_ref }}
     steps:
       - name: Build and publish preview
         uses: bonitasoft/bonita-documentation-site/.github/actions/build-and-publish-pr-preview/@poc/add_option_to_configure_failure_level
