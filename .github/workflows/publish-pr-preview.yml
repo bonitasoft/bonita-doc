@@ -1,4 +1,4 @@
-name: Build PR preview
+name: Publish PR preview
 
 on:
   pull_request:
@@ -17,7 +17,7 @@ jobs:
       COMPONENT_NAME: bonita
       COMPONENT_BRANCH_NAME: ${{ github.head_ref }}
     steps:
-      - name: Build preview
+      - name: Build and publish preview
         uses: bonitasoft/bonita-documentation-site/.github/actions/build-and-publish-pr-preview/@poc/add_option_to_configure_failure_level
         with:
           surge-token: ${{ secrets.SURGE_TOKEN_DOC }}
