@@ -36,7 +36,7 @@ jobs:
           build-preview-command: >-
             ./build-preview.bash --use-multi-repositories
             --start-page "${{ env.COMPONENT_VERSION }}"@"${{ env.COMPONENT_NAME }}"::index.adoc
-            --component-with-branches "${{ env.COMPONENT_NAME }}":"${{ env.COMPONENT_BRANCH_NAME }},${{ env.BONITA_BRANCH_FOR_CLOUD }},${{ env.BONITA_BRANCH_FOR_TOOLKIT }}, ${{ env.OLDEST_BONITA_BRANCH}}"
+            --component-with-branches "${{ env.COMPONENT_NAME }}":"${{ env.COMPONENT_BRANCH_NAME }},${{ env.BONITA_BRANCH_FOR_CLOUD }},${{ env.BONITA_BRANCH_FOR_TOOLKIT }},${{ env.OLDEST_BONITA_BRANCH }}"            
             --component-with-branches bcd:"${{ env.BCD_BRANCH }}"
             --component-with-branches cloud:"${{ env.CLOUD_BRANCH }}"
             --component-with-branches test-toolkit:"${{ env.TOOLKIT_BRANCH }}"
