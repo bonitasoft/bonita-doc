@@ -18,7 +18,7 @@ jobs:
       COMPONENT_BRANCH_NAME: ${{ github.head_ref }}
     steps:
       - name: Build preview
-        uses: bonitasoft/bonita-documentation-site/.github/actions/build-and-publish-pr-preview/@master
+        uses: bonitasoft/bonita-documentation-site/.github/actions/build-and-publish-pr-preview/@poc/add_option_to_configure_failure_level
         with:
           surge-token: ${{ secrets.SURGE_TOKEN_DOC }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
