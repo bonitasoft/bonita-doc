@@ -210,7 +210,7 @@ Tomcat has been updated to version 9.0.52.
 === Removals
 
 ==== Extension creation
-You can longer create custom connectors, Groovy scripts, themes and actors filters in the Studio. These need to be coded outside the Studio as Maven dependencies (see our Maven archetypes)
+You can no longer create custom connectors, Groovy scripts, themes and actors filters in the Studio. These need to be coded outside the Studio as Maven dependencies (see our Maven archetypes)
 
 ==== BonitaStudioBuilder
 
