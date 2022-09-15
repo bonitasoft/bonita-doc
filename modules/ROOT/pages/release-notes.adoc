@@ -218,6 +218,7 @@ repositories {
 * STUDIO-4388 - Fix a regression where the Bonita code templates where not available in the script editor content assist.
 * STUDIO-4399 - Fix a race condition issue when switching project.
 * STUDIO-4400 - Fix [Organization] Password resolution
+* STUDIO-4419 - Fix Failure to Load EMF ressource when trying to open an imported .bpmn file
 * UID-675 - Fix generated `page.properties` file to include fragments resources
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
@@ -236,6 +237,7 @@ repositories {
 * RUNTIME-1275 - bonita-sp- maven-repository 7.13.x contains extra files
 * RUNTIME-1296 - Missing REST API static permissions
 * RUNTIME-1390 - issuedFor (azp) claim in OIDC ID token should be treated as optional
+* RUNTIME-1408 - slow REST API extension call due to a java sycnhronized in the handleRestApiCall method from RestApiRenderer class
 
 === Fixes in Bonita 2022.1-u1 (2022-05-03)
 
