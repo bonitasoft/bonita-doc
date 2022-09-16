@@ -1,4 +1,4 @@
-= Dependencies for Bonita Portal-JS 7.15.0.beta-01
+= Dependencies for Bonita Portal-JS 7.15.0.RC-01
 
 
 == Community NodeJS dependencies
@@ -720,8 +720,6 @@
 
 | jquery-ui | 1.10.4 | MIT 
 
-| jquery.panzoom | 3.2.3 | MIT 
-
 | jquery | 3.5.1 | MIT 
 
 | js-tokens | 1.0.1 | MIT 
@@ -1001,8 +999,6 @@
 | simple-is | 0.2.0 | MIT 
 
 | slash | 1.0.0 | MIT 
-
-| snapsvg | 0.3.0 | Apache* 
 
 | source-map-support | 0.2.10 | MIT 
 
