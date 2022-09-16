@@ -1,3 +1,4 @@
+= Case API
 :description: Easily manage cases (process instances). Perform maintenance tasks.
 
 Easily manage cases (process instances). Perform maintenance tasks.
