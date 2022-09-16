@@ -2,8 +2,6 @@ name: Build PR preview
 
 on:
   pull_request:
-    # To manage 'surge-preview' action teardown, add default event types + closed event type
-    types: [opened, synchronize, reopened, closed]
     paths:
       - 'modules/**'
       - 'antora.yml'
@@ -17,10 +15,8 @@ jobs:
       COMPONENT_NAME: bonita
       COMPONENT_BRANCH_NAME: ${{ github.head_ref }}
     steps:
-      - name: Build and publish PR preview
-        uses: bonitasoft/bonita-documentation-site/.github/actions/build-and-publish-pr-preview/@master
+      - name: Build preview
+        uses: bonitasoft/bonita-documentation-site/.github/actions/build-pr-site/@master
         with:
-          surge-token: ${{ secrets.SURGE_TOKEN_DOC }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           build-preview-command: |-
             ./build-preview.bash --component "${{ env.COMPONENT_NAME }}" --branch "${{ env.COMPONENT_BRANCH_NAME }}"
