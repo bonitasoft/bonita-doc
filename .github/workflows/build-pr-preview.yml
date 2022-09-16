@@ -23,11 +23,9 @@ jobs:
       TOOLKIT_BRANCH: '1.0'
       BONITA_BRANCH_FOR_TOOLKIT: '2022.2'
     steps:
-      - name: Build preview
+      - name: Build PR preview
         uses: bonitasoft/bonita-documentation-site/.github/actions/build-pr-site/@master
         with:
-          surge-token: ${{ secrets.SURGE_TOKEN_DOC }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           # '>' Replace newlines with spaces (folded)
           # '-' No newline at end (strip)
           build-preview-command: >-
