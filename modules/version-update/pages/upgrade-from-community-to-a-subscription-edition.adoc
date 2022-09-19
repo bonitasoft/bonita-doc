@@ -63,6 +63,15 @@ To upgrade a Bonita Runtime from a Community edition to an Enterprise edition, f
 . ⚠ (Optionally rename the `<bonita-installation>` folder with a name that does not contain anymore the word `community`, for clarity)
 . Start the upgraded Bonita Runtime using `<bonita-installation>/start-bonita(.sh/.bat)` script
 
+At this stage, the bonita platform is functional, but missing the (subscription version) provided administrator application. You will need to import it manually to use its features. To do so:
+
+. Go to `<bonita-installation>/server/webapps/bonita/WEB-INF/classes/org/bonitasoft/web/application/`.
+. Unzip the file `bonita-admin-application-sp-7.x.y.zip`. You should have an xml and a png file.
+. Connect to the bonita platform using a super administrator user.
+. Go to applications, import the xml file.
+. ⚠ (Optionally, click on more details of your newly imported application, and import the png file as logo)
+. ⚠ (Optionally, delete the community version of the administrator application to avoid unnecessary confusion)
+
 
 === Notes
 
