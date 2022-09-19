@@ -263,6 +263,15 @@ Use BPMN 2 importer for model exchange with third-party editors.
 A standalone docker image that package the LDAP Synchronizer was released under the name `quay.io/bonitasoft/bonita-ldap-synchronizer`
 
 == Bug fixes
+=== Fixes in Bonita 2021.1-0920 (2022-09-20)
+
+==== Fixes in Bonita Runtime (including Portal)
+
+* RUNTIME-211 - Fix access to a non existing token in an app raise a 403 instead of a 404 
+* RUNTIME-992 - [Security] Update several dependencies for 2021.1 (7.12.12)
+* RUNTIME-1156 - Fix BConf file deployment is broken for non existing processes
+* RUNTIME-1408 - Fix slow REST API extension call due to a java sycnhronized in RestApiRenderer class
+
 === Fixes in Bonita 2021.1-0307 (2022-03-07)
 
 ==== Fixes in Bonita Runtime (including Portal)
