@@ -24,9 +24,6 @@ jobs:
           echo "GITHUB_REF_NAME: ${GITHUB_REF_NAME}"
           echo "GITHUB_REF: ${GITHUB_REF}"
           echo "NEW_BRANCH_NAME: ${NEW_BRANCH_NAME}"
-      - name: Build and publish PR preview
-        uses: bonitasoft/bonita-documentation-site/.github/actions/build-and-publish-pr-preview/@master
-    steps:
       - name: Build preview
         uses: bonitasoft/bonita-documentation-site/.github/actions/build-pr-site/@master
         with:
