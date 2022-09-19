@@ -206,7 +206,7 @@ repositories {
 
 == Bug fixes
 
-=== Fixes in Bonita 2022.1-u2 (2022-0X-YY)
+=== Fixes in Bonita 2022.1-u3 (2022-09-07)
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
 
@@ -218,24 +218,26 @@ repositories {
 * STUDIO-4388 - Fix a regression where the Bonita code templates where not available in the script editor content assist.
 * STUDIO-4399 - Fix a race condition issue when switching project.
 * STUDIO-4400 - Fix [Organization] Password resolution
+* STUDIO-4419 - Improve .bpmn file import error management when bpmn contains horizontal lanes
 * UID-675 - Fix generated `page.properties` file to include fragments resources
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
-* RUNTIME-211 - Access to a non existing token in an app raise a 403 instead of a 404
+* RUNTIME-211 - Fix Access to a non existing token in an app raise a 403 instead of a 404
 * RUNTIME-334 - Fix REST API ../API/identity/user/-1?d=professionalData as it returns the list of users
 * RUNTIME-335 - Fix REST API ../API/identity/user/-1 as it returns a APIMissingIdException
-* RUNTIME-869 - Administrator app - BPM process: The 2 Popups to Disable and Enable installed process do not close
-* RUNTIME-978 - Organisation import does not update 'lastUpdate' field in user entries
-* RUNTIME-1011 - ProcessId in URL not taken into account in admin case list
-* RUNTIME-1156 - BConf file deployment is broken for non existing processes
-* RUNTIME-1217 - Process and case visu only display the diagram
-* RUNTIME-1220 - [Web] Admin case list doesn't have 'case_delete' permissions
-* RUNTIME-1234 - [Security] Update several dependencies for 2022.1-u2 (see xref:#_potential_need_of_declaring_external_maven_repository[specific note]])
-* RUNTIME-1273 - Admin app BPM pages should be editable in subscription editions
-* RUNTIME-1275 - bonita-sp- maven-repository 7.13.x contains extra files
-* RUNTIME-1296 - Missing REST API static permissions
-* RUNTIME-1390 - issuedFor (azp) claim in OIDC ID token should be treated as optional
+* RUNTIME-869 - Fix Administrator app - BPM process: The 2 Popups to Disable and Enable installed process do not close
+* RUNTIME-978 - Fix Organisation import does not update 'lastUpdate' field in user entries
+* RUNTIME-1011 - Fix ProcessId in URL not taken into account in admin case list
+* RUNTIME-1156 - Fix BConf file deployment is broken for non existing processes
+* RUNTIME-1217 - Fix Process and case visu only display the diagram
+* RUNTIME-1220 - Fix Admin case list doesn't have 'case_delete' permissions
+* RUNTIME-1234 - [Security] Update several dependencies for 2022.1-u3 (see xref:#_potential_need_of_declaring_external_maven_repository[specific note]])
+* RUNTIME-1273 - Fix Admin app BPM pages should be editable in subscription editions
+* RUNTIME-1275 - Fix bonita-sp- maven-repository 7.13.x contains extra files
+* RUNTIME-1296 - Fix Missing REST API static permissions
+* RUNTIME-1390 - Fix issuedFor (azp) claim in OIDC ID token should be treated as optional
+* RUNTIME-1408 - Fix slow REST API extension call due to a java sycnhronized in the handleRestApiCall method from RestApiRenderer class
 
 === Fixes in Bonita 2022.1-u1 (2022-05-03)
 
