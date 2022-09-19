@@ -1,4 +1,4 @@
-= Bonita engine dependencies (7.14.2)
+= Bonita engine dependencies (7.14.3)
 :description: List all dependencies uses for Bonita Engine
 
 
@@ -765,7 +765,7 @@
 
 | org.postgresql
 | postgresql
-| 42.3.3
+| 42.4.2
 | https://jdbc.postgresql.org/[https://jdbc.postgresql.org/]
 |  https://jdbc.postgresql.org/about/license.html[BSD-2-Clause]
 
@@ -855,8 +855,8 @@
 
 | org.yaml
 | snakeyaml
-| 1.26
-| http://www.snakeyaml.org[http://www.snakeyaml.org]
+| 1.32
+| https://bitbucket.org/snakeyaml/snakeyaml[https://bitbucket.org/snakeyaml/snakeyaml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 |=== 
 
@@ -1773,7 +1773,7 @@
 
 | org.postgresql
 | postgresql
-| 42.3.3
+| 42.4.2
 | https://jdbc.postgresql.org/[https://jdbc.postgresql.org/]
 |  https://jdbc.postgresql.org/about/license.html[BSD-2-Clause]
 
@@ -1863,7 +1863,7 @@
 
 | org.yaml
 | snakeyaml
-| 1.26
-| http://www.snakeyaml.org[http://www.snakeyaml.org]
+| 1.32
+| https://bitbucket.org/snakeyaml/snakeyaml[https://bitbucket.org/snakeyaml/snakeyaml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 |=== 
