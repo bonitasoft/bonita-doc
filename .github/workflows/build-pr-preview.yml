@@ -2,8 +2,6 @@ name: Build PR preview
 
 on:
   pull_request:
-    # To manage 'surge-preview' action teardown, add default event types + closed event type
-    types: [opened, synchronize, reopened, closed]
     paths:
       - 'modules/**'
       - 'antora.yml'
@@ -15,20 +13,22 @@ jobs:
       pull-requests: write # surge-preview write PR comments    
     env:
       COMPONENT_NAME: bonita
+      COMPONENT_BRANCH_NAME: ${{ github.head_ref }}
       NEW_BRANCH_NAME: 'pull/${{ github.event.pull_request.number }}/head'
     steps:
       - name: Compute environment variables
         # TODO the branch name is not available in the repository when the PR is created from a fork repo
         run: |
-          echo "BRANCH_NAME=$(echo ${GITHUB_HEAD_REF#refs/heads/})" >> $GITHUB_ENV
+          echo "COMPONENT_BRANCH_NAME=${COMPONENT_BRANCH_NAME}"
           echo "GITHUB_HEAD_REF: ${GITHUB_HEAD_REF}"
           echo "GITHUB_REF_NAME: ${GITHUB_REF_NAME}"
           echo "GITHUB_REF: ${GITHUB_REF}"
           echo "NEW_BRANCH_NAME: ${NEW_BRANCH_NAME}"
       - name: Build and publish PR preview
         uses: bonitasoft/bonita-documentation-site/.github/actions/build-and-publish-pr-preview/@master
+    steps:
+      - name: Build preview
+        uses: bonitasoft/bonita-documentation-site/.github/actions/build-pr-site/@master
         with:
-          surge-token: ${{ secrets.SURGE_TOKEN_DOC }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           build-preview-command: |-
-            ./build-preview.bash --branch "${{ env.NEW_BRANCH_NAME }}" --component "${{ env.COMPONENT_NAME }}"
+            ./build-preview.bash --component "${{ env.COMPONENT_NAME }}" --branch "${{ env.NEW_BRANCH_NAME }}"
