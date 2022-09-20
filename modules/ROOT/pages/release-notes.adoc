@@ -218,7 +218,7 @@ repositories {
 * STUDIO-4388 - Fix a regression where the Bonita code templates where not available in the script editor content assist.
 * STUDIO-4399 - Fix a race condition issue when switching project.
 * STUDIO-4400 - Fix [Organization] Password resolution
-* STUDIO-4419 - Improve .bpmn file import error management when bpmn contains horizontal lanes
+* STUDIO-4419 - Improve .bpmn file import error management when bpmn contains vertical lanes
 * UID-675 - Fix generated `page.properties` file to include fragments resources
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
