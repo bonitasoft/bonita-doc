@@ -237,7 +237,7 @@ repositories {
 * RUNTIME-1275 - Fix bonita-sp- maven-repository 7.13.x contains extra files
 * RUNTIME-1296 - Fix Missing REST API static permissions
 * RUNTIME-1390 - Fix issuedFor (azp) claim in OIDC ID token should be treated as optional
-* RUNTIME-1408 - Fix slow REST API extension call due to a java sycnhronized in the handleRestApiCall method from RestApiRenderer class
+* RUNTIME-1408 - Fix slow REST API extension requests due to a java sycnhronized block
 
 === Fixes in Bonita 2022.1-u1 (2022-05-03)
 
