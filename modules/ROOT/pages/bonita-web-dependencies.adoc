@@ -44,13 +44,13 @@
 
 | org.bonitasoft.engine
 | bonita-client
-| 7.12.11
+| 7.12.12
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-common
-| 7.12.11
+| 7.12.12
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
@@ -68,7 +68,7 @@
 
 | org.springframework
 | spring-core
-| 5.2.19.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 |=== 
@@ -81,7 +81,7 @@
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.12.6
+| 2.12.6.1
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -171,31 +171,31 @@
 
 | org.bonitasoft.console
 | console-common
-| 7.12.11
+| 7.12.12
 | N/A
 |  -
 
 | org.bonitasoft.engine
 | bonita-client
-| 7.12.11
+| 7.12.12
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-common
-| 7.12.11
+| 7.12.12
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.forms
 | forms-server
-| 7.12.11
+| 7.12.12
 | N/A
 |  -
 
 | org.bonitasoft.web
 | bonita-web-extensions
-| 7.12.11
+| 7.12.12
 | http://www.bonitasoft.com[http://www.bonitasoft.com]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
@@ -243,13 +243,13 @@
 
 | org.springframework
 | spring-core
-| 5.2.19.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-web
-| 5.2.19.RELEASE
+| 5.2.22.RELEASE
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -258,6 +258,12 @@
 | 4.0.3
 | http://www.tuckey.org/urlrewrite/[http://www.tuckey.org/urlrewrite/]
 |  http://www.opensource.org/licenses/bsd-license.php[BSD]
+
+| org.yaml
+| snakeyaml
+| 1.32
+| https://bitbucket.org/snakeyaml/snakeyaml[https://bitbucket.org/snakeyaml/snakeyaml]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | ro.isdc.wro4j
 | wro4j-core
@@ -280,13 +286,13 @@
 
 | org.bonitasoft.console
 | console-client
-| 7.12.11
+| 7.12.12
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-common-sp
-| 7.12.11
+| 7.12.12
 | N/A
 |  -
 |=== 
@@ -299,7 +305,7 @@
 
 | com.bonitasoft.engine
 | bonita-client-sp
-| 7.12.11
+| 7.12.12
 | N/A
 |  -
 
@@ -311,7 +317,7 @@
 
 | org.bonitasoft.console
 | console-common
-| 7.12.11
+| 7.12.12
 | N/A
 |  -
 |=== 
@@ -324,19 +330,19 @@
 
 | com.bonitasoft.engine
 | bonita-client-sp
-| 7.12.11
+| 7.12.12
 | N/A
 |  -
 
 | com.bonitasoft.engine
 | bonita-common-sp
-| 7.12.11
+| 7.12.12
 | N/A
 |  -
 
 | com.bonitasoft.web
 | bonita-web-extensions-sp
-| 7.12.11
+| 7.12.12
 | http://www.bonitasoft.com[http://www.bonitasoft.com]
 |  -
 
@@ -426,31 +432,31 @@
 
 | org.bonitasoft.console
 | bos-mobile-sp
-| 7.12.11
+| 7.12.12
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-common-sp
-| 7.12.11
+| 7.12.12
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-server
-| 7.12.11
+| 7.12.12
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-server
-| 7.12.11
+| 7.12.12
 | N/A
 |  -
 
 | org.bonitasoft.forms
 | forms-server-sp
-| 7.12.11
+| 7.12.12
 | N/A
 |  -
 
