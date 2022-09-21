@@ -234,7 +234,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 
 == Bug fixes
 
-=== Fixes in Bonita 2021.2-u6 (2022-09-20)
+=== Fixes in Bonita 2021.2-u6 (2022-09-21)
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
