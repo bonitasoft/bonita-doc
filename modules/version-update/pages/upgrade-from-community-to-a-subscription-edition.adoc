@@ -46,7 +46,8 @@ Upgrading a Bonita Runtime allows you to keep its data (process definitions, cas
 
 [NOTE]
 ====
-The *upgrade procedure* is quite simple with an execution time of 30 minutes. +
+The *upgrade procedure* is quite simple with an execution time of less than 30 minutes. 
+
 A *service downtime* will be required.
 ====
 
