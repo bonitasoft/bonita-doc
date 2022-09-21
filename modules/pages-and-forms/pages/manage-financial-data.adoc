@@ -19,7 +19,7 @@ WARNING: Be sure to select DOUBLE type to avoid rounding issues back and forth w
 1. Use xref:ROOT:data-management.adoc[Data Management] to load your Business Object in your UI page with a simple Drag and Drop. +
 In the screenshot illustration, all existing ExpenseReportLine are queried into UI variable expenseReportLines with a find query.
 
-2. Drag and drog a new Currency Input widget from the UI-Designer palette to your page. +
+2. Drag and drop a new Currency Input widget from the UI-Designer palette to your page. +
 Set the currency widget Read-only property to true.
 
 3. Bind the currency widget Value to your Business Object price attribute. +
