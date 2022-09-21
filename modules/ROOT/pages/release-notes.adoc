@@ -234,6 +234,16 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 
 == Bug fixes
 
+=== Fixes in Bonita 2021.2-u6 (2022-09-20)
+
+==== Fixes in Bonita Runtime (including Bonita Applications)
+
+* RUNTIME-211 - Fix Access to a non existing token in an app raise a 403 instead of a 404
+* RUNTIME-869 - Fix Administrator app - BPM process: The 2 Popups to Disable and Enable installed process do not close
+* RUNTIME-978 - Fix Organisation import does not update 'lastUpdate' field in user entries
+* RUNTIME-1408 - Fix slow REST API extension requests due to a java sycnhronized block
+* RUNTIME-1412 - [Security] Update several dependencies for 2021.2-u6 (7.13.6)
+
 === Fixes in Bonita 2021.2-u5 (2022-07-25)
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
