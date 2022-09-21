@@ -20,7 +20,7 @@ A Bonita edition upgrade can only be performed between environments having the s
 
 Updating to a newer version at the same time as upgrading to the Enterprise edition is *NOT* an option. +
 
-Everything above is applicable for the downgrade process.
+Everything above is also applicable for the downgrade process.
 
 == Upgrade process 
 
