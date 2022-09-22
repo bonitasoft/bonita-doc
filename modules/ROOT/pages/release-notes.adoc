@@ -34,7 +34,7 @@ A subscription account is required for downloading the .jar , that contains “P
 
 === A new widget to deal with Currencies
 
-A new widget is now available in UI Designer to manage financial data using currencies at ease in pages or forms.
+A new xref:pages-and-forms:widgets-inputs.adoc#currency-input-widget[input widget] is now available in UI Designer to manage financial data using currencies at ease in pages or forms.
 
 == Improvements
 
