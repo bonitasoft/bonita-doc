@@ -78,7 +78,7 @@ For Community users who update to 2022.2, if you need this API resource, you can
 
 UI Designer frontend has been migrated to AngularJS 1.8.
 
-[Note]
+[NOTE]
 ====
 Only the UID application has been upgraded to AngularJS 1.8. Your applications will still generated with AngularJS 1.3. Stay tuned for further updates.
 ====
@@ -88,6 +88,21 @@ Only the UID application has been upgraded to AngularJS 1.8. Your applications w
 === SVN
 
 SVN integration in Bonita Studio Subscription has been removed. You may migrate an existing SVN repository to a Git repository following this xref:migrate-a-svn-repository-to-github.adoc[guide].
+
+=== Multi-tenancy deprecation
+
+https://documentation.bonitasoft.com/bonita/2021.1/multi-tenancy-and-tenant-configuration[Multi-tenancy has been deprecated commercially] by Bonitasoft starting from Bonita 2021.1. 
+
+To cover the multi-tenancy use cases in the vest technical way, Bonitasoft is proposing a new architecture solutions. For customers running a Bonita multi-tenancy platform, the technical path from multi-tenancy proposed by Bonitasoft is multi-runtime.  This choice will require to split the current multi-tenant platform into several multi-runtimes, each one with their own Bonita engine database.
+
+As this path can be challenging for customers using multi-tenancy, Bonitasoft developed a conversion tool. We strongly suggest our customers to take the time and use the tool in a pre-production environment before the production. 
+
+Multi-tenancy to multi-runtime conversion tool can be executed on Bonita Platforms starting from Bonita 7.11. 
+
+[WARNING]
+====
+Reminder : For commercial and support questions, please refer to your Customer Success referent. 
+====
 
 == Bug fixes
 
