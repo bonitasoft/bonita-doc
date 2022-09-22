@@ -16,19 +16,19 @@ Till Bonita 2022.2, another library has been used to display process execution d
 Hence, integrating the bpmn-visualization library to Bonita, was a very natural choice. +
 
 The new values are available for Bonita Subscription Editions starting with the Efficiency edition.
-  
+
   * Bonita Administration application users will get a faster and more robust view on the process execution data (thanks to the library and new REST APIs)
   * As the bpmn-visualization library evolves, more interactivity and information for a better monitoring capacity will be provided
   * Since the pages have been created by using Bonita UI Designer, developers can:
-        
+
         ** Use the custom widget embedded in the new pages in their own application pages. The widget has been wrapped into a fragment that makes it very easy to use.
         ** Modify the process or case visualization page, and use it in any Bonita application
 
 For more details, check xref:pages-and-forms:customize-display-process-monitoring.adoc[How to page to customize the display of process execution monitoring]
 
-=== Bonita Reporting Application 
+=== Bonita Reporting Application
 
-Here it comes, Bonita Reporting Application is now available for download on Bonita’s Customer Service Center/Customer Portal and is compatible starting with Bonita 2021.2. 
+Here it comes, Bonita Reporting Application is now available for download on Bonita’s Customer Service Center/Customer Portal and is compatible starting with Bonita 2021.2.
 
 A subscription account is required for downloading the .jar , that contains “Process Historical Data” and “Human tasks historical data” reports, designed for process performance and human tasks execution analysis. More details are available in the dedicated documentation page xref:runtime:reporting-app.adoc[Bonita application for analytics and reporting].
 
@@ -49,7 +49,7 @@ Also, to increase user guidance, the Welcome page has been improved with clear c
 
 A new filter was added to display the already installed extensions in order to help users know the extensions installed in their project while browsing the Bonita Marketplace
 
-==== Detecting  extension's related issues at import 
+==== Detecting  extension's related issues at import
 
 With the previous version, you could import malformed extensions in your project without any warnings. This leading to errors downstream and confused users.
 From now, when importing or updating an extension, errors will be detected and users will be informed in Studio.
@@ -64,7 +64,7 @@ The menus have been reviewed for an easier user journey.
 
 ==== Added Environment duplication feature
 
-With the previous versions, creating a new environment required to set up the whole project configuration entirely, including configuration of each process, what could be time consuming and error prone with big projects. From now on, users can create environments starting from duplicating an existing one. 
+With the previous versions, creating a new environment required to set up the whole project configuration entirely, including configuration of each process, what could be time consuming and error prone with big projects. From now on, users can create environments starting from duplicating an existing one.
 
 == Functional changes
 
