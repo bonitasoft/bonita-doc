@@ -5,7 +5,7 @@ on:
     types: [opened, edited, synchronize]
 
 jobs:
-  lint-pr:
+  pr-title:
     runs-on: ubuntu-20.04
     steps:
       - name: Lint pull request title
