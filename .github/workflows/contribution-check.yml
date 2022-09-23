@@ -5,14 +5,13 @@ on:
     types: [opened, edited, synchronize]
 
 jobs:
-  commit-message-check:
+  lint-pr:
     runs-on: ubuntu-20.04
     steps:
-      - name: Check PR title and body
-        id: check-for-cc
-        uses: agenthunt/conventional-commit-checker-action@v1.0.0
+      - name: Lint pull request title
+        uses: jef/conventional-commits-pr-action@v1
         with:
-          pr-body-regex: '(.*\n*)+(.*)'
+          token: ${{ secrets.GITHUB_TOKEN }}
   pr-content-check:
     runs-on: ubuntu-20.04
     steps:
