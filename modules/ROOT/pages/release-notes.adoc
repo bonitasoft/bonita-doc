@@ -97,7 +97,7 @@ To cover the multi-tenancy use cases in the vest technical way, Bonitasoft is pr
 
 As this path can be challenging for customers using multi-tenancy, Bonitasoft developed a conversion tool. We strongly suggest our customers to take the time and use the tool in a pre-production environment before the production. 
 
-Multi-tenancy to multi-runtime conversion tool can be executed on Bonita Platforms starting from Bonita 7.11. 
+xref:version-update:mtmr-tool.adoc[Multi-tenancy to multi-runtime conversion tool] can be executed on Bonita Platforms starting from Bonita 7.11. 
 
 [WARNING]
 ====
