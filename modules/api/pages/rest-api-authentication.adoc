@@ -28,6 +28,7 @@ redirectUrl: the URL of the page to be displayed after a succesful login. If it 
 tenant: the tenant to log in to (optional for Performance edition, not supported for Community, Teamwork and Efficiency editions)
 |===
 
+In case of success, the HTTP response status code is `204 No Content` by default. However, if redirect is set to `true`, the status code will be a `302 Found` with the location to redirect to.
 The response to this call generates cookies.
 The `JSESSIONID` must be transfered with each subsequent calls. If the REST API is used in an application running in a web browser, this is handled automatically by the web browser.
 For usage of the `X-Bonita-API-Token` see below.
