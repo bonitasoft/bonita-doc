@@ -123,7 +123,7 @@ In `Edit` mode, additional `persistenceId_string` input are generated to ensure 
 In `Edit` mode, you have the possibility to generate read only widgets for attributes related to the contract but not in the contract. +
 The following example describes the logic:
 
-image::images/formGenerationReadOnly.svg[Read only example]
+image:images/formGenerationReadOnly.svg[Read only example]
 
 Elements in blue are the contract inputs, i.e a sub-part of the business model that will be edited. +
 Elements in red are the attributes considered as _related to a contract input_. We will propose you to generate read only widgets to display the values of those attributes.
