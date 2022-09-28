@@ -433,3 +433,18 @@ You can add rich text area inputs for end users to create text to be exported in
 It can be prefilled with an HTML template.
 
 A options toolbar exposed to end users can be customized and localized with the usual xref:multi-language-pages.adoc[localization mechanism] (localization.json file).
+
+
+[.troubleshooting-section]
+--
+[.symptom]
+FileViewer widget does not preview a file (although a point on a supported format)
+
+[.symptom-description]
+I set the URL property to a pointer on a pdf or image file, but I can't see the preview: I get a "Preview is not available" message.
+
+[.cause]#Potential cause#
+The URL points on a file without extension (e.g. \https://myhost/doc/sample)
+[.solution]#Possible solution#
+Make a custom widget from the File Viewer widget, and adapt the `controller.isPDF` or `controller.isImage` function to make it return true.
+--
