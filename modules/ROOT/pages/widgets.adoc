@@ -441,7 +441,7 @@ A options toolbar exposed to end users can be customized and localized with the 
 [.troubleshooting-section]
 --
 [.symptom]
-FileViewer widget does not preview a file (although a point on a supported format)
+File Viewer widget does not preview a file (although I point on a supported format)
 
 [.symptom-description]
 I set the URL property to a pointer on a pdf or image file, but I can't see the preview: I get a "Preview is not available" message.
