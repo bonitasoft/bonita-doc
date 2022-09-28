@@ -420,7 +420,7 @@ The previewable documents are limited to documents supported by the end user bro
 If you create a custom FileViewer: edit the `box-viewer.directive.js` file from the custom widget editor, and replace `pbFileViewer` by the name of your custom FileViewer prefixed by `custom` (for instance `customFileViewerSmart`). +
 Limitations: +
 - Adding several types of `FileViewer` in a page is not supported +
-- The URL should have the file type as extension (e.g. https://myhost/doc/sample.pdf)
+- The URL should have the file type as extension (e.g. \https://myhost/doc/sample.pdf)
 ====
 
 [#rich-text-area]
