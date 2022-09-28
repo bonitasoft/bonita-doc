@@ -1,5 +1,5 @@
 = Create a new Look & Feel
-:description: This page explains the legacy variant of modifying the style of user interfaces.
+:description: This page explains the legacy variant of modifying the style on user interfaces.
 
 {description}
 
