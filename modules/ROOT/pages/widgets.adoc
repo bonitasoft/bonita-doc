@@ -435,6 +435,9 @@ It can be prefilled with an HTML template.
 A options toolbar exposed to end users can be customized and localized with the usual xref:multi-language-pages.adoc[localization mechanism] (localization.json file).
 
 
+[.troubleshooting-title]
+== Troubleshooting UI Designer widgets
+
 [.troubleshooting-section]
 --
 [.symptom]
@@ -445,6 +448,7 @@ I set the URL property to a pointer on a pdf or image file, but I can't see the 
 
 [.cause]#Potential cause#
 The URL points on a file without extension (e.g. \https://myhost/doc/sample)
+
 [.solution]#Possible solution#
 Make a custom widget from the File Viewer widget, and adapt the `controller.isPDF` or `controller.isImage` function to make it return true.
 --
