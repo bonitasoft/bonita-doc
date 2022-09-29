@@ -451,5 +451,5 @@ I set the URL property to a pointer on a pdf or image file, but I can't see the 
 The URL points on a file without extension (e.g. \https://myhost/doc/sample)
 
 [.solution]#Possible solution#
-Make a custom widget from the File Viewer widget, and adapt the `controller.isPDF` or `controller.isImage` function to make it return true.
+Make a custom widget from the File Viewer widget, and adapt the `controller.isPDF` or `controller.isImage`.
 --
