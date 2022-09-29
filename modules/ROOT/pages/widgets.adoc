@@ -439,6 +439,9 @@ A options toolbar exposed to end users can be customized and localized with the 
 [.troubleshooting-title]
 == Troubleshooting UI Designer widgets
 
+[.troubleshooting-title]
+=== Troubleshooting File Viewer
+
 [.troubleshooting-section]
 --
 [.symptom]
