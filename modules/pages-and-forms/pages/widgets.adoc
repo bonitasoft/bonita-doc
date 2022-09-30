@@ -418,9 +418,11 @@ The previewable documents are limited to documents supported by the end user bro
 
 [WARNING]
 ====
+If you create a custom FileViewer: edit the `box-viewer.directive.js` file from the custom widget editor, and replace `pbFileViewer` by the name of your custom FileViewer prefixed by `custom` (for instance `customFileViewerSmart`). +
+Limitations:
 
-*:fa-exclamation-triangle:* If you create a custom FileViewer: edit the `box-viewer.directive.js` file from the custom widget editor, and replace `pbFileViewer` by the name of your custom FileViewer prefixed by `custom` (for instance `customFileViewerSmart`).
-Limitation: adding several types of `FileViewer` in a page is not supported.
+* Adding several types of `FileViewer` in a page is not supported +
+* The URL should have the file type as extension (e.g. \https://myhost/doc/sample.pdf)
 ====
 
 [#rich-text-area]
@@ -433,3 +435,25 @@ You can add rich text area inputs for end users to create text to be exported in
 It can be prefilled with an HTML template.
 
 A options toolbar exposed to end users can be customized and localized with the usual xref:ROOT:multi-language-pages.adoc[localization mechanism] (localization.json file).
+
+
+[.troubleshooting-title]
+== Troubleshooting UI Designer widgets
+
+[.troubleshooting-title]
+=== Troubleshooting File Viewer
+
+[.troubleshooting-section]
+--
+[.symptom]
+File Viewer widget does not preview a file (although I point on a supported format)
+
+[.symptom-description]
+I set the URL property to a pointer on a pdf or image file, but I can't see the preview: I get a "Preview is not available" message.
+
+[.cause]#Potential cause#
+The URL points on a file without extension (e.g. \https://myhost/doc/sample)
+
+[.solution]#Possible solution#
+Make a custom widget from the File Viewer widget, and adapt the `controller.isPDF` or `controller.isImage`.
+--
