@@ -6,7 +6,7 @@
 Bonita 2022.2 is available for download.
 ====
 
-== New added values
+== New released values
 
 === Bonita process monitoring now with embeded bpmn-visualization library
 
@@ -35,6 +35,10 @@ A subscription account is required for downloading the .jar , that contains “P
 === A new widget to deal with Currencies
 
 A new xref:pages-and-forms:widgets-inputs.adoc#currency-input-widget[input widget] is now available in UI Designer to manage financial data using currencies at ease in pages or forms.
+
+=== Bonita Artifact Repository 
+
+In Bonita 2022.1, we delivered Bonita Test Toolkit through an additional Maven archive. With Bonita 2022.2 we are delivered our subscription only Bonita Artifact Repository, and Bonita Test Toolkit is the first available for download artifact. Step by step, all our supported products will become available for download through Bonita Artefact Repository. 
 
 == Improvements
 
