@@ -97,7 +97,7 @@ SVN integration in Bonita Studio Subscription has been removed. You may migrate 
 
 xref:ROOT:multi-tenancy-and-tenant-configuration.adoc[Multi-tenancy has been deprecated commercially] by Bonitasoft starting from Bonita 2021.1. 
 
-To cover the multi-tenancy use cases in the best technical way, Bonitasoft is proposing a new architecture solutions. For customers running a Bonita multi-tenancy platform, the technical path from multi-tenancy proposed by Bonitasoft is multi-runtime.  This choice will require to split the current multi-tenant platform into several runtimes, each one with their own Bonita engine database.
+To cover the multi-tenancy use cases in the best technical way, Bonitasoft is proposing a new architecture solution. For customers running a Bonita multi-tenancy platform, the technical path from multi-tenancy proposed by Bonitasoft is multi-runtime. This choice will require to split the current multi-tenant platform into several runtimes, each one with their own Bonita engine database.
 
 As this path can be challenging for customers using multi-tenancy, Bonitasoft developed a conversion tool. We strongly suggest our customers to take the time and use the tool in a pre-production environment before the production. 
 
