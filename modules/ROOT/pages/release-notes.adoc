@@ -38,7 +38,7 @@ A new xref:pages-and-forms:widgets-inputs.adoc#currency-input-widget[input widge
 
 === Bonita Artifact Repository 
 
-In Bonita 2022.1, we delivered xref:{bonitaDocVersion}@bonita::ROOT:process-testing-overview.adoc[Bonita Test Toolkit] through an additional Maven archive. With Bonita 2022.2 we are delivered our subscription only Bonita Artifact Repository, and Bonita Test Toolkit is the first available for download artifact. Step by step, all our supported products will become available for download through Bonita Artefact Repository. 
+In Bonita 2022.1, we delivered xref:{bonitaDocVersion}@bonita::process-testing-overview.adoc[Bonita Test Toolkit] through an additional Maven archive. With Bonita 2022.2 we are delivered our subscription only Bonita Artifact Repository, and Bonita Test Toolkit is the first available for download artifact. Step by step, all our supported products will become available for download through Bonita Artefact Repository. 
 
 == Improvements
 
