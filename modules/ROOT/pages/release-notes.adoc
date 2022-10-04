@@ -6,7 +6,7 @@
 Bonita 2022.2 is available for download.
 ====
 
-== New released values
+== New available values
 
 === Bonita process monitoring now with embeded bpmn-visualization library
 
