@@ -3,10 +3,10 @@
 
 [NOTE]
 ====
-The 2022.2 is in Beta.
+Bonita 2022.2 is available for download.
 ====
 
-== New added values
+== New available values
 
 === Bonita process monitoring now with embeded bpmn-visualization library
 
@@ -35,6 +35,10 @@ A subscription account is required for downloading the .jar , that contains “P
 === A new widget to deal with Currencies
 
 A new xref:pages-and-forms:widgets-inputs.adoc#currency-input-widget[input widget] is now available in UI Designer to manage financial data using currencies at ease in pages or forms.
+
+=== Bonita Artifact Repository 
+
+In Bonita 2022.1, we delivered xref:1.0@test-toolkit::process-testing-overview.adoc[Bonita Test Toolkit] through an additional Maven archive. With Bonita 2022.2 we are delivered our subscription only Bonita Artifact Repository, and Bonita Test Toolkit is the first available for download artifact. Step by step, all our supported products will become available for download through Bonita Artefact Repository. 
 
 == Improvements
 
@@ -93,7 +97,7 @@ SVN integration in Bonita Studio Subscription has been removed. You may migrate 
 
 xref:ROOT:multi-tenancy-and-tenant-configuration.adoc[Multi-tenancy has been deprecated commercially] by Bonitasoft starting from Bonita 2021.1. 
 
-To cover the multi-tenancy use cases in the best technical way, Bonitasoft is proposing a new architecture solutions. For customers running a Bonita multi-tenancy platform, the technical path from multi-tenancy proposed by Bonitasoft is multi-runtime.  This choice will require to split the current multi-tenant platform into several runtimes, each one with their own Bonita engine database.
+To cover the multi-tenancy use cases in the best technical way, Bonitasoft is proposing a new architecture solution. For customers running a Bonita multi-tenancy platform, the technical path from multi-tenancy proposed by Bonitasoft is multi-runtime. This choice will require to split the current multi-tenant platform into several runtimes, each one with their own Bonita engine database.
 
 As this path can be challenging for customers using multi-tenancy, Bonitasoft developed a conversion tool. We strongly suggest our customers to take the time and use the tool in a pre-production environment before the production. 
 
