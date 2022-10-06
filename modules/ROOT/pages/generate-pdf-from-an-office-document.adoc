@@ -62,17 +62,19 @@ This connector is build upon *XdocReport* third party library, for more informat
 
 [.troubleshooting-section]
 --
-[.symptom]
+[.symptom]*Symptom*
+
 You may encounter memory issues using this connector as it has substantial size of dependencies
 
-[.cause]#Potential cause#
+[.cause]*Potential cause*
+
 You may increase the maximum memory allocation value of the Tomcat server JVM
 
-[.solution]#Possible solution#
+[.solution]*Possible solution*
 
-1. Go to Preferences
-1. Server settings
-1. Increase the Tomcat Maximum memory allocation (`-Xmx` JVM argument) value to *1024* (512 by default).
+. Go to Preferences
+. Server settings
+. Increase the Tomcat Maximum memory allocation (`-Xmx` JVM argument) value to *1024* (512 by default).
 
 WARNING: Do not forget to use the same value when configuring your production Bundle.
 --
