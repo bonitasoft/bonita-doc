@@ -112,9 +112,7 @@ For more details, see the http://tomcat.apache.org/tomcat-8.5-doc/[Tomcat docume
 
 [.troubleshooting-section]
 --
-[.symptom]*Symptom*
-
-You see the following error in your Studio log file:
+[.symptom]*Symptom:* _You see the following error in your Studio log file_
 
 [.symptom-description]
 [source,log]
