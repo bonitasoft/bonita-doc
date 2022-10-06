@@ -1,13 +1,18 @@
 # Bonita documentation archives
 
-This repository contains the documentation site content for Bonita Archives.
-It uses AsciiDoctor and Antora to create documentation content.
+This repository contains the sources of archives of the https://documentation.bonitasoft.com/bonita/0/archives[Bonita documentation site]. It uses https://docs.asciidoctor.org/asciidoc/latest/[AsciiDoc] format for
+the documentation content.
 
 
-## View rendered content on GitHub
+== Content writing guidelines
 
-WIP
+See https://github.com/bonitasoft/bonita-documentation-site/blob/master/docs/content/CONTRIBUTING.adoc[Bonita documentation content writing guidelines] for
+recommendations about writing Asciidoc pages the Bonita-way.
 
-## Contribute
 
-WIP
+== Providing feedbacks about Bonita product
+
+For any questions or feedbacks about the *product itself*, please use the following resources:
+
+* http://community.bonitasoft.com/[Community website]
+* https://bonita.atlassian.net/projects/BBPMC/[Community Bug tracker (Jira)]
