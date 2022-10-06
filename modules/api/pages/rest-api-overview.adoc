@@ -28,12 +28,11 @@ conditions, messages, timers etc.) while your application gives access
 to the workflow. Users can manage processes and tasks, and perform
 administrative activities.
 
-image::images/rest_overview_v2.png[diagram of architecture of a REST
-client integrated with Bonita]
+image::images/rest_api_architecture_overview.png[diagram of architecture of a REST client integrated with Bonita]
 
 == API Extensions
 
-You can create link:rest-api-extensions.md[Rest API Extensions] to
+You can create xref:ROOT:rest-api-extensions.adoc[Rest API Extensions] to
 extend the Rest API by adding missing ressources (not provided by the
 Rest API). It is possible for an extension to interact with the engine
 (via the API) or with any other external service (for example a
