@@ -345,6 +345,9 @@ In order to do that you can use the method withContentRange in the responseBuild
 return buildResponse(responseBuilder.withContentRange(p, c, totalNumberOfElements), HttpServletResponse.SC_OK, new JsonBuilder(result).toString())
 ----
 
+NOTE: You can find a complete example on the https://github.com/Bonitasoft-Community/data-table-demo[Community Github Organization] that showcase the usage of the Data Table widget with Business Object specific queries and a Rest API Extension.
+
+
 Alternatively, you can set the *Data source* to _Variable_ and use a variable definition to point ot the table content. +
 Note that if you use a Variable datasource and an External API variable, the paging of the table content is not handled automatically.
 
