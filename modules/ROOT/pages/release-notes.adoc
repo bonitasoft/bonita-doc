@@ -109,7 +109,30 @@ Reminder : For commercial and support questions, please refer to your Customer S
 ====
 
 == Bug fixes
+For the users of Bonita Community edition, Bonita 2022.2 also comes with all the bug fixes released in the Maintenance versions of Bonita 2022.1 (up until version 2022.1-u6).
+The detailed list is available in the "What’s new in Bonita 2022.1" page, in the "Bug fixes" section.
 
+
+==== Fixes in Bonita Studio (including Bonita UI Designer)
+
+* STUDIO-4399 - Fix synchronize project open/close action 
+* STUDIO-4400 - Fix [Organization] Password resolution 
+* STUDIO-4419 - Fix failed to Load EMF ressource when trying to open an imported .bpmn file 
+
+==== Fixes in Bonita Runtime (including Bonita native Applications)
+
+* RUNTIME-211  - Fix access to a non existing token in an app raise a 403 instead of a 404
+* RUNTIME-334  - Fix REST API ../API/identity/user/-1?d=professionalData as it returns the list of users
+* RUNTIME-335  - Fix REST API ../API/identity/user/-1 as it returns a APIMissingIdException
+* RUNTIME-864  - [Security] Several dependencies updates for 2022.2 (7.15.0)
+* RUNTIME-869  - Fix [Admin App]: BPM process: The 2 Popups to Disable and Enable installed process do not close
+* RUNTIME-978  - Fix organisation import does not update 'lastUpdate' field in user entries
+* RUNTIME-1011 - Fix processId in URL not taken into account in admin case list
+* RUNTIME-1147 - Fix office to PDF connector is not working on a 2022.1-u0 docker enterprise image
+* RUNTIME-1248 - Fix [Admin App]: Case list should not display the "view diagram" icon if the feature is not available
+* RUNTIME-1273 - Fix [Admin App]: BPM pages should be editable in subscription editions
+* RUNTIME-1275 - Fix bonita-sp- maven-repository 7.13.x contains extra files
+* RUNTIME-1408 - Fix slow REST API extension requests due to a java sycnhronized block
 
 == Known issues
 
