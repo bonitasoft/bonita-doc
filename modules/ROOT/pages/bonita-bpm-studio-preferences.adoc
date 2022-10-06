@@ -112,8 +112,8 @@ For more details, see the http://tomcat.apache.org/tomcat-8.5-doc/[Tomcat docume
 
 [.troubleshooting-section]
 --
-[.symptom]
-You see the following error in your Studio log file:
+[.symptom]#symptom#
+*Symptom:* You see the following error in your Studio log file:
 
 [.symptom-description]
 [source,log]
@@ -131,8 +131,8 @@ java.net.UnknownHostException: www.bonitasoft.com
 ----
 
 [.cause]#Potential cause#
-You connect to the internet through Proxy.
+*Cause:* You connect to the internet through Proxy.
 
 [.solution]#Possible solution#
- You need to configure your HTTP Proxy settings in the Studio Preferences > Web > Proxy.
+*Solution:* You need to configure your HTTP Proxy settings in the Studio Preferences > Web > Proxy.
 --
