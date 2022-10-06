@@ -217,30 +217,36 @@ Or also if you need to use a specific *database Driver* java class name:
 
 [.troubleshooting-section]
 --
-[.symptom]#symptom#
-*Symptom:* When I run Bonita Setup tool, I get the exception about database vendor
+[.symptom]*Symptom*
+
+When I run Bonita Setup tool, I get the exception about database vendor
 
 [.symptom-description]
 This exception is throw `Cannot determine database vendor (valid values are h2, postgres, sqlserver, oracle, mysql)`
 
-[.cause]#Potential cause#
-*Cause:* The property `db.vendor` is not found when reading file `database.properties`
+[.cause]*Potential cause*
 
-[.solution]#Possible solution#
-*Solution:* Edit file `database.properties` and ensure there is a valid `db.vendor` value. Also ensure the line is not commented (no `#` at the beginning of the line)
+The property `db.vendor` is not found when reading file `database.properties`
+
+[.solution]*Possible solution*
+
+Edit file `database.properties` and ensure there is a valid `db.vendor` value. Also ensure the line is not commented (no `#` at the beginning of the line)
 --
 
 [.troubleshooting-section]
 --
-[.symptom]#symptom#
-*Symptom:* My database property is ignored in file database.properties
+[.symptom]*Symptom*
+
+My database property is ignored in file database.properties
 
 [.symptom-description]
 My database name / password / ... contains a backslash (`\`) character. It seems to be ignored in file `database.properties`
 
-[.cause]#Potential cause#
-*Cause:* Backslash (`\`) characters are special characters in a .properties file
+[.cause]*Potential cause*
 
-[.solution]#Possible solution#
-*Solution:* Replace your backslash (`\`) characters by double-backslashes (`\\`) everywhere in file `database.properties` (and also in file `internal.properties` if you have modified it)
+Backslash (`\`) characters are special characters in a .properties file
+
+[.solution]*Possible solution*
+
+Replace your backslash (`\`) characters by double-backslashes (`\\`) everywhere in file `database.properties` (and also in file `internal.properties` if you have modified it)
 --
