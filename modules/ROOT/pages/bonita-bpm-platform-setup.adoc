@@ -217,9 +217,7 @@ Or also if you need to use a specific *database Driver* java class name:
 
 [.troubleshooting-section]
 --
-[.symptom]*Symptom*
-
-When I run Bonita Setup tool, I get the exception about database vendor
+[.symptom]*Symptom:* _When I run Bonita Setup tool, I get the exception about database vendor_
 
 [.symptom-description]
 This exception is throw `Cannot determine database vendor (valid values are h2, postgres, sqlserver, oracle, mysql)`
@@ -235,9 +233,7 @@ Edit file `database.properties` and ensure there is a valid `db.vendor` value. A
 
 [.troubleshooting-section]
 --
-[.symptom]*Symptom*
-
-My database property is ignored in file database.properties
+[.symptom]*Symptom:* _My database property is ignored in file database.properties_
 
 [.symptom-description]
 My database name / password / ... contains a backslash (`\`) character. It seems to be ignored in file `database.properties`
