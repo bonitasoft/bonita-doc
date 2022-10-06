@@ -3,9 +3,7 @@ team@openapitools.org
 0.0.9
 :page-aliases: ROOT:rest-api-overview.adoc
 :description: The REST API lets you access the data with HTTP requests; it is useful when implementing rich web forms / pages for a good user experience.
-:toc: left
-:numbered:
-:toclevels: 3
+
 :source-highlighter: highlightjs
 :keywords: openapi, rest, Bonita HTTP API
 :specDir:
