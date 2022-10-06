@@ -1,10 +1,8 @@
 = Bonita HTTP API
-:page-aliases: ROOT:rest-api-overview.adoc
-:description: The REST API lets you access the data with HTTP requests; it is useful when implementing rich web forms / pages for a good user experience.
-
-{description}
 team@openapitools.org
 0.0.9
+:page-aliases: ROOT:rest-api-overview.adoc
+:description: The REST API lets you access the data with HTTP requests; it is useful when implementing rich web forms / pages for a good user experience.
 :toc: left
 :numbered:
 :toclevels: 3
@@ -18,8 +16,8 @@ team@openapitools.org
 
 [abstract]
 .Abstract
-The REST API lets you access the data with HTTP requests; it is useful
-when implementing rich web forms / pages for a good user experience.
+
+{description}
 
 If your application is using a technology other than Java, you can
 integrate it with the Bonita solution using the Web REST API. This API
