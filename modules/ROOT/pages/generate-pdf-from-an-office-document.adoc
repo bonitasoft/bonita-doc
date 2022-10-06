@@ -62,9 +62,7 @@ This connector is build upon *XdocReport* third party library, for more informat
 
 [.troubleshooting-section]
 --
-[.symptom]*Symptom*
-
-You may encounter memory issues using this connector as it has substantial size of dependencies
+[.symptom]*Symptom:* _You may encounter memory issues using this connector as it has substantial size of dependencies_
 
 [.cause]*Potential cause*
 
