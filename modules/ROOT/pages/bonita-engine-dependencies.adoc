@@ -1,4 +1,4 @@
-= Bonita engine dependencies (7.15.0.RC-02)
+= Bonita engine dependencies (7.15.0)
 :description: List all dependencies uses for Bonita Engine
 
 
