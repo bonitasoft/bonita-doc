@@ -3,6 +3,8 @@ name: Contribution check
 on:
   pull_request:
     types: [opened, edited, synchronize]
+  workflow_dispatch:
+
 
 jobs:
   pr-title:
@@ -21,3 +23,8 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         diffDoesNotContain: '["https://documentation.bonitasoft.com/", "Bonita BPM"]'
         extensionsToCheck: '[".adoc"]'
+    - name: Check content writing
+      uses: errata-ai/vale-action@reviewdog
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
