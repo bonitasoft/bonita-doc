@@ -3,7 +3,7 @@
 
 [NOTE]
 ====
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
+For Subscription editions only.
 ====
 
 This pages explains how to configure your Bonita Platform system to use the Kerberos protocol to provide single sign-on (SSO). It assumes you already have a Correctly configured Windows Domain (AD/KDC/DNS services).
