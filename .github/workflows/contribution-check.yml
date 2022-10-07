@@ -17,12 +17,12 @@ jobs:
   pr-content-check:
     runs-on: ubuntu-20.04
     steps:
-    - name: Check PR content
-      uses: bonitasoft/actions/packages/pr-diff-checker@1.1.0
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        diffDoesNotContain: '["https://documentation.bonitasoft.com/", "Bonita BPM"]'
-        extensionsToCheck: '[".adoc"]'
+#    - name: Check PR content
+#      uses: bonitasoft/actions/packages/pr-diff-checker@1.1.0
+#      with:
+#        github-token: ${{ secrets.GITHUB_TOKEN }}
+#        diffDoesNotContain: '["https://documentation.bonitasoft.com/", "Bonita BPM"]'
+#        extensionsToCheck: '[".adoc"]'
     - name: Check content writing
       uses: errata-ai/vale-action@reviewdog
       env:
