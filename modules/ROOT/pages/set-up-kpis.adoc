@@ -6,7 +6,7 @@ Discover how to create KPIs through the Bonita Studio feature and through a data
 [NOTE]
 ====
 
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
+For Subscription editions only.
 ====
 
 == Create a KPI using the Bonita Studio KPI feature
