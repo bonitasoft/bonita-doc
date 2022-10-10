@@ -171,8 +171,7 @@ They can be activated by editing file `./setup/platform_conf/current/platform_en
 
 [NOTE]
 ====
-
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
+For Subscription editions only.
 ====
 
 Prometheus
