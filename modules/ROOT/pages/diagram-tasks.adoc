@@ -82,7 +82,7 @@ The items configured for a task depend on the task type, as shown in the followi
 | Details panel, Execution tab, Operations pane
 | All
 
-| KPIs (Enterprise, Performance, Efficiency, and Teamwork editions only)
+| KPIs (for subscription editions only)
 | Details panel, Execution tab, KPIs pane
 | All
 
