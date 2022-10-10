@@ -5,8 +5,7 @@ Learn how to set up a reporting database to put reporting in place
 
 [NOTE]
 ====
-
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
+For subscription editions only.
 ====
 
 Before you put reporting in place, you need to create a dedicated reporting database.
