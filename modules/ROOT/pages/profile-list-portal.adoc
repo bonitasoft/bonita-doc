@@ -13,7 +13,7 @@ image:images/UI2021.1/profiles-portal.png[Profiles in Portal]
 
 In _Organization_/_Profiles_, the list shows all profiles sorted by alphabetical order:
 
-* Three provided profiles: "User", "Administrator", and for Enterprise, Performance, Efficiency, and Teamwork editions,"Process Manager"
+* Three provided profiles: "User", "Administrator", and for subscription editions,"Process Manager"
 * All custom profiles created, for Enterprise, Performance, and Efficiency editions
 
 == Edit a profile mapping with the organization
