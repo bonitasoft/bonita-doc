@@ -72,11 +72,11 @@ With the previous versions, creating a new environment required to set up the wh
 
 == Functional changes
 
-=== Case info REST API resource- *Subscription editions*
+=== Case info REST API resource - *Subscription editions*
 
-Case info `bpm/caseInfo` REST API resource which is used for process and case user tasks visualization is now available.
+It is now possible to retrieve "assigned" user tasks by using the case info xref:api:activities-tasks-flow-nodes-api.adoc#search-for-a-humantask[`bpm/caseInfo` REST API resource filters]. 
 
-For Community users who update to 2022.2, if you need this API resource, you can create a REST API extension that leverages Bonita Engine java API to get the same functionality as in 2022.1.
+For Community users who update to 2022.2, if you have this business need, you can create a REST API extension that leverages Bonita Engine java API to get the same functionality as in Bonita 2022.2 - Subscription version.
 
 == Technical updates
 
