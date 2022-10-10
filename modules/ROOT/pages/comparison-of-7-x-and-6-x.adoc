@@ -7,8 +7,8 @@ Find out the main differences between versions 7 and 6 and learn about feature i
 
 In Bonita, two versions are available for download:
 
-. the Bonita Subscription Pack edition version for the Enterprise, Performance, Efficiency, and Teamwork editions
-. and the Bonita Community edition version for the Community edition
+. Bonita Subscription Pack edition version for Enterprise, Performance, Efficiency, and Teamwork editions
+. and Bonita Community edition version for the Community edition
 
 For each version, there are several packaging options.
 See the xref:bonita-bpm-installation-overview.adoc[Installation overview].
