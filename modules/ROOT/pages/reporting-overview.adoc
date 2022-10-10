@@ -6,7 +6,7 @@ Learn how reporting can be made on application of the Bonita Platform.
 [NOTE]
 ====
 
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
+For Subscription editions only.
 ====
 
 == Terminology
