@@ -5,8 +5,7 @@ The Look & Feel defines the appearance of Bonita Portal Web interface and the Bo
 
 [NOTE]
 ====
-
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
+For Subscription editions only.
 ====
 
 A Look & Feel is not used to specify Application layout and theme. To modify Application layout and theme, see xref:applications.adoc[Specifying application layout] and xref:applications.adoc[Specifying application theme]
