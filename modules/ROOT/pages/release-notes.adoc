@@ -74,7 +74,7 @@ With the previous versions, creating a new environment required to set up the wh
 
 === Process and Case info REST API resources - *Subscription editions*
 
-It is now possible to retrieve the tasks execution data of all open cases of a process by using the process info xref:api:actors-process-connectors-api.adoc#_processinfo_subscription_editions_only[`bpm/processInfo` REST API resource]. It returns counters for each flow node in the process, showing the number of flow node instances that are in executing, ready, or failed state.
+It is now possible to retrieve the tasks execution data of all open cases of a process by using the xref:api:actors-process-connectors-api.adoc#_processinfo_subscription_editions_only[`bpm/processInfo` REST API resource]. It returns counters for each flow node in the process, showing the number of flow node instances that are in executing, ready, or failed state.
 
 The REST API resource xref:api:cases-process-instance-api.adoc#_caseinfo_subscription_editions_only[Case info `bpm/caseInfo`] which is used for case visualization is now available in subscription editions only.
 For Community users who update to 2022.2, if you have this business need, you can create a REST API extension that leverages Bonita Engine java API to get the same functionality as in Bonita 2022.2 - Subscription version.
