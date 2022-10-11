@@ -72,9 +72,9 @@ With the previous versions, creating a new environment required to set up the wh
 
 == Functional changes
 
-=== Case info REST API resource - *Subscription editions*
+=== Process info REST API resource - *Subscription editions*
 
-It is now possible to retrieve "assigned" user tasks by using the case info xref:api:activities-tasks-flow-nodes-api.adoc#search-for-a-humantask[`bpm/caseInfo` REST API resource filters]. 
+It is now possible to retrieve the tasks execution data of all open cases of a process by using the process info xref:api:actors-process-connectors-api.adoc#_processinfo_subscription_editions_only[`bpm/processInfo` REST API resource]. It returns counters for each flow node in the process, showing the number of flow node instances that are in executing, ready, or failed state.
 
 For Community users who update to 2022.2, if you have this business need, you can create a REST API extension that leverages Bonita Engine java API to get the same functionality as in Bonita 2022.2 - Subscription version.
 
