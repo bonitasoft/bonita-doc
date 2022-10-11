@@ -412,6 +412,7 @@ This file defines the synchronization settings.
 Supported values: ignore, warn or fatal +
 Default value: warn
 * bonita_username_case: optional parameter that specifies whether the LDAP user names should be converted to a given case upon being imported in Bonita. +
+Note that even when using mixed case, you can not have two usernames differing only by the case. Existing usernames are updated with the correct case.+
 Supported values: mixed, uppercase or lowercase +
 Default value: lowercase
 * ldap_watched_directories: defines the LDAP directories to watch. +
