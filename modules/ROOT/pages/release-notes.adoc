@@ -89,7 +89,7 @@ UI Designer frontend has been migrated to AngularJS 1.8.
 
 [NOTE]
 ====
-Only the UID application has been upgraded to AngularJS 1.8. Your applications will still generated with AngularJS 1.3. Stay tuned for further updates.
+Only the UID application has been upgraded to AngularJS 1.8. Your applications will still be generated with AngularJS 1.3. Stay tuned for further updates.
 ====
 
 == Feature deprecations and removals
