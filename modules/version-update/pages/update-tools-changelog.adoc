@@ -1,5 +1,5 @@
 = Bonita Migration and Bonita Update tool changelog
-
+:page-aliases: ROOT:migration-tool.adoc
 :description: This is the changelog for Bonita Migration Tool and Bonita Update Tool. 
 
 This is the changelog for Bonita Migration Tool and Bonita Update Tool. 
