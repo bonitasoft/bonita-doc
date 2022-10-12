@@ -7,6 +7,7 @@ Lean how the engine handles the BDM deployment and redeployment.
 
 To deploy a BDM, we need to pass a *ZIP file* containing the model definition as an XML file, like the one below:
 
+// about the xmlns value involving documentation.bonitasoft.com: this is really what is used in Bonita, see https://github.com/bonitasoft/bonita-engine/commit/33cad1138baaf46f7510d395024f18f3a4788045
 [source,xml]
 ----
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
