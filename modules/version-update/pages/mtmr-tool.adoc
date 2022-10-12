@@ -11,7 +11,7 @@ image:images/mtmr-general-idea-schema.svg[General idea of the conversion tool, w
 
 == Overview
 
-Following the commercial depreciation of multi-tenancy use by customers starting with Bonita 2021.1, the technical solution proposed by Bonitasoft for customers willing to have separate Bonita engine database (Oracle, SQL, postgres, etc.) per applications/processes, will be multi-runtimes starting with Bonita 2023.1. 
+Following the commercial depreciation of multi-tenancy use by customers starting with Bonita 2021.1, the technical solution proposed by Bonitasoft for customers willing to have separate Bonita engine database (Oracle, SQL, postgres, etc.) per applications/processes, will be multi-runtimes starting with Bonita versions without multi-tenancy. 
 
 In order to prepare the technical conversion from multi-tenancy to multi-runtime, Bonitasoft developped a dedicated tool - Multi-tenant to multi-runtime conversion tool (MT2MR tool) - available for download xref:https://customer.bonitasoft.com/download/request[on Bonita Customer Portal]. 
 
