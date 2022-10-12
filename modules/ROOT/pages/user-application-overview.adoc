@@ -31,7 +31,7 @@ After Studio validation, the application is imported or cloned; you can view its
 
 == Access in pre-Production and in Production
 
-To deploy the applications into a bundle or the Cloud, you can use {bcdDocVersion}@bcd::livingapp_manage_configuration.adoc[Bonita Continuous Delivery] (for Enterprise, Performance, Efficiency, and Teamwork editions, and using BCD).
+To deploy the applications into a bundle or the Cloud, you can use {bcdDocVersion}@bcd::livingapp_manage_configuration.adoc[Bonita Continuous Delivery] using the {bcdDocVersion}@bcd::bcd_cli.adoc[CLI] (for Enterprise, Performance, Efficiency, and Teamwork editions, and using BCD).
 Alternatively, you can deploy an application by importing all its components in the following order:
 
 * Organization then profiles
