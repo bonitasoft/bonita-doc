@@ -104,7 +104,7 @@ xref:ROOT:multi-tenancy-and-tenant-configuration.adoc[Multi-tenancy has been dep
 
 To cover the multi-tenancy use cases in the best technical way, Bonitasoft is proposing a new architecture solution. For customers running a Bonita multi-tenancy platform, the technical path from multi-tenancy proposed by Bonitasoft is multi-runtime. This choice will require to split the current multi-tenant platform into several runtimes, each one with their own Bonita engine database.
 
-As this path can be challenging for customers using multi-tenancy, Bonitasoft developed a conversion tool, available for download xref:https://customer.bonitasoft.com/download/request[on Bonitasoft Customer Portal]. We strongly suggest our customers to take the time and use the tool in a pre-production environment before using it on a production environment. 
+As this path can be challenging for customers using multi-tenancy, Bonitasoft developed a conversion tool, available for download https://customer.bonitasoft.com/download/request[on Bonitasoft Customer Portal]. We strongly suggest our customers to take the time and use the tool in a pre-production environment before using it on a production environment. 
 
 xref:version-update:mtmr-tool.adoc[Multi-tenancy to multi-runtime conversion tool] can be executed on Bonita Runtimes starting with Bonita 7.11 and up to Bonita 7.15.
 
