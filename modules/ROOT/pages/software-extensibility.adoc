@@ -141,7 +141,7 @@ If a form uses some Javascript code based on an element in the HTML Document Obj
 You can customize this mapping by defining your own bean and override property. See xref:custom-authorization-rule-mapping.adoc[Authorization Rule Mapping]
 * *BonitaStudioBuilder*
 Bonita Entreprise editions include a script, BonitaStudioBuilder (also known as the Workspace API), for building a bar file from a process in a project. This intended to be used for automating process builds in a continuous integration and testing environment. You can use the BonitaStudioBuilder to build a bar file for processes stored in a project.
-WorkspaceAPI is deprecated since Bonita 7.7.0. Instead, we strongly encourage you to use the _LA builder_ included in the tooling suite of {bcdDocVersion}@bcd::index.adoc[_Bonita Continuous Delivery_ add-on]. One added-value is that LA builder does not need a Studio to be installed.
+WorkspaceAPI is deprecated since Bonita 7.7.0. Instead, we strongly encourage you to use the _LA builder_ included in the tooling suite of {bcdDocVersion}@bcd::bcd_cli.adoc[_Bonita Continuous Delivery_ add-on]. One added-value is that LA builder does not need a Studio to be installed.
 
 Only the elements listed on this page are intended to be used as extension points. For other elements, there is no guarantee of stability, and a high probability of changes across versions.
 For example, the following should not be considered to be extension points:
