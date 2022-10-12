@@ -47,8 +47,8 @@ See the xref:bonita-bpm-installation-overview.adoc[Installation overview].
 | Now available in all editions. See xref:parameters.adoc[Parameters] and xref:environments.adoc[Environments]
 
 | Workspace API
-| The Workspace API is provided to generate `.bar` files from the command line, ready for production. .bar files are for deployment only and cannot be read by the studio. .bos files are for Studio interchange only and cannot be deployed to production. Each file format is optimal in term of content and is optimized for the target use case
-| The Workspace API retains its 6.x capabilities. Moreover, it can export forms that are mapped to process instantiations or tasks, and pages that are mapped to a case overview. It cannot export application pages that are not elements of a process. For this reason the Workspace API has been deprecated in 7.7.0, and is replaced by the _LA builder_ included in the tooling suite of https://documentation.bonitasoft.com/bcd/latest/[_Bonita Continuous Delivery_ add-on]. See xref:automating-builds.adoc[Automating builds]
+| The Workspace API is provided to generate `.bar` files from the command line, ready for production. .bar files are for deployment only and cannot be read by the studio. .bos files are for Studio interchange only and cannot be deployed to production. Each file format is optimal in terms of content and is optimized for the target use case
+| The Workspace API retains its 6.x capabilities. Moreover, it can export forms that are mapped to process instantiations or tasks, and pages that are mapped to a case overview. It cannot export application pages that are not elements of a process. For this reason the Workspace API has been deprecated in 7.7.0, and is replaced by the _LA builder_ included in the tooling suite of {bcdDocVersion}@bcd::index.adoc [_Bonita Continuous Delivery_ add-on]. See xref:automating-builds.adoc[Automating builds]
 |===
 
 == Feature improvements in Bonita Studio
@@ -62,7 +62,7 @@ See the xref:bonita-bpm-installation-overview.adoc[Installation overview].
 
 | Process migration
 | N/A
-| A process created in Bonita 6.x could run in 7.x (up to 7.7.x) without any modification. Starting with Bonita 7.8, you must use contracts created from outside of the studio, or migrate the forms. See xref:contracts-and-contexts.adoc[Contracts] and xref:migrate-a-form-from-6-x.adoc[Migrate a form from 6.x]
+| A process created in Bonita 6.x could run in 7.x (up to 7.7.x) without any modification. Starting with Bonita 7.8, you must use contracts created from outside the Studio, or migrate the forms. See xref:contracts-and-contexts.adoc[Contracts] and xref:migrate-a-form-from-6-x.adoc[Migrate a form from 6.x]
 
 | Application theme and layout
 | Not in 6.x
@@ -74,7 +74,7 @@ See the xref:bonita-bpm-installation-overview.adoc[Installation overview].
 
 | Improved UI
 | Not in 6.x
-| Improvements to the Details panel so that tab structure reflects typical worksflow
+| Improvements to the Details panel so that tab structure reflects typical workflow
 
 | Variable definition
 | Easy variable definition for process data, using the expression editor to set the initial or default values
@@ -116,7 +116,7 @@ See the xref:bonita-bpm-installation-overview.adoc[Installation overview].
 
 | User interface
 | For users, a simple interface for starting cases and performing tasks. For administrators, an interface for managing processes and applications, and the organization, with views for monitoring process and case status
-| No change for users. For adminsitrators, the case process and case monitoring views have been improved, new live update features have been added, and the application editor has been improved. See xref:bonita-bpm-portal-interface-overview.adoc[Bonita Portal interface overview]
+| No change for users. For administrators, the case process and case monitoring views have been improved, new live update features have been added, and the application editor has been improved. See xref:bonita-bpm-portal-interface-overview.adoc[Bonita Portal interface overview]
 
 | Task management
 | Users can choose how to manage tasks. They can perform one task after another in list order, or select my tasks for themselves then perform them in the order they choose.
@@ -127,14 +127,15 @@ See the xref:bonita-bpm-installation-overview.adoc[Installation overview].
 | No change. See xref:mobile-portal.adoc[Mobile overview]
 
 | Subtasks
-| A subtask is a part of an existing task. The assignee can create a subtask (to request a missing information for example) and must assign it to a specific person, by name. The assignee can be the creator
-| Supported up to 7.2.4. No more substasks can be created starting from 7.3.0, but open process instances execute them correctly
+| A subtask is a part of an existing task. The assignee can create a subtask (to request missing information for example) and must assign it to a specific person, by name. The assignee can be the creator
+| Supported up to 7.2.4. No more subtasks can be created starting from 7.3.0, but open process instances execute them correctly
 
 | Replay tasks and connectors in error
 | It is now possible for the administrator to replay a task or a connector that is in error. This enables a resolution of failed tasks and better service to end users. and connectors in error
 | No change. See xref:process-configuration-overview.adoc[Process configuration overview] and xref:mobile-portal.adoc[Mobile overview]
 
 | Anonymous user
+// TODO find the xref for "anonymous user"
 | You can now complete a task as an http://documentation.bonitasoft.com/anonymous-user[anonymous user], that is, without being registered in the organization. For example, on an e-commerce site, a new user can browse stock and save items to a basket, then register with the site if they want to save their basket for later or to buy something
 | Not supported
 |===
