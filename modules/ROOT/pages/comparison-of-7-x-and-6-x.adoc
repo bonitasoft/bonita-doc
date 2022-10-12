@@ -102,7 +102,7 @@ See the xref:bonita-bpm-installation-overview.adoc[Installation overview].
 
 | Anonymous user
 | You can define a process that has an unknown initiator.
-| Not supported
+| Not supported but you can configure a xref:guest-user.adoc[Guest user] in Bonita Portal to achieve a similar behavior.
 |===
 
 == Feature improvements in Bonita Portal
@@ -135,9 +135,8 @@ See the xref:bonita-bpm-installation-overview.adoc[Installation overview].
 | No change. See xref:process-configuration-overview.adoc[Process configuration overview] and xref:mobile-portal.adoc[Mobile overview]
 
 | Anonymous user
-// TODO find the xref for "anonymous user"
-| You can now complete a task as an http://documentation.bonitasoft.com/anonymous-user[anonymous user], that is, without being registered in the organization. For example, on an e-commerce site, a new user can browse stock and save items to a basket, then register with the site if they want to save their basket for later or to buy something
-| Not supported
+| You can start a process orcomplete task as an anonymous user, that is, without being registered in the organization. For example, on an e-commerce site, a new user can browse stock and save items to a basket, then register with the site if they want to save their basket for later or to buy something
+| You can configure a xref:guest-user.adoc[Guest user] and use it to make some applications and process instantiation form accessible without having to log in.
 |===
 
 == Feature improvements in Bonita Engine
