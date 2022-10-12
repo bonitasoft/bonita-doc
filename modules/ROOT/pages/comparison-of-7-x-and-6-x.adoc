@@ -74,7 +74,7 @@ See the xref:bonita-bpm-installation-overview.adoc[Installation overview].
 
 | Improved UI
 | Not in 6.x
-| Improvements to the Details panel so that tab structure reflects typical workflow
+| Improvements to the Details panel so that tab structure reflects typical workflows
 
 | Variable definition
 | Easy variable definition for process data, using the expression editor to set the initial or default values
