@@ -11,31 +11,30 @@ image:images/mtmr-general-idea-schema.svg[General idea of the conversion tool, w
 
 == Overview
 
-Following the commercial depreciation of multi-tenancy use by customers starting with Bonita 2021.1, the technical depreciation . The technical solution proposed by Bonitasoft for customers willing to have separate Bonita engine database (Oracle, SQL, postgres, etc.) per applications/processes, will be multi-runtimes. 
+Following the commercial depreciation of multi-tenancy use by customers starting with Bonita 2021.1, the technical solution proposed by Bonitasoft for customers willing to have separate Bonita engine database (Oracle, SQL, postgres, etc.) per applications/processes, will be multi-runtimes starting with Bonita versions without multi-tenancy. 
 
-In order to prepare the technical conversion from multi-tenancy to multi-runtime, Bonitasoft developped a dedicated tool, that will have to be run once for every tenant that has to be kept, each one with a new Bonita engine database instance.
+In order to prepare the technical conversion from multi-tenancy to multi-runtime, Bonitasoft developped a dedicated tool - Multi-tenant to multi-runtime conversion tool (MT2MR tool) - available for download https://customer.bonitasoft.com/download/request[on Bonita Customer Portal]. 
 
-During the execution, the tool will delete everything not related to the tenant specified in the parameter from the given Bonita engine database. This means you will need to create a new Bonita engine database per tenant you want to keep, dump your current Bonita engine database and load it for each new instance. 
+During the execution, the conversion tool will delete everything not related to the tenant specified in the parameter from the given Bonita engine database. This means you will need to create a new Bonita engine database per tenant you want to keep, dump your current Bonita engine database and load it for each new instance. 
 
-WARNING: The tool will have to be executed for every tenant you want to keep, with a dedicated Bonita engine database instance. 
+WARNING: The conversion tool will have to be executed for every tenant you want to keep, with a dedicated Bonita engine database instance. 
 
 == How works Bonita Multi-tenant to Multi-Runtime conversion tool 
 
 === Pre-requisites
-* The tool requires Java 11+ JRE
+* The conversion tool requires Java 11+ JRE
 * Database with Bonita Multi-tenant Platform. +
 * Same number of Bonita engine database instances as the tenant you want to keep. 
-* This tool works on Bonita Platform Databases in version 7.11, 7.12, 7.13, 7.14 or 7.15.
+* The conversion tool works on Bonita Platform Databases in version 7.11, 7.12, 7.13, 7.14 or 7.15.
 * During the conversion operation, the Bonita Platform *should NOT* be running on the database.
 
 === Usage: step-by-step procedure
 
 ____
-The tool will delete all the tenants as well as all their associated data, except the one provided in the parameter. The chosen tenant will then be set as the default tenant.
+The conversion tool will delete all the tenants as well as all their associated data, except the one provided in the parameter. The chosen tenant will then be set as the default tenant.
 
 * Once the execution completes, you will have to upload a new license file before you can use the new database with a Bonita Platform. Use the setup tool to do it, as usual.
 ____
-
 
 * Configure the Bonita engine database instances. 
 * Stop Bonita Platform. 
@@ -43,11 +42,11 @@ ____
 * Specify your database connection information in the application.properties file.
 * You will need to specify the username/password, as well as your connection information (uncomment & fill in the corresponding template).
 * Load the dump on each Bonita engine database instance *BEFORE* the next step
-* Then run the following command in a terminal next to the bin folder: `bin/multitenant-to-multiruntime-tool(.bat) <tenantId>`
+* Then run the following command line in a terminal next to the bin folder: `bin/multitenant-to-multiruntime-tool(.bat) <tenantId>`
 
 [NOTE]
 ====
-The tool does not change anything in the BDM database. You will have to manage it manually.
+The conversion tool does not change anything in the BDM database. You will have to manage it manually.
 
 If you were using separate Bonita engine datasources (one per tenant typically), you will also need to modify the `bonita-tenant-community-custom.properties` file as appropriate.
 
@@ -56,7 +55,7 @@ If you were using the same datasource for the Bonita engine databases of all you
 
 === Error Management
 
-* In case of errors during execution, the first step to take is to re-launch the tool. It will automatically pick up the work where it failed/stopped the first time.
+* In case of errors during execution, the first step to take is to re-launch the conversion tool. It will automatically pick up the work where it failed/stopped the first time.
 This works particularly well for temporary problems, like a lost connection to the database.
 * If failures persist, you can try setting the log levels to different values in the application.properties file to help with the troubleshooting. (It will typically allow you to see the whole stacktrace).
 * If all of the above fails, contacting bonita support is still an option!
@@ -64,7 +63,7 @@ This works particularly well for temporary problems, like a lost connection to t
 
 == Performance data
 
-The tool was tested on the Bonita supported databases, either on technically generated or real production databases.
+The conversion tool was tested on the Bonita supported databases, either on technically generated or real production databases.
 The execution time depends on the size of your database. The biggest impact on execution time is linked to rows deletion from the tables. Tables that contain binaries and are voluminous on disk as a result go relatively quickly.
 Typical culprits on production databases are the *document*, *arch_flownode_instance*, *arch_process_instance* tables.
 
