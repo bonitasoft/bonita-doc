@@ -17,7 +17,6 @@ image::images/connector_execution.png[Connector execution]
 
 [NOTE]
 ====
-
 For Subscription editions only.
 ====
 
