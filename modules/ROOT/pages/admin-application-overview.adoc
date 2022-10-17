@@ -50,7 +50,7 @@ Alternatively, you can deploy an application by importing all its components in 
 On top of the values of Bonita Living applications, here are the similarities and differences between this Bonita application and Bonita Portal:
 
 * All pages previously created using Google Web Toolkit framework have been recreated with Bonita UI Designer. They can be customized in the UI Designer. They come with the Admin Application you download from Bonita Studio.
-* All pages previously created in other technologies have been wrapped as custom pages. They cannot be customized in the UI Designer. Since they cannot be imported in a .bos archive, they do not come with the Admin Application you downlaod. Instead, they come as provided resources. You can find them in the "Resources" tab of the application.
+* All pages previously created in other technologies have been wrapped as custom pages. They cannot be customized in the UI Designer. Since they cannot be imported in a .bos archive, they do not come with the Admin Application you download. Instead, they come as provided resources. You can find them in the "Resources" tab of the application.
 
 Now, in details:
 
@@ -77,7 +77,7 @@ If you use one of our four BPM reports or one of the Jasper reports you have cre
  ** _Users_:
   *** User list: recreated with the UI Designer. It gives less information without the left panel but allows a clearer display at top level.
   *** User details: same as in Bonita Portal.
- ** _Groups_: recreated with the UI Designer. All information in the third panel has been made available in the table (parent group, technical name, last updatee), or on click (subgroups, users in the group). Actions (Edit, Delete) have been made more reachable at the end of each row.
+ ** _Groups_: recreated with the UI Designer. All information in the third panel has been made available in the table (parent group, technical name, last update), or on click (subgroups, users in the group). Actions (Edit, Delete) have been made more reachable at the end of each row.
  ** _Roles_: recreated with the UI Designer. Same improvement than for _Groups_.
  ** _Install / Export_: same than in Bonita Portal.
  ** _Profiles_:
@@ -86,7 +86,7 @@ If you use one of our four BPM reports or one of the Jasper reports you have cre
 * _BDM_: same as in Bonita Portal.
 * _Resources_: recreated with the UI Designer. You can now search a resource by its name, and hide resources that are provided by Bonita to only show your custom resources.
 * _Applications_: same as in Bonita Portal.
-* _Portal_: no more Portal means no more Porta Look & Feel, so this page is not needed in our application.
+* _Portal_: no more Portal means no more Portal Look & Feel, so this page is not needed in our application.
 * _License_: same as in Bonita Portal.
 
 Note that for all pages recreated with the UI Designer, error management has been improved. A lot.

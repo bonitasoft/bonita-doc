@@ -90,5 +90,5 @@ image:images/getting-started-tutorial/installation/ui-designer-first-start.png[U
 
 == Ready to move on
 
-You have sucessfully installed Bonita Studio, and the tools and test environment are up and running.
+You have successfully installed Bonita Studio, and the tools and test environment are up and running.
 You are ready to move to the next chapter to xref:draw-bpmn-diagram.adoc[start creating your first process].

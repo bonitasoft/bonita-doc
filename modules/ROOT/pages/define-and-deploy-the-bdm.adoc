@@ -47,7 +47,7 @@ A package is defined by its name, which must be a Java package name. It is highl
 Packages can be seen as logical containers, a package should contain business objects related to each other. +
 As example, a package _com.company.product_ could contain the objects `Car` and `Wheel`, a package _com.company.finance_ could contain the objects `Bill` and `Loan`.
 
-A business object definition consists of the following:	
+A business object definition consists of the following:
 
 * An object name. This must be a Java class name (starting with a capital letter), because a business object is implemented as a Java class.
 
@@ -159,7 +159,7 @@ There are two options for loading complex business objects: *lazy* or *eager*. +
 
   ** the object's children are not edited very often in the cases lifetime
   ** the parent object along with all its children can get big, vertically and/or horizontally
-  
+
 * With eager loading, the parent object instance and the children objects instances are loaded at the same time. This is the option to choose when:
 
   ** the object's children can be edited quite often in the cases lifetime
@@ -170,7 +170,7 @@ Choosing the right option is not easy. The default option is lazy loading, but y
 [WARNING]
 ====
 If you are not sure about the final size of the parent object with children, we do strongly recommend to use the default *lazy* loading option. Indeed, the *eager* loading option can have a huge impact on the platform performances, due to the additional data load and maintenance of the information in memory. +
-Based on your analysis if you decide to use the eager mode, we recommend to test it with a test dataset that is the size of your production's expected dataset. 
+Based on your analysis if you decide to use the eager mode, we recommend to test it with a test dataset that is the size of your production's expected dataset.
 ====
 
 === Multi-instantiation using business object variables in a list
@@ -357,7 +357,7 @@ If the two models are conflicting (i.e there are business objects with the same 
 . *If business objects are conflicting across packages:*
 Example: the current model contains a package _com.company.vehicle_ with an object `Car`, the imported model contains a package _com.company.transport_ with an object `Car`. +
 This kind of conflict is considered as *not solvable* by Bonita Studio; thus the only possibility for the studio is to overwrite the current model by the new one.
-If overwritting is not the option for you, click on "Cancel", solve the conflicts by comparing the two BDMs in xml editors, make sure all processes and UIs comply with those changes, and import again."
+If overwriting is not the option for you, click on "Cancel", solve the conflicts by comparing the two BDMs in xml editors, make sure all processes and UIs comply with those changes, and import again."
 . *If business objects are conflicting in the same package:*
  Example: the current and the imported model contains a package _com.company.vehicle_ with an object `Car`. In the current model the object `Car` has only one field:  `brand`. In the imported model, the object `Car` has two attributes: `brand` and `color`. The two models are conflicting: two objects with the same name but different contents, and the two objects are in the same package in the two models.
 This kind of conflict is considered as *solvable* by Bonita Studio.  You will have the possibility to import the new model *into* the current one, and a decision has to be made for the conflicting package: keep the existing version of the package or overwrite it with the new one. The others non-conflicting packages will be merged.
@@ -412,7 +412,7 @@ var leaveRequest = new com.company.model.LeaveRequest();
 
 === Initialize BDM attributes from contract inputs in task operations
 
-In the case where a business object has to be initialized from task level inputs, you can set contract inputs from the *Add from data...* action like in <<initBDM,previous section>> and generate automatically operations by selectionning *Auto-generate the initialization script*. The operations will be generated for business data attributes you selected. You can manage it inside the *Details* panel, *Execution* tab, *Operations* pane.
+In the case where a business object has to be initialized from task level inputs, you can set contract inputs from the *Add from data...* action like in <<initBDM,previous section>> and generate automatically operations by selecting *Auto-generate the initialization script*. The operations will be generated for business data attributes you selected. You can manage it inside the *Details* panel, *Execution* tab, *Operations* pane.
 
 If you select *No, thanks. I'll manually define how to use the contract* or create inputs manually, you can go to operation pane and add a new operation using the *_Add_* button.
 
@@ -463,7 +463,7 @@ For that, you can use the alternative we provide, by uncommenting the following 
     -->
 ----
 
-With this alternative, you should carefully update the database before deploying the new BDM version. Otherwise, there are a number of pitfals you may fall into.
+With this alternative, you should carefully update the database before deploying the new BDM version. Otherwise, there are a number of pitfalls you may fall into.
 
 Errors you can get if you:
 

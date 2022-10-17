@@ -62,7 +62,7 @@ All example scripts given on this page are compatible with Unix-like operating s
 You are recommended to install a window manager on the CI server in order to have process diagram screenshots generated along with business archives.
 . Create Jenkins job: In Jenkins, create a new job of type "Build a free-style software project". Specify a job name for example "Bonita-BuildProcesses".
 . Configure Jenkins job:
- .. Check out your project from Subversion. To do this, configure the "Source Code Management" section to retrieve (check out) your Subversion project. Specify the repository URL, and optionally your local repository. We recommend that you set teh check-out strategy to _Use 'svn update' as much as possible_.
+ .. Check out your project from Subversion. To do this, configure the "Source Code Management" section to retrieve (check out) your Subversion project. Specify the repository URL, and optionally your local repository. We recommend that you set the check-out strategy to _Use 'svn update' as much as possible_.
  .. Invoke BonitaStudioBuilder script +
 Note: only one instance of BonitaStudioBuilder can be executed at a time on a computer. +
 Add a build step of type "Execute shell" configured with the following content:

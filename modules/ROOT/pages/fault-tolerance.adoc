@@ -23,7 +23,7 @@ analyses the exception and determine if the work should be retried automatically
 When the exception is retryable, the platform queues the work again, with a delay. That can be done up to 10 times
 with the delay increasing gradually from 1 second to more than 1 hour by default.
 
-See xref:work-execution.adoc[Work execution] and xref:work-execution-audit.adoc[Work executiuon audit] for more details.
+See xref:work-execution.adoc[Work execution] and xref:work-execution-audit.adoc[Work execution audit] for more details.
 
 === Configuration
 
@@ -52,7 +52,7 @@ The xref:work-execution-audit.adoc[Work execution audit] allows to be informed w
 
 Starting from 2021.1 version, a specific mechanism is responsible to recover from incidents like database or network outage.
 
-At startup, the platform restart all elements that were being executed, then the *recovery mechnism* scan *every 2 hours*
+At startup, the platform restart all elements that were being executed, then the *recovery mechanism* scan *every 2 hours*
 the database and re-execute elements that should have being executed and were *not updated during the last hour*.
 
 In cluster environment, only one node is responsible to run the recovery at any given time.

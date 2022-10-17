@@ -139,7 +139,7 @@ The following sections show how to create, update, and display a _Flight_ object
 The widget is already configured not to handle the user time zone.
 
 [discrete]
-==== Define the contract at task level, as well as operations to update business varaible
+==== Define the contract at task level, as well as operations to update business variable
 
 . Rename the first task to _Update departure time_
 . In the task *Execution* tab > *Contract* section, define the contract inputs using the *Add from data...* button

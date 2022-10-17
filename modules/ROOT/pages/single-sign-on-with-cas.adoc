@@ -30,7 +30,7 @@ As a consequence, configure the reverse proxy to include the `Host:` header when
 [NOTE]
 ====
 
-The method https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html#getRequestURL--[`getRequestURL ot HttpServletRequest`] is used internaly to retrieve the `server` and `port` of the HTTP request.
+The method https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html#getRequestURL--[`getRequestURL ot HttpServletRequest`] is used internally to retrieve the `server` and `port` of the HTTP request.
 ====
 
 
@@ -138,7 +138,7 @@ logout.link.hidden=true
 [discrete]
 ==== CAS SSO and Java client application
 
-To enable a Java client application to access the engine using CAS autentication, the simplest way is to enable https://apereo.github.io/cas/4.0.x/protocol/REST-Protocol.html[REST authentication on CAS server] and have the Java client <<cas-rest-api,retrieve the `ticket` for the bonita `service` URL>>. +
+To enable a Java client application to access the engine using CAS authentication, the simplest way is to enable https://apereo.github.io/cas/4.0.x/protocol/REST-Protocol.html[REST authentication on CAS server] and have the Java client <<cas-rest-api,retrieve the `ticket` for the bonita `service` URL>>. +
 Then, use the https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/LoginAPI.html#login(java.util.Map)[`LoginAPI`] with the `java.util.Map` having the `ticket` and `service`.
 
 [discrete]
@@ -152,7 +152,7 @@ If you are configuring Bonita and Tomcat in a cluster environment for CAS, there
 
 === Troubleshoot
 
-To troubleshoote SSO login issues, you need to increase the xref:logging.adoc[log level] to `ALL` in order for errors to be displayed in the log files (by default, they are not).
+To troubleshoot SSO login issues, you need to increase the xref:logging.adoc[log level] to `ALL` in order for errors to be displayed in the log files (by default, they are not).
 
 == Configure logout behaviour
 
@@ -180,7 +180,7 @@ By default, logging out from Bonita Engine logs the user out of CAS. You can cha
 
 == Tenant administrator login
 
-The xref:tenant_admin_credentials.adoc[Tenant administrator] (also kwown as the _tenant technical user_) will always be able to log in whitout a CAS account. To log with the tenant administrator, use the standard Bonita Portal login page accessible on `http://<bundle host>:<port>/bonita/login.jsp`.
+The xref:tenant_admin_credentials.adoc[Tenant administrator] (also known as the _tenant technical user_) will always be able to log in without a CAS account. To log with the tenant administrator, use the standard Bonita Portal login page accessible on `http://<bundle host>:<port>/bonita/login.jsp`.
 
 == Manage passwords
 
@@ -197,7 +197,7 @@ We recommend that you use LDAP as your master source for information, synchroniz
 
 == Single sign-on with CAS using the REST API
 
-CAS is a browser-oriented protocol (based on http automatic redirection, cookies, forms, etc...), therefore, we only have securized browser-oriented resources. This is why only a subset of pages are handled to be automatically SSO CAS-verified but not the whole web application.
+CAS is a browser-oriented protocol (based on http automatic redirection, cookies, forms, etc...), therefore, we only have secured browser-oriented resources. This is why only a subset of pages are handled to be automatically SSO CAS-verified but not the whole web application.
 
 [#restricted_cas_urls]
 The default `AuthenticationFilter` that manages CAS authentication applies only to the following pages:

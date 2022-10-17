@@ -31,4 +31,4 @@ Creating an application in Bonita Studio (the Bonita development environment) re
 
 We will cover these steps in this getting started tutorial so you can get familiar with the concepts behind a Bonita application.
 
-Ready? Let's move to the nexts step: xref:bonita-studio-download-installation.adoc[download and install Bonita Studio].
+Ready? Let's move to the next step: xref:bonita-studio-download-installation.adoc[download and install Bonita Studio].

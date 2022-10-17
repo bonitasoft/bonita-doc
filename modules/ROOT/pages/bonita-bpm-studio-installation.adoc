@@ -7,7 +7,7 @@ How to install a Bonita Studio on Windows, Linux, or Mac operating systems. An O
 
 Check the xref:hardware-and-software-requirements.adoc[hardware and software requirements].
 
-=== Macos specific prerequisites
+=== macOS specific prerequisites
 
 [IMPORTANT]
 ====
@@ -194,4 +194,4 @@ Those issues can be related to bad Java installations, or to incompatibilities b
 === java.security.cert.CertificateException: No subject alternative DNS name matching github-releases.githubusercontent.com found.
 
 Bonita Studio needs to retrieve some remote assets from Github. If the download of those assets fails with the above exception, it may be due to an out of date install of Java. +
-https://adoptopenjdk.net/[Install] the latest xref:hardware-and-software-requirements.adoc[supported Java] package to fix this issue. 
+https://adoptopenjdk.net/[Install] the latest xref:hardware-and-software-requirements.adoc[supported Java] package to fix this issue.

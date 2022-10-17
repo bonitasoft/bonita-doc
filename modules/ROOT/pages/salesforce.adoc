@@ -1,7 +1,7 @@
-= Using SaleForce with Bonita
-:description: SaleForce connectors allow you to interact with Saleforce through Bonita.
+= Using Salesorce with Bonita
+:description: Salesforce connectors allow you to interact with Salesforce through Bonita.
 
-SaleForce connectors allow you to interact with Saleforce through Bonita.
+Salesforce connectors allow you to interact with Salesforce through Bonita.
 
 == Overview
 

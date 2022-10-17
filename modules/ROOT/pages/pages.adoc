@@ -6,7 +6,7 @@ Pages are resources intended to be used in applications. They are xref:resource-
 == Provided pages
 
 Bonita Portal comes with some provided pages to use in applications. They are wrapped pages developed in other technologies than Bonita UI Designer (AngularJS, React, PortalJS). +
-Starting with Bonita 2021.1, you can also download the Bonita User and Administrator Applications (from Bonita Studio Welcome page), and get more provided pages, developped with Bonita UI Designer.
+Starting with Bonita 2021.1, you can also download the Bonita User and Administrator Applications (from Bonita Studio Welcome page), and get more provided pages, developed with Bonita UI Designer.
 
 == Custom pages
 

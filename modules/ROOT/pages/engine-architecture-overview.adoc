@@ -9,7 +9,7 @@ The Bonita Engine is the runtime processor at the core of Bonita.  It executes p
 
 image::images/images-6_0/dev_arch_engine_architecture_simple.png[engine architecture diagram]
 
-The Bonita Engine component services are completely configurable using the xref:bonita-bpm-platform-setup.adoc[plaform setup tool] to retrieve the current configuration and update it.
+The Bonita Engine component services are completely configurable using the xref:bonita-bpm-platform-setup.adoc[platform setup tool] to retrieve the current configuration and update it.
 
 Services are provided to the Engine using a ServiceAccessor. By default, this uses Spring to bind services and to retrieve service instances.
 The Spring configuration files are present in the classpath but beans can be added or overridden using configuration files stored in database under the *CONFIGURATION*  table.
@@ -334,7 +334,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Uses the Identity service to check user credentials
 |===
 
-=== Queriable logs
+=== Queryable logs
 
 |===
 |  |
@@ -520,7 +520,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | org.bonitasoft.engine.core.document.api.impl.DocumentServiceImpl
 
 | Notes:
-| The mapping of the document is not stored in the same table as the documetn itself.
+| The mapping of the document is not stored in the same table as the document itself.
 |===
 
 === Expression
@@ -703,7 +703,7 @@ Generic services  perform actions that are not related to BPM but are required f
 |  |
 
 | Description:
-| A layer between the persistence service and all services that need to store objects. It ensures that events are triggered and that queriable log entries are written.
+| A layer between the persistence service and all services that need to store objects. It ensures that events are triggered and that queryable log entries are written.
 
 | Used by:
 | All services storing objects. For example, the ProcessInstanceService stores a ProcessInstanceObject using the recorder Implementation: org.bonitasoft.engine.recorder.impl.RecorderImpl

@@ -399,7 +399,7 @@ This reduces the likelihood of the JVM garbage collector starting. +
 While the garbage collector is running, it prevents creation of new objects, which slows down the application server.
 
 ==== Garbage Collector
-We recommend to update the Garbage collector parameters to use the following ones (`UseParallelGC` has been proven more eficient than `UseParNewGC` in our experience), depending on wether you use Java 8 or Java 11:  +
+We recommend to update the Garbage collector parameters to use the following ones (`UseParallelGC` has been proven more efficient than `UseParNewGC` in our experience), depending on wether you use Java 8 or Java 11:  +
 
 * Edit file `setup/tomcat-templates/setenv.sh`
 * To add in the line `CATALINA_OPTS=`:
@@ -494,13 +494,13 @@ To activate connector time tracking:
 
 The other parameters can be left at their default value, left commented, or set to the desired value. What each of them does:
 
-. `maxSize` maximum of records that will be saved by the time tracker before a flush. If the maximum number of records is reached before the scheduled flush, the older ones are discared. To avoid the loss of information, a number sufficiently big in comparison with `flushIntervalInSeconds` should be chosen
-. `flushIntervalInSeconds` the interval beetween two flushes on the timetracker thread.
+. `maxSize` maximum of records that will be saved by the time tracker before a flush. If the maximum number of records is reached before the scheduled flush, the older ones are discarded. To avoid the loss of information, a number sufficiently big in comparison with `flushIntervalInSeconds` should be chosen
+. `flushIntervalInSeconds` the interval between two flushes on the timetracker thread.
 . `csv.activateAtStart` wether to save the result of the timetracker into a csv file.
 . `csv.folder` the folder where to save the csv file.
 . `csv.separator` the separator character in the csv file
 . `memory.activateAtStart` wether to save the result of the timetracker in memory.
-. `memory.maxSize` maximum amount of records saved in memory. If the maximum number of records is reached before the scheduled flush, the older ones are discared. To avoid the loss of information, a number sufficiently big in comparison with `flushIntervalInSeconds` should be chosen
+. `memory.maxSize` maximum amount of records saved in memory. If the maximum number of records is reached before the scheduled flush, the older ones are discarded. To avoid the loss of information, a number sufficiently big in comparison with `flushIntervalInSeconds` should be chosen
 
 The non-relevant options will be ignored at execution. Note that `memory` and `csv` can both be activated at the same time.
 
