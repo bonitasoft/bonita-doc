@@ -411,7 +411,8 @@ This file defines the synchronization settings.
 * error_level_upon_failing_to_get_related_user: optional parameter that specifies whether an error should be blocking upon getting related users (manager) +
 Supported values: ignore, warn or fatal +
 Default value: warn
-* bonita_username_case: optional parameter that specifies whether the LDAP user names should be converted to a given case upon being imported in Bonita. +
+* bonita_username_case: optional parameter, that specifies whether the LDAP usernames should be converted to a given case upon being imported in Bonita. +
+Note that two usernames differing only by the case will be handled as being the same username. Existing username will be updated with the new one. +
 Supported values: mixed, uppercase or lowercase +
 Default value: lowercase
 * ldap_watched_directories: defines the LDAP directories to watch. +
