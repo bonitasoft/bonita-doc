@@ -1,4 +1,4 @@
-= Using Salesorce with Bonita
+= Using Salesforce with Bonita
 :description: Salesforce connectors allow you to interact with Salesforce through Bonita.
 
 Salesforce connectors allow you to interact with Salesforce through Bonita.
