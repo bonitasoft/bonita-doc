@@ -21,8 +21,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           diffDoesNotContain: '["https://documentation.bonitasoft.com/", "Bonita BPM"]'
           extensionsToCheck: '[".adoc"]'
-      - uses: actions/checkout@v2
-
+      - uses: actions/checkout@v3
       - id: files
         name: Detect changed files
         uses: jitterbit/get-changed-files@v1
