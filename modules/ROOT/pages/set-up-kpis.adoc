@@ -5,7 +5,6 @@ Discover how to create KPIs through the Bonita Studio feature and through a data
 
 [NOTE]
 ====
-
 For Subscription editions only.
 ====
 

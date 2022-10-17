@@ -5,7 +5,6 @@ Learn how reporting can be made on application of the Bonita Platform.
 
 [NOTE]
 ====
-
 For Subscription editions only.
 ====
 

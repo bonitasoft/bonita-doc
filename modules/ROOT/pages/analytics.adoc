@@ -8,7 +8,6 @@ A report presents the Administrator with data about the usage of cases and tasks
 
 [NOTE]
 ====
-
 For Subscription editions only.
 ====
 

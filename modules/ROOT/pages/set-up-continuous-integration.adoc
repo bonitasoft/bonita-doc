@@ -5,7 +5,6 @@ Learn how to set up a continuous integration (CI) environment for your Bonita pr
 
 [NOTE]
 ====
-
 For Subscription editions only.
 ====
 

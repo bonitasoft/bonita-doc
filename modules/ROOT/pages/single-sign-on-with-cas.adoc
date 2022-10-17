@@ -5,7 +5,6 @@ Bonita can be configured to use CAS to provide single sign-on (SSO), as long as 
 
 [NOTE]
 ====
-
 For Subscription editions only.
 ====
 
