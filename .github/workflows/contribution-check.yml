@@ -28,7 +28,6 @@ jobs:
         uses: jitterbit/get-changed-files@v1
         with:
           format: 'json'
-
       - name: Check content writing
         uses: errata-ai/vale-action@reviewdog
         env:
