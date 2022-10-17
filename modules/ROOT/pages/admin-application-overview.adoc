@@ -29,15 +29,14 @@ image::images/UI2021.1/studio-get-application.png[Get application from Studio]
 
 You can also get it from our https://github.com/bonitasoft/bonita-admin-application/[Admin Application GitHub repository]. +
 There are two ways to get the .bos file. You can either get it from the _Releases_ on the right or by cloning the repository of your choice and building it using maven. +
-Building the repository will create a .bos file in the `target` folder. You can import this one into the development environment.
- +
+Building the repository will create a .bos file in the `target` folder. You can import this one into the development environment. +
 Using this method is also useful if you want to get an older version of an application or if you need a weekly version with a potential bugfix.
 
 After Studio validation, the application is imported or cloned; you can view its content in the project explorer, deploy it, and open it.
 
 == Access in pre-Production and in Production
 
-To deploy the applications into a bundle or the Cloud, you can use xref:3.4@bcd::livingapp_deploy.adoc[Bonita Continuous Delivery] (for Bonita Subscription and using BCD).
+To deploy the applications into a bundle or the Cloud, you can use {bcdDocVersion}@bcd::bcd_cli.adoc[Bonita Continuous Delivery] (for Bonita Subscription and using BCD).
 Alternatively, you can deploy an application by importing all its components in the following order:
 
 * Organization then profiles

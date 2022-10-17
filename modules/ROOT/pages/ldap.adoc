@@ -3,7 +3,7 @@
 
 The LDAP connector allows a process to retrieve data from an LDAP server by running a query.
 
-If you are looking for LDAP Authentication please go to: https://documentation.bonitasoft.com/bonita/{javadocVersion}/active-directory-or-ldap-authentication[Active Directory or LDAP authentication].
+If you are looking for LDAP Authentication please go to: xref:active-directory-or-ldap-authentication.adoc[Active Directory or LDAP authentication].
 
 Configuring an LDAP connector with the wizard:
 
@@ -119,14 +119,14 @@ Then click *_Next_*.
             ... 12 more
 ----
 
-*Root cause*: Your LDAP Active Directory is using the pagination. Generally on LDAP Server using the pagination, the page size is set to 1000.  
+*Root cause*: Your LDAP Active Directory is using the pagination. Generally on LDAP Server using the pagination, the page size is set to 1000.
 
-By default, the pagination is not managed by the LDAP Connector since is not supported by all LDAP servers. So if your LDAP Active Directory is using the pagination, it will not be handle by the connector and will make it fail after 1000 users.  
+By default, the pagination is not managed by the LDAP Connector since is not supported by all LDAP servers. So if your LDAP Active Directory is using the pagination, it will not be handle by the connector and will make it fail after 1000 users.
 
-*Solutions*:  
+*Solutions*:
 
 1. Increase the page size on your Active Directory by increasing the value of MaxPageSize : https://support.microsoft.com/en-us/kb/315071
 
 2. Develop a Custom LDAP Connector managing the pagination of your Active Directory. +
 Do to so, you can read the xref:connector-archetype.adoc[documentation page on the connector archetype.]
-  
+
