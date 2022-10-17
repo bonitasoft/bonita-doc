@@ -228,7 +228,7 @@ edit the spnego-config.properties file as follows:
  spnego.preauth.password     = <password>
 ----
 +
-`username` and `password` shoud be replaced with the domain account and password to use to pre-authenticate to on the Domain controller acting as Kerberos Key Distribution Center. +
+`username` and `password` should be replaced with the domain account and password to use to pre-authenticate to on the Domain controller acting as Kerberos Key Distribution Center. +
  `spnego.login.client.module` and `spnego.login.server.module` property values should match the login contexts set in `login.conf` (spnego-client and spnego-server by default).
 +
 Make sure to set your principal user name and password.

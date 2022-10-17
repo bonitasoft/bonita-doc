@@ -49,7 +49,7 @@ For the web mobile version:
 
 == Select a language in a Bonita application
 
-To select another language, if the appliation uses the default xref:bonita-layout.adoc[Bonita layout]:
+To select another language, if the application uses the default xref:bonita-layout.adoc[Bonita layout]:
 
 . Click on the user name or icon in the top right corner of the application header
 . In the modal window, go to the language section and select a language from the drop-down list
@@ -61,7 +61,7 @@ image:images/UI2021.1/select-language.png[Select language]
 
 == Select a language in a custom application
 
-If the appliation uses the default xref:bonita-layout.adoc[Bonita layout], the header is the same than a Bonita application, so the procedure is the same. +
+If the application uses the default xref:bonita-layout.adoc[Bonita layout], the header is the same than a Bonita application, so the procedure is the same. +
 If the layout has been customized, users need to refer to the internally documented procedure.
 
 == Add a language to Bonita Portal

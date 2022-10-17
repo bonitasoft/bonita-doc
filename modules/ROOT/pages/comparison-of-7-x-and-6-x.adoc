@@ -66,11 +66,11 @@ See the xref:bonita-bpm-installation-overview.adoc[Installation overview].
 
 | Application theme and layout
 | Not in 6.x
-| You can create custom layout and theme for a process-based application constructed from UI designer pages and forms. See xref:appearance.adoc[Appearance]
+| You can create custom layout and theme for a process-based application constructed from UI Designer pages and forms. See xref:appearance.adoc[Appearance]
 
 | REST API extensions
 | Not in 6.x
-| You can create custom REST API extensions, to supplement the standard REST API interfaces or to optimize REST API calls used UI designer pages and forms. See xref:rest-api-extensions.adoc[REST API extensions]
+| You can create custom REST API extensions, to supplement the standard REST API interfaces or to optimize REST API calls used UI Designer pages and forms. See xref:rest-api-extensions.adoc[REST API extensions]
 
 | Improved UI
 | Not in 6.x
@@ -82,11 +82,11 @@ See the xref:bonita-bpm-installation-overview.adoc[Installation overview].
 
 | Expression Editor
 | This expression editor enables a developer to define a constant, an expression, a comparison or a Groovy script. Very often, there is no need to resort to a Groovy script, a constant, a comparison or an expression being enough. A number of predefined expressions are provided.  Convenience Groovy functions are provided to help write scripts more quickly. These functions provide simple access to frequently used information, such as information on the current user and the process initiator. It is now very easy to retrieve the manager or the email of the current user or the process initiator
-| No changes to the expression editor. It is not available from the UI designer. See xref:expressions-and-scripts.adoc[Using expressions and scripts]
+| No changes to the expression editor. It is not available from the UI Designer. See xref:expressions-and-scripts.adoc[Using expressions and scripts]
 
 | Validation
 | The validation view shows all validation errors in the same location in the Studio. This enables developers to quickly locate validation errors wherever they appear
-| The existence of mapped forms is verified, but the form definition is not validated for forms created with the UI designer. See xref:process-testing-overview.adoc[Process testing overview]
+| The existence of mapped forms is verified, but the form definition is not validated for forms created with the UI Designer. See xref:process-testing-overview.adoc[Process testing overview]
 
 | Iteration
 | Iteration can be by loop or by multi-instantiation. Multi-instantiation no longer requires a specific Bonita connector nor implementation of a specific java class. You can use a variable of type Collection or specify the cardinality using an expression. The completion condition is a simple expression

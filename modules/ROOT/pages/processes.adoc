@@ -34,7 +34,7 @@ To resolve a process, you must complete the configuration of the actor mappings,
 
 * *Actors*: Every actor in a process must be mapped to at least one user, group, role or membership.
 * *Parameters*: Every parameter defined in a process must have a value.
-* *Connectors*: Every connector definition in a process must have a corresponding implemenetation (Class name).
+* *Connectors*: Every connector definition in a process must have a corresponding implementation (Class name).
 * *Forms*: Every form defined in a process must be mapped to a page or a URL.
 * Also, every business variable used in the process should have a corresponding model.
 
