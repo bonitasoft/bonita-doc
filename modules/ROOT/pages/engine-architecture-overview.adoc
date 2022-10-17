@@ -334,7 +334,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Uses the Identity service to check user credentials
 |===
 
-=== Queryable logs
+=== Queriable logs
 
 |===
 |  |
@@ -703,7 +703,7 @@ Generic services  perform actions that are not related to BPM but are required f
 |  |
 
 | Description:
-| A layer between the persistence service and all services that need to store objects. It ensures that events are triggered and that queryable log entries are written.
+| A layer between the persistence service and all services that need to store objects. It ensures that events are triggered and that queriable log entries are written.
 
 | Used by:
 | All services storing objects. For example, the ProcessInstanceService stores a ProcessInstanceObject using the recorder Implementation: org.bonitasoft.engine.recorder.impl.RecorderImpl
