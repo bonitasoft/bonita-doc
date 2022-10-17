@@ -14,9 +14,26 @@ jobs:
     env:
       COMPONENT_NAME: bonita
       COMPONENT_BRANCH_NAME: ${{ github.head_ref }}
+      COMPONENT_VERSION: ${{ github.base_ref }} # The base_ref or target branch of the pull request in a workflow run.
+      # Required to pass xref validation
+      CLOUD_BRANCH: 'master'
+      # Needed to build the 'cloud' doc
+      BCD_BRANCH: '3.6'
+      BONITA_BRANCH_FOR_CLOUD: '2022.1'
+      TOOLKIT_BRANCH: '1.0'
+      BONITA_BRANCH_FOR_TOOLKIT: '2022.2'
     steps:
-      - name: Build preview
+      - name: Build PR preview
         uses: bonitasoft/bonita-documentation-site/.github/actions/build-pr-site/@master
         with:
-          build-preview-command: |-
-            ./build-preview.bash --component "${{ env.COMPONENT_NAME }}" --branch "${{ env.COMPONENT_BRANCH_NAME }}"
+          surge-token: ${{ secrets.SURGE_TOKEN_DOC }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          # '>' Replace newlines with spaces (folded)
+          # '-' No newline at end (strip)
+          build-preview-command: >-
+            ./build-preview.bash --use-multi-repositories
+            --start-page "${{ env.COMPONENT_VERSION }}"@"${{ env.COMPONENT_NAME }}"::index.adoc
+            --component-with-branches "${{ env.COMPONENT_NAME }}":"${{ env.COMPONENT_BRANCH_NAME }},${{ env.BONITA_BRANCH_FOR_CLOUD }},${{ env.BONITA_BRANCH_FOR_TOOLKIT }}"
+            --component-with-branches bcd:"${{ env.BCD_BRANCH }}"
+            --component-with-branches cloud:"${{ env.CLOUD_BRANCH }}"
+            --component-with-branches test-toolkit:"${{ env.TOOLKIT_BRANCH }}"

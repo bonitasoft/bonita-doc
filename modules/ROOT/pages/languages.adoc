@@ -104,7 +104,7 @@ Instructions below explain how to add a language to Bonita Portal. Steps below i
 [WARNING]
 ====
 
-The `mobile_xxxx.po/.pot` files used for the language of the https://documentation.bonitasoft.com/bonita/7.4/mobile-portal[Bonita Mobile Portal] may contain some keys missing translation. For the Mobile Portal to be displayed correctly in the new language, these keys must not be empty.
+The `mobile_xxxx.po/.pot` files used for the language of the xref:mobile-portal.adoc[Bonita Mobile Portal] may contain some keys missing translation. For the Mobile Portal to be displayed correctly in the new language, these keys must not be empty.
 
 On the other hand, some of the keys in the `mobile_xxxx.po/.pot` files are duplicates from the ones in other non-mobile `.po/.pot` files. These keys must all have the same value (whether translated or chosen to be left in English) across all the `.po/.pot` files.
 

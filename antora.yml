@@ -7,6 +7,8 @@ asciidoc:
     bonitaTechnicalVersion: '7.12.1' # latest public community version
     javadocVersion: 7.12
     crowdinBonitaVersion: 7.12
+    # ref versions of other components
+    bcdDocVersion: '3.6'
     # page attributes
     page-editable: true
     page-out-of-support: false
