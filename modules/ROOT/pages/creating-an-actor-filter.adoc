@@ -2,7 +2,7 @@
 :description: An actor filter is implemented in Bonita in two parts, the definition and the implementation. This enables you to change the
 
 An actor filter is implemented in Bonita in two parts, the definition and the implementation. This enables you to change the
-implementation without changing the definition. Several implementations can be created for a single definition. See xref:actor-filtering.adoc[here]for a list of actor filters provided with the product.
+implementation without changing the definition. Several implementations can be created for a single definition. See xref:actor-filtering.adoc[here] for a list of actor filters provided with the product.
 
 An actor filter is a type of connector and is created in the same way, using the same schema files as for a connector. You can define a new actor filter definition or implementation in Bonita Studio, using the wizards started from the *Development* menu, *Actor filters* sub menu. You can also create a new actor filter definition or implementation externally, and import it into Bonita Studio.
 
@@ -20,7 +20,10 @@ The following sections explain the elements of the definition. You can also use 
 
 === Actor filter configuration wizard definition
 
-The XML file that defines the actor filter configuration wizard contains definitions for header information identifying the actor filter (including the icon), for inputs and outputs, and for the wizard pages. The definition follows the schema defined in http://documentation.bonitasoft.com/ns/connector/definition/6.0/connector-definition-descriptor.xsd. The table below lists the items in the definition:
+The XML file that defines the actor filter configuration wizard contains definitions for header information identifying the actor filter (including the icon), for inputs and outputs, and for the wizard pages.
+The definition follows the schema defined in https://github.com/bonitasoft/bonita-actorfilter-archetype/blob/1.1.4/src/main/resources/archetype-resources/schemas/connector-definition-descriptor.xsd[connector-definition-descriptor.xsd].
+
+The table below lists the items in the definition:
 
 |===
 |  | Occurrence | Description
@@ -84,7 +87,7 @@ The following example is the XML definition for the _initiator manager_ actor fi
 </definition:ConnectorDefinition>
 ----
 
-In this example, there is one input, a Boolean that determines whether or not the task is automatically assigned to the user identified by the filter. There is one page in the configuration wizard, which contains one widget.
+In this example, there is one input, a Boolean that determines whether the task is automatically assigned to the user identified by the filter. There is one page in the configuration wizard, which contains one widget.
 
 === Language properties file
 
@@ -122,10 +125,9 @@ The resource file defines:
 * the id and version of the implementation
 * the set of dependencies required by the implementation.
 
-The resource file follows the schema defined in http://documentation.bonitasoft.com/ns/connector/definition/6.0/connector-implementation-descriptor.xsd .
+The resource file follows the schema defined in https://github.com/bonitasoft/bonita-actorfilter-archetype/blob/1.1.4/src/main/resources/archetype-resources/schemas/connector-definition-descriptor.xsd[connector-definition-descriptor.xsd].
 
-The following example is the resource file of an implementation of the
-initiator manager actor filter:
+The following example is the resource file of an implementation of the initiator manager actor filter:
 
 [source,xml]
 ----
@@ -150,7 +152,7 @@ initiator manager actor filter:
 
 The Java class must implement the org.bonitasoft.engine.filter.AbstractUserFilterclass and use the Engine ExecutionContext. The following methods must be implemented:
 
-* validateInputParameters to check that the configuration of the actor filter is well defined
+* validateInputParameters to check that the configuration of the actor filter is well-defined
 * filter to get a list of identifiers of all the users that correspond to a specified actor name
 * shouldAutoAssignTaskIfSingleResult to assign the step to the user if filter returns one user
 
