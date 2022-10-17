@@ -24,6 +24,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - id: files
+        name: Detect changed files
         uses: jitterbit/get-changed-files@v1
         with:
           format: 'json'
