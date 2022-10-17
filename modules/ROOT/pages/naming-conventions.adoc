@@ -18,7 +18,7 @@ Even in a relatively simple process, the number of names quickly becomes large. 
 * Name a pool with the high-level business process name. If you have several pools in a business process, use names that convey how the pools are related. For example, if you have a business process for reviewing and approving leave requests that has a main process, a called process for reviewing requests, and a called process for escalations, you could call the pools `Leave Request`, `Leave Request Review`, and `Leave Request Escalation`.
 * Name a lane to indicate who is acting in the process. In general, you should use the actor name and group activities by the same actor into the same lane. The additional benefit of this is that it makes actors visible in the process diagram.
 * Name a task according to what is being done. This is important for all types of task, not just human tasks.
-* Name a form according to what is being done prefixed with the process name. It will be easier to understand where and why forms are used inside the UI designer home page.
+* Name a form according to what is being done prefixed with the process name. It will be easier to understand where and why forms are used inside the UI Designer home page.
 * For usability as well as maintainability, use the same structure in all task names. In a leave request process, for example, do not call the tasks `Manager reviews request` and `HR review`.
 * Name a gateway for the decision that is being made.
 * Name all the transitions out of a gateway.

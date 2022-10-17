@@ -35,7 +35,7 @@ You need to <<migrate,add authorization to your custom pages>> before you activa
 
 [NOTE.bonitacloud,caption=Bonita Cloud]
 ====
-In Bonita Cloud, to change the properties files and apply Rest Authorization, you just have to open a support ticket and we'll apply the change on the requested environment for you ! 
+In Bonita Cloud, to change the properties files and apply Rest Authorization, you just have to open a support ticket and we'll apply the change on the requested environment for you !
 ====
 
 
@@ -326,7 +326,7 @@ It is not necessary to restart the application server to activate security for t
 == Granting permissions to a given resource
 
 If you only develop custom pages and you declare the resources they use properly, you should never have to create custom permissions.
-However, you may need to do so if you need to manually grant permissions to a given REST API resource (so that it can be called programatically for example). In order to do that, you need to:
+However, you may need to do so if you need to manually grant permissions to a given REST API resource (so that it can be called programmatically for example). In order to do that, you need to:
 
 . Look into the file `resources-permissions-mapping.properties` for the permissions that grant access to the resource.
 For example, in order to perform a GET on `bpm/task`, I can see that I need the permission `flownode_visualization` (syntax: `GET|bpm/task=[flownode_visualization]`)

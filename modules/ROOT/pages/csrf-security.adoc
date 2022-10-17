@@ -70,10 +70,10 @@ http://www.acunetix.com/websitesecurity/csrf-attacks[Read more about CSRF attack
 
 == How to Migrate your pages to 7.4.0 or greater when CSRF security is enabled
 
-To use a UI page or form that was created in lower version than 7.4, you need to re-import this old page in actual UI designer. If you don't update your page, any API call in your outdated version will be failed because `X-Bonita-API-Token` will be absent in the response header.
+To use a UI page or form that was created in lower version than 7.4, you need to re-import this old page in actual UI Designer. If you don't update your page, any API call in your outdated version will be failed because `X-Bonita-API-Token` will be absent in the response header.
 Follow this few steps to update your page or form:
 
-In UI designer:
+In UI Designer:
 1) xref:create-or-modify-a-page.adoc#import[*Import*] the page from 7.3.X or lower version.
 1) xref:create-or-modify-a-page.adoc#export[*Export*] the page you previously imported.
 

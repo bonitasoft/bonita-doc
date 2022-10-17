@@ -58,7 +58,7 @@ You can set a different value for the width property for each device type. Selec
 image::images/images-6_0/pb-resolution.png[Device type selection]
 
 Example: A form has three fields, First name, Last name, and Membership number. +
-On a mobile device, you want the fields to occupy the maxiumum width of the screen, each one of a separate line. +
+On a mobile device, you want the fields to occupy the maximum width of the screen, each one of a separate line. +
 On a tablet device, you want the first name and last name to be on the same line but the membership number to be on the line below. +
 For laptop and desktop devices, you want all three fields to be in the same line. Set the width properties as follows:
 
@@ -126,4 +126,4 @@ On Bonita cloud, the webapp uses the ROOT context and doesn't have a name.
 
 == Migrate a page from 7.0.0 and 7.0.1
 
-In Bonita 7.0, property values were all dynamic. Pages and forms that were created with 7.0 and are already deployed will continue to work with 7.1. You should note that when you import a 7.0.0 or 7.0.1 page or form into 7.0.x later versions or the 7.1 Bonita Studio or UI designer, widgets properties stay dynamic.
+In Bonita 7.0, property values were all dynamic. Pages and forms that were created with 7.0 and are already deployed will continue to work with 7.1. You should note that when you import a 7.0.0 or 7.0.1 page or form into 7.0.x later versions or the 7.1 Bonita Studio or UI Designer, widgets properties stay dynamic.

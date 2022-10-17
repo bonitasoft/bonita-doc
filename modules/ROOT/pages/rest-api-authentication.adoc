@@ -23,13 +23,13 @@ To log in, use the following request:
 | username: a username +
 password: a password +
 redirect: `true` or `false`. `false` is the default value if the redirect parameter is not specified. It indicates that the service should not redirect to Bonita Portal (after a successful login) or to the login page (after a login failure). +
-redirectUrl: the URL of the page to be displayed after a succesful login. If it is specified, then the a redirection after the login will be performed even if the redircet parameter is not present in the request. +
+redirectUrl: the URL of the page to be displayed after a successful login. If it is specified, then the a redirection after the login will be performed even if the redircet parameter is not present in the request. +
 tenant: the tenant to log in to (optional for Performance edition, not supported for Community, Teamwork and Efficiency editions)
 |===
 
 In case of success, the HTTP response status code is `204 No Content` by default. However, if redirect is set to `true`, the status code will be a `302 Found` with the location to redirect to.
 The response to this call generates cookies.
-The `JSESSIONID` must be transfered with each subsequent calls. If the REST API is used in an application running in a web browser, this is handled automatically by the web browser.
+The `JSESSIONID` must be transferred with each subsequent calls. If the REST API is used in an application running in a web browser, this is handled automatically by the web browser.
 For usage of the `X-Bonita-API-Token` see below.
 
 === X-Bonita-API-Token cookie and HTTP header
@@ -113,8 +113,8 @@ Not setting the redirect parameter to `true` means that the service will not red
 
 If the HTTP response's status is `401 Unauthorized`:
 
-* make sure that the cookies have been transfered with the call
-* make sure that the cookies transfered are the ones generated during the last sucessfull login call
+* make sure that the cookies have been transferred with the call
+* make sure that the cookies transferred are the ones generated during the last sucessfull login call
 * if one of the PUT, DELETE or POST method is used, make sure that the `X-Bonita-API-Token` header is included
 * if the X-Bonita-API-Token header is included, make sure that the value is the same as the one of the cookie generated during the last login
 * Maybe a logout was issued or the session has expired; try to log in again, and re run the request with the new cookies and the new value for the `X-Bonita-API-Token` header.
