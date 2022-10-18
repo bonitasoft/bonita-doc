@@ -237,7 +237,7 @@ Use the DELETE method to delete an existing actorMember.
 `DELETE`
 * *Success Response*
  ** *Code*: 200
-  
+
 
 == Process
 
@@ -452,7 +452,7 @@ A JSON representation of the matched processes.
 
 ==== Retrieve the design for a process
 
-Process design can be retrived client side.
+Process design can be retrieved client side.
 
 * *URL* +
 `/API/bpm/process/:processId/design`
@@ -468,7 +468,7 @@ The process design object. The JSON returned is a representation of the https://
 
 ===== Retrieve the instantiation contract for a process
 
-Process instantiation contract elements can be retrived client side.
+Process instantiation contract elements can be retrieved client side.
 
 * *URL* +
 `/API/bpm/process/:processId/contract`
@@ -994,9 +994,9 @@ List of process supervisors Ids to delete
 
 * *Success Response*
  ** *Code*: 200
- 
+
  == Connectors
- 
+
  [#connector]
 
 === ProcessConnectorDependency
@@ -1219,9 +1219,9 @@ node.
   "connectorId":"the connector id (string)",
   "id":"the identifier (long) of the connector instance",
   "name":"the name (string) of the connector",
-  "activationEvent":"the name (string) of the event that activsted the connector instance",
+  "activationEvent":"the name (string) of the event that activated the connector instance",
   "state":"the state (string) of the connector",
-  "archivedDate": "the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this connecctor instance was archived, for example '2014-10-17 16:05:42.626'",
+  "archivedDate": "the date (('yyyy-MM-dd HH:mm:ss.SSS')) when this connector instance was archived, for example '2014-10-17 16:05:42.626'",
   "containerId":"the identifier (long) of the containing activity instance",
   "version":"the connector version (string)"
 }
@@ -1276,4 +1276,4 @@ A list of connector details
 ----
 
 
- 
+

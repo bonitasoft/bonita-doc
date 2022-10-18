@@ -706,7 +706,7 @@ It is possible to filter on the following parameters: sourceObjectId, caseId, ar
  ** `sourceObjectId="id"`: search for documents by specifying the original document id.
 This is useful if you know the id of a caseDocument and you wish to retrieve all its previous versions..
  ** `caseId="id"`: search for documents with the specified open case id.
- ** `archivedCaseId="id"`: search for documents with the specified archvied case id.
+ ** `archivedCaseId="id"`: search for documents with the specified archived case id.
  ** `submittedBy="id"`: search for documents that were submitted by the user with the specified identifier.
  ** `name="string"`: search for documents with names that contain _string_.
 Depending on the setting for xref:ROOT:using-list-and-search-methods.adoc[word-based search], the search returns documents with _string_ at the start of the name or the start of a word in the name.
