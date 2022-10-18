@@ -100,7 +100,7 @@ discovery modes), you must declare its public address by adding the following pr
 +
 [WARNING]
 ====
-If you are using apache-tomcat load-balancer whith mod_jk, make sure that jvmRoute attribute is set at your Engine
+If you are using apache-tomcat load-balancer with mod_jk, make sure that jvmRoute attribute is set at your Engine
 [source,xml]
 ----
 <Engine name="Catalina" defaultHost="localhost" jvmRoute="node01">

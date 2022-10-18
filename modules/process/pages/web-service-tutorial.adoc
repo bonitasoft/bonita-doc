@@ -34,7 +34,7 @@ image::images/connector_webservice_tuto/webservice_diagram.png[web service proce
 ----
 
 * Add a select widget, with the following parameters:
- ** *Availables values:* countries
+ ** *Available values:* countries
  ** *Displayed key:* name
  ** *Returned key:* code
  ** *Value:* formInput.countryInput

@@ -353,7 +353,7 @@ The `d` (deploy) used to xref:ROOT:rest-api-overview.adoc#extend-resource[extend
 * parentCaseId: the parent case that is associated with this activity's case
 * rootContainerId: the root process of the root case that is associated with this activity
 * executedBy: the user who executed the activity
-* executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency, Performance and Enterprise editions)
+* executedBySubstitute: the user who executed the activity for the executedBy user (only in Efficiency, Performance and Enterprise editions)
 * actorId: the actor that can execute this activity
 * assigned_id: the user this activity is assigned to
 * parentTaskId: in the case of a subtask, the parent task
@@ -524,7 +524,7 @@ The `d` (deploy) used to xref:ROOT:rest-api-overview.adoc#extend-resource[extend
 * parentCaseId: the parent case that is associated with this activity's case
 * rootContainerId: the root process of the root case that is associated with this activity
 * executedBy: the user who executed the activity
-* executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency, Performance and Enterprise editions)
+* executedBySubstitute: the user who executed the activity for the executedBy user (only in Efficiency, Performance and Enterprise editions)
 * actorId: the actor that can execute this activity
 * assigned_id: the user this activity is assigned to
 * parentTaskId: in the case of a subtask, the parent task
@@ -666,7 +666,7 @@ Fields that can be updated are `assignedId` and `state`. Specify only those fiel
 
 * *Success Response*
  ** *Code*: 200
- 
+
  === ManualTask
 
 ==== Description
@@ -887,7 +887,7 @@ The `d` (deploy) used to xref:ROOT:rest-api-overview.adoc#extend-resource[extend
 * parentCaseId: the parent case that is associated with this activity's case
 * rootContainerId: the root process of the root case that is associated with this activity
 * executedBy: the user who executed the activity
-* executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency, Performance and Enterprise editions)
+* executedBySubstitute: the user who executed the activity for the executedBy user (only in Efficiency, Performance and Enterprise editions)
 * actorId: the actor that can execute this activity
 * assigned_id: the user this activity is assigned to
 * parentTaskId: in the case of a subtask, the parent task
@@ -1073,7 +1073,7 @@ The `d` (deploy) used to xref:ROOT:rest-api-overview.adoc#extend-resource[extend
 * parentCaseId: the parent case that is associated with this activity's case
 * rootContainerId: the root process of the root case that is associated with this activity
 * executedBy: the user who executed the activity
-* executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency, Performance and Enterprise editions)
+* executedBySubstitute: the user who executed the activity for the executedBy user (only in Efficiency, Performance and Enterprise editions)
 * actorId: the actor that can execute this activity
 * assigned_id: the user this activity is assigned to
 * parentTaskId: in the case of a subtask, the parent task
@@ -1589,7 +1589,7 @@ The `d` (deploy) used to xref:ROOT:rest-api-overview.adoc#extend-resource[extend
 * parentCaseId: the parent case that is associated with this activity's case
 * rootContainerId: the root process of the root case that is associated with this activity
 * executedBy: the user who executed the activity
-* executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency, Performance and Enterprise editions)
+* executedBySubstitute: the user who executed the activity for the executedBy user (only in Efficiency, Performance and Enterprise editions)
 * actorId: the actor that can execute this activity
 * assigned_id: the user this activity is assigned to
 * parentTaskId: in the case of a subtask, the parent task
@@ -1763,7 +1763,7 @@ The `d` (deploy) used to xref:ROOT:rest-api-overview.adoc#extend-resource[extend
 * parentCaseId: the parent case that is associated with this activity's case
 * rootContainerId: the root process of the root case that is associated with this activity
 * executedBy: the user who executed the activity
-* executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency, Performance and Enterprise editions)
+* executedBySubstitute: the user who executed the activity for the executedBy user (only in Efficiency, Performance and Enterprise editions)
 * actorId: the actor that can execute this activity
 * assigned_id: the user this activity is assigned to
 * parentTaskId: in the case of a subtask, the parent task
@@ -1942,7 +1942,7 @@ The `d` (deploy) used to xref:ROOT:rest-api-overview.adoc#extend-resource[extend
 * parentCaseId: the parent case that is associated with this activity's case
 * rootContainerId: the root process of the root case that is associated with this activity
 * executedBy: the user who executed the activity
-* executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency, Performance and Enterprise editions)
+* executedBySubstitute: the user who executed the activity for the executedBy user (only in Efficiency, Performance and Enterprise editions)
 * actorId: the actor that can execute this activity
 * assigned_id: the user this activity is assigned to
 * parentTaskId: in the case of a subtask, the parent task
@@ -2104,7 +2104,7 @@ The `d` (deploy) used to  xref:ROOT:rest-api-overview.adoc#extend-resource[exten
 * parentCaseId: the parent case that is associated with this activity's case
 * rootContainerId: the root process of the root case that is associated with this activity
 * executedBy: the user who executed the activity
-* executedBySubstitute: the user who executed the activity for the executedBy user (only in Effeciency, Performance and Enterprise editions)
+* executedBySubstitute: the user who executed the activity for the executedBy user (only in Efficiency, Performance and Enterprise editions)
 * actorId: the actor that can execute this activity
 * assigned_id: the user this activity is assigned to
 * parentTaskId: in the case of a subtask, the parent task
@@ -2332,7 +2332,7 @@ When not set, the type is guessed using the value. Be careful as it can lead to 
 
 * *Success Response*
  ** *Code*: 204
- 
+
 
  
 [#signal]
