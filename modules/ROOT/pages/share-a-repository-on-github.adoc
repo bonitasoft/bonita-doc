@@ -58,7 +58,7 @@ You may also use the ssh authentication mechanism if you do not want to use http
 . Go to Team > Git > Show History
 . You can now view your commit in the repository history. You should have two commits at this stage.
 . Before pushing your commit, pull the remote changes
-. Go to Team > Git > Pull. This will fetch the remote and try to merge or rebase new commits into your local branch. A pull can put the repository in a *conflicting state* if the merge cannot be figured out by Git. Conlicting files can be merged using the Git Staging view: you need to double-click on the conflicting files indicated with a red icon to display the Diff Viewer.
+. Go to Team > Git > Pull. This will fetch the remote and try to merge or rebase new commits into your local branch. A pull can put the repository in a *conflicting state* if the merge cannot be figured out by Git. Conflicting files can be merged using the Git Staging view: you need to double-click on the conflicting files indicated with a red icon to display the Diff Viewer.
 . In the Git Staging view you can see that your local master branch is ahead by 1 commit ([master ↑1])
 . Now that you are in synch with the remote, you can safely push your commit. To do so, go to Team > Git > Push. Click on `Preview >` and on `Push`
 

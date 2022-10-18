@@ -283,7 +283,7 @@ Let's add two more constraints to the leave request form :
 
 To help the user to fill out the form and tell him/her the number of days is valid according to the amount of days left, create a new variable _remainDays_. It will provide the number of days left for the leave type Annual leave. +
 In real life, it should be of type *External API*.
-For the sake of this turotial, just make it a JSON variable to test our form.
+For the sake of this tutorial, just make it a JSON variable to test our form.
 The value is:
 
 [source,javascript]
