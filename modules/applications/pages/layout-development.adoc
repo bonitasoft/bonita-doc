@@ -22,7 +22,7 @@ It is made of three containers:
           Current logged in user information, language selection and sign out link
 * Application List modal
           List of application links for the current logged in user
-The layout was created using Bonita UI Designer, so you can export it and customize it with Bonita UI designer.
+The layout was created using Bonita UI Designer, so you can export it and customize it with Bonita UI Designer.
 You can add more widgets in the containers layout-header and layout-footer.
 The 'layout.css' file manages the layout behavior, allows to display the content container in full height,
 and header and footer with fixed size. +
@@ -31,7 +31,7 @@ But it does not allow to add other widgets than the living application iframe in
 For example, you could:
 
 * Add elements in the layout-header, on top of the menu, like a login box or brand image
-* Add somme content in the layout-footer
+* Add some content in the layout-footer
 
 == Usage
 
@@ -42,7 +42,7 @@ A layout is deployed in a Bonita Runtime as a .zip archive containing a page.pro
 ----
 name=custompage_layout
 displayName=Application layout page
-description=This is a layout page dedicated to new born living applications. It is created and editable using the UI designer. It allows to display an horizontal menu, and an iframe. The menu allows to target some pages and the iframe define the area to display those targeted pages.
+description=This is a layout page dedicated to new born living applications. It is created and editable using the UI Designer. It allows to display an horizontal menu, and an iframe. The menu allows to target some pages and the iframe define the area to display those targeted pages.
 resources=[GET|living/application,GET|living/application-page,GET|living/application-menu]
 contentType=layout
 ----
@@ -64,7 +64,7 @@ If you are not using Groovy, you can directly access a resource by adding a link
 
 For example: `<link href="css/file.css" rel="stylesheet" />`
 
-=== API acces
+=== API access
 
 If your page is viewed in an application, you will have access facilities for xref:ROOT:rest-api-overview.adoc[the APIs].
 

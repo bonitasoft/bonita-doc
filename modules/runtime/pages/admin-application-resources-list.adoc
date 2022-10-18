@@ -61,7 +61,7 @@ contentType=page
 
 == View the resources
 
-The Administrator can filter by type and can hide the resources provided by Bonita as examples to develop from, so only the project resoures are displayed. +
+The Administrator can filter by type and can hide the resources provided by Bonita as examples to develop from, so only the project resources are displayed. +
 They can also search the list by the name of the resource.
 
 [#export]
