@@ -3,10 +3,6 @@
 
 Learn how Bonita Platform can be extended to suit your needs.
 
-[NOTE]
-====
-For subscription editions only. 
-====
 
 Bonita provides a rich set of features by default. These features are designed to meet the needs of most of your projects.
 However, if a project has a need that was not anticipated and cannot be met by the default features, Bonita has been designed to be extensible.
@@ -18,6 +14,11 @@ This page lists the extension points that are available.
 
 The following elements are designed to be extension points of Bonita.
 These extension points are guaranteed to be stable across versions of Bonita 7: Java interfaces and XML schema will be kept backward compatible so that your implementation will work even after a Bonita version upgrade.
+
+[NOTE]
+====
+Below extension points are available for both community and subscription editions. 
+====
 
 === Connectors
 
@@ -56,13 +57,14 @@ In the Bonita subscription edition, Bonita Studio contains xref:rest-api-extensi
 
 A xref:pages.adoc[custom page] is a page that you can add into Bonita Portal to form part of an application, customize information provided in default portal pages, or to add new features to the portal.
 To implement a page, you need to provide HTML, CSS and Javascript resources respecting some packaging constraints.
+
 You can create a page using the xref:ui-designer-overview.adoc[UI designer], which automatically creates a well-formed page.
 Note that although the page framework provided in the product is stable, we cannot guarantee that all custom pages will work with future versions, because this depends on the details of how the page is implemented.
 
 === Custom widgets
 
 If the standard UI designer xref:widgets.adoc[widgets] do not meet your needs, you can create a xref:custom-widgets.adoc[custom widget].
-You can then use your custom widget in pages, forms, and fragments.
+You can then use your custom widget in pages, forms, and fragments - for Subscription editions.
 
 === Import and export exchange files
 
@@ -73,6 +75,11 @@ These methods manipulate files with formats that are versioned. Newer versions o
 * parameters
 * custom pages
 * connectors
+
+[NOTE]
+====
+Below extension points are available only for subscription editions. 
+====
 
 === Authentication service
 
