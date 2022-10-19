@@ -59,6 +59,7 @@ A xref:pages.adoc[custom page] is a page that you can add into Bonita Portal to 
 To implement a page, you need to provide HTML, CSS and Javascript resources respecting some packaging constraints.
 
 You can create a page using the xref:ui-designer-overview.adoc[UI designer], which automatically creates a well-formed page.
+
 Note that although the page framework provided in the product is stable, we cannot guarantee that all custom pages will work with future versions, because this depends on the details of how the page is implemented.
 
 === Custom widgets
