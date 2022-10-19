@@ -1,6 +1,5 @@
 = Bonita Runtime dependencies (7.16-SNAPSHOT)
-:page-aliases: :ROOT:bonita-web-dependencies.adoc
-:page-aliases: :ROOT:bonita-engine-dependencies.adoc
+:page-aliases: ROOT:bonita-web-dependencies.adoc, ROOT:bonita-engine-dependencies.adoc
 :description: List all dependencies used by Bonita Runtime
 
 
