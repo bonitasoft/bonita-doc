@@ -10,7 +10,7 @@ This page also shows the interactions between the Bonita Portal and Bonita Engin
 
 . The Portal displays the process instantiation form to the user
 . The user enters data in the form
-. The button of the form having the *Start process* action in the *UI designer* sends a POST request with the form data to start the process
+. The button of the form having the *Start process* action in the *UI Designer* sends a POST request with the form data to start the process
 . The submitted data are validated against the *process instantiation contract*
 . If the contract is valid the process instance is created and input values are persisted in database
 . Process data instances are created and initialized in the order of declaration using:
@@ -44,7 +44,7 @@ The user task is now in *ready* state and is waiting for a user to submit it.
 
 . The Portal displays the form to the user
 . The user enters data in the form
-. The button of the form having the *Submit task* action in the *UI designer* sends a POST request with the form data to start the step
+. The button of the form having the *Submit task* action in the *UI Designer* sends a POST request with the form data to start the step
 . The submitted data are validated against the *step contract*
 . If the contract is valid input values are persisted in database and the execution continues asynchronously. Otherwise an exception is thrown and the step stays in the same state.
 . The Engine executes the Operations defined for the step

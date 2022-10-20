@@ -107,4 +107,4 @@ From the zip file, a REST API extension can be xref:api-extensions.adoc[deployed
 
 == Automate build of a specific REST API extension
 
-A REST API extension is a maven project stored in a Studio repository. You can find them in the studio workspace: `workspace/yourRepositoryName/restAPIExtensions/yourRestAPIProject`. From there you can simply use maven cli or a CI job to build, test or packake your REST API Extension.
+A REST API extension is a maven project stored in a Studio repository. You can find them in the studio workspace: `workspace/yourRepositoryName/restAPIExtensions/yourRestAPIProject`. From there you can simply use maven cli or a CI job to build, test or package your REST API Extension.

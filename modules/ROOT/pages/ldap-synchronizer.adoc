@@ -103,9 +103,9 @@ synchronization.
 |`BONITA_PASSWORD` |install |Password of the Bonita account used for
 synchronization.
 |`BONITA_PLATFORM_LOGIN` |platformAdmin |This is the username of the
-platform adminstrator.
+platform administrator.
 |`BONITA_PLATFORM_PASSWORD` |platform |This is the password of the
-platform adminstrator.
+platform administrator.
 |===
 
 =====  Ldap connection settings

@@ -3,7 +3,6 @@
 
 Learn how Bonita Platform can be extended to suit your needs.
 
-
 Bonita provides a rich set of features by default. These features are designed to meet the needs of most of your projects.
 However, if a project has a need that was not anticipated and cannot be met by the default features, Bonita has been designed to be extensible.
 This page lists the extension points that are available.
@@ -17,7 +16,7 @@ These extension points are guaranteed to be stable across versions of Bonita 7: 
 
 [NOTE]
 ====
-Below extension points are available for both community and subscription editions. 
+Below extension points are available for both community and subscription editions.
 ====
 
 === Connectors
@@ -48,7 +47,7 @@ ProcessBuilder and Business Objects DAO are examples of APIs that can be leverag
 === REST API
 
 The xref:rest-api-overview.adoc[REST APIs] enable you to integrate your Bonita processes into your application and execute operations on Bonita objects including business objects.
-Pages and forms created with the UI designer rely on the REST APIs to manage data.
+Pages and forms created with the UI Designer rely on the REST APIs to manage data.
 
 In addition to the standard APIs and resources, you can define xref:rest-api-extensions.adoc[REST API extensions].
 In the Bonita subscription edition, Bonita Studio contains xref:rest-api-extensions.adoc[tooling for creating, testing, and deploying REST API extensions].
@@ -57,12 +56,12 @@ In the Bonita subscription edition, Bonita Studio contains xref:rest-api-extensi
 
 A xref:pages.adoc[custom page] is a page that you can add into Bonita Portal to form part of an application, customize information provided in default portal pages, or to add new features to the portal.
 To implement a page, you need to provide HTML, CSS and Javascript resources respecting some packaging constraints.
-You can create a page using the xref:ui-designer-overview.adoc[UI designer], which automatically creates a well-formed page.
+You can create a page using the xref:ui-designer-overview.adoc[UI Designer], which automatically creates a well-formed page.
 Note that although the page framework provided in the product is stable, we cannot guarantee that all custom pages will work with future versions, because this depends on the details of how the page is implemented.
 
 === Custom widgets
 
-If the standard UI designer xref:widgets.adoc[widgets] do not meet your needs, you can create a xref:custom-widgets.adoc[custom widget].
+If the standard UI Designer xref:widgets.adoc[widgets] do not meet your needs, you can create a xref:custom-widgets.adoc[custom widget].
 You can then use your custom widget in pages, forms, and fragments - for Subscription editions.
 
 === Import and export exchange files
@@ -77,7 +76,7 @@ These methods manipulate files with formats that are versioned. Newer versions o
 
 [NOTE]
 ====
-Below extension points are available only for subscription editions. 
+Below extension points are available only for subscription editions.
 ====
 
 === Authentication service
@@ -129,7 +128,7 @@ If a form uses some Javascript code based on an element in the HTML Document Obj
 * *Authorization Rule Mapping*. It is possible to modify authorization rules mapping applied to start a process, display process overview or execute a task.
 You can customize this mapping by defining your own bean and override property. See xref:custom-authorization-rule-mapping.adoc[Authorization Rule Mapping]
 * *BonitaStudioBuilder*
-Bonita Entreprise editions include a script, BonitaStudioBuilder (also known as the Workspace API), for building a bar file from a process in a project. This intended to be used for automating process builds in a continuous integration and testing environment. You can use the BonitaStudioBuilder to build a bar file for processes stored in a project.
+Bonita Enterprise editions include a script, BonitaStudioBuilder (also known as the Workspace API), for building a bar file from a process in a project. This intended to be used for automating process builds in a continuous integration and testing environment. You can use the BonitaStudioBuilder to build a bar file for processes stored in a project.
 WorkspaceAPI is deprecated since Bonita 7.7.0. Instead, we strongly encourage you to use the _LA builder_ included in the tooling suite of {bcdDocVersion}@bcd::bcd_cli.adoc[_Bonita Continuous Delivery_ add-on]. One added-value is that LA builder does not need a Studio to be installed.
 
 Only the elements listed on this page are intended to be used as extension points. For other elements, there is no guarantee of stability, and a high probability of changes across versions.

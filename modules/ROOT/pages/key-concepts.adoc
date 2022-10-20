@@ -13,7 +13,7 @@ You can use Bonita to create a process-based application or a process that is ac
 
 A process is a sequence of tasks performed by people (human tasks) or automatically (service tasks). The sequence has a start and an end, and can contain decision points, known as gateways. A process definition is constructed in Bonita Studio as a flow diagram. You add data, gateways, connectors, scripts and expressions to control the process flow, and configure the process components and dependencies. The diagram uses the Business Process Model and Notation, which is the standard for defining a business process. Version 2.0, BPMN 2.0, was published in January 2011.
 
-If a process is visible to users, you can use the UI designer to design forms to input data and forms to display information. +
+If a process is visible to users, you can use the UI Designer to design forms to input data and forms to display information. +
 The result is a process that can be deployed to Bonita Portal.
 
 == Business data

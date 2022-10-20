@@ -42,7 +42,7 @@ The _Invoice example_ below gives more details on how to define access control f
 [NOTE]
 ====
 
-To allow an easy migration to this new feature, and to keep our BDM API working, all objects are visible by everyone by default. But as soon as you define an accss control rule for one object, the BDM access control switches to *a white list logic*, meaning that *for each business object of your BDM* that needs to be accessed, you must define at least one access control rule. Objects without rules won't be accessible by anyone. +
+To allow an easy migration to this new feature, and to keep our BDM API working, all objects are visible by everyone by default. But as soon as you define an access control rule for one object, the BDM access control switches to *a white list logic*, meaning that *for each business object of your BDM* that needs to be accessed, you must define at least one access control rule. Objects without rules won't be accessible by anyone. +
 The graphical editor helps you to achieve this by adding a warning icon close to business objects that have no access rule defined.
 ====
 
@@ -495,7 +495,7 @@ Steps 3. and 4. are not directly related to access control definition, it is jus
 
 *3. Create a process and generate data*
 
-Some instances of the object _Request_, as well as some instances of _Students_ are needed. To create them, follow the steps discribed in the section  <<bdmFilling,II - Invoice>>. For convenience, we assume that there are only two subjects: Mathematics and Physics.
+Some instances of the object _Request_, as well as some instances of _Students_ are needed. To create them, follow the steps described in the section  <<bdmFilling,II - Invoice>>. For convenience, we assume that there are only two subjects: Mathematics and Physics.
 
 *4. Create a living application to display data*
 
@@ -509,13 +509,13 @@ In the UI Designer:, create an application page (_reviewRequests_):
 * Create a variable:
  ** *Name* : selectedSubject
  ** *Type* : String
-* Add a Select box to the page (to choose beetween subjects):
+* Add a Select box to the page (to choose between subjects):
  ** *Label* : Subject class
  ** *Available Values* : Mathematics, Physics (constants).
  ** *Value* : selectedSubject
 * Add a Table widget to the page (to display the requests):
  ** *Headers* : Id, Subject, Content, Medical comment, Student (constants)
- ** *Content* : requestList (script, click the fx icon to switch from contstant to script)
+ ** *Content* : requestList (script, click the fx icon to switch from constant to script)
  ** *Column keys* : persistenceId, subject, content, medicalComment, student.fullname
 
 In the studio, create an xref:applicationCreation.adoc[application descriptor]:
@@ -603,7 +603,7 @@ You still do on a production server.
 
 Access to data queries is now controlled by dynamic security. To check:
 
-. Login onto the portal as a user with the profile _Mathamtics Teacher_.
+. Login onto the portal as a user with the profile _Mathematics Teacher_.
 . In the studio, open the application descriptor
 . Click on the overview link of the application. Select 'Physics'. No instances are displayed but you can see instances when you select 'Mathematics'.
 . Login onto the portal as a user with the profile _Physics Teacher_. Refresh the application in the web browser. Select 'Mathematics'. No instances are displayed but you can see instances when you select 'Physics'.

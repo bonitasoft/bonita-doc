@@ -130,7 +130,7 @@ This howto applies to the legacy task list -Bonita 6.0 to 6.5.x versions- as wel
 
 First, create a new diagram. Then model the process in the first pool:
 
-. Rename the diagram into "Request management" by clicking in the blanck space around the pool
+. Rename the diagram into "Request management" by clicking in the blank space around the pool
 . Rename the pool into "Leave request management"
 . Rename the lane into "Manager"
 . Rename the start event into "New leave request"

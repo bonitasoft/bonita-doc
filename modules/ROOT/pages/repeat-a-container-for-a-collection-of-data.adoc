@@ -25,7 +25,7 @@ This section explains how display the elements from a simple collection in a rep
 
 In this example, the collection of data is a list of fruits. You want to display this list in a table and enables users to modify the name of a fruit. To create the table in a page:
 
-. In a UI designer page, create a variable to specify the collection, which must be an array. In a typical application, a collection is defined by a JavaScript or External API variable, but for easy page development, you can use a fixed JSON array. For this example, create a JSON variable called _fruits_ containing `["banana","apple","pineapple","cherry"]`.
+. In a UI Designer page, create a variable to specify the collection, which must be an array. In a typical application, a collection is defined by a JavaScript or External API variable, but for easy page development, you can use a fixed JSON array. For this example, create a JSON variable called _fruits_ containing `["banana","apple","pineapple","cherry"]`.
 . Add a container widget to your page and bind the variable _fruits_ to the *Repeat contents* property.
 . In the container, add an input widget with the following properties:
 
@@ -128,7 +128,7 @@ This section explains how to update the container configuration to handle a stru
 . To enable the user to remove a producing country item, add a button widget in the container in the same row as the _Producing country_ input widget. Configure the button widget properties as follows:
 
 * *Label*: _Remove this producing country_
-* *Alignment*: _righ_
+* *Alignment*: _right_
 * *Style*: _danger_
 * *Action*: _Remove from collection_
 * *Collection*: _$collection_, to specify the current collection, producingCountries. (You could also specify the collection explicitly as _fruitsProducingCountries.producingCountries_, but for better maintainability this is not recommended because if you specify the collection explicitly and subsequently change the collection name or the parent collection name, you need to remember to update this property setting)

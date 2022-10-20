@@ -344,7 +344,7 @@ To troubleshoot SSO login issues, you need to increase the xref:logging.adoc[log
 
 In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/logging.properties.
 
-* Make sure the following lines are not commented or add them if they are not present (the syntaxe of the first line with `class\` is necessary because of the way the loggers are created in Keycloak):
+* Make sure the following lines are not commented or add them if they are not present (the syntax of the first line with `class\` is necessary because of the way the loggers are created in Keycloak):
 
 [source,properties]
 ----
