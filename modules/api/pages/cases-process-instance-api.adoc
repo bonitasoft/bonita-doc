@@ -315,7 +315,7 @@ JSON representations of matching cases
 
 ==== Create a case
 
-This way of creating a case using this method will only work for processes in which no contract is defined. To instantiate a process with a contract, check the <<instantiate_process,process instantiation resource documentation>>.
+This way of creating a case using this method will only work for processes in which no contract is defined. To instantiate a process with a contract, check the xref:api:actors-process-connectors-api.adoc#start-a-process-using-an-instantiation-contract[process instantiation resource documentation].
 
 * *URL* +
 `/API/bpm/case`
