@@ -48,7 +48,7 @@ See the xref:bonita-bpm-installation-overview.adoc[Installation overview].
 
 | Workspace API
 | The Workspace API is provided to generate `.bar` files from the command line, ready for production. .bar files are for deployment only and cannot be read by the studio. .bos files are for Studio interchange only and cannot be deployed to production. Each file format is optimal in terms of content and is optimized for the target use case
-| The Workspace API retains its 6.x capabilities. Moreover, it can export forms that are mapped to process instantiations or tasks, and pages that are mapped to a case overview. It cannot export application pages that are not elements of a process. For this reason the Workspace API has been deprecated in 7.7.0, and is replaced by the _LA builder_ included in the tooling suite of {bcdDocVersion}@bcd::index.adoc [_Bonita Continuous Delivery_ add-on]. See xref:automating-builds.adoc[Automating builds]
+| The Workspace API retains its 6.x capabilities. Moreover, it can export forms that are mapped to process instantiations or tasks, and pages that are mapped to a case overview. It cannot export application pages that are not elements of a process. For this reason the Workspace API has been deprecated in 7.7.0, and is replaced by the _LA builder_ included in the tooling suite of xref:{bcdDocVersion}@bcd::index.adoc [_Bonita Continuous Delivery_ add-on]. See xref:automating-builds.adoc[Automating builds]
 |===
 
 == Feature improvements in Bonita Studio
