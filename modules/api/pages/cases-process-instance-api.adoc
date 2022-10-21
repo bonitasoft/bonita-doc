@@ -339,7 +339,7 @@ The process definition id, in JSON
 ====
 The attribute "variables" on the request payload is used to initialize the process variables (not BDM variables).
 If you want to initialize BDM variables at process instantiation, add a contract on the process and map BDM variables to the contract data.
-See <<start-a-process-using-an-instantiation-contract,Start a process using an instantiation contract>> for usage.
+See xref:api:actors-process-connectors-api.adoc##start-a-process-using-an-instantiation-contract[Start a process using an instantiation contract] for usage.
 ====
 
 [source,json]
