@@ -9,6 +9,7 @@ on:
 jobs:
   build_preview:
     runs-on: ubuntu-20.04
+    permissions: read-all
     env:
       COMPONENT_NAME: bonita
       COMPONENT_BRANCH_NAME: ${{ github.head_ref }}
