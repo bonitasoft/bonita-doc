@@ -9,6 +9,8 @@ asciidoc:
     bonitaTechnicalVersion: '7.16.0' # latest public community version
     javadocVersion: 7.16
     crowdinBonitaVersion: 7.16
+    # ref versions of other components
+    bcdDocVersion: '3.6'
     # page attributes
     page-pagination: true # display links to previous/next pages at the bottom of the page
     page-editable: true
