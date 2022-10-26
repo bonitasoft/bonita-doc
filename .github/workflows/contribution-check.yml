@@ -7,8 +7,6 @@ on:
 jobs:
   pr-title:
     runs-on: ubuntu-20.04
-    permissions:
-      pull-requests: write # actions/stale adds labels and closes PR
     steps:
       - name: Lint pull request title
         uses: jef/conventional-commits-pr-action@v1
@@ -17,9 +15,22 @@ jobs:
   pr-content-check:
     runs-on: ubuntu-20.04
     steps:
-    - name: Check PR content
-      uses: bonitasoft/actions/packages/pr-diff-checker@1.1.0
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        diffDoesNotContain: '["https://documentation.bonitasoft.com/", "Bonita BPM"]'
-        extensionsToCheck: '[".adoc"]'
+      - name: Check PR content
+        uses: bonitasoft/actions/packages/pr-diff-checker@1.1.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          diffDoesNotContain: '["https://documentation.bonitasoft.com/", "Bonita BPM"]'
+          extensionsToCheck: '[".adoc"]'
+      - uses: actions/checkout@v3
+      - id: files
+        name: Detect changed files
+        uses: jitterbit/get-changed-files@v1
+        with:
+          format: 'json'
+      - name: Check content writing
+        uses: errata-ai/vale-action@reviewdog
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        with:
+          files: ${{ steps.files.outputs.added_modified }}
+
