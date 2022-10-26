@@ -374,10 +374,12 @@ The users are still redirected to the Bonita login page instead of the SAML SSO 
 
 [.cause]#Potential cause#
 There could be several causes for this, but the most likely are:
+
 * SAML SSO has not been correctly configured in Bonita.
 * There is cache/cookie issue in the web browser.
 
 [.solution]#Possible solution#
+
 * Check all the Bonita configuration settings are correct.
 * Make sure `setup[.sh][.bat] push` has been executed and the server restarted after the changes.
 * Try cleaning the cache and cookies of the web browser.
@@ -459,8 +461,9 @@ The following stacktrace appears in the Bonita server log :
 The IdP has sent an encrypted assertion in its response, but the SAML module can not find Bonita server's private key in the *keycloak-saml.xml* file, and so it can not decrypt the assertion.
 
 [.solution]#Possible solution#
-* Make sure you have `encryption="true"` inside the Key node of the `SP`.
-* Add Bonita server's private key in the `Keys:Key` section of the `SP.
+
+* Make sure you have `encryption="true"` inside the `Key` node of the `SP`.
+* Add Bonita server's private key in the `Keys:Key` section of the `SP`.
 --
 
 
@@ -513,6 +516,7 @@ After successfully logging in on the IdP and being redirected to Bonita, the URL
 When first accessing Bonita, a JSESSIONID cookie is created and the requested URL is stored in the associated HTTP session before the redirection to the IdP. After the authentication on the IdP, a request to the Assertion Consumer Service (ACS) URL (`/bonita/saml`) is made from another domain (the one of the IdP). Because of the https://developer.mozilla.org/fr/docs/Web/HTTP/Headers/Set-Cookie/SameSite#lax[Web Browsers policy regarding cookies], the JSESSIONID cookie that was first created is not sent (because the request is not made from a page of the same domain as the one of Bonita server). A new HTTP session is then created (with the associated JSESSIONID cookie) resulting in the requested URL stored in the first HTTP session being lost. 
 
 [.solution]#Possible solution#
+
 * Only if your Bonita server is xref:ssl.adoc[configured for HTTPS] (with the `secure="true"` cookies flag in conf/server.xml), you can update Tomcat configuration file `conf/context.xml`, to set `sameSiteCookies` to `"none"` instead of `"lax"`. This will result in Bonita application cookies being sent in the request even if they were generated from a page of another domain
 [source,xml]
 ----
