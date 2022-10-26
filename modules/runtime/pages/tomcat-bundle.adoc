@@ -223,4 +223,15 @@ To update the licenses after the first run, take a look at the xref:runtime:boni
 
 *Solution*: Ensure your running environment has a JDK or JRE 11 installed and set either JRE_HOME or JAVA_HOME environment variable to point to it.
 
+
+[.troubleshooting-section]
+--
+[.symptom]
+When I run `start-bonita.sh` or `start-bonita.bat`, I get the error message `Invalid Java version 1.8. Please set JRE_HOME or JAVA_HOME system variable to a JRE / JDK 11, or add the 'java' version 11 to your PATH`
+
+[.cause]#Potential cause#
+Bonita 2021.2+ requires Java 11 to run
+
+[.solution]#Possible solution#
+Ensure your running environment has a JDK or JRE 11 installed and set either JRE_HOME or JAVA_HOME environment variable to point to it.
 '''
