@@ -389,7 +389,7 @@ There could be several causes for this, but the most likely are:
 [.troubleshooting-section]
 --
 [.symptom]
-SAML fails after authenticating succesfully in the SSO login page.
+SAML fails after authenticating successfully in the SSO login page.
 
 [.symptom-description]
 The following stacktrace appears in the Bonita server log :
@@ -397,12 +397,12 @@ The following stacktrace appears in the Bonita server log :
 [source,log]
 ----
 2018-10-10 13:22:45,921 SEVERE [org.bonitasoft.console.common.server.sso.filter.InternalSSOFilter] (default task-1) java.lang.RuntimeException: Sp signing key must have a PublicKey or Certificate defined: java.lang.RuntimeException: java.lang.RuntimeException: Sp signing key must have a PublicKey or Certificate defined
-	at org.keycloak.adapters.saml.config.parsers.DeploymentBuilder.build(DeploymentBuilder.java:119)
-	at org.bonitasoft.console.common.server.auth.impl.saml.BonitaSAML2Filter.getSamlDeployment(BonitaSAML2Filter.java:174)
-	(...)
+    at org.keycloak.adapters.saml.config.parsers.DeploymentBuilder.build(DeploymentBuilder.java:119)
+    at org.bonitasoft.console.common.server.auth.impl.saml.BonitaSAML2Filter.getSamlDeployment(BonitaSAML2Filter.java:174)
+    (...)
 Caused by: java.lang.RuntimeException: Sp signing key must have a PublicKey or Certificate defined
-	at org.keycloak.adapters.saml.config.parsers.DeploymentBuilder.build(DeploymentBuilder.java:115)
-	... 51 more
+    at org.keycloak.adapters.saml.config.parsers.DeploymentBuilder.build(DeploymentBuilder.java:115)
+    ... 51 more
 ----
 
 [.cause]#Potential cause#
@@ -416,7 +416,7 @@ Add Bonita server's certificate in the `Keys:Key` section of the `SP`.
 [.troubleshooting-section]
 --
 [.symptom]
-SAML fails after authenticating succesfully in the SSO login page.
+SAML fails after authenticating successfully in the SSO login page.
 
 [.symptom-description]
 The following stacktrace appears in the Bonita server log :
@@ -424,9 +424,9 @@ The following stacktrace appears in the Bonita server log :
 [source,log]
 ----
 2018-10-11 20:11:37,314 ERROR [org.keycloak.adapters.saml.profile.webbrowsersso.WebBrowserSsoAuthenticationHandler] (default task-1) Failed to verify saml response signature: org.keycloak.common.VerificationException: Invalid signature on document
-	at org.keycloak.adapters.saml.profile.AbstractSamlAuthenticationHandler.verifyPostBindingSignature(AbstractSamlAuthenticationHandler.java:520)
-	at org.keycloak.adapters.saml.profile.AbstractSamlAuthenticationHandler.validateSamlSignature(AbstractSamlAuthenticationHandler.java:271)
-	(...)
+    at org.keycloak.adapters.saml.profile.AbstractSamlAuthenticationHandler.verifyPostBindingSignature(AbstractSamlAuthenticationHandler.java:520)
+    at org.keycloak.adapters.saml.profile.AbstractSamlAuthenticationHandler.validateSamlSignature(AbstractSamlAuthenticationHandler.java:271)
+    (...)
 ----
 
 [.cause]#Potential cause#
@@ -443,7 +443,7 @@ Make sure the certificate in the `Keys:Key` section of the `IdP` is indeed the o
 [.troubleshooting-section]
 --
 [.symptom]
-SAML fails after authenticating succesfully in the SSO login page.
+SAML fails after authenticating successfully in the SSO login page.
 
 [.symptom-description]
 The following stacktrace appears in the Bonita server log :
@@ -452,9 +452,9 @@ The following stacktrace appears in the Bonita server log :
 ----
 2018-10-11 20:54:22,258 ERROR [org.keycloak.adapters.saml.profile.webbrowsersso.WebBrowserSsoAuthenticationHandler] (default task-2) Error extracting SAML assertion: Encryptd assertion and decrypt private key is null
 2018-10-11 20:54:22,260 ERROR [io.undertow.request] (default task-2) UT005023: Exception handling request to /bonita/saml: java.lang.NullPointerException
-	at org.keycloak.adapters.saml.profile.AbstractSamlAuthenticationHandler.handleLoginResponse(AbstractSamlAuthenticationHandler.java:366)
-	at org.keycloak.adapters.saml.profile.AbstractSamlAuthenticationHandler.handleSamlResponse(AbstractSamlAuthenticationHandler.java:213)
-	(...)
+    at org.keycloak.adapters.saml.profile.AbstractSamlAuthenticationHandler.handleLoginResponse(AbstractSamlAuthenticationHandler.java:366)
+    at org.keycloak.adapters.saml.profile.AbstractSamlAuthenticationHandler.handleSamlResponse(AbstractSamlAuthenticationHandler.java:213)
+    (...)
 ----
 
 [.cause]#Potential cause#
@@ -470,7 +470,7 @@ The IdP has sent an encrypted assertion in its response, but the SAML module can
 [.troubleshooting-section]
 --
 [.symptom] 
-SAML SSO succesfull login does not redirect to expected page.
+SAML SSO successful login does not redirect to expected page.
 
 [.symptom-description]
 Bonita portal URL profile and page parameters (or any other) after the hash are lost in redirections. As a result once the SAML login page redirects back to Bonita portal, the portal displays the first page of the default profile. +
@@ -507,7 +507,7 @@ The workaround for this issue is to make sure to set the Recipient parameter in 
 [.troubleshooting-section]
 --
 [.symptom]
-SAML SSO succesfull login redirects to home page instead of originally targeted one.
+SAML SSO successful login redirects to home page instead of originally targeted one.
 
 [.symptom-description]
 After successfully logging in on the IdP and being redirected to Bonita, the URL initially requested is lost and users are redirected to the home page of Bonita server (by default `/bonita`). +
@@ -561,7 +561,7 @@ Make sure that `forceAuthentication` is set to `"false"` in the *keycloak-saml.x
         sslPolicy="EXTERNAL"
         nameIDPolicyFormat="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
         forceAuthentication="false"
-	...
+    ...
      </SP>
 </keycloak-saml-adapter>
 ----
