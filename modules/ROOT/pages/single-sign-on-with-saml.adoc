@@ -340,7 +340,8 @@ To setup Bonita for global logout:
 If the single logout flow supported by your IdP is not the same as the one supported by Bonita platform, the preferred solution to handle it anyway is to intercept the requests to /logoutService and handle the logout programmatically.
 ====
 
-== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+[.troubleshooting-title]
+== Troubleshooting
 
 To troubleshoot SSO login issues, you need to increase the xref:logging.adoc[log level] to `FINE` for the packages `org.bonitasoft`, `com.bonitasoft`, and `ALL` for `org.keycloak` in order for errors to be displayed in the log files `bonita-*.log` (by default, they are not).
 
@@ -445,6 +446,28 @@ org.keycloak.adapters.saml.profile.webbrowsersso.WebBrowserSsoAuthenticationHand
 *Problem:* Some IdPs dissociate the Recipient URL from the Assertion Consumer Service (ACS) URL in the SAML service configuration. +
 *Solution:* The workaround for this issue is to make sure to set the Recipient parameter in the IdP configuration with the same value as the ACS of the service provider (`http[s]://<bundle host>:<port>/bonita/saml`), so that the `destination` attribute is present in the SAML response. This issue hapens when the Recipient URL is left empty resulting to an empty `destination` attribute in the SAML response.
 ****
+
+[.troubleshooting-section]
+--
+[.symptom]
+After successfully logging in on the IdP and being redirected to Bonita there is a 403 on the ACS request.
+
+[.symptom-description]
+the following message appears in the Bonita server log :
+[source,log]
+----
+org.keycloak.adapters.saml.profile.webbrowsersso.WebBrowserSsoAuthenticationHandler Error extracting SAML assertion: null.
+----
+
+[.cause]#Potential cause#
+Some IdPs dissociate the Recipient URL from the Assertion Consumer Service (ACS) URL in the SAML service configuration.
+
+[.solution]#Possible solution#
+The workaround for this issue is to make sure to set the Recipient parameter in the IdP configuration with the same value as the ACS of the service provider (`http[s]://<bundle host>:<port>/bonita/saml`), so that the `destination` attribute is present in the SAML response. This issue hapens when the Recipient URL is left empty resulting to an empty `destination` attribute in the SAML response.
+--
+
+
+
 
 ****
 *Symptom:* After successfully logging in on the IdP and being redirected to Bonita, the URL initially requested is lost and users are redirected to the home page of Bonita server (by default `/bonita`). +
