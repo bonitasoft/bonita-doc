@@ -37,7 +37,7 @@ The organization data used by Bonita is stored in the database, so only has to b
 [.troubleshooting-section]
 --
 [.symptom]
-_Each Bonita Engine maintains its own log file on the node
+Each Bonita Engine maintains its own log file on the node
 
 [.symptom-description]
 You can find it under <BUNDLE_HOME>/logs/bonita.``date`.log`, where `date` is the date the file is created.
