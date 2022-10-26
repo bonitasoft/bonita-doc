@@ -36,7 +36,7 @@ To access its content:
 
 == Access in Non-Production and Production environments
 
-To deploy the applications into a bundle or the Cloud, you can use https://documentation.bonitasoft.com/bcd/latest/_manage_living_application[Bonita Continuous Delivery] (for Enterprise, Performance, Efficiency, and Teamwork editions, and using BCD).
+To deploy the applications into a bundle or the Cloud, you can use xref:{bcdDocVersion}@bcd::livingapp_manage_configuration.adoc[Bonita Continuous Delivery]'s xref:{bcdDocVersion}@bcd::bcd_cli.adoc[CLI] (for Enterprise, Performance, Efficiency, and Teamwork editions, and using BCD).
 Alternatively, you can deploy an application by importing all its components in the following order:
 
 * Organization then profiles
