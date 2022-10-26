@@ -537,7 +537,7 @@ Bonita redirects to SAML SSO login page despite already having a SSO session ope
 When trying to connect to Bonita on a browser where the Bonita user already has an SSO session open, the user lands on the SAML SSO login page and has to authenticate again, instead of being automatically sent back to Bonita.
 
 [.cause]#Potential cause#
-The SAML request sent by the Bonita SAML adapter to the SAML IdP contains the following the flag `ForceAuthn="true"`, thus forcing that the user be re-authenticated even if they are already logged in at the IdP.
+The SAML request sent by the Bonita SAML adapter to the SAML IdP contains the flag `ForceAuthn="true"`, thus forcing that the user be re-authenticated even if they are already logged in at the IdP.
 
 [source,xml]
 ----
