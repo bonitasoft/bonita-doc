@@ -7,3 +7,5 @@ BPM
 API
 APIs
 datasource
+JDK
+JRE
