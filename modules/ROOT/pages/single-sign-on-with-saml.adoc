@@ -500,7 +500,7 @@ org.keycloak.adapters.saml.profile.webbrowsersso.WebBrowserSsoAuthenticationHand
 Some IdPs dissociate the Recipient URL from the Assertion Consumer Service (ACS) URL in the SAML service configuration.
 
 [.solution]#Possible solution#
-The workaround for this issue is to make sure to set the Recipient parameter in the IdP configuration with the same value as the ACS of the service provider (`http[s]://<bundle host>:<port>/bonita/saml`), so that the `destination` attribute is present in the SAML response. This issue hapens when the Recipient URL is left empty resulting to an empty `destination` attribute in the SAML response.
+The workaround for this issue is to make sure to set the Recipient parameter in the IdP configuration with the same value as the ACS of the service provider (`http[s]://<bundle host>:<port>/bonita/saml`), so that the `destination` attribute is present in the SAML response. This issue happens when the Recipient URL is left empty resulting to an empty `destination` attribute in the SAML response.
 --
 
 
