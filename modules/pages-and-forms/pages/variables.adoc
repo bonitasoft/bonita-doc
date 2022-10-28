@@ -138,3 +138,9 @@ If `invoice` contains lazy relations, additional variables are generated for eac
 For example, if `invoice` has a `customer` relation in lazy, an External API variable `invoice_customer` is added. Its URL is set to `{{invoice|lazyRef:'customer'}}`.
 * To display an aggregated object, a Select widget is generated to display the _available values_ of the object.
 The variable (External API) bound to the widget is created. It queries the BDM. For example, when the object Invoice has an aggregated object Customer, the query is: `../API/bdm/businessData/com.company.model.Customer?q=find&p=0&c=99`. By default, it uses the `find` query with the default pagination (only the first 100 objects are returned).
+
+
+== Test Section
+I just add this line to test the new syntax checker. 
+It should detect typos such as this one: wonderfull.
+And also unknown words such as JDK.
