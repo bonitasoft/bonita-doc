@@ -141,6 +141,7 @@ The variable (External API) bound to the widget is created. It queries the BDM. 
 
 
 == Test Section
-I just add this line to test the new syntax checker. 
+I just add this line to test the new syntax checker.
 It should detect typos such as this one: wonderfull.
 And also unknown words such as JDK.
+Add a new linee.
