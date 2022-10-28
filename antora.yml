@@ -1,20 +1,22 @@
 name: bonita
 title: Bonita
-version: 2022.2
+version: 2023.1
+# TODO: When releasing beta version, replace alpha by beta. Remove when releasing GA
+prerelease: -alpha
 asciidoc:
   attributes:
-    bonitaVersion: 2022.2
-    bonitaTechnicalVersion: '7.15.0' # latest public community version
-    javadocVersion: 7.15
-    crowdinBonitaVersion: 7.15
+    bonitaVersion: 2023.1
+    bonitaTechnicalVersion: '7.16.0' # latest public community version
+    javadocVersion: 7.16
+    crowdinBonitaVersion: 7.16
     # ref versions of other components
     bcdDocVersion: '3.6'
     # page attributes
     page-pagination: true # display links to previous/next pages at the bottom of the page
     page-editable: true
     page-out-of-support: false
-    page-next-release: false # TODO: When releasing beta version, set this field to false
-    page-hide-search-bar: false # TODO: When releasing beta version, set this field to false
+    page-next-release: true # TODO: When releasing GA version, set this field to false
+    page-hide-search-bar: false
 nav:
   - modules/ROOT/release-note-nav.adoc
   - modules/bonita-overview/bonita-overview-nav.adoc
