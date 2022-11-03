@@ -1,6 +1,6 @@
 = REST API System API
 :page-aliases: ROOT:system-api.adoc
-:description: Get informations on the current session and on localisation/translation.
+:description: Get information on the current session and on localisation/translation.
 
 {description}
 
@@ -96,7 +96,7 @@ Returns all translations of the product. If a locale is specified in the filter,
 * *Method* +
 `GET`
 * *Data Params* +
-xref:ROOT:rest-api-overview.adoc#resource_search[Standard search parameters] are available. +
+xref:api:rest-api-overview.adoc#resource_search[Standard search parameters] are available. +
 _Example_: `/API/system/i18ntranslation?p=0&c=2&f=locale%3dde`
 * *Success Response* +
 The list of translations as JSON
