@@ -11,7 +11,7 @@ For Subscription editions only.
 [WARNING]
 ====
 * The solution described here relies on the BonitaStudioBuilder, which has been deprecated since Bonita 7.7.0. Instead, we strongly encourage you to use the LA builder included in the tooling suite of Bonita Continuous Delivery add-on. One added-value is that LA builder does not need a studio to be installed.
-* {bcdDocVersion}@bcd::index.adoc[Bonita Continuous Delivery add-on] comes with an out-of-the-box solution based on Jenkins CI.
+* xref:{bcdDocVersion}@bcd::index.adoc[Bonita Continuous Delivery add-on] comes with an out-of-the-box solution based on Jenkins CI.
 ====
 
 With Continuous Integration (CI) your processes are continuously built and tested while you are designing them. Collaborating on process design can be enhanced with CI by ensuring the integrity of your processes along the development phase.
