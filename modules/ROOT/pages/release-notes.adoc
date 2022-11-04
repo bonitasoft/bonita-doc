@@ -214,7 +214,7 @@ You can no longer create custom connectors, Groovy scripts, themes and actors fi
 
 ==== BonitaStudioBuilder
 
-The deprecated `BonitaStudioBuilder` command line interface has been removed. To benefit from an efficient Bonita project building and deploying solution, please refer to the https://documentation.bonitasoft.com/bcd[BCD add-on].
+The deprecated `BonitaStudioBuilder` command line interface has been removed. To benefit from an efficient Bonita project building and deploying solution, please refer to the xref:{bcdDocVersion}@bcd::index.adoc[BCD add-on].
 
 ==== Import workspace
 
