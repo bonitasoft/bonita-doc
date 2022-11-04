@@ -33,5 +33,4 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
           files: ${{ steps.files.outputs.added_modified }}
-          reporter: github-pr-review
 
