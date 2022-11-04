@@ -20,7 +20,6 @@ To avoid settings that are specific to a real email provider, use a tool for a f
 . Click on *Start server*
 +
 image:images/getting-started-tutorial/configure-email-connector/fakesmtp-configured-and-listening.png[FakeSMTP configured and listening]
-// {.img-responsive .img-thumbnail}
 
 Now that you have a fake email server running, configure the email connector on the _Deal with unsatisfied customer_ task:
 
@@ -46,7 +45,6 @@ Now that you have a fake email server running, configure the email connector on 
 . Click on *Finish*
 +
 image:images/getting-started-tutorial/configure-email-connector/configure-email-connector.gif[Email connector configuration]
-// {.img-responsive .img-thumbnail}
 
 Run the process with the connector configured, and see a new incoming email in the FakeSMTP user interface when task _Deal with unsatisfied customer_ becomes available.
 

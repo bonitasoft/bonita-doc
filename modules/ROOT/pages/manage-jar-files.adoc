@@ -17,7 +17,6 @@ You can also access the *Manage dependencies...* dialog from the process configu
 == Known integration issues
 
 Duplicate libraries
-// {.h2}
 
 There is a problem at integration if you have several elements in your platform that use certain libraries that cannot be included in more than one classloader.
 Typically, this occurs when a process contains data of type Java or multiple connectors (notably with the Webservice, Alfresco, and CMIS connectors).

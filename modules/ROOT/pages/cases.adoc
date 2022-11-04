@@ -7,7 +7,6 @@ Those users can view a list of open or archived cases, as well as cases with fai
 
 Here is a view of the page:
 image:images/UI2021.1/admin-case-list.png[Admin Case list]
-// {.img-responsive}
 
 == View the status of cases
 

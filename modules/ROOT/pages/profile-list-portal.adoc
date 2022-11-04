@@ -7,7 +7,6 @@ In Enterprise, Performance, and Efficiency editions, they can also create new pr
 
 Here is a view of this page:
 image:images/UI2021.1/profiles-portal.png[Profiles in Portal]
-// {.img-responsive}
 
 == View profiles
 

@@ -8,7 +8,6 @@ On top of that, it is possible to define access rights on some attributes of bus
 
 Here is a view of the page:
 image:images/UI2021.1/bdm-management.png[BDM in UI]
-// {.img-responsive}
 
 == Manage the BDM
 

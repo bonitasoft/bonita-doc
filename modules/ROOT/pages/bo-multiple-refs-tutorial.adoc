@@ -14,12 +14,10 @@ _Design a task contract and associated operations to update a business object wi
 Create an *Expense* business object like below.
 
 image:images/bdm-tuto/bdm-expense.png[Expense business object]
-// {.img-responsive}
 
 Then create *ExpenseReport* business object referencing multiple expenses by composition.
 
 image:images/bdm-tuto/bdm-expense-report.png[Expense report business object]
-// {.img-responsive}
 
 == Design the expense report process
 
@@ -53,7 +51,6 @@ image:images/bdm-tuto/bdm-expense-report.png[Expense report business object]
 * Create a contract like below
 
 image:images/bdm-tuto/contract.png[Contract]
-// {.img-responsive}
 
 _newExpenses_ input is used to gather a list of new expenses to add to the report
  _expensesToDelete_ input is used to gather a list of _Expense_ id to delete
@@ -163,9 +160,8 @@ It should display this result according to the initialization of the report busi
 * Perform the Update expense report task like below
 
 image:images/bdm-tuto/form1.png[Form 1]
-// {.img-responsive}
+
 image:images/bdm-tuto/form-2.png[Form 2]
-// {.img-responsive}
 
 * In a web browser, check the content of your report calling the following Rest API:
 http://localhost:8080/bonita/API/bdm/businessData/com.company.model.ExpenseReport/1/expenses

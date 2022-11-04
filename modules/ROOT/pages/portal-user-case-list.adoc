@@ -10,7 +10,6 @@ Then on a given case, they can view the case overview, access the case details, 
 
 Here is a view of the User case list.
 image:images/UI2021.1/user-case-list.png[User Case list]
-// {.img-responsive}
 
 This list displays the cases in which the logged user is involved:
 
@@ -82,7 +81,7 @@ Depending on the quality of the Internet connexion, less items will display fast
 At the begining of each row, the case Id is a clickable link to see more details for the case.
 Here is an example of the case details page.
 image:images/UI2021.1/user-case-details.png[User Case details]
-// {.img-responsive}
+
 It displays:
 
 * At the top, all metadata about the case
@@ -97,7 +96,6 @@ From the case details (button on the top right), or from the case list (_eye_ ic
 To know more about the customization of the case overview, go to the xref:uid-case-overview-tutorial.adoc[Case overview] page.
 Here is an example of the case overview provided by Bonita.
 image:images/UI2021.1/case-overview.png[Case Overview]
-// {.img-responsive}
 
 It displays:
 

@@ -15,17 +15,14 @@ In counterpart, in the version v0.30.1 of bootstrap there is no provided style t
 To have a tab container displayed on all devices (mobile / desktop) modifying display based on devices size you could use css as described below, but feel free to extend it to match your specific needs.
 
 image:images/vertical-tabs-container-tutorial/mobile.png[Vertical tabs container on mobile]
-// {.img-responsive .img-thumbnail}
 
 image:images/vertical-tabs-container-tutorial/desktop.png[Vertical tabs container on desktop]
-// {.img-responsive .img-thumbnail}
 
 == Step 1: Configure the tabs container
 
 The Tabs container will be configured `Vertically`, add a css class tab-vertical as follows.
 Remember that we recommend to switch type from tabs to `pills`, rendering is nicer in pills than default style as tabs.
 image:images/vertical-tabs-container-tutorial/configuration.png[Vertical tabs container configuration]
-// {.img-responsive .img-thumbnail}
 
 == Step 2: Add css rules in a css file
 
@@ -47,4 +44,3 @@ Add following css rules in style.css asset, a new asset, or even on your applica
 ----
 
 image:images/vertical-tabs-container-tutorial/css.png[Vertical tabs container css]
-// {.img-responsive .img-thumbnail}

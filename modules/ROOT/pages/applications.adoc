@@ -5,7 +5,6 @@ This page defines the term "Application" and explains what a user with the Admin
 
 Here is a view of the page:
 image:images/UI2021.1/admin_applications.png[Administrator Applications]
-// {.img-responsive}
 
 == Application definition
 

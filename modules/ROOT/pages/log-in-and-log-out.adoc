@@ -37,7 +37,6 @@ For Bonita Portal:
 . Click on *Logout*
 
 image:images/UI2021.1/logout.png[Logout]
-// {.img-responsive}
 
 For an application:
 
@@ -45,12 +44,10 @@ For an application:
 . Click on *Sign out*
 
 image:images/UI2021.1/sign-out.png[Sign out]
-// {.img-responsive}
 
 [NOTE]
 ====
-
-Note: in a system that uses a solution to provide single sign-on (with SAML, CAS, etc...), the administrator can remove the logout option. In this case, to log out of the portal or an application, you must log out of the SSO system or close your browser.
+In a system that uses a solution to provide single sign-on (with SAML, CAS, etc...), the administrator can remove the logout option. In this case, to log out of the portal or an application, you must log out of the SSO system or close your browser.
 ====
 
 See also xref:first-steps-after-setup.adoc[First steps after setup]
