@@ -2,11 +2,14 @@ name: Contribution check
 
 on:
   pull_request:
+    # 'edited': check the PR title on changes
     types: [opened, edited, synchronize]
 
 jobs:
   pr-title:
     runs-on: ubuntu-20.04
+    permissions:
+      pull-requests: write # post comments if the PR title doesn't match the "Conventional Commits" rules
     steps:
       - name: Lint pull request title
         uses: jef/conventional-commits-pr-action@v1
@@ -15,7 +18,7 @@ jobs:
   pr-content-check:
     runs-on: ubuntu-20.04
     steps:
-      - name: Check PR content
+      - name: Check forbidden content
         uses: bonitasoft/actions/packages/pr-diff-checker@1.1.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
