@@ -9,7 +9,7 @@ jobs:
   pr-title:
     runs-on: ubuntu-22.04
     permissions:
-      pull-requests: write # post comments if the PR title doesn't match the "Conventional Commits" rules
+      pull-requests: write # post comments when the PR title doesn't match the "Conventional Commits" rules
     # here we don't want to check the pr-title when new code is pushed
     if: github.event.action != 'synchronize'
     steps:
