@@ -109,4 +109,4 @@ If your Bonita Subscription has been purchased before 2021, this Add-on can be p
 If you have purchased or renewed your Bonita Subscription in 2021 or after, BCD is fully part of your subscription.
 ====
 
-To know more on this great tool, read the https://documentation.bonitasoft.com/bcd/latest/[related documentation section].
+To know more on this great tool, read the xref:{bcdDocVersion}@bcd::index.adoc[related documentation section].
