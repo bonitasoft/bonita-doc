@@ -170,4 +170,4 @@ When the .bar file is deployed, forms are deployed too. +
 
 Applications and its elements must be deployed onto the target environment. This can be done manually from the Super Administrator or Administrator applications, in the *_Applications_* and *_Resources_* menu options. It can also be done automatically through the automation of the project builds and deployment.
 
-For more information on Bonita Continuous Delivery tool (Subscription editions only], visit https://documentation.bonitasoft.com/bcd/latest/[the dedicated documentation page].
+For more information on Bonita Continuous Delivery tool (Subscription editions only], visit xref:{bcdDocVersion}@bcd::index.adoc[the dedicated documentation page].
