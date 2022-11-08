@@ -34,7 +34,7 @@ As we introduce data in our process definition and configure actors, a user will
 
 == Create your project
 
-Start by creating your project. 
+Start by creating your project.
 
 . From the Welcome, click on the *New Project* button, or in the Bonita Studio menu, click on *File > New project*.
 . In the new project form, enter your project name (e.g. "GettingStarted")
@@ -203,7 +203,6 @@ You can now build, package, deploy and execute this process definition in the Bo
 . Click on the *Overview* button to display the overview form with information about process execution
 
 image:images/getting-started-tutorial/draw-bpmn-diagram/run-process.gif[Process execution]
-// {.img-responsive .img-thumbnail}
 
 [NOTE]
 ====

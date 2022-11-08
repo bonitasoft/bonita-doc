@@ -10,7 +10,6 @@ NOTE: Starting with Bonita 2022.2, bpmn-visualization library of https://process
 
 Here is a view of the page:
 image:images/UI2021.1/admin-case-list.png[Admin Case list]
-// {.img-responsive}
 
 == View the status of cases
 

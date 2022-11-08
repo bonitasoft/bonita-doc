@@ -16,7 +16,6 @@ It features:
 
 Here is a view of the User Case list
 image:images/UI2021.1/user-case-list-app.png[User Case list in Bonita Application]
-// {.img-responsive}
 
 == Cases listed
 
@@ -106,7 +105,6 @@ Technically, cases change their Id when going from _open_ to _archived_ status. 
 
 Here are the Application sorting options. +
 image:images/UI2021.1/user-case-sort-App.png[User Case sorting options - Application]
-// {.img-responsive}
 
 The list can be sorted by:
 
@@ -129,7 +127,6 @@ The "Load more cases" link cannot be clicked anymore.
 This page has also been re-created with the UI Designer. It is responsive and customizable.
 Here is an example of a case details page.
 image:images/UI2021.1/user-case-details-App.png[User Case case details - Application]
-// {.img-responsive}
 
 This page displays:
 
@@ -154,6 +151,5 @@ It displays:
 
 Here is an example of the case overview provided by Bonita.
 image:images/UI2021.1/case-overview.png[Case Overview]
-// {.img-responsive}
 
 To know more about the customization of the case overview, go to the xref:ROOT:uid-case-overview-tutorial.adoc[Case overview] page.
