@@ -339,7 +339,8 @@ To setup Bonita for global logout:
 If the single logout flow supported by your IdP is not the same as the one supported by Bonita platform, the preferred solution to handle it anyway is to intercept the requests to /logoutService and handle the logout programmatically.
 ====
 
-== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+[.troubleshooting-title]
+== Troubleshooting
 
 To troubleshoot SSO login issues, you need to increase the xref:ROOT:logging.adoc[log level] to `DEBUG` for the packages `org.bonitasoft`, `com.bonitasoft`, and `TRACE` for `org.keycloak` in order for errors to be displayed in the log files `bonita-*.log` (by default, they are not).
 
@@ -361,95 +362,210 @@ In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>
     <Logger level="DEBUG" name="com.bonitasoft"/>
 ----
 
-=== Common error examples
 
-****
-*Symptom:* After configuring SAML SSO in Bonita, the Bonita login page does not redirect to the SSO login page. +
-*Possible Solutions:*
+[.troubleshooting-section]
+--
+[.symptom]
+After configuring SAML SSO in Bonita, the Bonita Portal login page does not redirect to the SSO login page.
+
+[.symptom-description]
+The users are still redirected to the Bonita login page instead of the SAML SSO login page.
+
+[.cause]#Potential cause#
+There could be several causes for this, but the most likely are:
+
+* SAML SSO has not been correctly configured in Bonita.
+* There is cache/cookie issue in the web browser.
+
+[.solution]#Possible solution#
 
 * Check all the Bonita configuration settings are correct.
 * Make sure `setup[.sh][.bat] push` has been executed and the server restarted after the changes.
 * Try cleaning the cache and cookies of the web browser.
-****
+--
 
-****
-*Symptom:* The following stacktrace appears in the Bonita server log :
+
+[.troubleshooting-section]
+--
+[.symptom]
+SAML fails after authenticating successfully in the SSO login page.
+
+[.symptom-description]
+The following stacktrace appears in the Bonita server log :
 
 [source,log]
 ----
 2018-10-10 13:22:45,921 SEVERE [org.bonitasoft.console.common.server.sso.filter.InternalSSOFilter] (default task-1) java.lang.RuntimeException: Sp signing key must have a PublicKey or Certificate defined: java.lang.RuntimeException: java.lang.RuntimeException: Sp signing key must have a PublicKey or Certificate defined
-	at org.keycloak.adapters.saml.config.parsers.DeploymentBuilder.build(DeploymentBuilder.java:119)
-	at org.bonitasoft.console.common.server.auth.impl.saml.BonitaSAML2Filter.getSamlDeployment(BonitaSAML2Filter.java:174)
-	(...)
+    at org.keycloak.adapters.saml.config.parsers.DeploymentBuilder.build(DeploymentBuilder.java:119)
+    at org.bonitasoft.console.common.server.auth.impl.saml.BonitaSAML2Filter.getSamlDeployment(BonitaSAML2Filter.java:174)
+    (...)
 Caused by: java.lang.RuntimeException: Sp signing key must have a PublicKey or Certificate defined
-	at org.keycloak.adapters.saml.config.parsers.DeploymentBuilder.build(DeploymentBuilder.java:115)
-	... 51 more
+    at org.keycloak.adapters.saml.config.parsers.DeploymentBuilder.build(DeploymentBuilder.java:115)
+    ... 51 more
 ----
 
-*Problem:* The signing of the requests has been enabled in the *keycloak-saml.xml* file, but there is no \<CertificatePem> in the Keys:Key section of the SP. +
-*Solution:* Add Bonita server's certificate in the Keys:Key section of the SP.
-****
+[.cause]#Potential cause#
+The signing of the requests has been enabled in the *keycloak-saml.xml* file, but there is no `<CertificatePem>` in the `Keys:Key` section of the `SP`.
 
-****
-*Symptom:* The following stacktrace appears in the Bonita server log :
+[.solution]#Possible solution#
+Add Bonita server's certificate in the `Keys:Key` section of the `SP`.
+--
+
+
+[.troubleshooting-section]
+--
+[.symptom]
+SAML fails after authenticating successfully in the SSO login page.
+
+[.symptom-description]
+The following stacktrace appears in the Bonita server log :
 
 [source,log]
 ----
 2018-10-11 20:11:37,314 ERROR [org.keycloak.adapters.saml.profile.webbrowsersso.WebBrowserSsoAuthenticationHandler] (default task-1) Failed to verify saml response signature: org.keycloak.common.VerificationException: Invalid signature on document
-	at org.keycloak.adapters.saml.profile.AbstractSamlAuthenticationHandler.verifyPostBindingSignature(AbstractSamlAuthenticationHandler.java:520)
-	at org.keycloak.adapters.saml.profile.AbstractSamlAuthenticationHandler.validateSamlSignature(AbstractSamlAuthenticationHandler.java:271)
-	(...)
+    at org.keycloak.adapters.saml.profile.AbstractSamlAuthenticationHandler.verifyPostBindingSignature(AbstractSamlAuthenticationHandler.java:520)
+    at org.keycloak.adapters.saml.profile.AbstractSamlAuthenticationHandler.validateSamlSignature(AbstractSamlAuthenticationHandler.java:271)
+    (...)
 ----
 
-*Problem:* The SAML module of the Bonita server has tried to validate the signature of the response sent by the IdP using the \<CertificatePem> stored in the IDP:Keys:Key section of the *keycloak-saml.xml* file, but:
+[.cause]#Potential cause#
+The SAML module of the Bonita server has tried to validate the signature of the response sent by the IdP using the `<CertificatePem>` stored in the `IDP:Keys:Key` section of the *keycloak-saml.xml* file, but:
 
 * either the validation has failed because the private key used by the IdP to sign the response does not match the certificate used by the SAML module.
-* or the IdP does not really sign the response (in that case, by activating all the logs for the `org.keyclock` package, you should also see a message `Cannot find Signature element`). +
-*Solution:* Make sure the certificate in the Keys:Key section of the IdP is indeed the one belonging to the private key being used by the IdP to sign its responses. Also make sure the IdP is configured to indeed sign the response. If not you can also change the IDP:Keys:Key section of the *keycloak-saml.xml* to put signing to false and the IDP:SingleSignOnService section to put validateResponseSignature to false.
-****
+* or the IdP does not really sign the response (in that case, by activating all the logs for the `org.keyclock` package, you should also see a message `Cannot find Signature element`).
 
-****
-*Symptom:* The following stacktrace appears in the Bonita server log :
+[.solution]#Possible solution#
+Make sure the certificate in the `Keys:Key` section of the `IdP` is indeed the one belonging to the private key being used by the IdP to sign its responses. Also make sure the IdP is configured to indeed sign the response. If not you can also change the `IDP:Keys:Key` section of the *keycloak-saml.xml* to put signing to `false` and the `IDP:SingleSignOnService` section to put `validateResponseSignature` to `false`.
+--
+
+
+[.troubleshooting-section]
+--
+[.symptom]
+SAML fails after authenticating successfully in the SSO login page.
+
+[.symptom-description]
+The following stacktrace appears in the Bonita server log :
 
 [source,log]
 ----
 2018-10-11 20:54:22,258 ERROR [org.keycloak.adapters.saml.profile.webbrowsersso.WebBrowserSsoAuthenticationHandler] (default task-2) Error extracting SAML assertion: Encryptd assertion and decrypt private key is null
 2018-10-11 20:54:22,260 ERROR [io.undertow.request] (default task-2) UT005023: Exception handling request to /bonita/saml: java.lang.NullPointerException
-	at org.keycloak.adapters.saml.profile.AbstractSamlAuthenticationHandler.handleLoginResponse(AbstractSamlAuthenticationHandler.java:366)
-	at org.keycloak.adapters.saml.profile.AbstractSamlAuthenticationHandler.handleSamlResponse(AbstractSamlAuthenticationHandler.java:213)
-	(...)
+    at org.keycloak.adapters.saml.profile.AbstractSamlAuthenticationHandler.handleLoginResponse(AbstractSamlAuthenticationHandler.java:366)
+    at org.keycloak.adapters.saml.profile.AbstractSamlAuthenticationHandler.handleSamlResponse(AbstractSamlAuthenticationHandler.java:213)
+    (...)
 ----
 
-*Problem:* The IdP has sent an encrypted assertion in its response, but the SAML module can not find Bonita server's private key in the *keycloak-saml.xml* file, and so it can not decrypt the assertion. +
-*Solution:*
+[.cause]#Potential cause#
+The IdP has sent an encrypted assertion in its response, but the SAML module can not find Bonita server's private key in the *keycloak-saml.xml* file, and so it can not decrypt the assertion.
 
-* Make sure you have encryption="true" inside the Key node of the SP.
-* Add Bonita server's private key in the Keys:Key section of the SP.
-****
+[.solution]#Possible solution#
 
-****
-*Symptom:* After successfully logging in on the IdP and being redirected to Bonita there is a 403 on the ACS request and the following message appears in the Bonita server log :
+* Make sure you have `encryption="true"` inside the `Key` node of the `SP`.
+* Add Bonita server's private key in the `Keys:Key` section of the `SP`.
+--
+
+
+[.troubleshooting-section]
+--
+[.symptom]
+SAML SSO successful login does not redirect to expected page.
+
+[.symptom-description]
+Bonita portal URL profile and page parameters (or any other) after the hash are lost in redirections. As a result once the SAML login page redirects back to Bonita portal, the portal displays the first page of the default profile. +
+
+[.cause]#Potential cause#
+The hash part of an URL is not sent server-side. It only exists in the web browser. That explains this behavior. +
+
+[.solution]#Possible solution#
+The workaround is to put the parameters as regular URL query parameters. Bonita portal has a mechanism that will convert them to hash parameters if they need to be (this only works since version 7.8.1 of Bonita). +
+For example instead of `<server_URL>/bonita/portal/homepage#?_p=caselistinguser&_pf=2`, use `<server_URL>/bonita/portal/homepage?_p=caselistinguser&_pf=2`
+--
+
+[.troubleshooting-section]
+--
+[.symptom]
+After successfully logging in on the IdP and being redirected to Bonita there is a 403 on the ACS request.
+
+[.symptom-description]
+The following message appears in the Bonita server log :
+
 [source,log]
 ----
 org.keycloak.adapters.saml.profile.webbrowsersso.WebBrowserSsoAuthenticationHandler Error extracting SAML assertion: null.
 ----
-*Problem:* Some IdPs dissociate the Recipient URL from the Assertion Consumer Service (ACS) URL in the SAML service configuration. +
-*Solution:* The workaround for this issue is to make sure to set the Recipient parameter in the IdP configuration with the same value as the ACS of the service provider (`http[s]://<bundle host>:<port>/bonita/saml`), so that the `destination` attribute is present in the SAML response. This issue hapens when the Recipient URL is left empty resulting to an empty `destination` attribute in the SAML response.
-****
 
-****
-*Symptom:* After successfully logging in on the IdP and being redirected to Bonita, the URL initially requested is lost and users are redirected to the home page of Bonita server (by default `/bonita`). +
-*Problem:* When first accessing Bonita, a JSESSIONID cookie is created and the requested URL is stored in the associated HTTP session before the redirection to the IdP. After the authentication on the IdP, a request to the Assertion Consumer Service (ACS) URL (`/bonita/saml`) is made from another domain (the one of the IdP). Because of the https://developer.mozilla.org/fr/docs/Web/HTTP/Headers/Set-Cookie/SameSite#lax[Web Browsers policy regarding cookies], the JSESSIONID cookie that was first created is not sent (because the request is not made from a page of the same domain as the one of Bonita server). A new HTTP session is then created (with the associated JSESSIONID cookie) resulting in the requested URL stored in the first HTTP session being lost. +
-*Possible Solutions:*
+[.cause]#Potential cause#
+Some IdPs dissociate the Recipient URL from the Assertion Consumer Service (ACS) URL in the SAML service configuration.
 
-* Only if your Bonita server is xref:ssl.adoc[configured for HTTPS] (with the `secure="true"` cookies flag in conf/server.xml), you can update Tomcat configuration file `conf/context.xml`, to set sameSiteCookies to "none" instead of "lax". This will result in Bonita application cookies being sent in the request even if they were generated from a page of another domain
+[.solution]#Possible solution#
+The workaround for this issue is to make sure to set the Recipient parameter in the IdP configuration with the same value as the ACS of the service provider (`http[s]://<bundle host>:<port>/bonita/saml`), so that the `destination` attribute is present in the SAML response. This issue happens when the Recipient URL is left empty resulting to an empty `destination` attribute in the SAML response.
+--
+
+
+[.troubleshooting-section]
+--
+[.symptom]
+SAML SSO successful login redirects to home page instead of originally targeted one.
+
+[.symptom-description]
+After successfully logging in on the IdP and being redirected to Bonita, the URL initially requested is lost and users are redirected to the home page of Bonita server (by default `/bonita`). +
+
+[.cause]#Potential cause#
+When first accessing Bonita, a JSESSIONID cookie is created and the requested URL is stored in the associated HTTP session before the redirection to the IdP. After the authentication on the IdP, a request to the Assertion Consumer Service (ACS) URL (`/bonita/saml`) is made from another domain (the one of the IdP). Because of the https://developer.mozilla.org/fr/docs/Web/HTTP/Headers/Set-Cookie/SameSite#lax[Web Browsers policy regarding cookies], the JSESSIONID cookie that was first created is not sent (because the request is not made from a page of the same domain as the one of Bonita server). A new HTTP session is then created (with the associated JSESSIONID cookie) resulting in the requested URL stored in the first HTTP session being lost.
+
+[.solution]#Possible solution#
+
+* Only if your Bonita server is xref:ssl.adoc[configured for HTTPS] (with the `secure="true"` cookies flag in conf/server.xml), you can update Tomcat configuration file `conf/context.xml`, to set `sameSiteCookies` to `"none"` instead of `"lax"`. This will result in Bonita application cookies being sent in the request even if they were generated from a page of another domain
 [source,xml]
 ----
     <CookieProcessor sameSiteCookies="none" />
 ----
 * If your Bonita runtime server is not configured for HTTPS, then the only solution to keep the initially requested URL after being authenticated is to have the IdP and Bonita server in the same domain so that cookies are sent even with the default sameSite policy (using a reverse proxy for example).
 * Another option to not be redirected to Bonita home page after the authentication is to Force the systematic redirection to a specific application home page by defining it in the query string of the ACS URL in the IdP server's configuration : `http[s]://<bundle host>:<port>/bonita/saml?redirectTo=bonita/apps/myApp/home/`. However, with this solution, users will always be redirected to the same place after logging in.
-****
+--
+
+
+
+[.troubleshooting-section]
+--
+[.symptom]
+Bonita redirects to SAML SSO login page despite already having a SSO session open.
+
+[.symptom-description]
+When trying to connect to Bonita on a browser where the Bonita user already has an SSO session open, the user lands on the SAML SSO login page and has to authenticate again, instead of being automatically sent back to Bonita.
+
+[.cause]#Potential cause#
+The SAML request sent by the Bonita SAML adapter to the SAML IdP contains the flag `ForceAuthn="true"`, thus forcing that the user be re-authenticated even if they are already logged in at the IdP.
+
+[source,xml]
+----
+<samlp:AuthnRequest
+    xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+    xmlns="urn:oasis:names:tc:SAML:2.0:assertion" Destination="http://localhost:18080/auth/realms/master/protocol/saml" ForceAuthn="true" ID="ID_91fde0b0-465a-4c4e-b23e-d1faf6f89fd8" IsPassive="false" IssueInstant="2022-10-19T19:02:15.964Z" ProtocolBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Version="2.0">
+    <saml:Issuer
+        xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">bonita
+    </saml:Issuer>
+    ...
+</samlp:AuthnRequest>
+----
+
+[.solution]#Possible solution#
+Make sure that `forceAuthentication` is set to `"false"` in the *keycloak-saml.xml* file:
+
+[source,xml]
+----
+<keycloak-saml-adapter>
+    <SP entityID="bonita"
+        sslPolicy="EXTERNAL"
+        nameIDPolicyFormat="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
+        forceAuthentication="false"
+    ...
+     </SP>
+</keycloak-saml-adapter>
+----
+--
+
 
 == Manage passwords
 
