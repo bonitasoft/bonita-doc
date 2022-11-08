@@ -14,7 +14,6 @@ In consequence, the _Add membership_ button is not displayed for an inactive use
 
 Here is a view of this page:
 image:images/UI2021.1/user-deactivate.png[Administrator user deactivation]
-// {.img-responsive}
 
 == Deactivate a user
 

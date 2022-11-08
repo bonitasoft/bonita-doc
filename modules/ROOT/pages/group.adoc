@@ -7,7 +7,6 @@ Groups can be defined in the organization, attached to users and used to map pro
 
 Here is a view of this page:
 image:images/UI2021.1/groups-portal.png[Administrator groups list Portal]
-// {.img-responsive}
 
 == Create a group
 
@@ -18,7 +17,6 @@ image:images/UI2021.1/groups-portal.png[Administrator groups list Portal]
 
 [NOTE]
 ====
-
 Bonita doesn't accept the '/' character in the group name field. A group name that contains a '/' may lead to unstable behaviour.
 ====
 

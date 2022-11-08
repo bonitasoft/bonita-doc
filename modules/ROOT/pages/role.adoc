@@ -6,7 +6,6 @@ Roles can be defined in the organization, attached to users and used to map acto
 
 Here is a view of this page:
 image:images/UI2021.1/roles-portal.png[Administrator roles Portal]
-// {.img-responsive}
 
 == Create a role
 
