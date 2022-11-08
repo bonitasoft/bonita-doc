@@ -14,7 +14,6 @@ The first step in the configuration of "who can do what" is to create xref:ROOT:
 . Select the _employee lane_ and click on the down arrow icon to move it, so it becomes the middle lane
 +
 image:images/getting-started-tutorial/define-who-can-do-what/add-and-organize-lanes.gif[Add and organize lanes]
-// {.img-responsive .img-thumbnail}
 
 . Select _Lane1_, go to the menu:General[Lane] tab, and rename it _Customer lane_
 . Select  _Lane2_, go to the menu:General[Lane] tab and rename it _Manager lane_
@@ -22,11 +21,9 @@ image:images/getting-started-tutorial/define-who-can-do-what/add-and-organize-la
 . Select the _Deal with unsatisfied customer_ task and move it to the _Manager lane_. Do the same with the end event _End client unsatisfied_
 +
 image:images/getting-started-tutorial/define-who-can-do-what/diagrams-with-lanes.png[Diagrams with lanes]
-// {.img-responsive .img-thumbnail}
 
 [NOTE]
 ====
-
 A lane is used to group together user tasks that are to be done by the same set of users.
 ====
 
@@ -40,14 +37,12 @@ Now we need to define "actors," one for each lane, and map them to the lane they
 . Select the _Customer actor_ and click on *Set as initiator*. This will add a flag on this actor, to mark it as the one who can start the process
 +
 image:images/getting-started-tutorial/define-who-can-do-what/add-rename-actors-set-initiator.gif[Add and rename actors, define initiator]
-// {.img-responsive .img-thumbnail}
 
 . Select _Customer lane_ (click on the lane name)
 . Go to menu:General[Actors] and in the drop down list, select _Customer actor_
 . Do the same for the _Manager lane_ with the _Manager actor_
 +
 image:images/getting-started-tutorial/define-who-can-do-what/map-actor-to-lane.gif[Map actor to lane]
-// {.img-responsive .img-thumbnail}
 
 "Actor" identifies a collection of users. To define the actual users, we need to configure the actors and map them with groups, roles, users, etc of an organization. We will use the Bonita Acme test organization for this example:
 
@@ -59,7 +54,6 @@ image:images/getting-started-tutorial/define-who-can-do-what/map-actor-to-lane.g
 . Click on *Finish*
 +
 image:images/getting-started-tutorial/define-who-can-do-what/configure-actor-mapping.gif[Configure actor mapping for customer actor]
-// {.img-responsive .img-thumbnail}
 
 . Select *Customer actor*
 . Click on *Groups...*
@@ -96,7 +90,6 @@ First configure the *initiator* actor filter:
 . Click on *Finish*
 +
 image:images/getting-started-tutorial/define-who-can-do-what/configure-initiator-actor-filter.gif[Configure initiator actor filter on Customer lane]
-// {.img-responsive .img-thumbnail}
 
 Now we will configure the *manager* actor filter:
 
@@ -131,7 +124,6 @@ import org.bonitasoft.engine.search.SearchResult
 . Click on *Finish*
 +
 image:images/getting-started-tutorial/define-who-can-do-what/configure-user-manager-actor-filter.gif[Configure user manager actor filter for manager lane]
-// {.img-responsive .img-thumbnail}
 
 Run the process again, and this time only _mauro.zetticci_ should have access to _Review and answer claim_ and only _michael.morrison_ should have access to _Deal with unsatisfied customer_ (as the manager of both users who can complete the task _Review and answer claim_).
 

@@ -52,7 +52,6 @@ Create a new diagram:
 . In the Bonita Studio menu, click on menu:File[New diagram].
 +
 image:images/getting-started-tutorial/draw-bpmn-diagram/new-diagram.gif[Add user task]
-// {.img-responsive .img-thumbnail}
 
 The new diagram includes:
 
@@ -197,7 +196,6 @@ You can now build, package, deploy and execute this process definition in the Bo
 . Click on the *Overview* button to display the overview form with information about process execution
 
 image:images/getting-started-tutorial/draw-bpmn-diagram/run-process.gif[Process execution]
-// {.img-responsive .img-thumbnail}
 
 [NOTE]
 ====

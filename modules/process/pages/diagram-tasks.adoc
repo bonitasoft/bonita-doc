@@ -141,7 +141,6 @@ First, create a new diagram. Then model the process in the first pool:
 The pool is shown here:
 
 image:images/leave_request_management_process_tasklist.png[Process]
-// {.img-responsive .img-thumbnail}
 
 ==== Data model
 
@@ -176,7 +175,6 @@ The default values of business data attributes mapped to contract inputs are aut
 . In the *Execution* pane > *Contract* tab, a complex contract input is created, mapped to the selected attributes of the *leaveRequest* business variable, as shown here:
 
 image:images/contract_for_tasklist.png[Contract]
-// {.img-responsive .img-thumbnail}
 
 In actual BPM projects, we recommend you to also add a description to each contract input. It will be used as input field caption for end-users in the auto-generated form, if you decide to use such forms up to the User Acceptance Test phase of your project.
 
@@ -228,7 +226,6 @@ For the sake of this howto, do not specify any contract or form on the task, but
 The operation is shown here:
 
 image:images/operation_on_status.png[Operation on status]
-// {.img-responsive .img-thumbnail}
 
 There you go. The process is ready. So how can you set a unique name for tasks, to be displayed in the user task list?
 
@@ -325,7 +322,6 @@ The table settings have changed to display the *Description* column. It will be 
 You can see the description field, showing the status: "submitted", as shown here:
 
 image:images/display_task_name_and_description.png[display task name and description]
-// {.img-responsive .img-thumbnail}
 
 . Logout
 . Login with helen.kelly / bpm credentials (since Helen Kelly is Walter Bates' manager)
@@ -335,7 +331,6 @@ image:images/display_task_name_and_description.png[display task name and descrip
 The *Description* column now shows the description after completion, with an edited status as well as the name of who performed the task, as shown here :
 
 image:images/description_after_completion.png[description after completion]
-// {.img-responsive .img-thumbnail}
 
 If you don't use the description after completion field, the *Description* column will still show the "display description" information.
 

@@ -37,7 +37,6 @@ In this example, the collection of data is a list of fruits. You want to display
 . Check the Preview, which should look something like this:
 
 image:images/images-6_0/UID_ContainerSimpleFruits.png[Simple collection repeated]
-// {.img-responsive}
 
 A user can modify the name of a fruit by typing in the input field.
 
