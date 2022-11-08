@@ -2,35 +2,43 @@ name: Contribution check
 
 on:
   pull_request:
-    types: [opened, edited, synchronize]
+    # 'edited': check the PR title on changes
+    types: [opened, edited, reopened, synchronize]
 
 jobs:
   pr-title:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
+    permissions:
+      pull-requests: write # post comments when the PR title doesn't match the "Conventional Commits" rules
+    # here we don't want to check the pr-title when new code is pushed
+    if: github.event.action != 'synchronize'
     steps:
       - name: Lint pull request title
         uses: jef/conventional-commits-pr-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
   pr-content-check:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
+    # here we only want to check the files updated by the PR, so we don't care when the PR metadata (like title, labels, ...) change
+    if: github.event.action != 'edited'
     steps:
-      - name: Check PR content
-        uses: bonitasoft/actions/packages/pr-diff-checker@1.1.0
+      - name: Check forbidden content
+        uses: bonitasoft/actions/packages/pr-diff-checker@v2.0.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           diffDoesNotContain: '["https://documentation.bonitasoft.com/", "Bonita BPM"]'
           extensionsToCheck: '[".adoc"]'
-      - uses: actions/checkout@v3
-      - id: files
-        name: Detect changed files
-        uses: jitterbit/get-changed-files@v1
-        with:
-          format: 'json'
-      - name: Check content writing
-        uses: errata-ai/vale-action@reviewdog
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        with:
-          files: ${{ steps.files.outputs.added_modified }}
+      # Temporarily disable vale-action, see https://github.com/bonitasoft/bonita-documentation-site/issues/464
+      #- uses: actions/checkout@v3
+      #- id: files
+      #  name: Detect changed files
+      #  uses: jitterbit/get-changed-files@v1
+      #  with:
+      #    format: 'json'
+      #- name: Check content writing
+      #  uses: errata-ai/vale-action@v2.0.1
+      #  env:
+      #    GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      #  with:
+      #    files: ${{ steps.files.outputs.added_modified }}
 
