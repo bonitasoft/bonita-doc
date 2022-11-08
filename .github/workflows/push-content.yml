@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Notify content changes
-        uses: peter-evans/repository-dispatch@v1
+        uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{secrets.GH_TOKEN_DOC_TRIGGER_WF}}
           repository: bonitasoft/bonita-documentation-site

@@ -45,7 +45,6 @@ To select another language, if the application uses the default xref:bonita-layo
 . Close the modal window
 
 image:images/UI2021.1/select-language.png[Select language]
-// {.img-responsive}
 
 == Select a language in a Custom Application
 
@@ -56,7 +55,6 @@ If the layout has been customized, users need to refer to the internally documen
 
 [NOTE]
 ====
-
 This part is a legacy way to add a new language and will be reworked in the future. +
 Instructions below assume that the language you want to add is already available in the Community translation project. If translation is not available see <<Translate_Bonita_Runtime,Translate Bonita Runtime>> for instruction about how to collaborate to a new or ongoing translation.
 ====
