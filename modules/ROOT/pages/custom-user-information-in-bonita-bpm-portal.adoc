@@ -7,7 +7,6 @@ Administrators can view and update Custom User Information.
 
 Here is a view of this page:
 image:images/UI2021.1/custom-user-info.png[Custom User Information UI]
-// {.img-responsive}
 
 == Overview
 

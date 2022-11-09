@@ -27,11 +27,9 @@ Create the contract for process instantiation:
 . You can ignore the information message and click on *OK*
 +
 image:images/getting-started-tutorial/declare-contracts/declare-process-instantiation-contract.gif[Declare process instantiation contract]
-// {.img-responsive .img-thumbnail}
 
 [NOTE]
 ====
-
 You now have a contract named _claimedInput_ of type "COMPLEX," with one attribute, _description_ of type "TEXT".
 ====
 
@@ -49,16 +47,13 @@ Now let's create the contract for the user task _Review and answer claim_:
 . Ignore the information and warning messages and click on *OK*
 +
 image:images/getting-started-tutorial/declare-contracts/declare-user-task-contract.gif[Declare user task contract]
-// {.img-responsive .img-thumbnail}
 
 [NOTE]
 ====
-
 We now have a contract for the step. This contract does not create a new claim, but updates an attribute of the claim (which is created when we start the process).
 The attribute update is performed by an operation (generated for you) on the task. Select menu:Execution[Operations] to view the operation that updates the _answer_ attribute, as shown in this image:
 
 image:images/getting-started-tutorial/declare-contracts/operation.png[Operation]
-// {.img-responsive .img-thumbnail}
 ====
 
 Create the contract for the _Read the answer and rate it_ task:

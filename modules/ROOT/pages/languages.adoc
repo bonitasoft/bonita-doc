@@ -57,7 +57,6 @@ To select another language, if the application uses the default xref:bonita-layo
 . Close the modal window
 
 image:images/UI2021.1/select-language.png[Select language]
-// {.img-responsive}
 
 == Select a language in a custom application
 
@@ -68,7 +67,6 @@ If the layout has been customized, users need to refer to the internally documen
 
 [NOTE]
 ====
-
 Instructions below assume that the language you want to add is already available in the Community translation project. If translation is not available see <<Translate_BonitaB_PM_Portal,Translate Bonita Portal>> for instruction about how to collaborate to a new or ongoing translation.
 ====
 
@@ -103,7 +101,6 @@ Instructions below explain how to add a language to Bonita Portal. Steps below i
 
 [WARNING]
 ====
-
 The `mobile_xxxx.po/.pot` files used for the language of the xref:mobile-portal.adoc[Bonita Mobile Portal] may contain some keys missing translation. For the Mobile Portal to be displayed correctly in the new language, these keys must not be empty.
 
 On the other hand, some of the keys in the `mobile_xxxx.po/.pot` files are duplicates from the ones in other non-mobile `.po/.pot` files. These keys must all have the same value (whether translated or chosen to be left in English) across all the `.po/.pot` files.

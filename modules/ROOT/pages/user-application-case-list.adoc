@@ -15,7 +15,6 @@ It features:
 
 Here is a view of the User Case list
 image:images/UI2021.1/user-case-list-app.png[User Case list in Bonita Application]
-// {.img-responsive}
 
 == Cases listed
 
@@ -106,11 +105,9 @@ Technically, cases change their Id when going from _open_ to _archived_ status. 
 Sorting options are the same as in the equivalent Portal page, except they have been brought to the top of the page instead of in the table headers.
 Here are the Portal sorting options. +
 image:images/UI2021.1/user-case-sort-Portal.png[User Case sorting options - Portal]
-// {.img-responsive}
 
 Here are the Application sorting options. +
 image:images/UI2021.1/user-case-sort-App.png[User Case sorting options - Application]
-// {.img-responsive}
 
 The list can be sorted by:
 
@@ -133,7 +130,6 @@ The "Load more cases" link cannot be clicked anymore.
 This page has also been re-created with the UI Designer. It is responsive and customizable.
 Here is an example of a case details page.
 image:images/UI2021.1/user-case-details-App.png[User Case case details - Application]
-// {.img-responsive}
 
 This page displays:
 
@@ -156,9 +152,8 @@ It displays:
 * The documents currently managed by the case
 * A bottom-up chronology of some events that happened in the case: case start and human tasks executed, each one with a timestamp and actor.
 
-Is is used both in Bonita Portal and in Bonita Applications. +
+It is used both in Bonita Portal and in Bonita Applications. +
 Here is an example of the case overview provided by Bonita.
 image:images/UI2021.1/case-overview.png[Case Overview]
-// {.img-responsive}
 
 To know more about the customization of the case overview, go to the xref:uid-case-overview-tutorial.adoc[Case overview] page.

@@ -13,7 +13,6 @@ For Subscription editions only.
 
 Here is a view of the page:
 image:images/UI2021.1/analytics.png[Analytics]
-// {.img-responsive}
 
 == Provided reports
 
