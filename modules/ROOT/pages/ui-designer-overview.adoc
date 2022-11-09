@@ -138,8 +138,7 @@ You started your Studio today, and when you try to open a form from your process
 
 The UI Designer has a log file that you can consult, either from the Studio Menu > Bonita UI-Designer log: +
 image:images/ui-designer-troubleshooting/uid-logs.png[Open UI Designer log from the Studio]
-// {.img-responsive}
- +
++
 Or from your file system here: `STUDIO_HOME/workspace/.metadata/.plugins/org.bonitasoft.studio.designer/.extract/logs/ui-designer.log`. +
 When reading the log file, you see this kind of error: +
 `Could not load component, unexpected structure in the file [timelineWidget.json]`

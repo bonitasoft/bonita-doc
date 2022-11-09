@@ -7,7 +7,6 @@ _Administrators_ can view a list of the resources filtered by type, install new 
 
 Here is a view of the page:
 image:images/UI2021.1/admin_resources_portal.png[Administrator Resources]
-// {.img-responsive}
 
 == Resource definition
 
