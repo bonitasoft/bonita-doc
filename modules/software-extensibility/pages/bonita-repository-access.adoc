@@ -145,12 +145,15 @@ Starting from Bonita 2021.2, Bonita Studio uses https://maven.apache.org/[Maven]
 If you want to set up access to Bonita Artifact Repository using Bonita Studio, please refer to the dedicated page on how to xref:setup-dev-environment:configure-maven.adoc[configure Maven from Bonita Studio].
 
 
-== image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+[.troubleshooting-title]
+== Troubleshooting
 
-=== ERROR: Could not find artifact in central
+[.troubleshooting-section]
+--
+[.symptom]
+ERROR: Could not find artifact in central
 
-*Symptom:*
-
+[.symptom-description]
 Your Maven build fails with an equivalent error:
 
 [source,log]
@@ -158,7 +161,7 @@ Your Maven build fails with an equivalent error:
 [ERROR] Failed to execute goal on project XXX: Could not resolve dependencies for project XXX: Could not find artifact com.bonitasoft:bonita-test-toolkit:jar:1.0.0 in central (https://repo.maven.apache.org/maven2)
 ----
 
-*Causes:*
+[.cause]#Cause#
 
 - The active profile in your `settings.xml` file is missing ;
 - Or the active profile is not matching the ID in the `<profiles></profiles>` section.
@@ -182,8 +185,7 @@ Example:
 </settings>
 ----
 
-*Solution:*
-
+[.solution]#Solution#
 The active profile must match the profile ID containing Bonita Maven repository definition.
 
 Example:
@@ -205,11 +207,14 @@ Example:
 </settings>
 ----
 
+--
 
-=== ERROR: authentication failed / status: 401 Unauthorized
+[.troubleshooting-section]
+--
+[.symptom]
+ERROR: authentication failed / status: 401 Unauthorized
 
-*Symptom:*
-
+[.symptom-description]
 Your Maven build fails with an equivalent error:
 
 [source,log]
@@ -217,8 +222,7 @@ Your Maven build fails with an equivalent error:
 [ERROR] Failed to execute goal on project XXX: Could not resolve dependencies for project XXX: Failed to collect dependencies at com.bonitasoft:bonita-test-toolkit:jar:1.0.0: Failed to read artifact descriptor for com.bonitasoft:bonita-test-toolkit:jar:1.0.0: Could not transfer artifact com.bonitasoft:bonita-test-toolkit:pom:1.0.0 from/to bonitasoft-releases (https://bonitasoft.jfrog.io/artifactory/maven): authentication failed for https://bonitasoft.jfrog.io/artifactory/maven/com/bonitasoft/bonita-test-toolkit/1.0.0/bonita-test-toolkit-1.0.0.pom, status: 401 Unauthorized
 ----
 
-*Causes:*
-
+[.cause]#Cause#
 ==== Invalid maven configuration
 
 - The `<server></server>` section is missing in your `settings.xml` file ;
@@ -255,7 +259,7 @@ Example:
 </settings>
 ----
 
-*Solution:* +
+[.solution]#Solution#
 
 - The server ID must match the ID of the repositories' definition ;
 - The username should be an email format, the email used for your Bonita subscription ;
@@ -290,8 +294,10 @@ Example:
 </settings>
 ----
 
+[.cause]#Cause#
 ==== Credentials may be invalid
 
+[.solution]#Solution#
 You can easily check that your credentials are valid with a simple command line like this one using https://curl.se/[curl]
 
 [source, shell]
@@ -315,10 +321,14 @@ OK
 
 If not, there is maybe a problem with the credentials you are using, check you've made no typo error and contact support.
 
-=== ERROR: authorization failed, status: 403 Forbidden
+--
 
-*Symptom:*
+[.troubleshooting-section]
+--
+[.symptom]
+ERROR: authorization failed, status: 403 Forbidden
 
+[.symptom-description]
 Your Maven build fails with an equivalent error:
 
 [source,log]
@@ -326,6 +336,10 @@ Your Maven build fails with an equivalent error:
 [ERROR] Failed to execute goal on project XXX: Could not resolve dependencies for project XXX: Failed to collect dependencies at com.bonitasoft:bonita-test-toolkit:jar:1.0.0: Failed to read artifact descriptor for com.bonitasoft:bonita-test-toolkit:jar:1.0.0: Could not transfer artifact com.bonitasoft:bonita-test-toolkit:pom:1.0.0 from/to bonitasoft-releases (https://bonitasoft.jfrog.io/artifactory/maven): authorization failed for https://bonitasoft.jfrog.io/artifactory/maven/com/bonitasoft/bonita-test-toolkit/1.0.0/bonita-test-toolkit-1.0.0.pom, status: 403 Forbidden
 ----
 
-*Causes:*
+[.cause]#Cause#
+Your credentials are valid but your are not allowed to access what you are asking for. 
 
-Your credentials are valid but your are not allowed to access what you are asking for. Contact your support to check your permissions.
+[.solution]#Solution#
+Contact your support to check your permissions.
+
+--
