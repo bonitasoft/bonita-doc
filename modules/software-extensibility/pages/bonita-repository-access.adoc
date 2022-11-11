@@ -161,7 +161,7 @@ Your Maven build fails with an equivalent error:
 [ERROR] Failed to execute goal on project XXX: Could not resolve dependencies for project XXX: Could not find artifact com.bonitasoft:bonita-test-toolkit:jar:1.0.0 in central (https://repo.maven.apache.org/maven2)
 ----
 
-[.cause]#Cause#
+[.cause]#Causes#
 
 - The active profile in your `settings.xml` file is missing ;
 - Or the active profile is not matching the ID in the `<profiles></profiles>` section.
@@ -222,8 +222,8 @@ Your Maven build fails with an equivalent error:
 [ERROR] Failed to execute goal on project XXX: Could not resolve dependencies for project XXX: Failed to collect dependencies at com.bonitasoft:bonita-test-toolkit:jar:1.0.0: Failed to read artifact descriptor for com.bonitasoft:bonita-test-toolkit:jar:1.0.0: Could not transfer artifact com.bonitasoft:bonita-test-toolkit:pom:1.0.0 from/to bonitasoft-releases (https://bonitasoft.jfrog.io/artifactory/maven): authentication failed for https://bonitasoft.jfrog.io/artifactory/maven/com/bonitasoft/bonita-test-toolkit/1.0.0/bonita-test-toolkit-1.0.0.pom, status: 401 Unauthorized
 ----
 
-[.cause]#Cause#
-==== Invalid maven configuration
+[.cause]#Causes#
+#Invalid maven configuration#
 
 - The `<server></server>` section is missing in your `settings.xml` file ;
 - Or the ID in the `<server></server>` section is not matching the ID of the repositories' definition ;
@@ -295,7 +295,7 @@ Example:
 ----
 
 [.cause]#Cause#
-==== Credentials may be invalid
+#Credentials may be invalid#
 
 [.solution]#Solution#
 You can easily check that your credentials are valid with a simple command line like this one using https://curl.se/[curl]
