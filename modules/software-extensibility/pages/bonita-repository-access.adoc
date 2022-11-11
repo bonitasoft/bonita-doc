@@ -223,7 +223,7 @@ Your Maven build fails with an equivalent error:
 ----
 
 [.cause]#Causes#
-#Invalid maven configuration#
+Invalid maven configuration
 
 - The `<server></server>` section is missing in your `settings.xml` file ;
 - Or the ID in the `<server></server>` section is not matching the ID of the repositories' definition ;
@@ -295,7 +295,7 @@ Example:
 ----
 
 [.cause]#Cause#
-#Credentials may be invalid#
+Credentials may be invalid
 
 [.solution]#Solution#
 You can easily check that your credentials are valid with a simple command line like this one using https://curl.se/[curl]
