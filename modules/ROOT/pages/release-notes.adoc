@@ -10,11 +10,11 @@ The 2023.1 is in development.
 
 === Development suite changes
 
-==== Bonita project layout 
+==== Bonita project layout
 
 Bonita projects layout has been changed to take advantage of Maven multi-module project perks.
 
-First project component that will benefit from Maven multi-module project is the Business Data Model. We decided to align the way the Business Data Model is handled in Bonita with the standard dependency handling practices by using Maven submodules. Submodules, or subprojects, are regular Maven projects that inherit from the parent POM. 
+First project component that will benefit from Maven multi-module project is the Business Data Model. We decided to align the way the Business Data Model is handled in Bonita with the standard dependency handling practices by using Maven submodules. Submodules, or subprojects, are regular Maven projects that inherit from the parent POM.
 
 With the chosen solution, the users will have the possibility to publish and consume the Business Data Model java dependencies independently. The project will pull the required dependencies from a specified repository - Maven Central or Bonita Artifact Repository - to generate the BDM java sources.
 
@@ -25,7 +25,7 @@ For this Bonita version, reusing the generated artifacts in another Bonita proje
 
 === Custom Rest API Extension and BDM dependencies
 
-When updating a Bonita project in Bonota Studio 2023.1 version, BDM dependencies will be directed to use the new the `*-bdm-model` artifact introduced with the Bonita project layout changes. Meaning that `bdm-client` and `bdm-dao` dependencies will automatically be replaced with project's `bdm-model` dependency. 
+When updating a Bonita project in Bonota Studio 2023.1 version, BDM dependencies will be directed to use the new the `*-bdm-model` artifact introduced with the Bonita project layout changes. Meaning that `bdm-client` and `bdm-dao` dependencies will automatically be replaced with project's `bdm-model` dependency.
 
 Additionnally, the dependency containing the client DAO implementation will be removed from the dependencies list. It can affect the code directly referencing the `*DAOImpl` classes. To avoid this situation, change the code to use the DAO interfaces present in the `bdm-model` dependency. The changes can be done before or after updating to the 2023.1 version without breaking the project.
 
@@ -41,3 +41,19 @@ CustomerDAOImpl dao = new CustomerDAOImpl(context.getApiSession());
 CustomerDAO dao = context.getApiClient().getDAO(CustomerDAO.class);
 ----
 
+=== Multi-tenancy removal
+
+Deprecated xref:2022.2@ROOT:multi-tenancy-and-tenant-configuration.adoc[multi-tenancy] has been removed.
+
+To cover the multi-tenancy use cases in the best technical way, Bonitasoft is proposing a new architecture solution. For customers running a Bonita multi-tenancy platform, the technical path from multi-tenancy proposed by Bonitasoft is multi-runtime. This choice will require to split the current multi-tenant platform into several runtimes, each one with their own Bonita engine database.
+
+As this path can be challenging for customers using multi-tenancy, Bonitasoft developed a conversion tool, available for download https://customer.bonitasoft.com/download/request[on Bonitasoft Customer Portal]. We strongly suggest our customers to take the time and use the tool in a pre-production environment before using it on a production environment.
+
+xref:version-update:mtmr-tool.adoc[Multi-tenancy to multi-runtime conversion tool] can be executed on Bonita Runtimes starting with Bonita 7.11 and up to Bonita 7.15.
+
+[WARNING]
+====
+In case you are using a non-supported version, perform the update of the platform before converting it to multi-runtime.
+
+Reminder : For commercial and support questions, please refer to your Customer Success referent.
+====
