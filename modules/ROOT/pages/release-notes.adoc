@@ -3,7 +3,7 @@
 
 [NOTE]
 ====
-Bonita 2022.2 is available for download.
+Bonita 2022.2 is available for https://www.bonitasoft.com/downloads[download].
 ====
 
 == New available values
