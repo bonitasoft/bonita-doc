@@ -1,19 +1,20 @@
 = Bonita Multi-Tenant to Multi-Runtime conversion tool
-:description: This pages describes how to use the multi-tenant to multi-runtime conversion tool
+:page-aliases: ROOT:multi-tenancy-and-tenant-configuration.adoc
+:description: This pages describes how to use the multi-tenant to multi-runtime conversion tool.
 
 {description}
 
-Learn how to use the multi-tenant to multi-runtime tool to convert a multi-tenant platform into a multi-runtime one.
+WARNING: xref:2022.2@ROOT:multi-tenancy-and-tenant-configuration.adoc[Multi-tenancy] has been removed starting from Bonita 2023.1 (technical version 7.16). *If you are using multi-tenancy, you will have to run this conversion tool before updating to Bonita 2023.1.*
 
-WARNING: xref:2022.2@ROOT:multi-tenancy-and-tenant-configuration.adoc[Multi-tenancy] is deprecated starting from Bonita 2021.1 (technical version 7.12). *If you are using multi-tenancy, you will have to run this conversion tool before updating to the Bonita version without multi-tenancy.*
+Learn how to use the multi-tenant to multi-runtime tool to convert a multi-tenant platform into a multi-runtime one.
 
 image:images/mtmr-general-idea-schema.svg[General idea of the conversion tool, width=400]
 
 == Overview
 
-Following the commercial depreciation of multi-tenancy use by customers starting with Bonita 2021.1, the technical solution proposed by Bonitasoft for customers willing to have separate Bonita engine database (Oracle, SQL, postgres, etc.) per applications/processes, will be multi-runtimes starting with Bonita versions without multi-tenancy. 
+Following the commercial depreciation of multi-tenancy use by customers starting with Bonita 2021.1, the technical solution proposed by Bonitasoft for customers willing to have separate Bonita engine database (Oracle, SQL, postgres, etc.) per applications/processes, will be multi-runtimes starting with Bonita 2023.1.
 
-In order to prepare the technical conversion from multi-tenancy to multi-runtime, Bonitasoft developped a dedicated tool - Multi-tenant to multi-runtime conversion tool (MT2MR tool) - available for download https://customer.bonitasoft.com/download/request[on Bonita Customer Portal]. 
+In order to prepare the technical conversion from multi-tenancy to multi-runtime, Bonitasoft developed a dedicated tool - Multi-tenant to multi-runtime conversion tool (MT2MR tool) - available for download https://customer.bonitasoft.com/download/request[on Bonita Customer Portal].
 
 During the execution, the conversion tool will delete everything not related to the tenant specified in the parameter from the given Bonita engine database. This means you will need to create a new Bonita engine database per tenant you want to keep, dump your current Bonita engine database and load it for each new instance. 
 
