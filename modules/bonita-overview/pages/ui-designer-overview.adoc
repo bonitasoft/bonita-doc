@@ -149,7 +149,7 @@ For instance, in the example above, you could rename `Frag1` as `frag1`.
 [.troubleshooting-section]
 --
 [.symptom]
-You started your Bonita Studio today, and when you try to open a form from your process or open the UI Designer from the studio, the UI Designer doesn't open and you see a *404 Error* or a *blank page*.
+You started your Bonita Studio today, and when you try to open a form from your process or open the UI Designer from the studio, the UI Designer doesn't open and you see a 404 Error or a blank page.
 
 [.cause]#Potential cause#
 Oops, some artifacts from the UI Designer got corrupted in your git repository!
