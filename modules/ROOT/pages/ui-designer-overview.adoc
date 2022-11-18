@@ -304,3 +304,5 @@ Here are some examples of common mistakes:
 * You have a merge conflict, you need to fix that conflict.
 * Somebody removed a file by error
  ** You can retrieve the file from a previous commit.
+ 
+ TEST: added a typoo
