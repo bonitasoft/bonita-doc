@@ -234,6 +234,25 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 
 == Bug fixes
 
+=== Fixes in Bonita 2021.2-u7 (2022-11-21)
+
+==== Fixes in Bonita Studio (including Bonita UI Designer)
+
+* STUDIO-4426 - Fix Type lost on condition after variable removal
+* STUDIO-4437 - Fix SNAPSHOT external lib not displayed in "add dependency" in process configuration
+
+==== Fixes in Bonita Runtime (including Bonita Applications)
+
+* RUNTIME-145 - Fix Create User on the fly when Role does not exist
+* RUNTIME-752 - Fix Error 404 resulting in blank task list
+* RUNTIME-1431 - Fix Instantiation REST service Exposing the groovy script behind an exception
+* RUNTIME-1434 - Fix Custom user information is truncated in admin app
+* RUNTIME-1449 - [Security] Update several dependencies for 2021.2-u7 (7.13.7)
+* RUNTIME-1476 - Fix Default dynamic permissions: only process deployers, process initiators and process managers can access GET bpm/process
+* RUNTIME-1527 - Fix Platform API resources access should not need an API session along with the platform session
+* RUNTIME-1545 - Fix [SSO] OIDC auto detect bearer only option breaks json requests
+* RUNTIME-1552 - Fix [SSO] OIDC bearer requests are blocked by CSRF protection
+
 === Fixes in Bonita 2021.2-u6 (2022-09-21)
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
