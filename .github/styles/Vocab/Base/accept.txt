@@ -10,3 +10,4 @@ datasource
 REST
 deployers
 bpm
+json
