@@ -234,7 +234,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 
 == Bug fixes
 
-=== Fixes in Bonita 2021.2-u7 from 2022-11-21
+=== Fixes in Bonita 2021.2-u7 (2022-11-21)
 
 ==== Fixes in Bonita Studio including Bonita UI Designer
 
@@ -253,7 +253,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 * RUNTIME-1545 - Fix [SSO] OIDC auto detect bearer only option breaks json requests
 * RUNTIME-1552 - Fix [SSO] OIDC bearer requests are blocked by CSRF protection
 
-=== Fixes in Bonita 2021.2-u6 from 2022-09-21
+=== Fixes in Bonita 2021.2-u6 (2022-09-21)
 
 ==== Fixes in Bonita Runtime including Bonita Applications
 
@@ -263,7 +263,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 * RUNTIME-1408 - Fix slow REST API extension requests due to a java sycnhronized block
 * RUNTIME-1412 - [Security] Update several dependencies for 2021.2-u6 (7.13.6)
 
-=== Fixes in Bonita 2021.2-u5 from 2022-07-25
+=== Fixes in Bonita 2021.2-u5 (2022-07-25)
 
 ==== Fixes in Bonita Studio including Bonita UI Designer
 
@@ -287,7 +287,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 * RUNTIME-1296 Missing REST API static permissions
 * RUNTIME-1302 IllegalStateException is generated during the connect() method call of the SAP connector
 
-=== Fixes in Bonita 2021.2-u4 from 2022-03-03
+=== Fixes in Bonita 2021.2-u4 (2022-03-03)
 
 ==== Fixes in Bonita Studio including Bonita UI Designer
 
@@ -303,7 +303,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 * RUNTIME-918 Change engine datasources configuration to put back removeAbandonned
 * RUNTIME-919 XStream version update
 
-=== Fixes in Bonita 2021.2-u3 from 2022-02-02
+=== Fixes in Bonita 2021.2-u3 (2022-02-02)
 
 ==== Fixes in Bonita Studio including Bonita UI Designer
 
@@ -317,7 +317,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 * RUNTIME-842 - 8 times more SQL queries generated with 7.13.x than the 7.11.x
 * RUNTIME-302 - Retry mechanism vs congestion situations
 
-=== Fixes in Bonita 2021.2-u2 from 2022-01-19
+=== Fixes in Bonita 2021.2-u2 (2022-01-19)
 
 ==== Fixes in Bonita Studio including Bonita UI Designer
 
@@ -342,7 +342,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 * RUNTIME-675 - [Organization][ImportPolicy] IGNORE_DUPLICATES update manager relationship
 * RUNTIME-693 - Remove unused gson dependency to fix security issue
 
-=== Fixes in Bonita 2021.2-u1 from 2021-11-26
+=== Fixes in Bonita 2021.2-u1 (2021-11-26)
 
 ==== Fixes in Bonita Studio including Bonita UI Designer
 
@@ -371,7 +371,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 * RUNTIME-593 - Several third party libraries dependency issues
 * RUNTIME-597 - The redirect mechanism on REST API extension response sends to the html page response of custom pages
 
-=== Fixes in Bonita 2021.2 from 2021-09-23
+=== Fixes in Bonita 2021.2 (2021-09-23)
 
 For the users of Bonita Community edition, Bonita 2021.2 also comes with all the bug fixes released in the Maintenance versions of Bonita 2021.1. +
 You can access the list by checking Bonita 2021.1 release notes, in the "Bug fixes" section.
