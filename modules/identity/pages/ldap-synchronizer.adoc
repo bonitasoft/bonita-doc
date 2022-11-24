@@ -799,6 +799,7 @@ The LDAP Synchronizer is connecting to a Bonita engine of version 2022.1 or onwa
 * or the credentials (`basicAuthentication.username`, `basicAuthentication.password`) being passed are not the right ones
 
 [.solution]#Possible solution#
+
 * Enable Basic Authentication in the `bonita.properties` file setting uncommenting and setting `basicAuthentication.active=true`.
 * Uncomment the Basic Authentication credentials (`basicAuthentication.username`, `basicAuthentication.password`) in the `bonita.properties` and make sure the values match the ones in the targeted Bonita Tomcat's file `<BONITA>/server/conf/tomcat-users.xml`.
 --
