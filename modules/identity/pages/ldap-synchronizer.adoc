@@ -742,7 +742,7 @@ the Engine HTTP API by:
 `docker run -e HTTP_API=true -e BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED=false --name bonita -v ./bonita-lic/:/opt/bonita_lic/ -h localhost -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:{bonitaVersion}`
 
 See the page xref:runtime:bonita-docker-installation.adoc#_http_api[Deploy Bonita Runtime with Docker] for more information.
-
+--
 
 [.troubleshooting-section]
 --
@@ -801,4 +801,4 @@ The LDAP Synchronizer is connecting to a Bonita engine of version 2022.1 or onwa
 [.solution]#Possible solution#
 * Enable Basic Authentication in the `bonita.properties` file setting uncommenting and setting `basicAuthentication.active=true`.
 * Uncomment the Basic Authentication credentials (`basicAuthentication.username`, `basicAuthentication.password`) in the `bonita.properties` and make sure the values match the ones in the targeted Bonita Tomcat's file `<BONITA>/server/conf/tomcat-users.xml`.
-
+--
