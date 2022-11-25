@@ -265,14 +265,14 @@ A standalone docker image that package the LDAP Synchronizer was released under 
 == Bug fixes
 === Fixes in Bonita 2021.1-1122 (2022-11-22)
 
-[WARNING]
-====
-The Studio can crash at start time of Bonita Studio with 2021.1-1122 version, on MacOS with the Intel architecture. The issue has not be detected on previous nor on future versions. Those facing the issue, can use Bonita Studio 2021.1-0920 instead. 
-====
-
 ==== Fixes in Bonita Development Suite (Studio and UI Designer)
 
 * STUDIO-4426 - Fix Type lost on condition after variable removal
+
+[WARNING]
+====
+Bonita Studio 2021.1-1122 version can crash at start time on MacOS with the Intel architecture. The issue has not be detected on previous nor on future versions. Those facing the issue, can use Bonita Studio 2021.1-0920 instead. 
+====
 
 ==== Fixes in Bonita Runtime (including Portal)
 
