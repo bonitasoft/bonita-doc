@@ -1,6 +1,6 @@
 = Bonita Versions
 :page-aliases: ROOT:product-versioning.adoc
-:description: Discover how Bonita manages its product and the versions of the application elements and how it can impact your beautiful projects
+:description: Discover how Bonita manages its product and the versions of the application elements and how it can impact your projects
 
 {description}
 
