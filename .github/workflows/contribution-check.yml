@@ -28,18 +28,19 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           diffDoesNotContain: '["https://documentation.bonitasoft.com/", "Bonita BPM"]'
           extensionsToCheck: '[".adoc"]'
-      - uses: actions/checkout@v3
-      - id: files
-        name: Detect changed files
-        uses: jitterbit/get-changed-files@v1
-        with:
-          format: 'json'
-      - name: Check content writing
-        uses: errata-ai/vale-action@v2
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        with:
-          files: ${{ steps.files.outputs.added_modified }}
-          fail_on_error: false
-          vale_flags: "--no-exit"
+# Temporarily disable vale-action, see https://github.com/bonitasoft/bonita-documentation-site/issues/464
+#      - uses: actions/checkout@v3
+#      - id: files
+#        name: Detect changed files
+#        uses: jitterbit/get-changed-files@v1
+#        with:
+#          format: 'json'
+#      - name: Check content writing
+#        uses: errata-ai/vale-action@v2
+#        env:
+#          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+#        with:
+#          files: ${{ steps.files.outputs.added_modified }}
+#          fail_on_error: false
+#          vale_flags: "--no-exit"
 
