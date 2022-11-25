@@ -20,4 +20,4 @@ jobs:
           surge-token: ${{ secrets.SURGE_TOKEN_DOC }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           component-name: bonita
-          doc-site-branch: feat/update_comment_instead_create_delete
+          doc-site-branch: feat/list_deleted_page_url
