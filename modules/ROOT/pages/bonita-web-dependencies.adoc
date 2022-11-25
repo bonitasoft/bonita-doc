@@ -33,13 +33,13 @@
 
 | org.bonitasoft.engine
 | bonita-client
-| 7.13.6
+| 7.13.7
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-common
-| 7.13.6
+| 7.13.7
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
@@ -63,45 +63,51 @@
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.12.6.1
+| 2.13.4.2
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-csv
-| 2.12.6
+| 2.13.4
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-smile
-| 2.12.6
+| 2.13.4
 | http://github.com/FasterXML/jackson-dataformats-binary[http://github.com/FasterXML/jackson-dataformats-binary]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-xml
-| 2.12.6
+| 2.13.4
 | https://github.com/FasterXML/jackson-dataformat-xml[https://github.com/FasterXML/jackson-dataformat-xml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-yaml
-| 2.12.6
+| 2.13.4
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.module
 | jackson-module-jaxb-annotations
-| 2.12.6
+| 2.13.4
 | https://github.com/FasterXML/jackson-modules-base[https://github.com/FasterXML/jackson-modules-base]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.module
 | jackson-module-jsonSchema
-| 2.12.6
+| 2.13.4
 | https://github.com/FasterXML/jackson-module-jsonSchema[https://github.com/FasterXML/jackson-module-jsonSchema]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| com.fasterxml.woodstox
+| woodstox-core
+| 6.4.0
+| https://github.com/FasterXML/woodstox[https://github.com/FasterXML/woodstox]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache License, Version 2.0]
 
 | com.googlecode.json-simple
 | json-simple
@@ -153,45 +159,39 @@
 
 | org.bonitasoft.console
 | console-common
-| 7.13.6
+| 7.13.7
 | N/A
 |  -
 
 | org.bonitasoft.engine
 | bonita-client
-| 7.13.6
+| 7.13.7
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-common
-| 7.13.6
+| 7.13.7
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-server
-| 7.13.6
+| 7.13.7
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.web
 | bonita-web-extensions
-| 7.13.6
-| http://www.bonitasoft.com[http://www.bonitasoft.com]
-|  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
+| 7.13.7
+| N/A
+|  -
 
 | org.codehaus.groovy
 | groovy
 | 3.0.8
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.jettison
-| jettison
-| 1.3.1
-| http://codehaus.org/jettison/[http://codehaus.org/jettison/]
-|  -
 
 | org.glassfish.web
 | jakarta.servlet.jsp.jstl
@@ -255,7 +255,7 @@
 
 | com.bonitasoft.engine
 | bonita-client-sp
-| 7.13.6
+| 7.13.7
 | N/A
 |  -
 
@@ -267,7 +267,7 @@
 
 | org.bonitasoft.console
 | console-common
-| 7.13.6
+| 7.13.7
 | N/A
 |  -
 |=== 
@@ -279,26 +279,26 @@
 
 | com.bonitasoft.engine
 | bonita-client-sp
-| 7.13.6
+| 7.13.7
 | N/A
 |  -
 
 | com.bonitasoft.engine
 | bonita-common-sp
-| 7.13.6
+| 7.13.7
 | N/A
 |  -
 
 | com.bonitasoft.engine
 | bonita-server-sp
-| 7.13.6
+| 7.13.7
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | com.bonitasoft.web
 | bonita-web-extensions-sp
-| 7.13.6
-| http://www.bonitasoft.com[http://www.bonitasoft.com]
+| 7.13.7
+| N/A
 |  -
 
 | commons-fileupload
@@ -339,19 +339,19 @@
 
 | org.bonitasoft.console
 | console-common-sp
-| 7.13.6
+| 7.13.7
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-server
-| 7.13.6
+| 7.13.7
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-server
-| 7.13.6
+| 7.13.7
 | N/A
 |  -
 

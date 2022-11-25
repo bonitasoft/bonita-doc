@@ -234,9 +234,28 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 
 == Bug fixes
 
+=== Fixes in Bonita 2021.2-u7 (2022-11-21)
+
+==== Fixes in Bonita Studio including Bonita UI Designer
+
+* STUDIO-4426 - Fix Type lost on condition after variable removal
+* STUDIO-4437 - Fix SNAPSHOT external lib not displayed in "add dependency" in process configuration
+
+==== Fixes in Bonita Runtime including Bonita Applications
+
+* RUNTIME-145 - Fix Create User on the fly when Role doesn't exist
+* RUNTIME-752 - Fix Error 404 resulting in blank task list
+* RUNTIME-1431 - Fix Instantiation REST service Exposing the groovy script behind an exception
+* RUNTIME-1434 - Fix Custom user information truncated in admin app
+* RUNTIME-1449 - [Security] Update several dependencies for 2021.2-u7 (7.13.7)
+* RUNTIME-1476 - Fix Default dynamic permissions: process deployers, process initiators and process managers should be able to access GET bpm/process
+* RUNTIME-1527 - Fix Platform API resources access should not need an API session along with the platform session
+* RUNTIME-1545 - Fix [SSO] OIDC auto detect bearer only option breaks json requests
+* RUNTIME-1552 - Fix [SSO] OIDC bearer requests are blocked by CSRF protection
+
 === Fixes in Bonita 2021.2-u6 (2022-09-21)
 
-==== Fixes in Bonita Runtime (including Bonita Applications)
+==== Fixes in Bonita Runtime including Bonita Applications
 
 * RUNTIME-211 - Fix Access to a non existing token in an app raise a 403 instead of a 404
 * RUNTIME-869 - Fix Administrator app - BPM process: The 2 Pop-ups to Disable and Enable installed process do not close
@@ -246,7 +265,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 
 === Fixes in Bonita 2021.2-u5 (2022-07-25)
 
-==== Fixes in Bonita Studio (including Bonita UI Designer)
+==== Fixes in Bonita Studio including Bonita UI Designer
 
 * STUDIO-4056 Unable to launch Studio when the installation folder contains a hash (#)
 * STUDIO-4170 Groovy script contract input dependencies not automatically updated if contract input is changed from single to multiple (or viceversa)
@@ -256,7 +275,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 * STUDIO-4367 Cannot add a Maven dependency with classifier via Overview -> Extensions -> ...
 * STUDIO-4386 SAP connector wizard: the Test connection button does not work
 
-==== Fixes in Bonita Runtime (including Bonita Applications)
+==== Fixes in Bonita Runtime including Bonita Applications
 
 * RUNTIME-881 Case visualization is not showing the trace in Archive cases
 * RUNTIME-888 Application directory is not translated in French
@@ -270,7 +289,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 
 === Fixes in Bonita 2021.2-u4 (2022-03-03)
 
-==== Fixes in Bonita Studio (including Bonita UI Designer)
+==== Fixes in Bonita Studio including Bonita UI Designer
 
 * STUDIO-4217 Empty error dialog when deleting a connector
 * STUDIO-4227 On exit, clean database checkbox has no effect when the runtime is not started
@@ -278,7 +297,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 * STUDIO-4268 Dependency with invalid pom corrupts the project
 * UID-613 log4j version update
 
-==== Fixes in Bonita Runtime (including Bonita Applications)
+==== Fixes in Bonita Runtime including Bonita Applications
 
 * RUNTIME-885 [Security] Issue with authorization mechanism
 * RUNTIME-918 Change engine datasources configuration to put back removeAbandonned
@@ -286,12 +305,12 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 
 === Fixes in Bonita 2021.2-u3 (2022-02-02)
 
-==== Fixes in Bonita Studio (including Bonita UI Designer)
+==== Fixes in Bonita Studio including Bonita UI Designer
 
 * STUDIO-4235 - [Proxy][BDM] Impossible to create a contract from a business variable
 * STUDIO-4251 - Applications and REST api menus are not disabled when they should be
 
-==== Fixes in Bonita Runtime (including Bonita Applications)
+==== Fixes in Bonita Runtime including Bonita Applications
 
 * RUNTIME-717 - "404 error page" makes the 404 response code being lost causing the original URL not to be preserved in the HTTP session
 * RUNTIME-786 - Automatic redirection to standard error page causes the loss of the x-bonita-api-token request header
@@ -300,7 +319,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 
 === Fixes in Bonita 2021.2-u2 (2022-01-19)
 
-==== Fixes in Bonita Studio (including Bonita UI Designer)
+==== Fixes in Bonita Studio including Bonita UI Designer
 
 * STUDIO-4141 - Error while importing .bos file off-line if dependencies not already present in local Maven repository
 * STUDIO-4149 - When importing old version projects from GIT and SVN, the Studio does not detect unnecessary dependency libraries
@@ -315,7 +334,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 * UID-616 - BDR : GraphQL schema generation issue with custom queries
 * UID-617 - BDM is deployed according to the Studio but UID cannot access it
 
-==== Fixes in Bonita Runtime (including Bonita Applications)
+==== Fixes in Bonita Runtime including Bonita Applications
 
 * RUNTIME-292 - CleanInvalidSessions concurrency issue
 * RUNTIME-495 - Make datasource configuration robust to network idle connection closure
@@ -325,7 +344,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 
 === Fixes in Bonita 2021.2-u1 (2021-11-26)
 
-==== Fixes in Bonita Studio (including Bonita UI Designer)
+==== Fixes in Bonita Studio including Bonita UI Designer
 
 * STUDIO-4118 - Projects are lost by the studio whereas there are on the disk
 * STUDIO-4122 - Documentation generation fails with decision table
@@ -338,7 +357,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 * STUDIO-4180 - Updating an extension fails because an optional value is not present
 * STUDIO-4188 - Switching to a Bonita project is not possible after renaming it
 
-==== Fixes in Bonita Runtime (including Bonita Applications)
+==== Fixes in Bonita Runtime including Bonita Applications
 
 * RUNTIME-472 - Loging out of the Super Administration application and in with another credentials gives a 403 error
 * RUNTIME-473 - generateRequestKey script and Bonita Tomcat do not use the same 'java' binary
@@ -357,7 +376,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 For the users of Bonita Community edition, Bonita 2021.2 also comes with all the bug fixes released in the Maintenance versions of Bonita 2021.1. +
 You can access the list by checking Bonita 2021.1 release notes, in the "Bug fixes" section.
 
-==== Fixes in Bonita Studio (including Bonita UI Designer)
+==== Fixes in Bonita Studio including Bonita UI Designer
 
 * STUDIO-3793 - UIPath connector is not working with cloud orchestrator
 * STUDIO-3875 - Issue with "Switch project" function
@@ -373,7 +392,7 @@ You can access the list by checking Bonita 2021.1 release notes, in the "Bug fix
 * STUDIO-4126 - Process execution errors: bcd-dependencies:7.11.5 generates a .bar different from Studio 7.11.5
 * UID-459 - BO variable cannot be edited in fragment after workspace import from previous version and error message is wrong
 
-==== Fixes in Bonita Runtime
+==== Fixes in Bonita Runtime including Bonita Applications
 
 * RUNTIME-23 - Installing BDM with a wrong custom query corrupts the BDM database without any rollback option
 * RUNTIME-27 - Services resume failures after the la-deployer detects bdm deployment timeout
