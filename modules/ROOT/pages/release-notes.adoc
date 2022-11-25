@@ -206,6 +206,28 @@ repositories {
 
 == Bug fixes
 
+=== Fixes in Bonita 2022.1-u4 (2022-11-25)
+
+==== Fixes in Bonita Studio (including Bonita UI Designer)
+
+* STUDIO-4426 - Fix Type lost on condition after variable removal
+* STUDIO-4437 - Fix SNAPSHOT external lib are not displayed in "add dependency" in process configuration
+
+==== Fixes in Bonita Runtime (including Bonita Applications)
+
+* RUNTIME-145 - Fix User creation on the fly when role doesn't exist
+* RUNTIME-626 - Fix Waiting events of Start events are not created when process is deployed using BCD and has a .bconf file
+* RUNTIME-752 - Fix Error 404 resulting in blank task list
+* RUNTIME-1225 - Fix LDAP Synch: trailing whitespaces/tab characters not stripped when parsing configuration file values
+* RUNTIME-1431 - Fix Instantiation REST service Exposing the groovy script behind an exception
+* RUNTIME-1434 - Fix custom user information is truncated in admin app
+* RUNTIME-1451 - Fix [Security] Update several dependencies for 2022.1-u4 (7.14.4)
+* RUNTIME-1476 - Fix Default dynamic permissions: process deployers, process initiators and process managers should access GET bpm/process
+* RUNTIME-1485 - Fix [SSO] Allow the usage of any claim of the ID token for the OIDC adapter to fetch the username value from
+* RUNTIME-1527 - Fix Platform API resources access should not need an API session along with the platform session
+* RUNTIME-1545 - Fix [SSO] OIDC auto detect bearer only option breaks json requests
+* RUNTIME-1552 - Fix [SSO] OIDC bearer requests are blocked by CSRF protection
+
 === Fixes in Bonita 2022.1-u3 (2022-09-07)
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
