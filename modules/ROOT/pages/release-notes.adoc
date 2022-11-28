@@ -36,9 +36,9 @@ A subscription account is required for downloading the .jar, that contains “Pr
 
 A new xref:pages-and-forms:widgets-inputs.adoc#currency-input-widget[input widget] is now available in UI Designer to manage financial data using currencies at ease in pages or forms.
 
-=== Bonita Artifact Repository 
+=== Bonita Artifact Repository
 
-In Bonita 2022.1, we delivered xref:1.0@test-toolkit::process-testing-overview.adoc[Bonita Test Toolkit] through an additional Maven archive. With Bonita 2022.2 we are delivered our subscription only Bonita Artifact Repository, and Bonita Test Toolkit is the first available for download artifact. Step by step, all our supported products will become available for download through Bonita Artifact Repository. 
+In Bonita 2022.1, we delivered xref:1.0@test-toolkit::process-testing-overview.adoc[Bonita Test Toolkit] through an additional Maven archive. With Bonita 2022.2 we are delivered our subscription only Bonita Artifact Repository, and Bonita Test Toolkit is the first available for download artifact. Step by step, all our supported products will become available for download through Bonita Artifact Repository.
 
 == Improvements
 
@@ -64,7 +64,7 @@ With the previous version, if the actor mapping of a process was not defined, an
 
 ==== New Menus for Bonita Studio
 
-The menus have been reviewed for an easier user journey. 
+The menus have been reviewed for an easier user journey.
 
 ==== Added Environment duplication feature
 
@@ -100,11 +100,11 @@ SVN integration in Bonita Studio Subscription has been removed. You may migrate 
 
 === Multi-tenancy deprecation
 
-xref:ROOT:multi-tenancy-and-tenant-configuration.adoc[Multi-tenancy has been deprecated commercially] by Bonitasoft starting from Bonita 2021.1. 
+xref:ROOT:multi-tenancy-and-tenant-configuration.adoc[Multi-tenancy has been deprecated commercially] by Bonitasoft starting from Bonita 2021.1.
 
 To cover the multi-tenancy use cases in the best technical way, Bonitasoft is proposing a new architecture solution. For customers running a Bonita multi-tenancy platform, the technical path from multi-tenancy proposed by Bonitasoft is multi-runtime. This choice will require to split the current multi-tenant platform into several runtimes, each one with their own Bonita engine database.
 
-As this path can be challenging for customers using multi-tenancy, Bonitasoft developed a conversion tool, available for download https://customer.bonitasoft.com/download/request[on Bonitasoft Customer Portal]. We strongly suggest our customers to take the time and use the tool in a pre-production environment before using it on a production environment. 
+As this path can be challenging for customers using multi-tenancy, Bonitasoft developed a conversion tool, available for download https://customer.bonitasoft.com/download/request[on Bonitasoft Customer Portal]. We strongly suggest our customers to take the time and use the tool in a pre-production environment before using it on a production environment.
 
 xref:version-update:mtmr-tool.adoc[Multi-tenancy to multi-runtime conversion tool] can be executed on Bonita Runtimes starting with Bonita 7.11 and up to Bonita 7.15.
 
@@ -112,7 +112,7 @@ xref:version-update:mtmr-tool.adoc[Multi-tenancy to multi-runtime conversion too
 ====
 In case you are using a non-supported version, perform the update of the platform before converting it to multi-runtime.
 
-Reminder : For commercial and support questions, please refer to your Customer Success referent. 
+Reminder : For commercial and support questions, please refer to your Customer Success referent.
 ====
 
 == Bug fixes
@@ -122,9 +122,9 @@ The detailed list is available in the "What’s new in Bonita 2022.1" page, in t
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
 
-* STUDIO-4399 - Fix synchronize project open/close action 
-* STUDIO-4400 - Fix [Organization] Password resolution 
-* STUDIO-4419 - Fix failed to Load EMF ressource when trying to open an imported .bpmn file 
+* STUDIO-4399 - Fix synchronize project open/close action
+* STUDIO-4400 - Fix [Organization] Password resolution
+* STUDIO-4419 - Fix failed to Load EMF ressource when trying to open an imported .bpmn file
 
 ==== Fixes in Bonita Runtime (including Bonita native Applications)
 
