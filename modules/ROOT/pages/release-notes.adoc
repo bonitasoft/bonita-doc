@@ -206,7 +206,7 @@ repositories {
 
 == Bug fixes
 
-=== Fixes in Bonita 2022.1-u4 (2022-11-25)
+=== Fixes in Bonita 2022.1-u4 (2022-11-28)
 
 ==== Fixes in Bonita Studio including Bonita UI Designer
 
