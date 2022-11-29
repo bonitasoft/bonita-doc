@@ -122,3 +122,28 @@ function ($scope) {
        ];
     }
 ----
+
+
+[.troubleshooting-title]
+== Troubleshooting
+
+[.troubleshooting-section]
+--
+[.symptom]
+When i drag and drop my custom widget in my page **editor**, i see nothing.
+
+image::images/no_editor_widget.png[Widget not display in editor]
+
+[.cause]#Potential cause#
+Your custom widget html template contains certainly only dynamical code.
+
+[.solution]#Possible solution#
+To fix this issue, you need to define in the html template, a html tag with `ng-if="environment` attributes to retrieve better your custom widget in your artifact to display the widget name
+
+[source,html]
+----
+    <span ng-if="environment">{{environment.component.name}}</span> <1>
+----
+<1> __environment__ is a keyword to define if the code is executed on editor mode.
+--
+
