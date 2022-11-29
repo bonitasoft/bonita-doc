@@ -134,6 +134,7 @@ When i drag and drop my custom widget in my page **editor**, i see nothing.
 
 image::images/no_editor_widget.png[Widget not display in editor]
 
+
 [.cause]#Potential cause#
 Your custom widget html template contains certainly only dynamical code.
 
