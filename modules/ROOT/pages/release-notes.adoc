@@ -228,7 +228,7 @@ repositories {
 * RUNTIME-1545 - Fix [SSO] OIDC auto detect bearer only option breaking json requests
 * RUNTIME-1552 - Fix [SSO] OIDC bearer requests blocked by CSRF protection
 * RUNTIME-1559 - Fix LDAP Synch: when number of members in an Active Directory group > MaxValRange, last page of members not synchronised
-* RUNTIME-1562 - Fix Session is invalidated when accessing the license page in admin application
+* RUNTIME-1562 - Fix Session invalidated when accessing the license page in admin application
 
 === Fixes in Bonita 2022.1-u3 (2022-09-07)
 
