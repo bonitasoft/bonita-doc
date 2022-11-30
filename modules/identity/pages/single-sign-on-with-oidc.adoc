@@ -11,7 +11,8 @@ For Enterprise, Performance, Efficiency, and Teamwork editions only.
 
 This information applies to a Bonita platform deployed from a bundle, not to the Engine launched from Bonita Studio. `<BUNDLE_HOME>` refers to the root directory of the bundle.
 
-OpenID Connect configuration is at tenant level. Each tenant can use a different authentication method (over OIDC or not).
+//OpenID Connect configuration is at tenant level. Each tenant can use a different authentication method (over OIDC or not).
+OpenID Connect configuration is at tenant level.
 
 [NOTE]
 ====
@@ -87,7 +88,11 @@ Make sure to xref:ROOT:multi-tenancy-and-tenant-configuration.adoc[set the right
  If you need users to be able to log in without having an account on the IDP, you can authorize it by setting the property `oidc.auth.standard.allowed` to true. Users will then be able to log in using the Bonita login page (`/login.jsp`) provided they have a Bonita account and their password is different from their username. +
  If only a limited group of users need to bypass OIDC authentication method you can restrain it by setting the property `oidc.auth.standard.allowed` to false and setting the property `auth.tenant.standard.whitelist` with the list of authorized usernames (comma separated). Otherwise you can keep it commented.
 
+////
 . In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
+  edit the file bonita-tenant-sp-custom.properties as follows:
+////
+. In the tenant_engine folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
   edit the file bonita-tenant-sp-custom.properties as follows:
 +
 ----
@@ -135,8 +140,11 @@ If you want Bonita engine to create the accounts on the fly once a user accessin
 
 +
 NOTE: Activating this option means any user authorized by the IdP to access Bonita will have an account created automatically in Bonita Database.
-
+////
 . In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`, +
+ edit the file *keycloak-oidc.json* to setup Bonita webapp as an OIDC client working with your OIDC provider.
+////
+. In the tenant_portal folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`, +
  edit the file *keycloak-oidc.json* to setup Bonita webapp as an OIDC client working with your OIDC provider.
 +
 ----
