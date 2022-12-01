@@ -224,6 +224,7 @@ repositories {
 * RUNTIME-1451 - Fix [Security] Update several dependencies for 2022.1-u5 (7.14.5)
 * RUNTIME-1476 - Fix Default dynamic permissions: process deployers, process initiators and process managers should access GET bpm/process
 * RUNTIME-1485 - Fix [SSO] Allow the usage of any claim of the ID token for the OIDC adapter to fetch the username value from
+* RUNTIME-1486 - Fix [Rest API Extension]Archetype generating bad InputStream management code 
 * RUNTIME-1527 - Fix Platform API resources access should not need an API session along with the platform session
 * RUNTIME-1545 - Fix [SSO] OIDC auto detect bearer only option breaking json requests
 * RUNTIME-1552 - Fix [SSO] OIDC bearer requests blocked by CSRF protection
