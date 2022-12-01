@@ -124,6 +124,10 @@ The detailed list is available in the "What’s new in Bonita 2022.1" page, in t
 ==== Fixes in Bonita Studio including Bonita UI Designer
 
 * STUDIO-4425 - Fix Welcome page incorrectly displayed
+* STUDIO-4426 -	Fix Type lost on condition after variable removal
+* STUDIO-4437 - Fix SNAPSHOT external lib not displayed in "add dependency" in process configuration
+* UID-346 	   - Fix Not translated messages in Upload widget
+* UID-711 	   - Fix Currency widget: issue with negative values
 
 ==== Fixes in Bonita Runtime including Bonita native Applications
 
@@ -140,6 +144,7 @@ The detailed list is available in the "What’s new in Bonita 2022.1" page, in t
 * RUNTIME-1478 - Fix [admin-task-details] improve function to display Executed by information
 * RUNTIME-1483 - Fix [Security] Uncontrolled Resource Consumption in Jackson-databind
 * RUNTIME-1485 - Fix [SSO] Allow the usage of any claim of the ID token for the OIDC adapter to fetch the username value from
+* RUNTIME-1486 -	Fix [Rest API Extension][Java] Archetype generating bad InputStream management code 
 * RUNTIME-1489 - Fix [Security] Version update of several dependencies for 2022.2-u1 (7.15.1)
 * RUNTIME-1527 - Fix Platform API resources access should not need an API session along with the platform session
 * RUNTIME-1545 - Fix [SSO] OIDC auto detect bearer only option breaking json requests
