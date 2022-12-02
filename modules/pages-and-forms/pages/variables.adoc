@@ -22,7 +22,8 @@ There are several types of variables:
 
 String and JSON variables are initialized at page data model instantiation and their values do not change subsequently.
 
-Expression, external API, and URL parameter variables are evaluated every time something happens on the page, such as when receiving data or on a user interaction. The call of an External API variable is triggered every time the URL of the resource it points at changes.
+Expression, external API, and URL parameter variables are evaluated every time something happens on the page, such as when receiving data or on a user interaction.
+The call of an External API variable is triggered at page load (unless a variable in the URL is not defined), and every time the URL of the resource it points at changes.
 
 [discrete]
 ==== Business Data
@@ -89,6 +90,26 @@ API URL: `+../API/bdm/businessDataReference/{{caseId}}/{{businessDataName}}+`
 API URL: `../{{context.myBusinessData_ref.link}}`
 * Retrieve lazy references of a business data field using `lazyRef` filter in an External API variable: +
 API URL: `{{myBusinessData | lazyRef : 'relationName'}}` where `myBusinessData` is an External API variable retrieving a business data from the context like in the above example and `relationName` the name of the lazy relation field to retrieve.
+
+==== Call a Rest API on a condition
+
+Sometimes it is required that a Rest API is called on a condition, and not at page load.
+
+For instance, to retrieve a task when the variable `status` is set to `ok` (assuming that `taskId` is set):
+
+* Create an External API variable `task`:
+[source,javascript]
+----
+../API/bpm/humanTask/{{callTask}}
+----
+
+* Create a JavaScript expression variable `callTask`:
+[source,javascript]
+----
+if ($data.status === 'ok') {
+    return $data.taskId;
+}
+----
 
 === JavaScript expression
 
