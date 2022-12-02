@@ -35,7 +35,7 @@ jobs:
         with:
           format: 'json'
       - name: Check content writing
-        uses: errata-ai/vale-action@v2
+        uses: errata-ai/vale-action@reviewdog
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
