@@ -1,4 +1,4 @@
-= Release notes
+= Release notes UPDATE !!
 :description: This pages describes the main new values, improvements, technical updates and other changes that have been brought to this latest Bonita main version.
 
 [#renaming]
@@ -271,7 +271,7 @@ A standalone docker image that package the LDAP Synchronizer was released under 
 
 [WARNING]
 ====
-Bonita Studio 2021.1-1122 version can crash at start time on MacOS with the Intel architecture. The issue has not be detected on previous nor on future versions. Those facing the issue, can use Bonita Studio 2021.1-0920 instead. 
+Bonita Studio 2021.1-1122 version can crash at start time on MacOS with the Intel architecture. The issue has not be detected on previous nor on future versions. Those facing the issue, can use Bonita Studio 2021.1-0920 instead.
 ====
 
 ==== Fixes in Bonita Runtime (including Portal)
@@ -290,7 +290,7 @@ Bonita Studio 2021.1-1122 version can crash at start time on MacOS with the Inte
 
 ==== Fixes in Bonita Runtime (including Portal)
 
-* RUNTIME-211 - Fix access to a non existing token in an app raise a 403 instead of a 404 
+* RUNTIME-211 - Fix access to a non existing token in an app raise a 403 instead of a 404
 * RUNTIME-992 - [Security] Update several dependencies for 2021.1 (7.12.12)
 * RUNTIME-1156 - Fix BConf file deployment is broken for non existing processes
 * RUNTIME-1408 - Fix slow REST API extension requests due to a java sycnhronized block
