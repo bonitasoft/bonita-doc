@@ -1,4 +1,4 @@
-= LDAP synchronizer
+= LDAP synchronizer with typoo !!
 :description: Learn how to configure the LDAP Synchronizer. This tool updates Bonita Users and Groups database from the LDAP directory.
 
 Learn how to configure the LDAP Synchronizer. This tool updates Bonita Users and Groups database from the LDAP directory.
