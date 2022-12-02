@@ -41,6 +41,5 @@ jobs:
         with:
           files: ${{ steps.files.outputs.added_modified }}
           fail_on_error: false
-          filter_mode: diff_context
           vale_flags: "--no-exit"
 
