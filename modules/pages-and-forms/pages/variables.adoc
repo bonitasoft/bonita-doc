@@ -118,10 +118,10 @@ As described above, a Rest API is called when the URL changes.
 
 So a solution can be to add a fake parameter at the end of the URL. For instance, add a parameter with a timestamp:
 ```
-../API/bpm/humanTask/1?t={{timeStamp}}
+../API/bpm/humanTask/1?t={{timestamp}}
 ```
 
-Then the `timestamp` JavaScript variable can be updated on a specific event (`timestamp = new Date().getTime();`) when the Rest API should be called.
+Then the `timestamp` JavaScript variable can be updated on a specific event (with `new Date().getTime()` for instance) when the Rest API should be called.
 
 === JavaScript expression
 
