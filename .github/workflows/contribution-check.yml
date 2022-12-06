@@ -23,7 +23,7 @@ jobs:
     if: github.event.action != 'edited'
     steps:
       - name: Check forbidden content
-        uses: bonitasoft/actions/packages/pr-diff-checker@v2.0.0
+        uses: bonitasoft/actions/packages/pr-diff-checker@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           diffDoesNotContain: '["https://documentation.bonitasoft.com/", "Bonita BPM"]'

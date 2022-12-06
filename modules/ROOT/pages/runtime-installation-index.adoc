@@ -6,9 +6,9 @@ Description of the different options for Bonita installation.
 
 Bonita exists in several http://www.bonitasoft.com/bonita-editions[editions]: Enterprise, Performance, Efficiency, Teamwork, and Community.
 
-For the Bonita Subscription editions: Enterprise, Performance, Efficiency, and Teamwork, you need to xref:licenses.adoc[install a license] during the installation procedure. This license depends on the edition, the deployment environment, the number of cases purchased or the number of cores.
+For Bonita Subscription editions, you need to xref:licenses.adoc[install a license] during the installation procedure. This license depends on the edition, the deployment environment, the number of cases purchased or the number of cores.
 
-For the Bonita Community edition, no license is needed.
+For Bonita Community edition, license is not required.
 
 == Bonita Studio
 

@@ -5,8 +5,7 @@ An event handler is an extension to the engine that is configured to run when a 
 
 [NOTE]
 ====
-
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
+For Subscription editions only.
 ====
 
 Event handlers can help in adding new features to the Platform. You can use them to call your own services when specific events

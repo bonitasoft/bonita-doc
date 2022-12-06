@@ -263,6 +263,29 @@ Use BPMN 2 importer for model exchange with third-party editors.
 A standalone docker image that package the LDAP Synchronizer was released under the name `quay.io/bonitasoft/bonita-ldap-synchronizer`
 
 == Bug fixes
+=== Fixes in Bonita 2021.1-1122 (2022-11-22)
+
+==== Fixes in Bonita Development Suite (Studio and UI Designer)
+
+* STUDIO-4426 - Fix Type lost on condition after variable removal
+
+[WARNING]
+====
+Bonita Studio 2021.1-1122 version can crash at start time on MacOS with the Intel architecture. The issue has not be detected on previous nor on future versions. Those facing the issue, can use Bonita Studio 2021.1-0920 instead. 
+====
+
+==== Fixes in Bonita Runtime (including Portal)
+
+* RUNTIME-145 - Fix User creation on the fly when Role doesn't exist
+* RUNTIME-626 -	Fix Waiting events of Start events not created when process is deployed using BCD and has a .bconf file
+* RUNTIME-752 -	Fix Error 404 resulting in blank task list
+* RUNTIME-1431 - Fix Instantiation REST service Exposing the groovy script behind an exception
+* RUNTIME-1434 - Fix Custom user information truncated in administrator app
+* RUNTIME-1447 - [Security] Update several dependencies for 2021.1 (7.12.13)
+* RUNTIME-1459 - Fix LDAP Synchronizer: BonitaSubscription-7.12.12-LDAP-Synchronizer.sh/bat scripts missing in 7.12.12 Tomcat bundle/Studio
+* RUNTIME-1476 - Fix Default dynamic permissions: process deployers, process initiators and process managers should access GET bpm/process
+* RUNTIME-1527 - Fix Platform API resources access should not need an API session along with the platform session
+
 === Fixes in Bonita 2021.1-0920 (2022-09-20)
 
 ==== Fixes in Bonita Runtime (including Portal)

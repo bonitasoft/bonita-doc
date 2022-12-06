@@ -12,7 +12,7 @@ This way of building artifacts is deprecated. Use xref:{bcdDocVersion}@bcd::livi
 
 [NOTE]
 ====
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
+For Subscription editions only.
 ====
 
 [WARNING]

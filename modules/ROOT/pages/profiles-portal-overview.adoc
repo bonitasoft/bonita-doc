@@ -46,7 +46,7 @@ By default, its gives access to the Administrator navigation of Bonita Portal. I
 * xref:bdm-management-in-bonita-bpm-portal.adoc[Business Data Model Management]
 * xref:applications.adoc[Applications Management]
 * xref:managing-look-feel.adoc[Portal Look & Feel Management]
-* xref:licenses.adoc[License Information] (Enterprise, Performance, Efficiency, and Teamwork editions only)
+* xref:licenses.adoc[License Information] (Subscription editions only)
 
 This profile is also mapped to the xref:admin-application-overview.adoc[Bonita Administrator Application], bringing about the same value but with more customization options.
 

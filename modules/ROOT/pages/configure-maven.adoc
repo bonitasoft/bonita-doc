@@ -3,8 +3,7 @@
 
 [NOTE]
 ====
-
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
+For Subscription editions only.
 ====
 
 This page explains how to configure Maven for developing REST API Extensions.

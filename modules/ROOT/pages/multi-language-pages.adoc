@@ -5,8 +5,7 @@ The UI Designer includes a mechanism to add translations for page, layout and fo
 
 [NOTE]
 ====
-
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
+For Subscription editions only.
 ====
 
 == Visualization
