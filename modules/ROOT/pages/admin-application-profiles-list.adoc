@@ -14,7 +14,7 @@ image:images/UI2021.1/admin-application-profiles-list.png[Profiles in Portal]
 
 In _Organization_/_Profiles_, the list shows all profiles sorted by alphabetical order:
 
-* Three provided profiles: "User", "Administrator", and for Enterprise, Performance, Efficiency, and Teamwork editions,"Process Manager"
+* Three provided profiles: "User", "Administrator", and for subscription editions,"Process Manager"
 These profiles are marked in the list by a "Bonita" icon at the far right of the profile row. This means that they cannot be deleted nor renamed.
 * All custom profiles created, for Enterprise, Performance, and Efficiency editions
 
@@ -33,7 +33,7 @@ To do so:
 
 The Administrator can xref:live-update.adoc[Live Update] a profile:
 
-* create a custom profile (not for Community or Teamwork)
+* create a custom profile (not available in Community nor Teamwork editions)
 * delete a custom profile (same)
 * edit the name and description (only for custom profile)
 * edit the mapping (all editions, all profiles)

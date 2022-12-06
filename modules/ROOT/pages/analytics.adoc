@@ -8,8 +8,7 @@ A report presents the Administrator with data about the usage of cases and tasks
 
 [NOTE]
 ====
-
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
+For Subscription editions only.
 ====
 
 Here is a view of the page:

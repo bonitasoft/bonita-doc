@@ -5,8 +5,7 @@ Learn how to set up a continuous integration (CI) environment for your Bonita pr
 
 [NOTE]
 ====
-
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
+For Subscription editions only.
 ====
 
 [WARNING]
@@ -29,7 +28,7 @@ To follow this page, you need to be familiar with:
 
 Before you begin, you need the following components available for your CI environment:
 
-* Bonita Studio Teamwork, Efficiency, Performance, or Enterprise edition: The automated process build feature is not available in the Community edition.
+* Bonita Studio subscription edition: The automated process build feature is not available in the Community edition.
 * A window manager: You need a window manager to use the Bonita Studio process builder.
 * Java: You need Java 8 or above to be installed on the CI server and on your development computer.
 * Maven: This guide provides example Maven-based projects for executing automated tests of your processes. Maven 3 is required on the CI server and the test development computer.

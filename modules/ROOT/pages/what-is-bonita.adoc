@@ -81,4 +81,6 @@ To install Bonita Engine and Bonita Portal in a qualification or production envi
 
 == Editions
 
-Until 2019 Bonita was provided in four different editions: Community, Teamwork, Efficiency and Performance. Since 2019 Bonita is only provided in two editions: Community and Enterprise.
+Until 2019 Bonita was provided in four different editions: Community, Teamwork, Efficiency and Performance. 
+
+Since 2019 Bonita is only provided in two editions: Community and Enterprise.

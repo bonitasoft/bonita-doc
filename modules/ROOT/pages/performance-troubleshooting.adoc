@@ -115,7 +115,7 @@ Caused by: org.bonitasoft.engine.connector.exception.SConnectorException: The co
 ---- 
 [NOTE]
 ====
-The connector execution with timeout is a Subscription feature for Teamwork, Efficiency, Performance, and Enterprise editions only.
+The connector execution with timeout is a Subscription feature for Subscription editions only.
 ====
 This timeout can be increased in the Connector service configuration in  `bonita-tenant-sp-custom.properties` (See xref:BonitaBPM_platform_setup.adoc[platform setup]) by increasing the value of the property `bonita.tenant.connector.timeout`.  
 

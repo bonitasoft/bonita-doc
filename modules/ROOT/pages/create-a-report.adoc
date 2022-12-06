@@ -5,8 +5,7 @@ The final step when setting up reporting in Bonita is to create a report templat
 
 [NOTE]
 ====
-
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
+For Subscription editions only.
 ====
 
 == Prerequisites

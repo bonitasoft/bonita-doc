@@ -14,9 +14,12 @@ This page lists the extension points that are available.
 The following elements are designed to be extension points of Bonita.
 These extension points are guaranteed to be stable across versions of Bonita 7: Java interfaces and XML schema will be kept backward compatible so that your implementation will work even after a Bonita version upgrade.
 
-=== Connectors
+[NOTE]
+====
+Below extension points are available for both community and subscription editions.
+====
 
-In Community, Teamwork, Efficiency, Performance and Enterprise editions
+=== Connectors
 
 Bonita comes with more than 80 xref:connectivity-overview.adoc[standard connectors] to the major information system components: major databases (Oracle, Microsoft, Postgres, etc.), SOAP Webservice, Salesforce, Email, etc.
 A new connector enables you to provide new connectivity capabilities for processes.
@@ -26,16 +29,12 @@ Connectors can be implemented directly from Bonita Studio.
 
 === Actor filters
 
-In Community, Teamwork, Efficiency, Performance and Enterprise editions
-
 Bonita comes with a set of xref:actor-filtering.adoc[standard actor filters] that can be used to reduce the list of candidates for process tasks.
 A new actor filter enables you to provide new filtering capabilities to processes. To xref:creating-an-actor-filter.adoc[implement a new actor filter],
 you need to provide some XML description files and a Java class respecting the https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[UserFilter interface].
 Actor filters can be implemented directly from Bonita Studio.
 
 === Engine API
-
-In Community, Teamwork, Efficiency, Performance and Enterprise editions
 
 The https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Bonita Engine APIs] enable you to:
 
@@ -47,8 +46,6 @@ ProcessBuilder and Business Objects DAO are examples of APIs that can be leverag
 
 === REST API
 
-In Community, Teamwork, Efficiency, Performance and Enterprise editions
-
 The xref:rest-api-overview.adoc[REST APIs] enable you to integrate your Bonita processes into your application and execute operations on Bonita objects including business objects.
 Pages and forms created with the UI Designer rely on the REST APIs to manage data.
 
@@ -57,8 +54,6 @@ In the Bonita subscription edition, Bonita Studio contains xref:rest-api-extensi
 
 === Custom pages
 
-In Community, Teamwork, Efficiency, Performance and Enterprise editions
-
 A xref:pages.adoc[custom page] is a page that you can add into Bonita Portal to form part of an application, customize information provided in default portal pages, or to add new features to the portal.
 To implement a page, you need to provide HTML, CSS and Javascript resources respecting some packaging constraints.
 You can create a page using the xref:ui-designer-overview.adoc[UI Designer], which automatically creates a well-formed page.
@@ -66,14 +61,10 @@ Note that although the page framework provided in the product is stable, we cann
 
 === Custom widgets
 
-In Community, Teamwork, Efficiency, Performance and Enterprise editions
-
 If the standard UI Designer xref:widgets.adoc[widgets] do not meet your needs, you can create a xref:custom-widgets.adoc[custom widget].
-You can then use your custom widget in pages, forms, and (for Subscription editions) fragments.
+You can then use your custom widget in pages, forms, and fragments - for Subscription editions.
 
 === Import and export exchange files
-
-In Community, Teamwork, Efficiency, Performance and Enterprise editions
 
 Included in the https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Engine APIs] are methods to import and export various items.
 These methods manipulate files with formats that are versioned. Newer versions of the file format are designed to be backward compatible with earlier versions. The following items have import and export API methods:
@@ -83,17 +74,18 @@ These methods manipulate files with formats that are versioned. Newer versions o
 * custom pages
 * connectors
 
-=== Authentication service
+[NOTE]
+====
+Below extension points are available only for subscription editions.
+====
 
-In Teamwork, Efficiency, Performance and Enterprise editions
+=== Authentication service
 
 From Bonita 6.3, the Engine authentication service is considered to be an official extension point of the solution. It is now safe to provide your own implementation of this service to better fit the needs of your projects.
 xref:user-authentication-overview.adoc[Default authentication implementations] are provided allow to check user credentials from the Bonita database, LDAP or a CAS SSO server (using JAAS).
 To implement an Authentication Service, provide a Java class respecting the Authentication Service interface.
 
 === Event handlers
-
-In Teamwork, Efficiency, Performance and Enterprise editions
 
 An event handler is an extension to the engine that is configured to run when a specified event occurs. An event is a change to any object in the database.
 To xref:event-handlers.adoc[implement an event handler], you need to provide a Java class respecting the Handler interface.
@@ -109,15 +101,11 @@ xref:release-notes.adoc[Release Notes page] for more information
 We strongly encourage you to use the LA builder included in the tooling suite of Bonita Continuous Delivery add-on. One added-value is that LA builder does not need a studio to be installed.
 ====
 
-In Teamwork, Efficiency, Performance and Enterprise editions
-
 Bonita includes a script, BonitaStudioBuilder (also known as the Workspace API), for building a bar file from a process in a project.
 This intended to be used for xref:automating-builds.adoc[automating builds] in a continuous integration and testing environment.
 You can use the BonitaStudioBuilder to build a bar file for processes stored in a project.
 
 === Portal look & feel
-
-In Teamwork, Efficiency, Performance and Enterprise editions
 
 The Bonita Portal Look & Feel gives the ability to customize the appearance of the portal Web interface. As a Portal Administrator, you can import a new Look & Feel (.zip archive).
 To xref:creating-a-new-look-feel.adoc[create a new Look & Feel], provide CSS and resources files.
