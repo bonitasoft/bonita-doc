@@ -15,6 +15,11 @@ This page lists the extension points that are available.
 The following elements are designed to be extension points of Bonita.
 These extension points are guaranteed to be stable across versions of Bonita 7: Java interfaces and XML schema will be kept backward compatible so that your implementation will work even after a Bonita version upgrade.
 
+[NOTE]
+====
+Below extension points are available for both community and subscription editions.
+====
+
 === Connectors
 
 Bonita comes with more than 80 xref:process:connectivity-overview.adoc[standard connectors] to the major information system components: major databases (Oracle, Microsoft, Postgres, etc.), SOAP Webservice, Salesforce, Email, etc.
