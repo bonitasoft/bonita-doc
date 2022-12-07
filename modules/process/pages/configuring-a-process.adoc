@@ -6,12 +6,12 @@
 
 [NOTE]
 ====
-Multiple environments can be created with the Subscription.
+Multiple environments can be created with Subscription license.
 ====
 
 To configure a process in Bonita Studio, open the process diagram, select the pool, and click *_Configure_* in the toolbar.
 
-If you are using a Enterprise, Performance, Efficiency, or Teamwork edition of Bonita, you can configure a process for an xref:ROOT:environments.adoc[environment]:
+If you are using a Bonita subscription edition, you can configure a process for an xref:ROOT:environments.adoc[environment]:
 with the process diagram open and the pool selected, choose an environment from
 the Configuration menu in the toolbar.
 
