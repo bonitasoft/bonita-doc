@@ -128,7 +128,6 @@ This profile is linked to the Bonita Administrator Application by default. More 
 ** portal/profile
 ** portal/bonitaPage
 ** portal/page
-** portal/profileEntry
 ** portal/profileMember
 ** userXP/profile
 ** userXP/profileEntry
@@ -201,7 +200,6 @@ This profile is linked to the Bonita Administrator Application by default. More 
 ** bpm/message
 ** portal/profile
 ** portal/page
-** portal/profileEntry
 ** portal/profileMember
 ** userXP/profile
 ** userXP/profileEntry
@@ -249,7 +247,6 @@ This profile is linked to the Bonita Administrator Application by default. More 
 ** bpm/timerEventTrigger
 ** portal/profile
 ** portal/page
-** portal/profileEntry
 ** userXP/profile
 ** userXP/profileEntry
 ** living/application
@@ -274,7 +271,6 @@ This profile is linked to the Bonita Administrator Application by default. More 
 ** bpm/archivedCaseDocument
 ** portal/profile
 ** portal/page
-** portal/profileEntry
 ** portal/profileMember
 ** userXP/profile
 ** userXP/profileEntry
