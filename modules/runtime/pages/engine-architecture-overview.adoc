@@ -59,7 +59,7 @@ https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Javadoc].
 | Manages documents that are attached to a process instance.
 
 | Tenant Management API
-| Used to pause service in a tenant for maintenance, to resume service, and to check whether a tenant is paused. Available in Teamwork, Efficiency, Performance and Enterprise editions.
+| Used to pause service in a tenant for maintenance, to resume service, and to check whether a tenant is paused. Available in subscription editions only.
 |===
 
 There is also a Web API, which is for internal use only, and a Command API, which is primarily for internal use.
@@ -166,7 +166,7 @@ Notes: Store categories with the persistence service
 |  |
 
 | Description:
-| Execute operations that update data. The Operation service can use different types of update method.  The default methods, called Operators, are ASSIGNMENT, JAVA_METHOD, and XPATH_UPDATE_QUERY.
+| Execute operations that update data. The Operation service can use different types of update method. The default methods, called Operators, are ASSIGNMENT, JAVA_METHOD, and XPATH_UPDATE_QUERY.
 
 | Used by:
 | Engine service, APIs when updating data using an operation
@@ -323,7 +323,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Check user credentials using a map.
 
 | Used by:
-| Login service in Bonita Teamwork, Efficiency, Performance, and Enterprise editions
+| Login service in subscription editions
 
 | Implementation:
 | org.bonitasoft.engine.authentication.impl.GenericAuthenticationServiceImpl
@@ -392,7 +392,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | An abstraction layer of the classloader, making it easy to change the classloader implementation at runtime. There is a hierarchy of classloaders, with a platform classloader handling items used by the whole platform, and a process classloader for items specify to a process. Each classloader is identified by a type and an Id.
 
 | Used by:
-| Server APIs, to create and set the classloader at platform level.  Engine, to handle classloader of type process
+| Server APIs, to create and set the classloader at platform level. Engine, to handle classloader of type process
 
 | Implementation:
 | org.bonitasoft.engine.classloader.ClassLoaderServiceImpl
@@ -527,7 +527,7 @@ Generic services  perform actions that are not related to BPM but are required f
 |  |
 
 | Description:
-| Evaluate an expression using the evaluator provided by another service (but do not evaluate dependencies of the expression). This service is extended by evaluators specific to the kind of expression to be evaluated. For example, in the Enterprise, Performance, Efficiency, and Teamwork editions, the ParameterService contributes an evaluator to evaluate expressions that reference a parameter. To add a new kind of expression, contribute a class implementing org.bonitasoft.engine.expression.ExpressionExecutorStrategy to the ExpressionExecutorStrategy class.
+| Evaluate an expression using the evaluator provided by another service (but do not evaluate dependencies of the expression). This service is extended by evaluators specific to the kind of expression to be evaluated. For example, in subscription editions, the ParameterService contributes an evaluator to evaluate expressions that reference a parameter. To add a new kind of expression, contribute a class implementing org.bonitasoft.engine.expression.ExpressionExecutorStrategy to the ExpressionExecutorStrategy class.
 
 | Used by:
 | ExpressionResolverService. to evaluate an expression and its dependencies
@@ -800,7 +800,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | org.bonitasoft.engine.work.ExecutorWorkService
 
 | Notes:
-| Trigger launches work in a ThreadPool. For Community Edition, work items are launched in sequence, each one in a new thread. For Teamwork, Efficiency, Performance, and Enterprise Editions, work items are triggered in multiple threads.
+| Trigger launches work in a ThreadPool. For Community Edition, work items are launched in sequence, each one in a new thread. For subscription editions, work items are triggered in multiple threads.
 |===
 
 === XML
@@ -832,7 +832,7 @@ For example, the API interface is accessed both on the server side, which contai
 [NOTE]
 ====
 
-In the Enterprise, Performance, Efficiency, and Teamwork editions, these jar files are respectively:
+In subscription editions, these jar files are respectively:
 
 * bonita-common-sp.jar
 * bonita-server-sp.jar
