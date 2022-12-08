@@ -39,7 +39,7 @@ By default, it gives access to Bonita Administrator Application, which includes:
 * xref:runtime:organization-index.adoc[Organization Management]
 * xref:ROOT:bdm-management-in-bonita-applications.adoc[Business Data Model Management]
 * xref:applications.adoc[Applications Management]
-* xref:ROOT:licenses.adoc[License Information] (Enterprise, Performance, Efficiency, and Teamwork editions only)
+* xref:ROOT:licenses.adoc[License Information] (Subscription editions only)
  This profile is also mapped to the xref:ROOT:admin-application-overview.adoc[Bonita Administrator Application], bringing about the same value but with more customization options.
 
 [NOTE]

@@ -6,7 +6,7 @@
 
 [NOTE]
 ====
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
+For Subscription editions only.
 ====
 
 This information applies to a Bonita platform deployed from a bundle, not to the Engine launched from Bonita Studio. `<BUNDLE_HOME>` refers to the root directory of the bundle.
