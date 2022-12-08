@@ -7,8 +7,7 @@ How to generate the project documentation in Bonita Studio.
 
 [NOTE]
 ====
-
-For Enterprise, Performance, Efficiency and Teamwork editions only.
+For Subscription editions only.
 ====
 
 == Overview
