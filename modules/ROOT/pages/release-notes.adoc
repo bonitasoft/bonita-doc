@@ -119,14 +119,47 @@ Reminder : For commercial and support questions, please refer to your Customer S
 For the users of Bonita Community edition, Bonita 2022.2 also comes with all the bug fixes released in the Maintenance versions of Bonita 2022.1 (up until version 2022.1-u6).
 The detailed list is available in the "What’s new in Bonita 2022.1" page, in the "Bug fixes" section.
 
+=== Fixes in Bonita 2022.2-u1 (2022-12-05)
 
-==== Fixes in Bonita Studio (including Bonita UI Designer)
+==== Fixes in Bonita Studio including Bonita UI Designer
+
+* STUDIO-4425 - Fix Welcome page incorrectly displayed
+* STUDIO-4426 - Fix Type lost on condition after variable removal
+* STUDIO-4437 - Fix SNAPSHOT external lib not displayed in "add dependency" in process configuration
+* UID-346     - Fix Not translated messages in Upload widget
+* UID-711     - Fix Currency widget: issue with negative values
+
+==== Fixes in Bonita Runtime including Bonita native Applications
+
+* RUNTIME-145  - Fix User creation on the fly when role doesn't exist
+* RUNTIME-278  - Fix LDAP Synchronizer failures when the username LDAP attribute value's changes case (uper/lower)
+* RUNTIME-578  - Fix [admin-case-list] undefined for William Jobs in Started by column when using technical user
+* RUNTIME-626  - Fix Waiting events of Start events not created when process is deployed using BCD and has a .bconf file
+* RUNTIME-752  - Fix Error 404 resulting in blank task list
+* RUNTIME-1269 - Fix LDAP Synch: group synchronisation failure when use_paged_search=true and one LDAP group search returns more than one page of results
+* RUNTIME-1431 - Fix Instantiation REST service Exposing the groovy script after an exception
+* RUNTIME-1434 - Fix custom user information truncated in admin app
+* RUNTIME-1476 - Fix Default dynamic permissions: process deployers, process initiators and process managers should access GET bpm/process
+* RUNTIME-1477 - [admin-case-details] improve display of Started by information
+* RUNTIME-1478 - [admin-task-details] improve display of Executed by information
+* RUNTIME-1485 - Fix [SSO] Allow the usage of any claim of the ID token for the OIDC adapter to fetch the username value from
+* RUNTIME-1486 - Fix [Rest API Extension][Java] Archetype generating bad InputStream management code 
+* RUNTIME-1489 - [Security] Version update of several dependencies for 2022.2-u1 (7.15.1)
+* RUNTIME-1527 - Fix Platform API resources access should not need an API session along with the platform session
+* RUNTIME-1545 - Fix [SSO] OIDC auto detect bearer only option breaking json requests
+* RUNTIME-1552 - Fix [SSO] OIDC bearer requests blocked by CSRF protection
+* RUNTIME-1559 - Fix LDAP Synch: when number of members in an Active Directory group > MaxValRange, last page of members not synchronised
+* RUNTIME-1562 - Fix Session invalidated when accessing the license page in admin application
+
+=== Fixes in Bonita 2022.2 (2022-10-05)
+
+==== Fixes in Bonita Studio including Bonita UI Designer
 
 * STUDIO-4399 - Fix synchronize project open/close action
 * STUDIO-4400 - Fix [Organization] Password resolution
 * STUDIO-4419 - Fix failed to Load EMF ressource when trying to open an imported .bpmn file
 
-==== Fixes in Bonita Runtime (including Bonita native Applications)
+==== Fixes in Bonita Runtime including Bonita native Applications
 
 * RUNTIME-211  - Fix access to a non existing token in an app raise a 403 instead of a 404
 * RUNTIME-334  - Fix REST API ../API/identity/user/-1?d=professionalData as it returns the list of users
