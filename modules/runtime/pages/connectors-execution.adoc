@@ -18,8 +18,7 @@ image::images/connector_execution.png[Connector execution]
 
 [NOTE]
 ====
-
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
+For Subscription editions only.
 ====
 
 A timeout can be configured to cancel the connector execution if it takes more than a certain amount of time.
