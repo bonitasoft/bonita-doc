@@ -685,7 +685,7 @@ In this example, counters are returned for two flow nodes in the process, Step1 
 
 ==== Description
 
-A process parameter is a variable attached to process. The parameter value is set at deployment, and applies to all cases of the process. This feature is available in Enterprise, Performance, Efficiency, and Teamwork editions.
+A process parameter is a variable attached to process. The parameter value is set at deployment, and applies to all cases of the process. This feature is available in subscription editions.
 
 ==== Identifier
 
@@ -801,7 +801,7 @@ A process parameter resource
 
 ==== Description
 
-This resource represents a problem in a process that needs to be resolved for the process to run. It can be an actor, a connector implementation, or a parameter (in the Enterprise, Performance, Efficiency, or Teamwork edition).
+This resource represents a problem in a process that needs to be resolved for the process to run. It can be an actor, a connector implementation, or a parameter (in subscription editions only).
 
 ==== Representation
 
