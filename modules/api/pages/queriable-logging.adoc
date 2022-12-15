@@ -6,7 +6,7 @@
 
 [NOTE]
 ====
-For subscription editions only.
+For Subscription editions only.
 ====
 
 == Purpose

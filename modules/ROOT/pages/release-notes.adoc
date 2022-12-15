@@ -43,6 +43,12 @@ CustomerDAO dao = context.getApiClient().getDAO(CustomerDAO.class);
 
 === Multi-tenancy removal
 
+[NOTE]
+====
+For Subscription editions only.
+====
+
+
 Deprecated xref:2022.2@ROOT:multi-tenancy-and-tenant-configuration.adoc[multi-tenancy] has been removed.
 
 To cover the multi-tenancy use cases in the best technical way, Bonitasoft is proposing a new architecture solution. For customers running a Bonita multi-tenancy platform, the technical path from multi-tenancy proposed by Bonitasoft is multi-runtime. This choice will require to split the current multi-tenant platform into several runtimes, each one with their own Bonita engine database.
