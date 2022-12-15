@@ -16,7 +16,7 @@ A shared project has typical code management features: synchronization, versioni
 Your workspace contains a local copy of the project, which is synchronized with the remote Git server. +
 Note that the values of the _Local_ process configurations (such as parameters) will not be synchronized on the remote repository, to allow each Studio to have its own configuration. You can use another environment for shared configurations (Qualification, Production or custom environments).
 
-=== Switch workspace
+=== Switch workspace (Enterprise only)
 
 The default workspace is _studio_install_directory_/workspace.
 
@@ -28,7 +28,7 @@ To use a different workspace:
 . Click *_OK_*.
 . The workspace switch is applied the next time Bonita Studio starts. Click *_OK_* in the pop up window to restart the studio, or *_Cancel_* to continue using the current workspace.
 
-=== Create a project
+=== Create a Bonita project
 
 You can create a project in your workspace. +
 The project is created in your current workspace.
@@ -37,9 +37,19 @@ To create a project:
 
 . Go to the *File* menu, choose *New project...*.
 . Specify a name for the new project.
-. Click *_OK_* .
+. A Project ID is derived from the given name. This ID can be changed but must respect the https://maven.apache.org/guides/mini/guide-naming-conventions.html[Maven artifactId naming conventions].
+. You may set a specific version to the project.
+. A Group ID must also be provided. A Group ID is a namespace that is used to uniquely identify your project from all other projects. Like for Project ID, it must follow https://maven.apache.org/guides/mini/guide-naming-conventions.html[the naming conventions].
+. You may leave the Target runtime version to its default value. It can be adjust if you want to target specific runtime version (_eg_: Using a Bonita Studio 2023.1-u4 to develop a project deployed on 2023.1-u1 runtime)
+. An optional description can be given
+. Click *_Create_* .
 
 A new project is created. Only one project can be active at a time.
+
+[WARNING]
+====
+A Bonita project is Maven multi-module project. The Project ID is used to derive all submodules `artifactId`. It is not supported to manually change the `groupId`, `artifactId` and `version` of the project without keeping it consistent (using the `Edit project information...` dialog).
+====
 
 [#export-import]
 

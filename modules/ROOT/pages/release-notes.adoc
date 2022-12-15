@@ -5,3 +5,33 @@
 ====
 The 2023.1 is in development.
 ====
+
+== Improvements
+
+=== Development suite changes
+
+==== Bonita project
+
+Bonita projects layout has been updated to take advantage of Maven multi-module project perks.
+
+== Feature deprecations and removals
+
+=== Custom Rest API Extension and BDM dependencies
+
+When updating a Bonita project in the 2023.1 version, BDM dependencies are updated to use the new the `*-bdm-model` artifact introduced with the new Bonita project layout changes. This automatic update will replace previous `bdm-client` and `bdm-dao` dependencies with the project `bdm-model` dependency. 
+In the process the dependency containing the client DAO implementation is removed from the dependencies list. 
+
+It can affects your code if you were directly referencing the `*DAOImpl` classes. If you find yourself in this situation we invite you to update this code to use the DAO interfaces presents in the `bdm-model` dependency. 
+
+Reminder that if you were instantiating `*DAOImpl` class in your code, you should update to it to use the `APIClient#getDAO` factory method instead.
+
+.For example, for a given BusinessObject `Customer`
+[source, java]
+----
+// Direct instantiation
+CustomerDAOImpl dao = new CustomerDAOImpl(context.getApiSession());
+
+// Replace it with APIClient factory
+CustomerDAO dao = context.getApiClient().getDAO(CustomerDAO.class);
+----
+
