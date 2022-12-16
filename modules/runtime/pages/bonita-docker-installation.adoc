@@ -383,9 +383,14 @@ Since Bonita 7.9 BONITA_SERVER_LOGGING_FILE and BONITA_SETUP_LOGGING_FILE can be
 [#logger_configuration]
 == Logger configuration
 
-The logger can be configured by mounting a volume on folder `/opt/bonita/conf/logs` containing the configuration files.
+To ease the logger configuration, you can mount a volume on folder `/opt/bonita/conf/logs` containing the configuration files:
 
-the volume must contain the 2 files
+[source,shell script]
+----
+docker run -v ~/my-config/log4j:/opt/bonita/conf/logs ...
+----
+
+The volume must contain the 2 files
 https://raw.githubusercontent.com/bonitasoft/bonita-distrib/{bonitaTechnicalVersion}/tomcat-resources/tomcat-distrib-for-bonita/src/main/resources/tomcat/server/conf/log4j2-loggers.xml[log4j2-loggers.xml]
 and
 https://raw.githubusercontent.com/bonitasoft/bonita-distrib/{bonitaTechnicalVersion}/docker/files/log4j2/log4j2-appenders.xml[log4j2-appenders.xml]
@@ -395,6 +400,13 @@ https://raw.githubusercontent.com/bonitasoft/bonita-distrib/{bonitaTechnicalVers
 Log4j2 automatically reloads configuration files when there is a change. However, if the file is invalid, the initial version
 of that file is used instead, and is not reloaded unless one of the other watched file is changed.
 ====
+
+If not user is specified to create the container (`--user`), the filesystem access rights are downgraded to allow only the `bonita` user (inside the Docker container), meaning that a standard user cannot access the log4j2 configuration folder on the host machine (`~/my-config/log4j` in this example) anymore. Make sure to access it as a "sudoer" to hot-modify the logger configuration, or specify a dedicated user when creating the container:
+
+[source,shell script]
+----
+`docker run --user <my-dedicated-bonita-user> -v ~/my-config/log4j:/opt/bonita/conf/logs ...`
+----
 
 == Migrating from an earlier version of Bonita
 
