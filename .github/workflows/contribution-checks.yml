@@ -1,33 +1,20 @@
-name: Contribution check
+name: Contribution checks
 
 on:
   pull_request:
-    # 'edited': check the PR title on changes
-    types: [opened, edited, reopened, synchronize]
+    types: [opened, reopened, synchronize]
 
 jobs:
-  pr-title:
-    runs-on: ubuntu-22.04
-    permissions:
-      pull-requests: write # post comments when the PR title doesn't match the "Conventional Commits" rules
-    # here we don't want to check the pr-title when new code is pushed
-    if: github.event.action != 'synchronize'
-    steps:
-      - name: Lint pull request title
-        uses: jef/conventional-commits-pr-action@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
   pr-content-check:
     runs-on: ubuntu-22.04
-    # here we only want to check the files updated by the PR, so we don't care when the PR metadata (like title, labels, ...) change
-    if: github.event.action != 'edited'
     steps:
-      - name: Check forbidden content
+      - name: Check PR content
         uses: bonitasoft/actions/packages/pr-diff-checker@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           diffDoesNotContain: '["https://documentation.bonitasoft.com/", "Bonita BPM"]'
           extensionsToCheck: '[".adoc"]'
+
 # Temporarily disable vale-action, see https://github.com/bonitasoft/bonita-documentation-site/issues/464
 #      - uses: actions/checkout@v3
 #      - id: files
@@ -43,4 +30,3 @@ jobs:
 #          files: ${{ steps.files.outputs.added_modified }}
 #          fail_on_error: false
 #          vale_flags: "--no-exit"
-
