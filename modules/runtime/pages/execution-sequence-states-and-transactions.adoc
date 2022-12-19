@@ -4,13 +4,6 @@
 
 {description}
 
-[NOTE]
-====
-In the sequences described in this page, some of the actions apply only to *Teamwork*, *Efficiency*, or *Performance* editions,
-and are marked "Subscription only". +
-For the *Community* edition, these actions are not relevant, but the order of the other actions is the same.
-====
-
 == Sequence of events at process instantiation through an instantiation form
 
 . An application display the process instantiation form to the user

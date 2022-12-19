@@ -1,4 +1,4 @@
-= Dependencies for bonita-data-repository 7.14.3
+= Dependencies for bonita-data-repository 7.14.5
 
 == NodeJS Dependencies
 
