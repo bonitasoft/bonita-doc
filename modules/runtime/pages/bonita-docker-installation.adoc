@@ -405,7 +405,7 @@ If not user is specified to create the container (`--user`), the filesystem acce
 
 [source,shell script]
 ----
-`docker run --user <my-dedicated-bonita-user> -v ~/my-config/log4j:/opt/bonita/conf/logs ...`
+docker run --user <my-dedicated-bonita-user> -v ~/my-config/log4j:/opt/bonita/conf/logs ...
 ----
 
 == Migrating from an earlier version of Bonita
