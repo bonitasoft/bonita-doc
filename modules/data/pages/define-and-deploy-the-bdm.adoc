@@ -252,6 +252,9 @@ To modify a new or existing object:
  .. Use Drag and Drop in the *index attributes* table to specify the order of the index attributes.
 . Save your Business Data Model using *CTRL + S* or the save button in the Coolbar. Use the *Deploy button* to deploy your BDM. It creates the BDM database structure. To *reset the database*, use the *Clean Deploy* button. Reset database is required when changes impact the mandatory or multiple setting for an attribute, a unique constraint, or when a non primitive attribute type is modified.
 
+[id=generated-java-dependencies]
+== Generated Java dependencies
+
 Two maven artifacts are generated from the Business Data Model : *<ProjectId>-bdm-model* and *<ProjectId>-bdm-dao-client*. +
 The `version` and `groupId` of those artifacts matches the Bonita project version. 
 You have the possibility to view and retrieve the `bdm-model` dependency from the BDM editor `Maven artifact properties` section. +
