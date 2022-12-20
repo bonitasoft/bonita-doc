@@ -187,7 +187,7 @@ You can checkout the Bonita Studio repository that include this extension and a 
 
 == BDM and Performance matters
 
-To use the project BDM `model` artifact you can refer to xref:data:define-and-deploy-the-bdm.adoc#generated-java-dependencies[Generated java dependencies, window="blank"] section.
+To use the project BDM `model` artifact you can refer to the xref:data:define-and-deploy-the-bdm.adoc#generated-java-dependencies[Generated java dependencies, window="blank"] section.
 
 Be aware that a poor implementation of a custom REST API accessing BDM objects can lead to poor performance results. See the xref:ROOT:bdm-in-rest-api.adoc[best practice] on this matter.
 
