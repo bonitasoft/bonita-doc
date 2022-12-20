@@ -45,7 +45,7 @@ xref:process:database-connectors-index.adoc[[.card-title]#Database# [.card-body.
 
 [.card.card-index]
 --
-xref:ROOT:insert-data-in-a-docx-odt-template.adoc[[.card-title]#Document templating# [.card-body.card-content-overflow]#pass:q[Generate documents in your processes]#]
+xref:process:insert-data-in-a-docx-odt-template.adoc[[.card-title]#Document templating# [.card-body.card-content-overflow]#pass:q[Generate documents in your processes]#]
 --
 
 [.card.card-index]
