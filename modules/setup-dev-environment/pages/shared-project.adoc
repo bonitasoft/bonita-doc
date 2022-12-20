@@ -49,7 +49,7 @@ Send the local committed changes to a specific branch on the remote repository. 
 Fetch and try to integrate the remote changes of the current branch. This operation can put your repository in conflicting state.
 Use the Git staging view and provided merge tool to resolve the conflicts. You can abort the merge with a https://git-scm.com/docs/git-reset[hard reset] with the command line tool or the `+Reset...+` action.
 * *Switch branch* +
-Change current branch, checkout a new branch from remote or create a new branch. When switching to an existing branch in an older version, a migration action will be suggested. You'll have to to accept the migration or switch to another branch compatible with your Studio version.
+Change current branch, checkout a new branch from remote or create a new branch. When switching to an existing branch in an older version, a version update action will be suggested. You'll have to to accept the update or switch to another branch compatible with your Studio version.
 * *Merge* +
 Merge the content of a branch into current branch. https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging[Reference article]
 * *Reset* +
