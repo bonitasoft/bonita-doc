@@ -12,18 +12,18 @@ The 2023.1 is in development.
 
 ==== Bonita project
 
-Bonita projects layout has been updated to take advantage of Maven multi-module project perks.
+Bonita projects layout has been changed to take advantage of Maven multi-module project perks.
+
 
 == Feature deprecations and removals
 
 === Custom Rest API Extension and BDM dependencies
 
-When updating a Bonita project in the 2023.1 version, BDM dependencies are updated to use the new the `*-bdm-model` artifact introduced with the new Bonita project layout changes. This automatic update will replace previous `bdm-client` and `bdm-dao` dependencies with the project `bdm-model` dependency. 
-In the process the dependency containing the client DAO implementation is removed from the dependencies list. 
+When updating a Bonita project in Bonota Studio 2023.1 version, BDM dependencies will be directed to use the new the `*-bdm-model` artifact introduced with the Bonita project layout changes. Meaning that `bdm-client` and `bdm-dao` dependencies will automatically be replaced with project's `bdm-model` dependency. 
 
-It can affects the code directly referencing the `*DAOImpl` classes. To avoid this situation you may update this code to use the DAO interfaces presents in the `bdm-model` dependency. This change can be applied before or after updating to the 2023.1 version.
+Additionnally, the dependency containing the client DAO implementation will be removed from the dependencies list. It can affect the code directly referencing the `*DAOImpl` classes. To avoid this situation, change the code to use the DAO interfaces present in the `bdm-model` dependency. The changes can be done before or after updating to the 2023.1 version without breaking the project.
 
-Reminder that if you were instantiating `*DAOImpl` class in your code, you should update it to use the `APIClient#getDAO` factory method instead.
+*Reminder* : in case `*DAOImpl` class was instantiated in the code, `APIClient#getDAO` factory method has to be used instead.
 
 .For example, for a given BusinessObject `Customer`
 [source, java]
