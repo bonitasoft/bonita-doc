@@ -46,9 +46,9 @@ To create a project:
 
 A new project is created. Only one project can be active at a time.
 
-[WARNING]
+[CAUTION]
 ====
-A Bonita project is Maven multi-module project. The Project ID is used to derive all submodules `artifactId`. It is not supported to manually change the `groupId`, `artifactId` and `version` of the project without keeping it consistent (using the `Edit project information...` dialog).
+A Bonita project is Maven multi-module project. The Project ID is used to derive all submodules `artifactId`. It is not supported to manually change the `groupId`, `artifactId` and `version`. It is mandatory to use the `Edit project information...` dialog from the Studio.
 ====
 
 [#export-import]
