@@ -6,8 +6,7 @@
 
 [NOTE]
 ====
-
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
+For Subscription editions only.
 ====
 
 Bonita 7.7 supports the *Enterprise* licensing model in addition to the Case-based and CPU-based licensing.
