@@ -291,6 +291,8 @@ Can be used as dependency of a java client application using the https://search.
 
 The `bdm-model` dependency is automatically added when a REST API Extension is created from the Bonita Studio. It allows to manipulate Business Objects from a REST API Extension. +
 
+NOTE: Only *read operations* can be performed on business objects from a REST API Extension, even with the DAO. Write operations are done through processes.
+
 == Build and Deploy BDM artifacts
 
 It is possible to automate the build and deployment of the `bdm-model` and `bdm-dao-client` artifacts using *only* Maven. Publishing those artifacts can have its purpose if you need to consume them in any other maven or gradle projects outside of a Bonita project.
@@ -331,8 +333,6 @@ $ mvn -pl bdm/model -am deploy -DaltDeploymentRepository=<server_id>::<remote_re
 ----
 $ mvn -pl bdm/dao-client -am deploy -DaltDeploymentRepository=<server_id>::<remote_repository_url> <1>
 ----
-
-NOTE: Only *read operations* can be performed on business objects from a REST API Extension, even with the DAO. Write operations are done through processes.
 
 == Export the BDM
 
