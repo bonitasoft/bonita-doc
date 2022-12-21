@@ -10,10 +10,16 @@ The 2023.1 is in development.
 
 === Development suite changes
 
-==== Bonita project
+==== Bonita project layout 
 
 Bonita projects layout has been changed to take advantage of Maven multi-module project perks.
 
+First project component that will benefit from Maven multi-module project is the Business Data Model. We decided to align the way the Business Data Model is handled in Bonita with the standard  dependency handling practices by using Maven submodules. Submodules, or subprojects, are regular Maven projects that inherit from the parent POM. 
+
+With the chosen solution, the users will have the possibility to work on the Business Data Model independently and when their work is done, the project will pull the dependency from a specified repository - Maven Central or Bonita Artifact Repository- and build the application.
+
+Business Data Model content check at build or deploy will still be developer’s responsibility allong with handling data-deletion risks at build or deploy.
+For this Bonita version, reusing the generated artifacts in another Bonita project is not supported with refactoring capabilities. All changes will have to be handled manually by developpers.
 
 == Feature deprecations and removals
 
