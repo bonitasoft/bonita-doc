@@ -18,8 +18,8 @@ First project component that will benefit from Maven multi-module project is the
 
 With the chosen solution, the users will have the possibility to publish and consume the Business Data Model java dependencies independently. The project will pull the required dependencies from a specified repository - Maven Central or Bonita Artifact Repository- to generate the BDM java sources.
 
-Business Data Model content check at build or deploy will still be developer’s responsibility allong with handling data-deletion risks at build or deploy.
-For this Bonita version, reusing the generated artifacts in another Bonita project is not supported with refactoring capabilities. All changes will have to be handled manually by developpers.
+Business Data Model content check at build or deploy will still be developer’s responsibility along with handling data-deletion risks at build or deploy.
+For this Bonita version, reusing the generated artifacts in another Bonita project is not supported with refactoring capabilities. All changes will have to be handled manually by developers.
 
 == Feature deprecations and removals
 
