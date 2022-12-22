@@ -141,6 +141,25 @@ To deploy the REST API Extension:
 . Click on _Next_
 . Click on _Confirm_
 
+== Import a Rest API Extension in a Bonita Project
+
+When developing a Rest API Extension in an external project. You will need to import it as an extension in a Bonita Project.
+
+[CAUTION]
+====
+If the Rest API Extension depends on a BDM model, it is mandatory to import it in a Bonita project providing the same BDM model.
+====
+
+. Go to the Bonita Project Overview in the Studio
+. Click on Extensions
+. Click Add a Custom Extension > Rest API Extension...
+. Select the import mode:
+  . If the Rest API Extension is published on a remote Maven repository (Artifactory, Github package...), select `From a repository`:
+    . Specify the artifact coordinate of the Rest API Extension
+  . If not, you may select `From file`. It will copy the extension archive in the target Bonita Project.
+    . Browse the extension archive file (`*.zip`) from the Rest API Extension project `target` folder 
+. Click on `Import `
+
 == Use in applications
 
 A REST API Extensions must be deployed before any page or form resource using it is deployed.
@@ -158,13 +177,11 @@ In order to do so, edit `custom-permissions-mapping.properties` to give the perm
 
 [NOTE]
 ====
-
 REST API permissions are stored in the user's session and new permissions will only be effective for a user the next time they log into the Bonita Runtime.
 ====
 
 [WARNING]
 ====
-
 In Bonita Studio, the debug mode is disabled by default. In debug mode, you can see changes on your REST API Extensions without importing a new .zip archive, but it means the classloader of the extension is recreated at each request. +
 If you want to enable the debug mode, you can activate it in Bonita Studio "Server" preferences.
 ====
