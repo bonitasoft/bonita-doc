@@ -143,7 +143,7 @@ To deploy the REST API Extension:
 
 To consume a Rest API Extension developed in an external project, it is recommended to publish it in a Maven repository (Nexus, Artifactory, Github package...).
 
-Please read the [Maven deploy plugin](https://maven.apache.org/plugins/maven-deploy-plugin/usage.html) instruction to configure your project for publication.
+Please read the https://maven.apache.org/plugins/maven-deploy-plugin/usage.html[Maven deploy plugin^] instruction to configure your project for publication.
 
 == Import a Rest API Extension in a Bonita Project
 
