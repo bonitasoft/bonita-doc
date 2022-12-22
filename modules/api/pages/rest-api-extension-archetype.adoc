@@ -147,7 +147,7 @@ Please read the https://maven.apache.org/plugins/maven-deploy-plugin/usage.html[
 
 == Import a Rest API Extension in a Bonita Project
 
-When developing a Rest API Extension in an external project. You will need to import it as an extension in a Bonita Project.
+When developing a Rest API Extension in an external project, you will need to import it as an extension in a Bonita Project.
 
 [CAUTION]
 ====
