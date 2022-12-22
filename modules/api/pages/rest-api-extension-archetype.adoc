@@ -116,21 +116,19 @@ mvn archetype:generate \
     -DurlParameters=p,c \
     -DhttpVerb=GET
 ----
-
 ====
-
 
 ==== Generated project
 
 A folder named _[your artifact id]_ is created, with your Bonita Rest API Extension project, ready to use.
 Using the terminal you can `cd` into this folder and run:
 
- $ ./mvnw
+ $ ./mvnw verify
 
-It should build and test the generated api sample. The result of this build is a .zip archive that can be retrieved in the target folder of the project.
+It builds and tests the generated api sample. The result of this build is a .zip archive that can be retrieved in the `target` folder of the project.
 You can deploy this API extension archive using Bonita Administrator Application.
 
-=== Deployment
+== Deployment at Runtime
 
 To deploy the REST API Extension:
 
@@ -140,6 +138,12 @@ To deploy the REST API Extension:
 . Select the previously created .zip file
 . Click on _Next_
 . Click on _Confirm_
+
+== Publication 
+
+To consume a Rest API Extension developed in an external project, it is recommended to publish it in a Maven repository (Nexus, Artifactory, Github package...).
+
+Please read the [Maven deploy plugin](https://maven.apache.org/plugins/maven-deploy-plugin/usage.html) instruction to configure your project for publication.
 
 == Import a Rest API Extension in a Bonita Project
 
@@ -154,10 +158,10 @@ If the Rest API Extension depends on a BDM model, it is mandatory to import it i
 . Click on Extensions
 . Click Add a Custom Extension > Rest API Extension...
 . Select the import mode:
-  . If the Rest API Extension is published on a remote Maven repository (Artifactory, Github package...), select `From a repository`:
-    . Specify the artifact coordinate of the Rest API Extension
-  . If not, you may select `From file`. It will copy the extension archive in the target Bonita Project.
-    . Browse the extension archive file (`*.zip`) from the Rest API Extension project `target` folder 
+.. If the Rest API Extension is published on a remote Maven repository (Artifactory, Github package...), select `From a repository`:
+... Specify the artifact coordinate of the Rest API Extension
+.. If not, you may select `From file`. It will copy the extension archive in the target Bonita Project.
+... Browse the extension archive file (`*.zip`) from the Rest API Extension project `target` folder 
 . Click on `Import `
 
 == Use in applications
