@@ -156,7 +156,7 @@ If the Rest API Extension depends on a BDM model, it is mandatory to import it i
 
 . Go to the Bonita Project Overview in the Studio
 . Click on Extensions
-. Click Add a Custom Extension > Rest API Extension...
+. Click `Add a custom extension` > `REST API Extension...`
 . Select the import mode:
 .. If the Rest API Extension is published on a remote Maven repository (Artifactory, Github package...), select `From a repository`:
 ... Specify the artifact coordinate of the Rest API Extension
