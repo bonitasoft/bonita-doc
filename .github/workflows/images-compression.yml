@@ -10,7 +10,8 @@ on:
       - '**.webp'
 
 permissions:
-  pull-requests: read|write
+  pull-requests: write
+  contents: write
 
 jobs:
   build:
