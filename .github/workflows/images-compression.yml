@@ -9,7 +9,8 @@ on:
       - '**.png'
       - '**.webp'
 
-permissions: write-all
+permissions:
+  pull-requests: write
 
 jobs:
   build:
