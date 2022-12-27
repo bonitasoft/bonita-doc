@@ -111,6 +111,18 @@ if ($data.status === 'ok') {
 }
 ----
 
+==== Call a Rest API regularly (auto refresh)
+
+Sometimes it is required to call a Rest API regularly, to refresh a page for instance.
+As described above, a Rest API is called when the URL changes.
+
+So a solution can be to add a fake parameter at the end of the URL. For instance, add a parameter with a timestamp:
+```
+../API/bpm/humanTask/1?t={{timestamp}}
+```
+
+Then the `timestamp` JavaScript variable can be updated on a specific event (with `new Date().getTime()` for instance) when the Rest API should be called.
+
 === JavaScript expression
 
 An JavaScript expression variable is a JavaScript function. During the evaluation, the function can use the *$data* variable, which provides access to the page data model. For example:
