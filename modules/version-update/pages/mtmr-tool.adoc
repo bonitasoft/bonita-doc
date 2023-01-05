@@ -4,7 +4,7 @@
 
 {description}
 
-WARNING: xref:2022.2@ROOT:multi-tenancy-and-tenant-configuration.adoc[Multi-tenancy] has been removed starting from Bonita 2023.1 (technical version 7.16). *If you are using multi-tenancy, you will have to run this conversion tool before updating to Bonita 2023.1.*
+WARNING: xref:2022.2@ROOT:multi-tenancy-and-tenant-configuration.adoc[Multi-tenancy] has been removed starting from Bonita 2023.1. *If you are using multi-tenancy, you will have to run this conversion tool before updating to Bonita 2023.1.*
 
 Learn how to use the multi-tenant to multi-runtime tool to convert a multi-tenant platform into a multi-runtime one.
 
