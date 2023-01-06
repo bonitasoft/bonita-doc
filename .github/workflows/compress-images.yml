@@ -16,7 +16,7 @@ permissions:
 jobs:
   compress:
     # By default, GitHub Actions do not have permission to alter forked repositories
-    if: !github.event.pull_request.head.repo.fork
+    if: ${{ !github.event.pull_request.head.repo.fork }}
     name: calibreapp/image-actions
     runs-on: ubuntu-22.04
     steps:
