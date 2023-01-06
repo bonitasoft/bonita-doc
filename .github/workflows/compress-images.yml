@@ -1,0 +1,29 @@
+name: Compress Images
+on:
+  pull_request:
+    # Run Image Actions when JPG, JPEG, PNG or WebP files are added or changed.
+    paths:
+      - '**.jpg'
+      - '**.jpeg'
+      - '**.png'
+      - '**.webp'
+      - '.github/workflows/compress-images.yml'
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  compress:
+    # By default, GitHub Actions do not have permission to alter forked repositories
+    if: !github.event.pull_request.head.repo.fork
+    name: calibreapp/image-actions
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Compress Images
+        uses: calibreapp/image-actions@6753df48e658313f05436f016de5592677300659
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
