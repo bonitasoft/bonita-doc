@@ -21,7 +21,7 @@ Then you will be able to https://help.github.com/articles/create-a-repo/[create 
 . Create a project
 . Right-click on the project name in the Project Explorer.
 . Click on "Share with Git". A local Git repository is initialized, and a default `.gitignore` file is created.
-. Enter a commit message for the initial commit. If it is the first time you use Git, a dialog might prompt to ask for an identity (mail and name). This identity will be stored in the Git configuration and can be updated in preferences afterward. All your commits will be authored with this identity. Note that this is your Git identity, different from your GitHub credentials.
+. Enter a commit message for the initial commit. If it is the first time you are using Git, a dialog might prompt to ask for an identity (mail and name). The identity will be stored in Bonita Studio under Git configuration, that can be updated in preferences afterward. All your commits will be authored with this identity. Note that this is your Git identity, different from your GitHub credentials.
 . Click on "Commit and Push".
 . To push the project on the GitHub remote: +
 ..  On GitHub, navigate to the main page of the repository. Under the repository name, click on "Clone or download". In the Clone with HTTPs section, click on the icon to copy the clone URL for the repository. +
