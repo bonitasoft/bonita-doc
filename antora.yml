@@ -13,5 +13,7 @@ asciidoc:
     page-editable: true
     page-out-of-support: false
     openApiUrl: 'https://api-documentation.bonitasoft.com'
+    #Latest compatible version of bonita openApi with this Bonita version
+    openApiLatestVersion: '0.0.11'
 nav:
   - modules/ROOT/taxonomy.adoc

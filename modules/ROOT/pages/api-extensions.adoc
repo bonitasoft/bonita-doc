@@ -16,7 +16,7 @@ REST API Extensions use the same authorization mechanism as the standard Bonita 
 [NOTE]
 ====
 
-It is also possible to deploy a REST API Extensions using xref:portal-api.adoc#page[REST portal API / "page" resource].
+It is also possible to deploy a REST API Extensions using {openApiUrl}/{openApiLatestVersion}/#tag/Page[REST portal API / "page" resource].
 ====
 
 [NOTE]

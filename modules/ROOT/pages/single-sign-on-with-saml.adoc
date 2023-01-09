@@ -467,7 +467,7 @@ The IdP has sent an encrypted assertion in its response, but the SAML module can
 
 [.troubleshooting-section]
 --
-[.symptom] 
+[.symptom]
 SAML SSO successful login does not redirect to expected page.
 
 [.symptom-description]
@@ -511,7 +511,7 @@ SAML SSO successful login redirects to home page instead of originally targeted 
 After successfully logging in on the IdP and being redirected to Bonita, the URL initially requested is lost and users are redirected to the home page of Bonita server (by default `/bonita`). +
 
 [.cause]#Potential cause#
-When first accessing Bonita, a JSESSIONID cookie is created and the requested URL is stored in the associated HTTP session before the redirection to the IdP. After the authentication on the IdP, a request to the Assertion Consumer Service (ACS) URL (`/bonita/saml`) is made from another domain (the one of the IdP). Because of the https://developer.mozilla.org/fr/docs/Web/HTTP/Headers/Set-Cookie/SameSite#lax[Web Browsers policy regarding cookies], the JSESSIONID cookie that was first created is not sent (because the request is not made from a page of the same domain as the one of Bonita server). A new HTTP session is then created (with the associated JSESSIONID cookie) resulting in the requested URL stored in the first HTTP session being lost. 
+When first accessing Bonita, a JSESSIONID cookie is created and the requested URL is stored in the associated HTTP session before the redirection to the IdP. After the authentication on the IdP, a request to the Assertion Consumer Service (ACS) URL (`/bonita/saml`) is made from another domain (the one of the IdP). Because of the https://developer.mozilla.org/fr/docs/Web/HTTP/Headers/Set-Cookie/SameSite#lax[Web Browsers policy regarding cookies], the JSESSIONID cookie that was first created is not sent (because the request is not made from a page of the same domain as the one of Bonita server). A new HTTP session is then created (with the associated JSESSIONID cookie) resulting in the requested URL stored in the first HTTP session being lost.
 
 [.solution]#Possible solution#
 
@@ -550,7 +550,7 @@ The SAML request sent by the Bonita SAML adapter to the SAML IdP contains the fl
 ----
 
 [.solution]#Possible solution#
-Make sure that `forceAuthentication` is set to `"false"` in the *keycloak-saml.xml* file: 
+Make sure that `forceAuthentication` is set to `"false"` in the *keycloak-saml.xml* file:
 
 [source,xml]
 ----
@@ -601,4 +601,4 @@ Here is the subset of pages filtered by the SAML filter:
 
 REST API are not part of them, but if an http session already exists thanks to cookies, REST API can be used.
 
-The recommended way to authenticate to Bonita Portal to use the REST API is to use the xref:rest-api-overview.adoc#bonita-authentication[login service]..
+The recommended way to authenticate to Bonita Portal to use the REST API is to use the {openApiUrl}/{openApiLatestVersion}/#tag/PortalAuthentication/operation/login[login service]..

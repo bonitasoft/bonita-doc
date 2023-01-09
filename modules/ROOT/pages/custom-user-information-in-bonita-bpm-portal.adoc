@@ -20,7 +20,7 @@ The Administrator cannot create a CUI nor edit a CUI definition.
 ====
 
 if no customer user definitions are set in Bonita Studio, then no information will be displayed in Bonita Portal. +
-However, definitions can be created and edited using the xref:customuserinfo-api.adoc[Web REST API]. +
+However, definitions can be created and edited using the {openApiUrl}/{openApiLatestVersion}/#tag/CustomUserValue[Web REST API]. +
 The Organization .xml file can also be exported from Bonita Portal, modified by hand externally, and then re-imported back into Bonita Portal, although we strongly advise to always modify resources from the development environment and then deploy iteratively on the test environments until the Production environment.
 ====
 
