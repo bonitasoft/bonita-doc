@@ -40,7 +40,7 @@ To create a project:
 . A Project ID is derived from the given name. This ID can be changed but must respect the https://maven.apache.org/guides/mini/guide-naming-conventions.html[Maven artifactId naming conventions].
 . You may set a specific version to the project.
 . A Group ID must also be provided. A Group ID is a namespace that is used to uniquely identify your project from all other projects. Like for Project ID, it must follow https://maven.apache.org/guides/mini/guide-naming-conventions.html[the naming conventions].
-. You may leave the Target runtime version to its default value. It can be adjust if you want to target specific runtime version (_eg_: Using a Bonita Studio 2023.1-u4 to develop a project deployed on 2023.1-u1 runtime)
+. You may leave the target Runtime version to its default value. It can be adjusted if you want to target specific runtime version (_eg_: Using a Bonita Studio 2023.1-u4 to develop a project deployed on 2023.1-u1 runtime)
 . An optional description can be given
 . Click *_Create_* .
 
