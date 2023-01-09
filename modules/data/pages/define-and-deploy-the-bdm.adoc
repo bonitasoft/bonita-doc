@@ -256,8 +256,8 @@ To modify a new or existing object:
 == Generated Java dependencies
 
 Two maven artifacts are generated from the Business Data Model : *<ProjectId>-bdm-model* and *<ProjectId>-bdm-dao-client*. +
-The `version` and `groupId` of those artifacts matches the Bonita project version. 
-You have the possibility to view and retrieve the `bdm-model` dependency from the BDM editor `Maven artifact properties` section. +
+The `version` and `groupId` of those artifacts match the Bonita project version. 
+It is possible to view and retrieve the `bdm-model` dependency from the BDM editor `Maven artifact properties` section. +
 Those maven artifacts are meant to be used from REST API extensions, using the following dependencies:
 
 .The generated model dependency template
