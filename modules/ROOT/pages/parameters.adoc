@@ -47,4 +47,4 @@ You can edit a parameters.properties file to change the value of a parameter bef
 
 == Parameter usage in forms
 
-From 7.x, to use parameters in forms, you need to retrieve them using the xref:bpm-api.adoc[REST API].
+From 7.x, to use parameters in forms, you need to retrieve them using the {openApiUrl}/latest#tag/BPM[REST API].

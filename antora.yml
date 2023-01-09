@@ -12,5 +12,6 @@ asciidoc:
     # page attributes
     page-editable: true
     page-out-of-support: false
+    openApiUrl: 'https://api-documentation.bonitasoft.com'
 nav:
   - modules/ROOT/taxonomy.adoc
