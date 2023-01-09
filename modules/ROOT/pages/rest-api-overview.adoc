@@ -4,6 +4,18 @@
 
 {description}
 
+== Api documentation
+
+=== View the API reference
+
+You can view the reference for:
+
+|===
+| Latest supported REST api version | {openApiUrl}/{openApiLatestVersion}[{openApiLatestVersion}]
+| Choose a specific version | {openApiUrl}[Specific version]
+|===
+
+
 == Overview
 
 If your application is using a technology other than Java, you can integrate it with the Bonita solution using the Web REST API. This API provides access to all Bonita objects (like processes, tasks, users, connectors etc.), to execute operations on them (create, retrieve, update, delete). You can use these operations to create a workflow with Bonita and integrate it into your application. The Bonita Engine remains responsible for executing the workflow logic (connectors, gateways with conditions, messages, timers etc.) while your application gives access to the workflow. Users can manage processes and tasks, and perform administrative activities.
