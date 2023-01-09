@@ -153,7 +153,7 @@ jdk.tls.disabledAlgorithms=SSLv3, RC4, DES, MD5withRSA, \
 [NOTE]
 ====
 
-On failed tasks due to this exception, it's necessary to apply this solution and then to replay all these failed tasks following our standard procedure xref:admin-application-task-list.adoc#_replay_a_failed_flow_node[Replay a failed flow node].
+On failed tasks due to this exception, it's necessary to apply this solution and then to replay all these failed tasks following our standard procedure xref:runtime:admin-application-task-list.adoc#_replay_a_failed_flow_node[Replay a failed flow node].
 
 ====
 
