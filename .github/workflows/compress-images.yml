@@ -1,4 +1,3 @@
-# TODO remove this comment - only created to trigger a workflow run
 name: Compress Images
 on:
   pull_request:
