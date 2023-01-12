@@ -8,7 +8,6 @@
 
 === View the API reference
 
-You can view the reference for:
 
 |===
 | Latest supported REST api version | {openApiUrl}/{openApiLatestVersion}[{openApiLatestVersion}]
