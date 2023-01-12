@@ -5,7 +5,7 @@ A profile is an indirection to some entities of the organization: users, groups,
 Profiles work as permissions to give access to:
 
 * xref:applications.adoc[Living Applications]
-* Defined objects and attributes of the BDM (through xref:access-control-api.adoc[BDM Access Control])
+* Defined objects and attributes of the BDM (through {openApiUrl}/{openApiLatestVersion}/#tag/BDMAccessControl[BDM Access Control])
 * Navigation (menus) of Bonita Portal
 
 One organization entity can be mapped to several profiles. In Bonita Portal, a loggued user can switch between his/her profiles in the navigation bar.
