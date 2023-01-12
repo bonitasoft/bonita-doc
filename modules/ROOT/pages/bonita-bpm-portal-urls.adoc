@@ -51,19 +51,7 @@ This sample shows how to construct the complete URL. Prefer the short format for
 
 [source,java]
 ----
-return new StringBuffer("URL: <a href=\"")
-    .append("http://")
-    .append(host)
-    .append(":")
-    .append(port)
-    .append("/bonita/portal/resource/processInstance/")
-    .append(processName)
-    .append("/")
-    .append(processVersion)
-    .append("/content/?id=")
-    .append(processInstanceId)
-    .append("\">here</a>")
-    .toString();
+String.format("URL: <a href=\"http://%s:%s/bonita/portal/resource/processInstance/%s/%s/content/?id=%s\">Here</a>", host,port,processName,processVersion,processInstanceId)
 ----
 
 Example: +
@@ -75,15 +63,7 @@ This sample shows how to construct the short URL. Prefer this format for backwar
 
 [source,java]
 ----
- return new StringBuffer("URL: <a href=\"")
-    .append("http://")
-    .append(host)
-    .append(":")
-    .append(port)
-    .append("/bonita/portal/form/processInstance/")
-    .append(processInstanceId)
-    .append("\">here</a>")
-    .toString();
+String.format("URL: <a href=\"http://%s:%s/bonita/portal/form/processInstance/%s\">Here</a>", host,port,processInstanceId)
 ----
 
 Example: +
@@ -105,21 +85,7 @@ This sample shows how to construct the complete URL. Prefer the short format for
 
 [source,java]
 ----
- return new StringBuffer("URL: <a href=\"")
-    .append("http://")
-    .append(host)
-    .append(":")
-    .append(port)
-    .append("/bonita/portal/resource/taskInstance/")
-    .append(processName)
-    .append("/")
-    .append(processVersion)
-    .append("/")
-    .append(activityName)
-    .append("/content/?id=")
-    .append(activityInstanceId)
-    .append("\">here</a>")
-    .toString();
+ String.format("URL: <a href=\"http://%s:%s/bonita/portal/resource/taskInstance/%s/%s/%s/content/?id=%s\">Here</a>", host,port,processName,processVersion,activityName,activityInstanceId)
 ----
 
 Example: +
@@ -131,15 +97,7 @@ This sample shows how to construct the short URL. Prefer this format for backwar
 
 [source,java]
 ----
-return new StringBuffer("URL: <a href=\"")
-    .append("http://")
-    .append(host)
-    .append(":")
-    .append(port)
-    .append("/bonita/portal/form/taskInstance/")
-    .append(activityInstanceId)
-    .append("\">here</a>")
-    .toString();
+String.format("URL: <a href=\"http://%s:%s/bonita/portal/form/taskInstance/%s\">Here</a>", host,port,activityInstanceId)
 ----
 
 Example: +
@@ -149,17 +107,7 @@ Or if you only have the process instance ID and the task name:
 
 [source,java]
 ----
-  return new StringBuffer("URL: <a href=\"")
-    .append("http://")
-    .append(host)
-    .append(":")
-    .append(port)
-    .append("/bonita/portal/form/processInstance/")
-    .append(processInstanceId)
-    .append("/task/")
-    .append(taskName)
-    .append("\">here</a>")
-    .toString();
+String.format("URL: <a href=\"http://%s:%s/bonita/portal/form/processInstance/%s/task/%s\">Here</a>", host,port,processInstanceId,taskName)
 ----
 
 Example: +
