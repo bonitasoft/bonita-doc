@@ -22,7 +22,7 @@ xref:api-glossary.adoc[[.card-title]#REST API glossary# [.card-body.card-content
 
 [.card.card-index]
 --
-xref:rest-api-authentication.adoc[[.card-title]#REST Authentication# [.card-body.card-content-overflow]#pass:q[Authentication is a prerequisite to any other REST API call]#]
+{openApiUrl}/{openApiLatestVersion}/#tag/Authentication[[.card-title]#REST Authentication# [.card-body.card-content-overflow]#pass:q[Authentication is a prerequisite to any other REST API call]#]
 --
 
 [.card.card-index]
@@ -40,57 +40,57 @@ xref:rest-api-extension-archetype.adoc[[.card-title]#Create a REST API extension
 
 [.card.card-index]
 --
-xref:application-api.adoc[[.card-title]#Application API# [.card-body.card-content-overflow]#pass:q[Retrieve the current deployed application definitions]#]
+{openApiUrl}/{openApiLatestVersion}/#tag/Application[[.card-title]#Application API# [.card-body.card-content-overflow]#pass:q[Retrieve the current deployed application definitions]#]
 --
 
 [.card.card-index]
 --
-xref:access-control-api.adoc[[.card-title]#BDM Access Control API# [.card-body.card-content-overflow]#pass:q[Retrieve BDM Access Control status]#]
+{openApiUrl}/{openApiLatestVersion}/#tag/BDMAccessControl[[.card-title]#BDM Access Control API# [.card-body.card-content-overflow]#pass:q[Retrieve BDM Access Control status]#]
 --
 
 [.card.card-index]
 --
-xref:bdm-api.adoc[[.card-title]#BDM API# [.card-body.card-content-overflow]#pass:q[Query the Business data]#]
+{openApiUrl}/{openApiLatestVersion}/#tag/BDM[[.card-title]#BDM API# [.card-body.card-content-overflow]#pass:q[Query the Business data]#]
 --
 
 [.card.card-index]
 --
-xref:bpm-api.adoc[[.card-title]#BPM API# [.card-body.card-content-overflow]#pass:q[Retrieve activities, perform maintenance tasks]#]
+{openApiUrl}/{openApiLatestVersion}/#tag/BPM[[.card-title]#BPM API# [.card-body.card-content-overflow]#pass:q[Retrieve activities, perform maintenance tasks]#]
 --
 
 [.card.card-index]
 --
-xref:customuserinfo-api.adoc[[.card-title]#Custom User Information API# [.card-body.card-content-overflow]#pass:q[Manage your specific user information]#]
+{openApiUrl}/{openApiLatestVersion}/#tag/CustomUserValue[[.card-title]#Custom User Information API# [.card-body.card-content-overflow]#pass:q[Manage your specific user information]#]
 --
 
 [.card.card-index]
 --
-xref:form-api.adoc[[.card-title]#Form API# [.card-body.card-content-overflow]#pass:q[Map a form to a process or a task]#]
+{openApiUrl}/{openApiLatestVersion}/#tag/FormMapping[[.card-title]#Form API# [.card-body.card-content-overflow]#pass:q[Map a form to a process or a task]#]
 --
 
 [.card.card-index]
 --
-xref:identity-api.adoc[[.card-title]#Identity API# [.card-body.card-content-overflow]#pass:q[Manage the organization]#]
+{openApiUrl}/{openApiLatestVersion}/#tag/Identity[[.card-title]#Identity API# [.card-body.card-content-overflow]#pass:q[Manage the organization]#]
 --
 
 [.card.card-index]
 --
-xref:platform-api.adoc[[.card-title]#Platform API# [.card-body.card-content-overflow]#pass:q[Manage Bonita platform-level resources]#]
+{openApiUrl}/{openApiLatestVersion}/#tag/Platform[[.card-title]#Platform API# [.card-body.card-content-overflow]#pass:q[Manage Bonita platform-level resources]#]
 --
 
 [.card.card-index]
 --
-xref:portal-api.adoc[[.card-title]#Portal API# [.card-body.card-content-overflow]#pass:q[Access and manage pages, profiles and themes]#]
+{openApiUrl}/{openApiLatestVersion}/#tag/PortalAuthentication[[.card-title]#Portal API# [.card-body.card-content-overflow]#pass:q[Access and manage pages, profiles and themes]#]
 --
 
 [.card.card-index]
 --
-xref:system-api.adoc[[.card-title]#System API# [.card-body.card-content-overflow]#pass:q[Retrieve information on the current session and on localisation / translation.]#]
+{openApiUrl}/{openApiLatestVersion}/#tag/System[[.card-title]#System API# [.card-body.card-content-overflow]#pass:q[Retrieve information on the current session and on localisation / translation.]#]
 --
 
 [.card.card-index]
 --
-xref:tenant-api.adoc[[.card-title]#Tenant API# [.card-body.card-content-overflow]#pass:q[Show the tenant status or install / update the BDM]#]
+{openApiUrl}/{openApiLatestVersion}/#tag/SystemTenant[[.card-title]#Tenant API# [.card-body.card-content-overflow]#pass:q[Show the tenant status or install / update the BDM]#]
 --
 
 
@@ -153,7 +153,7 @@ xref:ROOT:bdm-in-rest-api.adoc[[.card-title]#Manage BDM in REST API extensions# 
 
 [.card.card-index]
 --
-xref:ROOT:manage-files-using-upload-servlet-and-rest-api.adoc[[.card-title]#Manage files using upload servlet and REST API# [.card-body.card-content-overflow]#pass:q[Manage files through REST API]#]
+{openApiUrl}/{openApiLatestVersion}/#tag/Upload/operation/uploadFile[[.card-title]#Manage files using upload servlet and REST API# [.card-body.card-content-overflow]#pass:q[Manage files through REST API]#]
 --
 
 [.card.card-index]
