@@ -5,7 +5,7 @@
 {description} +
 Profiles work as permissions to give access to:
 
-* xref:applications.adoc[Living Applications]
+* xref:runtime:applications.adoc[Living Applications]
 * Defined objects and attributes of the BDM (through {openApiUrl}/{openApiLatestVersion}/#tag/BDMAccessControl[BDM Access Control])
 * Navigation (menus) of Bonita Portal
 
