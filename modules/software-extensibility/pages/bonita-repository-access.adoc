@@ -38,6 +38,20 @@ Credentials are unique per subscription access and include:
 In the below example, we use Maven as the project build tool for extension projects. But it is also possible to use Gradle if it is the tool of your choice.
 ====
 
+=== Using a Wizard to configure your first access to the bonita repository
+To helping you, a Wizard can be used to configure your access to the Bonita Artifact Repository. This Wizard is available in two ways:
+
+* At the startup of the Bonita Studio through a pop-up showing that you don't have a Bonita Artifact Repository connection. 
+* Using the menu Help > Test connection to Maven repositories which will activated the same pop-up.
+
+In both case, clicking on Configure button will display the Wizard helping you to configure your first Bonita Artifact Repository connection.
+
+[WARNING]
+====
+The Wizard can also be used to configure your Proxy settings or adding a Mirror settings.
+We recommend using a Mirror repository instead of a direct connection to Bonita Artifact Repository. 
+====
+
 === Maven settings overview
 
 Once you were granted with Bonita Artifact Repository credentials, you have to https://maven.apache.org/configure.html[configure] `Maven` to use Bonita maven repository.
