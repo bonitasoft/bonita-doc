@@ -84,8 +84,6 @@ This variable is evaluated every time the value of `userId` changes. Also, if `u
 
 * Retrieve the task with the id `taskId`: +
 API URL: `+../API/bpm/humanTask/{{taskId}}+`
-* Retrieve a xref:ROOT:bdm-api.adoc[business object] with name `businessDataName` associated with the case with id `caseId`: +
-API URL: `+../API/bdm/businessDataReference/{{caseId}}/{{businessDataName}}+`
 * Retrieve business data using the reference link in the xref:data:contracts-and-contexts.adoc[context] when building a form: +
 API URL: `../{{context.myBusinessData_ref.link}}`
 * Retrieve lazy references of a business data field using `lazyRef` filter in an External API variable: +
