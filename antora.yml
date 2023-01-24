@@ -6,9 +6,9 @@ prerelease: -alpha
 asciidoc:
   attributes:
     bonitaVersion: 2023.1
-    bonitaTechnicalVersion: '7.16.0' # latest public community version
-    javadocVersion: 7.16
-    crowdinBonitaVersion: 7.16
+    bonitaTechnicalVersion: '8.0.0' # latest public community version
+    javadocVersion: 8.0
+    crowdinBonitaVersion: 8.0
     # ref versions of other components
     bcdDocVersion: '3.6'
     # page attributes
