@@ -27,7 +27,7 @@ The credentials have the same validity duration as your subscription renewal inc
 
 Credentials are unique per subscription access and include:
 
-* A subscription access login (email addresse used for the subscription)
+* A subscription access login (email that is used for the subscription)
 * A subscription access token
 
 [#maven]
