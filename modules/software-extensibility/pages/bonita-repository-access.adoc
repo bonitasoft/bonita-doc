@@ -38,7 +38,7 @@ Credentials are unique per subscription access and include:
 In the below example, we use Maven as the project build tool for extension projects. But it is also possible to use Gradle if you choose to do so. 
 ====
 
-=== Access to Bonita Artifact Repository configuration
+=== Configure access to Bonita Artifact Repository *in Bonita Studio*
 
 Acces to Bonita Artifact Repository is configured using the configuration wizard, that is available in two ways:
 
@@ -53,7 +53,7 @@ The wizard can also be used to configure your proxy or Mirror settings.
 When possible, its is recommended to use a Mirror repository instead of a direct connection to Bonita Artifact Repository. 
 ====
 
-=== Maven settings overview
+=== Maven settings overview *outside Bonita Studio*
 
 Once credentials to Bonita Artifact Repository are granted, you have to https://maven.apache.org/configure.html[configure] `Maven` to use Bonita Maven repository.
 
