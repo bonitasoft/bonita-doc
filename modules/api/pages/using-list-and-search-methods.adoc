@@ -116,7 +116,7 @@ Using word-based search has an impact on performance, so by default it is disabl
 edit `platform_engine/bonita-platform-community-custom.properties` and change the value of
 `bonita.platform.persistence.platform.enableWordSearch` (for the platform) or
 `bonita.platform.persistence.tenant.enableWordSearch` (for a tenant) to `true`.
-. For each object you be excluded from word-based search,  using xref:runtime:bonita-platform-setup.adoc[the setup tool],
+. For each object to exclude from word-based search,  using xref:runtime:bonita-platform-setup.adoc[the setup tool],
 edit `platform_engine/bonita-platform-custom.xml` add a mapping to the `wordSearchExclusionMappings` set.
 Each mapping has the following form:
 
