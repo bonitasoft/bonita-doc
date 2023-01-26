@@ -23,11 +23,11 @@ An Internet connection is required.
 == Ask for credentials to your account manager
 
 Once your subscription is registered, your account manager will automatically receive an email with valid credentials.
-These credentials will last as long as your subscription, but you will not need to change them if you extend that subscription.
+The credentials have the same validity duration as your subscription renewal included, meaning that you will not have to change them at each renewal.
 
 Credentials are unique per subscription access and include:
 
-* A subscription access login (the email used for the subscription)
+* A subscription access login (email that is used for the subscription)
 * A subscription access token
 
 [#maven]
@@ -35,12 +35,27 @@ Credentials are unique per subscription access and include:
 
 [NOTE]
 ====
-In the below example, we use Maven as the project build tool for extension projects. But it is also possible to use Gradle if it is the tool of your choice.
+In the below example, we use Maven as the project build tool for extension projects. But it is also possible to use Gradle if you choose to do so. 
 ====
 
-=== Maven settings overview
+=== Configure access to Bonita Artifact Repository *in Bonita Studio*
 
-Once you were granted with Bonita Artifact Repository credentials, you have to https://maven.apache.org/configure.html[configure] `Maven` to use Bonita maven repository.
+Acces to Bonita Artifact Repository is configured using the configuration wizard, that is available in two ways:
+
+* At Bonita Studio start-up through the connection check pop-up 
+* Using the menu *Help* > *Test connection to Maven repositories* 
+
+In both case, clicking on *Configure* button will open the connection to Bonita Artifact Repository configuration wizard.
+
+[WARNING]
+====
+The wizard can also be used to configure your proxy or Mirror settings.
+When possible, its is recommended to use a Mirror repository instead of a direct connection to Bonita Artifact Repository. 
+====
+
+=== Maven settings overview *outside Bonita Studio*
+
+Once credentials to Bonita Artifact Repository are granted, you have to https://maven.apache.org/configure.html[configure] `Maven` to use Bonita Maven repository.
 
 This is done in a text file named `settings.xml`. The file location depends on your Maven installation, which is explained on https://maven.apache.org/settings.html[Maven official documentation].
 
@@ -340,6 +355,6 @@ Your Maven build fails with an equivalent error:
 Your credentials are valid but your are not allowed to access what you are asking for. 
 
 [.solution]#Solution#
-Contact your support to check your permissions.
+Contact support team to check your permissions.
 
 --
