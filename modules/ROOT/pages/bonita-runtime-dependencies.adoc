@@ -1,4 +1,4 @@
-= Bonita Runtime dependencies (7.16-SNAPSHOT)
+= Bonita Runtime dependencies (8.0.0.alpha-01)
 :page-aliases: ROOT:bonita-web-dependencies.adoc, ROOT:bonita-engine-dependencies.adoc
 :description: List all dependencies used by Bonita Runtime
 
@@ -10,7 +10,7 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.13.2.20221013
+| 2.13.4.20221013
 | N/A
 |  N/A
 
@@ -91,7 +91,7 @@
 | 1.7.30
 | http://www.slf4j.org[http://www.slf4j.org]
 |  http://www.opensource.org/licenses/mit-license.php[MIT License]
-|===
+|=== 
 
 == bonita-client
 
@@ -142,7 +142,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.19
+| 1.4.20
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -235,7 +235,7 @@
 | 1.1.3.1
 | http://www.xmlpull.org[http://www.xmlpull.org]
 |  http://www.xmlpull.org/v1/download/unpacked/LICENSE.txt[Public Domain]
-|===
+|=== 
 
 == bonita-server
 
@@ -250,13 +250,13 @@
 
 | ch.qos.logback
 | logback-classic
-| 1.2.8
+| 1.2.11
 | http://www.qos.ch[http://www.qos.ch]
 |  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
 
 | ch.qos.logback
 | logback-core
-| 1.2.8
+| 1.2.11
 | http://www.qos.ch[http://www.qos.ch]
 |  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
 
@@ -322,7 +322,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.19
+| 1.4.20
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -691,7 +691,7 @@
 | 1.1.3.1
 | http://www.xmlpull.org[http://www.xmlpull.org]
 |  http://www.xmlpull.org/v1/download/unpacked/LICENSE.txt[Public Domain]
-|===
+|=== 
 
 == bonita-web-server
 
@@ -706,67 +706,67 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.13.2.20220328
+| 2.13.4.20221013
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.13.2
+| 2.13.4
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.13.2
+| 2.13.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.13.2.2
+| 2.13.4.2
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-csv
-| 2.13.2
+| 2.13.4
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-smile
-| 2.13.2
+| 2.13.4
 | http://github.com/FasterXML/jackson-dataformats-binary[http://github.com/FasterXML/jackson-dataformats-binary]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-xml
-| 2.13.2
+| 2.13.4
 | https://github.com/FasterXML/jackson-dataformat-xml[https://github.com/FasterXML/jackson-dataformat-xml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-yaml
-| 2.13.2
+| 2.13.4
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.module
 | jackson-module-jaxb-annotations
-| 2.13.2
+| 2.13.4
 | https://github.com/FasterXML/jackson-modules-base[https://github.com/FasterXML/jackson-modules-base]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.module
 | jackson-module-jsonSchema
-| 2.13.2
+| 2.13.4
 | https://github.com/FasterXML/jackson-module-jsonSchema[https://github.com/FasterXML/jackson-module-jsonSchema]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.woodstox
 | woodstox-core
-| 6.2.7
+| 6.4.0
 | https://github.com/FasterXML/woodstox[https://github.com/FasterXML/woodstox]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -796,7 +796,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.19
+| 1.4.20
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -892,7 +892,7 @@
 
 | net.sf.ehcache
 | ehcache
-| 2.10.10.3.24
+| 2.10.10.8.4
 | http://www.terracotta.org[http://www.terracotta.org]
 |  src/assemble/EHCACHE-CORE-LICENSE.txt
 
@@ -937,12 +937,6 @@
 | 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.jettison
-| jettison
-| 1.3.1
-| N/A
-|  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.codehaus.woodstox
 | stax2-api
@@ -1042,22 +1036,16 @@
 
 | org.yaml
 | snakeyaml
-| 1.30
+| 1.31
 | https://bitbucket.org/snakeyaml/snakeyaml[https://bitbucket.org/snakeyaml/snakeyaml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
-
-| stax
-| stax-api
-| 1.0.1
-| http://stax.codehaus.org/[http://stax.codehaus.org/]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | xmlpull
 | xmlpull
 | 1.1.3.1
 | http://www.xmlpull.org[http://www.xmlpull.org]
 |  http://www.xmlpull.org/v1/download/unpacked/LICENSE.txt[Public Domain]
-|===
+|=== 
 
 == platform-setup
 
@@ -1144,7 +1132,7 @@
 
 | org.postgresql
 | postgresql
-| 42.4.2
+| 42.4.3
 | https://jdbc.postgresql.org/[https://jdbc.postgresql.org/]
 |  https://jdbc.postgresql.org/about/license.html[BSD-2-Clause]
 
@@ -1237,7 +1225,7 @@
 | 1.32
 | https://bitbucket.org/snakeyaml/snakeyaml[https://bitbucket.org/snakeyaml/snakeyaml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
-|===
+|=== 
 
 == bonita-common-sp
 
@@ -1333,7 +1321,7 @@
 | 1.7.30
 | http://www.slf4j.org[http://www.slf4j.org]
 |  http://www.opensource.org/licenses/mit-license.php[MIT License]
-|===
+|=== 
 
 == bonita-client-sp
 
@@ -1384,7 +1372,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.19
+| 1.4.20
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -1477,7 +1465,7 @@
 | 1.1.3.1
 | http://www.xmlpull.org[http://www.xmlpull.org]
 |  http://www.xmlpull.org/v1/download/unpacked/LICENSE.txt[Public Domain]
-|===
+|=== 
 
 == bonita-server-sp
 
@@ -1492,13 +1480,13 @@
 
 | ch.qos.logback
 | logback-classic
-| 1.2.8
+| 1.2.11
 | http://www.qos.ch[http://www.qos.ch]
 |  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
 
 | ch.qos.logback
 | logback-core
-| 1.2.8
+| 1.2.11
 | http://www.qos.ch[http://www.qos.ch]
 |  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
 
@@ -1582,7 +1570,7 @@
 
 | com.hazelcast
 | hazelcast
-| 5.1.2
+| 5.1.5
 | http://www.hazelcast.com/[http://www.hazelcast.com/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1594,7 +1582,7 @@
 
 | com.hazelcast
 | hazelcast-spring
-| 5.1.2
+| 5.1.5
 | http://www.hazelcast.com/[http://www.hazelcast.com/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1624,7 +1612,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.19
+| 1.4.20
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -2065,7 +2053,7 @@
 | 1.1.3.1
 | http://www.xmlpull.org[http://www.xmlpull.org]
 |  http://www.xmlpull.org/v1/download/unpacked/LICENSE.txt[Public Domain]
-|===
+|=== 
 
 == bonita-web-server-sp
 
@@ -2080,69 +2068,75 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.13.2.20220328
+| 2.13.4.20221013
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.13.2
+| 2.13.4
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.13.2
+| 2.13.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.13.2.2
+| 2.13.4.2
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-csv
-| 2.13.2
+| 2.13.4
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-smile
-| 2.13.2
+| 2.13.4
 | http://github.com/FasterXML/jackson-dataformats-binary[http://github.com/FasterXML/jackson-dataformats-binary]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-xml
-| 2.13.2
+| 2.13.4
 | https://github.com/FasterXML/jackson-dataformat-xml[https://github.com/FasterXML/jackson-dataformat-xml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-yaml
-| 2.13.2
+| 2.13.4
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.module
 | jackson-module-jaxb-annotations
-| 2.13.2
+| 2.13.4
 | https://github.com/FasterXML/jackson-modules-base[https://github.com/FasterXML/jackson-modules-base]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.module
 | jackson-module-jsonSchema
-| 2.13.2
+| 2.13.4
 | https://github.com/FasterXML/jackson-module-jsonSchema[https://github.com/FasterXML/jackson-module-jsonSchema]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.woodstox
 | woodstox-core
-| 6.2.7
+| 6.3.1
 | https://github.com/FasterXML/woodstox[https://github.com/FasterXML/woodstox]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| com.github.ua-parser
+| uap-java
+| 1.5.2
+| https://github.com/ua-parser/uap-java[https://github.com/ua-parser/uap-java]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache License, Version 2.0]
 
 | com.googlecode.json-simple
 | json-simple
@@ -2200,7 +2194,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.19
+| 1.4.20
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -2326,7 +2320,7 @@
 
 | net.sf.ehcache
 | ehcache
-| 2.10.10.3.24
+| 2.10.10.8.4
 | http://www.terracotta.org[http://www.terracotta.org]
 |  src/assemble/EHCACHE-CORE-LICENSE.txt
 
@@ -2380,27 +2374,27 @@
 
 | org.bouncycastle
 | bcpkix-jdk15on
-| 1.68
-| http://www.bouncycastle.org/java.html[http://www.bouncycastle.org/java.html]
-|  http://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
+| 1.70
+| https://www.bouncycastle.org/java.html[https://www.bouncycastle.org/java.html]
+|  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
 | org.bouncycastle
 | bcprov-jdk15on
-| 1.68
-| http://www.bouncycastle.org/java.html[http://www.bouncycastle.org/java.html]
-|  http://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
+| 1.70
+| https://www.bouncycastle.org/java.html[https://www.bouncycastle.org/java.html]
+|  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
+
+| org.bouncycastle
+| bcutil-jdk15on
+| 1.70
+| https://www.bouncycastle.org/java.html[https://www.bouncycastle.org/java.html]
+|  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
 | org.codehaus.groovy
 | groovy
 | 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.jettison
-| jettison
-| 1.3.1
-| N/A
-|  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.codehaus.woodstox
 | stax2-api
@@ -2470,67 +2464,85 @@
 
 | org.keycloak
 | keycloak-adapter-core
-| 18.0.2
+| 20.0.3
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.keycloak
 | keycloak-adapter-spi
-| 18.0.2
+| 20.0.3
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.keycloak
 | keycloak-common
-| 18.0.2
+| 20.0.3
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.keycloak
 | keycloak-core
-| 18.0.2
+| 20.0.3
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.keycloak
+| keycloak-crypto-default
+| 20.0.3
+| N/A
+|  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
+
+| org.keycloak
 | keycloak-saml-adapter-api-public
-| 18.0.2
+| 20.0.3
 | N/A
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.keycloak
 | keycloak-saml-adapter-core
-| 18.0.2
+| 20.0.3
 | N/A
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.keycloak
 | keycloak-saml-core
-| 18.0.2
+| 20.0.3
 | N/A
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.keycloak
 | keycloak-saml-core-public
-| 18.0.2
+| 20.0.3
 | N/A
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.keycloak
 | keycloak-saml-servlet-filter-adapter
-| 18.0.2
+| 20.0.3
+| N/A
+|  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
+
+| org.keycloak
+| keycloak-server-spi
+| 20.0.3
+| N/A
+|  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
+
+| org.keycloak
+| keycloak-server-spi-private
+| 20.0.3
 | N/A
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.keycloak
 | keycloak-servlet-adapter-spi
-| 18.0.2
+| 20.0.3
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.keycloak
 | keycloak-servlet-filter-adapter
-| 18.0.2
+| 20.0.3
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
@@ -2590,22 +2602,16 @@
 
 | org.yaml
 | snakeyaml
-| 1.30
+| 1.31
 | https://bitbucket.org/snakeyaml/snakeyaml[https://bitbucket.org/snakeyaml/snakeyaml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
-
-| stax
-| stax-api
-| 1.0.1
-| http://stax.codehaus.org/[http://stax.codehaus.org/]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | xmlpull
 | xmlpull
 | 1.1.3.1
 | http://www.xmlpull.org[http://www.xmlpull.org]
 |  http://www.xmlpull.org/v1/download/unpacked/LICENSE.txt[Public Domain]
-|===
+|=== 
 
 == platform-setup-sp
 
@@ -2692,7 +2698,7 @@
 
 | org.postgresql
 | postgresql
-| 42.4.2
+| 42.4.3
 | https://jdbc.postgresql.org/[https://jdbc.postgresql.org/]
 |  https://jdbc.postgresql.org/about/license.html[BSD-2-Clause]
 
@@ -2785,4 +2791,4 @@
 | 1.32
 | https://bitbucket.org/snakeyaml/snakeyaml[https://bitbucket.org/snakeyaml/snakeyaml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
-|===
+|=== 
