@@ -1,4 +1,4 @@
-= Generate project documentation
+= Collaborative work: project documentation
 :description: How to generate the project documentation in Bonita Studio.
 
 How to generate the project documentation in Bonita Studio.
