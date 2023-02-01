@@ -1,4 +1,4 @@
-= Bonita engine dependencies (7.15.1)
+= Bonita engine dependencies (7.15.2)
 :description: List all dependencies uses for Bonita Engine
 
 
@@ -141,7 +141,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.19
+| 1.4.20
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -309,7 +309,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.19
+| 1.4.20
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -765,7 +765,7 @@
 
 | org.postgresql
 | postgresql
-| 42.4.2
+| 42.4.3
 | https://jdbc.postgresql.org/[https://jdbc.postgresql.org/]
 |  https://jdbc.postgresql.org/about/license.html[BSD-2-Clause]
 
@@ -1005,7 +1005,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.19
+| 1.4.20
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -1191,7 +1191,7 @@
 
 | com.hazelcast
 | hazelcast
-| 5.1.2
+| 5.1.5
 | http://www.hazelcast.com/[http://www.hazelcast.com/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1203,7 +1203,7 @@
 
 | com.hazelcast
 | hazelcast-spring
-| 5.1.2
+| 5.1.5
 | http://www.hazelcast.com/[http://www.hazelcast.com/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1233,7 +1233,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.19
+| 1.4.20
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -1761,7 +1761,7 @@
 
 | org.postgresql
 | postgresql
-| 42.4.2
+| 42.4.3
 | https://jdbc.postgresql.org/[https://jdbc.postgresql.org/]
 |  https://jdbc.postgresql.org/about/license.html[BSD-2-Clause]
 
