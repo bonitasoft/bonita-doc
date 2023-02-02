@@ -327,7 +327,7 @@ Please refer to the guide on updating the configuration file using the xref:ROOT
 If you have done specific configuration and customization actions in your server source version, re-do it by configuring the application server in folder  bonita-target-version/server.
 
 ==== Manual operations 
-. Perform a diff between the source version and the target version of tenants/[TENANT_ID]/tenant_portal/dynamic-permissions-checks.properties and put the additional lines into the file tenants/[TENANT_ID]/tenant_portal/dynamic-permissions-checks-custom.properties
+Perform a diff between the source version and the target version of tenants/[TENANT_ID]/tenant_portal/dynamic-permissions-checks.properties and put the additional lines into the file tenants/[TENANT_ID]/tenant_portal/dynamic-permissions-checks-custom.properties
 
 === Licenses
 // link to Runtime configuration
