@@ -119,6 +119,26 @@ Reminder : For commercial and support questions, please refer to your Customer S
 For the users of Bonita Community edition, Bonita 2022.2 also comes with all the bug fixes released in the Maintenance versions of Bonita 2022.1 (up until version 2022.1-u6).
 The detailed list is available in the "What’s new in Bonita 2022.1" page, in the "Bug fixes" section.
 
+=== Fixes in Bonita 2022.2-u2 (2023-02-02)
+
+==== Fixes in Bonita Studio including Bonita UI Designer
+
+* STUDIO-4451 - Fix Dependency remote lookup failure when central is not reachable
+* STUDIO-4452 - Fix refresh validation so that Groovy script validation marker does not disappear
+* UID-716     - Fix missing keys in localization.json asset
+
+==== Fixes in Bonita Runtime including Bonita native Applications
+
+* RUNTIME-1555 - Fix selection in Users mapped to process manager profile: when selecting one user in search list, all users were selected
+* RUNTIME-1566 - Fix Logger configuration failure with Bonita docker image
+* RUNTIME-1567 - Fix layout deployment: the permissions corresponding to the 'resources' in page.properties are now added into the compound-permissions-mapping-internal.properties
+* RUNTIME-1580 - [Security] Version update of several dependencies for 2022.2-u2 (7.15.2)
+* RUNTIME-1582 - Fix New ProcessPermissionRule granting access to ANY user provided the process has pending tasks
+* RUNTIME-1590 - Fix Users having access to overview of process when they are not involved in it
+* RUNTIME-1625 - Fix REST API extension matching when url start with a / in page.properties
+* RUNTIME-1630 - Fix bonita/portal/custom-page : HTTP status 500 Internal error + NPE
+* RUNTIME-1633 - Fix translation in admin user app
+
 === Fixes in Bonita 2022.2-u1 (2022-12-05)
 
 ==== Fixes in Bonita Studio including Bonita UI Designer
