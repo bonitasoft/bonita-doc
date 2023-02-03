@@ -25,6 +25,8 @@ jobs:
         # use the branch of https://github.com/bonitasoft/bonita-documentation-site/pull/513 to test its implemnetation
         uses: bonitasoft/bonita-documentation-site/.github/actions/build-pr-site/@chore/validate_doc_content_branch
         with:
+          # use the branch of the doc-site PR under test
+          doc-site-branch: chore/validate_doc_content_branch
           # '>' Replace newlines with spaces (folded)
           # '-' No newline at end (strip)
           build-preview-command: >-
