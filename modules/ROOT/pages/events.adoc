@@ -73,7 +73,7 @@ To define the duration or the end of the delay, select the intermediate timer ev
 
 === Boundary timer
 
-Use a boundary timer to set a deadline by which an activity should end. You can set a boundary timer on a human task or a call activity. If the activity does not start before the deadline, the timer is triggered and it diverts the normal process flow to an exception flow. For example, you can use a boundary timer to escalate a late task. The deadline can be set as a duration (for example 48 hours) or as a specific time and date.
+Use a boundary timer to set a deadline by which an activity should end. You can set a boundary timer on a human task or a call activity. If the activity is not executed before the deadline, the timer is triggered and it diverts the normal process flow to an exception flow. For example, you can use a boundary timer to escalate a late task. The deadline can be set as a duration (for example 48 hours) or as a specific time and date.
 
 To define the deadline, select the intermediate timer event, go to the Details panel, General tab, General pane, and click *_Edit..._* to set the timer conditions.
 
