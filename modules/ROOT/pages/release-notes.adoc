@@ -54,9 +54,9 @@ The following improvements have been made so that digitally accessible applicati
 * To be more accessible for speech synthesizers, screen readers or some other tools, the internal html template of checklist and radio buttons widget has been updated.
 
 [WARNING]
-===
+====
 The changes will automatically be available when changing a page in Bonita UI Designer <2023.1> developed with a previous Bonita UI Designer version. xref:pages-and-forms:widgets.adoc#widgets-templating-troubleshooting[Custom styling] could be impacted so take this fact into account in your development estimates.
-===
+====
 
 === Multi-tenancy removal
 
