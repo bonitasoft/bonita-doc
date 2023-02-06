@@ -55,6 +55,12 @@ It can be prefilled with an HTML template.
 
 A options toolbar exposed to end users can be customized and localized with the usual xref:ROOT:multi-language-pages.adoc[localization mechanism] (localization.json file).
 
+[WARNING]
+====
+If you're using this widget in a digitally accessible applications, you could face some limitations (ex: the `input` tag don't have a linked label).
+====
+
+
 == "Widget actions" Menu
 
 From the properties panel header, the "Widget actions" menu provides a list of actions for the selected widget.
@@ -92,9 +98,6 @@ Switch feature not available for Internet Explorer 11 and Microsoft Edge.
 [.troubleshooting-title]
 == Troubleshooting UI Designer widgets
 
-[.troubleshooting-title]
-=== Troubleshooting File Viewer
-
 [.troubleshooting-section]
 --
 [.symptom]
@@ -109,3 +112,20 @@ The URL points on a file without extension (e.g. \https://myhost/doc/sample)
 [.solution]#Possible solution#
 Make a custom widget from the File Viewer widget, and adapt the `controller.isPDF` or `controller.isImage`.
 --
+
+[#widgets-templating-troubleshooting]
+[.troubleshooting-section]
+--
+[.symptom]
+My custom styling on pbChecklist or pbRadiobuttons isn't working as in oldest version.
+
+[.symptom-description]
+My custom css rule, from a theme or a css file is not apply after the migration on {bonitaVersion}.
+
+[.cause]#Potential cause#
+This two widgets was updated to following some accessibility rules so the internal HTML templating has been changed.
+
+[.solution]#Possible solution#
+Check you custom css selector, as example, <label> html tag is replaced by <legend>. For more details you can go on UI-Designer, Editor > Help (in the top right corner) > Migrations.
+--
+
