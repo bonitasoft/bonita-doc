@@ -117,15 +117,15 @@ Make a custom widget from the File Viewer widget, and adapt the `controller.isPD
 [.troubleshooting-section]
 --
 [.symptom]
-My custom styling on pbChecklist or pbRadiobuttons isn't working as in oldest version.
+My custom styling on pbChecklist or pbRadiobuttons isn't working as it was in previous Bonita UI Designer versions. 
 
 [.symptom-description]
-My custom css rule, from a theme or a css file is not apply after the migration on {bonitaVersion}.
+My custom css rule, from a theme or a css file is not applied after the migration on {bonitaVersion}.
 
 [.cause]#Potential cause#
-This two widgets was updated to following some accessibility rules so the internal HTML templating has been changed.
+The internal HTML templating has been changed so that accessibility rules could be applied for the two widgets. 
 
 [.solution]#Possible solution#
-Check you custom css selector, as example, <label> html tag is replaced by <legend>. For more details you can go on UI-Designer, Editor > Help (in the top right corner) > Migrations.
+Check you custom css selector. For example, <label> html tag has been replaced by <legend>. More details are available in UI-Designer, Editor > Help (in the top right corner) > Migrations.
 --
 
