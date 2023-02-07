@@ -41,6 +41,23 @@ CustomerDAOImpl dao = new CustomerDAOImpl(context.getApiSession());
 CustomerDAO dao = context.getApiClient().getDAO(CustomerDAO.class);
 ----
 
+=== Accessibility improvements
+
+The following improvements have been made so that digitally accessible applications could be developed natively with Bonita UI Designer with less custom code:
+
+* An attribute lang is now available and based on the BOS_locale cookies at page initialization will automatically get filled without developer’s or end-user’s action.
+
+* Table and data-table widget have a new caption property available for adding a title
+
+* The default widgets in the palette that contain a html input tag have now an associated label, which will facilitate the use of computer tools (screen readers for example)
+
+* To be more accessible for speech synthesizers, screen readers or some other tools, the internal html template of checklist and radio buttons widget has been updated.
+
+[WARNING]
+====
+The changes will automatically be available when changing a page in Bonita UI Designer <2023.1> developed with a previous Bonita UI Designer version. xref:pages-and-forms:widgets.adoc#widgets-templating-troubleshooting[Custom styling] could be impacted so take this fact into account in your development estimates.
+====
+
 === Multi-tenancy removal
 
 [NOTE]
