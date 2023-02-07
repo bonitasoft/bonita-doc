@@ -57,7 +57,7 @@ A options toolbar exposed to end users can be customized and localized with the 
 
 [WARNING]
 ====
-If you're using this widget in a digitally accessible applications, you could face some limitations (ex: the `input` tag doesn't have a linked label).
+If you are using this widget in a digitally accessible applications, you could face some limitations (ex: the `input` tag doesn't have a linked label).
 ====
 
 
