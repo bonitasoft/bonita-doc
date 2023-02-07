@@ -45,8 +45,8 @@ When you edit the BDM in Bonita Studio, it is always recommended resetting the d
 [NOTE]
 ====
 When you click on the "Deploy" button different operations are performed:
-def
-* Java classes are generated, compiled, packaged and the resulting jar file is added to your project dependencies
+
+* Java classes are generated, compiled, packaged and the resulting maven artifact is added to your project dependencies
 * Tables are created in the Bonita Studio embedded test database
 ====
 
