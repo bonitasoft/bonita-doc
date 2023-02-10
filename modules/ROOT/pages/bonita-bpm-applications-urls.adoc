@@ -11,7 +11,7 @@ In these URLs, the process names, versions and the task names must be URL encode
 
 == URL of Bonita Applications
 
-You can connect to Bonita Applications from other tools using a URL of the form `http://_host_:__port__+/bonita#?...` . Other forms of URL are liable to change in future versions. For example, use `+http://localhost:8081/bonita#?process=myProcessId+`, and do not use `+http://localhost:8081/bonita/console/homepage#?process=myProcessId+`.
+You can connect to Bonita Applications from other tools using a URL of the form `http://__host__:__port__/bonita#?...` . Other forms of URL are liable to change in future versions. For example, use `+http://localhost:8081/bonita#?process=myProcessId+`, and do not use `+http://localhost:8081/bonita/console/homepage#?process=myProcessId+`.
 
 == Process instantiation URL
 
@@ -23,7 +23,7 @@ This sample shows how to construct the complete URL. Prefer the short format for
 
 [source,java]
 ----
-String.format("URL: <a href=\"http://%s:%s/bonita/portal/resource/process/%s/%s/content/?id=%s\">Here</a>", host,port,processName,processVersion,processDefinitionId)
+String.format("URL: <a href=\"http://%s:%s/bonita/portal/resource/process/%s/%s/content/?id=%s\">Here</a>", host, port, processName, processVersion, processDefinitionId);
 ----
 
 Example: +
@@ -35,7 +35,7 @@ This sample shows how to construct the short URL. Prefer this format for backwar
 
 [source,java]
 ----
-String.format("URL: <a href=\"http://%s:%s/bonita/portal/form/process/%s/%s\">Here</a>", host,port,processName,processVersion)
+String.format("URL: <a href=\"http://%s:%s/bonita/portal/form/process/%s/%s\">Here</a>", host, port, processName, processVersion);
 ----
 
 Example: +
@@ -51,7 +51,7 @@ This sample shows how to construct the complete URL. Prefer the short format for
 
 [source,java]
 ----
-String.format("URL: <a href=\"http://%s:%s/bonita/portal/resource/processInstance/%s/%s/content/?id=%s\">Here</a>", host,port,processName,processVersion,processInstanceId)
+String.format("URL: <a href=\"http://%s:%s/bonita/portal/resource/processInstance/%s/%s/content/?id=%s\">Here</a>", host, port, processName, processVersion, processInstanceId);
 ----
 
 Example: +
@@ -63,7 +63,7 @@ This sample shows how to construct the short URL. Prefer this format for backwar
 
 [source,java]
 ----
-String.format("URL: <a href=\"http://%s:%s/bonita/portal/form/processInstance/%s\">Here</a>", host,port,processInstanceId)
+String.format("URL: <a href=\"http://%s:%s/bonita/portal/form/processInstance/%s\">Here</a>", host, port, processInstanceId);
 ----
 
 Example: +
@@ -85,7 +85,7 @@ This sample shows how to construct the complete URL. Prefer the short format for
 
 [source,java]
 ----
- String.format("URL: <a href=\"http://%s:%s/bonita/portal/resource/taskInstance/%s/%s/%s/content/?id=%s\">Here</a>", host,port,processName,processVersion,activityName,activityInstanceId)
+ String.format("URL: <a href=\"http://%s:%s/bonita/portal/resource/taskInstance/%s/%s/%s/content/?id=%s\">Here</a>", host, port, processName, processVersion, activityName, activityInstanceId);
 ----
 
 Example: +
@@ -97,7 +97,7 @@ This sample shows how to construct the short URL. Prefer this format for backwar
 
 [source,java]
 ----
-String.format("URL: <a href=\"http://%s:%s/bonita/portal/form/taskInstance/%s\">Here</a>", host,port,activityInstanceId)
+String.format("URL: <a href=\"http://%s:%s/bonita/portal/form/taskInstance/%s\">Here</a>", host, port, activityInstanceId);
 ----
 
 Example: +
@@ -107,7 +107,7 @@ Or if you only have the process instance ID and the task name:
 
 [source,java]
 ----
-String.format("URL: <a href=\"http://%s:%s/bonita/portal/form/processInstance/%s/task/%s\">Here</a>", host,port,processInstanceId,taskName)
+String.format("URL: <a href=\"http://%s:%s/bonita/portal/form/processInstance/%s/task/%s\">Here</a>", host, port, processInstanceId, taskName);
 ----
 
 Example: +
