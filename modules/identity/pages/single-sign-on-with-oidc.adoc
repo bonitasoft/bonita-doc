@@ -116,8 +116,12 @@ Make sure to set the right admin username (property `auth.tenant.admin.username`
 
          # Create users on the fly, when they are missing from bonita but authenticated by the SSO. The user will belong to the group and role specified below.
          #authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable=true
-         #authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipGroupPath=/acmr/hr
+         #bonita.runtime.authentication.passphrase-or-password.create-missing-user.addDefaultMembership.enable=true
+         #authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipGroupPath=/acme/hr
          #authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipRoleName=member
+         #bonita.runtime.authentication.passphrase-or-password.create-missing-user.createDefaultGroupAndRole.enabled=true
+         #bonita.runtime.authentication.passphrase-or-password.create-missing-user.createUserGroupsAndRole.enabled=true
+         #bonita.runtime.authentication.passphrase-or-password.create-missing-user.lowerGroupsAndRoleNamesCase.enabled=true
 
          # CAS authentication delegate : enables the user, providing login/password,
          # to be logged in automatically against CAS web application
@@ -129,13 +133,10 @@ Make sure to set the right admin username (property `auth.tenant.admin.username`
 +
 It is recommended to also replace the value of the passphrase (property auth.passphrase). The value must be the same as in the file *authenticationManager-config.properties* updated previously.
 +
-If you want Bonita engine to create the accounts on the fly once a user accessing Bonita has been authenticated with the IdP, you can uncomment the property `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable` (and set its value to true) as well as the next 2 properties to add a default membership to each user account:
-
- ** `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipGroupPath` specify the group in which every user account created on the fly will be added (the full group path is needed)
- ** `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipRoleName` specify the role to use to create the membership
-
+If you want Bonita engine to create the accounts on the fly once a user accessing Bonita has been authenticated with the IdP, you can uncomment the property `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable` (as well as subsequent properties) and set its value to true. For More information see xref:identity:user-account-provisioning-with-sso.adoc[User account provisioning with single sign-on (SSO)].
 +
 NOTE: Activating this option means any user authorized by the IdP to access Bonita will have an account created automatically in Bonita Database.
+
 . In the tenant_portal folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`, +
  edit the file *keycloak-oidc.json* to setup Bonita webapp as an OIDC client working with your OIDC provider.
 +
