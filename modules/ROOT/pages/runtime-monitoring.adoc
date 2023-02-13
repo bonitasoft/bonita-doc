@@ -36,16 +36,16 @@ Provided metric publishers are JMX (all editions), Log files (all editions), Pro
 
 Bonita-related metrics are *enabled by default* and cannot be disabled. Here are the provided metrics:
 
-* The number of currently running works, under the logical key name *bonita.bpmengine.work.running*
-* The number of currently pending works, waiting in the work queue to be treated, under the logical key name *bonita.bpmengine.work.pending*
-* The total number of executed works (since the last start of Bonita runtime), under the logical key name *bonita.bpmengine.work.executed*
-* The number of currently running connector works, under the logical key name *bonita.bpmengine.connector.running*
+* The number of currently running works, under the logical key name `bonita_bpmengine_work_running_works`
+* The number of currently pending works, waiting in the work queue to be treated, under the logical key name `bonita_bpmengine_work_pending_works`
+* The total number of executed works (since the last start of Bonita runtime), under the logical key name `bonita_bpmengine_work_executed_works_total`
+* The number of currently running connector works, under the logical key name `bonita_bpmengine_connector_running_connectors`
 * The number of currently pending connector works, waiting in the connector work queue to be treated,
-under the logical key name *bonita.bpmengine.connector.pending*
-* The total number of executed connector works (since the last start of Bonita runtime), under the logical key name *bonita.bpmengine.connector.executed*
-* The total number of BPMN message couples executed (since the last start of Bonita runtime), under the logical key name *bonita.bpmengine.message.executed*
-* The total number of BPMN message couples potentially matched (since the last start of Bonita runtime), under the logical key name *bonita.bpmengine.message.potential* (starting from 7.10.3)
-* The total number of BPMN message matching tasks retriggered (since the last start of Bonita runtime), under the logical key name *bonita.bpmengine.message.retriggered_tasks* (starting from 7.10.3)
+under the logical key name `bonita_bpmengine_connector_pending_connectors`
+* The total number of executed connector works (since the last start of Bonita runtime), under the logical key name `bonita_bpmengine_connector_executed_connectors_total`
+* The total number of BPMN message couples executed (since the last start of Bonita runtime), under the logical key name `bonita_bpmengine_message_executed_messages_total`
+* The total number of BPMN message couples potentially matched (since the last start of Bonita runtime), under the logical key name `bonita_bpmengine_message_potential_messages_total` (starting from 7.10.3)
+* The total number of BPMN message matching tasks retriggered (since the last start of Bonita runtime), under the logical key name `bonita_bpmengine_message_retriggeredtasks_messages_matching_tasks_total` (starting from 7.10.3)
 
 === Technical metrics
 
