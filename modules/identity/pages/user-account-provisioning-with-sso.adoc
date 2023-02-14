@@ -44,7 +44,7 @@ bonita.runtime.authentication.passphrase-or-password.create-missing-user.lowerGr
 
 In addition of the username it is possible to use more information coming from the Identity Provider of the SSO in order to create the user account in Bonita, like first name, last name, email, etc... +
 Actually, all the user information retrieved from the SAML response attributes or the OIDC ID tokens can be mapped to the attributes of a user account in Bonita. +
-In order to do that, in the tenant_portal folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/` edit the file `user-creation-attribute-mapping-custom.properties` to uncomment the lines for the attributes you want to map. +
+In order to do that, in the tenant_portal folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/` edit the file `user-creation-attribute-mapping-custom.properties` and copy (and uncomment) from the file `user-creation-attribute-mapping.properties` the lines for the attributes you want to map. +
 Use `$account.` prefix to target a SAML attribute from the SAML response of a claim from the OIDC ID token. +
 A value without prefix will be directly used as it is for all users created through this feature. +
 For example:
