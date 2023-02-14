@@ -1,5 +1,5 @@
 = Account Provisioning With Single Sign-on (SSO)
-:description: When configured for single sign-on with SAML or OIDC, Bonita can also create user accounts using information comming from the Identity provider (IdP) at users login.
+:description: When configured for single sign-on with SAML or OIDC, Bonita can also create user accounts using information coming from the Identity provider (IdP) at users login.
 
 {description}
 
@@ -8,20 +8,20 @@
 For Enterprise, Performance, Efficiency, and Teamwork editions only.
 ====
 
-This information applies to a Bonita platform deployed from a bundle, not to the Engine launched from Bonita Studio. `<BUNDLE_HOME>` refers to the root directory of the bundle.
+This information applies to a Bonita platform deployed from a bundle or docker image, not to the Runtime launched from Bonita Studio. `<BUNDLE_HOME>` refers to the root directory of the bundle.
 
 [WARNING]
 ====
 Using this feature means users (and their configured groups) will be created automatically in Bonita runtime database (provided they are authorized by the SSO provider) to log in.
 ====
 
-== Configure Bonita Bundle to create missing user accounts
+== Configure Bonita to create missing user accounts
 If you want the Bonita Runtime accounts to be created automatically once a user accessing Bonita has been authenticated with the SSO provider, make sure you have a Bonita Runtime configured for single sign-on with xref:identity:single-sign-on-with-oidc.adoc[OIDC] or xref:identity:single-sign-on-with-saml.adoc[SAML] first.
 
-Then, in the tenant_engine folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/` edit the file bonita-tenant-sp-custom.properties to uncomment and modify when needed the following lines :
+Then, in the tenant_engine folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/` edit the file bonita-tenant-sp-custom.properties to uncomment, and modify when needed, the following lines :
 ----
 ...
-# Create users on the fly, when they are missing from bonita but authenticated by the SSO. The user will belong to the groups and role specified below.
+# Create users on the fly, when they are missing from bonita but authenticated by the SSO. The users will belong to the groups and role specified below.
 authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable=true
 bonita.runtime.authentication.passphrase-or-password.create-missing-user.addDefaultMembership.enable=true
 authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipGroupPath=/acme/hr
@@ -32,9 +32,9 @@ bonita.runtime.authentication.passphrase-or-password.create-missing-user.lowerGr
 ...
 ----
 
-* `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable` activate the missing user account creation when set to true. The users are created with a username that matches the configuration of the SAML PrincipalNameMapping element or the OIDC principal-attribute.
+* `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable` activates the missing user account creation when set to true. The users are created with a username that matches the configuration of the SAML PrincipalNameMapping element or the OIDC principal-attribute.
 * `bonita.runtime.authentication.passphrase-or-password.create-missing-user.addDefaultMembership.enable`  add automatically to all the users created through this feature a membership to the group specified by the property `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipGroupPath` with the role specified by the property `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipRoleName`. The default value for this property is `true`.
-* `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipGroupPath` specify the group path of the group in which every user account created on the fly will be added (the full group path is needed) when `bonita.runtime.authentication.passphrase-or-password.create-missing-user.addDefaultMembership.enable` is set to true.
+* `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipGroupPath` specify the group path of a group in which every user account created on the fly will be added when `bonita.runtime.authentication.passphrase-or-password.create-missing-user.addDefaultMembership.enable` is set to true. The full group path is needed.
 * `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipRoleName` specify the name of the role to use to create the default memberships when `bonita.runtime.authentication.passphrase-or-password.create-missing-user.addDefaultMembership.enable`  is set to true.
 * `bonita.runtime.authentication.passphrase-or-password.create-missing-user.createDefaultGroupAndRole.enabled`  indicates if the default groups and roles identified by `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipGroupPath` and `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipRoleName` should be created automatically in Bonita database if they do not exist. The default value for this property is `false`.
 * `bonita.runtime.authentication.passphrase-or-password.create-missing-user.createUserGroupsAndRole.enabled`  indicate if the groups and the roles specified by the User attribute mapping properties `bonita.runtime.authentication.passphrase-or-password.create-missing-user.userAttribute.role` and `bonita.runtime.authentication.passphrase-or-password.create-missing-user.userAttribute.groups`(after group mapping resolution) should be created automatically in Bonita database if they do not exist. The default value for this property is `false`.
@@ -42,10 +42,12 @@ bonita.runtime.authentication.passphrase-or-password.create-missing-user.lowerGr
 
 == Configure User attributes mapping
 
-In addition of the username it is possible to retrieve more information from the SAML response attributes or the OIDC ID token in order to create the user account in Bonita. The user attributes coming from the Identity Provider of the SSO can be mapped to the attributes of a user account in Bonita. 
-In order to do that, in the tenant_portal folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/` edit the file `user-creation-attribute-mapping-custom.properties` to uncomment the lines for the attributes you want to map.
-Use `$account.` prefix to target a SAML attribute from the SAML response of a claim from the OIDC ID token.
-A value without prefix will be directly used as it is for all users created through this feature. For example:
+In addition of the username it is possible to use more information coming from the Identity Provider of the SSO in order to create the user account in Bonita, like first name, last name, email, etc... +
+Actually, all the user information retrieved from the SAML response attributes or the OIDC ID tokens can be mapped to the attributes of a user account in Bonita. +
+In order to do that, in the tenant_portal folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/` edit the file `user-creation-attribute-mapping-custom.properties` to uncomment the lines for the attributes you want to map. +
+Use `$account.` prefix to target a SAML attribute from the SAML response of a claim from the OIDC ID token. +
+A value without prefix will be directly used as it is for all users created through this feature. +
+For example:
 ----
 bonita.runtime.authentication.passphrase-or-password.create-missing-user.userAttribute.firstName=$account.given_name
 bonita.runtime.authentication.passphrase-or-password.create-missing-user.userAttribute.lastName=$account.family_name
@@ -80,23 +82,25 @@ bonita.runtime.authentication.passphrase-or-password.create-missing-user.userAtt
 bonita.runtime.authentication.passphrase-or-password.create-missing-user.userAttribute.groups=$account.customGroups
 ----
 
-The property `bonita.runtime.authentication.passphrase-or-password.create-missing-user.userAttribute.role` defines the name of the role to use for the users group memberships creation (the prefix `$account.` is supported as well for its value). +
-The property `bonita.runtime.authentication.passphrase-or-password.create-missing-user.userAttribute.groups` defines the groups to use for the users group memberships creation. Its value can be a list of Bonita group paths coma separated (e.g.: `/acme, /acme/hr, /acme/rd`). or an SSO attribute / token claim with the prefix `$account.` (see the section xref:#configure-groups-mapping[Configure groups mapping] for this use case). +
-If the property `bonita.runtime.authentication.passphrase-or-password.create-missing-user.createUserGroupsAndRole.enabled` is set to true, groups and roles will be created automatically if they do not exist (and if there is a mapping fro them in case of groups coming from the SSO's IdP account). +
-If the property `bonita.runtime.authentication.passphrase-or-password.create-missing-user.lowerGroupsAndRoleNamesCase.enabled` is set to `true`(default value), these 2 properties are not not case sensitive and the groups/role will be created with lower case names/paths
+The property `bonita.runtime.authentication.passphrase-or-password.create-missing-user.userAttribute.role` defines the name of the role to use for the users group memberships creation (values with the prefix `$account.` are supported as well). +
+The property `bonita.runtime.authentication.passphrase-or-password.create-missing-user.userAttribute.groups` defines the groups to use for the users group memberships creation. Its value can be a list of Bonita group paths coma separated (e.g.: `/acme, /acme/hr, /acme/rd`) or an SSO attribute / token claim with the prefix `$account.` (see the section xref:#_configure-groups-mapping[Configure groups mapping] for this use case). +
+If the property `bonita.runtime.authentication.passphrase-or-password.create-missing-user.createUserGroupsAndRole.enabled` is set to `true` (and if there is a mapping for them in case of groups coming from the SSO), groups and roles will be created automatically if they do not exist. +
+If the property `bonita.runtime.authentication.passphrase-or-password.create-missing-user.lowerGroupsAndRoleNamesCase.enabled` is set to `true` (default value), these 2 properties are not not case sensitive and the groups/role will be created with lower case names/paths
 
 == Configure groups mapping
 
-When the value of the property `bonita.runtime.authentication.passphrase-or-password.create-missing-user.userAttribute.groups` in `user-creation-attribute-mapping-custom.properties` starts with the `$account.` attribute, it means the list of groups of the user should be retrieved from the SAML response attributes or the OIDC ID token and each group that should result in a membership creation in Bonita should be associated with a group path to use in Bonita. In order to do that, in the tenant_portal folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/` edit the file `user-creation-group-mapping.properties` and add one line for each group mapping. For example:
+When the value of the property `bonita.runtime.authentication.passphrase-or-password.create-missing-user.userAttribute.groups` in `user-creation-attribute-mapping-custom.properties` starts with the `$account.` attribute, it means the list of groups of the user should be retrieved from the SAML response attributes or the OIDC ID token and each group that should result in a membership creation should be associated with a group path to use in Bonita. +
+In order to do that, in the tenant_portal folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/` edit the file `user-creation-group-mapping.properties` and add one line for each group mapping. For example:
 ----
 bonita_user=/acme
 bonita_hr=/acme/hr
 bonita_admin=/acme/admin
 ----
 Any group coming from the IdP that is not mapped with a Bonita group will be ignored during the users memberships creation. +
-If the property `bonita.runtime.authentication.passphrase-or-password.create-missing-user.lowerGroupsAndRoleNamesCase.enabled` is set to `true`(default value), this file is not case sensitive and the groups will be created with lower case names/paths (However, the case used in the file will be kept for the display names).
+If the property `bonita.runtime.authentication.passphrase-or-password.create-missing-user.lowerGroupsAndRoleNamesCase.enabled` is set to `true` (default value), this file is not case sensitive and the groups will be created with lower case names/paths (However, the case used in the file will be kept for the display names of the groups).
 
-In order to access a Bonita application a user needs to have the profile associated with this application. The mapping between groups and profiles can also be automatized to avoid having to do so manually once the groups have been created. In order to do that, in the tenant_portal folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/` edit the file `user-creation-group-profile-mapping.properties` and add one line for each group-to-profile mapping. For example:
+In order to access a Bonita application a user needs to have the profile associated with this application. The mapping between groups and profiles can also be automatized to avoid having to do it manually once the groups have been created. +
+In order to do that, in the tenant_portal folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/` edit the file `user-creation-group-profile-mapping.properties` and add one line for each group-to-profile mapping. For example:
 ----
 /acme=User
 /acme/hr=User
@@ -108,8 +112,8 @@ Contrary to the group path, the profile name is case sensitive even if the prope
 
 It is possible to condition the creation of the Bonita user account to the membership of a user to a specific group in the SSO's Identity Provider.
 
-In the file `user-creation-group-mapping.properties`, the property `bonita.runtime.authentication.passphrase-or-password.create-missing-user.userAttribute.mandatoryGroup` defines a group that the user must be part of to be able to log in on the application. +
-If the group is not present in the list of groups retrieved from the SAML response attributes or OIDC ID token of the user, access is denied and the user is not created in Bonita. For example:
+In the file `user-creation-group-mapping.properties`, the property `bonita.runtime.authentication.passphrase-or-password.create-missing-user.userAttribute.mandatoryGroup` defines a group that the user must be part of in order to be able to log in on the application. +
+If the group is not present in the list of groups retrieved from the SAML response attributes or OIDC ID token of the user, then access is denied and the user is not created in Bonita. For example:
 ----
 bonita.runtime.authentication.passphrase-or-password.create-missing-user.userAttribute.mandatoryGroup=application_user
 ----
