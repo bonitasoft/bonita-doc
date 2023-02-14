@@ -83,7 +83,7 @@ bonita.runtime.authentication.passphrase-or-password.create-missing-user.userAtt
 ----
 
 The property `bonita.runtime.authentication.passphrase-or-password.create-missing-user.userAttribute.role` defines the name of the role to use for the users group memberships creation (values with the prefix `$account.` are supported as well). +
-The property `bonita.runtime.authentication.passphrase-or-password.create-missing-user.userAttribute.groups` defines the groups to use for the users group memberships creation. Its value can be a list of Bonita group paths coma separated (e.g.: `/acme, /acme/hr, /acme/rd`) or an SSO attribute / token claim with the prefix `$account.` (see the section xref:#_configure-groups-mapping[Configure groups mapping] for this use case). +
+The property `bonita.runtime.authentication.passphrase-or-password.create-missing-user.userAttribute.groups` defines the groups to use for the users group memberships creation. Its value can be a list of Bonita group paths comma separated (e.g.: `/acme, /acme/hr, /acme/rd`) or an SSO attribute / token claim with the prefix `$account.` (see the section xref:#_configure-groups-mapping[Configure groups mapping] for this use case). +
 If the property `bonita.runtime.authentication.passphrase-or-password.create-missing-user.createUserGroupsAndRole.enabled` is set to `true` (and if there is a mapping for them in case of groups coming from the SSO), groups and roles will be created automatically if they do not exist. +
 If the property `bonita.runtime.authentication.passphrase-or-password.create-missing-user.lowerGroupsAndRoleNamesCase.enabled` is set to `true` (default value), these 2 properties are not not case sensitive and the groups/role will be created with lower case names/paths
 
@@ -97,6 +97,8 @@ bonita_hr=/acme/hr
 bonita_admin=/acme/admin
 ----
 Any group coming from the IdP that is not mapped with a Bonita group will be ignored during the users memberships creation. +
+The format the groups attribute value coming from an OIDC token can either be an array or a String (using commas as separator). +
+The format the groups attribute value coming from an SAML response can either be a multiple values attribute (one value for each group name) or a single value attribute (using commas as separator). +
 If the property `bonita.runtime.authentication.passphrase-or-password.create-missing-user.lowerGroupsAndRoleNamesCase.enabled` is set to `true` (default value), this file is not case sensitive and the groups will be created with lower case names/paths (However, the case used in the file will be kept for the display names of the groups).
 
 In order to access a Bonita application a user needs to have the profile associated with this application. The mapping between groups and profiles can also be automatized to avoid having to do it manually once the groups have been created. +
