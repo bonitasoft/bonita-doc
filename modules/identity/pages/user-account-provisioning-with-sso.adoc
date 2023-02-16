@@ -1,21 +1,22 @@
 = Account Provisioning With Single Sign-on (SSO)
-:description: When configured for single sign-on with SAML or OIDC, Bonita can also create user accounts using information coming from the Identity provider (IdP) at users login.
+:description: For Bonita Runtime configured with SAML or OIDC single sign-on, user account's creation will be available by using information coming from the Identity provider (IdP) at user's login.
 
 {description}
 
 [NOTE]
 ====
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
+For Subscription editions only.
 ====
-
-This information applies to a Bonita platform deployed from a bundle or docker image, not to the Runtime launched from Bonita Studio. `<BUNDLE_HOME>` refers to the root directory of the bundle.
 
 [WARNING]
 ====
-Using this feature means users (and their configured groups) will be created automatically in Bonita runtime database (provided they are authorized by the SSO provider) to log in.
+This information applies to a Bonita Runtime deployed from a bundle or docker image, *NOT* to the runtime launched from Bonita Studio.
+`<BUNDLE_HOME>` refers to the root directory of the bundle.
 ====
 
-== Configure Bonita to create missing user accounts
+Making possible user accounts and their authorization groups automatically creation in Bonita Runtime database at user log in - provided access is authorized by the SSO provider. 
+
+== Configure Bonita to create new user accounts
 If you want the Bonita Runtime accounts to be created automatically once a user accessing Bonita has been authenticated with the SSO provider, make sure you have a Bonita Runtime configured for single sign-on with xref:identity:single-sign-on-with-oidc.adoc[OIDC] or xref:identity:single-sign-on-with-saml.adoc[SAML] first.
 
 Then, in the tenant_engine folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/` edit the file bonita-tenant-sp-custom.properties to uncomment, and modify when needed, the following lines :
