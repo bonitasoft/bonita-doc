@@ -8,6 +8,12 @@ The 2023.1 is in development.
 
 == Improvements
 
+=== Bonita Runtime 
+
+==== Technical version change to 8.x.y
+
+Based on the https://semver.org/[semantic versionning management standards], removing technically the multi-tenancy from Bonita Runtime is a breaking change and requires a technical version change. 
+
 === Development suite changes
 
 ==== Bonita project layout
@@ -20,6 +26,25 @@ With the chosen solution, the users will have the possibility to publish and con
 
 Business Data Model content check at build or deploy will still be developer’s responsibility along with handling data-deletion risks at build or deploy.
 For this Bonita version, reusing the generated artifacts in another Bonita project is not supported with refactoring capabilities. All changes will have to be handled manually by developers.
+
+=== Bonita UI Designer
+
+==== Develop digitally accessible applications 
+
+The following improvements have been made so that digitally accessible applications could be developed natively with Bonita UI Designer with less custom code:
+
+* An attribute lang is now available and based on the BOS_locale cookies at page initialization will automatically get filled without developer’s or end-user’s action.
+
+* Table and data-table widget have a new caption property available for adding a title
+
+* The default widgets in the palette that contain a html input tag have now an associated label, which will facilitate the use of computer tools (screen readers for example)
+
+* To be more accessible for speech synthesizers, screen readers or some other tools, the internal html template of checklist and radio buttons widget has been updated.
+
+[WARNING]
+====
+The changes will automatically be available when changing a page in Bonita UI Designer <2023.1> developed with a previous Bonita UI Designer version. xref:pages-and-forms:widgets.adoc#widgets-templating-troubleshooting[Custom styling] could be impacted so take this fact into account in your development estimates.
+====
 
 == Feature deprecations and removals
 
@@ -41,22 +66,6 @@ CustomerDAOImpl dao = new CustomerDAOImpl(context.getApiSession());
 CustomerDAO dao = context.getApiClient().getDAO(CustomerDAO.class);
 ----
 
-=== Accessibility improvements
-
-The following improvements have been made so that digitally accessible applications could be developed natively with Bonita UI Designer with less custom code:
-
-* An attribute lang is now available and based on the BOS_locale cookies at page initialization will automatically get filled without developer’s or end-user’s action.
-
-* Table and data-table widget have a new caption property available for adding a title
-
-* The default widgets in the palette that contain a html input tag have now an associated label, which will facilitate the use of computer tools (screen readers for example)
-
-* To be more accessible for speech synthesizers, screen readers or some other tools, the internal html template of checklist and radio buttons widget has been updated.
-
-[WARNING]
-====
-The changes will automatically be available when changing a page in Bonita UI Designer <2023.1> developed with a previous Bonita UI Designer version. xref:pages-and-forms:widgets.adoc#widgets-templating-troubleshooting[Custom styling] could be impacted so take this fact into account in your development estimates.
-====
 
 === Multi-tenancy removal
 
@@ -65,10 +74,10 @@ The changes will automatically be available when changing a page in Bonita UI De
 For Subscription editions only.
 ====
 
-
 Deprecated xref:2022.2@ROOT:multi-tenancy-and-tenant-configuration.adoc[multi-tenancy] has been removed.
 
-To cover the multi-tenancy use cases in the best technical way, Bonitasoft is proposing a new architecture solution. For customers running a Bonita multi-tenancy platform, the technical path from multi-tenancy proposed by Bonitasoft is multi-runtime. This choice will require to split the current multi-tenant platform into several runtimes, each one with their own Bonita engine database.
+To cover the multi-tenancy use cases in the best technical way, Bonitasoft is proposing a new architecture solution. 
+For customers running a Bonita multi-tenancy platform, the technical path from multi-tenancy proposed by Bonitasoft is multi-runtime. This choice will require to split the current multi-tenant platform into several runtimes, each one with their own Bonita engine database.
 
 As this path can be challenging for customers using multi-tenancy, Bonitasoft developed a conversion tool, available for download https://customer.bonitasoft.com/download/request[on Bonitasoft Customer Portal]. We strongly suggest our customers to take the time and use the tool in a pre-production environment before using it on a production environment.
 
