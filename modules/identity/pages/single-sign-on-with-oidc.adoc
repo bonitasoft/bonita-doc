@@ -133,7 +133,7 @@ Make sure to set the right admin username (property `auth.tenant.admin.username`
 +
 It is recommended to also replace the value of the passphrase (property auth.passphrase). The value must be the same as in the file *authenticationManager-config.properties* updated previously.
 +
-If you want Bonita engine to create the accounts on the fly once a user accessing Bonita has been authenticated with the IdP, you can uncomment the property `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable` (as well as subsequent properties) and set its value to true. For More information see xref:identity:user-account-provisioning-with-sso.adoc[User account provisioning with single sign-on (SSO)].
+When accounts creation on the fly once a user accessing Bonita has been authenticated with the IdP is required, you can uncomment the property `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable` (as well as subsequent properties) and set its value to true. For more information see xref:identity:user-account-provisioning-with-sso.adoc[User account provisioning with single sign-on (SSO)].
 +
 NOTE: Activating this option means any user authorized by the IdP to access Bonita will have an account created automatically in Bonita Database.
 
