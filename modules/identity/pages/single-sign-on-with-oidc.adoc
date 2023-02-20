@@ -437,9 +437,10 @@ In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>
 After configuring OIDC SSO in Bonita, the Bonita login page appears and you are not redirected to the SSO login page.
 
 [.solution]#Possible solution#
-1.  Check all the Bonita configuration settings are correct.
-2.  Make sure `setup[.sh][.bat] push` has been executed and the server restarted after the changes.
-3. Try cleaning the cache and cookies of the web browser.
+
+. Check all the Bonita configuration settings are correct.
+. Make sure `setup[.sh][.bat] push` has been executed and the server restarted after the changes.
+. Try cleaning the cache and cookies of the web browser.
 --
 
 [.troubleshooting-section]
