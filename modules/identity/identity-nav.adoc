@@ -21,7 +21,7 @@
    **** xref:single-sign-on-with-saml.adoc[SAML]
    **** xref:single-sign-on-with-oidc.adoc[OIDC]
    **** xref:single-sign-on-with-kerberos.adoc[Kerberos]
-   **** xref:user-account-provisioning-with-sso.adoc[Account Provisioning]
+   **** xref:user-account-provisioning-with-sso.adoc[User Account Provisioning]
   *** xref:enforce-password-policy.adoc[Enforce password policy]
   *** xref:ssl.adoc[SSL]
   *** xref:tenant-admin-credentials.adoc[Tenant administrator credentials]
