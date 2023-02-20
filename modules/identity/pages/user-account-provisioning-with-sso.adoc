@@ -120,3 +120,21 @@ If the group is not present in the list of groups retrieved from the SAML respon
 ----
 bonita.runtime.authentication.passphrase-or-password.create-missing-user.userAttribute.mandatoryGroup=application_user
 ----
+
+[.troubleshooting-title]
+== Troubleshooting
+
+=== How to troubleshoot? 
+
+To troubleshoot Account Provisioning With issues, you need to increase the xref:ROOT:logging.adoc[log level] to `TRACE` for the packages `com.bonitasoft.engine.authentication` in order for errors to be displayed in the log files `bonita.log` (by default, they are not).
+
+In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/log4j2-loggers.xml`.
+
+* Add the following line :
+
+[source,xml]
+----
+    <Logger level="TRACE" name="com.bonitasoft.engine.authentication"/>
+----
+
+An `INFO` message is logged for each user, group, role or membership creation. Other `WARNING`, `DEBUG` and `TRACE` messages are logged when groups/roles already exist or if their creation fails.
