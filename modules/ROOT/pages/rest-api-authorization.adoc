@@ -88,7 +88,7 @@ Custom values should be added manually in file `resources-permissions-mapping-`*
 
 The `compound-permissions-mapping-*.properties` files define sets of simple permissions that are grouped together into a compound permission.
 You can use a compound permission as "shorthand" for a list of simple permissions.
-By default, the file `resources-permissions-mapping.properties` contains a compound permission that corresponds to each page of the Bonita Portal,
+By default, the file `compound-permissions-mapping.properties` contains a compound permission that corresponds to each page of the Bonita Portal,
 including <<custom_pages,custom pages>>.
 
 For example: `userlistingadmin=[profile_visualization, process_comment, organization_visualization, tenant_platform_visualization, organization_management]`
