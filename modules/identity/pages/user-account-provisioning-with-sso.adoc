@@ -43,7 +43,7 @@ bonita.runtime.authentication.passphrase-or-password.create-missing-user.lowerGr
 
 [NOTE]
 ====
-User accounts update is not supported. Once an account exists for a user in Bonita Runtime database for (whether it was created with account provisioning or manually), the user's attributes and  groups will not be retrieved again from the IdP and not be updated.
+User accounts update is not supported. Once an account exists for a user in Bonita Runtime database (whether it was created with account provisioning or manually), the user's attributes and  groups will not be retrieved again from the IdP and not be updated.
 ====
 
 == Configure User attributes mapping
