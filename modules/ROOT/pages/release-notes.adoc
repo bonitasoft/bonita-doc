@@ -15,7 +15,7 @@ The 2023.1 is in development.
 Bonita 2023.1 introduces a new multi-runtime architecture. This change comes with a new way to handle multi-tenants use cases and thus the removal of the multi-tenancy as it is currently known.
 Based on the https://semver.org/[semantic versioning management standards], these changes require a technical version change. 
 
-==== User account provinioningwith Single Sign-on
+==== User account provinioning with Single Sign-on
 
 Since Bonita 2021.1 it was possible configure Bonita Runtime to create user accounts on the fly when a user is authenticated through SSO (Single Sign-on). But user accounts were created with just a username attribute and with a default role and group that needed to be created beforehand in Bonita Runtime database.  
 
