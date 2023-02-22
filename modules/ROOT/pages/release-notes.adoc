@@ -24,7 +24,7 @@ Additional capabilities have been added in 2023.1 for single sign-on with SAML o
 * possibility to use more information coming from the Identity Provider of the SSO to create the user account (like first name, last name, email, etc...)
 * user groups can be retrieved from the SAML response or OIDC ID token and created automatically in Bonita Runtime database when creating the user account
 
-More details are available in the dedicated documentation page xref:user-account-provisioning-with-sso.adoc[User Account Provisioning].
+More details are available in the dedicated documentation page xref:identity:user-account-provisioning-with-sso.adoc[User Account Provisioning].
 
 === Development suite changes
 
