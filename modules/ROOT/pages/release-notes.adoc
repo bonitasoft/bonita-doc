@@ -12,7 +12,8 @@ The 2023.1 is in development.
 
 ==== Technical version change to 8.x.y
 
-Based on the https://semver.org/[semantic versionning management standards], removing technically the multi-tenancy from Bonita Runtime is a breaking change and requires a technical version change. 
+Bonita 2023.1 introduces a new multi-runtime architecture. This change comes with a new way to handle multi-tenants use cases and thus the removal of the multi-tenancy as it is currently known.
+Based on the https://semver.org/[semantic versioning management standards], these changes require a technical version change. 
 
 === Development suite changes
 
