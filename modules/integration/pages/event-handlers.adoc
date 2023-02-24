@@ -4,6 +4,8 @@
 
 {description}
 
+WARNING: this is a modified page to test changes in doc-site generation!
+
 [NOTE]
 ====
 For Subscription editions only.
