@@ -305,7 +305,7 @@ On the OIDC provider side, you need to configure Bonita OIDC service provider fo
 [NOTE]
 ====
 
-If the logout flow supported by your OIDC provider is not the same as the one supported by Bonita platform, the preferred solution to handle it anyway is to intercept the requests to /logoutService and handle the logout programmatically.
+If the logout flow supported by your OIDC provider is not the same as the one supported by Bonita platform, the preferred solution to handle it anyway is to intercept the requests to /logoutservice and handle the logout programmatically.
 ====
 
 == Troubleshoot
