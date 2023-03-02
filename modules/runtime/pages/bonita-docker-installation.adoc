@@ -347,6 +347,18 @@ This environment variable is automatically set to postgres or mysql if the Bonit
 === DB_HOST, DB_PORT
 These variables are optional, used in conjunction to configure the bonita image to reach the database instance. There are automatically set if --link is used to run the container.
 
+=== BONITA_DS_CONNECTION_POOL_INITIAL_SIZE, BDM_DS_CONNECTION_POOL_INITIAL_SIZE (Since 2022.2-u3)
+Change the default value for the Bonita and/or the BDM datasource `initialSize`. This is the initial number of connections when the connection pool starts.
+
+=== BONITA_DS_CONNECTION_POOL_MAX_TOTAL, BDM_DS_CONNECTION_POOL_MAX_TOTAL (Since 2022.2-u3)
+Change the default value for the Bonita and/or the BDM datasource `maxTotal`. This is the maximum number of active connections that can be allocated from this pool at the same time.
+
+=== BONITA_DS_CONNECTION_POOL_MIN_IDLE, BDM_DS_CONNECTION_POOL_MIN_IDLE (Since 2022.2-u3)
+Change the default value for the Bonita and/or the BDM datasource `minIdle`. This is the minimum number of active connections that always established after pool created and connection has reached this size.
+
+=== BONITA_DS_CONNECTION_POOL_MAX_IDLE, BDM_DS_CONNECTION_POOL_MAX_IDLE (Since 2022.2-u3)
+Change the default value for the Bonita and/or the BDM datasource `maxIdle`. This is the maximum number of connections that should be kept in the pool at all times.
+
 === DB_NAME, DB_USER, DB_PASS
 
 These variables are used in conjunction to create a new user, set that user's password, and create the bonita database.
