@@ -17,7 +17,7 @@ OpenID Connect configuration is at tenant level.
 [NOTE]
 ====
 Bonita uses http://www.keycloak.org/[Keycloak] OIDC Service client adapter. It has been extended to support other OIDC providers than Keycloak. +
-Authentication in Bonita with OIDC has been tested with Keycloak server, Google's OpenID Connect endpoint and Azure AD since 2022.1-u6.
+Authentication in Bonita with OIDC has been tested with Keycloak server, Google's OpenID Connect endpoint and Azure AD since Bonita 2022.1-u6.
 ====
 
 == OpenID Connect overview for Bonita
