@@ -1,5 +1,4 @@
 = Bonitasoft-managed AngularJs fork and integrated CVEs fixes
-:page-aliases: ROOT:bonita-version-update-index.adoc
 :description: This page describes the AngularJs fork that is managed by Bonitasoft, as well as the cherry-picked CVE fixes from newer versions towards 1.3.x branch
 
 {description}
