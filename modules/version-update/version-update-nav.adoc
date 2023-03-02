@@ -8,3 +8,4 @@
  ** xref:migrate-a-form-from-6-x.adoc[Migrate a form from 6.x]
  ** xref:upgrade-from-community-to-a-subscription-edition.adoc[Upgrade from Community to Enterprise]
  ** xref:mtmr-tool.adoc[Multi-tenant to Multi-runtime tool]
+ ** xref:angular-js-UID-fork.adoc[AngularJs CVE fixing in version 1.3]

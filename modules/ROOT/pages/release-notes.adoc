@@ -100,3 +100,23 @@ In case you are using a non-supported version, perform the update of the platfor
 
 Reminder : For commercial and support questions, please refer to your Customer Success referent.
 ====
+
+=== AngularJs fix of version used by UID Artifact builder
+
+In order to fix CVEs in the UID Artifact builder, we have made a fork of the AngularJs project and cherry-picked the fixes to the version that is used by the module.
+
+More information about this can be found in xref:version-update:angular-js-UID-fork.adoc page.
+
+=== Default application AngularJS pages version update
+
+An update to the latest version of AngularJS (1.8.3) was done on some default pages that are provided by Bonita. +
+The pages that are concerned by this change are:
+
+- User task list
+- Admin application list
+- Admin application details
+- BDM page (both Admin and Super-Admin applications)
+- Admin user details
+- Admin process details
+- Admin license
+- Admin monitoring
