@@ -86,8 +86,9 @@ Make sure to set the right admin username (property `auth.tenant.admin.username`
  It is recommended to also replace the value of the passphrase (property `auth.passphrase`) which is used by the engine to verify the authentication request.
  The value must be the same as in the file *bonita-tenant-sp-custom.properties*. +
  If you need users to be able to log in without having an account on the IDP, you can authorize it by setting the property `oidc.auth.standard.allowed` to true. Users will then be able to log in using the Bonita login page (`/login.jsp`) provided they have a Bonita account and their password is different from their username. +
- If only a limited group of users need to bypass OIDC authentication method you can restrain it by setting the property `oidc.auth.standard.allowed` to false and setting the property `auth.tenant.standard.whitelist` with the list of authorized usernames (comma separated). Otherwise you can keep it commented.
-
+ If only a limited group of users need to bypass OIDC authentication method you can restrain it by setting the property `oidc.auth.standard.allowed` to false and setting the property `auth.tenant.standard.whitelist` with the list of authorized usernames (comma separated). Otherwise you can keep it commented. +
+ Only if you want Bonita logout to perform OpenID logout you can uncomment and configure the properties `oidc.logout.url` and `oidc.logout.url.redirectQuery`. See the xref:#_configure_logout_behaviour[Configure logout behavior] section for more details about logout.
+ 
 . In the tenant_engine folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
   edit the file bonita-tenant-sp-custom.properties as follows:
 +
@@ -261,7 +262,6 @@ Your OIDC identity provider (IdP) should declare an OIDC Service Provider named 
     "standardFlowEnabled": true, (this is for the authorization code flow)
     "implicitFlowEnabled": false, (Bonita OIDC module does not support implicit flow)
     "directAccessGrantsEnabled": true, (or false if you don't want to use the Resource Owner Credentials Grant type to access the REST API)
-    "frontchannelLogout": true,
 ----
 
 If you use "Signed JWT" as the method of authentication for your bonita client, you must either provide the public key or the certificate of the Bonita server to the OIDC provider or a JWKS URL where the OIDC provider can download the client’s public keys. Bonita OIDC module provides this service at the following URL: "http://my.company.domain:8080/bonita/k_jwks" +
@@ -295,17 +295,19 @@ to the configured session timeout value upon each user interaction with the serv
 [discrete]
 ==== Setup Bonita platform for OIDC logout
 
-Global logout allows to log out from the OIDC provider as well as all the registered Service Providers when logging out from Bonita platform. This is sometimes required for example if users are on public computers.
-As OIDC Providers do not necessarily support single logout and have different ways of handling it, Bonita only offers OIDC logout through an OIDC logout URL that the IpP should provide and support.
+https://openid.net/specs/openid-connect-rpinitiated-1_0.html[RP-Initiated logout] allows to log out from the OIDC provider as well as all the registered Service Providers when logging out from Bonita platform. This is required for example if users are on public computers.
+As OIDC Providers do not necessarily support OpenID logout and have different ways of handling it, Bonita only offers OIDC logout through an OIDC logout endpoint URL that the OIDC provider should provide and support.
 To setup Bonita for OIDC logout:
 
-. Set the value of the property `oidc.logout.url` with your OIDC provider logout URL in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/`.
+. Set the value of the property `oidc.logout.url` with your OIDC provider logout endpoint URL in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/`.
 . If the logout URL of your OIDC provider supports a parameter to redirect after the logout, you can set the property `oidc.logout.url.redirectQuery` with the query string to use (it will be concatenated to the logout URL). The placeholder `+{encodedRedirectUri}+` will be replaced at runtime with the current Bonita URL at the time on the logout action. It is also possible to pass the ID token of the logged in user in the query string using the placeolder `{idToken}`. This is useful if the OIDC provider supports the `id_token_hint` parameter of the OIDC RP-Initiated logout specification (since Bonita 2022.1-u2). For this use case, make sure Bonita is configured for HTTPS since the ID token will be sent in the URL.
+
+On the OIDC provider side, you need to configure Bonita OIDC service provider for either back-channel logout with the URL `<your bonita server URL>/keycloak/k_logout` (for example http://my.company.domain:8080/bonita/keycloak/k_logout) or front-channel logout with the URL `<your bonita server URL>/logoutservice/oidc` (for example http://my.company.domain:8080/bonita/logoutservice/oidc). Front-channel logout is only supported since Bonita 2022.1-u6.
 
 [NOTE]
 ====
 
-If the logout flow supported by your OIDC provider is not the same as the one supported by Bonita platform, the preferred solution to handle it anyway is to intercept the requests to /logoutService and handle the logout programmatically.
+If the logout flow supported by your OIDC provider is not the same as the one supported by Bonita platform, the preferred solution to handle it anyway is to intercept the requests to /logoutservice and handle the logout programmatically.
 ====
 
 == Manage passwords
