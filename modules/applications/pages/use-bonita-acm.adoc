@@ -22,7 +22,10 @@ By default the event handler is *not* registered. To enable the event handler yo
 It can be achieved:
 
 * in Bonita Studio, in the Server settings preferences ( Edit > Preferences > Server settings > Check _Enable ACM event handler_ )
-* in a Bundle, using the setup tool, reach for the `bonita-tenant-sp-custom.properties` file (in `platform_conf/current/tenants/<TENAND_ID>/tenant_engine` folder if the server has already been started or `platform_conf/initial/tenant_template_engine` before the first start of the server) and add this line `com.bonitasoft.engine.plugin.acm.REGISTER_ACM_HANDLER=true`.
+* in a Bundle:
+    - **either**, using the setup tool, reach for the `bonita-tenant-sp-custom.properties` file (in `platform_conf/current/tenants/<TENAND_ID>/tenant_engine` folder if the server has already been started or `platform_conf/initial/tenant_template_engine` before the first start of the server) and add this line `com.bonitasoft.engine.plugin.acm.REGISTER_ACM_HANDLER=true`.
+    - **or** adding `-Dcom.bonitasoft.engine.plugin.acm.REGISTER_ACM_HANDLER=true` in setEnv.[sh|bat]
+* in the Docker image, by adding `-e 'COM_BONITASOFT_ENGINE_PLUGIN_ACM_REGISTER_ACM_HANDLER=true'` in your docker container creation parameters (See xref:runtime:bonita-docker-installation.adoc#_environment_variables[dedicate Docker page] for more docker options)
 
 == ACM project example to import in Bonita Studio
 
