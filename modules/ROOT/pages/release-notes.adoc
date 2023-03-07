@@ -101,9 +101,9 @@ In case you are using a non-supported version, perform the update of the platfor
 Reminder : For commercial and support questions, please refer to your Customer Success referent.
 ====
 
-=== AngularJs fix of version used by UID Artifact builder
+=== AngularJS fix of version used by Bonita UI Designer Artifact builder
 
-In order to fix CVEs in the UID Artifact builder, we have made a fork of the AngularJs project and cherry-picked the fixes to the version that is used by the module.
+In order to fix CVEs in Bonita UI Designer Artifact builder, we have made a fork of the AngularJS project and cherry-picked the fixes to the version that is used by the module.
 
 More information about this can be found in xref:version-update:angular-js-UID-fork.adoc page.
 

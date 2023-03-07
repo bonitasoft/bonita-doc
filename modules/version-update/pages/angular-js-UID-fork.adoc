@@ -1,28 +1,28 @@
-= Bonitasoft-managed AngularJs fork and integrated CVEs fixes
-:description: This page describes the AngularJs fork that is managed by Bonitasoft, as well as the cherry-picked CVE fixes from newer versions towards 1.3.x branch
+= Bonitasoft-managed AngularJS fork and integrated CVEs fixes
+:description: This page describes the AngularJS fork that is managed by Bonitasoft, as well as the cherry-picked CVE fixes from newer versions towards 1.3.x branch
 
 {description}
 
 [.card-section]
-== AngularJs fork
-As part of Bonitasoft's initiative to fix CVEs, an improvement was required in the UID Artifact builder.
-The current AngularJs version used by this part of UID is 1.3, and a migration to a newer version is impossible because of the breaking changes that exist in version 1.4. +
-Thus, the solution that was chosen is to fix those CVEs by cherry-picking them to AngularJs 1.3.
+== AngularJS fork
+As part of Bonitasoft's initiative to fix CVEs, an improvement was required in Bonita UI Designer Artifact builder.
+The current AngularJS version used by this part of Bonita UI Designer is 1.3, and a migration to a newer version is impossible because of the breaking changes that exist in version 1.4. +
+Thus, the solution that was chosen is to fix those CVEs by cherry-picking them to AngularJS 1.3.
 Currently, all work for this can be found in the https://github.com/bonitasoft/angular.js[angular.js forked github project]. +
-A release of this project has been done and integrated in the UID Artifact builder.
+A release of this project has been done and integrated in Bonita UI Designer Artifact builder.
 
 [.card-section]
 == Currently fixed CVEs
 === https://security.snyk.io/vuln/npm:angular:20150807[CVE-2019-14863/CWE-78]: properly sanitize xlink:href attribute interpolation
 When a xlink:href is used in a UID widget, angular does not do proper sanitization on the value of the html attribute, thus, any cross-site scripting (XSS) would get executed.
-This is something that only affects UID custom widgets, since the default ones don't use this attribute. +
-If your widget uses a xlink:href, then it will be properly sanitized by angular. +
-This was cherry-picked from angular v1.5.0
+This is something that only affects the UI Designer custom widgets, since the default ones don't use this attribute. +
+If your widget uses a xlink:href, then it will be properly sanitized by AngularJS. +
+This was cherry-picked from AngularJS v1.5.0
 
 === https://security.snyk.io/vuln/SNYK-JS-ANGULAR-534884[CVE-2019-10768]: prototype pollution when using angular.merge
 When using angular.merge, the JavaScript __proto__ object property of the destination object would get modified by the one in the source object
-This behaviour only affects UID custom widgets, since we don't touch the object prototypes in the default UID widgets. +
+This behaviour can only affects the UI Designer custom widgets, since we don't modify the object prototypes in the default UI Designer widgets. +
 If your widget did a merge on two objects, expecting a __proto__ to be applied to the destination that will have the same value as the one of the source object, then, this will not work anymore. +
 A non-recommended solution would be to manually set the __proto__ property of the destination object to equal the one of the source object after the merge. +
-This was cherry-picked from angular v1.7.9
+This was cherry-picked from AngularJS v1.7.9
 
