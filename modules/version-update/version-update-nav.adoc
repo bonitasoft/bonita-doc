@@ -1,4 +1,4 @@
-* xref:bonita-version-update-index.adoc[Bonita update and upgrade]
+* xref:bonita-version-update-index.adoc[Bonita update and upgrade NOW]
  ** xref:product-versioning.adoc[Bonita versions]
  ** xref:update-studio.adoc[Update Bonita Studio]
  ** xref:update-overview.adoc[Update Bonita Runtime]
