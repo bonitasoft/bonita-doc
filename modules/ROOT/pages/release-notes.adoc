@@ -58,6 +58,33 @@ The following improvements have been made so that digitally accessible applicati
 The changes will automatically be available when changing a page in Bonita UI Designer <2023.1> developed with a previous Bonita UI Designer version. xref:pages-and-forms:widgets.adoc#widgets-templating-troubleshooting[Custom styling] could be impacted so take this fact into account in your development estimates.
 ====
 
+==== Manual web resource declaration in UID page metadata
+
+In addition to the automatic permission mapping done at a Custom page deploiement, it is now possible to declare web resources manually in a page/fragment/widget metadata. Less time spent now on post deployement configuration requests by DevOps team mananing Bonita instances 
+
+_ It is the good practice we are introducing regarding web resource's for a page declaration. _
+
+=== AngularJS version used by Bonita UI Designer Artifact builder security fixes
+
+During the last year we explored all possible options for providing a supported AngularJS version. In the end we decided to handle the need in-house. 
+The first step of the long term project we initiated is correcting all critical and high CVEs in Bonita UI Designer Artifact builder. 
+For that, we made a fork of the AngularJS project and cherry-picked the fixes to the version that is used by the module.
+
+What to hear more? Check this page xref:version-update:angular-js-UID-fork.adoc. 
+
+=== Default application AngularJS pages version update
+
+An update to the latest version of AngularJS (1.8.3) was done on the following pages provided by Bonita: 
+
+- User task list
+- Admin application list
+- Admin application details
+- BDM page (both Admin and Super-Admin applications)
+- Admin user details
+- Admin process details
+- Admin license
+- Admin monitoring
+
 == Feature deprecations and removals
 
 === Custom Rest API Extension and BDM dependencies
@@ -96,27 +123,7 @@ xref:version-update:mtmr-tool.adoc[Multi-tenancy to multi-runtime conversion too
 
 [WARNING]
 ====
-In case you are using a non-supported version, perform the update of the platform before converting it to multi-runtime.
+In case you are using a Bonita non-supported version, perform the update to a Bonita supported version before the conversion to multi-runtime.
 
 Reminder : For commercial and support questions, please refer to your Customer Success referent.
 ====
-
-=== AngularJS fix of version used by Bonita UI Designer Artifact builder
-
-In order to fix CVEs in Bonita UI Designer Artifact builder, we have made a fork of the AngularJS project and cherry-picked the fixes to the version that is used by the module.
-
-More information about this can be found in xref:version-update:angular-js-UID-fork.adoc page.
-
-=== Default application AngularJS pages version update
-
-An update to the latest version of AngularJS (1.8.3) was done on some default pages that are provided by Bonita. +
-The pages that are concerned by this change are:
-
-- User task list
-- Admin application list
-- Admin application details
-- BDM page (both Admin and Super-Admin applications)
-- Admin user details
-- Admin process details
-- Admin license
-- Admin monitoring
