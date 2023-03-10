@@ -68,7 +68,7 @@ _ It is the good practice we are introducing regarding web resource's for a page
 
 During the last year we explored all possible options for providing a supported AngularJS version. In the end we decided to handle the need in-house. 
 The first step of the long term project we initiated is correcting all critical and high CVEs in Bonita UI Designer Artifact builder. 
-For that, we made a fork of the AngularJS project and cherry-picked the fixes to the version that is used by the module.
+For that, we made a fork of the AngularJS project and adapted the fixes to the version that is used by the module.
 
 What to hear more? Check this page xref:version-update:angular-js-UID-fork.adoc. 
 
