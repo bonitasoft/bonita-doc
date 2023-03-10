@@ -3,7 +3,7 @@
 
 [NOTE]
 ====
-The 2023.2 is in development.
+The 2023.2 version is in development.
 ====
 
 == Improvements
