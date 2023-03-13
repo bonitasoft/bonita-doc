@@ -13,46 +13,7 @@ Currently, AngularJS version 1.3 is used in this Bonita UI Designer part and a s
 
 Thus, the solution chosen by Bonitasoft is to correct the high and critical CVEs by adapting the related fixes to AngularJS 1.3.
 Currently, all work for this can be found in the https://github.com/bonitasoft/angular.js[angular.js forked github project]. +
-A release of this project has been done and integrated in Bonita UI Designer Artifact builder.
+A release of this project has already been integrated in Bonita UI Designer Artifact builder with Bonita 2023.1.
 
-[.card-section]
-== Currently fixed CVEs
-=== https://security.snyk.io/vuln/npm:angular:20150807[CVE-2019-14863/CWE-78]: properly sanitize xlink:href attribute interpolation
-When a xlink:href is used in a UID widget, AngularJS does not do proper sanitization on the value of the html attribute, thus, any cross-site scripting (XSS) would get executed. +
+In the future releases CVEs with medium criticity corrections will be delivered. 
 
-As a result, if your custom widget uses a xlink:href, then it will be properly sanitized by AngularJS. As examples, we found that the following cases that won't work anymore:
-
-* Link with a xlink:href and ng-href with the value of:
-** A javascript alert. This will be sanitized and the alert will not displayed anymore
-** An interpolation of a variable that contains a javascript alert. This will be sanitized and not displayed anymore
-
-The following cases will still work as before:
-
-* Link with xlink:href and no XSS in the ng-href property value
-
-=== https://security.snyk.io/vuln/SNYK-JS-ANGULAR-534884[CVE-2019-10768]: prototype pollution when using angular.merge
-When using angular.merge, the JavaScript __proto__ object property of the destination object would get modified by the one in the source object. +
-If your widget did a merge on two objects, expecting a __proto__ to be applied to the destination that will have the same value as the one of the source object, then, this will not work anymore. +
-
-=== https://security.snyk.io/vuln/npm:angular:20150909[npm:angular:20150909]: XSS on svg animation tag and mutation XSS protection
-Both of these are actually fixed by modern browsers, thus this fix only affects old ones (lower than Chrome 62).
-
-. When you have an animation inside an svg, sanitization is not done on it by default, thus, properties like from, to or values can execute scripts. +
-An example of a behaviour that won't work anymore is having a javascript alert be raised inside the above-mentioned html attributes.
-
-[start=2]
-. A mutation XSS happens whenever html is malformed and is used to execute scripts.
-An example of this effect might look like this: `<noscript><a title="</noscript><img src=x onerror=alert(1)>">`. +
-Before the fix, an error would be raised.+
-Since the fix was already implemented at browser level, no such issue should arise anymore.
-
-=== https://security.snyk.io/vuln/SNYK-JS-ANGULAR-572020[SNYK-JS-ANGULAR-572020]: XSS on multiple JQLite functions and AngularJS element creation
-Because you don't have direct access to JQLite functions, the main issue comes from the AngularJS element creation, accessible through `angular.element`. +
-The main issue is once-more sanitization. The following use-cases will be sanitized correctly and not work anymore:
-
-* `onerror` functions will now be properly sanitized when treated as AngularJS elements. As an example, calling the javascript alert function would not work anymore
-
-=== https://security.snyk.io/vuln/npm:angular:20150310[npm:angular:20150310]: arbitrary code execution for svg animation tags
-Even if a fix was made for multiple html tags inside svgs, animate would still have the ability to execute code. Because of this, a fix was made that would remove this ability. +
-A sanitization of multiple attributes, including, but not limited to, ng-href, from, to, values, was done. +
-Another example of a changed behaviour is: XSS inside the xlink:href or ng-href (that's next to a xlink:href) properties of a link that is inside a svg would not work anymore after this fix.
