@@ -3,7 +3,7 @@
 
 [NOTE]
 ====
-The 2023.1 is in development.
+The 2023.1 is in beta.
 ====
 
 == Improvements
@@ -98,7 +98,7 @@ The first the choice is already possible today and the second one will be possib
 For those who want to try out deploying a Bonita project as a self-contained application, we have developped a packaging tool. 
 The outcome will be an appplication packaged either in Tomcat Bundle or a docker image, you choose. 
 
-The tool is available here xref:https://github.com/bonitasoft/bonita-application-packager[Bonita Application Packager]. 
+The tool is available here https://github.com/bonitasoft/bonita-application-packager[Bonita Application Packager]. 
 
 == Feature deprecations and removals
 
