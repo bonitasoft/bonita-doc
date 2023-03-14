@@ -6,7 +6,22 @@
 The 2023.1 is in beta.
 ====
 
-== Improvements
+== Bonita project packaged as a self-contained application 
+
+With Bonita 2023.1 comes a new recommandation on how to deploy your Bonita applications.
+Each development team using Bonita platform has several options. 
+Here are the options proposed by Bonitasoft:
+
+. Create a dedicated project that is completely independent from the existing Bonita projects (i.e. the generated application will be deployed independently from the existing ones)
+. Integrate it into an existing project, so that a single application will be generated and deployed (backward compatible way of doing things)
+
+The first choice is already possible today and the second one will be possible in future Bonita versions. 
+For those who want to try out deploying a Bonita project as a self-contained application, we have developped a packaging tool. 
+The outcome will be an appplication packaged either in Tomcat Bundle or a docker image, you choose. 
+
+The tool is available here https://github.com/bonitasoft/bonita-application-packager[Bonita Application Packager]. 
+
+== New product values 
 
 === Bonita Runtime 
 
@@ -69,7 +84,7 @@ In addition to the automatic permission mapping done at a Custom page deploiemen
 
 _ It is the good practice we are introducing regarding web resource's for a page declaration. _
 
-=== AngularJS version used by Bonita UI Designer Artifact builder security fixes
+==== AngularJS version used by Bonita UI Designer Artifact builder security fixes
 
 During the last year we explored all possible options for providing a supported AngularJS version. In the end we decided to handle the need in-house. 
 The first step of the long term project we initiated is correcting all critical and high CVEs in Bonita UI Designer Artifact builder. 
@@ -77,7 +92,7 @@ For that, we made a fork of the AngularJS project and adapted the fixes to the v
 
 What to hear more? Check this page xref:version-update:angular-js-UID-fork.adoc. 
 
-=== Default Bonita application AngularJS pages version update
+==== Default Bonita application AngularJS pages version update
 
 An update to the latest version of AngularJS (1.8.3) was done on the following pages provided by Bonita: 
 
@@ -89,21 +104,6 @@ An update to the latest version of AngularJS (1.8.3) was done on the following p
 - Admin process details
 - Admin license
 - Admin monitoring
-
-== Bonita project packaged as a self-contained application 
-
-With Bonita 2023.1 comes a new recommandation on how to deploy your Bonita applications.
-Each development team using Bonita platform has several options. 
-Here are the options proposed by Bonitasoft:
-
-. Create a dedicated project that is completely independent from the existing Bonita projects (i.e. the generated application will be deployed independently from the existing ones)
-. Integrate it into an existing project, so that a single application will be generated and deployed (backward compatible way of doing things)
-
-The first choice is already possible today and the second one will be possible in future Bonita versions. 
-For those who want to try out deploying a Bonita project as a self-contained application, we have developped a packaging tool. 
-The outcome will be an appplication packaged either in Tomcat Bundle or a docker image, you choose. 
-
-The tool is available here https://github.com/bonitasoft/bonita-application-packager[Bonita Application Packager]. 
 
 == Feature deprecations and removals
 
