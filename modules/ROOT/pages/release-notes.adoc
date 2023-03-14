@@ -85,20 +85,20 @@ An update to the latest version of AngularJS (1.8.3) was done on the following p
 - Admin license
 - Admin monitoring
 
-== Self-contained applications Bundle Packager
+== Bonita project packaged as a self-contained application 
 
-As the first step of delivering the new concept of Self Contained Apps (based on multi-runtime architecture), the packaging tool permits to deploy Bonita’s application.
-It provides either a Tomcat Bundle either a docker image.
+With Bonita 2023.1 comes a new recommandation on how to deploy your Bonita applications.
+Each development team using Bonita platform has several options. 
+Here are the options proposed by Bonitasoft:
 
-This is the first step of a packaging mode we will completed in the futures version of Bonita.
+. Create a dedicated project that is completely independent from the existing Bonita projects (i.e. the generated application will be deployed independently from the existing ones)
+. Integrate it into an existing project, so that a single application will be generated and deployed (backward compatible way of doing things)
 
-=== Package the application Bundle 
-* Put the deployment artifacts in a given location (convention based)
-* Run script to package: Tomcat bundle with the deployment artifacts as resources in the classpath (Bundle + Docker)
-* As output, we have an application bundle ready to use
+The first the choice is already possible today and the second one will be possible at Bonita application build in future releases. 
+For those who want to try out deploying a Bonita project as a self-contained application, we have developped a packaging tool. 
+The outcome will be an appplication packaged either in Tomcat Bundle or a docker image, you choose. 
 
-This new way of packaging is backward compatible with actual packaging mode.
-
+The tool is available here xref:https://github.com/bonitasoft/bonita-application-packager[Bonita Application Packager]. 
 
 == Feature deprecations and removals
 
