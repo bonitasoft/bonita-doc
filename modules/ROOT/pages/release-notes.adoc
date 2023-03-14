@@ -85,6 +85,21 @@ An update to the latest version of AngularJS (1.8.3) was done on the following p
 - Admin license
 - Admin monitoring
 
+=== Application Bundle Packager
+
+As the first step of delivering the new concept of Self Contained Apps (based on multi-runtime architecture), the packaging tool permit to deploy Bonita’s application.
+It provides either a Tomcat Bundle either a docker image.
+
+This is the first step of a packaging mode we will completed in the futures version of Bonita.
+
+=== Package the application Bundle 
+* Put the deployment artifacts in a given location (convention based)
+* Run script to package: Tomcat bundle with the deployment artifacts as resources in the classpath (Bundle + Docker)
+* As output, we have an application bundle ready to use
+
+This new way of packaging is backward compatible with actual packaging mode.
+
+
 == Feature deprecations and removals
 
 === Custom Rest API Extension and BDM dependencies
