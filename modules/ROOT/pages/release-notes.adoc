@@ -85,9 +85,9 @@ An update to the latest version of AngularJS (1.8.3) was done on the following p
 - Admin license
 - Admin monitoring
 
-== Application Bundle Packager
+== Self-contained applications Bundle Packager
 
-As the first step of delivering the new concept of Self Contained Apps (based on multi-runtime architecture), the packaging tool permit to deploy Bonita’s application.
+As the first step of delivering the new concept of Self Contained Apps (based on multi-runtime architecture), the packaging tool permits to deploy Bonita’s application.
 It provides either a Tomcat Bundle either a docker image.
 
 This is the first step of a packaging mode we will completed in the futures version of Bonita.
