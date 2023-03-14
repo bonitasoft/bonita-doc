@@ -17,6 +17,11 @@ Based on the https://semver.org/[semantic versioning management standards], thes
 
 ==== User account provisioning with Single Sign-on
 
+[NOTE]
+====
+For Subscription editions only.
+====
+
 Starting with Bonita 2021.1, creating user accounts on the fly at user authentication through SSO (Single Sign-on) was possible with configuration in Bonita Runtime. The user accounts were created with a username attribute, a default role and group - created beforehand in Bonita Runtime database.  
 
 Additional capabilities have been added in 2023.1 for single sign-on with SAML or OIDC:
@@ -72,7 +77,7 @@ For that, we made a fork of the AngularJS project and adapted the fixes to the v
 
 What to hear more? Check this page xref:version-update:angular-js-UID-fork.adoc. 
 
-=== Default application AngularJS pages version update
+=== Default Bonita application AngularJS pages version update
 
 An update to the latest version of AngularJS (1.8.3) was done on the following pages provided by Bonita: 
 
@@ -94,7 +99,7 @@ Here are the options proposed by Bonitasoft:
 . Create a dedicated project that is completely independent from the existing Bonita projects (i.e. the generated application will be deployed independently from the existing ones)
 . Integrate it into an existing project, so that a single application will be generated and deployed (backward compatible way of doing things)
 
-The first the choice is already possible today and the second one will be possible in future Bonita versions. 
+The first choice is already possible today and the second one will be possible in future Bonita versions. 
 For those who want to try out deploying a Bonita project as a self-contained application, we have developped a packaging tool. 
 The outcome will be an appplication packaged either in Tomcat Bundle or a docker image, you choose. 
 
@@ -104,7 +109,7 @@ The tool is available here https://github.com/bonitasoft/bonita-application-pack
 
 === Custom Rest API Extension and BDM dependencies
 
-When updating a Bonita project in Bonota Studio 2023.1 version, BDM dependencies will be directed to use the new the `*-bdm-model` artifact introduced with the Bonita project layout changes. Meaning that `bdm-client` and `bdm-dao` dependencies will automatically be replaced with project's `bdm-model` dependency.
+When updating a Bonita project in Bonita Studio 2023.1 version, BDM dependencies will be directed to use the new the `*-bdm-model` artifact introduced with the Bonita project layout changes. Meaning that `bdm-client` and `bdm-dao` dependencies will automatically be replaced with project's `bdm-model` dependency.
 
 Additionnally, the dependency containing the client DAO implementation will be removed from the dependencies list. It can affect the code directly referencing the `*DAOImpl` classes. To avoid this situation, change the code to use the DAO interfaces present in the `bdm-model` dependency. The changes can be done before or after updating to the 2023.1 version without breaking the project.
 
