@@ -82,7 +82,7 @@ The changes will automatically be available when changing a page in Bonita UI De
 
 In addition to the automatic permission mapping done at a Custom page deployment, it is now possible to declare web resources manually in a page/fragment/widget metadata. Less time spent now on post deployment configuration requests by DevOps team managing Bonita instances
 
-_ It is the good practice we are introducing regarding web resource's for a page declaration. _
+_It is the good practice we are introducing regarding web resource's for a page declaration._
 
 ==== AngularJS version used by Bonita UI Designer Artifact builder security fixes
 
