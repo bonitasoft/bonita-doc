@@ -187,7 +187,7 @@ You may also logout at the end with the command
 
 [source, shell]
 ----
-docker logout bonitasoft.jfrog.io
+docker logout {bonitasoft-registry}
 ----
 
 === Pull Docker images from Bonita Artifact Repository
@@ -197,7 +197,7 @@ Once authenticated, you can pull images with the `docker pull` command. For exam
 .docker pull sample
 [source, shell, subs="+attributes"]
 ----
-docker pull {bonitasoft-docker-repository}/docker/bonita-subscription:latest
+docker pull {bonitasoft-docker-repository}/bonita-subscription:latest
 ----
 
 Also see xref:runtime:bonita-docker-installation.adoc[Docker image] if you are more interested in how to use this image.

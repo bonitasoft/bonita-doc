@@ -19,22 +19,23 @@ To start the latest Subscription release - main and maintenance versions only:
 
 [NOTE]
 ====
-Information on how to access Quay.io can be found https://customer.bonitasoft.com/download/request[here]
+To get access to the Bonita Docker Image, please contact Bonitasoft Customer Success at customer.success@bonitasoft.com. They will provide your credential to get access to the docker repository.
+xref:runtime:bonita-repository-access.adoc#docker[Docker section of Access to Bonita Artifact Repository] will give you more information to connect with these credentials.
 ====
 
 // for the 'subs' parameter, see https://docs.asciidoctor.org/asciidoc/latest/subs/apply-subs-to-blocks/
-[source,shell script,subs="+macros"]
+[source,shell script,subs="+macros,+attributes"]
 ----
-docker login quay.io
-docker pull quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
-docker logout quay.io
-docker run --name=bonita -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
+docker login {bonitasoft-registry}
+docker pull {bonitasoft-docker-repository}/bonita-subscription:pass:a[{bonitaVersion}]
+docker logout {bonitasoft-registry}
+docker run --name=bonita -d -p 8080:8080 {bonitasoft-docker-repository}/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
 [NOTE]
 ====
 * Documentation of the community docker image is available https://hub.docker.com/_/bonita[here].
-* Information on how to access Quay.io can be found https://customer.bonitasoft.com/download/request[here].
+* Information on how to access the Bonita Artifact Repository can be found xref:runtime:bonita-repository-access.adoc#docker[here].
 * You need to provide a valid licence, <<section-StepByStep,follow these steps>> in order to get and configure one.
 ====
 
@@ -66,9 +67,9 @@ the binaries do not change.
 
 First generate a request key into a container with a specific hostname (-h):
 
-[source,shell script,subs="+macros"]
+[source,shell script,subs="+macros,+attributes"]
 ----
-docker run --rm --name=bonita -h <hostname> -ti quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}] /bin/bash ./generateRequestKey.sh
+docker run --rm --name=bonita -h <hostname> -ti {bonitasoft-docker-repository}/bonita-subscription:pass:a[{bonitaVersion}] /bin/bash ./generateRequestKey.sh
 ----
 
 Answer the questions related to the license you want. This will print out the request key and exit automatically from the running container.
@@ -86,9 +87,9 @@ Alternatively, you can create a named persistent volume in docker for keeping li
 
 Re-create a new Bonita container with the same hostname (-h) and this host directory mounted (-v) :
 
-[source,shell script,subs="+macros"]
+[source,shell script,subs="+macros,+attributes"]
 ----
-docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
+docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ -d -p 8080:8080 {bonitasoft-docker-repository}/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
 [NOTE]
@@ -115,9 +116,9 @@ docker run --name bonita -it -p 8080:8080 bonita bash
 
 *Subscription release*
 
-[source,shell script,subs="+macros"]
+[source,shell script,subs="+macros,+attributes"]
 ----
-docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ -it -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]-XXXX bash
+docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ -it -p 8080:8080 {bonitasoft-docker-repository}/bonita-subscription:pass:a[{bonitaVersion}]-XXXX bash
 ----
 
 Then run `/opt/files/startup.sh` inside the container to start Tomcat. In order to stop Tomcat inside the container, press `Ctrl-C`. +
@@ -141,16 +142,16 @@ docker run --name mydbpostgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
 
 See the official PostgreSQL documentation for more details.
 
-[source,shell script,subs="+macros"]
+[source,shell script,subs="+macros,+attributes"]
 ----
-docker run --name bonita_postgres -h <hostname> -v bonita-lic:/opt/bonita_lic/ --link mydbpostgres:postgres -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
+docker run --name bonita_postgres -h <hostname> -v bonita-lic:/opt/bonita_lic/ --link mydbpostgres:postgres -d -p 8080:8080 {bonitasoft-docker-repository}/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
 ==== Using docker-compose
 
 Create a file `docker-compose.yml` with the following content
 
-[source,yaml,subs="+macros"]
+[source,yaml,subs="+macros,+attributes"]
 ----
 # Use tech_user/secret as user/password credentials
 version: '3'
@@ -165,7 +166,7 @@ services:
       - -c
       - max_prepared_transactions=100
   bonita:
-    image: quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
+    image: {bonitasoft-docker-repository}/bonita-subscription:pass:a[{bonitaVersion}]
     hostname: <hostname>
     volumes:
       - ~/bonita-lic:/opt/bonita_lic/
@@ -225,17 +226,17 @@ BIZ_DB_USER=custombusinessuser
 BIZ_DB_PASS=custombusinesspass
 ----
 
-[source,shell script,subs="+macros"]
+[source,shell script,subs="+macros,+attributes"]
 ----
-docker run --name=bonita -h <hostname> --env-file=env.txt -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
+docker run --name=bonita -h <hostname> --env-file=env.txt -d -p 8080:8080 {bonitasoft-docker-repository}/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
 [#start-bonita-custom-credentials]
 === Start Bonita with custom security credentials
 
-[source,shell script,subs="+macros"]
+[source,shell script,subs="+macros,+attributes"]
 ----
-docker run --name=bonita -v bonita-lic:/opt/bonita_lic/ -h <hostname> -e "TENANT_LOGIN=tech_user" -e "TENANT_PASSWORD=secret" -e "PLATFORM_LOGIN=pfadmin" -e "PLATFORM_PASSWORD=pfsecret" -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
+docker run --name=bonita -v bonita-lic:/opt/bonita_lic/ -h <hostname> -e "TENANT_LOGIN=tech_user" -e "TENANT_PASSWORD=secret" -e "PLATFORM_LOGIN=pfadmin" -e "PLATFORM_PASSWORD=pfsecret" -d -p 8080:8080 {bonitasoft-docker-repository}/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
 Now you can access the Bonita Runtime on localhost:8080/bonita and login using: tech_user / secret
@@ -245,9 +246,9 @@ Now you can access the Bonita Runtime on localhost:8080/bonita and login using: 
 This docker image ensures to activate by default both static and dynamic authorization checks on xref:identity:rest-api-authorization.adoc[REST API]. To be coherent it also deactivates the HTTP API.
 But for specific needs you can override this behavior by setting HTTP_API to true and REST_API_DYN_AUTH_CHECKS to false :
 
-[source,shell script,subs="+macros"]
+[source,shell script,subs="+macros,+attributes"]
 ----
-docker run  -e HTTP_API=true -e REST_API_DYN_AUTH_CHECKS=false --name bonita -v bonita-lic:/opt/bonita_lic/ -h <hostname> -d -p 8080:8080  quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
+docker run  -e HTTP_API=true -e REST_API_DYN_AUTH_CHECKS=false --name bonita -v bonita-lic:/opt/bonita_lic/ -h <hostname> -d -p 8080:8080 {bonitasoft-docker-repository}/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
 == Environment variables
