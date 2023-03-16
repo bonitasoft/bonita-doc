@@ -174,6 +174,7 @@ docker login {bonitasoft-registry}
 Use your credential's access login as username and access token as password.
 
 If you do not want user-interaction, you can login with
+
 .docker no-interaction authentication
 [source, shell, subs="+attributes"]
 ----
@@ -192,7 +193,7 @@ Once authenticated, you can pull images with the `docker pull` command. For exam
 .docker pull sample
 [source, shell, subs="+attributes"]
 ----
-docker pull {bonitasoft-docker-repository}/docker/bonita-subscription:2022.2
+docker pull {bonitasoft-docker-repository}/docker/bonita-subscription:latest
 ----
 
 Also see xref:runtime:bonita-docker-installation.adoc[Docker image] if you are more interested in how to use this image.
