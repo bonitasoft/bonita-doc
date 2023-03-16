@@ -4,6 +4,8 @@ version: 2021.2
 asciidoc:
   attributes:
     bonitaVersion: 2021.2
+    bonitasoft-registry: 'bonitasoft.jfrog.io'
+    bonitasoft-docker-repository: '{bonitasoft-registry}/docker'
     bonitaTechnicalVersion: '7.13.0' # latest public community version
     javadocVersion: 7.13
     # ref versions of other components
