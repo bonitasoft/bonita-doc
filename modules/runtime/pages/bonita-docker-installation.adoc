@@ -20,7 +20,7 @@ To start the latest Subscription release - main and maintenance versions only:
 [NOTE]
 ====
 To get access to the Bonita Docker Image, please contact Bonitasoft Customer Success at customer.success@bonitasoft.com. They will provide your credential to get access to the docker repository.
-xref:runtime:bonita-repository-access.adoc#docker[Docker section of Access to Bonita Artifact Repository] will give you more information to connect with these credentials.
+xref:software-extensibility:bonita-repository-access.adoc#docker[Docker section of Access to Bonita Artifact Repository] will give you more information to connect with these credentials.
 ====
 
 // for the 'subs' parameter, see https://docs.asciidoctor.org/asciidoc/latest/subs/apply-subs-to-blocks/
@@ -35,7 +35,7 @@ docker run --name=bonita -d -p 8080:8080 {bonitasoft-docker-repository}/bonita-s
 [NOTE]
 ====
 * Documentation of the community docker image is available https://hub.docker.com/_/bonita[here].
-* Information on how to access the Bonita Artifact Repository can be found xref:runtime:bonita-repository-access.adoc#docker[here].
+* Information on how to access the Bonita Artifact Repository can be found xref:software-extensibility:bonita-repository-access.adoc#docker[here].
 * You need to provide a valid licence, <<section-StepByStep,follow these steps>> in order to get and configure one.
 ====
 
