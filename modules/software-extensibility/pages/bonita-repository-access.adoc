@@ -185,7 +185,7 @@ echo <SUBSCRIPTION_ACCESS_TOKEN> | docker login -u <SUBSCRIPTION_ACCESS_LOGIN> -
 
 You may also logout at the end with the command
 
-[source, shell]
+[source, shell, subs="+attributes"]
 ----
 docker logout {bonitasoft-registry}
 ----
