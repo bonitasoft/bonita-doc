@@ -9,10 +9,8 @@
 
 Bonita Artifact Repository is a solution to access Maven artifacts produced by Bonitasoft, which can be consumed as dependencies in downstream projects.
 
-[WARNING]
-====
-For now, only xref:test-toolkit:ROOT:process-testing-overview.adoc[Bonita Test Toolkit] is available from Bonita Artifact Repository.
-====
+Bonita Artifact Repository is also our official Docker Registry for our subscription docker images.
+
 
 [IMPORTANT]
 ====
@@ -143,6 +141,27 @@ Now that Maven is aware of Bonita Maven repository, you have to give it the cred
 Starting from Bonita 2021.2, Bonita Studio uses https://maven.apache.org/[Maven] internally to resolve required dependencies.
 
 If you want to set up access to Bonita Artifact Repository using Bonita Studio, please refer to the dedicated page on how to xref:setup-dev-environment:configure-maven.adoc[configure Maven from Bonita Studio].
+
+
+[#docker]
+== Docker
+
+Bonita Artifact Repository as our official Docker Registry allow you to pull subscription docker images. To have access to it, simply use the same credentials as the ones you requested for your maven setup and perform standard https://docs.docker.com/engine/reference/commandline/login/[docker authentication].
+
+.docker authentication sample
+[source, shell,subs="+attributes"]
+----
+echo <SUBSCRIPTION_ACCESS_TOKEN> | docker login -u <SUBSCRIPTION_ACCESS_LOGIN> --password-stdin {bonitasoft-registry}
+----
+
+You are now ready to pull some Bonitasoft docker images ! 
+
+.docker pull sample
+[source, shell,subs="+attributes"]
+----
+docker pull {bonitasoft-docker-repository}/bonita-subscription:latest
+----
+
 
 
 [.troubleshooting-title]
