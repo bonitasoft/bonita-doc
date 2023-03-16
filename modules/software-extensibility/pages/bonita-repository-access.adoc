@@ -166,11 +166,13 @@ If you want to set up access to Bonita Artifact Repository using Bonita Studio, 
 === Configure access to Bonita Artifact Repository *with Docker*
 
 To access the Bonita Artifact Repository with docker, you have to authenticate with the `docker login` command.
+
 .docker interactive authentication
 [source, shell, subs="+attributes"]
 ----
 docker login {bonitasoft-registry}
 ----
+
 Use your credential's access login as username and access token as password.
 
 If you do not want user-interaction, you can login with
@@ -182,6 +184,7 @@ echo <SUBSCRIPTION_ACCESS_TOKEN> | docker login -u <SUBSCRIPTION_ACCESS_LOGIN> -
 ----
 
 You may also logout at the end with the command
+
 [source, shell]
 ----
 docker logout bonitasoft.jfrog.io
@@ -190,6 +193,7 @@ docker logout bonitasoft.jfrog.io
 === Pull Docker images from Bonita Artifact Repository
 
 Once authenticated, you can pull images with the `docker pull` command. For example:
+
 .docker pull sample
 [source, shell, subs="+attributes"]
 ----
