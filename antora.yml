@@ -6,6 +6,8 @@ prerelease: -alpha
 asciidoc:
   attributes:
     bonitaVersion: 2023.2
+    bonitasoft-registry: 'bonitasoft.jfrog.io'
+    bonitasoft-docker-repository: '{bonitasoft-registry}/docker'
     bonitaTechnicalVersion: '9.0.0' # latest public community version
     javadocVersion: 9.0
     # ref versions of other components
