@@ -1,17 +1,17 @@
 = Access to Bonita Artifact Repository (Subscription editions only)
 :page-aliases: ROOT:bonita-repository-access.adoc
-:description: Set up access to Bonita Artifact Repository to download development dependencies.
+:description: Set up access to Bonita Artifact Repository to download development dependencies and Docker images.
 
 {description}
 
 [#bonita-artifact-repository]
 == What is Bonita Artifact Repository?
 
-Bonita Artifact Repository is a solution to access Maven artifacts produced by Bonitasoft, which can be consumed as dependencies in downstream projects.
+Bonita Artifact Repository is a solution to access Maven artifacts and Docker images produced by Bonitasoft. Maven artifacts can simply be consumed as dependencies in downstream projects. Docker images can be pulled directly.
 
 [WARNING]
 ====
-For now, only xref:test-toolkit:ROOT:process-testing-overview.adoc[Bonita Test Toolkit] is available from Bonita Artifact Repository.
+Docker images used to be accessible from quay.io. Usage of quay.io is now depreciated in favor of the Bonita Artifact Repository.
 ====
 
 [IMPORTANT]
@@ -23,11 +23,11 @@ An Internet connection is required.
 == Ask for credentials to your account manager
 
 Once your subscription is registered, your account manager will automatically receive an email with valid credentials.
-These credentials will last as long as your subscription, but you will not need to change them if you extend that subscription.
+The credentials have the same validity duration as your subscription renewal included, meaning that you will not have to change them at each renewal.
 
 Credentials are unique per subscription access and include:
 
-* A subscription access login (the email used for the subscription)
+* A subscription access login (email that is used for the subscription)
 * A subscription access token
 
 [#maven]
@@ -35,12 +35,27 @@ Credentials are unique per subscription access and include:
 
 [NOTE]
 ====
-In the below example, we use Maven as the project build tool for extension projects. But it is also possible to use Gradle if it is the tool of your choice.
+In the below example, we use Maven as the project build tool for extension projects. But it is also possible to use Gradle if you choose to do so. 
 ====
 
-=== Maven settings overview
+=== Configure access to Bonita Artifact Repository *in Bonita Studio*
 
-Once you were granted with Bonita Artifact Repository credentials, you have to https://maven.apache.org/configure.html[configure] `Maven` to use Bonita maven repository.
+Acces to Bonita Artifact Repository is configured using the configuration wizard, that is available in two ways:
+
+* At Bonita Studio start-up through the connection check pop-up 
+* Using the menu *Help* > *Test connection to Maven repositories* 
+
+In both case, clicking on *Configure* button will open the connection to Bonita Artifact Repository configuration wizard.
+
+[WARNING]
+====
+The wizard can also be used to configure your proxy or Mirror settings.
+When possible, its is recommended to use a Mirror repository instead of a direct connection to Bonita Artifact Repository. 
+====
+
+=== Maven settings overview *outside Bonita Studio*
+
+Once credentials to Bonita Artifact Repository are granted, you have to https://maven.apache.org/configure.html[configure] `Maven` to use Bonita Maven repository.
 
 This is done in a text file named `settings.xml`. The file location depends on your Maven installation, which is explained on https://maven.apache.org/settings.html[Maven official documentation].
 
@@ -144,6 +159,48 @@ Starting from Bonita 2021.2, Bonita Studio uses https://maven.apache.org/[Maven]
 
 If you want to set up access to Bonita Artifact Repository using Bonita Studio, please refer to the dedicated page on how to xref:setup-dev-environment:configure-maven.adoc[configure Maven from Bonita Studio].
 
+
+[#docker]
+== Docker
+
+=== Configure access to Bonita Artifact Repository *with Docker*
+
+To access the Bonita Artifact Repository with docker, you have to authenticate with the `docker login` command.
+
+.docker interactive authentication
+[source, shell, subs="+attributes"]
+----
+docker login {bonitasoft-registry}
+----
+
+Use your credential's access login as username and access token as password.
+
+If you do not want user-interaction, you can login with
+
+.docker no-interaction authentication
+[source, shell, subs="+attributes"]
+----
+echo <SUBSCRIPTION_ACCESS_TOKEN> | docker login -u <SUBSCRIPTION_ACCESS_LOGIN> --password-stdin {bonitasoft-registry}
+----
+
+You may also logout at the end with the command
+
+[source, shell, subs="+attributes"]
+----
+docker logout {bonitasoft-registry}
+----
+
+=== Pull Docker images from Bonita Artifact Repository
+
+Once authenticated, you can pull images with the `docker pull` command. For example:
+
+.docker pull sample
+[source, shell, subs="+attributes"]
+----
+docker pull {bonitasoft-docker-repository}/bonita-subscription:latest
+----
+
+Also see xref:runtime:bonita-docker-installation.adoc[Docker image] if you are more interested in how to use this image.
 
 [.troubleshooting-title]
 == Troubleshooting
@@ -340,6 +397,55 @@ Your Maven build fails with an equivalent error:
 Your credentials are valid but your are not allowed to access what you are asking for. 
 
 [.solution]#Solution#
-Contact your support to check your permissions.
+Contact support team to check your permissions.
+
+--
+
+[.troubleshooting-section]
+--
+[.symptom]
+docker: Error response from daemon: Authentication is required.
+
+[.symptom-description]
+Your Docker pull or run command fails with an equivalent error:
+
+[source,log]
+----
+docker: Error response from daemon: Head "https://bonitasoft.jfrog.io/v2/docker/bonita-subscription/manifests/7.13": unknown: Authentication is required.
+See 'docker run --help'.
+----
+
+[.cause]#Cause#
+You are not logged in to the Bonita Artifact Repository with Docker. 
+
+[.solution]#Solution#
+Run command
+
+[source, shell, subs="+attributes"]
+----
+docker login {bonitasoft-registry}
+----
+
+--
+
+[.troubleshooting-section]
+--
+[.symptom]
+docker: Error response from daemon: unauthorized: The client does not have permission for manifest
+
+[.symptom-description]
+Your Docker pull or run command fails with an equivalent error:
+
+[source,log]
+----
+Error response from daemon: unauthorized: The client does not have permission for manifest
+----
+
+[.cause]#Cause#
+There are two possible causes. Either are not allowed to access the image you are asking for, or this image and version simply do not exist. 
+
+[.solution]#Solution#
+Double-check your image identification.
+Contact support team to check your permissions if needed, or to get the correct image link.
 
 --
