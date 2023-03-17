@@ -9,8 +9,8 @@ asciidoc:
     # ref versions of other components
     bcdDocVersion: '3.6'
     # page attributes
-    page-editable: true
-    page-out-of-support: false
+    page-editable: false
+    page-out-of-support: true
     openApiUrl: 'https://api-documentation.bonitasoft.com'
     #Latest compatible version of bonita openApi with this Bonita version
     openApiLatestVersion: '0.0.11'
