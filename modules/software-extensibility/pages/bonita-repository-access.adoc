@@ -11,7 +11,7 @@ Bonita Artifact Repository is a solution to access Maven artifacts and Docker im
 
 [WARNING]
 ====
-Docker images used to be accessible from quay.io. Usage of quay.io is now depreciated in favor of the Bonita Artifact Repository.
+Docker images used to be accessible from quay.io. Usage of quay.io is now deprecated in favor of the Bonita Artifact Repository.
 ====
 
 [IMPORTANT]
