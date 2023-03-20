@@ -4,13 +4,13 @@
 
 {description}
 
-== Api documentation
+== API documentation
 
 === View the API reference
 
 
 |===
-| Latest supported REST api version | {openApiUrl}/{openApiLatestVersion}[{openApiLatestVersion}]
+| Latest supported REST API version | {openApiUrl}/{openApiLatestVersion}[{openApiLatestVersion}]
 | Choose a specific version | {openApiUrl}[Specific version]
 |===
 
