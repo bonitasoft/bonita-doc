@@ -1,4 +1,4 @@
-= Bonita Reporting App 
+= Bonita Reporting Application
 
 :description: An application for analytics and reporting. 
 
