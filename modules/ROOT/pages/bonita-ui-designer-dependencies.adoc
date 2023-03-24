@@ -1,4 +1,4 @@
-= Bonita-ui-designer 1.16.0-SNAPSHOT dependencies for Bonita 2023.1
+= Bonita-ui-designer 1.16.11 dependencies for Bonita 2023.1
 
 
 == UI-Designer Backend dependencies
