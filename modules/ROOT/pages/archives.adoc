@@ -8,6 +8,7 @@ This page gives access to the download of Bonita documentation archives, in case
 The format here is html. +
 Download the .zip archive, extract it, and then open the index.html file to launch the site. +
 You can navigate those sites with the table of content on the left.
+
 * https://github.com/bonitasoft/bonita-doc/releases/download/7.8-20230317_100809/documentation-bonita-7.8.zip[Bonita 7.8]
 * https://github.com/bonitasoft/bonita-doc/releases/download/7.7-20221005_082727/documentation-bonita-7.7.zip[Bonita 7.7]
 * https://github.com/bonitasoft/bonita-doc/releases/download/7.6-20220330_125930/documentation-bonita-7.6.zip[Bonita 7.6]
