@@ -1,4 +1,4 @@
-name: Commit Message format check
+name: Commit checks
 
 on:
   pull_request_target:
