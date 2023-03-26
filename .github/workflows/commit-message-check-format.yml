@@ -3,7 +3,7 @@ name: Commit Message format check
 on:
   pull_request_target:
     # trigger when the PR title changes
-    types: [opened, edited, reopened]g
+    types: [opened, edited, reopened]
 
 jobs:
   pr-title:
