@@ -90,7 +90,7 @@ During the last year we explored all possible options for providing a supported 
 The first step of the long term project we initiated is correcting all critical and high CVEs in the AngularJS version used to run our Bonita application pages developped using UI Designer.
 For that, we made a fork of the AngularJS project and adapted the fixes to the version that is used.
 
-Want to hear more? Check this page xref:version-update:angular-js-UID-fork.adoc.
+Want to hear more? Check xref:version-update:angular-js-UID-fork.adoc[this page].
 
 ==== Version update for default Bonita application pages developped in AngularJS
 
