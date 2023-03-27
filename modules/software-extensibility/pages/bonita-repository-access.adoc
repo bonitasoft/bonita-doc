@@ -3,6 +3,7 @@
 :description: Set up access to Bonita Artifact Repository to download development dependencies and Docker images.
 
 {description}
+
 [NOTE]
 ====
 *For Subscription editions only.*
@@ -15,7 +16,7 @@ Bonita Artifact Repository is a solution to access Maven artifacts and Docker im
 
 Maven artifacts can simply be consumed as dependencies in downstream projects. Bonita docker images can be pulled directly.
 
-Starting with Bonita 2023.1 version, the usage of quay.io is depricated for Bonita docker images storage. Bonita docker images up until Bonita 2023.1 will stay available on quay.io during the deprication period. 
+Starting with Bonita 2023.1 version, the usage of quay.io is deprecated for Bonita docker images storage. Bonita docker images up until Bonita 2023.1 will stay available on quay.io during the deprecation period. 
 
 [IMPORTANT]
 ====
@@ -37,7 +38,7 @@ Credentials are unique per subscription access and include:
 In case of any issues regarding credentials information, please contact Customer Success at customer.success@bonitasoft.com
 
 [#maven]
-== Maven Central
+== Maven
 
 [NOTE]
 ====
