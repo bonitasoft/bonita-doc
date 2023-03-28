@@ -84,15 +84,15 @@ In addition to the automatic permission mapping done at a Custom page deployment
 
 _It is the good practice we are introducing regarding web resource's for a page declaration._
 
-==== AngularJS version used by Bonita UI Designer Artifact builder security fixes
+==== Security fixes for all the application pages developped using UI Designer
 
 During the last year we explored all possible options for providing a supported AngularJS version. In the end we decided to handle the need in-house.
-The first step of the long term project we initiated is correcting all critical and high CVEs in Bonita UI Designer Artifact builder.
-For that, we made a fork of the AngularJS project and adapted the fixes to the version that is used by the module.
+The first step of the long term project we initiated is correcting all critical and high CVEs in the AngularJS version used to run our Bonita application pages developped using UI Designer.
+For that, we made a fork of the AngularJS project and adapted the fixes to the version that is used.
 
-What to hear more? Check this page xref:version-update:angular-js-UID-fork.adoc.
+Want to hear more? Check xref:version-update:angular-js-UID-fork.adoc[this page].
 
-==== Default Bonita application AngularJS pages version update
+==== Version update for default Bonita application pages developped in AngularJS
 
 An update to the latest version of AngularJS (1.8.3) was done on the following pages provided by Bonita:
 
