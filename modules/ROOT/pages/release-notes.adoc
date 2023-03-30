@@ -84,6 +84,16 @@ In addition to the automatic permission mapping done at a Custom page deployment
 
 _It is the good practice we are introducing regarding web resource's for a page declaration._
 
+==== Custom widget editor
+
+To add the web resource section in custom widget editor, we should reorganize the layout of this page. We hope it will more usable.
+
+[NOTE]
+====
+You can now use the search (ctrl + f) or search and replace (ctrl + h) keybinding in the code editor (custom-widget, assets content and edit).
+====
+
+
 ==== Security fixes for all the application pages developped using UI Designer
 
 During the last year we explored all possible options for providing a supported AngularJS version. In the end we decided to handle the need in-house.
