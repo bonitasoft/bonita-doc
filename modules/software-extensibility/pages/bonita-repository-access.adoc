@@ -32,7 +32,7 @@ The credentials have the same validity duration as your subscription renewal inc
 
 Credentials are unique per subscription access and include:
 
-* A subscription access username (login)
+* A subscription access username (email used for the subscription registration)
 * A subscription access token (password) 
 
 In case of any issues regarding credentials information, please contact Customer Success at customer.success@bonitasoft.com
