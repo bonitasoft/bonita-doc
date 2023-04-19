@@ -22,18 +22,16 @@ For this example, we will build a basic page that displays, in a table, all the 
 . Click on *Create*
 +
 image:images/getting-started-tutorial/design-application-page/creation-of-an-application-page.gif[Creation of an application page]
-// {.img-responsive .img-thumbnail}
 
 On the new page, using the xref:data:data-management.adoc[data management] capabilities, the UI Designer can automatically create xref:pages-and-forms:variables.adoc[variables] to retrieve business data and generate the user interface:
 
-. At the top left corner of the UI Designer, click on  *Data model* image:images/getting-started-tutorial/design-application-page/data-model.png[Data model button]
+. In the top left corner of the UI Designer, click on  *Data model* image:images/getting-started-tutorial/design-application-page/data-model.png[Data model button]
 . In the list of business objects, select the _Claim_ object and drag and drop it into the empty space of the page
 . In the popup window, change *Variable name* from _claim_ to _claims_
-. In *Additionnal queries*, select _find_
+. In *Additional queries*, select _find_
 . Click on *Save*
 +
 image:images/getting-started-tutorial/design-application-page/declare-claims-page-variable.gif[Declare claims page variable]
-// {.img-responsive .img-thumbnail}
 
 The UI Designer automatically created 2 variables which will be used to retrieve and display business data in the application page:
 
@@ -41,7 +39,6 @@ The UI Designer automatically created 2 variables which will be used to retrieve
 * `claim_selected`` of type *String* which returns the list of claims
 +
 image:images/getting-started-tutorial/design-application-page/variables.png[variables]
-// {.img-responsive .img-thumbnail}
 
 A dashboard page is also automatically generated in the whiteboard. It follows the master/details pattern using xref:ROOT:widgets.adoc[containers]:
 
@@ -49,20 +46,17 @@ A dashboard page is also automatically generated in the whiteboard. It follows t
 * The details section maps each Business Object attribute to a corresponding widget (for instance, an Input widget for an attribute of type String)
 +
 image:images/getting-started-tutorial/design-application-page/dashboard-page.png[dashboard page]
-// {.img-responsive .img-thumbnail}
 
 . Click on *Save* in the UI Designer
 . Click on *Preview* to get a preview of your page
 
 [WARNING]
 ====
-
 In order for preview to access the data, a user needs to be logged into the Bonita Runtime. You can click on *Applications* in the Bonita Studio toolbar to make sure a user is logged in.
 ====
 
 The preview should look like this:
 
 image:images/getting-started-tutorial/design-application-page/dashboard-page-preview.png[dashboard page preview]
-// {.img-responsive .img-thumbnail}
 
 Now you have your first application page. It's time to move to the xref:ROOT:create-application.adoc[next chapter] and create the xref:create-application.adoc[application] that will include the page.

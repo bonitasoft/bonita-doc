@@ -21,7 +21,6 @@ The process consists of a :
 The process will look like this:
 
 image:images/rta-mail/rta-mail-template-ooomprocess.png[Out of office message process]
-// {.img-responsive}
 
 Conditions are set on the transition out of the _Check Email content_ task allowing to know which path to use.
 
@@ -33,7 +32,6 @@ We create a *Business Data Model* to hold the user informations :
 * _body_: the mail body as a *STRING* with a _length_ of 2048
 
 image:images/rta-mail/rta-mail-template-ooom-bdm.png[Out of office message business model]
-// {.img-responsive}
 
 A business object variable will be created at pool level, named *outOfOfficeMessage*. It will to be initialized via a Groovy script with the mail template of the out of office message. +
 The template will be filled with the initiator information and its manager contact:
@@ -85,12 +83,10 @@ This variable needs to be mapped with a contract data too.
 The contract will look like this :
 
 image:images/rta-mail/rta-mail-template-ooom-check-mail-contract.png[Out of office message - Check email content - contract]
-// {.img-responsive}
 
 And the operation pane will look like this:
 
 image:images/rta-mail/rta-mail-template-ooom-check-mail-operations.png[Out of office message - Check email content - contract]
-// {.img-responsive}
 
 ==== Out transition
 
@@ -141,7 +137,6 @@ It will look like this:
 On 'Check Email content' task, in the menu:Execution[Form] pane, use the pencil icon to generate a default form from the contract. +
 
 image:images/rta-mail/rta-mail-template-ooom-check-mail-initial-form.png[Out of office message - Check email content - form]
-// {.img-responsive}
 
 For a better usability, we can  :
 
@@ -170,7 +165,6 @@ It will look like this:
 
 +
 image:images/rta-mail/rta-mail-template-ooom-check-mail-select-properties.png[Out of office message - Check email content - select properties]
-// {.img-responsive}
 
 We need to retrieve the business object _outOfOfficeMessage_ which contains the mail contents. +
 We use an _External API_ variable named *outOfOfficeMessage* which uses the *context* variable business object reference link: `../{{context.outOfOfficeMessage_ref.link}}`
@@ -194,7 +188,6 @@ return {
 The variable pane will look like this:
 
 image:images/rta-mail/rta-mail-template-ooom-check-mail-variables.png[Out of office message - Check email content - mail variables]
-// {.img-responsive}
 
 We will take advantage of the *Rich text area* widget to have a nice way to visualize the mail body.
 
@@ -209,7 +202,6 @@ Add a *Rich text area* widget below the _title_ *input* widget:
 Click on preview. And the form will look like:
 
 image:images/rta-mail/rta-mail-template-ooom-check-mail-form-preview.png[Out of office message - Check email content - form preview]
-// {.img-responsive}
 
 == Run the process
 
@@ -221,4 +213,3 @@ An instance of the process is started and a task is available. +
 Take it and you will see the following form:
 
 image:images/rta-mail/rta-mail-template-ooom-check-mail-form.png[Out of office message - Check email content - form]
-// {.img-responsive}

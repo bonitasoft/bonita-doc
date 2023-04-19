@@ -1,4 +1,4 @@
-= Bonita engine dependencies (7.14.3)
+= Bonita engine dependencies (7.14.5)
 :description: List all dependencies uses for Bonita Engine
 
 
@@ -9,25 +9,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.12.6.20220326
+| 2.13.4.20221013
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.12.6
+| 2.13.4
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.12.6
+| 2.13.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.12.6.1
+| 2.13.4.2
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -99,25 +99,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.12.6.20220326
+| 2.13.4.20221013
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.12.6
+| 2.13.4
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.12.6
+| 2.13.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.12.6.1
+| 2.13.4.2
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -255,31 +255,31 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.12.6.20220326
+| 2.13.4.20221013
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.12.6
+| 2.13.4
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.12.6
+| 2.13.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.12.6.1
+| 2.13.4.2
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-yaml
-| 2.12.6
+| 2.13.4
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -393,7 +393,7 @@
 
 | net.sf.ehcache
 | ehcache
-| 2.10.10.3.24
+| 2.10.10.8.4
 | http://www.terracotta.org[http://www.terracotta.org]
 |  src/assemble/EHCACHE-CORE-LICENSE.txt
 
@@ -669,8 +669,8 @@
 
 | org.yaml
 | snakeyaml
-| 1.27
-| http://www.snakeyaml.org[http://www.snakeyaml.org]
+| 1.31
+| https://bitbucket.org/snakeyaml/snakeyaml[https://bitbucket.org/snakeyaml/snakeyaml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | xmlpull
@@ -687,13 +687,13 @@
 
 | ch.qos.logback
 | logback-classic
-| 1.2.8
+| 1.2.11
 | http://www.qos.ch[http://www.qos.ch]
 |  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
 
 | ch.qos.logback
 | logback-core
-| 1.2.8
+| 1.2.11
 | http://www.qos.ch[http://www.qos.ch]
 |  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
 
@@ -747,13 +747,13 @@
 
 | org.apache.commons
 | commons-lang3
-| 3.11
+| 3.12.0
 | https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | org.apache.commons
 | commons-text
-| 1.9
+| 1.10.0
 | https://commons.apache.org/proper/commons-text[https://commons.apache.org/proper/commons-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -867,25 +867,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.12.6.20220326
+| 2.13.4.20221013
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.12.6
+| 2.13.4
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.12.6
+| 2.13.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.12.6.1
+| 2.13.4.2
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -963,25 +963,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.12.6.20220326
+| 2.13.4.20221013
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.12.6
+| 2.13.4
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.12.6
+| 2.13.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.12.6.1
+| 2.13.4.2
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1119,31 +1119,31 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.12.6.20220326
+| 2.13.4.20221013
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.12.6
+| 2.13.4
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.12.6
+| 2.13.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.12.6.1
+| 2.13.4.2
 | http://github.com/FasterXML/jackson[http://github.com/FasterXML/jackson]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-yaml
-| 2.12.6
+| 2.13.4
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1365,7 +1365,7 @@
 
 | net.sf.ehcache
 | ehcache
-| 2.10.10.3.24
+| 2.10.10.8.4
 | http://www.terracotta.org[http://www.terracotta.org]
 |  src/assemble/EHCACHE-CORE-LICENSE.txt
 
@@ -1677,8 +1677,8 @@
 
 | org.yaml
 | snakeyaml
-| 1.27
-| http://www.snakeyaml.org[http://www.snakeyaml.org]
+| 1.31
+| https://bitbucket.org/snakeyaml/snakeyaml[https://bitbucket.org/snakeyaml/snakeyaml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | xmlpull
@@ -1695,13 +1695,13 @@
 
 | ch.qos.logback
 | logback-classic
-| 1.2.8
+| 1.2.11
 | http://www.qos.ch[http://www.qos.ch]
 |  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
 
 | ch.qos.logback
 | logback-core
-| 1.2.8
+| 1.2.11
 | http://www.qos.ch[http://www.qos.ch]
 |  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
 
@@ -1755,13 +1755,13 @@
 
 | org.apache.commons
 | commons-lang3
-| 3.11
+| 3.12.0
 | https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | org.apache.commons
 | commons-text
-| 1.9
+| 1.10.0
 | https://commons.apache.org/proper/commons-text[https://commons.apache.org/proper/commons-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 

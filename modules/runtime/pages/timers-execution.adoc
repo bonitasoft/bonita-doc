@@ -12,7 +12,7 @@ Their execution is delegated to the *Quartz Job Scheduler*, a popular Java sched
 
 == Change timers execution data
 
-Execution date for timer of type *DATE* or *DURATION* (not *CYCLE*) can be changed using the xref:ROOT:bpm-api.adoc#timers[BPM Rest API]
+Execution date for timer of type *DATE* or *DURATION* (not *CYCLE*) can be changed using the Then the connector can be manually be replayed using the {openApiUrl}/{openApiLatestVersion}/#tag/TimerEventTrigger[BPM Rest API]
 
 == Handle failures on timer execution
 

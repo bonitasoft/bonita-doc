@@ -124,19 +124,39 @@ If you want to benefit from readable Ids for your existing artifacts, you need t
 If your project is under version control and you rename an artifact, you could loose the history of the artifact's resources depending on your version control system. If you use git, "git-log --follow" allows you to keep track of moved files.
 ====
 
-'''
 
-== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+[.troubleshooting-title]
+== Troubleshooting
 
-*Symptom*: +
-You started your Bonita Studio today, and when you try to open a form from your process or open the UI Designer from the studio, the UI Designer doesn't open and you see a *404 Error* or a *blank page*. 
+[.troubleshooting-section]
+--
+[.symptom]
+When you open a page you get the error message: "Component xxx has not been registered".
 
-*Cause*: +
-_Identify the cause_ +
+[.symptom-description]
+You imported a page or a Studio project, and when you open the page you get the error message: "Component xxx has not been registered", or eventually a blank page.
+
+[.cause]#Potential cause#
+This is probably because you have twice the same artifact name with different case.
+For instance, you already have a page with a fragment `frag1`, and you are importing another page with a fragment `Frag1`.
+On a filesystem that is not case-sensitive, this is considered as the same artifact.
+
+[.solution]#Possible solution#
+You should make sure your artifacts (fragments, custom widgets) with the same name have exactly the same uppercase/lowercase characters.
+For instance, in the example above, you could rename `Frag1` as `frag1`.
+--
+
+[.troubleshooting-section]
+--
+[.symptom]
+You started your Bonita Studio today, and when you try to open a form from your process or open the UI Designer from the studio, the UI Designer doesn't open and you see a 404 Error or a blank page.
+
+[.cause]#Potential cause#
+Oops, some artifacts from the UI Designer got corrupted in your git repository!
+
 The UI Designer has a log file that you can consult, either from menu:Bonita Studio[Help > Bonita UI-Designer log] menu: +
 image:images/ui-designer-troubleshooting/uid-logs.png[Open UI Designer log from the Studio]
-// {.img-responsive}
- +
++
 Or from your file system here: `STUDIO_HOME/workspace/.metadata/.plugins/org.bonitasoft.studio.designer/.extract/logs/ui-designer.log`. +
 When reading the log file, you see this kind of error: +
 `Could not load component, unexpected structure in the file [timelineWidget.json]`
@@ -155,9 +175,6 @@ Wrapped by: org.springframework.beans.factory.BeanCreationException: Error creat
 Wrapped by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'migrationResource' defined in file [/home/marielle/BonitaStudioSubscription-7.11.1/workspace/.metadata/.plugins/org.bonitasoft.studio.designer/.extract/webapps/bonita/WEB-INF/classes/org/bonitasoft/web/designer/controller/MigrationResource.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'workspaceInitializer': Invocation of init method failed; nested exception is org.bonitasoft.web.designer.rendering.GenerationException: Build error for timelineWidget.json
 [...]
 ----
-
-_The cause_ +
-Oops, some artifacts from the UI Designer got corrupted in your git repository!
 
 Most of the time, and this is the case in this example, it's because of a *missing file in your repository*. It may be for different reasons: switch on a wrong git branch, file deleted by error, wrong commit, ...
 
@@ -278,7 +295,7 @@ NotFoundException: File not found: [SmartFragment.json]
 * Fragment js file missing
  ** No error, file is automatically re-generated
 
-*Solution*: +
+[.solution]#Possible solution#
 In the case of a missing file, there are several ways to fix this error:
 
 * You are NOT using Git

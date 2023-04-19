@@ -14,7 +14,7 @@ Bonita Platform is made of three main components:
 
 * xref:ROOT:bonita-studio.adoc[*Bonita Studio*] for the development phase of the projects
 * xref:ROOT:bonita-bpm-overview.adoc#platform[*Bonita Runtime*] for the various runtime phases, running the BPM engine and the applications
-* https://documentation.bonitasoft.com/bcd/latest/[*Bonita Continuous Delivery*] to ease the iterative deployment of the projects from environment to environment +
+* xref:{bcdDocVersion}@bcd::index.adoc[*Bonita Continuous Delivery*] to ease the iterative deployment of the projects from environment to environment +
 
 == Teamwork
 Bonita Studio offers a separation between visual coding capabilities and Java/web coding capabilities, to enable an efficient teamwork between business and technical teams. +
@@ -27,7 +27,7 @@ With the Open Source edition *Community*, experiment the value of the platform, 
 For core and critical projects, for enterprise-grade performance and for support, choose our edition per subscription: the https://www.bonitasoft.com/pricing[Enterprise edition]. +
 
 On top of the Enterprise edition, Bonita Runtime can be deployed in xref:ROOT:overview-of-bonita-bpm-in-a-cluster.adoc[clusters]. +
-Alternatively, you can choose to let us supervise your runtime environments by choosing https://documentation.bonitasoft.com/cloud/latest/[Bonita Cloud].
+Alternatively, you can choose to let us supervise your runtime environments by choosing xref:cloud:ROOT:Overview.adoc[Bonita Cloud].
 
 [.card-section]
 == Learn more

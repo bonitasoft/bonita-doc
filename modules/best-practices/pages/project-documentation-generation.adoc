@@ -1,14 +1,12 @@
-= Teamwork: Project documentation
+= Collaborative work: project documentation
 :page-aliases: ROOT:project-documentation-generation.adoc
-:experimental: // activate the 'menu' macro
 :description: How to generate the project documentation in Bonita Studio.
 
 How to generate the project documentation in Bonita Studio.
 
 [NOTE]
 ====
-
-For Enterprise, Performance, Efficiency and Teamwork editions only.
+For Subscription editions only.
 ====
 
 == Overview

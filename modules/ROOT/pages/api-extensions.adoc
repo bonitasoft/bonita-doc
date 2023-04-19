@@ -4,7 +4,7 @@
 {description} +
 A REST API extension allows to extend REST Resources using Bonita, to get or send information in a page or a form.
 
-To learn more on how to create REST API Extensions, refer to the xref:api:rest-api-extensions.adoc[tooling for creating and testing REST API Extensions] page (Enterprise, Performance, Efficiency, and Teamwork editions).
+To learn more on how to create REST API Extensions, refer to the xref:api:rest-api-extensions.adoc[tooling for creating and testing REST API Extensions] page (Subscription editions).
 
 == Deploy a REST API Extension
 
@@ -15,7 +15,7 @@ REST API Extensions use the same authorization mechanism as the standard Bonita 
 [NOTE]
 ====
 
-It is also possible to deploy a REST API Extensions using xref:api:portal-api.adoc#page[REST portal API / "page" resource].
+It is also possible to deploy a REST API Extensions using {openApiUrl}/{openApiLatestVersion}/#tag/Page[REST portal API / "page" resource].
 ====
 
 [NOTE]

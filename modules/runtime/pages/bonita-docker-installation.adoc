@@ -19,22 +19,23 @@ To start the latest Subscription release - main and maintenance versions only:
 
 [NOTE]
 ====
-Information on how to access Quay.io can be found https://customer.bonitasoft.com/download/request[here]
+To get access to the Bonita Docker Image, please contact Bonitasoft Customer Success at customer.success@bonitasoft.com. They will provide your credential to get access to the docker repository.
+xref:software-extensibility:bonita-repository-access.adoc#docker[Docker section of Access to Bonita Artifact Repository] will give you more information to connect with these credentials.
 ====
 
 // for the 'subs' parameter, see https://docs.asciidoctor.org/asciidoc/latest/subs/apply-subs-to-blocks/
-[source,shell script,subs="+macros"]
+[source,shell script,subs="+macros,+attributes"]
 ----
-docker login quay.io
-docker pull quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
-docker logout quay.io
-docker run --name=bonita -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
+docker login {bonitasoft-registry}
+docker pull {bonitasoft-docker-repository}/bonita-subscription:pass:a[{bonitaVersion}]
+docker logout {bonitasoft-registry}
+docker run --name=bonita -d -p 8080:8080 {bonitasoft-docker-repository}/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
 [NOTE]
 ====
 * Documentation of the community docker image is available https://hub.docker.com/_/bonita[here].
-* Information on how to access Quay.io can be found https://customer.bonitasoft.com/download/request[here].
+* Information on how to access the Bonita Artifact Repository can be found xref:software-extensibility:bonita-repository-access.adoc#docker[here].
 * You need to provide a valid licence, <<section-StepByStep,follow these steps>> in order to get and configure one.
 ====
 
@@ -66,9 +67,9 @@ the binaries do not change.
 
 First generate a request key into a container with a specific hostname (-h):
 
-[source,shell script,subs="+macros"]
+[source,shell script,subs="+macros,+attributes"]
 ----
-docker run --rm --name=bonita -h <hostname> -ti quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}] /bin/bash ./generateRequestKey.sh
+docker run --rm --name=bonita -h <hostname> -ti {bonitasoft-docker-repository}/bonita-subscription:pass:a[{bonitaVersion}] /bin/bash ./generateRequestKey.sh
 ----
 
 Answer the questions related to the license you want. This will print out the request key and exit automatically from the running container.
@@ -86,9 +87,9 @@ Alternatively, you can create a named persistent volume in docker for keeping li
 
 Re-create a new Bonita container with the same hostname (-h) and this host directory mounted (-v) :
 
-[source,shell script,subs="+macros"]
+[source,shell script,subs="+macros,+attributes"]
 ----
-docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
+docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ -d -p 8080:8080 {bonitasoft-docker-repository}/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
 [NOTE]
@@ -115,9 +116,9 @@ docker run --name bonita -it -p 8080:8080 bonita bash
 
 *Subscription release*
 
-[source,shell script,subs="+macros"]
+[source,shell script,subs="+macros,+attributes"]
 ----
-docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ -it -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]-XXXX bash
+docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ -it -p 8080:8080 {bonitasoft-docker-repository}/bonita-subscription:pass:a[{bonitaVersion}]-XXXX bash
 ----
 
 Then run `/opt/files/startup.sh` inside the container to start Tomcat. In order to stop Tomcat inside the container, press `Ctrl-C`. +
@@ -154,7 +155,7 @@ This image is built from the following https://github.com/Bonitasoft-Community/b
 
 Create a file `docker-compose.yml` with the following content
 
-[source,yaml,subs="+macros"]
+[source,yaml,subs="+macros,+attributes"]
 ----
 # Use tech_user/secret as user/password credentials
 version: '3'
@@ -169,7 +170,7 @@ services:
       - -c
       - max_prepared_transactions=100
   bonita:
-    image: quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
+    image: {bonitasoft-docker-repository}/bonita-subscription:pass:a[{bonitaVersion}]
     hostname: <hostname>
     volumes:
       - ~/bonita-lic:/opt/bonita_lic/
@@ -235,17 +236,17 @@ BIZ_DB_USER=custombusinessuser
 BIZ_DB_PASS=custombusinesspass
 ----
 
-[source,shell script,subs="+macros"]
+[source,shell script,subs="+macros,+attributes"]
 ----
-docker run --name=bonita -h <hostname> --env-file=env.txt -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
+docker run --name=bonita -h <hostname> --env-file=env.txt -d -p 8080:8080 {bonitasoft-docker-repository}/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
 [#start-bonita-custom-credentials]
 === Start Bonita with custom security credentials
 
-[source,shell script,subs="+macros"]
+[source,shell script,subs="+macros,+attributes"]
 ----
-docker run --name=bonita -v ~/bonita-lic:/opt/bonita_lic/ -h <hostname> -e "TENANT_LOGIN=tech_user" -e "TENANT_PASSWORD=secret" -e "PLATFORM_LOGIN=pfadmin" -e "PLATFORM_PASSWORD=pfsecret" -e "MONITORING_USERNAME=monitorAdmin" -e "MONITORING_PASSWORD=monitor_Secr3t-P455w0rD" -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
+docker run --name=bonita -v ~/bonita-lic:/opt/bonita_lic/ -h <hostname> -e "TENANT_LOGIN=tech_user" -e "TENANT_PASSWORD=secret" -e "PLATFORM_LOGIN=pfadmin" -e "PLATFORM_PASSWORD=pfsecret" -e "MONITORING_USERNAME=monitorAdmin" -e "MONITORING_PASSWORD=monitor_Secr3t-P455w0rD" -d -p 8080:8080 {bonitasoft-docker-repository}/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
 Now you can access the Bonita Runtime on localhost:8080/bonita and login using: tech_user / secret
@@ -255,9 +256,9 @@ Now you can access the Bonita Runtime on localhost:8080/bonita and login using: 
 This docker image ensures to activate by default both static and dynamic authorization checks on xref:identity:rest-api-authorization.adoc[REST API]. To be coherent it also deactivates the HTTP API.
 But for specific needs you can override this behavior by setting HTTP_API to true and BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED to false :
 
-[source,shell script,subs="+macros"]
+[source,shell script,subs="+macros,+attributes"]
 ----
-docker run -e HTTP_API=true -e HTTP_API_PASSWORD=S0me-h11p-s3cr3t -e BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED=false --name bonita -v ~/bonita-lic:/opt/bonita_lic/ -h <hostname> -d -p 8080:8080  quay.io/bonitasoft/bonita-subscription:pass:a[{bonitaVersion}]
+docker run -e HTTP_API=true -e HTTP_API_PASSWORD=S0me-h11p-s3cr3t -e BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED=false --name bonita -v ~/bonita-lic:/opt/bonita_lic/ -h <hostname> -d -p 8080:8080  {bonitasoft-docker-repository}/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
 == Environment variables
@@ -349,6 +350,18 @@ This environment variable is automatically set to postgres or mysql if the Bonit
 === DB_HOST, DB_PORT
 These variables are optional, used in conjunction to configure the bonita image to reach the database instance. There are automatically set if --link is used to run the container.
 
+=== BONITA_DS_CONNECTION_POOL_INITIAL_SIZE, BDM_DS_CONNECTION_POOL_INITIAL_SIZE (Since 2022.1-u6)
+Change the default value for the Bonita and/or the BDM datasource `initialSize`. This is the initial number of connections when the connection pool starts.
+
+=== BONITA_DS_CONNECTION_POOL_MAX_TOTAL, BDM_DS_CONNECTION_POOL_MAX_TOTAL (Since 2022.1-u6)
+Change the default value for the Bonita and/or the BDM datasource `maxTotal`. This is the maximum number of active connections that can be allocated from this pool at the same time.
+
+=== BONITA_DS_CONNECTION_POOL_MIN_IDLE, BDM_DS_CONNECTION_POOL_MIN_IDLE (Since 2022.1-u6)
+Change the default value for the Bonita and/or the BDM datasource `minIdle`. This is the minimum number of active connections that always established after pool created and connection has reached this size.
+
+=== BONITA_DS_CONNECTION_POOL_MAX_IDLE, BDM_DS_CONNECTION_POOL_MAX_IDLE (Since 2022.1-u6)
+Change the default value for the Bonita and/or the BDM datasource `maxIdle`. This is the maximum number of connections that should be kept in the pool at all times.
+
 === DB_NAME, DB_USER, DB_PASS
 
 These variables are used in conjunction to create a new user, set that user's password, and create the bonita database.
@@ -383,9 +396,14 @@ Since Bonita 7.9 BONITA_SERVER_LOGGING_FILE and BONITA_SETUP_LOGGING_FILE can be
 [#logger_configuration]
 == Logger configuration
 
-The logger can be configured by mounting a volume on folder `/opt/bonita/conf/logs` containing the configuration files.
+To ease the logger configuration, you can mount a volume on folder `/opt/bonita/conf/logs` containing the configuration files:
 
-the volume must contain the 2 files
+[source,shell script]
+----
+docker run -v ~/my-config/log4j:/opt/bonita/conf/logs ...
+----
+
+The volume must contain the 2 files
 https://raw.githubusercontent.com/bonitasoft/bonita-distrib/{bonitaTechnicalVersion}/tomcat-resources/tomcat-distrib-for-bonita/src/main/resources/tomcat/server/conf/log4j2-loggers.xml[log4j2-loggers.xml]
 and
 https://raw.githubusercontent.com/bonitasoft/bonita-distrib/{bonitaTechnicalVersion}/docker/files/log4j2/log4j2-appenders.xml[log4j2-appenders.xml]
@@ -395,6 +413,13 @@ https://raw.githubusercontent.com/bonitasoft/bonita-distrib/{bonitaTechnicalVers
 Log4j2 automatically reloads configuration files when there is a change. However, if the file is invalid, the initial version
 of that file is used instead, and is not reloaded unless one of the other watched file is changed.
 ====
+
+If not user is specified to create the container (`--user`), the filesystem access rights are downgraded to allow only the `bonita` user (inside the Docker container), meaning that a standard user cannot access the log4j2 configuration folder on the host machine (`~/my-config/log4j` in this example) anymore. Make sure to access it as a "sudoer" to hot-modify the logger configuration, or specify a dedicated user when creating the container:
+
+[source,shell script]
+----
+docker run --user <my-dedicated-bonita-user> -v ~/my-config/log4j:/opt/bonita/conf/logs ...
+----
 
 == Migrating from an earlier version of Bonita
 

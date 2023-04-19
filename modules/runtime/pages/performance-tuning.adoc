@@ -308,10 +308,9 @@ This should be appropriately sized for the number of times the sequence manager 
 
 === Persistence cache
 
-For the Teamwork, Efficiency, Performance and Enterprise editions, Bonita Engine has a cache providing a persistence layer using Hibernate caching.
+For Subscription editions, Bonita Engine has a cache providing a persistence layer using Hibernate caching.
 
-EhCache configuration for this persistence layer is defined in a file named `bonita-platform-hibernate-cache.xml.notused` and `bonita-tenant-hibernate-cache.xml.notused`. +
-To apply the configuration of those files, remove the '.notused' suffix. +
+EhCache configuration for this persistence layer is defined in a file named `bonita-platform-hibernate-cache.xml` and `bonita-tenant-hibernate-cache.xml`. +
 It is possible to modify the cache settings in those files for each kind of object.
 
 Before going into production, we encourage to finely tune the "Level-2" object cache in a pre-prod environment:
@@ -354,32 +353,20 @@ The following cache configurations can be defined:
 |===
 | Configuration | Purpose
 
-| connectorCacheConfig
+| connector
 | stores connector implementations for a given connector definition
 
-| processDefCacheConfig
+| processDefinition
 | stores process definition objects
 
-| userFilterCacheConfig
+| userFilter
 | stores user filter implementations for a given user filter definition
 
-| migrationPlanCacheConfig
-| not yet used
-
-| breakpointCacheConfig
-| not yet used
-
-| groovyScriptCacheConfig
+| groovyScript
 | stores compiled versions of Groovy scripts
 
-| synchroServiceCacheConfig
-| used by the benchmark test infrastructure (and has no meaning outside of it)
-
-| transientDataCacheConfig
+| transientData
 | stores transient data
-
-| platformCacheConfig
-| used to store platform object, which contains general platform information such as the version, or start date
 
 | parameterCacheConfig
 | stores process parameters

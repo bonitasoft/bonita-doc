@@ -6,7 +6,7 @@
 
 [NOTE]
 ====
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
+For Subscription editions only.
 ====
 
 The LDAP synchronization service keeps the Bonita organization information synchronized with an external LDAP directory, by creating, updating, or removing
@@ -251,6 +251,18 @@ This file defines the connection settings and specifies the account used for use
 | technicalPassword
 | This is the xref:ROOT:first-steps-after-setup.adoc[password of the platform adminstrator]. It is used to retrieve the default tenant id if _tenantId_ is not provided.
 | platform
+
+| basicAuthentication.active
+| Starting with version 2022.1, the xref:ROOT:release-notes.adoc[engine HTTP APIs are protected with Basic Access Authentication]. It is now mandatory to enable Basic Authentication in the clients connecting through HTTP (e.g. the LDAP Synchronizer tool) to the engine of a Bonita runtime of version 2022.1 and onwards.
+| false
+
+| basicAuthentication.username
+| The username to connect to the engine through HTTP, configured server-side in the file `<BONITA>/server/conf/tomcat-users.xml`.
+| http-api
+
+| basicAuthentication.password
+| The username to connect to the engine through HTTP, configured server-side in file <BONITA>/server/conf/tomcat-users.xml
+| h11p-@p1 (in Bonita Tomcat bundle), no default value (in Bonita Docker image)
 |===
 
 === ldap.properties
@@ -667,10 +679,16 @@ In the following cases:
  ** the `public certificate` should be imported into the default java or custom trust Store.
  ** the endpoint authentication might be disabled `disable_endpoint_authentication=true`
 
-== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
-=== HttpResponseException: status code: 404 is generated when the LDAP Synchronizer is used
+[.troubleshooting-title]
+== Troubleshooting
 
-*Symptom:* The following stacktrace appears in the log:
+[.troubleshooting-section]
+--
+[.symptom]
+HttpResponseException: status code: 404 is generated when the LDAP Synchronizer is used
+
+[.symptom-description]
+The following stacktrace appears in the log:
 [source,log]
 ----
 Aug 12, 2021 9:01:35 AM com.bonitasoft.ldapsynchronizer.repository.BonitaUserRepository initialize
@@ -710,14 +728,11 @@ Caused by: org.apache.http.client.HttpResponseException: status code: 404
 	... 7 more
 ----
 
-*Root cause:*
+[.cause]#Potential cause#
 The LDAP Synchronizer is using the Engine HTTP API of the product, but it's not active in your configuration.
 
-*Solutions:*
-
-*On-premise solution*:
-
-Configure the Bonita Tomcat bundle you have downloaded from the Bonitasoft Customer Service Center to activate
+[.solution]#Possible solution#
+*On-premise solution*: Configure the Bonita Tomcat bundle you have downloaded from the Bonitasoft Customer Service Center to activate
 the Engine HTTP API by:
 
 * either add a Java system property `-Dhttp.api=true` to file `setEnv.[sh|bat]` inside tomcat bundle (in folder `setup/tomcat_templates/`)
@@ -727,3 +742,64 @@ the Engine HTTP API by:
 `docker run -e HTTP_API=true -e BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED=false --name bonita -v ./bonita-lic/:/opt/bonita_lic/ -h localhost -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:{bonitaVersion}`
 
 See the page xref:runtime:bonita-docker-installation.adoc#_http_api[Deploy Bonita Runtime with Docker] for more information.
+--
+
+[.troubleshooting-section]
+--
+[.symptom]
+HttpResponseException: status code: 401 is generated when the LDAP Synchronizer is used
+
+[.symptom-description]
+The following stacktrace appears in the log:
+[source,log]
+----
+Oct 06, 2022 3:51:55 PM com.bonitasoft.ldapsynchronizer.repository.BonitaUserRepository initializeConfiguration
+INFO: Connecting to Bonita server using HTTP mode
+Oct 06, 2022 3:51:55 PM com.bonitasoft.ldapsynchronizer.repository.BonitaUserRepository initializeTenantId
+INFO: Using tenant id specified in configuration: 1
+Oct 06, 2022 3:51:56 PM com.bonitasoft.ldapsynchronizer.LDAPSynchronizer run
+SEVERE: Synchronization failed
+java.lang.Exception: Failed to connect to Bonita server: HTTP: url[http://localhost:8080] application[bonita] login[BonitaTechUser] password[PRESENT] 
+    at com.bonitasoft.ldapsynchronizer.repository.BonitaUserRepository.initialize(BonitaUserRepository.java:151)
+    at com.bonitasoft.ldapsynchronizer.LDAPSynchronizer.run(LDAPSynchronizer.java:65)
+    at com.bonitasoft.ldapsynchronizer.LDAPSynchronizer.main(LDAPSynchronizer.java:238)
+Caused by: java.lang.reflect.UndeclaredThrowableException
+    at com.sun.proxy.$Proxy3.login(Unknown Source)
+    at com.bonitasoft.engine.api.APIClient.login(APIClient.java:62)
+    at com.bonitasoft.ldapsynchronizer.repository.BonitaUserRepository.initialize(BonitaUserRepository.java:135)
+    ... 2 more
+Caused by: java.io.IOException: Error while executing POST request (http code: 401) <POST http://localhost:8080/bonita/serverAPI/com.bonitasoft.engine.api.LoginAPI/login HTTP/1.1>
+    at org.bonitasoft.engine.api.HTTPServerAPI.invokeMethod(HTTPServerAPI.java:144)
+    at org.bonitasoft.engine.api.impl.ClientInterceptor.invoke(ClientInterceptor.java:79)
+    at com.sun.proxy.$Proxy3.login(Unknown Source)
+    at com.bonitasoft.engine.api.APIClient.login(APIClient.java:62)
+    at com.bonitasoft.ldapsynchronizer.repository.BonitaUserRepository.initialize(BonitaUserRepository.java:135)
+    at com.bonitasoft.ldapsynchronizer.LDAPSynchronizer.run(LDAPSynchronizer.java:65)
+    at com.bonitasoft.ldapsynchronizer.LDAPSynchronizer.main(LDAPSynchronizer.java:238)
+    at     < ========== Beginning of the server stack trace ========== >. ( )
+    at org.bonitasoft.engine.api.HTTPServerAPI.executeHttpPost(HTTPServerAPI.java:177)
+    at org.bonitasoft.engine.api.HTTPServerAPI.invokeMethod(HTTPServerAPI.java:139)
+    at org.bonitasoft.engine.api.impl.ClientInterceptor.invoke(ClientInterceptor.java:79)
+    ... 5 more
+Caused by: org.apache.http.client.HttpResponseException: status code: 401
+    at org.apache.http.impl.client.AbstractResponseHandler.handleResponse(AbstractResponseHandler.java:70)
+    at org.apache.http.impl.client.BasicResponseHandler.handleResponse(BasicResponseHandler.java:66)
+    at org.apache.http.impl.client.BasicResponseHandler.handleResponse(BasicResponseHandler.java:52)
+    at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:223)
+    at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165)
+    at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140)
+    at org.bonitasoft.engine.api.HTTPServerAPI.executeHttpPost(HTTPServerAPI.java:169)
+    ... 7 more
+----
+
+[.cause]#Potential cause#
+The LDAP Synchronizer is connecting to a Bonita engine of version 2022.1 or onwards, and:
+
+* either the Basic Access Authentication parameters are not being passed (they are commented out in the `bonita.properties` file)
+* or the credentials (`basicAuthentication.username`, `basicAuthentication.password`) being passed are not the right ones
+
+[.solution]#Possible solution#
+
+* Enable Basic Authentication in the `bonita.properties` file setting uncommenting and setting `basicAuthentication.active=true`.
+* Uncomment the Basic Authentication credentials (`basicAuthentication.username`, `basicAuthentication.password`) in the `bonita.properties` and make sure the values match the ones in the targeted Bonita Tomcat's file `<BONITA>/server/conf/tomcat-users.xml`.
+--
