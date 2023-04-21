@@ -1,7 +1,7 @@
 = Bonita Runtime Monitoring
-:description: Discover how to monitor a runtime environment running Bonita
+:description: Discover how to monitor a running Bonita Runtime environment
 
-Discover how to monitor a runtime environment running Bonita
+ Discover how to monitor a running Bonita Runtime environment
 
 In Community edition, monitoring metrics can be published via 2 channels: JMX and / or Logging file. +
 In Subscription editions, monitoring metrics can be published via 3 channels: JMX and / or Logging file and / or
@@ -11,8 +11,8 @@ a Prometheus endpoint.
 
 Monitoring a Production environment is crucial to ensure the runtime is correctly sized and tuned.
 
-Bonita provides a series of technical and Bonita-related metrics to monitor the health of Bonita runtime environment. +
-Some metrics are enabled by default and cannot be disabled. Some others are optional and can be enabled according to
+Bonita provides a series of technical and Bonita-related metrics to monitor the health of a Bonita Runtime environment. +
+Some metrics are enabled by default and cannot be disabled. Others are optional and can be enabled according to
 your needs.
 
 == Glossary
