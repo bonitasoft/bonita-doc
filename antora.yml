@@ -1,8 +1,6 @@
 name: bonita
 title: Bonita
 version: 2023.1
-# TODO: When releasing beta version, replace alpha by beta. Remove when releasing GA
-prerelease: -beta
 asciidoc:
   attributes:
     bonitaVersion: 2023.1
@@ -19,7 +17,7 @@ asciidoc:
     openApiUrl: 'https://api-documentation.bonitasoft.com'
     #Latest compatible version of bonita openApi with this Bonita version
     openApiLatestVersion: '0.0.11'
-    page-next-release: false # TODO: When releasing GA version, set this field to false
+    page-next-release: false
     page-hide-search-bar: false
 nav:
   - modules/ROOT/release-note-nav.adoc
