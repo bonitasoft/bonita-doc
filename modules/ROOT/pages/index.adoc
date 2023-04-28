@@ -1,7 +1,7 @@
 = Bonita Documentation
 :description: Learn how to get the most out of the Bonita Platform and all of its components.
 
-WARNING: this is a modified page to test changes in doc-site generation!
+WARNING: this is a modified page to test changes in doc-site generation !
 
 Learn how to get the most out of the Bonita Platform and all of its components.
 
