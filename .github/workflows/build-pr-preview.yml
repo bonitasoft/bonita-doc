@@ -17,7 +17,7 @@ jobs:
       CLOUD_BRANCH: 'master'
       BONITA_BRANCH_2021_1: '2021.1'
       # Needed to build the 'cloud' doc
-      BCD_BRANCH: '3.6'
+      BCD_BRANCH: '4.0'
       BONITA_BRANCH_FOR_CLOUD: '2022.1'
       TOOLKIT_BRANCH: '1.0'
       BONITA_BRANCH_FOR_TOOLKIT: '2022.2'
@@ -31,6 +31,6 @@ jobs:
             ./build-preview.bash --use-multi-repositories
             --start-page "${{ env.COMPONENT_VERSION }}"@"${{ env.COMPONENT_NAME }}"::index.adoc
             --component-with-branches "${{ env.COMPONENT_NAME }}":"${{ env.COMPONENT_BRANCH_NAME }},${{ env.BONITA_BRANCH_2021_1 }},${{ env.BONITA_BRANCH_FOR_CLOUD }},${{ env.BONITA_BRANCH_FOR_TOOLKIT }}"
-            --component-with-branches bcd:"${{ env.BCD_BRANCH }}"
+            --component-with-branches bcd:"${{ env.BCD_BRANCH }},3.6"
             --component-with-branches cloud:"${{ env.CLOUD_BRANCH }}"
             --component-with-branches test-toolkit:"${{ env.TOOLKIT_BRANCH }}"
