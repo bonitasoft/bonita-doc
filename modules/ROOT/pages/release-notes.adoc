@@ -234,6 +234,34 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 
 == Bug fixes
 
+=== Fixes in Bonita 2021.2-u8 (2023-05-12)
+
+==== Fixes in Bonita Studio including Bonita UI Designer
+
+* STUDIO-4451 - Dependency remote lookup failed when central is not reachable
+* STUDIO-4452 - Groovy script validation marker disappear on refresh validation
+* STUDIO-4454 - Changing tabs in expression editor duplicates the expression
+
+==== Fixes in Bonita Runtime including Bonita Applications
+
+* RUNTIME-369 - XSS persistante: Il est possible d’injecter du code dans le nom de fichier poussé par l’utilisateur
+* RUNTIME-747 - 2 requests to install the BDM generate errors
+* RUNTIME-1555 - [Users mapped to process manager profile] - If select one user in search list  then all users are selected
+* RUNTIME-1559 - LDAP Synch: when number of members in an Active Directory group > MaxValRange, last page of members is not synchronised
+* RUNTIME-1562 - Session is invalidated when accessing the license page in admin application
+* RUNTIME-1576 - [Security] Update several dependencies for 2021.2-u8 (7.13.8)
+* RUNTIME-1582 - New ProcessPermissionRule grants access to ANY user provided the process has pending tasks.
+* RUNTIME-1590 - Users have access to overview of process even if they are not involved in it
+* RUNTIME-1625 - REST API extension does not match when url start with a / in page.properties resulting in 403 error
+* RUNTIME-1630 - bonita/portal/custom-page : HTTP status 500 Internal error + NPE
+* RUNTIME-1639 - In Bonita Admin app - keep the selected filter when going "back"
+* RUNTIME-1645 - [SSO] OIDC client adds port 0 to `redirect-uri-path` configured in keycloak-oidc.json when using HTTPS
+* RUNTIME-1648 - [Permission][Admin App] Page permission warning is not implemented in resource page
+* RUNTIME-1663 - In a Bonita cluster, configuration updates are not effective unless all the nodes are stopped at once, then restarted one after another
+* RUNTIME-1668 - Error message displayed when mapping 6th role to process actors
+* RUNTIME-1672 - An HTTP call to portal back-end generates a wrong redirect instead of an error
+* RUNTIME-1688 - The X-Frame-Options header set in bonita pages no longer allows to specify authorized origins for parent frames
+
 === Fixes in Bonita 2021.2-u7 (2022-11-21)
 
 ==== Fixes in Bonita Studio including Bonita UI Designer
