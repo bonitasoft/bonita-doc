@@ -61,7 +61,7 @@ Custom REST API extensions developed with the Maven archetype are added to a Bon
 
 === Custom pages
 
-In Community, Teamwork, Efficiency, Performance and Enterprise editions
+*For Subscription editions only*
 
 A xref:ROOT:pages.adoc[custom page] is a page that you can add into Bonita Administrator Application to form part of an application or to customize information provided in default Application pages.
 To implement a page, you need to provide HTML, CSS and Javascript resources respecting some packaging constraints.
@@ -79,7 +79,7 @@ Custom themes are developed outside the Studio with a dedicated Maven archetype.
 
 === Import and export exchange files
 
-In Community, Teamwork, Efficiency, Performance and Enterprise editions
+*For Subscription editions only*
 
 Included in the https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Engine APIs] are methods to import and export various items.
 These methods manipulate files with formats that are versioned. Newer versions of the file format are designed to be backward compatible with earlier versions. The following items have import and export API methods:
@@ -91,7 +91,7 @@ These methods manipulate files with formats that are versioned. Newer versions o
 
 === Authentication service
 
-In Teamwork, Efficiency, Performance and Enterprise editions
+*For Subscription editions only*
 
 From Bonita 6.3, the Engine authentication service is considered to be an official extension point of the solution. It is now safe to provide your own implementation of this service to better fit the needs of your projects.
 xref:identity:user-authentication-overview.adoc[Default authentication implementations] are provided allow to check user credentials from the Bonita database, LDAP or a CAS SSO server (using JAAS).
@@ -99,7 +99,7 @@ To implement an Authentication Service, provide a Java class respecting the Auth
 
 === Event handlers
 
-In Teamwork, Efficiency, Performance and Enterprise editions
+*For Subscription editions only*
 
 An event handler is an extension to the engine that is configured to run when a specified event occurs. An event is a change to any object in the database.
 To xref:integration:event-handlers.adoc[implement an event handler], you need to provide a Java class respecting the Handler interface.
@@ -146,4 +146,4 @@ We cannot ensure backward compatibility for the following:
 * Custom data types definition structure
 * URLs
 * Forms definition structure and HTML templates
-* bonita home folder structure and content (removed since 7.3)
+* Bonita home folder structure and content (removed since 7.3)
