@@ -244,7 +244,7 @@ If you update Bonita from an earlier version, you can now delete them if you do 
 
 ==== Fixes in Bonita Runtime including Bonita Applications
 
-* RUNTIME-369 - XSS persistante: Il est possible d’injecter du code dans le nom de fichier poussé par l’utilisateur
+* RUNTIME-369 - Uploaded file names are not XSS proof
 * RUNTIME-747 - 2 requests to install the BDM generate errors
 * RUNTIME-1555 - [Users mapped to process manager profile] - If select one user in search list  then all users are selected
 * RUNTIME-1559 - LDAP Synch: when number of members in an Active Directory group > MaxValRange, last page of members is not synchronised
