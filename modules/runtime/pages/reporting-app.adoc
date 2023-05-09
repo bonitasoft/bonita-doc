@@ -1,4 +1,4 @@
-= Bonita Reporting App 
+= Bonita Reporting Application
 
 :description: An application for analytics and reporting. 
 
@@ -11,13 +11,11 @@ In keeping with Bonitasoft’s promise to continuously deliver valuable, high qu
 
 [NOTE]
 ====
-
-*For Enterprise, Performance, Efficiency, and Teamwork editions only.*
+*For Subscription editions only.*
 
 Bonita Reporting App is available for download on the Customer Portal/Customer Service Center.
 
 A customer account is required for downloading the .jar , that contains “Process Historical Data” report and “Human tasks historical data”.
-
 ====
 
 == Overview 
