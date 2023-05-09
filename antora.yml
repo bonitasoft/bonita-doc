@@ -11,7 +11,7 @@ asciidoc:
     bonitaTechnicalVersion: '9.0.0' # latest public community version
     javadocVersion: 9.0
     # ref versions of other components
-    bcdDocVersion: '3.6'
+    bcdDocVersion: '4.0'
     # page attributes
     page-pagination: true # display links to previous/next pages at the bottom of the page
     page-editable: true
