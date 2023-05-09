@@ -18,7 +18,7 @@ asciidoc:
     page-out-of-support: false
     openApiUrl: 'https://api-documentation.bonitasoft.com'
     #Latest compatible version of bonita openApi with this Bonita version
-    openApiLatestVersion: '0.0.11'
+    openApiLatestVersion: '0.0.13'
     page-next-release: false # TODO: When releasing GA version, set this field to false
     page-hide-search-bar: false
 nav:
