@@ -390,6 +390,11 @@ Since Bonita 7.9 BONITA_SERVER_LOGGING_FILE and BONITA_SETUP_LOGGING_FILE can be
 
 `BONITA_SETUP_LOGGING_FILE` default value is `/opt/bonita/setup/logback.xml`
 
+=== INSTALL_PROVIDED_PAGES
+
+When building a link:++https://github.com/bonitasoft/bonita-application-packager#installation-of-bonita-admin--user-application-pages++[Self Contained Application], Bonita Admin Application and Bonita User Application are no longer installed after the packaging process. If your custom application is using pages from one of those applications, set this property to have those pages installed anyway at Bonita Runtime startup.
+
+Default value is `false`.
 
 [#logger_configuration]
 == Logger configuration
