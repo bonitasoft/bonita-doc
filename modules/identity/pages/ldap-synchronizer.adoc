@@ -73,7 +73,7 @@ Those files could be copied directly from ldap-syncrhonizer docker image with co
 
 [source,bash,subs="verbatim,quotes"]
 ----
-docker cp $(docker create --rm quay.io/bonitasoft/bonita-ldap-synchronizer:*version*):/conf/default/*conFileName*.properties *directory_link_to_volume*
+docker cp $(docker create --rm bonitasoft.jfrog.io/docker/bonita-ldap-synchronizer:*version*):/conf/default/*conFileName*.properties *directory_link_to_volume*
 ----
 
 *e.g* : Overwrite the  `sync.properties` file
@@ -83,7 +83,7 @@ mkdir user-config
 ----
 * copy the file from the base image using the command :
 ----
-docker cp $(docker create --rm quay.io/bonitasoft/bonita-ldap-synchronizer:*version*):/conf/default/sync.properties ./user-config/
+docker cp $(docker create --rm bonitasoft.jfrog.io/docker/bonita-ldap-synchronizer:*version*):/conf/default/sync.properties ./user-config/
 ----
 * edit the file
 * start the docker image with the volume docker run [...] -v $(pwd)/user-config:/opt/conf/user-config [..]
@@ -148,7 +148,7 @@ are INFO for production use, FINE for debug use)
 === Run
 [source,bash,subs="verbatim,quotes"]
 ----
-docker run -v *CONF-DIR-PATH*:/opt/conf/user-config quay.io/bonitasoft/bonita-ldap-synchronizer
+docker run -v *CONF-DIR-PATH*:/opt/conf/user-config bonitasoft.jfrog.io/docker/bonita-ldap-synchronizer
 ----
 
 * *CONF-DIR-PATH* could contain all properties
@@ -156,7 +156,7 @@ docker run -v *CONF-DIR-PATH*:/opt/conf/user-config quay.io/bonitasoft/bonita-ld
 *eg :*
 [source,bash]
 ----
-docker run  -e BONITA_URL=http://192.168.0.10:8080 -v $(pwd)/bonita-ldap-synchronizer/conf:/opt/conf/user-config  quay.io/bonitasoft/bonita-ldap-synchronizer
+docker run  -e BONITA_URL=http://192.168.0.10:8080 -v $(pwd)/bonita-ldap-synchronizer/conf:/opt/conf/user-config  bonitasoft.jfrog.io/docker/bonita-ldap-synchronizer
 ----
 
 ==== LOG
