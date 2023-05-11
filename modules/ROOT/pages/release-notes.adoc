@@ -1,10 +1,7 @@
 = Release notes
-:description: Bonita release note
+:description: Bonita 2023.1 release note
 
-[NOTE]
-====
-The 2023.1 is in beta.
-====
+Bonita 2023.1 release note
 
 == Bonita project packaged as a self-contained application
 
