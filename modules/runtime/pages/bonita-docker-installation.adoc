@@ -341,8 +341,8 @@ This optional environment variable allows to specify the maximum Http thread num
 More information on the usefulness of this parameter can be found https://tomcat.apache.org/tomcat-9.0-doc/config/http.html[here]. Default value is *20*.
 
 === JAVA_OPTS
-This optional environment variable is used to customize JAVA_OPTS. The default value is -Xms1024m -Xmx1024m -XX:MaxPermSize=256m.
-The syntax to use is `-e JAVA_OPTS="-Xms2048m -Xmx2048m -XX:MaxPermSize=1024m"`
+This optional environment variable is used to customize JAVA_OPTS. The default value is -Xms1024m -Xmx1024m.
+The syntax to use is `-e JAVA_OPTS="-Xms2048m -Xmx2048m"`
 
 === DB_VENDOR
 This environment variable is automatically set to postgres or mysql if the Bonita container is linked to a PostgreSQL or MySQL database using --link. The default value is h2. It can be overridden if you don't use the --link capability.
