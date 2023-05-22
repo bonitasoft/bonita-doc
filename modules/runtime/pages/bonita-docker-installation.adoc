@@ -336,6 +336,14 @@ Default value is *false*.
 === ACCESSLOGS_MAX_DAYS
 If `ACCESSLOGS_FILES_ENABLED=true`, this optional environment variable allows to automatically delete access log files after a certain number of days. Default value is *30*.
 
+=== ACCESSLOGS_PATH
+If `ACCESSLOGS_FILES_ENABLED=true`, this optional environment variable overrides the default path to of the access log file.
+Default value is */opt/bonita/logs*.
+
+=== HEAPDUMP_PATH
+ This optional environment variable overrides the default path to of the heap dump file.
+Default value is */opt/bonita/logs*.
+
 === HTTP_MAX_THREADS
 This optional environment variable allows to specify the maximum Http thread number Tomcat will use to serve HTTP/1.1 requests. Directly modifies the *maxThreads* parameter in the *server.xml* file of the Tomcat inside the docker container.
 More information on the usefulness of this parameter can be found https://tomcat.apache.org/tomcat-9.0-doc/config/http.html[here]. Default value is *20*.
