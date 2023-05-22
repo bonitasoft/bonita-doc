@@ -229,14 +229,14 @@ repositories {
 * RUNTIME-1566 - Logger configuration failure with Bonita docker image
 * RUNTIME-1567 - When deploying a layout, the permissions corresponding to the 'resources' in page.properties are not added into the compound-permissions-mapping-internal.properties
 * RUNTIME-1578 - [Security] Update several dependencies for 2022.1-u6 (7.14.6)
-* RUNTIME-1582 - New ProcessPermissionRule grants access to ANY user provided the process has pending tasks.
+* RUNTIME-1582 - [Permissions] New ProcessPermissionRule grants access to ANY user provided the process has pending tasks.
 * RUNTIME-1590 - Users have access to overview of process even if they are not involved in it
-* RUNTIME-1591 - [SSO] OIDC ( ECDSA KeyFactory not available )
-* RUNTIME-1625 - REST API extension does not match when url start with a / in page.properties resulting in 403 error
-* RUNTIME-1630 - bonita/portal/custom-page : HTTP status 500 Internal error + NPE
+* RUNTIME-1591 - [SSO] OIDC packaging (ECDSA KeyFactory not available)
+* RUNTIME-1625 - REST API extension does not match when url starts with a / in page.properties resulting in 403 error
+* RUNTIME-1630 - bonita/portal/custom-page: HTTP status 500 Internal error + NPE
 * RUNTIME-1639 - In Bonita Admin app - keep the selected filter when going "back"
 * RUNTIME-1645 - [SSO] OIDC client adds port 0 to `redirect-uri-path` configured in keycloak-oidc.json when using HTTPS
-* RUNTIME-1648 - [Permission][Admin App] Page permission warning is not implemented in resource page
+* RUNTIME-1648 - [Permissions][Admin App] Page permission warning is not implemented in resource page
 * RUNTIME-1650 - [SSO] OIDC missing authentication method client_credential_post for token request
 * RUNTIME-1656 - Process list filter remain empty in user case list
 * RUNTIME-1662 - [SSO] OIDC front channel logout is not working
@@ -244,7 +244,7 @@ repositories {
 * RUNTIME-1666 - Process variables information missing in case details section for archived cases.
 * RUNTIME-1668 - Error message displayed when mapping 6th role to process actors
 * RUNTIME-1672 - An HTTP call to portal back-end generates a wrong redirect instead of an error
-* RUNTIME-1680 - Dynamic permission DownloadDocumentPermissionRule - user doesn't have access to downloaded document
+* RUNTIME-1680 - [Permissions] Dynamic permission DownloadDocumentPermissionRule - user doesn't have access to downloaded document
 * RUNTIME-1688 - The X-Frame-Options header set in bonita pages no longer allows to specify authorized origins for parent frames
 * RUNTIME-1699 - CSRF Token Validation Filter and RestAPI Authorization Filter copy multiparts requests content in memory
 * RUNTIME-1700 - Some parameters from JAVA_OPTS environment variable (Docker image) are not taken into account
