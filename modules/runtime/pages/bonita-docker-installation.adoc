@@ -336,12 +336,8 @@ Default value is *false*.
 === ACCESSLOGS_MAX_DAYS
 If `ACCESSLOGS_FILES_ENABLED=true`, this optional environment variable allows to automatically delete access log files after a certain number of days. Default value is *30*.
 
-=== ACCESSLOGS_PATH
-If `ACCESSLOGS_FILES_ENABLED=true`, this optional environment variable overrides the default path to of the access log file.
-Default value is */opt/bonita/logs*.
-
 === HEAPDUMP_PATH
- This optional environment variable overrides the default path to of the heap dump file.
+ This optional environment variable overrides the default path of the heap dump file.
 Default value is */opt/bonita/logs*.
 
 === HTTP_MAX_THREADS
