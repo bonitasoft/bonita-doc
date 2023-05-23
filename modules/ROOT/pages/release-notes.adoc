@@ -124,7 +124,7 @@ The detailed list is available in the "What’s new in Bonita 2022.1" page, in t
 ==== Fixes in Bonita Studio including Bonita UI Designer
 
 * STUDIO-4454 - Changing tabs in expression editor duplicates the expression
-* STUDIO-4452 - Deploying an organisation fails if a parent and child process instances are still running in the Studio's engine Tomcat
+* STUDIO-4455 - Deploying an organisation fails if a parent and child process instances are still running in the Studio's engine Tomcat
 * STUDIO-4458 - Custom page name conflict not detected at deploy
 * STUDIO-4460 - Fix variable resolution in the Groovy script editor
 * STUDIO-4461 - Improve pre 2022.1 project dependencies migration with better detection of libraries with classifier
@@ -159,7 +159,7 @@ The detailed list is available in the "What’s new in Bonita 2022.1" page, in t
 ==== Fixes in Bonita Studio including Bonita UI Designer
 
 * STUDIO-4451 - Fix Dependency remote lookup failure when central is not reachable
-* STUDIO-4455 - Fix refresh validation so that Groovy script validation marker does not disappear
+* STUDIO-4452 - Fix refresh validation so that Groovy script validation marker does not disappear
 * UID-716     - Fix missing keys in localization.json asset
 
 ==== Fixes in Bonita Runtime including Bonita native Applications
