@@ -223,7 +223,7 @@ repositories {
 ==== Fixes in Bonita Runtime including Bonita Applications
 
 * RUNTIME-369 - Uploaded file names are not XSS proof
-* RUNTIME-747  - 2 requests to install the BDM generate errors
+* RUNTIME-747 - 2 requests to install the BDM generate errors
 * RUNTIME-1016 - Connection Pool attribute name testWithIdle is wrong in bonita template and default files - correct name is testWhileIdle
 * RUNTIME-1555 - [Users mapped to process manager profile] - If select one user in search list then all users are selected
 * RUNTIME-1566 - Logger configuration failure with Bonita docker image
