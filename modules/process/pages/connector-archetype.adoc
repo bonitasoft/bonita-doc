@@ -1,11 +1,11 @@
 = Create a connector using the connector maven archetype
 :page-aliases: ROOT:connector-archetype.adoc
-:description: This page explain how to create and test custom connectors using the provided maven archetype.
+:description: In this page it is explained how to create and test custom connectors using the provided maven archetype.
 
-Bonita offers the possibility to create and plug custom connectors, to allow you to connect with any external system you may need. +
-We provide a maven archetype to help you to bootstrap a connector project. The source code of the archetype is available https://github.com/bonitasoft/bonita-connector-archetype[here].
+Bonita offers the possibility to create and plug custom connectors, to allow you to connect with any needed external system. +
+We provide a maven archetype to help you bootstrap a connector project. The source code of the archetype is available https://github.com/bonitasoft/bonita-connector-archetype[here].
 
-== Prerequisite
+== Pre-requisite
 
 . Java 11 must be installed: https://adoptium.net/[Download Java]
 . Maven must be installed: https://maven.apache.org/install.html[Download Maven]
@@ -33,8 +33,8 @@ If you are using Power Shell make sure to use quotes for the parameters : mvn ar
 
 You'll then have to specify interactively the properties of your project:
 
-* *groupId:* the group id of your connector.
-* *artifactId:* the artifact id of your connector
+* *groupId:* the group id is specific to your connector.
+* *artifactId:* the artifact is specific to your connector.
  ** Must match the following regex: `+^[a-zA-Z0-9\-]+$+`
   *** Example: _myConnector-1_
 * *version:* the version of your connector _(default value: 1.0-SNAPSHOT)_
@@ -53,7 +53,7 @@ Follow the http://maven.apache.org/guides/mini/guide-naming-conventions.html[mav
  ** true _(default)_
  ** false
 
-A folder named _[your artifact id]_ is created, with your Bonita connector project, ready to use.
+A folder named _[your artifact id]_ will then be created, with your Bonita connector project ready to use.
 
 [CAUTION]
 ====
@@ -62,7 +62,7 @@ Be sure to use the xref:version-update:product-versioning.adoc#_technical_id[tec
 
 [TIP]
 ====
-You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you'll bypass the validation performed on the properties content.
+You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing so you'll bypass the validation performed on the properties content.
 
 Example:
 [source,bash]
@@ -83,16 +83,16 @@ mvn -B archetype:generate \
 
 == Connector development
 
-In this section we'll look into the different components of a connector project, and how you should use them to develop your connector.
+In this section we'll look into the different components of a connector project and how you should use them to develop your connector.
 
 === Connector definition
 
 A connector is first defined by its *definition*. It is an XML file located in _src/main/resources/[artifactId].def_ by default. +
-A definition defines the inputs and the outputs of a connector. It can be seen as a contract. Then, implementations of this definition can be created, they just need to respect the inputs / outputs contract of the definition.
+A definition contains the inputs and the outputs parameters of a connector. It can be seen as a contract. Then, implementations of this definition can be created, by respecting the inputs / outputs contract of the definition.
 
 [TIP]
 ====
-The definition definition XSD is available in _schemas/connector-definition-descriptor.xsd_ (it is the same for definition model for Connectors and Actor filters definitions), you can import it in a IDE to get completion.
+The definition XSD is available in _schemas/connector-definition-descriptor.xsd_ (same definition model for Connectors and Actor filters definitions), you can import it in an IDE for completion.
 ====
 
 image::images/connector-def-xsd-overview.png[Connector definition xsd overview]
