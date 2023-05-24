@@ -126,24 +126,24 @@ The detailed list is available in the "What’s new in Bonita 2022.1" page, in t
 * STUDIO-4454 - Changing tabs in expression editor duplicates the expression
 * STUDIO-4455 - Deploying an organisation fails if a parent and child process instances are still running in the Studio's engine Tomcat
 * STUDIO-4458 - Custom page name conflict not detected at deploy
-* STUDIO-4460 - Fix variable resolution in the Groovy script editor
-* STUDIO-4461 - Improve pre 2022.1 project dependencies migration with better detection of libraries with classifier
-* STUDIO-4462 - Fix Validate action getting stuck with diagrams with Subprocess event figures.
+* STUDIO-4460 - Fix ArrayIndexOutOfBoundsException when resolving variables context in the Groovy script editor
+* STUDIO-4461 - Improve pre 2022.1 project dependencies migration with better detection of dependencies with classifier
+* STUDIO-4462 - Fix Validate action getting stuck when diagrams contains Subprocess event figures.
 * UID-437     - Improve hotzone of the fx button
 
 ==== Fixes in Bonita Runtime including Bonita native Applications
 
 * RUNTIME-369  - Uploaded file names are not XSS proof
-* RUNTIME-747  - 2 requests to install the BDM generate errors
+* RUNTIME-747  - Improve ronustness for concurrent BDM install/update requests
 * RUNTIME-1016 - Connection Pool attribute named testWithIdle is wrong in bonita template and default files
-* RUNTIME-1591 - [SSO] OIDC packaging (ECDSA KeyFactory not available)
-* RUNTIME-1639 - In Bonita Admin app - keep the selected filter when going "back"
-* RUNTIME-1645 - [SSO] OIDC client adds port 0 to `redirect-uri-path` configured in keycloak-oidc.json when using HTTPS
-* RUNTIME-1648 - [Permission][Admin App] Page permission warning is not implemented in resource page
-* RUNTIME-1650 - [SSO] OIDC missing authentication method `client_credential_post` for token request
+* RUNTIME-1591 - Fix `java.security.NoSuchAlgorithmException: ECDSA KeyFactory not available` when using SSO with OIDC
+* RUNTIME-1639 - Fix Bonita Admin app case list to keep the selected filter when going "back"
+* RUNTIME-1645 - OIDC client adds port 0 to `redirect-uri-path` configured in keycloak-oidc.json when using HTTPS
+* RUNTIME-1648 - Page permission warning is not implemented in resource page
+* RUNTIME-1650 - Missing authentication method `client_credential_post` for token request with OIDC
 * RUNTIME-1656 - Process list filter remain empty in user case list
 * RUNTIME-1657 - [Security] Update several dependencies for 2022.2-u3 (7.15.3)
-* RUNTIME-1662 - [SSO] OIDC front channel logout is not working
+* RUNTIME-1662 - OIDC front channel logout is not working
 * RUNTIME-1663 - In a Bonita cluster, configuration updates are not effective unless all the nodes are stopped at once, then restarted one after another
 * RUNTIME-1666 - Process variables information missing in case details section for archived cases
 * RUNTIME-1668 - Error message displayed when mapping 6th role to process actors
