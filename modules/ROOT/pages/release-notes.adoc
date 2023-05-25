@@ -12,11 +12,15 @@ Here are the options proposed by Bonitasoft:
 . Create a dedicated project that is completely independent from the existing Bonita projects (i.e. the generated application will be deployed independently from the existing ones)
 . Integrate it into an existing project, so that a single application will be generated and deployed (backward compatible way of doing things)
 
-The first choice is already possible today and the second one will be possible in future Bonita versions.
-For those who want to try out deploying a Bonita project as a self-contained application, we have developped a packaging tool.
-The outcome will be an appplication packaged either in Tomcat Bundle or a docker image, you choose.
+The first choice is already possible today and the second one will only be possible in future Bonita versions.
 
-The tool is available here https://github.com/bonitasoft/bonita-application-packager[Bonita Application Packager].
+For those who want to try out deploying a Bonita project as a self-contained application, we have developped an *experimental* packaging tool. The outcome will be an appplication packaged either in Tomcat Bundle or a docker image, you choose.
+For everyone that wants to get a glance at the future, the tool is available here https://github.com/bonitasoft/bonita-application-packager[Bonita Application Packager].
+
+[WARNING]
+====
+The update process of the self-contained application packaged with the *experimental* tool will not be covered with xref:version-update:update-with-update-tool.adoc[Update Tool], hence we advice deployement in non-production environments. 
+====
 
 == New product values
 
