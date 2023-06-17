@@ -120,16 +120,9 @@ To start Bonita Studio, go to the directory where you installed it, and run the 
 Now Bonita Studio should be running on your computer. +
 If not, you can manually start it by using the installed shortcut or by using the Bonita Studio executable file from the installation folder.
 
-[NOTE]
-====
-When Bonita Studio starts, various tasks are executed in the background, such as the embedded Bonita test server startup (including Bonita Engine initialization), Bonita test organization deployment, and more. This behavior can be configured in the xref:setup-dev-environment:bonita-bpm-studio-preferences.adoc[preferences]. +
-This might take a while and some features may not be immediately available. +
-When those operations are completed, a notification pops up on your Bonita Studio welcome page.
-====
-
 == Installation validation
 
-To make sure that everything is properly installed, click on the *Applications* button in the toolbar. This should open the Bonita Application Directory in your web browser:
+To make sure that everything is properly installed, you may create a new project from the Welcome Page or the _File_ menu. Once the project initialized, click on the *Applications* button in the toolbar. This should open the Bonita Application Directory in your web browser:
 
 image::getting-started:images/getting-started-tutorial/installation/web-browser-display-application-list.png[Bonita Application display in a web browser]
 
