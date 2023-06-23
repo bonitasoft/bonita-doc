@@ -20,5 +20,5 @@ jobs:
           # '>' Replace newlines with spaces (folded)
           # '-' No newline at end (strip)
           build-preview-command: >-
-            ./build-preview.bash --use-multi-repositories
+            ./build-preview.bash
             --component "${{ env.COMPONENT_NAME }}" --branch "${{ env.COMPONENT_BRANCH_NAME }}" 
