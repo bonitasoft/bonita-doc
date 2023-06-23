@@ -17,8 +17,10 @@ jobs:
         # Branch of https://github.com/bonitasoft/bonita-documentation-site/pull/582
         uses: bonitasoft/bonita-documentation-site/.github/actions/build-pr-site/@feat/xref_validation
         with:
+          # Branch of https://github.com/bonitasoft/bonita-documentation-site/pull/582
+          doc-site-branch: feat/xref_validation
           # '>' Replace newlines with spaces (folded)
           # '-' No newline at end (strip)
           build-preview-command: >-
-            ./build-preview.bash
+            ./build-preview.bash 
             --component "${{ env.COMPONENT_NAME }}" --branch "${{ env.COMPONENT_BRANCH_NAME }}" 
