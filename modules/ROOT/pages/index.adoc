@@ -1,14 +1,6 @@
 = Bonita Documentation
 :description: Learn how to get the most out of the Bonita Platform and all of its components.
 
-
-[CAUTION]
-====
-Unknown xref in this component version xref::do-not-exist_for_sure.adoc[BCD add-on].
-
-Unknown xref in another component xref:{bcdDocVersion}@bcd::do-not-exist_for_sure-in-bcd.adoc[BCD add-on].
-====
-
 Learn how to get the most out of the Bonita Platform and all of its components.
 
 [.card-section]
