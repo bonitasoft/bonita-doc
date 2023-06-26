@@ -7,13 +7,13 @@ on:
       - 'antora.yml'
       - '.github/workflows/build-pr-preview.yml'
 jobs:
-  build_preview:
+  validate_xref:
     runs-on: ubuntu-20.04
     env:
       COMPONENT_NAME: bonita
       COMPONENT_BRANCH_NAME: ${{ github.head_ref }}
     steps:
-      - name: Build PR preview
+      - name: Validate xref
         # Branch of https://github.com/bonitasoft/bonita-documentation-site/pull/582
         uses: bonitasoft/bonita-documentation-site/.github/actions/build-pr-site/@feat/xref_validation
         with:
@@ -23,4 +23,5 @@ jobs:
           # '-' No newline at end (strip)
           build-preview-command: >-
             ./build-preview.bash 
-            --component "${{ env.COMPONENT_NAME }}" --branch "${{ env.COMPONENT_BRANCH_NAME }}" 
+              --component "${{ env.COMPONENT_NAME }}"
+              --branch "${{ env.COMPONENT_BRANCH_NAME }}" 
