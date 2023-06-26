@@ -14,11 +14,8 @@ jobs:
       COMPONENT_BRANCH_NAME: ${{ github.head_ref }}
     steps:
       - name: Validate xref
-        # Branch of https://github.com/bonitasoft/bonita-documentation-site/pull/582
-        uses: bonitasoft/bonita-documentation-site/.github/actions/build-pr-site/@feat/xref_validation
+        uses: bonitasoft/bonita-documentation-site/.github/actions/build-pr-site/@master
         with:
-          # Branch of https://github.com/bonitasoft/bonita-documentation-site/pull/582
-          doc-site-branch: feat/xref_validation
           # '>' Replace newlines with spaces (folded)
           # '-' No newline at end (strip)
           build-preview-command: >-
