@@ -7,27 +7,18 @@ on:
       - 'antora.yml'
       - '.github/workflows/build-pr-preview.yml'
 jobs:
-  build_preview:
-    runs-on: ubuntu-20.04
+  validate_xref:
+    runs-on: ubuntu-22.04
     env:
       COMPONENT_NAME: bonita
       COMPONENT_BRANCH_NAME: ${{ github.head_ref }}
-      COMPONENT_VERSION: ${{ github.base_ref }} # The base_ref or target branch of the pull request in a workflow run.
-      # Required to pass xref validation
-      CLOUD_BRANCH: 'master'
-      DEPENDANT_BONITA_BRANCHES: '2021.1,2022.1,2022.2'
-      BCD_BRANCHES: '3.6,4.0'
-      TOOLKIT_BRANCH: '1.0'
     steps:
-      - name: Build PR preview
+      - name: Validate xref
         uses: bonitasoft/bonita-documentation-site/.github/actions/build-pr-site/@master
         with:
           # '>' Replace newlines with spaces (folded)
           # '-' No newline at end (strip)
           build-preview-command: >-
-            ./build-preview.bash --use-multi-repositories
-            --start-page "${{ env.COMPONENT_VERSION }}"@"${{ env.COMPONENT_NAME }}"::index.adoc
-            --component-with-branches "${{ env.COMPONENT_NAME }}":"${{ env.COMPONENT_BRANCH_NAME }},${{ env.DEPENDANT_BONITA_BRANCHES }}"
-            --component-with-branches bcd:"${{ env.BCD_BRANCHES }}"
-            --component-with-branches cloud:"${{ env.CLOUD_BRANCH }}"
-            --component-with-branches test-toolkit:"${{ env.TOOLKIT_BRANCH }}"
+            ./build-preview.bash
+            --component "${{ env.COMPONENT_NAME }}"
+            --branch "${{ env.COMPONENT_BRANCH_NAME }}"
