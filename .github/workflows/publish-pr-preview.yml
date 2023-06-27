@@ -10,7 +10,7 @@ on:
       - '.github/workflows/publish-pr-preview.yml'
 jobs:
   build_preview:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     permissions:
       pull-requests: write # surge-preview write PR comments
     steps:
