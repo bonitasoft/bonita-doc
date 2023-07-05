@@ -118,6 +118,8 @@ Reminder : For commercial and support questions, please refer to your Customer S
 === New debounce property in UID pages
 
 From version 7.15.4, a new debounce property has been added to the pbInput and pbAutocomplete widgets. +
+
+[NOTE]
 A page that is generated with this version is still compatible with a previous version and can be imported without any issues, but the debounce property will simply be ignored.
 
 == Bug fixes
