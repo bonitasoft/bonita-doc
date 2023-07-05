@@ -118,7 +118,7 @@ Reminder : For commercial and support questions, please refer to your Customer S
 === New debounce property in UID pages
 
 From version 7.15.4, a new debounce property has been added to the pbInput and pbAutocomplete widgets. +
-A page that is generated with this version is still compatible with a previous version and can be imported without any issued, but the debounce property will simply be ignored.
+A page that is generated with this version is still compatible with a previous version and can be imported without any issues, but the debounce property will simply be ignored.
 
 == Bug fixes
 For the users of Bonita Community edition, Bonita 2022.2 also comes with all the bug fixes released in the Maintenance versions of Bonita 2022.1 (up until version 2022.1-u6).
