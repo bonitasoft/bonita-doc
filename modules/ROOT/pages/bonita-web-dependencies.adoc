@@ -33,13 +33,13 @@
 
 | org.bonitasoft.engine
 | bonita-client
-| 7.15.3
+| 7.15.4
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-common
-| 7.15.3
+| 7.15.4
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
@@ -159,31 +159,31 @@
 
 | org.bonitasoft.console
 | console-common
-| 7.15.3
+| 7.15.4
 | N/A
 |  -
 
 | org.bonitasoft.engine
 | bonita-client
-| 7.15.3
+| 7.15.4
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-common
-| 7.15.3
+| 7.15.4
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-server
-| 7.15.3
+| 7.15.4
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.web
 | bonita-web-extensions
-| 7.15.3
+| 7.15.4
 | N/A
 |  -
 
@@ -255,7 +255,7 @@
 
 | com.bonitasoft.engine
 | bonita-client-sp
-| 7.15.3
+| 7.15.4
 | N/A
 |  -
 
@@ -267,7 +267,7 @@
 
 | org.bonitasoft.console
 | console-common
-| 7.15.3
+| 7.15.4
 | N/A
 |  -
 |=== 
@@ -279,25 +279,25 @@
 
 | com.bonitasoft.engine
 | bonita-client-sp
-| 7.15.3
+| 7.15.4
 | N/A
 |  -
 
 | com.bonitasoft.engine
 | bonita-common-sp
-| 7.15.3
+| 7.15.4
 | N/A
 |  -
 
 | com.bonitasoft.engine
 | bonita-server-sp
-| 7.15.3
+| 7.15.4
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | com.bonitasoft.web
 | bonita-web-extensions-sp
-| 7.15.3
+| 7.15.4
 | N/A
 |  -
 
@@ -333,19 +333,19 @@
 
 | org.bonitasoft.console
 | console-common-sp
-| 7.15.3
+| 7.15.4
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-server
-| 7.15.3
+| 7.15.4
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-server
-| 7.15.3
+| 7.15.4
 | N/A
 |  -
 
