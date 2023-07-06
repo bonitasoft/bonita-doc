@@ -1,4 +1,4 @@
-= Dependencies for Bonita Portal-JS 7.15.3
+= Dependencies for Bonita Portal-JS 7.15.4
 
 
 == Community NodeJS dependencies
