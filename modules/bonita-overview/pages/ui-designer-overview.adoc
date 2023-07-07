@@ -1,6 +1,7 @@
 = UI Designer overview
 :description: The UI Designer is a wysiwyg development environment for creating pages and forms for a Bonita application.
 :page-aliases: ROOT:ui-designer-overview.adoc
+// required to be able to usag of the "menu" macro
 :experimental:
 
 {description}
@@ -154,9 +155,10 @@ You started your Bonita Studio today, and when you try to open a form from your 
 [.cause]#Potential cause#
 Oops, some artifacts from the UI Designer got corrupted in your git repository!
 
-The UI Designer has a log file that you can consult, either from menu:Bonita Studio[Help > Bonita UI-Designer log] menu: +
+The UI Designer has a log file that you can consult, either from menu:Bonita Studio[Help > Bonita UI-Designer log] menu:
+
 image:images/ui-designer-troubleshooting/uid-logs.png[Open UI Designer log from the Studio]
-+
+
 Or from your file system here: `STUDIO_HOME/workspace/.metadata/.plugins/org.bonitasoft.studio.designer/.extract/logs/ui-designer.log`. +
 When reading the log file, you see this kind of error: +
 `Could not load component, unexpected structure in the file [timelineWidget.json]`
@@ -183,12 +185,12 @@ In the error above, for example, the log file says: "Could not load component, u
 This means that the Widget timeline cannot be built correctly. In this case here, the file timelineWidget.tpl.html is missing from the folder 'web_widgets/timelineWidget' committed in the git repository.
 
 Depending on the type of the file missing, other error messages could be (where "customInputTest" is the widget's name):
-"Template not found for [customInputTest.tpl.html]"
-"Controller not found for [customInputTest.ctrl.js]"
+
+* "Template not found for [customInputTest.tpl.html]"
+* "Controller not found for [customInputTest.ctrl.js]"
 
 [WARNING]
 ====
-
 The error message may vary depending on the Bonita version.
 ====
 
@@ -227,40 +229,38 @@ SmartFragment (the fragment directory)
 	SmartFragment.json
 ----
 
-_Error messages_ +
+_Error messages_
+
 * Custom widget missing
- ** 7.10 7.11 7.12
-+
+** 7.10 7.11 7.12
 ----
 NotFoundException: Could not load component, unexpected structure in the file [customSmartInput.json]
 ----
 * Custom widget template file missing
- ** 7.10
+** 7.10
 +
 ----
 NotFoundException: Could not load component, unexpected structure in the file [customSmartInput.json]
 ----
-
- ** 7.11 7.12
+** 7.11 7.12
 +
 ----
 NotFoundException: Template not found for [customSmartInput.tpl.html]
 ----
 * Custom widget json file missing
- ** 7.10 7.11 7.12
+** 7.10 7.11 7.12
 +
 ----
 NotFoundException: Could not load component, unexpected structure in the file [customSmartInput.json]
 ----
 * Custom widget json file syntax error
- ** 7.10
+** 7.10
 +
 ----
 Unexpected exception while processing file /Applications/BonitaStudioSubscription-7.10.5.app/Contents/Eclipse/workspace/MyProject/web_widgets/customSmartInput/customSmartInput.json
 com.fasterxml.jackson.core.JsonParseException: Unexpected character
 ----
-
- ** 7.11 7.12
+** 7.11 7.12
 +
 ----
 com.fasterxml.jackson.core.JsonParseException: Unexpected character
@@ -271,29 +271,26 @@ com.fasterxml.jackson.core.JsonParseException: Unexpected character
 ----
 NotFoundException: Could not load component, unexpected structure in the file [customSmartInput.json]
 ----
-
- ** 7.11 7.12
+** 7.11 7.12
 +
 ----
 NotFoundException: Controller not found for [customSmartInput.ctrl.js]
 ----
 * Custom widget js file missing
  ** No error, file is re-generated
-
 * Entire fragment folder is missing
- ** Same error for all versions
+** Same error for all versions
 +
 ----
 NotFoundException: File not found: [SmartFragment.json]
 ----
 * Fragment json file missing
- ** Same error for all versions
-+
+** Same error for all versions
 ----
 NotFoundException: File not found: [SmartFragment.json]
 ----
 * Fragment js file missing
- ** No error, file is automatically re-generated
+** No error, file is automatically re-generated
 
 [.solution]#Possible solution#
 In the case of a missing file, there are several ways to fix this error:
@@ -311,3 +308,4 @@ Here are some examples of common mistakes:
 * You have a merge conflict, you need to fix that conflict.
 * Somebody removed a file by error
  ** You can retrieve the file from a previous commit.
+--
