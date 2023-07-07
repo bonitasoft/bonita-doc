@@ -14,11 +14,15 @@ jobs:
       COMPONENT_BRANCH_NAME: ${{ github.head_ref }}
     steps:
       - name: Validate xref
-        uses: bonitasoft/bonita-documentation-site/.github/actions/build-pr-site/@master
+        # TMP use the branch of https://github.com/bonitasoft/bonita-documentation-site/pull/596
+        uses: bonitasoft/bonita-documentation-site/.github/actions/build-pr-site/@feat/add_fail_on_warning_options
         with:
+          # TMP use the branch of https://github.com/bonitasoft/bonita-documentation-site/pull/596
+          doc-site-branch: feat/add_fail_on_warning_options
           # '>' Replace newlines with spaces (folded)
           # '-' No newline at end (strip)
           build-preview-command: >-
             ./build-preview.bash
             --component "${{ env.COMPONENT_NAME }}"
             --branch "${{ env.COMPONENT_BRANCH_NAME }}"
+          fail-on-warning: true
