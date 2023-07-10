@@ -61,8 +61,7 @@ If you are updating to a new maintenance version within the same main version, y
 .*Special attention required on:*
 * *Custom reports :* Up to Bonita 2021.1 (Bonita Runtime 7.12) they may continue working, depending on the custom code you added. Starting with Bonita 2021.2 (Bonita Runtime 7.13), custom reports will not be supported in Bonita Runtime anymore. They have been replaced with a standalone Enterprise only - Reporting Application.
 
-// lien vers dynamic permissions => old module, new identity
-* *Dynamic Permissions :* Starting from Bonita 2022.1, xref:ROOT:rest-api-authorization.adoc#dynamic-authorization-checking[Dynamic Permissions] are available only in Subscription edition. This means that for Community edition, the configuration files/folders remain available but the functionality will not work, without additional custom code or upgrade to Subscription edition.
+* *Dynamic Permissions :* Starting from Bonita 2022.1, xref:ROOT:rest-api-authorization.adoc#dynamic_authorization[Dynamic Permissions] are available only in Subscription edition. This means that for Community edition, the configuration files/folders remain available but the functionality will not work, without additional custom code or upgrade to Subscription edition.
 * Several bugs affect legacy Bonita versions by preventing a smooth Bonita Runtime update with BPM services paused when:
 ** The source version is older than Bonita 7.8.0, and the target version is between Bonita 7.8.0 and Bonita 7.11.5
 ** The source version is older than Bonita 7.10.5 and the target version is older than Bonita 2021.1
@@ -76,11 +75,9 @@ If you are updating to a new maintenance version within the same main version, y
 ____
 *For example:* when updating from 7.10.y to 7.11.0, you will need to read all the release notes in between those versions.
 ____
-// link to special cases and troubleshouting to be added => OK
-* Go through the xref:update-with-update-tool.adoc#special-cases[Special cases] and xref:update-with-update-tool.adoc#troubleshooting[Troubleshooting] paragraphs below.
+* Go through the <<special-cases, Special cases>> and <<troubleshooting, Troubleshooting>> paragraphs below.
 
-// link to setup tool to be added => old module, new runtime
-* Secure the update by doing xref:#backups[backups]. Better safe than sorry.
+* Secure the update by doing <<backups, backups>>. Better safe than sorry.
 * Check that the database version is up-to-date and supported by the new Bonita version.
 * Runtime tomcat server custom configuration: You will need to re-apply your customizations after the update process finishes.
 * Runtime setup folder custom configuration is kept in the database: Custom configurations made and pushed from the setup folder in the previous version are kept in the database. However, to benefit from the changes and improvements made in the product, you may want to compare the files you pull from your database and the target version files available in the setup/platform_conf/initial folder.
@@ -95,9 +92,9 @@ ____
 
 When the script has finished executing, you will have to complete the update procedure by unzipping and configuring new bundle's version.
 
-// add link to the paragraph => OK
-Go through the paragraph xref:update-with-update-tool.adoc#updating-bonita-bundle-step-by-step-procedure[Updating Bonita bundle: step-by-step procedure] for step-by-step instructions.
+Go through the paragraph <<updating-bonita-bundle-step-by-step-procedure, Updating Bonita bundle: step-by-step procedure>> for step-by-step instructions.
 
+[[backups]]
 === BACKUPS
 ==== Database files
 From database point of view, as any operation on a productive system, an update is not a zero-risk operation.
@@ -138,12 +135,13 @@ Generally, the update script supports MySQL, PostgreSQL, Oracle, and Microsoft S
 * Check the detailed xref:ROOT:hardware-and-software-requirements.adoc[database requirements] to see if updating your database version is required or not.
 ____
 // link to RDBMS customizations => old module, new runtime
-If an update is required, make sure to apply all the xref:ROOT:database-configuration.adoc#customize-rdbms-to-make-it-work-with-bonita[RDBMS customizations] required by Bonita when setting up the new database version.
+If an update is required, make sure to apply all the xref:ROOT:database-configuration.adoc#customize-rdbms[RDBMS customizations] required by Bonita when setting up the new database version.
 ____
 * If custom indexes have been added to certain tables in the engine database, they should be removed them before launching the update procedure. If not removed, the update procedure will not be completed.
 
 NOTE: There is no update for H2 database.
 
+[[jdbc-drivers]]
 === Drivers
 Make sure you double-check that you use the official driver version that matches your database version.
 *Having the correct database driver is mandatory for a smooth update.*
@@ -152,7 +150,7 @@ Make sure you double-check that you use the official driver version that matches
 If you are using an Oracle database, please follow the instructions for xref:ROOT:database-configuration.adoc#jdbc-drivers[Oracle driver download].
 
 // link to Oracle 12c (12.2.x.y) => OK
-Particularly, if you use Oracle 12.2.0.x.y and are updating to Bonita 7.9.n or 7.10.n, then remove the existing ojdbc8-19.3.0.0.jar file, and add the specific JDBC driver to bonita-update/lib. If you use Oracle or Microsoft SQL Server, add the JDBC driver for your database to bonita-update/lib. This is the same driver as you have installed in your web server lib directory. The driver for Oracle 19.3.0.0 is already embedded in bonita-update/lib. If the target version of the update is Bonita 7.9 or greater, you must upgrade to xref:update-with-update-tool.adoc#download-the-specific-jdbc-driver-for-the-oracle-12c-1220xy-or-19c-19300[Oracle 12c (12.2.x.y)].
+Particularly, if you use Oracle 12.2.0.x.y and are updating to Bonita 7.9.n or 7.10.n, then remove the existing ojdbc8-19.3.0.0.jar file, and add the specific JDBC driver to bonita-update/lib. If you use Oracle or Microsoft SQL Server, add the JDBC driver for your database to bonita-update/lib. This is the same driver as you have installed in your web server lib directory. The driver for Oracle 19.3.0.0 is already embedded in bonita-update/lib. If the target version of the update is Bonita 7.9 or greater, you must upgrade to <<jdbc-drivers, Oracle 12c (12.2.x.y)>>.
 
 === Estimated required time
 WARNING: Bonita Runtime must be shut down during update activities.
@@ -208,7 +206,7 @@ a|
  * ~ 4 minutes (with 10000 profiles but 1000 linked to ~6 profile entries => ~1000 applications generated)
 |===
 
-
+[[updating-bonita-bundle-step-by-step-procedure]]
 == Updating Bonita bundle: step-by-step procedure
 
 image::ROOT:images/images-6_0/update_bigsteps.png[Update steps]
@@ -277,7 +275,7 @@ a|
  * bonita-update-tool-sp.bat (Windows)
 |===
 
-NOTE: A script called _check-update-dryrun_ is available. It can be used as a *pre-update check* as it does all the verification without actually updating the elements. This is equivalent to running the update script with a `--verify` option.
+NOTE: A script called _check-update-dryrun_ is available. It can be used as a *pre-update check* as it does all the verification without actually updating the elements. This is equivalent to running the update script with a `--verify` option.
 
 === Update tool's execution
 
@@ -326,7 +324,7 @@ Please refer to the guide on updating the configuration file using the xref:ROOT
 === Specific configuration
 If you have done specific configuration and customization actions in your server source version, re-do it by configuring the application server in folder  bonita-target-version/server.
 
-==== Manual operations 
+==== Manual operations
 Perform a diff between the source version and the target version of tenants/[TENANT_ID]/tenant_portal/dynamic-permissions-checks.properties and put the additional lines into the file tenants/[TENANT_ID]/tenant_portal/dynamic-permissions-checks-custom.properties
 
 === Licenses
@@ -364,6 +362,7 @@ cp BonitaSubscription-7.n-Jerome-myHosname-20171023-20180122.lic ./platform_conf
 
 *The Bonita update is now complete.*
 
+[[special-cases]]
 == Special cases
 
 === Updating to Java 11 in Bonita 7.9 or a greater version
@@ -456,13 +455,14 @@ For backward compatibility checks, refer to the xref:ROOT:release-notes.adoc[rel
 // link to bonita client library => to decomment
 In addition, if your application connects to Bonita Engine using the HTTP access mode, see the xref:api:configure-client-of-bonita-bpm-engine.adoc[bonita-client library] documentation page.
 
+[[troubleshooting]]
 == Troubleshooting
 
 === Translation are missing in Application Directory and Admin Case list
 
-_Symptom:_ Starting from Bonita 2021.2, when creating an application using pages available in ressources list of previous Bonita versions, translations may be missing in Bonita Application Directory. 
-_Cause:_ The translations are in localization.json and not in the exported pages. 
-_Solution:_ If an app has been created using a page exported from the resources list in a certain version, you will need to either reexport the pages from the new version or update your app by adding the localization.json of the new version. This way the right translations will be available. 
+_Symptom:_ Starting from Bonita 2021.2, when creating an application using pages available in resources list of previous Bonita versions, translations may be missing in Bonita Application Directory.
+_Cause:_ The translations are in localization.json and not in the exported pages.
+_Solution:_ If an app has been created using a page exported from the resources list in a certain version, you will need to either reexport the pages from the new version or update your app by adding the localization.json of the new version. This way the right translations will be available.
 
 === Timers are stuck after updating to Bonita 7.10.0 or greater versions
 
@@ -485,7 +485,7 @@ This issue is fixed in Bonita 7.11.6, without any action required from the platf
 _Symptom:_ After updating to a Bonita version comprised between 7.11.0 and 7.11.5, after re-installing/updating the BDM, some foreign key constraints are effectively duplicated: there are foreign keys that refer to the same columns and tables, but with a different name.
 _Cause:_ A bug was introduced in Bonita 7.11.0 by upgrading an external library, Hibernate, from version 4 to 5.
 // link to know bugs
-This new version introduces xref:https://hibernate.atlassian.net/browse/HHH-13779[a known bug].
+This new version introduces https://hibernate.atlassian.net/browse/HHH-13779[a known bug].
 
 _Solution:_ Doing nothing is an option, as there are no changes in Bonita’s behaviour.
 Still, if you wish to clean your BDM database, follow the procedure below:

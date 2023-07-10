@@ -313,7 +313,6 @@ Depending on the permissions that a user of the page already has, it might be ne
 
 [WARNING]
 ====
-
 If the page declares resources provided by a xref:api:rest-api-extensions.adoc[REST API extension], then the REST API extension must be deployed before the page,
 otherwise the compound permissions won't be automatically created when deploying the page, and you will need to redeploy the page after deploying the REST API extension.
 ====
