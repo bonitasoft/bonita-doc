@@ -189,7 +189,7 @@ services:
       - |
         set -e
         echo 'Waiting for Postgres to be available'
-        export PGPASSWORD=\$${POSTGRES_ENV_POSTGRES_PASSWORD}
+        export PGPASSWORD=\$$+{POSTGRES_ENV_POSTGRES_PASSWORD}+
         maxTries=10
         while [[ "$$maxTries" -gt 0 ]] && ! psql -h \$${DB_HOST} -U 'postgres' -c '\l'; do
             let maxTries--
