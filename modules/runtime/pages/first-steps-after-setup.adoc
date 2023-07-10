@@ -14,6 +14,7 @@ NOTE: If the Bonita Runtime login page is not displayed, http://www.wikihow.com/
 
 At this stage no organization information is loaded: only the technical user account exists.
 
+[[security-best-practices]]
 == Security Best Practices
 
 There are a number of ways you can improve the security of your platform.
