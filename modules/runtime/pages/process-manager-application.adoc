@@ -76,13 +76,13 @@ function getLoggedInUserIdAndDisplayPage() {
 getLoggedInUserIdAndDisplayPage();
 ....
 [start=7]
-7. Save the file and close it.
-8. Now, open the "page.properties" file located at the root folder, and change the displayname, name, and description to make it different than the Monitoring page of the Bonita Admin Application. For example:
+. Save the file and close it.
+. Now, open the "page.properties" file located at the root folder, and change the displayname, name, and description to make it different than the Monitoring page of the Bonita Admin Application. For example:
 `displayName= Bonita Process Manager Monitoring`,
 `name= custompage_processManagerMonitoringBonita`,
 `description= As per your requirement`
-9. Save the file and close it.
-10. Select the "resources" folder and "page.properties" file and create a zip of the files.
+. Save the file and close it.
+. Select the "resources" folder and "page.properties" file and create a zip of the files.
 
 [#process-manager-application-creation]
 == Process manager application creation
