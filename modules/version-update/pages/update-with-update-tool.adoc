@@ -17,7 +17,7 @@ Guide on how to update Bonita Runtime main version (single or multiple nodes) us
 
 This page explains how to update Bonita Runtime starting from version 7.10.0 till the latest available Bonita Runtime version.
 Short procedure : Service stopped, update the data, install a new environment, test non-updated elements behavior and compatibility with new bonita version.
-Detailed version : xref:update-with-update-tool.adoc#updating-bonita-bundle-step-by-step-procedure[Updating Bonita bundle: step-by-step procedure].
+Detailed version : <<updating-bonita-bundle-step-by-step-procedure, Updating Bonita bundle: step-by-step procedure>>.
 
 There is only one version of Bonita Update Tool: Bonita Update Tool 3.x.
 
