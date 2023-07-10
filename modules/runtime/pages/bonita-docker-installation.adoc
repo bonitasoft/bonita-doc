@@ -369,7 +369,7 @@ See xref:runtime:bonita-platform-setup.adoc#update_platform_conf[setup tool page
 
 == Troubleshoot and debug problems inside a Docker container
 
-Bonita pass:a[{bonitaVersion}] docker image comes with a set of tools embedded, xref:https://github.com/apangin/jattach[jattach], that allows to interact with the Tomcat JVM inside a Bonita container via Dynamic Attach mechanism.
+Bonita pass:a[{bonitaVersion}] docker image comes with a set of tools embedded, https://github.com/apangin/jattach[jattach], that allows to interact with the Tomcat JVM inside a Bonita container via Dynamic Attach mechanism.
 
 Example of useful commands it supports, that you can run from outside the container, include:
 
