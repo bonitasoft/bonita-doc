@@ -1,7 +1,7 @@
 = UI Designer overview
 :description: The UI Designer is a wysiwyg development environment for creating pages and forms for a Bonita application.
 :page-aliases: ROOT:ui-designer-overview.adoc
-// required to be able to usag of the "menu" macro
+// required to be able to usage of the "menu" macro
 :experimental:
 
 {description}
@@ -196,7 +196,7 @@ The error message may vary depending on the Bonita version.
 
 _Expected files for the different artifacts_ +
 If you extended the Input standard widget, and called it SmartInput.
-You should have the following files in your +++<ProjectDir>+++/web_widgets directory:+++</ProjectDir>+++
+You should have the following files in your <ProjectDir>/web_widgets directory:
 
 ----
 customSmartInput (the custom widget directory)
@@ -207,7 +207,7 @@ customSmartInput (the custom widget directory)
 ----
 
 If you created a page called SmartPage: +
-You should have the following files in your +++<ProjectDir>+++/web_pages directory (the content may vary if you added some assets):+++</ProjectDir>+++
+You should have the following files in your <ProjectDir>/web_pages directory (the content may vary if you added some assets):
 
 ----
 SmartPage (the page directory)
@@ -221,7 +221,7 @@ SmartPage (the page directory)
 ----
 
 If you created a fragment called SmartFragment: +
-You should have the following files in your +++<ProjectDir>+++/web_fragments directory:+++</ProjectDir>+++
+You should have the following files in your <ProjectDir>/web_fragments directory:
 
 ----
 SmartFragment (the fragment directory)
