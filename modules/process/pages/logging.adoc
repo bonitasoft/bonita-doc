@@ -34,7 +34,7 @@ By default in the Bonita Runtime, all logs are sent to the JUL framework. To con
 For the Bonita Runtime embedded in the Bonita Studio, the JUL configuration file is located in the Studio installation folder under
 `workspace/tomcat/conf`. After editing this file, restart Bonita by going to the *Server* menu and selecting the *Restart web server* option.
 
-Here is an example of the JUL configuration for the logger used in the <<your_log,example below>>:
+Here is an example of the JUL configuration for the logger used in the example below:
 
 [source,properties]
 ----
@@ -50,7 +50,7 @@ To change the Bonita Studio log level (usually to debug Studio), go to the Studi
 
 == How to use a Logger in your development on Bonita
 
-When you write Groovy scripts or Java code to be included in a process (for example, to create a new connector implementation), logging is usually required. The recommended option is to use http://www.slf4j.org/[SLF4J] in order to log messages. SLF4J API is included in the Bonita dependencies so you can use it without adding extra dependencies. 
+When you write Groovy scripts or Java code to be included in a process (for example, to create a new connector implementation), logging is usually required. The recommended option is to use http://www.slf4j.org/[SLF4J] in order to log messages. SLF4J API is included in the Bonita dependencies so you can use it without adding extra dependencies.
 
 This is an example of how to log debug information in a Groovy script. Note that we recommend that you use a logger name that starts with "org.bonitasoft", so that the default Bonita logging configuration is applied to your logger. Also, ending your logger name with a name similar to the Groovy script will be helpful to identify source of the message.
 
