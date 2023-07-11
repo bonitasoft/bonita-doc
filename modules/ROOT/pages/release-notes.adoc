@@ -5,7 +5,7 @@ Bonita 2023.1 release note
 
 == Bonita project packaged as a self-contained application
 
-With Bonita 2023.1 comes a new recommandation on how to deploy your Bonita applications.
+With Bonita 2023.1 comes a new recommendation on how to deploy your Bonita applications.
 Each development team using Bonita platform has several options.
 Here are the options proposed by Bonitasoft:
 
@@ -19,7 +19,7 @@ For everyone that wants to get a glance at the future, the tool is available her
 
 [WARNING]
 ====
-The update process of the self-contained application packaged with the *experimental* tool will not be covered with xref:version-update:update-with-update-tool.adoc[Update Tool], hence we advice deployement in non-production environments. 
+The update process of the self-contained application packaged with the *experimental* tool will not be covered with xref:version-update:update-with-update-tool.adoc[Update Tool], hence we advice deployement in non-production environments.
 ====
 
 == New product values
@@ -55,7 +55,7 @@ Bonita projects layout has been changed to take advantage of Maven multi-module 
 
 First project component that will benefit from Maven multi-module project is the Business Data Model. We decided to align the way the Business Data Model is handled in Bonita with the standard dependency handling practices by using Maven submodules. Submodules, or subprojects, are regular Maven projects that inherit from the parent POM.
 
-With the chosen solution, the users will have the possibility to publish and consume the xref:data:define-and-deploy-the-bdm.adoc#generated-java-dependencies[Business Data Model java dependencies] independently. The project will pull the required dependencies from a specified repository - Maven Central or Bonita Artifact Repository - to generate the BDM java sources. Here are details on how to configure access to xref:software-extensibility:bonita-repository-access.adoc[Bonita Artifact Repository(Subscription only)] and xref:setup-dev-environment:configure-maven[Maven Central]. 
+With the chosen solution, the users will have the possibility to publish and consume the xref:data:define-and-deploy-the-bdm.adoc#generated-java-dependencies[Business Data Model java dependencies] independently. The project will pull the required dependencies from a specified repository - Maven Central or Bonita Artifact Repository - to generate the BDM java sources. Here are details on how to configure access to xref:software-extensibility:bonita-repository-access.adoc[Bonita Artifact Repository(Subscription only)] and xref:setup-dev-environment:configure-maven.adoc[Maven Central].
 
 xref:data:define-and-deploy-the-bdm.adoc#build-and-deploy-bdm-artifacts[Business Data Model content check at build or deploy] will still be developer’s responsibility along with handling data-deletion risks at build or deploy.
 For this Bonita version, reusing the generated artifacts in another Bonita project is not supported with refactoring capabilities. All changes will have to be handled manually by developers.
