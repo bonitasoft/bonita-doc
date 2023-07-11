@@ -91,7 +91,7 @@ Follow the http://maven.apache.org/guides/mini/guide-naming-conventions.html[mav
 
 [CAUTION]
 ====
-Be sure to use the xref:version-update:product-versioning.adoc#_technical_id[technical id] of your Bonita version.
+Be sure to use the xref:version-update:product-versioning.adoc#technical-id[technical id] of your Bonita version.
 ====
 
 [TIP]
@@ -139,7 +139,7 @@ To deploy the REST API Extension:
 . Click on _Next_
 . Click on _Confirm_
 
-== Publication 
+== Publication
 
 To consume a Rest API Extension developed in an external project, it is recommended to publish it in a Maven repository (Nexus, Artifactory, Github package...).
 
@@ -161,7 +161,7 @@ If the Rest API Extension depends on a BDM model, it is mandatory to import it i
 .. If the Rest API Extension is published on a remote Maven repository (Artifactory, Github package...), select `From a repository`:
 ... Specify the artifact coordinate of the Rest API Extension
 .. If not, you may select `From file`. It will copy the extension archive in the target Bonita Project.
-... Browse the extension archive file (`*.zip`) from the Rest API Extension project `target` folder 
+... Browse the extension archive file (`*.zip`) from the Rest API Extension project `target` folder
 . Click on `Import `
 
 == Use in applications

@@ -145,7 +145,7 @@ This gives the opportunity to get such strings available for translation in the 
 
 === Preview the page
 
-Now preview the page in each language. To do this, you need to modify the language used for Bonita web applications, which you do by setting the Bonita Applications language from xref:languages#_select_a_language_in_a_bonita_application[the Bonita Layout].
+Now preview the page in each language. To do this, you need to modify the language used for Bonita web applications, which you do by setting the Bonita Applications language from xref:languages.adoc#_select_a_language_in_a_bonita_application[the Bonita Layout].
 
 image::images/images-6_0/l10n-combined-previews.png[Multi-language page previews]
 

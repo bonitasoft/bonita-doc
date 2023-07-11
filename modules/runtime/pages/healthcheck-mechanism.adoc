@@ -1,7 +1,7 @@
 = Docker Healthcheck mechanism
 :description: How the underlying healthcheck mechanism works in the Bonita docker image
 
-
+[#api-health-endpoints]
 == API health endpoints
 The Bonita docker image provides one API endpoint, /healthz to indicate the current state of the platform (accessed by the URL https://<serverURL>/bonita/healthz).
 A call to the URL will typically return the following information in JSON format:

@@ -21,6 +21,7 @@ The Studio uses a logging service provided by the Eclipse platform. Modification
 
 The Bonita Studio provides direct access to the log written by the embedded Runtime. You can access this log from the Bonita Studio *Help* menu *Show Engine log* option (*Engine log* also contains UI designer logs).
 
+[#logging-configuration]
 == Logging configuration
 
 === Bonita Runtime

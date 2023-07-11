@@ -87,8 +87,8 @@ Make sure to xref:ROOT:multi-tenancy-and-tenant-configuration.adoc[set the right
  The value must be the same as in the file *bonita-tenant-sp-custom.properties*. +
  If you need users to be able to log in without having an account on the IDP, you can authorize it by setting the property `oidc.auth.standard.allowed` to true. Users will then be able to log in using the Bonita login page (`/login.jsp`) provided they have a Bonita account and their password is different from their username. +
  If only a limited group of users need to bypass OIDC authentication method you can restrain it by setting the property `oidc.auth.standard.allowed` to false and setting the property `auth.tenant.standard.whitelist` with the list of authorized usernames (comma separated). Otherwise you can keep it commented. +
- Only if you want Bonita logout to perform OpenID logout you can uncomment and configure the properties `oidc.logout.url` and `oidc.logout.url.redirectQuery`. See the xref:#_configure_logout_behaviour[Configure logout behavior] section for more details about logout.
- 
+ Only if you want Bonita logout to perform OpenID logout you can uncomment and configure the properties `oidc.logout.url` and `oidc.logout.url.redirectQuery`. See the <<configure-logout-behaviour, Configure logout behavior>> section for more details about logout.
+
 . In the tenant_engine folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
   edit the file bonita-tenant-sp-custom.properties as follows:
 +
@@ -307,6 +307,7 @@ You may also define some access or ID token signature and encryption mechanism. 
 If the IdP declares a redirect URI, it might override the target URL (`redirect_URI` parameter) set by the Bonita OIDC module in the request, and you may always end up on the same page after logging in. In that case, try to remove the redirect URI from your OIDC provider's Bonita client configuration. Bonita supports redirection to the URL initially requested after logging in on the IdP, provided the IdP doesn't force this URL.
 ====
 
+[#configure-logout-behaviour]
 == Configure logout behaviour
 
 If your Bonita platform is configured to manage authentication over OIDC, when users log out of Bonita Runtime, they do not log out of the OIDC Identity Provider (IdP).
@@ -334,7 +335,7 @@ As OIDC Providers do not necessarily support OpenID logout and have different wa
 To setup Bonita for OIDC logout:
 
 . Set the value of the property `oidc.logout.url` with your OIDC provider logout endpoint URL in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/`.
-. If the logout URL of your OIDC provider supports a parameter to redirect after the logout, you can set the property `oidc.logout.url.redirectQuery` with the query string to use (it will be concatenated to the logout URL). The placeholder `+{encodedRedirectUri}+` will be replaced at runtime with the current Bonita URL at the time on the logout action. It is also possible to pass the ID token of the logged in user in the query string using the placeolder `{idToken}`. This is useful if the OIDC provider supports the `id_token_hint` parameter of the OIDC RP-Initiated logout specification (since Bonita 2022.1-u2). For this use case, make sure Bonita is configured for HTTPS since the ID token will be sent in the URL.
+. If the logout URL of your OIDC provider supports a parameter to redirect after the logout, you can set the property `oidc.logout.url.redirectQuery` with the query string to use (it will be concatenated to the logout URL). The placeholder `+{encodedRedirectUri}+` will be replaced at runtime with the current Bonita URL at the time on the logout action. It is also possible to pass the ID token of the logged in user in the query string using the placeholder `+{idToken}+`. This is useful if the OIDC provider supports the `id_token_hint` parameter of the OIDC RP-Initiated logout specification (since Bonita 2022.1-u2). For this use case, make sure Bonita is configured for HTTPS since the ID token will be sent in the URL.
 
 On the OIDC provider side, you need to configure Bonita OIDC service provider for:
 
