@@ -76,13 +76,13 @@ function getLoggedInUserIdAndDisplayPage() {
 getLoggedInUserIdAndDisplayPage();
 ....
 [start=7]
-7. Save the file and close it.
-8. Now, open the "page.properties" file located at the root folder, and change the displayname, name, and description to make it different than the Monitoring page of the Bonita Admin Application. For example:
+. Save the file and close it.
+. Now, open the "page.properties" file located at the root folder, and change the displayname, name, and description to make it different than the Monitoring page of the Bonita Admin Application. For example:
 `displayName= Bonita Process Manager Monitoring`,
 `name= custompage_processManagerMonitoringBonita`,
 `description= As per your requirement`
-9. Save the file and close it.
-10. Select the "resources" folder and "page.properties" file and create a zip of the files.
+. Save the file and close it.
+. Select the "resources" folder and "page.properties" file and create a zip of the files.
 
 [#process-manager-application-creation]
 == Process manager application creation
@@ -90,7 +90,7 @@ getLoggedInUserIdAndDisplayPage();
 After all the menu pages have been modified, the application can be created. To do so : +
 
 1. Export the Bonita Administrator Application from the Application List and import it into the Bonita Studio
-2. Delete any orphan page that isn't mentioned in the xref:#process-manager-orphan-pages-list[orphan pages list]
+2. Delete any orphan page that isn't mentioned in the <<process-manager-orphan-pages-list, orphan pages list>>
 3. Delete all, but the BPM menu from the "Navigation" section
 4. Create application pages in the "Navigation" menu using the menu pages that we mentioned above. It is highly recommended to not modify the tokens of the pages, since the pages use of the specific tokens. If you modify the tokens, make sure to modify the pages to also use the correct urls.
 5. Rename your application and modify the application token

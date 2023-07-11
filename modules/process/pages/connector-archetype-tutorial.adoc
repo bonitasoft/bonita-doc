@@ -1,9 +1,9 @@
-= Example: Create a connector, publish it on Github packages and install it as an extension
+= Example: Create a connector, publish it on GitHub packages and install it as an extension
 :page-aliases: ROOT:connector-archetype-tutorial.adoc
-:description: Create a custom connector using the provided maven archetype, deploy a connector on Github packages, install an extension in Bonita Studio
+:description: Create a custom connector using the provided maven archetype, deploy a connector on GitHub packages, install an extension in Bonita Studio
 
 In this example, we are going to create a connector to communicate with the https://swapi.dev/[Star Wars API]. It will take in input a Star Wars character name, and will return details on this character. +
-We will then see how to deploy this connector on Github packages in order to install it as an extension in Bonita Studio from anywhere.
+We will then see how to deploy this connector on GitHub packages in order to install it as an extension in Bonita Studio from anywhere.
 
 This connector will be implemented using:
 
@@ -13,7 +13,7 @@ This connector will be implemented using:
 
 [NOTE]
 ====
-While we recommend you to follow the step-by-step instructions, a Git repository containing the final solution is available on the Bonitasoft-Community Github: https://github.com/Bonitasoft-Community/bonita-connector-starwars[bonita-connector-starwars].
+While we recommend you to follow the step-by-step instructions, a Git repository containing the final solution is available on the Bonitasoft-Community GitHub: https://github.com/Bonitasoft-Community/bonita-connector-starwars[bonita-connector-starwars].
 ====
 
 == 1 - Generate project and retrieve dependencies
@@ -29,7 +29,7 @@ mvn archetype:generate \
 
 [WARNING]
 ====
-If you are using Power Shell make sure to use quotes for the parameters: mvn archetype:generate "-DarchetypeGroupId=org.bonitasoft.archetypes" "-DarchetypeArtifactId=bonita-connector-archetype"
+If you are using PowerShell make sure to use quotes for the parameters: mvn archetype:generate "-DarchetypeGroupId=org.bonitasoft.archetypes" "-DarchetypeArtifactId=bonita-connector-archetype"
 ====
 
 You'll then have to specify interactively the properties of your project:
@@ -38,14 +38,14 @@ You'll then have to specify interactively the properties of your project:
 * *artifactId*: connector-starwars
 * *version*: 1.0.0
 * *package*: com.company.connector
-* *bonitaVersion*: _[Technichal Bonita id]_ (ex: 7.13.0)
+* *bonitaVersion*: _[Technical Bonita id]_ (ex: 7.13.0)
 * *className*: ConnectorStarWars
 * *language*: groovy
 * *wrapper*: true
 
 [CAUTION]
 ====
-Be sure to use the xref:version-update:product-versioning.adoc#_technical_id[technical id] of your Bonita version.
+Be sure to use the xref:version-update:product-versioning.adoc#technical-id[technical id] of your Bonita version.
 ====
 
 Add the following properties and dependencies to the existing ones in the pom.xml:
@@ -249,7 +249,7 @@ class PersonResponse implements Serializable {
 
 [NOTE]
 ====
-The API returns many informations about a single star wars character. In order to keep it simple, we decided to just include a few of them in our Person model, but fill free to add other fields if you want to.
+The API returns a lot of information about a single star wars character. In order to keep it simple, we decided to just include a few of them in our Person model, but fill free to add other fields if you want to.
 ====
 
 === The service
@@ -291,7 +291,7 @@ Open the file _src/main/resources-filtered/connector-starwars.def_, and replace 
 
 [IMPORTANT]
 ====
-The type of a connector output must be *_serializable_* (i.e it must implement the class _Serializable_).
+The type of a connector output must be *_serializable_* (i.e. it must implement the class _Serializable_).
 ====
 
 == 5 - Implement and test connector logic
@@ -414,7 +414,7 @@ static StarWarsService createService(OkHttpClient client, String baseUrl) {
 ----
 
 The service is created using a http client with a simple logging interceptor, and the retrofit builder. +
-Our model matchs the HTTP response so we do not need to provide custom convertor to the retrofit builder.
+Our model matches the HTTP response so we do not need to provide custom convertor to the retrofit builder.
 
 We are going to create an integration test for this service: +
 in _src/test/groovy_, create the class _com.company.connector.StarWarsServiceTest.groovy_ with the following content:
@@ -585,11 +585,11 @@ You can build the connector using the following command line at the root of the 
 ./mvnw clean package
 ----
 
-== 6 - Publish the connector on Github packages
+== 6 - Publish the connector on GitHub packages
 
 [NOTE]
 ====
-This step is an example of how to publish a Bonita extension on a maven repository (here Github packages). You can publish your extensions on any kind of maven repository (Nexus, Artifactory... etc).
+This step is an example of how to publish a Bonita extension on a maven repository (here GitHub packages). You can publish your extensions on any kind of maven repository (Nexus, Artifactory... etc).
 ====
 
 Now that the connector development is finished, we want to make it available for Studio users. +
@@ -600,29 +600,29 @@ A first option is to publish the extension on a public maven repository, like ht
 ====
 Publishing an extension on Maven Central implies that this extension is open source. You will *have to* publish the sources of the extension in addition to the binary.
 ====
-For this example we present another option: publish the extension using Github packages (it's free if you store less than 500 MB). Github packages require a Github authentication, and only users with https://docs.github.com/en/packages/learn-github-packages/about-github-packages#about-scopes-and-permissions-for-package-registries[proper scope and permissions] will be allowed to consume or publish extensions.
+For this example we present another option: publish the extension using GitHub packages (it's free if you store less than 500 MB). GitHub packages require a GitHub authentication, and only users with https://docs.github.com/en/packages/learn-github-packages/about-github-packages#about-scopes-and-permissions-for-package-registries[proper scope and permissions] will be allowed to consume or publish extensions.
 
 [TIP]
 ====
-You can publish an artifact on Github packages using a Github Action. This way, you won't have to create a personnal access token nor to manage local maven configuration to publish an extension. https://docs.github.com/en/actions/guides/publishing-java-packages-with-maven#publishing-packages-to-github-packages[More details here].
+You can publish an artifact on GitHub packages using a GitHub Action. This way, you won't have to create a personal access token nor to manage local maven configuration to publish an extension. https://docs.github.com/en/actions/guides/publishing-java-packages-with-maven#publishing-packages-to-github-packages[More details here].
 ====
 
-=== Configure Github packages authentication
+=== Configure GitHub packages authentication
 
-In order to publish your extension on Github packages, you need to configure Maven, by telling him that he has access to this private repository and by giving him the credentials.
+In order to publish your extension on GitHub packages, you need to configure Maven, by telling him that he has access to this private repository and by giving him the credentials.
 
-The https://docs.github.com/en/packages/guides/configuring-apache-maven-for-use-with-github-packages[Official documentation] provided by Github explains in details how to configure Maven, here is a summuary of the main steps.
+The https://docs.github.com/en/packages/guides/configuring-apache-maven-for-use-with-github-packages[Official documentation] provided by GitHub explains in details how to configure Maven, here is a summuary of the main steps.
 
 [#token]
-**Create a personnal access token**
+**Create a personal access token**
 
-This token will be used by maven to authenticate to Github packages. You can follow this https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token[tutorial] to create a personal access token. Be sure to check the box _write:packages_ when configuring the token.
+This token will be used by maven to authenticate to GitHub packages. You can follow this https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token[tutorial] to create a personal access token. Be sure to check the box _write:packages_ when configuring the token.
 
 **Update maven configuration**
 
 [TIP]
 ====
-Bonita Studio embbed a user interface to easily configure maven and encrypt passwords. See xref:setup-dev-environment:configure-maven.adoc[Configure Maven using Bonita Studio].
+Bonita Studio embed a user interface to easily configure maven and encrypt passwords. See xref:setup-dev-environment:configure-maven.adoc[Configure Maven using Bonita Studio].
 ====
 
 Now that the token is created, you have to update your local maven configuration. It means editing the file `~/.m2/settings.xml`. +
@@ -670,7 +670,7 @@ If your maven configuration file is shared, it is recommended to use https://mav
 
 **Publish the connector**
 
-Now that Maven in configured, we are almost ready to publish the connector on Github packages. +
+Now that Maven in configured, we are almost ready to publish the connector on GitHub packages. +
 The last thing to do is to update the `pom.xml` of the connector project to tell Maven where is has to deploy this artifact. +
 To do so, add the following _distributionManagement_ tag on your `pom.xml` file (usually at then end, just before the closing project tag):
 
@@ -701,24 +701,24 @@ This https://docs.github.com/en/packages/manage-packages/viewing-packages[guide]
 
 == 7 - Import and use your connector as a Bonita extension
 
-Now that your connector has been published on Github packages, anyone that has an access token to your Gitub packages repository can install this connector as an extension in Bonita Studio.
+Now that your connector has been published on GitHub packages, anyone that has an access token to your GitHub packages repository can install this connector as an extension in Bonita Studio.
 
-**Configure Bonita Studio to access the Github packages repository**
+**Configure Bonita Studio to access the GitHub packages repository**
 
 ====
-_If you already configured maven on your computer to deploy the connector on Github packages, you can skip this step._
+_If you already configured maven on your computer to deploy the connector on GitHub packages, you can skip this step._
 ====
 
 To retrieve an extension from a repository, some maven configuration must be done in Bonita Studio. The idea is to declare the repository as accessible (i.e extensions can be retrieved from this repository), and to configure credentials if required. +
 Bonita Studio comes with a handy user interface to update xref:setup-dev-environment:configure-maven.adoc[Maven configuration]. +
-There is two things to configure to let the Studio retrieve extensions from Github packages: +
+There is two things to configure to let the Studio retrieve extensions from GitHub packages: +
 
 1 - Add the repository in the configuration
 
 To create a new repository, follow those xref:setup-dev-environment:configure-maven.adoc#repositories[instructions], using the following parameters:
 
 - **ID**: `githubPackages`
-- **Name**: 1Github packages1
+- **Name**: 1GitHub packages1
 - **URL**: `\https://maven.pkg.github.com/**OWNER**/*` _, OWNER is the name of the user or organization account that owns the repository._
 - **Releases and Snapshots**: keep default values, disable snapshots (artifacts in development) if you don't want them.
 
@@ -728,7 +728,7 @@ Bonita Studio now knows that he can retrieve extensions from this repository, bu
 
 To configure the credentials for a repository, you will have to create a _server_, which is just a configuration element that contains credentials.
 
-Before to create a server, make sure that you have an xref:#token[access token] with at least read access.
+Before to create a server, make sure that you have an <<token, access token>> with at least read access.
 
 To create a new server, follow those xref:setup-dev-environment:configure-maven.adoc#servers[instructions], using the following parameters:
 

@@ -59,6 +59,6 @@ Bonita Studio provides two database schemas: one for the Bonita Engine and one d
 You can view the tables created in the h2 BDM database by opening the project explorer contextual menu of Business Data Model -> Browse data (h2 console)..._. +
 In the h2 console (a web interface) you can see that a table named "CLAIM" was created. You can run an SQL query such as `SELECT * FROM CLAIM` which should return an empty result as there is no data yet.
 
-You can also xref:data:data-management#_exploring_the_bdm[graphically explore the BDM database schema] by opening the project explorer contextual menu of Business Data Model -> Explore model (GraphQL voyager)... .
+You can also xref:data:data-management.adoc#_exploring_the_bdm[graphically explore the BDM database schema] by opening the project explorer contextual menu of Business Data Model -> Explore model (GraphQL voyager)... .
 ====
 
