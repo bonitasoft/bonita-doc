@@ -13,7 +13,8 @@ jobs:
       COMPONENT_NAME: bonita
       COMPONENT_BRANCH_NAME: ${{ github.head_ref }}
     steps:
-      - name: Validate xref        
+      - name: Validate xref
+        uses: bonitasoft/bonita-documentation-site/.github/actions/build-pr-site/@master
         with:          
           # '>' Replace newlines with spaces (folded)
           # '-' No newline at end (strip)
