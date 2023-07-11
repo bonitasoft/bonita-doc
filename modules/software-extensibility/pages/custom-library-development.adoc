@@ -72,7 +72,7 @@ At the root of this folder create a `pom.xml` file.
 This library will be executed in the Bonita Runtime that already comes with `provided` dependencies in its class-path.
 To avoid dependencies conflicts between our custom library and the Bonita Runtime, we can use a https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#bill-of-materials-bom-poms[**Bill Of Material** (BOM), window = "_blank"].
 
-First, we need to define the target Bonita runtime version. You must use the xref:version-update:product-versioning.adoc#_technical_id[technical id] as version. Add a `bonita-runtime.version` property in the `properties` section of the pom.xml:
+First, we need to define the target Bonita runtime version. You must use the xref:version-update:product-versioning.adoc#technical-id[technical id] as version. Add a `bonita-runtime.version` property in the `properties` section of the pom.xml:
 
 [source, xml]
 ----

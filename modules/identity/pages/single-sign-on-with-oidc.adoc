@@ -87,8 +87,8 @@ Make sure to set the right admin username (property `auth.tenant.admin.username`
  The value must be the same as in the file *bonita-tenant-sp-custom.properties*. +
  If you need users to be able to log in without having an account on the IDP, you can authorize it by setting the property `oidc.auth.standard.allowed` to true. Users will then be able to log in using the Bonita login page (`/login.jsp`) provided they have a Bonita account and their password is different from their username. +
  If only a limited group of users need to bypass OIDC authentication method you can restrain it by setting the property `oidc.auth.standard.allowed` to false and setting the property `auth.tenant.standard.whitelist` with the list of authorized usernames (comma separated). Otherwise you can keep it commented. +
- Only if you want Bonita logout to perform OpenID logout you can uncomment and configure the properties `oidc.logout.url` and `oidc.logout.url.redirectQuery`. See the xref:#_configure_logout_behaviour[Configure logout behavior] section for more details about logout.
- 
+ Only if you want Bonita logout to perform OpenID logout you can uncomment and configure the properties `oidc.logout.url` and `oidc.logout.url.redirectQuery`. See the <<configure-logout-behaviour, Configure logout behavior>> section for more details about logout.
+
 . In the tenant_engine folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
   edit the file bonita-tenant-sp-custom.properties as follows:
 +
@@ -309,6 +309,7 @@ You may also define some access or ID token signature and encryption mechanism. 
 If the IdP declares a redirect URI, it might override the target URL (`redirect_URI` parameter) set by the Bonita OIDC module in the request, and you may always end up on the same page after logging in. In that case, try to remove the redirect URI from your OIDC provider's Bonita client configuration. Bonita supports redirection to the URL initially requested after logging in on the IdP, provided the IdP doesn't force this URL.
 ====
 
+[#configure-logout-behaviour]
 == Configure logout behaviour
 
 If your Bonita platform is configured to manage authentication over OIDC, when users log out of Bonita Runtime, they do not log out of the OIDC Identity Provider (IdP).
@@ -336,7 +337,7 @@ As OIDC Providers do not necessarily support OpenID logout and have different wa
 To setup Bonita for OIDC logout:
 
 . Set the value of the property `oidc.logout.url` with your OIDC provider logout endpoint URL in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/`.
-. If the logout URL of your OIDC provider supports a parameter to redirect after the logout, you can set the property `oidc.logout.url.redirectQuery` with the query string to use (it will be concatenated to the logout URL). The placeholder `+{encodedRedirectUri}+` will be replaced at runtime with the current Bonita URL at the time on the logout action. It is also possible to pass the ID token of the logged in user in the query string using the placeolder `{idToken}`. This is useful if the OIDC provider supports the `id_token_hint` parameter of the OIDC RP-Initiated logout specification (since Bonita 2022.1-u2). For this use case, make sure Bonita is configured for HTTPS since the ID token will be sent in the URL.
+. If the logout URL of your OIDC provider supports a parameter to redirect after the logout, you can set the property `oidc.logout.url.redirectQuery` with the query string to use (it will be concatenated to the logout URL). The placeholder `+{encodedRedirectUri}+` will be replaced at runtime with the current Bonita URL at the time on the logout action. It is also possible to pass the ID token of the logged in user in the query string using the placeholder `+{idToken}+`. This is useful if the OIDC provider supports the `id_token_hint` parameter of the OIDC RP-Initiated logout specification (since Bonita 2022.1-u2). For this use case, make sure Bonita is configured for HTTPS since the ID token will be sent in the URL.
 
 On the OIDC provider side, you need to configure Bonita OIDC service provider for:
 
@@ -403,7 +404,7 @@ Once you obtained the Access token, you can make your REST API request in a norm
 [discrete]
 ==== Authorization Code Grant
 
-Those scenarios work the same way as when you login into Bonita Runtime except, in this case, it is the client application that uses Bonita REST API which needs to trigger the authentication process by calling the OIDC provider authorization endpoint with Bonita OIDC client as `client_id`. The rest of the scenario is similar to what is described in the xref:#oidc-overview[OIDC Authorization Code Flow schema]. +
+Those scenarios work the same way as when you login into Bonita Runtime except, in this case, it is the client application that uses Bonita REST API which needs to trigger the authentication process by calling the OIDC provider authorization endpoint with Bonita OIDC client as `client_id`. The rest of the scenario is similar to what is described in the <<oidc-overview, OIDC Authorization Code Flow schema>>. +
 For example, if Bonita is configured to use Google's OpenID Connect endpoint for authentication, then an application that wants to use Bonita REST API will need to delegate authentication to Google to obtain an authorization code for Bonita REST API. +
 With Authorization Code Flow, once you obtain the authorization code, you can request again the OIDC provider to get the tokens with as `grant_type` value `authorization_code`:
 
@@ -437,7 +438,7 @@ A limitation prevents CORS requests from working with Open ID Connect authentica
 
 ==== Configure Bonita Bundle with OIDC for CORS
 
-In the file *keycloak-oidc.json*, Make sure the property `enable-cors` is set to true and the properties `cors-allowed-methods`, `cors-allowed-headers`, `cors-exposed-headers` have the correct values. For a basic configuration, you can use the following values: 
+In the file *keycloak-oidc.json*, Make sure the property `enable-cors` is set to true and the properties `cors-allowed-methods`, `cors-allowed-headers`, `cors-exposed-headers` have the correct values. For a basic configuration, you can use the following values:
 
 ----
   "enable-cors": true,
@@ -455,7 +456,7 @@ In your OIDC identity provider (IdP) configuration, you should make sure the `bo
 [.troubleshooting-title]
 == Troubleshooting
 
-=== How to troubleshoot? 
+=== How to troubleshoot?
 
 To troubleshoot SSO login issues, you need to increase the xref:ROOT:logging.adoc[log level] to `DEBUG` for the packages `org.bonitasoft`, `com.bonitasoft`, and `TRACE` for `org.keycloak` in order for errors to be displayed in the log files `bonita.log` (by default, they are not).
 
@@ -492,10 +493,10 @@ After configuring OIDC SSO in Bonita, the Bonita login page appears and you are 
 [.troubleshooting-section]
 --
 [.symptom]
-After logging in on the OIDC provider, you are redirected to Bonita but you get a 403 error. 
+After logging in on the OIDC provider, you are redirected to Bonita but you get a 403 error.
 
 [.cause]#Potential cause#
-Either Bonita OIDC module does not manage to obtain the access tokens, or you don't have the required rights to access the page (when trying to display a page of an application without having the required profile for example). 
+Either Bonita OIDC module does not manage to obtain the access tokens, or you don't have the required rights to access the page (when trying to display a page of an application without having the required profile for example).
 
 [.solution]#Possible solution#
 Check the logs:
