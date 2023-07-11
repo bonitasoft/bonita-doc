@@ -256,7 +256,7 @@ To modify a new or existing object:
 == Generated Java dependencies
 
 Two maven artifacts are generated from the Business Data Model : *<ProjectId>-bdm-model* and *<ProjectId>-bdm-dao-client*. +
-The `version` and `groupId` of those artifacts match the Bonita project version. 
+The `version` and `groupId` of those artifacts match the Bonita project version.
 It is possible to view and retrieve the `bdm-model` dependency from the BDM editor `Maven artifact properties` section. +
 Those maven artifacts are meant to be used from REST API extensions, using the following dependencies:
 
@@ -296,6 +296,7 @@ The `bdm-model` dependency is automatically added when a REST API Extension is c
 
 NOTE: Only *read operations* can be performed on business objects from a REST API Extension, even with the DAO. Write operations are done through processes.
 
+[#build-and-deploy-bdm-artifacts]
 == Build and Deploy BDM artifacts
 
 It is possible to automate the build and deployment of the `bdm-model` and `bdm-dao-client` artifacts using *only* Maven. Publishing those artifacts can have its purpose if you need to consume them in any other maven or gradle projects outside of a Bonita project.
@@ -303,7 +304,7 @@ It is possible to automate the build and deployment of the `bdm-model` and `bdm-
 [CAUTION]
 It is not supported for a Bonita project to depend on the `bdm-model` from another Bonita project.
 
-It is required to have https://maven.apache.org/install.html[Maven^] and https://adoptium.net/temurin/releases/?version=11[Java^] installed for the following instructions. 
+It is required to have https://maven.apache.org/install.html[Maven^] and https://adoptium.net/temurin/releases/?version=11[Java^] installed for the following instructions.
 
 Open a terminal at the root of the Bonita project.
 

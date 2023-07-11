@@ -32,12 +32,6 @@ You can also xref:ROOT:manage-a-process.adoc[deploy a process using the API], ex
 
 The organization data used by Bonita is stored in the database, so only has to be configured once. It can be maintained from any Bonita Application in the cluster.
 
-== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
-
-Each Bonita Engine maintains its own log file on the node at `<BUNDLE_HOME>/logs/bonita.`_`date`_`.log`, where _`date`_ is the date the file is created.
-In addition, there is an incident file `<BUNDLE_HOME>/logs/tenants/[TENANT_ID]/incident.log` (where `[TENANT_ID]` is the ID of the tenant on which the error
-occurred) that is used as a last resort to record an error that cannot be handled, such as failure to access the database.
-
 [.troubleshooting-title]
 == Troubleshooting
 
@@ -47,5 +41,6 @@ occurred) that is used as a last resort to record an error that cannot be handle
 Each Bonita Engine maintains its own log file on the node
 
 [.symptom-description]
-You can find it under <BUNDLE_HOME>/logs/bonita.``date`.log`, where `date` is the date the file is created.
+You can find it under <BUNDLE_HOME>/logs/bonita.`date`.log, where `date` is the date the file is created.
 In addition, there is an incident file <BUNDLE_HOME>/logs/tenants/[TENANT_ID]/incident.log (where [TENANT_ID] is the ID of the tenant on which the error occurred) that is used as a last resort to record an error that cannot be handled, such as failure to access the database.
+--

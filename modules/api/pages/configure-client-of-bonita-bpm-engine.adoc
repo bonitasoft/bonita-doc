@@ -18,6 +18,7 @@ There is three ways to configure the client to connect to the Bonita Engine.
 First the engine client verify if the configuration is set programmatically,
 then it tries to get the configuration set in system properties, finally it falls back to the legacy way of configuration that is the bonita home client.
 
+[#configure-client-using-programmatic-configuration]
 === Configure Client using programmatic configuration
 
 You can configure the connection to the engine directly using `org.bonitasoft.engine.util.APITypeManager`, please refer to the https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/util/APITypeManager.html[Javadoc].

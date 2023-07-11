@@ -60,7 +60,7 @@ A folder named _[your artifact id]_ is created, with your theme project, ready t
 
 [CAUTION]
 ====
-Be sure to use the xref:version-update:product-versioning.adoc#_technical_id[technical id] of your Bonita version.
+Be sure to use the xref:version-update:product-versioning.adoc#technical-id[technical id] of your Bonita version.
 ====
 
 [TIP]
@@ -78,7 +78,7 @@ mvn archetype:generate \
     -DartifactId=my-theme \
     -Dversion=0.0.1-SNAPSHOT \
     -Dname=myTheme \
-    -DdisplayName="My Theme" 
+    -DdisplayName="My Theme"
 ----
 ====
 
