@@ -13,12 +13,8 @@ jobs:
       COMPONENT_NAME: bonita
       COMPONENT_BRANCH_NAME: ${{ github.head_ref }}
     steps:
-      - name: Validate xref
-        # TMP use the branch of https://github.com/bonitasoft/bonita-documentation-site/pull/596
-        uses: bonitasoft/bonita-documentation-site/.github/actions/build-pr-site/@feat/add_fail_on_warning_options
-        with:
-          # TMP use the branch of https://github.com/bonitasoft/bonita-documentation-site/pull/596
-          doc-site-branch: feat/add_fail_on_warning_options
+      - name: Validate xref        
+        with:          
           # '>' Replace newlines with spaces (folded)
           # '-' No newline at end (strip)
           build-preview-command: >-
