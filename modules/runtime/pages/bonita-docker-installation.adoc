@@ -98,7 +98,7 @@ This will only add the initial license to the Bonita Runtime. To renew a license
 ====
 
 
-This will start a container running the Tomcat Bundle with Bonita Runtime. As you did not specify any environment variables it's almost like if you had launched the Bundle on your host using startup.+{sh|bat}+ (with security hardening on REST and HTTP APIs, cf xref:_start_bonita_with_custom_security_credentials[Security concerns]). It means that Bonita uses a H2 database here.
+This will start a container running the Tomcat Bundle with Bonita Runtime. As you did not specify any environment variables it's almost like if you had launched the Bundle on your host using startup.+{sh|bat}+ (with security hardening on REST and HTTP APIs, cf xref:runtime:first-steps-after-setup.adoc#security-best-practices[Security concerns]). It means that Bonita uses a H2 database here.
 
 You can access the Runtime on http://localhost:8080/bonita and login using the default credentials : install / install
 
@@ -189,9 +189,9 @@ services:
       - |
         set -e
         echo 'Waiting for Postgres to be available'
-        export PGPASSWORD=\$${POSTGRES_ENV_POSTGRES_PASSWORD}
+        export PGPASSWORD=\$$+{POSTGRES_ENV_POSTGRES_PASSWORD}+
         maxTries=10
-        while [[ "$$maxTries" -gt 0 ]] && ! psql -h \$${DB_HOST} -U 'postgres' -c '\l'; do
+        while [[ "$$maxTries" -gt 0 ]] && ! psql -h \$$+{DB_HOST}+ -U 'postgres' -c '\l'; do
             let maxTries--
             sleep 1
         done
@@ -369,7 +369,7 @@ See xref:runtime:bonita-platform-setup.adoc#update_platform_conf[setup tool page
 
 == Troubleshoot and debug problems inside a Docker container
 
-Bonita pass:a[{bonitaVersion}] docker image comes with a set of tools embedded, xref:https://github.com/apangin/jattach[jattach], that allows to interact with the Tomcat JVM inside a Bonita container via Dynamic Attach mechanism.
+Bonita pass:a[{bonitaVersion}] docker image comes with a set of tools embedded, https://github.com/apangin/jattach[jattach], that allows to interact with the Tomcat JVM inside a Bonita container via Dynamic Attach mechanism.
 
 Example of useful commands it supports, that you can run from outside the container, include:
 

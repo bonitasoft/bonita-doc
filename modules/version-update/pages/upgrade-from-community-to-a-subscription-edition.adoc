@@ -57,13 +57,14 @@ To upgrade a Bonita Runtime from a Community edition to an Enterprise edition, f
 . Create license folder `<bonita-installation>/setup/platform_conf/licenses/`
 . Copy your license file into this newly-created folder
 . Push your new license in the database: `<bonita-installation>/setup/setup(.sh/.bat) push`
-. Stop Bonita Community platform with `<bonita-installation>/stop-bonita(.sh/.bat)` script. *Do not remove the WAR file before stopping Tomcat, or many errors would be issued in the log* (See xref:#_notes[note 1 for explanations])
+. Stop Bonita Community platform with `<bonita-installation>/stop-bonita(.sh/.bat)` script. *Do not remove the WAR file before stopping Tomcat, or many errors would be issued in the log* (See <<bonita-runtime-notes, note 1 for explanations>>)
 . Remove Bonita Community Web App from `<bonita-installation>/server/webapps`: both `bonita.war` and the auto-extracted folder with the same name `bonita/`
 . Copy the Bonita Enterprise Web App (extracted from Bonita Enterprise bundle) where the Community version was: `<bonita-installation>/server/webapps/bonita.war`
 . ⚠ (Optionally rename the `<bonita-installation>` folder with a name that does not contain anymore the word `community`, for clarity)
 . Start the upgraded Bonita Runtime using `<bonita-installation>/start-bonita(.sh/.bat)` script
 
 
+[#bonita-runtime-notes]
 === Notes
 
 If you remove bonita webapp folder while Tomcat is running, Tomcat server considers that the webapp should be completely unloaded and removed. It also deletes the webapp configuration file `<bonita-installation>/server/conf/Catalina/localhost/bonita.xml`, resulting in many errors in the log files. Hopefully, Bonita restores this file during next run of `start-bonita(.sh/.bat)` script.
@@ -106,7 +107,7 @@ If you want to import a project built with Bonita Enterprise edition from Git, y
 To downgrade a Bonita Runtime from an Enterprise edition to a Community edition, follow these steps:
 
 . Download and unzip the Bonita Community bundle (to retrieve the bonita.war Web App later)
-. Stop Bonita Enterprise Runtime with `<bonita-installation>/stop-bonita(.sh/.bat)` script. *Do not remove the WAR file before stopping Tomcat, or many errors would be issued in the log* (See xref:#_notes[note 1 for explanations])
+. Stop Bonita Enterprise Runtime with `<bonita-installation>/stop-bonita(.sh/.bat)` script. *Do not remove the WAR file before stopping Tomcat, or many errors would be issued in the log* (See <<bonita-runtime-notes, note 1 for explanations>>)
 . Remove Bonita Enterprise Web App from `<bonita-installation>/server/webapps`: both `bonita.war` and the auto-extracted folder with the same name `bonita/`
 . Copy the Bonita Community Web App (extracted from Bonita Community bundle) where the Enterprise version was: `<bonita-installation>/server/webapps/bonita.war`
 . ⚠ (Optionally rename the `<bonita-installation>` folder with a name that does not contain anymore the word `subscription` or `enterprise`, for clarity)
