@@ -184,7 +184,7 @@ The version targeted may not support the version of the database that is being u
  ** Please make sure to apply all the xref:ROOT:database-configuration.adoc#customize-rdbms[RDBMS customisations required by Bonita] when setting up the new version.
 ====
 
-[[jdbc-drivers]]
+[#jdbc-drivers]
 === Drivers
 Make sure you double-check that you use the official driver version that matches your database version.
 *Having the correct database driver is mandatory for a smooth update.*
@@ -219,7 +219,7 @@ document: 7476
 | 2.5 minutes
 |===
 
-[[updating-bonita-bundle-step-by-step-procedure]]
+[#updating-bonita-bundle-step-by-step-procedure]
 == Updating Bonita bundle: step-by-step procedure
 
 image::ROOT:images/images-6_0/update_bigsteps.png[Update steps]
@@ -392,7 +392,7 @@ cp BonitaSubscription-7.n-Jerome-myHosname-20171023-20180122.lic ./platform_conf
 
 *The Bonita update is now complete.*
 
-[[special-cases]]
+[#special-cases]
 == Special cases
 
 == Updating processes with 6.x forms and case overview pages
@@ -599,7 +599,7 @@ If the target version is Bonita 7.8.4 with Oracle Database, skip this section an
 * Shut down Bonita Runtime
 * Run the Bonita Migration tool to update to Bonita 7.8.4, following <<updating-bonita-bundle-step-by-step-procedure, the updating procedure>>.
 
-[[update-oracle-database-server]]
+[#update-oracle-database-server]
 ==== Update Oracle database server
 * Shut down Bonita Runtime
 * Update the Oracle database server to the version 12c (it must be 12.2.0.x.y) or 19c (it must be 19.3.0.0)
@@ -700,7 +700,7 @@ For backward compatibility checks, refer to the xref:ROOT:release-notes.adoc[rel
  In addition, if your application connects to Bonita Engine using the HTTP access mode, see the xref:ROOT:configure-client-of-bonita-bpm-engine.adoc[bonita-client library] documentation page.
 
 
-[[troubleshooting]]
+[#troubleshooting]
 == Troubleshooting
 
 === Timers are stuck after updating to Bonita 7.10.0 or greater versions
@@ -772,7 +772,7 @@ WHERE r.conrelid = '<your_table_name>'::regclass AND r.contype = 'f' ORDER BY 1
 Guidance is not provided for Oracle, as the situation is impossible. Oracle prevents the creation of 2 identical foreign keys with different names. Instead, the BDM redeployment will fail after migration. Updating to Bonita 7.11.6 or greater versions fixes the issue.
 ====
 
-[[addendum]]
+[#addendum]
 == Addendum
 
 === Connector details regarding migration to 7.9

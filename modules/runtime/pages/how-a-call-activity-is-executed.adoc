@@ -4,7 +4,7 @@
 
 Lean how the engine executes and aborts call activities.
 
-[[completion]]
+[#completion]
 == Completion
 
 The execution flow to complete a call activity consist of two successive steps:

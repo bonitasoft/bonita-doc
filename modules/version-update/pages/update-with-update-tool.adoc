@@ -94,7 +94,7 @@ When the script has finished executing, you will have to complete the update pro
 
 Go through the paragraph <<updating-bonita-bundle-step-by-step-procedure, Updating Bonita bundle: step-by-step procedure>> for step-by-step instructions.
 
-[[backups]]
+[#backups]
 === BACKUPS
 ==== Database files
 From database point of view, as any operation on a productive system, an update is not a zero-risk operation.
@@ -141,7 +141,7 @@ ____
 
 NOTE: There is no update for H2 database.
 
-[[jdbc-drivers]]
+[#jdbc-drivers]
 === Drivers
 Make sure you double-check that you use the official driver version that matches your database version.
 *Having the correct database driver is mandatory for a smooth update.*
@@ -206,7 +206,7 @@ a|
  * ~ 4 minutes (with 10000 profiles but 1000 linked to ~6 profile entries => ~1000 applications generated)
 |===
 
-[[updating-bonita-bundle-step-by-step-procedure]]
+[#updating-bonita-bundle-step-by-step-procedure]
 == Updating Bonita bundle: step-by-step procedure
 
 image::ROOT:images/images-6_0/update_bigsteps.png[Update steps]
@@ -362,7 +362,7 @@ cp BonitaSubscription-7.n-Jerome-myHosname-20171023-20180122.lic ./platform_conf
 
 *The Bonita update is now complete.*
 
-[[special-cases]]
+[#special-cases]
 == Special cases
 
 === Updating to Java 11 in Bonita 7.9 or a greater version
@@ -455,7 +455,7 @@ For backward compatibility checks, refer to the xref:ROOT:release-notes.adoc[rel
 // link to bonita client library => to decomment
 In addition, if your application connects to Bonita Engine using the HTTP access mode, see the xref:api:configure-client-of-bonita-bpm-engine.adoc[bonita-client library] documentation page.
 
-[[troubleshooting]]
+[#troubleshooting]
 == Troubleshooting
 
 === Translation are missing in Application Directory and Admin Case list
