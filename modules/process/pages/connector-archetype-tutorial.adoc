@@ -45,7 +45,7 @@ You'll then have to specify interactively the properties of your project:
 
 [CAUTION]
 ====
-Be sure to use the xref:version-update:product-versioning.adoc#_technical_id[technical id] of your Bonita version.
+Be sure to use the xref:version-update:product-versioning.adoc#technical-id[technical id] of your Bonita version.
 ====
 
 Add the following properties and dependencies to the existing ones in the pom.xml:
