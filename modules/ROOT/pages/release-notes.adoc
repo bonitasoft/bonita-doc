@@ -93,10 +93,10 @@ It is now possible to easily bind the metadata of an API variable response (head
 Bonita Portal is now removed, meaning that:
 
 * Bonita Mobile Portal has been removed
-* Custom profiles with Portal navigations are xref:#_custom_profile_navigation_conversion[converted into custom Applications] with default Bonita layout and Bonita theme
+* Custom profiles with Portal navigations are <<_custom_profile_navigation_conversion, converted into custom Applications>> with default Bonita layout and Bonita theme
 * If you had customized Bonita Portal, please note that the Look & Feel files are removed too: you will need to create a theme an apply it to the newly created applications
-* The xref:#_process_manager_profile_navigation[Process Manager profile] is temporarily discontinued
-* The Analytics page is also temporarilly discontinued
+* The <<_process_manager_profile_navigation, Process Manager profile>> is temporarily discontinued
+* The Analytics page is also temporarily discontinued
 
 *Mobile Portal removal*
 
@@ -132,7 +132,7 @@ As part of the update of Bonita Portal into Bonita Applications, we have not rei
 
 From this release, xref:ROOT:upgrade-from-community-to-a-subscription-edition.adoc#bonita-platform-upgrade[upgrade from Community to Subscription] is made a lot easier:
 all the tricky configuration part is handled automatically by Bonita Runtime at server startup. +
-See xref:#_configuration_file_changes[the related changes] done to specific configuration files.
+See <<configuration_file_changes, the related changes>> done to specific configuration files.
 
 ==== Exception reporting
 When something goes wrong while executing processes, we now log only the important information. In addition, the root cause of the issue is the first one shown.
@@ -192,6 +192,7 @@ Bonita 2021.2 is now only compatible with Java 11. Support with Java 8 has now b
 
 Tomcat has been updated to version 9.0.52.
 
+[#configuration_file_changes]
 === Configuration file changes
 
 * The unused configuration file `forms-config.properties` has been removed.

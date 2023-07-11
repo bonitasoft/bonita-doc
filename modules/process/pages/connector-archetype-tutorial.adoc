@@ -585,11 +585,11 @@ You can build the connector using the following command line at the root of the 
 ./mvnw clean package
 ----
 
-== 6 - Publish the connector on Github packages
+== 6 - Publish the connector on GitHub packages
 
 [NOTE]
 ====
-This step is an example of how to publish a Bonita extension on a maven repository (here Github packages). You can publish your extensions on any kind of maven repository (Nexus, Artifactory... etc).
+This step is an example of how to publish a Bonita extension on a maven repository (here GitHub packages). You can publish your extensions on any kind of maven repository (Nexus, Artifactory... etc).
 ====
 
 Now that the connector development is finished, we want to make it available for Studio users. +
@@ -600,29 +600,29 @@ A first option is to publish the extension on a public maven repository, like ht
 ====
 Publishing an extension on Maven Central implies that this extension is open source. You will *have to* publish the sources of the extension in addition to the binary.
 ====
-For this example we present another option: publish the extension using Github packages (it's free if you store less than 500 MB). Github packages require a Github authentication, and only users with https://docs.github.com/en/packages/learn-github-packages/about-github-packages#about-scopes-and-permissions-for-package-registries[proper scope and permissions] will be allowed to consume or publish extensions.
+For this example we present another option: publish the extension using GitHub packages (it's free if you store less than 500 MB). Github packages require a Github authentication, and only users with https://docs.github.com/en/packages/learn-github-packages/about-github-packages#about-scopes-and-permissions-for-package-registries[proper scope and permissions] will be allowed to consume or publish extensions.
 
 [TIP]
 ====
-You can publish an artifact on Github packages using a Github Action. This way, you won't have to create a personnal access token nor to manage local maven configuration to publish an extension. https://docs.github.com/en/actions/guides/publishing-java-packages-with-maven#publishing-packages-to-github-packages[More details here].
+You can publish an artifact on GitHub packages using a GitHub Action. This way, you won't have to create a personal access token nor to manage local maven configuration to publish an extension. https://docs.github.com/en/actions/guides/publishing-java-packages-with-maven#publishing-packages-to-github-packages[More details here].
 ====
 
-=== Configure Github packages authentication
+=== Configure GitHub packages authentication
 
-In order to publish your extension on Github packages, you need to configure Maven, by telling him that he has access to this private repository and by giving him the credentials.
+In order to publish your extension on GitHub packages, you need to configure Maven, by telling him that he has access to this private repository and by giving him the credentials.
 
 The https://docs.github.com/en/packages/guides/configuring-apache-maven-for-use-with-github-packages[Official documentation] provided by Github explains in details how to configure Maven, here is a summuary of the main steps.
 
 [#token]
-**Create a personnal access token**
+**Create a personal access token**
 
-This token will be used by maven to authenticate to Github packages. You can follow this https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token[tutorial] to create a personal access token. Be sure to check the box _write:packages_ when configuring the token.
+This token will be used by maven to authenticate to GitHub packages. You can follow this https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token[tutorial] to create a personal access token. Be sure to check the box _write:packages_ when configuring the token.
 
 **Update maven configuration**
 
 [TIP]
 ====
-Bonita Studio embbed a user interface to easily configure maven and encrypt passwords. See xref:setup-dev-environment:configure-maven.adoc[Configure Maven using Bonita Studio].
+Bonita Studio embed a user interface to easily configure maven and encrypt passwords. See xref:setup-dev-environment:configure-maven.adoc[Configure Maven using Bonita Studio].
 ====
 
 Now that the token is created, you have to update your local maven configuration. It means editing the file `~/.m2/settings.xml`. +
@@ -728,7 +728,7 @@ Bonita Studio now knows that he can retrieve extensions from this repository, bu
 
 To configure the credentials for a repository, you will have to create a _server_, which is just a configuration element that contains credentials.
 
-Before to create a server, make sure that you have an xref:#token[access token] with at least read access.
+Before to create a server, make sure that you have an <<token, access token>> with at least read access.
 
 To create a new server, follow those xref:setup-dev-environment:configure-maven.adoc#servers[instructions], using the following parameters:
 

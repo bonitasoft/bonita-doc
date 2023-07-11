@@ -84,10 +84,10 @@ ____
 ____
 
 * Go through the <<special-cases, Special cases>> and <<troubleshooting, Troubleshooting>> paragraphs below.
-* Secure the update by doing xref:#backups[backups]. Better safe than sorry.
+* Secure the update by doing <<backups, backups>>. Better safe than sorry.
 * Check that the database version is up-to-date and supported by the new Bonita version.
 * Runtime tomcat server custom configuration: You will need to re-apply your customizations after the update process finishes.
-* Runtime setup folder custom configuration is kept in the database: Custom configurations made and pushed from the setup folder in the previous version are kept in the database. However, to benefit from the changes and improvements made in the product, you may want to compare the files you pull from your database and the target version files available in the setup/platform_conf/initial folder. If your previous version is lower than 7.3, see special cases xref:#lower-7-3[Updating from a Bonita version lower than 7.3] section below.
+* Runtime setup folder custom configuration is kept in the database: Custom configurations made and pushed from the setup folder in the previous version are kept in the database. However, to benefit from the changes and improvements made in the product, you may want to compare the files you pull from your database and the target version files available in the setup/platform_conf/initial folder. If your previous version is lower than 7.3, see special cases <<lower-7-3, Updating from a Bonita version lower than 7.3>> section below.
 * Deployed process definitions: The processes will continue to run using the definition created in the previous version of Bonita.
 * Custom connectors, actor filers, data types, custom pages, RestAPI extensions: will for sure continue to work in the new version if no custom code has been added, default Bonita code. If you did add custom code, before starting the update, check in the release notes for any breaking changes and test them thoroughly after the update.
 * Business Data Model, and the business database schema: as mentioned above, if the update goes through version 7.0.0, 7.2.0 or 7.2.4, you will need to redeploy your BDM, because 7.0.0 has breaking changes for the BDM.
@@ -97,14 +97,14 @@ To do so, before starting the update:
 ** Redeploy the BDM once the update is done.
 ** Resume the BPM Services
 If the update doesn't go through version 7.0.0, 7.2.0 or 7.2.4, no action is required for the BDM.
-* If you are updating from a version lower than 7.3, see special cases xref:#lower-7-3[Updating from a Bonita version lower than 7.3] section below.
+* If you are updating from a version lower than 7.3, see special cases <<lower-7-3, Updating from a Bonita version lower than 7.3>> section below.
 
 .Following elements will be *updated automatically* when launching the update script:
 * Engine server
 * Engine database (including all data on active and archived process instances)
 * Organization definition
 * Log files from the previous versions will not be touched. A new dedicated folder for the target version will be created to store the log files.
-* Runtime data in _Bonita Home_ (only if you are xref:#lower-7-3[Updating from a version lower than 7.3])
+* Runtime data in _Bonita Home_ (only if you are <<lower-7-3, Updating from a version lower than 7.3>>)
 * Log files from the previous version are not impacted by update
 
 When the script has finished executing, you will have to complete the update procedure by unzipping and configuring new bundle's version.
@@ -130,7 +130,7 @@ cd setup
 ./setup.sh pull
 ----
 
-If you are updating from a version lower than 7.3, see special cases xref:#lower-7-3[Update from a Bonita version lower than 7.3] section below.
+If you are updating from a version lower than 7.3, see special cases <<lower-7-3, Update from a Bonita version lower than 7.3>> section below.
 
 
 ==== Look&Feel
@@ -334,7 +334,7 @@ cd setup
 ./setup.sh pull
 ----
 +
-. If you are updating from a version lower than 7.3, see special cases xref:#lower-7-3[Update from a Bonita version lower than 7.3] section below.
+. If you are updating from a version lower than 7.3, see special cases <<lower-7-3, Update from a Bonita version lower than 7.3>> section below.
 . After the setup `pull`, you can change your configuration into the `bonita-target-version/setup/platform_conf/current` folder.
 +
 Please refer to the guide on updating the configuration file using the  xref:ROOT:bonita-bpm-platform-setup.adoc#update_platform_conf[platform setup tool]
@@ -379,7 +379,7 @@ Then, install the new license.
 
 [NOTE]
 ====
-*Code exemple*
+*Code example*
 cp BonitaSubscription-7.n-Jerome-myHosname-20171023-20180122.lic ./platform_conf/licenses/
 ./setup.sh push
 ====
@@ -428,7 +428,6 @@ you can live update it after update.
 
 [NOTE]
 ====
-
 Note: 6.x application resources have been removed too in 7.8.0, so if you are migrating a process that leverage this feature, you need to modify it (for example to use process dependencies instead (Configure > Process dependencies in Bonita Studio)).
 ====
 
