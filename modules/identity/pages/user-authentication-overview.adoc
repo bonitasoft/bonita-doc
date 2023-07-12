@@ -125,7 +125,8 @@ session that has just expired will remain active until it reaches the
 inactivity timeout. A *cron job* takes care of cleaning up inactive
 Engine sessions.
 
-NOTE: The HTTP session default duration depends on your application server (for example, 30 minutes for Tomcat).
+NOTE: The HTTP session default duration depends on the application server (for example, 30 minutes for Tomcat). In cluster (Enterprise and Performance editions only) the application server value is replaced with the property `bonita.runtime.cluster.http.session.timeout` in the file `bonita-platform-sp-cluster.properties` (default value is 30 minutes).
+
 
 *Logout*
 
