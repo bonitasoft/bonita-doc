@@ -126,7 +126,7 @@ A page that is generated with this version is still compatible with a previous v
 For the users of Bonita Community edition, Bonita 2022.2 also comes with all the bug fixes released in the Maintenance versions of Bonita 2022.1 (up until version 2022.1-u6).
 The detailed list is available in the "What’s new in Bonita 2022.1" page, in the "Bug fixes" section.
 
-=== Fixes in Bonita 2022.2-u3 (2023-05-26)
+=== Fixes in Bonita 2022.2-u4 (2023-07-06)
 
 ==== Fixes in Bonita Studio including Bonita UI Designer
 
