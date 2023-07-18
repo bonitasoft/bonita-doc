@@ -52,8 +52,7 @@ If a node becomes unavailable, the load balancer redirects the connection to ano
 The Bonita Engines exchange information to enable the redirection. This means that all automatic actions handled by the Engine (including automatic tasks, events, timers, and automatic state transitions of tasks)
 are automatically taken over by another node.
 
-Each Bonita Runtime works with a local Bonita Engine, so when a user logs in, they are logged in to a specific node. If that node becomes unavailable, the user session is lost.
-This means that any transaction that is not yet committed is lost, including any data entered in a form but not submitted. The user will need to log back into Bonita Runtime.
+Each Bonita Runtime works with a local Bonita Engine, so if a node becomes unavailable, any transaction on this node that is not yet committed is lost. The user will need to re-submit the request so that the load balancer can dispatch it to another node. Since Bonita 2023.2, HTTP sessions are shared between nodes, so the user won't need to log back in and their session will remain active.
 
 Assumptions: We assume that Ubuntu Linux is used as the operating system for Bonita nodes in a production system. The application server used is Tomcat.
 
@@ -63,6 +62,11 @@ Assumptions: We assume that Ubuntu Linux is used as the operating system for Bon
 * A highly available network, with all nodes able to see all other nodes
 * A highly available database accessible from all nodes
 * All nodes including the database one should be configured with the same clock (via NTP time synchronization for example) and same timezone (UTC is recommended)
+
+[WARNING]
+====
+For security reasons, the network used by the nodes to communicate with each other should be a private network.
+====
 
 === Cluster structure diagram
 
@@ -88,7 +92,10 @@ All nodes must run the same exact version of the Bonita Runtime. e.g. a `7.11.2`
 
 The xref:ROOT:install-a-bonita-bpm-cluster.adoc#disable-hibernate-cache[Hibernate cache must be disabled].
 
-The load balancer must be configured to use sticky sessions (this is needed to manage sessions created when users log into the Bonita Runtime).
+[NOTE]
+====
+Since Bonita 2023.2, the load balancer no longer needs to be configured to use sticky sessions (HTTP sessions are shared between all the nodes of the cluster).
+====
 
 === Active and passive nodes
 
