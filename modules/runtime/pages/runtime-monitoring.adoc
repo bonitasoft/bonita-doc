@@ -68,7 +68,7 @@ The following available metrics are *disabled by default* and can be enabled.
 
 [NOTE]
 ====
-When Bonita is deployed in a xref:runtime:overview-of-bonita-bpm-in-a-cluster.adoc[cluster] (Enterprise and Performance editions only), HTTP sessions are shared between all the nodes of the cluster, so the metric `tomcat.sessions.active.current represents the number of active sessions over all the cluster. The other metrics remain relative to each node of the cluster.
+When Bonita is deployed in a xref:runtime:overview-of-bonita-bpm-in-a-cluster.adoc[cluster] (Enterprise and Performance editions only), HTTP sessions are shared between all the nodes of the cluster, so the metric `tomcat.sessions.active.current` represents the number of active sessions over all the cluster. The other metrics remain relative to each node of the cluster.
 ====
 
 
