@@ -55,7 +55,6 @@ under the logical key name `bonita_bpmengine_connector_pending_connectors`
 * The total number of BPMN message matching tasks retriggered (since the last start of Bonita runtime), under the logical key name `bonita_bpmengine_message_retriggeredtasks_messages_matching_tasks_total` (starting from 7.10.3)
 
 
-
 === Technical metrics
 
 The following available metrics are *disabled by default* and can be enabled.
@@ -66,6 +65,12 @@ The following available metrics are *disabled by default* and can be enabled.
 * Several metrics related to Worker / Connector thread pools, under the logical key name ** executor.* **
 * Several metrics related to Hibernate statistics, under the logical key name ** hibernate.* **
 * Several metrics related to Tomcat, under the logical key name ** tomcat.* **
+
+[NOTE]
+====
+When Bonita is deployed in a xref:runtime:overview-of-bonita-bpm-in-a-cluster.adoc[cluster] (Enterprise and Performance editions only), HTTP sessions are shared between all the nodes of the cluster, so the metric ‘tomcat.sessions.active.current’ represents the number of active sessions over all the cluster. Other metrics remain relative to each node of the cluster.
+====
+
 
 == How to retrieve those metrics
 
