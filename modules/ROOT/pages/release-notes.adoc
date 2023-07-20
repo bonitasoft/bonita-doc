@@ -6,7 +6,7 @@
 The 2023.2 version is in development.
 ====
 
-== Improvements
+== New available values
 
 === Bonita Runtime 
 
@@ -15,11 +15,17 @@ The 2023.2 version is in development.
 When configuring a xref:runtime:overview-of-bonita-bpm-in-a-cluster.adoc[Bonita cluster] (Enterprise and Performance editions only), HTTP sessions are now shared between all the nodes of the cluster. As a result, the load balancer no longer needs to be configured to use sticky sessions. If a node becomes unavailable, and a user request to this node fails, the user won't need to log back in as their session will remain active. The load balancer will dispatch the new requests to the other nodes.  
 
 
-=== Development suite changes
+=== Development suite
 
 
 === Bonita UI Designer
 
+
+== Functionnal changes
+
+=== REST API and file upload
+
+When using the end point portal/fileUpload to upload a file before using it in Bonita REST API or a REST API extension, the size of the file that can be uploaded is now limited to 25MB. This can be changed in the configuration file `console-config.properties` using the setup tool, but be aware that this will affect upload limit for all users.  
 
 == Feature deprecations and removals
 
