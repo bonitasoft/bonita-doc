@@ -25,7 +25,7 @@ When configuring a xref:runtime:overview-of-bonita-bpm-in-a-cluster.adoc[Bonita 
 
 === REST API and file upload
 
-When using the end point portal/fileUpload to upload a file before using it in Bonita REST API or a REST API extension, the size of the file that can be uploaded is now limited to 25MB. This can be changed in the configuration file `console-config.properties` using the setup tool, but be aware that this will affect upload limit for all users.  
+When using the end point `portal/fileUpload` to upload a file (in order to then use it in Bonita REST API or a REST API extension), the size of the file that can be uploaded is now limited to 25MB. This can be changed in the configuration file `console-config.properties` using the setup tool, but be aware that this will affect upload limit for all users (upload end points used for administration like process upload etc... are not affected by this limit). Using Bonita Runtime upload endpoints for large files (hundreds of MB) is not recommended as the database is used to store temporarily those files (and there can be a 1 or 2GB limit depending on the database vendor). Prefer using an external system if you need to manage very large files in your applications.
 
 == Feature deprecations and removals
 
