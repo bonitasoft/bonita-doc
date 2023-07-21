@@ -15,10 +15,11 @@ jobs:
     steps:
       - name: Validate xref
         uses: bonitasoft/bonita-documentation-site/.github/actions/build-pr-site/@master
-        with:
+        with:          
           # '>' Replace newlines with spaces (folded)
           # '-' No newline at end (strip)
           build-preview-command: >-
             ./build-preview.bash
             --component "${{ env.COMPONENT_NAME }}"
             --branch "${{ env.COMPONENT_BRANCH_NAME }}"
+          fail-on-warning: true

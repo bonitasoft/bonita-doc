@@ -170,7 +170,7 @@ Similarly, the Adaptive Case Management example, which can only be used after it
 However, our team of Professional Services consultants can assist you in the customization phase (Subscription editions only). You can contact them through the Customer Services Center.
 ====
 
-To know about the pages that can be customized, go to the xref:ROOT:create-or-modify-a-page.adoc#[create a page] documentation page.
+To know about the pages that can be customized, go to the xref:ROOT:create-or-modify-a-page.adoc[create a page] documentation page.
 
 === Connectors - final implementation
 To use a connector, it must first be declared as a dependency of the project. This is done from the Studio xref:bonita-overview:managing-extension-studio.adoc[_Extensions_] page. The connector can be found in Bonita Marketplace or can be xref:software-extensibility:software-extensibility.adoc[made available] the professional developers of the project team. +

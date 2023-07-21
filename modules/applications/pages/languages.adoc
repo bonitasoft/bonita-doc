@@ -51,6 +51,7 @@ image:images/UI2021.1/select-language.png[Select language]
 If the application uses the default xref:bonita-layout.adoc[Bonita layout], the header is the same as a Bonita Application, so the procedure is the same. +
 If the layout has been customized, users need to refer to the internally documented procedure.
 
+[#add-new-language]
 == Add a new language
 
 [NOTE]
@@ -100,5 +101,5 @@ If the language you want to contribute to is already listed:
 . On the http://translate.bonitasoft.org/[Bonita translation project] page click on the language you want to translate.
 . At the top of the page, click on the "Join" button.
 . Wait for us to validate your request to join the project.
-. Navigate to the `.po/.pot` files in the `portal` folder (see information in the xref:#_add_a_new_language[Add a new language] section above).
+. Navigate to the `.po/.pot` files in the `portal` folder (see information in the <<add-new-language>> section above).
 . Click on a file to begin the translation. You can then use the filter *missing translation* to only display the strings to be translated.
