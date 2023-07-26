@@ -29,3 +29,12 @@ When using the end point portal/fileUpload to upload a file before using it in B
 
 == Feature deprecations and removals
 
+=== Legacy custom connectors and actor filters
+
+Since Bonita Studio 2021.2 it was not supported anymore to create custom connectors or actor filters in a Bonita project. Using the project composition with Maven extensions is the recommended way to integrate custom extensions.  +
+In this version, those deprecated custom extensions are removed from the project when importing a `.bos` file or cloning a Git repository from an older version.  +
+If you were coming from an older version of Bonita Studio with those custom connectors and actor filters, it will be required to migrate them into a separate Maven project using the dedicated archetypes. Visit their repsective documentation pages for xref:process:connector-migration.adoc[connectors] and xref:process:actor-filter-archetype.adoc[actor filters].
+
+=== Provided Groovy classes
+
+Deprecated since 2021.1, `BonitaUsers`, `BonitaSql`, `BonitaXML` and `BonitaTypes` Groovy classes are no more available. You may use suggested code templates in the Groovy script expression editor instead.
