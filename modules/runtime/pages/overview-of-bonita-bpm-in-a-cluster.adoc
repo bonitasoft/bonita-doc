@@ -84,9 +84,9 @@ Even if your process users do not use Bonita Applications, it is still present i
 
 The nodes must all be in the same datacenter, to keep latency of updates to shared information to an acceptable level.
 
-All nodes must run the same exact version of the Bonita Runtime. e.g. a `7.11.2` will not be able to connect to a cluster of Bonita Runtime in `7.11.1`. 
+All nodes must run the same exact version of the Bonita Runtime. e.g. a `{javadocVersion}.2` will not be able to connect to a cluster of Bonita Runtime in `{javadocVersion}.1`.
 
-The xref:ROOT:install-a-bonita-bpm-cluster.adoc#disable-hibernate-cache[Hibernate cache must be disabled].
+The https://www.google.com/search?q=Hibernate+L2+cache[Hibernate L2 cache] will be automatically disabled, leading to lower performance.
 
 The load balancer must be configured to use sticky sessions (this is needed to manage sessions created when users log into the Bonita Runtime).
 

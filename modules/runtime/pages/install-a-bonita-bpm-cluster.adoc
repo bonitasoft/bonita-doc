@@ -49,11 +49,6 @@ When done you will have a database with all tables created and with a table `CON
 In the following steps, you will update the configuration files that are in the `setup/platform_conf/initial` folder of the platform setup tool.
 
 . Edit the file `setup/platform_conf/initial/platform_engine/bonita-platform-sp-custom.properties`: Uncomment and set the *`bonita.cluster`* property to `true`, as follows: `bonita.cluster=true`
-. Edit the file `setup/platform_conf/initial/platform_engine/bonita-platform-sp-custom.properties`: +++<a id="disable-hibernate-cache">++++++</a>+++In order to keep consistency between nodes, the Hibernate cache must be disabled:
-Uncomment and change the line:
-      `#bonita.platform.persistence.use_second_level_cache=true`
-    change it to:
-      `bonita.platform.persistence.use_second_level_cache=false`
 . Edit the file `setup/platform_conf/initial/platform_engine/bonita-platform-sp-cluster-custom.properties`: uncomment and set the *`bonita.cluster.name`* property to a name of your own, e.g. `myBPMCluster`, *This name must be unique on the local network if you are using _multicast_*
 . Edit the file `setup/platform_conf/initial/platform_engine/bonita-platform-sp-cluster-custom.properties`: set to `true` one of `bonita.platform.cluster.hazelcast.multicast.enabled` or `bonita.platform.cluster.hazelcast.tcpip.enabled` or `bonita.platform.cluster.hazelcast.aws.enabled`, as follows:
 Uncomment the # properties and set only one of them to `true`, set the others to `false` depending on how you want your nodes to discover each others.
@@ -68,6 +63,12 @@ bonita.platform.cluster.hazelcast.tcpip.members=ipServer01,ipServer02
 +
 IMPORTANT: If you don't use `bonita.platform.cluster.hazelcast.multicast.enabled`, *you must uncomment the # properties and set it to `false`* to deactivate it, as follows: `bonita.platform.cluster.hazelcast.multicast.enabled=false`.
 +
+
+[NOTE]
+====
+The https://www.google.com/search?q=Hibernate+L2+cache[Hibernate L2 cache] will be automatically disabled in cluster, leading to lower performance and more frequent database accesses.
+====
+
 For more information on this take a look at the  http://docs.hazelcast.org/docs/3.4/manual/html-single/hazelcast-documentation.html#hazelcast-cluster-discovery[Hazelcast Documentation].
 
 . Copy licenses of all your nodes in `setup/platform_conf/licenses`.
