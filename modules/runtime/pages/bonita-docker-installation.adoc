@@ -339,6 +339,15 @@ Since Bonita 7.9 BONITA_SERVER_LOGGING_FILE and BONITA_SETUP_LOGGING_FILE can be
 
 `BONITA_SETUP_LOGGING_FILE` default value is /opt/bonita/BonitaSubscription-$\{BONITA_VERSION}/setup/logback.xml.
 
+=== CLUSTER_MODE
+
+This environment variable activates the xref:overview-of-bonita-bpm-in-a-cluster.adoc[Cluster mode] on Bonita, allowing to start several nodes that will join the cluster.
+
+[NOTE]
+====
+This will automatically disable https://www.google.com/search?q=Hibernate+L2+cache[Hibernate L2 cache].
+====
+
 == Migrating from an earlier version of Bonita
 
 The migration scripts affect only the database, not the Bonita instance.
