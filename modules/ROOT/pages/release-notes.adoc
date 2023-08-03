@@ -126,6 +126,15 @@ A page that is generated with this version is still compatible with a previous v
 For the users of Bonita Community edition, Bonita 2022.2 also comes with all the bug fixes released in the Maintenance versions of Bonita 2022.1 (up until version 2022.1-u6).
 The detailed list is available in the "What’s new in Bonita 2022.1" page, in the "Bug fixes" section.
 
+=== Fixes in Bonita 2022.2-u5 (2023-08-03)
+
+==== Fixes in Bonita Runtime including Bonita native Applications
+
+* RUNTIME-1642 - [Admin App][Process details] Visual glitch in the categories label
+* RUNTIME-1679 - We can't set a timezone to bonita containers
+* RUNTIME-1713 - Apply debounce to official pages using a search box
+* RUNTIME-1716 - [Bonita cluster]: Hazelcast Kubernetes discovery not working
+
 === Fixes in Bonita 2022.2-u4 (2023-07-06)
 
 ==== Fixes in Bonita Studio including Bonita UI Designer
