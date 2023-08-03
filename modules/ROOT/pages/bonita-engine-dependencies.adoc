@@ -1,4 +1,4 @@
-= Bonita engine dependencies (7.15.3)
+= Bonita engine dependencies (7.15.5)
 :description: List all dependencies uses for Bonita Engine
 
 
@@ -1191,7 +1191,7 @@
 
 | com.hazelcast
 | hazelcast
-| 5.2.3
+| 5.1.5
 | http://www.hazelcast.com/[http://www.hazelcast.com/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1203,7 +1203,7 @@
 
 | com.hazelcast
 | hazelcast-spring
-| 5.2.3
+| 5.1.5
 | http://www.hazelcast.com/[http://www.hazelcast.com/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
