@@ -86,7 +86,7 @@ The nodes must all be in the same datacenter, to keep latency of updates to shar
 
 All nodes must run the same exact version of the Bonita Runtime. e.g. a `{javadocVersion}.2` will not be able to connect to a cluster of Bonita Runtime in `{javadocVersion}.1`.
 
-The https://www.google.com/search?q=Hibernate+L2+cache[Hibernate L2 cache] will be automatically disabled, leading to lower performance.
+The https://www.google.com/search?q=Hibernate+L2+cache[Hibernate L2 cache] will be automatically disabled, leading more frequent database accesses.
 
 The load balancer must be configured to use sticky sessions (this is needed to manage sessions created when users log into the Bonita Runtime).
 
