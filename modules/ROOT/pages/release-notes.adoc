@@ -126,13 +126,25 @@ A page that is generated with this version is still compatible with a previous v
 For the users of Bonita Community edition, Bonita 2022.2 also comes with all the bug fixes released in the Maintenance versions of Bonita 2022.1 (up until version 2022.1-u6).
 The detailed list is available in the "What’s new in Bonita 2022.1" page, in the "Bug fixes" section.
 
+=== Fixes in Bonita 2022.2-u5 (2023-08-03)
+
+==== Fixes in Bonita Runtime including Bonita Applications
+
+* RUNTIME-1642 - [Admin App][Process details] Visual glitch in the categories label
+* RUNTIME-1679 - We can't set a timezone to bonita containers
+* RUNTIME-1713 - Apply debounce to official pages using a search box
+* RUNTIME-1716 - [Bonita cluster]: Hazelcast Kubernetes discovery not working
+
+[NOTE]
+Please note that, due to an https://github.com/hazelcast/hazelcast/issues/24688[issue in recent Hazelcast versions], Hazelcast was rolled back to version 5.1.5 in order to fix RUNTIME-1716.
+
 === Fixes in Bonita 2022.2-u4 (2023-07-06)
 
 ==== Fixes in Bonita Studio including Bonita UI Designer
 
 * STUDIO-4468 - Some of shortcuts in script editor not working in Debian 10/11
 
-==== Fixes in Bonita Runtime including Bonita native Applications
+==== Fixes in Bonita Runtime including Bonita Applications
 
 * RUNTIME-30   - Deleting process definition does not remove associated process supervisor, process category mapping
 * RUNTIME-38   - hasContent column stays as TRUE after using deleteContentOfArchivedDocument method
@@ -153,7 +165,7 @@ The detailed list is available in the "What’s new in Bonita 2022.1" page, in t
 * STUDIO-4462 - Fix Validate action getting stuck when diagrams contains Subprocess event figures.
 * UID-437     - Improve hotzone of the fx button
 
-==== Fixes in Bonita Runtime including Bonita native Applications
+==== Fixes in Bonita Runtime including Bonita Applications
 
 * RUNTIME-369  - Uploaded file names are not XSS proof
 * RUNTIME-747  - Improve ronustness for concurrent BDM install/update requests
@@ -184,7 +196,7 @@ The detailed list is available in the "What’s new in Bonita 2022.1" page, in t
 * STUDIO-4452 - Fix refresh validation so that Groovy script validation marker does not disappear
 * UID-716     - Fix missing keys in localization.json asset
 
-==== Fixes in Bonita Runtime including Bonita native Applications
+==== Fixes in Bonita Runtime including Bonita Applications
 
 * RUNTIME-1555 - Fix selection in Users mapped to process manager profile: when selecting one user in search list, all users were selected
 * RUNTIME-1566 - Fix Logger configuration failure with Bonita docker image
@@ -206,7 +218,7 @@ The detailed list is available in the "What’s new in Bonita 2022.1" page, in t
 * UID-346     - Fix Not translated messages in Upload widget
 * UID-711     - Fix Currency widget: issue with negative values
 
-==== Fixes in Bonita Runtime including Bonita native Applications
+==== Fixes in Bonita Runtime including Bonita Applications
 
 * RUNTIME-145  - Fix User creation on the fly when role doesn't exist
 * RUNTIME-278  - Fix LDAP Synchronizer failures when the username LDAP attribute value's changes case (uper/lower)
@@ -236,7 +248,7 @@ The detailed list is available in the "What’s new in Bonita 2022.1" page, in t
 * STUDIO-4400 - Fix [Organization] Password resolution
 * STUDIO-4419 - Fix failed to Load EMF ressource when trying to open an imported .bpmn file
 
-==== Fixes in Bonita Runtime including Bonita native Applications
+==== Fixes in Bonita Runtime including Bonita Applications
 
 * RUNTIME-211  - Fix access to a non existing token in an app raise a 403 instead of a 404
 * RUNTIME-334  - Fix REST API ../API/identity/user/-1?d=professionalData as it returns the list of users
