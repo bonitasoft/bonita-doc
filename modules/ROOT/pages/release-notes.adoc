@@ -144,7 +144,7 @@ Please note that, due to an https://github.com/hazelcast/hazelcast/issues/24688[
 
 * STUDIO-4468 - Some of shortcuts in script editor not working in Debian 10/11
 
-==== Fixes in Bonita Runtime including Bonita native Applications
+==== Fixes in Bonita Runtime including Bonita Applications
 
 * RUNTIME-30   - Deleting process definition does not remove associated process supervisor, process category mapping
 * RUNTIME-38   - hasContent column stays as TRUE after using deleteContentOfArchivedDocument method
@@ -165,7 +165,7 @@ Please note that, due to an https://github.com/hazelcast/hazelcast/issues/24688[
 * STUDIO-4462 - Fix Validate action getting stuck when diagrams contains Subprocess event figures.
 * UID-437     - Improve hotzone of the fx button
 
-==== Fixes in Bonita Runtime including Bonita native Applications
+==== Fixes in Bonita Runtime including Bonita Applications
 
 * RUNTIME-369  - Uploaded file names are not XSS proof
 * RUNTIME-747  - Improve ronustness for concurrent BDM install/update requests
@@ -196,7 +196,7 @@ Please note that, due to an https://github.com/hazelcast/hazelcast/issues/24688[
 * STUDIO-4452 - Fix refresh validation so that Groovy script validation marker does not disappear
 * UID-716     - Fix missing keys in localization.json asset
 
-==== Fixes in Bonita Runtime including Bonita native Applications
+==== Fixes in Bonita Runtime including Bonita Applications
 
 * RUNTIME-1555 - Fix selection in Users mapped to process manager profile: when selecting one user in search list, all users were selected
 * RUNTIME-1566 - Fix Logger configuration failure with Bonita docker image
@@ -218,7 +218,7 @@ Please note that, due to an https://github.com/hazelcast/hazelcast/issues/24688[
 * UID-346     - Fix Not translated messages in Upload widget
 * UID-711     - Fix Currency widget: issue with negative values
 
-==== Fixes in Bonita Runtime including Bonita native Applications
+==== Fixes in Bonita Runtime including Bonita Applications
 
 * RUNTIME-145  - Fix User creation on the fly when role doesn't exist
 * RUNTIME-278  - Fix LDAP Synchronizer failures when the username LDAP attribute value's changes case (uper/lower)
@@ -248,7 +248,7 @@ Please note that, due to an https://github.com/hazelcast/hazelcast/issues/24688[
 * STUDIO-4400 - Fix [Organization] Password resolution
 * STUDIO-4419 - Fix failed to Load EMF ressource when trying to open an imported .bpmn file
 
-==== Fixes in Bonita Runtime including Bonita native Applications
+==== Fixes in Bonita Runtime including Bonita Applications
 
 * RUNTIME-211  - Fix access to a non existing token in an app raise a 403 instead of a 404
 * RUNTIME-334  - Fix REST API ../API/identity/user/-1?d=professionalData as it returns the list of users
