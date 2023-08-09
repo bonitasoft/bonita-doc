@@ -128,7 +128,7 @@ The detailed list is available in the "What’s new in Bonita 2022.1" page, in t
 
 === Fixes in Bonita 2022.2-u5 (2023-08-03)
 
-==== Fixes in Bonita Runtime including Bonita native Applications
+==== Fixes in Bonita Runtime including Bonita Applications
 
 * RUNTIME-1642 - [Admin App][Process details] Visual glitch in the categories label
 * RUNTIME-1679 - We can't set a timezone to bonita containers
