@@ -136,7 +136,7 @@ The detailed list is available in the "What’s new in Bonita 2022.1" page, in t
 * RUNTIME-1716 - [Bonita cluster]: Hazelcast Kubernetes discovery not working
 
 [NOTE]
-Please note that, due to an https://github.com/hazelcast/hazelcast/issues/24688[issue in recent Hazelcast versions], Hazelcast version was rolled back to 5.1.5 in order to fix RUNTIME-1716.
+Please note that, due to an https://github.com/hazelcast/hazelcast/issues/24688[issue in recent Hazelcast versions], Hazelcast was rolled back to version 5.1.5 in order to fix RUNTIME-1716.
 
 === Fixes in Bonita 2022.2-u4 (2023-07-06)
 
