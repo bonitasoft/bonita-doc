@@ -133,6 +133,7 @@ The detailed list is available in the "What’s new in Bonita 2022.1" page, in t
 * RUNTIME-1642 - [Admin App][Process details] Visual glitch in the categories label
 * RUNTIME-1679 - We can't set a timezone to bonita containers
 * RUNTIME-1713 - Apply debounce to official pages using a search box
+* RUNTIME-1364 - Search users triggers API call for each keystroke
 * RUNTIME-1716 - [Bonita cluster]: Hazelcast Kubernetes discovery not working
 
 [NOTE]
