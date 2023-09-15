@@ -38,3 +38,13 @@ If you were coming from an older version of Bonita Studio with those custom conn
 === Provided Groovy classes
 
 Deprecated since 2021.1, `BonitaUsers`, `BonitaSql`, `BonitaXML` and `BonitaTypes` Groovy classes are no more available. You may use suggested code templates in the Groovy script expression editor instead.
+
+
+== Configuration changes
+
+=== Runtime property renaming
+
+In order to improve Bonita property naming coherence, a work is in progress to change some property names.
+In this release, the following properties have been renamed:
+
+* [.line-through]#`bonita.tenant.session.duration`# has been renamed to `bonita.runtime.session.duration`. If you happened to customize this property, please update it in file `bonita-tenant-community-custom.properties` (The old property is **still supported** but will be removed in a later version)

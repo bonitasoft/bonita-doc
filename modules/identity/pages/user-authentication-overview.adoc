@@ -117,7 +117,7 @@ invalidate the HTTP session and redirect the user to the login page.
 
 NOTE: The Bonita Engine default session duration is one hour (default value
 defined in https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-session/bonita-session-impl/src/main/java/org/bonitasoft/engine/session/impl/SessionServiceImpl.java[SessionServiceImpl]).
-You can configure a different session duration by editing the `bonita.tenant.session.duration` property in `bonita-tenant-community-custom.properties`. Specify the duration in milliseconds.
+You can configure a different session duration by editing the `bonita.runtime.session.duration` property in `bonita-tenant-community-custom.properties`. Specify the duration in milliseconds.
 
 If the HTTP session has expired, Bonita Applications will redirect the user to the
 authentication page. The Bonita Engine session associated with the HTTP
