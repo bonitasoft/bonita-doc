@@ -103,7 +103,7 @@ import org.bonitasoft.engine.BonitaEngine;
 import org.bonitasoft.engine.api.APIClient;
 
 //create the engine
-BonnitaEngine engine = new BonitaEngine();
+BonitaEngine engine = new BonitaEngine();
 
 //start the engine
 engine.start();
