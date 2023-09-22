@@ -64,23 +64,23 @@ implementation of this method does nothing (the subsequent engine login is enoug
 will then call engine API https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/LoginAPI.html#login(java.lang.String,%20java.lang.String)[LoginAPI.login()]
 . At this point, operations are processed on Bonita Engine side. Engine (see https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-process-engine/src/main/java/org/bonitasoft/engine/api/impl/LoginAPIImpl.java[LoginAPIImpl]
 class) verifies that the username and password are not empty. A verification is also done to validate that the tenant is enabled (use provided tenant id or default one if not provided). Then https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-process-engine/src/main/java/org/bonitasoft/engine/api/impl/LoginAPIImpl.java[LoginAPIImpl]
-will call https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-login/bonita-login-api/src/main/java/org/bonitasoft/engine/core/login/LoginService.java[LoginService]
-(one implementation available: https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-login/bonita-login-api-impl/src/main/java/org/bonitasoft/engine/core/login/SecuredLoginServiceImpl.java[SecuredLoginService]).
-. SecuredLoginService calls https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-authentication/bonita-authentication-api/src/main/java/org/bonitasoft/engine/authentication/GenericAuthenticationService.java[GenericAuthenticationService].
-The default implementation is: https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-authentication/bonita-authentication-api-impl/src/main/java/org/bonitasoft/engine/authentication/impl/AuthenticationServiceImpl.java[AuthenticationServiceImpl].
-. The https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-authentication/bonita-authentication-api-impl/src/main/java/org/bonitasoft/engine/authentication/impl/AuthenticationServiceImpl.java[AuthenticationServiceImpl]
+will call https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-login/src/main/java/org/bonitasoft/engine/core/login/LoginService.java[LoginService]
+(one implementation available: https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-login/src/main/java/org/bonitasoft/engine/core/login/SecuredLoginServiceImpl.java[SecuredLoginService]).
+. SecuredLoginService calls https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-authentication/src/main/java/org/bonitasoft/engine/authentication/GenericAuthenticationService.java[GenericAuthenticationService].
+The default implementation is: https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-authentication/src/main/java/org/bonitasoft/engine/authentication/impl/AuthenticationServiceImpl.java[AuthenticationServiceImpl].
+. The https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-authentication/src/main/java/org/bonitasoft/engine/authentication/impl/AuthenticationServiceImpl.java[AuthenticationServiceImpl]
 verifies that your username and password are valid.
-. After call of the https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-authentication/bonita-authentication-api/src/main/java/org/bonitasoft/engine/authentication/GenericAuthenticationService.java[GenericAuthenticationService],
-https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-login/bonita-login-api-impl/src/main/java/org/bonitasoft/engine/core/login/SecuredLoginServiceImpl.java[SecuredLoginServiceImpl]
-performs an extra check to verify that the provided username exists in the Bonita database (https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-login/bonita-login-api-impl/src/main/java/org/bonitasoft/engine/core/login/SecuredLoginServiceImpl.java[SecuredLoginServiceImpl]
-does not trust https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-authentication/bonita-authentication-api-impl/src/main/java/org/bonitasoft/engine/authentication/impl/AuthenticationServiceImpl.java[AuthenticationServiceImpl]).
+. After call of the https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-authentication/src/main/java/org/bonitasoft/engine/authentication/GenericAuthenticationService.java[GenericAuthenticationService],
+https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-login/src/main/java/org/bonitasoft/engine/core/login/SecuredLoginServiceImpl.java[SecuredLoginServiceImpl]
+performs an extra check to verify that the provided username exists in the Bonita database (https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-login/src/main/java/org/bonitasoft/engine/core/login/SecuredLoginServiceImpl.java[SecuredLoginServiceImpl]
+does not trust https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-authentication/src/main/java/org/bonitasoft/engine/authentication/impl/AuthenticationServiceImpl.java[AuthenticationServiceImpl]).
 *Note:* A specific behavior applies for the tenant technical user.
-. https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-login/bonita-login-api-impl/src/main/java/org/bonitasoft/engine/core/login/SecuredLoginServiceImpl.java[SecuredLoginServiceImpl]
-returns an object that represents the session. This is a server side only object (https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-session/bonita-session-api/src/main/java/org/bonitasoft/engine/session/model/SSession.java[SSession])
+. https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-login/src/main/java/org/bonitasoft/engine/core/login/SecuredLoginServiceImpl.java[SecuredLoginServiceImpl]
+returns an object that represents the session. This is a server side only object (https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-session/src/main/java/org/bonitasoft/engine/session/model/SSession.java[SSession])
 . Call get back to https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-process-engine/src/main/java/org/bonitasoft/engine/api/impl/LoginAPIImpl.java[LoginAPIImpl]
-that converts https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-session/bonita-session-api/src/main/java/org/bonitasoft/engine/session/model/SSession.java[SSession]
-to https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-api/bonita-common-api/src/main/java/org/bonitasoft/engine/session/APISession.java[APISession].
-. https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-api/bonita-common-api/src/main/java/org/bonitasoft/engine/session/APISession.java[APISession]
+that converts https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-session/src/main/java/org/bonitasoft/engine/session/model/SSession.java[SSession]
+to https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-common/src/main/java/org/bonitasoft/engine/session/APISession.java[APISession].
+. https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-common/src/main/java/org/bonitasoft/engine/session/APISession.java[APISession]
 is provided back up to the https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-web-server/src/main/java/org/bonitasoft/console/common/server/login/LoginManager.java[LoginManager]
 that will add session information as HTTP session attribute.
 . Call get back to https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-web-server/src/main/java/org/bonitasoft/console/common/server/login/servlet/LoginServlet.java[LoginServlet]
@@ -106,7 +106,7 @@ and corresponds to one user.
 
 *The Bonita Engine session*
 
-See https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-api/bonita-common-api/src/main/java/org/bonitasoft/engine/session/APISession.java[APISession]
+See https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-common/src/main/java/org/bonitasoft/engine/session/APISession.java[APISession]
 class. This session is created by Bonita Engine when the user submits a login page.
 
 *Session expiration*
@@ -116,7 +116,7 @@ an exception will be raised. Bonita Applications will catch this exception,
 invalidate the HTTP session and redirect the user to the login page.
 
 NOTE: The Bonita Engine default session duration is one hour (default value
-defined in https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-session/bonita-session-impl/src/main/java/org/bonitasoft/engine/session/impl/SessionServiceImpl.java[SessionServiceImpl]).
+defined in https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-session/src/main/java/org/bonitasoft/engine/session/impl/SessionServiceImpl.java[SessionServiceImpl]).
 You can configure a different session duration by editing the `bonita.tenant.session.duration` property in `bonita-tenant-community-custom.properties`. Specify the duration in milliseconds.
 
 If the HTTP session has expired, Bonita Applications will redirect the user to the
@@ -134,7 +134,7 @@ Engine session and HTTP session will be invalidated.
 
 == How do Bonita Applications know if a user is authenticated?
 
-The Bonita Applications check if a valid Bonita Engine session (https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-api/bonita-common-api/src/main/java/org/bonitasoft/engine/session/APISession.java[APISession]
+The Bonita Applications check if a valid Bonita Engine session (https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-common/src/main/java/org/bonitasoft/engine/session/APISession.java[APISession]
 object) is found in the
 `apiSession`
 attribute inside the HttpRequest. If the engine session is still valid, the user will have access to the required resource.
