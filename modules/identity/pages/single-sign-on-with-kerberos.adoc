@@ -159,7 +159,7 @@ BONITA.LOCAL  = {
 If you want to use the AES256-CTS encryption type, you need to update the Java security libraries (Java Cryptography Extension (JCE) Unlimited Strength) to those for Strong Encryption. Depending on your java version, you might have to download some extra files or not.+
 
        * For Java updates > Java 8 u162 and java 9, the unlimited policy is enabled by default. You no longer need to install the policy file in the JRE or set the security property crypto.policy
-       * For Java updates < Java 8 u162, you have to download the security libraries [Here](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html)
+       * For Java updates < Java 8 u162, you have to download the security libraries https://www.oracle.com/java/technologies/javase-jce8-downloads.html[here].
  These libraries need to be put in jre/lib/security and jdk/jre/lib/security.
 
 . In the following folder `<BUNDLE_HOME>/server/conf`,
