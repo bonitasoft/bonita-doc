@@ -28,7 +28,7 @@ From this context menu you can perform several actions on your process diagram:
 
 There are several ways to add an item to a process diagram:
 
-* Click-and-hold on a icon in the *BPMN elements* menu and drag it to where you want the item in the whiteboard.
+* Click-and-hold on an icon in the *BPMN elements* menu and drag it to where you want the item in the whiteboard.
 * Click-and-release on an icon in the *BPMN elements* then click where you want it to appear in the whiteboard.
 * Select the previous item in the flow, and drag the item from the context menu to where you want it in the whiteboard.
 * Copy and paste an item from another pool.
