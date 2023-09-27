@@ -181,8 +181,6 @@ There are four events related to signals:
 
 To configure a signal event, select the element in the diagram, go to the Details panel, General tab, General pane, and specify the content of the signal in the Signal field. The signal content is a string. Either enter the string in the form field, or select it from the list of signals already defined.
 
-You can also defined variables at an intermediate catch signal event.
-
 == Error events
 
 A error is a notification of an exception that diverts the normal process flow to an exception flow. There are three types of error event:
