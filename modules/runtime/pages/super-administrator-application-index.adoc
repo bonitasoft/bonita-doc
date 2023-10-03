@@ -14,7 +14,7 @@ xref:ROOT:super-administrator-application-overview.adoc[[.card-title]#Applicatio
 
 [.card.card-index]
 --
-xref:ROOT:pause-and-resume-bpm-services.adoc[[.card-title]#Put Runtime in maintenance mode# [.card-body.card-content-overflow]#pass:q[Useful for BDM update and other maintenance operations]#]
+xref:ROOT:platform-maintenance-mode.adoc[[.card-title]#Put Runtime in maintenance mode# [.card-body.card-content-overflow]#pass:q[Useful for BDM update and other maintenance operations]#]
 --
 
 [.card.card-index]

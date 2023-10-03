@@ -270,7 +270,7 @@ For example, db.url=jdbc:mysql://localhost:3306/bonita-update?allowMultiQueries=
 [WARNING]
 ====
 
-*IMPORTANT:* Do *not* xref:ROOT:pause-and-resume-bpm-services.adoc[pause the BPM services] before you stop the application server, unless your Bonita source version is higher than 2021.1, otherwise it will cause problems.
+*IMPORTANT:* Do *not pause the BPM services* before you stop the application server, unless your Bonita source version is higher than 2021.1, otherwise it will cause problems.
 ====
 
 . Stop the application server.

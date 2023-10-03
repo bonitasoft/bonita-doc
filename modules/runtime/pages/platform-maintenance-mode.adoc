@@ -1,6 +1,6 @@
 = Put Runtime in maintenance mode
-:page-aliases: ROOT:pause-and-resume-bpm-services.adoc
-:description: Learn how to execute maintenance tasks on your tenants by disabling and enabling Bonita Runtime maintenance mode.
+:page-aliases: ROOT:platform-maintenance-mode.adoc
+:description: Learn how to execute maintenance tasks by disabling and enabling Bonita Runtime maintenance mode.
 
 {description}
 
@@ -32,7 +32,8 @@ To perform that you need to:
 
 [NOTE]
 ====
-When updating
+- If you made some changes to the bonita layout page or applicationDirectoryBonita page, you need consider adapting it with the latest versions.
+- You still can use the Maintenance API (todo: link for the api), if you want to get maintenance sate over external applications.
 ====
 
 == Enable maintenance mode
