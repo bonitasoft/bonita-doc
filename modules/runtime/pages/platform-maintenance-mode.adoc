@@ -4,7 +4,7 @@
 
 {description}
 
-For certain maintenance tasks that require a change to database tables or to information used by several processes (for example to update the Business Data Model), it is necessary to enable Bonita Runtime maintenance mode temporarily while it is updated. This is done by pausing the tenant. +
+For certain maintenance tasks that require a change to database tables or to information used by several processes (for example to update the Business Data Model), it is necessary to enable Bonita Runtime maintenance mode temporarily while it is updated. +
 
 When the maintenance mode is enabled, this has the following consequences:
 
@@ -20,7 +20,7 @@ You can also use the https://javadoc.bonitasoft.com/api/{javadocVersion}/index.h
 
 == Notify users about incoming maintenance
 
-As a technical user, you can set a maintenance message to be displayed to logged-in users in advance. This message should inform users about when and what the maintenance is about.
+As a technical user, you can set a maintenance message to be displayed to logged-in users in advance. This message should inform users about when and what the maintenance is about. It is also displayed on the maintenance page when the maintenance mode is enabled.
 
 To perform that you need to:
 
@@ -40,7 +40,7 @@ To perform that you need to:
 
 . Log into Bonita Super Administrator application.
 . Go to *Platform maintenance*.
-. Click the *_Enable maintenance mode_* button.
+. Click the *_Start maintenance_* button.
 . In the popup, click *_Enable maintenance mode_* to confirm that maintenance mode is to be enabled.
 . The maintenance mode is immediately enabled.
 
@@ -48,7 +48,7 @@ To perform that you need to:
 
 . Log into Bonita Super Administrator application.
 . Go to *Platform maintenance*.
-. Click the *_Disable maintenance mode_* button.
+. Click the *_End maintenance_* button.
 . In the popup, click *_Disable maintenance mode_* to confirm that maintenance mode is to be disabled.
 . The maintenance mode is disabled.
 

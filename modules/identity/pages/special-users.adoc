@@ -16,7 +16,7 @@ Its default credentials are:
 
 == Technical user
 
-Each tenant has an administrator (also known as the *tenant technical user*) with a tenant-specific username and password. The tenant administrator can manage maintenance mode for the tenant, install a Business Data Model, install the resources and the organization. +
+Each tenant has an administrator (also known as the *tenant technical user*) with a tenant-specific username and password. The tenant administrator can manage the maintenance state for the tenant, install a Business Data Model, install the resources and the organization. +
 Their username and password are defined in a configuration file and need to be changed for any other usage of a Bonita Tomcat bundle than local development (see
 xref:ROOT:tenant_admin_credentials.adoc[Tenant admin credentials page] for more information on how to proceed.
 Its default credentials are:
