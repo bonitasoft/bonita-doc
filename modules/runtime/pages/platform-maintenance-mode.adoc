@@ -20,7 +20,7 @@ You can also use the https://javadoc.bonitasoft.com/api/{javadocVersion}/index.h
 
 == Notify users about incoming maintenance
 
-As a technical user, you can set a maintenance message to be displayed to logged-in users in advance. This message should inform users about when and what the maintenance is about. It is also displayed on the maintenance page when the maintenance mode is enabled.
+As a technical user, you can set a maintenance message to be displayed to logged-in users in advance. This message should inform users about when and what the maintenance is about. It is also displayed on the maintenance page (503 error page) when the maintenance mode is enabled.
 
 To perform that you need to:
 
