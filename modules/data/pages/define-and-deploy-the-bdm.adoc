@@ -368,14 +368,14 @@ Follow these steps:
 . Select a destination folder.
 . Click *Export*. A file called `bdm.zip` is written to the folder that you specified.
 . Log into the Bonita Runtime as the technical user.
-. Go to the *BPM Services* page.
-. Click *Pause*.
-. When the BPM services are paused, go to the *Business Data Model* menu (and, for Efficiency, Performance and Enterprise editions, choose *Definition*).
+. Go to the *Platform maintenance* page.
+. Click *Start maintenance*.
+. Then, go to the *Business Data Model* menu (and, for Efficiency, Performance and Enterprise editions, choose *Definition*).
 . Specify the file containing the business data model that you exported from Bonita Studio.
 . Click *_Activate_*. A warning is displayed, reminding you that installing this new BDM will overwrite the existing BDM.
 . Click on *Install* to complete the deployment. The Bonita Runtime loads the file, and retrieves the object definition enabling processes to use them at runtime. It also creates or updates the database schema in the business database, to store business objects appropriately when modified by processes. When the deployment is complete, a message is displayed. If deployment fails, use the Engine logs to analyze the problem.
-. Go to the *BPM Services* page.
-. Click *Resume*. BPM services are resumed.
+. Go to the *Platform maintenance* page.
+. Click *End maintenance*.
 
 WARNING: the database model is automatically updated when you deploy a new BDM. Avoid changing the database schema manually as it may jeopardize the persistence of business objects and cause errors at process runtime.
 

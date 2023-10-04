@@ -61,7 +61,7 @@ The Business Data Model will now be installed.
 ====
 The Bonita Runtime will load the file, retrieve the object definitions and enable processes to use them at runtime. +
 It will also create or update the database schema (set of tables, columns, indexes...) in the business database, so as to store business objects appropriately when modified by processes.
-The Business Data Model will now be installed. BPM services can be resumed. +
+The Business Data Model will now be installed. Maintenance can be ended +
  To do so:
 . Go to the _Platform maintenance_ menu.
 . Click on the _End maintenance_ button to xref:ROOT:platform-maintenance-mode.adoc[disable maintenance mode].
@@ -145,7 +145,7 @@ Please note that a delay is required after the import for the engine to process 
 
 [NOTE]
 ====
-Contrary to the BDM definition, the deployment of a BDM Access Control file does not require pausing the BPM services during the operation.
+Contrary to the BDM definition, the deployment of a BDM Access Control file does not starting maintenance mode during the operation.
 ====
 
 . xref:identity:bdm-access-control.adoc[Export the BDM Access Control file] from Bonita Studio where it was designed.
