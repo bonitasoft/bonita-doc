@@ -49,7 +49,7 @@ To resolve a process for business variables:
 
 . Logout
 . Login in Bonita Administrator Portal with the xref:ROOT:tenant_admin_credentials.adoc[technical user credentials]
-. xref:ROOT:platform-maintenance-mode.adoc[Start the maintenance mode]
+. xref:ROOT:platform-maintenance-mode.adoc[Enable the maintenance mode]
 . xref:ROOT:bdm-management-in-bonita-bpm-portal.adoc[Update the BDM]
 . End the maintenance mode
 . Come back to the application _BPM_/_Processes_ and check the status.
