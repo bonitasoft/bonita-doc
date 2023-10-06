@@ -1,0 +1,55 @@
+= Put Runtime in maintenance mode
+:page-aliases: ROOT:platform-maintenance-mode.adoc
+:description: Learn how to execute maintenance tasks by disabling and enabling Bonita Runtime maintenance mode.
+
+{description}
+
+For certain maintenance tasks that require a change to database tables or to information used by several processes (for example to update the Business Data Model), it is necessary to enable Bonita Runtime maintenance mode temporarily while it is updated. +
+
+When the maintenance mode is enabled, this has the following consequences:
+
+* BPM and BDM APIs are not accessible (except BDM installation)
+* Users who are currently logged in, including Administrator users, are automatically redirected to a maintenance page.
+* Users who are filling in forms when the services are paused will lose any information that has not been submitted.
+* All processes are automatically paused.
+
+Those are the reasons why such maintenance procedures must be planned at a time of low usage and must be communicated carefully to the users. +
+
+The following sections explain how to notify users about incoming maintenance and also how to enable/disable maintenance mode using the Bonita Super Administrator application. +
+You can also use the https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Engine API] or the xref:ROOT:rest-api-overview.adoc[Web REST API].
+
+== Notify users about incoming maintenance
+
+As a technical user, you can set a maintenance message to be displayed to logged-in users in advance. This message should inform users about when and what the maintenance is about. It is also displayed on the maintenance page (503 error page) when the maintenance mode is enabled.
+
+To perform that you need to:
+
+. Log into Bonita Super Administrator application.
+. Go to *Platform maintenance*.
+. Set the *_Scheduled maintenance message_*, and enable *_Display message to users_* toggle.
+. click the *_update_* button to submit your changes.
+. Your maintenance message is now visible to all logged-in users.
+
+[NOTE]
+====
+- If you made some changes to the bonita layout page or applicationDirectoryBonita page, you need consider adapting it with the latest versions.
+- You still can use the https://api-documentation.bonitasoft.com/latest/Maintenance[Maintenance API], if you want to get maintenance sate over external applications.
+====
+
+== Enable maintenance mode
+
+. Log into Bonita Super Administrator application.
+. Go to *Platform maintenance*.
+. Click the *_Start maintenance_* button.
+. In the popup, click *_Enable maintenance mode_* to confirm that maintenance mode is to be enabled.
+. The maintenance mode is immediately enabled.
+
+== Disable maintenance mode
+
+. Log into Bonita Super Administrator application.
+. Go to *Platform maintenance*.
+. Click the *_End maintenance_* button.
+. In the popup, click *_Disable maintenance mode_* to confirm that maintenance mode is to be disabled.
+. The maintenance mode is disabled.
+
+After the services are resumed, it is important to inform users that they can now log into all applications.

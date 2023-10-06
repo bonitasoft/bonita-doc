@@ -20,7 +20,7 @@
   *** xref:application-directory.adoc[Application Directory]
   *** xref:super-administrator-application-index.adoc[Bonita Super Administrator application]
    **** xref:super-administrator-application-overview.adoc[Overview]
-   **** xref:pause-and-resume-bpm-services.adoc[Put Runtime in maintenance mode]
+   **** xref:platform-maintenance-mode.adoc[Put Runtime in maintenance mode]
    **** xref:bdm-management-in-bonita-applications.adoc[BDM]
    **** xref:organization-index.adoc[Organization]
     ***** xref:import-export-an-organization.adoc[Install/export an organization]

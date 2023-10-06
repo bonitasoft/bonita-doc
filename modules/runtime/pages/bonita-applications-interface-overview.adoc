@@ -9,14 +9,14 @@ They rely on the analysis that four types of personas use process-based applicat
 * the *User* is responsible of performing the tasks for which they are a candidate and also for starting new instances of the processes to which they have access.
 * the *Administrator* is responsible for the administration of Bonita at tenant level, and particularly for the management of the processes, the organization, the reports, the custom profiles and the Look & Feel.
 * the *Process Manager* shares process management responsibilities with the Administrator for the processes he has been declared as the Process Manager.
-* the *Technical User* is responsible for granting permissions to use Bonita in non-production or production environments by creating users. S·he is also the only person with permissions to start and stop the BPM services for maintenance operations or BDM update. 
+* the *Technical User* is responsible for granting permissions to use Bonita in non-production or production environments by creating users. S·he is also the only person with permissions to manage the maintenance state or BDM update.
 
 == Bonita Applications details
 
 Bonita Runtime embeds two types of applications:
 
 * *_Core applications_*: they are critical to the good operation of Bonita in a Production environment. Only their look & feel can be customized:
-  ** _Super Administrator application_, the Technical User's tool to bootstrap Bonita Runtime, pause and resume BPM services, and update the BDM
+  ** _Super Administrator application_, the Technical User's tool to bootstrap Bonita Runtime, manage the maintenance state, and update the BDM
   ** _Application Directory_, that displays the catalog of available applications to the logged user
 * *_Generic applications_*: they are fully functional, can be fully customized, but can be deleted if not useful in a Production environment:
   ** _User_ , based on a standard BPM usage, centered on a generic tasklist

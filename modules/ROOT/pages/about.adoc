@@ -8,4 +8,4 @@
 To see the version of Bonita installed on a system:
 
 . Log in with the technical user and access the *Super admin application*
-. Open the *BPM Services* page
+. Open the *Platform maintenance* page
