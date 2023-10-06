@@ -36,4 +36,4 @@ nav:
   - modules/runtime/runtime-nav.adoc
   - modules/security/security-nav.adoc
   - modules/version-update/version-update-nav.adoc
-  - modules/ROOT/build-community-nav.adoc
+  - modules/contributing/contributing-nav.adoc
