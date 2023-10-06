@@ -33,7 +33,7 @@ To perform that you need to:
 [NOTE]
 ====
 - If you made some changes to the bonita layout page or applicationDirectoryBonita page, you need consider adapting it with the latest versions.
-- You still can use the (https://api-documentation.bonitasoft.com/latest/Maintenance)[Maintenance API], if you want to get maintenance sate over external applications.
+- You still can use the https://api-documentation.bonitasoft.com/latest/Maintenance[Maintenance API], if you want to get maintenance sate over external applications.
 ====
 
 == Enable maintenance mode
