@@ -1,0 +1,3 @@
+* Contributing to Bonita
+  ** xref:vulnerability-reporting-policy.adoc[Report a vulnerability]
+  ** xref:building-community-edition-from-source.adoc[Build Bonita Community edition from the source]
