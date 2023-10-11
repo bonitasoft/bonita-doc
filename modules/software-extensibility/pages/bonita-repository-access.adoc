@@ -16,7 +16,7 @@ Bonita Artifact Repository is a solution to access Maven artifacts and Docker im
 
 Maven artifacts can simply be consumed as dependencies in downstream projects. Bonita docker images can be pulled directly.
 
-Starting with Bonita 2023.1 version, the usage of quay.io is deprecated for Bonita docker images storage. Bonita docker images up until Bonita 2023.1 will stay available on quay.io during the deprecation period. 
+Starting with Bonita 2023.1 version, the usage of quay.io is deprecated for Bonita docker images storage. Bonita docker images up until Bonita 2023.1 will stay available on quay.io during the deprecation period.
 
 [IMPORTANT]
 ====
@@ -33,7 +33,7 @@ The credentials have the same validity duration as your subscription renewal inc
 Credentials are unique per subscription access and include:
 
 * A subscription access username (email used for the subscription registration)
-* A subscription access token (password) 
+* A subscription access token (password)
 
 In case of any issues regarding credentials information, please contact Customer Success at customer.success@bonitasoft.com
 
@@ -42,24 +42,25 @@ In case of any issues regarding credentials information, please contact Customer
 
 [NOTE]
 ====
-In the below example, we use Maven as the project build tool for extension projects. But it is also possible to use Gradle if you choose to do so. 
+In the below example, we use Maven as the project build tool for extension projects. But it is also possible to use Gradle if you choose to do so.
 ====
 
 === Configure access to Bonita Artifact Repository *in Bonita Studio*
 
 Acces to Bonita Artifact Repository is configured using the configuration wizard, that is available in two ways:
 
-* At Bonita Studio start-up through the connection check pop-up 
-* Using the menu *Help* > *Test connection to Maven repositories* 
+* At Bonita Studio start-up through the connection check pop-up
+* Using the menu *Help* > *Test connection to Maven repositories*
 
 In both case, clicking on *Configure* button will open the connection to Bonita Artifact Repository configuration wizard.
 
 [WARNING]
 ====
 The wizard can also be used to configure your proxy or Mirror settings.
-When possible, its is recommended to use a Mirror repository instead of a direct connection to Bonita Artifact Repository. 
+When possible, its is recommended to use a Mirror repository instead of a direct connection to Bonita Artifact Repository.
 ====
 
+[#maven-settings]
 === Maven settings overview *outside Bonita Studio*
 
 Once credentials to Bonita Artifact Repository are granted, you have to https://maven.apache.org/configure.html[configure] `Maven` to use Bonita Maven repository.
@@ -170,6 +171,7 @@ If you want to set up access to Bonita Artifact Repository using Bonita Studio, 
 [#docker]
 == Docker
 
+[#docker-configuration]
 === Configure access to Bonita Artifact Repository *with Docker*
 
 To access the Bonita Artifact Repository with docker, you have to authenticate with the `docker login` command.
@@ -401,7 +403,7 @@ Your Maven build fails with an equivalent error:
 ----
 
 [.cause]#Cause#
-Your credentials are valid but your are not allowed to access what you are asking for. 
+Your credentials are valid but your are not allowed to access what you are asking for.
 
 [.solution]#Solution#
 Contact support team to check your permissions.
@@ -423,7 +425,7 @@ See 'docker run --help'.
 ----
 
 [.cause]#Cause#
-You are not logged in to the Bonita Artifact Repository with Docker. 
+You are not logged in to the Bonita Artifact Repository with Docker.
 
 [.solution]#Solution#
 Run command
@@ -449,7 +451,7 @@ Error response from daemon: unauthorized: The client does not have permission fo
 ----
 
 [.cause]#Cause#
-There are two possible causes. Either are not allowed to access the image you are asking for, or this image and version simply do not exist. 
+There are two possible causes. Either are not allowed to access the image you are asking for, or this image and version simply do not exist.
 
 [.solution]#Solution#
 Double-check your image identification.

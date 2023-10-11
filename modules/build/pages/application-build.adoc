@@ -1,19 +1,19 @@
-# Build
+= Build
 
-:description: How to build a Bonita self-contained application from a Bonita project.
+:description: How to build a Bonita Self-Contained Application from a Bonita project.
 
-## Prerequisites
+== Prerequisites
 
 * https://adoptopenjdk.net/releases.html[Java 11]
-* https://maven.apache.org/download.cgi[Maven] 
+* https://maven.apache.org/download.cgi[Maven]
 * https://www.docker.com/[Docker] (if target packaging is a Docker image)
 * Internet with full access to:
-** Maven Central repositroy
-** xref:software-extensibility:bonita-repository-access.adoc#_maven_settings_overview_outside_bonita_studio[Bonita Artifact Repository] (for building projects using Enterprise edition)
+** Maven Central repository
+** xref:software-extensibility:bonita-repository-access.adoc#maven-settings[Bonita Artifact Repository] (for building projects using Enterprise edition)
 
-## Maven build
+== Maven build
 
-Since 2023.2, Bonita project leverage Maven as a build tool. It uses an https://bonitasoft.github.io/bonita-project-maven-plugin/[in-house maven plugin] to build the Bonita specific artifacts like process digrams, UID pages and so on.  
+Since 2023.2, Bonita project leverage Maven as a build tool. It uses an https://bonitasoft.github.io/bonita-project-maven-plugin/[in-house Maven plugin] to build the Bonita specific artifacts like process diagrams, UID pages and so on.
 
 To build a project, open a terminal *at the root* of your project and execute the following Maven commands:
 
@@ -32,9 +32,9 @@ WARNING: This application archive is not an executable. It can be used with the 
 To produce an executable for an application, it is possible to either package it as:
 
 * A Tomcat bundle
-* A Docker image 
+* A Docker image
 
-.Build using the tomcat bundle packaging
+.Build using the Tomcat bundle packaging
 [source,shell]
 ----
 $ my-project> mvn package -Pbundle
@@ -42,9 +42,9 @@ $ my-project> mvn package -Pbundle
 
 The output application binary can be found in the `my-project/app/target` folder. The name of the binary will follow this pattern: `${project.artifactId}-${project.version}-${bonita.environment}-bundle.zip`.
 
-By default, the `bonita.environment` is set to `local`. To override this value, you may add the `-Dbonita.environment=production` system property to the above command, where `production` is an existing enviroment in the project.
+By default, the `bonita.environment` is set to `local`. To override this value, you may add the `-Dbonita.environment=production` system property to the above command, where `production` is an existing environment in the project.
 
-.Build using the docker packaging
+.Build using the Docker packaging
 [source,shell]
 ----
 $ my-project> mvn package -Pdocker
@@ -54,24 +54,24 @@ The output application binary is a docker image. The name of the image will foll
 
 [NOTE]
 --
-When building an enterprise edition project, make sure to be xref:software-extensibility:bonita-repository-access.adoc#_configure_access_to_bonita_artifact_repository_with_docker[logged in] to the `bonitasoft.jfrog.io` registry first.
+When building an enterprise edition project, make sure to be xref:software-extensibility:bonita-repository-access.adoc#docker-configuration[logged in] to the `bonitasoft.jfrog.io` registry first.
 --
 
-### Build options
+=== Build options
 
-* `-Dbonita.environment`: `local` by default. Select the target environment to use when building. The value is case insensitive.
+* `-Dbonita.environment`: `local` by default. Select the target environment to use when building. The value is case-insensitive.
 * `-Dbonita.allowEmptyFormMapping`: `false` by default. It is possible to set this flag to `true` to keep the legacy behavior of the `la-builder`.
 
-#### Docker build options
+==== Docker build options
 
-* `-Ddocker.baseImageRepository`: `bonita` by default. When creating a projec with enterprise edition, this property is overriden to `bonitasoft.jfrog.io/docker/bonita-subscription`.
+* `-Ddocker.baseImageRepository`: `bonita` by default. When creating a project with the Enterprise Edition, this property is replaced by `bonitasoft.jfrog.io/docker/bonita-subscription`.
 * `-Ddocker.baseImageVersion`: `${bonita.runtime.version}` by default.
 * `-Ddocker.baseImage`: `${docker.baseImageRepository}:${docker.baseImageVersion}` by default. The base image used as parent.
 * `-Ddocker.imageRepository`: `${project.artifactId:lowercase}-${bonita.environment:lowercase}` by default.
 * `-Ddocker.imageName`: `${docker.imageRepository}:${project.version}` by default. The image tag given to the build image.
-* `-Ddocker.buildArgs`: Additional docker build arguments. _e.g._: `-Ddocker.buildArgs="--no-cache"` to add the `--no-cache` option to the build command. 
+* `-Ddocker.buildArgs`: Additional docker build arguments. _e.g._: `-Ddocker.buildArgs="--no-cache"` to add the `--no-cache` option to the build command.
 
-## Custom application dependencies
+== Custom application dependencies
 
 It is possible to add any additional dependency in the classpath of your application using the Project extension in the Studio. Any dependency `jar` that is not a Connector or an Actor filter will be added in the parent classpath of the application.
 
@@ -83,13 +83,13 @@ This is the recommended way to include extensions like:
 
 NOTE: It is possible to use Servlet 3.0 annotations to define custom servlets and web filters. They will be registered dynamically at startup.
 
-## Process Parameters Configuration
+== Process Parameters Configuration
 
-When at least one of the processes from a project contains a parameter, a Bonita configration file (.bconf) is generated during the build. This archive stores the parameters values and is specific to a given environment.  
+When at least one of the processes from a project contains a parameter, a Bonita configuration file (.bconf) is generated during the build. This archive stores the parameters values and is specific to a given environment.
 
-### Extract parameters configuration
+=== Extract parameters configuration
 
-It is possible to extract the processes configurations into a single `yaml` using the following maven:
+It is possible to extract the processes configurations into a single `yaml` using the following Maven command:
 
 .Extract process configuration
 [source,shell]
@@ -126,15 +126,15 @@ $ my-project> mvn bonita-project:extract-configuration -Dparameters.withoutValue
 
 NOTE: If all parameters are valuated for this environment, no file will be created.
 
-It is possible to override an exsting file using the `-Dparameters.overwrite` system property.
+It is possible to override an existing file using the `-Dparameters.overwrite` system property.
 
-### Merge parameters configuration
+=== Merge parameters configuration
 
 During the build of the application the `merge-configuration` goal is executed and the content of the `parameters-${bonita.environment}.yml` file is merge into the final Bonita configuration file.
 
-#### Override parameters with the same name
+==== Override parameters with the same name
 
-You may have the same parameter name in more than one processes and you want to override them in all processes, to do that you can edit the `parameters-${bonita.environment}.yml` file as shown:
+If you  have the same parameter name in more than one processes, and you want to override them in all processes, you can edit the `parameters-${bonita.environment}.yml` file as below:
 
 [source,yaml]
 ----
@@ -150,7 +150,7 @@ A specific parameter setting has priority over a global parameter configuration.
 
 
 *Example*:
-Let assume that these processes *P1, P2, P3* have all these three paremeters: *_calendarApplicationName_*, *_emailNotificationSender_*, *_emailServerUseSSL_*.
+Let assume that these processes *P1, P2, P3* have all these three parameters: *_calendarApplicationName_*, *_emailNotificationSender_*, *_emailServerUseSSL_*.
 
 [source,yaml]
 ----
