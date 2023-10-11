@@ -195,5 +195,18 @@ You may want to complete or override some parameter values coming from your Livi
 
 
 
+[.troubleshooting-title]
+== Troubleshooting
 
+[.troubleshooting-section]
+--
+[.symptom]
+I can't package my process on SCA mode.
+
+[.symptom-description]
+When I try to package my process, I get this error: An error occurred when adding resources: No UIDesigner form is defined on the 'Pool' instantiation form.
+
+[.solution]#Possible solution#
+You need to map a form for each manual task and for instanciation form.
+--
 
