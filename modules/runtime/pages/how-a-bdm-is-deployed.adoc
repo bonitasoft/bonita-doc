@@ -182,15 +182,13 @@ On the other side, the database refactoring is xref:ROOT:bdm-management-in-bonit
 
 == Constraints to (re-)deploy a BDM
 
-A BDM is defined at *tenant* level.
+To be able to deploy or redeploy a BDM, the *maintenance mode must be activated* first.
 
-To be able to deploy or redeploy a BDM, the *maintenance mode of this tenant must be started* first.
-
-Indeed, as deploying the BDM changes the tenant classloader and all process classloaders on the same tenant, no process
+Indeed, as deploying the BDM changes the tenant classloader and all process classloaders, no process
 can safely run during this operation.
-Pausing the services means that the work service does not execute works anymore on this tenant, the Job service does not triggers any job anymore on this tenant, etc. Only the vital services stay alive, to be able to operate the BDM and the rest of the platform. Other tenants are not affected.
+Pausing the services means that the work service does not execute works anymore, the Job service does not triggers any job anymore, etc. Only the vital services stay alive, to be able to operate the BDM and the rest of the platform.
 
-After (re-)deploying the BDM, the maintenance mode must be ended to be able to use
+After (re-)deploying the BDM, the maintenance mode must be deactivated to be able to use it.
 
 
 == Deploying a BDM via the Bonita Super Administrator application
@@ -200,7 +198,7 @@ See xref:ROOT:bdm-management-in-bonita-applications.adoc#_manage_the_bdm[how to 
 Internally, the runtime will call the method `updateBusinessDataModel()` to install the new BDM.
 This method implicitly performs the following steps in a single database transaction:
 
-* if a BDM already exists on the current tenant, it is uninstalled
+* if a BDM already exists, it is uninstalled
 * the new BDM is installed / deployed
-* the Bonita Engine loads the new BDM in the tenant
-classloader (and in the process classloaders of all processes on this tenant), and creates / updates the database accordingly.
+* the Bonita Engine loads the new BDM
+classloader (and in the process classloaders of all processes), and creates / updates the database accordingly.
