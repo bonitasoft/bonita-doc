@@ -49,6 +49,9 @@ If you were coming from an older version of Bonita Studio with those custom conn
 
 Deprecated since 2021.1, `BonitaUsers`, `BonitaSql`, `BonitaXML` and `BonitaTypes` Groovy classes are no more available. You may use suggested code templates in the Groovy script expression editor instead.
 
+=== Tenant administration API
+
+`TenantAdministrationAPI` `pause`, `resume`, and `isPaused` Java API methods and `system/tenant` REST API are now deprecated. Use java `MaintenanceAPI` and REST `system/maintenance` APIs instead, to activate/deactivate the maintenance mode and get the maintenance state.
 
 == Configuration changes
 
