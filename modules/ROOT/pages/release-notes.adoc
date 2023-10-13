@@ -3,16 +3,12 @@
 
 [NOTE]
 ====
-The 2023.2 version is in development.
+The 2024.1 version is in development.
 ====
 
 == New available values
 
-=== Bonita Runtime 
-
-==== User session sharing between nodes (Cluster)
-
-When configuring a xref:runtime:overview-of-bonita-bpm-in-a-cluster.adoc[Bonita cluster] (Enterprise and Performance editions only), HTTP sessions are now shared between all the nodes of the cluster. As a result, the load balancer no longer needs to be configured to use sticky sessions. If a node becomes unavailable, and a user request to this node fails, the user won't need to log back in as their session will remain active. The load balancer will dispatch the new requests to the other nodes.  
+=== Bonita Runtime
 
 
 === Development suite
@@ -23,34 +19,5 @@ When configuring a xref:runtime:overview-of-bonita-bpm-in-a-cluster.adoc[Bonita 
 
 == Functional changes
 
-=== REST API and file upload
-
-When using the end point portal/fileUpload to upload a file before using it in Bonita REST API or a REST API extension, the size of the file that can be uploaded is now limited to 25MB. This can be changed in the configuration file `console-config.properties` using the setup tool, but be aware that this will affect upload limit for all users.  
 
 == Feature deprecations and removals
-
-=== Legacy custom connectors and actor filters
-
-Since Bonita Studio 2021.2 it was not supported anymore to create custom connectors or actor filters in a Bonita project. Using the project composition with Maven extensions is the recommended way to integrate custom extensions.  +
-In this version, those deprecated custom extensions are removed from the project when importing a `.bos` file or cloning a Git repository from an older version.  +
-If you were coming from an older version of Bonita Studio with those custom connectors and actor filters, it will be required to migrate them into a separate Maven project using the dedicated archetypes. Visit their respective documentation pages for xref:process:connector-migration.adoc[connectors] and xref:process:actor-filter-archetype.adoc[actor filters].
-
-=== Provided Groovy classes
-
-Deprecated since 2021.1, `BonitaUsers`, `BonitaSql`, `BonitaXML` and `BonitaTypes` Groovy classes are no more available. You may use suggested code templates in the Groovy script expression editor instead.
-
-
-== Configuration changes
-
-=== Runtime property renaming
-
-In order to improve Bonita property naming coherence, a work is in progress to change some property names.
-In this release, the following properties have been renamed:
-
-* [.line-through]#`bonita.tenant.session.duration`# has been renamed to `bonita.runtime.session.duration`. If you happened to customize this property, please update it in file `bonita-tenant-community-custom.properties` (The old property is **still supported** but will be removed in a later version)
-
-=== Removal of the property `install-provided-pages`
-
-With Bonita 2023.1, we introduced the new concept of xref:2023.1@ROOT:release-notes.adoc#_bonita_project_packaged_as_a_self_contained_application[Self-Contained Application] (SCA). When building an SCA, Bonita Admin Application and Bonita User Application are no longer installed after the packaging process. If the SCA is using pages from one of those applications, setting the property `bonita.runtime.custom-application.install-provided-pages` and its relative environment variable for Docker `INSTALL_PROVIDED_PAGES` will have those pages installed anyway at Bonita Runtime startup.
-
-Those two properties are no longer required and are removed. Instead, we detect the usage of Admin/User Application pages and install them automatically.

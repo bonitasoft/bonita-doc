@@ -1,15 +1,15 @@
 name: bonita
 title: Bonita
-version: 2023.2
+version: 2024.1
 # TODO: When releasing beta version, replace alpha by beta. Remove when releasing GA
-prerelease: Beta
+prerelease: -alpha
 asciidoc:
   attributes:
-    bonitaVersion: 2023.2
+    bonitaVersion: 2024.1
     bonitasoft-registry: 'bonitasoft.jfrog.io'
     bonitasoft-docker-repository: '{bonitasoft-registry}/docker'
-    bonitaTechnicalVersion: '9.0.0' # latest public community version
-    javadocVersion: '9.0'
+    bonitaTechnicalVersion: '10.0.0' # latest public community version
+    javadocVersion: '10.0'
     # ref versions of other components
     bcdDocVersion: '4.0'
     # page attributes
@@ -19,7 +19,7 @@ asciidoc:
     openApiUrl: 'https://api-documentation.bonitasoft.com'
     #Latest compatible version of bonita openApi with this Bonita version
     openApiLatestVersion: '0.0.15'
-    page-next-release: false
+    page-next-release: true
     page-hide-search-bar: false
 nav:
   - modules/ROOT/release-note-nav.adoc
