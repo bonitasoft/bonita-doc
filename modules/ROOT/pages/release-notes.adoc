@@ -1,12 +1,13 @@
 = Release notes
 :description: Bonita release note
 
-[NOTE]
-====
-The 2023.2 version is in development.
-====
 
-== New available values
+== Bonita project packaged as a self-contained application
+
+With Bonita 2023.2 ...
+
+
+== New product values
 
 === Bonita Runtime 
 
@@ -30,6 +31,11 @@ At REST API level, when the maintenance mode is active, the BPM and BDM API (exc
 
 Bonita UI Designer pages now handle 401 and 503 errors for requests to Bonita REST API and display a modal dialog informing the users of the invalid session (401) or the running maintenance (503) and proposing to redirect them to the login or maintenance page. By clicking on cancel in this dialog, the users can remain on the current page (to not lose unsubmitted form content) and log in in an other tab to renew their session or wait for the maintenance to end.  +
 To benefit from this feature when updating to Bonita 2023.2, it is required to migrate existing pages by migrating your applications using Bonita Studio 2023.2.  
+
+=== Bonita Test Toolkit
+
+This new version of Bonita Test Toolkit, display the test results for a process execution under the form of a process diagram with an enhanced BPMN visualization.
+
 
 == Functional changes
 
