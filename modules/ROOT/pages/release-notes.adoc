@@ -15,6 +15,11 @@ The 2023.2 version is in development.
 When configuring a xref:runtime:overview-of-bonita-bpm-in-a-cluster.adoc[Bonita cluster] (Enterprise and Performance editions only), HTTP sessions are now shared between all the nodes of the cluster. As a result, the load balancer no longer needs to be configured to use sticky sessions. If a node becomes unavailable, and a user request to this node fails, the user won't need to log back in as their session will remain active. The load balancer will dispatch the new requests to the other nodes.  
 
 
+==== Maintenance mode
+
+A new Maintenance mode replaces the pause/resume BPM services feature. The behavior when activating this mode is the same as pausing the BPM services (making the BPM and BDM services and API unavailable to users aud pausing the scheduled work while updating the platform, BDM, apps, etc...) except the user sessions are no longer destroyed. A 'Platform under maintenance' 503 page is displayed instead. Like the other Error pages, this page is part of Bonita app directory application and can be modified with Bonita UI Designer.  
+In Bonita Super Administrator Application, the page BPM services page has been replaced with a New Platform maintenance page allowing to activate/deactivate the maintenance mode set a scheduled maintenance message to inform the users that a maintenance in scheduled and the platform won't be available for a while. This message, when activated, appears in Bonita layout, as an alert header that can be hidden and in the user details modal. To benefit from this feature, it is required to use the provided Bonita layout or to re-base your custom layout modifications on the provided Bonita Layout.  
+
 === Development suite
 
 
