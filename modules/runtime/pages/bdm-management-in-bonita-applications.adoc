@@ -22,11 +22,11 @@ The Business Objects must match the structure used by the deployed processes. Ma
 . To import the Business Data Model created in Bonita Studio, first xref:data:define-and-deploy-the-bdm.adoc[export the Business Data Model] from Bonita  Studio where it was designed.
 . In the Bonita Runtime, log in as the technical user (default login 'install', default password 'install').
 . Go to the *Platform maintenance* menu.
-. Click on *Start maintenance* to xref:ROOT:platform-maintenance-mode.adoc[enable the maintenance mode].
+. Click on *Activate maintenance mode* button.
 +
 [NOTE]
 ====
-The deployment of a Business Data Model requires enabling the maintenance mode during the operation, so that the update can be performed without affecting ongoing processes.
+The deployment of a Business Data Model requires xref:ROOT:platform-maintenance-mode.adoc[activating the maintenance mode] during the operation, so that the update can be performed without affecting ongoing processes.
 For Enterprise, Efficiency and Performance editions, you must have no <<installAccessControl,access control>> file installed in order to be able to install or update the Business Data Model.
 ====
 
@@ -34,7 +34,7 @@ To do so:
 
 . Log in as the technical user (default login 'install', default password 'install', or refer to the internal documentation if modified as it should be).
 . Go to the _Platform maintenance_ menu.
-. Click on the _Start maintenance_ button to xref:ROOT:platform-maintenance-mode.adoc[enable the maintenance mode].
+. Click on the _Activate maintenance mode_ button.
 
 Then, you can install or update the BDM.
 [WARNING]
@@ -64,7 +64,7 @@ It will also create or update the database schema (set of tables, columns, index
 The Business Data Model will now be installed. Maintenance mode can be disabled. +
  To do so:
 . Go to the _Platform maintenance_ menu.
-. Click on the _End maintenance_ button to xref:ROOT:platform-maintenance-mode.adoc[disable the maintenance mode].
+. Click on the _Deactivate maintenance mode_ button.
 +
 [WARNING]
 ====
@@ -112,7 +112,7 @@ No data are lost in these cases. No restore action is needed.
 If you need to update the BDM, and your update includes one of the cases listed above (both those that generate an error at installation, and those that do not), you will need to do the update manually.
 Get some help from your database administrator:
 
-. Stop your Tenant services (via maintenance mode)
+. Stop the BPM and BDM services (by activating the maintenance mode)
 . Stop your Bonita server
 . Ask your database administrator to update manually the BDM schema in your BDM database to make it correspond to your new BDM.
 The easiest way to do it is to first install your new BDM on a clean database. Then compare the new schema with the old one, and manually create a sql script to update your BDM database to match the new one.
@@ -145,7 +145,7 @@ Please note that a delay is required after the import for the engine to process 
 
 [NOTE]
 ====
-Contrary to the BDM definition, the deployment of a BDM Access Control file does not starting the maintenance mode during the operation.
+Contrary to the BDM definition, the deployment of a BDM Access Control file does not require activating the maintenance mode during the operation.
 ====
 
 . xref:identity:bdm-access-control.adoc[Export the BDM Access Control file] from Bonita Studio where it was designed.
