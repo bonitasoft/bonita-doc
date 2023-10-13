@@ -18,7 +18,7 @@ When configuring a xref:runtime:overview-of-bonita-bpm-in-a-cluster.adoc[Bonita 
 
 A new Maintenance mode replaces the pause/resume BPM services feature.  +
 The behavior when activating this mode is the same as what was happening when pausing the BPM services (making the BPM and BDM services and API unavailable to users aud pausing the scheduled work while updating the platform, BDM, apps, etc...) except the user sessions are no longer destroyed. A 'Platform under maintenance' 503 error page is displayed instead. Like the other Error pages, this page is part of Bonita App Directory application and can be modified with Bonita UI Designer.  +
-In Bonita Super Administrator Application, the page BPM services page has been replaced with a new 'Platform maintenance' page allowing to activate/deactivate the maintenance mode and set a scheduled maintenance message to inform the users that a maintenance is scheduled and the platform will not be available for a while. This message, when activated, appears in Bonita Layout, as an alert header that can be hidden and in the user details modal. It also appears on the Maintenance page (503 error page) during the maintenance operations.  +
+In Bonita Super Administrator Application, the page 'BPM services' has been replaced with a new 'Platform maintenance' page allowing to activate/deactivate the maintenance mode and set a scheduled maintenance message to inform the users that a maintenance is scheduled and the platform will not be available for a while. This message, when activated, appears in Bonita Layout, as an alert header that can be hidden and in the user details modal. It also appears on the Maintenance page (503 error page) during the maintenance operations.  +
 To benefit from this feature when updating to Bonita 2023.2, it is required to use the provided Bonita layout or to re-base your custom layout modifications on the provided Bonita Layout.  +
 At REST API level, when the maintenance mode is active, the BPM and BDM API (except BDM installation) will respond with a 503 error. Bonita UI Designer pages now handle this error code and display a modal dialog informing the users of the running maintenance and proposing to redirect them to the maintenance page. To benefit from this feature when updating to Bonita 2023.2, it is required to migrate existing pages by migrating your apps using Bonita Studio 2023.2.
 
@@ -51,7 +51,7 @@ Deprecated since 2021.1, `BonitaUsers`, `BonitaSql`, `BonitaXML` and `BonitaType
 
 === Tenant Administration API
 
-`TenantAdministrationAPI` `pause`, `resume`, and `isPaused` Java API methods and `system/tenant` REST API are now deprecated. Use java `MaintenanceAPI` and REST `system/maintenance` APIs instead, to activate/deactivate the maintenance mode and get the maintenance state.
+`TenantAdministrationAPI` `pause`, `resume`, and `isPaused` Java API methods and `system/tenant` REST API are now deprecated. Use java `MaintenanceAPI` and REST resource `system/maintenance` instead, to activate/deactivate the maintenance mode and get the maintenance state.
 
 == Configuration changes
 
