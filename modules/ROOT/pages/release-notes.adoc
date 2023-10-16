@@ -24,7 +24,7 @@ At REST API level, when the maintenance mode is active, the BPM and BDM API (exc
 
 ==== Setting a timezone for bonita container
 
-The timezone can be set via *TZ* environment variable. check the https://data.iana.org/time-zones/tzdb/zone1970.tab[supported timezones].
+The timezone can be set via *TZ* environment variable. Check the https://data.iana.org/time-zones/tzdb/zone1970.tab[supported timezones].
 
 === Development suite
 
