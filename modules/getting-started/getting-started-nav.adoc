@@ -7,4 +7,5 @@
  ** xref:define-who-can-do-what.adoc[Define who can do what]
  ** xref:configure-email-connector.adoc[Configure an email connector]
  ** xref:design-application-page.adoc[Design an application page]
- ** xref:create-application.adoc[Create an application]  
+ ** xref:create-application.adoc[Create an application]
+ ** xref:package-and-deploy-sca-application.adoc[Package and Deploy application]
