@@ -89,7 +89,7 @@ With new <<maintenance-mode>>, following API resources are deprecated.
 
 With the new Self-Contained Application (abbr. SCA) approach, creating or updating Bonita artifacts are done at Runtime startup. We recommend to use this new approach. So we deprecate some APIs, along with associated servlets and services, that are related to the creation or the update of Bonita artifacts.
 
-===== Community
+===== All editions
 
 [cols="1,1,1"]
 |===
@@ -168,7 +168,7 @@ With the new Self-Contained Application (abbr. SCA) approach, creating or updati
 |No replacement, importing a Living Application using this service is deprecated. Use the SCA approach instead.
 |===
 
-===== Subscription
+===== Subscription editions specific
 
 [cols="1,1,1"]
 |===
@@ -219,6 +219,73 @@ With the new Self-Contained Application (abbr. SCA) approach, creating or updati
 |`POST /services/profile/import`
 |`ProfilesImportService`
 |No replacement, importing Profiles using this service is deprecated. Use the SCA approach instead.
+|===
+
+=== API Removals
+
+==== All editions
+
+[cols="1,1"]
+|===
+|Class#Method |Comment
+
+|`org.bonitasoft.engine.api.OrganizationAPI#importOrganization(String, ImportPolicy)`
+|Use `org.bonitasoft.engine.api.OrganizationAPI#importOrganizationWithWarnings(String, ImportPolicy)` instead.
+
+|`org.bonitasoft.engine.api.PlatformAPI#cleanPlatform()`
+|No replacement, delete the database schema instead.
+
+|`org.bonitasoft.engine.api.PlatformAPI#isPlatformInitialized()`
+|No replacement, platform initialization is always done at startup.
+
+|`org.bonitasoft.engine.api.ProcessRuntimeAPI#getComments(long)`
+|Use `org.bonitasoft.engine.api.ProcessRuntimeAPI#searchComments(SearchOptions)` instead
+
+|`org.bonitasoft.engine.api.TenantAdministrationAPI#installBusinessDataModel(byte[])`
+|Use `org.bonitasoft.engine.api.TenantAdministrationAPI#updateBusinessDataModel(byte[])` instead.
+
+|`org.bonitasoft.engine.api.ThemeAPI`
+|No replacement, the feature was removed.
+|===
+
+===== Subscription editions specific
+
+[cols="1,1"]
+|===
+|Class#Method |Comment
+
+|`com.bonitasoft.engine.api.PlatformAPI#activateTenant(long)`
+|No replacement, the multi-tenancy feature was removed.
+
+|`com.bonitasoft.engine.api.PlatformAPI#deactiveTenant(long)`
+|No replacement, the multi-tenancy feature was removed.
+
+|`com.bonitasoft.engine.api.ProcessManagementAPI#getParameterInstance(long, String)`
+|Use `org.bonitasoft.engine.api.ProcessManagementAPI#getParameterInstance(long, String)` instead.
+
+|`com.bonitasoft.engine.api.ProcessManagementAPI#getParameterInstances(long, int, int, ParameterCriterion)`
+|Use `org.bonitasoft.engine.api.ProcessManagementAPI#getParameterInstances(long, int, int, ParameterCriterion)` instead.
+
+|`com.bonitasoft.engine.api.ProcessRuntimeAPI#updateProcessInstanceIndex(long, Index, String)`
+|Use `org.bonitasoft.engine.api.ProcessRuntimeAPI#updateProcessInstanceIndex(long, Index, String)` instead.
+
+|`com.bonitasoft.engine.api.ProcessRuntimeAPI#updateProcessInstance(long, ProcessInstanceUpdater)`
+|Use `org.bonitasoft.engine.api.ProcessRuntimeAPI#updateProcessInstance(long, ProcessInstanceUpdater)` instead.
+
+|`com.bonitasoft.engine.api.ProcessRuntimeAPI#getProcessBusinessDataReference(String, long)`
+|Use `org.bonitasoft.engine.api.BusinessDataAPI#getProcessBusinessDataReference(String, long)` instead.
+
+|`com.bonitasoft.engine.api.ProcessRuntimeAPI#getProcessBusinessDataReferences(long, int, int)`
+|Use `org.bonitasoft.engine.api.BusinessDataAPI#getProcessBusinessDataReferences(long, int, int)` instead.
+
+|`com.bonitasoft.engine.api.ProfileAPI#createProfile(String, String, String)`
+|Use `com.bonitasoft.engine.api.ProfileAPI#createProfile(String, String)` instead.
+
+|`com.bonitasoft.engine.api.ProfileAPI#importProfilesUsingSpecifiedPolicy(byte[], ImportPolicy)`
+|Use `com.bonitasoft.engine.api.ProfileAPI#importProfiles(byte[], ImportPolicy)` instead.
+
+|`com.bonitasoft.engine.api.ThemeAPI`
+|No replacement, the feature was removed.
 |===
 
 
