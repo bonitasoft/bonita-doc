@@ -1,9 +1,11 @@
-= User flows possible in Application mode
+= Build and run an Application
 :page-aliases: ROOT:sca-user-flows.adoc
 :experimental: // activate the 'menu' macro
 :description: User flows possible in Application mode
 
-== Creating a new project in Studio using Application mode
+== User flows in Application mode
+
+=== Creating a new project in Studio using Application mode
 
 [WARNING]
 ====
@@ -42,7 +44,7 @@ In order to generate the docker image, it's mandatory to have a maven repository
 In case you need to clean your docker: Stop and delete the docker container with docker rm -f MyProjectName and remove the docker image with docker rmi -f MyProjectNameImage-production:0.0.1
 ====
 
-== Migrate an existing project in Studio to Application mode
+=== Migrate an existing project in Studio to Application mode
 
 . Run Bonita Studio 2023.2 and import from .bos or Git your project to migrate
 
