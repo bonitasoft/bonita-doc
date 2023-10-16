@@ -1,13 +1,13 @@
-= User flows possible in SCA mode
+= User flows possible in Application mode
 :page-aliases: ROOT:sca-user-flows.adoc
 :experimental: // activate the 'menu' macro
-:description: User flows possible in SCA mode
+:description: User flows possible in Application mode
 
-== Creating a new project in Studio in SCA mode
+== Creating a new project in Studio using Application mode
 
 [WARNING]
 ====
-In order to generate the docker image, it's mandatory to have a maven repository working to get all the dependencies, including the latest sca runtime version.
+In order to generate the docker image, it's mandatory to have a maven repository working to get all the dependencies, including the latest Application runtime version.
 ====
 
 . Run Bonita Studio 2023.2 and create a new project.
@@ -15,13 +15,13 @@ In order to generate the docker image, it's mandatory to have a maven repository
 . Configure the project environment
 
 . Validate the project
-.. To work with SCA, you need to explicitly mapping a form for each interaction form (instantiation and manual task)
+.. To work with Application mode, you need to explicitly mapping a form for each interaction form (instantiation and manual task)
 
-. Admin and user app is now available in extension, if you want to deploy it on the final bundle with SCA mode, you need to add it manually
+. Admin and user app is now available in extension, if you want to deploy it on the final bundle with Application mode, you need to add it manually
 
 .. Go to the Extension view
 
-.. Open Marketplace and filter  on “Application type”
+.. Open Marketplace and filter on “Application type”
 
 .. You can now add the default application as you wish on the final bundle
 
@@ -42,7 +42,7 @@ In order to generate the docker image, it's mandatory to have a maven repository
 In case you need to clean your docker: Stop and delete the docker container with docker rm -f MyProjectName and remove the docker image with docker rmi -f MyProjectNameImage-production:0.0.1
 ====
 
-== Migrate an existing project in Studio to SCA mode
+== Migrate an existing project in Studio to Application mode
 
 . Run Bonita Studio 2023.2 and import from .bos or Git your project to migrate
 
@@ -50,9 +50,9 @@ In case you need to clean your docker: Stop and delete the docker container with
 
 . Validate your project
 
-.. To work with SCA, you need to explicitly mapping a form for each interaction form (instantiation and manual task)
+.. To work with Application mode, you need to explicitly mapping a form for each interaction form (instantiation and manual task)
 
-. Admin and user app is now available in extension, if you want to deploy it on the final bundle with SCA mode, you need to add it manually
+. Admin and user app is now available in extension, if you want to deploy it on the final bundle with Application mode, you need to add it manually
 
 .. Go to the Extension view
 
