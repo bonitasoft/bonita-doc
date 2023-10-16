@@ -1,1 +1,1 @@
-* xref:sca-user-flows.adoc[User flows in Application mode]
+* xref:sca-user-flows.adoc[Build & Run]
