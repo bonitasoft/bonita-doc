@@ -1,5 +1,4 @@
 = Build and run an Application
-:page-aliases: ROOT:sca-user-flows.adoc
 :experimental: // activate the 'menu' macro
 :description: User flows possible in Application mode
 
@@ -12,7 +11,7 @@
 In order to generate the docker image, it's mandatory to have a maven repository working to get all the dependencies, including the latest Application runtime version.
 ====
 
-. Run Bonita Studio 2023.2 and create a new project.
+. Run Bonita Studio {bonitaVersion} and create a new project.
 
 . Configure the project environment
 
@@ -29,13 +28,13 @@ In order to generate the docker image, it's mandatory to have a maven repository
 
 . At the root of the project folder, run `mvn clean package -Pbundle,docker "-Dbonita.environment=production"` 
 
-. Find the docker image name with docker images to be sure it's being created.
+. Find the docker image name with `docker images` to be sure it's being created.
 
 . Run the docker image with command (adapting licenses folder if needed) `docker run --rm --name MyProjectName -h MyProjectName -e -v ~/lic/:/opt/bonita_lic/ -d -p 9000:8080 MyProjectNameImage-production:0.0.1`
 
 . Inspect logs with the command `docker logs` 
 
-. Go to `localhost:9000/bonita`, launch a process
+. Go to http://localhost:9000/bonita[http://localhost:9000/bonita], launch a process
 
 . Your application is working! 
 
@@ -46,7 +45,7 @@ In case you need to clean your docker: Stop and delete the docker container with
 
 === Migrate an existing project in Studio to Application mode
 
-. Run Bonita Studio 2023.2 and import from .bos or Git your project to migrate
+. Run Bonita Studio {bonitaVersion} and import from .bos or Git your project to migrate
 
 . Migrate your project
 
@@ -68,7 +67,12 @@ In case you need to clean your docker: Stop and delete the docker container with
 
  .. If you need custom-permissions (in restApiExtensions as example), you can create another volume and map this volume with a local folder (with the right custom-mapping-permission file) with `-v ~/bonita-tenant-template-portal/:/opt/bonita/setup/platform_conf/initial/tenant_template_portal/`
 
-. Go to `localhost:9000/bonita`, launch a process
+[NOTE]
+====
+More information about bonita docker configuration can be found xref:bonita-docker-installation.adoc[here]
+====
+
+. Go to http://localhost:9000/bonita[http://localhost:9000/bonita], launch a process
 
 . Your application is working! 
 
