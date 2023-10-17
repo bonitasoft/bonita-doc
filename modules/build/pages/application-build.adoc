@@ -211,3 +211,18 @@ When I try to package my process, I get this error: An error occurred when addin
 You need to map a form for each manual task and for instanciation form.
 --
 
+
+[.troubleshooting-title]
+== Troubleshooting
+
+[.troubleshooting-section]
+--
+[.symptom]
+I can't see the default living application when I package and deploy my project with Application mode.
+
+[.symptom-description]
+When I deploy my project, I can't access to Bonita User/Admin Application, from URL or from the application directory menu.
+
+[.solution]#Possible solution#
+You need to add manually the default living application in your project from the Marketplace. To do it, you can check more details in xref:runtime:user-application-overview.adoc[Add default living application]the dedicated section.
+--
