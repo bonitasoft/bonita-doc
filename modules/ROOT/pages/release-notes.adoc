@@ -3,7 +3,7 @@
 
 [NOTE]
 ====
-The 2024.1 version is in development.
+The {bonitaVersion} version is in development.
 ====
 
 == New available values
