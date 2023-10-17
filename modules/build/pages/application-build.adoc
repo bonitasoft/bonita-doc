@@ -3,6 +3,7 @@
 :description: How to build a Bonita Self-Contained Application from a Bonita project.
 
 == Prerequisites
+[#prerequisites]
 
 * https://adoptopenjdk.net/releases.html[Java 11]
 * https://maven.apache.org/download.cgi[Maven]

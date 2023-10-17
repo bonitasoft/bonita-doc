@@ -3,7 +3,9 @@
 
 In this following sections, you will learn how to package and deploy your application as a local docker container.
 
-== Build
+Be careful to following the xref:build:application-build.adoc#prerequisites[prerequisites] before starting this tutorial.
+
+== Application build
 
 === Default application packaging
 
@@ -28,13 +30,15 @@ The docker image is created, you can find it with `docker images` command (the i
 
 For more information about packaging as application mode, you can check xref:build:application-build.adoc[Application build section].
 
-== Deploy
+== Deploy your application
 
 Run you docker application with command `docker run --rm --name GettingStarted -h GettingStarted -e -d -p 9000:8080 getting-started-tutorial-local:3.0.0-SNAPSHOT`
 
 [NOTE]
 ====
-You can adapt the command to your needs. For example, you can add a volume to add a license folder, add this option: `-v ~/lic/:/opt/bonita_lic/`
+You can adapt the command to your needs. For example, you can add a volume to add a license folder, add this option: `-v ~/lic/:/opt/bonita_lic/`.
+
+More details about xref:runtime:bonita-docker-installation.adoc[Bonita image options]
 ====
 
 Go on http://localhost:9000/bonita[http://localhost:9000/bonita] to access to Bonita Portal, you can now launch your first process.
