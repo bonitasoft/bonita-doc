@@ -69,7 +69,7 @@ In case you need to clean your docker: Stop and delete the docker container with
 
 [NOTE]
 ====
-More information about bonita docker configuration can be found xref:bonita-docker-installation.adoc[here]
+More information about bonita docker configuration can be found xref:runtime:bonita-docker-installation.adoc[here]
 ====
 
 . Go to http://localhost:9000/bonita[http://localhost:9000/bonita], launch a process
