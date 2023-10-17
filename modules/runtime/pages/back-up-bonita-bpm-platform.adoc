@@ -14,7 +14,7 @@ A cold backup (total shutdown) is recommended, to avoid losing data being proces
 
 . Stop the application server
 . Save the Application Server configuration files modified during Bonita setup.
-. Save the deployed web application (i.e. `bonita.war`) (for Tomcat `[BUNDLE_HOME]/server/webapps/bonita.war`), or you can redeploy all applications at startup.
+. Save the deployed web application(`[BUNDLE_HOME]/server/webapps/bonita`), or you can redeploy all applications at startup.
 If you decide not to save the `webapps` directory, make sure that you have a copy of your Bonita application available.
 . Back up your database (Please refer to the specific documentation for your database concerning the backup procedure).
 . Start the application server.
