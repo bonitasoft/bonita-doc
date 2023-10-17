@@ -1,8 +1,8 @@
 = Release notes
-:description: Bonita 2023.2 release note
+:description: Bonita {bonitaVersion} release note
 
 
-== Bonita 2023.2 release note
+== Bonita {bonitaVersion} release note
 
 Self Contained Application → build, package, deploy, update. SCA ie the new differentiating deployment mode of Bonitasoft is ready to go live and in production. By embracing the latest containerization approach, users will experience faster deployment times, allowing your IT team to respond rapidly to business needs. 
 
