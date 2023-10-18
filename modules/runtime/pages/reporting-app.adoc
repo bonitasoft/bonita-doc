@@ -9,7 +9,7 @@ Bonita Reporting app will enable you to view statistics and to extract process e
 
 In keeping with Bonitasoft’s promise to continuously deliver valuable, high quality features, we had to relinquish the Analytics and Reports page.
 
-Since 2023.2 this living application is not installed by default in the Bonita tomcat bundle and in Bonita docker image.
+This living application is not installed **by default** in the Bonita tomcat bundle and in Bonita docker image in application mode.footnote:reportingApplication[In the deprecated platform mode, this application still be embedded by default.]
 
 You need to install it manually in your project. To do it:
 
