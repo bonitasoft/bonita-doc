@@ -51,7 +51,7 @@ The Tomcat bundle is based on a standard Tomcat installation with the following 
 * `server/conf/server.xml`: modified to add listener for Narayana and h2 (see below for modification needed if you want to switch to another RDBMS).
 * `server/conf/jbossts-properties.xml`: configuration files for Narayana transaction manager.
 * `server/lib/bonita`: extra libraries needed by Bonita. The following libraries are included: Narayana JTA Transaction Manager, h2, SLF4J.
-* `server/webapps/bonita.war`: the Bonita web application.
+* `server/webapps/bonita`: the Bonita web application.
 * `setup/`: a tool to manage Bonita Platform configuration, stored in database instead of filesystem. Also ships a tool to centralize all the required Tomcat bundle configuration.
 * `tools/request_key_utils: folder containing the script to generate license request keys (Subscription editions only).
 * `tools/BonitaSubscription-x.y.z`-`LDAP-Synchronizer` : folder containing the tool to synchronize your organization in Bonita with your LDAP (Subscription editions only).

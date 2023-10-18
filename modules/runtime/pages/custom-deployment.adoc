@@ -34,7 +34,7 @@ Copy, from the bundle into your Tomcat server (`TOMCAT_DIRECTORY`):
 * `BUNDLE_DIRECTORY/server/bin/setenv.sh` or `BUNDLE_DIRECTORY/server/bin/setenv.bat`, depending if you are on Unix or Windows, to `TOMCAT_DIRECTORY/bin`
 * The entirety of the bundle `BUNDLE_DIRECTORY/server/conf` folder to `TOMCAT_DIRECTORY/conf`
 * The entirety of the bundle `BUNDLE_DIRECTORY/server/lib/bonita` folder to `TOMCAT_DIRECTORY/lib/bonita`
-* The `BUNDLE_DIRECTORY/server/webapps/bonita.war` to `TOMCAT_DIRECTORY/webapps`
+* The `BUNDLE_DIRECTORY/server/webapps/bonita` to `TOMCAT_DIRECTORY/webapps`
 * The and `BUNDLE_DIRECTORY/webapps/ROOT/favicon.ico` to `TOMCAT_DIRECTORY/webapps/ROOT/`
 * The entirety of the `BUNDLE_DIRECTORY/setup` directory at the root of your tomcat server `TOMCAT_DIRECTORY`.
 * The entirety of the `BUNDLE_DIRECTORY/tools/request_key_utils-`. Includes script files to generate license request keys to `TOMCAT_DIRECTORY/tools/request_key_utils-`.
