@@ -38,7 +38,7 @@ To produce an executable for an application, it is possible to either package it
 .Build using the Tomcat bundle packaging
 [source,shell]
 ----
-$ my-project> mvn package -Pbundle
+$ my-project> mvn clean package -Pbundle
 ----
 
 The output application binary can be found in the `my-project/app/target` folder. The name of the binary will follow this pattern: `${project.artifactId}-${project.version}-${bonita.environment}-bundle.zip`.
