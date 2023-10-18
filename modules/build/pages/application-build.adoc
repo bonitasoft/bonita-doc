@@ -1,4 +1,4 @@
-= Build
+= Build an Application
 
 :description: How to build an Application from a Bonita project.
 
