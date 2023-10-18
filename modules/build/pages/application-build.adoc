@@ -211,10 +211,6 @@ When I try to package my process, I get this error: An error occurred when addin
 You need to map a form for each manual task and for instanciation form.
 --
 
-
-[.troubleshooting-title]
-== Troubleshooting
-
 [.troubleshooting-section]
 --
 [.symptom]
