@@ -32,7 +32,7 @@ For more information about packaging as application mode, you can check xref:bui
 
 == Deploy your application
 
-Run you docker application with command `docker run --rm --name GettingStarted -h GettingStarted -e -d -p 9000:8080 getting-started-tutorial-local:3.0.0-SNAPSHOT`
+Run you docker application with command `docker run --name GettingStarted -d -p 9000:8080 getting-started-tutorial-local:3.0.0-SNAPSHOT`
 
 [NOTE]
 ====
