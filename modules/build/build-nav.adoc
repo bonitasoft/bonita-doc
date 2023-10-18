@@ -1,1 +1,1 @@
-* xref:application-build.adoc[Build self-contained application]
+* xref:application-build.adoc[Build an Application]
