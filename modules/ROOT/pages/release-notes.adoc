@@ -23,6 +23,19 @@ In Bonita Super Administrator Application, the page 'BPM services' has been repl
 To benefit from this feature when updating to Bonita 2023.2, it is required to use the provided Bonita layout or to re-base your custom layout modifications on the provided Bonita Layout.  +
 At REST API level, when the maintenance mode is active, the BPM and BDM API (except BDM installation) will respond with a 503 error. Bonita UI Designer pages now handle this error code and display a modal dialog informing the users of the running maintenance and proposing to redirect them to the maintenance page. To benefit from this feature when updating to Bonita 2023.2, it is required to migrate existing pages by migrating your apps using Bonita Studio 2023.2.
 
+==== Exit on error
+
+When starting a Bonita application, if an error occurs during the startup phase, the process will now exit with an error status code (`1`).
+
+==== Update only startup
+
+A new `bonita.runtime.startup.update-only` configuration boolean property has been added to perform an update only startup.  
+When enabled, the application will start, go through its initialization and update phase and exit afterward. Exit status can be successful (`0`) or in error (`1`).
+
+==== Default log pattern with color highlighting in console output
+
+The default log configuration enables color highlighting in the console output.
+
 === Development suite
 
 === Bonita UI Designer
