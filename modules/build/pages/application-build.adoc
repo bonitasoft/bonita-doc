@@ -1,6 +1,6 @@
 = Build
 
-:description: How to build a Bonita Self-Contained Application from a Bonita project.
+:description: How to build an Application from a Bonita project.
 
 == Prerequisites
 [#prerequisites]
