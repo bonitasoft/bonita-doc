@@ -21,7 +21,7 @@ To build a project, open a terminal *at the root* of your project and execute th
 .Build the application archive and configuration
 [source,shell]
 ----
-$ my-project> mvn package
+$ my-project> mvn clean package
 ----
 
 NOTE: When a project uses local dependencies (dependencies that have been imported as jar or zip file in the Studio), it is mandatory to first run the following command: `mvn bonita-project:install`.
