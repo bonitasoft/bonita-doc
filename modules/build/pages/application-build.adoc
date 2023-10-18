@@ -48,7 +48,7 @@ By default, the `bonita.environment` is set to `local`. To override this value, 
 .Build using the Docker packaging
 [source,shell]
 ----
-$ my-project> mvn package -Pdocker
+$ my-project> mvn clean package -Pdocker
 ----
 
 The output application binary is a docker image. The name of the image will follow this pattern: `${project.artifactId}-${bonita.environment}:${project.version}`.
