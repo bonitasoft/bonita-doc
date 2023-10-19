@@ -62,7 +62,7 @@ This is an example with Postgres, any database works
 
 * *_Copy_* the folder %TOMCAT_BUNDLE%/server/lib/bonita to %TOMCAT_INSTALL_FOLDER%/lib
 * *_Copy_* the folder %TOMCAT_BUNDLE%/server/conf to %TOMCAT_INSTALL_FOLDER%/conf
-* *_Copy_* the application %TOMCAT_BUNDLE%/server/webapps/bonita.war to %TOMCAT_INSTALL_FOLDER%/webapps
+* *_Copy_* the application %TOMCAT_BUNDLE%/server/webapps/bonita to %TOMCAT_INSTALL_FOLDER%/webapps
 
 
 == Configure JVM properties

@@ -58,15 +58,15 @@ A Bonita Runtime upgrade can only be performed on the same database vendor (E.g.
 
 To upgrade a Bonita Runtime from a Community edition to an Enterprise edition, follow these steps:
 
-. Download and unzip the Bonita Enterprise bundle (to retrieve the bonita.war Web App later)
+. Download and unzip the Bonita Enterprise bundle (to retrieve the bonita Web App folder later)
 . Retrieve an xref:ROOT:licenses.adoc[Enterprise license] file
 . Run `<bonita-installation>/setup/setup(.sh/.bat) pull` to fetch your current Community configuration in `<bonita-installation>/setup/platform_conf/current`
 . Create license folder `<bonita-installation>/setup/platform_conf/licenses/`
 . Copy your license file into this newly-created folder
 . Push your new license in the database: `<bonita-installation>/setup/setup(.sh/.bat) push`
 . Stop Bonita Community platform with `<bonita-installation>/stop-bonita(.sh/.bat)` script. *Do not remove the WAR file before stopping Tomcat, or many errors would be issued in the log* (See <<bonita-runtime-notes, note 1 for explanations>>)
-. Remove Bonita Community Web App from `<bonita-installation>/server/webapps`: both `bonita.war` and the auto-extracted folder with the same name `bonita/`
-. Copy the Bonita Enterprise Web App (extracted from Bonita Enterprise bundle) where the Community version was: `<bonita-installation>/server/webapps/bonita.war`
+. Remove Bonita Community Web App from `<bonita-installation>/server/webapps`: both `bonita.war` if present and the auto-extracted folder with the same name `bonita/`
+. Copy the Bonita Enterprise Web App (extracted from Bonita Enterprise bundle) where the Community version was: `<bonita-installation>/server/webapps/bonita`
 . ⚠ (Optionally rename the `<bonita-installation>` folder with a name that does not contain anymore the word `community`, for clarity)
 . Start the upgraded Bonita Runtime using `<bonita-installation>/start-bonita(.sh/.bat)` script
 
