@@ -397,6 +397,10 @@ Since Bonita 7.9 BONITA_SERVER_LOGGING_FILE and BONITA_SETUP_LOGGING_FILE can be
 
 `BONITA_SETUP_LOGGING_FILE` default value is `/opt/bonita/setup/logback.xml`
 
+=== BONITA_RUNTIME_STARTUP_UPDATE_ONLY
+
+When set to true, the application exit right after the initialization/update phase. Exit with the `0` exit code when no errors occurred during the startup phase, `1` otherwise.
+
 [#logger_configuration]
 == Logger configuration
 
