@@ -147,12 +147,11 @@ Then, use the https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft
 If you are configuring Bonita and Tomcat in a cluster environment for CAS, there are some extra steps to do:
 
 . Copy `commons-logging-x.x.x.jar` from `BonitaSubscription-x.x.x/tools/BonitaSubscription-x.x.x-LDAP-Synchronizer/lib` into the `BUNDLE_HOME/server/lib` directory.
-. Remove the `WEB-INF/lib/commons-logging-x.x.x.jar` file from the `BUNDLE_HOME/server/webapps/bonita.war`.
 . Remove the `BUNDLE_HOME/server/webapps/bonita/WEB-INF/lib/commons-logging-x.x.x.jar` file (if it is present).
 
 === Troubleshoot
 
-To troubleshoote SSO login issues, you need to increase the xref:ROOT:logging.adoc[log level] to `ALL` in order for errors to be displayed in the log files (by default, they are not).
+To troubleshoot SSO login issues, you need to increase the xref:ROOT:logging.adoc[log level] to `ALL` in order for errors to be displayed in the log files (by default, they are not).
 
 == Configure logout behaviour
 
