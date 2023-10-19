@@ -4,6 +4,17 @@
 
 {description}
 
+== Application
+
+This living application is not installed by default in the Bonita tomcat bundle and in Bonita docker image in application.footnote:adminApplication[In the deprecated platform mode, this living application still be embedded by default.]
+
+You need to install it manually in your project. To do it:
+
+* Go on your project and show Extension view
+* Open Marketplace and filter by application
+* You can now install the Bonita Admin Application
+* When you will package the project as application, you will have the Admin Application deployed in the Bonita runtime
+
 == Value
 
 Bonita Administrator Application allows anyone with the _Administrator_ profile to manage the use of Bonita throughout a department or a company. +

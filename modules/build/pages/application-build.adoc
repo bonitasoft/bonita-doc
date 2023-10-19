@@ -1,0 +1,232 @@
+= Build an Application
+
+:description: How to build an Application from a Bonita project.
+
+== Prerequisites
+[#prerequisites]
+
+* https://adoptopenjdk.net/releases.html[Java 11]
+* https://maven.apache.org/download.cgi[Maven]
+* https://www.docker.com/[Docker] (if target packaging is a Docker image)
+* Internet with full access to:
+** Maven Central repository
+** xref:software-extensibility:bonita-repository-access.adoc#maven-settings[Bonita Artifact Repository] (for building projects using Enterprise edition)
+
+== Maven build
+
+Since 2023.2, Bonita project leverage Maven as a build tool. It uses an https://bonitasoft.github.io/bonita-project-maven-plugin/[in-house Maven plugin] to build the Bonita specific artifacts like process diagrams, UID pages and so on.
+
+To build a project, open a terminal *at the root* of your project and execute the following Maven commands:
+
+.Build the application archive and configuration
+[source,shell]
+----
+$ my-project> mvn clean package
+----
+
+NOTE: When a project uses local dependencies (dependencies that have been imported as jar or zip file in the Studio), it is mandatory to first run the following command: `mvn bonita-project:install`.
+
+The result of this command is an application archive located in the `app/target` folder of the project. The name of the archive follow this pattern: `${project.artifactId}-${project.version}-${bonita.environment}.zip`. It contains all the build artifacts of the project. An optional Bonita configuration file is also created if at least one process of your project contains a parameter.
+
+WARNING: This application archive is not an executable. It can be used with the {bcdDocVersion}@bcd::deployer.adoc[la-deployer] using the deprecated _Platform mode_.
+
+To produce an executable for an application, it is possible to either package it as:
+
+* A Tomcat bundle
+* A Docker image
+
+.Build using the Tomcat bundle packaging
+[source,shell]
+----
+$ my-project> mvn clean package -Pbundle
+----
+
+The output application binary can be found in the `my-project/app/target` folder. The name of the binary will follow this pattern: `${project.artifactId}-${project.version}-${bonita.environment}-bundle.zip`.
+
+By default, the `bonita.environment` is set to `local`. To override this value, you may add the `-Dbonita.environment=production` system property to the above command, where `production` is an existing environment in the project.
+
+.Build using the Docker packaging
+[source,shell]
+----
+$ my-project> mvn clean package -Pdocker
+----
+
+The output application binary is a docker image. The name of the image will follow this pattern: `${project.artifactId}-${bonita.environment}:${project.version}`.
+
+[NOTE]
+--
+When building an enterprise edition project, make sure to be xref:software-extensibility:bonita-repository-access.adoc#docker-configuration[logged in] to the `bonitasoft.jfrog.io` registry first.
+--
+
+=== Build options
+
+* `-Dbonita.environment`: `local` by default. Select the target environment to use when building. The value is case-insensitive.
+* `-Dbonita.allowEmptyFormMapping`: `false` by default. It is possible to set this flag to `true` to keep the legacy behavior of the `la-builder`.
+
+==== Filtering artifacts to include/exclude
+
+* `-Dinclude.organizations`: `*.xml` by default. Glob pattern expression to select organization file to include in the application binary. Only one or no organization file should be included.
+* `-Dinclude.profiles`: `*.xml` by default. Glob pattern expression to select profiles files to include in the application binary.footnote:[Enterprise only.]
+* `-Dinclude.applications`: `*.xml` by default. Glob pattern expression to select application descriptor files to include in the application binary.
+* `-Dinclude.processes`: `*.bar` by default. Glob pattern expression to select business archive files to include in the application binary.
+* `-Dinclude.pages`: `*.zip` by default. Glob pattern expression to UID pages files to include in the application binary.
+
+==== Docker build options
+
+* `-Ddocker.baseImageRepository`: `bonita` by default. When creating a project with the Enterprise Edition, this property is replaced by `bonitasoft.jfrog.io/docker/bonita-subscription`.
+* `-Ddocker.baseImageVersion`: `${bonita.runtime.version}` by default.
+* `-Ddocker.baseImage`: `${docker.baseImageRepository}:${docker.baseImageVersion}` by default. The base image used as parent.
+* `-Ddocker.imageRepository`: `${project.artifactId:lowercase}-${bonita.environment:lowercase}` by default.
+* `-Ddocker.imageName`: `${docker.imageRepository}:${project.version}` by default. The image tag given to the build image.
+* `-Ddocker.buildArgs`: Additional docker build arguments. _e.g._: `-Ddocker.buildArgs="--no-cache"` to add the `--no-cache` option to the build command.
+
+== Custom application dependencies
+
+It is possible to add any additional dependency in the classpath of your application using the Project extension in the Studio. Any dependency `jar` that is not a Connector or an Actor filter will be added in the parent classpath of the application.
+
+This is the recommended way to include extensions like:
+
+* xref:integration:event-handlers.adoc[A custom event handler]
+* A custom servlet or web filter
+* A custom authentication provider dependency or xref:identity:enforce-password-policy.adoc[password policy]
+
+NOTE: It is possible to use Servlet 3.0 annotations to define custom servlets and web filters. They will be registered dynamically at startup.
+
+== Process Parameters Configuration
+
+When at least one of the processes from a project contains a parameter, a Bonita configuration file (.bconf) is generated during the build. This archive stores the parameters values and is specific to a given environment.
+
+=== Extract parameters configuration
+
+It is possible to extract the processes configurations into a single `yaml` using the following Maven command:
+
+.Extract process configuration
+[source,shell]
+----
+$ my-project> mvn bonita-project:extract-configuration
+----
+
+By default, it produces a `parameters-${bonita.environment}.yml` file in the `.bcd_configurations` folder at the root of your project. Use the `-Dbonita.enviroment=production` to extract the configuration for `production` environment.
+
+The parameters configuration looks like this :
+
+[source,yaml]
+----
+---
+processes:
+- name: "Modify Pending Vacation Request"
+  version: "1.4.1"
+  parameters:
+  - name: "calendarApplicationName"
+    value: "Bonitasoft-NewVacationRequest/1.4.0"
+    type: "String"
+  - name: "calendarCalendarId"
+    value: "mydomain.com_4gc5656x7f57cfsrejgb@group.calendar.google.com"
+    type: "String"
+----
+
+As it may contain sensitive data, it's recommended to encrypt your configuration.  
+You can also only extract parameters that have no value for this environment:
+
+[source,shell]
+----
+$ my-project> mvn bonita-project:extract-configuration -Dparameters.withoutValue
+----
+
+NOTE: If all parameters are valuated for this environment, no file will be created.
+
+It is possible to override an existing file using the `-Dparameters.overwrite` system property.
+
+=== Merge parameters configuration
+
+During the build of the application the `merge-configuration` goal is executed and the content of the `parameters-${bonita.environment}.yml` file is merge into the final Bonita configuration file.
+
+==== Override parameters with the same name
+
+If you  have the same parameter name in more than one processes, and you want to override them in all processes, you can edit the `parameters-${bonita.environment}.yml` file as below:
+
+[source,yaml]
+----
+---
+global_parameters:
+  - name: "ParameterNameInAllProcesses"
+    value: "SameValueInAllProcess"
+    type: "String"
+----
+
+NOTE: Important:
+A specific parameter setting has priority over a global parameter configuration.
+
+
+*Example*:
+Let assume that these processes *P1, P2, P3* have all these three parameters: *_calendarApplicationName_*, *_emailNotificationSender_*, *_emailServerUseSSL_*.
+
+[source,yaml]
+----
+---
+processes:
+- name: "P1"
+  version: "1.4.1"
+  parameters:
+  - name: "calendarApplicationName"
+    value: "Bonitasoft-NewVacationRequest/1.4.0"
+    type: "String"
+  - name: "emailNotificationSender"
+    value: "cancelvacationconfirmation@mail.com"
+    type: "String"
+- name: "P2"
+  version: "1.4.1"
+  parameters:
+  - name: "calendarApplicationName"
+    value: "Bonitasoft-NewVacationRequest/1.4.0"
+    type: "String"
+- name: "P3"
+  version: "1.4.1"
+  parameters:
+  - name: "calendarApplicationName"
+    value: "Bonitasoft-NewVacationRequest/1.4.0"
+    type: "String"
+global_parameters:
+  - name: "emailNotificationSender"
+    value: "vacation-notification@mail.com"
+    type: "String"
+  - name: "emailServerUseSSL"
+    value: true
+    type: "Boolean"
+----
+
+The result of *merge-configuration* goal execution will be:
+
+* The value of *_emailServerUseSSL_* in *global_parameters* will override *P1, P2, P3*.
+* The value of *_emailNotificationSender_* in *global_parameters* will override only *P2 and P3* because the setting of *_emailNotificationSender_* in *P1* has priority.
+* The value of *_emailNotificationSender_* in *P1* will override only the parameter of *P1*.
+You may want to complete or override some parameter values coming from your Living App repository, to do that you can modify the output file of the *extract-conf* command and *_merge_* with your *_bconf_* file.
+
+
+
+[.troubleshooting-title]
+== Troubleshooting
+
+[.troubleshooting-section]
+--
+[.symptom]
+I can't package my process on SCA mode.
+
+[.symptom-description]
+When I try to package my process, I get this error: An error occurred when adding resources: No UIDesigner form is defined on the 'Pool' instantiation form.
+
+[.solution]#Possible solution#
+You need to map a form for each manual task and for instantiation form.
+--
+
+[.troubleshooting-section]
+--
+[.symptom]
+I can't see the default living application when I package and deploy my project as application.
+
+[.symptom-description]
+When I deploy my project, I can't access to Bonita User/Admin Application, from URL or from the application directory menu.
+
+[.solution]#Possible solution#
+You need to add manually the default living application in your project from the Marketplace. To do it, you can check more details in xref:runtime:user-application-overview.adoc[the dedicated section].
+--
