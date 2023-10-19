@@ -214,7 +214,7 @@ You need to map a form for each manual task and for instanciation form.
 [.troubleshooting-section]
 --
 [.symptom]
-I can't see the default living application when I package and deploy my project with Application mode.
+I can't see the default living application when I package and deploy my project as application.
 
 [.symptom-description]
 When I deploy my project, I can't access to Bonita User/Admin Application, from URL or from the application directory menu.

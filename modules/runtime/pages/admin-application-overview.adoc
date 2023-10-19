@@ -6,7 +6,7 @@
 
 == Application
 
-This living application is not installed by default in the Bonita tomcat bundle and in Bonita docker image in application mode.footnote:adminApplication[In the deprecated platform mode, this application still be embedded by default.]
+This living application is not installed by default in the Bonita tomcat bundle and in Bonita docker image in application.footnote:adminApplication[In the deprecated platform mode, this living application still be embedded by default.]
 
 You need to install it manually in your project. To do it:
 
