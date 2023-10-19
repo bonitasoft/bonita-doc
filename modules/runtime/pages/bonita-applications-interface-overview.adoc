@@ -1,6 +1,6 @@
 = Bonita Applications overview
 :page-aliases: ROOT:bonita-bpm-portal-interface-overview.adoc, ROOT:bonita-applications-interface-overview.adoc
-:description: This page describes the Bonita Applications. +
+:description: This page describes the Bonita Applications.
 
 {description} 
 
@@ -24,7 +24,7 @@ Bonita Runtime embeds two types of applications:
 
 Core applications are installed by default and cannot be removed.
 Generic applications will be installed on a fresh installation. They can also be downloaded from the Welcome Page of the Studio, in the "Resources" tile. +
-You may want to do so to create your applications from an example, or to include these applications in your self-contained bonita application (see: xref::application-build.adoc)
+You may want to do so to create your applications from an example, or to include these applications in your self-contained bonita application (see: xref:build:application-build.adoc)
 
 Applications are flexible in two ways:
 
