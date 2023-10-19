@@ -32,12 +32,12 @@ This is why Bonita comes with four embedded applications, with different status:
   ** Application Directory
   ** Super Administrator
 * Generic applications. They are fully functional, can be customized and can be deleted if not useful in a Production environment:
-    ** Administrator
+    ** Admsinistrator
     ** User
 * Bonita applications. They are developed by Bonitasoft and delivered as independent applications. You can download them from the Customer Portal/Customer Service Center and can be installed by folowing the same process as xref:applications.adoc[custom applications]:
     ** Reporting App
 
-User, Administrator and Reporting App applications are not embedded by default in application mode.footnote:liveupdate[When using the deprecated platform mode, this application is embedded by default.]
+User, Administrator and Reporting App applications are not embedded by default in application.footnote:liveupdate[When using the deprecated platform mode, this living application is embedded by default.]
 You need to install them manually in your project if you want to use it in production.
 
 
