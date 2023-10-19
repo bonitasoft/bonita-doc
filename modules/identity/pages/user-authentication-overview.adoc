@@ -24,9 +24,9 @@ HTTP request handled by the application server that delegates
 processing to the Bonita web application.
 . When asked for the Bonita root, the URL server will
 provide a `index.html` file (you can find the `index.html`
-in the `bonita.war` file). This is defined by the `welcome-file`
+in the `server/webapp/bonita` folder). This is defined by the `welcome-file`
 property in the Bonita web application deployment descriptor (a `web.xml`
-file located in `bonita.war/WEB-INF`).
+file located in `bonita/WEB-INF`).
 . Javascript in `index.html` will redirect the user to `/apps/appDirectoryBonita`
 (e.g. `+http://localhost:8080/bonita/apps/appDirectoryBonita+`).
 . https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-web-server/src/main/java/org/bonitasoft/console/common/server/login/filter/AuthenticationFilter.java[AuthenticationFilter]
