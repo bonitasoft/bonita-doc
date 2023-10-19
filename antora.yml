@@ -32,6 +32,7 @@ nav:
   - modules/data/data-nav.adoc
   - modules/pages-and-forms/pages-and-forms-nav.adoc
   - modules/applications/applications-nav.adoc
+  - modules/build-run/build-run-nav.adoc
   - modules/software-extensibility/software-extensibility-nav.adoc
   - modules/integration/integration-nav.adoc
   - modules/api/api-nav.adoc
