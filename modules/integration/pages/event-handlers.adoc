@@ -47,17 +47,16 @@ What should not be done is:
 [NOTE]
 ====
 If you still want to perform Network call or Bonita platform java APIs calls, you can do it by triggering those calls asynchronously using e.g. a message queue or an ExecutorService.
-Please note that the handler is triggered during the execution of a transaction so it's better to trigger the processing after the current transaction. This can be done by registering a `javax.transaction.Synchronization` using the `javax.transaction.TransactionManager`
+Please note that the handler is triggered during the execution of a transaction, so it is better to trigger the processing after the current transaction. This can be done by registering a `javax.transaction.Synchronization` using the `javax.transaction.TransactionManager`
 ====
 
 == Example: deploy an event handler
 
 This example shows an event handler that detects changes in the state of activity instances.
 
-=== create a maven project for event handler jar
+=== Create a maven project for event handler jar
 
-pom.xml :
-
+.pom.xml
 // for the 'subs' parameter, see https://docs.asciidoctor.org/asciidoc/latest/subs/apply-subs-to-blocks/
 [source,xml,subs="+macros"]
 ----
@@ -137,8 +136,7 @@ pom.xml :
 
 Create a class that implements `SHandler<SEvent>`.
 
-src/main/java/org/bonitasoft/example/EventHandlerExample.java:
-
+.src/main/java/org/bonitasoft/example/EventHandlerExample.java
 [source,java]
 ----
 package org.bonitasoft.example;
@@ -186,12 +184,13 @@ public class EventHandlerExample implements SHandler<SEvent> {
 === Deploy jar
 
 * Build event-handle-example-1.0-SNAPSHOT.jar using `mvn clean install` maven command.
-* Copy event-handle-example-1.0-SNAPSHOT.jar in webapps/bonita/WEB-INF/lib/ folder (for tomcat bundle)
+* Copy event-handle-example-1.0-SNAPSHOT.jar in `BUNDLE_HOME/server/webapps/bonita/WEB-INF/lib/` folder (for Tomcat bundle)
 
 === Register an event handler
 
-An event handler is registered on an event by adding an entry to the appropriate map. The list of handlers registered can be extended in the xref:runtime:bonita-platform-setup.adoc[`bonita-tenant-sp-custom.xml`] file located in `platform_conf/initial/platform_engine` folder (or `platform_conf/current/platform_engine` if runtime has already been launched):
+An event handler is registered on an event by adding an entry to the appropriate map. The list of handlers registered can be extended in the xref:runtime:bonita-platform-setup.adoc[`bonita-tenant-sp-custom.xml`] file located in `BUNDLE_HOME/setup/platform_conf/initial/tenant_template_engine` folder (or `platform_conf/current/tenant_template_engine` if runtime has already been launched):
 
+.bonita-tenant-sp-custom.xml
 [source,xml]
 ----
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
@@ -233,8 +232,9 @@ The example below shows how to use the State Id of a flow node to filter for a p
 Flownode State Ids are defined in the subclasses of `org.bonitasoft.engine.core.process.instance.api.states.FlowNodeState`.
 There is no exhaustive list; the set of states is extensible without notice.
 
-[source,groovy]
+[source,java]
 ----
+@Override
 public boolean isInterested(SEvent event) {
     boolean isInterested = false;
 
