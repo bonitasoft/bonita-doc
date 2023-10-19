@@ -63,6 +63,14 @@ When building an enterprise edition project, make sure to be xref:software-exten
 * `-Dbonita.environment`: `local` by default. Select the target environment to use when building. The value is case-insensitive.
 * `-Dbonita.allowEmptyFormMapping`: `false` by default. It is possible to set this flag to `true` to keep the legacy behavior of the `la-builder`.
 
+==== Filtering artifacts to include/exclude
+
+* `-Dinclude.organizations`: `*.xml` by default. Glob pattern expression to select organization file to include in the application binary. Only one or no organization file should be included.
+* `-Dinclude.profiles`: `*.xml` by default. Glob pattern expression to select profiles files to include in the application binary.footnote:[Enterprise only.]
+* `-Dinclude.applications`: `*.xml` by default. Glob pattern expression to select application descriptor files to include in the application binary.
+* `-Dinclude.processes`: `*.bar` by default. Glob pattern expression to select business archive files to include in the application binary.
+* `-Dinclude.pages`: `*.zip` by default. Glob pattern expression to UID pages files to include in the application binary.
+
 ==== Docker build options
 
 * `-Ddocker.baseImageRepository`: `bonita` by default. When creating a project with the Enterprise Edition, this property is replaced by `bonitasoft.jfrog.io/docker/bonita-subscription`.
@@ -208,7 +216,7 @@ I can't package my process on SCA mode.
 When I try to package my process, I get this error: An error occurred when adding resources: No UIDesigner form is defined on the 'Pool' instantiation form.
 
 [.solution]#Possible solution#
-You need to map a form for each manual task and for instanciation form.
+You need to map a form for each manual task and for instantiation form.
 --
 
 [.troubleshooting-section]
@@ -220,5 +228,5 @@ I can't see the default living application when I package and deploy my project 
 When I deploy my project, I can't access to Bonita User/Admin Application, from URL or from the application directory menu.
 
 [.solution]#Possible solution#
-You need to add manually the default living application in your project from the Marketplace. To do it, you can check more details in xref:runtime:user-application-overview.adoc[Add default living application]the dedicated section.
+You need to add manually the default living application in your project from the Marketplace. To do it, you can check more details in xref:runtime:user-application-overview.adoc[the dedicated section].
 --
