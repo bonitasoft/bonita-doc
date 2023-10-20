@@ -4,13 +4,23 @@
 
 == Bonita {bonitaVersion} release note
 
-Self Contained Application → build, package, deploy, update. SCA ie the new differentiating deployment mode of Bonitasoft is ready to go live and in production. By embracing the latest containerization approach, users will experience faster deployment times, allowing your IT team to respond rapidly to business needs. 
+=== Self Contained Application
+Build, package, deploy, update. SCA ie the new differentiating deployment mode of Bonitasoft is ready to go live and in production. By embracing the latest containerization approach, users will experience faster deployment times, allowing your IT team to respond rapidly to business needs.
 
-User sharing session mechanism between nodes → Service continuity is a key element of operational performance, so we are introducing a new native capability to help to ensure access to applications. Even when a node experiences downtime, users will remain seamlessly connected and will be able continue working without interruptions, ensuring smooth operations and increased user satisfaction.
+[NOTE]
 
-Test toolkit V2 → Ensuring effective testing by keeping track of the scope performed and identifying errors is a real concern for our developers. To support this, a test report is generated, which is adding a visual representation of the test sequence directly on the BPMN diagrams. This provides a clearer and more intuitive way of tracking progress, collaborating effectively and aligning with business/process owners. A concrete step towards shorter iterations and streamlined project tracking.
+====
+(draft) Difference between Platform mode & SCA:
+====
 
-Maintenance page/service interruption notification : Our latest feature designed to be proactive and keep users informed/prepared of service interruptions. A new kit to build info page on service maintenance and page interruption to notify users and ensure a smoother and more predictable experience. 
+=== User sharing session mechanism between nodes
+Service continuity is a key element of operational performance, so we are introducing a new native capability to help to ensure access to applications. Even when a node experiences downtime, users will remain seamlessly connected and will be able continue working without interruptions, ensuring smooth operations and increased user satisfaction.
+
+=== Test toolkit V2
+Ensuring effective testing by keeping track of the scope performed and identifying errors is a real concern for our developers. To support this, a test report is generated, which is adding a visual representation of the test sequence directly on the BPMN diagrams. This provides a clearer and more intuitive way of tracking progress, collaborating effectively and aligning with business/process owners. A concrete step towards shorter iterations and streamlined project tracking.
+
+=== Maintenance page/service interruption notification
+Our latest feature designed to be proactive and keep users informed/prepared of service interruptions. A new kit to build info page on service maintenance and page interruption to notify users and ensure a smoother and more predictable experience.
 
 
 == New product values

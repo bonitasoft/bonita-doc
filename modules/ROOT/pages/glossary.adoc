@@ -5,14 +5,13 @@
 *Application*:
 
 == B
-*Bonita Engine*:
+*Bonita Engine*: Bonita Engine is at the core, responsible of process execution
 
 *Bonita Platform*: Bonita Platform is composed of two components : Bonita Studio and Bonita Runtime.
 Its purpose is to create, build and run projects.
 
 *Bonita Runtime*:
 Bonita Runtime is dedicated to operate automation projects.
-
 Bonita Runtime is composed of one or more nodes. A Bonita Runtime composed of multiple nodes constitutes a cluster to ensure High Availability and or High Performance, See Messaging - Bonita Runtime scalability for all the details.
 
 *Bonita Studio*
@@ -31,3 +30,5 @@ Studio contains all the elements needed to develop and build an automation proje
 *Run*:
 
 == S
+*Storage & persistence*
+Bonita Runtime requires a storage to operate. The storage is composed of two databases: one for core services and one dedicated to Business Data.
