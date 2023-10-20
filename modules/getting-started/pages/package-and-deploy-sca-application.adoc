@@ -11,7 +11,7 @@ Be careful to following the xref:build:application-build.adoc#prerequisites[prer
 
 The xref:runtime:user-application-overview.adoc[user application], xref:runtime:admin-application-overview.adoc[admin application] and xref:runtime:reporting-app.adoc[reporting application] are not embedded by default in the final project artifact.
 
-You need add them manually if you want to deploy them. To do it:
+You have to add them manually if you want to deploy them. To do it:
 
 * From Studio, Open Marketplace and filter by application type
 * Add the desired default applications to your project
