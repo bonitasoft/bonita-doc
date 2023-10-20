@@ -115,7 +115,7 @@ This example shows an event handler that detects changes in the state of activit
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
-            <url>https://maven.restlet.talend.com/</url>
+            <url>pass:[https://maven.restlet.talend.com/]</url>
         </repository>
         <repository>
             <id>terracotta</id>
@@ -125,7 +125,7 @@ This example shows an event handler that detects changes in the state of activit
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
-            <url>https://repo.terracotta.org/maven2/</url>
+            <url>pass:[https://repo.terracotta.org/maven2/]</url>
         </repository>
     </repositories>
 
