@@ -55,7 +55,7 @@ To benefit from this feature when updating to Bonita 2023.2, it is required to m
 === Bonita Test Toolkit V2
 
 The tests essentials to the successful completion of you project are now enhanced with the ability to provide the test results for a process execution under the form of a process diagram with an enhanced BPMN visualization.
-The result of your test can directly be exported into an HTMl file including the BPMN diagram.
+The result of your test is generated in an HTML file including BPMN diagrams, execution counters and execution paths.
 
 
 == Functional changes
