@@ -1,10 +1,16 @@
 = Release notes
-:description: Bonita release note
+:description: Bonita {bonitaVersion} release note
 
 
-== Bonita project packaged as a self-contained application
+== Bonita {bonitaVersion} release note
 
-With Bonita 2023.2 ...
+Self Contained Application → build, package, deploy, update. SCA ie the new differentiating deployment mode of Bonitasoft is ready to go live and in production. By embracing the latest containerization approach, users will experience faster deployment times, allowing your IT team to respond rapidly to business needs. 
+
+User sharing session mechanism between nodes → Service continuity is a key element of operational performance, so we are introducing a new native capability to help to ensure access to applications. Even when a node experiences downtime, users will remain seamlessly connected and will be able continue working without interruptions, ensuring smooth operations and increased user satisfaction.
+
+Test toolkit V2 → Ensuring effective testing by keeping track of the scope performed and identifying errors is a real concern for our developers. To support this, a test report is generated, which is adding a visual representation of the test sequence directly on the BPMN diagrams. This provides a clearer and more intuitive way of tracking progress, collaborating effectively and aligning with business/process owners. A concrete step towards shorter iterations and streamlined project tracking.
+
+Maintenance page/service interruption notification : Our latest feature designed to be proactive and keep users informed/prepared of service interruptions. A new kit to build info page on service maintenance and page interruption to notify users and ensure a smoother and more predictable experience. 
 
 
 == New product values
@@ -41,9 +47,10 @@ The default log configuration enables color highlighting in the console output.
 Bonita UI Designer pages now handle 401 and 503 errors for requests to Bonita REST API and display a modal dialog informing the users of the invalid session (401) or the running maintenance (503) and proposing to redirect them to the login or maintenance page. By clicking on cancel in this dialog, the users can remain on the current page (to not lose unsubmitted form content) and log in in an other tab to renew their session or wait for the maintenance to end.  +
 To benefit from this feature when updating to Bonita 2023.2, it is required to migrate existing pages by migrating your applications using Bonita Studio 2023.2.
 
-=== Bonita Test Toolkit
+=== Bonita Test Toolkit V2
 
-This new version of Bonita Test Toolkit, display the test results for a process execution under the form of a process diagram with an enhanced BPMN visualization.
+The tests essentials to the successful completion of you project are now enhanced with the ability to provide the test results for a process execution under the form of a process diagram with an enhanced BPMN visualization.
+The result of your test is generated in an HTML file including BPMN diagrams, execution counters and execution paths.
 
 
 == Functional changes
