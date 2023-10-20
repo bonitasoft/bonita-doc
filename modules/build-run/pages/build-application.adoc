@@ -28,7 +28,7 @@ NOTE: When a project uses local dependencies (dependencies that have been import
 
 The result of this command is an application archive located in the `app/target` folder of the project. The name of the archive follow this pattern: `${project.artifactId}-${project.version}-${bonita.environment}.zip`. It contains all the build artifacts of the project. An optional Bonita configuration file is also created if at least one process of your project contains a parameter.
 
-WARNING: This application archive is not an executable. It can be used with the {bcdDocVersion}@bcd::deployer.adoc[la-deployer] using the deprecated _Platform mode_.
+WARNING: This application archive is not an executable. It can be used with the xref:{bcdDocVersion}@bcd::deployer.adoc[la-deployer] using the deprecated _Platform mode_.
 
 To produce an executable for an application, it is possible to either package it as:
 
