@@ -1,1 +1,2 @@
-* xref:sca-user-flows.adoc[Build & Run]
+* xref:build-run:sca-user-flows.adoc[Build & Run]
+** xref:build-run:build-application.adoc[Build an Application]
