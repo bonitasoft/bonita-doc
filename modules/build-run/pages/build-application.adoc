@@ -5,7 +5,7 @@
 == Prerequisites
 [#prerequisites]
 
-* https://adoptopenjdk.net/releases.html[Java 11]
+* https://adoptium.net/temurin/releases/?version=11[Java 11]
 * https://maven.apache.org/download.cgi[Maven]
 * https://www.docker.com/[Docker] (if target packaging is a Docker image)
 * Internet with full access to:
@@ -55,7 +55,7 @@ The output application binary is a docker image. The name of the image will foll
 
 [NOTE]
 --
-When building an enterprise edition project, make sure to be xref:software-extensibility:bonita-repository-access.adoc#docker-configuration[logged in] to the `bonitasoft.jfrog.io` registry first.
+When building an enterprise edition project, make sure to be xref:software-extensibility:bonita-repository-access.adoc#docker-configuration[logged in the `bonitasoft.jfrog.io` registry] first.
 --
 
 === Build options
