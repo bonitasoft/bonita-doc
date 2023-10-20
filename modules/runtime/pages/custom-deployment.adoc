@@ -6,7 +6,7 @@
 
 [WARNING]
 ====
-Remember that the recommended way of installing Bonita is through a self-contained application xref:build:application-build.adoc
+Remember that the recommended way of installing Bonita is through a self-contained application xref:build-run:build-application.adoc
 It saves you from doing all the following configuration, and will be the only way supported in the future.
 ====
 
