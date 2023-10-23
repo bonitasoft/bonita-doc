@@ -2,7 +2,7 @@
 
 
 === A
-*Application*:
+*Application*: Application is a set of artifacts (processes, pages, BDM...) based on Bonita Platform. It can cover one or more use cases.
 
 == B
 *Bonita Engine*: Bonita Engine is at the core, responsible of process execution
