@@ -212,7 +212,8 @@ Or also if you need to use a specific *database Driver* java class name:
 *But in most cases, you don't need to modify this file.*
 
 [.troubleshooting-title]
-== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+== Troubleshooting
+[#troubleshooting]
 
 [.troubleshooting-section]
 --
