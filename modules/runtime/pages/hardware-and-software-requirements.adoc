@@ -78,7 +78,7 @@ Software required for Bonita Platform.
 | 15.3 and higher in the 15.x line
 
 | SQL Server
-| 2012
+| 2022
 
 | Oracle
 | 19c (19.3.0.0.0) (see note 5)
