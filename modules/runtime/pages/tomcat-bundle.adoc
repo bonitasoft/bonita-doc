@@ -4,7 +4,7 @@
 
 You will find here the mandatory and optional steps needed to install and configure the Tomcat bundle to run the Bonita platform.
 
-The Tomcat bundle is a .zip archive that contains the Apache Tomcat Java EE application server prepackaged along with Bonita and xref:runtime:bonita-platform-setup.adoc#platform_setup_tool[Bonita platform setup tool].
+The Tomcat bundle is a .zip archive that contains the Apache Tomcat Java EE application server prepackaged along with Bonita and xref:runtime:bonita-platform-setup.adoc[Bonita platform setup tool].
 The Tomcat bundle is a regular .zip archive based on Tomcat zip distribution.
 
 [#tomcat-bundle-installation]
@@ -147,7 +147,7 @@ For production, you are recommended to use one of the supported databases, with 
 ====
 
 . Make sure xref:ROOT:database-configuration.adoc#database_creation[your databases are created] and xref:database-configuration.adoc#specific_database_configuration[customized to work with Bonita].
-. Edit file `<BUNDLE_HOME>/setup/database.properties` and modify the properties to suit your databases (Bonita internal database & Business Data database). Beware of xref:runtime:bonita-platform-setup.adoc#backslash_support[backslash characters].
+. Edit file `<BUNDLE_HOME>/setup/database.properties` and modify the properties to suit your databases (Bonita internal database & Business Data database). Beware of xref:runtime:bonita-platform-setup.adoc#troubleshooting[backslash characters].
 . Run `<BUNDLE_HOME>\setup\start-bonita.bat` (Windows system) or `<BUNDLE_HOME>/setup/start-bonita.sh` (Unix system) to run Bonita Tomcat bundle (see <<tomcat_start,Tomcat start script>>)
 
 [NOTE]

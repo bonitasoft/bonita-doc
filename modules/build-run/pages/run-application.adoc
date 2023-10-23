@@ -1,0 +1,50 @@
+= Run an Application
+:description: This page describes how to run an Application.
+
+{description}
+
+== Prerequisites
+
+Your application have been previously built for an environment (cf. xref:build-run:build-application.adoc[]) and packaged as a Docker image and/or a Tomcat bundle.
+
+== How to run an Application
+[#run]
+
+Depending on the artifact produced by the build, follow the dedicated instructions on how to configure and run your Application:
+
+* xref:runtime:bonita-docker-installation.adoc[Configure and run your Application Docker image]
+* xref:runtime:tomcat-bundle.adoc[Configure and run your Application Tomcat bundle]
+
+== Automatic installation
+
+The Bonita Runtime automatically installs and deploys all the artifacts of your Application at startup. It concerns:
+
+* The xref:data:define-and-deploy-the-bdm.adoc[BDM (Bonita Database Model)]
+* Organizations
+* TODO
+
+== How to update an Application
+
+=== Increment project version
+
+1. Open your project with Bonita Studio.
+2. Edit project information (right-click on the root folder of the project explorer and click on `Edit project information...`).
+3. Increment the version.
+
+[NOTE]
+The project version must respect the https://semver.org[Semantic Versioning (SemVer)] specification.
+
+=== Build the project
+
+Build the new version of your application for a given environment. Please refer to the dedicated documentation on xref:build-run:build-application.adoc[how to build a project].
+
+=== Run the application
+
+As mentioned above, follow the same instructions on <<run>>.
+
+[NOTE]
+Following SemVer specification, if the new version is lower or equals than the current version, the application will not be updated.
+
+=== Update strategies
+
+TODO: describe all artifacts update strategies

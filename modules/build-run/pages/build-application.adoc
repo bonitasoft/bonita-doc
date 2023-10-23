@@ -35,6 +35,9 @@ To produce an executable for an application, it is possible to either package it
 * A Tomcat bundle
 * A Docker image
 
+=== Tomcat bundle packaging
+[#bundle-package]
+
 .Build using the Tomcat bundle packaging
 [source,shell]
 ----
@@ -45,6 +48,9 @@ $ my-project> mvn clean package -Pbundle <1>
 The output application binary can be found in the `my-project/app/target` folder. The name of the binary will follow this pattern: `${project.artifactId}-${project.version}-${bonita.environment}-bundle.zip`.
 
 By default, the `bonita.environment` is set to `local`. To override this value, you may add the `-Dbonita.environment=production` system property to the above command, where `production` is an existing environment in the project.
+
+=== Docker image packaging
+[#docker-package]
 
 .Build using the Docker packaging
 [source,shell]
