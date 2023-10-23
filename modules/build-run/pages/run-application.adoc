@@ -1,5 +1,5 @@
 = Run an Application
-:description: This page describes how to run an Application.
+:description: This page describes how to run and update an Application.
 
 {description}
 
@@ -19,9 +19,16 @@ Depending on the artifact produced by the build, follow the dedicated instructio
 
 The Bonita Runtime automatically installs and deploys all the artifacts of your Application at startup. It concerns:
 
-* The xref:data:define-and-deploy-the-bdm.adoc[BDM (Bonita Database Model)]
-* Organizations
-* TODO
+* xref:runtime:applications.adoc[Living Application (Term need to be updated)]
+* xref:data:define-and-deploy-the-bdm.adoc[BDM (Bonita Database Model)]
+* xref:identity:bdm-access-control.adoc[Business data model access controls]
+* xref:identity:organization-overview.adoc[Organizations]
+* xref:applications:layout-development.adoc[Layout]
+* xref:pages-and-forms:pages.adoc[pages]
+* xref:process:diagrams-index.adoc[processes]
+* xref:identity:profiles-overview.adoc[profiles]
+* xref:ROOT:api-extensions.adoc[REST API extensions]
+* xref:applications:themes.adoc[themes]
 
 == How to update an Application
 
@@ -47,4 +54,39 @@ Following SemVer specification, if the new version is lower or equals than the c
 
 === Update strategies
 
-TODO: describe all artifacts update strategies
+During the update of an application, the following artifacts are updated according to the following strategies:
+
+[cols="1,1"]
+|===
+|Artifact| Update strategy
+
+|Living application
+|Delete the application and recreate it
+
+|BDM
+|Update the BDM, limited by what is supported (add column & add objects)
+
+|Business data model access controls
+|Uninstalls the previous version and installs the new version
+
+|Layout
+|Uninstalls the previous version and installs the new version
+
+|Organization
+|Merge the organization and deactivate elements only presents in the previous organization
+
+|Page
+|Uninstalls the previous version and installs the new version
+
+|Process and Form
+|Deactivate previous version and activate new version (keep open case opening with previous version until they are finished)
+
+|Profile
+|Stops importing if any profile already exists. Imports all if none already exists.
+
+|REST API extension
+|Uninstalls the previous version and installs the new version
+
+|Theme
+|Uninstalls the previous version and installs the new version
+|===
