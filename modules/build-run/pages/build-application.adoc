@@ -38,8 +38,9 @@ To produce an executable for an application, it is possible to either package it
 .Build using the Tomcat bundle packaging
 [source,shell]
 ----
-$ my-project> mvn clean package -Pbundle
+$ my-project> mvn clean package -Pbundle <1>
 ----
+<1> `-Pbundle` or `-P bundle` in Windows terminal, activate a Maven profile that trigger Tomcat Bundle build during the package phase of the build lifecycle.
 
 The output application binary can be found in the `my-project/app/target` folder. The name of the binary will follow this pattern: `${project.artifactId}-${project.version}-${bonita.environment}-bundle.zip`.
 
@@ -48,8 +49,9 @@ By default, the `bonita.environment` is set to `local`. To override this value, 
 .Build using the Docker packaging
 [source,shell]
 ----
-$ my-project> mvn clean package -Pdocker
+$ my-project> mvn clean package -Pdocker <1>
 ----
+<1> `-Pdocker` or `-P docker` in Windows terminal, activate a Maven profile that trigger Docker image build during the package phase of the build lifecycle. Docker must be installed and available in the PATH env variable of your terminal session.
 
 The output application binary is a docker image. The name of the image will follow this pattern: `${project.artifactId}-${bonita.environment}:${project.version}`.
 
@@ -59,6 +61,11 @@ When building an enterprise edition project, make sure to be xref:software-exten
 --
 
 === Build options
+
+[TIP]
+--
+When using a Windows terminal, a space must be added between the `-D` flag and the `property=value` assignment.
+--
 
 * `-Dbonita.environment`: `local` by default. Select the target environment to use when building. The value is case-insensitive.
 * `-Dbonita.allowEmptyFormMapping`: `false` by default. It is possible to set this flag to `true` to keep the legacy behavior of the `la-builder`.
