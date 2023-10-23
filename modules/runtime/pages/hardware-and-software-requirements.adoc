@@ -72,13 +72,13 @@ Software required for Bonita Platform.
 | (see note 2)
 
 | MySQL
-| 8.0.14 and higher in the 8.0.x line (see note 3 & 4)
+| 8.0.33 and higher in the 8.0.x line (see note 3 & 4)
 
 | PostgreSQL
-| 12.6 and higher in the 12.x line
+| 15.3 and higher in the 15.x line
 
 | SQL Server
-| 2019
+| 2012
 
 | Oracle
 | 19c (19.3.0.0.0) (see note 5)
