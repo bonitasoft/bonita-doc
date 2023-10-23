@@ -316,3 +316,7 @@ In this release, the following properties have been renamed:
 With Bonita 2023.1, we introduced the new concept of xref:2023.1@ROOT:release-notes.adoc#_bonita_project_packaged_as_a_self_contained_application[Self-Contained Application] (SCA). When building an SCA, Bonita Admin Application and Bonita User Application are no longer installed after the packaging process. If the SCA is using pages from one of those applications, setting the property `bonita.runtime.custom-application.install-provided-pages` and its relative environment variable for Docker `INSTALL_PROVIDED_PAGES` will have those pages installed anyway at Bonita Runtime startup.
 
 Those two properties are no longer required and are removed. Instead, we detect the usage of Admin/User Application pages and install them automatically.
+
+==== Setting a timezone for bonita container
+
+The timezone can be set via *TZ* environment variable. Check the https://data.iana.org/time-zones/tzdb/zone1970.tab[supported timezones].
