@@ -41,7 +41,7 @@ To produce an executable for an application, it is possible to either package it
 .Build using the Tomcat bundle packaging
 [source,shell]
 ----
-$ my-project> mvn clean package -Pbundle <1>
+mvn clean package -Pbundle <1>
 ----
 <1> `-Pbundle` or `-P bundle` in Windows terminal, activate a Maven profile that trigger Tomcat Bundle build during the package phase of the build lifecycle.
 
@@ -55,7 +55,7 @@ By default, the `bonita.environment` is set to `local`. To override this value, 
 .Build using the Docker packaging
 [source,shell]
 ----
-$ my-project> mvn clean package -Pdocker <1>
+mvn clean package -Pdocker <1>
 ----
 <1> `-Pdocker` or `-P docker` in Windows terminal, activate a Maven profile that trigger Docker image build during the package phase of the build lifecycle. Docker must be installed and available in the PATH env variable of your terminal session.
 
