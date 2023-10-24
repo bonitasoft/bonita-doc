@@ -21,7 +21,7 @@ To build a project, open a terminal *at the root* of your project and execute th
 .Build the application archive and configuration
 [source,shell]
 ----
-$ my-project> mvn clean package
+mvn clean package
 ----
 
 NOTE: When a project uses local dependencies (dependencies that have been imported as jar or zip file in the Studio), it is mandatory to first run the following command: `mvn bonita-project:install`.
@@ -43,7 +43,7 @@ To produce an executable for an application, it is possible to either package it
 ----
 mvn clean package -Pbundle <1>
 ----
-<1> `-Pbundle` or `-P bundle` in Windows terminal, activate a Maven profile that trigger Tomcat Bundle build during the package phase of the build lifecycle.
+<1> `-Pbundle` or `-P bundle` in Windows terminal, activate a Maven profile that triggers Tomcat Bundle build during the package phase of the build lifecycle.
 
 The output application binary can be found in the `my-project/app/target` folder. The name of the binary will follow this pattern: `${project.artifactId}-${project.version}-${bonita.environment}-bundle.zip`.
 
@@ -57,13 +57,13 @@ By default, the `bonita.environment` is set to `local`. To override this value, 
 ----
 mvn clean package -Pdocker <1>
 ----
-<1> `-Pdocker` or `-P docker` in Windows terminal, activate a Maven profile that trigger Docker image build during the package phase of the build lifecycle. Docker must be installed and available in the PATH env variable of your terminal session.
+<1> `-Pdocker` or `-P docker` in Windows terminal, activate a Maven profile that triggers Docker image build during the package phase of the build lifecycle. Docker must be installed and available in the _PATH_ environment variable of your terminal session.
 
-The output application binary is a docker image. The name of the image will follow this pattern: `${project.artifactId}-${bonita.environment}:${project.version}`.
+The output application binary is a Docker image. The name of the image will follow this pattern: `${project.artifactId}-${bonita.environment}:${project.version}`.
 
 [NOTE]
 --
-When building an enterprise edition project, make sure to be xref:software-extensibility:bonita-repository-access.adoc#docker-configuration[logged in the `bonitasoft.jfrog.io` registry] first.
+When building an Enterprise Edition project, make sure to be xref:software-extensibility:bonita-repository-access.adoc#docker-configuration[logged in the `bonitasoft.jfrog.io` registry] first.
 --
 
 === Build options
@@ -116,7 +116,7 @@ It is possible to extract the processes configurations into a single `yaml` usin
 .Extract process configuration
 [source,shell]
 ----
-$ my-project> mvn bonita-project:extract-configuration
+mvn bonita-project:extract-configuration
 ----
 
 By default, it produces a `parameters-${bonita.environment}.yml` file in the `.bcd_configurations` folder at the root of your project. Use the `-Dbonita.enviroment=production` to extract the configuration for `production` environment.
@@ -138,12 +138,12 @@ processes:
     type: "String"
 ----
 
-As it may contain sensitive data, it's recommended to encrypt your configuration.  
+As it may contain sensitive data, it is recommended to encrypt your configuration.
 You can also only extract parameters that have no value for this environment:
 
 [source,shell]
 ----
-$ my-project> mvn bonita-project:extract-configuration -Dparameters.withoutValue
+mvn bonita-project:extract-configuration -Dparameters.withoutValue
 ----
 
 NOTE: If all parameters are valuated for this environment, no file will be created.
@@ -152,11 +152,11 @@ It is possible to override an existing file using the `-Dparameters.overwrite` s
 
 === Merge parameters configuration
 
-During the build of the application the `merge-configuration` goal is executed and the content of the `parameters-${bonita.environment}.yml` file is merge into the final Bonita configuration file.
+During the build of the application the `merge-configuration` goal is executed and the content of the `parameters-${bonita.environment}.yml` file is merged into the final Bonita configuration file.
 
 ==== Override parameters with the same name
 
-If you  have the same parameter name in more than one processes, and you want to override them in all processes, you can edit the `parameters-${bonita.environment}.yml` file as below:
+If you have the same parameter name in more than one processes, and you want to override them in all processes, you can edit the `parameters-${bonita.environment}.yml` file as below:
 
 [source,yaml]
 ----
@@ -223,10 +223,13 @@ You may want to complete or override some parameter values coming from your Livi
 [.troubleshooting-section]
 --
 [.symptom]
-I can't package my process on SCA mode.
+I cannot package my process on SCA mode.
 
 [.symptom-description]
-When I try to package my process, I get this error: An error occurred when adding resources: No UIDesigner form is defined on the 'Pool' instantiation form.
+When I try to package my process, I get this error:
+____
+An error occurred when adding resources: No UIDesigner form is defined on the 'Pool' instantiation form.
+____
 
 [.solution]#Possible solution#
 You need to map a form for each manual task and for instantiation form.
@@ -235,10 +238,10 @@ You need to map a form for each manual task and for instantiation form.
 [.troubleshooting-section]
 --
 [.symptom]
-I can't see the default living application when I package and deploy my project as application.
+I cannot see the default living application when I package and deploy my project as application.
 
 [.symptom-description]
-When I deploy my project, I can't access to Bonita User/Admin Application, from URL or from the application directory menu.
+When I deploy my project, I cannot access to Bonita User/Admin Application, from URL or from the application directory menu.
 
 [.solution]#Possible solution#
 You need to add manually the default living application in your project from the Marketplace. To do it, you can check more details in xref:runtime:user-application-overview.adoc[the dedicated section].
