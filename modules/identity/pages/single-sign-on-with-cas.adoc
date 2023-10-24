@@ -9,6 +9,11 @@
 For Subscription editions only.
 ====
 
+[NOTE]
+====
+The configuration steps detailed in this page include some modifications to the Tomcat configuration and common lib folder. This is not compliant with the Application deployment mode introduced with Bonita 2023.2. If you want your application container to work with a CAS SSO authentication, you will need to build the docker image of the application first and then configure the container (using a volume for example).
+====
+
 This information applies to a Bonita platform deployed from a bundle, not to the Engine launched from Bonita Studio.
 
 CAS configuration is at tenant level. Each tenant can use a different CAS service.
