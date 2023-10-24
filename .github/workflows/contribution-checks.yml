@@ -7,6 +7,8 @@ on:
 jobs:
   pr-content-check:
     runs-on: ubuntu-22.04
+    permissions:
+      pull-requests: write # post comments when the PR title doesn't match the "Guidelines"
     steps:
       - name: Check PR content
         uses: bonitasoft/actions/packages/pr-antora-content-guidelines-checker@v2
