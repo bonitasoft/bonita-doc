@@ -14,7 +14,19 @@
 
 == Maven build
 
-Since 2023.2, Bonita project leverage Maven as a build tool. It uses an https://bonitasoft.github.io/bonita-project-maven-plugin/[in-house Maven plugin] to build the Bonita specific artifacts like process diagrams, UID pages and so on.
+Since 2023.2, Bonita project leverage Maven as a build tool. It uses an https://bonitasoft.github.io/bonita-project-maven-plugin/[in-house Maven plugin] to build the Bonita specific artifacts, such as:
+
+* xref:data:define-and-deploy-the-bdm.adoc[BDM (Bonita Database Model)]
+* xref:identity:bdm-access-control.adoc[BDM Access Controls] (Subscription Edition only)
+* xref:identity:profiles-overview.adoc[Profiles] (Subscription Edition only)
+* xref:identity:organization-overview.adoc[Organizations]
+* xref:process:diagrams-index.adoc[Processes]
+* xref:runtime:applications.adoc[Living Applications]
+* xref:pages-and-forms:pages.adoc[Pages]
+* xref:applications:layout-development.adoc[Layouts]
+* xref:applications:themes.adoc[Themes]
+* xref:ROOT:api-extensions.adoc[REST API Extensions]
+* <<bconf, Bonita Configuration Files (_bconf_)>>
 
 To build a project, open a terminal *at the root* of your project and execute the following Maven commands:
 
@@ -106,8 +118,9 @@ This is the recommended way to include extensions like:
 NOTE: It is possible to use Servlet 3.0 annotations to define custom servlets and web filters. They will be registered dynamically at startup.
 
 == Process Parameters Configuration
+[#bconf]
 
-When at least one of the processes from a project contains a parameter, a Bonita configuration file (.bconf) is generated during the build. This archive stores the parameters values and is specific to a given environment.
+When at least one of the processes from a project contains a parameter, a Bonita Configuration File (_.bconf_) is generated during the build. This archive stores the parameters values and is specific to a given environment.
 
 === Extract parameters configuration
 
