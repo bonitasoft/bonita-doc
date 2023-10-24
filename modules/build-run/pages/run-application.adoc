@@ -12,23 +12,19 @@ Your application have been previously built for an environment (cf. xref:build-r
 
 Depending on the artifact produced by the build, follow the dedicated instructions on how to configure and run your Application:
 
-* xref:runtime:bonita-docker-installation.adoc[Configure and run your Application Docker image]
-* xref:runtime:tomcat-bundle.adoc[Configure and run your Application Tomcat bundle]
+* xref:runtime:bonita-docker-installation.adoc[Configure and run your Application as a Docker image]
+* xref:runtime:tomcat-bundle.adoc[Configure and run your Application as a Tomcat bundle]
 
-== Automatic installation
+The Bonita Runtime automatically installs and deploys all the artifacts of your Application at startup. A recap of what
+have been successfully installed is available in the logs of the Runtime. Also, if an error occurs during the process,
+in addition to log the reason, the Tomcat server stops and modifications are partially reverted.
 
-The Bonita Runtime automatically installs and deploys all the artifacts of your Application at startup. It concerns:
-
-* xref:runtime:applications.adoc[Living Application (Term need to be updated)]
-* xref:data:define-and-deploy-the-bdm.adoc[BDM (Bonita Database Model)]
-* xref:identity:bdm-access-control.adoc[Business data model access controls]
-* xref:identity:organization-overview.adoc[Organizations]
-* xref:applications:layout-development.adoc[Layout]
-* xref:pages-and-forms:pages.adoc[pages]
-* xref:process:diagrams-index.adoc[processes]
-* xref:identity:profiles-overview.adoc[profiles]
-* xref:ROOT:api-extensions.adoc[REST API extensions]
-* xref:applications:themes.adoc[themes]
+[NOTE]
+.Partial rollback explanations:
+BDM and Bonita Platform databases run on two independent instances. The BDM installation is made at the beginning of
+the installation process, the others artifacts are installed afterward. If an error occurs during the BDM installation,
+modifications are reverted and the installation process is aborted. However, if an error occurs during artifacts
+installation, modifications on the BDM are not reverted, only modifications on artifacts are.
 
 == How to update an Application
 
