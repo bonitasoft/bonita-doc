@@ -56,37 +56,48 @@ Following SemVer specification, if the new version is lower or equals than the c
 
 During the update of an application, the following artifacts are updated according to the following strategies:
 
-[cols="1,1"]
+[cols="1,2,2"]
 |===
-|Artifact| Update strategy
+|Artifact| Update strategy | Comment
 
 |Living application
 |Delete the application and recreate it
+|
 
 |BDM
 |Update the BDM, limited by what is supported (add column & add objects)
+|
 
 |Business data model access controls
 |Uninstalls the previous version and installs the new version
+|
 
 |Layout
 |Uninstalls the previous version and installs the new version
+|
 
 |Organization
 |Merge the organization and deactivate elements only presents in the previous organization
+|
 
 |Page
 |Uninstalls the previous version and installs the new version
+|
+
 
 |Process and Form
 |Deactivate previous version and activate new version (keep open case opening with previous version until they are finished)
+|If you want to keep the latest process version activated, you should duplicate the process from your project in Studio.
 
 |Profile
 |Stops importing if any profile already exists. Imports all if none already exists.
+|
 
 |REST API extension
 |Uninstalls the previous version and installs the new version
+|
 
 |Theme
 |Uninstalls the previous version and installs the new version
+|
 |===
