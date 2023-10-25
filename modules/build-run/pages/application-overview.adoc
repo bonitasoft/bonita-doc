@@ -5,6 +5,15 @@
 
 TODO
 
+[.card.card-index]
+--
+xref:build-run:build-application.adoc[[.card-title]#Build# [.card-body.card-content-overflow]#pass:q[Build Application]#]
+--
+
+[.card.card-index]
+--
+xref:build-run:run-application.adoc[[.card-title]#Run# [.card-body.card-content-overflow]#pass:q[Run Application]#]
+--
 
 [.card-section]
 == User flows

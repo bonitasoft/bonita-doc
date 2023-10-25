@@ -1,4 +1,4 @@
-* xref:build-run:application-overview.adoc[Application]
+* xref:build-run:application-overview.adoc[Build and run]
     ** xref:build-run:build-application.adoc[Build an Application]
     ** xref:build-run:run-application.adoc[Run an Application]
     ** Application user flow
