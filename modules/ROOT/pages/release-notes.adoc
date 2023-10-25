@@ -350,6 +350,6 @@ With Bonita 2023.1, we introduced the new concept of xref:2023.1@ROOT:release-no
 
 Those two properties are no longer required and are removed. Instead, we detect the usage of Admin/User Application pages and install them automatically.
 
-==== Setting a timezone for bonita container
+=== Setting a timezone for a Bonita container
 
 The timezone can be set via *TZ* environment variable. Check the https://data.iana.org/time-zones/tzdb/zone1970.tab[supported timezones].
