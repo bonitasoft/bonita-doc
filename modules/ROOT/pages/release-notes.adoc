@@ -304,6 +304,10 @@ With the new Self-Contained Application (abbr. SCA) approach, creating or updati
 A new `bonita.runtime.startup.update-only` configuration boolean property has been added to perform an update only startup.
 When enabled, the application will start, go through its initialization and update phase and exit afterward. Exit status can be successful (`0`) or in error (`1`).
 
+=== Properties source priority order
+
+A new `bonita.runtime.properties.order.legacy-mode` configuration boolean property has been added. When enabled, properties files from database have a higher priority order over environment and system variables. By default, this property is disabled and properties from the database can be overridden with environment or system variables.
+
 === Runtime property renaming
 
 In order to improve Bonita property naming coherence, a work is in progress to change some property names.
