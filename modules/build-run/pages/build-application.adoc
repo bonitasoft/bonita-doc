@@ -36,11 +36,16 @@ To build a project, open a terminal *at the root* of your project and execute th
 mvn clean package
 ----
 
-NOTE: When a project uses local dependencies (dependencies that have been imported as jar or zip file in the Studio), it is mandatory to first run the following command: `mvn bonita-project:install`.
+[NOTE]
+When a project uses local dependencies (dependencies that have been imported as jar or zip file in the Studio), it is mandatory to first run the following command: `mvn bonita-project:install`.
 
 The result of this command is an application archive located in the `app/target` folder of the project. The name of the archive follow this pattern: `${project.artifactId}-${project.version}-${bonita.environment}.zip`. It contains all the build artifacts of the project. An optional Bonita configuration file is also created if at least one process of your project contains a parameter.
 
-WARNING: This application archive is not an executable. It can be used with the xref:{bcdDocVersion}@bcd::deployer.adoc[la-deployer] using the deprecated _Platform mode_.
+[CAUTION]
+The project version must respect the https://semver.org[Semantic Versioning (SemVer)] specification. If not, the version will not be recognized at startup and the Bonita Runtime will not start.
+
+[WARNING]
+This application archive is not an executable. It can be used with the xref:{bcdDocVersion}@bcd::deployer.adoc[la-deployer] using the deprecated _Platform mode_.
 
 To produce an executable for an application, it is possible to either package it as:
 
@@ -115,7 +120,8 @@ This is the recommended way to include extensions like:
 * A custom servlet or web filter
 * A custom authentication provider dependency or xref:identity:enforce-password-policy.adoc[password policy]
 
-NOTE: It is possible to use Servlet 3.0 annotations to define custom servlets and web filters. They will be registered dynamically at startup.
+[NOTE]
+It is possible to use Servlet 3.0 annotations to define custom servlets and web filters. They will be registered dynamically at startup.
 
 == Process Parameters Configuration
 [#bconf]
@@ -159,7 +165,8 @@ You can also only extract parameters that have no value for this environment:
 mvn bonita-project:extract-configuration -Dparameters.withoutValue
 ----
 
-NOTE: If all parameters are valuated for this environment, no file will be created.
+[NOTE]
+If all parameters are valuated for this environment, no file will be created.
 
 It is possible to override an existing file using the `-Dparameters.overwrite` system property.
 
@@ -180,8 +187,8 @@ global_parameters:
     type: "String"
 ----
 
-NOTE: Important:
-A specific parameter setting has priority over a global parameter configuration.
+[NOTE]
+Important: a specific parameter setting has priority over a global parameter configuration.
 
 
 *Example*:
