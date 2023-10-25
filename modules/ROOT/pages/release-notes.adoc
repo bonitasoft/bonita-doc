@@ -27,11 +27,6 @@ At REST API level, when the maintenance mode is active, the BPM and BDM API (exc
 
 When starting a Bonita application, if an error occurs during the startup phase, the process will now exit with an error status code (`1`).
 
-==== Update only startup
-
-A new `bonita.runtime.startup.update-only` configuration boolean property has been added to perform an update only startup.  
-When enabled, the application will start, go through its initialization and update phase and exit afterward. Exit status can be successful (`0`) or in error (`1`).
-
 ==== Default log pattern with color highlighting in console output
 
 The default log configuration enables color highlighting in the console output.
@@ -304,12 +299,21 @@ With the new Self-Contained Application (abbr. SCA) approach, creating or updati
 
 == Configuration changes
 
+=== Update only startup
+
+A new `bonita.runtime.startup.update-only` configuration boolean property has been added to perform an update only startup.
+When enabled, the application will start, go through its initialization and update phase and exit afterward. Exit status can be successful (`0`) or in error (`1`).
+
 === Runtime property renaming
 
 In order to improve Bonita property naming coherence, a work is in progress to change some property names.
 In this release, the following properties have been renamed:
 
 * [.line-through]#`bonita.tenant.session.duration`# has been renamed to `bonita.runtime.session.duration`. If you happened to customize this property, please update it in file `bonita-tenant-community-custom.properties` (The old property is **still supported** but will be removed in a later version)
+* [.line-through]#`userName`# has been renamed to `bonita.runtime.admin.username`. If you happened to customize this property, please update it in file `bonita-tenant-community-custom.properties`
+* [.line-through]#`userPassword`# has been renamed to `bonita.runtime.admin.password`. If you happened to customize this property, please update it in file `bonita-tenant-community-custom.properties`
+* [.line-through]#`TENANT_LOGIN`# has been renamed to `BONITA_RUNTIME_ADMIN_USERNAME`. If you happened to set this property in your Docker configuration, please update it (The old property is **still supported** but will be removed in a later version)
+* [.line-through]#`TENANT_PASSWORD`# has been renamed to `BONITA_RUNTIME_ADMIN_PASSWORD`. If you happened to set this property in your Docker configuration, please update it (The old property is **still supported** but will be removed in a later version)
 
 === Removal of the property `install-provided-pages`
 
