@@ -1,3 +1,6 @@
-* xref:build-run:sca-user-flows.adoc[Build & Run]
-** xref:build-run:build-application.adoc[Build an Application]
-** xref:build-run:run-application.adoc[Run an Application]
+* xref:build-run:application-overview.adoc[Application]
+    ** xref:build-run:build-application.adoc[Build an Application]
+    ** xref:build-run:run-application.adoc[Run an Application]
+    ** Application user flow
+        *** xref:build-run:application-user-flow.adoc#new-project[From a new project]
+        *** xref:build-run:application-user-flow.adoc#update-project[Update a project]

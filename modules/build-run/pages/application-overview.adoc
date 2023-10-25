@@ -1,0 +1,21 @@
+= Application
+:description: Application packaging and deployment for a Bonita project
+
+== Overview
+
+TODO
+
+
+[.card-section]
+== User flows
+
+[.card.card-index]
+--
+xref:application-user-flow.adoc#new-project[[.card-title]#From new project# [.card-body.card-content-overflow]#pass:q[Create a project as application]#]
+--
+
+[.card.card-index]
+--
+xref:application-user-flow.adoc#update-project[[.card-title]#Update existing project# [.card-body.card-content-overflow]#pass:q[Update a project as application]#]
+--
+
