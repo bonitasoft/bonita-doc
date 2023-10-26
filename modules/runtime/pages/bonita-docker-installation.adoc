@@ -184,8 +184,8 @@ services:
       - BIZ_DB_NAME=business_data
       - BIZ_DB_USER=business_data
       - BIZ_DB_PASS=bpm
-      - TENANT_LOGIN=tech_user
-      - TENANT_PASSWORD=secret
+      - BONITA_RUNTIME_ADMIN_USERNAME=tech_user
+      - BONITA_RUNTIME_ADMIN_PASSWORD=secret
       - PLATFORM_LOGIN=pfadmin
       - PLATFORM_PASSWORD=pfsecret
       - MONITORING_USERNAME=monitorAdmin
@@ -244,7 +244,7 @@ docker run --name=bonita -h <hostname> --env-file=env.txt -d -p 8080:8080 {bonit
 
 [source,shell script,subs="+macros,+attributes"]
 ----
-docker run --name=bonita -v ~/bonita-lic:/opt/bonita_lic/ -h <hostname> -e "TENANT_LOGIN=tech_user" -e "TENANT_PASSWORD=secret" -e "PLATFORM_LOGIN=pfadmin" -e "PLATFORM_PASSWORD=pfsecret" -e "MONITORING_USERNAME=monitorAdmin" -e "MONITORING_PASSWORD=monitor_Secr3t-P455w0rD" -d -p 8080:8080 {bonitasoft-docker-repository}/bonita-subscription:pass:a[{bonitaVersion}]
+docker run --name=bonita -v ~/bonita-lic:/opt/bonita_lic/ -h <hostname> -e "BONITA_RUNTIME_ADMIN_USERNAME=tech_user" -e "BONITA_RUNTIME_ADMIN_PASSWORD=secret" -e "PLATFORM_LOGIN=pfadmin" -e "PLATFORM_PASSWORD=pfsecret" -e "MONITORING_USERNAME=monitorAdmin" -e "MONITORING_PASSWORD=monitor_Secr3t-P455w0rD" -d -p 8080:8080 {bonitasoft-docker-repository}/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 
 Now you can access the Bonita Runtime on localhost:8080/bonita and login using: tech_user / secret
@@ -272,13 +272,13 @@ This environment variable is recommended for you to use the Bonita image. It set
 
 This optional environment variable is used in conjunction with PLATFORM_PASSWORD to define the username for the platform administrator. If it is not specified, the default username `platformAdmin` will be used.
 
-=== TENANT_PASSWORD
+=== BONITA_RUNTIME_ADMIN_USERNAME
 
-This environment variable is recommended for you to use the Bonita image. It sets the tenant administrator password for Bonita. If it is not specified, the default password `install` will be used.
+This optional environment variable is used in conjunction with BONITA_RUNTIME_ADMIN_USERNAME to define the username for the technical user. If it is not specified, the default username `install` will be used.
 
-=== TENANT_LOGIN
+=== BONITA_RUNTIME_ADMIN_PASSWORD
 
-This optional environment variable is used in conjunction with TENANT_PASSWORD to define the username for the tenant administrator. If it is not specified, the default username `install` will be used.
+This environment variable is recommended for you to use the Bonita image. It sets the technical user password for Bonita. If it is not specified, the default password `install` will be used.
 
 [#monitoring-username]
 === MONITORING_USERNAME
@@ -292,7 +292,7 @@ This optional environment variable is used in conjunction with `MONITORING_USERN
 
 === REST_API_DYN_AUTH_CHECKS
 
-Removed & does not work anymore, now you can use xref:#dynamic-check-enable[BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED] instead.
+Removed & does not work anymore, now you can use <<dynamic-check-enable,BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED>> instead.
 
 [#dynamic-check-enable]
 
@@ -389,7 +389,7 @@ These variables are used in conjunction to create a new user, set that user's pa
 
 === BONITA_SERVER_LOGGING_FILE, BONITA_SETUP_LOGGING_FILE
 
-WARNING: DEPRECATED See xref:#logger_configuration[how to configure logger]
+WARNING: DEPRECATED See <<logger_configuration,how to configure logger>>
 
 Since Bonita 7.9 BONITA_SERVER_LOGGING_FILE and BONITA_SETUP_LOGGING_FILE can be used to update logging configuration.
 
