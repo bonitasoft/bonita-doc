@@ -10,9 +10,10 @@ Build, package, run, update. SCA is the new differentiating deployment mode of B
 [NOTE]
 
 ====
-For the 2023.2 Bonita version, we will keep the platform mode in parallel with the SCA mode which is Bonitasoft's recommendation in order to correspond to market standards from an application development point of view.
+In 2023.2 version, we will keep the platform mode in parallel with the SCA mode which is Bonitasoft's recommendation in order to correspond to market standards from an application development point of view.
 It is simply deprecated because we want to highlight the new SCA mode.
 Platform mode allows you to generate an application which will then be launched on an existing Bonita runtime, while SCA mode allows you to build an application which integrates a runtime and can therefore be directly launched.
+Our dedicated team will be here to guide you through this new updated mode, answer your questions, and provide the assistance you need.
 
 ====
 
