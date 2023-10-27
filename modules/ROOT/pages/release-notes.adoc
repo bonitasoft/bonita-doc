@@ -2,15 +2,16 @@
 :description: Bonita {bonitaVersion} release note
 
 
-== Bonita {bonitaVersion} release note
+== Bonita {bonitaVersion} release note at a glance
 
 === Self Contained Application (SCA)
-Build, package, deploy, update. SCA is the new differentiating deployment mode of Bonitasoft is ready to go live and in production. By embracing the latest containerization approach, users will experience faster deployment times, allowing your IT team to respond rapidly to business needs.
+Build, package, run, update. SCA is the new differentiating deployment mode of Bonitasoft is ready to go live and in production. By embracing the latest containerization approach, users will experience faster deployment times, allowing your IT team to respond rapidly to business needs.
 
 [NOTE]
 
 ====
-For the immediate future, we will keep the platform mode in parallel with the SCA mode, it is simply deprecated because we want to highlight the new SCA mode.
+For the 2023.2 Bonita version, we will keep the platform mode in parallel with the SCA mode which is Bonitasoft's recommendation in order to correspond to market standards from an application development point of view.
+It is simply deprecated because we want to highlight the new SCA mode.
 Platform mode allows you to generate an application which will then be launched on an existing Bonita runtime, while SCA mode allows you to build an application which integrates a runtime and can therefore be directly launched.
 
 ====
