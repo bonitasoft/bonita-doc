@@ -1,5 +1,6 @@
 == Glossary
 
+:description: list of important keywords used in the documentation to better understand the main Bonita concepts
 
 === A
 *Application*: Application is a set of artifacts (processes, pages, BDM...) based on Bonita Platform. It can cover one or more use cases.
