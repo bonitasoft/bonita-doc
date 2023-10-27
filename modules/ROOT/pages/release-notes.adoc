@@ -304,14 +304,20 @@ With the new Self-Contained Application (abbr. SCA) approach, creating or updati
 A new `bonita.runtime.startup.update-only` configuration boolean property has been added to perform an update only startup.
 When enabled, the application will start, go through its initialization and update phase and exit afterward. Exit status can be successful (`0`) or in error (`1`).
 
+=== Properties source priority order
+
+Prior Bonita 2023.2, properties files from database had priority over environment or system variables. We decide to reverse this order so that you can easily override database properties with environment or system variables, and to be in line with the https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config[Spring / Spring Boot philosophy].
+
+To be backward compatible, we introduce the boolean property `bonita.runtime.properties.order.legacy-mode` (default: `false`) to enable the previous priority order of properties source.
+
 === Runtime property renaming
 
 In order to improve Bonita property naming coherence, a work is in progress to change some property names.
 In this release, the following properties have been renamed:
 
 * [.line-through]#`bonita.tenant.session.duration`# has been renamed to `bonita.runtime.session.duration`. If you happened to customize this property, please update it in file `bonita-tenant-community-custom.properties` (The old property is **still supported** but will be removed in a later version)
-* [.line-through]#`userName`# has been renamed to `bonita.runtime.admin.username`. If you happened to customize this property, please update it in file `bonita-tenant-community-custom.properties`
-* [.line-through]#`userPassword`# has been renamed to `bonita.runtime.admin.password`. If you happened to customize this property, please update it in file `bonita-tenant-community-custom.properties`
+* [.line-through]#`userName`# has been renamed to `bonita.runtime.admin.username`. The property renaming is handled by the xref:version-update:update-with-update-tool.adoc[Update Tool, target="_blank"].
+* [.line-through]#`userPassword`# has been renamed to `bonita.runtime.admin.password`. The property renaming is handled by the xref:version-update:update-with-update-tool.adoc[Update Tool, target="_blank"].
 * [.line-through]#`TENANT_LOGIN`# has been renamed to `BONITA_RUNTIME_ADMIN_USERNAME`. If you happened to set this property in your Docker configuration, please update it (The old property is **still supported** but will be removed in a later version)
 * [.line-through]#`TENANT_PASSWORD`# has been renamed to `BONITA_RUNTIME_ADMIN_PASSWORD`. If you happened to set this property in your Docker configuration, please update it (The old property is **still supported** but will be removed in a later version)
 
