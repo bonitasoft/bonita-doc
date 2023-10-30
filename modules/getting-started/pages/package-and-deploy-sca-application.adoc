@@ -36,7 +36,7 @@ Run you docker application with command `docker run --name GettingStarted -d -p 
 
 [NOTE]
 ====
-You can adapt the command to your needs. For example, you can add a volume to add a license folder, add this option: `-v ~/lic/:/opt/bonita_lic/`.
+You can adapt the command to your needs. For example, to add a volume for a license folder, use this option: `-v ~/lic/:/opt/bonita_lic/`.
 
 More details about xref:runtime:bonita-docker-installation.adoc[Bonita image options]
 ====
