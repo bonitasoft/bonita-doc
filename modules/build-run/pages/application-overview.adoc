@@ -12,8 +12,9 @@ Here is the schema about how to build and package your project:
 image:build_phase.png[Build phases]
 
 [.card-section]
-[.card.card-index]
+== Application phase
 
+[.card.card-index]
 --
 xref:build-run:build-application.adoc[[.card-title]#Build# [.card-body.card-content-overflow]#pass:q[Build Application]#]
 --
