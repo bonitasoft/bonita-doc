@@ -5,7 +5,7 @@
 With the 2023.2 version we introduce a new way for building your project.
 Before without BCD you cannot directly build your project.
 Now we have made the Bonita Project a standard Maven project.
-So you can directly build your application/project into your Continuous Integration environment and have a docker image or a Tomcat bundle as output.
+So you can directly build your application into your Continuous Integration environment and have a docker image or a Tomcat bundle as output.
 
 Here is the schema about how to build and package your project:
 
