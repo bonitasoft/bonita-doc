@@ -3,7 +3,7 @@
 
 In this following sections, you will learn how to package and deploy your application as a local docker container.
 
-Be careful to following the xref:build-run:build-application.adoc#prerequisites[prerequisites] before starting this tutorial.
+Make sure to check the xref:build-run:build-application.adoc#prerequisites[prerequisites] before starting this tutorial.
 
 == Application build
 
