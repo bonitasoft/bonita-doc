@@ -28,7 +28,7 @@ To package your application as a docker image, you need to run this commands at 
 
 The docker image is created, you can find it with `docker images` command (the image name is: `getting-started-tutorial-local`).
 
-For more information about packaging as application, you can check xref:build-run:build-application.adoc[Application build section].
+For more information about packaging as application, please read xref:build-run:build-application.adoc[Application build section].
 
 == Deploy your application
 
