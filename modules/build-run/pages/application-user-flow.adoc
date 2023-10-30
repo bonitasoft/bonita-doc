@@ -1,4 +1,4 @@
-= Creating a new project as Application
+= Create a new project as Application
 :description: User flows possible in Application mode
 
 == Prerequisites
