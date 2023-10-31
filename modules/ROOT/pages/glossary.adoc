@@ -76,24 +76,7 @@ Pages::
     Web pages used within your applications.
 
 Project::
-    A Bonita Project is a directory within a Studio workspace. It contains the source of all the artifacts that make up a project, such as:
-    * Diagrams of processes
-    ** Parameters
-    ** Configuration
-    ** Document
-    * Business Data Model
-    * BDM Access Controls
-    * Application descriptors
-    * UI Designer elements
-    ** Pages
-    ** Forms
-    ** Widgets
-    ** Layouts
-    ** Fragments
-    * Organization
-    * Profiles
-    * Themes
-    * Extensions
+    A Bonita Project is a directory within a Studio workspace. It contains the source code of artifacts that make up a project (e.g. Processes, BDM, Living Applications...).
 
 == R
 
