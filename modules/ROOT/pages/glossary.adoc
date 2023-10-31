@@ -3,6 +3,9 @@
 
 :description: List of important keywords used in the documentation to better understand the main Bonita concepts.
 
+[caption="Work in Progress"]
+CAUTION: This glossary is a work in progress. It does not include all the terms in Bonita documentation.
+
 == A
 
 Actor filter::
