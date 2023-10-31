@@ -1,5 +1,5 @@
 = Create a new project as Application
-:description: User flows possible in Application mode
+:description: User flows possible with Self Contained Application
 
 == Prerequisites
 
