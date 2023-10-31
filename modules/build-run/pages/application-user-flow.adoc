@@ -3,7 +3,7 @@
 
 == Prerequisites
 
-You have following the xref:build-run:build-application.adoc#prerequisites[prerequisites]
+Please check the xref:build-run:build-application.adoc#prerequisites[prerequisites]
 
 == Create a new project
 [#new-project]

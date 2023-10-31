@@ -13,7 +13,7 @@ The xref:runtime:user-application-overview.adoc[user application], xref:runtime:
 
 You have to add them manually if you want to deploy them. To do it:
 
-* From Studio, Open Marketplace and filter by application type
+* From the Studio, go to the Overview tab, Extensions, Open Marketplace and filter by application type
 * Add the desired default applications to your project
 * In the pom.xml file, you will see the new dependencies added for the application
 

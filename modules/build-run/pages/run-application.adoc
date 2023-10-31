@@ -71,7 +71,7 @@ During the update of an application, the following artifacts are updated accordi
 |#3
 |Profiles
 |In case of conflict on the name, the profile is not imported and the existing profile is kept unmodified. Otherwise, all others are imported.
-|Enterprise Edition only
+|Subscription editions only
 
 |#4
 |REST API Extensions
@@ -111,7 +111,7 @@ During the update of an application, the following artifacts are updated accordi
 |#11
 |BDM Access Controls
 |Uninstall the previous versions and install the new ones.
-|Enterprise Edition only
+|Subscription editions only
 |===
 
 === Delete strategies

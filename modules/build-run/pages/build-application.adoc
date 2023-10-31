@@ -10,7 +10,7 @@
 * https://www.docker.com/[Docker] (if target packaging is a Docker image)
 * Internet with full access to:
 ** Maven Central repository
-** xref:software-extensibility:bonita-repository-access.adoc#maven-settings[Bonita Artifact Repository] (for building projects using Enterprise edition)
+** xref:software-extensibility:bonita-repository-access.adoc[Bonita Artifact Repository] (for building projects using Subscription editions)
 
 == Maven build
 
@@ -80,7 +80,7 @@ The output application binary is a Docker image. The name of the image will foll
 
 [NOTE]
 --
-When building an Enterprise Edition project, make sure to be xref:software-extensibility:bonita-repository-access.adoc#docker-configuration[logged in the `bonitasoft.jfrog.io` registry] first.
+When building a project with Subscription editions, make sure to be xref:software-extensibility:bonita-repository-access.adoc#docker-configuration[logged in the `bonitasoft.jfrog.io` registry] first.
 --
 
 === Build options
@@ -96,14 +96,14 @@ When using a Windows terminal, a space must be added between the `-D` flag and t
 ==== Filtering artifacts to include/exclude
 
 * `-Dinclude.organizations`: `*.xml` by default. Glob pattern expression to select organization file to include in the application binary. Only one or no organization file should be included.
-* `-Dinclude.profiles`: `*.xml` by default. Glob pattern expression to select profiles files to include in the application binary.footnote:[Enterprise only.]
+* `-Dinclude.profiles`: `*.xml` by default. Glob pattern expression to select profiles files to include in the application binary.footnote:[Subscription editions only.]
 * `-Dinclude.applications`: `*.xml` by default. Glob pattern expression to select application descriptor files to include in the application binary.
 * `-Dinclude.processes`: `*.bar` by default. Glob pattern expression to select business archive files to include in the application binary.
 * `-Dinclude.pages`: `*.zip` by default. Glob pattern expression to UI Designer pages files to include in the application binary.
 
 ==== Docker build options
 
-* `-Ddocker.baseImageRepository`: `bonita` by default. When creating a project with the Enterprise Edition, this property is replaced by `bonitasoft.jfrog.io/docker/bonita-subscription`.
+* `-Ddocker.baseImageRepository`: `bonita` by default. When creating a project with Subscription editions, this property is replaced by `bonitasoft.jfrog.io/docker/bonita-subscription`.
 * `-Ddocker.baseImageVersion`: `${bonita.runtime.version}` by default.
 * `-Ddocker.baseImage`: `${docker.baseImageRepository}:${docker.baseImageVersion}` by default. The base image used as parent.
 * `-Ddocker.imageRepository`: `${project.artifactId:lowercase}-${bonita.environment:lowercase}` by default.
