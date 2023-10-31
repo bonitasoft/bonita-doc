@@ -61,7 +61,7 @@ During the update of an application, the following artifacts are updated accordi
 |#1
 |BDM
 |Update the BDM, limited by what is supported (add column & add objects). The Bonita Platform is paused during the process. If the BDM is the same as the one already deployed, the update is ignored as well as the pause.
-|For the Enterprise Edition, BDM Access Controls are uninstall, if present, before updating the BDM.
+|For Subscription editions, BDM Access Controls are uninstall, if present, before updating the BDM.
 
 |#2
 |Organization
