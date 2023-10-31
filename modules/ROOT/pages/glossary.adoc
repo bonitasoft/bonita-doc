@@ -1,35 +1,113 @@
-== Glossary
+[glossary]
+= Glossary
 
-:description: list of important keywords used in the documentation to better understand the main Bonita concepts
+:description: List of important keywords used in the documentation to better understand the main Bonita concepts.
 
-=== A
-*Application*: Application is a set of artifacts (processes, pages, BDM...) based on Bonita Platform. It can cover one or more use cases.
+== A
+
+Actor filter::
+    Filters users that can access a human task in a process.
+
+Application descriptor::
+    Defines the Living Application: group of pages with a specific theme for a given user profile.
 
 == B
-*Bonita Engine*: Bonita Engine is at the core, responsible of process execution
 
-*Bonita Platform*: Bonita Platform is composed of two components : Bonita Studio and Bonita Runtime.
-Its purpose is to create, build and run projects.
+BDM Access Control::
+    Defines rules to protect the access to the Business Data Model (BDM) through REST API calls via a white list mechanism.
 
-*Bonita Runtime*:
-Bonita Runtime is dedicated to operate automation projects.
-Bonita Runtime is composed of one or more nodes. A Bonita Runtime composed of multiple nodes constitutes a cluster to ensure High Availability and or High Performance, See Messaging - Bonita Runtime scalability for all the details.
+Business Data Model::
+    Business Data Model (sometimes abbreviated _BDM_) is the structure of the business data used by your processes.
 
-*Bonita Studio*
-Studio contains all the elements needed to develop and build an automation project.  Bonita Studio is a desktop application based on Eclipse IDE.
+Bonita Engine::
+    Bonita Engine is at the core, responsible for process execution.
 
-*Bonita UI Designer*:
+Bonita Platform::
+    Bonita Platform is composed of two components : Bonita Studio and Bonita Runtime. Its purpose is to create, build and run projects.
 
-*Build*:
+Bonita Runtime::
+    Bonita Runtime is dedicated to operate automation projects. It is composed of one or more nodes. A Bonita Runtime composed of multiple nodes constitutes a cluster to ensure High Availability and High Performance.
 
-=== P
-*Project*:
+Bonita Studio::
+    Bonita Studio contains all the elements needed to develop and build a project. It is a desktop application based on Eclipse IDE.
 
-*Project elements*:
+Bonita UI Designer::
+    Bonita UI Designer (sometimes abbreviated _UID_) is a development environment used for creating pages and forms that make up a Living Application. It is a web-based tool that is launched from Bonita Studio.
+
+== C
+
+Connector::
+    Automates external services interaction from within processes.
+
+== D
+
+Diagram::
+    BPMN diagram that describes your business processes.
+
+== E
+
+Extensions::
+    Extensions are custom components used to add elements to those provided while others are used to enforce the Bonita platform possibilities. An extension can be an Actor filter, a Connector, a REST API Extension or a Theme. Extensions can be developed outside the Studio with your favorite IDE.
+
+== F
+
+Form::
+    Web interfaces to interact with processes (to instantiate a process and for human tasks).
+
+== L
+
+Layout::
+    Used to define the main frame of a Living Application.
+
+Living Application::
+    A Living Application is a navigation of pages that can be accessed by a Profile. It is created and operated within Bonita Platform.
+
+== O
+
+Organization::
+    The definition of the user base that will use the processes (includes users, roles and groups).
+
+== P
+
+Pages::
+    Web pages used within your applications.
+
+Project::
+    A Bonita Project is a directory within a Studio workspace. It contains the source of all the artifacts that make up a project, such as:
+    * Diagrams of processes
+    ** Parameters
+    ** Configuration
+    ** Document
+    * Business Data Model
+    * BDM Access Controls
+    * Application descriptors
+    * UI Designer elements
+    ** Pages
+    ** Forms
+    ** Widgets
+    ** Layouts
+    ** Fragments
+    * Organization
+    * Profiles
+    * Themes
+    * Extensions
 
 == R
-*Run*:
+
+REST API Extension::
+    To interact with third party system outside processes, to make advanced BDM queries or API calls (read only).
 
 == S
-*Storage & persistence*
-Bonita Runtime requires a storage to operate. The storage is composed of two databases: one for core services and one dedicated to Business Data.
+
+Storage & persistence::
+    Bonita Runtime requires a storage to operate. The storage is composed of two databases: one for core services and one dedicated to Business Data.
+
+== T
+
+Theme::
+    Defines the look and feel of your application.
+
+== W
+
+Workspace::
+    A workspace is a directory where Bonita Studio stores files such as Studio configuration settings (shared by all projects in the workspace) and projects folders.
