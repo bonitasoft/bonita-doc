@@ -55,7 +55,7 @@ This example show how to configure SSL with APR and OpenSSL for a Bonita using T
 </Connector>
 ----
 +
-. Install the Tomcat native library, which contains APR: `sudo apt-get install libtcnative-1`
+. Install the Tomcat native library, which contains APR: `sudo apt install libtcnative-1`
 . Edit `BUNDLE_HOME/webapps/bonita/WEB-INF/web.xml` and add the following security definition:
 +
 [source,xml]
