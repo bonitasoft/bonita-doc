@@ -9,13 +9,13 @@ For Subscription editions only.
 
 This page explains how to migrate a *SVN* repository and its history to a *Git* repository on https://github.com/[GitHub].
 
-== Prerequistes
+== Prerequisites
 
 * Ubuntu
-* awk : `sudo apt-get install awk`
-* subversion: `sudo apt-get install subversion`
-* git: `sudo apt-get install git` (tested with git 2.17.1)
-* https://git-scm.com/docs/git-svn[git-svn]: `sudo apt-get install git-svn`
+* awk : `sudo apt install awk`
+* subversion: `sudo apt install subversion`
+* git: `sudo apt install git` (tested with git 2.17.1)
+* https://git-scm.com/docs/git-svn[git-svn]: `sudo apt install git-svn`
 
 == Migration steps
 
