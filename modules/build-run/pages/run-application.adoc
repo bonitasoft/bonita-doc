@@ -1,0 +1,120 @@
+= Run an Application
+:description: This page describes how to run and update an Application.
+
+{description}
+
+== Prerequisites
+
+Your application have been previously built for an environment (cf. xref:build-run:build-application.adoc[]) and packaged as a Docker image and/or a Tomcat bundle.
+
+== How to run an Application
+[#run]
+
+Depending on the artifact produced by the build, follow the dedicated instructions on how to configure and run your Application:
+
+* xref:runtime:bonita-docker-installation.adoc[Configure and run your Application as a Docker image]
+* xref:runtime:tomcat-bundle.adoc[Configure and run your Application as a Tomcat bundle]
+
+The Bonita Runtime automatically installs and deploys all the artifacts of your Application at startup. A recap of what
+have been successfully installed is available in the logs of the Runtime. Also, if an error occurs during the process,
+in addition to log the reason, the Tomcat server stops and modifications are partially reverted.
+
+[NOTE]
+.Partial rollback explanations:
+BDM and Bonita Platform databases run on two independent instances. The BDM installation is made at the beginning of
+the installation process, the others artifacts are installed afterward. If an error occurs during the BDM installation,
+modifications are reverted and the installation process is aborted. However, if an error occurs during artifacts
+installation, modifications on the BDM are not reverted, only modifications on artifacts are.
+
+== How to update an Application
+[#update]
+
+=== Increment project version
+
+1. Open your project with Bonita Studio.
+2. Edit project information (right-click on the root folder of the project explorer and click on `Edit project information...`).
+3. Increment the version.
+
+[CAUTION]
+The project version must respect the https://semver.org[Semantic Versioning (SemVer)] specification.
+
+=== Build the project
+
+Build the new version of your Application for a given environment. Please refer to the dedicated documentation on xref:build-run:build-application.adoc[how to build a project].
+
+=== Run the Application
+
+As mentioned above, follow the same instructions on <<run, how to run an Application>>.
+
+[NOTE]
+Following SemVer specification, if the new version is lower or equals than the current version, the Application will not be updated.
+Only process parameters stored in the Bonita Configuration File will be updated.
+
+=== Update strategies
+
+During the update of an application, the following artifacts are updated according to the following strategies:
+
+[cols="1,2,3,3"]
+|===
+|Sequence order |Artifact |Update strategy |Comment
+
+|#1
+|BDM
+|Update the BDM, limited by what is supported (add column & add objects). The Bonita Platform is paused during the process. If the BDM is the same as the one already deployed, the update is ignored as well as the pause.
+|For Subscription editions, BDM Access Controls are uninstall, if present, before updating the BDM.
+
+|#2
+|Organization
+|Merge the organization and deactivate elements that are only present in the previous organization.
+|
+
+|#3
+|Profiles
+|In case of conflict on the name, the profile is not imported and the existing profile is kept unmodified. Otherwise, all others are imported.
+|Subscription editions only
+
+|#4
+|REST API Extensions
+|Update the content of existing REST API Extensions and create the new ones.
+|
+
+|#5
+|Pages
+|Update the content of existing Pages and create the new ones.
+|
+
+|#6
+|Layouts
+|Update the content of existing Layouts and create the new ones.
+|
+
+|#7
+|Themes
+|Update the content of existing Themes and create the new ones.
+|
+
+|#8
+|Living Applications
+|Uninstall the previous versions and install the new ones.
+|
+
+|#9
+|Processes
+|Deactivate the previous versions and activate the new ones (keep open cases with previous versions until they are finished).
+|If you want to keep the latest version of a process activated, you should duplicate the process from your project in the Bonita Studio.
+
+|#10
+|Bonita Configuration File
+|Update existing process parameters and create the new ones. Unknown parameters are ignored.
+|A Bonita Configuration File is always imported even after a reboot of the Bonita Platform (i.e. the "new" version of the Application is the same as the current version already installed).
+
+|#11
+|BDM Access Controls
+|Uninstall the previous versions and install the new ones.
+|Subscription editions only
+|===
+
+=== Delete strategies
+[#delete]
+
+Artifacts installed in a previous version of the Application that are not present in the new version, are not deleted during the update process. Those artifacts should be unused and should be manually deleted from the Bonita Portal or with the Bonita REST API.

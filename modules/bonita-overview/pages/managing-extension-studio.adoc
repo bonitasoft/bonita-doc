@@ -1,9 +1,9 @@
 = Managing Extensions in the Studio
 
-:description: The Bonita platform is highly extensible so we created a dedicated view to manage the extensions of your project
+:description: The Bonita platform is highly extensible, so we created a dedicated view to manage the extensions of your project
 :page-aliases: ROOT:managing-extension-studio.adoc
 
-The Bonita platform is highly extensible so we created a dedicated view to manage the extensions of your project
+{description}
 
 == Opening the extensions view
 The extensions view is opened from either the project overview or from the coolbar _New -> extension_.
@@ -15,6 +15,7 @@ From the extension view you can add the following extension to your project:
 * Actor Filters
 * REST API Extensions
 * Themes
+* Bonita provided applications
 * Any Java library required for your project
 
 Such extensions can be added through different channels described in the below chapters.
@@ -28,7 +29,7 @@ If the extensions you are looking for are available in public or private Maven r
 You might need to xref:setup-dev-environment:configure-maven.adoc[configure your Maven settings] to access such repositories. By default, only the Maven central repository is accessible.
 
 === From a local file
-For extensions that aren't published in a Maven repository, you can add them from a local file on your computer. Imported extensions are added in the project internal store, an hidden folder in a Bonita project. The internal store is exported with the project (in the .bos archive), and is added to the Git repository of the project.
+For extensions that aren't published in a Maven repository, you can add them from a local file on your computer. Imported extensions are added in the project internal store, a hidden folder in a Bonita project. The internal store is exported with the project (in the .bos archive), and is added to the Git repository of the project.
 
 [CAUTION]
 ====
@@ -44,7 +45,7 @@ Removing an element might lead to errors if the element is used in the project. 
 ====
 
 == Updating an extension
-Extensions coming from the Bonita Market place can automatically be updated to their latest version. All you need to do is click on "Update to latest version". This button is displayed only if an update is available.
+Extensions coming from the Bonita Marketplace can automatically be updated to their latest version. All you need to do is click on "Update to latest version". This button is displayed only if an update is available.
 
 Other extensions can be updated manually with the "Update" button. This button is always displayed and can also be used to downgrade an extension. Depending on the change, you may have to manually update your project consequently.
 

@@ -7,7 +7,16 @@
 Bonita Reporting app will enable you to view statistics and to extract process execution reports with meaningful data from Bonita, for process performance analysis and for pinpointing areas of improvement.
 
 
-In keeping with Bonitasoft’s promise to continuously deliver valuable, high quality features, we had to relinquish the Analytics and Reports page starting from Bonita 2021.2.
+In keeping with Bonitasoft’s promise to continuously deliver valuable, high quality features, we had to relinquish the Analytics and Reports page.
+
+This living application is not installed **by default** in the Bonita tomcat bundle and in Bonita docker image in application.footnote:reportingApplication[In the deprecated platform mode, this living application still be embedded by default.]
+
+You need to install it manually in your project. To do it:
+
+* Go on your project and show Extension view
+* Open Marketplace and filter by application
+* You can now install the Bonita Reporting Application
+* When you will package the project as application, you will have the Reporting Application deployed in the Bonita runtime
 
 [NOTE]
 ====

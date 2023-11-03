@@ -9,6 +9,11 @@
 For Subscription editions only.
 ====
 
+[NOTE]
+====
+The configuration steps detailed in this page include some modifications to the Tomcat configuration. This is not compliant with the Application deployment mode introduced with Bonita 2023.2. If you want your application container to work with an Active Directory/LDAP authentication, you will need to build the docker image of the application first and then configure the container (using a volume for example).
+====
+
 *Important notes:*
 
 * This documentation applies to an existing and working Bonita installation (see the xref:runtime:runtime-installation-index.adoc[installation instructions]).

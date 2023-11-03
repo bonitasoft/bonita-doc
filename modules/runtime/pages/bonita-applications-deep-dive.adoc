@@ -31,11 +31,17 @@ This is why Bonita comes with four embedded applications, with different status:
 * Core applications. They are critical to the good operation of Bonita in a Production environment. They can be customized but they cannot be deleted:
   ** Application Directory
   ** Super Administrator
-* Generic applications. They are fully functional, can be customized and can be deleted if not useful in a Production environment:
-  ** Administrator
-  ** User
-* Bonita applications. They are developped by Bonitasoft and delivered as independent applications. You can download them from the Customer Portal/Customer Service Center and can be installed by folowing the same process as xref:applications.adoc[custom applications]: 
-  ** Reporting App
+* Generic applications. They are fully functional, can be added from the Marketplace or imported for customization in your Bonita project. It is also possible to deleted them if not useful for your application:
+    ** Administrator
+    ** User
+* Bonita applications. They are developed by Bonitasoft and delivered as independent applications. You can add them from the Marketplace to include then in your application:
+    ** Reporting App
+
+User and Administrator applications are not embedded by default in applications.footnote:liveupdate[When using the deprecated platform mode, these living applications are embedded by default.]
+You need to add them manually through the Marketplace.
+
+
+
 
 [.card.card-index]
 --

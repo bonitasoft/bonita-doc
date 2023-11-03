@@ -1,0 +1,6 @@
+* xref:build-run:application-overview.adoc[Build and run]
+    ** xref:build-run:build-application.adoc[Build an Application]
+    ** xref:build-run:run-application.adoc[Run an Application]
+    ** Application user flow
+        *** xref:build-run:application-user-flow.adoc#new-project[Create a new project]
+        *** xref:build-run:application-user-flow.adoc#update-project[Update a project]

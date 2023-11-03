@@ -4,6 +4,17 @@
 
 {description}
 
+== Application
+
+This living application is not installed by default in the Bonita tomcat bundle and in Bonita docker image in application.footnote:userApplication[In the deprecated platform mode, this living application is still embedded by default.]
+
+You need to install it manually in your project. To do it:
+
+* Go on your project and show Extension view
+* Open Marketplace and filter by application
+* You can now install the Bonita User Application
+* When you will package the project as application, you will have the user application deployed in the Bonita runtime
+
 == Value
 
 Bonita User Application allows anyone with the _User_ profile to start process instances, follow up open cases, and execute tasks through filling out and submitting forms. +

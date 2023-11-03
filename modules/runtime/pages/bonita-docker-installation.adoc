@@ -124,6 +124,15 @@ docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ -it -p 
 Then run `/opt/files/startup.sh` inside the container to start Tomcat. In order to stop Tomcat inside the container, press `Ctrl-C`. +
 Repeat this sequence to manually start and stop Tomcat in the container.
 
+
+=== Custom Permissions
+
+If your project contains some restApiExtensions need custom-permissions, you can create a volume and map this volume to a local folder with the custom-mapping-permission file to use in Bonita docker image. To do that:
+[source,shell]
+----
+docker run --name bonita [...] -v ~/local-folder-path/:/opt/bonita/setup/platform_conf/initial/tenant_template_portal/ [...]
+----
+
 === Link Bonita to a database
 
 The H2 database allows the Bonita container to work out of the box, but it is not recommended outside a development environment.
