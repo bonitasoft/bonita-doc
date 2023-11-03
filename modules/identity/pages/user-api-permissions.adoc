@@ -95,10 +95,6 @@ This profile is linked to the Bonita User Application by default. More informati
 ** portal/bonitaPage
 ** portal/page
 ** portal/profileMember
-** userXP/profile
-** userXP/profileEntry
-** userXP/profileMember
-** userXP/bonitaPage
 ** system/session
 ** system/log
 ** system/tenant

@@ -115,9 +115,6 @@ This user is linked to the Bonita Super Administrator Application by default. Mo
 ** portal/profile
 ** portal/page
 ** portal/profileMember
-** userXP/profile
-** userXP/profileEntry
-** userXP/profileMember
 ** platform/platform
 ** platform/tenant
 ** tenant/bdm
