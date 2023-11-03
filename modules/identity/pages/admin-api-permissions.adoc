@@ -130,10 +130,6 @@ This profile is linked to the Bonita Administrator Application by default. More 
 ** portal/page
 ** portal/profileEntry
 ** portal/profileMember
-** userXP/profile
-** userXP/profileEntry
-** userXP/profileMember
-** userXP/bonitaPage
 ** system/session
 ** system/log
 ** system/tenant
