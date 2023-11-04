@@ -1,0 +1,53 @@
+= Create a new project as Application
+:description: User flows possible with Self Contained Application
+
+== Prerequisites
+
+Please check the xref:build-run:build-application.adoc#prerequisites[prerequisites]
+
+== Create a new project
+[#new-project]
+
+. Run Bonita Studio {bonitaVersion} and create a new project.
+
+. Configure the project environment
+
+. Validate the project
+[#application-flow]
+
+. Forms need to be created manually for each interaction with user.
+    .. Select the Pool > Execution, click on the _*Instantiation form tab*_, and click on the pencil on the right of the field _Target form_, it should open the UI designer.
+    .. Repeat this previous step for each form of your process.
+
+. Admin and user app are now available as extensions, the Bonita Admin App is added by default on new projects, if you want to include the Bonita User App in your Application, you need to add it manually from the Marketplace.
+
+.. Go to the Extension view
+
+.. Open Marketplace and filter on “Application" type
+
+.. You can now add the Bonita provided applications to include in your application.
+
+. At the root of the project folder, build application as docker image with the xref:build-run:build-application.adoc#docker-package[#docker-package] command.
+
+. Find the docker image name with `docker images` to be sure it's being created.
+
+. To run your application, follow the xref:runtime:bonita-docker-installation.adoc[]. You need to use the docker image name you found in the previous step.
+
+. Go to http://localhost:9000/bonita[http://localhost:9000/bonita]. Then you can log in with the credentials and run the process defined in your project from the Bonita User application.
+
+. The process is started, a new case is available from the Task list. **Congratulations, you have created your first application!**
+
+[WARNING]
+====
+In this case, the application is running with an H2 embedded database, and it's not recommended for production.
+====
+
+== Update an existing project using Bonita Studio
+[#update-project]
+
+. Run Bonita Studio {bonitaVersion} and import from .bos or Git your project
+
+. Migrate your project
+
+. To build and run your project migrated in latest version, follow the same previous step <<application-flow>> section command.
+

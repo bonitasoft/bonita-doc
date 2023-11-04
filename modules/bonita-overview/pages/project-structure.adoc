@@ -1,19 +1,19 @@
 = Project structure
-:description: This page defines what the elements are within a Bonita Automation project, as well as how some of them are structured to create a Living Application.
+:description: This page defines what the elements are within a Bonita project, as well as how some of them are structured to create a Living Application.
 :page-aliases: ROOT:project-structure.adoc
 
-This page defines the elements used to compose a Bonita Automation project.
+This page defines the elements used to compose a Bonita project.
 
-== Bonita Automation project elements
-Bonita Automation projects are based on processes but also data, user interfaces, identity management and extensions.
+== Bonita project elements
+Bonita projects are based on processes but also data, user interfaces, identity management and extensions.
 
 [.text-center]
 image:images/BonitaProjectElements.png[]
 
 [NOTE]
 ====
-Using all the concepts in a projet allows to take the full advantage of the Bonita platform.
-However, it is not required to use all the concepts to create a valid Bonita Automation project.
+Using all the concepts in a project allows to take the full advantage of the Bonita platform.
+However, it is not required to use all the concepts to create a valid Bonita project.
 ====
 
 === Process Elements
@@ -35,12 +35,12 @@ However, it is not required to use all the concepts to create a valid Bonita Aut
 
 |xref:process:actor-filtering.adoc[Actor filter]
 |Filters users that can access a human task in a process
-|A couple are provided in the Marketplace and you can create custom actor filters
+|Some are provided in the Marketplace and you can create custom actor filters
 |Studio or xref:ROOT:actor-filter-archetype.adoc[Dedicated SDK] (custom actor filters)
 |-
 
-|xref:ROOT:connectors-overview.adoc[Connectors]
-|Web interfaces used for human interactions with your processes
+|xref:ROOT:connectors-overview.adoc[Connector]
+|Automate external services interaction from within processes.
 |A dozen connectors are provided in the Marketplace and you can create custom connectors
 |Studio or xref:ROOT:connector-archetype.adoc[Dedicated SDK] (custom connectors)
 |-
@@ -57,7 +57,7 @@ However, it is not required to use all the concepts to create a valid Bonita Aut
 |Structure of the business data used by your processes
 |Create
 |Studio
-|External data base w/ provided connector
+|External database w/ provided connector
 
 |===
 
@@ -79,7 +79,7 @@ However, it is not required to use all the concepts to create a valid Bonita Aut
 |Element |Description |Create/Provided | Tool | Alternative
 
 |xref:applications:application-creation.adoc[Application descriptor]
-|Defines the *living applications*: group of pages with a specific them for a given user profile
+|Defines the *living applications*: group of pages with a specific theme for a given user profile
 |Create
 |Studio/Admin Application
 |xml editor
@@ -104,14 +104,14 @@ However, it is not required to use all the concepts to create a valid Bonita Aut
 
 |===
 
-The concepts of Application descriptors, Application pages, layouts and themes are only used by Application. A Bonita Automation project without applications won't use those concepts.
+The concepts of Application descriptors, Application pages, layouts and themes are only used by Application. A Bonita project without applications won't use those concepts.
 
 == Extensions
-Bonita Automation project can be extended by creating custom components. These are called extensions.
+Bonita project can be extended by creating custom components. These are called extensions.
 
 Some extensions are used to add elements to those provided while others are used to enforce the Bonita platform possibilities.
 
-Extensions can be developed outside of the Studio with your favorite IDE.
+Extensions can be developed outside the Studio with your favorite IDE.
 
 [cols="1,1,1"]
 |===
@@ -121,7 +121,7 @@ Extensions can be developed outside of the Studio with your favorite IDE.
 |When the provided connector do not cover your requirements
 |xref:ROOT:connector-archetype.adoc[Dedicated SDK]
 
-|xref:process:actor-filtering.adoc[Actor Filters]
+|xref:process:actor-filtering.adoc[Actor Filter]
 |When the provided actor filter do not cover your requirements
 |xref:ROOT:actor-filter-archetype.adoc[Dedicated SDK]
 
@@ -133,16 +133,26 @@ Extensions can be developed outside of the Studio with your favorite IDE.
 |To interact with third party system outside processes, to make advanced BDM queries or API calls (read only)
 |xref:ROOT:rest-api-extension-archetype.adoc[Dedicated SDK] or in the Studio (when Business Data is manipulated)
 
+|Bonita provided application
+|Bonita Admin application and Bonita User Application are provided by Bonitasoft and can be added or removed from applications depending on their needs.
+| Available in the extensions Marketplace
+
 |===
+
+=== Other dependencies
+
+In addition to the above extensions, it is possible to add any kind of third party dependencies in the classpath of the project.
+
+Those dependencies can be added to xref:process:managing-dependencies.adoc[processes classpath, target="_blank"]. They are also added in the parent application classpath.footnote:disclaimer[Not available when using the deprecated platform mode.] It is recommended to use them to add specific extension such as xref:integration:event-handlers.adoc[Event handlers, target="_blank"], xref:runtime:engine-architecture-overview.adoc#_platform_command[Platform commands], custom Web Servlets or Filters. Since 2023.2, servlets annotations are scanned at startup when found in the classpath.
 
 == Bonita Project Composition
 Extensions are re-usable elements, they can be shared between projects.
-Extensions are added to Bonita Automation projects as Maven dependencies.
+Extensions are added to Bonita projects as Maven dependencies.
 
 In the Studio, extensions are managed in a xref:managing-extension-studio.adoc[dedicated view].
 
 [NOTE]
 ====
 Even if it is possible to manually import extensions in Bonita Studio, it is highly recommended to publish your extensions on public or private maven repositories.
-xref:process:connector-archetype-tutorial.adoc#_6__publish_the_connector_on_github_packages[Here] is an example on how to deploy an extension on Github packages.
+xref:process:connector-archetype-tutorial.adoc#_6__publish_the_connector_on_github_packages[Here] is an example on how to deploy an extension on GitHub packages.
 ====

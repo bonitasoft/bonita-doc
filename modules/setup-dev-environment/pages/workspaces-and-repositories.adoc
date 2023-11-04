@@ -8,7 +8,26 @@
 
 A workspace is a directory where Bonita Studio stores files such as Studio configuration settings (shared by all projects in the workspace) and projects folders. When you install Bonita Studio, a default workspace is created automatically: the folder is named `workspace` and is located in your Studio installation folder.
 
-A project is a directory within your workspace. +
+A project is a directory within your workspace. It contains the source code of artifacts that made up a project, such as:
+
+    * Diagrams of processes
+    ** Parameters
+    ** Configuration
+    ** Document
+    * Business Data Model
+    * BDM Access Controls
+    * Application descriptors
+    * UI Designer elements
+    ** Pages
+    ** Forms
+    ** Widgets
+    ** Layouts
+    ** Fragments
+    * Organization
+    * Profiles
+    * Themes
+    * Extensions
+
 You can use local projects to organize your work efficiently, for example by separating processes that do not interact.
 
 A team project is a shared project on a Git server that is used by the team collaborating on developing a process. +

@@ -1,0 +1,49 @@
+= Package and deploy your Application
+:description: Learn how to package and deploy your project.
+
+In this following sections, you will learn how to package and deploy your application as a local docker container.
+
+Make sure to check the xref:build-run:build-application.adoc#prerequisites[prerequisites] before starting this tutorial.
+
+== Application build
+
+=== Default application packaging
+
+The xref:runtime:user-application-overview.adoc[user application], xref:runtime:admin-application-overview.adoc[admin application] and xref:runtime:reporting-app.adoc[reporting application] are not embedded by default in the final project artifact.
+
+You have to add them manually if you want to deploy them. To do it:
+
+* From the Studio, go to the Overview tab, Extensions, Open Marketplace and filter by application type
+* Add the desired default applications to your project
+* In the pom.xml file, you will see the new dependencies added for the application
+
+=== Packaging as a docker image
+
+To package your application as a docker image, you need to run this commands at the root of your project:
+
+[source,shell]
+----
+  mvn clean package -Pdocker -Dbonita.environment=local
+----
+
+The docker image is created, you can find it with `docker images` command (the image name is: `getting-started-tutorial-local`).
+
+For more information about packaging as application, please read xref:build-run:build-application.adoc[Application build section].
+
+== Deploy your application
+
+Run you docker application with command `docker run --name GettingStarted -d -p 9000:8080 getting-started-tutorial-local:3.0.0-SNAPSHOT`
+
+[NOTE]
+====
+You can adapt the command to your needs. For example, to add a volume for a license folder, use this option: `-v ~/lic/:/opt/bonita_lic/`.
+
+More details about xref:runtime:bonita-docker-installation.adoc[Bonita image options]
+====
+
+Go on http://localhost:9000/bonita[http://localhost:9000/bonita] to access to Bonita Portal, you can now launch your first process.
+
+Your first application is working, congratulations!
+
+
+

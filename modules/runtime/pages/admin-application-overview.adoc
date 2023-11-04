@@ -4,6 +4,17 @@
 
 {description}
 
+== Application
+
+This living application is not installed by default in the Bonita tomcat bundle and in Bonita docker image in application.footnote:adminApplication[In the deprecated platform mode, this living application still be embedded by default.]
+
+You need to install it manually in your project. To do it:
+
+* Go on your project and show Extension view
+* Open Marketplace and filter by application
+* You can now install the Bonita Admin Application
+* When you will package the project as application, you will have the Admin Application deployed in the Bonita runtime
+
 == Value
 
 Bonita Administrator Application allows anyone with the _Administrator_ profile to manage the use of Bonita throughout a department or a company. +
@@ -15,7 +26,8 @@ Only the monitoring and management of processes is special to the Administrator 
 ====
 
 Most updates at runtime should be performed through a change in the project sources, to create a new project version. +
-This new version can then be deployed through Bonita Continuous Delivery. +
+This new version can then be deployed in a Bonita self-contained application. +
+Previous update methods, like Bonita Continuous Delivery, are now deprecated +
 This methodology guarantees the consistency between the project sources and the deployed version, making all subsequent changes much easier and error-proof. +
 
 What the Administrator Application allows are emergency changes to recover from an urgent issue. All changes performed through this application or any similar application allowing changes in the automation project elements must be backported to the project sources and versioned. +

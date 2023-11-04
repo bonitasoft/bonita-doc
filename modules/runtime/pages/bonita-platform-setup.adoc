@@ -102,7 +102,7 @@ Eg. `setup.sh pull`
 [WARNING]
 ====
 
-You must pull the configuration from the database every time you need to update your license file or edit the configuration of Bonita BPM Platform. Since some information is inserted by the platform itself in the database, this prevents database inconsistency.
+You must pull the configuration from the database every time you need to update your license file or edit the Bonita Platform configuration. Since some information is inserted by the platform itself in the database, this prevents database inconsistency.
 ====
 
 * `push`, to update the configuration of Bonita Platform, and update your license
@@ -191,14 +191,22 @@ Bonita Setup tool uses the values provided in file `database.properties` as repl
 _Usage_: +
 You are allowed to modify these values if, in the example of Oracle RAC, you need to add parameters in the *connection URL*, or for mysql you need to add characterEncoding or other parameters:
 
+.Oracle connection URLs
 [source,properties]
 ----
    oracle.url=jdbc:oracle:thin:@(description=(address_list=(address=(protocol=tcp)(port=${db.server.port})(host=${db.server.name})))(connect_data=(INSTANCE_NAME=${db.database.name}))(source_route=yes))
-
    oracle.bdm.url=jdbc:oracle:thin:@(description=(address_list=(address=(protocol=tcp)(port=${bdm.db.server.port})(host=${bdm.db.server.name})))(connect_data=(INSTANCE_NAME=${bdm.db.database.name}))(source_route=yes))
+----
 
+.Oracle RAC
+[source,properties]
+----
    oracle.bdm.url=jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=myrac1.us.oracle.com)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=myrac2.us.oracle.com)(PORT=1521))(LOAD_BALANCE=ON)(FAILOVER=OFF)(CONNECT_DATA=(SERVICE_NAME=myrc.us.oracle.com)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=BASIC))))
+----
 
+.MySQL connection URL
+[source,properties]
+----
    mysql.url=jdbc:mysql://${db.server.name}:${db.server.port}/${db.database.name}?dontTrackOpenResources=true&useUnicode=true&characterEncoding=UTF-8&profileSQL=true
 ----
 
@@ -212,7 +220,8 @@ Or also if you need to use a specific *database Driver* java class name:
 *But in most cases, you don't need to modify this file.*
 
 [.troubleshooting-title]
-== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+== Troubleshooting
+[#troubleshooting]
 
 [.troubleshooting-section]
 --
