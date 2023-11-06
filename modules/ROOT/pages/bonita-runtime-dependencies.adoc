@@ -1,4 +1,4 @@
-= Bonita Runtime dependencies (9.0.0.beta-02)
+= Bonita Runtime dependencies (9.0.0.rc-01)
 :page-aliases: ROOT:bonita-web-dependencies.adoc, ROOT:bonita-engine-dependencies.adoc
 :description: List all dependencies used by Bonita Runtime
 
@@ -394,7 +394,7 @@
 
 | net.sf.ehcache
 | ehcache
-| 2.10.10.8.4
+| 2.10.10.12.7
 | http://www.terracotta.org[http://www.terracotta.org]
 |  src/assemble/EHCACHE-CORE-LICENSE.txt
 
@@ -892,7 +892,7 @@
 
 | net.sf.ehcache
 | ehcache
-| 2.10.10.8.4
+| 2.10.10.12.7
 | http://www.terracotta.org[http://www.terracotta.org]
 |  src/assemble/EHCACHE-CORE-LICENSE.txt
 
@@ -1576,7 +1576,7 @@
 
 | com.hazelcast
 | hazelcast
-| 5.3.2
+| 5.3.5
 | http://www.hazelcast.com/[http://www.hazelcast.com/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1588,7 +1588,7 @@
 
 | com.hazelcast
 | hazelcast-spring
-| 5.3.2
+| 5.3.5
 | http://www.hazelcast.com/[http://www.hazelcast.com/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1750,7 +1750,7 @@
 
 | net.sf.ehcache
 | ehcache
-| 2.10.10.8.4
+| 2.10.10.12.7
 | http://www.terracotta.org[http://www.terracotta.org]
 |  src/assemble/EHCACHE-CORE-LICENSE.txt
 
@@ -2362,7 +2362,7 @@
 
 | net.sf.ehcache
 | ehcache
-| 2.10.10.8.4
+| 2.10.10.12.7
 | http://www.terracotta.org[http://www.terracotta.org]
 |  src/assemble/EHCACHE-CORE-LICENSE.txt
 
