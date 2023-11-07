@@ -14,6 +14,7 @@ Its default credentials are:
 * username: `platformAdmin`
 * password: `platform`
 
+[#technical-user]
 == Technical user
 
 Each tenant has an administrator (also known as the *tenant technical user*) with a tenant-specific username and password. The tenant administrator can manage the maintenance state for the tenant, install a Business Data Model, install the resources and the organization. +

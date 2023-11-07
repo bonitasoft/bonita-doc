@@ -1,0 +1,34 @@
+# Example on how to use MySQL 8.0 with a Subscription edition of Bonita
+services:
+  bonita-db:
+    image: bonitasoft/bonita-mysql:8.0.33
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+    restart: always
+
+  bonita:
+    image: bonitasoft.jfrog.io/docker/bonita-subscription:a[{bonitaVersion}]
+    # Update the hostname with the one used when generating the license
+    hostname: localhost
+    volumes:
+      # Replace ~/bonita-lic with the folder containing the license
+      - ~/bonita-lic:/opt/bonita_lic/
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_VENDOR=mysql
+      - DB_HOST=bonita-db
+      - DB_PORT=3306
+      - DB_NAME=bonita
+      - DB_USER=bonita
+      - DB_PASS=bpm
+      - BIZ_DB_NAME=business_data
+      - BIZ_DB_USER=business_data
+      - BIZ_DB_PASS=bpm
+    restart: on-failure:2
+    depends_on:
+      bonita-db:
+        # It uses the HEALTHCHECK of the database Docker image
+        condition: service_healthy
