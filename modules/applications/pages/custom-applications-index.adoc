@@ -1,10 +1,10 @@
-= Applications
+= Living Applications
 :page-aliases: ROOT:custom-applications-index.adoc
-:description: This page explains what an application is, what it is made of, and how you can create your own applications.
+:description: This page explains what a Living Application is, what it is made of, and how you can create your own applications.
 
 {description}
 
-An application is a navigation of pages that can be accessed by a xref:identity:profiles-overview.adoc[Profile]. +
+A Living Application is a navigation of pages that can be accessed by a xref:identity:profiles-overview.adoc[Profile]. +
 It is created and operated within Bonita Platform: created with Bonita Studio and UI Designer, deployed with Bonita Continuous Delivery, run by Bonita Runtime.
 
 Its purpose is to display and structure the right information and provide the right controls at the right time to the profiles, so they can efficiently perform their tasks. +
