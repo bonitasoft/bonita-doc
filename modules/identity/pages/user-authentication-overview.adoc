@@ -128,6 +128,8 @@ Engine sessions.
 NOTE: The HTTP session default duration depends on the application server (for example, 30 minutes for Tomcat). In cluster (Enterprise and Performance editions only) the application server value is replaced with the property `bonita.runtime.cluster.http.session.timeout` in the file `bonita-platform-sp-cluster.properties` (default value is 30 minutes).
 
 
+NOTE: The HTTP session Id is stored in a cookie in the user's web browser for the duration of the HTTP session. Since cookies do not provide isolation by port, it is not advised to have several Bonita installations running on different ports of the same host. This would result in users getting `401` errors when trying to use simultaneously the 2 Bonita instances. This is also true in development with `localhost` deployments.
+
 *Logout*
 
 In Bonita Layout, if a user clicks on the logout button, both the
