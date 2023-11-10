@@ -177,16 +177,10 @@ Below are more complete examples on how to run Bonita with a preconfigured datab
 
 [tabs]
 ====
-// ---------------------
-// Community edition tab
-// ---------------------
 Community edition::
 +
 [tabs]
 =====
-// ----------------------------
-// Community edition / Postgres
-// ----------------------------
 Postgres::
 +
 --
@@ -196,9 +190,6 @@ include::example$docker/community/postgres/docker-compose.yml[]
 ----
 --
 
-// -------------------------
-// Community edition / MySQL
-// -------------------------
 MySQL::
 +
 --
@@ -208,9 +199,6 @@ include::example$docker/community/mysql/docker-compose.yml[]
 ----
 --
 
-// ------------------------------
-// Community edition / SQL Server
-// ------------------------------
 SQL Server::
 +
 --
@@ -221,16 +209,10 @@ include::example$docker/community/sqlserver/docker-compose.yml[]
 --
 =====
 
-// -------------------------
-// Subscription editions tab
-// -------------------------
 Subscription editions::
 +
 [tabs]
 =====
-// --------------------------------
-// Subscription editions / Postgres
-// --------------------------------
 Postgres::
 +
 --
@@ -240,9 +222,6 @@ include::example$docker/subscription/postgres/docker-compose.yml[]
 ----
 --
 
-// -----------------------------
-// Subscription editions / MySQL
-// -----------------------------
 MySQL::
 +
 --
@@ -252,9 +231,6 @@ include::example$docker/subscription/mysql/docker-compose.yml[]
 ----
 --
 
-// ----------------------------------
-// Subscription editions / SQL Server
-// ----------------------------------
 SQL Server::
 +
 --
