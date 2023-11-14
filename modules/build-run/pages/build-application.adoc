@@ -138,7 +138,7 @@ It is possible to extract the processes configurations into a single `yaml` usin
 mvn bonita-project:extract-configuration
 ----
 
-By default, it produces a `parameters-${bonita.environment}.yml` file in the `.bcd_configurations` folder at the root of your project. Use the `-Dbonita.enviroment=production` to extract the configuration for `production` environment.
+By default, it produces a `parameters-${bonita.environment}.yml` file in the `.bcd_configurations` folder at the root of your project. Use the `-Dbonita.environment=production` to extract the configuration for `production` environment.
 
 The parameters configuration looks like this :
 
