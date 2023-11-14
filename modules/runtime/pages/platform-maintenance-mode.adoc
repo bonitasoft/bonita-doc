@@ -1,5 +1,5 @@
 = Put Runtime in maintenance mode
-:page-aliases: ROOT:platform-maintenance-mode.adoc
+:page-aliases: ROOT:platform-maintenance-mode.adoc, ROOT:pause-and-resume-bpm-services.adoc, runtime:pause-and-resume-bpm-services.adoc
 :description: Learn how to execute maintenance tasks by activating and deactivating Bonita Runtime maintenance mode.
 
 {description}
