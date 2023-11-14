@@ -88,7 +88,7 @@ Metrics exposed by the JMX publisher can be consulted by any JMX tool, like the 
 
 === Log file Publisher
 
-The log file publisher publishes to a file using the logger `com.bonitasoft.engine.configuration.monitoring.LoggingMeterRegistry`
+The log file publisher publishes to a file using the logger `com.bonitasoft.engine.monitoring.LoggingMeterRegistry`
 with the log level `INFO`.
 
 It can be enabled using the property `org.bonitasoft.engine.monitoring.publisher.logging.enable` set to `true`.
