@@ -12,7 +12,7 @@ services:
   # my-application:
   #  image: my-application-[my built environment]:[my aplication's semantic version]
   bonita:
-	# this uses the latest maintenance version, but you can also pin a specific maintenance version such as {bonitaVersion}-u0
+    # this uses the latest maintenance version, but you can also pin a specific maintenance version such as {bonitaVersion}-u0
     image: bonitasoft.jfrog.io/docker/bonita-subscription:pass:a[{bonitaVersion}]
     # Update the hostname with the one used when generating the license
     hostname: localhost
