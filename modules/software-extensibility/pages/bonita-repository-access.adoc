@@ -26,7 +26,7 @@ An Internet connection is required.
 [#credentials]
 == How to get the credentials? 
 
-Once your Bonita subscription is registered, your Bonita account manager will receive the connection credentials - username and authentification token.
+Once your Bonita subscription is registered, your Bonita account manager will receive the connection credentials - username and authentication token.
 
 The credentials have the same validity duration as your subscription renewal included, meaning that you will not have to change them at each renewal.
 
@@ -47,7 +47,7 @@ In the below example, we use Maven as the project build tool for extension proje
 
 === Configure access to Bonita Artifact Repository *in Bonita Studio*
 
-Acces to Bonita Artifact Repository is configured using the configuration wizard, that is available in two ways:
+Access to Bonita Artifact Repository is configured using the configuration wizard, that is available in two ways:
 
 * At Bonita Studio start-up through the connection check pop-up
 * Using the menu *Help* > *Test connection to Maven repositories*
@@ -184,7 +184,7 @@ docker login {bonitasoft-registry}
 
 Use your credential's access login as username and access token as password.
 
-If you do not want user-interaction, you can login with
+If you do not want user-interaction, you can log in with
 
 .docker no-interaction authentication
 [source, shell, subs="+attributes"]
@@ -192,7 +192,7 @@ If you do not want user-interaction, you can login with
 echo <SUBSCRIPTION_ACCESS_TOKEN> | docker login -u <SUBSCRIPTION_ACCESS_LOGIN> --password-stdin {bonitasoft-registry}
 ----
 
-You may also logout at the end with the command
+You may also log out at the end with the command
 
 [source, shell, subs="+attributes"]
 ----
@@ -294,7 +294,7 @@ Invalid maven configuration
 - The `<server></server>` section is missing in your `settings.xml` file ;
 - Or the ID in the `<server></server>` section is not matching the ID of the repositories' definition ;
 - Or you set an incorrect username in the `<server></server>` section. It should be the email used for your Bonita subscription ;
-- Or you set an incorrect password in the `<server></server>` section. If you used maven encryption, it should starts and ends with curly braces (i.e. `<password>{MZ8lWg+K9FA9B0qh/RkJgN}</password>`). You also need to https://maven.apache.org/guides/mini/guide-encryption.html#escaping-curly-brace-literals-in-your-password-since-maven-2-2-0[escape curly-brace literals in your password].
+- Or you set an incorrect password in the `<server></server>` section. If you used maven encryption, it should start and ends with curly braces (i.e. `<password>{MZ8lWg+K9FA9B0qh/RkJgN}</password>`). You also need to https://maven.apache.org/guides/mini/guide-encryption.html#escaping-curly-brace-literals-in-your-password-since-maven-2-2-0[escape curly-brace literals in your password].
 
 Example:
 
@@ -403,7 +403,7 @@ Your Maven build fails with an equivalent error:
 ----
 
 [.cause]#Cause#
-Your credentials are valid but your are not allowed to access what you are asking for.
+Your credentials are valid but you are not allowed to access what you are asking for.
 
 [.solution]#Solution#
 Contact support team to check your permissions.

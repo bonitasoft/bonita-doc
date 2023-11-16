@@ -1,0 +1,60 @@
+# Example on how to use Postgres (latest available version) with Bonita in a cluster mode
+services:
+  bonita-db:
+    image: bonitasoft/bonita-postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: my-secret-pw
+    restart: always
+    # Uncomment those lines to mount a volume with your dumps
+    #volumes:
+    #  - ~/my/test/dumps:/opt/bonita/dump
+
+  # In case you have built an Application, use instead as example:
+  # my-application:
+  #  image: my-application-[my built environment]:[my aplication's semantic version]
+  bonita:
+    # this uses the latest maintenance version, but you can also pin a specific maintenance version such as {bonitaVersion}-u0
+    image: bonitasoft.jfrog.io/docker/bonita-subscription:pass:a[{bonitaVersion}]
+    # Update the hostname with the one used when generating the license
+    hostname: localhost
+    volumes:
+      # Replace ~/bonita-lic with the folder containing the license
+      - ~/bonita-lic:/opt/bonita_lic/
+    environment:
+      - DB_VENDOR=postgres
+      - DB_HOST=bonita-db
+      - DB_PORT=5432
+      - DB_NAME=bonita
+      - DB_USER=bonita
+      - DB_PASS=bpm
+      - BIZ_DB_NAME=business_data
+      - BIZ_DB_USER=business_data
+      - BIZ_DB_PASS=bpm
+      - CLUSTER_MODE=true
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.bonita.entrypoints=web"
+      - "traefik.http.routers.bonita.rule=Host(`bonita.localhost`)"
+      - "traefik.http.services.bonita.loadbalancer.server.port=8080"
+    restart: on-failure:2
+    depends_on:
+      bonita-db:
+        # It uses the HEALTHCHECK of the database Docker image
+        condition: service_healthy
+
+  traefik:
+    image: traefik:v2.10.5
+    container_name: traefik
+    command:
+      #- "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"

@@ -1,0 +1,32 @@
+# Example on how to use MySQL (latest available version) with a Community edition of Bonita
+services:
+  bonita-db:
+    image: bonitasoft/bonita-mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+    restart: always
+
+  # In case you have built an Application, use instead as example:
+  # my-application:
+  #  image: my-application-[my built environment]:[my aplication's semantic version]
+  bonita:
+    image: bonita:pass:a[{bonitaVersion}]
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_VENDOR=mysql
+      - DB_HOST=bonita-db
+      - DB_PORT=3306
+      - DB_NAME=bonita
+      - DB_USER=bonita
+      - DB_PASS=bpm
+      - BIZ_DB_NAME=business_data
+      - BIZ_DB_USER=business_data
+      - BIZ_DB_PASS=bpm
+    restart: on-failure:2
+    depends_on:
+      bonita-db:
+        # It uses the HEALTHCHECK of the database Docker image
+        condition: service_healthy

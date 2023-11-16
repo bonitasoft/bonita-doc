@@ -37,7 +37,7 @@ A key security concern when using passwords for authentication is password stren
 
 ==== Choose a strong password for your database
 
-The database is at the heart of your application. It is where all entreprise data (sensitive or non-sensitive) is stored. As a result, the database username and password are of great value to the business and they need to be protected. It is highly recommended to choose strong, random and long passwords, since they make it difficult or even improbable for one to guess the password through either manual or automated means.
+The database is at the heart of your application. It is where all company data (sensitive or non-sensitive) is stored. As a result, the database username and password are of great value to the business and they need to be protected. It is highly recommended to choose strong, random and long passwords, since they make it difficult or even improbable for one to guess the password through either manual or automated means.
 
 ==== Choose a strong password for your connectors
 

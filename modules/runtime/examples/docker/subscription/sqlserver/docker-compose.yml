@@ -1,0 +1,38 @@
+# Example on how to use SQL Server (latest available version) with a Subscription edition of Bonita
+services:
+  bonita-db:
+    image: bonitasoft/bonita-sqlserver:latest
+    ports:
+      - "1433:1433"
+    environment:
+      MSSQL_SA_PASSWORD: Change-Me-123
+    restart: always
+
+  # In case you have built an Application, use instead as example:
+  # my-application:
+  #  image: my-application-[my built environment]:[my aplication's semantic version]
+  bonita:
+    # this uses the latest maintenance version, but you can also pin a specific maintenance version such as {bonitaVersion}-u0
+    image: bonitasoft.jfrog.io/docker/bonita-subscription:pass:a[{bonitaVersion}]
+    # Update the hostname with the one used when generating the license
+    hostname: localhost
+    volumes:
+      # Replace ~/bonita-lic with the folder containing the license
+      - ~/bonita-lic:/opt/bonita_lic/
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_VENDOR=sqlserver
+      - DB_HOST=bonita-db
+      - DB_PORT=1433
+      - DB_NAME=bonita
+      - DB_USER=bonita
+      - DB_PASS=bpm
+      - BIZ_DB_NAME=business_data
+      - BIZ_DB_USER=business_data
+      - BIZ_DB_PASS=bpm
+    restart: on-failure:2
+    depends_on:
+      bonita-db:
+        # It uses the HEALTHCHECK of the database Docker image
+        condition: service_healthy
