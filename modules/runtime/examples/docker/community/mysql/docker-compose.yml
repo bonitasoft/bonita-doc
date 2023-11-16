@@ -1,4 +1,4 @@
-# Example on how to use MySQL 8.0 with a Community edition of Bonita
+# Example on how to use MySQL (latest available version) with a Community edition of Bonita
 services:
   bonita-db:
     image: bonitasoft/bonita-mysql:latest
