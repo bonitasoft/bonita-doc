@@ -1,4 +1,4 @@
-# Example on how to use Postgres 15 with a Subscription edition of Bonita
+# Example on how to use Postgres (latest available version) with a Subscription edition of Bonita
 services:
   bonita-db:
     image: bonitasoft/bonita-postgres:latest
