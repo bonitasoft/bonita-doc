@@ -1,4 +1,4 @@
-# Example on how to use SQL Server 2022 with a Community edition of Bonita
+# Example on how to use SQL Server (latest available version) with a Community edition of Bonita
 services:
   bonita-db:
     image: bonitasoft/bonita-sqlserver:latest
