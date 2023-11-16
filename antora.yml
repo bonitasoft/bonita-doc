@@ -1,8 +1,6 @@
 name: bonita
 title: Bonita
 version: 2023.2
-# TODO: When releasing beta version, replace alpha by beta. Remove when releasing GA
-# prerelease: Beta
 asciidoc:
   attributes:
     bonitaVersion: 2023.2
