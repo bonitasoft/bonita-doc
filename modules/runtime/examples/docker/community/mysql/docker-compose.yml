@@ -12,7 +12,7 @@ services:
   # my-application:
   #  image: my-application-[my built environment]:[my aplication's semantic version]
   bonita:
-    image: bonita::pass:a[{bonitaVersion}]
+    image: bonita:pass:a[{bonitaVersion}]
     ports:
       - "8080:8080"
     environment:
