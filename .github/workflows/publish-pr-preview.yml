@@ -20,4 +20,3 @@ jobs:
           surge-token: ${{ secrets.SURGE_TOKEN_DOC }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           component-name: bonita
-          doc-site-branch: 'chore/add-asciidoctor-tabs'
