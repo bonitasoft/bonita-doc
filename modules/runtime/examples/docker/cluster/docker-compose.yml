@@ -1,4 +1,4 @@
-# Example on how to use Postgres 15 with Bonita in a cluster mode
+# Example on how to use Postgres (latest available version) with Bonita in a cluster mode
 services:
   bonita-db:
     image: bonitasoft/bonita-postgres:latest
