@@ -1,7 +1,7 @@
 # Example on how to use Postgres 15 with Bonita in a cluster mode
 services:
   bonita-db:
-    image: bonitasoft/bonita-postgres:15.4
+    image: bonitasoft/bonita-postgres:latest
     ports:
       - "5432:5432"
     environment:
