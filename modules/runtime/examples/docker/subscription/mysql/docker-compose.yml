@@ -1,7 +1,7 @@
 # Example on how to use MySQL 8.0 with a Subscription edition of Bonita
 services:
   bonita-db:
-    image: bonitasoft/bonita-mysql:8.0.33
+    image: bonitasoft/bonita-mysql:latest
     ports:
       - "3306:3306"
     environment:
