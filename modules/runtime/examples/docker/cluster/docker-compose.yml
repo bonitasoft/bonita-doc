@@ -11,8 +11,11 @@ services:
     #volumes:
     #  - ~/my/test/dumps:/opt/bonita/dump
 
+  # In case you have built an Application, use instead as example:
+  # my-application:
+  #  image: my-application-[my built environment]:[my aplication's semantic version]
   bonita:
-    image: bonitasoft.jfrog.io/docker/bonita-subscription:a[{bonitaVersion}]
+    image: bonitasoft.jfrog.io/docker/bonita-subscription:[{bonitaVersion} for the latest maintenance version or a specific maintenance version such as {bonitaVersion}-u0]
     # Update the hostname with the one used when generating the license
     hostname: localhost
     volumes:
