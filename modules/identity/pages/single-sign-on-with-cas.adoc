@@ -57,8 +57,8 @@ The `BUNDLE_HOME/server/conf/jaas-standard.cfg` file contains the following (rep
 [source,conf]
 ----
 BonitaAuthentication-1 {
-  org.jasig.cas.client.jaas.CasLoginModule required
-    ticketValidatorClass="org.jasig.cas.client.validation.Cas20ServiceTicketValidator"
+  org.apereo.cas.client.jaas.CasLoginModule required
+    ticketValidatorClass="org.apereo.cas.client.validation.Cas20ServiceTicketValidator"
     casServerUrlPrefix="http://ip_address:port/cas"
     tolerance="20000"
     service="http://ip_address:port/bonita/loginservice"
@@ -81,7 +81,6 @@ The JAAS configuration file, `jaas-standard.cfg`, is sorted by sets of authentic
 . In the `CasLoginModule` configuration, check that the `principalGroupName` property is set to `CallerPrincipal`. +
 This is required to retrieve the username from the Bonita application.
 Bonita uses the CAS LoginModule in the JASIG implementation, so see the CAS LoginModule section of the https://wiki.jasig.org/display/CASC/JAAS+Integration[Jasig documentation] for more information.
-. Copy `cas-client-core-x.x.x.jar` from `BonitaSubscription-x.x.x/tools/cas-x.x.x-module/org/jasig/cas/main` into the `BUNDLE_HOME/server/lib` directory.
 . Copy `commons-logging-x.x.x.jar` from `BonitaSubscription-x.x.x/tools//BonitaSubscription-x.x.x-LDAP-Synchronizer/lib` into the `BUNDLE_HOME/server/lib` directory.
 . Update `bonita-tenant-sp-custom.properties` from `setup/platform_conf/initial/tenant_template_engine/` if platform has not been initialized yet or `setup/platform_conf/current/tenants/[TENANT_ID]/tenant_engine/` and `setup/platform_conf/current/tenant_template_engine/`.
 +
