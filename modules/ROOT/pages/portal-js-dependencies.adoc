@@ -1,4 +1,5 @@
-= Dependencies for Bonita Portal-JS 8.0.0
+= Dependencies for Bonita Portal-JS 8.0.1
+
 
 == Community NodeJS dependencies
 
