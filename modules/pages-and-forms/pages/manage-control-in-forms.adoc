@@ -183,7 +183,7 @@ To hide these fields when no error are detected, go to the *Hide* property of ea
 * !errorRequired || errorRequired.length === 0
 * !errorDate || errorDate.length === 0
 
-... as shown here:
+as shown here:
 
 image:images/errorPanelFragment-required-properties.png[Leave Request - errorPanel - required - properties] image:images/errorPanelFragment-date-properties.png[Leave Request - errorPanel - date - properties]
 
