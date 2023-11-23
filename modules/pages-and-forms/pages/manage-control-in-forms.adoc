@@ -180,25 +180,10 @@ Therefore, from the palette on the left, drag and drop two *text* widgets in thi
 To put the text and the background in red, add the bootstrap's _text-danger_ and _bg-danger_ CSS classes in the *CSS classes* property for both widgets.
 To hide these fields when no error are detected, go to the *Hide* property of each widget, click on *f(x)* to make them evaluated as expressions, and add respectively:
 
-* {blank}
-+
-[cols=3*]
-|===
-| _!errorRequired
-|
-| errorRequired.length === 0_
-|===
+* !errorRequired || errorRequired.length === 0
+* !errorDate || errorDate.length === 0
 
-* {blank}
-+
-[cols=3*]
-|===
-| _!errorDate
-|
-| errorDate.length === 0_
-|===
-
-... as shown here:
+as shown here:
 
 image:images/errorPanelFragment-required-properties.png[Leave Request - errorPanel - required - properties] image:images/errorPanelFragment-date-properties.png[Leave Request - errorPanel - date - properties]
 
