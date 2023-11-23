@@ -1,4 +1,4 @@
-= Bonita engine dependencies (7.15.5)
+= Bonita engine dependencies (7.15.6)
 :description: List all dependencies uses for Bonita Engine
 
 
@@ -393,7 +393,7 @@
 
 | net.sf.ehcache
 | ehcache
-| 2.10.10.8.4
+| 2.10.10.12.7
 | http://www.terracotta.org[http://www.terracotta.org]
 |  src/assemble/EHCACHE-CORE-LICENSE.txt
 
@@ -657,13 +657,13 @@
 
 | org.springframework.boot
 | spring-boot
-| 2.6.9
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-autoconfigure
-| 2.6.9
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -687,13 +687,13 @@
 
 | ch.qos.logback
 | logback-classic
-| 1.2.11
+| 1.2.12
 | http://www.qos.ch[http://www.qos.ch]
 |  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
 
 | ch.qos.logback
 | logback-core
-| 1.2.11
+| 1.2.12
 | http://www.qos.ch[http://www.qos.ch]
 |  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
 
@@ -825,31 +825,31 @@
 
 | org.springframework.boot
 | spring-boot
-| 2.6.9
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-autoconfigure
-| 2.6.9
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-starter
-| 2.6.9
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-starter-jdbc
-| 2.6.9
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-starter-logging
-| 2.6.9
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -1191,7 +1191,7 @@
 
 | com.hazelcast
 | hazelcast
-| 5.1.5
+| 5.3.5
 | http://www.hazelcast.com/[http://www.hazelcast.com/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1203,7 +1203,7 @@
 
 | com.hazelcast
 | hazelcast-spring
-| 5.1.5
+| 5.3.5
 | http://www.hazelcast.com/[http://www.hazelcast.com/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1353,7 +1353,7 @@
 
 | net.sf.ehcache
 | ehcache
-| 2.10.10.8.4
+| 2.10.10.12.7
 | http://www.terracotta.org[http://www.terracotta.org]
 |  src/assemble/EHCACHE-CORE-LICENSE.txt
 
@@ -1653,13 +1653,13 @@
 
 | org.springframework.boot
 | spring-boot
-| 2.6.9
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-autoconfigure
-| 2.6.9
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -1683,13 +1683,13 @@
 
 | ch.qos.logback
 | logback-classic
-| 1.2.11
+| 1.2.12
 | http://www.qos.ch[http://www.qos.ch]
 |  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
 
 | ch.qos.logback
 | logback-core
-| 1.2.11
+| 1.2.12
 | http://www.qos.ch[http://www.qos.ch]
 |  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
 
@@ -1821,31 +1821,31 @@
 
 | org.springframework.boot
 | spring-boot
-| 2.6.9
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-autoconfigure
-| 2.6.9
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-starter
-| 2.6.9
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-starter-jdbc
-| 2.6.9
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-starter-logging
-| 2.6.9
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
