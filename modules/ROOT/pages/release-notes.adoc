@@ -126,6 +126,21 @@ A page that is generated with this version is still compatible with a previous v
 For the users of Bonita Community edition, Bonita 2022.2 also comes with all the bug fixes released in the Maintenance versions of Bonita 2022.1 (up until version 2022.1-u6).
 The detailed list is available in the "What’s new in Bonita 2022.1" page, in the "Bug fixes" section.
 
+=== Fixes in Bonita 2022.2-u6 (2023-11-24)
+
+==== Fixes in Bonita Studio including Bonita UI Designer
+
+* STUDIO-4478 - BPMN Export text as CDATA
+* STUDIO-4483 - BonitaMarketplace: NPE generated in the log file when the HTTP response's entity-body is empty
+* STUDIO-4490 - Exception at runtime: the Call activity is wrong in the process-design.xml generated
+
+==== Fixes in Bonita Runtime including Bonita Applications
+
+* RUNTIME-1733 - Update several dependencies
+* RUNTIME-1753 - `ClientAbortException: java.io.IOException: Broken pipe` errors in runtime logs
+* RUNTIME-1775 - Bad java modules permissions for Hazelcast
+* RUNTIME-1785 - OIDC SSO: "Basic" authentication header is encoded in 8-bit and is not compatible with some IdPs
+
 === Fixes in Bonita 2022.2-u5 (2023-08-03)
 
 ==== Fixes in Bonita Runtime including Bonita Applications
