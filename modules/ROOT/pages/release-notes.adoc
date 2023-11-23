@@ -162,3 +162,33 @@ Reminder : For commercial and support questions, please refer to your Customer S
 === Deprecated resources removed from HTTP API
 
 `userXP/profile`, `userXP/profileMember`, `userXP/profileEntry` and `userXP/bonitaPage` resources have been removed. Use their replacement instead: `portal/profile`, `portal/profileMember`, `portal/profileEntry` and `portal/bonitaPage`.
+
+
+== Bug fixes
+
+=== Fixes in Bonita 2023.1-u1 (2023-11-22)
+
+==== Fixes in Bonita Studio (including Bonita UI Designer)
+
+* STUDIO-4466 - FR is no more available for portal
+* STUDIO-4478 - BPMN Export text as CDATA
+* STUDIO-4486 - Pages exported from UID missing js resources
+* STUDIO-4490 - Exception at runtime: the Call activity is wrong in the process-design.xml generated
+
+==== Fixes in Bonita Runtime (including Bonita Applications)
+
+* RUNTIME-1364 - Search users triggers API call for each keystroke
+* RUNTIME-1556 - Graphical issue with admin app in monitoring case section
+* RUNTIME-1642 - [Admin App][Process details] Visual glitch in the categories label
+* RUNTIME-1662 - [SSO] OIDC front channel logout is not working
+* RUNTIME-1679 - Timezone cannot be set in bonita containers
+* RUNTIME-1687 - ApplicationInstaller - a NullPointerException is generated when there is no artifact provided in the zip
+* RUNTIME-1693 - Downloaded Files do not have file extension
+* RUNTIME-1713 - Apply debounce to official pages using a search box
+* RUNTIME-1739 - Update several dependencies for 2023.1-u1
+* RUNTIME-1744 - Unable to update a 7.11.2 project into 2023.1 studio
+* RUNTIME-1753 - `ClientAbortException: java.io.IOException: Broken pipe` errors in runtime logs
+* RUNTIME-1769 - Translations of non-UIDesigner provided pages subscription parts are randomly not loaded
+* RUNTIME-1770 - Portal backend web.xml: the Cache-Control max-age is set to 6 month whereas it should be set to 10 hours
+* RUNTIME-1775 - Bad access to java modules in Hazelcast
+* RUNTIME-1785 - OIDC SSO: "Basic" authentication header is encoded in 8-bit and is not compatible with some IdPs
