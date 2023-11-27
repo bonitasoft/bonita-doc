@@ -45,10 +45,10 @@ Software required for Bonita Platform.
 | 2019 64 bits
 
 | Red Hat Enterprise Linux
-| 8.4 64 bits
+| 8.x & 9.x 64 bits
 
 | CentOS
-| 8.4 64 bits
+| 7 - 64 bits
 
 | Ubuntu
 | 20.04 LTS 64 bits
