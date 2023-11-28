@@ -133,12 +133,15 @@ The detailed list is available in the "What’s new in Bonita 2022.1" page, in t
 * STUDIO-4478 - BPMN Export text as CDATA
 * STUDIO-4483 - BonitaMarketplace: NPE generated in the log file when the HTTP response's entity-body is empty
 * STUDIO-4490 - Exception at runtime: the Call activity is wrong in the process-design.xml generated
+* UID-723     - Update to 7.15: Web browser's disk and memory caches break the product and custom pages
+* UID-727     - Invalid js minification
 
 ==== Fixes in Bonita Runtime including Bonita Applications
 
 * RUNTIME-1733 - Update several dependencies
 * RUNTIME-1753 - `ClientAbortException: java.io.IOException: Broken pipe` errors in runtime logs
 * RUNTIME-1775 - Bad java modules permissions for Hazelcast
+* RUNTIME-1784 - REST API authorisation: renaming of 'process_categories' permission breaks permissions after update to 7.15 or 8.0
 * RUNTIME-1785 - OIDC SSO: "Basic" authentication header is encoded in 8-bit and is not compatible with some IdPs
 
 === Fixes in Bonita 2022.2-u5 (2023-08-03)
