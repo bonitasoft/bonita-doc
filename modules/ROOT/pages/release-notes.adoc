@@ -217,8 +217,8 @@ repositories {
 * STUDIO-4478 - BPMN Export text as CDATA
 * STUDIO-4483 - BonitaMarketplace: NPE generated in the log file when the HTTP response's entity-body is empty
 * STUDIO-4490 - Exception at runtime: the Call activity is wrong in the process-design.xml generated
-* UID-723     - Update to 8.0.0 (and 7.15 and 7.14): Web browser's disk and memory caches break the product and custom pages
-
+* UID-723     - Update to 7.14: Web browser's disk and memory caches break the product and custom pages
+* UID-727     - Invalid js minification
 
 ==== Fixes in Bonita Runtime including Bonita Applications
 
