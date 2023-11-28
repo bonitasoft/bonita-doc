@@ -175,6 +175,7 @@ Reminder : For commercial and support questions, please refer to your Customer S
 * STUDIO-4486 - Pages exported from UID missing js resources
 * STUDIO-4490 - Exception at runtime: the Call activity is wrong in the process-design.xml generated
 * UID-723 - Update to 8.0.0: Web browser's disk and memory caches break the product and custom pages
+* UID-727 - Invalid js minification
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
