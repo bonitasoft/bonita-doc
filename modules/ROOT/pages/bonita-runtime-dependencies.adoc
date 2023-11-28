@@ -1,4 +1,4 @@
-= Bonita Runtime dependencies (8.0.1)
+= Bonita Runtime dependencies (8.0.2)
 :page-aliases: ROOT:bonita-web-dependencies.adoc, ROOT:bonita-engine-dependencies.adoc
 :description: List all dependencies used by Bonita Runtime
 
