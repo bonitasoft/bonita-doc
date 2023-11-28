@@ -166,6 +166,17 @@ Reminder : For commercial and support questions, please refer to your Customer S
 
 == Bug fixes
 
+
+=== Fixes in Bonita 2023.2-u1 (2023-11-28)
+
+==== Fixes in Bonita Studio (including Bonita UI Designer)
+
+* STUDIO-4494 - Classcast Exception in Export BOS Dialog
+
+==== Fixes in Bonita Runtime (including Bonita Applications)
+
+* RUNTIME-1797 - STenantNotFoundException: tenant 1 is not found after using MT2MR and update to 8.0 
+
 === Fixes in Bonita 2023.1-u1 (2023-11-22)
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
