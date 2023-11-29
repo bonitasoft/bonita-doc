@@ -6,10 +6,23 @@
 The {bonitaVersion} version is in development.
 ====
 
+[NOTE]
+====
+The required Java version is now **Java 17**.
+====
+
 == New available values
 
 === Bonita Runtime
 
+==== Java 17 update
+
+Following the Java 17 update, it is now required to specify the following jvm arguments when using the `bonita-client` library in a standalone application:
+
+[source, shell]
+----
+--add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED
+----
 
 === Development suite
 
@@ -21,3 +34,4 @@ The {bonitaVersion} version is in development.
 
 
 == Feature deprecations and removals
+

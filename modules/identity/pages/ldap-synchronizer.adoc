@@ -140,7 +140,7 @@ Paged search to true to activate page pagination
 |Name |Default |Description
 |`LOG_DATE_PREFIX` |yyyy-MM-dd |date format used for prefixing the log
 file name ( see
-https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/text/SimpleDateFormat.html[SimpleDateFormat]
+https://docs.oracle.com/en/java/javase/{minimalRequiredJavaVersion}/docs/api/java.base/java/text/SimpleDateFormat.html[SimpleDateFormat]
 |`LOG_LEVEL` |INFO |level of reporting of the logger (relevant values
 are INFO for production use, FINE for debug use)
 |===

@@ -5,7 +5,7 @@
 == Prerequisites
 [#prerequisites]
 
-* https://adoptium.net/temurin/releases/?version=11[Java 11]
+* https://adoptium.net/temurin/releases/?version={minimalRequiredJavaVersion}[Java {minimalRequiredJavaVersion}]
 * https://maven.apache.org/download.cgi[Maven]
 * https://www.docker.com/[Docker] (if target packaging is a Docker image)
 * Internet with full access to:

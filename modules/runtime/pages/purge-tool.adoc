@@ -59,7 +59,7 @@ If multi-tenancy is used and if the TENANT_ID is not set, an error is issued, an
 
 *OLDEST_DATE_TIMESTAMP* must be a Timestamp (in milliseconds) from which all process instances that finished before that date will be deleted. +
 Unfinished process instances and process instances that finished after that date will not be affected. +
-Its format is a standard Java timestamp since https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Instant.html#EPOCH[EPOCH] (in milliseconds).
+Its format is a standard Java timestamp since https://docs.oracle.com/en/java/javase/{minimalRequiredJavaVersion}/docs/api/java.base/java/time/Instant.html#EPOCH[EPOCH] (in milliseconds).
 You can use websites such as https://www.epochconverter.com/[Epoch Converter] to format such a timestamp.
 
 == Deletion strategy

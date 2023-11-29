@@ -23,12 +23,12 @@ The example will externalize a function used in the xref:ROOT:define-who-can-do-
 === Choose your preferred tools
 
 You are free to choose the IDE of your choice to develop your library (Eclipse IDE, IntelliJ IDEA, VS Code...).
-You can also choose between `Java 11` or `Groovy 3` as target programming language.
+You can also choose between `Java {minimalRequiredJavaVersion}` or `Groovy 3` as target programming language.
 The following example will use `Java` and `Maven`, but other options are possible.
 
 To follow this tutorial you will need to install:
 
-* A https://adoptopenjdk.net/[JDK 11]
+* A https://adoptium.net/temurin/releases/?version={minimalRequiredJavaVersion}[JDK {minimalRequiredJavaVersion}]
 * https://maven.apache.org/download.cgi[Maven]
 * The https://git-scm.com/downloads[Git SCM Client] (Optional)
 
@@ -39,7 +39,7 @@ An Internet connection with access to Maven Central is required.
 Create a new folder on your file system, and call it `bonita-extension-library`.
 At the root of this folder create a `pom.xml` file.
 
-[source, xml]
+[source, xml, subs="+macros"]
 .pom.xml
 ----
 <?xml version="1.0" encoding="UTF-8"?>
@@ -48,7 +48,7 @@ At the root of this folder create a `pom.xml` file.
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.bonitasoft.extension</groupId> <1>
-    <artifactId>bonita-extension-library</artifactId> <1>
+    <artifactId>bonita-extension-library</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
     <name>Bonita extension function library</name>
@@ -56,14 +56,25 @@ At the root of this folder create a `pom.xml` file.
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>11</java.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <java.version>pass:a[{minimalRequiredJavaVersion}]</java.version>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
     </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.11.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
 </project>
 ----
 <1> You may choose your own `groupId` and `artifactId`
+
 
 == Integration with Bonita
 
@@ -74,11 +85,11 @@ To avoid dependencies conflicts between our custom library and the Bonita Runtim
 
 First, we need to define the target Bonita runtime version. You must use the xref:version-update:product-versioning.adoc#technical-id[technical id] as version. Add a `bonita-runtime.version` property in the `properties` section of the pom.xml:
 
-[source, xml]
+[source, xml, subs="+macros"]
 ----
 <properties>
     ...
-    <bonita-runtime.version>7.13.0</bonita-runtime.version>
+    <bonita-runtime.version>pass:a[{bonitaTechnicalVersion}]</bonita-runtime.version>
 </properties>
 ----
 
@@ -260,10 +271,10 @@ Add and set up `test` dependencies in your project like this:
 ----
 <properties>
     ...
-    <junit-jupiter-engine.version>5.7.2</junit-jupiter-engine.version> <1>
-    <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version> <2>
+    <junit-jupiter-engine.version>5.10.1</junit-jupiter-engine.version> <1>
+    <maven-surefire-plugin.version>3.2.2</maven-surefire-plugin.version> <2>
     <mockito-core.version>3.11.2</mockito-core.version> <3>
-    <logback-classic.version>1.2.5</logback-classic.version> <4>
+    <logback-classic.version>1.2.12</logback-classic.version> <4>
 </properties>
 
 
@@ -298,6 +309,10 @@ Add and set up `test` dependencies in your project like this:
 <build>
     <pluginManagement>
         <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+            </plugin>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
@@ -405,7 +420,7 @@ To compute this coverage, we will use https://www.eclemma.org/jacoco/[Jacoco]. A
 ----
 <properties>
     ...
-    <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
+    <jacoco-maven-plugin.version>0.8.11</jacoco-maven-plugin.version>
 </properties>
 
 ...
@@ -493,7 +508,7 @@ buildNumber.properties
 Install Maven wrapper.
 
 ```shell
-$ mvn -N io.takari:maven:0.7.7:wrapper
+$ mvn wrapper:wrapper
 ```
 
 [NOTE]
@@ -540,7 +555,7 @@ It should contain a small description of the purpose of the project, how to set 
 
 Here is an example of a `README.md`:
 
-[source, markdown]
+[source, markdown, subs=+attributes]
 .README.md
 ----
 # Bonita extension library
@@ -555,7 +570,7 @@ This library provide a set of additional functions to deal with Bonita users.
 
 ### Prerequisite
 
-* You need to have a JDK 11 installed and configured in your PATH.
+* You need to have a JDK {minimalRequiredJavaVersion} installed and configured in your PATH.
 * You need a Git client to clone this repository.
 
 1. Clone this repository
@@ -624,7 +639,7 @@ We can define workflows in our project and let GitHub run it on its infrastructu
 
 Create a `.github/workflows/build.yml` file:
 
-[source, yaml]
+[source, yaml, subs=+attributes]
 .github/workflows/build.yml
 ----
 name: build
@@ -640,18 +655,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.4
-      - name: Cache Maven packages
-        uses: actions/cache@v2.1.6
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
+      - uses: actions/checkout@v4
 
       - name: Setup Java
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
-          java-version: 11
+          java-version: {minimalRequiredJavaVersion}
+          disrtibution: 'temurin'
+          cache: 'maven'
 
       - name: Build
         run: ./mvnw -B -ntp clean verify
@@ -673,7 +684,7 @@ jobs:
 
 Create a `.github/workflows/release.yml` file:
 
-[source, yaml]
+[source, yaml, subs=+attributes]
 .github/workflows/release.yml
 ----
 name: Release
@@ -692,13 +703,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Java
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
-          distribution: adopt
-          java-version: 11
+          distribution: 'temurin'
+          java-version: {minimalRequiredJavaVersion}
           server-id: github
 
       - name: Configure Git user
@@ -707,7 +718,7 @@ jobs:
           git config user.name "GitHub Actions"
 
       - name: Build Release
-        run: ./mvnw --batch-mode release:prepare -DreleaseVersion=${{ github.event.inputs.version }} <1>
+        run: ./mvnw --batch-mode release:prepare -DreleaseVersion=${{ github.event.inputs.version }} #<1>
 
       - name: Create Github Release
         id: create_release
