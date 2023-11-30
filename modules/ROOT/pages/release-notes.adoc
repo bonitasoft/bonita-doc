@@ -371,4 +371,4 @@ The timezone can be set via *TZ* environment variable. Check the https://data.ia
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
 * RUNTIME-1790 - When server is unavailble due to maintenance, or any error page is displayed, language cookie is systematically set to french
-* RUNTIME-1797 - STenantNotFoundException: tenant 1 is not found after using MT2MR and update to 8.0 
+* RUNTIME-1797 - STenantNotFoundException: tenant 1 is not found after using MT2MR and update to 9.0 
