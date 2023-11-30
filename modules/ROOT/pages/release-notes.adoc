@@ -357,3 +357,18 @@ Those two properties are no longer required and are removed. Instead, we detect 
 === Setting a timezone for a Bonita container
 
 The timezone can be set via *TZ* environment variable. Check the https://data.iana.org/time-zones/tzdb/zone1970.tab[supported timezones].
+
+
+== Bug fixes
+
+=== Fixes in Bonita 2023.2-u1 (2023-11-29)
+
+==== Fixes in Bonita Studio (including Bonita UI Designer)
+
+* STUDIO-4494 - Classcast Exception in Export BOS Dialog
+* UID-727     - Invalid js minification
+
+==== Fixes in Bonita Runtime (including Bonita Applications)
+
+* RUNTIME-1790 - When server is unavailble due to maintenance, or any error page is displayed, language cookie is systematically set to french
+* RUNTIME-1797 - STenantNotFoundException: tenant 1 is not found after using MT2MR and update to 9.0 
