@@ -7,8 +7,8 @@ We provide a maven archetype to help you bootstrap a connector project. The sour
 
 == Pre-requisite
 
-. Java 11 must be installed: https://adoptium.net/[Download Java]
-. Maven must be installed: https://maven.apache.org/install.html[Download Maven]
+. https://adoptium.net/temurin/releases/?version={minimalRequiredJavaVersion}[Java {minimalRequiredJavaVersion}] must be installed
+.  https://maven.apache.org/install.html[Maven] must be installed
 . Connector development requires some software development skills. The archetype offers the possibility to develop the connector in _Java_, _Groovy_ or _Kotlin_. Make sure that you are comfortable with at least one of those three languages.
 
 == Generate the project using the maven archetype

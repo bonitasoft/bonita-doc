@@ -12,8 +12,8 @@ Please check the xref:build-run:build-application.adoc#prerequisites[prerequisit
 
 . Configure the project environment
 
-. Validate the project
 [#application-flow]
+. Validate the project
 
 . Forms need to be created manually for each interaction with user.
     .. Select the Pool > Execution, click on the _*Instantiation form tab*_, and click on the pencil on the right of the field _Target form_, it should open the UI designer.
@@ -49,5 +49,5 @@ In this case, the application is running with an H2 embedded database, and it's 
 
 . Migrate your project
 
-. To build and run your project migrated in latest version, follow the same previous step <<application-flow>> section command.
+. To build and run your project migrated in latest version, <<application-flow,follow the same previous step>> section command.
 

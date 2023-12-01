@@ -22,8 +22,8 @@ We provide a maven archetype to help you to bootstrap a theme project outside of
 
 === Prerequisite
 
-. Java 11 must be installed:  https://adoptopenjdk.net/index.html
-. Maven must be installed:  https://maven.apache.org/install.html
+. https://adoptium.net/temurin/releases/?version={minimalRequiredJavaVersion}[Java {minimalRequiredJavaVersion}] must be installed
+.  https://maven.apache.org/install.html[Maven] must be installed
 
 === Generate the project using the Maven archetype
 

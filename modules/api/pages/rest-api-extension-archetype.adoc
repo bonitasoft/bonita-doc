@@ -44,8 +44,8 @@ We provide a Maven archetype to help you to bootstrap a REST API Extension proje
 
 === Prerequisites
 
-. Java 11 must be installed: https://adoptopenjdk.net/index.html
-. Maven must be installed: https://maven.apache.org/install.html
+. https://adoptium.net/temurin/releases/?version={minimalRequiredJavaVersion}[Java {minimalRequiredJavaVersion}] must be installed
+.  https://maven.apache.org/install.html[Maven] must be installed
 . Rest API Extension development requires some software development skills. The archetype offers the possibility to develop the connector in _Java_, _Groovy_ or _Kotlin_. Make sure that you are comfortable with at least one of those three languages.
 . An Internet connection with access to Maven central repository
 

@@ -144,17 +144,16 @@ modify your custom Look & Feel to be compatible with the new definition, and wit
 === JRE requirements
 Based on your target Bonita version, check whether JRE update is required in your environment before launching the update process:
 
-=== JRE requirements
-Based on your target Bonita version, check whether JRE update is required in your environment before launching the update process:
-
 |===
 |*JRE version* |*Bonita version*
 |JRE version 7
 |If targeting an update from Bonita 7.0 to 7.4.x
 |JRE version 8
-|If targeting an update from Bonita 7.5 to Bonita 2021.1-0811
+|If targeting an update from Bonita 7.5 to Bonita 2021.1
 |JRE version 11
-|If targeting an update from Bonita 2021.2 or greater
+|If targeting an update from Bonita 2021.2 to 2023.2
+|JRE version 17
+|If targeting an update from Bonita 2024.1 or greater
 |===
 
 For more info, see Support Guide and Supported Environment Matrix for Server.

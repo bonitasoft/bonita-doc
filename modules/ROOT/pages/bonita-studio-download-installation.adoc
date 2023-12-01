@@ -21,17 +21,17 @@ Only *installed JDK* are accepted by the macOS _gatekeeper_. +
 If you try to use a JDK directly downloaded, you will get this kind of error: _jdk-11.0.5 can't be opened because it is from an unidentified developer._ +
 The solution is to use an installer to install properly the JDK. The easiest way is to tape the following commands:
 
-[source,bash]
+[source,bash, subs="+attributes"]
 ----
 # Install brew first if it is not installed yet, more details here: https://brew.sh
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # Use brew to install a JDK
 brew tap homebrew/cask-versions
-brew cask install java11
+brew cask install java{minimalRequiredJavaVersion}
 ----
 
-Another solution is to download and execute manually the installer, https://adoptopenjdk.net/index.html[here for example].
+Another solution is to download and execute manually the installer, https://adoptium.net/temurin/releases/?version={minimalRequiredJavaVersion}&os=mac[here for example].
 
 ==== Windows specific note
 

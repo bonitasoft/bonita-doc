@@ -70,7 +70,7 @@ This example shows an event handler that detects changes in the state of activit
     <artifactId>event-handler-example</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <properties>
-        <maven.compiler.release>11</maven.compiler.release>
+        <maven.compiler.release>pass:a[{minimalRequiredJavaVersion}]</maven.compiler.release>
         <bonita.version>pass:a[{bonitaTechnicalVersion}]</bonita.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
