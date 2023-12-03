@@ -3,6 +3,9 @@
 
 {description}
 
+[WARNING]
+Since 2023.2 packaging your processes as an SCA is the recommended way. Live update APIs have been deprecated. Refer to xref:build-run:build-application.adoc[the following article to know more].
+
 == How to
 
 When a process is ready for deployment, build an archive file in Bonita Studio that can be installed in Bonita Applications.
