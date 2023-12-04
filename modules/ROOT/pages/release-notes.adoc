@@ -209,6 +209,29 @@ repositories {
 
 == Bug fixes
 
+=== Fixes in Bonita 2022.1-u7 (2023-11-24)
+
+==== Fixes in Bonita Studio including Bonita UI Designer
+
+* STUDIO-4468 - Some of shortcuts in script editor not working in Debian 10/11
+* STUDIO-4478 - BPMN Export text as CDATA
+* STUDIO-4483 - BonitaMarketplace: NPE generated in the log file when the HTTP response's entity-body is empty
+* STUDIO-4490 - Exception at runtime: the Call activity is wrong in the process-design.xml generated
+* UID-723     - Update to 7.14: Web browser's disk and memory caches break the product and custom pages
+* UID-727     - Invalid js minification
+
+==== Fixes in Bonita Runtime including Bonita Applications
+
+* RUNTIME-38   - hasContent column stays as TRUE after using deleteContentOfArchivedDocument method
+* RUNTIME-1049 - Error message not explicit in Portal when creating a user with password policy enforced
+* RUNTIME-1642 - Visual glitch in the categories label
+* RUNTIME-1679 - We can't set a timezone to bonita containers
+* RUNTIME-1704 - Process supervisor mapping cannot be deleted
+* RUNTIME-1730 - Update several dependencies
+* RUNTIME-1753 - `ClientAbortException: java.io.IOException: Broken pipe` errors in runtime logs
+* RUNTIME-1775 - Modify java modules permissions for Hazelcast
+* RUNTIME-1785 - OIDC SSO: "Basic" authentication header is encoded in 8-bit and is not compatible with some IdPs
+
 === Fixes in Bonita 2022.1-u6 (2023-05-22)
 
 ==== Fixes in Bonita Studio including Bonita UI Designer

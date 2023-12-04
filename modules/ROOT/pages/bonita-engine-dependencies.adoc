@@ -1,4 +1,4 @@
-= Bonita engine dependencies (7.14.6)
+= Bonita engine dependencies (7.14.7)
 :description: List all dependencies uses for Bonita Engine
 
 
@@ -393,7 +393,7 @@
 
 | net.sf.ehcache
 | ehcache
-| 2.10.10.8.4
+| 2.10.10.12.7
 | http://www.terracotta.org[http://www.terracotta.org]
 |  src/assemble/EHCACHE-CORE-LICENSE.txt
 
@@ -1365,7 +1365,7 @@
 
 | net.sf.ehcache
 | ehcache
-| 2.10.10.8.4
+| 2.10.10.12.7
 | http://www.terracotta.org[http://www.terracotta.org]
 |  src/assemble/EHCACHE-CORE-LICENSE.txt
 
