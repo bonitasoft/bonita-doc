@@ -6,6 +6,14 @@ This is the changelog of the purge tool.
 
 The purge tool is used to remove data from bonita archive tables. It is useful for big production environments.
 
+== 1.0.6 - Oct 10, 2023
+- Use the latest version of Springboot 2.7.x
+
+== 1.0.5 - Sep 16, 2022
+- Use Springboot 2.6.x
+- Update JDBC drivers to latests
+- Fix github actions workflow (internal)
+
 == 1.0.4 - Mar 23, 2022
 
 fixes :
