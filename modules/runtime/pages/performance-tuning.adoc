@@ -308,26 +308,31 @@ This should be appropriately sized for the number of times the sequence manager 
 
 === Persistence cache
 
-For Subscription editions, Bonita Engine has a cache providing a persistence layer using Hibernate caching.
+[NOTE]
+====
+For Subscription editions only.
+====
 
-EhCache configuration for this persistence layer is defined in a file named `bonita-platform-hibernate-cache.xml` and `bonita-tenant-hibernate-cache.xml`. +
-It is possible to modify the cache settings in those files for each kind of object.
+Bonita Engine has a cache providing a persistence layer using Hibernate caching. It is also known as Second-Level Cache, or L2 Cache.
+
+In Bonita, this L2 Cache is implemented using the EhCache library. 
+EhCache configuration for this persistence layer is defined in a file named `bonita-hibernate-cache.xml`. +
+It is possible to modify the cache settings in this file for each kind of object.
 
 Before going into production, we encourage to finely tune the "Level-2" object cache in a pre-prod environment:
 
 * activate Hibernate cache statistics by setting to *true* the parameter *bonita.platform.persistence.generate_statistics* in file *bonita-platform-community-custom.properties*
-* activate logs at INFO level:
+* activate logs at INFO level in file `log4j2-loggers.xml`:
 
 [source,xml]
 ----
 <logger name="org.bonitasoft.engine.persistence" level="INFO"/>
-<logger name="com.bonitasoft.engine.persistence" level="INFO"/>
 ----
 
 * run load tests to simulate a production environment
-* analyse the "2nd Level Cache Ratio" log messages generated, combined with the "soft-locked cache entry was expired" *warnings messages* to change the configuration in file *bonita-tenant-hibernate-cache.xml*. +
-For instance, if on entity *org.bonitasoft.engine.core.document.model.impl.SDocumentImpl*, the "soft-locked cache entry was expired" warning message occurs, it means the size of the *maxElementsInMemory* parameter must be increased, provided it is a reasonable memory size and provided the "2nd Level Cache Ratio" is not low for this element. +
-If the "2nd Level Cache Ratio" is low or even 0, it means the cache is never used to read several times the same entity, which means the *timeToLiveSeconds* parameter should be increased, or the cache should be completely deactivated for this entity.
+* analyse the "2nd Level Cache Ratio" log messages generated, combined with the "soft-locked cache entry was expired" *warnings messages* to change the configuration in file *bonita-hibernate-cache.xml*. +
+For instance, if on entity *org.bonitasoft.engine.page.SPage*, the "soft-locked cache entry was expired" warning message occurs, it means the size of the `maxElementsInMemory` parameter must be increased, provided it is a reasonable memory size and provided the "2nd Level Cache Ratio" is not low for this element. +
+If the "2nd Level Cache Ratio" is low or even 0, it means the cache is never used to read several times the same entity, which means the `timeToLiveSeconds` parameter should be increased, or the cache should be completely deactivated for this entity (setting `maxElementsInMemory="1"`).
 
 Below is an example of a "soft-locked cache entry was expired" warning message:
 
