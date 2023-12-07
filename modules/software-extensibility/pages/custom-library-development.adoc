@@ -74,11 +74,11 @@ To avoid dependencies conflicts between our custom library and the Bonita Runtim
 
 First, we need to define the target Bonita runtime version. You must use the xref:version-update:product-versioning.adoc#technical-id[technical id] as version. Add a `bonita-runtime.version` property in the `properties` section of the pom.xml:
 
-[source, xml]
+[source, xml, subs="+macros"]
 ----
 <properties>
     ...
-    <bonita-runtime.version>7.13.0</bonita-runtime.version>
+    <bonita-runtime.version>pass:a[{bonitaTechnicalVersion}]</bonita-runtime.version>
 </properties>
 ----
 
