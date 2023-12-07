@@ -24,6 +24,22 @@ Following the Java 17 update, it is now required to specify the following jvm ar
 --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED
 ----
 
+==== Second-Level Cache available on Cluster
+
+[NOTE]
+====
+For Subscription editions only.
+====
+
+Bonita {bonitaVersion} now handles second-level caching data (also known as L2 Cache) when running Bonita within a xref:overview-of-bonita-bpm-in-a-cluster.adoc[cluster environment].
+
+It is available by default with a preset configuration. It can be disabled by setting the property `bonita.platform.persistence.use_second_level_cache=false` or the environment variable `BONITA_PLATFORM_PERSISTENCE_USE_SECOND_LEVEL_CACHE=false`.
+
+This L2 Cache mechanism is implemented with https://docs.hazelcast.com/hazelcast/latest/cache/overview[Hazelcast]. At the same time, it replaces the Ehcache implementation that was previously used to support L2 caching data within a non-cluster environment.
+
+For more information on how to tune the L2 Cache with Bonita, please refer to the xref:runtime:performance-tuning.adoc#persistence-cache[dedicated documentation].
+
+
 === Development suite
 
 

@@ -306,6 +306,7 @@ The sequence manager configuration is in `bonita-platform-community-custom.prope
 The sequence manager has its own database connection. +
 This should be appropriately sized for the number of times the sequence manager will query the database, which is a consequence of the range size values. See <<db_connections,Database connections>>.
 
+[#persistence-cache]
 === Persistence cache
 
 [NOTE]
