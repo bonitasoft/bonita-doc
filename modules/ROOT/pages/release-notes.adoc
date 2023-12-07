@@ -24,7 +24,8 @@ Following the Java 17 update, it is now required to specify the following jvm ar
 --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED
 ----
 
-==== Second-Level Cache available on Cluster
+
+==== Second-Level Cache available in a Bonita clustered environment
 
 [NOTE]
 ====
