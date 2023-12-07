@@ -64,12 +64,7 @@ bonita.platform.cluster.hazelcast.tcpip.members=ipServer01,ipServer02
 IMPORTANT: If you don't use `bonita.platform.cluster.hazelcast.multicast.enabled`, *you must uncomment the # properties and set it to `false`* to deactivate it, as follows: `bonita.platform.cluster.hazelcast.multicast.enabled=false`.
 +
 
-[NOTE]
-====
-The https://www.google.com/search?q=Hibernate+L2+cache[Hibernate L2 cache] will be automatically disabled in cluster, leading more frequent database accesses.
-====
-
-For more information on this take a look at the  http://docs.hazelcast.org/docs/3.4/manual/html-single/hazelcast-documentation.html#hazelcast-cluster-discovery[Hazelcast Documentation].
+For more information on this take a look at the  https://docs.hazelcast.com/imdg/latest/clusters/discovery-mechanisms[Hazelcast Documentation].
 
 . Copy licenses of all your nodes in `setup/platform_conf/licenses`.
 . Run `setup.sh init` or `setup.bat init` as described in the  xref:runtime:bonita-platform-setup.adoc#init_platform_conf[platform setup tool page].
@@ -182,10 +177,6 @@ Some properties of the Bonita Platform need to be changed, through  xref:runtime
 * Run the `setup.sh push` or `setup.bat push`. This will update in database the configuration of your platform.
 
 
-[NOTE]
-====
-The https://www.google.com/search?q=Hibernate+L2+cache[Hibernate L2 cache] will be automatically disabled in cluster, leading more frequent database accesses.
-====
 
 === Configure nodes to run on this cluster
 
