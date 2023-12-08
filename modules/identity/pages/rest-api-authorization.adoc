@@ -139,7 +139,7 @@ In this example, the `custom_process_manager_permission` can be defined in the `
 
 [NOTE]
 ====
-For Enterprise, Performance, Efficiency, and Teamwork editions only.
+For Subscription editions only.
 ====
 
 [WARNING]
@@ -357,7 +357,7 @@ For example, to add the permission to the user walter.bates (username), add the 
 
 == Restricting access to a BDM object or its attributes
 
-Starting with the Bonita efficiency subscription edition, you can use a simpler mechanism to grant or deny access to BDM objects or some of their attributes to specific profiles, using the BDM Access Control feature.
+Starting with the Bonita Subscription edition, you can use a simpler mechanism to grant or deny access to BDM objects or some of their attributes to specific profiles, using the BDM Access Control feature.
 It is also possible to protect instances of the BDM objects, using REST API authorizations.
 For more details see : xref:bdm-access-control.adoc[BDM access control]
 
