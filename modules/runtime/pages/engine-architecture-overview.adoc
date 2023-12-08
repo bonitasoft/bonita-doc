@@ -181,7 +181,7 @@ Notes: Store categories with the persistence service
 |  |
 
 | Description:
-| For the Enterprise, Performance, Efficiency, and Teamwork editions, manage parameters of a process. Parameters are set for the scope of a process definition and are designed to be used as global configuration of a process, for example, you could store the URL of a database you use in some connectors.
+| For the Subscription editions, manage parameters of a process. Parameters are set for the scope of a process definition and are designed to be used as global configuration of a process, for example, you could store the URL of a database you use in some connectors.
 
 | Used by:
 | Engine, APIs, ExpressionService (using the contributed evaluator) when reading and updating parameters
@@ -344,7 +344,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | Any service storing objects: ?deleted activity[..]?  Scheduler service: ?Job executed [...]?
 
 | Implementations:
-| org.bonitasoft.engine.services.impl.SyncBusinessLoggerServiceImpl (Community edition: insert logs directly in database)  org.bonitasoft.engine.log.api.impl.BatchBusinessLoggerImpl (Teamwork, Efficiency, Performance, and Enterprise editions: inserts all logs in batch at the end of the transaction)
+| org.bonitasoft.engine.services.impl.SyncBusinessLoggerServiceImpl (Community edition: insert logs directly in database)  org.bonitasoft.engine.log.api.impl.BatchBusinessLoggerImpl (Subscription editions: inserts all logs in batch at the end of the transaction)
 |===
 
 === Caching in Bonita
