@@ -334,15 +334,18 @@ Before going into production, we encourage to finely tune the "Level-2" entity c
 
 * run load tests to simulate a production environment
 * analyse the global "2nd Level Cache Ratio" log messages generated in standard log output. This gives an idea of the usage of the cache globally: all entities together
-* access http://<BONITA_URL>/bonita/metrics to see Hibernate metrics (or use cURL to retrieve those metrics)
-* you will see messages of type:
-```
+* Hibernate metrics are available from the API route `https://<BONITA_URL>/bonita/metrics` (see xref:runtime:runtime-monitoring.adoc#prometheus-publisher[Prometheus Publisher] for more details on how to retrieve those metrics)
+* you will see metrics of type:
+
+[source]
+----
 hibernate_second_level_cache_puts_total{entityManagerFactory="persistence",region="org.bonitasoft.engine.identity.model.SRole",} 1.0
 hibernate_second_level_cache_requests_total{entityManagerFactory="persistence",region="org.bonitasoft.engine.identity.model.SRole",result="miss",} 0.0
 hibernate_second_level_cache_requests_total{entityManagerFactory="persistence",region="org.bonitasoft.engine.identity.model.SRole",result="hit",} 5.0
-```
+----
+
 * it the `hit` / `miss` ratio is low, it means configuration is not optimal, according to your usage. +
-See the following pages for fine tuning your cache configuration:
+See the following pages for fine-tuning your cache configuration:
   ** https://docs.hazelcast.com/hazelcast/latest/capacity-planning#benchmarking-and-sizing-examples[Hazelcast benchmarking]
   ** https://docs.hazelcast.com/hazelcast/latest/cluster-performance/performance-tuning[Hazelcast performance tuning]
 
