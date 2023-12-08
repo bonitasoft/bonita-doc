@@ -41,7 +41,7 @@ A pending or failed task can be assigned and reassigned to another user if neces
 
 == Do a task for another user
 
-With the Enterprise, Performance, and Efficiency editions, an Administrator can do a task for another user. +
+With the Subscription editions, an Administrator can do a task for another user. +
 This is useful for unblocking a case if the assigned user cannot perform the task.
 
 . Go to _BPM_>__Tasks__
