@@ -306,6 +306,8 @@ The sequence manager configuration is in `bonita-platform-community-custom.prope
 The sequence manager has its own database connection. +
 This should be appropriately sized for the number of times the sequence manager will query the database, which is a consequence of the range size values. See <<db_connections,Database connections>>.
 
+
+[#persistence-cache]
 === Persistence cache
 
 [NOTE]
@@ -315,33 +317,54 @@ For Subscription editions only.
 
 Bonita Engine has a cache providing a persistence layer using Hibernate caching. It is also known as Second-Level Cache, or L2 Cache.
 
-In Bonita, this L2 Cache is implemented using the EhCache library. 
-EhCache configuration for this persistence layer is defined in a file named `bonita-hibernate-cache.xml`. +
-It is possible to modify the cache settings in this file for each kind of object.
+In Bonita, this L2 Cache is implemented using the https://docs.hazelcast.com/hazelcast/latest[Hazelcast] library.
+Hazelcast configuration for this persistence layer is defined in a file named `hazelcast.xml`. +
+It is possible to modify the cache settings in this file for each kind of object (Hibernate entity).
 
-Before going into production, we encourage to finely tune the "Level-2" object cache in a pre-prod environment:
+Before going into production, we encourage to finely tune the "Level-2" entity cache in a pre-prod environment:
 
-* activate Hibernate cache statistics by setting to *true* the parameter *bonita.platform.persistence.generate_statistics* in file *bonita-platform-community-custom.properties*
-* activate logs at INFO level in file `log4j2-loggers.xml`:
+* activate Hibernate cache statistics by setting `bonita.platform.persistence.generate_statistics=true` in file *bonita-platform-community-custom.properties*, or by setting the environment variable `BONITA_PLATFORM_PERSISTENCE_GENERATE_STATISTICS=true`
+* activate the following loggers in file `log4j2-loggers.xml`:
 
 [source,xml]
 ----
 <logger name="org.bonitasoft.engine.persistence" level="INFO"/>
+<Logger name="org.hibernate.cache.spi.support.AbstractReadWriteAccess" level="DEBUG"/>
 ----
 
 * run load tests to simulate a production environment
-* analyse the "2nd Level Cache Ratio" log messages generated, combined with the "soft-locked cache entry was expired" *warnings messages* to change the configuration in file *bonita-hibernate-cache.xml*. +
-For instance, if on entity *org.bonitasoft.engine.page.SPage*, the "soft-locked cache entry was expired" warning message occurs, it means the size of the `maxElementsInMemory` parameter must be increased, provided it is a reasonable memory size and provided the "2nd Level Cache Ratio" is not low for this element. +
-If the "2nd Level Cache Ratio" is low or even 0, it means the cache is never used to read several times the same entity, which means the `timeToLiveSeconds` parameter should be increased, or the cache should be completely deactivated for this entity (setting `maxElementsInMemory="1"`).
+* analyse the global "2nd Level Cache Ratio" log messages generated in standard log output. This gives an idea of the usage of the cache globally: all entities together
+* Hibernate metrics are available from the API route `https://<BONITA_URL>/bonita/metrics` (see xref:runtime:runtime-monitoring.adoc#prometheus-publisher[Prometheus Publisher] for more details on how to retrieve those metrics)
+* you will see metrics of type:
 
-Below is an example of a "soft-locked cache entry was expired" warning message:
+[source]
+----
+hibernate_second_level_cache_puts_total{entityManagerFactory="persistence",region="org.bonitasoft.engine.identity.model.SRole",} 1.0
+hibernate_second_level_cache_requests_total{entityManagerFactory="persistence",region="org.bonitasoft.engine.identity.model.SRole",result="miss",} 0.0
+hibernate_second_level_cache_requests_total{entityManagerFactory="persistence",region="org.bonitasoft.engine.identity.model.SRole",result="hit",} 5.0
+----
 
-[source,log]
+* it the `hit` / `miss` ratio is low, it means configuration is not optimal, according to your usage. +
+See the following pages for fine-tuning your cache configuration:
+  ** https://docs.hazelcast.com/hazelcast/latest/capacity-planning#benchmarking-and-sizing-examples[Hazelcast benchmarking]
+  ** https://docs.hazelcast.com/hazelcast/latest/cluster-performance/performance-tuning[Hazelcast performance tuning]
+
+
+Example of cache configuration, extracted from file `hazelcast.xml`:
+
+[source,xml]
 ----
-WARNING: Cache org.bonitasoft.engine.core.process.instance.model.impl.SFlowNodeInstanceImpl Key org.bonitasoft.engine.core.process.instance.model.impl.SFlowNodeInstanceImpl#org.bonitasoft.engine.persistence.PersistentObjectId@25505ff
-Lockable : null
-A soft-locked cache entry was expired by the underlying Ehcache. If this happens regularly you should consider increasing the cache timeouts and/or capacity limits
+    <cache name="org.bonitasoft.engine.identity.model.SRole">
+        <eviction eviction-policy="LRU" size="4000" max-size-policy="ENTRY_COUNT"/>
+        <expiry-policy-factory>
+            <timed-expiry-policy-factory expiry-policy-type="TOUCHED" duration-amount="12" time-unit="HOURS"/>
+        </expiry-policy-factory>
+    </cache>
 ----
+
+* Use xref:runtime:bonita-platform-setup.adoc[setup tool] to update your configuration file accordingly. +
+A restart is required to take the configuration changes into account.
+
 
 [#app_cache]
 === Application cache
@@ -388,7 +411,7 @@ This reduces the likelihood of the JVM garbage collector starting. +
 While the garbage collector is running, it prevents creation of new objects, which slows down the application server.
 
 ==== Garbage Collector
-We recommend to update the Garbage Collector parameters to use the following ones (`UseParallelGC` has been proven more eficient than `UseParNewGC` in our experience):
+We recommend to update the Garbage Collector parameters to use the following ones (`UseParallelGC` has been proven more efficient than `UseParNewGC` in our experience):
 
 * Edit file `setup/tomcat-templates/setenv.sh`
 * In the line `CATALINA_OPTS=`, add: `-XX:+UseParallelGC -XX:ParallelGCThreads=10 -Xlog:gc*:file=<CATALINA_BASE>/logs/gc-$(date +%Y_%m_%d-%H_%M).log:time,uptime,hostname,pid:filecount=5,filesize=20M`

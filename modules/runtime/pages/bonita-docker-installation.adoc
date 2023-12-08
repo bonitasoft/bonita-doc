@@ -557,10 +557,6 @@ When set to true, the application exit right after the initialization/update pha
 
 This environment variable activates the xref:overview-of-bonita-bpm-in-a-cluster.adoc[Cluster mode] on Bonita, allowing to start several nodes that will join the cluster.
 
-[NOTE]
-====
-This will automatically disable https://www.google.com/search?q=Hibernate+L2+cache[Hibernate L2 cache].
-====
 
 [#logger_configuration]
 == Logger configuration

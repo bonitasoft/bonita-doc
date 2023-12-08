@@ -105,7 +105,7 @@ easily be consumed by Prometheus and then displayed by graphical tools like Graf
 
 The endpoint is exposed at:
 
- http://<SERVER_URL>/bonita/metrics
+ https://<BONITA_URL>/bonita/metrics
 
 Use this URL to configure your installed Prometheus configuration in order to record and display the metrics.
 The default URL can be changed in the `web.xml` file of the tomcat bundle.
