@@ -442,6 +442,8 @@ docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ \
 --
 ====
 
+The certificates would get added to the system CA store, which would in turn be converted to Java's truststore.
+
 [#environment-variables]
 == Environment variables
 
