@@ -24,6 +24,10 @@ Following the Java 17 update, it is now required to specify the following jvm ar
 --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED
 ----
 
+==== Docker image parent update
+
+The `bonita` and `bonitasoft.jfrog.io/docker/bonita-subscription` images now inherit from the official https://hub.docker.com/_/eclipse-temurin[eclipse-temurin] image in its alpine flavor. As a consequence you may have to update your xref:runtime:bonita-docker-installation.adoc[internal certificates configuration]. It also affects your Self Contained Application images.
+
 
 ==== Second-Level Cache available in a Bonita clustered environment
 
