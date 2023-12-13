@@ -24,6 +24,10 @@ Following the Java 17 update, it is now required to specify the following jvm ar
 --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED
 ----
 
+==== Docker image parent update
+
+The `bonita` and `bonitasoft.jfrog.io/docker/bonita-subscription` images now inherit from the official https://hub.docker.com/_/eclipse-temurin[eclipse-temurin] image in its alpine flavor. As a consequence, if you need to add additional Certificate Authority in the Java TrustStore you may proceed like xref:runtime:bonita-docker-installation.adoc#adding-ca-certificates[described here]. It also applies to to Self Contained Application images.
+
 
 ==== Second-Level Cache available in a Bonita clustered environment
 
