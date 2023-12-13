@@ -31,7 +31,7 @@ Here is an example of one of Bonita configuration files `bonita-platform-communi
 # ...
 ----
 
-In `\*-custom.properties` files, all lines are commented out (prefixed by a # character), and the *default value* is set.
+In `+++*-custom.properties+++` files, all lines are commented out (prefixed by a # character), and the *default value* is set.
 You can change a property value by removing the # character at the beginning of the line, and change the default value with the one that suits your needs.
 
 
@@ -176,4 +176,7 @@ services:
 
 Some properties cannot be changed via System Properties or Environment Variables:
 
-* TODO
+* properties from file `security-config.properties`
+* properties from file `spnego-config.properties` (used for SSO Kerberos)
+* SAML configuration files
+* permissions from files `dynamic-permissions-checks-custom.properties`, `compound-permissions-mapping-custom.properties`, `resources-permissions-mapping-custom.properties`
