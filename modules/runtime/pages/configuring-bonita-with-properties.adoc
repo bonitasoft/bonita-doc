@@ -1,5 +1,6 @@
 = Bonita Runtime configuration
 :description: This page explains how Bonita runtime can be configured through properties, via database, Java System properties, or environment variables
+:tabs-sync-option:
 
 {description}
 
@@ -67,23 +68,29 @@ As soon as the Environment Variable is set, it will be taken into accoutn by Bon
 
 Eg.
 
-In a Linux Shell:
-
+[tabs]
+====
+In a Linux Shell::
++
+--
 [source,shell,subs="+macros,+attributes"]
 ----
 export BONITA_PLATFORM_PERSISTENCE_GENERATE_STATISTICS=true
 ----
+--
 
-When starting a Bonita Docker container:
-
+Starting a Docker container::
++
+--
 [source,shell,subs="+macros,+attributes"]
 ----
 docker run -e BONITA_PLATFORM_PERSISTENCE_GENERATE_STATISTICS=true ...
 ----
+--
 
-In a `docker-compose.yml` file:
-
-
+docker-compose::
++
+--
 [source,yaml,subs="+macros,+attributes"]
 ----
 services:
@@ -94,8 +101,8 @@ services:
       - BONITA_PLATFORM_PERSISTENCE_GENERATE_STATISTICS=true
 # ...
 ----
-
-
+--
+====
 
 [NOTE]
 ====
@@ -143,23 +150,29 @@ Like any other property, you can set it as a Java System Property
 
 or as an Environment Variable:
 
-In a Linux Shell:
-
+[tabs]
+====
+In a Linux Shell::
++
+--
 [source,shell,subs="+macros,+attributes"]
 ----
 export BONITA_RUNTIME_PROPERTIES_ORDER_LEGACY_MODE=true
 ----
+--
 
-When starting a Bonita Docker container:
-
+Starting a Docker container::
++
+--
 [source,shell,subs="+macros,+attributes"]
 ----
 docker run -e BONITA_RUNTIME_PROPERTIES_ORDER_LEGACY_MODE=true ...
 ----
+--
 
-In a `docker-compose.yml` file:
-
-
+docker-compose::
++
+--
 [source,yaml,subs="+macros,+attributes"]
 ----
 services:
@@ -170,7 +183,8 @@ services:
       - BONITA_RUNTIME_PROPERTIES_ORDER_LEGACY_MODE=true
 # ...
 ----
-
+--
+====
 
 == limitations
 
