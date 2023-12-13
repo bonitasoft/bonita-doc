@@ -411,6 +411,7 @@ docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ \
 --
 ====
 
+[#adding-ca-certificates]
 == Adding internal CA certificates to the truststore
 
 Add your certificates to `/certificates` inside the container (e.g. by using a volume) and set the environment variable `USE_SYSTEM_CA_CERTS` on the container to any value. With Docker CLI this might look like this:
