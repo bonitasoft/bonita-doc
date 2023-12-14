@@ -333,9 +333,11 @@ When enabled, the application will start, go through its initialization and upda
 
 === Properties source priority order
 
-Prior Bonita 2023.2, properties files from database had priority over environment or system variables. We decide to reverse this order so that you can easily override database properties with environment or system variables, and to be in line with the https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config[Spring / Spring Boot philosophy].
+Prior to Bonita 2023.2, properties files from database had priority over environment or system variables. We decide to reverse this order so that you can easily override database properties with environment or system variables, and to be in line with the https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config[Spring / Spring Boot philosophy].
 
 To be backward compatible, we introduce the boolean property `bonita.runtime.properties.order.legacy-mode` (default: `false`) to enable the previous priority order of properties source.
+
+Full details can be found xref:runtime:configuring-bonita-with-properties.adoc[on the dedicated page].
 
 === Runtime property renaming
 

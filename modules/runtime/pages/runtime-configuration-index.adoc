@@ -19,6 +19,11 @@ xref:ROOT:database-configuration.adoc[[.card-title]#Database configuration# [.ca
 
 [.card.card-index]
 --
+xref:runtime:configuring-bonita-with-properties.adoc[[.card-title]#Bonita configurability# [.card-body.card-content-overflow]#pass:q[Know how Bonita runtime can be configured through properties (database, Java System properties, environment variables)]#]
+--
+
+[.card.card-index]
+--
 xref:ROOT:licenses.adoc[[.card-title]#Licenses# [.card-body.card-content-overflow]#pass:q[Generate and install your license]#]
 --
 
