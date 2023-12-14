@@ -1,0 +1,196 @@
+= Bonita Runtime configuration
+:description: This page explains how Bonita runtime can be configured through properties, via database, Java System properties, or environment variables
+:tabs-sync-option:
+
+{description}
+
+
+== Context
+
+Bonita runtime can be configured in a variety of ways:
+
+* by changing values in `.properties` files that are stored in Bonita database. This process involves the retrieval (`pull`) and the update (`push`) of the database through xref:runtime:bonita-platform-setup.adoc[].
+* by setting a https://docs.oracle.com/javase/tutorial/essential/environment/sysprop.html[Java System Property] that is passed to the JVM (Java Virtual Machine) at startup
+* by setting an OS https://www3.ntu.edu.sg/home/ehchua/programming/howto/Environment_Variables.html[Environment Variable] that is present either globally for the entire Operating System, or locally in the Shell that starts Bonita.
+** DevOps familiar with Docker are used to set Env Variables via `-e prop=value`
+
+
+== Changing a property in database via the Setup Tool
+
+The xref:runtime:bonita-platform-setup.adoc[Setup Tool] allows you to modify Bonita properties in the database.
+
+Use `setup.sh / setup.bat pull` to retrieve the configuration files from the database, then edit the configuration file according to your needs
+, then push back the configuration file to database using `setup.sh / setup.bat push`.
+
+Here is an example of one of Bonita configuration files `bonita-platform-community-custom.properties`:
+
+[source,properties,subs="+macros,+attributes"]
+----
+# ...
+# Hibernate persistence configuration:
+#bonita.platform.persistence.generate_statistics=false
+# ...
+----
+
+In `+++*-custom.properties+++` files, all lines are commented out (prefixed by a # character), and the *default value* is set.
+You can change a property value by removing the # character at the beginning of the line, and change the default value with the one that suits your needs.
+
+
+== Setting a property via a Java System Property
+
+Instead of changing a property in the database, you can set a Java System Property that will override the default value defined in the database.
+
+This is usually done in the `setenv.sh` or `setenv.bat` file that is used to start Bonita Runtime, located in the `setup/tomcat_templates/` folder.
+
+Eg.
+
+[source,shell]
+----
+# ...
+CUSTOM_OPTS="-Dbonita.platform.persistence.generate_statistics=true"
+# ...
+CATALINA_OPTS="${CATALINA_OPTS} ${CUSTOM_OPTS}"
+# ...
+----
+
+[NOTE]
+====
+Keep in mind that doing this, the value in database is ignored, so the values there do not reflect the actual configuration.
+====
+
+
+
+== Setting a property via an Environment Variable
+
+Instead of changing a property in the database, you can set an Environment Variable that will override the default value defined in the database.
+
+As soon as the Environment Variable is set, it will be taken into accoutn by Bonita Runtime at startup. It includes Environment Variables available globally on the OS, Environment Variables set in the shell that starts Bonita Runtime, or Environment Variables set in the Docker container that starts Bonita Runtime.
+
+Eg.
+
+[tabs]
+====
+In a Linux Shell::
++
+--
+[source,shell,subs="+macros,+attributes"]
+----
+export BONITA_PLATFORM_PERSISTENCE_GENERATE_STATISTICS=true
+----
+--
+
+Starting a Docker container::
++
+--
+[source,shell,subs="+macros,+attributes"]
+----
+docker run -e BONITA_PLATFORM_PERSISTENCE_GENERATE_STATISTICS=true ...
+----
+--
+
+docker-compose::
++
+--
+[source,yaml,subs="+macros,+attributes"]
+----
+services:
+# ...
+  bonita:
+    image: bonita:pass:a[{bonitaVersion}]
+    environment:
+      - BONITA_PLATFORM_PERSISTENCE_GENERATE_STATISTICS=true
+# ...
+----
+--
+====
+
+[NOTE]
+====
+Keep in mind that doing this, the value in database is ignored, so the values there do not reflect the actual configuration.
+====
+
+== Naming convention
+
+You may have noticed that the property name as an *Environment Variable* is not exactly the same as the name in the database or as a Java System Property.
+
+Because of limitations of the set of characters allowed in Environment Variables, the name of the Environment Variable is obtained from the base property name:
+
+* by replacing all dots (`.`) and dashes (`-`) by underscores (`_`)
+* and by putting all characters in UPPERCASE
+
+Eg.
+
+* `bonita.platform.persistence.generate_statistics` becomes `BONITA_PLATFORM_PERSISTENCE_GENERATE_STATISTICS`
+* `bonita.runtime.authorization.dynamic-check.enabled` becomes `BONITA_RUNTIME_AUTHORIZATION_DYNAMIC_CHECK_ENABLED`
+
+
+== How a property is looked up
+
+When Bonita Runtime starts, it looks up for properties *in the following order*:
+
+* defined as a Java System property
+* if not found, defined as an Environment Variable
+* if not found, defined in the database, in one of the properties files that Bonita supports
+
+
+Prior to Bonita 2023.2, properties files from database had priority over environment or system variables. We decide to reverse this order so that you can easily override database properties with environment or system variables, and to be in line with the https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config[Spring / Spring Boot philosophy].
+
+
+== Compatibility with versions prior to 9.0 (2023.2)
+
+In most environments, you should not have any conflict between existing Environment Variables and Bonita Runtime properties stored in the database.
+However, if you have a conflict, you can use the `bonita.runtime.properties.order.legacy-mode` (default: `false`) property to revert to the previous order of priority.
+
+Like any other property, you can set it as a Java System Property
+
+[source,shell,subs="+macros,+attributes"]
+----
+-Dbonita.runtime.properties.order.legacy-mode=true
+----
+
+or as an Environment Variable:
+
+[tabs]
+====
+In a Linux Shell::
++
+--
+[source,shell,subs="+macros,+attributes"]
+----
+export BONITA_RUNTIME_PROPERTIES_ORDER_LEGACY_MODE=true
+----
+--
+
+Starting a Docker container::
++
+--
+[source,shell,subs="+macros,+attributes"]
+----
+docker run -e BONITA_RUNTIME_PROPERTIES_ORDER_LEGACY_MODE=true ...
+----
+--
+
+docker-compose::
++
+--
+[source,yaml,subs="+macros,+attributes"]
+----
+services:
+# ...
+  bonita:
+    image: bonita:pass:a[{bonitaVersion}]
+    environment:
+      - BONITA_RUNTIME_PROPERTIES_ORDER_LEGACY_MODE=true
+# ...
+----
+--
+====
+
+== limitations
+
+Some properties cannot be changed via System Properties or Environment Variables:
+
+* properties from file `security-config.properties`
+* properties from file `spnego-config.properties` (used for SSO Kerberos)
+* SAML configuration files
+* permissions from files `dynamic-permissions-checks-custom.properties`, `compound-permissions-mapping-custom.properties`, `resources-permissions-mapping-custom.properties`
