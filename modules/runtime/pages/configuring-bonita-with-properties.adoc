@@ -186,7 +186,7 @@ services:
 --
 ====
 
-== limitations
+== Limitations
 
 Some properties cannot be changed via System Properties or Environment Variables:
 
