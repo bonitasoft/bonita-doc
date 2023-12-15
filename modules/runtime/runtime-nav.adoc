@@ -67,6 +67,7 @@
  ** xref:runtime-configuration-index.adoc[Configuration]
   *** xref:bonita-platform-setup.adoc[Setup tool]
   *** xref:database-configuration.adoc[Database configuration]
+  *** xref:configuring-bonita-with-properties.adoc[Bonita configuration properties]
   *** xref:first-steps-after-setup.adoc[First steps after setup]
   *** xref:licenses.adoc[Licenses]
   *** xref:set-log-and-archive-levels.adoc[Recording levels]
