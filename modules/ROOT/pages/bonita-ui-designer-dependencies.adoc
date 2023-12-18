@@ -1,4 +1,4 @@
-= Bonita-ui-designer 1.17.13 dependencies for Bonita 2023.2
+= Bonita-ui-designer 1.17.12 dependencies for Bonita 2023.2
 
 
 == UI-Designer Backend dependencies
@@ -91,25 +91,25 @@
 | aspectjweaver (org.aspectj) | 1.9.7 | https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt[Eclipse Public License - v 2.0] 
 
 
-| ui-designer-artifact-builder-common (org.bonitasoft.web) | 1.0.6 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
+| ui-designer-artifact-builder-common (org.bonitasoft.web) | 1.0.5 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
-| ui-designer-artifact-builder-generator-angularjs (org.bonitasoft.web) | 1.0.6 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
+| ui-designer-artifact-builder-generator-angularjs (org.bonitasoft.web) | 1.0.5 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
-| ui-designer-artifact-builder-model (org.bonitasoft.web) | 1.0.6 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
+| ui-designer-artifact-builder-model (org.bonitasoft.web) | 1.0.5 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
-| ui-designer-artifact-builder (org.bonitasoft.web) | 1.0.6 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
+| ui-designer-artifact-builder (org.bonitasoft.web) | 1.0.5 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
-| ui-designer-backend-contract (org.bonitasoft.web) | 1.17.13 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
+| ui-designer-backend-contract (org.bonitasoft.web) | 1.17.12 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
-| ui-designer-backend-migrationReport (org.bonitasoft.web) | 1.0.6 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
+| ui-designer-backend-migrationReport (org.bonitasoft.web) | 1.0.5 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
-| ui-designer-frontend (org.bonitasoft.web) | 1.17.13 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
+| ui-designer-frontend (org.bonitasoft.web) | 1.17.12 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
 | commons-compiler (org.codehaus.janino) | 3.1.10 | https://spdx.org/licenses/BSD-3-Clause.html[BSD-3-Clause] 
