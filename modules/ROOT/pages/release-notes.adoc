@@ -44,6 +44,11 @@ This L2 Cache mechanism is implemented with https://docs.hazelcast.com/hazelcast
 
 For more information on how to tune the L2 Cache with Bonita, please refer to the xref:runtime:performance-tuning.adoc#persistence-cache[dedicated documentation].
 
+==== Like-based search
+
+Bonita Runtime search capabilities in APIs and application pages have been improved by changing the algorythm to support "like-based" search. +
+With the "like-based" algorithm you can find all the matching records for which the search string occurs anywhere in a phrase or a word. +
+This is now the default search behavior for all search APIs and pages of Bonita Runtime.
 
 === Development suite
 
@@ -56,3 +61,14 @@ For more information on how to tune the L2 Cache with Bonita, please refer to th
 
 == Feature deprecations and removals
 
+=== Word-based search
+
+The optional "word-based" and default "start-with" search algorithms cannot be used anymore as they have been replaced by a "like-based" search algorithm that is used in all search APIs and pages of Bonita Runtime.
+
+== Configuration changes
+
+=== Word-based search
+
+Since "Word-based" search can no longer be used, its configuration has been removed. +
+The properties `bonita.platform.persistence.platform.enableWordSearch` and `bonita.platform.persistence.tenant.enableWordSearch` are removed from the configuration file `platform_engine/bonita-platform-community-custom.properties` when using the update tool, and they no longer have any effect. +
+If you used them to configure Bonita Runtime for "word-based" search and specified some objects to exclude using the bean `wordSearchExclusionMappings` in `platform_engine/bonita-platform-custom.xml`, you should remove this bean after updating since it is no longer used. The new "like-based" search is active on all objects that have API search methods.
