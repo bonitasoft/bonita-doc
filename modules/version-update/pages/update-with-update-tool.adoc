@@ -365,6 +365,40 @@ cp BonitaSubscription-7.n-Jerome-myHosname-20171023-20180122.lic ./platform_conf
 [#special-cases]
 == Special cases
 
+=== Updating to Java 17 in Bonita 10.0 or a greater version
+Bonita 10.0 and greater requires Java 17.
+
+The Java 11 to 17 update implies some [API removals](https://docs.oracle.com/en/java/javase/17/migrate/removed-apis.html#GUID-FAD4E80D-64BA-42AC-A682-38D06EE61AC6). 
+Make sure that all of the custom code or dependencies is compliant with those changes.
+
+Another pitfall of Java 17 migration is the reflection access restriction on declared java modules. By default, Bonita opens the following modules:
+
+Required by Tomcat
+* java.base/java.lang=ALL-UNNAMED
+* java.base/java.io=ALL-UNNAMED
+* java.base/java.util=ALL-UNNAMED
+* java.base/java.util.concurrent=ALL-UNNAMED
+* java.rmi/sun.rmi.transport=ALL-UNNAMED
+* java.base/java.nio=ALL-UNNAMED
+* java.base/sun.nio.ch=ALL-UNNAMED
+* java.management/sun.management=ALL-UNNAMED
+* jdk.management/com.sun.management.internal=ALL-UNNAMED
+
+Required for Xstream serialization
+* java.base/java.time=ALL-UNNAMED
+* java.base/java.time.chrono=ALL-UNNAMED
+* java.base/java.text=ALL-UNNAMED
+
+Required by Webservice connector for Xstream serialization
+* java.xml/com.sun.org.apache.xerces.internal.dom=ALL-UNNAMED
+* java.xml/com.sun.org.apache.xerces.internal.xni=ALL-UNNAMED
+
+Required by Salesforce connector for Xstream serialization
+* java.xml/javax.xml.namespace=ALL-UNNAMED
+
+The Bonita Runtime still uses Xstream under the hood for process variable serialization and client/server API serialization. As this library rely on Java reflection, you might be impacted by this new restriction when using custom classes in your process variables and/or connectors output.
+
+
 === Updating to Java 11 in Bonita 7.9 or a greater version
 Bonita 7.9 and greater versions support Java 11.
 
