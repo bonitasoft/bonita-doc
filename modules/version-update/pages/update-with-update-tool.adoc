@@ -374,6 +374,7 @@ Make sure that all of the custom code or dependencies is compliant with those ch
 Another pitfall of Java 17 migration is the reflection access restriction on declared java modules. By default, Bonita opens the following modules:
 
 Required by Tomcat
+
 * java.base/java.lang=ALL-UNNAMED
 * java.base/java.io=ALL-UNNAMED
 * java.base/java.util=ALL-UNNAMED
@@ -385,15 +386,18 @@ Required by Tomcat
 * jdk.management/com.sun.management.internal=ALL-UNNAMED
 
 Required for Xstream serialization
+
 * java.base/java.time=ALL-UNNAMED
 * java.base/java.time.chrono=ALL-UNNAMED
 * java.base/java.text=ALL-UNNAMED
 
 Required by Webservice connector for Xstream serialization
+
 * java.xml/com.sun.org.apache.xerces.internal.dom=ALL-UNNAMED
 * java.xml/com.sun.org.apache.xerces.internal.xni=ALL-UNNAMED
 
 Required by Salesforce connector for Xstream serialization
+
 * java.xml/javax.xml.namespace=ALL-UNNAMED
 
 The Bonita Runtime still uses Xstream under the hood for process variable serialization and client/server API serialization. As this library rely on Java reflection, you might be impacted by this new restriction when using custom classes in your process variables and/or connectors output.
