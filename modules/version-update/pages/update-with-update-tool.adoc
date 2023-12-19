@@ -368,7 +368,7 @@ cp BonitaSubscription-7.n-Jerome-myHosname-20171023-20180122.lic ./platform_conf
 === Updating to Java 17 in Bonita 10.0 or a greater version
 Bonita 10.0 and greater requires Java 17.
 
-The Java 11 to 17 update implies some [API removals](https://docs.oracle.com/en/java/javase/17/migrate/removed-apis.html#GUID-FAD4E80D-64BA-42AC-A682-38D06EE61AC6). 
+The Java 11 to 17 update implies some https://docs.oracle.com/en/java/javase/17/migrate/removed-apis.html#GUID-FAD4E80D-64BA-42AC-A682-38D06EE61AC6[API removals]. 
 Make sure that all of the custom code or dependencies is compliant with those changes.
 
 Another pitfall of Java 17 migration is the reflection access restriction on declared java modules. By default, Bonita opens the following modules:
