@@ -120,7 +120,8 @@ Based on your target Bonita version, check whether JRE update is required in you
 
 |===
 |*JRE version* |*Bonita version*
-|JRE version 11 | If targeting an update from Bonita 2021.2 or greater
+|JRE version 11 | If targeting an update to Bonita 2021.2 (7.13) or later
+|JRE version 17 | A JRE 17 is not required to run the update tool. But you will need one to run Bonita 2024.1 (10.0) or later
 |===
 
 For more info, see Support Guide and xref:ROOT:hardware-and-software-requirements.adoc[Supported Environment Matrix for Server].
