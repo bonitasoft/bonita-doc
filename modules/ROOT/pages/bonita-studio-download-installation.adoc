@@ -49,7 +49,7 @@ When the download is finished, you should have one of the following files on you
 * Linux: `BonitaStudioCommunity-x.y-x86_64.run`
 
 === Subscription edition
-Subscription editions cover the now unique Enterprise editions, but also the Performance, Efficiency, and Teamwork editions that are no longer sold but still supported at Bonitasoft. +
+Subscription editions cover the now unique Enterprise editions, but also the Subscription editions that are no longer sold but still supported at Bonitasoft. +
 To download the latest version of Bonita Studio Subscription edition, go to the https://customer.bonitasoft.com/download/request[Customer Service Center] and request the download of the version you need.
 
 When the download is complete, you have one of the following new files:

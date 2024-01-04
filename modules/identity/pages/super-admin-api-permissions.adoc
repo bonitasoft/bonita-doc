@@ -170,7 +170,7 @@ This user is linked to the Bonita Super Administrator Application by default. Mo
 
 == Subscription Editions
 
-These are additional REST APIs that you have access to when you are using the Enterprise, Performance, Efficiency or Teamwork edition of Bonita.
+These are additional REST APIs that you have access to when you are using the Subscription editions of Bonita.
 
 === Additional accessible pages
 * License page
