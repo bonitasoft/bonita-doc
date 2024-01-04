@@ -27,7 +27,7 @@ The Business Objects must match the structure used by the deployed processes. Ma
 [NOTE]
 ====
 The deployment of a Business Data Model requires xref:ROOT:platform-maintenance-mode.adoc[activating the maintenance mode] during the operation, so that the update can be performed without affecting ongoing processes.
-For Enterprise, Efficiency and Performance editions, you must have no <<installAccessControl,access control>> file installed in order to be able to install or update the Business Data Model.
+For Subscription editions, you must have no <<installAccessControl,access control>> file installed in order to be able to install or update the Business Data Model.
 ====
 
 To do so:
@@ -128,7 +128,7 @@ Apply this sql script to your BDM database
 
 [NOTE]
 ====
-For Enterprise, Performance, and Efficiency editions only.
+For Subscription editions only.
 ====
 
 It is possible to define Business Data Model access control rules in Bonita Studio and import them in Bonita Super Administrator Application. +

@@ -128,7 +128,7 @@ After you created a category and added it to the process, you can add other proc
 
 == Start a case for another user
 
-This feature is available with the Enterprise, Performance, and Efficiency editions. +
+This feature is available with the Subscription editions. +
 To start a case for another user:
 
 . Go to _BPM_>__Processes__
@@ -141,7 +141,7 @@ To start a case for another user:
 The case is started as though the specified user had started it.
 For example, if you start a case for user A and a subsequent task is to be done by the manager of the user, it is assigned to user A's manager, not to your manager.
 
-All of what follows belong to the xref:live-update.adoc[Live update feature] and are only available in for the Enterprise, Performance, and Efficiency editions.
+All of what follows belong to the xref:live-update.adoc[Live update feature] and are only available in for the Subscription editions.
 
 == Edit the actor mapping
 

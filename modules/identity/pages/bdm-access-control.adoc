@@ -5,7 +5,7 @@
 
 [NOTE]
 ====
-For Enterprise, Performance and Efficiency editions only. +
+For Subscription editions only. +
 ====
 
 == Overview

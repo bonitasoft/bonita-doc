@@ -18,7 +18,7 @@ The Tomcat bundle is a regular .zip archive based on Tomcat zip distribution.
 
 For the Community edition:
 
-* Go to the http://www.bonitasoft.com/downloads-v2[Bonitasoft website] and get the Bonita Community edition Tomcat bundle.
+* Go to the https://www.bonitasoft.com/downloads[Bonitasoft website] and get the Bonita Community edition Tomcat bundle.
 
 For a Subscription edition:
 
