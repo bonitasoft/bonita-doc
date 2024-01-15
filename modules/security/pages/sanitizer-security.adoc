@@ -1,4 +1,4 @@
-= Requests Sanitizer
+= Input Validation (Requests Sanitizer)
 :description: Bonita REST API is secured against XSS attacks with a requests sanitizer.
 
 {description}
