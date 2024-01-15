@@ -30,7 +30,7 @@ The code you wish to just display may be considered as some malicious injected c
 
 == How do I disable it?
 
-Disabling the Sanitizer protection is not recommended as it will make Bonita REST API unprotected from malicious attacks.
+Disabling the Sanitizer protection is not recommended as it will remove any server-side input validation and can make Applications using Bonita REST API unprotected from malicious attacks (unless content is sanitized front-end side).
 
 But if you need to, the Sanitizer protection can be deactivated in the file `security-config.properties` for the whole platform.
 The default version of this file is located in `setup/platform_conf/initial/platform_portal`. In order to change the configuration on an installation whose platform has already been initialized, use the xref:runtime:bonita-platform-setup.adoc[platform setup tool] to retrieve the current configuration and update the file in `setup/platform_conf/current/platform_portal`. Then use the tool again to save your changes into to the database.
