@@ -19,7 +19,7 @@ This additional security helps preventing stored XSS attacks on screens which ma
 == How it works
 
 On potentially harmfull REST API requests, a filter executes the https://github.com/OWASP/java-html-sanitizer/blob/master/README.md[OWASP Java HTML Sanitizer] on the request body.
-Malicious code is then removed or escaped from the request body before the execution.
+Malicious code is then removed or escaped from the request body before the request is handled.
 
 When you migrate from a previous version, since the Sanitizer protection filters the request's inputs, it will not protect your unsecured UI screens from XSS attacks which have already been stored in the database.
 
