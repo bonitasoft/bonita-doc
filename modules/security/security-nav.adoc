@@ -1,3 +1,4 @@
 * Security
+  ** xref:sanitizer-security.adoc[Requests Sanitizer]
   ** xref:csrf-security.adoc[CSRF security]
   ** xref:enable-cors-in-tomcat-bundle.adoc[Enable CORS in Tomcat bundle]
