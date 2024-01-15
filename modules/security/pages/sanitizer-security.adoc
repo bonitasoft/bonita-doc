@@ -12,6 +12,7 @@ To prevent such attacks, Bonita REST API is secured with a requests sanitizer wh
 == Default security setup in Bonita
 
 In Bonita, the UI screens are secured in order to prevent XSS attacks.
+
 Since version 2022.1u8 (7.14.8) in 2024, in addition to UI screens protections, a Sanitizer protection is enabled by default to filter harmfull payloads out of API requests.
 This additional security helps preventing stored XSS attacks on screens which may have not been secured enough, such as custom pages you have developed.
 
