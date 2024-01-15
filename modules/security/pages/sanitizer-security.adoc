@@ -7,7 +7,7 @@ Cross-Site Scripting (also known as XSS), is a common example of web security vu
 An attacker can compromise the interactions that users have with a vulnerable application.
 By injecting some malicious code then executed on a user's browser, the attacker can impersonate this user and take illegitimate control on the application.
 
-To prevent such attacks, Bonita REST API is secured with a requests sanitizer which neturalizes malicious code from the body.
+To prevent such attacks, Bonita REST API is secured with a requests sanitizer which neutralizes malicious code from the body of incoming requests.
 
 == Default security setup in Bonita
 
