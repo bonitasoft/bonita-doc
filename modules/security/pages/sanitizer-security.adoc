@@ -39,4 +39,4 @@ When Sanitizer protection is enabled, this file contains this line:
 `security.sanitizer.enabled true`
 
 To disable the Sanitizer protection, edit the configuration file and change the `security.sanitizer.enabled` value to *false*.
-Make sure all your UI screens are secured against XSS attacks before disabling the Sanitizer protection, e.g. by developing them with the UI Designer.
+Make sure all your UI pages are secured against XSS attacks before disabling the Sanitizer protection (e.g. by developing them with Bonita UI Designer and avoiding using the `allow HTML` option of the widgets when the content comes from a user input).
