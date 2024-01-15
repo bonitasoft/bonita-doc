@@ -38,5 +38,5 @@ The default version of this file is located in `setup/platform_conf/initial/plat
 When Sanitizer protection is enabled, this file contains this line:
 `security.sanitizer.enabled true`
 
-To disable the Sanitizer protection, edit the configuration file and change the `security.sanitizer.enabled ` value to *false*.
+To disable the Sanitizer protection, edit the configuration file and change the `security.sanitizer.enabled` value to *false*.
 Make sure all your UI screens are secured against XSS attacks before disabling the Sanitizer protection, e.g. by developing them with the UI Designer.
