@@ -30,13 +30,26 @@ The code you wish to just display may be considered as some malicious injected c
 
 == How do I disable it?
 
-Disabling the Sanitizer protection is not recommended as it will remove any server-side input validation and can make Applications using Bonita REST API unprotected from malicious attacks (unless content is sanitized front-end side).
+You can disable the Sanitizer protection. Either globally for the whole platform, or partially for some specific json attributes.
 
-But if you need to, the Sanitizer protection can be deactivated in the file `security-config.properties` for the whole platform.
+Disabling the Sanitizer protection  for the whole platform is not recommended as it will remove any server-side input validation and can make Applications using Bonita REST API unprotected from malicious attacks (unless content is sanitized front-end side).
+However, it is safe to disable it for some specific json attributes when:
+* the value is expected to contain special characters
+* and either:
+** the value is already checked (e.g. email with a pattern)
+** or the value is never interpreted (or displayed) in pages (e.g. password).
+
+If you need to, the Sanitizer protection can be deactivated in the file `security-config.properties`.
 The default version of this file is located in `setup/platform_conf/initial/platform_portal`. In order to change the configuration on an installation whose platform has already been initialized, use the xref:runtime:bonita-platform-setup.adoc[platform setup tool] to retrieve the current configuration and update the file in `setup/platform_conf/current/platform_portal`. Then use the tool again to save your changes into to the database.
 
 When Sanitizer protection is enabled, this file contains this line:
 `security.sanitizer.enabled true`
 
-To disable the Sanitizer protection, edit the configuration file and change the `security.sanitizer.enabled` value to *false*.
-Make sure all your UI pages are secured against XSS attacks before disabling the Sanitizer protection (e.g. by developing them with Bonita UI Designer and avoiding using the `allow HTML` option of the widgets when the content comes from a user input).
+By default Sanitizer protection is disabled on a few json attributes with this line:
+`security.sanitizer.exclude email,password,password_confirm`
+
+If you must disable the Sanitizer protection for the whole platform, edit the configuration file and change the `security.sanitizer.enabled` value to *false*.
+
+If you want to disable the Sanitizer protection for a specific json attribute, edit the configuration file and append your attribute name to the `security.sanitizer.exclude` comma-separated value.
+
+In either case, make sure all your concerned UI pages are secured against XSS attacks before disabling the Sanitizer protection (e.g. by developing them with Bonita UI Designer and avoiding using the `allow HTML` option of the widgets when the content comes from a user input).
