@@ -530,8 +530,20 @@ Example of output issued when running the tool:
 
 6.x application resources have been removed in Bonita 7.8.0, so if you are migrating a process that leverages this feature, you need to modify it (for example to use process dependencies instead (Configure > Process dependencies in Bonita Studio)).
 
-=== Updating to Java 11 in Bonita 7.9 or a greater version
-Bonita 7.9 and greater versions support Java 11.
+=== Updating to Java 17 in Bonita 2024.1 or a greater version
+Bonita 2024.1 (9.0) and greater versions support Java 17.
+
+Following the Java 17 update, it is now required to specify the following jvm arguments when using the `bonita-client` library in a standalone application:
+
+[source, shell]
+----
+--add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED
+----
+
+You may have to open other java packages depending on your custom developments.
+
+=== Updating to Java 11 in Bonita 7.9 to Bonita 2023.2 versions
+Bonita 7.9 and greater versions until Bonita 2023.2 (9.0) support Java 11.
 
 [WARNING]
 ====
