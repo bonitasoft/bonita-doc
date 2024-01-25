@@ -118,6 +118,19 @@ In the following code snippet, you will find how to declare new https://maven.ap
                     <url>https://bonitasoft.jfrog.io/artifactory/maven</url>
                 </repository>
             </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>bonitasoft-releases</id>
+                    <name>Bonitasoft Releases</name>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <url>https://bonitasoft.jfrog.io/artifactory/maven</url>
+                </pluginRepository>
+            </pluginRepositories>
         </profile>
     </profiles>
     <!-- ...  -->
