@@ -1,5 +1,5 @@
 = Input Validation (Requests Sanitizer)
-:description: Bonita REST API is secured against XSS attacks with a requests sanitizer.
+:description: Bonita REST API is secured against XSS attacks with a request sanitizer.
 
 {description}
 
@@ -13,12 +13,12 @@ To prevent such attacks, Bonita REST API is secured with a requests sanitizer wh
 
 In Bonita, the UI screens are secured in order to prevent XSS attacks.
 
-Since version 2022.1u8 (7.14.8) in 2024, in addition to UI screens protections, a Sanitizer protection is enabled by default to filter harmfull payloads out of API requests.
+Since version 2022.1u8 (7.14.8) in 2024, in addition to UI screens protections, a Sanitizer protection is enabled by default to filter harmful payloads out of API requests.
 This additional security helps preventing stored XSS attacks on screens which may have not been secured enough, such as custom pages you have developed.
 
 == How it works
 
-On potentially harmfull REST API requests, a filter executes the https://github.com/OWASP/java-html-sanitizer/blob/master/README.md[OWASP Java HTML Sanitizer] on the request body.
+On potentially harmful REST API requests, a filter executes the https://github.com/OWASP/java-html-sanitizer/blob/master/README.md[OWASP Java HTML Sanitizer] on the request body.
 Malicious code is then removed or escaped from the request body before the request is handled.
 
 When you migrate from a previous version, since the Sanitizer protection filters the request's inputs, it will not protect your unsecured UI screens from XSS attacks which have already been stored in the database.
@@ -61,6 +61,6 @@ By default Sanitizer protection is disabled on a few json attributes with this l
 
 If you must disable the Sanitizer protection for the whole platform, edit the configuration file and change the `security.sanitizer.enabled` value to *false*.
 
-If you want to disable the Sanitizer protection for a specific json attribute, edit the configuration file and append your attribute name to the `security.sanitizer.exclude` comma-separated value.
+If you want to disable the Sanitizer protection for a specific json attribute, edit the configuration file and append your attribute name to the `security.sanitizer.exclude` comma-separated values.
 
 In either case, make sure all your concerned UI pages are secured against XSS attacks before disabling the Sanitizer protection (e.g. by developing them with Bonita UI Designer and avoiding using the `allow HTML` option of the widgets when the content comes from a user input).
