@@ -1,0 +1,66 @@
+= Input Validation (Requests Sanitizer)
+:description: Bonita REST API is secured against XSS attacks with a request sanitizer.
+
+{description}
+
+Cross-Site Scripting (also known as XSS), is a common example of web security vulnerability.
+An attacker can compromise the interactions that users have with a vulnerable application.
+By injecting some malicious code then executed on a user's browser, the attacker can impersonate this user and take illegitimate control on the application.
+
+To prevent such attacks, Bonita REST API is secured with a requests sanitizer which neutralizes malicious code from the body of incoming requests.
+
+== Default security setup in Bonita
+
+In Bonita, the UI screens are secured in order to prevent XSS attacks.
+
+Since version 2022.1u8 (7.14.8) in 2024, in addition to UI screens protections, a Sanitizer protection is enabled by default to filter harmful payloads out of API requests.
+This additional security helps preventing stored XSS attacks on screens which may have not been secured enough, such as custom pages you have developed.
+
+== How it works
+
+On potentially harmful REST API requests, a filter executes the https://github.com/OWASP/java-html-sanitizer/blob/master/README.md[OWASP Java HTML Sanitizer] on the request body.
+Malicious code is then removed or escaped from the request body before the request is handled.
+
+When you migrate from a previous version, since the Sanitizer protection filters the request's inputs, it will not protect your unsecured UI screens from XSS attacks which have already been stored in the database.
+
+== Is there a functional impact?
+
+If you are displaying code in Bonita Applications, this may have a functional impact for you.
+The code you wish to just display may be considered as some malicious injected code and removed from the input, or some character sequences may be replaced by unescaped equivalent.
+E.g. a comment such as
+[source,html]
+----
+My page contains "&amp;" and "1 &lt; 3" and "<script>alert(1)</script>"
+----
+will be displayed as
+[source,html]
+----
+My page contains "&" and "1 < 3" and ""
+----
+
+== How do I disable it?
+
+You can disable the Sanitizer protection. Either globally for the whole platform, or partially for some specific json attributes.
+
+Disabling the Sanitizer protection  for the whole platform is not recommended as it will remove any server-side input validation and can make Applications using Bonita REST API unprotected from malicious attacks (unless content is sanitized front-end side).
+However, it is safe to disable it for some specific json attributes when:
+
+ * the value is expected to contain special characters
+ * and either:
+ ** the value is already checked (e.g. email with a pattern)
+ ** or the value is never interpreted (or displayed) in pages (e.g. password).
+
+If you need to, the Sanitizer protection can be deactivated in the file `security-config.properties`.
+The default version of this file is located in `setup/platform_conf/initial/platform_portal`. In order to change the configuration on an installation whose platform has already been initialized, use the xref:runtime:bonita-platform-setup.adoc[platform setup tool] to retrieve the current configuration and update the file in `setup/platform_conf/current/platform_portal`. Then use the tool again to save your changes into to the database.
+
+When Sanitizer protection is enabled, this file contains this line:
+`security.sanitizer.enabled true`
+
+By default Sanitizer protection is disabled on a few json attributes with this line:
+`security.sanitizer.exclude email,password,password_confirm`
+
+If you must disable the Sanitizer protection for the whole platform, edit the configuration file and change the `security.sanitizer.enabled` value to *false*.
+
+If you want to disable the Sanitizer protection for a specific json attribute, edit the configuration file and append your attribute name to the `security.sanitizer.exclude` comma-separated values.
+
+In either case, make sure all your concerned UI pages are secured against XSS attacks before disabling the Sanitizer protection (e.g. by developing them with Bonita UI Designer and avoiding using the `allow HTML` option of the widgets when the content comes from a user input).
