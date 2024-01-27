@@ -1,4 +1,4 @@
-= Bonita Runtime dependencies (8.0.2)
+= Bonita Runtime dependencies (8.0.3)
 :page-aliases: ROOT:bonita-web-dependencies.adoc, ROOT:bonita-engine-dependencies.adoc
 :description: List all dependencies used by Bonita Runtime
 
@@ -250,13 +250,13 @@
 
 | ch.qos.logback
 | logback-classic
-| 1.2.11
+| 1.2.13
 | http://www.qos.ch[http://www.qos.ch]
 |  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
 
 | ch.qos.logback
 | logback-core
-| 1.2.11
+| 1.2.13
 | http://www.qos.ch[http://www.qos.ch]
 |  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
 
@@ -770,11 +770,53 @@
 | https://github.com/FasterXML/woodstox[https://github.com/FasterXML/woodstox]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
+| com.google.code.findbugs
+| jsr305
+| 3.0.2
+| http://findbugs.sourceforge.net/[http://findbugs.sourceforge.net/]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| com.google.errorprone
+| error_prone_annotations
+| 2.3.4
+| N/A
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache 2.0]
+
+| com.google.guava
+| failureaccess
+| 1.0.1
+| https://github.com/google/guava/[https://github.com/google/guava/]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| com.google.guava
+| guava
+| 30.1-jre
+| https://github.com/google/guava/[https://github.com/google/guava/]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+
+| com.google.guava
+| listenablefuture
+| 9999.0-empty-to-avoid-conflict-with-guava
+| N/A
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| com.google.j2objc
+| j2objc-annotations
+| 1.3
+| https://github.com/google/j2objc/[https://github.com/google/j2objc/]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
 | com.googlecode.json-simple
 | json-simple
 | 1.1
 | http://code.google.com/p/json-simple/[http://code.google.com/p/json-simple/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| com.googlecode.owasp-java-html-sanitizer
+| owasp-java-html-sanitizer
+| 20220608.1
+| https://owasp.org[https://owasp.org]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | com.sun.activation
 | jakarta.activation
@@ -932,6 +974,12 @@
 | http://geronimo.apache.org/maven/xbean/3.7/xbean-classloader[http://geronimo.apache.org/maven/xbean/3.7/xbean-classloader]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
+| org.checkerframework
+| checker-qual
+| 3.5.0
+| https://checkerframework.org[https://checkerframework.org]
+|  http://opensource.org/licenses/MIT[The MIT License]
+
 | org.codehaus.groovy
 | groovy
 | 3.0.10
@@ -1054,13 +1102,13 @@
 
 | ch.qos.logback
 | logback-classic
-| 1.2.12
+| 1.2.13
 | http://www.qos.ch[http://www.qos.ch]
 |  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
 
 | ch.qos.logback
 | logback-core
-| 1.2.12
+| 1.2.13
 | http://www.qos.ch[http://www.qos.ch]
 |  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
 
@@ -1075,6 +1123,12 @@
 | 8.4.1.jre8
 | https://github.com/Microsoft/mssql-jdbc[https://github.com/Microsoft/mssql-jdbc]
 |  http://www.opensource.org/licenses/mit-license.php[MIT License]
+
+| com.mysql
+| mysql-connector-j
+| 8.2.0
+| http://dev.mysql.com/doc/connector-j/en/[http://dev.mysql.com/doc/connector-j/en/]
+|  The GNU General Public License, v2 with Universal FOSS Exception, v1.0
 
 | com.oracle.database.jdbc
 | ojdbc8
@@ -1105,12 +1159,6 @@
 | 1.3.5
 | https://www.eclipse.org[https://www.eclipse.org]
 |  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
-
-| mysql
-| mysql-connector-java
-| 8.0.29
-| http://dev.mysql.com/doc/connector-j/en/[http://dev.mysql.com/doc/connector-j/en/]
-|  The GNU General Public License, v2 with FOSS exception
 
 | org.apache.commons
 | commons-lang3
@@ -1480,13 +1528,13 @@
 
 | ch.qos.logback
 | logback-classic
-| 1.2.11
+| 1.2.13
 | http://www.qos.ch[http://www.qos.ch]
 |  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
 
 | ch.qos.logback
 | logback-core
-| 1.2.11
+| 1.2.13
 | http://www.qos.ch[http://www.qos.ch]
 |  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
 
@@ -2132,11 +2180,53 @@
 | https://github.com/FasterXML/woodstox[https://github.com/FasterXML/woodstox]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
+| com.google.code.findbugs
+| jsr305
+| 3.0.2
+| http://findbugs.sourceforge.net/[http://findbugs.sourceforge.net/]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| com.google.errorprone
+| error_prone_annotations
+| 2.3.4
+| N/A
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache 2.0]
+
+| com.google.guava
+| failureaccess
+| 1.0.1
+| https://github.com/google/guava/[https://github.com/google/guava/]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| com.google.guava
+| guava
+| 30.1-jre
+| https://github.com/google/guava/[https://github.com/google/guava/]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+
+| com.google.guava
+| listenablefuture
+| 9999.0-empty-to-avoid-conflict-with-guava
+| N/A
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| com.google.j2objc
+| j2objc-annotations
+| 1.3
+| https://github.com/google/j2objc/[https://github.com/google/j2objc/]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
 | com.googlecode.json-simple
 | json-simple
 | 1.1
 | http://code.google.com/p/json-simple/[http://code.google.com/p/json-simple/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| com.googlecode.owasp-java-html-sanitizer
+| owasp-java-html-sanitizer
+| 20220608.1
+| https://owasp.org[https://owasp.org]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | com.sun.activation
 | jakarta.activation
@@ -2367,8 +2457,14 @@
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
 | org.bouncycastle
-| bcprov-jdk15on
-| 1.70
+| bcpkix-jdk18on
+| 1.77
+| https://www.bouncycastle.org/java.html[https://www.bouncycastle.org/java.html]
+|  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
+
+| org.bouncycastle
+| bcprov-jdk18on
+| 1.77
 | https://www.bouncycastle.org/java.html[https://www.bouncycastle.org/java.html]
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
@@ -2377,6 +2473,18 @@
 | 1.70
 | https://www.bouncycastle.org/java.html[https://www.bouncycastle.org/java.html]
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
+
+| org.bouncycastle
+| bcutil-jdk18on
+| 1.77
+| https://www.bouncycastle.org/java.html[https://www.bouncycastle.org/java.html]
+|  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
+
+| org.checkerframework
+| checker-qual
+| 3.5.0
+| https://checkerframework.org[https://checkerframework.org]
+|  http://opensource.org/licenses/MIT[The MIT License]
 
 | org.codehaus.groovy
 | groovy
@@ -2626,13 +2734,13 @@
 
 | ch.qos.logback
 | logback-classic
-| 1.2.12
+| 1.2.13
 | http://www.qos.ch[http://www.qos.ch]
 |  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
 
 | ch.qos.logback
 | logback-core
-| 1.2.12
+| 1.2.13
 | http://www.qos.ch[http://www.qos.ch]
 |  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
 
@@ -2647,6 +2755,12 @@
 | 8.4.1.jre8
 | https://github.com/Microsoft/mssql-jdbc[https://github.com/Microsoft/mssql-jdbc]
 |  http://www.opensource.org/licenses/mit-license.php[MIT License]
+
+| com.mysql
+| mysql-connector-j
+| 8.2.0
+| http://dev.mysql.com/doc/connector-j/en/[http://dev.mysql.com/doc/connector-j/en/]
+|  The GNU General Public License, v2 with Universal FOSS Exception, v1.0
 
 | com.oracle.database.jdbc
 | ojdbc8
@@ -2677,12 +2791,6 @@
 | 1.3.5
 | https://www.eclipse.org[https://www.eclipse.org]
 |  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
-
-| mysql
-| mysql-connector-java
-| 8.0.29
-| http://dev.mysql.com/doc/connector-j/en/[http://dev.mysql.com/doc/connector-j/en/]
-|  The GNU General Public License, v2 with FOSS exception
 
 | org.apache.commons
 | commons-lang3
