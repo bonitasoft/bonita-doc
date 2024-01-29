@@ -209,6 +209,13 @@ repositories {
 
 == Bug fixes
 
+=== Fixes in Bonita 2022.1-u8 (2024-01-29)
+
+==== Fixes in Bonita Runtime including Bonita Applications
+
+* RUNTIME-1802 - Search fields don't work when search term contain special characters
+* RUNTIME-1811 - "jaasAuthenticationService" and "authenticationService" beans not created if custom authentication service is configured
+
 === Fixes in Bonita 2022.1-u7 (2023-11-24)
 
 ==== Fixes in Bonita Studio including Bonita UI Designer
