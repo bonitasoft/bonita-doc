@@ -209,6 +209,17 @@ repositories {
 
 == Bug fixes
 
+=== Fixes in Bonita 2022.1-u8 (2024-01-29)
+
+==== Fixes in Bonita Runtime including Bonita Applications
+
+* RUNTIME-1802 - Search fields don't work when search term contain special characters
+* RUNTIME-1811 - "jaasAuthenticationService" and "authenticationService" beans not created if custom authentication service is configured
+
+==== Fixes in Bonita Studio including Bonita UI Designer
+
+* UID-727 - Invalid js minification
+
 === Fixes in Bonita 2022.1-u7 (2023-11-24)
 
 ==== Fixes in Bonita Studio including Bonita UI Designer
@@ -218,7 +229,6 @@ repositories {
 * STUDIO-4483 - BonitaMarketplace: NPE generated in the log file when the HTTP response's entity-body is empty
 * STUDIO-4490 - Exception at runtime: the Call activity is wrong in the process-design.xml generated
 * UID-723     - Update to 7.14: Web browser's disk and memory caches break the product and custom pages
-* UID-727     - Invalid js minification
 
 ==== Fixes in Bonita Runtime including Bonita Applications
 
