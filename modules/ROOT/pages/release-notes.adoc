@@ -18,7 +18,7 @@ Our dedicated team will be here to guide you through this new updated mode, answ
 ====
 
 === User sharing session mechanism between nodes
-Service continuity is a key element of operational performance, so we are introducing a new native capability to help to ensure access to applications. Even when a node experiences downtime, users will remain seamlessly connected and will be able continue working without interruptions, ensuring smooth operations and increased user satisfaction.
+Service continuity is a key element of operational performance, so we are introducing a new native capability to help to ensure access to applications. Even when a node experiences downtime, users will remain seamlessly connected and will be able to continue working without interruptions, ensuring smooth operations and increased user satisfaction.
 
 === Test toolkit V2
 Ensuring xref:test-toolkit::process-testing-overview.adoc[effective testing] by keeping track of the scope performed and identifying errors is a real concern for our developers. To support this, a test report is generated, which is adding a visual representation of the test sequence directly on the BPMN diagrams. This provides a clearer and more intuitive way of tracking progress, collaborating effectively and aligning with business/process owners. A concrete step towards shorter iterations and streamlined project tracking.
@@ -58,7 +58,7 @@ The default log configuration enables color highlighting in the console output.
 
 ==== Session timeout and Maintenance handling
 
-Bonita UI Designer pages now handle 401 and 503 errors for requests to Bonita REST API and display a modal dialog informing the users of the invalid session (401) or the running maintenance (503) and proposing to redirect them to the login or maintenance page. By clicking on cancel in this dialog, the users can remain on the current page (to not lose unsubmitted form content) and log in in an other tab to renew their session or wait for the maintenance to end.  +
+Bonita UI Designer pages now handle 401 and 503 errors for requests to Bonita REST API and display a modal dialog informing the users of the invalid session (401) or the running maintenance (503) and proposing to redirect them to the login or maintenance page. By clicking on cancel in this dialog, the users can remain on the current page (to not lose un-submitted form content) and log in another tab to renew their session or wait for the maintenance to end.  +
 To benefit from this feature when updating to Bonita 2023.2, it is required to migrate existing pages by migrating your applications using Bonita Studio 2023.2.
 
 === Bonita Test Toolkit V2
@@ -363,14 +363,26 @@ The timezone can be set via *TZ* environment variable. Check the https://data.ia
 
 == Bug fixes
 
+=== Fixes in Bonita 2023.2-u2 (2024-02-01)
+
+==== Fixes in Bonita Runtime including Bonita Applications
+
+* RUNTIME-1725 - graphical issue with admin living app
+* RUNTIME-1802 - Search fields don't work when search term contain special characters
+* RUNTIME-1811 - "jaasAuthenticationService" and "authenticationService" beans not created if custom authentication service is configured
+* RUNTIME-1813 - Session sharing does not support OIDC opaque access tokens
+
+==== Fixes in Bonita Studio (including Bonita UI Designer)
+
+* UID-727 - Invalid js minification
+
 === Fixes in Bonita 2023.2-u1 (2023-11-29)
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
 
 * STUDIO-4494 - Classcast Exception in Export BOS Dialog
-* UID-727     - Invalid js minification
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
-* RUNTIME-1790 - When server is unavailble due to maintenance, or any error page is displayed, language cookie is systematically set to french
+* RUNTIME-1790 - When server is unavailable due to maintenance, or any error page is displayed, language cookie is systematically set to french
 * RUNTIME-1797 - STenantNotFoundException: tenant 1 is not found after using MT2MR and update to 9.0 
