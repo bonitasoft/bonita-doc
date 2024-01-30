@@ -166,7 +166,7 @@ Reminder : For commercial and support questions, please refer to your Customer S
 
 == Bug fixes
 
-=== Fixes in Bonita 2023.1-u3 (2024-01-29)
+=== Fixes in Bonita 2023.1-u3 (2024-01-30)
 
 ==== Fixes in Bonita Runtime including Bonita Applications
 
