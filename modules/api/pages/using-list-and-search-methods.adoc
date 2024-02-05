@@ -76,8 +76,6 @@ All Search requests done using **search terms** are case-insensitive but **filte
 | yes
 |===
 
-WARNING: On Oracle database, search is case-sensitive.
-
 [#like_based_search]
 == Like-based search
 

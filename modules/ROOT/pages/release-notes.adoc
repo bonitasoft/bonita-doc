@@ -58,6 +58,8 @@ This is now the default search behavior for all search APIs and pages of Bonita 
 
 == Functional changes
 
+=== Oracle case-insensitiveness
+The Oracle search is now case-insensitive.
 
 == Feature deprecations and removals
 
