@@ -10,6 +10,9 @@ All changes in both tools are logged: from the version that was delivered with t
 This is due to the fact that improvements in any version of the tools can affect all supported Bonita versions. 
 This changelog must be read before xref:update-overview.adoc[updating to a newer version of Bonita].
 
+== 3.3.0 - Nov 13th, 2023 - Bonita Update Tool changes
+Bonita Update Tool handles updates from all Bonita 7.10 versions up to Bonita 2023.2(9.0) version.
+
 == 3.2.0 - May 11th, 2023 - Bonita Update Tool changes
 Bonita Update Tool handles updates from all Bonita 7.10 versions up to Bonita 2023.1(8.0) version.
 
