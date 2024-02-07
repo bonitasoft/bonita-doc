@@ -10,29 +10,6 @@
 
 Check the xref:ROOT:hardware-and-software-requirements.adoc[hardware and software requirements].
 
-==== MacOs specific prerequisites
-
-[IMPORTANT]
-====
-For users of macOS Big Sur 11.0 and above: Only version 7.11.4 and upwards are compatible
-====
-
-Only *installed JDK* are accepted by the macOS _gatekeeper_. +
-If you try to use a JDK directly downloaded, you will get this kind of error: _jdk-11.0.5 can't be opened because it is from an unidentified developer._ +
-The solution is to use an installer to install properly the JDK. The easiest way is to tape the following commands:
-
-[source,bash, subs="+attributes"]
-----
-# Install brew first if it is not installed yet, more details here: https://brew.sh
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-# Use brew to install a JDK
-brew tap homebrew/cask-versions
-brew cask install java{minimalRequiredJavaVersion}
-----
-
-Another solution is to download and execute manually the installer, https://adoptium.net/temurin/releases/?version={minimalRequiredJavaVersion}&os=mac[here for example].
-
 ==== Windows specific note
 
 The security feature called *SmartScreen* prevents execution of Bonita Studio installer.  When you get the "Windows protect your PC" pop up window, click on "More info" link and click on "Run anyway" button.
@@ -40,13 +17,11 @@ The security feature called *SmartScreen* prevents execution of Bonita Studio in
 === Community edition
 To download the latest version of Bonita Studio Community edition, open the https://www.bonitasoft.com/downloads[download page] and click on the *Download* button. This will start the download of the Bonita Studio installer for your operating system.
 
-// update package name
-
 When the download is finished, you should have one of the following files on your computer (x.y refers to the version of Bonita Studio, e.g. {bonitaVersion}):
 
 * Windows: `BonitaStudioCommunity-x.y-x86_64.exe`
 * macOS: `BonitaStudioCommunity-x.y-x86_64.dmg`
-* Linux: `BonitaStudioCommunity-x.y-x86_64.run`
+* Linux: `BonitaStudioCommunity-x.y-x86_64.tar.gz`
 
 === Subscription edition
 Subscription editions cover the now unique Enterprise editions, but also the Subscription editions that are no longer sold but still supported at Bonitasoft. +
@@ -56,8 +31,7 @@ When the download is complete, you have one of the following new files:
 
 * Windows: `BonitaSubscription-x.y.z-x86_64.exe`
 * macOS: `BonitaSubscription-x.y.z-macOs.dmg`
-* Linux: `BonitaSubscription-x.y.z-x86_64.run`
-* Zip, no Installer (Windows or Linux): `BonitaStudioSubscription-x.y.z.zip`
+* Linux: `BonitaSubscription-x.y.z-x86_64.tar.gz`
 
 You are now ready to start the installation process.
 
@@ -76,12 +50,15 @@ Then follow the installation wizard through to the end of the installation proce
   The default installation directories are:
          * Windows: `C:\BonitaStudioCommunity-x.y`
          * macOS: `/Applications/BonitaStudioCommunity-x.y`
-         * Linux: `/home/<username>/BonitaStudioCommunity-x.y`
 . Confirmation that installation is about to start: click on "Next"
 . Actual installation: wait a little bit
 . License request. For the Subscription edition only. If you do not have your licence file ready, you can skip that; Bonita Studio will request the license at first start.
 . You'll see a confirmation message that offers the option to start Bonita Studio. Choose to launch Bonita Studio and click on *Finish*
 . A "thank you for downloading" page will be displayed in your web browser, with important getting starting information.
+
+=== Linux archive
+
+Since 2024.1, the Linux binaries are only packaged as `tar.gz` archive. Simply extract the archive in a folder of your choice with proper permissions.
 
 == License
 
@@ -95,13 +72,11 @@ When you install or launch Bonita Studio for the first time, you need to install
 . Download the license file (.lic)
 . Go back to your Bonita Studio, click *_Install license..._*, and select your .lic file.
 
-[#enable_cache]
-=== Installation using Zip archive (Windows or Linux)
+== Embedded Java
 
-To install Bonita Studio using the Zip archive, unzip the downloaded .zip file to a folder on your hard drive. +
-Avoid using a folder with a long path. Do not use a path that contains spaces. +
+Since 2024.1, all Bonita Studio packages comes with an embedded Java runtime. It uses https://eclipse.dev/justj[Eclipse JustJ, target="blank"] behind the hood.
 
-Bonita Studio is now installed.
+WARNING: This Java runtime is only used inside a Bonita Studio. When trying to build and run a Bonita project outside the Studio, make sure to have a xref:ROOT:hardware-and-software-requirements.adoc[compliant Java Runtime version, target="blank"].
 
 == First Bonita Studio execution
 
@@ -110,12 +85,12 @@ To start Bonita Studio, go to the directory where you installed it, and run the 
 === Community edition
 * Windows: `BonitaStudioCommunity.exe`
 * macOS: `BonitaStudioCommunity.app`
-* Linux: `BonitaStudioCommunity-linux`
+* Linux: `BonitaStudioCommunity`
 
 === Subscription edition
 * Windows: `BonitaStudioSubscription.exe`
 * macOS: `BonitaStudioSubscription.app`
-* Linux: `BonitaStudioSubscription-linux`
+* Linux: `BonitaStudioSubscription`
 
 Now Bonita Studio should be running on your computer. +
 If not, you can manually start it by using the installed shortcut or by using the Bonita Studio executable file from the installation folder.

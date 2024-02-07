@@ -46,12 +46,18 @@ For more information on how to tune the L2 Cache with Bonita, please refer to th
 
 ==== Like-based search
 
-Bonita Runtime search capabilities in APIs and application pages have been improved by changing the algorythm to support "like-based" search. +
+Bonita Runtime search capabilities in APIs and application pages have been improved by changing the algorithm to support "like-based" search. +
 With the "like-based" algorithm you can find all the matching records for which the search string occurs anywhere in a phrase or a word. +
 This is now the default search behavior for all search APIs and pages of Bonita Runtime.
 
 === Development suite
 
+==== Bonita Studio packaging changes
+
+All Bonita Studio binaries now embed a Java runtime. The former "all-in-one" archive which was mixing both Windows and Linux environment will not be published anymore.
+
+The Linux binaries are now published as `tar.gz` archives only, while Windows and MacOs platforms still uses an installer.
+Consult xref:ROOT:bonita-studio-download-installation.adoc[Bonita Studio installation article] for more information.
 
 === Bonita UI Designer
 
