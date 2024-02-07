@@ -74,7 +74,7 @@ When you install or launch Bonita Studio for the first time, you need to install
 
 == Embedded Java
 
-Since 2024.1, all Bonita Studio packages comes with an embedded Java runtime. It uses https://eclipse.dev/justj[Eclipse JustJ, target="blank"] behind the hood.
+Since 2024.1, all Bonita Studio packages come with an embedded Java runtime. It uses https://eclipse.dev/justj[Eclipse JustJ, target="blank"] behind the hood.
 
 WARNING: This Java runtime is only used inside a Bonita Studio. When trying to build and run a Bonita project outside the Studio, make sure to have a xref:ROOT:hardware-and-software-requirements.adoc[compliant Java Runtime version, target="blank"].
 
