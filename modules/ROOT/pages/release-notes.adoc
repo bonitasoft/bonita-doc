@@ -363,6 +363,16 @@ The timezone can be set via *TZ* environment variable. Check the https://data.ia
 
 == Bug fixes
 
+=== Fixes in Bonita 2023.3-u3 (2024-02-08)
+
+==== Fixes in Bonita Runtime including Bonita Applications
+
+* RUNTIME-1815 - Cannot update application information after updated logo file of the application
+* RUNTIME-1816 - New sanitize filter makes payloads with "null" attribute values fail
+* RUNTIME-1817 - Compilation Errors when non 7 bit US ascii chars are used in the description of a Business Object in the BDM
+* RUNTIME-1819 - [SAML SSO] Decrypt of encrypted assertion fails with ClassNotFoundException: EncryptedData
+* RUNTIME-1820 - [SAML SSO] Decrypt of encrypted assertion fails with NoSuchMethodError: SingletonIterator.create 
+
 === Fixes in Bonita 2023.2-u2 (2024-02-01)
 
 ==== Fixes in Bonita Runtime including Bonita Applications
@@ -370,7 +380,7 @@ The timezone can be set via *TZ* environment variable. Check the https://data.ia
 * RUNTIME-1725 - graphical issue with admin living app
 * RUNTIME-1802 - Search fields don't work when search term contain special characters
 * RUNTIME-1811 - "jaasAuthenticationService" and "authenticationService" beans not created if custom authentication service is configured
-* RUNTIME-1813 - Session sharing does not support OIDC opaque access tokens
+* RUNTIME-1813 - [OIDC SSO] Session sharing does not support opaque access tokens
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
 
