@@ -344,7 +344,7 @@ hibernate_second_level_cache_requests_total{entityManagerFactory="persistence",r
 hibernate_second_level_cache_requests_total{entityManagerFactory="persistence",region="org.bonitasoft.engine.identity.model.SRole",result="hit",} 5.0
 ----
 
-* it the `hit` / `miss` ratio is low, it means configuration is not optimal, according to your usage. +
+* if the `hit` / `miss` ratio is low, it means configuration is not optimal, according to your usage. +
 See the following pages for fine-tuning your cache configuration:
   ** https://docs.hazelcast.com/hazelcast/latest/capacity-planning#benchmarking-and-sizing-examples[Hazelcast benchmarking]
   ** https://docs.hazelcast.com/hazelcast/latest/cluster-performance/performance-tuning[Hazelcast performance tuning]
