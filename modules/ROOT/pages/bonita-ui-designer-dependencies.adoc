@@ -1,4 +1,5 @@
 = Bonita-ui-designer 1.18.2 dependencies for Bonita 2024.1
+:description: List all dependencies used by Bonita-ui-designer
 
 
 == UI-Designer Backend dependencies
