@@ -1,4 +1,4 @@
-= Bonita-ui-designer 1.17.14 dependencies for Bonita 2023.2
+= Bonita-ui-designer 1.18.2 dependencies for Bonita 2024.1
 :description: List all dependencies used by Bonita-ui-designer
 
 
@@ -104,13 +104,13 @@
 | ui-designer-artifact-builder (org.bonitasoft.web) | 1.0.7 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
-| ui-designer-backend-contract (org.bonitasoft.web) | 1.17.14 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
+| ui-designer-backend-contract (org.bonitasoft.web) | 1.18.2 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
 | ui-designer-backend-migrationReport (org.bonitasoft.web) | 1.0.7 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
-| ui-designer-frontend (org.bonitasoft.web) | 1.17.14 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
+| ui-designer-frontend (org.bonitasoft.web) | 1.18.2 | http://www.gnu.org/licenses/gpl-2.0.txt[GPL-v2.0] 
 
 
 | commons-compiler (org.codehaus.janino) | 3.1.10 | https://spdx.org/licenses/BSD-3-Clause.html[BSD-3-Clause] 
