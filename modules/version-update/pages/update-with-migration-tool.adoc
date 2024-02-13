@@ -144,9 +144,6 @@ modify your custom Look & Feel to be compatible with the new definition, and wit
 === JRE requirements
 Based on your target Bonita version, check whether JRE update is required in your environment before launching the update process:
 
-=== JRE requirements
-Based on your target Bonita version, check whether JRE update is required in your environment before launching the update process:
-
 |===
 |*JRE version* |*Bonita version*
 |JRE version 7
