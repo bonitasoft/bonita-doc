@@ -83,7 +83,7 @@ If you used them to configure Bonita Runtime for "word-based" search and specifi
 
 == Bug fixes
 
-=== Fixes in Bonita 2024.1-b1 (2024-02-12)
+=== Fixes in Bonita 2024.1-b1 (2024-02-13)
 
 ==== Fixes in Bonita Runtime including Bonita Applications
 
