@@ -210,6 +210,7 @@ Reminder : For commercial and support questions, please refer to your Customer S
 * RUNTIME-1713 - Apply debounce to official pages using a search box
 * RUNTIME-1739 - Update several dependencies for 2023.1-u1
 * RUNTIME-1744 - Unable to update a 7.11.2 project into 2023.1 studio
+* RUNTIME-1749 - Custom Event Handler is never called
 * RUNTIME-1753 - `ClientAbortException: java.io.IOException: Broken pipe` errors in runtime logs
 * RUNTIME-1769 - Translations of non-UIDesigner provided pages subscription parts are randomly not loaded
 * RUNTIME-1770 - Portal backend web.xml: the Cache-Control max-age is set to 6 month whereas it should be set to 10 hours
