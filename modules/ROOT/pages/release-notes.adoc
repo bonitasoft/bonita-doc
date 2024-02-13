@@ -85,8 +85,6 @@ If you used them to configure Bonita Runtime for "word-based" search and specifi
 
 === Fixes in Bonita 2024.1-b1 (2024-02-13)
 
-==== Fixes in Bonita Runtime including Bonita Applications
-
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
 * RUNTIME-1398 - Prevent login via GET request by default
