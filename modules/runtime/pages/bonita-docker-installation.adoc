@@ -294,7 +294,7 @@ This optional environment variable is used in conjunction with `MONITORING_USERN
 
 === REST_API_DYN_AUTH_CHECKS
 
-Removed & does not work anymore, now you can use xref:#dynamic-check-enable[BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED] instead.
+Removed & does not work anymore, now you can use <<dynamic-check-enable,BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED>> instead.
 
 [#dynamic-check-enable]
 
@@ -391,7 +391,7 @@ These variables are used in conjunction to create a new user, set that user's pa
 
 === BONITA_SERVER_LOGGING_FILE, BONITA_SETUP_LOGGING_FILE
 
-WARNING: DEPRECATED See xref:#logger_configuration[how to configure logger]
+WARNING: DEPRECATED See <<logger_configuration,how to configure logger>>
 
 Since Bonita 7.9 BONITA_SERVER_LOGGING_FILE and BONITA_SETUP_LOGGING_FILE can be used to update logging configuration.
 
