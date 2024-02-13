@@ -379,12 +379,12 @@ The Bonita Runtime is now available using technical login `tech_user / secret`.
 
 == Secure your remote access
 
-This docker image ensures to activate by default both static and dynamic authorization checks on xref:identity:rest-api-authorization.adoc[REST API]. To be coherent, it also deactivates the HTTP API.
-But for specific needs you can override this behavior by setting `HTTP_API` to true and `BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED` to false:
-
 [tabs]
 ====
 Community edition::
+
+This docker image ensures to activate by default static authorization checks (Subscription editions only) on xref:identity:rest-api-authorization.adoc[REST API]. To be coherent it also deactivates the HTTP API.
+But for specific needs, like exposing directly the Runtime APIs through HTTP (not to be mixed up with the REST API), you can override this behavior by setting `HTTP_API` to true:
 +
 --
 [source,shell,subs="+macros,+attributes"]
@@ -392,12 +392,14 @@ Community edition::
 docker run --name bonita \
     -e HTTP_API=true \
     -e HTTP_API_PASSWORD=S0me-h11p-s3cr3t \
-    -e BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED=false \
     -d -p 8080:8080 bonita:pass:a[{bonitaVersion}]
 ----
 --
 
 Subscription editions::
+
+This docker image ensures to activate by both static and dynamic authorization checks on xref:identity:rest-api-authorization.adoc[REST API]. To be coherent it also deactivates the HTTP API.
+But for specific needs, like exposing directly the Runtime APIs through HTTP (not to be mixed up with the REST API), you can override this behavior by setting `HTTP_API` to true:
 +
 --
 [source,shell,subs="+macros,+attributes"]
@@ -405,7 +407,6 @@ Subscription editions::
 docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ \
     -e HTTP_API=true \
     -e HTTP_API_PASSWORD=S0me-h11p-s3cr3t \
-    -e BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED=false \
     -d -p 8080:8080 {bonitasoft-docker-repository}/bonita-subscription:pass:a[{bonitaVersion}]
 ----
 --
