@@ -740,7 +740,7 @@ the Engine HTTP API by:
 * or set an environment variable `HTTP_API=true` before launching Bonita Tomcat bundle
 
 *Docker image solution:* Run the docker image with *-e HTTP_API=true*: +
-`docker run -e HTTP_API=true -e BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED=false --name bonita -v ./bonita-lic/:/opt/bonita_lic/ -h localhost -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:{bonitaVersion}`
+`docker run -e HTTP_API=true --name bonita -v ./bonita-lic/:/opt/bonita_lic/ -h localhost -d -p 8080:8080 quay.io/bonitasoft/bonita-subscription:{bonitaVersion}`
 
 See the page xref:runtime:bonita-docker-installation.adoc#_http_api[Deploy Bonita Runtime with Docker] for more information.
 --
