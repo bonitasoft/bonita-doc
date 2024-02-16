@@ -99,7 +99,7 @@ If you used them to configure Bonita Runtime for "word-based" search and specifi
 * RUNTIME-1817 - Compilation Errors when non 7 bit US ascii chars are used in the description of a Business Object in the BDM
 * RUNTIME-1819 - [SAML SSO] Decrypt of encrypted assertion fails with ClassNotFoundException: EncryptedData
 * RUNTIME-1820 - [SAML SSO] Decrypt of encrypted assertion fails with NoSuchMethodError: SingletonIterator.create
-* CVE-58 - Some UI screens in administration pannel have been secured against stored XSS attacks. We also introduced a backend input validation to prevent storing XSS attacks in the database. +
+* CVE-58 - Some UI screens in administration panel have been secured against stored XSS attacks. We also introduced a backend input validation to prevent storing XSS attacks in the database. +
 _We would like to thank both Tomas Castro Rojas and Mohammad A’mir for reporting this high severity issue to us._
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
