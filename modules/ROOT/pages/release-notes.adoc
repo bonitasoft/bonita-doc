@@ -384,6 +384,7 @@ The timezone can be set via *TZ* environment variable. Check the https://data.ia
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
 
+* STUDIO-4498 - Error due to files in bin folder when trying to build a project migrated to 9.0.
 * UID-727 - Invalid js minification
 
 === Fixes in Bonita 2023.2-u1 (2023-11-29)
