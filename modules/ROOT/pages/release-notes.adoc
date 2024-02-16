@@ -381,6 +381,8 @@ The timezone can be set via *TZ* environment variable. Check the https://data.ia
 * RUNTIME-1802 - Search fields don't work when search term contain special characters
 * RUNTIME-1811 - "jaasAuthenticationService" and "authenticationService" beans not created if custom authentication service is configured
 * RUNTIME-1813 - [OIDC SSO] Session sharing does not support opaque access tokens
+* CVE-58 - Some UI screens in administration pannel have been secured against stored XSS attacks. We also introduced a backend input validation to prevent storing XSS attacks in the database. +
+_We would like to thank both Tomas Castro Rojas and Mohammad A’mir for reporting this high severity issue to us._
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
 
