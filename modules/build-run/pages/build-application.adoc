@@ -172,7 +172,9 @@ It is possible to override an existing file using the `-Dparameters.overwrite` s
 
 === Merge parameters configuration
 
-During the build of the application the `merge-configuration` goal is executed and the content of the `parameters-${bonita.environment}.yml` file is merged into the final Bonita configuration file.
+During the build of the application the `merge-configuration` goal (https://bonitasoft.github.io/bonita-project-maven-plugin/merge-configuration-mojo.html[bonita-project:merge-configuration]) is executed automatically.
+
+The content of the `parameters-${bonita.environment}.yml` file located in `.bcd_configurations` folder of your project is merged into the final Bonita configuration file.
 
 ==== Override parameters with the same name
 
