@@ -126,6 +126,17 @@ A page that is generated with this version is still compatible with a previous v
 For the users of Bonita Community edition, Bonita 2022.2 also comes with all the bug fixes released in the Maintenance versions of Bonita 2022.1 (up until version 2022.1-u6).
 The detailed list is available in the "What’s new in Bonita 2022.1" page, in the "Bug fixes" section.
 
+=== Fixes in Bonita 2022.2-u8 (2024-02-21)
+
+==== Fixes in Bonita Runtime including Bonita Applications
+
+* RUNTIME-407 - Open Cases Administrator call API/bpm/case performance slowness in 2021.1-0617
+* RUNTIME-1816 - New sanitize filter makes payloads with "null" attribute values fail
+* RUNTIME-1818 - [Kerberos SSO] - IOException: conf/login.conf (No such file or directory)
+* RUNTIME-1820 - [SAML SSO]: Decrypt of encrypted assertion fails with error: java.lang.NoSuchMethodError: 'org.codehaus.stax2.ri.SingletonIterator org.codehaus.stax2.ri.SingletonIterator.create(java.lang.Object)'
+* RUNTIME-1821 - Docker image fails to start with JMX_REMOTE_ACCESS=true
+* CVE-56 - X-Frame-Options and Content-Security-Policy header is missing on some URLs.
+
 === Fixes in Bonita 2022.2-u7 (2024-01-26)
 
 ==== Fixes in Bonita Runtime including Bonita Applications
