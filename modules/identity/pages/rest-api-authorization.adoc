@@ -139,20 +139,34 @@ In this example, the `custom_process_manager_permission` can be defined in the `
 
 [NOTE]
 ====
-For Subscription editions only.
+Default configuration and rules are available in all editions but custom configuration and rules extensibility is only available in Subscription editions.
 ====
 
 [WARNING]
 ====
-From Bonita version 2022.1, Dynamic authorization checking is enabled by default.
+From Bonita version 2022.1, Dynamic authorization checking is enabled by default in subscription editions.
+From Bonita version 2024.1, Dynamic authorization checking is enabled by default in community edition.
 ====
 
-If the static authorization checks are not suitable for your applications, you can override the rules as you want using dynamic checks.
+For some API resources, the static authorization check may not be specific enough to properly define when the access is granted. In those situations, the static authorization check may be overriden using dynamic checks.
 A user is then granted a permission only if the dynamic check authorizes it.
 A dynamic check is implemented as a sequence of conditions, including a Groovy script.
 This enables you to tailor the permissions needed to access a resource using dynamic information related to processes.
 
-A dynamic authorization check for a resource is specified by a line in the file `dynamic-permissions-checks-custom.properties`.
+By default, dynamic checks are enabled.
+
+To *completely disable* dynamic checks, simply either:
+
+* set the Environment variable `BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED=false`
+* or add the Java System property `-Dbonita.runtime.authorization.dynamic-check.enabled=false` to your `setEnv[.sh|.bat]` tomcat startup script.
+
+=== In community edition
+
+In community edition, a set of dynamic authorization checks is predifined for the resources of the bpm, identity, portal and living APIs.
+
+=== In subscription editions
+
+In subscription editions a dynamic authorization check for a resource is specified by a line in the file `dynamic-permissions-checks-custom.properties`.
 The line specifies the checks to be made for a request type for a method.
 There can be several terms in the line. Checking stops when the system returns success, indicating that the user is authorized.
 For example: `POST|bpm/case=[user|william.jobs, user|walter.bates, profile|Administrator, profile|User, check|org.bonitasoft.permissions.CasePermissionRule]`
@@ -175,16 +189,9 @@ The `dynamic-permissions-checks.properties` file contains a placeholder line for
 #GET|bpm/archivedCase=[profile|Administrator, check|org.bonitasoft.permissions.CasePermissionRule]
 ----
 
-By default, dynamic checks are enabled.
+To disable a single dynamic check for a method and resource, comment out the corresponding line in the file `dynamic-permissions-checks-custom.properties` (Subscription editions only).
 
-To *completely disable* dynamic checks, simply either:
-
-* set the Environment variable `BONITA_RUNTIME_AUTHORIZATION_DYNAMICCHECK_ENABLED=false`
-* or add the Java System property `-Dbonita.runtime.authorization.dynamic-check.enabled=false` to your `setEnv[.sh|.bat]` tomcat startup script.
-
-To disable a single dynamic check for a method and resource, comment out the corresponding line in the file `dynamic-permissions-checks-custom.properties`.
-
-To add a custom dynamic check for a method and resource, add your line in the file `dynamic-permissions-checks-custom.properties` following the example above.
+To add a custom dynamic check for a method and resource, add your line in the file `dynamic-permissions-checks-custom.properties` following the example above (Subscription editions only).
 
 If you specify a condition that calls a Groovy script, you must add the new script:
 
