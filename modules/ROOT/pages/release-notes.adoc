@@ -69,8 +69,8 @@ The Oracle search is now case-insensitive.
 
 === REST API authorizations in Community edition
 
-In order to improve security of Bonita Runtime REST API, the xref:identity:rest-api-authorization.adoc#dynamic_authorization[dynamic authorization mechanism] has been extended to Bonita Runtime community edition but it is limited to the set of provided rules and default configuration for Bonita REST API resources and cannot be extended. Customization an extensibility (new PermissionRules definition) remain available in the subscription editions only.
-Dynamic authorizations are active by default, and although it is not advised, it can still be deactivated to avoid 403 errors using a property (see xref:identity:rest-api-authorization.adoc#dynamic_authorization[dedicated doc page]).  
+In order to improve security of Bonita Runtime REST API, the xref:identity:rest-api-authorization.adoc#dynamic_authorization[dynamic authorization mechanism] has been extended to Bonita Runtime community edition but it is limited to the set of provided rules and default configuration for Bonita REST API resources and cannot be extended. Customizing an extensibility (new PermissionRules definition) remains available in the subscription editions only.
+Dynamic authorizations are active by default, and although it is not advised, it can still be deactivated to avoid 403 errors using a property (see xref:identity:rest-api-authorization.adoc#dynamic_authorization[dedicated doc page]).
 
 == Feature deprecations and removals
 
@@ -87,7 +87,7 @@ The optional "word-based" and default "start-with" search algorithms cannot be u
 |Class#Method |Comment
 
 |`org-com.bonitasoft.engine.api.PermissionAPI#checkAPICallWithScript(String className, APICallContext apiCallContext, boolean reload)`
-|was was deprecated since Bonita 2022.1. Use `org-com.bonitasoft.engine.api.PermissionAPI#isAllowed` instead to execute both static and dynamic permissions check.
+|It was deprecated since Bonita 2022.1. Use `org-com.bonitasoft.engine.api.PermissionAPI#isAllowed` instead to execute both static and dynamic permissions check.
 |===
 
 == Configuration changes
@@ -100,7 +100,7 @@ If you used them to configure Bonita Runtime for "word-based" search and specifi
 
 === REST API authorizations
 
-The property allowing to enable/disable ref:identity:rest-api-authorization.adoc#dynamic-authorization-checking[dynamic authorization checks] has been moved from the configuration file `bonita-tenant-sp-custom.properties` to the file `bonita-tenant-community-custom.properties` in the tenant folder when using the setup tool. When updating Bonita in Subscription editions, if the property was used, Bonita update tool will keep its value. When the property is set using a system property or an environment variable, it will continue to override the value of the configuration file.
+The property allowing to enable/disable xref:identity:rest-api-authorization.adoc#dynamic-authorization-checking[dynamic authorization checks] has been moved from the configuration file `bonita-tenant-sp-custom.properties` to the file `bonita-tenant-community-custom.properties` in the tenant folder when using the setup tool. When updating Bonita in Subscription editions, if the property was used, Bonita update tool will keep its value. When the property is set using a system property or an environment variable, it will continue to override the value of the configuration file.
 
 == Bug fixes
 
