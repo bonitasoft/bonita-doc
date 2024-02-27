@@ -69,7 +69,7 @@ The Oracle search is now case-insensitive.
 
 === REST API authorizations in Community edition
 
-In order to improve security of Bonita Runtime REST API, the xref:identity:rest-api-authorization.adoc#dynamic_authorization[dynamic authorization mechanism] has been restored to the community edition but it is limited to the set of provided rules and default configuration for Bonita REST API resources and cannot be extended. Customization an extensibility (new PermissionRules definition) remain available in the subscription editions only.
+In order to improve security of Bonita Runtime REST API, the xref:identity:rest-api-authorization.adoc#dynamic_authorization[dynamic authorization mechanism] has been extended to Bonita Runtime community edition but it is limited to the set of provided rules and default configuration for Bonita REST API resources and cannot be extended. Customization an extensibility (new PermissionRules definition) remain available in the subscription editions only.
 Dynamic authorizations are active by default, and although it is not advised, it can still be deactivated to avoid 403 errors using a property (see xref:identity:rest-api-authorization.adoc#dynamic_authorization[dedicated doc page]).  
 
 == Feature deprecations and removals
