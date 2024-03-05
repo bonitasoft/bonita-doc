@@ -80,3 +80,5 @@ All Search requests done using **search terms** are case-insensitive but **filte
 == Like-based search
 
 Search uses a "like-based" algorithm for searching, and finds matches where the search string occurs anywhere in a phrase or a word. As of 2024.1, "Word-based" and “Start with” search algorithms cannot be configured anymore as they are obsolete.”
+
+When you want to search on several terms, separate them with a space “ ” character to perform a search on all terms (OR). There is no way to search for the space “ ” character.
