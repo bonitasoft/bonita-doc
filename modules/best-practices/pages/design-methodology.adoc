@@ -198,10 +198,11 @@ Before you can run a process in production, you need to define your organization
 === Permissions
 xref:identity:rest-api-authorization.adoc[REST API extensions, static and dynamic API security rules], xref:identity:bdm-access-control.adoc[BDM access control], xref:process:actor-filtering.adoc[actor filters], xref:process:actors.adoc[actor mapping], xref:identity:profiles-overview.adoc[profiles] need to be specified and/or double-checked at that time, to make sure that accesses are given to the right people for the right data.
 
-
 === Translation
 This is also the time to xref:ROOT:multi-language-applications.adoc[translate] the applications into all languages needed by the end-users.
 
+=== Runtime installation
+In order to make Bonita applications available to end users you need to set up a Bonita Runtime. Please refer to the Bonita Runtime xref:runtime:runtime-index.adoc[installation section]. If you have to expose Bonita Runtime or a Bonita-developed application publicly, but legitimately want to protect any other resources behind your xref:runtime:reverse-proxy-configuration.adoc[firewall] 
 
 == Monitoring, Troubleshooting, Maintenance, and Evolution
 After deployment, you can xref:ROOT:admin-application-overview.adoc[monitor usage] and collect key performance indicators, to assess how well the process is meeting the objectives that have been defined at the birth of the project.
