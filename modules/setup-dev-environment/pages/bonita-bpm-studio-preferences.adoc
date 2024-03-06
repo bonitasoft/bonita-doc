@@ -211,8 +211,8 @@ Error:
 
 [.cause]*Potential cause*
 
-* [Ubuntu bug tracker issue](https://bugs.launchpad.net/ubuntu/+source/openjdk-lts/+bug/1988843)
-* [Eclipse SWT platform issue](https://github.com/eclipse-platform/eclipse.platform.swt/issues/158)
+* https://bugs.launchpad.net/ubuntu/+source/openjdk-lts/+bug/1988843[Ubuntu bug tracker issue]
+* https://github.com/eclipse-platform/eclipse.platform.swt/issues/158[Eclipse SWT platform issue]
 
 [.solution]*Possible solution*
 
