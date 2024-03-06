@@ -4,6 +4,8 @@
 
 {description}
 
+Bonita Runtime is the Bonita Platform component that insures process execution and standardized interaction between people, systems, and robots in Non-Production and Production environments. In order to make Bonita applications available to end users you need to set up a Bonita Runtime. 
+
 [.card-section]
 == The journey to production-perfect operations
 
