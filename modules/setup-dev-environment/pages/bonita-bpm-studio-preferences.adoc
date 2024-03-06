@@ -180,7 +180,7 @@ You need to configure your HTTP Proxy settings in the Studio Preferences > Web >
 
 [.troubleshooting-section]
 --
-[.symptom]*Symptom:* _The Studio randomly crashes on Linux when Wayland (Unbuntu 22.04 default) is used instead of x11_
+[.symptom]*Symptom:* _The Studio randomly crashes on Linux when using Wayland communication protocol (Unbuntu 22.04 default)_
 
 [.symptom-description]
 [source,log]
@@ -219,6 +219,6 @@ Error:
 The current workaround is to force the usage of X11 instead of Wayland. This can be achieved by starting the Studio using the following command line:
 [source,shell]
 ----
-~/BonitaStudio> GDK_BACKEND=x11 ./BonitaStudioCommunity
+~/BonitaStudio>GDK_BACKEND=x11 ./BonitaStudioCommunity
 ----
 --
