@@ -151,7 +151,7 @@ docker run --name mydbpostgres -d bonitasoft/bonita-postgres:12.6
 
 This image is built from the following https://github.com/Bonitasoft-Community/bonita-database-docker/tree/main/postgres/12[GitHub repository], which can be further adapted/customized to suit your needs.
 
-==== Using docker-compose
+==== Using docker compose
 
 Create a file `docker-compose.yml` with the following content
 
@@ -217,7 +217,7 @@ services:
 * Replace `~/bonita-lic` with the folder containing the license (on Windows use `/` and avoid `~`)
 * leave double `$$` untouched
 
-Run `docker-compose up`, wait for it to initialize completely, and visit `+http://localhost:8080+`, or `+http://host-ip:8080+` (as appropriate).
+Run `docker compose up`, wait for it to initialize completely, and visit `+http://localhost:8080+`, or `+http://host-ip:8080+` (as appropriate).
 
 ==== PostgreSQL as an installed service
 
