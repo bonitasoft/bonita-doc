@@ -365,6 +365,15 @@ cp BonitaSubscription-7.n-Jerome-myHosname-20171023-20180122.lic ./platform_conf
 [#special-cases]
 == Special cases
 
+=== If you are runing Bonita with Docker Compose
+When using the xref:ROOT:bonita-docker-installation#_using_docker_compose[Docker Compose installation], you can use scaling to stop and start your Bonita application in the `bonita` node(s).
+Stop your bonita node(s) or your custom application node(s) by scaling down to 0.
+[source,bash]
+----
+docker-compose up --scale bonita=0 --no-recreate -d
+----
+After updating the `docker-compose.yml` file to the image built with the new Bonita version, scale up the service when you want to restart Bonita.
+
 === Updating to Java 11 in Bonita 7.9 or a greater version
 Bonita 7.9 and greater versions support Java 11.
 
