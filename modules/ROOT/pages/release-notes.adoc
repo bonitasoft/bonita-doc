@@ -104,26 +104,36 @@ The property allowing to enable/disable xref:identity:rest-api-authorization.ado
 
 == Bug fixes
 
-=== Fixes in Bonita 2024.1-b1 (2024-02-13)
+=== Fixes in Bonita 2024.1.rc (2024-03-11)
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
+* RUNTIME-407  - Open Cases Administrator call API/bpm/case performance slowness since 2021.1-0617 
 * RUNTIME-1398 - Prevent login via GET request by default
 * RUNTIME-1725 - graphical issue with admin living app
 * RUNTIME-1790 - When server is unavailable due to maintenance, or any error page is displayed, language cookie is systematically set to french
 * RUNTIME-1797 - STenantNotFoundException: tenant 1 is not found after using MT2MR and update
 * RUNTIME-1802 - Search fields don't work when search term contain special characters
+* RUNTIME-1808 - Local project build fails due to old files checked in in bin folder
 * RUNTIME-1811 - "jaasAuthenticationService" and "authenticationService" beans not created if custom authentication service is configured
 * RUNTIME-1813 - [OIDC SSO] Session sharing does not support opaque access tokens
 * RUNTIME-1815 - Cannot update application information after updated logo file of the application
 * RUNTIME-1816 - New sanitize filter makes payloads with "null" attribute values fail
 * RUNTIME-1817 - Compilation Errors when non 7 bit US ascii chars are used in the description of a Business Object in the BDM
+* RUNTIME-1818 - [Kerberos SSO] - IOException: conf/login.conf (No such file or directory) 
 * RUNTIME-1819 - [SAML SSO] Decrypt of encrypted assertion fails with ClassNotFoundException: EncryptedData
 * RUNTIME-1820 - [SAML SSO] Decrypt of encrypted assertion fails with NoSuchMethodError: SingletonIterator.create
+* RUNTIME-1821 - Docker image fails to start with JMX_REMOTE_ACCESS=true
+* RUNTIME-1824 - Filter on "caller" does not work when searching for ArchivedProcessInstance
+* RUNTIME-1825 - Bad rendering in the Admin Group List page to display Parent Group column
+* RUNTIME-1829 - Application directory page sign out button no longer redirects the top window when using OIDC
 * CVE-58 - Some UI screens in administration panel have been secured against stored XSS attacks. We also introduced a backend input validation to prevent storing XSS attacks in the database. +
 _We would like to thank both Tomas Castro Rojas and Mohammad A’mir for reporting this high severity issue to us._
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
 
 * STUDIO-4494 - Classcast Exception in Export Bos Dialog
+* STUDIO-4498 - Error when trying to build a project migrated to 9.0.0 due to old files checked in in bin folder
+* STUDIO-4505 - NPE when creating a contract from data
+* STUDIO-4507 - Cannot deploy organization when another one already exists and is active
 * UID-727     - Invalid js minification 
