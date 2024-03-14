@@ -91,10 +91,10 @@ countryDAO.findById(country, 0, 100).get(0)
 +
 [source,groovy]
 ----
-import groovy.xml.XmlUtil
+import org.codehaus.groovy.ast.stmt.ContinueStatement
+import org.w3c.dom.NodeList
 
-def reponseBody = new XmlSlurper().parseText(XmlUtil.serialize(responseDocumentBody.getDocumentElement()))
-reponseBody.text()
+responseDocumentBody.childNodes.item(0).textContent
 ----
 
 TIP: To manipulate more complex XML documents, have a look to the https://groovy-lang.org/processing-xml.html[Groovy XML processing documentation page].
