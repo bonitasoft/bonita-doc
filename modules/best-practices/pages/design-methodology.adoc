@@ -202,6 +202,8 @@ xref:identity:rest-api-authorization.adoc[REST API extensions, static and dynami
 === Translation
 This is also the time to xref:ROOT:multi-language-applications.adoc[translate] the applications into all languages needed by the end-users.
 
+=== Runtime installation
+In order to make Bonita applications available to end users you need to set up a xref:runtime:runtime-index.adoc[Bonita Runtime]. If you have to expose Bonita Runtime or a Bonita-developed application publicly, you should set up a xref:runtime:reverse-proxy-configuration.adoc[reverse proxy].
 
 == Monitoring, Troubleshooting, Maintenance, and Evolution
 After deployment, you can xref:ROOT:admin-application-overview.adoc[monitor usage] and collect key performance indicators, to assess how well the process is meeting the objectives that have been defined at the birth of the project.
