@@ -26,7 +26,7 @@ Access to data may however be granted to Bonitasoft, even in the case of an "on-
 | Bonitasoft will store 15 days of back up for the production runtimes. This retention period can be increased upon customer request.
 
 | Restoration
-| Restorations are managed by you.Please note that the restoration procedure also depends on your database. 
+| Restorations are managed by you. Please note that the restoration procedure also depends on your database. 
 | Data restorations are done through a request and may result in scheduled maintenance. The service includes a restore to the latest backup. Bonitasoft is not responsible for the functional impacts of the rollback. 
 
 | Encryption
