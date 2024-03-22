@@ -1,5 +1,4 @@
 = GDPR Design guide
-:page-aliases: ROOT:gdpr-guidelines.adoc
 :description: This page describes how data is managed by Bonitasoft, depending on the Edition you are using.
 
 {description}
@@ -7,22 +6,26 @@
 
 == Data management in Bonita
 
-As Bonita is a ‘Platform’, personal data are not directly collected, but any development must guarantee the Confidentiality in the respect of the https://www.consilium.europa.eu/en/policies/data-protection/data-protection-regulation/[GDPR Policy].
+As Bonita is a `Platform`, personal data are not directly collected, but any development must guarantee the Confidentiality in the respect of the https://www.consilium.europa.eu/en/policies/data-protection/data-protection-regulation/[GDPR Policy].
 
 Bonitasoft acts as a subcontractor, within the meaning of Article 4 of the GDPR, in the context of its https://www.bonitasoft.com/bonita-cloud[Bonita Cloud offer]. As such, Bonitasoft is required to host the data uploaded by its customers on the Bonita Cloud platform, when they use the services.
 
-When the Bonita Platform is installed directly on the clients' servers located on their premises (“on-premise” installation), Bonitasoft does not access the personal data processed via its software.
+When the Bonita Platform is installed directly on the clients' servers located on their premises ("on-premise" installation), Bonitasoft does not access the personal data processed via its software.
 Access to data may however be granted to Bonitasoft, even in the case of an "on-premise" installation on an ad-hoc basis and only within the contractual Support service or https://www.bonitasoft.com/professional-services/on-demand-services[Professional service].
 
 |===
 | | On-premise (Community and Enterprise) | Cloud
 
 | Backups
-| Backups are managed by you. It is highly recommended to xref:version-update:update-with-update-tool.adoc[backup your database] before launching an update procedure. Bonitasoft provides a xref:runtime:back-up-bonita-bpm-platform.adoc[procedure] to help you back up your Bonita runtime. Please note that the backup procedure also depends on your database.
+| Backups are managed by you. It is highly recommended to xref:version-update:update-with-update-tool.adoc[backup your database] before launching an update procedure. Bonitasoft provides a xref:runtime:back-up-bonita-bpm-platform.adoc[procedure] to help you back up your Bonita runtime. 
+
+Please note that the backup procedure also depends on your database.
 | Data of every runtime backed up every night. Additional backups are possible upon customer request.
 
 | Data retention
-| You manage how long you want to retain data. It is theoretically limitless, however the longer the data is retained, the more likely this will cause performance issue. Please refer to the “Process cleanup” section below to see how Bonita tools can help you purge your data.
+| You manage how long you want to retain data. It is theoretically limitless, however the longer the data is retained, the more likely this will cause performance issue. 
+
+Please refer to the “Process cleanup” section below to see how Bonita tools can help you purge your data.
 | Bonitasoft will store 15 days of back up for the production runtimes. This retention period can be increased upon customer request.
 
 | Restoration
@@ -34,7 +37,7 @@ Access to data may however be granted to Bonitasoft, even in the case of an "on-
 | Bonita Cloud offers data in transit encryption with the latest HTTPS standard (TLS 1.3). Moreover, data at rest is also encrypted to secure your applications and processes data. Bonita Cloud uses the AES-256 encryption algorithm which is a recognized industry standard. 
 |===
 
-Please note that Bonitasoft has ISO 27001 certification for its Bonita Cloud information security and Bonita Cloud customer development, operations, and support.
+Please note that Bonitasoft has *ISO 27001 certification* for its Bonita Cloud information security and Bonita Cloud customer development, operations, and support.
 Enterprises who automate their business processes on Bonita Cloud want secure, robust enterprise applications with assurances that their data and privacy is safe. 
 Bonitasoft’s ISO 27001 certification is the result of a successful audit of the company’s cloud security practices by Bureau Veritas Certification, the world leader of certification.
 
