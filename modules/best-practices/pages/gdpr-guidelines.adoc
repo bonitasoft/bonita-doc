@@ -48,7 +48,7 @@ For Subscription editions only. +
 
 To ensure compliance with data protection regulations or to facilitate general storage management, Bonita offers a specialized tool—referred to as the xref:runtime:purge-tool.adoc[Purge Tool]. This tool is designed to efficiently remove completed (archived) process instances from the Bonita Runtime environment.
 
-By default, Bonita Runtime retains all archives indefinitely. Given the operational mechanics of the Bonita Purge Tool, it is strongly recommended to execute this tool periodically, ideally during periods of minimal activity in the Studio. This can be automated through a crontab or an alternative scheduling method that best suits your needs.
+By default, Bonita Runtime retains all archives indefinitely. Given the operational mechanics of the Bonita Purge Tool, it is strongly recommended to execute this tool periodically, ideally during periods of minimal activity in the Runtime. This can be automated through a crontab or an alternative scheduling method that best suits your needs.
 
 Implementing a consistent purge policy not only simplifies data management but also enhances the performance of your runtime environment by optimizing storage utilization and ensuring smooth system operations.
 For subscribers of Bonita Cloud, the management and application of the Purge Tool are handled entirely by the Bonita Cloud team. As a user, you are relieved of this responsibility; rest assured, the Bonita Cloud team diligently manages this process, ensuring optimal performance and compliance without any required action on your part.
