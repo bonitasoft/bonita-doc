@@ -64,6 +64,7 @@
    **** xref:reverse-proxy-configuration.adoc[Behind a reverse-proxy]
    **** xref:bonita-as-windows-service.adoc[As a service]
    **** xref:embed-engine.adoc[Embed engine - Lab]
+   **** xref:bonita-on-kubernetes.adoc[On Kubernetes]
  ** xref:runtime-configuration-index.adoc[Configuration]
   *** xref:bonita-platform-setup.adoc[Setup tool]
   *** xref:database-configuration.adoc[Database configuration]
