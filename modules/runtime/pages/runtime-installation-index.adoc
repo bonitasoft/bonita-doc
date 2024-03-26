@@ -6,6 +6,8 @@
 
 Bonita Runtime is the Bonita Platform component that insures process execution and standardized interaction between people, systems, and robots in Non-Production and Production environments.
 
+Two options are available: a bundle including Bonita and Tomcat or a Docker image. We strongly recommend you use the Docker image.
+
 [.card-section]
 == The Bonita Cloud experience
 
