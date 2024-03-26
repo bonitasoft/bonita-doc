@@ -45,5 +45,8 @@ Go on http://localhost:9000/bonita[http://localhost:9000/bonita] to access to Bo
 
 Your first application is working, congratulations!
 
+For more details on the next phases and going from development to production, please refer to the xref:best-practices:design-methodology.adoc[Project phases section].
+
+
 
 
