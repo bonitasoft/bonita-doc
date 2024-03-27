@@ -102,6 +102,27 @@ The execution threshold value can be configured in `bonita-platform-community.pr
 bonita.platform.persistence.dbquery.warnWhenLongerThanMillis=1000
 ----
 
+== Monitor Transaction isolation
+
+You may encounter the following log during execution:
+----
+"Within the same transaction, the Search count & page results are not consistent."
+----
+For your information, when Bonita performs a search to build a list of elements (e.g. the Bonita applications listing the process definitions, process instances, human tasks, ...) it always performs two queries on the DB:
+
+ - a first query to count the TOTAL amount of elements;
+ - a second query to actually retrieve the first PAGE_SIZE elements.
+
+If the TOTAL number of elements is smaller than the PAGE_SIZE, Bonita then compares the TOTAL count against the number of elements retrieved by the second query.
+Depending on the number of elements in the DB, those queries may take a long time to execute, thus some update may take place while performing the first query.
+
+This is a warning log, because nothing critical happened : a search result had an incorrect pagination. If it is a rare occurrence,
+it can probably be ignored. It should be more troubling if it happens often, because it means Bonita does lots of concurrent accesses to the same table, and the database struggles to handle it.
+
+WARNING: Increasing the database isolation level is not a solution.
+While it will prevent this log from showing up, it will also slow down the database which - given the cause of the problem, can lead to vastly degraded performance or deadlocks.
+
+
 == Purge archive tables
 
 If you can afford to get rid of data of old finished process instances, use xref:ROOT:purge-tool.adoc[the purge tool] to clean up unnecessary data
