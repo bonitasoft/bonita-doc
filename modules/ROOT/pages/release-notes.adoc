@@ -127,6 +127,7 @@ The property allowing to enable/disable xref:identity:rest-api-authorization.ado
 * RUNTIME-1824 - Filter on "caller" does not work when searching for ArchivedProcessInstance
 * RUNTIME-1825 - Bad rendering in the Admin Group List page to display Parent Group column
 * RUNTIME-1829 - Application directory page sign out button no longer redirects the top window when using OIDC
+* RUNTIME-1832 - Missing call to the CryptoIntegration class
 * CVE-58 - Some UI screens in administration panel have been secured against stored XSS attacks. We also introduced a backend input validation to prevent storing XSS attacks in the database. +
 _We would like to thank both Tomas Castro Rojas and Mohammad A’mir for reporting this high severity issue to us._
 
