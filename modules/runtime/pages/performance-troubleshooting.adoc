@@ -102,6 +102,7 @@ The execution threshold value can be configured in `bonita-platform-community.pr
 bonita.platform.persistence.dbquery.warnWhenLongerThanMillis=1000
 ----
 
+[#monitor-transaction-isolation]
 == Monitor Transaction isolation
 
 You may encounter the following log during execution:
