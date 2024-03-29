@@ -530,7 +530,7 @@ $ git push -u origin main <3>
 <2> Create a _branch_ named `main` from the current HEAD (Our initial commit)
 <3> Push the branch to the defined remote origin
 
-If your refresh the GitHub project repository page (https://github.com/<owner>/bonita-extension-library) you should see your source code and single `main` branch.
+If your refresh the GitHub project repository page (`\https://github.com/<owner>/bonita-extension-library`) you should see your source code and single `main` branch.
 
 ===== Add a README.md
 
