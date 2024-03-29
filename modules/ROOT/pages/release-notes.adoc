@@ -109,6 +109,7 @@ If, in the previous version, you customized the `logging.properties` file, you s
 xref:runtime:bonita-docker-installation.adoc#logger_configuration[here] and xref:setup-dev-environment:logging.adoc#logging-configuration[there].
 
 A conversion table between logger levels in JUL and in Log4j2 is available
+// TODO --> 404 error, find the right link
 https://logging.apache.org/log4j/2.x/log4j-jul/index.html[here].
 
 If you want to continue using the previous log format, the previous pattern is present in the `log4j2-appenders.xml` file but commented.
