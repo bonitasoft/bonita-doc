@@ -1,0 +1,50 @@
+= Requirements and compatibility
+:description: BCD requirements and compatibility matrix
+
+This page describes which system requirements need to be met in order to use the Bonita Continuous Delivery CLIs. +
+You will also find information about BCD CLIs and Bonita version compatibility.
+
+== System requirements
+
+The BCD features (build and deploy) are implemented by two standalone Java CLIs (command line interface).
+
+IMPORTANT: You have to ensure that your maven installation is configured to access the xref:software-extensibility:bonita-repository-access.adoc[Bonita Artifact Repository]
+
+=== Bonita LA Builder
+
+The bonita-la-builder program delegate some work to `maven` during its execution, so requirement are:
+
+- https://adoptium.net/temurin/releases/?version=11[Java JDK 11]
+- https://maven.apache.org/install.html[Apache Maven]
+
+=== Bonita LA Deployer
+
+The bonita-la-deployer program is simple java standalone CLI, so the only requirement is:
+
+- https://adoptium.net/temurin/releases/?version=11[Java JDK 11]
+
+== Version supported compatibility
+
+[TIP]
+====
+BCD uses the technical Id of the platform. xref:version-update:product-versioning.adoc#technical-id[You will find here the mapping between Bonita release and technical Id]
+====
+
+=== Bonita LA Builder
+
+The bonita-la-builder versions follow the Bonita engine versions.
+
+Example: to build a 2023.1 (8.0.0) bonita project, you have to use the 8.0.0 version of the bonita-la-builder.
+
+IMPORTANT: *Builder is not supported for Bonita project designed with Bonita Studio 2023.2 and above*. In those versions, a Bonita project can be built xref:build-run:build-application.adoc[using Maven].
+
+=== Bonita LA Deployer
+
+The following table shows which bonita-la-deployer CLI versions support specific Bonita releases. +
+
+|===
+| bonita-la-deployer version | Bonita release
+| 1.0.x       | 2021.2.x, 2022.1.x, 2022.2.x, 2023.1.x, 2023.2.x
+|===
+
+WARNING: If a Bonita release is not listed in the previous table, then it is not supported by the BCD offer.

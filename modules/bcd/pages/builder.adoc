@@ -1,0 +1,225 @@
+= How to build a App repository
+:description: Build an App repository into a ready to deploy archive
+
+:page-aliases: livingapp_build.adoc, livingapp_manage_configuration.adoc
+
+IMPORTANT: *Builder is not supported for Bonita project designed with Bonita Studio 2023.2 and above*. In those versions, a Bonita project can be built xref:build-run:build-application.adoc[using Maven].
+
+This page describes how to build Bonita Application projects from the command line.
+
+== Prerequisites
+
+First make sure your maven installation is configured to access xref:software-extensibility:bonita-repository-access.adoc[Bonita Artifact Repository] !
+
+[#install]
+== Builder installation guide
+
+You can download the `bonita-la-builder` with a single maven command (that will reuse the credentials declared in your maven settings.xml configuration file).
+
+.Download with maven
+[source, bash]
+----
+mvn dependency:copy -Dartifact=com.bonitasoft.tools:bonita-la-builder:<bonita.runtime.version>:jar:exec -Dmdep.stripVersion -Dmdep.stripClassifier -DoutputDirectory=./
+----
+
+Then just use the CLI jar once downloaded :
+
+.Execution sample
+[source, bash]
+----
+java -jar bonita-la-builder.jar build <path to the bonita project> -e production
+----
+
+You can call `bonita-la-builder` with the `--help` (or `-h`) option to get available options and commands as follows:
+
+[source,bash]
+----
+java -jar bonita-la-builder.jar -h
+Usage: java -jar bonita-la-builder-<bonita.runtime.version>-exec.jar [command] [command options]
+  Commands:
+    build      Build a Bonita project
+      Usage: build [options] <path/to/bonita/project>
+        Options:
+          -P, --activate-profiles
+            Comma-delimited list of maven profiles to activate
+          -B, --batch-mode
+            Run in non-interactive (batch) mode
+            Default: false
+          -X, --debug
+            Produce execution debug output
+            Default: false
+          --disable-color
+            Disable color output (enabled by default)
+            Default: false
+          -e, --environment
+            Select the target environment configuration
+            Default: Local
+          --ignore-version-conflict
+            Do not check project version and builder version compatibility
+            Default: false
+          -o, --output
+            Output archive file name. Default is <folder-name>-<timestamp>.zip
+
+    extract      Extract parameters form a Bonita configuration archive
+      Usage: extract [options] <path/to/configuration-file.bconf>
+        Options:
+          --without-value
+            Only extract parameters without value
+            Default: false
+          -o
+            Output file
+            Default: parameters.yml
+
+    merge      Merge parameters into a Bonita configuration archive
+      Usage: merge [options] <path/to/configuration-file-to-update.bconf>
+        Options:
+        * -i
+            Input parameter file
+          -o
+            Output file. By default, the  given configuration file is overwritten.
+----
+
+[#build]
+== Build command
+
+An App repository can be created using Bonita Studio, and it can be xref:setup-dev-environment:workspaces-and-repositories.adoc#_use_a_shared_project[shared with Git], so first ensure you have your App repository available on your filesystem.
+
+The Bonita Application Builder CLI version must correspond to the *bonita version* of the runtime. For instance the `bonita-la-builder.jar` in version `8.0.0` must be used to build artifacts meant to be deployed on a Bonita `8.0.0` runtime.
+
+[source, bash]
+----
+cd <project parent dir>
+java -jar bonita-la-builder.jar build <project dir> [options ...]
+----
+
+The build process finally generates a *.zip* package and - from Bonita 7.8.0 onwards - a *.bconf* artifact located in the repository's `target` repository. The generated artifacts are named after the repository's root directory name and the selected environment name.
+
+The bconf file contains the parameters configuration for the target xref:ROOT:environments.adoc[environment] (Local by default)
+It's possible to extract the configuration to check it and also override (merge) some parameters if needed (see <<extract>> and <<merge>> commands).
+
+For instance, with a project in a directory named `bonita-vacation-management-example`, the following files will be generated:
+
+* `bonita-vacation-management-example/target/bonita-vacation-management-example-<environment>-<timestamp>.zip`
+* `bonita-vacation-management-example/target/bonita-vacation-management-example-<environment>-<timestamp>.bconf`
+
+[NOTE]
+====
+- If no parameters are defined on any processes, the `.bconf` file is not created.
+- Since BCD 3.0.0, process configurations are built into a separate *.bconf* artifact. +
+This configuration artifact allows to separate process configuration (parameters) from application assets. As a result, the same *.zip* package can be deployed on all environments (Development, Test, Staging) whereas a specific *.bconf* artifact may be applied to each environment.
+====
+
+IMPORTANT: The `bonita-la-builder` does not allow to migrate your repository to the builder's version. Your repository has to be migrated to the appropriate version using xref:setup-dev-environment:workspaces-and-repositories.adoc[Bonita Studio].
+
+[#extract]
+== Extract command
+
+You can extract the configuration if you want to check it or modify it
+
+[source,bash]
+----
+java -jar bonita-la-builder.jar extract -o scenarios/extracted-parameters.yml <path/to/configuration-file.bconf>
+----
+
+The configuration may look like this :
+
+.Configuration sample
+[source,yaml]
+----
+---
+processes:
+- name: "Modify Pending Vacation Request"
+  version: "1.4.1"
+  parameters:
+  - name: "calendarApplicationName"
+    value: "Bonitasoft-NewVacationRequest/1.4.0"
+    type: "String"
+  - name: "calendarCalendarId"
+    value: "mydomain.com_4gc5656x7f57cfsrejgb@group.calendar.google.com"
+    type: "String"
+----
+
+You can also just check if there are parameters that have no value for this environment:
+
+[source,bash]
+----
+java -jar bonita-la-builder.jar extract -o scenarios/extracted-no-value-parameters.yml --without-value <path/to/configuration-file.bconf>
+----
+
+Notes :
+
+* If you omit to specify -o, the name of the output file by default is *parameters.yml* and it will be created in the same directory of the original *_bconf_* file.
+* If all parameters are set, no file will be created.
+
+
+[#merge]
+== Merge command
+
+You may want to complete or override some parameter values coming from your App repository, to do that you can modify the output file of the *extract* command and *_merge_* with your *_bconf_* file.
+
+[source,bash]
+----
+java -jar bonita-la-builder.jar merge -i scenarios/updated-parameters.yml -o /tmp/bonita-vacation-management-example-Test-20181003140237-modified.bconf <path/to/configuration-file.bconf>
+----
+
+=== Override parameters with the same name
+
+You may have the same parameter name in more than one processes and you want to override them in all processes, to do that you can create an *_yml_* file as shown:
+
+[source,yaml]
+----
+---
+global_parameters:
+  - name: "ParameterNameInAllProcesses"
+    value: "SameValueInAllProcess"
+    type: "String"
+----
+
+NOTE: Important:
+A specific parameter setting has priority over a global parameter configuration.
+
+
+*Example*:
+Let assume that these processes *P1, P2, P3* have all these three paremeters: *_calendarApplicationName_*, *_emailNotificationSender_*, *_emailServerUseSSL_*.
+
+[source,yaml]
+----
+---
+processes:
+- name: "P1"
+  version: "1.4.1"
+  parameters:
+  - name: "calendarApplicationName"
+    value: "Bonitasoft-NewVacationRequest/1.4.0"
+    type: "String"
+  - name: "emailNotificationSender"
+    value: "cancelvacationconfirmation@mail.com"
+    type: "String"
+- name: "P2"
+  version: "1.4.1"
+  parameters:
+  - name: "calendarApplicationName"
+    value: "Bonitasoft-NewVacationRequest/1.4.0"
+    type: "String"
+- name: "P3"
+  version: "1.4.1"
+  parameters:
+  - name: "calendarApplicationName"
+    value: "Bonitasoft-NewVacationRequest/1.4.0"
+    type: "String"
+global_parameters:
+  - name: "emailNotificationSender"
+    value: "vacation-notification@mail.com"
+    type: "String"
+  - name: "emailServerUseSSL"
+    value: true
+    type: "Boolean"
+----
+
+The result of *merge-conf* will be:
+
+* The value of *_emailServerUseSSL_* in *global_parameters* will override *P1, P2, P3*.
+* The value of *_emailNotificationSender_* in *global_parameters* will override only *P2 and P3* because the setting of *_emailNotificationSender_* in *P1* has priority.
+* The value of *_emailNotificationSender_* in *P1* will override only the parameter of *P1*.
+
+

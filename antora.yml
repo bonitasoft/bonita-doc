@@ -10,6 +10,7 @@ asciidoc:
     javadocVersion: '9.0'
     # ref versions of other components
     bcdDocVersion: '4.0'
+    testToolkitVersion: '2.0'
     # page attributes
     page-pagination: true # display links to previous/next pages at the bottom of the page
     page-editable: true

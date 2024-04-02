@@ -1,0 +1,139 @@
+= Release notes
+:description: BCD release notes
+
+:page-aliases: scenarios.adoc, how_to_use_bcd_with_data_encrypted.adoc
+
+== What's new in 4.0
+
+The original BCD controller is now provided as two separated Java CLIs.
+
+=== Breaking changes
+
+- Removal of docker, docker-compose, python, ansible and bash scripts
+- Removal of scenario files in favor of CLI arguments.
+- Ansible Vault removal as announced in version 3.6.0
+- Deprecation of quay.io : configure your maven installation to download dependencies from xref:software-extensibility:bonita-repository-access.adoc[Bonita Artifact Repository]
+
+IMPORTANT: *BCD deployer is now deprecated*. As of september 2023 BCD deployer is deprecated.
+The deployer supports Bonita 2023.2, but support for future versions is not guaranteed.
+Bonita artifacts deployment & update is now made at startup, through the self-contained application feature.
+
+==== Quay.io deprecation
+
+Quay.io is now deprecated in favor of our Bonita Artifact Repository. Support delay is based on 2023.1-GA release date (May 2023).
+
+[cols="2,1,1"]
+|===
+| Docker image | Quay.io | Bonita Artifact Repository
+
+| *BCD 3.X* Controller
+| icon:circle-check[role=blue] kept for 18 months
+| icon:circle-xmark[role=red] not available
+
+| *BCD 3.X dependencies* for *Bonita < 2023.1*
+| icon:circle-check[role=blue] kept for 18 months
+| icon:circle-xmark[role=red] not available
+
+| *BCD 3.X dependencies* for *Bonita >= 2023.1*
+| icon:circle-xmark[role=red] not available
+| icon:circle-xmark[role=red] not available
+
+| *BCD 4 dependencies* for *Bonita < 2023.1*
+| icon:circle-xmark[role=red] not available
+| icon:circle-xmark[role=red] versions unsupported => not available +
+icon:circle-check[role=green] versions still supported => available
+
+| *BCD 4 dependencies* for *Bonita >= 2023.1*
+| icon:circle-xmark[role=red] not available
+| icon:circle-check[role=green] available
+|===
+
+
+=== Builder
+
+- The bonita-la-builder release 8.0.0 is now available.
+
+=== Deployer
+
+The bonita-la-deployer release 1.0.0 is now available.
+
+Reminder:
+
+- the bonita-la-deployer requires authentication and authorization on the Rest API by passing credentials (username/password). To ensure that all operations can be performed, we advise you to use the credentials of the Tenant Administrator. It is mandatory to deploy a Business Data Model.
+- you can only log to the default tenant (id 1). Multi-tenant is removed from Bonita Platform 2023.1 (8.0).
+- Prior to deploying a Business Data Model, the bonita-la-deployer put the Tenant in the paused state. It then restarts it after deployment of the BDM. So a downtime of the related Bonita Tenant occurs in this case
+
+==== Updates
+
+- logback = 1.4.6
+- commons-configuration2 : 2.9.0
+
+== What's new in 3.6.2
+
+=== Features
+
+- Bonita LA deployer upgraded to `0.1.41` and including the version `0.0.10` of https://github.com/bonitasoft/bonita-java-client/tree/master[bonita-java-client]
+- Adds support for Bonita 2023.1 Runtime
+
+== What's new in 3.6.1
+
+=== Features
+
+- Bonita LA deployer upgraded to `0.1.39` and including the version `0.0.8` of https://github.com/bonitasoft/bonita-java-client/tree/master[bonita-java-client]
+
+=== Fixes
+
+- CLI arguments validation occurs now after `scenario` (from file) and `extra vars` (from CLI args) merge.
+- Deploy command does not require a configuration path (to a `.bconf` file ) argument.
+
+=== Updates
+
+* click: 8.0.4 => 8.1.2
+* Force pull base image when building controller image.
+
+== What's new in 3.6.0
+
+=== Features
+
+- Added xref:{testToolkitVersion}@test-toolkit::process-testing-overview.adoc[test toolkit] support in BCD commands
+- Added logback config file (`/usr/local/lib/logback.xml`) to offer finer la-deployer log management.
+
+=== Breaking changes
+
+* Some scenario variables have been renamed to a more coherent name
+** renamed : `bonita_tenant_login` to `bonita_technical_username`
+** renamed : `bonita_tenant_password` to `bonita_technical_password`
+
+=== Deprecations
+
+* `Ansible Vault` integration will be removed in the next release. +
+The tool is still present so you can decrypt your files but it will be removed in the next releases. You should now rely on the secret management offered by your environment (https://docs.github.com/en/actions/security-guides/encrypted-secrets[Github], https://docs.gitlab.com/charts/installation/secrets.html[Gitlab], https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/[BitBucket], https://www.jenkins.io/doc/developer/security/secrets/[Jenkins], etc.)
+
+=== Updates
+
+* Docker controller image now based on `maven:3.8-jdk-11-slim`
+* Python 3.8 => Python 3.9
+* click: 7.1.2 => 8.0.4
+* click-didyoumean: 0.0.3 => 0.3.0
+* more-itertools: 8.6.0 => 8.12.0
+* packaging: 20.4 => 21.3
+* progress: 1.5 => 1.6
+* PyYAML: 5.3.2 => 6.0
+
+=== Removal
+
+==== Python packages
+
+* configParser
+* cryptography
+* idna
+* Jinja2
+* pycrypto
+* tabulate
+* requests
+* urllib3
+
+=== Fixes
+
+* Remove the `docker-compose.override.yml.EXAMPLE`: we now use a single docker-compose file
+
