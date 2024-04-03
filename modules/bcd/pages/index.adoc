@@ -1,16 +1,27 @@
-= Bonita Continuous Delivery (Deprecated)
+= Bonita Continuous Delivery (Phasing out)
 :description: Bonita tools for continuous delivery
 
 :page-aliases: bcd_cli.adoc, bcd_controller.adoc, getting_started.adoc
 
 
-CAUTION: As of september 2023 BCD deployer is deprecated. The deployer will continue to work for Bonita version supporting the platform mode like 2023.2 and 2024.1, but it will not evolve anymore, and support for future versions is not guaranteed. 
-The Continous Deployment process is still part of Bonita's offering. It is now made at startup, through the self-contained application feature.   
-For any information about the self-contained application feature, please contact your customer success representative.
+[NOTE]
+--
+Dear user,
+
+With the introduction of our Self Contained Application approach, we are moving to a new deployment mode that no longer relies on the "BCD" mechanism as you have known it. In fact, SCA mode is natively integrating this capability into the “build” package.
+Those changes impact our BCD component “adds-on” which will start a progressive phasing out process. It means that we progressively transition from it and that there will be no more updates or improvement in this feature.
+
+The Continuous Deployment process is of course still part of Bonita’s offering but is relying on new methods
+However, we want to reassure you about the timeline of this transition. With the update of the 2024.1 documentation, we confirm that the BCD will not be deprecated in either 2024.1 or 2024.2. versions. As a reminder, our versions are then supported for 2 years from their release date (which brings you to 2024.2+ 2 years).
+
+We will keep you regularly informed on this matter. Additionally, a new documentation section has been created to guide you through this transition, along with migration recommendations that you can find xref:build-run:build-application.adoc[here].
+
+We want to assure you that our teams are available to answer any questions you may have and to support you through this evolution. Please feel free to contact us for any further assistance.
+--
 
 BCD lets you build a Living Application from source code in a repository and deploy the generated artifacts, all from the command line.
 
-image::images/bcd_capabilities.png[Bonita Continuous Delivery Capabilities]
+image::images/bcd-capabilities.png[Bonita Continuous Delivery Capabilities]
 
 == Basic concepts
 
@@ -23,7 +34,7 @@ IMPORTANT: *BCD features do not require docker anymore*. Usage is therefore grea
 
 [.card.card-index]
 --
-xref:release_notes.adoc[[.card-title]#What's new in BCD?# [.card-body]#pass:q[Find out what’s new in Bonita Continuous Delivery !]#]
+xref:release-notes.adoc[[.card-title]#What's new in BCD?# [.card-body]#pass:q[Find out what’s new in Bonita Continuous Delivery !]#]
 --
 
 [.card.card-index]

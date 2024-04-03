@@ -20,6 +20,7 @@ asciidoc:
     openApiLatestVersion: '0.0.16'
     page-next-release: false
     page-hide-search-bar: false
+    page-hide-components: 'bcd'
 nav:
   - modules/ROOT/release-note-nav.adoc
   - modules/bonita-overview/bonita-overview-nav.adoc
