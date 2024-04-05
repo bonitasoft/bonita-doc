@@ -24,7 +24,6 @@ This new major release improves security, search capabilities and performance.
 * REST API authorizations in Community edition
 * Find out how Bonitasoft handles GDPR
 
-
 == New available values
 
 === Bonita Runtime
