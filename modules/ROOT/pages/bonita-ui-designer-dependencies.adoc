@@ -1,4 +1,4 @@
-= Bonita-ui-designer 1.18.4 dependencies for Bonita 10.0.0
+= Bonita-ui-designer 1.18.4 dependencies for Bonita 2024.1
 
 
 == UI-Designer Backend dependencies
