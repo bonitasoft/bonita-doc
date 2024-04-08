@@ -11,11 +11,27 @@ The {bonitaVersion} version is in development.
 The required Java version is now **Java 17**.
 ====
 
+We’re proud to announce Bonita {bonitaVersion}, the first major Bonita platform release of this year! 
+This new major release improves security, search capabilities and performance.
+
+== The {bonitaVersion} release in a nutshell
+
+* Java 17 update for more security, better performance and language enhancements
+* Improved security in Bonita REST APIs
+* Boosted search experience on all APIs and pages
+* Better platform performance thanks to the L2 Cache (Enterprise Edition only), extended to clustered environments.
+* Bonita Studio packaging changes
+* REST API authorizations in Community edition
+* Find out how Bonitasoft handles GDPR
+
 == New available values
 
 === Bonita Runtime
 
 ==== Java 17 update
+
+We’re updating to the next long-term support (LTS) Java version: Java 17. 
+Worldwide adoption of Java 17 has been growing since last year, including among our Bonita users. In Bonita {bonitaVersion}, we have updated the version from 11 to 17!
 
 Following the Java 17 update, it is now required to specify the following jvm arguments when using the `bonita-client` library in a standalone application:
 
@@ -46,9 +62,13 @@ For more information on how to tune the L2 Cache with Bonita, please refer to th
 
 ==== Like-based search
 
-Bonita Runtime search capabilities in APIs and application pages have been improved by changing the algorithm to support "like-based" search. +
-With the "like-based" algorithm you can find all the matching records for which the search string occurs anywhere in a phrase or a word. +
+Bonita {bonitaVersion} introduces a new search engine algorithm on all APIs and the Bonita pages included by default on Bonita User Application, Bonita Administrator and Super Administrator Applications. This new “like-based” search algorithm replaces the previous “word-based” search and it will allow you to rapidly find all matching records for a given search string anywhere in a phrase or a word. 
 This is now the default search behavior for all search APIs and pages of Bonita Runtime.
+
+The result is simple: a better understanding of your queries without any configuration changes!
+
+For more information on how like-based search works, please refer to the xref:api:using-list-and-search-methods.adoc#like-based-search[dedicated documentation].
+
 
 === Development suite
 
