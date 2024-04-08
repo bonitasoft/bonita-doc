@@ -38,7 +38,7 @@ For example, the four leave management applications for employees, managers, Hum
 
 == Create and build an Application Descriptor
 
-From Bonita Studio, use the *new* button in the Studio coolbar or click on *Development* \-> *Application Descriptor* \-> *New...* +
+From Bonita Studio, use the *new* button in the Studio coolbar +
 It will create an empty application file with a default name and open an editor. You can *rename* this application file from the project explorer, the graphical UI or the menu *Open*.
 
 image:images/applicationDescriptors/emptyApplicationFile_v3.png[Empty Application File] +

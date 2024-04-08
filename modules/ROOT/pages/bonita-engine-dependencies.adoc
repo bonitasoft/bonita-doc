@@ -1,4 +1,4 @@
-= Bonita engine dependencies (7.14.8)
+= Bonita engine dependencies (7.15.8)
 :description: List all dependencies uses for Bonita Engine
 
 
@@ -411,97 +411,97 @@
 
 | org.codehaus.groovy
 | groovy
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-console
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-datetime
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-dateutil
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-docgenerator
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-groovysh
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-jmx
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-json
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-jsr223
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-nio
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-servlet
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-sql
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-swing
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-templates
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-xml
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-yaml
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -609,61 +609,61 @@
 
 | org.springframework
 | spring-aop
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jdbc
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-tx
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot
-| 2.3.12.RELEASE
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-autoconfigure
-| 2.3.12.RELEASE
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -723,7 +723,7 @@
 
 | com.zaxxer
 | HikariCP
-| 3.4.5
+| 4.0.3
 | https://github.com/brettwooldridge/HikariCP[https://github.com/brettwooldridge/HikariCP]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -777,79 +777,79 @@
 
 | org.springframework
 | spring-aop
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jdbc
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-tx
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot
-| 2.3.12.RELEASE
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-autoconfigure
-| 2.3.12.RELEASE
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-starter
-| 2.3.12.RELEASE
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-starter-jdbc
-| 2.3.12.RELEASE
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-starter-logging
-| 2.3.12.RELEASE
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -1191,15 +1191,9 @@
 
 | com.hazelcast
 | hazelcast
-| 4.1.10
+| 5.3.5
 | http://www.hazelcast.com/[http://www.hazelcast.com/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| com.hazelcast
-| hazelcast-aws
-| 3.3
-| http://www.hazelcast.com/[http://www.hazelcast.com/]
-|  http://hazelcast.com/hazelcast-community-license[The Hazelcast Community License]
 
 | com.hazelcast
 | hazelcast-hibernate53
@@ -1208,14 +1202,8 @@
 |  http://hazelcast.com/hazelcast-community-license[The Hazelcast Community License]
 
 | com.hazelcast
-| hazelcast-kubernetes
-| 2.2
-| http://github.com/hazelcast/hazelcast-kubernetes[http://github.com/hazelcast/hazelcast-kubernetes]
-|  http://www.apache.org/licenses/LICENSE-2.0[APACHE LICENSE 2.0]
-
-| com.hazelcast
 | hazelcast-spring
-| 4.1.10
+| 5.3.5
 | http://www.hazelcast.com/[http://www.hazelcast.com/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1413,97 +1401,97 @@
 
 | org.codehaus.groovy
 | groovy
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-console
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-datetime
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-dateutil
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-docgenerator
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-groovysh
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-jmx
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-json
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-jsr223
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-nio
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-servlet
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-sql
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-swing
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-templates
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-xml
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-yaml
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1617,61 +1605,61 @@
 
 | org.springframework
 | spring-aop
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jdbc
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-tx
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot
-| 2.3.12.RELEASE
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-autoconfigure
-| 2.3.12.RELEASE
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -1731,7 +1719,7 @@
 
 | com.zaxxer
 | HikariCP
-| 3.4.5
+| 4.0.3
 | https://github.com/brettwooldridge/HikariCP[https://github.com/brettwooldridge/HikariCP]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1785,79 +1773,79 @@
 
 | org.springframework
 | spring-aop
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jdbc
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-tx
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot
-| 2.3.12.RELEASE
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-autoconfigure
-| 2.3.12.RELEASE
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-starter
-| 2.3.12.RELEASE
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-starter-jdbc
-| 2.3.12.RELEASE
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-starter-logging
-| 2.3.12.RELEASE
+| 2.6.15
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 

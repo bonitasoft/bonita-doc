@@ -1,4 +1,4 @@
-= Dependencies for bonita-data-repository 7.14.7
+= Dependencies for bonita-data-repository 7.15.6
 
 == NodeJS Dependencies
 
@@ -288,9 +288,9 @@
 
 | mime | 1.6.0 | MIT
 
-| minimist | 1.2.5 | MIT
+| minimist | 1.2.6 | MIT
 
-| moment | 2.29.1 | MIT
+| moment | 2.29.2 | MIT
 
 | ms | 2.0.0 | MIT
 

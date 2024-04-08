@@ -20,7 +20,7 @@ In a Tomcat bundle:
 
 In Bonita Studio:
 
-* Open the `custom-permissions-mapping.properties` from Development menu > REST API Extensions > Edit permission mapping
+* Open the `custom-permissions-mapping.properties` from the REST API Extensions contextual menu > Edit permission mapping
 * Add the following line: `profile|User=[demoPermission]`
 * Save the file
 * Logout from the current session and log back in

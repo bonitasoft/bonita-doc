@@ -1,0 +1,523 @@
+= Bonita Multi-Tenant to Multi-Runtime conversion tool
+:description: This pages describes how to use the multi-tenant to multi-runtime conversion tool
+
+{description}
+
+Learn how to use the multi-tenant to multi-runtime tool to convert a multi-tenant platform into a multi-runtime one.
+
+WARNING: xref:ROOT:multi-tenancy-and-tenant-configuration.adoc[Multi-tenancy] is deprecated starting from Bonita 2021.1 (technical version 7.12). *If you are using multi-tenancy, you will have to run this conversion tool before updating to the Bonita version without multi-tenancy.*
+
+image:images/mtmr-general-idea-schema.svg[General idea of the conversion tool, width=400]
+
+== Overview
+
+Following the commercial depreciation of multi-tenancy use by customers starting with Bonita 2021.1, the technical solution proposed by Bonitasoft for customers willing to have separate Bonita engine database (Oracle, SQL, postgres, etc.) per applications/processes, will be multi-runtimes starting with Bonita versions without multi-tenancy. 
+
+In order to prepare the technical conversion from multi-tenancy to multi-runtime, Bonitasoft developped a dedicated tool - Multi-tenant to multi-runtime conversion tool (MT2MR tool) - available for download https://customer.bonitasoft.com/download/request[on Bonita Customer Portal]. 
+
+During the execution, the conversion tool will delete everything not related to the tenant specified in the parameter from the given Bonita engine database. This means you will need to create a new Bonita engine database per tenant you want to keep, dump your current Bonita engine database and load it for each new instance. 
+
+WARNING: The conversion tool will have to be executed for every tenant you want to keep, with a dedicated Bonita engine database instance. 
+
+== How works Bonita Multi-tenant to Multi-Runtime conversion tool 
+
+=== Pre-requisites
+* The conversion tool requires Java 11+ JRE
+* Database with Bonita Multi-tenant Platform. +
+* Same number of Bonita engine database instances as the tenant you want to keep. 
+* The conversion tool works on Bonita Platform Databases in version 7.11, 7.12, 7.13, 7.14 or 7.15.
+* During the conversion operation, the Bonita Platform *should NOT* be running on the database.
+
+=== Usage: step-by-step procedure
+
+____
+The conversion tool will delete all the tenants as well as all their associated data, except the one provided in the parameter. The chosen tenant will then be set as the default tenant.
+
+* Once the execution completes, you will have to upload a new license file before you can use the new database with a Bonita Platform. Use the setup tool to do it, as usual.
+____
+
+* Configure the Bonita engine database instances. 
+* Stop Bonita Platform. 
+* Create the Bonita engine database dump. 
+* Specify your database connection information in the application.properties file.
+* You will need to specify the username/password, as well as your connection information (uncomment & fill in the corresponding template).
+* Load the dump on each Bonita engine database instance *BEFORE* the next step
+* Then run the following command line in a terminal next to the bin folder: `bin/multitenant-to-multiruntime-tool(.bat) <tenantId>`
+
+[NOTE]
+====
+The conversion tool does not change anything in the BDM database. You will have to manage it manually.
+
+If you were using separate Bonita engine datasources (one per tenant typically), you will also need to modify the `bonita-tenant-community-custom.properties` file as appropriate.
+
+If you were using the same datasource for the Bonita engine databases of all your tenants, you will need to manually separate the Bonita engine database tables into separate ones, then modify the `bonita-tenant-community-custom.properties` file of each runtime, so it point to the appropriate database.
+====
+
+=== Error Management
+
+* In case of errors during execution, the first step to take is to re-launch the conversion tool. It will automatically pick up the work where it failed/stopped the first time.
+This works particularly well for temporary problems, like a lost connection to the database.
+* If failures persist, you can try setting the log levels to different values in the application.properties file to help with the troubleshooting. (It will typically allow you to see the whole stacktrace).
+* If all of the above fails, contacting bonita support is still an option!
+
+
+== Performance data
+
+The conversion tool was tested on the Bonita supported databases, either on technically generated or real production databases.
+The execution time depends on the size of your database. The biggest impact on execution time is linked to rows deletion from the tables. Tables that contain binaries and are voluminous on disk as a result go relatively quickly.
+Typical culprits on production databases are the *document*, *arch_flownode_instance*, *arch_process_instance* tables.
+
+=== Postgres
+
+The test was done on a technically generated database, with the following postgres optimizations: xref:runtime:performance-tuning.adoc#postgresql-performance-tuning[how to finely tune performance for PostgreSQL].
+
+|===
+|rowcount |total_size
+
+|46498496 |28 GB
+|===
+
+|===
+|table |rowcount |total_size
+
+|public.arch_flownode_instance   | 17032708|9800 MB
+|public.arch_process_instance    | 10734189|5060 MB
+|public.document                 | 323387.0|3477 MB
+|public.flownode_instance        | 792075.0|2523 MB
+|public.arch_process_comment     |6484661.0|2416 MB
+|public.arch_data_instance       |2670043.0|1977 MB
+|public.process_comment          |2926088.0|1085 MB
+|public.queriable_log            |1418680.0|476 MB
+|public.process_instance         | 788064.0|380 MB
+|public.arch_contract_data       |1086337.0|360 MB
+|public.data_instance            | 786647.0|296 MB
+|public.page                     |    644.0|252 MB
+|public.pending_mapping          | 788642.0|226 MB
+|public.document_mapping         | 284372.0|37 MB
+|public.ref_biz_data_inst        | 142186.0|30 MB
+|public.process_content          |  10004.0|16 MB
+|public.page_mapping             |  32146.0|10024 kB
+|public.dependency               |     24.0|9160 kB
+|public.arch_document_mapping    |  39015.0|6872 kB
+|public.user_contactinfo         |  20568.0|5096 kB
+|public.form_mapping             |  32034.0|4704 kB
+|public.user_membership          |  25343.0|4232 kB
+|public.user_                    |  10285.0|3384 kB
+|public.process_definition       |  10004.0|3008 kB
+|public.arch_connector_instance  |  13005.0|2960 kB
+|public.arch_ref_biz_data_inst   |  13005.0|2952 kB
+|public.actor                    |  10004.0|1688 kB
+|public.actormember              |   9005.0|1608 kB
+|public.business_app_menu        |    529.0|1112 kB
+|public.user_login               |  10285.0|880 kB
+|public.configuration            |     54.0|440 kB
+|public.profilemember            |   1923.0|384 kB
+|public.profile                  |   1004.0|312 kB
+|public.business_app_page        |    543.0|288 kB
+|public.business_app             |    106.0|248 kB
+|public.tenant_resource          |      1.0|232 kB
+|public.group_                   |    740.0|224 kB
+|public.bar_resource             |      3.0|176 kB
+|public.qrtz_triggers            |      0.0|112 kB
+|public.role                     |     35.0|96 kB
+|public.command                  |     13.0|80 kB
+|public.qrtz_fired_triggers      |      0.0|64 kB
+|public.platform                 |      1.0|64 kB
+|public.sequence                 |     67.0|56 kB
+|public.qrtz_scheduler_state     |      1.0|56 kB
+|public.dependencymapping        |     24.0|56 kB
+|public.tenant                   |      1.0|32 kB
+|public.qrtz_job_details         |      0.0|32 kB
+|public.waiting_event            |      0.0|32 kB
+|public.custom_usr_inf_def       |      0.0|32 kB
+|public.contract_data            |      0.0|32 kB
+|public.message_instance         |      0.0|32 kB
+|public.pdependency              |      0.0|32 kB
+|public.category                 |      0.0|24 kB
+|public.connector_instance       |      0.0|24 kB
+|public.platformcommand          |      0.0|24 kB
+|public.qrtz_locks               |      2.0|24 kB
+|public.pdependencymapping       |      0.0|24 kB
+|public.report                   |      0.0|24 kB
+|public.job_param                |      0.0|24 kB
+|public.custom_usr_inf_val       |      0.0|16 kB
+|public.icon                     |      0.0|16 kB
+|public.processsupervisor        |      0.0|16 kB
+|public.job_log                  |      0.0|16 kB
+|public.processcategorymapping   |      0.0|16 kB
+|public.qrtz_calendars           |      0.0|16 kB
+|public.proc_parameter           |      0.0|16 kB
+|public.qrtz_cron_triggers       |      0.0|16 kB
+|public.qrtz_simple_triggers     |      0.0|16 kB
+|public.external_identity_mapping|      0.0|16 kB
+|public.queriablelog_p           |      0.0|16 kB
+|public.blob_                    |      0.0|16 kB
+|public.qrtz_simprop_triggers    |      0.0|16 kB
+|public.qrtz_blob_triggers       |      0.0|8192 bytes
+|public.event_trigger_instance   |      0.0|8192 bytes
+|public.qrtz_paused_trigger_grps |      0.0|8192 bytes
+|public.arch_multi_biz_data      |      0.0|8192 bytes
+|public.job_desc                 |      0.0|8192 bytes
+|public.multi_biz_data           |      0.0|8192 bytes
+|===
+
+*Result:* Execution completed in 1,980,462 ms (33 Minutes 0 Seconds). +
+
+Highlights from the execution logs: 
+
+[source,text]
+----
+Deleting other tenants from table document_mapping ...
+284,372 rows deleted in 9,440 ms
+Deleting other tenants from table document ...
+332,390 rows deleted in 703,653 ms (11 Minutes 43 Seconds)
+Deleting other tenants from table arch_process_instance ...
+7,095,645 rows deleted in 223,540 ms (3 Minutes 43 Seconds)
+Deleting other tenants from table pending_mapping ...
+147,900 rows deleted in 2,667 ms
+Deleting other tenants from table arch_flownode_instance ...
+11,739,937 rows deleted in 550,877 ms (9 Minutes 10 Seconds)
+Deleting other tenants from table arch_connector_instance ...
+16,006 rows deleted in 1,094 ms
+Deleting other tenants from table process_instance ...
+147,903 rows deleted in 20,765 ms
+Deleting other tenants from table flownode_instance ...
+147,903 rows deleted in 25,824 ms
+Deleting other tenants from table arch_ref_biz_data_inst ...
+16,006 rows deleted in 1,006 ms
+Deleting other tenants from table arch_data_instance ...
+158,192 rows deleted in 7,240 ms
+Deleting other tenants from table data_instance ...
+142,186 rows deleted in 6,695 ms
+Deleting other tenants from table user_ ...
+10,285 rows deleted in 1,745 ms
+Deleting other tenants from table user_login ...
+10,285 rows deleted in 221 ms
+Deleting other tenants from table user_membership ...
+22,243 rows deleted in 469 ms
+Deleting other tenants from table queriable_log ...
+1,465,825 rows deleted in 97,871 ms
+----
+
+=== Mysql
+
+The tests were done on a production database. 
+
+|===
+|rowcount|total_size
+
+|24117868|25022 MB
+|===
+
+|===
+|table                    |rowcount|total_size
+
+|document                 |    12044|7264 MB
+|arch_flownode_instance   | 12395035|6114 MB
+|arch_contract_data       |    56802|5976 MB
+|dependency               |     1094|1617 MB
+|queriable_log            |  3932460|1222 MB
+|arch_data_instance       |  2832812|990 MB
+|bar_resource             |     1750|484 MB
+|arch_connector_instance  |  2211058|431 MB
+|page                     |      647|247 MB
+|user_contactinfo         |   925751|182 MB
+|contract_data            |     1143|136 MB
+|user_                    |   467685|107 MB
+|profilemember            |   460263|62 MB
+|data_instance            |    28609|57 MB
+|arch_process_instance    |   107690|41 MB
+|process_content          |      294|23 MB
+|user_login               |   468144|18 MB
+|arch_ref_biz_data_inst   |    38168|9 MB
+|arch_process_comment     |    18709|8 MB
+|connector_instance       |     2860|4 MB
+|arch_document_mapping    |    10115|4 MB
+|arch_multi_biz_data      |    56150|4 MB
+|user_membership          |    18200|3 MB
+|process_comment          |    14061|3 MB
+|flownode_instance        |     4758|3 MB
+|tenant_resource          |        3|3 MB
+|event_trigger_instance   |    18200|3 MB
+|ref_biz_data_inst        |     8347|2 MB
+|process_instance         |     4347|2 MB
+|configuration            |      146|2 MB
+|actormember              |     2954|1 MB
+|QRTZ_TRIGGERS            |      234|0 MB
+|job_param                |     1290|0 MB
+|dependencymapping        |     1524|0 MB
+|multi_biz_data           |     5440|0 MB
+|pending_mapping          |     2274|0 MB
+|page_mapping             |      955|0 MB
+|document_mapping         |     1851|0 MB
+|form_mapping             |      906|0 MB
+|process_definition       |      309|0 MB
+|processsupervisor        |      468|0 MB
+|business_app             |       23|0 MB
+|QRTZ_JOB_DETAILS         |      234|0 MB
+|business_app_menu        |       35|0 MB
+|QRTZ_FIRED_TRIGGERS      |        0|0 MB
+|job_log                  |       21|0 MB
+|actor                    |      456|0 MB
+|command                  |       99|0 MB
+|business_app_page        |       44|0 MB
+|job_desc                 |      261|0 MB
+|proc_parameter           |      543|0 MB
+|message_instance         |        0|0 MB
+|custom_usr_inf_val       |        0|0 MB
+|role                     |       22|0 MB
+|custom_usr_inf_def       |        0|0 MB
+|pdependencymapping       |        0|0 MB
+|queriablelog_p           |        0|0 MB
+|pdependency              |        0|0 MB
+|QRTZ_SIMPLE_TRIGGERS     |      231|0 MB
+|waiting_event            |        2|0 MB
+|external_identity_mapping|        0|0 MB
+|category                 |        2|0 MB
+|profile                  |       25|0 MB
+|processcategorymapping   |       12|0 MB
+|group_                   |      107|0 MB
+|platformcommand          |        0|0 MB
+|QRTZ_PAUSED_TRIGGER_GRPS |        0|0 MB
+|QRTZ_LOCKS               |        0|0 MB
+|QRTZ_CRON_TRIGGERS       |        0|0 MB
+|blob_                    |        0|0 MB
+|tenant                   |        4|0 MB
+|QRTZ_CALENDARS           |        0|0 MB
+|sequence                 |      196|0 MB
+|platform                 |        1|0 MB
+|icon                     |        0|0 MB
+|QRTZ_BLOB_TRIGGERS       |        0|0 MB
+|QRTZ_SIMPROP_TRIGGERS    |        0|0 MB
+|QRTZ_SCHEDULER_STATE     |        0|0 MB
+
+|===
+
+*Result:* Execution completed in 10,513,866 ms (2 Hours 55 Minutes 13 Seconds)
+
+Mysql performances are slow compared to postgres and other databases.
+
+Highlights from execution logs:
+[source,text]
+----
+Deleting other tenants from table arch_contract_data ...
+69,494 rows deleted in 1,359,514 ms (22 Minutes 39 Seconds)
+Deleting other tenants from table document ...
+12,223 rows deleted in 1,732,854 ms (28 Minutes 52 Seconds)
+Deleting other tenants from table arch_flownode_instance ...
+13,376,340 rows deleted in 2,944,665 ms (49 Minutes 4 Seconds)
+Deleting other tenants from table arch_connector_instance ...
+2,282,163 rows deleted in 140,230 ms
+Deleting other tenants from table arch_data_instance ...
+2,602,435 rows deleted in 317,625 ms
+1,524 rows deleted in 381,452 ms
+Deleting other tenants from table user_ ...
+468,735 rows deleted in 113,128 ms
+Deleting other tenants from table user_login ...
+468,737 rows deleted in 4,699 ms
+Deleting other tenants from table queriable_log ...
+4,255,416 rows deleted in 1,497,117 ms (24 Minutes 57 Seconds)
+Deleting other tenants from table page ...
+664 rows deleted in 723,525 ms (12 Minutes 3 Seconds)
+Deleting other tenants from table sequence ...
+180 rows deleted in 310 ms
+Deleting other tenants from table profilemember ...
+468,786 rows deleted in 59,169 ms
+Deleting other tenants from table bar_resource ...
+1,653 rows deleted in 467,326 ms
+Deleting other tenants from table tenant ...
+3 rows deleted in 590,386 ms
+----
+
+=== SQLServer
+
+The tests were done on a technically generated database. 
+
+|===
+|rowcount|total_size
+
+|13736918|10124.97 MB
+|===
+
+|===
+|table                    |rowcount|Used_MB
+
+|arch_flownode_instance   | 12785160|9310.61
+|arch_process_instance    |   404550| 191.05
+|arch_process_comment     |   185220|  68.32
+|queriable_log            |   153057|  75.09
+|arch_contract_data       |    35910|  21.71
+|page_mapping             |    23134|  11.99
+|form_mapping             |    23034|   2.59
+|document                 |    14670| 173.84
+|API                      |    13950|   3.41
+|arch_document_mapping    |    13230|   3.04
+|actor                    |    10004|   1.38
+|process_content          |    10004|  34.13
+|process_definition       |    10004|   4.36
+|tenant                   |    10001|   1.37
+|actormember              |     9504|   1.43
+|process_comment          |     7993|   3.02
+|arch_data_instance       |     5130|   2.60
+|arch_connector_instance  |     4410|   1.31
+|arch_ref_biz_data_inst   |     4410|   1.51
+|user_membership          |     2097|   0.36
+|user_contactinfo         |     2068|   0.77
+|document_mapping         |     1440|   0.28
+|user_                    |     1034|   0.55
+|user_login               |     1034|   0.07
+|data_instance            |      720|   0.37
+|flownode_instance        |      720|   1.47
+|pending_mapping          |      720|   0.28
+|process_instance         |      720|   0.48
+|ref_biz_data_inst        |      720|   0.31
+|page                     |      636| 194.80
+|business_app_page        |      540|   0.31
+|business_app_menu        |      529|   0.21
+|group_                   |      222|   0.09
+|business_app             |      104|   0.14
+|configuration            |       76|   0.49
+|sequence                 |       66|   0.02
+|dependency               |       24|   9.52
+|dependencymapping        |       24|   0.05
+|role                     |       24|   0.05
+|command                  |       13|   0.05
+|bar_resource             |        3|   0.09
+|profile                  |        3|   0.03
+|profilemember            |        3|   0.03
+|platform                 |        1|   0.02
+|QRTZ_LOCKS               |        1|   0.02
+|tenant_resource          |        1|   1.22
+|arch_multi_biz_data      |        0|   0.00
+|blob_                    |        0|   0.00
+|category                 |        0|   0.00
+|connector_instance       |        0|   0.04
+|contract_data            |        0|   0.07
+|custom_usr_inf_def       |        0|   0.00
+|custom_usr_inf_val       |        0|   0.00
+|event_trigger_instance   |        0|   0.00
+|external_identity_mapping|        0|   0.00
+|icon                     |        0|   0.00
+|job_desc                 |        0|   0.00
+|job_log                  |        0|   0.00
+|job_param                |        0|   0.00
+|message_instance         |        0|   0.00
+|multi_biz_data           |        0|   0.00
+|pdependency              |        0|   0.00
+|pdependencymapping       |        0|   0.00
+|platformCommand          |        0|   0.00
+|proc_parameter           |        0|   0.00
+|processcategorymapping   |        0|   0.00
+|processsupervisor        |        0|   0.00
+|QRTZ_BLOB_TRIGGERS       |        0|   0.00
+|QRTZ_CALENDARS           |        0|   0.00
+|QRTZ_CRON_TRIGGERS       |        0|   0.00
+|QRTZ_FIRED_TRIGGERS      |        0|   0.00
+|QRTZ_JOB_DETAILS         |        0|   0.00
+|QRTZ_PAUSED_TRIGGER_GRPS |        0|   0.02
+|QRTZ_SCHEDULER_STATE     |        0|   0.00
+|QRTZ_SIMPLE_TRIGGERS     |        0|   0.00
+|QRTZ_SIMPROP_TRIGGERS    |        0|   0.00
+|QRTZ_TRIGGERS            |        0|   0.00
+|queriablelog_p           |        0|   0.00
+|waiting_event            |        0|   0.00
+|===
+
+*Result:* Execution completed in 3,003,733 ms (50 Minutes 3 Seconds)
+Overall, really good performance on SQLServer. 
+
+=== Oracle
+
+The tests were done on a technically generated database. 
+
+|===
+|rowcount
+
+|28242229
+|===
+
+|===
+|table_name               |table_rows
+
+|arch_flownode_instance   |  12395035
+|queriable_log            |   3932460
+|arch_process_instance    |   3889512
+|arch_data_instance       |   2832812
+|arch_connector_instance  |   2211058
+|user_contactinfo         |    925751
+|user_login               |    468144
+|user_                    |    467685
+|profilemember            |    460263
+|document                 |    354564
+|arch_contract_data       |     56802
+|arch_multi_biz_data      |     56150
+|arch_ref_biz_data_inst   |     38168
+|data_instance            |     28609
+|arch_process_comment     |     18709
+|event_trigger_instance   |     18200
+|user_membership          |     18200
+|process_comment          |     14061
+|arch_document_mapping    |     10115
+|ref_biz_data_inst        |      8347
+|multi_biz_data           |      5440
+|flownode_instance        |      4758
+|process_instance         |      4347
+|actormember              |      2954
+|connector_instance       |      2860
+|pending_mapping          |      2274
+|document_mapping         |      1851
+|bar_resource             |      1750
+|dependencymapping        |      1524
+|job_param                |      1290
+|contract_data            |      1143
+|dependency               |      1094
+|page_mapping             |       955
+|form_mapping             |       906
+|page                     |       647
+|proc_parameter           |       543
+|processsupervisor        |       468
+|actor                    |       456
+|process_definition       |       309
+|process_content          |       294
+|job_desc                 |       261
+|QRTZ_JOB_DETAILS         |       234
+|QRTZ_TRIGGERS            |       234
+|QRTZ_SIMPLE_TRIGGERS     |       231
+|sequence                 |       196
+|configuration            |       166
+|group_                   |       107
+|command                  |        99
+|business_app_page        |        44
+|business_app_menu        |        35
+|profile                  |        25
+|business_app             |        23
+|role                     |        22
+|job_log                  |        21
+|processcategorymapping   |        12
+|tenant                   |         3
+|tenant_resource          |         3
+|category                 |         2
+|waiting_event            |         2
+|platform                 |         1
+|QRTZ_BLOB_TRIGGERS       |         0
+|QRTZ_CALENDARS           |         0
+|QRTZ_CRON_TRIGGERS       |         0
+|QRTZ_FIRED_TRIGGERS      |         0
+|QRTZ_LOCKS               |         0
+|QRTZ_PAUSED_TRIGGER_GRPS |         0
+|QRTZ_SCHEDULER_STATE     |         0
+|QRTZ_SIMPROP_TRIGGERS    |         0
+|blob_                    |         0
+|custom_usr_inf_def       |         0
+|custom_usr_inf_val       |         0
+|external_identity_mapping|         0
+|icon                     |         0
+|message_instance         |         0
+|pdependency              |         0
+|pdependencymapping       |         0
+|platformcommand          |         0
+|queriablelog_p           |         0
+|===
+
+*Results:* Execution completed in 1973144 ms (32 Minutes 53 Seconds)
+Overall really good performance on Oracle. 

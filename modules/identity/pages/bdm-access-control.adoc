@@ -24,7 +24,7 @@ Granting access to a business object or some attributes of a business object to 
 
 == Define BDM access control
 
-To define access control on your BDM, use the Access Control Editor embedded in Bonita Studio. You can open it using the menu: _Development_ > _Business Data Model_ > _BDM access control_ > _Define_
+To define access control on your BDM, use the Access Control Editor embedded in Bonita Studio. You can open it using the project explorer contexutal menu: _Business Data Model_ > _BDM access control_ or from the _Project overview_.
 
 Defining access control on a business object means defining a set of *access rules* on this object. +
 A rule is made of the following elements:

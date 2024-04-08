@@ -20,7 +20,7 @@ You can play with the organization of the tabs and areas. If you get lost, use t
 == Welcome page
 The Welcome page is displayed upon the first opening of the Studio. +
 It gives access to a lot of resources to help you during the lifetime of the project. +
-The welcome page can be opened at any time by clicking on the "Welcome" icon of the coolbar.
+The welcome page can be opened at any time from the *Help* menu.
 
 == Project overview
 The project overview is accessible from the Studio coolbar. It provides an overview of the different elements of your project and those you can use to create a state-of-the-art Bonita project.

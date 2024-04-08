@@ -7,6 +7,12 @@
 |===
 | groupId | artifactId | version | url | licence
 
+| com.google.guava
+| guava
+| 30.1.1-jre
+| https://github.com/google/guava/guava[https://github.com/google/guava/guava]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+
 | com.googlecode.owasp-java-html-sanitizer
 | owasp-java-html-sanitizer
 | 20220608.1
@@ -19,11 +25,11 @@
 | https://commons.apache.org/proper/commons-io/[https://commons.apache.org/proper/commons-io/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
-| javax.servlet
-| javax.servlet-api
-| 4.0.1
-| https://javaee.github.io/servlet-spec/[https://javaee.github.io/servlet-spec/]
-|  https://oss.oracle.com/licenses/CDDL+GPL-1.1[CDDL + GPLv2 with classpath exception]
+| jakarta.servlet
+| jakarta.servlet-api
+| 4.0.4
+| https://projects.eclipse.org/projects/ee4j.servlet[https://projects.eclipse.org/projects/ee4j.servlet]
+|  http://www.eclipse.org/legal/epl-2.0https://www.gnu.org/software/classpath/license.html[EPL 2.0GPL2 w/ CPE]
 
 | net.sf.ehcache
 | ehcache
@@ -39,13 +45,13 @@
 
 | org.bonitasoft.engine
 | bonita-client
-| 7.14.8
+| 7.15.8
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-common
-| 7.14.8
+| 7.15.8
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
@@ -57,13 +63,13 @@
 
 | org.springframework
 | spring-core
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-web
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 |=== 
@@ -171,37 +177,37 @@
 
 | org.bonitasoft.console
 | console-common
-| 7.14.8
+| 7.15.8
 | N/A
 |  -
 
 | org.bonitasoft.engine
 | bonita-client
-| 7.14.8
+| 7.15.8
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-common
-| 7.14.8
+| 7.15.8
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.engine
 | bonita-server
-| 7.14.8
+| 7.15.8
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | org.bonitasoft.web
 | bonita-web-extensions
-| 7.14.8
+| 7.15.8
 | N/A
 |  -
 
 | org.codehaus.groovy
 | groovy
-| 3.0.9
+| 3.0.10
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -237,7 +243,7 @@
 
 | org.springframework
 | spring-web
-| 5.2.24.RELEASE
+| 5.3.27
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -267,7 +273,7 @@
 
 | com.bonitasoft.engine
 | bonita-client-sp
-| 7.14.8
+| 7.15.8
 | N/A
 |  -
 
@@ -279,7 +285,7 @@
 
 | org.bonitasoft.console
 | console-common
-| 7.14.8
+| 7.15.8
 | N/A
 |  -
 |=== 
@@ -291,25 +297,25 @@
 
 | com.bonitasoft.engine
 | bonita-client-sp
-| 7.14.8
+| 7.15.8
 | N/A
 |  -
 
 | com.bonitasoft.engine
 | bonita-common-sp
-| 7.14.8
+| 7.15.8
 | N/A
 |  -
 
 | com.bonitasoft.engine
 | bonita-server-sp
-| 7.14.8
+| 7.15.8
 | https://community.bonitasoft.com/[https://community.bonitasoft.com/]
 |  http://www.gnu.org/licenses/lgpl-2.1.html[GNU Lesser General Public License Version 2.1]
 
 | com.bonitasoft.web
 | bonita-web-extensions-sp
-| 7.14.8
+| 7.15.8
 | N/A
 |  -
 
@@ -345,19 +351,19 @@
 
 | org.bonitasoft.console
 | console-common-sp
-| 7.14.8
+| 7.15.8
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-server
-| 7.14.8
+| 7.15.8
 | N/A
 |  -
 
 | org.bonitasoft.console
 | console-server
-| 7.14.8
+| 7.15.8
 | N/A
 |  -
 

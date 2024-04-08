@@ -54,9 +54,9 @@ The UI Designer generates standard HTML application code, based on AngularJS. Ex
 
 == Starting the UI Designer
 
-=== From Bonita Studio menu bar
+=== From Bonita Studio coolbar
 
-Open the *Development* menu then choose *Open UI Designer*, or click the UI Designer icon in the coolbar. This is useful to create application pages that are not linked to a process, but display business information whose changes are managed by underlying processes.
+Click the `UI Designer` icon. This is useful to create application pages that are not linked to a process, but display business information whose changes are managed by underlying processes.
 
 === From a form mapping tab
 
