@@ -11,7 +11,7 @@ The {bonitaVersion} version is in development.
 The required Java version is now **Java 17**.
 ====
 
-We’re proud to announce Bonita {bonitaVersion}, the first Bonita platform release of this year! 
+We’re proud to announce Bonita {bonitaVersion}, the first major Bonita platform release of this year! 
 This new major release improves security, search capabilities and performance.
 
 == The {bonitaVersion} release in a nutshell
