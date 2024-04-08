@@ -19,7 +19,7 @@ This new major release improves security, search capabilities and performance.
 * Java 17 update for more security, better performance and language enhancements
 * Improved security in Bonita REST APIs
 * Boosted search experience on all APIs and pages
-* Better platform performance thanks to the L2 Cache (Enterprise Edition only)
+* Better platform performance thanks to the L2 Cache (Enterprise Edition only), extended to clustered environments.
 * Bonita Studio packaging changes
 * REST API authorizations in Community edition
 * Find out how Bonitasoft handles GDPR
