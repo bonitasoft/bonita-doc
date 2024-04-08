@@ -67,6 +67,8 @@ This is now the default search behavior for all search APIs and pages of Bonita 
 
 The result is simple: a better understanding of your queries without any configuration changes!
 
+For more information on how like-based search works, please refer to the xref:api:using-list-and-search-methods.adoc#like-based-search[dedicated documentation].
+
 
 === Development suite
 
