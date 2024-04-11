@@ -1,0 +1,121 @@
+= How to integrate BCD features in a CI pipeline
+:description: BCD features integration in a CI pipelines
+
+:page-aliases: jenkins_example.adoc
+
+
+The BCD CLIs can not only be run interactively, but also within standard Continuous Delivery servers such as https://jenkins.io/[Jenkins CI], or https://github.com/features/actions[Github Actions], or https://docs.gitlab.com/ee/ci/[Gitlab CI], etc.
+
+There are many ways to integrate BCD CLIs in a CI pipeline. The samples proposed here explain how to integrate bonita-la-builder the bonita-la-deployer in a JenkinsCI pipeline job.
+
+== Building a Bonita Project
+
+The bonita-la-builder is a standalone java program, so you run it as sepcific step in your CI pipeline.
+
+https://www.jenkins.io/doc/book/pipeline/[JenkinsCI pipeline] are made of steps (stage). Here is a way to use the bonita-la-builder as a step in a JenkinsCI pipeline.
+
+.Sample build step in a Jenkinsfile
+[source, groovy]
+----
+node {
+
+        stage 'Checkout', {
+            // Checkout your project source code
+            checkout scm
+        }
+
+        stage 'Build App', {
+            // Download bonita-la-builder using maven
+            def bonitaRuntimeVersion = sh returnStdout: true, script: 'mvn help:evaluate -Dexpression=bonita.runtime.version -q -DforceStdout'
+
+            sh "mvn dependency:copy -Dartifact=com.bonitasoft.tools:bonita-la-builder:${bonitaRuntimeVersion}:jar:exec -Dmdep.stripVersion -Dmdep.stripClassifier -DoutputDirectory=./" <1>
+            // Execute the builder using maven
+            sh 'mvn --non-recursive exec:exec -Dexec.executable=java -Dexec.args="-jar bonita-la-builder.jar build . -o my-app.zip"' <2>
+        }
+
+        // other steps omitted ...
+}
+----
+<1> Download the bonita-la-builder using maven in order to use the already configured credentials to access Bonita Artifact Repository.
+<2> Execute the bonita-la-builder CLI via a maven command in order to use the same Java version as the one used to build the project.
+
+IMPORTANT: Default maven executable (mvn command) has to be configured to use the settings.xml file with access to "Bonita artifact repository". Use the default `.m2/settings.xml` location or use the `.mvn/maven.config` file https://maven.apache.org/configure.html#mvn-maven-config-file[option] to specify the settings.xml path.
+
+== Deploy step as part of CI job
+
+Just like the builder, the deployer is a standalone java program. The simplest way to use it, is to download it, and execute it with the desired arguments.
+
+.Sample deploy step in a Jenkinsfile
+[source, groovy]
+----
+node {
+        stage 'Checkout', {
+            checkout([
+                    $class                           : 'GitSCM',
+                    branches                         : scm.branches,
+                    doGenerateSubmoduleConfigurations: scm.doGenerateSubmoduleConfigurations,
+                    extensions                       : scm.extensions + [[$class: 'CloneOption', noTags: true, shallow: true, depth: 0, timeout: 20]],
+                    userRemoteConfigs                : scm.userRemoteConfigs
+            ])
+        }
+
+        stage 'Build App', {
+             // Step that produce a "my-app.zip" zip file
+        }
+
+      withCredentials([usernamePassword(credentialsId: 'bonitaTechUser', passwordVariable: 'BONITA_TECH_PASSWD', usernameVariable: 'BONITA_TECH_LOGIN')]) { <1>
+        stage 'Deploy App', {
+            // Here the la-builder version is hardcoded but you may use an environment variable to store the version.
+            sh 'mvn dependency:copy -Dartifact=com.bonitasoft.deployer:bonita-la-deployer:1.0.0:jar -Dmdep.stripVersion -DoutputDirectory=./' <2>
+            sh 'mvn --non-recursive exec:exec -Dexec.args="-jar bonita-la-deployer.jar -f target/my-app.zip -t http://my-server:8080/bonita --username $BONITA_TECH_LOGIN --password $BONITA_TECH_PASSWD"' <3>
+        }
+      }
+}
+----
+<1> See https://plugins.jenkins.io/credentials[Jenkins Credentials plugin]
+<2> Download the bonita-la-deployer (using maven credentials configured in your https://maven.apache.org/settings.html#servers[settings.xml] file)
+<3> run the deployer on the target server (here `http://my-server:8080/bonita`)
+
+
+== Sample with build, deploy and integration test steps
+
+If you think quality is important, you have probably already added an integration-tests maven module based on our xref:{testToolkitVersion}@test-toolkit::index.adoc[test toolkit]. If so, you can have a complete pipeline like the following
+including `checkout`, `build`, `deploy` and `test` steps.
+
+.Sample pipeline in a Jenkinsfile
+[source, groovy]
+----
+node {
+
+        stage 'Checkout', {
+            checkout([
+                    $class                           : 'GitSCM',
+                    branches                         : scm.branches,
+                    doGenerateSubmoduleConfigurations: scm.doGenerateSubmoduleConfigurations,
+                    extensions                       : scm.extensions + [[$class: 'CloneOption', noTags: true, shallow: true, depth: 0, timeout: 20]],
+                    userRemoteConfigs                : scm.userRemoteConfigs
+            ])
+        }
+
+        stage 'Build App', {
+            def bonitaRuntimeVersion = sh('mvn org.apache.maven.plugins:maven-help-plugin:3.3.0:evaluate -Dexpression=bonita.runtime.version -q -DforceStdout', true)
+            sh "mvn dependency:copy -Dartifact=com.bonitasoft.tools:bonita-la-builder:${bonitaRuntimeVersion}:jar:exec -Dmdep.stripVersion -Dmdep.stripClassifier -DoutputDirectory=./"
+            sh 'mvn --non-recursive exec:exec -Dexec.executable=java -Dexec.args="-jar bonita-la-builder.jar build . -o my-app.zip"'
+        }
+
+        withCredentials([usernamePassword(credentialsId: 'bonitaTechUser', passwordVariable: 'BONITA_TECH_PASSWD', usernameVariable: 'BONITA_TECH_LOGIN')]) {
+            stage 'Deploy App', {
+                sh 'mvn dependency:copy -Dartifact=com.bonitasoft.deployer:bonita-la-deployer:1.0.0:jar -Dmdep.stripVersion -DoutputDirectory=./'
+                sh 'mvn --non-recursive exec:exec -Dexec.args="-jar bonita-la-deployer.jar -f target/my-app.zip -t http://my-server:8080/bonita --username $BONITA_TECH_LOGIN --password $BONITA_TECH_PASSWD"'
+            }
+
+            stage 'Integration tests', {
+                try {
+                    sh 'mvn -f integration-tests/pom.xml verify -Dbonita.url=http://my-server:8080/bonita -Dbonita.tech.user=$BONITA_TECH_LOGIN -Dbonita.tech.password=$BONITA_TECH_PASSWD'
+                } finally {
+                    junit 'tests/target/*-reports/*.xml'
+                }
+            }
+        }
+}
+----

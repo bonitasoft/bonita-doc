@@ -10,6 +10,7 @@ asciidoc:
     javadocVersion: '9.0'
     # ref versions of other components
     bcdDocVersion: '4.0'
+    testToolkitVersion: '2.0'
     # page attributes
     page-pagination: true # display links to previous/next pages at the bottom of the page
     page-editable: true
@@ -19,6 +20,7 @@ asciidoc:
     openApiLatestVersion: '0.0.16'
     page-next-release: false
     page-hide-search-bar: false
+    page-hide-components: 'bcd'
 nav:
   - modules/ROOT/release-note-nav.adoc
   - modules/bonita-overview/bonita-overview-nav.adoc

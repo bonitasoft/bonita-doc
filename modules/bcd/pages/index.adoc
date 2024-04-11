@@ -1,0 +1,49 @@
+= Bonita Continuous Delivery (Phasing out)
+:description: Bonita tools for continuous delivery
+
+:page-aliases: bcd_cli.adoc, bcd_controller.adoc, getting_started.adoc
+
+
+[NOTE]
+--
+Dear user,
+
+With the introduction of our Self Contained Application approach, we are moving to a new deployment mode that no longer relies on the "BCD" mechanism as you know it. In fact, the SCA mode natively integrates this capability into the "build" package (via Maven). These changes have an impact on our BCD 'add-on' component, which will begin a gradual withdrawal process. This means that we are gradually phasing it out and that there will be no more updates or improvements to this functionality. However, platform mode is still supported for versions 2023.2, 2024.1, 2024.2, it's just no longer our 'nominal' mode.
+
+The continuous deployment process is of course still part of the Bonita offering, but is based on new methods. However, we would like to reassure you about this transition. A new documentation section has been created to guide you through this transition, along with migration recommendations that you can find xref:build-run:build-application.adoc[here].
+
+This is why this BCD section (both builder + deployer) is currently being deprecated, as we are replacing it with the new, more powerful mode that is better suited to IT issues. There will therefore be no more new versions of BCD.
+
+We want to assure you that our teams are available to answer your questions and support you through this change. Please do not hesitate to contact us if you require any further assistance.
+--
+
+BCD lets you build a Living Application from source code in a repository and deploy the generated artifacts, all from the command line.
+
+image::images/bcd-capabilities.png[Bonita Continuous Delivery Capabilities]
+
+== Basic concepts
+
+*BCD* offer has evolved now into *two Java command-line interfaces (CLI)* which allow to `build` and `deploy` Bonita Living Applications. You will be able to download the latest versions of the CLIs from our xref:software-extensibility:bonita-repository-access.adoc[Bonita Artifact Repository] and then integrate the execution in your developer and CI pipelines.
+
+IMPORTANT: *BCD features do not require docker anymore*. Usage is therefore greatly simplified. The only remaining xref:requirements-and-compatibility.adoc[prerequisites] are Java and Maven installed on the host running the CLIs.
+
+[.card-section]
+== Highlight
+
+[.card.card-index]
+--
+xref:release-notes.adoc[[.card-title]#What's new in BCD?# [.card-body]#pass:q[Find out what’s new in Bonita Continuous Delivery !]#]
+--
+
+[.card.card-index]
+--
+xref:builder.adoc[[.card-title]#Start building# [.card-body]#pass:q[Check out how to build a Living App repository.]#]
+--
+
+[.card.card-index]
+--
+xref:deployer.adoc[[.card-title]#Start deploying# [.card-body]#pass:q[Check out how to deploy a Living App.]#]
+--
+
+TIP: For both CLIs you can have a look at the https://www.mojohaus.org/exec-maven-plugin/[exec-maven-plugin] to include `build` and/or `deploy` step in the bonita project build lifecycle. (starting from version 7.13.x, a bonita project is a maven project) +
+Currently you should consider the maven aspect as a black box, because the studio perform some instrumentation of the project's pom.xml file, but advanced users can still take advantage of the maven aspect of the project.

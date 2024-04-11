@@ -1,0 +1,17 @@
+= Migrate from an earlier version of BCD
+:description: How to upgrade BCD tools
+
+== Overview
+
+This page explains how to upgrade your version of BCD.
+
+Each of the versions follows the MAJOR.MINOR.PATCH format.
+
+== How it works
+
+=== From a 3.6.x towards 4.0
+
+. Remove all BCD docker images.
+. Configure your access to xref:software-extensibility:bonita-repository-access.adoc[Bonita Artifact Repository]
+. Follow the CLIs (xref:builder.adoc[Builder] and xref:deployer.adoc[Deployer]) documentations
+. Delete useless scenario files (pass parameters as arguments to the CLI)
