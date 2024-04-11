@@ -3,11 +3,6 @@
 
 [NOTE]
 ====
-The {bonitaVersion} version is in development.
-====
-
-[NOTE]
-====
 The required Java version is now **Java 17**.
 ====
 
@@ -67,7 +62,7 @@ This is now the default search behavior for all search APIs and pages of Bonita 
 
 The result is simple: a better understanding of your queries without any configuration changes!
 
-For more information on how like-based search works, please refer to the xref:api:using-list-and-search-methods.adoc#like-based-search[dedicated documentation].
+For more information on how like-based search works, please refer to the xref:api:using-list-and-search-methods.adoc#like_based_search[dedicated documentation].
 
 
 === Development suite
@@ -120,11 +115,11 @@ If you used them to configure Bonita Runtime for "word-based" search and specifi
 
 === REST API authorizations
 
-The property allowing to enable/disable xref:identity:rest-api-authorization.adoc#dynamic-authorization-checking[dynamic authorization checks] has been moved from the configuration file `bonita-tenant-sp-custom.properties` to the file `bonita-tenant-community-custom.properties` in the tenant folder when using the setup tool. When updating Bonita in Subscription editions, if the property was used, Bonita update tool will keep its value. When the property is set using a system property or an environment variable, it will continue to override the value of the configuration file.
+The property allowing to enable/disable xref:identity:rest-api-authorization.adoc#dynamic_authorization[dynamic authorization checks] has been moved from the configuration file `bonita-tenant-sp-custom.properties` to the file `bonita-tenant-community-custom.properties` in the tenant folder when using the setup tool. When updating Bonita in Subscription editions, if the property was used, Bonita update tool will keep its value. When the property is set using a system property or an environment variable, it will continue to override the value of the configuration file.
 
 == Bug fixes
 
-=== Fixes in Bonita 2024.1.rc (2024-03-11)
+=== Fixes in Bonita 2024.1 (2024-04-11)
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
@@ -148,13 +143,13 @@ The property allowing to enable/disable xref:identity:rest-api-authorization.ado
 * RUNTIME-1825 - Bad rendering in the Admin Group List page to display Parent Group column
 * RUNTIME-1829 - Application directory page sign out button no longer redirects the top window when using OIDC
 * RUNTIME-1832 - Missing call to the CryptoIntegration class
-* CVE-58 - Some UI screens in administration panel have been secured against stored XSS attacks. We also introduced a backend input validation to prevent storing XSS attacks in the database. +
+* CVE-58 - Some UI screens in administration panel have been secured against stored XSS attacks. We also introduced a backend xref:security:sanitizer-security.adoc[input validation to prevent storing XSS attacks] in the database. This countermeasure is enabled by default in 2024.1. +
 _We would like to thank both Tomas Castro Rojas and Mohammad A’mir for reporting this high severity issue to us._
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
 
 * STUDIO-4494 - Classcast Exception in Export Bos Dialog
-* STUDIO-4498 - Error when trying to build a project migrated to 9.0.0 due to old files checked in in bin folder
+* STUDIO-4498 - Error when trying to build a project migrated to 9.0.0 due to old files checked in `bin` folder
 * STUDIO-4505 - NPE when creating a contract from data
 * STUDIO-4507 - Cannot deploy organization when another one already exists and is active
 * UID-727     - Invalid js minification 
