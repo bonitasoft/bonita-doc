@@ -1,0 +1,125 @@
+= Troubleshooting guide
+:description: BCD Troubleshooting
+
+[.troubleshooting-title]
+== Troubleshooting
+
+[.troubleshooting-section]
+--
+[.symptom]
+Access to Bonita Artifact Repository is denied
+
+[.solution]#Solution#
+If you encounter some error while fetching Bonita java dependencies, please refer to the xref:software-extensibility:bonita-repository-access.adoc[Bonita Artifact Repository] documentation.
+--
+
+
+[.troubleshooting-section]
+--
+[.symptom]
+Restricted Internet access by an enterprise proxy
+
+[.solution]#Solution#
+If required, you can configure maven to use proxy settings : https://maven.apache.org/guides/mini/guide-proxies.html
+--
+
+
+[.troubleshooting-section]
+--
+[.symptom]
+A REST API Extension compilation generates errors
+
+The `build` command failed to generate the REST API Extensions with these error messages below:
+[source,bash]
+----
+...
+[INFO]
+[INFO] --- maven-compiler-plugin:3.6.0:compile (default-compile) @ tankLevelRestAPI ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR :
+[INFO] -------------------------------------------------------------
+[ERROR] /workspace/CarProject/restAPIExtensions/tankLevelRestAPI/src/main/groovy/com/support/bonitasoft/rest/api/Index.groovy:[1,1] 1. ERROR in /workspace/CarProject/restAPIExtensions/tankLevelRestAPI/src/main/groovy/com/support/bonitasoft/rest/api/Index.groovy (at line 1)
+	package com.support.bonitasoft.rest.api;
+	^
+The type java.lang.Object cannot be resolved. It is indirectly referenced from required .class files
+
+[ERROR] /workspace/CarProject/restAPIExtensions/tankLevelRestAPI/src/main/groovy/com/support/bonitasoft/rest/api/Index.groovy:[1,1] 2. ERROR in /workspace/CarProject/restAPIExtensions/tankLevelRestAPI/src/main/groovy/com/support/bonitasoft/rest/api/Index.groovy (at line 1)
+	package com.support.bonitasoft.rest.api;
+	^
+The type java.lang.String cannot be resolved. It is indirectly referenced from required .class files
+...
+[ERROR] /workspace/CarProject/restAPIExtensions/tankLevelRestAPI/src/main/groovy/com/support/bonitasoft/rest/api/Index.groovy:[100,61] 21. ERROR in /workspace/CarProject/restAPIExtensions/tankLevelRestAPI/src/main/groovy/com/support/bonitasoft/rest/api/Index.groovy (at line 100)
+	resourceProvider.getResourceAsStream(fileName).withStream { InputStream s ->
+	                                                            ^^^^^^^^^^^
+Groovy:unable to resolve class InputStream
+
+[ERROR] Found 21 errors and 0 warnings.
+[INFO] 22 errors
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+...
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.0:compile (default-compile) on project tankLevelRestAPI: Compilation failure: Compilation failure:
+[ERROR] /workspace/CarProject/restAPIExtensions/tankLevelRestAPI/src/main/groovy/com/support/bonitasoft/rest/api/Index.groovy:[1,1] 1. ERROR in /workspace/CarProject/restAPIExtensions/tankLevelRestAPI/src/main/groovy/com/support/bonitasoft/rest/api/Index.groovy (at line 1)
+[ERROR] 	package com.support.bonitasoft.rest.api;
+[ERROR] 	^
+[ERROR] The type java.lang.Object cannot be resolved. It is indirectly referenced from required .class files
+...
+[ERROR] Found 21 errors and 0 warnings.
+...
+[ERROR] Failed to build /workspace/CarProject/restAPIExtensions/tankLevelRestAPI
+java.io.IOException: Maven build failed.
+	at com.bonitasoft.la.builder.task.AbstractCustomPageProjectTask.runMavenInstall(AbstractCustomPageProjectTask.java:64)
+	at com.bonitasoft.la.builder.task.AbstractCustomPageProjectTask.execute(AbstractCustomPageProjectTask.java:45)
+	at com.bonitasoft.la.builder.task.TaskExecutor.lambda$build$0(TaskExecutor.java:37)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1655)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658)
+	at com.bonitasoft.la.builder.task.TaskExecutor.build(TaskExecutor.java:34)
+	at com.bonitasoft.la.builder.BuilderCLI.run(BuilderCLI.java:142)
+	at com.bonitasoft.la.builder.BuilderCLI.buildCmd(BuilderCLI.java:126)
+	at com.bonitasoft.la.builder.BuilderCLI.main(BuilderCLI.java:82)
+----
+
+[.cause]#Cause#
+The REST API Extension involved was created with a lower version of the Bontia product.
+There are java librarires (`.jar` files) which are not compatible with java 11 used with latest version of BCD.
+
+[.solution]#Solution#
+The Maven's `pom.xml` file needs to be modified. The versions of the dependency and plugins listed below must be updated:
+
+* dependency `groovy-all`
+* plugin `maven-compiler-plugin`
+* plugin `groovy-eclipse-compiler`
+* plugin `groovy-eclipse-batch`
+
+In order to find the versions to use, apply the procédure below:
+
+* Start the Studio
+* Create a new dummy REST API extension: the new `pom.xml` file created contains the versions to used
+* Update the `pom.xml` file of the REST API Extension which failed to be compiled.
+--
+
+[.troubleshooting-section]
+--
+[.symptom]
+Application pages and forms aren't displaying special characters correctly in Windows
+
+[.symptom-description]
+If there is a special character like `&euro;` in my page or form, the character does not appear properly after the page or form is deployed.
+
+[.cause]#Cause#
+When using Windows, the characters are encoded into `Windows-1250`, instead of `UTF-8`
+
+[.solution]#Solution#
+There are two possible solutions for this:
+
+* Use the HTML character code. For example, the one for `&euro;` is `\&euro;`
+* If you don't need a special file encoding, when building the project using the xref:builder.adoc[builder], you can add a UTF-8 file encoding parameter, like so:
+[code,bash]
+----
+java -Dfile.encoding=UTF-8 -jar bonita-la-builder.jar build <path to the bonita project> -e production
+----
+--
