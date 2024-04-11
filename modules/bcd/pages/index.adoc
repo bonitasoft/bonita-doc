@@ -8,15 +8,13 @@
 --
 Dear user,
 
-With the introduction of our Self Contained Application approach, we are moving to a new deployment mode that no longer relies on the "BCD" mechanism as you have known it. In fact, SCA mode is natively integrating this capability into the “build” package.
-Those changes impact our BCD component “adds-on” which will start a progressive phasing out process. It means that we progressively transition from it and that there will be no more updates or improvement in this feature.
+With the introduction of our Self Contained Application approach, we are moving to a new deployment mode that no longer relies on the "BCD" mechanism as you know it. In fact, the SCA mode natively integrates this capability into the "build" package (via Maven). These changes have an impact on our BCD 'add-on' component, which will begin a gradual withdrawal process. This means that we are gradually phasing it out and that there will be no more updates or improvements to this functionality. However, platform mode is still supported for versions 2023.2, 2024.1, 2024.2, it's just no longer our 'nominal' mode.
 
-The Continuous Deployment process is of course still part of Bonita’s offering but is relying on new methods
-However, we want to reassure you about the timeline of this transition. With the update of the 2024.1 documentation, we confirm that the BCD will not be deprecated in either 2024.1 or 2024.2. versions. As a reminder, our versions are then supported for 2 years from their release date (which brings you to 2024.2+ 2 years).
+The continuous deployment process is of course still part of the Bonita offering, but is based on new methods. However, we would like to reassure you about this transition. A new documentation section has been created to guide you through this transition, along with migration recommendations that you can find xref:build-run:build-application.adoc[here].
 
-We will keep you regularly informed on this matter. Additionally, a new documentation section has been created to guide you through this transition, along with migration recommendations that you can find xref:build-run:build-application.adoc[here].
+This is why this BCD section (both builder + deployer) is currently being deprecated, as we are replacing it with the new, more powerful mode that is better suited to IT issues. There will therefore be no more new versions of BCD.
 
-We want to assure you that our teams are available to answer any questions you may have and to support you through this evolution. Please feel free to contact us for any further assistance.
+We want to assure you that our teams are available to answer your questions and support you through this change. Please do not hesitate to contact us if you require any further assistance.
 --
 
 BCD lets you build a Living Application from source code in a repository and deploy the generated artifacts, all from the command line.
