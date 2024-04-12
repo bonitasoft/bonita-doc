@@ -48,6 +48,14 @@ Limitations:
 
 image::images/widgets/rich-text-area.png[rich-text-area,align="left"]
 
+[CAUTION]
+--
+When used out of the box, this widget may expose your application to stored XSS vulnerabilities.
+To secure itself, Bonita has introduced a toggleable xref:security:sanitizer-security.adoc[HTML sanitizer filter] in its backend. When enabled, this filter will remove dangerous html markup from payload sent to the server.
+This protection will degrade the user experience of this widget as most of its output will be sanitized.
+To keep using it safely, you may apply the good practices described on the https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html[OWASP Cross Site Scripting Prevention Cheat Sheet].
+--
+
 Use the rich text area widget to edit HTML formatted text in any UI Designer artifact (page or form for instance).
 
 You can add rich text area inputs for end users to create text to be exported in HTML format for integration on emails, etc. +
