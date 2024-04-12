@@ -4,3 +4,11 @@
     ** Application user flow
         *** xref:build-run:application-user-flow.adoc#new-project[Create a new project]
         *** xref:build-run:application-user-flow.adoc#update-project[Update a project]
+    ** xref:bcd:index.adoc[BCD addon (Phasing out)]
+        *** xref:bcd:release-notes.adoc[Release notes]
+        *** xref:bcd:builder.adoc[Application builder]
+        *** xref:bcd:deployer.adoc[Application deployer]
+        *** xref:bcd:ci-samples.adoc[CI integration sample]
+        *** xref:bcd:requirements-and-compatibility.adoc[Requirements and compatibility]
+        *** xref:bcd:upgrade-bcd.adoc[Upgrade BCD]
+        *** xref:bcd:troubleshooting-guide.adoc[Troubleshooting guide]
