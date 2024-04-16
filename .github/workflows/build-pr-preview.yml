@@ -11,7 +11,6 @@ jobs:
     runs-on: ubuntu-22.04
     env:
       COMPONENT_NAME: bonita
-      COMPONENT_BRANCH_NAME: ${{ github.head_ref }}
     steps:
       - name: Validate xref
         # TMP branch from https://github.com/bonitasoft/bonita-documentation-site/pull/698
@@ -19,10 +18,6 @@ jobs:
         with:
           # TMP branch from https://github.com/bonitasoft/bonita-documentation-site/pull/698
           doc-site-branch: feat/build_single_component_with_branch_from_forked_repo
-          # '>' Replace newlines with spaces (folded)
-          # '-' No newline at end (strip)
-          build-preview-command: >-
-            ./build-preview.bash
-            --component "${{ env.COMPONENT_NAME }}"
-            --branch "${{ env.COMPONENT_BRANCH_NAME }}"
+          # newly available in https://github.com/bonitasoft/bonita-documentation-site/pull/698
+          component-name: ${{ env.COMPONENT_NAME }}
           fail-on-warning: true
