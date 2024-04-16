@@ -14,8 +14,11 @@ jobs:
       COMPONENT_BRANCH_NAME: ${{ github.head_ref }}
     steps:
       - name: Validate xref
-        uses: bonitasoft/bonita-documentation-site/.github/actions/build-pr-site/@master
-        with:          
+        # TMP branch from https://github.com/bonitasoft/bonita-documentation-site/pull/698
+        uses: bonitasoft/bonita-documentation-site/.github/actions/build-pr-site/@feat/build_single_component_with_branch_from_forked_repo
+        with:
+          # TMP branch from https://github.com/bonitasoft/bonita-documentation-site/pull/698
+          doc-site-branch: feat/build_single_component_with_branch_from_forked_repo
           # '>' Replace newlines with spaces (folded)
           # '-' No newline at end (strip)
           build-preview-command: >-
