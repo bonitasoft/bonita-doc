@@ -9,8 +9,6 @@ on:
 jobs:
   validate_xref:
     runs-on: ubuntu-22.04
-    env:
-      COMPONENT_NAME: bonita
     steps:
       - name: Validate xref
         # TMP branch from https://github.com/bonitasoft/bonita-documentation-site/pull/698
@@ -19,5 +17,5 @@ jobs:
           # TMP branch from https://github.com/bonitasoft/bonita-documentation-site/pull/698
           doc-site-branch: feat/build_single_component_with_branch_from_forked_repo
           # newly available in https://github.com/bonitasoft/bonita-documentation-site/pull/698
-          component-name: ${{ env.COMPONENT_NAME }}
+          component-name: bonita
           fail-on-warning: true
