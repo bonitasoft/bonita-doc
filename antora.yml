@@ -1,13 +1,13 @@
 name: bonita
 title: Bonita
-version: 2022.1
+version: 2022.2
 asciidoc:
   attributes:
-    bonitaVersion: 2022.1
+    bonitaVersion: 2022.2
     bonitasoft-registry: 'bonitasoft.jfrog.io'
     bonitasoft-docker-repository: '{bonitasoft-registry}/docker'
-    bonitaTechnicalVersion: '7.14.0' # latest public community version
-    javadocVersion: 7.14
+    bonitaTechnicalVersion: '7.15.0' # latest public community version
+    javadocVersion: 7.15
     # ref versions of other components
     bcdDocVersion: '3.6'
     # page attributes

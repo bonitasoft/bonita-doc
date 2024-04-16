@@ -16,7 +16,7 @@ The default environment is the one most recently selected in the Configure or Ru
 [WARNING]
 ====
 
-The *Local* environment is meant to be local, you cannot share it with a VCS (Git / SVN).
+The *Local* environment is meant to be local, you cannot share it with a VCS (Git).
 ====
 
 == Define a custom environment

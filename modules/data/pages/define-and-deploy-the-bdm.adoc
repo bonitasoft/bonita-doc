@@ -198,7 +198,7 @@ This means that you can have a different BDM in each Studio during development, 
 However, if you are sharing diagrams and other artifacts in development, you need to synchronize BDM definitions, either by exporting your BDM manually for import
 into other development systems, or by using a shared project (not available in the Community edition).
 
-To define the BDM, go to the Bonita Studio *Development* menu, *Business Data Model*, and choose *Define...*. The current BDM definition is displayed.
+To define the BDM, click on *New* in the coolbar then select *Business Data Model*. The current BDM definition is displayed.
 You can also right click on the project name in the Project Explorer, choose "New..." and then "Business Data Model".
 Once defined, double-click on the bom.xml file in the Project Explorer to open it.
 
@@ -308,8 +308,7 @@ In Bonita Cloud, a dedicated backup of the database can be done upon request. Ju
 
 Follow these steps:
 
-. In Bonita Studio, open the *Development menu* in the cool bar.
-. Click *Business Data Model* > *Export*.
+. Right click on your Business Data Model and select *Export*.
 . Select a destination folder.
 . Click *Export*. A file called `bdm.zip` is written to the folder that you specified.
 . Log into the Bonita Runtime as the technical user.

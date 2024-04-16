@@ -1,0 +1,157 @@
+== Display widgets
+
+Use a display widget for information that the user can read on a page. This includes titles, paragraphs, and text. For each, you can specify the text and its alignment. There are several types of display widgets:
+
+* File viewer, to display a preview of files, either Bonita documents, or external documents. Users can also download the file thanks to this widget.
+* Link, to embed an HTML link for navigation to an external site.
+* Title, for headings. You can set the level from 1 to 6.
+* Text, for chunks of text. Text supports basic HTML tags such a paragraph, list or image...
+
+=== Table widget
+
+image::images/widgets/table.png[table]
+
+Use a table widget to display data in a table. In order to display the data, first define the *headers* property with a comma-separated list of column headings. +
+Then bind the *content* to an array of JavaScript objects. +
+Finally, provide a comma-separated list for the *columns keys* indicating the attribute to display in each column.
+
+WARNING: These column keys must not be a number, or start with a number
+
+To get the data from a selected row, bind *selected row* to a variable.
+
+With 7.10 update, you can now display html in header or data content when `Interpret HTML` property is set to true. HTML sanitization is called before rendering to keep only safe HTML.
+
+==== Customize look and feel
+
+Styling properties are available:
+
+* Zebra-Striping to set a different background color on even and odd lines
+* Condensed to display cells without spacing
+* Bordered to display cells with border
+
+You can customize default display for zebra-striping or bordered. Here is an example to explain you how to customize default zebra styling.
+
+This styling can be done in the theme.css file in Bonita Studio part to customize *all* the tables. You need to use the following css selector:
+
+[source, css]
+----
+.table-striped > tbody > tr:nth-of-type(odd) {
+  // Put you custome styling here
+  background-color: chartreuse;
+}
+
+.table-striped > tbody > tr:nth-of-type(even) {
+  // Put you custome styling here
+  background-color: black;
+}
+----
+
+In some case, you want override your theme to display custom style for only *one specific table*, to do this:
+
+* For table widget, in CSS Classes in property panel, add a class, `zebra-custom` for example
+* Add the following class in style.css asset
+
+[source, css]
+----
+.zebra-custom .table-striped > tbody > tr:nth-of-type(odd) {
+  // Put you custome styling here
+  background-color: chartreuse;
+}
+
+.zebra-custom .table-striped > tbody > tr:nth-of-type(even) {
+  // Put you custome styling here
+  background-color: black;
+}
+----
+
+NOTE: In embedded Table widget documentation you can found an example for bordered custom style.
+
+=== Data table widget
+
+image::images/widgets/datatable.png[datatable]
+
+NOTE: Read xref:ROOT:widgets.adoc#_table_widget[Table widget] section to know how you can customize display of your data table widget.
+
+An extended table widget that provides column sorting, filtering, and paging in addition to the standard table widget facilities.
+
+Set the *Data source* to _Bonita API_ to populate the data table with records from a Bonita REST API. +
+Then enter a REST API URL in the *URL* property. Use the *API request parameters* property to pass additional parameters to the request. +
+Supported parameters are described in the xref:ROOT:rest-api-overview.adoc[REST API Overview] and in the REST API documentation for the relevant resource. +
+You do not need to specify paging parameters (such as `?p=0&c=10`), because the data table handles paging automatically when you use a Bonita API data source. +
+The value of the *Page size* property controls how many rows are displayed in a table view, and automatically adds buttons to show subsequent pages of the table.
+
+WARNING: The column keys must not be a number, or start with a number
+
+WARNING: If your Data source is a *Rest Api Extension* and you need pagination, you need to provide the Content-Range header in the response, so the Data Table will handle the pagination.
+In order to do that you can use the method withContentRange in the responseBuilder variable of you Rest Api Extension, something like:
+
+[source,groovy]
+----
+return buildResponse(responseBuilder.withContentRange(p, c, totalNumberOfElements), HttpServletResponse.SC_OK, new JsonBuilder(result).toString())
+----
+
+Alternatively, you can set the *Data source* to _Variable_ and use a variable definition to point ot the table content. +
+Note that if you use a Variable datasource and an External API variable, the paging of the table content is not handled automatically.
+
+==== Sort
+
+The _Sortable columns_ property enables to list the columns which allow a sorted search. +
+Each element of this property has to match an element of the _Columns key_ property to figure out which table column can be sorted upon.
+
+When a data table is displayed (including in the Preview), the user can click on a column heading to reorder the table rows by this column. +
+Some fields do not support sorting but still display the sort button which is a known limitation. +
+The ordering applies to the visible rows in the table, not to the entire table.
+
+The sort is backend when datasource is *Bonita API*. It is frontend, otherwise.
+
+NOTE: BDM APIs are not yet sortable. For other APIs, test in the preview or refer to the BonitaBPM documentation 'REST API' pages.
+
+==== Filter
+
+You can provide a filter for users to update the displayed table to show only the rows that match the filter. To do this:
+
+. Add a widget to the page where the user will specify the filter. This can be an Input widget for free-form text, or a Select widget to choose from a preset list.
+. Create a filter variable in the variable panel. If you are using an Input widget, this variable has no value.
+. Bind the filter variable to the widget.
+. Bind the filter variable to the Data table widget *Filter* property.
+
+When the table is displayed, each time the user updates the filter, the table display is updated accordingly. The filter is applied to the table rows that are currently displayed.
+
+NOTE: it is only possible to filter on attributes that are searchable in the REST resource definition. To search on an attribute of a business object, make sure that the BDM contains the necessary queries.
+
+=== Image widget
+
+image::images/widgets/image.png[image]
+
+Use an image widget to display an image. The image widget is able to display images from local assets or an image from a URL:
+
+* To use an image asset in the image widget, set the *Source type* property to _Asset_, and then enter the image name in the *Asset name* input field.
+* To use an online image in the image widget, set the *Source type* property to _URL_, and then enter the image URL in the *URL* input field.
+
+*_Note_*: Applies from _7.0.2_
+
+=== Chart widget
+
+image::images/widgets/chart.png[chart]
+
+Use the chart widget to create a graphical display of data to ease understanding. This widget is based on angular-chart-0.8.1, which is based on Chart.js. +
+For information, see the http://jtblin.github.io/angular-chart.js/[Angular chart documentation] or http://www.chartjs.org/docs/[Chart.js documentation].
+
+The widget can display several styles of chart:
+
+* For a single set of data points:
+ ** Bar
+ ** Line
+ ** Radar
+* For one or more sets of data points:
+ ** Pie
+ ** Doughnut
+ ** Polar area
+
+Provide each set of data for display in a JSON array, containing numerical values. +
+You can enter a single array directly in the Value property, or bind it to any variable that provides an array. +
+For a multiple set chart, bind it to any variable that provides an array of arrays, all sets having have the same length. +
+The list of values in the *Labels* property must be have same length as an associated set.
+
+Charts can be customized more deeply using the *Advanced options* property. To specify advanced options, bind this property to a JSON variable that specifies the options. +
+Options are specific to each chart type and are listed in the http://www.chartjs.org/docs/[Chart.js documentation] in the _Chart options_ section for each chart style (for example, there are spacing http://www.chartjs.org/docs/#bar-chart-chart-options[options for bar charts]).

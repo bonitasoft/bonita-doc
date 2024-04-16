@@ -71,29 +71,64 @@ pom.xml :
     <artifactId>event-handler-example</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <properties>
+        <maven.compiler.release>11</maven.compiler.release>
         <bonita.version>pass:a[{bonitaTechnicalVersion}]</bonita.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.bonitasoft.runtime</groupId>
+                <artifactId>bonita-runtime-bom</artifactId>
+                <version>${bonita.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
             <groupId>org.bonitasoft.engine</groupId>
             <artifactId>bonita-server</artifactId>
-            <version>${bonita.version}</version>
         </dependency>
     </dependencies>
+
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <configuration>
-                    <release>11</release>
-                </configuration>
-            </plugin>
-        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.11.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
+
+    <!-- Add required additional repositories -->
+    <repositories>
+        <repository>
+            <id>restlet</id>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <url>https://maven.restlet.talend.com/</url>
+        </repository>
+        <repository>
+            <id>terracotta</id>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <url>https://repo.terracotta.org/maven2/</url>
+        </repository>
+    </repositories>
 
 </project>
 ----
@@ -155,7 +190,7 @@ public class EventHandlerExample implements SHandler<SEvent> {
 
 === Register an event handler
 
-An event handler is registered on an event by adding an entry to the appropriate map. The list of handlers registered can be extended in the xref:runtime:bonita-platform-setup.adoc[`bonita-tenant-sp-custom.xml`] file:
+An event handler is registered on an event by adding an entry to the appropriate map. The list of handlers registered can be extended in the xref:runtime:bonita-platform-setup.adoc[`bonita-tenant-sp-custom.xml`] file located in `platform_conf/initial/platform_engine` folder (or `platform_conf/current/platform_engine` if runtime has already been launched):
 
 [source,xml]
 ----
