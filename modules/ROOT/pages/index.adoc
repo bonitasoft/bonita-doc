@@ -2,7 +2,7 @@
 :description: Learn how to get the most out of the Bonita Platform and all of its components.
 
 // Artificial error that should be detected during reference validation
-xref:_do_not_exist.adoc[Unknown page]
+xref:do_not_exist_00456136546.adoc[Unknown page]
 
 
 Learn how to get the most out of the Bonita Platform and all of its components.
