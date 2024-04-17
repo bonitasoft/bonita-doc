@@ -15,11 +15,8 @@ jobs:
       pull-requests: write # surge-preview write PR comments
     steps:
       - name: Build and publish pr preview
-        # TMP branch from https://github.com/bonitasoft/bonita-documentation-site/pull/698
-        uses: bonitasoft/bonita-documentation-site/.github/actions/build-and-publish-pr-preview/@feat/build_single_component_with_branch_from_forked_repo
+        uses: bonitasoft/bonita-documentation-site/.github/actions/build-and-publish-pr-preview/@master
         with:
-          # TMP branch from https://github.com/bonitasoft/bonita-documentation-site/pull/698
-          doc-site-branch: feat/build_single_component_with_branch_from_forked_repo
           surge-token: ${{ secrets.SURGE_TOKEN_DOC }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           component-name: bonita
