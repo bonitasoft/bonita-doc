@@ -9,17 +9,13 @@ on:
 jobs:
   validate_xref:
     runs-on: ubuntu-22.04
-    env:
-      COMPONENT_NAME: bonita
-      COMPONENT_BRANCH_NAME: ${{ github.head_ref }}
     steps:
       - name: Validate xref
-        uses: bonitasoft/bonita-documentation-site/.github/actions/build-pr-site/@master
-        with:          
-          # '>' Replace newlines with spaces (folded)
-          # '-' No newline at end (strip)
-          build-preview-command: >-
-            ./build-preview.bash
-            --component "${{ env.COMPONENT_NAME }}"
-            --branch "${{ env.COMPONENT_BRANCH_NAME }}"
+        # TMP branch from https://github.com/bonitasoft/bonita-documentation-site/pull/698
+        uses: bonitasoft/bonita-documentation-site/.github/actions/build-pr-site/@feat/build_single_component_with_branch_from_forked_repo
+        with:
+          # TMP branch from https://github.com/bonitasoft/bonita-documentation-site/pull/698
+          doc-site-branch: feat/build_single_component_with_branch_from_forked_repo
+          # newly available in https://github.com/bonitasoft/bonita-documentation-site/pull/698
+          component-name: bonita
           fail-on-warning: true
