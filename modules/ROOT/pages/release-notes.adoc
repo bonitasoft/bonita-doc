@@ -135,7 +135,7 @@ The detailed list is available in the "What’s new in Bonita 2022.1" page, in t
 * RUNTIME-1824 - Filter on "caller" does not work when searching for ArchivedProcessInstance
 * RUNTIME-1828 - ArchivedProcessInstance are not deleted when not root process instances
 * RUNTIME-1832 - Initialize Keycloak CryptoIntegration to fix `java.lang.RuntimeException: java.lang.IllegalStateException: Illegal state. Please init first before obtaining provider`
-* RUNTIME-1833 - SanitizerFilter should be disabled by default to avoid data loss when updating. Please visit the xref:security:sanitizer-security.adoc[HTML sanitizer filter] articale to evaluate the risks.
+* RUNTIME-1833 - SanitizerFilter should be disabled by default to avoid data loss when updating. Please visit the xref:security:sanitizer-security.adoc[HTML sanitizer filter] article to evaluate the risks.
 * RUNTIME-1835 - SInvalidExpressionException generated when a parameter is used from within a groovy script
 * RUNTIME-1844 - Update tomcat to 9.0.87
 * CVE-63 - HTTP/2 CONTINUATION Flood vulnerability
