@@ -363,6 +363,29 @@ The timezone can be set via *TZ* environment variable. Check the https://data.ia
 
 == Bug fixes
 
+=== Fixes in Bonita 2023.2-u4 (2024-04-19)
+
+==== Fixes in Bonita Runtime including Bonita Applications
+
+* RUNTIME-48 - SFlowNodeNotFoundException: Quartz's Trigger associated to a Boundary timer does not get deleted when the process instance terminates
+* RUNTIME-407 - Open Cases Administrator call API/bpm/case performance slowness in 2021.1-0617
+* RUNTIME-1818 - [Kerberos SSO] - IOException: conf/login.conf (No such file or directory)
+* RUNTIME-1821 - Docker image fails to start with JMX_REMOTE_ACCESS=true
+* RUNTIME-1824 - Filter on "caller" does not work when searching for ArchivedProcessInstance
+* RUNTIME-1825 - Bad rendering in the Admin Group List page to display Parent Group column
+* RUNTIME-1827 - [Update] Bonita User and Administrator applications and some pages of the User application missing after one-step update from 7.12 to 9.0
+* RUNTIME-1828 - ArchivedProcessInstance are not deleted when not Root Process Instances
+* RUNTIME-1829 - Application directory page sign out button no longer redirects the top window when using OIDC
+* RUNTIME-1832 - OIDC connection doesn't work with EC-type keys
+* RUNTIME-1833 - SanitizerFilter removes html tags from HTTP payload
+* RUNTIME-1835 - SInvalidExpressionException generated when a parameter is used from within a groovy script
+
+==== Fixes in Bonita Studio (including Bonita UI Designer)
+
+* STUDIO-4505 - NPE when creating a contract from data
+* STUDIO-4507 - Cannot deploy organization when another one already exists and is active
+* STUDIO-4513 - Dissappearing BDM in a migrated project 
+
 === Fixes in Bonita 2023.3-u3 (2024-02-08)
 
 ==== Fixes in Bonita Runtime including Bonita Applications
