@@ -376,6 +376,7 @@ The timezone can be set via *TZ* environment variable. Check the https://data.ia
 * RUNTIME-1827 - [Update] Bonita User and Administrator applications and some pages of the User application missing after one-step update from 7.12 to 9.0
 * RUNTIME-1828 - ArchivedProcessInstance are not deleted when not Root Process Instances
 * RUNTIME-1829 - Application directory page sign out button no longer redirects the top window when using OIDC
+* RUNTIME-1832 - Initialize Keycloak CryptoIntegration to fix java.lang.RuntimeException: java.lang.IllegalStateException: Illegal state. Please init first before obtaining provider
 * RUNTIME-1833 - SanitizerFilter removes html tags from HTTP payload
 * RUNTIME-1835 - SInvalidExpressionException generated when a parameter is used from within a groovy script
 
