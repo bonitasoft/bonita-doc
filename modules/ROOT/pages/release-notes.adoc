@@ -166,6 +166,25 @@ Reminder : For commercial and support questions, please refer to your Customer S
 
 == Bug fixes
 
+=== Fixes in Bonita 2023.1-u4 (2024-04-23)
+
+==== Fixes in Bonita Runtime including Bonita Applications
+
+* RUNTIME-48 - SFlowNodeNotFoundException: Quartz's Trigger associated to a Boundary timer does not get deleted when the process instance terminates
+* RUNTIME-407 	Open Cases Administrator call API/bpm/case performance slowness in 2021.1-0617
+* RUNTIME-1816 	New sanitize filter makes payloads with "null" attribute values fail
+* RUNTIME-1817 	Compilation Errors when non 7 bit US ascii chars are used in the description of a Business0Object in the BDM - generate-bdm-model goals
+* RUNTIME-1818 	[Kerberos SSO] - IOException: conf/login.conf (No such file or directory)
+* RUNTIME-1819 	[SAML SSO]: Decrypt of encrypted assertion fails with error: java.lang.ClassNotFoundException: org.apache.xml.security.encryption.EncryptedData
+* RUNTIME-1820 	[SAML SSO]: Decrypt of encrypted assertion fails with error: java.lang.NoSuchMethodError: 'org.codehaus.stax2.ri.SingletonIterator org.codehaus.stax2.ri.SingletonIterator.create(java.lang.Object)'
+* RUNTIME-1821 	Docker image fails to start with JMX_REMOTE_ACCESS=true
+* RUNTIME-1824 	Filter on "caller" does not work when searching for ArchivedProcessInstance
+* RUNTIME-1825 	Bad rendering in the Admin Group List page to display Parent Group column
+* RUNTIME-1828 	ArchivedProcessInstance are not deleted when not Root Process Instances
+* RUNTIME-1832 	Initialize Keycloak CryptoIntegration to fix `java.lang.RuntimeException: java.lang.IllegalStateException: Illegal state. Please init first before obtaining provider`
+* RUNTIME-1833 	SanitizerFilter removes html tags from HTTP payload
+* RUNTIME-1835 	SInvalidExpressionException generated when a parameter is used from within a groovy script
+
 === Fixes in Bonita 2023.1-u3 (2024-01-30)
 
 ==== Fixes in Bonita Runtime including Bonita Applications
