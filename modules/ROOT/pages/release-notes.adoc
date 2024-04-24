@@ -29,7 +29,7 @@ Our latest feature designed to be proactive and keep users informed/prepared of 
 
 == New product values
 
-=== Bonita Runtime 
+=== Bonita Runtime
 
 ==== User session sharing between nodes (Cluster)
 
@@ -384,7 +384,7 @@ The timezone can be set via *TZ* environment variable. Check the https://data.ia
 
 * STUDIO-4505 - NPE when creating a contract from data
 * STUDIO-4507 - Cannot deploy organization when another one already exists and is active
-* STUDIO-4513 - Dissappearing BDM in a migrated project 
+* STUDIO-4513 - Dissappearing BDM in a migrated project
 
 === Fixes in Bonita 2023.3-u3 (2024-02-08)
 
@@ -394,7 +394,7 @@ The timezone can be set via *TZ* environment variable. Check the https://data.ia
 * RUNTIME-1816 - New sanitize filter makes payloads with "null" attribute values fail
 * RUNTIME-1817 - Compilation Errors when non 7 bit US ascii chars are used in the description of a Business Object in the BDM
 * RUNTIME-1819 - [SAML SSO] Decrypt of encrypted assertion fails with ClassNotFoundException: EncryptedData
-* RUNTIME-1820 - [SAML SSO] Decrypt of encrypted assertion fails with NoSuchMethodError: SingletonIterator.create 
+* RUNTIME-1820 - [SAML SSO] Decrypt of encrypted assertion fails with NoSuchMethodError: SingletonIterator.create
 
 === Fixes in Bonita 2023.2-u2 (2024-02-01)
 
@@ -421,4 +421,4 @@ _We would like to thank both Tomas Castro Rojas and Mohammad A’mir for reporti
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
 * RUNTIME-1790 - When server is unavailable due to maintenance, or any error page is displayed, language cookie is systematically set to french
-* RUNTIME-1797 - STenantNotFoundException: tenant 1 is not found after using MT2MR and update to 9.0 
+* RUNTIME-1797 - STenantNotFoundException: tenant 1 is not found after using MT2MR and update to 9.0
