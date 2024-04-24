@@ -12,3 +12,20 @@ a dedicated repository (e.g. https://github.com/bonitasoft/bonita-engine[Engine 
 You can build Bonita from component to component, but you have to know the component interdependencies: some components rely on components
 that are built earlier in the sequence, so the build order must be respected. For instance, build `bonita-engine` prior to build
 `bonita-web`.
+
+=== Requirements
+
+- Disk space: around 15 GB free space. Around 4 GB of dependencies will be downloaded (sources, 3rd party dependencies, ...). A fast internet connection is recommended.
+- Java JDK 17 and git installed on your machine.
+
+=== Building Process
+
+This guide covers building Bonita from various repositories. For each component, you'll find a dedicated page with specific instructions.
+
+[.card-section]
+=== Repositories
+
+[.card.card-index]
+--
+xref:contributing:building-bonita-engine.adoc[[.card-title]#Bonita Engine# [.card-body.card-content-overflow]#pass:q[The core of the Bonita platform, responsible for executing BPMN processes and handling the business logic.]#]
+--
