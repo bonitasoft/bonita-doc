@@ -1,18 +1,18 @@
-= Build Bonita Engine
-:description: Steps to manually build Bonita Engine from source.
+= Build Bonita UI Designer
+:description: Steps to manually build Bonita UI Designer from source.
 
 == Overview
 
-The core of the Bonita platform, responsible for executing BPMN processes and handling the business logic. +
-The source code is available here : https://github.com/bonitasoft/bonita-engine.
+A web-based design tool for creating forms, pages, and layouts that integrate with Bonita applications, enhancing user experience and process management. +
+The source code is available here : https://github.com/bonitasoft/bonita-ui-designer.
 
 == Steps to Build
 
 === 1. Clone and Navigate to Repository
 [source,bash]
 ----
-git clone https://github.com/bonitasoft/bonita-engine.git
-cd bonita-engine
+git clone https://github.com/bonitasoft/bonita-ui-designer.git
+cd bonita-ui-designer
 ----
 
 === 2. Fetch Tags and Checkout the Desired Tag
@@ -22,10 +22,10 @@ git fetch --tags
 git checkout tags/{desired_tag}  # Replace {desired_tag} with the actual tag name
 ----
 
-=== 3. Build with Gradle
+=== 3. Build with Maven
 [source,bash]
 ----
-./gradlew build publishToMavenLocal
+./mvnw clean install
 ----
 
 == Troubleshooting

@@ -1,18 +1,18 @@
-= Build Bonita Engine
-:description: Steps to manually build Bonita Engine from source.
+= Build Bonita Application Directory
+:description: Steps to manually build Bonita Application Directory from source.
 
 == Overview
 
-The core of the Bonita platform, responsible for executing BPMN processes and handling the business logic. +
-The source code is available here : https://github.com/bonitasoft/bonita-engine.
+Provides a directory interface for managing Bonita applications, allowing users to organize, manage, and access various applications efficiently. +
+The source code is available here : https://github.com/bonitasoft/bonita-application-directory.
 
 == Steps to Build
 
 === 1. Clone and Navigate to Repository
 [source,bash]
 ----
-git clone https://github.com/bonitasoft/bonita-engine.git
-cd bonita-engine
+git clone https://github.com/bonitasoft/bonita-application-directory.git
+cd bonita-application-directory
 ----
 
 === 2. Fetch Tags and Checkout the Desired Tag
@@ -22,10 +22,10 @@ git fetch --tags
 git checkout tags/{desired_tag}  # Replace {desired_tag} with the actual tag name
 ----
 
-=== 3. Build with Gradle
+=== 3. Build with Maven
 [source,bash]
 ----
-./gradlew build publishToMavenLocal
+./mvnw clean install
 ----
 
 == Troubleshooting

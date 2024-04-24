@@ -1,18 +1,18 @@
-= Build Bonita Engine
-:description: Steps to manually build Bonita Engine from source.
+= Build Bonita Web Pages
+:description: Steps to manually build Bonita Web Pages from source.
 
 == Overview
 
-The core of the Bonita platform, responsible for executing BPMN processes and handling the business logic. +
-The source code is available here : https://github.com/bonitasoft/bonita-engine.
+Manages the web pages component of Bonita, focusing on integrating UI Designer outputs with Bonita applications to create a seamless user interface. +
+The source code is available here : https://github.com/bonitasoft/bonita-web-pages.
 
 == Steps to Build
 
 === 1. Clone and Navigate to Repository
 [source,bash]
 ----
-git clone https://github.com/bonitasoft/bonita-engine.git
-cd bonita-engine
+git clone https://github.com/bonitasoft/bonita-web-pages.git
+cd bonita-web-pages
 ----
 
 === 2. Fetch Tags and Checkout the Desired Tag

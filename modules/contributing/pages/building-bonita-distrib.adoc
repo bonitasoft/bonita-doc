@@ -1,18 +1,18 @@
-= Build Bonita Engine
-:description: Steps to manually build Bonita Engine from source.
+= Build Bonita Distrib
+:description: Steps to manually build Bonita Distrib from source.
 
 == Overview
 
-The core of the Bonita platform, responsible for executing BPMN processes and handling the business logic. +
-The source code is available here : https://github.com/bonitasoft/bonita-engine.
+The Bonita Distrib repository is crucial for compiling all the Bonita components into a single distributable form. This repository ensures that all parts are correctly integrated and configured for deployment. +
+The source code is available here : https://github.com/bonitasoft/bonita-distrib.
 
 == Steps to Build
 
 === 1. Clone and Navigate to Repository
 [source,bash]
 ----
-git clone https://github.com/bonitasoft/bonita-engine.git
-cd bonita-engine
+git clone https://github.com/bonitasoft/bonita-distrib.git
+cd bonita-distrib
 ----
 
 === 2. Fetch Tags and Checkout the Desired Tag
@@ -22,10 +22,10 @@ git fetch --tags
 git checkout tags/{desired_tag}  # Replace {desired_tag} with the actual tag name
 ----
 
-=== 3. Build with Gradle
+=== 3. Build with Maven
 [source,bash]
 ----
-./gradlew build publishToMavenLocal
+./mvnw clean install
 ----
 
 == Troubleshooting

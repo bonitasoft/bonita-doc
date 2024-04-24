@@ -1,18 +1,18 @@
-= Build Bonita Engine
-:description: Steps to manually build Bonita Engine from source.
+= Build Bonita Admin Application
+:description: Steps to manually build Bonita Admin Application from source.
 
 == Overview
 
-The core of the Bonita platform, responsible for executing BPMN processes and handling the business logic. +
-The source code is available here : https://github.com/bonitasoft/bonita-engine.
+This application focuses on administration features, providing tools for system and process administrators to manage deployments, oversee process execution, and handle user management. +
+The source code is available here : https://github.com/bonitasoft/bonita-admin-application.
 
 == Steps to Build
 
 === 1. Clone and Navigate to Repository
 [source,bash]
 ----
-git clone https://github.com/bonitasoft/bonita-engine.git
-cd bonita-engine
+git clone https://github.com/bonitasoft/bonita-admin-application.git
+cd bonita-admin-application
 ----
 
 === 2. Fetch Tags and Checkout the Desired Tag
@@ -22,10 +22,10 @@ git fetch --tags
 git checkout tags/{desired_tag}  # Replace {desired_tag} with the actual tag name
 ----
 
-=== 3. Build with Gradle
+=== 3. Build with Maven
 [source,bash]
 ----
-./gradlew build publishToMavenLocal
+./mvnw clean install
 ----
 
 == Troubleshooting

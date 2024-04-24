@@ -1,18 +1,18 @@
-= Build Bonita Engine
-:description: Steps to manually build Bonita Engine from source.
+= Build Bonita Portal JS
+:description: Steps to manually build Bonita Portal JS from source.
 
 == Overview
 
-The core of the Bonita platform, responsible for executing BPMN processes and handling the business logic. +
-The source code is available here : https://github.com/bonitasoft/bonita-engine.
+This repository contains the JavaScript and AngularJS codebases for the user interface of Bonita Portal, which allows users and administrators to manage and monitor business processes. +
+The source code is available here : https://github.com/bonitasoft/bonita-portal-js.
 
 == Steps to Build
 
 === 1. Clone and Navigate to Repository
 [source,bash]
 ----
-git clone https://github.com/bonitasoft/bonita-engine.git
-cd bonita-engine
+git clone https://github.com/bonitasoft/bonita-portal-js.git
+cd bonita-portal-js
 ----
 
 === 2. Fetch Tags and Checkout the Desired Tag
@@ -22,10 +22,10 @@ git fetch --tags
 git checkout tags/{desired_tag}  # Replace {desired_tag} with the actual tag name
 ----
 
-=== 3. Build with Gradle
+=== 3. Build with Maven
 [source,bash]
 ----
-./gradlew build publishToMavenLocal
+./mvnw clean install
 ----
 
 == Troubleshooting
