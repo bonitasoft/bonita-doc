@@ -51,7 +51,7 @@ My page contains "&" and "1 < 3" and ""
 
 == How do I enable/disable it?
 
-The the Sanitizer protection when it is enabled applies to the whole platform REST API, but it can be disabled partially for some specific json attributes.
+When the Sanitizer protection is enabled, it applies to the whole platform REST API, but it can be disabled partially for some specific json attributes.
 Enabling the Sanitizer protection is recommended, however it is safe to disable it for some specific json attributes when:
 
  * the value is expected to contain special characters
@@ -62,7 +62,7 @@ Enabling the Sanitizer protection is recommended, however it is safe to disable 
 The Sanitizer protection can be activated/deactivated in the file `security-config.properties`.
 The default version of this file is located in `setup/platform_conf/initial/platform_portal`. In order to change the configuration on an installation whose platform has already been initialized, use the xref:runtime:bonita-platform-setup.adoc[platform setup tool] to retrieve the current configuration and update the file in `setup/platform_conf/current/platform_portal`. Then use the tool again to save your changes into to the database.
 
-When Sanitizer protection is disabled, this file contains this line:
+When the Sanitizer protection is disabled, this file contains this line:
 `security.sanitizer.enabled false`
 
 To enable it change the value to *true*
