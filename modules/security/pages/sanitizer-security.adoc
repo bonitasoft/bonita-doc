@@ -1,5 +1,5 @@
 = Input Validation (Requests Sanitizer)
-:description: Bonita REST API is secured against XSS attacks with a request sanitizer.
+:description: Bonita REST API can be secured against XSS attacks with a request sanitizer.
 
 {description}
 
@@ -7,13 +7,13 @@ Cross-Site Scripting (also known as XSS), is a common example of web security vu
 An attacker can compromise the interactions that users have with a vulnerable application.
 By injecting some malicious code then executed on a user's browser, the attacker can impersonate this user and take illegitimate control on the application.
 
-To prevent such attacks, Bonita REST API is secured with a requests sanitizer which neutralizes malicious code from the body of incoming requests.
+To prevent such attacks, Bonita REST API can be secured with a requests sanitizer which neutralizes malicious code from the body of incoming requests.
 
 == Default security setup in Bonita
 
 In Bonita, the UI screens are secured in order to prevent XSS attacks.
 
-Since version 2022.1u8 (7.14.8) in 2024, in addition to UI screens protections, a Sanitizer protection is enabled by default to filter harmful payloads out of API requests.
+Since version 2022.1u8 (7.14.8) in 2024, in addition to UI screens protections, a Sanitizer protection is available to filter harmful payloads out of API requests.
 This additional security helps preventing stored XSS attacks on screens which may have not been secured enough, such as custom pages you have developed.
 
 == How it works
@@ -21,7 +21,7 @@ This additional security helps preventing stored XSS attacks on screens which ma
 On potentially harmful REST API requests, a filter executes the https://github.com/OWASP/java-html-sanitizer/blob/master/README.md[OWASP Java HTML Sanitizer] on the request body.
 Malicious code is then removed or escaped from the request body before the request is handled.
 
-When you migrate from a previous version, since the Sanitizer protection filters the request's inputs, it will not protect your unsecured UI screens from XSS attacks which have already been stored in the database.
+When you migrate from a previous version and activate the sanitizer protection, since it filters the request's inputs, it will not protect your unsecured UI screens from XSS attacks which have already been stored in the database.
 
 
 == How to see if content has been filtered?
@@ -49,28 +49,26 @@ will be displayed as
 My page contains "&" and "1 < 3" and ""
 ----
 
-== How do I disable it?
+== How do I enable/disable it?
 
-You can disable the Sanitizer protection. Either globally for the whole platform, or partially for some specific json attributes.
-
-Disabling the Sanitizer protection  for the whole platform is not recommended as it will remove any server-side input validation and can make Applications using Bonita REST API unprotected from malicious attacks (unless content is sanitized front-end side).
-However, it is safe to disable it for some specific json attributes when:
+The the Sanitizer protection when it is enabled applies to the whole platform REST API, but it can be disabled partially for some specific json attributes.
+Enabling the Sanitizer protection is recommended, however it is safe to disable it for some specific json attributes when:
 
  * the value is expected to contain special characters
  * and either:
  ** the value is already checked (e.g. email with a pattern)
  ** or the value is never interpreted (or displayed) in pages (e.g. password).
 
-If you need to, the Sanitizer protection can be deactivated in the file `security-config.properties`.
+The Sanitizer protection can be activated/deactivated in the file `security-config.properties`.
 The default version of this file is located in `setup/platform_conf/initial/platform_portal`. In order to change the configuration on an installation whose platform has already been initialized, use the xref:runtime:bonita-platform-setup.adoc[platform setup tool] to retrieve the current configuration and update the file in `setup/platform_conf/current/platform_portal`. Then use the tool again to save your changes into to the database.
 
-When Sanitizer protection is enabled, this file contains this line:
-`security.sanitizer.enabled true`
+When Sanitizer protection is disabled, this file contains this line:
+`security.sanitizer.enabled false`
+
+To enable it change the value to *true*
 
 By default Sanitizer protection is disabled on a few json attributes with this line:
 `security.sanitizer.exclude email,password,password_confirm`
-
-If you must disable the Sanitizer protection for the whole platform, edit the configuration file and change the `security.sanitizer.enabled` value to *false*.
 
 If you want to disable the Sanitizer protection for a specific json attribute, edit the configuration file and append your attribute name to the `security.sanitizer.exclude` comma-separated values.
 
