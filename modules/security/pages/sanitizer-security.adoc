@@ -65,7 +65,7 @@ The default version of this file is located in `setup/platform_conf/initial/plat
 When the Sanitizer protection is disabled, this file contains this line:
 `security.sanitizer.enabled false`
 
-To enable it change the value to *true*
+To enable it, change the value to *true*
 
 By default Sanitizer protection is disabled on a few json attributes with this line:
 `security.sanitizer.exclude email,password,password_confirm`
