@@ -32,55 +32,55 @@ Building Order is important. You must build the components in the order specifie
 
 [.card.card-index]
 --
-xref:contributing:building-bonita-engine.adoc[[.card-title]#Bonita Engine# [.card-body.card-content-overflow]#pass:q[The core of the Bonita platform, responsible for executing BPMN processes and handling the business logic.]#]
+xref:contributing:building-bonita-engine.adoc[[.card-title]#1. Bonita Engine# [.card-body.card-content-overflow]#pass:q[The core of the Bonita platform, responsible for executing BPMN processes and handling the business logic.]#]
 --
 
 [.card.card-index]
 --
-xref:contributing:building-bonita-portal-js.adoc[[.card-title]#Bonita Portal JS# [.card-body.card-content-overflow]#pass:q[Powers the user interface for managing and monitoring business processes.]#]
+xref:contributing:building-bonita-portal-js.adoc[[.card-title]#2. Bonita Portal JS# [.card-body.card-content-overflow]#pass:q[Powers the user interface for managing and monitoring business processes.]#]
 --
 
 [.card.card-index]
 --
-xref:contributing:building-bonita-ui-designer.adoc[[.card-title]#Bonita UI Designer# [.card-body.card-content-overflow]#pass:q[Tool for designing user interfaces, forms, and pages within Bonita applications.]#]
+xref:contributing:building-bonita-ui-designer.adoc[[.card-title]#3. Bonita UI Designer# [.card-body.card-content-overflow]#pass:q[Tool for designing user interfaces, forms, and pages within Bonita applications.]#]
 --
 
 [.card.card-index]
 --
-xref:contributing:building-bonita-web-pages.adoc[[.card-title]#Bonita Web Pages# [.card-body.card-content-overflow]#pass:q[Manages custom web pages for enriched user interaction with business processes.]#]
+xref:contributing:building-bonita-web-pages.adoc[[.card-title]#4. Bonita Web Pages# [.card-body.card-content-overflow]#pass:q[Manages custom web pages for enriched user interaction with business processes.]#]
 --
 
 [.card.card-index]
 --
-xref:contributing:building-bonita-application-directory.adoc[[.card-title]#Bonita Application Directory# [.card-body.card-content-overflow]#pass:q[Central access point for organizing and displaying Bonita applications.]#]
+xref:contributing:building-bonita-application-directory.adoc[[.card-title]#5. Bonita Application Directory# [.card-body.card-content-overflow]#pass:q[Central access point for organizing and displaying Bonita applications.]#]
 --
 
 [.card.card-index]
 --
-xref:contributing:building-bonita-user-application.adoc[[.card-title]#Bonita User Application# [.card-body.card-content-overflow]#pass:q[An application for end-users to manage and execute processes tasks, cases.]#]
+xref:contributing:building-bonita-user-application.adoc[[.card-title]#6. Bonita User Application# [.card-body.card-content-overflow]#pass:q[An application for end-users to manage and execute processes tasks, cases.]#]
 --
 
 [.card.card-index]
 --
-xref:contributing:building-bonita-admin-application.adoc[[.card-title]#Bonita Admin Application# [.card-body.card-content-overflow]#pass:q[Administrative application for managing deployments and overseeing process execution.]#]
+xref:contributing:building-bonita-admin-application.adoc[[.card-title]#7. Bonita Admin Application# [.card-body.card-content-overflow]#pass:q[Administrative application for managing deployments and overseeing process execution.]#]
 --
 
 [.card.card-index]
 --
-xref:contributing:building-bonita-super-admin-application.adoc[[.card-title]#Bonita Super Admin Application# [.card-body.card-content-overflow]#pass:q[System-level administrative tools for critical updates and configurations.]#]
+xref:contributing:building-bonita-super-admin-application.adoc[[.card-title]#8. Bonita Super Admin Application# [.card-body.card-content-overflow]#pass:q[System-level administrative tools for critical updates and configurations.]#]
 --
 
 [.card.card-index]
 --
-xref:contributing:building-bonita-distrib.adoc[[.card-title]#Bonita Distrib# [.card-body.card-content-overflow]#pass:q[Consolidates Bonita components into a deployable production artifact.]#]
+xref:contributing:building-bonita-distrib.adoc[[.card-title]#9. Bonita Distrib# [.card-body.card-content-overflow]#pass:q[Consolidates Bonita components into a deployable production artifact.]#]
 --
 
 [.card.card-index]
 --
-xref:contributing:building-bonita-data-repository.adoc[[.card-title]#Bonita Data Repository# [.card-body.card-content-overflow]#pass:q[Manages data storage, flow, and retrieval across applications.]#]
+xref:contributing:building-bonita-data-repository.adoc[[.card-title]#10. Bonita Data Repository# [.card-body.card-content-overflow]#pass:q[Manages data storage, flow, and retrieval across applications.]#]
 --
 
 [.card.card-index]
 --
-xref:contributing:building-bonita-studio.adoc[[.card-title]#Bonita Studio# [.card-body.card-content-overflow]#pass:q[Bonita development environment that allows developers to model, develop, test, and deploy BPMN processes]#]
+xref:contributing:building-bonita-studio.adoc[[.card-title]#11. Bonita Studio# [.card-body.card-content-overflow]#pass:q[Bonita development environment that allows developers to model, develop, test, and deploy BPMN processes]#]
 --
