@@ -1,0 +1,40 @@
+= Build Bonita Admin Application
+:description: Steps to manually build Bonita Admin Application from source.
+
+== Overview
+
+This application focuses on administration features, providing tools for system and process administrators to manage deployments, oversee process execution, and handle user management. +
+The source code is available here : https://github.com/bonitasoft/bonita-admin-application.
+
+== Steps to Build
+
+=== 1. Clone and Navigate to Repository
+[source,bash]
+----
+git clone https://github.com/bonitasoft/bonita-admin-application.git
+cd bonita-admin-application
+----
+
+=== 2. Fetch Tags and Checkout the Desired Tag
+[source,bash]
+----
+git fetch --tags
+git checkout tags/{desired_tag}  # Replace {desired_tag} with the actual tag name
+----
+
+=== 3. Build with Maven
+[source,bash]
+----
+./mvnw -pl community clean install
+----
+
+== Troubleshooting
+
+=== Report Issues
+Encounter a problem? Help us improve by reporting it on our https://bonita.atlassian.net/projects/BBPMC/issues[Community Jira tracker].
+
+=== Contribute to Documentation
+Interested in enhancing our documentation? Fork our https://github.com/bonitasoft/bonita-doc[documentation repository] on GitHub, make your changes, and submit a pull request. Your insights make a big difference!
+
+
+
