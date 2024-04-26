@@ -25,7 +25,7 @@ git checkout tags/{desired_tag}  # Replace {desired_tag} with the actual tag nam
 === 3. Build with Maven
 [source,bash]
 ----
-./mvnw clean verify -Pdefault,all-in-one
+./mvnw clean package -Pdefault -Pall-in-one
 ----
 
 == Troubleshooting
