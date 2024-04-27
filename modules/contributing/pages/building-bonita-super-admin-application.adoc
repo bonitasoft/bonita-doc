@@ -1,0 +1,40 @@
+= Build Bonita Super Admin Application
+:description: Steps to manually build Bonita Super Admin Application from source.
+
+== Overview
+
+This application is designed for system administrators (the technical user) to perform critical system-level tasks that impact all users and processes, such as updates and system settings configurations.
+The source code is available here : https://github.com/bonitasoft/bonita-super-admin-application.
+
+== Steps to Build
+
+=== 1. Clone and Navigate to Repository
+[source,bash]
+----
+git clone https://github.com/bonitasoft/bonita-super-admin-application.git
+cd bonita-super-admin-application
+----
+
+=== 2. Fetch Tags and Checkout the Desired Tag
+[source,bash]
+----
+git fetch --tags
+git checkout tags/{desired_tag}  # Replace {desired_tag} with the actual tag name
+----
+
+=== 3. Build with Maven
+[source,bash]
+----
+./mvnw clean install
+----
+
+== Troubleshooting
+
+=== Report Issues
+Encounter a problem? Help us improve by reporting it on our https://bonita.atlassian.net/projects/BBPMC/issues[Community Jira tracker].
+
+=== Contribute to Documentation
+Interested in enhancing our documentation? Fork our https://github.com/bonitasoft/bonita-doc[documentation repository] on GitHub, make your changes, and submit a pull request. Your insights make a big difference!
+
+
+

@@ -1,0 +1,40 @@
+= Build Bonita User Application
+:description: Steps to manually build Bonita User Application from source.
+
+== Overview
+
+Offers a ready-to-use application providing common Bonita Portal features oriented towards end users, facilitating tasks management, case overview, and profile management. +
+The source code is available here : https://github.com/bonitasoft/bonita-user-application.
+
+== Steps to Build
+
+=== 1. Clone and Navigate to Repository
+[source,bash]
+----
+git clone https://github.com/bonitasoft/bonita-user-application.git
+cd bonita-user-application
+----
+
+=== 2. Fetch Tags and Checkout the Desired Tag
+[source,bash]
+----
+git fetch --tags
+git checkout tags/{desired_tag}  # Replace {desired_tag} with the actual tag name
+----
+
+=== 3. Build with Maven
+[source,bash]
+----
+./mvnw clean install
+----
+
+== Troubleshooting
+
+=== Report Issues
+Encounter a problem? Help us improve by reporting it on our https://bonita.atlassian.net/projects/BBPMC/issues[Community Jira tracker].
+
+=== Contribute to Documentation
+Interested in enhancing our documentation? Fork our https://github.com/bonitasoft/bonita-doc[documentation repository] on GitHub, make your changes, and submit a pull request. Your insights make a big difference!
+
+
+

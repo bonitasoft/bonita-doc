@@ -1,0 +1,40 @@
+= Build Bonita Distrib
+:description: Steps to manually build Bonita Distrib from source.
+
+== Overview
+
+The Bonita Distrib repository is crucial for compiling all the Bonita components into a single distributable form. This repository ensures that all parts are correctly integrated and configured for deployment. +
+The source code is available here : https://github.com/bonitasoft/bonita-distrib.
+
+== Steps to Build
+
+=== 1. Clone and Navigate to Repository
+[source,bash]
+----
+git clone https://github.com/bonitasoft/bonita-distrib.git
+cd bonita-distrib
+----
+
+=== 2. Fetch Tags and Checkout the Desired Tag
+[source,bash]
+----
+git fetch --tags
+git checkout tags/{desired_tag}  # Replace {desired_tag} with the actual tag name
+----
+
+=== 3. Build with Maven
+[source,bash]
+----
+./mvnw clean install
+----
+
+== Troubleshooting
+
+=== Report Issues
+Encounter a problem? Help us improve by reporting it on our https://bonita.atlassian.net/projects/BBPMC/issues[Community Jira tracker].
+
+=== Contribute to Documentation
+Interested in enhancing our documentation? Fork our https://github.com/bonitasoft/bonita-doc[documentation repository] on GitHub, make your changes, and submit a pull request. Your insights make a big difference!
+
+
+
