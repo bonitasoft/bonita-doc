@@ -6,7 +6,7 @@
 
 [NOTE]
 ====
-For Subscription editions only.
+For Teamwork, Efficiency, Performance and Enterprise editions only.
 ====
 
 The LDAP synchronization service keeps the Bonita organization information synchronized with an external LDAP directory, by creating, updating, or removing

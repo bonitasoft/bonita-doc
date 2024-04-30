@@ -41,7 +41,7 @@ Default profiles (Administrator and User) belong to the file `default_profiles.x
 This file can only contain default profiles. It cannot be renamed or deleted.
 Neither can be the default profiles within: only the mapping between default profiles and entities of the organization can be edited.
 
-Only Subscription editions can create new file of profiles, in order to create custom profiles.
+Only Teamwork, Efficiency, Performance and Enterprise editions can create new file of profiles, in order to create custom profiles.
 
 The purpose of grouping profiles in one file is to manage together profiles related to a same business application. +
 For example, if you want to create a leave management application for four kinds of users (Employees, Managers, Human Resources officers, and Administrators), then you will have to create four applications and four profiles, and to bind each profile to the related application. As for the four applications, the four profiles should be managed together, and so grouped in the same file of profiles.
@@ -54,7 +54,7 @@ Therefore, you could have a "profiles_dev.xml", a "profiles_UAT.xml", and a "pro
 [NOTE]
 ====
 
-All Bonita subscription editions come with an .xml editor for this feature. Only Subscription editions also come with a graphical UI.
+Teamwork, Efficiency, Performance and Enterprise editions come with an .xml editor for this feature. Only Subscription editions also come with a graphical UI.
 ====
 
 From Bonita Studio, use the *new* button in the Studio coolbar or click on *Organization* \-> *Profile* \-> *New...*
