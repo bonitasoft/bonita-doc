@@ -6,8 +6,8 @@
 
 [NOTE]
 ====
-
-For Enterprise, Performance and Efficiency editions only.
+In Enterprise, Performance and Efficiency editions for all features +
+And in Teamwork edition only for Scripts
 ====
 
 == Definition
