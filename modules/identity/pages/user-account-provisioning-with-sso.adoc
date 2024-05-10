@@ -5,7 +5,7 @@
 
 [NOTE]
 ====
-For Subscription editions only.
+For Teamwork, Efficiency, Performance and Enterprise editions only.
 ====
 
 [WARNING]

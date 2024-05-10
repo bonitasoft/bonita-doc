@@ -134,8 +134,4 @@ a|
 | `user=<userId>`
 | Optional. Identifies the user you perform the task for (for administrators and process managers).
 | `user=201`
-
-| `tenant=<tenantId>`
-| Optional. Identifies the tenant on which the process is deployed for multiple tenants environments (Multi-tenancy is available with the Enterprise and Performance editions only).
-| `tenant=2`
 |===
