@@ -18,3 +18,18 @@ The {bonitaVersion} version is in development.
 == Feature deprecations and removals
 
 == Configuration changes
+
+
+== Bug fixes
+
+=== Fixes in Bonita 2024.2 (! DATE TO ADD HERE !)
+
+==== Fixes in Bonita Runtime (including Bonita Applications)
+
+* RUNTIME-1844 - Update Tomcat to latest 9.0.x
+* RUNTIME-1848 - ArchivedTasks filter on type is generating java.lang.ClassCastException
+* RUNTIME-1860 - Access Control panel is displayed on page in all subscription editions even when the feature is not active
+
+==== Fixes in Bonita Studio (including Bonita UI Designer)
+
+* STUDIO-4518 - Bdm Access Control / Profile menu item is not completely disabled if license key is not present
