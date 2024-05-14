@@ -170,7 +170,7 @@ Reminder : For commercial and support questions, please refer to your Customer S
 
 ==== Fixes in Bonita Runtime including Bonita Applications
 
-* RUNTIME-1848  [API] - ArchivedTasks filter on type is generating java.lang.ClassCastException
+* RUNTIME-1848  ArchivedTasks filter on type is generating java.lang.ClassCastException
 * RUNTIME-407 	Open Cases Administrator call API/bpm/case performance slowness in 2021.1-0617
 * RUNTIME-1816 	New sanitize filter makes payloads with "null" attribute values fail
 * RUNTIME-1817 	Compilation Errors when non 7 bit US ascii chars are used in the description of a Business0Object in the BDM - generate-bdm-model goals
