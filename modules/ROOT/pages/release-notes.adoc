@@ -131,7 +131,6 @@ The detailed list is available in the "What’s new in Bonita 2022.1" page, in t
 
 ==== Fixes in Bonita Runtime including Bonita Applications
 
-* RUNTIME-48 - SFlowNodeNotFoundException: Quartz's Trigger associated to a Boundary timer does not get deleted when the process instance terminates
 * RUNTIME-1824 - Filter on "caller" does not work when searching for ArchivedProcessInstance
 * RUNTIME-1828 - ArchivedProcessInstance are not deleted when not root process instances
 * RUNTIME-1832 - Initialize Keycloak CryptoIntegration to fix `java.lang.RuntimeException: java.lang.IllegalStateException: Illegal state. Please init first before obtaining provider`
