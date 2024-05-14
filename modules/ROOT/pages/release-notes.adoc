@@ -367,7 +367,7 @@ The timezone can be set via *TZ* environment variable. Check the https://data.ia
 
 ==== Fixes in Bonita Runtime including Bonita Applications
 
-* RUNTIME-48 - SFlowNodeNotFoundException: Quartz's Trigger associated to a Boundary timer does not get deleted when the process instance terminates
+* RUNTIME-1848 - ArchivedTasks filter on type is generating java.lang.ClassCastException
 * RUNTIME-407 - Open Cases Administrator call API/bpm/case performance slowness in 2021.1-0617
 * RUNTIME-1818 - [Kerberos SSO] - IOException: conf/login.conf (No such file or directory)
 * RUNTIME-1821 - Docker image fails to start with JMX_REMOTE_ACCESS=true
