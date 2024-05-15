@@ -417,6 +417,7 @@ _We would like to thank both Tomas Castro Rojas and Mohammad A’mir for reporti
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
 
 * STUDIO-4494 - Classcast Exception in Export BOS Dialog
+* CVE-50      - Removing from the packaged maven repository an old vulnerable log4j library which wasn't executed
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
