@@ -184,6 +184,8 @@ Reminder : For commercial and support questions, please refer to your Customer S
 * RUNTIME-1832 	Initialize Keycloak CryptoIntegration to fix `java.lang.RuntimeException: java.lang.IllegalStateException: Illegal state. Please init first before obtaining provider`
 * RUNTIME-1833 	SanitizerFilter removes html tags from HTTP payload
 * RUNTIME-1835 	SInvalidExpressionException generated when a parameter is used from within a groovy script
+* CVE-56        X-Frame-Options and Content-Security-Policy header is missing on some URLs.
+* CVE-62        Regular Expression Denial of Service (ReDoS) in AngularJS (CVE-2024-21490)
 
 === Fixes in Bonita 2023.1-u3 (2024-01-30)
 
@@ -239,3 +241,4 @@ _We would like to thank both Tomas Castro Rojas and Mohammad A’mir for reporti
 * RUNTIME-1775 - Bad access to java modules in Hazelcast
 * RUNTIME-1784 - REST API authorisation: renaming of 'process_categories' permission breaks permissions after update to 7.15 or 8.0
 * RUNTIME-1785 - OIDC SSO: "Basic" authentication header is encoded in 8-bit and is not compatible with some IdPs
+* CVE-4        - Path-relative style sheet import
