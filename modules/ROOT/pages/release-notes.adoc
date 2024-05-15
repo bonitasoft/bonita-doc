@@ -154,3 +154,4 @@ _We would like to thank both Tomas Castro Rojas and Mohammad A’mir for reporti
 * STUDIO-4507 - Cannot deploy organization when another one already exists and is active
 * UID-727     - Invalid js minification
 * CVE-50      - Removing from the packaged maven repository an old vulnerable log4j library which wasn't executed
+* CVE-59      - IDOR due to to the lack of dynamic permissions in Community edition
