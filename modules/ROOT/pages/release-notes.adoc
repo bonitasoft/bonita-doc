@@ -147,7 +147,7 @@ The property allowing to enable/disable xref:identity:rest-api-authorization.ado
 * CVE-58       - Some UI screens in administration panel have been secured against stored XSS attacks. We also introduced a backend xref:security:sanitizer-security.adoc[input validation to prevent storing XSS attacks] in the database. This countermeasure is enabled by default in 2024.1. +
 _We would like to thank both Tomas Castro Rojas and Mohammad A’mir for reporting this high severity issue to us._
 * CVE-59       - IDOR due to to the lack of dynamic permissions in Community edition +
-_We would like to thank Mohammad A’mir for reporting this high severity issue to us._
+_We would like to thank Mohammad A’mir for reporting this medium severity issue to us._
 * CVE-62       - Regular Expression Denial of Service (ReDoS) in AngularJS (CVE-2024-21490)
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
