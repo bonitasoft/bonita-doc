@@ -143,8 +143,12 @@ The property allowing to enable/disable xref:identity:rest-api-authorization.ado
 * RUNTIME-1825 - Bad rendering in the Admin Group List page to display Parent Group column
 * RUNTIME-1829 - Application directory page sign out button no longer redirects the top window when using OIDC
 * RUNTIME-1832 - Missing call to the CryptoIntegration class
-* CVE-58 - Some UI screens in administration panel have been secured against stored XSS attacks. We also introduced a backend xref:security:sanitizer-security.adoc[input validation to prevent storing XSS attacks] in the database. This countermeasure is enabled by default in 2024.1. +
+* CVE-56       - X-Frame-Options and Content-Security-Policy header is missing on some URLs.
+* CVE-58       - Some UI screens in administration panel have been secured against stored XSS attacks. We also introduced a backend xref:security:sanitizer-security.adoc[input validation to prevent storing XSS attacks] in the database. This countermeasure is enabled by default in 2024.1. +
 _We would like to thank both Tomas Castro Rojas and Mohammad A’mir for reporting this high severity issue to us._
+* CVE-59       - (CVE-2024-28087) IDOR due to the absence of xref:identity:rest-api-authorization#dynamic_authorization[dynamic authorization checking] in Community edition +
+_We would like to thank Mohammad A’mir for reporting this medium severity issue to us._
+* CVE-62       - Regular Expression Denial of Service (ReDoS) in AngularJS (CVE-2024-21490)
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
 
@@ -154,4 +158,4 @@ _We would like to thank both Tomas Castro Rojas and Mohammad A’mir for reporti
 * STUDIO-4507 - Cannot deploy organization when another one already exists and is active
 * UID-727     - Invalid js minification
 * CVE-50      - Removing from the packaged maven repository an old vulnerable log4j library which wasn't executed
-* CVE-59      - IDOR due to to the lack of dynamic permissions in Community edition
+* CVE-53      - Studio was vulnerable to XXE attack (CVE-2023-4218)
