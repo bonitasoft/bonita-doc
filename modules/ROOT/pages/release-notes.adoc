@@ -218,6 +218,7 @@ _We would like to thank both Tomas Castro Rojas and Mohammad A’mir for reporti
 * STUDIO-4486 - Pages exported from UID missing js resources
 * STUDIO-4490 - Exception at runtime: the Call activity is wrong in the process-design.xml generated
 * UID-723     - Update to 8.0.0: Web browser's disk and memory caches break the product and custom pages
+* CVE-50      - Removing from the packaged maven repository an old vulnerable log4j library which wasn't executed
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
