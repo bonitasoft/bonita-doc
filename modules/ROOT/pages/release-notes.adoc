@@ -29,6 +29,7 @@ The {bonitaVersion} version is in development.
 * RUNTIME-1844 - Update Tomcat to latest 9.0.x
 * RUNTIME-1848 - ArchivedTasks filter on type is generating java.lang.ClassCastException
 * RUNTIME-1860 - Access Control panel is displayed on page in all subscription editions even when the feature is not active
+* RUNTIME-1864 - SCA cannot be started without BDM_ACCESS_CONTROL license key activated
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
 
