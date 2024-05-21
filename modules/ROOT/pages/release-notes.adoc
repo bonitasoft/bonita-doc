@@ -15,7 +15,7 @@ We are pleased to bring several exciting advancements in this release, including
 
 == New available values
 
-* [.underline]#BPI Release scope#
+* [.underline]#Bonita Process Insights Release scope#
 
 ** Export tool: Enhancing our integration capabilities the Bonita data export tool, to enable import into BPI, is now compatible with our clients whose database is Oracle. This update enables easier data import into BPI, facilitating smoother transitions and better data management for our clients using Oracle.
 
@@ -23,7 +23,7 @@ We are pleased to bring several exciting advancements in this release, including
 
 * [.underline]#2024.2 Bonita Platform# → Introducing “Access” our new offer that make it easier than ever to start leveraging the powerful capabilities of Bonita
 
-** **Access – A New Beginning**: We are excited to introduce “Access”, our new entry-level offer tailored for new customers. This package is designed to help new users get started with our technology through a concentrated set of key features.
+** **A New Beginning**: We are excited to introduce “Access”, our new entry-level offer tailored for new customers. This package is designed to help new users get started with our technology through a concentrated set of key features.
 
 ** **Eligibility** designed specifically for those new to Bonitasoft, this offer aims to make it easier than ever to start leveraging the powerful capabilities of Bonita
 
