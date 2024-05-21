@@ -1,0 +1,7 @@
+= Applications with Bonita UI Pro
+:description:
+
+[NOTE]
+====
+For Subscription editions only.
+====

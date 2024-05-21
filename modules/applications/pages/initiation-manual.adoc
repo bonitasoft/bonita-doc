@@ -1,0 +1,7 @@
+Initiation Manual
+:description:
+
+[NOTE]
+====
+For Subscription editions only.
+====

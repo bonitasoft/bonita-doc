@@ -1,0 +1,7 @@
+= Interact with your Bonita process
+:description:
+
+[NOTE]
+====
+For Subscription editions only.
+====
