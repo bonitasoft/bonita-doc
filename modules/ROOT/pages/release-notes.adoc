@@ -6,19 +6,34 @@
 The {bonitaVersion} version is in development.
 ====
 
+[NOTE]
+====
+**Welcome to Our Latest Update!**
+
+We are pleased to bring several exciting advancements in this release, including enhancements to our platform and a brand new entry-level offer designed to help new users seamlessly integrate with our technology.
+====
+
 == New available values
 
-=== Bonita Runtime
+* [.underline]#Bonita Process Insights Release scope#
 
-=== Bonita UI Designer
+** Export tool: Enhancing our integration capabilities the Bonita data export tool, to enable import into BPI, is now compatible with our clients whose database is Oracle. This update enables easier data import into BPI, facilitating smoother transitions and better data management for our clients using Oracle.
 
+* [.underline]#New User Interface Designer (UID)# Get ready for an exciting preview! We are preparing a demo of our new user interface. A beta version will be available in July, with a general availability (GA) launch planned for August. This update aims to enhance user experience and improve interface interactions.
 
-== Functional changes
+* [.underline]#2024.2 Bonita Platform# → Introducing “Access” our new offer that make it easier than ever to start leveraging the powerful capabilities of Bonita
 
-== Feature deprecations and removals
+** **A New Beginning**: We are excited to introduce “Access”, our new entry-level offer tailored for new customers. This package is designed to help new users get started with our technology through a concentrated set of key features.
 
-== Configuration changes
+** **Eligibility** designed specifically for those new to Bonitasoft, this offer aims to make it easier than ever to start leveraging the powerful capabilities of Bonita
 
+** **Easy start**: Access provides an easy and low-cost way to get started
+
+** **Dedicated Support**: Choosing Access means partnering with us. We provide the support and resources you need, tailored to your specific requirements, ensuring you have the best start possible.
+
+** **Regular Updates**: Stay up-to-date with the latest enhancements. Access ensures you always have the most current versions and features, keeping your operations efficient and cutting-edge.
+
+** **Customization Options**: tailor Access to your needs with options for custom extensions, authentication mechanisms, and more, allowing you to shape our technology to fit your operational needs perfectly
 
 == Bug fixes
 
