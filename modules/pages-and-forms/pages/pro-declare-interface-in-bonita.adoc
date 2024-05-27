@@ -13,7 +13,7 @@ In this tab, you will be able to declare your application built and packaged wit
 
 image::images/advanced-application-descriptor.png[Application Descriptor Editor]
 
-In this example, the "Advanced Overview" application is declared with node:
+In this example, the "Advanced Overview" application is declared with the tag:
 
 [source,xml]
 ----
