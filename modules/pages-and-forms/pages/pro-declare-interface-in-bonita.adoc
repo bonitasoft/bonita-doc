@@ -8,7 +8,7 @@
 
 The xref:applications:application-creation.adoc[Bonita application descriptor] is a file that let you describe all your applications.
 
-To declare a Bonita UI Designer Pro interface in it, you need to edit it in Studio using the "source" tab.
+To declare a Bonita UI Designer Pro interface in it, edit it in Studio using the "source" tab.
 In this tab, you will be able to declare your application built and packaged with Bonita UI Designer Pro, using auto-completion with a "advancedApplication" XML tag.
 
 image::images/advanced-application-descriptor.png[Application Descriptor Editor]
