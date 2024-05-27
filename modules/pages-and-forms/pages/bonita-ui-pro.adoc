@@ -1,7 +1,8 @@
 
 = Bonita UI Desiger Pro
 :page-aliases: ROOT:bonita-ui-pro.adoc
-:description: Bonita UI Desiger Pro allows to implement "forms" and "pages" in an app, not as standalone elements in a process (paradigm change)
+:description: Bonita UI Designer Pro allows to implement "forms" and "pages" in an application.
+They are not anymore standalone elements in a process (paradigm change with legacy Bonita UI Designer).
 
 {description}
 
