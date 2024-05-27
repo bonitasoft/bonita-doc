@@ -1,0 +1,18 @@
+
+= Bonita UI Desiger Pro
+:page-aliases: ROOT:bonita-ui-pro.adoc
+:description: Bonita UI Desiger Pro allows to implement "forms" and "pages" in an app, not as standalone elements in a process (paradigm change)
+
+{description}
+
+[.card-section]
+== Initiation Manual
+
+[.card.card-index]
+--
+xref:ROOT:pro-declare-interface-in-bonita.adoc[[.card-title]#Declare the interface in Bonita# [.card-body.card-content-overflow]#pass:q[Steps to declare your interface and display it in Bonita]#]
+--
+
+
+[.card-section]
+== How-tos
