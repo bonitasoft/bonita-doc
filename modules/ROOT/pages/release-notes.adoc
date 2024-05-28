@@ -12,8 +12,13 @@ Available in all Scale subscription and as a payable add-on in Convert subscript
 
 == New available values
 
-=== Connect advanced applications
-See xref:pages-and-forms:bonita-ui-pro.adoc[How to handle Pages and forms with Bonita UI Designer Pro] for more details. Community users can also integrate their own advanced applications developed with other tools.
+=== Advanced applications
+
+You can now use advanced applications. See xref:pages-and-forms:bonita-ui-pro.adoc[How to handle Pages and forms with Bonita UI Designer Pro] for more details. Community users can also integrate their own advanced applications developed with other tools.
+
+xref:api:engine-api-overview.adoc[Engine APIs] that allowed applications manipulation still work with legacy applications and have been deprecated in favor of new APIs that manipulate both advanced and legacy applications.
+
+xref:api:rest-api-overview.adoc[REST APIs] are unchanged, but now also return advanced applications in addition of legacy applications.
 
 == Bug fixes
 
