@@ -6,7 +6,14 @@
 The {bonitaVersion} version is in development.
 ====
 
+== Bonita UI Designer Pro
+
+Available in all Scale subscription and as a payable add-on in Convert subscriptions only. Connect with our dedicated sales team to start your upgrade journey today!
+
 == New available values
+
+=== Connect advanced applications
+See xref:pages-and-forms:bonita-ui-pro.adoc[How to handle Pages and forms with Bonita UI Designer Pro] for more details. Community users can also integrate their own advanced applications developed with other tools.
 
 == Bug fixes
 
