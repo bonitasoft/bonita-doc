@@ -22,7 +22,7 @@ asciidoc:
     #Latest compatible version of bonita openApi with this Bonita version
     openApiLatestVersion: '0.0.16'
     page-next-release: false
-    page-hide-search-bar: true
+    page-hide-search-bar: false
     page-hide-components: 'bcd'
 nav:
   - modules/ROOT/release-note-nav.adoc
