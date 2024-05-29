@@ -3,11 +3,6 @@
 
 [NOTE]
 ====
-The {bonitaVersion} version is in development.
-====
-
-[NOTE]
-====
 **Welcome to Our Latest Update!**
 
 We are pleased to bring several exciting advancements in this release, including enhancements to our platform and a brand new entry-level offer designed to help new users seamlessly integrate with our technology.
