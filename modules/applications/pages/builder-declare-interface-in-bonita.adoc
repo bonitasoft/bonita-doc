@@ -29,8 +29,3 @@ There are fewer properties to set for an advanced application than for a legacy 
 Full form edition support will come in a future release.
 ====
 
-[NOTE]
-====
-For Subscription editions only.
-====
-
