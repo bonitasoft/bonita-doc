@@ -1,4 +1,4 @@
-= Import the interface into Bonita
+= Declare the interface into Bonita
 :description:
 
 [NOTE]

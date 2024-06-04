@@ -1,4 +1,4 @@
-= Applications with Bonita UI Pro
+= Applications with Bonita UI Builder
 :description:
 
 [NOTE]
