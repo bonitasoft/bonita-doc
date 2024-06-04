@@ -28,6 +28,14 @@ git checkout tags/{desired_tag}  # Replace {desired_tag} with the actual tag nam
 ./mvnw clean install
 ----
 
+=== 4. Build Docker image
+[source,bash]
+----
+cd docker
+./build.sh -c --
+----
+
+
 == Troubleshooting
 
 === Report Issues
