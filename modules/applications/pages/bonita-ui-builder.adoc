@@ -1,0 +1,7 @@
+= Applications with Bonita UI Builder
+:description:
+
+[NOTE]
+====
+For Subscription editions only.
+====

@@ -1,0 +1,7 @@
+= Create an interface
+:description:
+
+[NOTE]
+====
+For Subscription editions only.
+====

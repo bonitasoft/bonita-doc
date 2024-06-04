@@ -1,0 +1,7 @@
+= How-tos
+:description:
+
+[NOTE]
+====
+For Subscription editions only.
+====

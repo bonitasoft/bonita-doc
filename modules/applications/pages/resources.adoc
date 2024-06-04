@@ -1,0 +1,7 @@
+= Resources
+:description:
+
+[NOTE]
+====
+For Subscription editions only.
+====

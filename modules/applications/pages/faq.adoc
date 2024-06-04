@@ -1,0 +1,7 @@
+= FAQ
+:description:
+
+[NOTE]
+====
+For Subscription editions only.
+====
