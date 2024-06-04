@@ -1,7 +1,0 @@
-= Declare the interface into Bonita
-:description:
-
-[NOTE]
-====
-For Subscription editions only.
-====

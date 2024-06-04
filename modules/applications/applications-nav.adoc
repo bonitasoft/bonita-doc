@@ -4,7 +4,7 @@
    **** xref:download-and-launch.adoc[Download and launch]
    **** xref:create-an-interface.adoc[Create an interface]
    **** xref:interact-with-your-bonita-process.adoc[Interact with your Bonita process]
-   **** xref:declare-the-interface-into-bonita.adoc[Declare the interface into Bonita]
+   **** xref:builder-declare-interface-in-bonita.adoc[Declare the interface into Bonita]
    **** xref:package-and-deploy-your-application.adoc[Package and deploy your application]
    **** xref:next-steps.adoc[Next steps]
   *** xref:how-tos-builder.adoc[How-tos]
