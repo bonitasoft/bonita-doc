@@ -1,27 +1,30 @@
 = Declare the interface in Bonita
- :page-aliases: ROOT:builder-declare-interface-in-bonita.adoc
- :description: This page defines the steps to declare your interface and display it in Bonita.
+:page-aliases: ROOT:builder-declare-interface-in-bonita.adoc
+:description: This page defines the steps to declare your interface and display it in Bonita.
 
- {description}
+{description}
 
- == Declare the interface in Bonita application descriptor
+== Declare the interface in Bonita application descriptor
 
- The xref:applications:application-creation.adoc[Bonita application descriptor] is a file that let you describe all your applications.
+The xref:applications:application-creation.adoc[Bonita application descriptor] is a file that let you describe all your applications.
 
- To declare a Bonita UI Builder interface in it, edit it in Studio using the "source" tab.
- In this tab, you will be able to declare your application built and packaged with Bonita UI Builder, using auto-completion with a "advancedApplication" XML tag.
+To declare a Bonita UI Builder interface in it, edit it in Studio using the "source" tab.
+In this tab, you will be able to declare your application built and packaged with Bonita UI Builder, using auto-completion with a "advancedApplication" XML tag.
 
- image::images/advanced-app/advanced-application-descriptor.png[Application Descriptor Editor]
+image::images/advanced-app/advanced-application-descriptor.png[Application Descriptor Editor]
 
- In this example, the "Advanced Overview" application is declared with the tag:
+In this example, the "Advanced Overview" application is declared with the tag:
 
- [source,xml]
- ----
+[source,xml]
+----
      <advancedApplication token="advanced" version="1.0" profile="User" state="ACTIVATED">
          <displayName>Advanced Overview</displayName>
      </advancedApplication>
- ----
+----
 
- There are fewer properties to set for an advanced application than for a legacy application, but the "displayName" is still mandatory.
+There are fewer properties to set for an advanced application than for a legacy application, but the "displayName" is still mandatory.
 
- Full form edition support will come in a future release.
+[NOTE]
+====
+Full form edition support will come in a future release.
+====
