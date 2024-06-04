@@ -1,6 +1,21 @@
 = Applications with Bonita UI Builder
-:description:
+:page-aliases: ROOT:bonita-ui-builder.adoc
+:description: Bonita UI Builder allows to build the UI of an application.
+ They are not anymore standalone elements (such as pages and forms) in a process (paradigm change with legacy Bonita UI Designer).
 
+ {description}
+
+ [.card-section]
+ == Initiation Manual
+
+ [.card.card-index]
+ --
+ xref:ROOT:builder-declare-interface-in-bonita.adoc[[.card-title]#Declare the interface in Bonita# [.card-body.card-content-overflow]#pass:q[Steps to declare your interface and display it in Bonita]#]
+ --
+
+
+ [.card-section]
+ == How-tos
 [NOTE]
 ====
 For Subscription editions only.
