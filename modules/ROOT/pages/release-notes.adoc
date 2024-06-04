@@ -6,7 +6,19 @@
 The {bonitaVersion} version is in development.
 ====
 
+== Bonita UI Builder
+
+Available in all Scale subscription and as a payable add-on in Convert subscriptions only. Connect with our dedicated sales team to start your upgrade journey today!
+
 == New available values
+
+=== Advanced applications
+
+You can now use advanced applications. See xref:applications:bonita-ui-builder.adoc[Applications with Bonita UI Builder] for more details. Community users can also integrate their own advanced applications developed with other tools.
+
+xref:api:engine-api-overview.adoc[Engine APIs] that allowed applications manipulation still work with legacy applications and have been deprecated in favor of new APIs that manipulate both advanced and legacy applications.
+
+xref:api:rest-api-overview.adoc[REST APIs] (see _Application_ section) now also return advanced applications in addition of legacy applications.
 
 == Bug fixes
 
