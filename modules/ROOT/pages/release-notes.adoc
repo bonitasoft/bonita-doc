@@ -119,7 +119,7 @@ The property allowing to enable/disable xref:identity:rest-api-authorization.ado
 
 == Bug fixes
 
-=== Fixes in Bonita 2024.1-u1 (2024-05-30)
+=== Fixes in Bonita 2024.1-u2 (2024-06-07)
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
@@ -131,7 +131,7 @@ The property allowing to enable/disable xref:identity:rest-api-authorization.ado
 * RUNTIME-1864 - SCA cannot be started without BDM_ACCESS_CONTROL license key activated
 * CVE-63 - HTTP/2 CONTINUATION Flood vulnerability
 
-=== Fixes in Bonita 2024.1 (2024-04-11)
+=== Fixes in Bonita 2024.1-u0 (2024-04-11)
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
