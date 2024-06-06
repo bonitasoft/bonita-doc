@@ -6,7 +6,7 @@
 
 [NOTE]
 ====
-For Enterprise and Performance editions only.
+For Access, Enterprise and Performance editions only.
 ====
 
 A task can fail in Bonita Engine for several reasons. Typical reasons include:

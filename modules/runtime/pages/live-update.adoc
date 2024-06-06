@@ -6,7 +6,8 @@
 
 [NOTE]
 ====
-In Enterprise, Performance and Efficiency editions for all features +
+
+In Access, Enterprise, Performance and Efficiency editions for all features +
 Also in Teamwork edition only for Scripts
 ====
 

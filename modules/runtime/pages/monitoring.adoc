@@ -9,7 +9,7 @@ In this page, _Administrators_ and _Process Managers_ can have a complete view o
 [NOTE]
 ====
 
-*For Enterprise, Performance and Efficiency editions only.*
+*For Access, Enterprise, Performance and Efficiency editions only.*
 
 Starting with Bonita 2022.2, bpmn-visualization library of https://process-analytics.dev/[Bonita's Process Analytics project] has been integrated in process and case visualization diagram.
 ====

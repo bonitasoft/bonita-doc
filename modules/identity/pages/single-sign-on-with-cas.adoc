@@ -6,7 +6,7 @@
 
 [NOTE]
 ====
-For Subscription editions only.
+For Teamwork, Efficiency, Performance and Enterprise editions only.
 ====
 
 [NOTE]
@@ -35,7 +35,7 @@ As a consequence, configure the reverse proxy to include the `Host:` header when
 [NOTE]
 ====
 
-The method https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html#getRequestURL--[`getRequestURL ot HttpServletRequest`] is used internaly to retrieve the `server` and `port` of the HTTP request.
+The method https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html#getRequestURL--[`getRequestURL ot HttpServletRequest`] is used internally to retrieve the `server` and `port` of the HTTP request.
 ====
 
 
@@ -113,13 +113,14 @@ Specify the relevant IP address and port number.
 
 . For each tenant, edit `authenticationManager-config.properties` to enable the CASRemoteAuthenticationManager and its properties.
 Edit the `authenticationManager-config.properties` located in `platform_conf/initial/tenant_template_portal` for not initialized platform or `platform_conf/current/tenant_template_portal` and `platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
+
 [NOTE]
 ====
-
 If the platform has already been initialized, every update to the configuration files under `setup/platform_conf/current` must be done using the `setup` tool:
- ** `setup pull`
- ** edit configuration file(s)
- ** `setup push`
+
+ * `setup pull`
+ * edit configuration file(s)
+ * `setup push`
 ====
 
 Make sure that `auth.AuthenticationManager` property is set to `org.bonitasoft.console.common.server.auth.impl.jaas.cas.CASRemoteAuthenticationManagerImpl`
@@ -164,9 +165,9 @@ To troubleshoot SSO login issues, you need to increase the xref:ROOT:logging.ado
 
 If you are using CAS, when users log out of Bonita Runtime, they log out of CAS. Therefore they are logged out of all applications that are using the CAS service. To avoid this, you can hide the logout option of the Bonita Layout.
 To do this, set the `logout.link.hidden=true` option in `authenticationManager-config.properties` located in `platform_conf/initial/tenant_template_portal` for not initialized platform or `platform_conf/current/tenant_template_portal` and `platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
+
 [NOTE]
 ====
-
 If the platform has already been initialized, every update to the configuration files under `setup/platform_conf/current` must be done using the `setup` tool:
 
 * `setup pull`

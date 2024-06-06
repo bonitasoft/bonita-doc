@@ -7,7 +7,7 @@
 In this page, we assume that you are familiar with Java threads, concurrent execution, XML, DB connection pools, your DB instance, cache policies, scheduling, connectors, network speed, I/O, Java Virtual Machine configuration, JTA and transaction management. +
 You need to know how to xref:ROOT:runtime-installation-index.adoc[install] and xref:runtime-configuration-index.adoc[configure] Bonita Runtime.
 
-This information applies primarily to the Enterprise and Performance editions, though some details also apply to the Teamwork and Efficiency editions.
+This information applies primarily to the Enterprise and Performance editions, though some details also apply to the Access, Teamwork and Efficiency editions.
 
 It is also possible to xref:ROOT:use-gzip-compression.adoc[use gzip compression] on your application server to improve performance.
 

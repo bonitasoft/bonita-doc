@@ -41,7 +41,7 @@ A pending or failed task can be assigned and reassigned to another user if neces
 
 == Do a task for another user
 
-With the Subscription editions, an Administrator can do a task for another user. +
+With the Access, Enterprise, Performance, and Efficiency editions, an Administrator can do a task for another user. +
 This is useful for unblocking a case if the assigned user cannot perform the task.
 
 . Go to _BPM_>__Tasks__
@@ -69,7 +69,7 @@ The task is moved from "Failed" to "Done", while the connector stays in the "Fai
 [#_replay_a_failed_flow_node]
 == Replay a failed flow node
 
-This feature is available with the Enterprise or the Performance editions.
+This feature is available with the Access, Enterprise or the Performance editions.
 
 . Go to _BPM_>__Tasks__
 . In the row of the failed flow node, click on the _View task details_ icon

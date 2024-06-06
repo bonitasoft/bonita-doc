@@ -41,7 +41,7 @@ implementation. The implementation to use for the current tenant is configured i
 The default https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-web-server/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java[AuthenticationManager]
 is https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-web-server/src/main/java/org/bonitasoft/console/common/server/auth/impl/standard/StandardAuthenticationManagerImpl.java[StandardAuthenticationManagerImpl].
 Its behavior is to redirect to the `login.jsp` page embedded in the webapp.
-Supporting different implementations enables authentication on an external application (useful for SSO deployement for example).
+Supporting different implementations enables authentication on an external application (useful for SSO deployment for example).
 . `login.jsp` page will ask the user for the username
 and password (HTML form). When submitting the form, a `POST`
 request is sent to `/loginservice`. The request includes the

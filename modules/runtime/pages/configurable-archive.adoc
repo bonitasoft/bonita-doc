@@ -7,7 +7,7 @@
 [NOTE]
 ====
 
-For Enterprise and Performance editions only.
+For Access, Enterprise and Performance editions only.
 ====
 
 The Configurable Archive feature is provided by the ``com.bonitasoft.engine.archive.impl.ListArchivingStrategy ``service implementation, which only works with a *Enterprise or Performance license*.
