@@ -17,7 +17,18 @@ xref:ROOT:builder-declare-interface-in-bonita.adoc[[.card-title]#Declare the int
 [.card-section]
 == How-tos
 
+== Legal notice
+
+Bonita UI Builder is commercially licensed and has Copyright (c) 2024 Bonitasoft S.A.
 [NOTE]
 ====
 For Subscription editions only.
 ====
+
+*Bonita UI Builder* has been developed based on Appsmith and modifies some portions of it:
+
+* Add the Bonita Datasource,
+* Authentication delegation to Bonita.
+
+*Appsmith* is an open-source project. It can be obtained in its original version at https://github.com/appsmithorg/appsmith[its Github home page] or through the https://www.appsmith.com/[official website]. +
+It is licensed under the https://www.apache.org/licenses/LICENSE-2.0[Apache License 2.0].
