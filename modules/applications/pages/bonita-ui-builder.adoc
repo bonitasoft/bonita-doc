@@ -1,23 +1,43 @@
 = Applications with Bonita UI Builder
 :page-aliases: ROOT:bonita-ui-builder.adoc
-:description: Bonita UI Builder allows to build the UI of an application.
+:description: In this section, you will learn more about: Bonita UI Builder, its purpose, how to subscribe and start using it, as well as Applications.
 They are not anymore standalone elements (such as pages and forms) in a process (paradigm change with legacy Bonita UI Designer).
 
 {description}
 
 [.card-section]
-== Initiation Manual
+== Bonita UI Builder
 
-[.card.card-index]
---
-xref:ROOT:builder-declare-interface-in-bonita.adoc[[.card-title]#Declare the interface in Bonita# [.card-body.card-content-overflow]#pass:q[Steps to declare your interface and display it in Bonita]#]
---
+
+Bonita UI Builder is a development environment made for designing all kind of interfaces, pages, forms, for your applications. It brings a host of advanced features and improved usability, designed to help you create even more compelling and user-friendly interfaces: a set of more than 45 widgets, a wide gallery template, code completion, custom JS code, native debugging option, a restriction-free drag & drop interface, import and export JSON options, React interfaces, and many more.
+
+Bonita UI Builder is an application-centric development environment that allows for designing forms and application pages, without distinction. You can now design fully-fledged applications, embedding dashboards and complex interfaces. Or, you can just design single-page applications. The choice is up to you. 
+
+With Bonita UI Builder, you can still manage your workflows, continuous integration, etc., the way you’re managing them now. 
+
+We offer xref:applications:initiation-manual.adoc[extensive documentation], xref:applications:how-tos-builder.adoc[tutorials], and a xref:applications:faq.adoc[FAQ] to help you make the most of Bonita UI Builder.
+
 
 
 [.card-section]
-== How-tos
+== Applications
 
-[NOTE]
-====
-For Subscription editions only.
-====
+Applications are created and operated within Bonita Platform, created with Bonita Studio and Bonita UI Builder, deployed with Bonita Continuous Delivery, run by Bonita Runtime. 
+
+They are a navigation of pages that can be accessed by a xref:identity:profiles-overview.adoc[Profile]. They aim to display and structure the right information and provide the right controls at the right time to the profiles, so they can efficiently perform their tasks. Once pushed to production, Applications cannot be live edited.
+
+Bonita also comes with four Bonita Applications.
+
+“Applications” are very similar to “Living Applications”, which are created with Bonita UI Designer and will be phased out.
+
+
+[.card-section]
+== How to start using Bonita UI Builder
+
+Bonita UI Builder is available by default and for no additional cost in all https://www.bonitasoft.com/pricing[Scale subscriptions]. It is also available as a payable add-on in https://www.bonitasoft.com/pricing[Access subscriptions]. 
+
+If you haven’t subscribed to a Scale of Access plan yet, please https://www.bonitasoft.com/contact-us[get in touch] with our sales team to start your journey today!
+
+If you have already subscribed to a Scale plan or purchased the UI Builder add-on, then start your journey by following our xref:applications:initiation-manual.adoc[initiation manual].
+
+
