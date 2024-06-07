@@ -15,7 +15,7 @@ The purge tool doesn't delete documents (stored in the DOCUMENT table) from the 
 
 [NOTE]
 ====
-For Subscription editions only. +
+For Teamwork, Enterprise, Performance, and Efficiency editions only. +
 This tool is not available publicly. Use https://customer.bonitasoft.com/download/request[Bonita Customer Service Center] to download it.
 ====
 

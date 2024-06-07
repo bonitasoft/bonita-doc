@@ -31,7 +31,7 @@ To do so:
 
 The Administrator can xref:live-update.adoc[Live Update] a profile:
 
-* create a custom profile (not available in Community nor Teamwork editions)
+* create a custom profile (not available in Community nor in Access and Teamwork editions)
 * delete a custom profile (same)
 * edit the name and description (only for custom profile)
 * edit the mapping (all editions, all profiles)

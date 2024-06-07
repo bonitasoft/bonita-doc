@@ -3,7 +3,7 @@
 
 [NOTE]
 ====
-*For Subscription editions only.*
+*For Access, Enterprise, Performance, and Efficiency editions only.*
 ====
 
 This page explains how to create your own custom process manager application. +

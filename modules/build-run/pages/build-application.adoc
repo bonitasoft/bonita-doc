@@ -96,7 +96,7 @@ When using a Windows terminal, a space must be added between the `-D` flag and t
 ==== Filtering artifacts to include/exclude
 
 * `-Dinclude.organizations`: `*.xml` by default. Glob pattern expression to select organization file to include in the application binary. Only one or no organization file should be included.
-* `-Dinclude.profiles`: `*.xml` by default. Glob pattern expression to select profiles files to include in the application binary.footnote:[Subscription editions only.]
+* `-Dinclude.profiles`: `*.xml` by default. Glob pattern expression to select profiles files to include in the application binary.footnote:[Teamwork, Efficiency, Performance and Enterprise editions only.]
 * `-Dinclude.applications`: `*.xml` by default. Glob pattern expression to select application descriptor files to include in the application binary.
 * `-Dinclude.processes`: `*.bar` by default. Glob pattern expression to select business archive files to include in the application binary.
 * `-Dinclude.pages`: `*.zip` by default. Glob pattern expression to UI Designer pages files to include in the application binary.

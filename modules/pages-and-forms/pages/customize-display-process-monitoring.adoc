@@ -6,7 +6,7 @@
 
 [NOTE]
 ====
-This is only available in Enterprise, Efficiency and Performance editions.
+This is only available in Access, Enterprise, Efficiency and Performance editions.
 ====
 
 == Modify the process or case visualization page

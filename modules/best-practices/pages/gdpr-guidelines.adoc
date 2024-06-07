@@ -46,7 +46,7 @@ Bonitasoft’s ISO 27001 certification is the result of a successful audit of th
 
 [NOTE]
 ====
-For Subscription editions only. +
+For Teamwork, Efficiency, Performance and Enterprise editions only. +
 ====
 
 To ensure compliance with data protection regulations or to facilitate general storage management, Bonita offers a specialized tool—referred to as the xref:runtime:purge-tool.adoc[Purge Tool]. This tool is designed to efficiently remove completed (archived) process instances from the Bonita Runtime environment.
