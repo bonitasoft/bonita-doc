@@ -37,8 +37,11 @@ Bonita Runtime is dedicated to operate automation projects. It is composed of on
 Bonita Studio::
 Bonita Studio contains all the elements needed to develop and build a project. It is a desktop application based on Eclipse IDE.
 
+Bonita UI Builder::
+Bonita UI Builder (sometimes abbreviated UIB) is a development environment used for creating all kind on interfaces, whether they are pages or forms or else, that make up an Application. It is a web-based tool that is launched from a Bonitasoft custom docker image.
+
 Bonita UI Designer::
-Bonita UI Designer (sometimes abbreviated _UID_) is a development environment used for creating pages and forms that make up a Living Application. It is a web-based tool that is launched from Bonita Studio.
+Bonita UI Designer (sometimes abbreviated UID) is a development environment used for creating pages and forms that make up a Living Application. It is a web-based tool that is launched from Bonita Studio. Bonita UI Designer will be phased out as we fully transition to Bonita UI Builder.
 
 == C
 
