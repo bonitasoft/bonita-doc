@@ -22,7 +22,7 @@ If you have already created your own xref:ROOT:actors-index.adoc[actors] for you
 
 [NOTE]
 ====
-For Subscription editions only.
+For Enterprise, Performance, Efficiency, and Teamwork editions only.
 ====
 
 To write automated integration test scenarios for your automation project you can use the Bonita Test Toolkit. It provides powerful methods to execute all the steps of a process and check the corresponding outputs (statuses, business data, tasks used)
