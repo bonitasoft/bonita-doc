@@ -20,19 +20,34 @@ For Subscription editions only.
 ----
 services:
   bonitappsmith:
-    image: bonitasoft.jfrog.io/docker-snapshot-local/bonitappsmith:0.0.1-SNAPSHOT
+    image: ${IMAGE_NAME:-index.docker.io/bonitasoft/bonitappsmith:latest}
     container_name: bonitappsmith
-    ports:
-      - "8090:80"
     environment:
-      APPSMITH_ENCRYPTION_PASSWORD: abcd
-      APPSMITH_ENCRYPTION_SALT: abcd
-      APPSMITH_DISABLE_TELEMETRY: "true"
+      APPSMITH_DISABLE_TELEMETRY: true
       LOGGING_LEVEL_ROOT: info # default: info
       LOGGING_LEVEL_COM_APPSMITH: debug # default: debug
+      LOGGING_LEVEL_COM_BONITASOFT: debug
       LOGGING_LEVEL_COM_EXTERNAL_PLUGINS: debug # default: debug
+      BONITA_DEV_MODE: true
+      BONITA_API_URL: http://host.docker.internal:8080/bonita/API
+      APPSMITH_EMAILS_WELCOME_ENABLED: false
     volumes:
       - ./stacks:/appsmith-stacks
+    ports:
+      - "8090:80"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  reverse-proxy:
+    image: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 443:443
+      - 80:80
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
 ----
 ====
 
