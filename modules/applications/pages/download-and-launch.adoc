@@ -20,9 +20,11 @@ For Subscription editions only.
 ----
 services:
   bonitappsmith:
-    image: ${IMAGE_NAME:-index.docker.io/bonitasoft/bonitappsmith:latest}
+    image: bonitasoft.jfrog.io/docker/bonitappsmith:0.0.1
     container_name: bonitappsmith
     environment:
+      APPSMITH_ENCRYPTION_PASSWORD: abcd
+      APPSMITH_ENCRYPTION_SALT: abcd
       APPSMITH_DISABLE_TELEMETRY: true
       LOGGING_LEVEL_ROOT: info # default: info
       LOGGING_LEVEL_COM_APPSMITH: debug # default: debug
@@ -185,6 +187,8 @@ The first time, the initialisation can take a while, a waiting message appears. 
 == Start Bonita on the local machine
 
 To use the Bonita UI Builder, a Bonita runtime running on your local machine is required (it may be a Bonita Studio or a standalone Bonita runtime).
+
+Using the provided docker and nginx files above without modification, make sure that the Bonita runtime is accessible at `http://localhost:8080`.
 
 
 == Authenticate with the UI Builder
