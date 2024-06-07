@@ -1,4 +1,4 @@
-= Download and launch
+= Download and launch Bonita UI Builder
 :page-aliases: ROOT:download-and-launch.adoc
 :description: Describes how to download and launch Bonita UI Builder.
 
@@ -11,7 +11,7 @@ For Subscription editions only.
 
 - Create a `docker-compose.yml` file with the content below:
 
-<_To update with the final content_>
+(_To update with the final content_)
 
 .Click to see the docker compose file
 [%collapsible]
@@ -53,7 +53,7 @@ services:
 
 - Create a `nginx` configuration file `nginx.conf` with the content below:
 
-<_To update with the final content_>
+(_To update with the final content_)
 
 .Click to see the nginx configuration file
 [%collapsible]
