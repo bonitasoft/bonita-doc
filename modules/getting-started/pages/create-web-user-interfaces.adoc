@@ -62,3 +62,9 @@ Do the same set of operations with the form for _Read the answer and rate it_ ta
 Execute this new process version and see that the form still offers the option to capture the data required by the contract, but now also displays the data provided at the process start and in previous steps.
 
 In the xref:ROOT:define-who-can-do-what.adoc[next chapter] you'll assure that individual tasks can only be performed by appropriate users.
+
+
+[NOTE]
+====
+This Getting Started tutorial is using Bonita UI Designer, which is a development environment that will be phased out as we fully transition to Bonita UI Builder. Bonita UI Builder allows for designing all kind of interfaces, forms and pages, without distinction. Check out the dedicated xref:applications:initiation-manual.adoc[document section] to learn how to use Bonita UI Builder to make forms.
+====
