@@ -154,9 +154,7 @@ Once you got the credentials, you have to authenticate with the `docker login` c
 docker login {bonitasoft-registry}
 ----
 
-Use the following docker compose file to launch the Bonita UI Builder:
-
- and run the following command:
+Run the following command to launch the Bonita UI Builder:
 [source, shell]
 ----
 docker compose up -d
@@ -169,14 +167,14 @@ Then, you can access the Bonita UI Builder at `http://localhost:8090`.
 The first time, the initialisation can take a while, a waiting message appears. Reload the page if the page is blank.
 ====
 
-== Start a Bonita on the local machine
+== Start Bonita on the local machine
 
-To use the Bonita UI Builder, a Bonita Runtime running on your local machine is required (it may be a Bonita Studio or a single Bonita Runtime).
+To use the Bonita UI Builder, a Bonita runtime running on your local machine is required (it may be a Bonita Studio or a standalone Bonita runtime).
 
 
 == Authenticate with the UI Builder
 
-Connect to the  UI Builder with the Bonita credentials.
+Connect to the  UI Builder with one of the Bonita user credentials.
 
 You can now build your user interface with the Bonita UI Builder!
 
