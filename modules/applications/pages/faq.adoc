@@ -2,6 +2,7 @@
 :description:
 
 
+== Bonita UI Builder
 
 === What is Bonita UI Builder? 
 Bonita UI Designer (sometimes abbreviated UIB) is a development environment used for creating all kind on interfaces, whether they are pages or forms or else, that make up an Application. It is a web-based tool that is launched from a Bonitasoft custom docker image. It is the new and only standard used in the Bonita ecosystem for designing interfaces.
