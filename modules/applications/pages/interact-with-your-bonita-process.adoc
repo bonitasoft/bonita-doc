@@ -5,3 +5,36 @@
 ====
 For Subscription editions only.
 ====
+
+== Create a Bonita datasource
+From a page in edit mode, click the `Data` icon from the left panel.
+Then, you get the list of the provided datasources.
+
+From the `APIs` section, click on the `Bonita API`:
+
+- The `Default`  mode allows to connect to the Bonita runtime running on the local machine
+- The `Advanced` mode allows to connect to a remote Bonita runtime
+
+== Create a Bonita API
+Once the datasource is saved, you can create a new API, and interact with the Bonita runtime with the xref:api:rest-api-overview.adoc[REST APIs].
+
+For instance, to get the list of the processes deployed on the Bonita runtime (first 10), you can create a new API with the following configuration:
+
+* `Method`: GET
+* `URL`: /bonita/API/bpm/process
+* `Params`:
+    - `Key`: p
+    - `Value`: 0
+    - `Key`: c
+    - `Value`: 10
+
+Then, click on `Run` to test the API and see the result in the `Response` tab.
+
+[NOTE]
+====
+The authentication to the Bonita runtime is automatically handled by the Bonita datasource.
+====
+
+Then, you can use the `Table` widget to display the list of the processes in your application.
+
+
