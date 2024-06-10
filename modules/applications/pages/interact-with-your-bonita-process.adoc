@@ -12,8 +12,12 @@ Then, you get the list of the provided datasources.
 
 From the `APIs` section, click on the `Bonita API`:
 
-- The `Default`  mode allows to connect to the Bonita runtime running on the local machine
-- The `Advanced` mode allows to connect to a remote Bonita runtime
+* The `Default`  mode allows to connect to the Bonita runtime running on the local machine
+    - No need to provide any information
+* The `Advanced` mode allows to connect to a remote Bonita runtime
+    - You need to provide the `URL`, `Username` and `Password` of the Bonita runtime
+
+Then, click on the `Save` button to save the datasource.
 
 == Create a Bonita API
 Once the datasource is saved, you can create a new API, and interact with the Bonita runtime with the xref:api:rest-api-overview.adoc[REST APIs].
