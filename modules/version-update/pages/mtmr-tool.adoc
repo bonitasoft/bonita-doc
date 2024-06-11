@@ -521,3 +521,40 @@ The tests were done on a technically generated database.
 
 *Results:* Execution completed in 1973144 ms (32 Minutes 53 Seconds)
 Overall really good performance on Oracle. 
+
+
+
+== Release notes
+
+
+=== 1.0.0 - Oct 5, 2022
+
+==== Highlights
+
+* Robustness: Prevent the tool from being launched from bin folder.  
+  Tool must be run from **root folder** by launching `bin/multitenant-to-multiruntime-tool`
+* Scaling: Deletion queries  are now executed by batch for better scaling on big environments
+
+==== What's Changed
+
+* feat(runner): prevent tool from being launched from bin folder
+* feat(robustness): ensure mandatory properties are present in application.properties file
+* feat(scaling): execute delete queries by batch
+* chore(dependencies): update postgresql driver version
+* chore(dependencies): update Springboot to latest 2.6.x version
+* chore(dependencies): update MySQL connector
+* test(mysql): update sqlserver image to 2022-CU4
+* test(mysql): update mysql image to 8.0.33
+* test(postgres): update postgres image to 15.3
+
+==== Internal tech improvements
+
+* chore(release): update gdrive action
+* chore(build): improve GH workflow
+* chore(CI): use non-self-hosted GH runners
+* tr(gh-action): replace deprecated github action create-release
+
+
+=== 1.0.0 - Oct 5, 2022
+
+Initial revision
