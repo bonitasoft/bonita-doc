@@ -22,7 +22,7 @@ xref:ROOT:create-an-interface.adoc[[.card-title]#Create an interface# [.card-bod
 
 [.card.card-index]
 --
-xref:ROOT:interact-with-your-bonita-process.adoc[[.card-title]#Interact with your Bonita process# [.card-body.card-content-overflow]#pass:q[Steps to bind your process data to your visual elements]#]
+xref:interact-with-your-bonita-process.adoc[[.card-title]#Interact with your Bonita process# [.card-body.card-content-overflow]#pass:q[Steps to bind your process data to your visual elements]#]
 --
 
 [.card.card-index]
