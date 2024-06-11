@@ -169,7 +169,7 @@ Once you got the credentials, you have to authenticate with the `docker login` c
 docker login {bonitasoft-registry}
 ----
 
-Run the following command to launch the Bonita UI Builder:
+Run the following command to launch Bonita UI Builder:
 [source, shell]
 ----
 docker compose up -d
