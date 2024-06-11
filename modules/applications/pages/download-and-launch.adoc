@@ -175,7 +175,7 @@ Run the following command to launch Bonita UI Builder:
 docker compose up -d
 ----
 
-Then, you can access the Bonita UI Builder at `http://localhost`.
+Then, you can access Bonita UI Builder at `http://localhost`.
 
 [NOTE]
 ====
