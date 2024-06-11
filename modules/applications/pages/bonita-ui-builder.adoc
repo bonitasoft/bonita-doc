@@ -14,12 +14,12 @@ xref:download-and-launch.adoc[[.card-title]#Download and launch# [.card-body.car
 
 [.card.card-index]
 --
-xref:builder-declare-interface-in-bonita.adoc[[.card-title]#Declare the interface in Bonita# [.card-body.card-content-overflow]#pass:q[Steps to declare your interface and display it in Bonita]#]
+xref:interact-with-your-bonita-process.adoc[[.card-title]#Interact with your Bonita process# [.card-body.card-content-overflow]#pass:q[Steps to interact with your Bonita process]#]
 --
 
 [.card.card-index]
 --
-xref:interact-with-your-bonita-process.adoc[[.card-title]#Interact with your Bonita process# [.card-body.card-content-overflow]#pass:q[Steps to interact with your Bonita process]#]
+xref:builder-declare-interface-in-bonita.adoc[[.card-title]#Declare the interface in Bonita# [.card-body.card-content-overflow]#pass:q[Steps to declare your interface and display it in Bonita]#]
 --
 
 [.card-section]
