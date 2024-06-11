@@ -1,5 +1,4 @@
 = Declare the interface in Bonita
-:page-aliases: ROOT:builder-declare-interface-in-bonita.adoc
 :description: This page defines the steps to declare your interface and display it in Bonita.
 
 {description}
