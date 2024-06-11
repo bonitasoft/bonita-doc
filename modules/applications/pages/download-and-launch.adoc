@@ -1,4 +1,5 @@
 = Download and launch Documentation
+:page-aliases: ROOT:download-and-launch.adoc
 :description:
 
 [NOTE]

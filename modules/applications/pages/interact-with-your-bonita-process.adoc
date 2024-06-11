@@ -11,12 +11,8 @@ For Subscription editions only.
 From a page in edit mode, click the `Data` icon from the left panel.
 Then, you get the list of the provided datasources.
 
-From the `APIs` section, click on the `Bonita API`:
-
-* The `Default`  mode allows to connect to the Bonita runtime running on the local machine
-    - No need to provide any information
-* The `Advanced` mode allows to connect to a remote Bonita runtime
-    - You need to provide the `URL`, `Username` and `Password` of the Bonita runtime
+From the `APIs` section, click on the `Bonita API`. By default, it will connect to the Bonita runtime running on the local machine. No need to provide any credential information,
+since they are already provided at the xref:ROOT:download-and-launch.adoc[Download and launch] step.
 
 Then, click on the `Save` button to save the datasource.
 
