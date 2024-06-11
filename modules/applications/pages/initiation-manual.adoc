@@ -27,7 +27,7 @@ xref:ROOT:interact-with-your-bonita-process.adoc[[.card-title]#Interact with you
 
 [.card.card-index]
 --
-xref:ROOT:builder-declare-interface-in-bonita.adoc[[.card-title]#Declare the interface in Bonita# [.card-body.card-content-overflow]#pass:q[Steps to declare your Bonita UI Builder interface in your Bonita project]#]
+xref:builder-declare-interface-in-bonita.adoc[[.card-title]#Declare the interface in Bonita# [.card-body.card-content-overflow]#pass:q[Steps to declare your Bonita UI Builder interface in your Bonita project]#]
 --
 
 [.card.card-index]
