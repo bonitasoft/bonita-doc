@@ -15,7 +15,7 @@ On this page, we will try to create a form where customers can submit a claim. T
 From Bonita UI Builder's home page, click the top right `Create new` button. Then, select `Application`.
 You land on the design interface:
 
-image::images/create-an-interface/design-interface.PNG[design-interface]
+image::images/create-an-interface/design-interface.png[design-interface]
 
 Describe
 On the left part can be found all widgets (visual elements) that you can drag and drop anywhere you want on the central part. 
@@ -33,7 +33,7 @@ image::images/create-an-interface/drag-and-drop.gif[drag-and-drop]
 
 Now, drag and drop an `input` widget inside the form widget. This is what is should look like:
 
-image::images/create-an-interface/first-form.PNG[first-form]
+image::images/create-an-interface/first-form.png[first-form]
 
 Your first interface is designed!
 
