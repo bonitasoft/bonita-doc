@@ -12,7 +12,7 @@ The initiation manual describes all the mandatory steps to successfully push you
 
 [.card.card-index]
 --
-xref:ROOT:download-and-launc.adoc[[.card-title]#Download and launch# [.card-body.card-content-overflow]#pass:q[Steps to download and launch Bonita UI Builder]#]
+xref:download-and-launch.adoc[[.card-title]#Download and launch# [.card-body.card-content-overflow]#pass:q[Steps to download and launch Bonita UI Builder]#]
 --
 
 [.card.card-index]
