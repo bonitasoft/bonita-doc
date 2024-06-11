@@ -1,10 +1,8 @@
 = Resources
-:description:
+:description: Here, you'll find a curated collection of references to help you maximize your productivity and enhance your understanding of Bonita UI Builder. 
 
+{description}
 
-Here, you'll find a curated collection of references to help you maximize your productivity and enhance your understanding of Bonita UI Builder. 
-
- 
 
 == Bonita UI Builder documentation
 * xref:applications:initiation-manual.adoc[Initiation manual] to help you start from scratch and build your first application 
