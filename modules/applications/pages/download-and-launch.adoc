@@ -1,5 +1,4 @@
 = Download and launch Bonita UI Builder
-:page-aliases: ROOT:download-and-launch.adoc
 :description: Describes how to download and launch Bonita UI Builder.
 
 [NOTE]
