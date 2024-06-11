@@ -1,5 +1,4 @@
 = Interact with your Bonita process
-:page-aliases: ROOT:interact-with-your-bonita-process.adoc
 :description: Defines how to interact with a Bonita runtime using the REST APIs..
 
 [NOTE]
