@@ -17,7 +17,7 @@ xref:ROOT:download-and-launc.adoc[[.card-title]#Download and launch# [.card-body
 
 [.card.card-index]
 --
-xref:ROOT:create-an-interface.adoc[[.card-title]#Create an interface# [.card-body.card-content-overflow]#pass:q[Steps to set the visual elements of your interface]#]
+xref:create-an-interface.adoc[[.card-title]#Create an interface# [.card-body.card-content-overflow]#pass:q[Steps to set the visual elements of your interface]#]
 --
 
 [.card.card-index]
