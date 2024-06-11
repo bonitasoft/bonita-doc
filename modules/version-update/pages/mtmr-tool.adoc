@@ -527,7 +527,7 @@ Overall really good performance on Oracle.
 == Release notes
 
 
-=== 1.0.0 - Oct 5, 2022
+=== 1.1.0 - June 11, 2024
 
 ==== Highlights
 
