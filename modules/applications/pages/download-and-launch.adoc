@@ -1,8 +1,202 @@
-= Download and launch Documentation
-:description:
+= Download and launch Bonita UI Builder
+:description: Describes how to download and launch Bonita UI Builder.
 
 [NOTE]
 ====
 For Subscription editions only.
 ====
+
+== Create the docker environment
+
+- Create a `docker-compose.yml` file with the content below:
+
+(_To update with the final content_)
+
+.Click to see the docker compose file
+[%collapsible]
+====
+[source, shell]
+----
+services:
+  bonita-ui-builder:
+    image: bonitasoft.jfrog.io/docker/bonita-ui-builder:0.0.1
+    container_name: bonita-ui-builder
+    environment:
+      APPSMITH_ENCRYPTION_PASSWORD: abcd
+      APPSMITH_ENCRYPTION_SALT: abcd
+      APPSMITH_DISABLE_TELEMETRY: 1
+      LOGGING_LEVEL_ROOT: info # default: info
+      LOGGING_LEVEL_COM_APPSMITH: debug # default: debug
+      LOGGING_LEVEL_COM_BONITASOFT: debug
+      LOGGING_LEVEL_COM_EXTERNAL_PLUGINS: debug # default: debug
+      BONITA_DEV_MODE: 1
+      BONITA_API_URL: http://host.docker.internal:8080/bonita/API
+      APPSMITH_EMAILS_WELCOME_ENABLED: 0
+    volumes:
+      - ./stacks:/appsmith-stacks
+    ports:
+      - "8090:80"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  reverse-proxy:
+    image: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 443:443
+      - 80:80
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+----
+====
+
+- Create a `nginx` configuration file `nginx.conf` with the content below:
+
+(_To update with the final content_)
+
+.Click to see the nginx configuration file
+[%collapsible]
+====
+[source, shell]
+----
+# Events block: handles settings for connection processing.
+events {
+    # Empty block; uses default settings.
+}
+
+# HTTP block: encloses all HTTP server-specific configuration.
+http {
+    # log_format directive: Defines a custom logging format named 'upstream_logging'.
+    log_format upstream_logging '[$time_local] $remote_addr to: $upstream_addr: $request_completion $uri $request_uri  $request ';
+
+    # map directive: Maps the original request URI to a new variable, intended to be URL-encoded.
+    # Here, it simply captures and stores the URI without encoding.
+    map $request_uri $encoded_uri {
+        ~^(.*)$ $1;  # Regex captures the entire request URI and assigns it to $encoded_uri.
+    }
+
+    # upstream directive: Defines a group of servers that can handle requests for bonita_runtime.
+    upstream bonita_runtime {
+        server host.docker.internal:8080; # Specifies a server and port number within this group.
+    }
+
+    # upstream directive for Appsmith: Sets up another group of servers for handling requests.
+    upstream appsmith {
+        server host.docker.internal:8090; # Specifies a server and port for the Appsmith application.
+    }
+
+    # upstream directive for auth_service: Defines a group for handling authentication requests.
+    upstream auth_service {
+        server host.docker.internal:8080; # Points to the authentication service running on the same server.
+    }
+
+    # Server block: Starts configuration for a server listening on a specific port.
+    server {
+        listen 80;  # listen directive: Sets the server to listen on port 80 for incoming connections.
+        access_log /tmp/access.log;  # access_log directive: Specifies the path for the access log.
+        error_log /var/log/nginx/error.log debug;  # error_log directive: Specifies the path and level for the error log.
+
+        # Location block for a specific API endpoint; used for internal subrequests related to authentication.
+        location = /bonita/API/system/session/1 {
+            internal;  # Marks this location as usable only for internal requests.
+            proxy_pass http://auth_service/bonita/API/system/session/1;  # proxy_pass directive: Forwards requests to the authentication service.
+            access_log /tmp/aut_logging.log upstream_logging;  # Logs requests using the defined custom log format.
+            proxy_set_header Content-Length "";  # Clears the Content-Length header before forwarding.
+            proxy_set_header Host $host;  # Sets the Host header to the host of the incoming request.
+            proxy_set_header Accept application/json;  # Sets the Accept header to accept JSON responses.
+            proxy_set_header X-Real-IP $remote_addr;  # Passes the real IP of the client to the proxied server.
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;  # Appends the client's IP to X-Forwarded-For header.
+            proxy_set_header X-Forwarded-Proto $scheme;  # Sets the scheme of the original request (http or https).
+            proxy_set_header Cookie $http_cookie;  # Forwards any cookies from the client.
+        }
+
+        # Location block that proxies requests to the Bonita runtime service.
+        location /bonita/ {
+            proxy_pass http://bonita_runtime;  # Proxies requests to the defined upstream group bonita_runtime.
+            access_log /tmp/bt_logging.log upstream_logging;  # Logs access using the 'upstream_logging' format.
+            proxy_set_header Host $host;  # Sets the Host header.
+            proxy_set_header X-Real-IP $remote_addr;  # Passes the real IP address of the client.
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;  # Forwards the X-Forwarded-For header.
+            proxy_set_header X-Forwarded-Proto $scheme;  # Forwards the scheme (http or https) used in the request.
+            proxy_cookie_path /bonita /; # Modifies the cookie path to remove '/bonita'.
+        }
+
+        # Location block for handling logout requests.
+        location /bonita/logout {
+            proxy_pass http://auth_service/bonita/logoutservice?redirectUrl=/&locale=en&redirect=true;  # proxy_pass directive: Forwards requests to the authentication service.
+            access_log /tmp/aut_logging.log upstream_logging;  # Logs requests using the defined custom log format.
+            proxy_set_header Host $host;  # Sets the Host header.
+            proxy_set_header X-Real-IP $remote_addr;  # Passes the real IP address of the client.
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;  # Forwards the X-Forwarded-For header.
+            proxy_set_header X-Forwarded-Proto $scheme;  # Forwards the scheme (http or https) used in the request.
+            proxy_cookie_path /bonita /; # Modifies the cookie path to remove '/bonita'.
+        }
+
+        # Default location block: handles all other requests.
+        location / {
+            auth_request /bonita/API/system/session/1;  # auth_request directive: Makes a subrequest to authenticate the request.
+            error_page 401 = @redirect_to_login;  # Defines a custom error page for 401 Unauthorized responses.
+            proxy_pass http://appsmith;  # Proxies requests to the Appsmith application.
+            access_log /tmp/as_logging.log upstream_logging;  # Logs requests using the custom logging format.
+            proxy_set_header Host $host;  # Forwards the Host header.
+            proxy_set_header X-Real-IP $remote_addr;  # Forwards the real IP address.
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;  # Forwards the X-Forwarded-For header.
+            proxy_set_header X-Forwarded-Proto $scheme;  # Forwards the request scheme.
+            proxy_http_version 1.1;  # Sets the HTTP version used in the proxy request.
+            proxy_set_header Accept-Encoding "";  # Clears the Accept-Encoding header.
+            proxy_set_header X-Forwarded-Host $host;  # Forwards the original host requested.
+            proxy_set_header X-Forwarded-Port $server_port;  # Forwards the server port.
+            proxy_set_header Upgrade $http_upgrade;  # Handles protocols upgrades, e.g., for WebSocket.
+            proxy_set_header Connection "upgrade";  # Maintains upgrade header connections.
+        }
+
+        # Named location for handling redirections when unauthorized access is detected.
+        location @redirect_to_login {
+            return 302 http://localhost/bonita/apps/sendRedirect?redirectUrl=$encoded_uri;  # Redirects to the login page, appending the original requested URL.
+        }
+    }
+}
+----
+====
+
+== Download and launch the docker image
+
+Bonita UI Builder docker image is located in the xref:software-extensibility:bonita-repository-access.adoc[Bonita Artifact Repository].
+Once you got the credentials, you have to authenticate with the `docker login` command:
+[source, shell, subs="+attributes"]
+----
+docker login {bonitasoft-registry}
+----
+
+Run the following command to launch Bonita UI Builder:
+[source, shell]
+----
+docker compose up -d
+----
+
+Then, you can access Bonita UI Builder at `http://localhost`.
+
+[NOTE]
+====
+The first time, the initialisation can take a while, a waiting message appears. Reload the page if the page is blank.
+====
+
+== Start Bonita on the local machine
+
+To use Bonita UI Builder, a Bonita runtime running on your local machine is required (it may be a Bonita Studio or a standalone Bonita runtime).
+
+Using the provided docker and nginx files above without modification, make sure that the Bonita runtime is accessible at `http://localhost:8080`.
+
+[TIP]
+You can change the Bonita runtime port by updating the `docker-compose.yml` file and the `nginx.conf` file.
+
+== Authenticate with the UI Builder
+
+Log in on Bonita UI Builder with the authentication page of Bonita runtime using the credentials of one of the users of the Bonita runtime database.
+
+You can now build your user interface with the Bonita UI Builder!
+
+
+
 
