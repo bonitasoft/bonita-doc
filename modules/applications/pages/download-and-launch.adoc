@@ -19,20 +19,20 @@ For Subscription editions only.
 [source, shell]
 ----
 services:
-  bonitappsmith:
-    image: bonitasoft.jfrog.io/docker/bonitappsmith:0.0.1
-    container_name: bonitappsmith
+  bonita-ui-builder:
+    image: bonitasoft.jfrog.io/docker/bonita-ui-builder:0.0.1
+    container_name: bonita-ui-builder
     environment:
       APPSMITH_ENCRYPTION_PASSWORD: abcd
       APPSMITH_ENCRYPTION_SALT: abcd
-      APPSMITH_DISABLE_TELEMETRY: true
+      APPSMITH_DISABLE_TELEMETRY: 1
       LOGGING_LEVEL_ROOT: info # default: info
       LOGGING_LEVEL_COM_APPSMITH: debug # default: debug
       LOGGING_LEVEL_COM_BONITASOFT: debug
       LOGGING_LEVEL_COM_EXTERNAL_PLUGINS: debug # default: debug
-      BONITA_DEV_MODE: true
+      BONITA_DEV_MODE: 1
       BONITA_API_URL: http://host.docker.internal:8080/bonita/API
-      APPSMITH_EMAILS_WELCOME_ENABLED: false
+      APPSMITH_EMAILS_WELCOME_ENABLED: 0
     volumes:
       - ./stacks:/appsmith-stacks
     ports:
@@ -49,7 +49,6 @@ services:
       - 80:80
     extra_hosts:
       - "host.docker.internal:host-gateway"
-
 ----
 ====
 
@@ -177,7 +176,7 @@ Run the following command to launch the Bonita UI Builder:
 docker compose up -d
 ----
 
-Then, you can access the Bonita UI Builder at `http://localhost:8090`.
+Then, you can access the Bonita UI Builder at `http://localhost`.
 
 [NOTE]
 ====
@@ -190,6 +189,8 @@ To use the Bonita UI Builder, a Bonita runtime running on your local machine is 
 
 Using the provided docker and nginx files above without modification, make sure that the Bonita runtime is accessible at `http://localhost:8080`.
 
+[TIP]
+You can change the Bonita runtime port by updating the `docker-compose.yml` file and the `nginx.conf` file.
 
 == Authenticate with the UI Builder
 
