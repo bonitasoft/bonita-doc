@@ -193,7 +193,7 @@ You can change the Bonita runtime port by updating the `docker-compose.yml` file
 
 == Authenticate with the UI Builder
 
-Connect to the  UI Builder with one of the Bonita user credentials.
+Log in on Bonita UI Builder with the authentication page of Bonita runtime using the credentials of one of the users of the Bonita runtime database.
 
 You can now build your user interface with the Bonita UI Builder!
 
