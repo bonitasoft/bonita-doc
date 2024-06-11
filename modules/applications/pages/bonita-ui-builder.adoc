@@ -13,6 +13,10 @@ They are not anymore standalone elements (such as pages and forms) in a process 
 xref:ROOT:builder-declare-interface-in-bonita.adoc[[.card-title]#Declare the interface in Bonita# [.card-body.card-content-overflow]#pass:q[Steps to declare your interface and display it in Bonita]#]
 --
 
+[.card.card-index]
+--
+xref:interact-with-your-bonita-process.adoc[[.card-title]#Interact with your Bonita process# [.card-body.card-content-overflow]#pass:q[Steps to interact with your Bonita process]#]
+--
 
 [.card-section]
 == How-tos
