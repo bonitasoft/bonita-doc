@@ -37,7 +37,7 @@ xref:ROOT:package-and-deploy-your-application.adoc[[.card-title]#Package and dep
 
 [.card.card-index]
 --
-xref:ROOT:next-steps.adoc[[.card-title]#Next steps# [.card-body.card-content-overflow]#pass:q[Steps to smoothly operation your application]#]
+xref:next-steps.adoc[[.card-title]#Next steps# [.card-body.card-content-overflow]#pass:q[Steps to smoothly operation your application]#]
 --
 
 [.card-section]
