@@ -7,6 +7,14 @@ This is the changelog of the purge tool.
 The purge tool is used to remove data from bonita archive tables. It is useful for big production environments.
 
 
+== 1.0.9 - June 11, 2024
+
+Fixes:
+
+- robustness: prevent the tool from being launched from bin folder.
+  Tool must be run from **root folder** by launching `bin/bonita-purge-tool`. If not, the tool will exit with a specific error message.
+
+
 == 1.0.8 - June 5, 2024
 
 Now the tool **MUST** be run from the **root folder** by calling:
