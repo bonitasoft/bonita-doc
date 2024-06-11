@@ -162,7 +162,7 @@ http {
 
 == Download and launch the docker image
 
-The UI Builder docker image is located in the xref:software-extensibility:bonita-repository-access.adoc[Bonita Artifact Repository].
+Bonita UI Builder docker image is located in the xref:software-extensibility:bonita-repository-access.adoc[Bonita Artifact Repository].
 Once you got the credentials, you have to authenticate with the `docker login` command:
 [source, shell, subs="+attributes"]
 ----
