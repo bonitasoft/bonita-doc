@@ -6,7 +6,7 @@
 
 == Pre-requisites 
 * Bonita UI Builder downloaded and launched
-* Bonita Studio version 2024.3 or any later version.
+* Bonita Studio version 2024.3 or any later version
 * A running Bonita project with a defined process diagram, BDM, and contract. Follow the xref:getting-started:getting-started-index.adoc[Getting Started tutorial] if you need any help
 
 
@@ -80,18 +80,19 @@ This API will instantiate the first process returned by `getProcess` with the `b
 
 [NOTE]
 ====
-To instantiate a process, you need to refer to your Bonita contract. 
-Here, we used to Getting Started tutorial as an example: `description` is a mandatory input for the `claimInput` xref:declare-contracts.adoc[contract], and `description` will take as value what is typed in the `Input1` widget of the form.
+In Bonita, you need to refer to your Bonita contract in order to instantiate a process.
+Here, we used the Getting Started tutorial as an example: `description` is a mandatory input for the `claimInput` xref:declare-contracts.adoc[contract], and `description` will take as value what is typed in the `Input1` widget of the form.
 ====
 
 Now, we need to tell the form to execute this API request after clicking the `submit` button.
-Go to the `UI` tab and click the form's `submit` button. On the right panel, click the `onclick` button, then select `execute a query` and select `instantiateProcess`.
+
+Go to the `UI` tab and click the form's `submit` button. On the right panel, click the `onclick` label, then select `execute a query` and choose `instantiateProcess`.
 
 image::images/interact-with-your-bonita-process/bind-data.gif[bind-data]
 
 
-Everything is settled. Now, click the `preview` button on top of the screen and test your form!
+Everything is settled. Now, click the `preview` button on top of the screen and test your form:
 
 image::images/interact-with-your-bonita-process/test-instantiate.gif[test-instantiate]
 
-You now have a working interface that interact with your Bonita process and data, congratulations!
+You now have a working interface that interacts with your Bonita process and data, congratulations!
