@@ -1,17 +1,18 @@
-name: Build PR preview
+name: Vaidate xref
 
 on:
   pull_request:
     paths:
       - 'modules/**'
       - 'antora.yml'
-      - '.github/workflows/build-pr-preview.yml'
+      - '.github/workflows/pr-validate-references.yml'
+
 jobs:
   validate_xref:
     runs-on: ubuntu-22.04
     steps:
       - name: Validate xref
-        uses: bonitasoft/bonita-documentation-site/.github/actions/build-pr-site/@master
+        uses: bonitasoft/bonita-documentation-site/.github/workflows/_reusable_pr-validate-references.yml/@master
         with:
           component-name: bonita
           fail-on-warning: true
