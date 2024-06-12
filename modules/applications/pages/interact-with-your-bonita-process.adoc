@@ -1,10 +1,7 @@
 = Interact with your Bonita process
-:description: Defines how to interact with a Bonita runtime using the REST APIs..
+:description: Interact with a Bonita runtime in multiple ways using API requests.
 
-[NOTE]
-====
-For Subscription editions only.
-====
+{description}
 
 == Create a Bonita datasource
 From a page in edit mode, click the `Data` icon from the left panel.
@@ -15,11 +12,17 @@ since they are already provided at the xref:download-and-launch.adoc[Download an
 
 Then, click on the `Save` button to save the datasource.
 
-== Create a Bonita API
-Once the datasource is saved, you can create a new API, and interact with the Bonita runtime with the xref:api:rest-api-overview.adoc[REST APIs].
+GIF
 
-For instance, to get the list of the processes deployed on the Bonita runtime (first 10), you can create a new API with the following configuration:
+== Create Bonita API requests
+Once the datasource is saved, you can create API requests and interact with the Bonita runtime with the xref:api:rest-api-overview.adoc[REST APIs].
+We will describe below how you can for example retrieve a list of Bonita processes, and instantiate one of them.
 
+=== Get a list of processes
+To get the list of the processeses deployed on the Bonita runtime (first 10): click the `Editor` icon from the left panel, click the `Queries` tab, then click the `new query / API` button and select the Bonita datasource created previously. 
+Enter the following configuration:
+
+* `Name`: getProcess
 * `Method`: GET
 * `URL`: /bonita/API/bpm/process
 * `Params`:
@@ -30,11 +33,50 @@ For instance, to get the list of the processes deployed on the Bonita runtime (f
 
 Then, click on `Run` to test the API and see the result in the `Response` tab.
 
+GIF
+
 [NOTE]
 ====
 The authentication to the Bonita runtime is automatically handled by the Bonita datasource.
 ====
 
-Then, you can use the `Table` widget to display the list of the processes in your application.
+
+=== Instantiate a process
+Now, we will instantiate one of the processes with what the user typed in the form we created xref:create-an-interface.adoc[previously]. 
+
+Click the `Editor` icon from the left panel, click the `Queries` tab, then click the `new query / API` button and select the Bonita datasource created previously. 
+Enter the following configuration:
+
+* `Name`: instantiateProcess
+* `Method`: POST
+* `URL`: API/bpm/process/{{getProcess.data[0].id}}/instantiation
+* `Params`:
+    - `Key`: p
+    - `Value`: 0
+    - `Key`: c
+    - `Value`: 10
+* `Body`:
+`
+{{
+	{
+		claimInput: {
+			description: Input1.text,
+		}
+	}
+}}
+`
+CHANGE SO THAT IT IS A CODE BLOCK
+
+This API will instantiate the first process returned by `getProcess` with the `body` 's content. 
+
+[NOTE]
+====
+To instantiate a process, you need to refer to your Bonita contract. 
+Here, we used to Getting Started tutorial as an example: `description` is a mandatory input for the `claimInput` xref:declare-contracts.adoc[contract], and `description` will take as value what is typed in the `Input1` widget of the form.
+====
+
+Now, we need to tell the form to execute this API request after clicking the `submit` button.
+Go to the `UI` tab and click the form's `submit` button. On the right panel, click the `onclick` button...
 
 
+GIF
