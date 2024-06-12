@@ -3,16 +3,23 @@
 
 {description}
 
+
+== Pre-requisites 
+* Bonita UI Builder downloaded and launched
+* Bonita Studio version 2024.3 or any later version.
+* A running Bonita project with a defined process diagram, BDM, and contract. Follow the xref:getting-started:getting-started-index.adoc[Getting Started tutorial] if you need any help
+
+
 == Create a Bonita datasource
 From a page in edit mode, click the `Data` icon from the left panel.
 Then, you get the list of the provided datasources.
 
-From the `APIs` section, click on the `Bonita API`. By default, it will connect to the Bonita runtime running on the local machine. No need to provide any credential information,
-since they are already provided at the xref:download-and-launch.adoc[Download and launch] step.
+From the `APIs` section, click on the `Bonita API`. By default, it will connect to the Bonita runtime running on the local machine. No need to provide any credential information, since they are already provided at the xref:download-and-launch.adoc[Download and launch] step.
 
 Then, click on the `Save` button to save the datasource.
 
-GIF
+image::images/interact-with-your-bonita-process/create-datasource.gif[create-datasource]
+
 
 == Create Bonita API requests
 Once the datasource is saved, you can create API requests and interact with the Bonita runtime with the xref:api:rest-api-overview.adoc[REST APIs].
@@ -33,7 +40,8 @@ Enter the following configuration:
 
 Then, click on `Run` to test the API and see the result in the `Response` tab.
 
-GIF
+image::images/interact-with-your-bonita-process/get-process.gif[get-process]
+
 
 [NOTE]
 ====
@@ -55,8 +63,9 @@ Enter the following configuration:
     - `Value`: 0
     - `Key`: c
     - `Value`: 10
-* `Body`:
-`
+* `Body`: 
+[source, JSON]
+----
 {{
 	{
 		claimInput: {
@@ -64,8 +73,8 @@ Enter the following configuration:
 		}
 	}
 }}
-`
-CHANGE SO THAT IT IS A CODE BLOCK
+----
+
 
 This API will instantiate the first process returned by `getProcess` with the `body` 's content. 
 
@@ -76,7 +85,13 @@ Here, we used to Getting Started tutorial as an example: `description` is a mand
 ====
 
 Now, we need to tell the form to execute this API request after clicking the `submit` button.
-Go to the `UI` tab and click the form's `submit` button. On the right panel, click the `onclick` button...
+Go to the `UI` tab and click the form's `submit` button. On the right panel, click the `onclick` button, then select `execute a query` and select `instantiateProcess`.
+
+image::images/interact-with-your-bonita-process/bind-data.gif[bind-data]
 
 
-GIF
+Everything is settled. Now, click the `preview` button on top of the screen and test your form!
+
+image::images/interact-with-your-bonita-process/test-instantiate.gif[test-instantiate]
+
+You now have a working interface that interact with your Bonita process and data, congratulations!
