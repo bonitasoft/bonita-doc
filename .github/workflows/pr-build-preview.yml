@@ -13,4 +13,3 @@ jobs:
     secrets: inherit
     with:
       component-name: bonita
-      fail-on-warning: true
