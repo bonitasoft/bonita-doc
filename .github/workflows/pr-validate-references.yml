@@ -1,4 +1,4 @@
-name: Vaidate xref
+name: Validate xref
 
 on:
   pull_request:
@@ -9,10 +9,8 @@ on:
 
 jobs:
   validate_xref:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Validate xref
-        uses: bonitasoft/bonita-documentation-site/.github/workflows/_reusable_pr-validate-references.yml/@master
-        with:
-          component-name: bonita
-          fail-on-warning: true
+    uses: bonitasoft/bonita-documentation-site/.github/workflows/_reusable_pr-validate-references.yml@master
+    secrets: inherit
+    with:
+      component-name: bonita
+      fail-on-warning: true
