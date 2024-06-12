@@ -9,8 +9,10 @@ on:
 
 jobs:
   validate_xref:
-    uses: bonitasoft/bonita-documentation-site/.github/workflows/_reusable_pr-validate-references.yml@master
+    # Didn't merge, we need to restore @master for this action
+    uses: bonitasoft/bonita-documentation-site/.github/workflows/_reusable_pr-validate-references.yml@ci/checkout_repo_for_reusable
     secrets: inherit
     with:
       component-name: bonita
       fail-on-warning: true
+      doc-site-branch: ci/checkout_repo_for_reusable
