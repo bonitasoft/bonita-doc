@@ -1,7 +1,8 @@
 = Create an interface
-:description:
+:description: Once you have downloaded and launch Bonita UI Builder, it's time to create an interface. 
 
-Once you have downloaded and launch Bonita UI Builder, it's time to create your interface! 
+{description}
+
 To do so, we will create a new application and move visual elements (also known as widgets) on the screen.
 On this page, we will try to create a form where customers can submit a claim. This is inspired by the Getting Started tutorial's xref:getting-started:create-web-user-interfaces.adoc[example].
 
