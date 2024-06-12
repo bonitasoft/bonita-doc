@@ -1,8 +1,8 @@
 = Initiation Manual
-:description:
+:description: Bonita UI Builder allows for designing all kind of interfaces, forms and pages, without distinction. These interfaces interact with your Bonita process and BDM. 
 
+{description}
 
-Bonita UI Builder allows for designing all kind of interfaces, forms and pages, without distinction. These interfaces interact with your Bonita process and BDM. 
 
 The initiation manual describes all the mandatory steps to successfully push your interfaces to production: from downloading Bonita UI Builder to running your applications. 
 
