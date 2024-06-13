@@ -1,10 +1,11 @@
 name: Contribution checks
 
 on:
-  pull_request_target:
+  pull_request:
 
 jobs:
   check_antora_content_guidelines:
     permissions:
       pull-requests: write # "pr-antora-content-guidelines-checker" write PR comments when the PR doesn't match the "Guidelines"
-    uses: bonitasoft/bonita-documentation-site/.github/workflows/_reusable_pr-antora-content-guidelines-checker.yml@master
+    uses: bonitasoft/bonita-documentation-site/.github/workflows/_reusable_pr-antora-content-guidelines-checker.yml@test/improve_attribute_check
+
