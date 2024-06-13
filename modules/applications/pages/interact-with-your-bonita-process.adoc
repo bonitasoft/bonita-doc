@@ -80,7 +80,7 @@ This API will instantiate the first process returned by `getProcess` with the `b
 [NOTE]
 ====
 In Bonita, you need to refer to your contract in order to instantiate a process.
-Here, we used the contract defined in the Getting Started tutorial as an example: `description` is a mandatory input for the `claimInput` xref:declare-contracts.adoc[contract], and `description` will take as value what is typed in the `Input1` widget of the form.
+Here, we used the contract defined in the Getting Started tutorial as an example: `description` is a mandatory input for the `claimInput` xref:getting-started:declare-contracts.adoc[contract], and `description` will take as value what is typed in the `Input1` widget of the form.
 ====
 
 Now, we need to tell the form to execute this API request after clicking the `submit` button.
