@@ -11,10 +11,9 @@
 
 
 == Create a Bonita datasource
-From a page in edit mode, click the `Data` icon from the left panel.
-Then, you get the list of the provided datasources.
+From a page in edit mode, click the `Data` icon from the left panel then click the `+` button to add a datasource in the workspace.
 
-From the `APIs` section, click on the `Bonita API`. By default, it will connect to the Bonita runtime running on the local machine. No need to provide any credential information, since they are already provided at the xref:download-and-launch.adoc[Download and launch] step.
+You get the list of the provided datasources. On the `APIs` section, click on the `Bonita API`. By default, it will connect to the Bonita runtime running on the local machine. No need to provide any credential information, since they are already provided at the xref:download-and-launch.adoc[Download and launch] step.
 
 Then, click on the `Save` button to save the datasource.
 
@@ -23,7 +22,7 @@ image::images/interact-with-your-bonita-process/create-datasource.gif[create-dat
 
 == Create Bonita API requests
 Once the datasource is saved, you can create API requests and interact with the Bonita runtime with the xref:api:rest-api-overview.adoc[REST APIs].
-We will describe below how you can for example retrieve a list of Bonita processes, and instantiate one of them.
+We will describe below how you can for example get a list of Bonita processes, and instantiate one of them.
 
 === Get a list of processes
 To get the list of the processeses deployed on the Bonita runtime (first 10): click the `Editor` icon from the left panel, click the `Queries` tab, then click the `new query / API` button and select the Bonita datasource created previously. 
@@ -80,15 +79,16 @@ This API will instantiate the first process returned by `getProcess` with the `b
 
 [NOTE]
 ====
-In Bonita, you need to refer to your Bonita contract in order to instantiate a process.
-Here, we used the Getting Started tutorial as an example: `description` is a mandatory input for the `claimInput` xref:declare-contracts.adoc[contract], and `description` will take as value what is typed in the `Input1` widget of the form.
+In Bonita, you need to refer to your contract in order to instantiate a process.
+Here, we used the contract defined in the Getting Started tutorial as an example: `description` is a mandatory input for the `claimInput` xref:declare-contracts.adoc[contract], and `description` will take as value what is typed in the `Input1` widget of the form.
 ====
 
 Now, we need to tell the form to execute this API request after clicking the `submit` button.
 
-Go to the `UI` tab and click the form's `submit` button. On the right panel, click the `onclick` label, then select `execute a query` and choose `instantiateProcess`.
+Go to the `UI` tab and click the form's `submit` button. On the right panel, click the `onclick` label, then select `execute a query` and choose `instantiateProcess`:
 
 image::images/interact-with-your-bonita-process/bind-data.gif[bind-data]
+
 
 
 Everything is settled. Now, click the `preview` button on top of the screen and test your form:
