@@ -7,7 +7,7 @@
 
 == Usage
 
-It is a web-based tool that is launched from Bonita Studio. +
+It is a web-based tool that is launched from Bonita Studio... +
 A page is defined in HTML extended by the AngularJS JavaScript framework. Use the UI Designer to create and update pages for business applications, forms to start process instances or execute human tasks, and application layouts that apply to all pages of an application.
 
 * Create pages directly in the Bonita UI designer.
