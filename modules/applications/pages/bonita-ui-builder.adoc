@@ -81,4 +81,3 @@ For Subscription editions only.
 
 *Appsmith* is an open-source project. It can be obtained in its original version at https://github.com/appsmithorg/appsmith[its Github home page] or through the https://www.appsmith.com/[official website]. +
 It is licensed under the https://www.apache.org/licenses/LICENSE-2.0[Apache License 2.0].
->>>>>>> 2024.3
