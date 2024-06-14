@@ -59,6 +59,11 @@ xref:download-and-launch.adoc[[.card-title]#Download and launch# [.card-body.car
 
 [.card.card-index]
 --
+xref:download-and-launch.adoc[[.card-title]#Download and launch# [.card-body.card-content-overflow]#pass:q[Steps to download and launch Bonita UI Builder]#]
+--
+
+[.card.card-index]
+--
 xref:interact-with-your-bonita-process.adoc[[.card-title]#Interact with your Bonita process# [.card-body.card-content-overflow]#pass:q[Steps to interact with your Bonita process]#]
 --
 
