@@ -5,7 +5,7 @@
 == Bonita UI Builder
 
 === What is Bonita UI Builder? 
-Bonita UI Designer (sometimes abbreviated UIB) is a development environment used for creating all kind on interfaces, whether they are pages or forms or else, that make up an Application. It is a web-based tool that is launched from a Bonitasoft custom docker image. It is the new and only standard used in the Bonita ecosystem for designing interfaces.
+Bonita UI Builder (sometimes abbreviated UIB) is a development environment used for creating all kind on interfaces, whether they are pages or forms or else, that make up an Application. It is a web-based tool that is launched from a Bonitasoft custom docker image. It is the new and only standard used in the Bonita ecosystem for designing interfaces.
 
  
 === What does it mean for my workflows? 
@@ -102,7 +102,7 @@ Theoretically you can, yes. However, we’re not supporting them yet.
 |Yes
 |Yes
 
-|Undo/redo
+|Undo/redo, copy/paste
 |No
 |Yes
 
@@ -123,6 +123,7 @@ Theoretically you can, yes. However, we’re not supporting them yet.
 You existing forms and pages will always be compatible with Bonita. Eventually, Bonita UI Designer will be phased out as we fully transition to Bonita UI Builder. We cannot guarantee you will be able to edit your existing interfaces made with Bonita UI Designer in the future versions of Bonita.
 
 Our goal is to make this transition as smooth as possible, minimizing any disruption to your workflow:
+
 * Continued access: Bonita UI Designer will remain fully operational for an extended period, allowing ample time for adaptation.
 * Support and resources: We offer extensive documentation, tutorials, and support to help you make the most of xref:applications:bonita-ui-builder.adoc[Bonita UI Builder] 
 * Facilitated transition: We are dedicated to facilitate the transition, with detailed guides on how to use Bonita UI Builder, as well as https://www.bonitasoft.com/professional-services/on-demand-services[professional services support]
