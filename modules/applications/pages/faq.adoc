@@ -112,6 +112,10 @@ Theoretically you can, yes. However, we’re not supporting them yet.
 |AngularJS
 |React
 
+|Philosophy
+|Form-centric
+|App-centric
+
 |Works best for...
 |Quick development tests, simple use cases
 |Fully-fledged applications, complex use cases
