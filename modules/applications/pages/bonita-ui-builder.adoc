@@ -12,7 +12,8 @@ It brings a host of advanced features and improved usability, designed to help y
 
 * A set of more than 45 widgets
 * A wide gallery template
-* Code completion, custom JS code
+* Code completion
+* Custom JavaScript code
 * Native debugging option
 * A restriction-free drag & drop interface
 * Import and export JSON options
