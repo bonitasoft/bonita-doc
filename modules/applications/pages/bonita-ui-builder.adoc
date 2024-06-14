@@ -5,7 +5,6 @@ They are not anymore standalone elements (such as pages and forms) in a process 
 
 {description}
 
-[.card-section]
 == Bonita UI Builder
 
 
@@ -19,7 +18,6 @@ We offer xref:applications:initiation-manual.adoc[extensive documentation], xref
 
 
 
-[.card-section]
 == Applications
 
 Applications are created and operated within Bonita Platform, created with Bonita Studio and Bonita UI Builder, deployed with Bonita Continuous Delivery, run by Bonita Runtime. 
@@ -31,7 +29,6 @@ Bonita also comes with four Bonita Applications.
 “Applications” are very similar to “Living Applications”, which are created with Bonita UI Designer and will be phased out.
 
 
-[.card-section]
 == How to start using Bonita UI Builder
 
 Bonita UI Builder is available by default and for no additional cost in all https://www.bonitasoft.com/pricing[Scale subscriptions]. It is also available as a payable add-on in https://www.bonitasoft.com/pricing[Access subscriptions]. 
