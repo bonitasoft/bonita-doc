@@ -8,14 +8,21 @@ They are not anymore standalone elements (such as pages and forms) in a process 
 == Bonita UI Builder
 
 
-Bonita UI Builder is a development environment made for designing all kind of interfaces, pages, forms, for your applications. It brings a host of advanced features and improved usability, designed to help you create even more compelling and user-friendly interfaces: a set of more than 45 widgets, a wide gallery template, code completion, custom JS code, native debugging option, a restriction-free drag & drop interface, import and export JSON options, React interfaces, and many more.
+Bonita UI Builder is a development environment made for designing all kind of interfaces, pages, forms, for your applications. 
+It brings a host of advanced features and improved usability, designed to help you create even more compelling and user-friendly interfaces: 
+
+* A set of more than 45 widgets
+* A wide gallery template
+* Code completion, custom JS code
+* Native debugging option
+* A restriction-free drag & drop interface
+* Import and export JSON options
+* React interfaces
+* ...and many more
 
 Bonita UI Builder is an application-centric development environment that allows for designing forms and application pages, without distinction. You can now design fully-fledged applications, embedding dashboards and complex interfaces. Or, you can just design single-page applications. The choice is up to you. 
 
 With Bonita UI Builder, you can still manage your workflows, continuous integration, etc., the way you’re managing them now. 
-
-We offer xref:applications:initiation-manual.adoc[extensive documentation], xref:applications:how-tos-builder.adoc[tutorials], and a xref:applications:faq.adoc[FAQ] to help you make the most of Bonita UI Builder.
-
 
 
 == Applications
@@ -24,17 +31,37 @@ Applications are created and operated within Bonita Platform, created with Bonit
 
 They are a navigation of pages that can be accessed by a xref:identity:profiles-overview.adoc[Profile]. They aim to display and structure the right information and provide the right controls at the right time to the profiles, so they can efficiently perform their tasks. Once pushed to production, Applications cannot be live edited.
 
-Bonita also comes with four Bonita Applications.
+Bonita also comes with four xref:runtime:bonita-applications-interface-overview.adoc[Bonita Applications].
 
-“Applications” are very similar to “Living Applications”, which are created with Bonita UI Designer and will be phased out.
+“Applications” are very similar to “Living Applications”, which are created with Bonita UI Designer and will be phased out. Once pushed to production, Applications cannot be live edited
 
 
-== How to start using Bonita UI Builder
+== Subscription
 
 Bonita UI Builder is available by default and for no additional cost in all https://www.bonitasoft.com/pricing[Scale subscriptions]. It is also available as a payable add-on in https://www.bonitasoft.com/pricing[Access subscriptions]. 
 
 If you haven’t subscribed to a Scale of Access plan yet, please https://www.bonitasoft.com/contact-us[get in touch] with our sales team to start your journey today!
 
-If you have already subscribed to a Scale plan or purchased the UI Builder add-on, then start your journey by following our xref:applications:initiation-manual.adoc[initiation manual].
+If you have already subscribed to a Scale plan or purchased the UI Builder add-on, then start your journey by following our documentation.
 
+
+[.card-section]
+== Start your journey
+
+[.card.card-index]
+--
+xref:applications:initiation-manual.adoc[[.card-title]#Initiation manual# [.card-body.card-content-overflow]#pass:q[Steps to download and use Bonita UI Builder]#]
+--
+
+[.card.card-index]
+--
+xref:applications:resources.adoc[[.card-title]#Resources# [.card-body.card-content-overflow]#pass:q[Make the most of Bonita UI Builder]#]
+--
+
+[.card.card-index]
+--
+xref:applications:faq.adoc[[.card-title]#FAQ# [.card-body.card-content-overflow]#pass:q[Find answers to your questions]#]
+--
+
+[.card-section]
 
