@@ -1,0 +1,83 @@
+= Build the SCA UI
+:description: Procedure to build the SCA UI docker image
+:bonitappsmith_version: 0.0.1-SNAPSHOT
+:docker_url: bonitasoft.jfrog.io/docker-snapshots/bonita-ui-builder
+
+NOTE: You need to have Docker installed on your machine to build the SCA UI.
+
+[[dockerfile]]
+== Dockerfile
+
+Add this Dockerfile to the root of your project:
+
+[source,docker]
+----
+ARG VERSION=0.0.1-SNAPSHOT
+ARG BASE=bonitasoft.jfrog.io/docker-snapshots/bonita-ui-builder
+FROM ${BASE}:${VERSION}
+
+# Create an argument for the workspace folder location (a folder with the applications json inside)
+ARG WORKSPACE=./workspace/
+# Arbitrary workspace folder location inside the docker image
+ENV BONITA_APPLICATION_FOLDER_PATH=/workspace/applications/
+
+RUN mkdir -p ${BONITA_APPLICATION_FOLDER_PATH}
+COPY ${WORKSPACE} ${BONITA_APPLICATION_FOLDER_PATH}
+
+EXPOSE 80
+EXPOSE 443
+ENTRYPOINT [ "/opt/appsmith/entrypoint.sh" ]
+HEALTHCHECK --interval=15s --timeout=15s --start-period=45s CMD "/opt/appsmith/healthcheck.sh"
+CMD ["/usr/bin/supervisord", "-n"]
+----
+
+
+== SCA Docker image
+
+* Copy the Dockerfile
+* From Bonitappsmith, export all applications and store them in the an `workspace` folder next to the Dockerfile.
+
+NOTE: You can name the folder as you want and store it where you want, but you need to update the `WORKSPACE` build argument with the new path folder.
+
+=== Simple use case
+
+* Run this following command to build the SCA-UI docker image. With this command, the image will be built with the default values.
+
+[source,bash]
+----
+  docker build -t bonita-ui:1.0.0 .
+----
+
+=== Advanced use case
+
+You can override some default values by using the following build arguments:
+
+[cols="1,1,1"]
+|===
+|Args | Description | Default value
+
+|BASE |The base image to use | {docker_url}:{bonitappsmith_version}
+|VERSION |The version of image to use | {bonitappsmith_version}
+|WORKSPACE  | The folder containing the apps descriptor | ./workspace/
+|===
+
+[source,bash]
+----
+  docker build --build-arg "BASE=bonitasoft.jfrog.io/docker-snapshots/bonita-ui-builder" \
+               --build-arg "VERSION=0.0.1-SNAPSHOT" \
+               --build-arg "WORKSPACE=./workspace/" \
+               -t test-sca-ui:0.0.1 .
+----
+
+=== Run the SCA UI docker image
+
+To run the SCA-UI docker image, you can use the following command:
+
+[source,bash]
+----
+  docker run --name bonita-ui -p 8080:80 bonita-ui:1.0.0 -e BONITA_API_URL=http://localhost:8080/bonita/api
+----
+
+
+
+
