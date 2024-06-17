@@ -186,6 +186,7 @@ Reminder : For commercial and support questions, please refer to your Customer S
 * RUNTIME-1835 	SInvalidExpressionException generated when a parameter is used from within a groovy script
 * CVE-56        X-Frame-Options and Content-Security-Policy header is missing on some URLs.
 * CVE-62        Regular Expression Denial of Service (ReDoS) in AngularJS (CVE-2024-21490)
+* CVE-63        Upgrade Apache Tomcat version (fixing CVE-2024-24549)
 
 === Fixes in Bonita 2023.1-u3 (2024-01-30)
 
