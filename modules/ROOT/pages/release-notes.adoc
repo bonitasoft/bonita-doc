@@ -380,6 +380,7 @@ The timezone can be set via *TZ* environment variable. Check the https://data.ia
 * RUNTIME-1833 - SanitizerFilter removes html tags from HTTP payload
 * RUNTIME-1835 - SInvalidExpressionException generated when a parameter is used from within a groovy script
 * CVE-62       - Regular Expression Denial of Service (ReDoS) in AngularJS (CVE-2024-21490)
+* CVE-63       - Upgrade Apache Tomcat version (fixing CVE-2024-24549)
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
 
