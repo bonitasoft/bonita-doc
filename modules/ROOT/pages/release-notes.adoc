@@ -138,6 +138,7 @@ The detailed list is available in the "What’s new in Bonita 2022.1" page, in t
 * RUNTIME-1835 - SInvalidExpressionException generated when a parameter is used from within a groovy script
 * RUNTIME-1844 - Update tomcat to 9.0.87
 * CVE-62       - Regular Expression Denial of Service (ReDoS) in AngularJS (CVE-2024-21490)
+* CVE-63       - Upgrade Apache Tomcat version (fixing CVE-2024-24549)
 
 === Fixes in Bonita 2022.2-u8 (2024-02-21)
 
