@@ -40,6 +40,7 @@ We are pleased to bring several exciting advancements in this release, including
 * RUNTIME-1848 - ArchivedTasks filter on type is generating java.lang.ClassCastException
 * RUNTIME-1860 - Access Control panel is displayed on page in all subscription editions even when the feature is not active
 * RUNTIME-1864 - SCA cannot be started without BDM_ACCESS_CONTROL license key activated
+* CVE-63       - Upgrade Apache Tomcat version (fixing CVE-2024-24549)
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
 
