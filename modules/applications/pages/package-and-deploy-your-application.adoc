@@ -38,6 +38,7 @@ After building the Docker image, run it using the following command:
 ----
 docker run --name <container-name> <image-name>:<version>
 ----
+See xref:production-packaging.adoc#run-production-binary[run production binary page] for more details.
 
 === Access to your Application
 
@@ -49,4 +50,18 @@ Once Bonita UI Builder is ready, all applications contained in the dedicated fol
 
 Then, these applications can be accessed from the Bonita application directory
 
-TODO: Adding a troubleshooting section
+[.troubleshooting-title]
+== image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+
+[.troubleshooting-section]
+--
+[.symptom]
+After building and running the Bonita UI Builder, at least one application are missing.
+
+[.cause]#Cause#
+The application is on error and the Bonita UI Builder is not able to import and deploy the application.
+
+[.solution]#Solution#
+Check the log of the bonita-ui-builder container with `docker logs <container-name>` to find with application is on error.
+Then fix your application and be sure your export are compatible and a valid JSON.
+--

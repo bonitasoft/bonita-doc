@@ -52,6 +52,7 @@ You can override some default values by using the following build arguments:
                -t <image-name>:<version> .
 ----
 
+[[run-production-binary]]
 === Run the production binary
 
 To run the production docker image, you can use the following command:
@@ -64,25 +65,3 @@ To run the production docker image, you can use the following command:
 ----
 
 You can override and configure all xref:ui-builder-docker-installation.adoc#environment-variables[environment variables].
-
-[.troubleshooting-title]
-== image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
-
-[.troubleshooting-section]
---
-[.symptom]
-After building and running the Bonita UI Builder, at least one application are missing.
-
-[.cause]#Cause#
-The application is on error and the Bonita UI Builder is not able to import and deploy the application.
-
-[.solution]#Solution#
-Check the log of the bonita-ui-builder container with `docker logs <container-name>` to find with application is on error.
-Then fix your application and be sure your export are compatible and a valid JSON.
---
-
-
-
-
-
-
