@@ -17,8 +17,6 @@ This following environment variable are optional:
 - `LOGGING_LEVEL_COM_APPSMITH`: Sets the logging level for Appsmith components. (default is `debug`)
 - `LOGGING_LEVEL_COM_BONITASOFT`: Sets the logging level for BonitaSoft components. (default is `debug`)
 - `LOGGING_LEVEL_COM_EXTERNAL_PLUGINS`: Sets the logging level for external plugins. (default is `debug`)
-- `APPSMITH_ENCRYPTION_PASSWORD`: Password used for encryption.
-- `APPSMITH_ENCRYPTION_SALT`: Salt used for encryption.
 
 [.troubleshooting-title]
 == image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
