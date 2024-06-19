@@ -6,47 +6,47 @@
 For Subscription editions only.
 ====
 
+Once you've designed an application that interacts with your xref:interact-with-your-bonita-process.adoc[bonita process], and xref:builder-declare-interface-in-bonita.adoc[declared] it in Bonita, it's time to push your interface to production
+
+
 == Prerequisites
 
-Before starting, ensure you have **Docker** the following tools installed on your system:
+Before starting, ensure you have **Docker** the following tools installed on your system.
 
-== Steps to Move from Development to Production
+== Move from Development to Production
 
-=== 1. Design Your Application
+=== Export Your Application
 
-Begin by designing your application using xref:download-and-launch.adoc[Bonita UI Builder].
+Once the design is complete, export the application(s) from Bonita UI Builder by clicking the `export` button on the home page. This export will be used for building the production binary.
 
-=== 2. Export Your Application
-
-Once the design is complete, export the application(s) from Bonita UI Builder. This export will be used for building the production binary.
-
-=== 3. Store Your Application in a Workspace Folder
+=== Store Your Application in a Workspace Folder
 
 Place the exported application(s) in a designated `workspace` folder. This folder will be referenced during the build process.
 You can store these applications in a Git repository too.
 
-=== 4. Build the Production Binary
+=== Build the Production Binary
 
 To create the production-ready binary, you need to build a Docker image. This image will contain the application(s) and the Bonita UI Builder runtime.
 
 The xref:applications:production-packaging.adoc#dockerfile[Dockerfile] and more details and information on how to build the Docker image can be found in this xref:applications:production-packaging.adoc[dedicated page].
 
-=== 5. Run the Docker Image
+=== Run the Docker Image
 
 After building the Docker image, run it using the following command:
 
 [source,shell]
 ----
-docker run --name bonita-ui bonita-ui:1.0.0
+docker run --name <container-name> <image-name>:<version>
 ----
 
-=== 6. Access to your Application
+=== Access to your Application
 
 Once Bonita UI Builder is ready, all applications contained in the dedicated folder will be:
+
 - Imported
 - Published
 - Made available for users
 
-Then, these applications can be accessed from the bonita application directory
+Then, these applications can be accessed from the Bonita application directory
 
-===
+TODO: Adding a troubleshooting section

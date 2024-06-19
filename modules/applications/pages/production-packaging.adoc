@@ -1,54 +1,37 @@
-= Build the SCA UI
-:description: Procedure to build the SCA UI docker image
-:bonitappsmith_version: 0.0.1-SNAPSHOT
-:docker_url: bonitasoft.jfrog.io/docker-snapshots/bonita-ui-builder
+= Build the UI Production Binary
+:bonitasoft: bonitasoft.jfrog.io/docker/bonita-ui-builder
+:description: Procedure to build the UI production binary
 
-NOTE: You need to have Docker installed on your machine to build the SCA UI.
+NOTE: Before starting, ensure you have **Docker** the following tools installed on your system.
+
+== Build docker image
+
+* Add this Dockerfile in your project to the root of your project:
 
 [[dockerfile]]
-== Dockerfile
-
-Add this Dockerfile to the root of your project:
-
 [source,docker]
 ----
-ARG VERSION=0.0.1-SNAPSHOT
-ARG BASE=bonitasoft.jfrog.io/docker-snapshots/bonita-ui-builder
-FROM ${BASE}:${VERSION}
-
-# Create an argument for the workspace folder location (a folder with the applications json inside)
-ARG WORKSPACE=./workspace/
-# Arbitrary workspace folder location inside the docker image
-ENV BONITA_APPLICATION_FOLDER_PATH=/workspace/applications/
-
-RUN mkdir -p ${BONITA_APPLICATION_FOLDER_PATH}
-COPY ${WORKSPACE} ${BONITA_APPLICATION_FOLDER_PATH}
-
-EXPOSE 80
-EXPOSE 443
-ENTRYPOINT [ "/opt/appsmith/entrypoint.sh" ]
-HEALTHCHECK --interval=15s --timeout=15s --start-period=45s CMD "/opt/appsmith/healthcheck.sh"
-CMD ["/usr/bin/supervisord", "-n"]
+include::example$Dockerfile[]
 ----
 
-
-== SCA Docker image
-
-* Copy the Dockerfile
-* From Bonitappsmith, export all applications and store them in the an `workspace` folder next to the Dockerfile.
+* From Bonita UI Builder , export all applications and store them in the an `workspace` folder next to the Dockerfile.
 
 NOTE: You can name the folder as you want and store it where you want, but you need to update the `WORKSPACE` build argument with the new path folder.
 
-=== Simple use case
+To build the production binary docker image you have two poss
 
-* Run this following command to build the SCA-UI docker image. With this command, the image will be built with the default values.
+=== Default build command
+
+With this command, the image will be built with the default values define in the Dockerfile.
+
+WARNING: If you use this command, be sure to have the `workspace` folder next to the Dockerfile.
 
 [source,bash]
 ----
-  docker build -t bonita-ui:1.0.0 .
+  docker build -t <image-name> .
 ----
 
-=== Advanced use case
+=== Advanced build
 
 You can override some default values by using the following build arguments:
 
@@ -56,27 +39,49 @@ You can override some default values by using the following build arguments:
 |===
 |Args | Description | Default value
 
-|BASE |The base image to use | {docker_url}:{bonitappsmith_version}
-|VERSION |The version of image to use | {bonitappsmith_version}
+|BASE |The base image to use | {bonitasoft-docker-repository}/bonita-ui-builder
+|VERSION |The version of image to use | 1.0.0
 |WORKSPACE  | The folder containing the apps descriptor | ./workspace/
 |===
 
 [source,bash]
 ----
-  docker build --build-arg "BASE=bonitasoft.jfrog.io/docker-snapshots/bonita-ui-builder" \
-               --build-arg "VERSION=0.0.1-SNAPSHOT" \
+  docker build --build-arg "BASE={bonitasoft-docker-repository}/bonita-ui-builder" \
+               --build-arg "VERSION=<VERSION>" \
                --build-arg "WORKSPACE=./workspace/" \
-               -t test-sca-ui:0.0.1 .
+               -t <image-name>:<version> .
 ----
 
-=== Run the SCA UI docker image
+=== Run the production binary
 
-To run the SCA-UI docker image, you can use the following command:
+To run the production docker image, you can use the following command:
 
 [source,bash]
 ----
-  docker run --name bonita-ui -p 8080:80 bonita-ui:1.0.0 -e BONITA_API_URL=http://localhost:8080/bonita/api
+  docker run --name <container-name> -p 8080:80
+            -e BONITA_API_URL=<bonita-runtime-url>/bonita/API
+            <image-name>:<image-version>
 ----
+
+You can override and configure all xref:ui-builder-docker-installation.adoc#environment-variables[environment variables].
+
+[.troubleshooting-title]
+== image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+
+[.troubleshooting-section]
+--
+[.symptom]
+After building and running the Bonita UI Builder, at least one application are missing.
+
+[.cause]#Cause#
+The application is on error and the Bonita UI Builder is not able to import and deploy the application.
+
+[.solution]#Solution#
+Check the log of the bonita-ui-builder container with `docker logs <container-name>` to find with application is on error.
+Then fix your application and be sure your export are compatible and a valid JSON.
+--
+
+
 
 
 
