@@ -67,7 +67,7 @@ xref:package-and-deploy-your-application.adoc[[.card-title]#Move to production# 
 
 [.card.card-index]
 --
-xref:ui-builder-docker-installation.adoc[[.card-title]#Move to production# [.card-body.card-content-overflow]#pass:q[Steps move from Development to Production]#]
+xref:ui-builder-docker-installation.adoc[[.card-title]#UI Builder configuration# [.card-body.card-content-overflow]#pass:q[How to configure the UI Builder docker container]#]
 --
 
 [.card-section]

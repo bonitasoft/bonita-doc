@@ -2,6 +2,7 @@
  ** xref:bonita-ui-builder.adoc[Applications with Bonita UI Builder]
   *** xref:initiation-manual.adoc[Initiation Manual]
    **** xref:download-and-launch.adoc[Download and launch]
+   **** xref:ui-builder-docker-installation.adoc[UI Builder Docker]
    **** xref:create-an-interface.adoc[Create an interface]
    **** xref:interact-with-your-bonita-process.adoc[Interact with your Bonita process]
    **** xref:builder-declare-interface-in-bonita.adoc[Declare the interface into Bonita]
