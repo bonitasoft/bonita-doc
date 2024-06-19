@@ -1,6 +1,6 @@
 = Living Applications with Bonita UID
 :description: This page explains what a Living Application is, what it is made of, and how you can create your own applications.
-
+:page-aliases: applications:custom-applications-index.adoc
 {description}
 
 [NOTE]
