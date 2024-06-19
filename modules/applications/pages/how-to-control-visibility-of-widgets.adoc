@@ -1,1 +1,41 @@
+= How to control visibility of your widgets
+:description: Learn how to set conditions to make your widgets visible or not 
 
+{description}
+
+* Difficulty: beginner
+* Prerequisites: have an xref:create-an-interface.adoc[interface created] on Bonita UI Builder
+* Estimated time: 5 minutes
+
+
+== Using JavaScript
+
+Widgets' visibility can be controlled by JavaScript. Let’s say you want to make a widget visible on specific conditions, for example if another widget contains a specific string. 
+Click the `JS` button on your widget’s settings:
+
+image::images/guides/js-button-disabled.png[js-button-disabled]
+
+Add this small portion of code to make the `Text22` widget visible if the other text widget contains the string “Bonita” :
+
+image::images/guides/visibility-enabled.png[visibility-enabled]
+
+
+== Using the storeValue() function
+
+The `storeValue()` function stores the data in the browser's local storage as key-value pairs that represent storage objects and can be later accessed anywhere in the application.
+
+Let us create “Show” and “Hide” buttons, which, on click, make another widget appear or disappear.
+
+First, drag and drop a button widget, and change its `onClick` setting to `Store value`. Then, set its key and value:
+
+image::images/guides/store-value.png[store-value]
+
+Do the same for another button widget whose `Value` will equal “false” instead of "true".
+
+Then, drag and drop a text widget, click the little `JS` button next to `Visible`, and type the following code: 
+
+image::images/guides/store-state.png[store-state]
+
+Preview your application and try clicking on the button widgets. It works!
+
+The `Visible` state also works for widgets other than text widgets. Try it out!
