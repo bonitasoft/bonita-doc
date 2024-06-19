@@ -75,6 +75,7 @@ Starting the development of an application from scratch may not be the most effi
 * That an administrator-like user monitors the health of process execution and fixes the potential errors, you may want to try and use or customize our *Bonita Administrator Application*
 * Specific pages showing specific business data, you may want to *borrow a project created by a Community member and customize it*
 * Adaptive Case Management, with non-sequential parts in the processes to let the knowledge workers' expertise decide which tasks to do and which ones to skip for a dedicated case, you may check our *ACM example*
+
 [.card.card-index]
 --
 xref:runtime:user-application-overview.adoc[[.card-title]#Bonita User Application# [.card-body.card-content-overflow]#pass:q[Start process instances and execute tasks using a generic tasklist]#]
