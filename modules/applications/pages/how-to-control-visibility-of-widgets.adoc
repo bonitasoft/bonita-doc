@@ -30,7 +30,7 @@ First, drag and drop a button widget, and change its `onClick` setting to `Store
 
 image::images/guides/store-value.png[store-value]
 
-Do the same for another button widget whose `Value` will equal “false” instead of "true".
+Do the same for another button widget whose `Value` will equal `false` instead of `true`.
 
 Then, drag and drop a text widget, click the little `JS` button next to `Visible`, and type the following code: 
 
