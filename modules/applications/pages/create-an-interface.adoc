@@ -1,5 +1,5 @@
 = Create an interface
-:description: Once you have downloaded and launch Bonita UI Builder, it's time to create an interface. 
+:description: Once you have downloaded and launched Bonita UI Builder, it's time to create an interface. 
 
 {description}
 
@@ -18,7 +18,6 @@ You land on the design interface:
 
 image::images/create-an-interface/design-interface.png[design-interface]
 
-Describe
 On the left part can be found all widgets (visual elements) that you can drag and drop anywhere you want on the central part. 
 This is also where you can define your API requests (`Queries` tab) that will help you connect your widgets to your Bonita process, see xref:applications:interact-with-your-bonita-process.adoc[next section] for more details.
 
