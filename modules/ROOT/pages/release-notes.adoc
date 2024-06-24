@@ -1,5 +1,5 @@
 = Release notes
-:description: Bonita release note
+:description: Bonita release notes for the 2024.3 version
 
 [NOTE]
 ====
