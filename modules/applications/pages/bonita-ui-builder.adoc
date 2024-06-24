@@ -7,8 +7,8 @@ They are not anymore standalone elements (such as pages and forms) in a process 
 
 == Bonita UI Builder
 
-Bonita UI Builder is a development environment made for designing all kind of interfaces, pages, forms, for your applications. 
-It brings a host of advanced features and improved usability, designed to help you create even more compelling and user-friendly interfaces: 
+Bonita UI Builder is a development environment made for designing all kind of interfaces, pages, forms, for your applications.
+It brings a host of advanced features and improved usability, designed to help you create even more compelling and user-friendly interfaces:
 
 * A set of more than 45 widgets
 * Code completion
@@ -19,14 +19,14 @@ It brings a host of advanced features and improved usability, designed to help y
 * React interfaces
 * ...and many more
 
-Bonita UI Builder is an application-centric development environment that allows for designing forms and application pages, without distinction. You can now design fully-fledged applications, embedding dashboards and complex interfaces. Or, you can just design single-page applications. The choice is up to you. 
+Bonita UI Builder is an application-centric development environment that allows for designing forms and application pages, without distinction. You can now design fully-fledged applications, embedding dashboards and complex interfaces. Or, you can just design single-page applications. The choice is up to you.
 
-With Bonita UI Builder, you can still manage your workflows, continuous integration, etc., the way you’re managing them now. 
+With Bonita UI Builder, you can still manage your workflows, continuous integration, etc., the way you’re managing them now.
 
 
 == Applications
 
-Applications are created and operated within Bonita Platform, created with Bonita Studio and Bonita UI Builder, deployed with Bonita Continuous Delivery, run by Bonita Runtime. 
+Applications are created and operated within Bonita Platform, created with Bonita Studio and Bonita UI Builder, deployed with Bonita Continuous Delivery, run by Bonita Runtime.
 
 They are a navigation of pages that can be accessed by a xref:identity:profiles-overview.adoc[Profile]. They aim to display and structure the right information and provide the right controls at the right time to the profiles, so they can efficiently perform their tasks. Applications are very similar to “Living Applications”, which are created with Bonita UI Designer and will be phased out. Once pushed to production, Applications cannot be live edited.
 
@@ -35,7 +35,7 @@ Bonita also comes with four xref:runtime:bonita-applications-interface-overview.
 
 == Subscription
 
-Bonita UI Builder is available by default and for no additional cost in all https://www.bonitasoft.com/pricing[Scale subscriptions]. It is also available as a payable add-on in https://www.bonitasoft.com/pricing[Access subscriptions]. 
+Bonita UI Builder is available by default and for no additional cost in all https://www.bonitasoft.com/pricing[Scale subscriptions]. It is also available as a payable add-on in https://www.bonitasoft.com/pricing[Access subscriptions].
 
 If you haven’t subscribed to a Scale of Access plan yet, please https://www.bonitasoft.com/contact-us[get in touch] with our sales team to start your journey today!
 
@@ -52,6 +52,16 @@ xref:applications:initiation-manual.adoc[[.card-title]#Initiation manual# [.card
 
 [.card.card-index]
 --
+xref:ui-builder-docker-installation.adoc[[.card-title]#UI Builder configuration# [.card-body.card-content-overflow]#pass:q[How to configure the UI Builder docker container]#]
+--
+
+[.card.card-index]
+--
+xref:create-an-interface.adoc[[.card-title]#Create an interface# [.card-body.card-content-overflow]#pass:q[Steps to create your interface]#]
+--
+
+[.card.card-index]
+--
 xref:applications:resources.adoc[[.card-title]#Resources# [.card-body.card-content-overflow]#pass:q[Make the most of Bonita UI Builder]#]
 --
 
@@ -63,11 +73,6 @@ xref:applications:faq.adoc[[.card-title]#FAQ# [.card-body.card-content-overflow]
 [.card.card-index]
 --
 xref:package-and-deploy-your-application.adoc[[.card-title]#Move to production# [.card-body.card-content-overflow]#pass:q[Steps move from Development to Production]#]
---
-
-[.card.card-index]
---
-xref:ui-builder-docker-installation.adoc[[.card-title]#UI Builder configuration# [.card-body.card-content-overflow]#pass:q[How to configure the UI Builder docker container]#]
 --
 
 [.card-section]
