@@ -1,4 +1,4 @@
-= Bonita Runtime dependencies (10.1.0)
+= Bonita Runtime dependencies (10.2.0.alpha-01)
 :page-aliases: ROOT:bonita-web-dependencies.adoc, ROOT:bonita-engine-dependencies.adoc
 :description: List all dependencies used by Bonita Runtime
 
@@ -10,25 +10,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.15.3
+| 2.17.1
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -94,25 +94,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.15.3
+| 2.17.1
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -166,20 +166,20 @@
 
 | org.apache.httpcomponents
 | httpclient
-| 4.5.13
-| http://hc.apache.org/httpcomponents-client[http://hc.apache.org/httpcomponents-client]
+| 4.5.14
+| http://hc.apache.org/httpcomponents-client-ga[http://hc.apache.org/httpcomponents-client-ga]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | org.apache.httpcomponents
 | httpcore
-| 4.4.13
+| 4.4.16
 | http://hc.apache.org/httpcomponents-core-ga[http://hc.apache.org/httpcomponents-core-ga]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | org.apache.httpcomponents
 | httpmime
-| 4.5.13
-| http://hc.apache.org/httpcomponents-client[http://hc.apache.org/httpcomponents-client]
+| 4.5.14
+| http://hc.apache.org/httpcomponents-client-ga[http://hc.apache.org/httpcomponents-client-ga]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | org.glassfish.hk2
@@ -250,31 +250,31 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.15.3
+| 2.17.1
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-yaml
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -328,9 +328,9 @@
 
 | commons-io
 | commons-io
-| 2.11.0
+| 2.16.1
 | https://commons.apache.org/proper/commons-io/[https://commons.apache.org/proper/commons-io/]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | commons-logging
 | commons-logging
@@ -388,7 +388,7 @@
 
 | net.bytebuddy
 | byte-buddy
-| 1.10.22
+| 1.11.12
 | N/A
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -406,103 +406,103 @@
 
 | org.apache.commons
 | commons-lang3
-| 3.11
+| 3.14.0
 | https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | org.codehaus.groovy
 | groovy
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-console
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-datetime
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-dateutil
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-docgenerator
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-groovysh
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-jmx
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-json
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-jsr223
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-nio
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-servlet
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-sql
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-swing
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-templates
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-xml
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-yaml
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -514,8 +514,8 @@
 
 | org.eclipse.jdt
 | ecj
-| 3.20.0
-| http://www.eclipse.org/jdt[http://www.eclipse.org/jdt]
+| 3.38.0
+| https://projects.eclipse.org/projects/eclipse.jdt[https://projects.eclipse.org/projects/eclipse.jdt]
 |  http://www.eclipse.org/legal/epl-2.0[Eclipse Public License Version 2.0]
 
 | org.glassfish.hk2
@@ -550,7 +550,7 @@
 
 | org.hibernate
 | hibernate-core
-| 5.4.32.Final
+| 5.4.33
 | http://www.hibernate.org/orm/5.4[http://www.hibernate.org/orm/5.4]
 |  http://www.opensource.org/licenses/LGPL-2.1[GNU Library General Public License v2.1 or later]
 
@@ -610,55 +610,55 @@
 
 | org.springframework
 | spring-aop
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jdbc
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-tx
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-web
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -682,7 +682,7 @@
 
 | org.yaml
 | snakeyaml
-| 2.1
+| 2.2
 | https://bitbucket.org/snakeyaml/snakeyaml[https://bitbucket.org/snakeyaml/snakeyaml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -706,61 +706,61 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.15.3
+| 2.17.1
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-csv
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-smile
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson-dataformats-binary[https://github.com/FasterXML/jackson-dataformats-binary]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-xml
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson-dataformat-xml[https://github.com/FasterXML/jackson-dataformat-xml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-yaml
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.module
 | jackson-module-jaxb-annotations
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson-modules-base[https://github.com/FasterXML/jackson-modules-base]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.module
 | jackson-module-jsonSchema
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson-module-jsonSchema[https://github.com/FasterXML/jackson-module-jsonSchema]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -868,9 +868,9 @@
 
 | commons-io
 | commons-io
-| 2.11.0
+| 2.16.1
 | https://commons.apache.org/proper/commons-io/[https://commons.apache.org/proper/commons-io/]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | commons-logging
 | commons-logging
@@ -934,26 +934,26 @@
 
 | org.apache.commons
 | commons-lang3
-| 3.11
+| 3.14.0
 | https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | org.apache.httpcomponents
 | httpclient
-| 4.5.13
-| http://hc.apache.org/httpcomponents-client[http://hc.apache.org/httpcomponents-client]
+| 4.5.14
+| http://hc.apache.org/httpcomponents-client-ga[http://hc.apache.org/httpcomponents-client-ga]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | org.apache.httpcomponents
 | httpcore
-| 4.4.13
+| 4.4.16
 | http://hc.apache.org/httpcomponents-core-ga[http://hc.apache.org/httpcomponents-core-ga]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | org.apache.httpcomponents
 | httpmime
-| 4.5.13
-| http://hc.apache.org/httpcomponents-client[http://hc.apache.org/httpcomponents-client]
+| 4.5.14
+| http://hc.apache.org/httpcomponents-client-ga[http://hc.apache.org/httpcomponents-client-ga]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | org.apache.xbean
@@ -970,7 +970,7 @@
 
 | org.codehaus.groovy
 | groovy
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1042,49 +1042,49 @@
 
 | org.springframework
 | spring-aop
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-web
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-webmvc
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -1096,7 +1096,7 @@
 
 | org.yaml
 | snakeyaml
-| 2.1
+| 2.2
 | https://bitbucket.org/snakeyaml/snakeyaml[https://bitbucket.org/snakeyaml/snakeyaml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -1126,9 +1126,9 @@
 
 | com.h2database
 | h2
-| 1.4.199
-| http://www.h2database.com[http://www.h2database.com]
-|  http://h2database.com/html/license.html[MPL 2.0 or EPL 1.0]
+| 1.4.200
+| https://h2database.com[https://h2database.com]
+|  https://h2database.com/html/license.html[MPL 2.0 or EPL 1.0]
 
 | com.microsoft.sqlserver
 | mssql-jdbc
@@ -1156,15 +1156,15 @@
 
 | commons-cli
 | commons-cli
-| 1.4
-| http://commons.apache.org/proper/commons-cli/[http://commons.apache.org/proper/commons-cli/]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+| 1.8.0
+| https://commons.apache.org/proper/commons-cli/[https://commons.apache.org/proper/commons-cli/]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | commons-io
 | commons-io
-| 2.8.0
+| 2.16.1
 | https://commons.apache.org/proper/commons-io/[https://commons.apache.org/proper/commons-io/]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | jakarta.annotation
 | jakarta.annotation-api
@@ -1204,49 +1204,49 @@
 
 | org.springframework
 | spring-aop
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jdbc
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-tx
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -1282,7 +1282,7 @@
 
 | org.yaml
 | snakeyaml
-| 1.32
+| 1.30
 | https://bitbucket.org/snakeyaml/snakeyaml[https://bitbucket.org/snakeyaml/snakeyaml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 |=== 
@@ -1294,25 +1294,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.15.3
+| 2.17.1
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1378,25 +1378,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.15.3
+| 2.17.1
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1450,20 +1450,20 @@
 
 | org.apache.httpcomponents
 | httpclient
-| 4.5.13
-| http://hc.apache.org/httpcomponents-client[http://hc.apache.org/httpcomponents-client]
+| 4.5.14
+| http://hc.apache.org/httpcomponents-client-ga[http://hc.apache.org/httpcomponents-client-ga]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | org.apache.httpcomponents
 | httpcore
-| 4.4.13
+| 4.4.16
 | http://hc.apache.org/httpcomponents-core-ga[http://hc.apache.org/httpcomponents-core-ga]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | org.apache.httpcomponents
 | httpmime
-| 4.5.13
-| http://hc.apache.org/httpcomponents-client[http://hc.apache.org/httpcomponents-client]
+| 4.5.14
+| http://hc.apache.org/httpcomponents-client-ga[http://hc.apache.org/httpcomponents-client-ga]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | org.glassfish.hk2
@@ -1534,31 +1534,31 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.16.1
+| 2.17.1
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.16.1
+| 2.17.1
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.16.1
+| 2.17.1
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.16.1
+| 2.17.1
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-yaml
-| 2.16.1
+| 2.17.1
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1690,9 +1690,9 @@
 
 | commons-io
 | commons-io
-| 2.11.0
+| 2.16.1
 | https://commons.apache.org/proper/commons-io/[https://commons.apache.org/proper/commons-io/]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | commons-logging
 | commons-logging
@@ -1781,7 +1781,7 @@
 
 | net.bytebuddy
 | byte-buddy
-| 1.10.22
+| 1.11.12
 | N/A
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -1817,19 +1817,19 @@
 
 | org.apache.commons
 | commons-lang3
-| 3.11
+| 3.14.0
 | https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | org.apache.httpcomponents
 | httpclient
-| 4.5.13
-| http://hc.apache.org/httpcomponents-client[http://hc.apache.org/httpcomponents-client]
+| 4.5.14
+| http://hc.apache.org/httpcomponents-client-ga[http://hc.apache.org/httpcomponents-client-ga]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | org.apache.httpcomponents
 | httpcore
-| 4.4.13
+| 4.4.16
 | http://hc.apache.org/httpcomponents-core-ga[http://hc.apache.org/httpcomponents-core-ga]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -1865,97 +1865,97 @@
 
 | org.codehaus.groovy
 | groovy
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-console
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-datetime
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-dateutil
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-docgenerator
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-groovysh
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-jmx
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-json
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-jsr223
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-nio
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-servlet
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-sql
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-swing
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-templates
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-xml
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-yaml
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1967,8 +1967,8 @@
 
 | org.eclipse.jdt
 | ecj
-| 3.20.0
-| http://www.eclipse.org/jdt[http://www.eclipse.org/jdt]
+| 3.38.0
+| https://projects.eclipse.org/projects/eclipse.jdt[https://projects.eclipse.org/projects/eclipse.jdt]
 |  http://www.eclipse.org/legal/epl-2.0[Eclipse Public License Version 2.0]
 
 | org.glassfish.hk2
@@ -2003,13 +2003,13 @@
 
 | org.hibernate
 | hibernate-core
-| 5.4.32.Final
+| 5.4.33
 | http://www.hibernate.org/orm/5.4[http://www.hibernate.org/orm/5.4]
 |  http://www.opensource.org/licenses/LGPL-2.1[GNU Library General Public License v2.1 or later]
 
 | org.hibernate
 | hibernate-jcache
-| 5.4.32.Final
+| 5.4.33
 | http://www.hibernate.org/orm/5.4[http://www.hibernate.org/orm/5.4]
 |  http://www.opensource.org/licenses/LGPL-2.1[GNU Library General Public License v2.1 or later]
 
@@ -2069,55 +2069,55 @@
 
 | org.springframework
 | spring-aop
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jdbc
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-tx
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-web
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -2171,67 +2171,67 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.15.3
+| 2.17.1
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-csv
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-smile
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson-dataformats-binary[https://github.com/FasterXML/jackson-dataformats-binary]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-xml
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson-dataformat-xml[https://github.com/FasterXML/jackson-dataformat-xml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-yaml
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.module
 | jackson-module-jaxb-annotations
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson-modules-base[https://github.com/FasterXML/jackson-modules-base]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.module
 | jackson-module-jsonSchema
-| 2.15.3
+| 2.17.1
 | https://github.com/FasterXML/jackson-module-jsonSchema[https://github.com/FasterXML/jackson-module-jsonSchema]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.woodstox
 | woodstox-core
-| 6.5.1
+| 6.6.2
 | https://github.com/FasterXML/woodstox[https://github.com/FasterXML/woodstox]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -2363,9 +2363,9 @@
 
 | commons-io
 | commons-io
-| 2.11.0
+| 2.16.1
 | https://commons.apache.org/proper/commons-io/[https://commons.apache.org/proper/commons-io/]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | commons-logging
 | commons-logging
@@ -2471,26 +2471,26 @@
 
 | org.apache.commons
 | commons-lang3
-| 3.11
+| 3.14.0
 | https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | org.apache.httpcomponents
 | httpclient
-| 4.5.13
-| http://hc.apache.org/httpcomponents-client[http://hc.apache.org/httpcomponents-client]
+| 4.5.14
+| http://hc.apache.org/httpcomponents-client-ga[http://hc.apache.org/httpcomponents-client-ga]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | org.apache.httpcomponents
 | httpcore
-| 4.4.13
+| 4.4.16
 | http://hc.apache.org/httpcomponents-core-ga[http://hc.apache.org/httpcomponents-core-ga]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | org.apache.httpcomponents
 | httpmime
-| 4.5.13
-| http://hc.apache.org/httpcomponents-client[http://hc.apache.org/httpcomponents-client]
+| 4.5.14
+| http://hc.apache.org/httpcomponents-client-ga[http://hc.apache.org/httpcomponents-client-ga]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | org.apache.santuario
@@ -2531,15 +2531,15 @@
 
 | org.codehaus.groovy
 | groovy
-| 3.0.19
+| 3.0.21
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.woodstox
 | stax2-api
-| 4.2.1
+| 4.2.2
 | http://github.com/FasterXML/stax2-api[http://github.com/FasterXML/stax2-api]
-|  http://www.opensource.org/licenses/bsd-license.php[The BSD License]
+|  http://www.opensource.org/licenses/bsd-license.php[The BSD 2-Clause License]
 
 | org.codelibs
 | spnego
@@ -2729,49 +2729,49 @@
 
 | org.springframework
 | spring-aop
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-web
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-webmvc
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -2795,7 +2795,7 @@
 
 | org.yaml
 | snakeyaml
-| 2.1
+| 2.2
 | https://bitbucket.org/snakeyaml/snakeyaml[https://bitbucket.org/snakeyaml/snakeyaml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -2825,9 +2825,9 @@
 
 | com.h2database
 | h2
-| 1.4.199
-| http://www.h2database.com[http://www.h2database.com]
-|  http://h2database.com/html/license.html[MPL 2.0 or EPL 1.0]
+| 1.4.200
+| https://h2database.com[https://h2database.com]
+|  https://h2database.com/html/license.html[MPL 2.0 or EPL 1.0]
 
 | com.microsoft.sqlserver
 | mssql-jdbc
@@ -2855,15 +2855,15 @@
 
 | commons-cli
 | commons-cli
-| 1.4
-| http://commons.apache.org/proper/commons-cli/[http://commons.apache.org/proper/commons-cli/]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+| 1.8.0
+| https://commons.apache.org/proper/commons-cli/[https://commons.apache.org/proper/commons-cli/]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | commons-io
 | commons-io
-| 2.8.0
+| 2.16.1
 | https://commons.apache.org/proper/commons-io/[https://commons.apache.org/proper/commons-io/]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | jakarta.annotation
 | jakarta.annotation-api
@@ -2903,49 +2903,49 @@
 
 | org.springframework
 | spring-aop
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jdbc
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-tx
-| 5.3.34
+| 5.3.37
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -2981,7 +2981,7 @@
 
 | org.yaml
 | snakeyaml
-| 1.32
+| 1.30
 | https://bitbucket.org/snakeyaml/snakeyaml[https://bitbucket.org/snakeyaml/snakeyaml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 |=== 
