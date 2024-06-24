@@ -1,0 +1,38 @@
+= How to share data across pages
+:description: Learn how to send data through you application's pages
+
+{description}
+
+* Difficulty: beginner
+* Prerequisites: have an xref:create-an-interface.adoc[interface created] on Bonita UI Builder
+* Estimated time: 5 minutes
+
+== Using query parameters
+
+Let’s say you want to send parameters to another page using what was typed in a text widget.
+
+To do so, drag and drop a text widget and a button widget. The button widget should be configured like this:
+
+image::images/guides/configure-query-params.png[configure-query-params]
+
+
+The `navigate to` function will redirect to the chosen page. The query params will be passed between the source and the target page's URL: `your-application/target-page/edit?xx=value`
+
+
+== Using JavaScript objects
+
+You can also create a JS object to store key-value pairs within the local storage:
+[source, JS]
+----
+export default {
+     populate_store () {
+         storeValue('keyName', 'value', true);
+         return appsmith.store.name;
+     }
+ }
+----
+
+Once done, retrieve data using: `{{appsmith.store.keyName}}` in your queries and other widgets.
+
+
+
