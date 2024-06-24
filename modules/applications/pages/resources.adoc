@@ -12,7 +12,7 @@
  
 
 == Other documentations
-* https://api-documentation.bonitasoft.com/latest/[Bonita API] : designed to help you interact with your Bonita projects and data from Bonita UI Builder
+* {openApiUrl}/{openApiLatestVersion}[Bonita API] : designed to help you interact with your Bonita projects and data from Bonita UI Builder
 * Bonita UI Builder has been developed based on Appsmith and modifies some portions of it to integrate with the Bonita Platform. Please refer to Appsmith’s https://docs.appsmith.com/[documentation] in case something is missing in Bonita UI Builder’s
 
 
