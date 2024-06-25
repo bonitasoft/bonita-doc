@@ -14,15 +14,15 @@ NOTE: Before starting, ensure you have **Docker** the following tools installed 
 include::example$Dockerfile[]
 ----
 
-* From Bonita UI Builder , export all applications and store them in the an `workspace` folder next to the Dockerfile.
+* From Bonita UI Builder , export all applications and store them in the `workspace` folder next to the Dockerfile.
 
-NOTE: You can name the folder as you want and store it where you want, but you need to update the `WORKSPACE` build argument with the new path folder.
+NOTE: You can change the default `workspace` folder and use any folder, but in this case use the `WORKSPACE` build argument with the new folder path.
 
 To build the production binary docker image you have two poss
 
 === Default build command
 
-With this command, the image will be built with the default values define in the Dockerfile.
+With this command, the image will be built with the default values defined in the Dockerfile.
 
 WARNING: If you use this command, be sure to have the `workspace` folder next to the Dockerfile.
 

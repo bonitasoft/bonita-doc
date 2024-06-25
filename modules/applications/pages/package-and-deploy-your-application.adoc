@@ -21,7 +21,7 @@ Once the design is complete, export the application(s) from Bonita UI Builder by
 
 === Store Your Application in a Workspace Folder
 
-Place the exported application(s) in a designated `workspace` folder. This folder will be referenced during the build process.
+Move the exported application(s) (json files) in a designated `workspace` folder. This folder will be referenced during the build process.
 You can store these applications in a Git repository too.
 
 === Build the Production Binary
@@ -48,7 +48,7 @@ Once Bonita UI Builder is ready, all applications contained in the dedicated fol
 - Published
 - Made available for users
 
-Then, these applications can be accessed from the Bonita application directory
+Then, these applications can be accessed from the Bonita administrator application, application directory page.
 
 [.troubleshooting-title]
 == image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
@@ -62,6 +62,6 @@ After building and running the Bonita UI Builder, at least one application are m
 The application is on error and the Bonita UI Builder is not able to import and deploy the application.
 
 [.solution]#Solution#
-Check the log of the bonita-ui-builder container with `docker logs <container-name>` to find with application is on error.
+Check the log of the bonita-ui-builder container with `docker logs <container-name>` to find which application is on error.
 Then fix your application and be sure your export are compatible and a valid JSON.
 --

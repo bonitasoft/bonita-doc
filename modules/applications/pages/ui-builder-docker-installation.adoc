@@ -6,11 +6,11 @@ This guide provides  instructions on how to configure the `bonita-ui-builder` Do
 [[environment-variables]]
 == Docker container Environment variables
 
-This following environment variable are mandatory:
+The following environment variable is mandatory:
 
 - `BONITA_API_URL`: The URL for the Bonita API.
 
-This following environment variable are optional:
+The following environment variables are optional:
 
 - `BONITA_DEV_MODE`: Enables user to development mode when set to `1`.
 - `LOGGING_LEVEL_ROOT`: Sets the logging level for the root logger. (default is `debug`)
@@ -30,5 +30,5 @@ I can't access to the Bonita UI Builder.
 The Bonita UI Builder is not correctly configured.
 
 [.solution]#Solution#
-Check the environment variables and make sure they are correctly set. The Bonita_API_URL should target a valid Bonita Runtime.
+Check the environment variables and make sure they are correctly set. The `BONITA_API_URL` should target a valid Bonita Runtime.
 --
