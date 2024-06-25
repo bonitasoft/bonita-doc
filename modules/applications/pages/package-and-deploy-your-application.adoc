@@ -8,16 +8,13 @@ For Subscription editions only.
 
 Once you've designed an application that interacts with your xref:interact-with-your-bonita-process.adoc[bonita process], and xref:builder-declare-interface-in-bonita.adoc[declared] it in Bonita, it's time to push your interface to production
 
-
-== Prerequisites
-
-Before starting, ensure you have **Docker** the following tools installed on your system.
-
 == Move from Development to Production
 
 === Export Your Application
 
 Once the design is complete, export the application(s) from Bonita UI Builder by clicking the `export` button on the home page. This export will be used for building the production binary.
+
+image::images/advanced-app/export-application.png[Export application]
 
 === Store Your Application in a Workspace Folder
 
@@ -51,7 +48,7 @@ Once Bonita UI Builder is ready, all applications contained in the dedicated fol
 Then, these applications can be accessed from the Bonita administrator application, application directory page.
 
 [.troubleshooting-title]
-== image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+== Troubleshooting
 
 [.troubleshooting-section]
 --

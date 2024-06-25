@@ -10,7 +10,6 @@ For Subscription editions only.
 
 - Create a `docker-compose.yml` file with the content below:
 
-(_To update with the final content_)
 
 .Click to see the docker compose file
 [%collapsible]
@@ -24,8 +23,6 @@ include::example$development/docker-compose.yml[]
 INFO: You can override and configure all xref:ui-builder-docker-installation.adoc#environment-variables[environment variables] in the `docker-compose.yml` file.
 
 - Create a `nginx` configuration file `nginx.conf` with the content below:
-
-(_To update with the final content_)
 
 .Click to see the nginx configuration file
 [%collapsible]
@@ -52,6 +49,11 @@ docker compose up -d
 ----
 
 Then, you can access Bonita UI Builder at `http://localhost`.
+
+Two environments are available:
+- `IMAGE_NAME` to override the Bonita UI Builder image name. (default is `{bonitasoft-docker-repository}/bonita-ui-builder:{bonita-ui-builder-latest-version}`)
+- `BONITA_RUNTIME_PORT` to override the  Bonita runtime port.  (default is `8080`)
+
 
 [NOTE]
 ====

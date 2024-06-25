@@ -19,7 +19,7 @@ The following environment variables are optional:
 - `LOGGING_LEVEL_COM_EXTERNAL_PLUGINS`: Sets the logging level for external plugins. (default is `debug`)
 
 [.troubleshooting-title]
-== image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+== Troubleshooting
 
 [.troubleshooting-section]
 --

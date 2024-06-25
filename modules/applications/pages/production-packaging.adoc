@@ -18,8 +18,6 @@ include::example$Dockerfile[]
 
 NOTE: You can change the default `workspace` folder and use any folder, but in this case use the `WORKSPACE` build argument with the new folder path.
 
-To build the production binary docker image you have two poss
-
 === Default build command
 
 With this command, the image will be built with the default values defined in the Dockerfile.
