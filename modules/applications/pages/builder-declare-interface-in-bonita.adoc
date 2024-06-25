@@ -8,20 +8,20 @@
 The xref:applications:application-creation.adoc[Bonita application descriptor] is a file that let you describe all your applications.
 
 To declare a Bonita UI Builder interface in it, edit it in Studio using the `source` tab.
-In this tab, you will be able to declare your application built and packaged with Bonita UI Builder, using auto-completion with a `advancedApplication` XML tag.
+In this tab, you will be able to declare your application built and packaged with Bonita UI Builder, using auto-completion with an `applicationLink` XML tag.
 
-image::images/advanced-app/advanced-application-descriptor.png[Application Descriptor Editor]
+image::images/app-link/application-link-descriptor.png[Application Descriptor Editor]
 
-In this example, the _Advanced Overview_ application is declared with the tag:
+In this example, the _General Overview_ application is declared with the tag:
 
 [source,xml]
 ----
-     <advancedApplication token="advanced" version="1.0" profile="User" state="ACTIVATED">
-         <displayName>Advanced Overview</displayName>
-     </advancedApplication>
+     <applicationLink token="appLink" version="1.0" profile="User" state="ACTIVATED">
+         <displayName>General Overview</displayName>
+     </applicationLink>
 ----
 
-There are fewer properties to set for an advanced application than for a legacy application, but the `displayName` is still mandatory.
+There are fewer properties to set for an application link than for a legacy application, but the `displayName` is still mandatory.
 
 [NOTE]
 ====
