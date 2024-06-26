@@ -12,7 +12,7 @@ image::images/app-link/issueOldLayout.png[Application with old layout]
 In that case, the Application Directory opened from that application only will not display Application Links correctly, but the same way as Legacy Applications. +
 Fix this by using `custompage_layoutBonita` as the layout value, which will automatically migrate to the latest layout.
 
-You may also encounter this issue if you use a xref:ROOT:applications:customize-layouts.adoc[customized layout] instead of the official one. In that case, adapt your layout and report your modifications to the latest layout version that implements the latest improvements for Application Links.
+You may also encounter this issue if you use a xref:applications:customize-layouts.adoc[customized layout] instead of the official one. In that case, adapt your layout and report your modifications to the latest layout version that implements the latest improvements for Application Links.
 
 
 [NOTE]
