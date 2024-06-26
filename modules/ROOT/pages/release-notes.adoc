@@ -15,6 +15,7 @@ Available in all Scale subscription and as a payable add-on in Convert subscript
 === Application Links
 
 You can now use application links. See xref:applications:bonita-ui-builder.adoc[Applications with Bonita UI Builder] for more details. Community users can also integrate their own links for applications developed with other tools.
+See xref:applications:faq.adoc[FAQ] for common problems and solutions (e.g. if you use a customized or an old layout).
 
 xref:api:engine-api-overview.adoc[Engine APIs] that allowed applications manipulation still work with legacy applications and have been deprecated in favor of new APIs that manipulate both application links and legacy applications.
 
