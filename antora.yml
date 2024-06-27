@@ -20,7 +20,7 @@ asciidoc:
     page-pagination: true # display links to previous/next pages at the bottom of the page
     page-editable: true
     page-out-of-support: false
-    page-next-release: false
+    page-next-release: true
     page-hide-search-bar: true
     page-hide-components: 'bcd'
 nav:
