@@ -11,17 +11,16 @@ asciidoc:
     bonitaTechnicalVersion: '10.2.0' # latest public community version
     minimalRequiredJavaVersion: '17'
     javadocVersion: '10.1'
+    openApiUrl: 'https://api-documentation.bonitasoft.com'
     # ref versions of other components
     bcdDocVersion: '4.0'
     testToolkitVersion: '3.0'
-    # page attributes
+    openApiLatestVersion: '0.0.16' # latest compatible version of bonita openApi with this Bonita version
+    # page attributes (global configuration)
     page-pagination: true # display links to previous/next pages at the bottom of the page
     page-editable: true
     page-out-of-support: false
-    openApiUrl: 'https://api-documentation.bonitasoft.com'
-    #Latest compatible version of bonita openApi with this Bonita version
-    openApiLatestVersion: '0.0.16'
-    page-next-release: false
+    page-next-release: true
     page-hide-search-bar: true
     page-hide-components: 'bcd'
 nav:
@@ -44,4 +43,5 @@ nav:
   - modules/runtime/runtime-nav.adoc
   - modules/security/security-nav.adoc
   - modules/version-update/version-update-nav.adoc
-  - modules/ROOT/build-community-nav.adoc
+  - modules/contributing/contributing-nav.adoc
+  - modules/ROOT/glossary-nav.adoc
