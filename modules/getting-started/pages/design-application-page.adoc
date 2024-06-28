@@ -60,3 +60,8 @@ The preview should look like this:
 image:images/getting-started-tutorial/design-application-page/dashboard-page-preview.png[dashboard page preview]
 
 Now you have your first application page. It's time to move to the xref:ROOT:create-application.adoc[next chapter] and create the xref:create-application.adoc[application] that will include the page.
+
+[NOTE]
+====
+This Getting Started tutorial is using Bonita UI Designer, which is a development environment that will be phased out as we fully transition to Bonita UI Builder. Bonita UI Builder allows for designing all kind of interfaces, forms and pages, without distinction. Check out the dedicated xref:applications:initiation-manual.adoc[document section] to learn how to use Bonita UI Builder to make application pages.
+====

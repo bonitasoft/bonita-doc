@@ -1,7 +1,16 @@
 = Resources
-:description:
+:description: Here, you'll find a curated collection of references to help you maximize your productivity and enhance your understanding of Bonita UI Builder. 
 
-[NOTE]
-====
-For Subscription editions only.
-====
+{description}
+
+
+== Bonita UI Builder documentation
+* xref:applications:initiation-manual.adoc[Initiation manual] to help you start from scratch and build your first application 
+* xref:applications:how-tos-builder.adoc[Guides] to facilitate your usage of Bonita UI Builder
+* xref:applications:faq.adoc[FAQ]
+
+ 
+
+== Other documentations
+* {openApiUrl}/{openApiLatestVersion}[Bonita API] : designed to help you interact with your Bonita projects and data from Bonita UI Builder
+* Bonita UI Builder has been developed based on Appsmith and modifies some portions of it to integrate with the Bonita Platform. Please refer to Appsmith’s https://docs.appsmith.com/[documentation] in case something is missing in Bonita UI Builder’s

@@ -8,7 +8,18 @@ The {bonitaVersion} version is in development.
 
 == Bonita UI Builder
 
-Available in all Scale subscription and as a payable add-on in Convert subscriptions only. Connect with our dedicated sales team to start your upgrade journey today!
+We are excited to announce the release of Bonita UI Builder, our new and enhanced development environment for creating all kind of interfaces, pages and forms for your applications! It brings along a host of advanced features and improved usability, designed to help you create even more compelling and user-friendly interfaces.
+
+During this transition period, Bonita UI Designer will remain available to ensure a smooth and seamless experience for all our users. You can continue to use Bonita UI Designer as usual, while also having the opportunity to explore and get familiar with the capabilities of Bonita UI Builder.
+
+Eventually, Bonita UI Designer will be phased out as we fully transition to Bonita UI Builder. Rest assured, we are committed to providing comprehensive support and resources throughout this process. Our goal is to make this transition as smooth as possible, minimizing any disruption to your workflow.
+
+Here’s what you can expect during this period:
+
+* Continued access: Bonita UI Designer will remain fully operational for an extended period, allowing ample time for adaptation.
+* Support and resources: We offer extensive documentation, tutorials, and support to help you make the most of xref:applications:bonita-ui-builder.adoc[Bonita UI Builder] 
+* Facilitated transition: We are dedicated to facilitate the transition, with detailed guides on how to use Bonita UI Builder, as well as https://www.bonitasoft.com/professional-services/on-demand-services[professional services support]
+
 
 == New available values
 
