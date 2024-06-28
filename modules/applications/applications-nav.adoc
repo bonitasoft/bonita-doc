@@ -12,7 +12,7 @@
    **** xref:how-to-control-visibility-of-widgets.adoc[How to control visibility of your widgets]
   *** xref:resources.adoc[Resources]
   *** xref:faq.adoc[FAQ]
- ** xref:custom-applications-index.adoc[Living applications with Bonita UID (Legacy)]
+ ** xref:uid-applications-index.adoc[Living applications with Bonita UID]
   *** xref:application-creation.adoc[Application descriptor]
   *** xref:layout-development.adoc[Layout]
    **** xref:bonita-layout.adoc[Bonita Layout]

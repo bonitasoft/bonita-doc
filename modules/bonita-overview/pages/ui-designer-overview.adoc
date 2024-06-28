@@ -6,6 +6,11 @@
 
 {description}
 
+[NOTE]
+====
+We are excited to announce the release of Bonita UI Builder, our new and enhanced development environment for creating interfaces, pages and forms for your applications! During the transition, you can continue using Bonita UI Designer while exploring Bonita UI Builder. Eventually, Bonita UI Designer will be phased out, but we will provide support and resources to ensure a smooth transition. Check our xref:applications:bonita-ui-builder.adoc[documentation] to learn more and start using Bonita UI Builder.
+====
+
 == Usage
 
 It is a web-based tool that is launched from Bonita Studio. +
