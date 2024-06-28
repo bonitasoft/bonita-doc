@@ -15,8 +15,6 @@ For Subscription editions only.
 
 - Create a `docker-compose.yml` file with the content below:
 
-(_To update with the final content_)
-
 .Click to see the docker compose file
 [%collapsible]
 ====
@@ -57,8 +55,6 @@ services:
 ====
 
 - Create a `nginx` configuration file `nginx.conf` with the content below:
-
-(_To update with the final content_)
 
 .Click to see the nginx configuration file
 [%collapsible]
