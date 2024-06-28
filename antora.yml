@@ -2,7 +2,7 @@ name: bonita
 title: Bonita
 version: 2024.3
 # TODO: When releasing beta version, replace alpha by beta. Remove when releasing GA
-prerelease: -alpha
+prerelease: -beta
 asciidoc:
   attributes:
     bonitaVersion: 2024.3
@@ -15,12 +15,12 @@ asciidoc:
     # ref versions of other components
     bcdDocVersion: '4.0'
     testToolkitVersion: '3.0'
-    openApiLatestVersion: '0.0.16' # latest compatible version of bonita openApi with this Bonita version
+    openApiLatestVersion: '0.0.18' # latest compatible version of bonita openApi with this Bonita version
     # page attributes (global configuration)
     page-pagination: true # display links to previous/next pages at the bottom of the page
     page-editable: true
     page-out-of-support: false
-    page-next-release: true
+    page-next-release: false
     page-hide-search-bar: true
     page-hide-components: 'bcd'
 nav:
