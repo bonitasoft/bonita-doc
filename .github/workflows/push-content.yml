@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - '2024.3'
+      - '2025.1'
     paths:
       - 'modules/**'
       - 'antora.yml'
@@ -19,5 +19,5 @@ jobs:
           token: ${{secrets.GH_TOKEN_DOC_TRIGGER_WF}}
           repository: bonitasoft/bonita-documentation-site
           event-type: source_documentation_change
-          client-payload: '{ "component": "bonita", "branch": "2024.3" }'
+          client-payload: '{ "component": "bonita", "branch": "2025.1" }'
 
