@@ -1,4 +1,4 @@
-= Bonita Runtime dependencies (10.2.0.alpha-01)
+= Bonita Runtime dependencies (10.2.0.beta-01)
 :page-aliases: ROOT:bonita-web-dependencies.adoc, ROOT:bonita-engine-dependencies.adoc
 :description: List all dependencies used by Bonita Runtime
 
@@ -345,8 +345,20 @@
 |  https://raw.githubusercontent.com/x-stream/mxparser/master/LICENSE.txt[Indiana University Extreme! Lab Software License]
 
 | io.micrometer
+| micrometer-commons
+| 1.13.1
+| https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| io.micrometer
 | micrometer-core
-| 1.6.1
+| 1.13.1
+| https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| io.micrometer
+| micrometer-observation
+| 1.13.1
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -544,7 +556,7 @@
 
 | org.hdrhistogram
 | HdrHistogram
-| 2.1.12
+| 2.2.2
 | http://hdrhistogram.github.io/HdrHistogram/[http://hdrhistogram.github.io/HdrHistogram/]
 |  http://creativecommons.org/publicdomain/zero/1.0/[Public Domain, per Creative Commons CC0]
 
@@ -1612,13 +1624,13 @@
 
 | com.hazelcast
 | hazelcast
-| 5.3.5
+| 5.4.0
 | http://www.hazelcast.com/[http://www.hazelcast.com/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.hazelcast
 | hazelcast-spring
-| 5.3.5
+| 5.4.0
 | http://www.hazelcast.com/[http://www.hazelcast.com/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1702,15 +1714,15 @@
 
 | io.dropwizard.metrics
 | metrics-core
-| 4.0.7
+| 4.2.26
 | N/A
-|  http://www.apache.org/licenses/LICENSE-2.0.html[Apache License 2.0]
+|  https://www.apache.org/licenses/LICENSE-2.0.html[Apache License 2.0]
 
 | io.dropwizard.metrics
 | metrics-jmx
-| 4.0.7
+| 4.2.26
 | N/A
-|  http://www.apache.org/licenses/LICENSE-2.0.html[Apache License 2.0]
+|  https://www.apache.org/licenses/LICENSE-2.0.html[Apache License 2.0]
 
 | io.github.x-stream
 | mxparser
@@ -1719,14 +1731,26 @@
 |  https://raw.githubusercontent.com/x-stream/mxparser/master/LICENSE.txt[Indiana University Extreme! Lab Software License]
 
 | io.micrometer
+| micrometer-commons
+| 1.13.1
+| https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| io.micrometer
 | micrometer-core
-| 1.6.1
+| 1.13.1
+| https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| io.micrometer
+| micrometer-observation
+| 1.13.1
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-registry-jmx
-| 1.6.1
+| 1.13.1
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1997,7 +2021,7 @@
 
 | org.hdrhistogram
 | HdrHistogram
-| 2.1.12
+| 2.2.2
 | http://hdrhistogram.github.io/HdrHistogram/[http://hdrhistogram.github.io/HdrHistogram/]
 |  http://creativecommons.org/publicdomain/zero/1.0/[Public Domain, per Creative Commons CC0]
 
