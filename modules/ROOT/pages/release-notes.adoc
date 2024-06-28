@@ -363,6 +363,19 @@ The timezone can be set via *TZ* environment variable. Check the https://data.ia
 
 == Bug fixes
 
+=== Fixes in Bonita 2023.2-u5 (2024-mm-dd)
+
+==== Fixes in Bonita Runtime including Bonita Applications
+
+* RUNTIME-1697 - Avoid reading configuration from database, in favor to caching +
+  Bonita Runtime makes heavy usage of *cache* to improve performance. In that context, most configuration changes require *server restart* to be taken into account. In particular, all SSO activations and configuration changes fall into this category (OIDC, SAML, Kerberos, JAAS, ...). +
+* RUNTIME-XYZW - some other bug fix
+* TO BE COMPLETED AT RELEASE TIME...
+
+==== Fixes in Bonita Studio (including Bonita UI Designer)
+
+* TO FILL
+
 === Fixes in Bonita 2023.2-u4 (2024-04-19)
 
 ==== Fixes in Bonita Runtime including Bonita Applications
