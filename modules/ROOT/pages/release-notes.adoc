@@ -6,35 +6,11 @@
 The {bonitaVersion} version is in development.
 ====
 
-== Bonita UI Builder
-
-We are excited to announce the release of Bonita UI Builder, our new and enhanced development environment for creating all kind of interfaces, pages and forms for your applications! It brings along a host of advanced features and improved usability, designed to help you create even more compelling and user-friendly interfaces.
-
-During this transition period, Bonita UI Designer will remain available to ensure a smooth and seamless experience for all our users. You can continue to use Bonita UI Designer as usual, while also having the opportunity to explore and get familiar with the capabilities of Bonita UI Builder.
-
-Eventually, Bonita UI Designer will be phased out as we fully transition to Bonita UI Builder. Rest assured, we are committed to providing comprehensive support and resources throughout this process. Our goal is to make this transition as smooth as possible, minimizing any disruption to your workflow.
-
-Here’s what you can expect during this period:
-
-* Continued access: Bonita UI Designer will remain fully operational for an extended period, allowing ample time for adaptation.
-* Support and resources: We offer extensive documentation, tutorials, and support to help you make the most of xref:applications:bonita-ui-builder.adoc[Bonita UI Builder] 
-* Facilitated transition: We are dedicated to facilitate the transition, with detailed guides on how to use Bonita UI Builder, as well as https://www.bonitasoft.com/professional-services/on-demand-services[professional services support]
-
-
 == New available values
-
-=== Application Links
-
-You can now use application links. See xref:applications:bonita-ui-builder.adoc[Applications with Bonita UI Builder] for more details. Community users can also integrate their own links for applications developed with other tools.
-See xref:applications:faq.adoc[FAQ] for common problems and solutions (e.g. if you use a customized or an old layout).
-
-xref:api:engine-api-overview.adoc[Engine APIs] that allowed applications manipulation still work with legacy applications and have been deprecated in favor of new APIs that manipulate both application links and legacy applications.
-
-xref:api:rest-api-overview.adoc[REST APIs] (see _Application_ section) now also return application links in addition of legacy applications.
 
 == Bug fixes
 
-=== Fixes in Bonita 2024.3 (! DATE TO ADD HERE !)
+=== Fixes in Bonita 2025.1 (! DATE TO ADD HERE !)
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
