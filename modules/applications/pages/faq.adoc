@@ -142,7 +142,7 @@ Yes they are.
 === Is Bonita UI Builder Bonita Cloud compatible? 
 Yes it is. Reach out to your customer service representative to explore how you can migrate to Bonita Cloud.
 
-== My application link is incorrect when accessing the Application Directory from my custom application.
+=== My application link is incorrect when accessing the Application Directory from my custom application.
 
 image::images/app-link/incorrectAppLink.gif[Application has incorrect Link]
 
