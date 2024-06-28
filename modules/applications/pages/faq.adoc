@@ -42,7 +42,7 @@ Bonita UI Builder is compatible with all Bonita versions starting from 2024.3.
 
 
 
-=== What is an advancedApplication?
+=== What is an `applicationLink` ?
 It is a tag used to describe an Application made with Bonita UI Builder in the Studio’s Application descriptor.
 
 
