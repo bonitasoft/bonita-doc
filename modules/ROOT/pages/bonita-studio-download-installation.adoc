@@ -50,7 +50,7 @@ When the download is finished, you should have one of the following files on you
 
 === Subscription edition
 Subcription editions cover the now unique Enterprise editions, but also the Performance, Efficiency, and Teamwork editions that are no longer sold but still supported at Bonitasoft. +
-To download the latest version of Bonita Studio Subscription edition, go to the https://customer.bonitasoft.com/download/request[Customer Service Center] and request the download of the version you need.
+To download the latest version of Bonita Studio Subscription edition, go to the https://csc.bonitacloud.bonitasoft.com/apps/CustomerServices/downloads/[Customer Service Center] and request the download of the version you need.
 
 When the download is complete, you have one of the following new files:
 
@@ -90,7 +90,7 @@ This information applies to the Subscription editions. No license is needed for 
 When you install or launch Bonita Studio for the first time, you need to install a license:
 
 . From the installer, click *_Copy to clipboard_* to copy the request key generated specifically for your Bonita Studio
-. Go to the https://customer.bonitasoft.com/license/request[Customer Service Center] and request a license using the request key in the clipboard
+. Go to the https://csc.bonitacloud.bonitasoft.com/apps/CustomerServices/licenses/[Customer Service Center] and request a license using the request key in the clipboard
 . Wait a few seconds to get the file from the license page, or check your email box (after a few minutes) and open the email from `no-reply@bonitasoft.com`
 . Download the license file (.lic)
 . Go back to your Bonita Studio, click *_Install license..._*, and select your .lic file.
