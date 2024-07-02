@@ -217,6 +217,7 @@ Bonita Runtime uses Xstream under the hood to serialize Java Object.
 With Java 17, using reflection to access private fields or methods is now forbidden and XStream is relying on such a mechanism.
 To workaround this issue you may open specific package for reflection using additional JVM launch argument.
 In the example above you can add the following argument:
+
 * For Studio environment
 ** Open the `Preference panel` > `Server settings` > `Tomcat JVM additional` arguments and prepend: `--add-opens=java.xml/com.sun.org.apache.xerces.internal.jaxp.datatype=ALL-UNNAMED`
 * For Runtime environment
