@@ -194,7 +194,7 @@ The set of available values for a checkbox, checkbox list, dropdown list, radio 
 
 If you do not want to define a set of available values but need to specify constraints on the value, you can use a validator.
 
-== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+==  image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
 
 === Java Object process variables serialization fails
 
