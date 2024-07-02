@@ -1,5 +1,5 @@
 = Release notes
-:description: This is the release notes for Bonita {bonitaVersion} versions
+:description: This is the release notes for Bonita {bonitaVersion} version
 
 [NOTE]
 ====
