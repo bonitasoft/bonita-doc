@@ -11,10 +11,9 @@ Bonita UI Builder is a development environment made for designing all kind of in
 It brings a host of advanced features and improved usability, designed to help you create even more compelling and user-friendly interfaces: 
 
 * A set of more than 45 widgets
-* A wide gallery template
 * Code completion
 * Custom JavaScript code
-* Native debugging option
+* Native debugging options
 * A restriction-free drag & drop interface
 * Import and export JSON options
 * React interfaces
@@ -29,11 +28,9 @@ With Bonita UI Builder, you can still manage your workflows, continuous integrat
 
 Applications are created and operated within Bonita Platform, created with Bonita Studio and Bonita UI Builder, deployed with Bonita Continuous Delivery, run by Bonita Runtime. 
 
-They are a navigation of pages that can be accessed by a xref:identity:profiles-overview.adoc[Profile]. They aim to display and structure the right information and provide the right controls at the right time to the profiles, so they can efficiently perform their tasks. Once pushed to production, Applications cannot be live edited.
+They are a navigation of pages that can be accessed by a xref:identity:profiles-overview.adoc[Profile]. They aim to display and structure the right information and provide the right controls at the right time to the profiles, so they can efficiently perform their tasks. Applications are very similar to “Living Applications”, which are created with Bonita UI Designer and will be phased out. Once pushed to production, Applications cannot be live edited.
 
 Bonita also comes with four xref:runtime:bonita-applications-interface-overview.adoc[Bonita Applications].
-
-“Applications” are very similar to “Living Applications”, which are created with Bonita UI Designer and will be phased out. Once pushed to production, Applications cannot be live edited
 
 
 == Subscription
@@ -70,10 +67,7 @@ xref:applications:faq.adoc[[.card-title]#FAQ# [.card-body.card-content-overflow]
 == Legal notice
 
 Bonita UI Builder is commercially licensed and has Copyright (c) 2024 Bonitasoft S.A.
-[NOTE]
-====
-For Subscription editions only.
-====
+
 
 *Bonita UI Builder* has been developed based on Appsmith and modifies some portions of it to integrate with the Bonita Platform.
 
