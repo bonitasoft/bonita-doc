@@ -36,7 +36,7 @@ Go to the `Queries` tab and create a request that will adapt the pagination depe
 * `URL`: /bonita/API/identity/user
 * `Params`:
     - `Key`: p
-    - `Value`: {{List1.pageNo-1}}
+    - `Value`: {{(List1.pageNo-1)}}
     - `Key`: c
     - `Value`: {{List1.pageSize}}
     - `Key`: s
