@@ -12,5 +12,5 @@ jobs:
   deploy:
     permissions:
       pull-requests: write
-    uses: bonitasoft/bonita-documentation-site/.github/workflows/_reusable_surge-deploy-preview.yml@fix/surge_preview
+    uses: bonitasoft/bonita-documentation-site/.github/workflows/_reusable_surge-deploy-preview.yml@master
     secrets: inherit
