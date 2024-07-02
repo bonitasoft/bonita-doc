@@ -220,8 +220,11 @@ In the example above you can add the following argument:
 
 * For Studio environment
 ** Open the `Preference panel` > `Server settings` > `Tomcat JVM additional` arguments and prepend: `--add-opens=java.xml/com.sun.org.apache.xerces.internal.jaxp.datatype=ALL-UNNAMED`
-* For Runtime environment
-** Edit the `setup/tomcat-templates/setenv.sh` or `setup/tomcat-templates/setenv.bat` script and add `JDK_JAVA_OPTIONS="$JDK_JAVA_OPTIONS --add-opens=java.xml/com.sun.org.apache.xerces.internal.jaxp.datatype=ALL-UNNAMED"`
+* For Runtime environments
+** Tomcat Bundle
+*** Edit the `setup/tomcat-templates/setenv.sh` or `setup/tomcat-templates/setenv.bat` script and add `JDK_JAVA_OPTIONS="$JDK_JAVA_OPTIONS --add-opens=java.xml/com.sun.org.apache.xerces.internal.jaxp.datatype=ALL-UNNAMED"`
+** Docker image
+*** Add the following environment variable when starting the container: `-e JDK_JAVA_OPTIONS=--add-opens=java.xml/com.sun.org.apache.xerces.internal.jaxp.datatype=ALL-UNNAMED`
 
 
 
