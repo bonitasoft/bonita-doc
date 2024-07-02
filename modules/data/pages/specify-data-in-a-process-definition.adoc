@@ -201,7 +201,7 @@ If you do not want to define a set of available values but need to specify const
 Since Java 17 upgrade, process variables serialization may fails with the following error in runtime logs:
 
 [source,log]
-====
+----
 Caused by: com.thoughtworks.xstream.converters.ConversionException: No converter available
 ---- Debugging information ----
 message             : No converter available
@@ -211,7 +211,7 @@ message[1]          : Unable to make private void com.sun.org.apache.xerces.inte
 converter[1]        : com.thoughtworks.xstream.converters.reflection.ReflectionConverter
 message[2]          : Unable to make field private transient java.math.BigInteger com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl.orig_eon accessible: module java.xml does not "opens com.sun.org.apache.xerces.internal.jaxp.datatype" to unnamed module @3baad12d
 -------------------------------
-====
+----
 
 Bonita Runtime uses Xstream under the hood to serialize Java Object. 
 With Java 17, using reflection to access private fields or methods is now forbidden and XStream is relying on such a mechanism.
