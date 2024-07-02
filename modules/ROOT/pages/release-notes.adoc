@@ -1,5 +1,5 @@
 = Release notes
-:description: Bonita release note
+:description: This is the release notes for Bonita {bonitaVersion} version
 
 [NOTE]
 ====
@@ -8,7 +8,7 @@ Bonita 2022.2 is available for https://www.bonitasoft.com/downloads[download].
 
 == New available values
 
-=== Bonita process monitoring now with embeded bpmn-visualization library
+=== Bonita process monitoring now with embedded bpmn-visualization library
 
 Bonitasoft launched the open source project https://process-analytics.dev/[Process Analytics] two years ago in response to the market need to perform BPMN process monitoring using BPMN standards.
 The deliverable of this project is called the _bpmn-visualization library_. You can find a nice array of examples of what it can do in its https://cdn.statically.io/gh/process-analytics/bpmn-visualization-examples/v0.25.2/examples/index.html[demo web site], and you can even contribute to this initiative in its https://github.com/process-analytics/bpmn-visualization-js[Github repository]. +
@@ -104,7 +104,7 @@ xref:ROOT:multi-tenancy-and-tenant-configuration.adoc[Multi-tenancy has been dep
 
 To cover the multi-tenancy use cases in the best technical way, Bonitasoft is proposing a new architecture solution. For customers running a Bonita multi-tenancy platform, the technical path from multi-tenancy proposed by Bonitasoft is multi-runtime. This choice will require to split the current multi-tenant platform into several runtimes, each one with their own Bonita engine database.
 
-As this path can be challenging for customers using multi-tenancy, Bonitasoft developed a conversion tool, available for download https://customer.bonitasoft.com/download/request[on Bonitasoft Customer Portal]. We strongly suggest our customers to take the time and use the tool in a pre-production environment before using it on a production environment.
+As this path can be challenging for customers using multi-tenancy, Bonitasoft developed a conversion tool, available for download {cscDownloadUrl}[on Bonitasoft Customer Portal]. We strongly suggest our customers to take the time and use the tool in a pre-production environment before using it on a production environment.
 
 xref:version-update:mtmr-tool.adoc[Multi-tenancy to multi-runtime conversion tool] can be executed on Bonita Runtimes starting with Bonita 7.11 and up to Bonita 7.15.
 
