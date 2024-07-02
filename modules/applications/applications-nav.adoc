@@ -10,6 +10,7 @@
   *** xref:how-tos-builder.adoc[Guides]
    **** xref:how-to-share-data-across-pages.adoc[How to share data across pages]
    **** xref:how-to-control-visibility-of-widgets.adoc[How to control visibility of your widgets]
+   **** xref:how-to-handle-pagination.adoc[How to handle server-side pagination]
   *** xref:resources.adoc[Resources]
   *** xref:faq.adoc[FAQ]
  ** xref:uid-applications-index.adoc[Living applications with Bonita UID]
