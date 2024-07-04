@@ -70,7 +70,7 @@ Two environments are available:
 The first time, the initialisation can take a while, a waiting message appears. Reload the page if the page is blank.
 ====
 
-[NOTE]
+[TIP]
 ====
 If encountering issues Windows and WSL, check our xref:applications:faq.adoc#_i_am_runing_bonita_with_windows_and_bonita_ui_builder_with_wsl_does_not_work[FAQ] .
 ====
