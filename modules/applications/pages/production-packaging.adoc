@@ -1,0 +1,65 @@
+= Build the UI Production Binary
+:bonitasoft: bonitasoft.jfrog.io/docker/bonita-ui-builder
+:description: Procedure to build the UI production binary
+
+NOTE: Before starting, ensure you have **Docker** the following tools installed on your system.
+
+== Build docker image
+
+* Add this Dockerfile in your project to the root of your project:
+
+[[dockerfile]]
+[source,docker]
+----
+include::example$Dockerfile[]
+----
+
+* From Bonita UI Builder , export all applications and store them in the `workspace` folder next to the Dockerfile.
+
+NOTE: You can change the default `workspace` folder and use any folder, but in this case use the `WORKSPACE` build argument with the new folder path.
+
+=== Default build command
+
+With this command, the image will be built with the default values defined in the Dockerfile.
+
+WARNING: If you use this command, be sure to have the `workspace` folder next to the Dockerfile.
+
+[source,bash]
+----
+  docker build -t <image-name> .
+----
+
+=== Advanced build
+
+You can override some default values by using the following build arguments:
+
+[cols="1,1,1"]
+|===
+|Args | Description | Default value
+
+|BASE |The base image to use | {bonitasoft-docker-repository}/bonita-ui-builder
+|VERSION |The version of image to use | 1.0.0
+|WORKSPACE  | The folder containing the apps descriptor | ./workspace/
+|===
+
+[source,bash]
+----
+  docker build --build-arg "BASE={bonitasoft-docker-repository}/bonita-ui-builder" \
+               --build-arg "VERSION=<VERSION>" \
+               --build-arg "WORKSPACE=./workspace/" \
+               -t <image-name>:<version> .
+----
+
+[[run-production-binary]]
+=== Run the production binary
+
+To run the production docker image, you can use the following command:
+
+[source,bash]
+----
+  docker run --name <container-name> -p 8080:80
+            -e BONITA_API_URL=<bonita-runtime-url>/bonita/API
+            <image-name>:<image-version>
+----
+
+You can override and configure all xref:ui-builder-docker-installation.adoc#environment-variables[environment variables].
