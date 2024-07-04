@@ -1,10 +1,10 @@
 = Initiation Manual
-:description: Bonita UI Builder allows for designing all kind of interfaces, forms and pages, without distinction. These interfaces interact with your Bonita process and BDM. 
+:description: Bonita UI Builder allows for designing all kind of interfaces, forms and pages, without distinction. These interfaces interact with your Bonita process and BDM.
 
 {description}
 
 
-The initiation manual describes all the mandatory steps to successfully push your interfaces to production: from downloading Bonita UI Builder to running your applications. 
+The initiation manual describes all the mandatory steps to successfully push your interfaces to production: from downloading Bonita UI Builder to running your applications.
 
 
 [.card-section]
@@ -13,6 +13,11 @@ The initiation manual describes all the mandatory steps to successfully push you
 [.card.card-index]
 --
 xref:download-and-launch.adoc[[.card-title]#Download and launch# [.card-body.card-content-overflow]#pass:q[Steps to download and launch Bonita UI Builder]#]
+--
+
+[.card.card-index]
+--
+xref:ui-builder-docker-installation.adoc[[.card-title]#UI Builder configuration# [.card-body.card-content-overflow]#pass:q[How to configure the UI Builder docker container]#]
 --
 
 [.card.card-index]
@@ -40,4 +45,4 @@ xref:package-and-deploy-your-application.adoc[[.card-title]#Package and deploy y
 xref:next-steps.adoc[[.card-title]#Next steps# [.card-body.card-content-overflow]#pass:q[Steps to smoothly operation your application]#]
 --
 
-[.card-section]
+
