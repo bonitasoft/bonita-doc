@@ -27,7 +27,7 @@ export default {
 }
 ----
 
-INFO: All Bonita API calls returning a collection of elements are paginated and their response contains a https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Range[Content-Range header].
+NOTE: All Bonita API calls returning a collection of elements are paginated and their response contains a https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Range[Content-Range header].
 
 == 2. Create a dynamic API request
 
