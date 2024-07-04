@@ -151,7 +151,7 @@ At deployment time, since these external resources are not part of the project, 
 ====
 
 Once a page has been customized, or when the Administrator application has been customized, it is no longer supported. +
-But you can reach one of our Professional Services team member to help you develop or maintain it. You can do so on the https://customer.bonitasoft.com/[Customer Service Center].
+But you can reach one of our Professional Services team member to help you develop or maintain it. You can do so on the {cscRootUrl}[Customer Service Center].
 ====
 
 == Login and sign out
