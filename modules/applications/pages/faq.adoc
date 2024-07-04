@@ -146,9 +146,11 @@ Yes it is. Reach out to your customer service representative to explore how you 
 == Troubleshooting
 
 [.troubleshooting-section]
+--
 [.symptom]
 My application link is incorrect when accessing the Application Directory from my custom application.
 
+[.symptom-description]
 image::images/app-link/incorrectAppLink.gif[Application has incorrect Link]
 
 [.cause]#Causes#
@@ -164,8 +166,10 @@ Fix this by using `custompage_layoutBonita` as the layout value, which will auto
 You may also encounter this issue if you use a xref:applications:customize-layouts.adoc[customized layout] instead of the official one. In that case, update your application's layout by re-applying your modifications to the latest layout version that implements the improvements for Application Links.
 
 The same applies to the Application directory page that is used in the default application directory app: if you use a customized version of it, you need to re-apply your changes on the latest version packaged with Bonita runtime.
+--
 
 [.troubleshooting-section]
+--
 [#WSLissue]
 [.symptom]
 I am running Bonita with Windows and Bonita UI Builder with WSL does not work.
@@ -182,6 +186,7 @@ Once you know that https://learn.microsoft.com/en-us/windows/wsl/networking#acce
 * in `BONITA_API_URL` of the `docker-compose.yml` file.
 * in `upstream bonita_runtime` of the `nginx.conf` file.
 * in `upstream auth_service` of the `nginx.conf` file (if you are using Bonita as your authentication service or your authentication service is also hosted on Windows).
+--
 
 [NOTE]
 ====
