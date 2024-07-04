@@ -166,6 +166,7 @@ The same applies to the Application directory page that is used in the default a
 
 [.troubleshooting-section]
 [.symptom]
+[#WSLissue]
 === I am runing Bonita with Windows and Bonita UI Builder with WSL does not work.
 
 [.cause]
