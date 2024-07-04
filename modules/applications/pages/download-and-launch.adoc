@@ -72,7 +72,7 @@ The first time, the initialisation can take a while, a waiting message appears. 
 
 [TIP]
 ====
-If encountering issues Windows and WSL, check our xref:applications:faq.adoc#_i_am_runing_bonita_with_windows_and_bonita_ui_builder_with_wsl_does_not_work[FAQ] .
+If encountering issues Windows and WSL, check our xref:applications:faq.adoc#WSLissue[FAQ] .
 ====
 
 == Authenticate with the UI Builder
