@@ -60,6 +60,11 @@ Two environments are available:
 The first time, the initialisation can take a while, a waiting message appears. Reload the page if the page is blank.
 ====
 
+[NOTE]
+====
+If encountering issues Windows and WSL, check our xref:applications:faq.adoc#_i_am_runing_bonita_with_windows_and_bonita_ui_builder_with_wsl_does_not_work[FAQ] .
+====
+
 == Start Bonita on the local machine
 
 To use Bonita UI Builder, a Bonita runtime running on your local machine is required (it may be a Bonita Studio or a standalone Bonita runtime).
