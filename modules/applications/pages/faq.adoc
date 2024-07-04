@@ -157,6 +157,18 @@ You may also encounter this issue if you use a xref:applications:customize-layou
 
 The same applies to the Application directory page that is used in the default application directory app: if you use a customized version of it, you need to re-apply your changes on the latest version packaged with Bonita runtime.
 
+=== I am runing Bonita with Windows and Bonita UI Builder with WSL does not work.
+
+When using Windows and WSL, the localhost URLs do not have the same IP address.
+
+* From Windows, localhost is automatically redirecte to Linux WSL when needed.
+* From Linux WSL, you need to use a https://learn.microsoft.com/en-us/windows/wsl/networking#accessing-windows-networking-apps-from-linux-host-ip[specific IP address] to access to Windows.
+
+Once you know that https://learn.microsoft.com/en-us/windows/wsl/networking#accessing-windows-networking-apps-from-linux-host-ip[specific IP address], if Bonita is hosted on Windows, you must adapt the `docker-compose.yml` and `nginx.conf` to use it instead of `host.docker.internal` where Bonita is concerned.
+
+* in `BONITA_API_URL` of the `docker-compose.yml` file.
+* in `upstream bonita_runtime` of the `nginx.conf` file.
+* in `upstream auth_service` of the `nginx.conf` file (if you are using Bonita as your authentication service or your authentication service is also hosted on Windows).
 
 [NOTE]
 ====
