@@ -19,7 +19,7 @@ For Subscription editions only.
 ----
 services:
   bonita-ui-builder:
-    image: bonitasoft.jfrog.io/docker/bonita-ui-builder:0.0.1
+    image: bonitasoft.jfrog.io/docker/bonita-ui-builder:{bonitaUIBuilderVersion}
     container_name: bonita-ui-builder
     environment:
       APPSMITH_ENCRYPTION_PASSWORD: abcd
