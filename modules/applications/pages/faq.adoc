@@ -143,7 +143,7 @@ Yes they are.
 Yes it is. Reach out to your customer service representative to explore how you can migrate to Bonita Cloud.
 
 [.troubleshooting-title]
-== image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+== Troubleshooting
 
 [.troubleshooting-section]
 [.symptom]
