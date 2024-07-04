@@ -15,7 +15,7 @@ For Subscription editions only.
 .Click to see the docker compose file
 [%collapsible]
 ====
-[source, shell]
+[source, shell,subs="+macros"]
 ----
 services:
   bonita-ui-builder:
