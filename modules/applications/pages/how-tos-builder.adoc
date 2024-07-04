@@ -1,5 +1,7 @@
-= How-tos
-:description:
+= Guides and Tutorials
+:description: Learn how to build your application with this how-to and Tutorials.
+
+{description}
 
 [NOTE]
 ====
