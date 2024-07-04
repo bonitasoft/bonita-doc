@@ -170,7 +170,7 @@ The same applies to the Application directory page that is used in the default a
 === I am runing Bonita with Windows and Bonita UI Builder with WSL does not work.
 
 [.cause]
-When using Windows and WSL, the localhost URLs do not have the same IP address.
+When using Windows and Windows Subsystem for Linux (WSL), the localhost URLs do not have the same IP address.
 
 * From Windows, localhost is automatically redirected to Linux WSL when needed.
 * From Linux WSL, you need to use a https://learn.microsoft.com/en-us/windows/wsl/networking#accessing-windows-networking-apps-from-linux-host-ip[specific IP address] to access to Windows.
