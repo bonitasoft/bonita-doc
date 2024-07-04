@@ -153,7 +153,7 @@ My application link is incorrect when accessing the Application Directory from m
 [.symptom-description]
 image::images/app-link/incorrectAppLink.gif[Application has incorrect Link]
 
-[.cause]#Causes#
+[.cause]#Cause#
 If you have customized e.g. the Bonita User Application, you may be using an old version of the layout.
 
 image::images/app-link/issueOldLayout.png[Application with old layout]
@@ -168,13 +168,13 @@ You may also encounter this issue if you use a xref:applications:customize-layou
 The same applies to the Application directory page that is used in the default application directory app: if you use a customized version of it, you need to re-apply your changes on the latest version packaged with Bonita runtime.
 --
 
+[#WSLissue]
 [.troubleshooting-section]
 --
-[#WSLissue]
 [.symptom]
 I am running Bonita with Windows and Bonita UI Builder with WSL does not work.
 
-[.cause]#Causes#
+[.cause]#Cause#
 When using Windows and Windows Subsystem for Linux (WSL), the localhost URLs do not have the same IP address.
 
 * From Windows, localhost is automatically redirected to Linux WSL when needed.
