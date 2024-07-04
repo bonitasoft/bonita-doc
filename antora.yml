@@ -8,6 +8,7 @@ asciidoc:
     bonitaVersion: 2024.3
     bonitasoft-registry: 'bonitasoft.jfrog.io'
     bonitasoft-docker-repository: '{bonitasoft-registry}/docker'
+    bonita-ui-builder-latest-version: '1.0.0-SNAPSHOT'
     bonitaTechnicalVersion: '10.2.0' # latest public community version
     minimalRequiredJavaVersion: '17'
     javadocVersion: '10.2'
