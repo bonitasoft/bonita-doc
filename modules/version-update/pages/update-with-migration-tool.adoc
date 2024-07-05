@@ -57,7 +57,7 @@ ____
 
 === Download
 // add links to Bonita web site and Customer Service center => OK
-Download the target Bonita version bundle and the adequate update tool for your Edition from the http://www.bonitasoft.com/downloads[Bonitasoft web site] for Bonita Community edition or from the https://customer.bonitasoft.com/download/request[Customer Service Center] for Bonita Subscription editions. You will also have to download a Tomcat server that matches the target Bonita Runtime version.
+Download the target Bonita version bundle and the adequate update tool for your Edition from the http://www.bonitasoft.com/downloads[Bonitasoft web site] for Bonita Community edition or from the {cscDownloadUrl}[Customer Service Center] for Bonita Subscription editions. You will also have to download a Tomcat server that matches the target Bonita Runtime version.
 
 === Licenses
 If you are running a Bonita Subscription edition, you need a valid license for your Bonita target version.
@@ -225,7 +225,7 @@ This section explains how to update a platform that uses one of the Bonita bundl
 
 First, download the target version bundle and Bonita Migration Tool for your edition:
 * from the http://www.bonitasoft.com/downloads[Bonitasoft site] for Bonita Community edition
-* from the https://customer.bonitasoft.com/download/request[Customer Service Center] for Bonita Subscription Pack editions
+* from the {cscDownloadUrl}[Customer Service Center] for Bonita Subscription Pack editions
 
 === Database checks
 
