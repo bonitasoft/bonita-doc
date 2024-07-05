@@ -31,7 +31,7 @@ NOTE: All Bonita API calls returning a collection of elements are paginated and 
 
 == 2. Create a dynamic API request
 
-Go to the `Queries` tab and create a request that will adapt the pagination depending on what is typed in an input widget:
+Go to the `Queries` tab and create a request that will fetch users using server side pagination and filter users depending on a search term typed in an input widget:
 
 * `Name`: getUsers
 * `Method`: GET
