@@ -16,7 +16,7 @@ The purge tool doesn't delete documents (stored in the DOCUMENT table) from the 
 [NOTE]
 ====
 For Subscription editions only. +
-This tool is not available publicly. Use https://customer.bonitasoft.com/download/request[Bonita Customer Service Center] to download it.
+This tool is not available publicly. Use {cscDownloadUrl}[Bonita Customer Service Center] to download it.
 ====
 
 == Pre-requisites
@@ -26,7 +26,7 @@ Bonita runtime environment should be shut down when running this tool, i.e. Boni
 
 == Configuration
 
-Once https://customer.bonitasoft.com/download/request[downloaded Bonita Purge Tool], unzip it somewhere and go into the main directory. +
+Once {cscDownloadUrl}[downloaded Bonita Purge Tool], unzip it somewhere and go into the main directory. +
 Enter your database configuration properties in the file `application.properties`
 
 == Run Bonita Purge Tool
