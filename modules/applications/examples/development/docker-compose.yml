@@ -1,7 +1,7 @@
 # Use for running a bonita-ui-builder during development.
 services:
   bonita-ui-builder:
-    image: ${IMAGE_NAME:-bonitasoft.jfrog.io/docker/bonita-ui-builder:latest}
+    image: ${IMAGE_NAME:-bonitasoft.jfrog.io/docker/bonita-ui-builder:1.0.0-beta.1}
     container_name: bonita-ui-builder
     environment:
       BONITA_API_URL: http://host.docker.internal:${BONITA_RUNTIME_PORT:-8080}/bonita/API

@@ -8,13 +8,10 @@ For Subscription editions only.
 
 == Prerequisites
 * Docker installed
-* Bonita started on the local machine +
+* Bonita started on the local machine
+
 To use Bonita UI Builder, a Bonita runtime running on your local machine is required (it may be a Bonita Studio or a standalone Bonita runtime).
 
-Using the provided docker and nginx files above without modification, make sure that the Bonita runtime is accessible at `http://localhost:8080`.
-
-[TIP]
-You can change the Bonita runtime port by updating the `docker-compose.yml` file and the `nginx.conf` file.
 
 == Create the docker environment
 
@@ -43,6 +40,12 @@ include::example$development/nginx.conf[]
 ----
 ====
 
+
+To use the provided docker and nginx files above without modification, make sure that the Bonita runtime is accessible at `http://localhost:8080`.
+
+[TIP]
+You can change the Bonita runtime port by updating the `docker-compose.yml` file and the `nginx.conf` file.
+
 == Download and launch the docker image
 
 Bonita UI Builder docker image is located in the xref:software-extensibility:bonita-repository-access.adoc[Bonita Artifact Repository].
@@ -63,7 +66,6 @@ Then, you can access Bonita UI Builder at `http://localhost`.
 Two environments are available:
 - `IMAGE_NAME` to override the Bonita UI Builder image name. (default is `{bonitasoft-docker-repository}/bonita-ui-builder:{bonita-ui-builder-latest-version}`)
 - `BONITA_RUNTIME_PORT` to override the  Bonita runtime port.  (default is `8080`)
-
 
 [NOTE]
 ====
