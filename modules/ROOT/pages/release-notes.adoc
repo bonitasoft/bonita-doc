@@ -281,6 +281,19 @@ With the new Self-Contained Application (abbr. SCA) approach, creating or updati
 
 |`org.bonitasoft.engine.api.ThemeAPI`
 |No replacement, the feature was removed.
+
+|`org.bonitasoft.engine.identity.User#getPassword()`
+|No replacement, the method was removed.
+
+|`org.bonitasoft.engine.identity.User#getIconName()`
+|Use `org.bonitasoft.engine.identity.User#getIconId()` instead.
+
+|`org.bonitasoft.engine.identity.User#getIconPath()`
+|Use `org.bonitasoft.engine.identity.User#getIconId()` instead.
+
+|`org.bonitasoft.engine.identity.User#getManagerUserName()`
+|Use `org.bonitasoft.engine.identity.User#getManagerUserId()` instead.
+
 |===
 
 ===== Subscription editions specific
