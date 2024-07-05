@@ -103,5 +103,5 @@ The page is updated.
 ====
 
 Once a page has been customized, or when the Application Directory has been customized, it is no longer supported. +
-But you can reach one of our Professional Services team member to help you develop or maintain it. To do so, go to the https://customer.bonitasoft.com/[Customer Service Center].
+But you can reach one of our Professional Services team member to help you develop or maintain it. To do so, go to the {cscRootUrl}[Customer Service Center].
 ====

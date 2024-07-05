@@ -13,6 +13,9 @@ asciidoc:
     minimalRequiredJavaVersion: '17'
     javadocVersion: '10.2'
     openApiUrl: 'https://api-documentation.bonitasoft.com'
+    cscRootUrl: https://csc.bonitacloud.bonitasoft.com/apps/CustomerServices
+    cscDownloadUrl: '{cscRootUrl}/downloads'
+    cscLicenseUrl: '{cscRootUrl}/licenses'
     # ref versions of other components
     bcdDocVersion: '4.0'
     testToolkitVersion: '3.0'
