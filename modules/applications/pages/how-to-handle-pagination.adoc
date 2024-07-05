@@ -38,16 +38,16 @@ Go to the `Queries` tab and create a request that will adapt the pagination depe
 * `URL`: /bonita/API/identity/user
 * `Params`:
     - `Key`: p
-    - `Value`: {{(List1.pageNo-1)}}
+    - `Value`: {{(UserList.pageNo-1)}}
     - `Key`: c
-    - `Value`: {{List1.pageSize}}
+    - `Value`: {{UserList.pageSize}}
     - `Key`: s
-    - `Value`: {{Input1.text}}
+    - `Value`: {{UserFilterInput.text}}
 
 
 == 3. Configure the interface
 
-On the interface, drag and drop an input widget (Input1) and a list widget (List1).
+On the interface, drag and drop an input widget (rename it UserFilterInput`) and a list widget (rename it `UserList`).
 
 Configure the input widget:
 
