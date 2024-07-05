@@ -1,7 +1,22 @@
-= How-tos
-:description:
+= Guides and Tutorials
+:description: Learn how to build your application with this how-to and Tutorials.
+
+{description}
 
 [NOTE]
 ====
 For Subscription editions only.
 ====
+
+[.card-section]
+== Sections
+
+[.card.card-index]
+--
+xref:how-to-share-data-across-pages.adoc[[.card-title]#How to share data across pages# [.card-body.card-content-overflow]#pass:q[Learn how to send data through you application's pages]#]
+--
+
+[.card.card-index]
+--
+xref:how-to-control-visibility-of-widgets.adoc[[.card-title]#How to control visibility of your widgets# [.card-body.card-content-overflow]#pass:q[Learn how to set conditions to make your widgets visible or not]#]
+--

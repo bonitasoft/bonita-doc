@@ -1,0 +1,34 @@
+= Bonita UI Builder docker configuration guide
+:description: Provide the configuration guide for the Bonita UI Builder Docker image.
+
+This guide provides  instructions on how to configure the `bonita-ui-builder` Docker image.
+
+[[environment-variables]]
+== Docker container Environment variables
+
+The following environment variable is mandatory:
+
+- `BONITA_API_URL`: The URL for the Bonita API.
+
+The following environment variables are optional:
+
+- `BONITA_DEV_MODE`: Enables user to development mode when set to `1`.
+- `LOGGING_LEVEL_ROOT`: Sets the logging level for the root logger. (default is `debug`)
+- `LOGGING_LEVEL_COM_APPSMITH`: Sets the logging level for Appsmith components. (default is `debug`)
+- `LOGGING_LEVEL_COM_BONITASOFT`: Sets the logging level for BonitaSoft components. (default is `debug`)
+- `LOGGING_LEVEL_COM_EXTERNAL_PLUGINS`: Sets the logging level for external plugins. (default is `debug`)
+
+[.troubleshooting-title]
+== Troubleshooting
+
+[.troubleshooting-section]
+--
+[.symptom]
+I can't access to the Bonita UI Builder.
+
+[.cause]#Cause#
+The Bonita UI Builder is not correctly configured.
+
+[.solution]#Solution#
+Check the environment variables and make sure they are correctly set. The `BONITA_API_URL` should target a valid Bonita Runtime.
+--

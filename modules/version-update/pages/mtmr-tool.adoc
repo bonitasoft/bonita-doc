@@ -14,18 +14,18 @@ image:images/mtmr-general-idea-schema.svg[General idea of the conversion tool, w
 
 Following the commercial depreciation of multi-tenancy use by customers starting with Bonita 2021.1, the technical solution proposed by Bonitasoft for customers willing to have separate Bonita engine database (Oracle, SQL, postgres, etc.) per applications/processes, will be multi-runtimes starting with Bonita 2023.1.
 
-In order to prepare the technical conversion from multi-tenancy to multi-runtime, Bonitasoft developed a dedicated tool - Multi-tenant to multi-runtime conversion tool (MT2MR tool) - available for download https://customer.bonitasoft.com/download/request[on Bonita Customer Portal].
+In order to prepare the technical conversion from multi-tenancy to multi-runtime, Bonitasoft developed a dedicated tool - Multi-tenant to multi-runtime conversion tool (MT2MR tool) - available for download {cscDownloadUrl}[on Bonita Customer Portal].
 
-During the execution, the conversion tool will delete everything not related to the tenant specified in the parameter from the given Bonita engine database. This means you will need to create a new Bonita engine database per tenant you want to keep, dump your current Bonita engine database and load it for each new instance. 
+During the execution, the conversion tool will delete everything not related to the tenant specified in the parameter from the given Bonita engine database. This means you will need to create a new Bonita engine database per tenant you want to keep, dump your current Bonita engine database and load it for each new instance.
 
-WARNING: The conversion tool will have to be executed for every tenant you want to keep, with a dedicated Bonita engine database instance. 
+WARNING: The conversion tool will have to be executed for every tenant you want to keep, with a dedicated Bonita engine database instance.
 
-== How works Bonita Multi-tenant to Multi-Runtime conversion tool 
+== How works Bonita Multi-tenant to Multi-Runtime conversion tool
 
 === Pre-requisites
 * The conversion tool requires Java 11+ JRE
 * Database with Bonita Multi-tenant Platform. +
-* Same number of Bonita engine database instances as the tenant you want to keep. 
+* Same number of Bonita engine database instances as the tenant you want to keep.
 * The conversion tool works on Bonita Platform Databases in version 7.11, 7.12, 7.13, 7.14 or 7.15.
 * During the conversion operation, the Bonita Platform *should NOT* be running on the database.
 
@@ -37,9 +37,9 @@ The conversion tool will delete all the tenants as well as all their associated 
 * Once the execution completes, you will have to upload a new license file before you can use the new database with a Bonita Platform. Use the setup tool to do it, as usual.
 ____
 
-* Configure the Bonita engine database instances. 
-* Stop Bonita Platform. 
-* Create the Bonita engine database dump. 
+* Configure the Bonita engine database instances.
+* Stop Bonita Platform.
+* Create the Bonita engine database dump.
 * Specify your database connection information in the application.properties file.
 * You will need to specify the username/password, as well as your connection information (uncomment & fill in the corresponding template).
 * Load the dump on each Bonita engine database instance *BEFORE* the next step
@@ -164,7 +164,7 @@ The test was done on a technically generated database, with the following postgr
 
 *Result:* Execution completed in 1,980,462 ms (33 Minutes 0 Seconds). +
 
-Highlights from the execution logs: 
+Highlights from the execution logs:
 
 [source,text]
 ----
@@ -202,7 +202,7 @@ Deleting other tenants from table queriable_log ...
 
 === Mysql
 
-The tests were done on a production database. 
+The tests were done on a production database.
 
 |===
 |rowcount|total_size
@@ -332,7 +332,7 @@ Deleting other tenants from table tenant ...
 
 === SQLServer
 
-The tests were done on a technically generated database. 
+The tests were done on a technically generated database.
 
 |===
 |rowcount|total_size
@@ -425,11 +425,11 @@ The tests were done on a technically generated database.
 |===
 
 *Result:* Execution completed in 3,003,733 ms (50 Minutes 3 Seconds)
-Overall, really good performance on SQLServer. 
+Overall, really good performance on SQLServer.
 
 === Oracle
 
-The tests were done on a technically generated database. 
+The tests were done on a technically generated database.
 
 |===
 |rowcount
@@ -521,7 +521,7 @@ The tests were done on a technically generated database.
 |===
 
 *Results:* Execution completed in 1973144 ms (32 Minutes 53 Seconds)
-Overall really good performance on Oracle. 
+Overall really good performance on Oracle.
 
 
 
@@ -532,7 +532,7 @@ Overall really good performance on Oracle.
 
 ==== Highlights
 
-* Robustness: Prevent the tool from being launched from bin folder.  
+* Robustness: Prevent the tool from being launched from bin folder.
   Tool must be run from **root folder** by launching `bin/multitenant-to-multiruntime-tool`
 * Scaling: Deletion queries  are now executed by batch for better scaling on big environments
 
