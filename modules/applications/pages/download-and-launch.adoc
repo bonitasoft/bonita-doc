@@ -62,8 +62,8 @@ docker compose up -d
 
 Then, you can access Bonita UI Builder at `http://localhost`.
 
-Two environments are available: - `IMAGE_NAME` to override the Bonita UI Builder image name. (default is `{bonitasoft-docker-repository}/bonita-ui-builder:{bonita-ui-builder-latest-version}`)
-- `BONITA_RUNTIME_PORT` to override the  Bonita runtime port.  (default is `8080`)
+Two environments are available:
+- `IMAGE_NAME` to override the Bonita UI Builder image name. (default is `{bonitasoft-docker-repository}/bonita-ui-builder:{bonita-ui-builder-latest-version}`)
 
 
 [NOTE]
