@@ -8,7 +8,7 @@ For Subscription editions only.
 
 == Prerequisites
 * Docker installed
-* Bonita started on the local machine
+* Bonita started on the local machine +
 To use Bonita UI Builder, a Bonita runtime running on your local machine is required (it may be a Bonita Studio or a standalone Bonita runtime).
 
 Using the provided docker and nginx files above without modification, make sure that the Bonita runtime is accessible at `http://localhost:8080`.
@@ -68,6 +68,11 @@ Two environments are available:
 [NOTE]
 ====
 The first time, the initialisation can take a while, a waiting message appears. Reload the page if the page is blank.
+====
+
+[TIP]
+====
+If encountering issues Windows and WSL, check our xref:applications:faq.adoc#WSLissue[FAQ] .
 ====
 
 == Authenticate with the UI Builder

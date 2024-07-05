@@ -142,21 +142,51 @@ Yes they are.
 === Is Bonita UI Builder Bonita Cloud compatible? 
 Yes it is. Reach out to your customer service representative to explore how you can migrate to Bonita Cloud.
 
-=== My application link is incorrect when accessing the Application Directory from my custom application.
+[.troubleshooting-title]
+== Troubleshooting
 
+[.troubleshooting-section]
+--
+[.symptom]
+My application link is incorrect when accessing the Application Directory from my custom application.
+
+[.symptom-description]
 image::images/app-link/incorrectAppLink.gif[Application has incorrect Link]
 
+[.cause]#Cause#
 If you have customized e.g. the Bonita User Application, you may be using an old version of the layout.
 
 image::images/app-link/issueOldLayout.png[Application with old layout]
 
-In that case, the Application Directory opened from that application only will not display Application Links correctly, but the same way as Legacy Applications. +
+In that case, the Application Directory opened from that application only will not display Application Links correctly, but the same way as Legacy Applications.
+
+[.solution]#Solution#
 Fix this by using `custompage_layoutBonita` as the layout value, which will automatically migrate to the latest layout.
 
 You may also encounter this issue if you use a xref:applications:customize-layouts.adoc[customized layout] instead of the official one. In that case, update your application's layout by re-applying your modifications to the latest layout version that implements the improvements for Application Links.
 
 The same applies to the Application directory page that is used in the default application directory app: if you use a customized version of it, you need to re-apply your changes on the latest version packaged with Bonita runtime.
+--
 
+[#WSLissue]
+[.troubleshooting-section]
+--
+[.symptom]
+I am running Bonita with Windows and Bonita UI Builder with WSL does not work.
+
+[.cause]#Cause#
+When using Windows and Windows Subsystem for Linux (WSL), the localhost URLs do not have the same IP address.
+
+* From Windows, localhost is automatically redirected to Linux WSL when needed.
+* From Linux WSL, you need to use a https://learn.microsoft.com/en-us/windows/wsl/networking#accessing-windows-networking-apps-from-linux-host-ip[specific IP address] to access to Windows.
+
+[.solution]#Solution#
+Once you know that https://learn.microsoft.com/en-us/windows/wsl/networking#accessing-windows-networking-apps-from-linux-host-ip[specific IP address], if Bonita is hosted on Windows, you must adapt the `docker-compose.yml` and `nginx.conf` to use it instead of `host.docker.internal` where Bonita is concerned.
+
+* in `BONITA_API_URL` of the `docker-compose.yml` file.
+* in `upstream bonita_runtime` of the `nginx.conf` file.
+* in `upstream auth_service` of the `nginx.conf` file (if you are using Bonita as your authentication service or your authentication service is also hosted on Windows).
+--
 
 [NOTE]
 ====
