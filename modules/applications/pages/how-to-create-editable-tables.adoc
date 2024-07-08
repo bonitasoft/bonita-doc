@@ -6,7 +6,7 @@
 * Difficulty: beginner
 * Estimated time: 20 minutes
 * Prerequisites: have a Table widget bound to the following API request which lists users:
-**  `Name`: getUsers
+**  `Name`: getUser
 ** `Method`: GET
 ** `URL`: /bonita/API/identity/user
 ** `Params`:
@@ -70,9 +70,9 @@ You can also trigger conditions on numbers, for example if the user’s id is su
 
 Editing your data directly from a Table has just become easy with Bonita UI Builder.
 
-Let’s create a table from which we can edit usernames, and propagate these changes to your actual Bonita users.
+Let’s create a table from which we can edit a user's firstname, and propagate these changes to your actual Bonita users.
 
-=== 1. Create a dynamic API request
+=== 1. Create an update request
 
 Go to the `Queries` tab and create the following query:
 
@@ -95,7 +95,7 @@ Go to the `Queries` tab and create the following query:
 This request updates the user’s firstname with the Table’s cell content.
 
 
-=== 2. Make the table editable and bind it to updateUser
+=== 2. Allow the Table to edit users 
 
 Select the Table widget and click the box next to `firstname` to make it editable:
 
@@ -106,6 +106,7 @@ A `Save / Discard` column then appears. Click the wheel icon next to “Save / D
 
 Then, click the `+` icon next to `onSave`, select “Execute a query” and select “updateUser”.
 
+The Table can now update the user's fistname after clicking `Save`.
 
 [TIP]
 You can also make the `firstname` column editable under conditions. 
@@ -124,7 +125,7 @@ image::images/guides/refresh_table.png[refresh_table]
 
 == Make a component visible under conditions
 
-Your applications can quickly get very complex and dense. In this situation, widgets' visibility can be controlled in many ways.
+Your applications can quickly get complex and dense. In this situation, widgets' visibility can be controlled in many ways.
 
 Let’s say we want to display a form whenever `last_connection` cells are empty.
 
