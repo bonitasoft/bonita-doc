@@ -106,6 +106,9 @@ A `Save / Discard` column then appears. Click the wheel icon next to “Save / D
 
 Then, click the `+` icon next to `onSave`, select _Execute a query_ and select _updateUser_.
 
+image::images/guides/onsave_table.gif[onsave_table]
+
+
 The Table can now update the user's fistname after clicking `Save`.
 
 [TIP]
