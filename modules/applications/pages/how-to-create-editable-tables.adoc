@@ -104,7 +104,7 @@ image::images/guides/tick_editable.png[tick_editable]
 
 A `Save / Discard` column then appears. Click the wheel icon next to “Save / Discard” to customize it.
 
-Then, click the `+` icon next to `onSave`, select “Execute a query” and select “updateUser”.
+Then, click the `+` icon next to `onSave`, select _Execute a query_ and select _updateUser_.
 
 The Table can now update the user's fistname after clicking `Save`.
 
