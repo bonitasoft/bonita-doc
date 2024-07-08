@@ -1,12 +1,9 @@
 = Guides and Tutorials
-:description: Learn how to build your application with this how-to and Tutorials.
+:description: Learn how to use Bonita UI Builder to its full potential and develop powerful and complex interfaces effortlessly.
 
 {description}
 
-[NOTE]
-====
-For Subscription editions only.
-====
+
 
 [.card-section]
 == Sections
