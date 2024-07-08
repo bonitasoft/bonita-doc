@@ -45,7 +45,7 @@ image::images/guides/multiplication.gif[multiplication]
 
 You don’t always need JS objects to create dynamic columns. Let’s say you want to create a *Gender* column whose value depends on whether the title is *Mrs* or *Mr*.
 
-In a similar way to what was done in the previous example, create a “Gender” column, click the wheel icon, and copy paste the following code: 
+In a similar way to what was done in the previous example, create a *Gender* column, click the wheel icon, and copy-paste the following code: 
 `{{currentRow.title === "Mr" ? "male" : "female"}}`
 
 
