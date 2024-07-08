@@ -112,7 +112,7 @@ The Table can now update the user's fistname after clicking `Save`.
 You can also make the `firstname` column editable under conditions. 
 Click the wheel icon next to `firstname`, then click the `JS` icon next to “Editable” and copy paste the following code: 
 `{{currentRow.title === "Mrs" ? true : false}}`. 
-This makes it editable only if the user is a “Mrs”.
+This makes it editable only if the user is a _Mrs_.
 
 === 3. Automatically refresh the table after saving
 
