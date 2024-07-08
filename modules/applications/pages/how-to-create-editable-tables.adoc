@@ -55,7 +55,7 @@ In a similar way to what was done in the previous example, create a *Gender* col
 You might also want your Table’s cells to have different background colors, defined according specific conditions.
 
 Let’s say you want to color cells depending on the user’s title.
-Click the wheel icon next to the `title` column, go to the `Style` tab, click the `JS` icon next to “Cell background” and add the following code: 
+Click the wheel icon next to the `title` column, go to the `Style` tab, click the `JS` icon next to _Cell background_ and add the following code: 
 `{{currentRow.title === "Mrs" ? "#fce7f3" : "#dbeafe"}}`
 
 
