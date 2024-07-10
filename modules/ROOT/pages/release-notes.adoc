@@ -17,7 +17,7 @@ Our dedicated team will be here to guide you through this new updated mode, answ
 
 ====
 
-=== User sharing session mechanism between nodes
+=== User session sharing mechanism between nodes
 Service continuity is a key element of operational performance, so we are introducing a new native capability to help to ensure access to applications. Even when a node experiences downtime, users will remain seamlessly connected and will be able to continue working without interruptions, ensuring smooth operations and increased user satisfaction.
 
 === Test toolkit V2
