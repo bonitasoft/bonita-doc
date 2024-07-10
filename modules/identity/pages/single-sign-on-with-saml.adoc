@@ -521,7 +521,7 @@ When first accessing Bonita, a JSESSIONID cookie is created and the requested UR
 ----
     <CookieProcessor sameSiteCookies="none" />
 ----
-For a xref:runtime:overview-of-bonita-bpm-in-a-cluster.adoc[Bonita cluster] (Enterprise and Performance editions only), HTTP sessions are handled by Spring Session, and in order to set the sameSite attribute to None, you need to add to the file bonita-platform-sp-cluster.properties located in `<BUNDLE_HOME>/setup/platform_conf/current/platform_engine/`, the property:
+* For a xref:runtime:overview-of-bonita-bpm-in-a-cluster.adoc[Bonita cluster] (Enterprise and Performance editions only), HTTP sessions are handled by Spring Session, and in order to set the sameSite attribute to None, you need to add to the file bonita-platform-sp-cluster.properties located in `<BUNDLE_HOME>/setup/platform_conf/current/platform_engine/`, the property:
 [source,properties]
 ----
 server.servlet.session.cookie.same-site=None
