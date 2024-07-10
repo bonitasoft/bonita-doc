@@ -6,7 +6,7 @@
 
 == Bonita UI Builder documentation
 * xref:applications:initiation-manual.adoc[Initiation manual] to help you start from scratch and build your first application
-* Guides to facilitate your usage of Bonita UI Builder
+* xref:applications:how-tos-builder.adoc[Guides] to facilitate your usage of Bonita UI Builder
 * xref:applications:faq.adoc[FAQ]
 
 
