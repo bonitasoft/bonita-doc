@@ -521,6 +521,11 @@ When first accessing Bonita, a JSESSIONID cookie is created and the requested UR
 ----
     <CookieProcessor sameSiteCookies="none" />
 ----
+For a xref:runtime:overview-of-bonita-bpm-in-a-cluster.adoc[Bonita cluster] (Enterprise and Performance editions only), HTTP sessions are handled by Spring Session, and in order to set the sameSite attribute to None, you need to add to the file bonita-platform-sp-cluster.properties located in `<BUNDLE_HOME>/setup/platform_conf/current/platform_engine/`, the property:
+[source,properties]
+----
+server.servlet.session.cookie.same-site=None
+----
 * If your Bonita runtime server is not configured for HTTPS, then the only solution to keep the initially requested URL after being authenticated is to have the IdP and Bonita server in the same domain so that cookies are sent even with the default sameSite policy (using a reverse proxy for example).
 * Another option to not be redirected to Bonita home page after the authentication is to Force the systematic redirection to a specific application home page by defining it in the query string of the ACS URL in the IdP server's configuration : `http[s]://<bundle host>:<port>/bonita/saml?redirectTo=bonita/apps/myApp/home/`. However, with this solution, users will always be redirected to the same place after logging in.
 --
