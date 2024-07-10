@@ -53,7 +53,12 @@ xref:applications:initiation-manual.adoc[[.card-title]#Initiation manual# [.card
 
 [.card.card-index]
 --
-xref:applications:resources.adoc[[.card-title]#Resources# [.card-body.card-content-overflow]#pass:q[Make the most of Bonita UI Builder]#]
+xref:applications:how-tos-builder.adoc[[.card-title]#Guides# [.card-body.card-content-overflow]#pass:q[Guides to make the most of Bonita UI Builder]#]
+--
+
+[.card.card-index]
+--
+xref:applications:resources.adoc[[.card-title]#Resources# [.card-body.card-content-overflow]#pass:q[Find all the resources you need]#]
 --
 
 [.card.card-index]
