@@ -2,28 +2,28 @@
 :description: Step-by-step guide to transition from development to production using Bonita UI Builder
 
 
-Once you've designed an application that interacts with your xref:interact-with-your-bonita-process.adoc[bonita process], and xref:builder-declare-interface-in-bonita.adoc[declared] it in Bonita, it's time to push your interface to production
+Once you've designed an application that interacts with your xref:interact-with-your-bonita-process.adoc[Bonita process], and xref:builder-declare-interface-in-bonita.adoc[declared] it in Bonita, it's time to push your application to production.
 
 == Move from Development to Production
 
-=== Export Your Application
+=== Export your application
 
-Once the design is complete, export the application(s) as JSON files from Bonita UI Builder by clicking the `export` button on the home page. This export will be used for building the production binary.
+Once the design is complete, export the application(s) as JSON file from Bonita UI Builder by clicking the `export` button on the home page. This export will be used for building the production binary.
 
 image::images/advanced-app/export-application.png[Export application]
 
-=== Store Your Application in a Workspace Folder
+=== Store your application in a workspace folder
 
 Move the exported JSON application(s) in a designated `workspace` folder. This folder will be referenced during the build process.
 You can store these applications in a Git repository too.
 
-=== Build the Production Binary
+=== Build the production binary
 
 To create the production-ready binary, you need to build a Docker image. This image will contain the application(s) and the Bonita UI Builder runtime.
 
-The xref:applications:production-packaging.adoc#dockerfile[Dockerfile] and more details and information on how to build the Docker image can be found in this xref:applications:production-packaging.adoc[dedicated page].
+The xref:applications:production-packaging.adoc#dockerfile[Dockerfile] and more details on how to build the Docker image can be found in this xref:applications:production-packaging.adoc[dedicated page].
 
-=== Run the Docker Image
+=== Run the Docker image
 
 After building the Docker image, run it using the following command:
 
@@ -35,13 +35,13 @@ See xref:production-packaging.adoc#run-production-binary[run production binary p
 
 === Access your Application
 
-Once Bonita UI Builder is ready, all applications contained in the dedicated folder will be:
+Once the Docker image is running, all applications contained in the `workspace` folder will be:
 
 - Imported
 - Published
 - Made available for users
 
-Then, these applications can be accessed from the Bonita administrator application, application directory page.
+Then, these applications can be accessed from the Bonita Administrator Application and the Bonita Application Directory page.
 
 [.troubleshooting-title]
 == Troubleshooting
