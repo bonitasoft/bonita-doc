@@ -197,7 +197,7 @@ If your Bonita installation is behind a proxy or is installed inside a Docker co
 
 === Configure sessions and session cookies
 
-Since Bonita 2023.2, HTTP sessions are handled (and shared between nodes) by Spring Session instead of Tomcat.
+Since Bonita 2023.2, HTTP sessions are handled (and shared between nodes) using Spring Session instead of Tomcat.
 As a result, in order to override the default session timeout or the session cookies attributes, Tomcat configuration may be irrelevant. But the following properties can be added and configured in the file `platform_engine/bonita-platform-sp-cluster-custom.properties` instead:
 
 [source,properties]
@@ -211,6 +211,7 @@ server.servlet.session.cookie.domain=
 server.servlet.session.cookie.path=/
 spring.session.timeout=1800
 ----
+NOTE: These properties can also be set using environment variables or system properties.
 
 == Cluster management
 
