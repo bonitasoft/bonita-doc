@@ -76,4 +76,4 @@ To run the production docker image, you can use the following command:
 
 You can override and configure all xref:ui-builder-docker-installation.adoc#environment-variables[environment variables].
 
-NOTE: If you want to test your applications in production, instead of using `docker run`, you can use a `docker-compose.yml` file in the likes of what was done in the xref:download-and-launch.adoc#_create_the_docker_environment[first steps] (i.e. with a `nginx` reverse proxy and the docker image xref:production-packaging.adoc#_build_docker_image[built previously]).
+NOTE: If you want to test your applications before going into production, instead of using `docker run`, you can use a `docker-compose.yml` file in the likes of what was done in the xref:download-and-launch.adoc#_create_the_docker_environment[first steps] (i.e. with a `nginx` reverse proxy and the docker image xref:production-packaging.adoc#_build_docker_image[built previously]).
