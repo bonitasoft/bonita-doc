@@ -14,6 +14,9 @@ Filters users that can access a human task in a process.
 Application descriptor::
 Defines the Living Application: group of pages with a specific theme for a given user profile.
 
+ApplicationLink::
+Tag used to describe an Application made with Bonita UI Builder in the Studio’s Application descriptor.
+
 == B
 
 BDM Access Control::

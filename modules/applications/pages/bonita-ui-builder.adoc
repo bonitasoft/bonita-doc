@@ -1,52 +1,73 @@
 = Applications with Bonita UI Builder
-:description: Bonita UI Builder allows to build the UI of an application.
-
-They are not anymore standalone elements (such as pages and forms) in a process (paradigm change with legacy Bonita UI Designer).
+:description: In this page you will learn more about Bonita UI Builder and Applications.
 
 {description}
 
+
+== Bonita UI Builder
+
+Bonita UI Builder is a development environment made for designing all kind of interfaces, pages, forms, for your applications. 
+It brings a host of advanced features and improved usability, designed to help you create even more compelling and user-friendly interfaces: 
+
+* A set of more than 45 widgets
+* Code completion
+* Custom JavaScript code
+* Native debugging options
+* A restriction-free drag & drop interface
+* Import and export JSON options
+* React interfaces
+* ...and many more
+
+Bonita UI Builder is an application-centric development environment that allows for designing forms and application pages, without distinction. You can now design fully-fledged applications, embedding dashboards and complex interfaces. Or, you can just design single-page applications. The choice is up to you. 
+
+With Bonita UI Builder, you can still manage your workflows, continuous integration, etc., the way you’re managing them now. 
+
+
+== Applications
+
+Applications are created and operated within Bonita Platform, created with Bonita Studio and Bonita UI Builder, run by Bonita Runtime. 
+
+They are not standalone elements (such as pages and forms) in a process anymore, which is a paradigm change compared to Bonita UI Designer.
+
+Bonita also comes with four xref:runtime:bonita-applications-interface-overview.adoc[Bonita Applications].
+
+“Applications” are very similar to “Living Applications”, which are created with Bonita UI Designer and will be phased out. Once pushed to production, Applications cannot be live edited.
+
+
+== Subscription
+
+Bonita UI Builder is available by default and for no additional cost in all https://www.bonitasoft.com/pricing[Scale subscriptions]. It is also available as a payable add-on in https://www.bonitasoft.com/pricing[Access subscriptions]. 
+
+If you haven’t subscribed to a Scale of Access plan yet, please https://www.bonitasoft.com/contact-us[get in touch] with our sales team to start your journey today!
+
+If you have already subscribed to a Scale plan or purchased the UI Builder add-on, then start your journey by following our documentation.
+
+
 [.card-section]
-== Initiation Manual
-
-The initiation manual describes all the mandatory steps to successfully push your interfaces to production: from downloading Bonita UI Builder to running your applications.The initiation manual describes all the mandatory steps to successfully push your interfaces to production: from downloading Bonita UI Builder to running your applications.
+== Start your journey
 
 [.card.card-index]
 --
-xref:download-and-launch.adoc[[.card-title]#Download and launch# [.card-body.card-content-overflow]#pass:q[Steps to download and launch Bonita UI Builder]#]
---
-
-[.card.card-index]
---
-xref:ui-builder-docker-installation.adoc[[.card-title]#UI Builder configuration# [.card-body.card-content-overflow]#pass:q[How to configure the UI Builder docker container]#]
+xref:applications:initiation-manual.adoc[[.card-title]#Initiation manual# [.card-body.card-content-overflow]#pass:q[Steps to download and use Bonita UI Builder]#]
 --
 
 [.card.card-index]
 --
-xref:create-an-interface.adoc[[.card-title]#Create an interface# [.card-body.card-content-overflow]#pass:q[Steps to set the visual elements of your interface]#]
+xref:applications:how-tos-builder.adoc[[.card-title]#Guides# [.card-body.card-content-overflow]#pass:q[Guides to make the most of Bonita UI Builder]#]
 --
 
 [.card.card-index]
 --
-xref:interact-with-your-bonita-process.adoc[[.card-title]#Interact with your Bonita process# [.card-body.card-content-overflow]#pass:q[Steps to bind your process data to your visual elements]#]
+xref:applications:resources.adoc[[.card-title]#Resources# [.card-body.card-content-overflow]#pass:q[Find all the resources you need]#]
 --
 
 [.card.card-index]
 --
-xref:builder-declare-interface-in-bonita.adoc[[.card-title]#Declare the interface in Bonita# [.card-body.card-content-overflow]#pass:q[Steps to declare your Bonita UI Builder interface in your Bonita project]#]
---
-
-[.card.card-index]
---
-xref:package-and-deploy-your-application.adoc[[.card-title]#Package and deploy your application# [.card-body.card-content-overflow]#pass:q[Steps to package your interface in an application and push it to production]#]
---
-
-[.card.card-index]
---
-xref:next-steps.adoc[[.card-title]#Next steps# [.card-body.card-content-overflow]#pass:q[Steps to smoothly operation your application]#]
+xref:applications:faq.adoc[[.card-title]#FAQ# [.card-body.card-content-overflow]#pass:q[Find answers to your questions]#]
 --
 
 [.card-section]
-== How-tos
+
 
 == Legal notice
 
