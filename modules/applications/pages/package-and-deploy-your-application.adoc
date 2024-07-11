@@ -69,5 +69,5 @@ This is probably due to an error when the application was xref:builder-declare-i
 
 [.solution]#Solution#
 Make sure the application designed with Bonita UI Builder is declared using the <advancedLink> tag. Then, save and deploy the Application Descriptor by clicking the `deploy` button in the Studio.
-Also, make sure the `token` value is identical to the value of the `slug` key found in the xref:package-and-deploy-your-application.adoc#_export_your_application[JSON export of the application]. If several `slug` keys are found in the JSON export, you should take the value of the first `slug` key. It is usually identical to your application's name.
+Also, make sure the `token` value is identical to the value of the `slug` key found in the xref:package-and-deploy-your-application.adoc#_export_your_application[JSON export of the application]. If several `slug` keys are found in the JSON export, you should take the value of the first `slug` key.
 --
