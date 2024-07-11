@@ -62,7 +62,7 @@ Then fix your application and be sure your export are compatible and a valid JSO
 [.troubleshooting-section]
 --
 [.symptom]
-After building and running the Bonita UI Builder, no application can't be seen or found in production.
+After building and running the Bonita UI Builder, no application can be seen or found in production.
 
 [.cause]#Cause#
 This is probably due to an error when the application was xref:builder-declare-interface-in-bonita.adoc[declared] in the Application Descriptor. Bonita UI Builder is therefore unable to find the application's location.
