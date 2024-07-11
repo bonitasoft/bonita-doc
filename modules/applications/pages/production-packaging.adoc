@@ -2,7 +2,7 @@
 :bonitasoft: bonitasoft.jfrog.io/docker/bonita-ui-builder
 :description: Procedure to build the UI production binary
 
-NOTE: Before starting, ensure you have **Docker** the following tools installed on your system.
+NOTE: Before starting, ensure you have **Docker** installed on your system.
 
 == Build docker image
 
