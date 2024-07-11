@@ -59,6 +59,7 @@ Check the log of the bonita-ui-builder container with `docker logs <container-na
 Then fix your application and be sure your export are compatible and a valid JSON.
 --
 
+[.troubleshooting-section]
 --
 [.symptom]
 After building and running the Bonita UI Builder, no application can't be seen or found in production.
