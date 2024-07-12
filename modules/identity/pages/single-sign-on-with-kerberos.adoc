@@ -128,7 +128,7 @@ Trust this user for delegation to any service (Kerberos only).
 
 == Configure Bonita Bundle for Kerberos
 
-You need to execute the following actions in the folder of each tenant for which you want to support authentication over Kerberos.
+You need to execute the following actions in the folder of each tenant for which you want to support authentication over Kerberos. Files are located in `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>`. +
 If you want this configuration to also apply to each tenant created later, make sure to also perform those actions in the _template_ tenant configuration folder:
 `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_*` (if you have not started the Bonita bundle yet, the files are located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_*`)
 
@@ -288,6 +288,8 @@ If you want Bonita engine to create the accounts on the fly when a user accessin
 
 +
 NOTE: Activating this option means any user logged in on the domain trying to access Bonita will have an account created automatically in Bonita Database.
+
+. Restart your server to apply the changes. +
 
 . Confirm that your Domain Controller is correctly configured. +
 Then you can start the bundle and try to access any Bonita Application page, an app page or a form URL (or just `http ://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are automatically logged in.
