@@ -32,7 +32,8 @@ We are pleased to bring several exciting advancements in this release, including
 
 == Bug fixes
 
-=== Fixes in Bonita 2024.1-u3 (2024-07-17)
+
+=== Fixes in Bonita 2024.2-u1 (2024-07-17)
 
 ==== Fixes in Bonita Runtime including Bonita Applications
 
@@ -54,7 +55,7 @@ We are pleased to bring several exciting advancements in this release, including
 * STUDIO-4533 - Refreshing a project after a git switch branch now adds/removes submodules as expected.
 * STUDIO-4535 - Renaming a project without bdm or extensions fails
 
-=== Fixes in Bonita 2024.1-u2 (2024-06-07)
+=== Fixes in Bonita 2024.2 (2024-05-28)
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
