@@ -44,15 +44,15 @@ The method https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRe
 
 If you need more fine tuning or if you cannot update the reverse proxy configuration, you can consult the official documentation for https://tomcat.apache.org/connectors-doc/common_howto/proxy.html[Tomcat].
 
+
 == Configure Bonita Engine and Tomcat for CAS
 
-. The CAS implementation relies on JAAS, and is defined in the BonitaAuthentication module of the JAAS configuration file. +
+The CAS implementation relies on JAAS, and is defined in the BonitaAuthentication module of the JAAS configuration file. +
 Set the Java system property `java.security.auth.login.config` in the Tomcat startup script to point to the JAAS configuration file, xref:runtime:bonita-platform-setup.adoc[`BUNDLE_HOME/server/conf/jaas-standard.cfg`].
-+
+
 For example, on Linux, edit `BUNDLE_HOME/setup/tomcat-templates/setenv.sh`, uncomment the line that defines `SECURITY_OPTS`, and insert the variable `SECURITY_OPTS` in the line `CATALINA_OPTS=..`.
-+
-The `BUNDLE_HOME/server/conf/jaas-standard.cfg` file contains the following (replace `ip_address:port` with the relevant IP addresses and port numbers, in two places):
-+
+
+The `BUNDLE_HOME/server/conf/jaas-standard.cfg` file contains the following (replace `ip_address:port` with the relevant IP addresses and port numbers, in two places): +
 
 [source,conf]
 ----
@@ -91,6 +91,7 @@ If the platform has already been initialized, every update to the configuration 
 * `setup pull`
 * edit configuration file(s)
 * `setup push`
+* restart your server to apply the changes
 ====
 +
  .. You must perform the following changes:
@@ -111,15 +112,17 @@ Specify the relevant IP address and port number.
 [discrete]
 ==== Configure the Bonita Runtime for CAS SSO
 
-. For each tenant, edit `authenticationManager-config.properties` to enable the CASRemoteAuthenticationManager and its properties.
+For your active tenant, edit `authenticationManager-config.properties` to enable the CASRemoteAuthenticationManager and its properties.
 Edit the `authenticationManager-config.properties` located in `platform_conf/initial/tenant_template_portal` for not initialized platform or `platform_conf/current/tenant_template_portal` and `platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
+
 [NOTE]
 ====
-
 If the platform has already been initialized, every update to the configuration files under `setup/platform_conf/current` must be done using the `setup` tool:
- ** `setup pull`
- ** edit configuration file(s)
- ** `setup push`
+
+* `setup pull`
+* edit configuration file(s)
+* `setup push`
+* restart your server to apply the changes
 ====
 
 Make sure that `auth.AuthenticationManager` property is set to `org.bonitasoft.console.common.server.auth.impl.jaas.cas.CASRemoteAuthenticationManagerImpl`
@@ -138,6 +141,8 @@ Cas.serverUrlPrefix = http://ip_address:port/cas
 Cas.bonitaServiceURL = http://ip_address:port/bonita/apps/appDirectoryBonita
 logout.link.hidden=true
 ----
+
+Restart your server to apply the changes.
 
 [discrete]
 ==== CAS SSO and Java client application
@@ -172,6 +177,7 @@ If the platform has already been initialized, every update to the configuration 
 * `setup pull`
 * edit configuration file(s)
 * `setup push`
+* restart your server to apply the changes
 ====
 
 If this option is set, when users navigate away from the Bonita Applications, they are still logged in to CAS.
