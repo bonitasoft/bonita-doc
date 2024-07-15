@@ -32,7 +32,26 @@ We are pleased to bring several exciting advancements in this release, including
 
 == Bug fixes
 
-=== Fixes in Bonita 2024.2 (2024-05-28)
+=== Fixes in Bonita 2024.1-u3 (2024-07-17)
+
+==== Fixes in Bonita Runtime including Bonita Applications
+
+* RUNTIME-1697 - Avoid reading configuration from database, in favor to caching +
+  Bonita Runtime makes heavy usage of *cache* to improve performance. In that context, most configuration changes require *server restart* to be taken into account. In particular, all SSO activations and configuration changes fall into this category (OIDC, SAML, Kerberos, JAAS, ...). +
+* RUNTIME-1877 - Session Sharing x sameSiteCookies value systematically set to "lax" when cluster is enabled. xref:runtime:install-a-bonita-bpm-cluster.adoc[New configuration properties] specific to cluster mode and session cookie have been added.
+* RUNTIME-1833 - SanitizerFilter policy has been fine-tuned to be less restrictive (add support for links, pre elements and tables)
+* RUNTIME-1884 - `password` attribute silently removed from `org.bonitasoft.engine.identity.impl.UserImpl` class. Add removal information in the release note. Make the XStream deserialization less strict to avoid deserialization exception when a some fields are unknown.
+* RUNTIME-1887 - Regression in ServerProxifier algorithm produce a greater number of SQL requests.
+
+==== Fixes in Bonita Studio (including Bonita UI Designer)
+
+* STUDIO-4515 - Improve error management when migrating inconsistent project data
+* STUDIO-4530 - ResourceException when using Switch Workspace from a 9.0.x
+* STUDIO-4531 - Getting started tutorial not working out of the box in Subscription editions.
+* STUDIO-4533 - Refreshing a project after a git switch branch now adds/removes submodules as expected.
+* STUDIO-4535 - Renaming a project without bdm or extensions fails
+
+=== Fixes in Bonita 2024.1-u2 (2024-06-07)
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
