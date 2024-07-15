@@ -48,7 +48,7 @@ It is a tag used to describe an Application made with Bonita UI Builder in the S
 
 
 === Can I use other datasources than Bonita’s? 
-Theoretically you can, yes. However, we’re not supporting them yet.
+Yes you can. You can call external REST APIs and GraphQL APIs.
 
 
 === How do Bonita UI Builder and Bonita UI Designer compare?
@@ -71,10 +71,6 @@ Theoretically you can, yes. However, we’re not supporting them yet.
 |Form's auto-generation from a contract
 |Yes
 |Yes in a future release
-
-|Templates
-|No
-|Yes
 
 |Themes
 |Yes (using CSS bootstrap 3)
@@ -188,7 +184,4 @@ Once you know that https://learn.microsoft.com/en-us/windows/wsl/networking#acce
 * in `upstream auth_service` of the `nginx.conf` file (if you are using Bonita as your authentication service or your authentication service is also hosted on Windows).
 --
 
-[NOTE]
-====
-Bonita UI Builder is for Subscription editions only.
-====
+
