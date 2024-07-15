@@ -1,0 +1,136 @@
+= How to create editable and powerful Tables
+:description: Learn how to configure tables from which you can edit Bonita data, display dynamic values, and many other things.
+
+{description}
+
+* Difficulty: beginner
+* Estimated time: 20 minutes
+* Prerequisites: have a Table widget bound to the following API request which lists users:
+**  `Name`: getUser
+** `Method`: GET
+** `URL`: /bonita/API/identity/user
+** `Params`:
+    - `Key`: c
+    - `Value`: 20
+    - `Key`: p
+    - `Value`: 0
+
+This Table widget and its data will be used as example in this guide.
+
+
+== Create columns with dynamic values
+
+As you might be using Bonita UI Builder to create applications that answer complex business needs, you will probably want to add new columns with dynamic values.
+
+=== Via JavaScript objects
+Let’s say you want to add a column whose values are a multiplication of two other columns.
+
+First, go to the `JS` tab (between the `Queries` and `UI` tabs), create a new JS object called *Calculation* and copy paste the following code:
+
+[source, JS]
+----
+export default {
+	calculate: (num1, num2) => {
+		var calculation = num1*num2;
+		return calculation;
+	}
+}
+----
+
+Click the Table widget (which displays the list of Bonita users). Then click `add new column`, click the wheel icon to customize it and copy paste the following code in the `Computed value` zone: `{{Calculation.calculate(currentRow.manager_id,currentRow.id)}}`
+
+image::images/guides/multiplication.gif[multiplication]
+
+=== Without JavaScript objects
+
+You don’t always need JS objects to create dynamic columns. Let’s say you want to create a *Gender* column whose value depends on whether the title is *Mrs* or *Mr*.
+
+In a similar way to what was done in the previous example, create a *Gender* column, click the wheel icon, and copy-paste the following code: 
+`{{currentRow.title === "Mr" ? "male" : "female"}}`
+
+
+
+== How to dynamically configure cells' color 
+
+You might also want your Table’s cells to have different background colors, defined according specific conditions.
+
+Let’s say you want to color cells depending on the user’s title.
+Click the wheel icon next to the `title` column, go to the `Style` tab, click the `JS` icon next to _Cell background_ and add the following code: 
+`{{currentRow.title === "Mrs" ? "#fce7f3" : "#dbeafe"}}`
+
+
+image::images/guides/background_color.gif[background_color]
+
+
+You can also trigger conditions on numbers, for example if the user’s id is superior or equal to 35: `{{currentRow.id >= 35 ? "#fce7f3" : "#dbeafe"}}`
+
+
+
+== Create an editable table that can interact with your Bonita data 
+
+Editing your data directly from a Table has just become easy with Bonita UI Builder.
+
+Let’s create a table from which we can edit a user's firstname, and propagate these changes to your actual Bonita users.
+
+=== 1. Create an update request
+
+Go to the `Queries` tab and create the following query:
+
+*  `Name`: updateUser
+* `Method`: PUT
+* `URL`: /bonita/API/identity/user/{{Table1.triggeredRow.id}}
+* `Params`:
+    - `Key`: c
+    - `Value`: 20
+    - `Key`: p
+    - `Value`: 0
+* `Body`:
+[source, JSON]
+----
+{
+  "firstname": {{Table1.triggeredRow.firstname}}
+}
+----
+
+This request updates the user’s firstname with the Table’s cell content.
+
+
+=== 2. Allow the Table to edit users 
+
+Select the Table widget and click the box next to `firstname` to make it editable:
+
+image::images/guides/tick_editable.png[tick_editable]
+
+
+A `Save / Discard` column then appears. Click the wheel icon next to “Save / Discard” to customize it.
+
+Then, click the `+` icon next to `onSave`, select _Execute a query_ and select _updateUser_.
+
+image::images/guides/onsave_table.gif[onsave_table]
+
+
+The Table can now update the user's fistname after clicking `Save`.
+
+[TIP]
+You can also make the `firstname` column editable under conditions. 
+Click the wheel icon next to `firstname`, then click the `JS` icon next to *Editable* and copy paste the following code: 
+`{{currentRow.title === "Mrs" ? true : false}}`. 
+This makes it editable only if the user is a _Mrs_.
+
+=== 3. Automatically refresh the table after saving
+
+After clicking the Save button, let’s automatically refresh the table (via a call to `getUser`) and display a success message.
+
+To do so, click the  `On success` button and add the following actions:
+
+image::images/guides/refresh_table.png[refresh_table]
+
+
+== Make a component visible under conditions
+
+Your applications can quickly get complex and dense. In this situation, widgets' visibility can be controlled in many ways.
+
+Let’s say we want to display a form whenever `last_connection` cells are empty.
+
+To do so, drag and drop a form widget, click the `JS` button next to `Visible` and copy paste the following code: 
+`{{Table1.selectedRow.last_connection === "" ? true : false}}`
