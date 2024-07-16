@@ -127,7 +127,7 @@ The property allowing to enable/disable xref:identity:rest-api-authorization.ado
 * RUNTIME-1697 - Avoid reading configuration from database, in favor to caching +
 Bonita Runtime makes heavy usage of *cache* to improve performance. In that context, most configuration changes require *server restart* to be taken into account. In particular, all SSO activations and configuration changes fall into this category (OIDC, SAML, Kerberos, JAAS, ...). +
 * RUNTIME-1877 - Session Sharing x sameSiteCookies value systematically set to "lax" when cluster is enabled. xref:runtime:install-a-bonita-bpm-cluster.adoc[New configuration properties] specific to cluster mode and session cookie have been added.
-* RUNTIME-1884 - `password` attribute silently removed from `org.bonitasoft.engine.identity.impl.UserImpl` class. Add removal information in the release note. Make the XStream deserialization less strict to avoid deserialization exception when a some fields are unknown.
+* RUNTIME-1884 - `password` attribute silently removed from `org.bonitasoft.engine.identity.impl.UserImpl` class. Add removal information in the release note. Make the XStream deserialization less strict to avoid deserialization exception when some fields are unknown.
 * RUNTIME-1887 - Regression in ServerProxifier algorithm produce a greater number of SQL requests.
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
