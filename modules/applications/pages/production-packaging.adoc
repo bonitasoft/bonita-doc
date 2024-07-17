@@ -1,12 +1,12 @@
-= Build the UI Production Binary
+= Production packaging
 :bonitasoft: bonitasoft.jfrog.io/docker/bonita-ui-builder
 :description: Procedure to build the UI production binary
 
 NOTE: Before starting, ensure you have **Docker** installed on your system.
 
-== Build docker image
+== Build a docker image
 
-* Add this Dockerfile in your project to the root of your project:
+Add this Dockerfile in your project to the root of your project:
 
 [[dockerfile]]
 [source,docker]
@@ -14,9 +14,21 @@ NOTE: Before starting, ensure you have **Docker** installed on your system.
 include::example$Dockerfile[]
 ----
 
-* From Bonita UI Builder , export all applications and store them in the `workspace` folder next to the Dockerfile.
+Unless specific needs, you don't need to edit variables in this dockerfile.
 
-NOTE: You can change the default `workspace` folder and use any folder, but in this case use the `WORKSPACE` build argument with the new folder path.
+Save the Dockerfile next to the `workspace` folder which contains all your xref:package-and-deploy-your-application.adoc#_store_your_application_in_a_workspace_folder[exported JSON applications]: 
+
+[source,shell]
+----
+..
+dockerfile
+workspace/
+  myApp.json
+  myOtherApps.json
+----
+
+
+NOTE: You can change the default `workspace` folder and use any folder, but in this case, edit the dockerfile's `WORKSPACE` build argument with the new folder path.
 
 === Default build command
 
@@ -51,7 +63,7 @@ You can override some default values by using the following build arguments:
 ----
 
 [[run-production-binary]]
-=== Run the production binary
+== Run the production binary
 
 To run the production docker image, you can use the following command:
 
@@ -63,3 +75,5 @@ To run the production docker image, you can use the following command:
 ----
 
 You can override and configure all xref:ui-builder-docker-installation.adoc#environment-variables[environment variables].
+
+NOTE: If you want to test your applications before going into production, instead of using `docker run`, you can use a `docker-compose.yml` file in the likes of what was done in the xref:download-and-launch.adoc#_create_the_docker_environment[first steps] (i.e. with a `nginx` reverse proxy and the docker image xref:production-packaging.adoc#_build_docker_image[built previously]).
