@@ -1,5 +1,5 @@
 = Release notes
-:description: Bonita release note
+:description: This is the release notes for Bonita {bonitaVersion} versions
 
 [NOTE]
 ====
@@ -118,6 +118,28 @@ If you used them to configure Bonita Runtime for "word-based" search and specifi
 The property allowing to enable/disable xref:identity:rest-api-authorization.adoc#dynamic_authorization[dynamic authorization checks] has been moved from the configuration file `bonita-tenant-sp-custom.properties` to the file `bonita-tenant-community-custom.properties` in the tenant folder when using the setup tool. When updating Bonita in Subscription editions, if the property was used, Bonita update tool will keep its value. When the property is set using a system property or an environment variable, it will continue to override the value of the configuration file.
 
 == Bug fixes
+
+=== Fixes in Bonita 2024.1-u3 (2024-07-18)
+
+==== Fixes in Bonita Runtime including Bonita Applications
+
+* RUNTIME-1883 - Add extra java 17 open packages instructions for Bundle packaging
+* RUNTIME-1697 - Avoid reading configuration from database, in favor to caching +
+Bonita Runtime makes heavy usage of *cache* to improve performance. In that context, most configuration changes require *server restart* to be taken into account. In particular, all SSO activations and configuration changes fall into this category (OIDC, SAML, Kerberos, JAAS, ...). +
+* RUNTIME-1877 - Session Sharing x sameSiteCookies value systematically set to "lax" when cluster is enabled. xref:runtime:install-a-bonita-bpm-cluster.adoc[New configuration properties] specific to cluster mode and session cookie have been added.
+* RUNTIME-1884 - `password` attribute silently removed from `org.bonitasoft.engine.identity.impl.UserImpl` class. Add removal information in the release note. Make the XStream deserialization less strict to avoid deserialization exception when some fields are unknown.
+* RUNTIME-1887 - Regression in ServerProxifier algorithm produce a greater number of SQL requests.
+
+==== Fixes in Bonita Studio (including Bonita UI Designer)
+
+* STUDIO-4526 - Cannot add or edit a database connector
+* STUDIO-4536 - Hazecalst discovery is enabled by default for Studio embedded Runtime
+* STUDIO-4515 - Improve error management when migrating inconsistent project data
+* STUDIO-4517 - Improve error management when migrating inconsistent project data
+* STUDIO-4530 - ResourceException when using Switch Workspace from a 9.0.x
+* STUDIO-4531 - Getting started tutorial not working out of the box in Subscription editions.
+* STUDIO-4533 - Refreshing a project after a git switch branch now adds/removes submodules as expected.
+* STUDIO-4535 - Renaming a project without bdm or extensions fails
 
 === Fixes in Bonita 2024.1-u2 (2024-06-07)
 
