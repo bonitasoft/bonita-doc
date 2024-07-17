@@ -1,5 +1,5 @@
 = Release notes
-:description: Bonita 2023.1 release note
+:description: This is the release notes for Bonita {bonitaVersion} versions
 
 Bonita 2023.1 release note
 
@@ -165,6 +165,18 @@ Reminder : For commercial and support questions, please refer to your Customer S
 
 
 == Bug fixes
+
+=== Fixes in Bonita 2023.1-u5 (2024-07-18)
+
+==== Fixes in Bonita Runtime including Bonita Applications
+
+* RUNTIME-1884 - `password` attribute silently removed from `org.bonitasoft.engine.identity.impl.UserImpl` class. Add removal information in the release note. Make the XStream deserialization less strict to avoid deserialization exception when a some fields are unknown.
+* RUNTIME-1887 - Regression in ServerProxifier algorithm produce a greater number of SQL requests.
+* RUNTIME-1833 - SanitizerFilter policy has been fine-tuned to be less restrictive (add support for links, pre elements and tables)
+
+==== Fixes in Bonita Studio (including Bonita UI Designer)
+
+* STUDIO-4515 - Improve error management when migrating inconsistent project data
 
 === Fixes in Bonita 2023.1-u4 (2024-04-23)
 
