@@ -1,7 +1,0 @@
-= Next steps
-:description:
-
-[NOTE]
-====
-For Subscription editions only.
-====

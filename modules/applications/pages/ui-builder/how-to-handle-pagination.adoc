@@ -1,0 +1,65 @@
+= How to handle server-side pagination
+:page-aliases: applications:how-to-handle-pagination.adoc
+:description: Learn how to handle server-side pagination and optimize performance
+
+{description}
+
+* Difficulty: beginner
+* Prerequisites: have your interface xref:interact-with-your-bonita-process.adoc[interact] with Bonita process
+* Estimated time: 10 minutes
+
+
+If you’re using list widgets and if your Bonita API requests return a lot of data, you might want to rely on server side pagination to improve performance.
+Follow this 3-steps tutorial to know how.
+
+Let's create an interface where a user types something in an input widget, and then it filters the API’s results and automatically adapts the pagination of a list widget.
+
+  
+== 1. Create a JS object
+
+Go to the `JS` tab (between `Queries` and `UI`), create a new JS object called “Pagination” and copy paste the following code:
+
+[source, JS]
+----
+export default {
+	maxResults (headers) {
+		return parseInt( headers['Content-Range'][0].split('/')[1] );
+	}
+}
+----
+
+NOTE: All Bonita API calls returning a collection of elements are paginated and their response contains a https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Range[Content-Range header].
+
+== 2. Create a dynamic API request
+
+Go to the `Queries` tab and create a request that will fetch users using server side pagination and filter users depending on a search term typed in an input widget:
+
+* `Name`: getUsers
+* `Method`: GET
+* `URL`: /bonita/API/identity/user
+* `Params`:
+    - `Key`: p
+    - `Value`: {{(UserList.pageNo-1)}}
+    - `Key`: c
+    - `Value`: {{UserList.pageSize}}
+    - `Key`: s
+    - `Value`: {{UserFilterInput.text}}
+
+
+== 3. Configure the interface
+
+On the interface, drag and drop an input widget (rename it `UserFilterInput`) and a list widget (rename it `UserList`).
+
+Configure the input widget:
+
+image::images/guides/pagination-input-widget.png[pagination-input-widget]
+
+  
+Configure the list widget:
+
+image::images/guides/pagination-list-widget.png[pagination-list-widget]
+
+
+Drag and drop widgets within the list widget and configure them. For example, it could be text widgets where the text = `{{currentItem.userName}}` or `{{currentItem.job_title}}`
+
+Click the preview button and enjoy! 
