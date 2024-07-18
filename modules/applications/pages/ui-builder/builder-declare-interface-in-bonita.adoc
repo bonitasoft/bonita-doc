@@ -11,7 +11,7 @@ The xref:ui-designer/application-creation.adoc[Bonita application descriptor] is
 To declare a Bonita UI Builder interface in it, edit it in Studio using the `source` tab.
 In this tab, you will be able to declare your application built and packaged with Bonita UI Builder, using auto-completion with an `applicationLink` XML tag.
 
-image::images/app-link/application-link-descriptor.png[Application Descriptor Editor]
+image:ui-builder/app-link/application-link-descriptor.png[Application Descriptor Editor]
 
 In this example, the _General Overview_ application is declared with the tag:
 

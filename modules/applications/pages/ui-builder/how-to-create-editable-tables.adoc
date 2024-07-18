@@ -40,7 +40,7 @@ export default {
 
 Click the Table widget (which displays the list of Bonita users). Then click `add new column`, click the wheel icon to customize it and copy paste the following code in the `Computed value` zone: `{{Calculation.calculate(currentRow.manager_id,currentRow.id)}}`
 
-image::images/guides/multiplication.gif[multiplication]
+image:ui-builder/guides/multiplication.gif[multiplication]
 
 === Without JavaScript objects
 
@@ -60,7 +60,7 @@ Click the wheel icon next to the `title` column, go to the `Style` tab, click th
 `{{currentRow.title === "Mrs" ? "#fce7f3" : "#dbeafe"}}`
 
 
-image::images/guides/background_color.gif[background_color]
+image:ui-builder/guides/background_color.gif[background_color]
 
 
 You can also trigger conditions on numbers, for example if the user’s id is superior or equal to 35: `{{currentRow.id >= 35 ? "#fce7f3" : "#dbeafe"}}`
@@ -100,14 +100,14 @@ This request updates the user’s firstname with the Table’s cell content.
 
 Select the Table widget and click the box next to `firstname` to make it editable:
 
-image::images/guides/tick_editable.png[tick_editable]
+image:ui-builder/guides/tick_editable.png[tick_editable]
 
 
 A `Save / Discard` column then appears. Click the wheel icon next to “Save / Discard” to customize it.
 
 Then, click the `+` icon next to `onSave`, select _Execute a query_ and select _updateUser_.
 
-image::images/guides/onsave_table.gif[onsave_table]
+image:ui-builder/guides/onsave_table.gif[onsave_table]
 
 
 The Table can now update the user's fistname after clicking `Save`.
@@ -124,7 +124,7 @@ After clicking the Save button, let’s automatically refresh the table (via a c
 
 To do so, click the  `On success` button and add the following actions:
 
-image::images/guides/refresh_table.png[refresh_table]
+image:ui-builder/guides/refresh_table.png[refresh_table]
 
 
 == Make a component visible under conditions

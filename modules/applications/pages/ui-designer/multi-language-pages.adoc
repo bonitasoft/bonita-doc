@@ -147,7 +147,7 @@ This gives the opportunity to get such strings available for translation in the 
 
 Now preview the page in each language. To do this, you need to modify the language used for Bonita web applications, which you do by setting the Bonita Applications language from xref:languages.adoc#_select_a_language_in_a_bonita_application[the Bonita Layout].
 
-image::images/images-6_0/l10n-combined-previews.png[Multi-language page previews]
+image:ui-designer/images-6_0/l10n-combined-previews.png[Multi-language page previews]
 
 Check the translated versions of the page, and update the translated text if necessary. To update the translations, edit your `localization.json` file and then upload it again. Adjust the page layout if necessary to allow for language differences. Your multi-language page is now complete, ready to be included in an application and deployed.
 

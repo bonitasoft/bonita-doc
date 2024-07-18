@@ -11,7 +11,7 @@ In both cases, the user can navigate between applications they have the permissi
 The first way to navigate to a different application is through the Bonita Layout.
 . The user clicks on the _mosaïc_ icon in the Application header
 . The user selects the tile of the application to navigate to
-image:images/UI2021.1/navigation-application.png[Navigation Application]
+image:ui-designer/UI2021.1/navigation-application.png[Navigation Application]
 // {.img-responsive}
 
-The second way is through the Application directory, which is the first application a user sees when connecting to Bonita: image:images/temp-release-notes-specific/new_app_directory_with_converted_custom_profile.png[Bonita Application Directory]
+The second way is through the Application directory, which is the first application a user sees when connecting to Bonita: image:ui-designer/temp-release-notes-specific/new_app_directory_with_converted_custom_profile.png[Bonita Application Directory]

@@ -12,7 +12,7 @@ Once you've designed an application that interacts with your xref:interact-with-
 
 Once the design is complete, export the application(s) as JSON file from Bonita UI Builder by clicking the `export` button on the home page. This export will be used for building the production binary.
 
-image::images/advanced-app/export-application.png[Export application]
+image:ui-builder/advanced-app/export-application.png[Export application]
 
 [[store-application]]
 === Store your application in a workspace folder

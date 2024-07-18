@@ -52,12 +52,12 @@ On the interface, drag and drop an input widget (rename it `UserFilterInput`) an
 
 Configure the input widget:
 
-image::images/guides/pagination-input-widget.png[pagination-input-widget]
+image:ui-builder/guides/pagination-input-widget.png[pagination-input-widget]
 
   
 Configure the list widget:
 
-image::images/guides/pagination-list-widget.png[pagination-list-widget]
+image:ui-builder/guides/pagination-list-widget.png[pagination-list-widget]
 
 
 Drag and drop widgets within the list widget and configure them. For example, it could be text widgets where the text = `{{currentItem.userName}}` or `{{currentItem.job_title}}`

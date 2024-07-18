@@ -33,7 +33,7 @@ Enter the following configuration:
 
 Then, click on `Run` to test the API and see the result in the `Response` tab.
 
-image::images/interact-with-your-bonita-process/get-process.gif[get-process]
+image:ui-builder/interact-with-your-bonita-process/get-process.gif[get-process]
 
 
 [NOTE]
@@ -82,12 +82,12 @@ Now, we need to tell the form to execute this API request after clicking the `su
 
 Go to the `UI` tab and click the form's `submit` button. On the right panel, click the `onclick` label, then select `execute a query` and choose `instantiateProcess`:
 
-image::images/interact-with-your-bonita-process/bind-data.gif[bind-data]
+image:ui-builder/interact-with-your-bonita-process/bind-data.gif[bind-data]
 
 
 
 Everything is settled. Now, click the `preview` button on top of the screen and test your form:
 
-image::images/interact-with-your-bonita-process/test-instantiate.gif[test-instantiate]
+image:ui-builder/interact-with-your-bonita-process/test-instantiate.gif[test-instantiate]
 
 You now have a working interface that interacts with your Bonita process and data, congratulations!

@@ -14,7 +14,7 @@ Let’s say you want to send parameters to another page using what was typed in 
 
 To do so, drag and drop a text widget and a button widget. The button widget should be configured like this:
 
-image::images/guides/configure-query-params.png[configure-query-params]
+image:ui-builder/guides/configure-query-params.png[configure-query-params]
 
 
 The `navigate to` function will redirect to the chosen page. The query params will be passed between the source and the target page's URL: `your-application/target-page/edit?xx=value`
