@@ -13,7 +13,7 @@ Add this Dockerfile in your project to the root of your project:
 [[dockerfile]]
 [source,docker]
 ----
-include::example$Dockerfile[]
+include::example$ui-builder/Dockerfile[]
 ----
 
 Unless specific needs, you don't need to edit variables in this dockerfile.

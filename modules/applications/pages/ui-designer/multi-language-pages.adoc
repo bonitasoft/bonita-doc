@@ -89,41 +89,10 @@ Use an online Json checker to make sure there are no format errors in the file. 
 
 [source,json]
 ----
-{
-  "ru_RU": {
-    "Travel Tool": "Путешествия Инструмент",
-    "This page lists your pending and approved travel requests.": "Эта страница содержит список ожидающие и одобренные запросы в поездке.",
-    "My pending requests": "Мои ожидающие запросы",
-    "Departure date": "Дата отбытия",
-    "Number of nights": "Количество ночей",
-    "Hotel needed": "Отель нужны",
-    "Destination": "Hазначения",
-    "Reason": "причина",
-    "d/M/yyyy": "dd/MM/yyyy",
-    "Create new travel request": "Создать новый запрос пути",
-    "My approved travel requests": "Мои запросы туристические утвержденные",
-    "yes": "Да",
-    "no": "Нет"
-  },
-  "fr-FR": {
-    "Travel Tool": "Gestionnaire de déplacements",
-    "This page lists your pending and approved travel requests.": "Cette page affiche la liste de vos demandes de déplacements en attente et de celles qui ont été approuvées.",
-    "My pending requests": "Mes demandes en attente",
-    "Departure date": "Date de départ",
-    "Number of nights": "Nombre de nuits",
-    "Hotel needed": "Besoin d'une réservation d'hôtel",
-    "Destination": "Destination",
-    "Reason": "Motif",
-    "d/M/yyyy": "dd/MM/yyyy",
-    "Create new travel request": "Créer une nouvelle demande de déplacement",
-    "My approved travel requests": "Mes demandes approuvées ",
-    "yes": "oui",
-    "no": "non"
-  }
-}
+include::example$ui-designer/localization.json[]
 ----
 
-You can  xref:attachment$localization.json[download a copy of this `localization.json` file] for testing.
+You can xref:example$ui-designer/localization.json[download a copy of this `localization.json` file] for testing.
 
 In the UI Designer, import this file as an asset of the travel tool page. This will replace any existing `localization.json` file. Save the page.
 
