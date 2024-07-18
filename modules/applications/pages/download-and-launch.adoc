@@ -8,7 +8,7 @@ For Subscription editions only.
 
 == Prerequisites
 * Docker installed
-* 2024.3 Bonita started on the local machine
+* 2024.3 Bonita (or any later version) started on the local machine
 
 To use Bonita UI Builder, a Bonita runtime running on your local machine is required (it may be a Bonita Studio or a standalone Bonita runtime).
 
