@@ -1,0 +1,76 @@
+= Package and deploy your application
+:page-aliases: applications:package-and-deploy-your-application.adoc
+:description: Step-by-step guide to transition from development to production using Bonita UI Builder
+
+
+Once you've designed an application that interacts with your xref:interact-with-your-bonita-process.adoc[Bonita process], and xref:builder-declare-interface-in-bonita.adoc[declared] it in Bonita, it's time to push your application to production.
+
+== Move from Development to Production
+
+[[export-application]]
+=== Export your application
+
+Once the design is complete, export the application(s) as JSON file from Bonita UI Builder by clicking the `export` button on the home page. This export will be used for building the production binary.
+
+image:ui-builder/advanced-app/export-application.png[Export application]
+
+[[store-application]]
+=== Store your application in a workspace folder
+
+Move the exported JSON application(s) in a designated `workspace` folder. This folder will be referenced during the build process.
+You can store these applications in a Git repository too.
+
+=== Build the production binary
+
+To create the production-ready binary, you need to build a Docker image. This image will contain the application(s) and the Bonita UI Builder runtime.
+
+The xref:production-packaging.adoc#dockerfile[Dockerfile] and more details on how to build the Docker image can be found in this xref:production-packaging.adoc[dedicated page].
+
+=== Run the Docker image
+
+After building the Docker image, run it using the following command:
+
+[source,shell]
+----
+docker run --name <container-name> <image-name>:<version>
+----
+See xref:production-packaging.adoc#run-production-binary[run production binary page] for more details.
+
+=== Access your Application
+
+Once the Docker image is running, all applications contained in the `workspace` folder will be:
+
+- Imported
+- Published
+- Made available for users
+
+Then, these applications can be accessed from the Bonita Administrator Application and the Bonita Application Directory page.
+
+[.troubleshooting-title]
+== Troubleshooting
+
+[.troubleshooting-section]
+--
+[.symptom]
+After building and running the Bonita UI Builder, at least one application are missing.
+
+[.cause]#Cause#
+The application is on error and the Bonita UI Builder is not able to import and deploy the application.
+
+[.solution]#Solution#
+Check the log of the bonita-ui-builder container with `docker logs <container-name>` to find which application is on error.
+Then fix your application and be sure your export are compatible and a valid JSON.
+--
+
+[.troubleshooting-section]
+--
+[.symptom]
+After building and running the Bonita UI Builder, no application can be seen or found in production.
+
+[.cause]#Cause#
+This is probably due to an error when the application was xref:builder-declare-interface-in-bonita.adoc[declared] in the Application Descriptor. Bonita UI Builder is therefore unable to find the application's location.
+
+[.solution]#Solution#
+Ensure the application designed with Bonita UI Builder is declared using the `<advancedLink>` tag. Then, save and deploy the Application Descriptor by clicking the `deploy` button in the Studio.
+Also, make sure the `token` value is identical to the value of the `slug` key found in the xref:package-and-deploy-your-application.adoc#export-application[JSON export of the application]. If several `slug` keys are found in the JSON export, you should take the value of the first `slug` key.
+--

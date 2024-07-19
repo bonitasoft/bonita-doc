@@ -1,0 +1,49 @@
+= Initiation Manual
+:page-aliases: applications:initiation-manual.adoc
+:description: Bonita UI Builder allows for designing all kind of interfaces, forms and pages, without distinction. These interfaces interact with your Bonita process and BDM.
+
+{description}
+
+
+The initiation manual describes all the mandatory steps to successfully push your interfaces to production: from downloading Bonita UI Builder to running your applications.
+
+
+[.card-section]
+== Sections
+
+[.card.card-index]
+--
+xref:download-and-launch.adoc[[.card-title]#Download and launch# [.card-body.card-content-overflow]#pass:q[Steps to download and launch Bonita UI Builder]#]
+--
+
+[.card.card-index]
+--
+xref:ui-builder-docker-installation.adoc[[.card-title]#UI Builder configuration# [.card-body.card-content-overflow]#pass:q[How to configure the UI Builder docker container]#]
+--
+
+[.card.card-index]
+--
+xref:create-an-interface.adoc[[.card-title]#Create an interface# [.card-body.card-content-overflow]#pass:q[Steps to set the visual elements of your interface]#]
+--
+
+[.card.card-index]
+--
+xref:interact-with-your-bonita-process.adoc[[.card-title]#Interact with your Bonita process# [.card-body.card-content-overflow]#pass:q[Steps to bind your process data to your visual elements]#]
+--
+
+[.card.card-index]
+--
+xref:builder-declare-interface-in-bonita.adoc[[.card-title]#Declare the interface in Bonita# [.card-body.card-content-overflow]#pass:q[Steps to declare your Bonita UI Builder interface in your Bonita project]#]
+--
+
+[.card.card-index]
+--
+xref:package-and-deploy-your-application.adoc[[.card-title]#Package and deploy your application# [.card-body.card-content-overflow]#pass:q[Steps to package your interface in an application and push it to production]#]
+--
+
+[.card.card-index]
+--
+xref:next-steps.adoc[[.card-title]#Next steps# [.card-body.card-content-overflow]#pass:q[Steps to smoothly operation your application]#]
+--
+
+

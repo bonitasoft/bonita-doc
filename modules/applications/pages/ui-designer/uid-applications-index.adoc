@@ -1,8 +1,14 @@
-= Living Applications
-:page-aliases: ROOT:custom-applications-index.adoc
+= Living Applications with Bonita UID
+:page-aliases: applications:uid-applications-index.adoc
 :description: This page explains what a Living Application is, what it is made of, and how you can create your own applications.
-
 {description}
+
+[NOTE]
+====
+Starting from 2024.3 version, Bonita UI Builder is the only standard for designing all your applications. It brings a host of advanced features and improved usability, designed to help you create even more compelling and user-friendly interfaces. Bonita UI Builder is an application-centric development environment that allows for designing interfaces, forms and application pages, without distinction.
+During the transition, you can continue using Bonita UI Designer while exploring Bonita UI Builder. Eventually, Bonita UI Designer will be phased out, but we will provide support and resources to ensure a smooth transition. Check our xref:ui-builder/bonita-ui-builder.adoc[documentation] to learn more and start creating applications with Bonita UI Builder.
+====
+
 
 A Living Application is a navigation of pages that can be accessed by a xref:identity:profiles-overview.adoc[Profile]. +
 It is created and operated within Bonita Platform: created with Bonita Studio and UI Designer, deployed with Bonita Continuous Delivery, run by Bonita Runtime.
@@ -41,12 +47,12 @@ xref:identity:profiles-overview.adoc[[.card-title]#Profiles# [.card-body.card-co
 
 [.card.card-index]
 --
-xref:ui-designer/layout-development.adoc[[.card-title]#Layout# [.card-body.card-content-overflow]#pass:q[The visual structure of the application]#]
+xref:layout-development.adoc[[.card-title]#Layout# [.card-body.card-content-overflow]#pass:q[The visual structure of the application]#]
 --
 
 [.card.card-index]
 --
-xref:ui-designer/customize-living-application-theme.adoc[[.card-title]#Theme# [.card-body.card-content-overflow]#pass:q[The graphical details that create a visual identity]#]
+xref:customize-living-application-theme.adoc[[.card-title]#Theme# [.card-body.card-content-overflow]#pass:q[The graphical details that create a visual identity]#]
 --
 
 [.card.card-index]
