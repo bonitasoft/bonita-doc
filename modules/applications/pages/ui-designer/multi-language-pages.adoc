@@ -87,12 +87,13 @@ Create a `localization.json` file in the format shown above, containing the fren
 The language identifier must match the language identifier in the `.po` files containing the translations. +
 Use an online Json checker to make sure there are no format errors in the file. The file will look something like this:
 
+
 [source,json]
 ----
 include::example$ui-designer/localization.json[]
 ----
 
-You can xref:example$ui-designer/localization.json[download a copy of this `localization.json` file] for testing.
+You can copy of this `localization.json` file content for testing.
 
 In the UI Designer, import this file as an asset of the travel tool page. This will replace any existing `localization.json` file. Save the page.
 
