@@ -1,6 +1,6 @@
 ARG VERSION=pass:a[{bonita-ui-builder-version}]
 ARG BASE=pass:a[{bonita-ui-builder-image}]
-FROM ${BASE}:${VERSION}
+FROM $\{BASE}:$\{VERSION}
 
 # Argument for the folder location on the host where exported JSON applications are stored
 ARG WORKSPACE=./workspace/
@@ -9,7 +9,7 @@ ARG WORKSPACE=./workspace/
 ENV BONITA_DEV_MODE=false
 
 # Copy JSON applications inside an internal folder to be imported at startup
-COPY ${WORKSPACE} /opt/appsmith/workspace/applications/
+COPY $\{WORKSPACE} /opt/appsmith/workspace/applications/
 
 EXPOSE 80
 EXPOSE 443
