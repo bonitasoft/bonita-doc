@@ -22,7 +22,7 @@ To use Bonita UI Builder, a Bonita runtime running on your local machine is requ
 .Click to see the docker compose file
 [%collapsible]
 ====
-[source, docker]
+[source,docker,subs="+macros,+attributes"]
 ----
 include::example$ui-builder/development/docker-compose.yml[]
 ----
