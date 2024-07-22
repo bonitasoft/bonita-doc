@@ -1,0 +1,20 @@
+= Guides and Tutorials
+:page-aliases: applications:how-tos-builder.adoc
+:description: Learn how to use Bonita UI Builder to its full potential and develop powerful and complex interfaces effortlessly.
+
+{description}
+
+
+
+[.card-section]
+== Sections
+
+[.card.card-index]
+--
+xref:how-to-share-data-across-pages.adoc[[.card-title]#How to share data across pages# [.card-body.card-content-overflow]#pass:q[Learn how to send data through you application's pages]#]
+--
+
+[.card.card-index]
+--
+xref:how-to-control-visibility-of-widgets.adoc[[.card-title]#How to control visibility of your widgets# [.card-body.card-content-overflow]#pass:q[Learn how to set conditions to make your widgets visible or not]#]
+--
