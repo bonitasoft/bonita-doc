@@ -1,12 +1,15 @@
-ARG VERSION=1.0.0
-ARG BASE=bonitasoft.jfrog.io/docker/bonita-ui-builder
-FROM ${BASE}:${VERSION}
+ARG VERSION=pass:a[{bonita-ui-builder-version}]
+ARG BASE=pass:a[{bonita-ui-builder-image}]
+FROM $\{BASE}:$\{VERSION}
 
+# Argument for the folder location on the host where exported JSON applications are stored
 ARG WORKSPACE=./workspace/
-ENV BONITA_APPLICATION_FOLDER_PATH=/workspace/applications/
+
+# Make sure that the dev mode is disabled
 ENV BONITA_DEV_MODE=false
 
-COPY ${WORKSPACE} ${BONITA_APPLICATION_FOLDER_PATH}
+# Copy JSON applications inside an internal folder to be imported at startup
+COPY $\{WORKSPACE} /opt/appsmith/workspace/applications/
 
 EXPOSE 80
 EXPOSE 443

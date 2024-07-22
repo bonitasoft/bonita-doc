@@ -8,7 +8,6 @@ asciidoc:
     bonitaVersion: 2024.3
     bonitasoft-registry: 'bonitasoft.jfrog.io'
     bonitasoft-docker-repository: '{bonitasoft-registry}/docker'
-    bonita-ui-builder-latest-version: '1.0.0-beta.1'
     bonitaTechnicalVersion: '10.2.0' # latest public community version
     minimalRequiredJavaVersion: '17'
     javadocVersion: '10.2'
@@ -16,6 +15,9 @@ asciidoc:
     cscRootUrl: https://csc.bonitacloud.bonitasoft.com/apps/CustomerServices
     cscDownloadUrl: '{cscRootUrl}/downloads'
     cscLicenseUrl: '{cscRootUrl}/licenses'
+    # UI Builder attributes
+    bonita-ui-builder-version: '1.0.0-beta.1'
+    bonita-ui-builder-image: '{bonitasoft-docker-repository}/bonita-ui-builder'
     # ref versions of other components
     bcdDocVersion: '4.0'
     testToolkitVersion: '3.0'
