@@ -1,14 +1,15 @@
 = Create an interface
 :page-aliases: applications:create-an-interface.adoc
-:description: Once you have downloaded and launched Bonita UI Builder, it's time to create an interface.
+:description: Once you have downloaded and launched Bonita UI Builder, it's time to create an interfaace.
 
 {description}
 
 To do so, we will create a new application and move visual elements (also known as widgets) on the screen.
 On this page, we will try to create a form where customers can submit a claim. This is inspired by the Getting Started tutorial's xref:getting-started:create-web-user-interfaces.adoc[example].
 
+Test update
 
-== Prerequisites 
+== Prerequisites
 * Bonita UI Builder downloaded and launched
 * A working Bonita project with a defined process diagram, BDM, and contract. Follow the xref:getting-started:getting-started-index.adoc[Getting Started tutorial] if you need any help
 
@@ -19,7 +20,7 @@ You land on the design interface:
 
 image:ui-builder/create-an-interface/design-interface.png[design-interface]
 
-On the left part can be found all widgets (visual elements) that you can drag and drop anywhere you want on the central part. 
+On the left part can be found all widgets (visual elements) that you can drag and drop anywhere you want on the central part.
 This is also where you can define your API requests (`Queries` tab) that will help you connect your widgets to your Bonita process, see xref:interact-with-your-bonita-process.adoc[next section] for more details.
 
 On the right part, you can configure your widgets' properties as well as preview how the interface renders on different screen size.

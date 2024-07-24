@@ -10,7 +10,7 @@ Please check the xref:build-run:build-application.adoc#prerequisites[prerequisit
 
 . Run Bonita Studio {bonitaVersion} and create a new project.
 
-. Configure the project environment
+. Configure the project environment For User flow
 
 [#application-flow]
 . Validate the project

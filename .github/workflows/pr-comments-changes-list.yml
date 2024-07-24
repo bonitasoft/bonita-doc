@@ -2,7 +2,7 @@ name: Comments PR with changes list
 
 on:
   # use pull_request event to test update done in bonita-documentation-site/.github/workflows/_reusable_pr-comment-list-changes.yml
-  pull_request_target:
+  pull_request:
     paths:
       - '.github/workflows/pr-comments-changes-list.yml'
       - 'modules/**'
@@ -11,7 +11,8 @@ jobs:
   commentsPRChanges:
     permissions:
       pull-requests: write # write PR comments
-    uses: bonitasoft/bonita-documentation-site/.github/workflows/_reusable_pr-comment-list-changes.yml@master
+    uses: bonitasoft/bonita-documentation-site/.github/workflows/_reusable_pr-comment-list-changes.yml@fix/generate_preview_link_for_subfolder
     secrets: inherit
     with:
       component-name: bonita
+      doc-site-branch: fix/generate_preview_link_for_subfolder

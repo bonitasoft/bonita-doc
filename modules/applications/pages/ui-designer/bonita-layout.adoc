@@ -1,10 +1,10 @@
 = Bonita Layout
 :page-aliases: ROOT:bonita-layout.adoc, applications:bonita-layout.adoc
-:description: Layout
+:description: Layout for the Bonita UI Designer Layout for the Bonita UI Designer
 
 [NOTE]
 ====
-For Subscription editions only.
+For Subscription editions only. Test
 ====
 
 This layout has different desktop and mobile versions.
