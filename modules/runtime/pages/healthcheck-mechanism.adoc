@@ -23,7 +23,7 @@ The most common "unhealthy" state will be that the /healthz URL is not accessibl
 
 == Security
 
-The /healthz endpoint is protected by a username/password authentication. The default values are username: monitoring / password: mon1tor1ng_adm1n.
+The /healthz endpoint is protected by a username/password authentication. The default values are username `monitoring` and password `mon1tor1ng_adm1n`.
 It is very much recommended to change those values. It can be done by overriding the following environment properties:
 
 [source,text]
