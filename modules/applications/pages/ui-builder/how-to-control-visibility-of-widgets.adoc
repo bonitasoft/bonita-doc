@@ -11,7 +11,10 @@
 
 == Using JavaScript
 
-Widgets' visibility can be controlled by JavaScript. Let’s say you want to make a widget visible on specific conditions, for example if another widget contains a specific string. 
+Widgets' visibility can be controlled by JavaScript. 
+
+=== On text widgets 
+Let’s say you want to make a widget visible on specific conditions, for example if another widget contains a specific string. 
 Click the `JS` button on your widget’s settings:
 
 image:ui-builder/guides/js-button-disabled.png[js-button-disabled]
@@ -20,6 +23,21 @@ Add this small portion of code to make the `Text22` widget visible if the other 
 
 image:ui-builder/guides/visibility-enabled.png[visibility-enabled]
 
+=== On table widgets
+
+Let's say you have a table widget which displays ids, and you want to display another widget when you click a non-empty row in the table. 
+This is what you should put in the `Visible` settings of your other widget:
+
+`{{table.selectedRow.id != "" && table.selectedRow!= undefined}}`
+
+With the code above, you make the other widget visible if the table's row is not empty and if the whole table is not empty.
+
+[NOTE]
+====
+If a whole table is empty, `selectedRow` returns `undefined`.
+====
+
+Controlling widgets is not only limited to text and table widgets. Other kind of widgets can be controlled in a similar fashion.
 
 == Using the storeValue() function
 
