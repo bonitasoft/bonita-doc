@@ -59,7 +59,7 @@ Restart Bonita server.
 . If your configuration is correct you should be able to access your public application directly with the URL `http://<host>:<port>/bonita/apps/<app token>` without being logged in first. +
 You are done.
 
-[NOTE.uib,caption=UI Builder]
+[NOTE,caption=UI Builder]
 ====
 If you are using the UI Builder, you need to recreate the UI Builder production container to be able to use the guest user access..
 ====
