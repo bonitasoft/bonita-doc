@@ -72,7 +72,7 @@ The first time, the initialisation can take a while, a waiting message appears. 
 
 [TIP]
 ====
-If encountering issues Windows and WSL, check our xref:faq.adoc#WSLissue[FAQ] .
+If encountering issues with Windows and WSL, check our xref:faq.adoc#WSLissue[FAQ] .
 ====
 
 == Authenticate with the UI Builder
