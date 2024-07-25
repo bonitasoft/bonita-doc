@@ -8,6 +8,9 @@ ARG WORKSPACE=./workspace/
 # Make sure that the dev mode is disabled
 ENV BONITA_DEV_MODE=false
 
+# If you're using the 1.0.0-beta.1 version of the UI builder, you need to uncomment the following line and comment the line 15
+#COPY $\{WORKSPACE} /workspace/applications/
+
 # Copy JSON applications inside an internal folder to be imported at startup
 COPY $\{WORKSPACE} /opt/appsmith/workspace/applications/
 

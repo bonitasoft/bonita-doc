@@ -15,6 +15,8 @@ Add this Dockerfile in your project to the root of your project:
 include::example$ui-builder/Dockerfile[]
 ----
 
+WARNING: If you are using the 1.0.0-beta.1 version of the UI builder, be sure to read the comment in the Dockerfile.
+
 Unless specific needs, you do not need to edit variables in this dockerfile.
 
 Save the Dockerfile next to the `workspace` folder which contains all your xref:package-and-deploy-your-application.adoc#store-application[exported JSON applications]:
@@ -22,7 +24,7 @@ Save the Dockerfile next to the `workspace` folder which contains all your xref:
 [source,shell]
 ----
 ..
-dockerfile
+Dockerfile
 workspace/
   myApp.json
   myOtherApps.json
@@ -70,9 +72,9 @@ To run the production docker image, you can use the following command:
 
 [source,bash]
 ----
-  docker run --name <container-name> -p 8080:80
-            -e BONITA_API_URL=<bonita-runtime-url>/bonita/API
-            <image-name>:<image-version>
+  docker run --name <container-name> -p 8080:80 \
+            -e BONITA_API_URL=<bonita-runtime-url>/bonita/API \
+            <image-name>:<image-version> \
 ----
 
 You can override and configure all xref:ui-builder-docker-installation.adoc#environment-variables[environment variables].
