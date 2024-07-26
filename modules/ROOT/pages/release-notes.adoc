@@ -34,16 +34,40 @@ xref:api:rest-api-overview.adoc[REST APIs] (see _Application_ section) now also 
 
 == Bug fixes
 
-=== Fixes in Bonita 2024.3-b1 (2024/07/04)
+=== Fixes in Bonita 2024.3-b2 (2024/07/26)
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
-* RUNTIME-1697 - Too many queries are received on the RDBMS 
+* RUNTIME-1697 - Avoid reading configuration from database, in favor to caching +
+  Bonita Runtime makes heavy usage of *cache* to improve performance. In that context, most configuration changes require *server restart* to be taken into account. In particular, all SSO activations and configuration changes fall into this category (OIDC, SAML, Kerberos, JAAS, ...). +
+* RUNTIME-1877 - Session Sharing x sameSiteCookies value systematically set to "lax" when cluster is enabled. xref:runtime:install-a-bonita-bpm-cluster.adoc[New configuration properties] specific to cluster mode and session cookie have been added.
+* RUNTIME-1883 - Add extra java 17 open packages instructions for Bundle packaging
+* RUNTIME-1884 - `password` attribute silently removed from `org.bonitasoft.engine.identity.impl.UserImpl` class. Add removal information in the release note. Make the XStream deserialization less strict to avoid deserialization exception when a some fields are unknown.
+* RUNTIME-1887 - Regression in ServerProxifier algorithm produce a greater number of SQL requests.
+* RUNTIME-1890 - [LDAP Synchronizer] - Add add-opens for packaged scripts
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
 
 * STUDIO-4517 - Old version Git repository clone fails with DirectoryNotEmptyException if REST API extension does not contain pom.xml file
 * STUDIO-4515 	NPE generated during project migration 
-* STUDIO-4526 - [DATABASE CONNECTOR] Can't add or modify connector
+* STUDIO-4526 - Cannot add or edit a database connector
 * STUDIO-4530 - ResourceException at Studio 9.0.4 restart after a Switch Workspace to exisitng workspace from a 9.0.3
-* STUDIO-4531 - Getting started tutorial is no longer working 
+* STUDIO-4531 - Getting started tutorial not working out of the box in Subscription editions.
+* STUDIO-4533 - Refreshing a project after a git switch branch now adds/removes submodules as expected.
+* STUDIO-4535 - Renaming a project without bdm or extensions fails
+* STUDIO-4536 - Hazecalst discovery is enabled by default for Studio embedded Runtime
+
+=== Fixes in Bonita 2024.3-b1 (2024/07/04)
+
+==== Fixes in Bonita Runtime (including Bonita Applications)
+
+* RUNTIME-1697 - Avoid reading configuration from database, in favor to caching +
+  Bonita Runtime makes heavy usage of *cache* to improve performance. In that context, most configuration changes require *server restart* to be taken into account. In particular, all SSO activations and configuration changes fall into this category (OIDC, SAML, Kerberos, JAAS, ...). +
+
+==== Fixes in Bonita Studio (including Bonita UI Designer)
+
+* STUDIO-4517 - Old version Git repository clone fails with DirectoryNotEmptyException if REST API extension does not contain pom.xml file
+* STUDIO-4515 	NPE generated during project migration 
+* STUDIO-4526 - Cannot add or edit a database connector
+* STUDIO-4530 - ResourceException at Studio 9.0.4 restart after a Switch Workspace to exisitng workspace from a 9.0.3
+* STUDIO-4531 - Getting started tutorial not working out of the box in Subscription editions.
