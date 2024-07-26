@@ -22,18 +22,18 @@ Be careful to have all fonts used in your docx/odt file properly installed on th
 
 The connector loads fonts from the following folders:
 
-* On Windows: 
+* On Windows:
 ** `c:/windows/fonts`
 ** `c:/winnt/fonts`
 ** `d:/windows/fonts`
 ** `d:/winnt/fonts`
-* On Linux: 
+* On Linux:
 ** `/usr/share/X11/fonts`
 ** `/usr/X/lib/X11/fonts`
 ** `/usr/openwin/lib/X11/fonts`
 ** `/usr/share/fonts`
 ** `/usr/X11R6/lib/X11/fonts`
-* On MacOs: 
+* On MacOs:
 ** `/Library/Fonts`
 ** `/System/Library/Fonts`
 
@@ -58,7 +58,7 @@ Rendering issues (at worst the element will not be visible in the generated PDF;
 This connector is build upon *XdocReport* third party library, for more information check their Wiki at https://github.com/opensagres/xdocreport/wiki
 
 [.troubleshooting-title]
-== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+== Troubleshooting
 
 *Symptom*: +
 Users may encounter delays (long response times) when using this connector. +
