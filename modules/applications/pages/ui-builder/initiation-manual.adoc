@@ -40,10 +40,3 @@ xref:builder-declare-interface-in-bonita.adoc[[.card-title]#Declare the interfac
 --
 xref:package-and-deploy-your-application.adoc[[.card-title]#Package and deploy your application# [.card-body.card-content-overflow]#pass:q[Steps to package your interface in an application and push it to production]#]
 --
-
-[.card.card-index]
---
-xref:next-steps.adoc[[.card-title]#Next steps# [.card-body.card-content-overflow]#pass:q[Steps to smoothly operation your application]#]
---
-
-

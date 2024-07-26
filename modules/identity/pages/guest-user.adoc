@@ -59,6 +59,11 @@ Restart Bonita server.
 . If your configuration is correct you should be able to access your public application directly with the URL `http://<host>:<port>/bonita/apps/<app token>` without being logged in first. +
 You are done.
 
+[NOTE,caption=UI Builder]
+====
+If you are using the UI Builder, you need to recreate the xref:applications:ui-builder/production-packaging.adoc[UI Builder production container] to be able to use the guest user access.
+====
+
 [NOTE.bonitacloud,caption=Bonita Cloud]
 ====
 In Bonita Cloud, to change the configuration files to authorize Guest User, you just have to open a support ticket and we'll apply the change on the requested environment for you.

@@ -1,8 +1,0 @@
-= Next steps
-:page-aliases: applications:next-steps.adoc
-:description:
-
-[NOTE]
-====
-For Subscription editions only.
-====

@@ -8,7 +8,6 @@
    **** xref:ui-builder/builder-declare-interface-in-bonita.adoc[Declare the interface into Bonita]
    **** xref:ui-builder/package-and-deploy-your-application.adoc[Package and deploy your application]
    ***** xref:ui-builder/production-packaging.adoc[Production packaging]
-   **** xref:ui-builder/next-steps.adoc[Next steps]
   *** xref:ui-builder/how-tos-builder.adoc[Guides]
    **** xref:ui-builder/how-to-share-data-across-pages.adoc[How to share data across pages]
    **** xref:ui-builder/how-to-control-visibility-of-widgets.adoc[How to control visibility of your widgets]
