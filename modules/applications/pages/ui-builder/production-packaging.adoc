@@ -22,7 +22,7 @@ Save the Dockerfile next to the `workspace` folder which contains all your xref:
 [source,shell]
 ----
 ..
-dockerfile
+Dockerfile
 workspace/
   myApp.json
   myOtherApps.json
@@ -70,9 +70,10 @@ To run the production docker image, you can use the following command:
 
 [source,bash]
 ----
-  docker run --name <container-name> -p 8080:80
-            -e BONITA_API_URL=<bonita-runtime-url>/bonita/API
-            <image-name>:<image-version>
+  docker run --name <container-name> -p 8080:80 \
+            -e BONITA_API_URL=<bonita-runtime-url>/bonita/API \
+            -e BONITA_APPLICATION_FOLDER_PATH=/opt/appsmith/workspace/applications/
+            <image-name>:<image-version> \
 ----
 
 You can override and configure all xref:ui-builder-docker-installation.adoc#environment-variables[environment variables].
