@@ -102,7 +102,7 @@ Eg. `setup.sh pull`
 [WARNING]
 ====
 
-You must pull the configuration from the database every time you need to update your license file or edit the configuration of Bonita BPM Platform. Since some information is inserted by the platform itself in the database, this prevents database inconsistency.
+You must pull the configuration from the database every time you need to update your license file or edit the configuration of Bonita Platform. Since some information is inserted by the platform itself in the database, this prevents database inconsistency.
 ====
 
 * `push`, to update the configuration of Bonita Platform, and update your license

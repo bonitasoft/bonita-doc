@@ -14,7 +14,7 @@ Prerequisites for developing a REST API extension are:
 
 == Example description
 
-The following sections show how to create a REST API extension. As an example, we create a REST API extension that uses the Bonita BPM Engine to provide user information (first name, last name, email address).
+The following sections show how to create a REST API extension. As an example, we create a REST API extension that uses the Bonita Engine to provide user information (first name, last name, email address).
 
 There is some additional prerequisites when creating a REST API extension:
 
