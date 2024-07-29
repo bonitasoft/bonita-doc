@@ -1,7 +1,8 @@
 = Bonita on Kubernetes
-:description: Learn more about the benefits of deploying Bonita on Kubernetes
+:description: Learn more about the benefits of deploying Bonita on Kubernetes.
 
 {description}
+
 
 
 It is possible to deploy Bonita on Kubernetes, in order to bring together the strengths of both platforms to create an adaptable, resilient infrastructure for managing business processes. 
@@ -12,5 +13,6 @@ Let's break down the key aspects:
 * Scalable: one of Kubernetes' core benefits is its ability to scale applications dynamically based on demand
 * Efficient: Kubernetes optimizes resource use, which can lead to more efficient operation of Bonita applications
 
+Here is a https://github.com/bonitasoft-labs/kubernetes_example[project example] you can use to install Bonita on Minikube.
 
-Our Professional Services team can help you deploy Bonita on Kubernetes. Feel free to https://www.bonitasoft.com/professional-services/on-demand-services[get in touch] for more information.
+Our Professional Services team can also help you deploy Bonita on Kubernetes. Feel free to https://www.bonitasoft.com/professional-services/on-demand-services[get in touch] for more information.
