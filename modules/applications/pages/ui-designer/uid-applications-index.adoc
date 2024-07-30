@@ -5,9 +5,12 @@
 
 [NOTE]
 ====
-Starting from 2024.3 version, Bonita UI Builder is the only standard for designing all your applications. It brings a host of advanced features and improved usability, designed to help you create even more compelling and user-friendly interfaces. 
-Bonita UI Builder is an application-centric development environment that allows for designing interfaces, forms and application pages, without distinction.
-During this transition period, Bonita UI Designer will remain available to ensure a smooth and seamless experience for all our users. You can continue to use Bonita UI Designer as usual, while also having the opportunity to explore and get familiar with the capabilities of Bonita UI Builder.
+Starting from 2024.3 version, Bonita UI Builder is the only standard for designing all your applications. 
+
+Bonita UI Builder is an application-centric development environment that allows for designing interfaces, forms and application pages, without distinction. It brings a host of advanced features and improved usability, designed to help you create even more compelling and user-friendly interfaces. 
+
+You can continue to use Bonita UI Designer as usual, while also having the opportunity to explore and get familiar with the capabilities of Bonita UI Builder. Bonita UI Designer will remain fully operational for an extended period, allowing ample time for adaptation.
+
 Check our xref:ui-builder/bonita-ui-builder.adoc[documentation] to learn more and start creating applications with Bonita UI Builder.
 ====
 
