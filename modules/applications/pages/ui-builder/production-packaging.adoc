@@ -72,7 +72,6 @@ To run the production docker image, you can use the following command:
 ----
   docker run --name <container-name> -p 8080:80 \
             -e BONITA_API_URL=<bonita-runtime-url>/bonita/API \
-            -e BONITA_APPLICATION_FOLDER_PATH=/opt/appsmith/workspace/applications/
             <image-name>:<image-version> \
 ----
 
