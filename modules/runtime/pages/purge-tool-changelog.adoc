@@ -6,6 +6,40 @@ This is the changelog of the purge tool.
 
 The purge tool is used to remove data from bonita archive tables. It is useful for big production environments.
 
+== 2.0.0 - August ?, 2024
+
+Breaking changes:
+
+- Java 17+ is now required to run the tool.
+- Properties in the `application.properties` file have been renamed. Please update your configuration file accordingly.
+
+New features:
+
+- Improve the CLI user experience.
+- Add a new `list` command to list the archived process instances that can be deleted.
+- Add a new `delete` command to delete archived process instances with more options for better flexibility.
+- The `delete` command now supports 2 deletion modes: `batch-delete` and `copy-truncate`.
+- Delete operation is now executed in batch for a better control of the deletion process.
+- Add a new option to the `delete` command to set the batch size.
+- Add a new option to the `delete` command to set a timeout interval between each batch.
+- Add a new option to the `delete` command to use a period (e.g.: 1d, 2w, 3m, 4y) instead of an exact date timestamp to filter instances.
+- Process definition id is now optional in the `delete` command.
+- Add a new `delete-file-input` command to delete archived file input values.
+
+Fixes:
+
+- The CLI can be run from `bin/` or root folder.
+- Fix the date format display
+
+Others:
+
+- deps: update Springboot version to `3.3.2`
+- deps: update MySQL connector to `8.4.0`
+- deps: update PostgreSQL driver to `42.7.3`
+- deps: update Oracle driver to `21.14.0.0`
+- deps: update MS SQL Server driver to `9.4.1.jre11`
+- deps: update Exposed JDBC to `0.52.0`
+
 
 == 1.0.9 - June 11, 2024
 
@@ -19,9 +53,10 @@ Fixes:
 
 Now the tool **MUST** be run from the **root folder** by calling:
 
-```shell
+[source,shell]
+--
 bin/bonita-purge-tool[.sh/.bat]
-```
+--
 It cannot be run from the **bin/** folder anymore.
 
 Fixes:
