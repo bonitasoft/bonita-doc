@@ -10,6 +10,7 @@ asciidoc:
     bonitasoft-docker-repository: '{bonitasoft-registry}/docker'
     bonitaTechnicalVersion: '10.3.0' # latest public community version
     bonita-ui-builder-latest-version: '1.0.0-beta.1'
+    bonita-ui-builder-image: '{bonitasoft-docker-repository}/bonita-ui-builder'
     minimalRequiredJavaVersion: '17'
     javadocVersion: '10.3'
     openApiUrl: 'https://api-documentation.bonitasoft.com'
