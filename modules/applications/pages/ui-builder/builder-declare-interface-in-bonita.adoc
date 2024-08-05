@@ -26,6 +26,20 @@ There are fewer properties to set for an application link than for a legacy appl
 
 The `token` property's value must be identical to the value of the `slug` key found in the xref:package-and-deploy-your-application.adoc#export-application[JSON export of your application]. For example, if your application name is __Awesome application__, its `slug` should be __awesome-application__.
 
+[WARNING]
+====
+Two applications cannot share the same slug. To resolve this, you can modify one of the applications:
+
+1. Directly edit the JSON file:
+* Change the value of the `exportedApplication.slug` key.
+* Change the value of the `exportedApplication.name` key.
+* Note that `exportedApplication.slug` should be derived from `exportedApplication.name` by replacing spaces and special characters with hyphens.
+
+2. Use the Bonita UI Builder:
+* Change the application name through the Bonita UI Builder interface.
+
+====
+
 Once your application descriptor is done, don't forget to deploy it by clicking the `deploy` button in the Studio.
 
 [NOTE]
