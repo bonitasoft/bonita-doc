@@ -13,7 +13,7 @@ The following environment variable is mandatory:
 
 The following environment variables are optional:
 
-- `BONITA_DEV_MODE`: Enables user to development mode when set to `1`.
+- `BONITA_DEV_MODE`: Enables user to development mode when set to `true` (default value).
 - `LOGGING_LEVEL_ROOT`: Sets the logging level for the root logger. (default is `debug`)
 - `LOGGING_LEVEL_COM_APPSMITH`: Sets the logging level for Appsmith components. (default is `debug`)
 - `LOGGING_LEVEL_COM_BONITASOFT`: Sets the logging level for BonitaSoft components. (default is `debug`)
