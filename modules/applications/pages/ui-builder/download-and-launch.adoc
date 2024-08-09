@@ -32,7 +32,7 @@ INFO: You can override and configure all xref:ui-builder-docker-installation.ado
 
 == Configure the bonita-ui-proxy image
 
-The *bonita-ui-proxy* image is based on the official Nginx Docker image our nginx.conf file.
+The *bonita-ui-proxy* image is based on the official Nginx Docker image and a nginx.conf is included in the image.
 
 The image contains environment variables used for the configuration:
 
