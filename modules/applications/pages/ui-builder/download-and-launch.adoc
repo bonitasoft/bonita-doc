@@ -30,22 +30,21 @@ include::example$ui-builder/development/docker-compose.yml[]
 
 INFO: You can override and configure all xref:ui-builder-docker-installation.adoc#environment-variables[environment variables] in the `docker-compose.yml` file.
 
-- Create a `nginx` configuration file `nginx.conf` with the content below:
+== Configure the bonita-ui-proxy image
 
-.Click to see the nginx configuration file
-[%collapsible]
-====
-[source, nginxconfiguration]
-----
-include::example$ui-builder/development/nginx.conf[]
-----
-====
+The *bonita-ui-proxy* image is based on the official Nginx Docker image our nginx.conf file.
+
+The image contains environment variables used for the configuration:
+
+- `NGINX_ACCESS_LOG_ALL` - By default, 2xx and 3xx requests are not logged. Set to `1` to log all requests (default: `0`).
+- `NGINX_LISTEN_ADDRESS` - The address `host:[port]` on which Nginx is listen on for incoming requests (default: `80`). More information on the https://nginx.org/en/docs/http/ngx_http_core_module.html#listen[Nginx documentation].
+- `BONITA_HOST` - Host of the Bonita runtime to which UIB will request (default: `host.docker.internal`).
+- `BONITA_PORT` - Port of the Bonita runtime to which UIB will request (default: `8080`).
+- `UIB_HOST` - Host of the UI Builder instance (default: `host.docker.internal`).
+- `UIB_PORT` - Port of the UI Builder instance (default: `8090`).
 
 
-To use the provided docker and nginx files above without modification, make sure that the Bonita runtime is accessible at `http://localhost:8080`.
-
-[TIP]
-You can change the Bonita runtime port by updating the `docker-compose.yml` file and the `nginx.conf` file. Default port is `8080`.
+To use the provided bonita-ui-proxy docker image without modification, make sure that the Bonita runtime is accessible at `http://localhost:8080`.
 
 == Download and launch the docker image
 
