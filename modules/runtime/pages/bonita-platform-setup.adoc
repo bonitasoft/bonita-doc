@@ -102,7 +102,7 @@ Eg. `setup.sh pull`
 [WARNING]
 ====
 
-You must pull the configuration from the database every time you need to update your license file or edit the configuration of Bonita BPM Platform. Since some information is inserted by the platform itself in the database, this prevents database inconsistency.
+You must pull the configuration from the database every time you need to update your license file or edit the configuration of Bonita Platform. Since some information is inserted by the platform itself in the database, this prevents database inconsistency.
 ====
 
 * `push`, to update the configuration of Bonita Platform, and update your license
@@ -212,7 +212,7 @@ Or also if you need to use a specific *database Driver* java class name:
 *But in most cases, you don't need to modify this file.*
 
 [.troubleshooting-title]
-== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+== Troubleshooting
 
 [.troubleshooting-section]
 --
