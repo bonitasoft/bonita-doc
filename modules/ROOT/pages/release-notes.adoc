@@ -16,7 +16,7 @@ Eventually, Bonita UI Designer will be phased out as we progressively transition
 
 Here’s what you can expect during this transition period:
 
-* Continued access: Bonita UI Designer will remain fully operational for an extended period, allowing ample time for adaptation.
+* Continued access: Bonita UI Designer will remain fully operational for an extended period, allowing ample time for adaptation
 * Support and resources: We offer extensive documentation, tutorials, and support to help you make the most of xref:applications:bonita-ui-builder.adoc[Bonita UI Builder] 
 * Facilitated transition: We are dedicated to facilitate the transition, with detailed guides on how to use Bonita UI Builder, as well as https://www.bonitasoft.com/professional-services/on-demand-services[professional services support]
 
