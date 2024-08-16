@@ -73,9 +73,9 @@ Next, the RDBMS user owner of each new schema (i.e. Bonita Engine data *and* bus
 
 To create the database(s), we recommend that you refer to your RDBMS documentation:
 
-* https://www.postgresql.org/docs/11/app-createdb.html[PostgreSQL]
+* https://www.postgresql.org/docs/15/app-createdb.html[PostgreSQL]
 * https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/creating-and-configuring-an-oracle-database.html#GUID-FE07A9CD-3BD4-46E8-BA24-289FD50FDFE8[Oracle database]
-* https://technet.microsoft.com/en-us/library/dd207005(v=sql.110).aspx[SQL Server]
+* https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-database-schema?view=sql-server-ver16[SQL Server]
 * https://dev.mysql.com/doc/refman/8.0/en/database-use.html[MySQL]
 
 
