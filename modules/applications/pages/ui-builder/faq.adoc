@@ -185,3 +185,5 @@ Once you know that https://learn.microsoft.com/en-us/windows/wsl/networking#acce
 --
 
 
+=== I'm encountering 500 or 502 errors in UIB. What do these errors mean?
+These errors are likely related to your Bonita server being down. Ensure that your Bonita server is active and running.
