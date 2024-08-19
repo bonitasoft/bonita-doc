@@ -184,6 +184,14 @@ Once you know that https://learn.microsoft.com/en-us/windows/wsl/networking#acce
 * in `upstream auth_service` of the `nginx.conf` file (if you are using Bonita as your authentication service or your authentication service is also hosted on Windows).
 --
 
+[#5xxissue]
+[.troubleshooting-section]
+--
+[.symptom]
+I'm encountering 500 or 502 errors in UIB. What do these errors mean?
 
-=== I'm encountering 500 or 502 errors in UIB. What do these errors mean?
-These errors are likely related to your Bonita server being down. Ensure that your Bonita server is active and running.
+[.cause]#Cause#
+These errors are likely related to your Bonita server being down.
+
+[.solution]#Solution#
+Ensure that your Bonita server is active and running.
