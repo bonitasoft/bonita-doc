@@ -70,6 +70,21 @@ Then, you can access Bonita UI Builder at `http://localhost`.
 The first time, the initialisation can take a while, a waiting message appears. Reload the page if the page is blank.
 ====
 
+[WARNING]
+====
+By default, the database volumes are not persisted. Make sure you export your applications as .json files before running the command.
+[source, shell, subs="+attributes"]
+----
+docker compose down
+----
+If you do not want to loose your data, you can use instead these commands to stop and restart Bonita UI Builder:
+[source, shell, subs="+attributes"]
+----
+docker compose stop
+docker compose restart
+----
+====
+
 [TIP]
 ====
 If encountering issues with Windows and WSL, check our xref:faq.adoc#WSLissue[FAQ] .
