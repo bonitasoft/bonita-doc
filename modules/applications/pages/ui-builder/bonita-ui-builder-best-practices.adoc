@@ -1,0 +1,15 @@
+= Bonita UI Builder Best Practices
+:page-aliases: applications:bonita-ui-builder-best-practices.adoc
+:description: Learn how to manage common issues and warnings in Bonita UI Builder to build advanced and effective interfaces.
+
+{description}
+
+
+
+[.card-section]
+== Sections
+
+[.card.card-index]
+--
+xref:how-to-resolve-issues-with-partially-import.adoc[[.card-title]#How to resolve issues with partially importing a page# [.card-body.card-content-overflow]#pass:q[Discover how to troubleshoot errors encountered while importing a page.]#]
+--
