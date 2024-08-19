@@ -195,3 +195,4 @@ These errors are likely related to your Bonita server being down.
 
 [.solution]#Solution#
 Ensure that your Bonita server is active and running.
+--
