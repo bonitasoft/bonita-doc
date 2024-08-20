@@ -34,7 +34,7 @@ Bonita also comes with four xref:runtime:bonita-applications-interface-overview.
 
 “Applications” are very similar to “Living Applications”, which are created with Bonita UI Designer. Once pushed to production, Applications' content cannot be edited.
 
-"Applications" need to be defined via an 'applicationLink' tag in the xref:builder-declare-interface-in-bonita[Application descriptor].
+"Applications" need to be defined via an `applicationLink` tag in the xref:builder-declare-interface-in-bonita.adoc[Application descriptor].
 
 
 == Subscription
