@@ -1,6 +1,6 @@
-= How to resolve issues with partially importing a page
+= Avoid unnecessary information messages
 :page-aliases: applications:how-to-resolve-issues-with-partially-import.adoc
-:description: Discover how to troubleshoot errors encountered while importing a page into the application in UI Builder.
+:description: Discover how to deal with notifications encountered while importing a page into the application in UI Builder.
 
 {description}
 

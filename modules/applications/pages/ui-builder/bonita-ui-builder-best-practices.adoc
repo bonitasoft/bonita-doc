@@ -11,5 +11,5 @@
 
 [.card.card-index]
 --
-xref:how-to-resolve-issues-with-partially-import.adoc[[.card-title]#How to resolve issues with partially importing a page# [.card-body.card-content-overflow]#pass:q[Discover how to troubleshoot errors encountered while importing a page.]#]
+xref:how-to-avoid-unnecessary-information-messages.adoc[[.card-title]#Avoid unnecessary information messages# [.card-body.card-content-overflow]#pass:q[Discover how to deal with notifications encountered while importing a page.]#]
 --
