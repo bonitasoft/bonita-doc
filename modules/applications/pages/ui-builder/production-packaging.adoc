@@ -19,7 +19,7 @@ Unless specific needs, you do not need to edit variables in this dockerfile.
 
 Save the Dockerfile next to the `workspace` folder which contains all your xref:package-and-deploy-your-application.adoc#store-application[exported JSON applications]:
 
-[source,shell]
+[source,console]
 ----
 ..
 Dockerfile
@@ -37,9 +37,9 @@ With this command, the image will be built with the default values defined in th
 
 WARNING: If you use this command, be sure to have the `workspace` folder next to the Dockerfile.
 
-[source,bash]
+[source,console]
 ----
-  docker build -t <image-name> .
+docker build -t <image-name> .
 ----
 
 === Advanced build
@@ -55,12 +55,12 @@ You can override some default values by using the following build arguments:
 |WORKSPACE  | The folder containing the apps descriptor | ./workspace/
 |===
 
-[source,bash,subs="+attributes"]
+[source,console,subs="+attributes"]
 ----
-  docker build --build-arg "BASE={bonita-ui-builder-image}" \
-               --build-arg "VERSION={bonita-ui-builder-version}" \
-               --build-arg "WORKSPACE=./workspace/" \
-               -t <image-name>:<version> .
+docker build --build-arg "BASE={bonita-ui-builder-image}" \
+             --build-arg "VERSION={bonita-ui-builder-version}" \
+             --build-arg "WORKSPACE=./workspace/" \
+             -t <image-name>:<version> .
 ----
 
 [[run-production-binary]]
@@ -68,13 +68,13 @@ You can override some default values by using the following build arguments:
 
 To run the production docker image, you can use the following command:
 
-[source,bash]
+[source,console]
 ----
-  docker run --name <container-name> -p 8080:80 \
-            -e BONITA_API_URL=<bonita-runtime-url>/bonita/API \
-            <image-name>:<image-version> \
+docker run --name <container-name> -p 8080:80 \
+           -e BONITA_API_URL=<bonita-runtime-url>/bonita/API \
+           <image-name>:<image-version>
 ----
 
 You can override and configure all xref:ui-builder-docker-installation.adoc#environment-variables[environment variables].
 
-NOTE: If you want to test your applications before going into production, instead of using `docker run`, you can use a `docker-compose.yml` file in the likes of what was done in the xref:download-and-launch.adoc#create-docker-environment[first steps] (i.e. with a `nginx` reverse proxy and the docker image xref:production-packaging.adoc#build-docker-image[built previously]).
+NOTE: If you want to test your applications before going into production, instead of using `docker run`, you can use a `docker-compose.yml` file in the likes of what was done in the xref:download-and-launch.adoc#create-docker-environment[first steps] (i.e. with a `bonita-ui-proxy` image and the docker image xref:production-packaging.adoc#build-docker-image[built previously]).

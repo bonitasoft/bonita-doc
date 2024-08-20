@@ -10,10 +10,9 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
-  reverse-proxy:
-    image: nginx
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
+  # A reverse proxy used to communicate between Bonita UI Builder and a Bonita Runtime
+  bonita-ui-proxy:
+    image: ${IMAGE_NAME:-pass:a[{bonita-ui-proxy-image}]:latest}
     ports:
       - 443:443
       - 80:80
