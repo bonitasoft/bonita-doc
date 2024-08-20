@@ -15,6 +15,7 @@
    **** xref:ui-builder/how-to-create-editable-tables.adoc[How to create editable and powerful Tables]
    **** xref:ui-builder/bonita-ui-builder-best-practices.adoc[Best practices]
     ***** xref:ui-builder/how-to-avoid-unnecessary-information-messages.adoc[Avoid unnecessary information messages]
+    ***** xref:ui-builder/how-to-upload-multiple-documents.adoc[Upload multiple documents simultaneously]
   *** xref:ui-builder/resources.adoc[Resources]
   *** xref:ui-builder/faq.adoc[FAQ]
  ** xref:ui-designer/uid-applications-index.adoc[Living applications with Bonita UID]
