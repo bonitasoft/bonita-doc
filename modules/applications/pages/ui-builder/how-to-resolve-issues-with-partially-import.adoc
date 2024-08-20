@@ -34,3 +34,8 @@ If you encounter similar errors or warnings related to JavaScript functions duri
  * Refresh your browser
 
 image:ui-builder/guides/run-js-on-page-load.png[run-js-on-page-load]
+
+[NOTE]
+===
+Ensure that any conditional logic used in these queries or functions (e.g., using `if` conditions to decide whether they should run) is correct and returns `true` on page load.
+===
