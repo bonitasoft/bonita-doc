@@ -11,5 +11,5 @@
 
 [.card.card-index]
 --
-xref:how-to-avoid-unnecessary-information-messages.adoc[[.card-title]#Avoid unnecessary information messages# [.card-body.card-content-overflow]#pass:q[Discover how to deal with notifications encountered while importing a page.]#]
+xref:ui-builder/how-to-avoid-unnecessary-information-messages.adoc[[.card-title]#Avoid unnecessary information messages# [.card-body.card-content-overflow]#pass:q[Discover how to deal with notifications encountered while importing a page.]#]
 --
