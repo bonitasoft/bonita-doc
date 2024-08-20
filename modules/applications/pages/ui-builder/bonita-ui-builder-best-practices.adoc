@@ -13,8 +13,3 @@
 --
 xref:ui-builder/how-to-avoid-unnecessary-information-messages.adoc[[.card-title]#Avoid unnecessary information messages# [.card-body.card-content-overflow]#pass:q[Discover how to deal with notifications encountered while importing a page.]#]
 --
-
-[.card.card-index]
---
-xref:ui-builder/how-to-upload-multiple-documents.adoc[[.card-title]#Upload multiple documents simultaneously# [.card-body.card-content-overflow]#pass:q[Learn how to upload multiple documents simultaneously.]#]
---
