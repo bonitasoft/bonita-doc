@@ -6,7 +6,6 @@
 
 * Difficulty: intermediate
 * Prerequisites: have an xref:create-an-interface.adoc[interface created] on Bonita UI Builder
-* Estimated time: 15 minutes
 
 If you need to upload multiple files using Bonita's formFileUpload servlet, you'll need to process each file separately by looping through them, adding a parameter to the API query for each file. Since Bonita's `formFileUpload` doesn't support uploading multiple files at once, you'll also need to synchronize the uploads.
 
