@@ -10,7 +10,8 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
-  reverse-proxy:
+  # A reverse proxy used to communicate between Bonita UI Builder and a Bonita Runtime
+  bonita-ui-proxy:
     image: ${IMAGE_NAME:-pass:a[{bonita-ui-proxy-image}]:latest}
     ports:
       - 443:443

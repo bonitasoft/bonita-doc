@@ -22,9 +22,9 @@ Go to the `JS` tab (between `Queries` and `UI`), create a new JS object called â
 [source, JS]
 ----
 export default {
-	maxResults (headers) {
-		return parseInt( headers['Content-Range'][0].split('/')[1] );
-	}
+    maxResults (headers) {
+        return parseInt( headers['Content-Range'][0].split('/')[1] );
+    }
 }
 ----
 

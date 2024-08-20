@@ -1,11 +1,13 @@
 = Bonita UI Builder docker configuration guide
 :page-aliases: applications:ui-builder-docker-installation.adoc
-:description: Provide the configuration guide for the Bonita UI Builder Docker image.
+:description: Provide the configuration guide for the Bonita UI Builder Docker images.
 
-This guide provides  instructions on how to configure the `bonita-ui-builder` Docker image.
+This guide provides instructions on how to configure the `bonita-ui-builder` and `bonita-ui-proxy` Docker images.
 
 [[environment-variables]]
 == Docker container Environment variables
+
+=== Configure the `bonita-ui-builder` image
 
 The following environment variable is mandatory:
 
@@ -13,11 +15,26 @@ The following environment variable is mandatory:
 
 The following environment variables are optional:
 
-- `BONITA_DEV_MODE`: Enables user to development mode when set to `true` (default value).
-- `LOGGING_LEVEL_ROOT`: Sets the logging level for the root logger. (default is `debug`)
-- `LOGGING_LEVEL_COM_APPSMITH`: Sets the logging level for Appsmith components. (default is `debug`)
-- `LOGGING_LEVEL_COM_BONITASOFT`: Sets the logging level for BonitaSoft components. (default is `debug`)
-- `LOGGING_LEVEL_COM_EXTERNAL_PLUGINS`: Sets the logging level for external plugins. (default is `debug`)
+- `BONITA_DEV_MODE`: Enables user to development mode when set to `true` (default: `true`).
+- `LOGGING_LEVEL_ROOT`: Sets the logging level for the root logger (default: `debug`).
+- `LOGGING_LEVEL_COM_APPSMITH`: Sets the logging level for Appsmith components (default: `debug`).
+- `LOGGING_LEVEL_COM_BONITASOFT`: Sets the logging level for BonitaSoft components (default: `debug`).
+- `LOGGING_LEVEL_COM_EXTERNAL_PLUGINS`: Sets the logging level for external plugins (default: `debug`).
+
+=== Configure the `bonita-ui-proxy` image
+
+The *bonita-ui-proxy* image is based on the official Nginx Docker image. It includes a custom `nginx.conf` file built to establish communications between Bonita UI Builder and a Bonita Runtime.
+
+The following environment variables are available to customize the configuration:
+
+- `NGINX_ACCESS_LOG_ALL`: By default, 2xx and 3xx requests are not logged. Set to `1` to log all requests (default: `0`).
+- `NGINX_LISTEN_ADDRESS`: The address `host:[port]` on which Nginx is listen on for incoming requests (default: `80`). More information on the https://nginx.org/en/docs/http/ngx_http_core_module.html#listen[Nginx documentation].
+- `BONITA_HOST`: Host of the Bonita runtime to which UI Builder will request (default: `host.docker.internal`).
+- `BONITA_PORT`: Port of the Bonita runtime to which UI Builder will request (default: `8080`).
+- `UIB_HOST`: Host of the UI Builder instance (default: `host.docker.internal`).
+- `UIB_PORT`: Port of the UI Builder instance (default: `8090`).
+
+To use the provided `bonita-ui-proxy` Docker image without modification, ensure the Bonita runtime is accessible at `http://localhost:8080`.
 
 [.troubleshooting-title]
 == Troubleshooting
@@ -25,7 +42,7 @@ The following environment variables are optional:
 [.troubleshooting-section]
 --
 [.symptom]
-I can't access to the Bonita UI Builder.
+I cannot access to the Bonita UI Builder.
 
 [.cause]#Cause#
 The Bonita UI Builder is not correctly configured.

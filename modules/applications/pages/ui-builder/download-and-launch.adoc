@@ -14,49 +14,36 @@ For Subscription editions only.
 To use Bonita UI Builder, a Bonita runtime running on your local machine is required (it may be a Bonita Studio or a standalone Bonita runtime).
 
 [[create-docker-environment]]
-== Create the docker environment
+== Create the Docker environment
 
-- Create a `docker-compose.yml` file with the content below:
+The Docker environment is composed of two containers:
 
+1. Bonita UI Builder: the core service that runs a low-code application platform based on Appsmith.
+2. Bonita UI Proxy: a reverse proxy to establish communications between Bonita UI Builder and a Bonita Runtime.
 
-.Click to see the docker compose file
-[%collapsible]
-====
+First, create a `docker-compose.yml` file with the content below:
+
 [source,docker,subs="+macros,+attributes"]
 ----
 include::example$ui-builder/development/docker-compose.yml[]
 ----
+
+[NOTE]
+====
+You can override and configure all xref:ui-builder-docker-installation.adoc#environment-variables[environment variables] in the `docker-compose.yml` file.
 ====
 
-INFO: You can override and configure all xref:ui-builder-docker-installation.adoc#environment-variables[environment variables] in the `docker-compose.yml` file.
+== Download and launch the Docker image
 
-== Configure the bonita-ui-proxy image
-
-The *bonita-ui-proxy* image is based on the official Nginx Docker image and  included the nginx.conf.
-
-The image contains environment variables used for the configuration:
-
-- `NGINX_ACCESS_LOG_ALL` - By default, 2xx and 3xx requests are not logged. Set to `1` to log all requests (default: `0`).
-- `NGINX_LISTEN_ADDRESS` - The address `host:[port]` on which Nginx is listen on for incoming requests (default: `80`). More information on the https://nginx.org/en/docs/http/ngx_http_core_module.html#listen[Nginx documentation].
-- `BONITA_HOST` - Host of the Bonita runtime to which UIB will request (default: `host.docker.internal`).
-- `BONITA_PORT` - Port of the Bonita runtime to which UIB will request (default: `8080`).
-- `UIB_HOST` - Host of the UI Builder instance (default: `host.docker.internal`).
-- `UIB_PORT` - Port of the UI Builder instance (default: `8090`).
-
-
-To use the provided bonita-ui-proxy docker image without modification, make sure that the Bonita runtime is accessible at `http://localhost:8080`.
-
-== Download and launch the docker image
-
-Bonita UI Builder docker image is located in the xref:software-extensibility:bonita-repository-access.adoc[Bonita Artifact Repository].
+Bonita UI Builder Docker image is located in the xref:software-extensibility:bonita-repository-access.adoc[Bonita Artifact Repository].
 Once you got the credentials, you have to authenticate with the `docker login` command:
-[source, shell, subs="+attributes"]
+[source,console,subs="+attributes"]
 ----
 docker login {bonitasoft-registry}
 ----
 
 Run the following command to launch Bonita UI Builder:
-[source, shell]
+[source,console]
 ----
 docker compose up -d
 ----
@@ -72,12 +59,12 @@ The first time, the initialisation can take a while, a waiting message appears. 
 [WARNING]
 ====
 By default, the database volumes are not persisted. Make sure you export your applications as .json files before running the command.
-[source, shell, subs="+attributes"]
+[source,console]
 ----
 docker compose down
 ----
 If you do not want to loose your data, you can use instead these commands to stop and restart Bonita UI Builder:
-[source, shell, subs="+attributes"]
+[source,console]
 ----
 docker compose stop
 docker compose restart
