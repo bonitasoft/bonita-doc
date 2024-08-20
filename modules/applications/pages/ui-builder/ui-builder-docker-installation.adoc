@@ -36,6 +36,14 @@ The following environment variables are available to customize the configuration
 
 To use the provided `bonita-ui-proxy` Docker image without modification, ensure the Bonita runtime is accessible at `http://localhost:8080`.
 
+If you want to see our custom Nginx configuration used in this image, run this command:
+
+[source,console,subs="+attributes"]
+----
+docker run --rm {bonita-ui-proxy-image} \
+    cat /etc/nginx/templates/nginx.conf.template
+----
+
 [.troubleshooting-title]
 == Troubleshooting
 
