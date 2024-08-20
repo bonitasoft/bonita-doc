@@ -18,6 +18,7 @@ asciidoc:
     # UI Builder attributes
     bonita-ui-builder-version: '1.0.0-beta.2'
     bonita-ui-builder-image: '{bonitasoft-docker-repository}/bonita-ui-builder'
+    bonita-ui-proxy-image: '{bonitasoft-docker-repository}/bonita-ui-proxy'
     # ref versions of other components
     bcdDocVersion: '4.0'
     testToolkitVersion: '3.0'
