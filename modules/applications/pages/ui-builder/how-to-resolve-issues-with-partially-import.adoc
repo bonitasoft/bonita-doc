@@ -15,6 +15,7 @@ Imagine you're importing a page into an existing application, and Bonita UI Buil
 image:ui-builder/guides/partially-imported.png[partially-imported]
 
 To resolve this,
+
  * Navigate to the Queries section and select the query from the sidebar that is causing the issue
  * Go to the Settings tab
  * Enable the "Run API on page load" option
@@ -28,6 +29,7 @@ This will resolve the issue if it was caused by queries that were supposed to be
 == Concerning JavaScript objects
 
 If you encounter similar errors or warnings related to JavaScript functions during page import, follow these steps to resolve the issue:
+
  * Navigate to the JS section and choose the JS object from the sidebar that's causing the problem
  * Go to the Settings tab
  * Enable the "Run on page load" option for the affected JS function
@@ -36,6 +38,6 @@ If you encounter similar errors or warnings related to JavaScript functions duri
 image:ui-builder/guides/run-js-on-page-load.png[run-js-on-page-load]
 
 [NOTE]
-===
+====
 Ensure that any conditional logic used in these queries or functions (e.g., using `if` conditions to decide whether they should run) is correct and returns `true` on page load.
-===
+====
