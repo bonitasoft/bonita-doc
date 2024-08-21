@@ -206,3 +206,16 @@ These errors are likely related to your Bonita server being down.
 [.solution]#Solution#
 Ensure that your Bonita server is active and running.
 --
+
+[#DocumentViewerissue]
+[.troubleshooting-section]
+--
+[.symptom]
+The `Document Viewer` widget doesn't seem to be functioning as expected. How can I view my documents?
+
+[.cause]#Cause#
+The `Document Viewer` widget currently doesn't support the Bonita Document viewer links (formsDocumentImage).
+
+[.solution]#Solution#
+You can use an `Iframe` widget as an alternative solution.
+--
