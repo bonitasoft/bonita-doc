@@ -37,7 +37,7 @@ image:ui-builder/guides/upload-files-query.png[upload-files-query]
 [source, JS]
 ----
 export default {
-     getFileUpload: async () => {
+     async getFileUpload () {
 		const files = testFileUpload.files;
 
 		const promises = files.map((file) => {
@@ -65,7 +65,7 @@ The function also includes error handling, logging any errors that occur during 
 [source, JS]
 ----
 export default {
-     uploadFiles: async () => {
+     async uploadFiles() {
 		if(testFileUpload.files.length > 2) {
 			const result = await this.getFileUpload();
 			return result;
