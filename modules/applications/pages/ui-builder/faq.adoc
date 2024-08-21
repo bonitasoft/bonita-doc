@@ -211,7 +211,7 @@ Ensure that your Bonita server is active and running.
 [.troubleshooting-section]
 --
 [.symptom]
-The `Document Viewer` widget doesn't seem to be functioning as expected. How can I view my documents?
+The Document Viewer widget doesn't seem to be functioning as expected. How can I view my documents?
 
 [.cause]#Cause#
 The `Document Viewer` widget currently doesn't support the Bonita Document viewer links (formsDocumentImage).
