@@ -197,3 +197,16 @@ These errors are likely related to your Bonita server being down.
 [.solution]#Solution#
 Ensure that your Bonita server is active and running.
 --
+
+[#monoServerissue]
+[.troubleshooting-section]
+--
+[.symptom]
+Can multiple users collaborate on the same local Bonita UI Builder development server?
+
+[.cause]#Cause#
+No, the local Bonita UI Builder development server is mono-user, meaning it only supports one Bonita user account at a time.
+
+[.solution]#Solution#
+To collaborate, each user should run their own local server and work with a shared Git repository for syncing and integrating their changes.
+--
