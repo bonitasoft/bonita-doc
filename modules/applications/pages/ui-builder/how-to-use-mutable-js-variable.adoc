@@ -11,7 +11,7 @@ Bonita UI Builder allows the use of mutable JS variables, enabling you to create
 These variables can be updated at any time.
 This approach allows you to store and retrieve data directly from memory, significantly improving the performance of your applications.
 
-==== Example
+*Example*
 
 [source,JS]
 ----
