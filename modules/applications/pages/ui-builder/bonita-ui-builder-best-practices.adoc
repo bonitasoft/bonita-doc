@@ -1,0 +1,15 @@
+= Bonita UI Builder Best Practices
+:page-aliases: applications:bonita-ui-builder-best-practices.adoc
+:description: Learn how to manage common issues and warnings in Bonita UI Builder to build advanced and effective interfaces.
+
+{description}
+
+
+
+[.card-section]
+== Sections
+
+[.card.card-index]
+--
+xref:ui-builder/how-to-avoid-unnecessary-information-messages.adoc[[.card-title]#Avoid unnecessary information messages# [.card-body.card-content-overflow]#pass:q[Discover how to deal with notifications encountered while importing a page.]#]
+--

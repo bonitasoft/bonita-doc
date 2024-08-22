@@ -32,7 +32,9 @@ They are not standalone elements (such as pages and forms) in a process anymore,
 
 Bonita also comes with four xref:runtime:bonita-applications-interface-overview.adoc[Bonita Applications].
 
-“Applications” are very similar to “Living Applications”, which are created with Bonita UI Designer and will be phased out. Once pushed to production, Applications cannot be live edited.
+“Applications” are very similar to “Living Applications”, which are created with Bonita UI Designer. Once pushed to production, Applications' content cannot be edited.
+
+"Applications" need to be defined via an `applicationLink` tag in the xref:builder-declare-interface-in-bonita.adoc[Application descriptor].
 
 
 == Subscription

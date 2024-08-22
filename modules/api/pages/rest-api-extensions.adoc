@@ -14,7 +14,7 @@ Prerequisites for developing a REST API extension are:
 
 == Example description
 
-The following sections show how to create a REST API extension. As an example, we create a REST API extension that uses the Bonita BPM Engine to provide user information (first name, last name, email address).
+The following sections show how to create a REST API extension. As an example, we create a REST API extension that uses the Bonita Engine to provide user information (first name, last name, email address).
 
 There is some additional prerequisites when creating a REST API extension:
 
@@ -192,7 +192,7 @@ To use the project BDM `model` artifact you can refer to the xref:data:define-an
 Be aware that a poor implementation of a custom REST API accessing BDM objects can lead to poor performance results. See the xref:ROOT:bdm-in-rest-api.adoc[best practice] on this matter.
 
 [.troubleshooting-title]
-== image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+== Troubleshooting
 
 [.troubleshooting-section]
 --

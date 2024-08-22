@@ -31,10 +31,10 @@ First, go to the `JS` tab (between the `Queries` and `UI` tabs), create a new JS
 [source, JS]
 ----
 export default {
-	calculate: (num1, num2) => {
-		var calculation = num1*num2;
-		return calculation;
-	}
+    calculate: (num1, num2) => {
+        var calculation = num1*num2;
+        return calculation;
+    }
 }
 ----
 
