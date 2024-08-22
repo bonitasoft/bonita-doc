@@ -48,7 +48,7 @@ export default {
 		const files = testFileUpload.files;
 
 		const promises = files.map((file) => {
-			return formFileUpload.run({ fileName: file });
+			return formFileUpload.run({ file: file });
 		});
 
 		try {
