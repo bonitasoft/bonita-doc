@@ -86,7 +86,7 @@ export default {
 
 This JavaScript module manages language translations using the `languageKeys` property. The `onLanguageChange()` method updates `languageKeys` based on the selected language, while `setLangugeKey()` sets it to the default English translations and returns the updated object.
 
-[WARNING]
+[NOTE]
 ====
 Ensure that the `Run on page load` setting is enabled for the `setLanguageKey` function.
 ====
