@@ -30,6 +30,12 @@ include::example$ui-builder/development/docker-compose.yml[]
 
 [NOTE]
 ====
+A volume is mounted to the local folder `./stacks` to store persistent data. In case the container crashes, your work will not be lost.
+Fill free to update the folder to another location on your local machine.
+====
+
+[NOTE]
+====
 You can override and configure all xref:ui-builder-docker-installation.adoc#environment-variables[environment variables] in the `docker-compose.yml` file.
 ====
 
