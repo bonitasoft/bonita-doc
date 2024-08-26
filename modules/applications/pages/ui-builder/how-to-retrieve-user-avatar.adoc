@@ -10,7 +10,7 @@
 Assume we want to extract an image path from our API response and display a user avatar by binding it to an image widget.
 This can be done by creating a JavaScript function that constructs the URL for the 'icon' parameter.
 
-*Example*
+== Example
 
 image:ui-builder/guides/user-list.png[user-list]
 
