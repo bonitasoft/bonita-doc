@@ -8,7 +8,7 @@
 * Prerequisites: have an application on Bonita UI Builder
 
 Suppose you're creating an application and want to allow users to easily switch between several languages by choosing a language option.
-While UIB currently doesn't have a built-in feature for making an application multilingual, the steps below describe the recommended way to do so.
+While UI Builder currently doesn't have a built-in feature for making an application multilingual, the steps below describe the recommended way to do so.
 
 
 == Example
@@ -28,7 +28,7 @@ We will cover below all the steps shown in the gif above.
     "value": "en"
   },
   {
-    "key": "Francaise",
+    "key": "Français",
     "value": "fr"
   },
   {
@@ -54,7 +54,7 @@ export default {
 			"This is a sample application to demonstrate the possibility of making it available in multiple languages.": "This is a sample application to demonstrate the posibility of making it available in multi-languages."
 		},
 		fr: {
-			"This is a sample application to demonstrate the possibility of making it available in multiple languages.": "Il s'agit d'un exemple d'application visant à démontrer la possibilité de le rendre disponible en plusieurs langues."
+			"This is a sample application to demonstrate the possibility of making it available in multiple languages.": "Il s'agit d'un exemple d'application visant à démontrer la possibilité de la rendre disponible en plusieurs langues."
 		},
 		es: {
 			"This is a sample application to demonstrate the possibility of making it available in multiple languages.": "Esta es una aplicación de muestra para demostrar la posibilidad de hacerlo disponible en varios idiomas."
