@@ -72,6 +72,8 @@ To run the production docker image, you can use the following command:
 ----
 docker run --name <container-name> -p 8080:80 \
            -e BONITA_API_URL=<bonita-runtime-url>/bonita/API \
+           -e APPSMITH_ENCRYPTION_PASSWORD=<encryption-password> \
+           -e APPSMITH_ENCRYPTION_SALT=<encryption-salt> \
            <image-name>:<image-version>
 ----
 
