@@ -132,7 +132,7 @@ Our goal is to make this transition as smooth as possible, minimizing any disrup
 
 
 === Are the interfaces made with Bonita UI Builder compatible with platform mode and self-contained applications ? 
-Yes they are.
+Yes, they are compatible to both deployment modes.
 
 
 === Is Bonita UI Builder Bonita Cloud compatible? 
