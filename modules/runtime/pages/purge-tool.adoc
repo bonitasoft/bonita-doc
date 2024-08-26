@@ -194,7 +194,7 @@ From Bonita 10.4, these data are no more archived, so it will not be necessary a
 ====
 
 
-.Delete archived process instances before 5 July 2022
+.Delete all archived contract file input values
 [tabs]
 ====
 Unix::
