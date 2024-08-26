@@ -178,7 +178,7 @@ Fine tune the batch size and timeout interval depending on your database configu
 
 In this mode, the tool will copy the rows to keep in a temporary table, then truncate and drop the original table and rename the temporary table and recreate all required constraints and indices.
 
-Due to the efficiency of the TRUNCATE command, this method should be faster in most cases, especially when the number of rows to delete is higher than the row to keep in the table, but it requires the Runtime to be stopped during the operation.
+Due to the efficiency of the TRUNCATE command, this method should be faster in most cases, especially when the number of rows to delete is higher than the number of rows to keep in the table, but it requires the Runtime to be stopped during the operation.
 
 Use the `--delete-mode copy-truncate` option to use this mode with the `delete` command.
 
