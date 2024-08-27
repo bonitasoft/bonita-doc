@@ -132,11 +132,16 @@ Our goal is to make this transition as smooth as possible, minimizing any disrup
 
 
 === Are the interfaces made with Bonita UI Builder compatible with platform mode and self-contained applications ? 
-Yes they are. 
+Yes, they are compatible with both deployment modes.
 
 
 === Is Bonita UI Builder Bonita Cloud compatible? 
 Yes it is. Reach out to your customer service representative to explore how you can migrate to Bonita Cloud.
+
+
+=== Can multiple users collaborate on the same local Bonita UI Builder development server?
+No, the local Bonita UI Builder server is mono-user, meaning it only supports one Bonita user account at a time. To collaborate, each user should run their own local server and work with a shared Git repository for syncing and integrating their changes.
+
 
 [.troubleshooting-title]
 == Troubleshooting
