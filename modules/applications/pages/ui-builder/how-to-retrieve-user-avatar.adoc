@@ -1,4 +1,4 @@
-= Retrieve user avatar image
+= Use Javascript to retrieve user avatar image
 :page-aliases: applications:how-to-retrieve-user-avatar.adoc
 :description: Discover how to fetch user avatar images and display them using the image widget.
 
@@ -45,12 +45,12 @@ It appends the icon path to the `/bonita/portal-theme/` directory on the server.
 
 === 3. Design the user interface
 * Navigate to the `UI` section, drag and drop a text widget onto the interface, and set its text to 'Users'.
-* Next, drag and drop a `list` widget onto the interface and bind it to the `getUsers` query that was created earlier.
+* Next, drag and drop a `list` widget onto the interface and bind it to the `getUsers` query that was created earlier:
 
 image:ui-builder/guides/user-list-widget.png[user-list-widget]
 
 * Since the list widget by default includes text widgets and an image widget for each list item, we will use these default widgets to bind the list items.
-* Select a text widget and bind it to the `firstname` of a user in the list. For instance, use `First name {{ currentItem.firstname }}`.
+* Select a text widget and bind it to the `firstname` of a user in the list. For instance, use `First name {{ currentItem.firstname }}`:
 
 image:ui-builder/guides/firstname.png[firstname]
 
@@ -58,7 +58,7 @@ image:ui-builder/guides/firstname.png[firstname]
 For example use `Last name {{ currentItem.lastname }}` and `Username {{ currentItem.username }}`.
 
 * Now, select the image widget and call the Javascript function created previously to bind it to the user's avatar icon.
-For example, user `{{ userAvatar.getIconFullURL(currentItem.icon) }}`.
+For example, user `{{ userAvatar.getIconFullURL(currentItem.icon) }}`:
 
 image:ui-builder/guides/user-avatar.png[user-avatar]
 
