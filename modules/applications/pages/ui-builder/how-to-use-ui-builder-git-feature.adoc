@@ -1,52 +1,45 @@
-= How to use Bonita UI Builder’s git feature
+= How to use the Git feature in Bonita UI Builder
 :page-aliases: applications:how-to-use-ui-builder-git-feature.adoc
-:description: Learn how to use Bonita UI Builder’s git feature to manage your projects and collaborate with your team.
+:description: Discover how to use the Git feature in Bonita UI Builder for project management and team collaboration.
 
 {description}
 
-
 [WARNING]
 ====
-The Bonita UI Builder’s Git feature is a Beta feature.
+The Git feature in Bonita UI Builder is currently in beta.
 
-Bonita UI Builder’s Git feature is separate from Bonita’s Git feature. It is designed solely for collaboration on the development of an application.
+Please note that the Git feature in Bonita UI Builder is independent of Bonita's main Git functionality. It is designed specifically for application development collaboration.
 ====
 
-
-You can connect to Git using any provider of your choice with a Remote *SSH* URL. The following guides are tailored to popular Git providers such as GitHub, Bitbucket, GitLab, and Azure.
-
+Bonita UI Builder allows you to connect to Git using any provider via a remote *SSH* URL. The following instructions apply to popular Git providers, including GitHub, Bitbucket, GitLab, and Azure.
 
 image::ui-builder/version-control-with-git/git-version-control.png[]
 
+== Key Features
 
-== Core components
+* **Version Control Integration:** Connect to any Git hosting provider of your choice.
+* **Branch Protection:** Protect a specific branch to ensure the integrity of your code base.
+* **Default Branch:** View your default branch.
 
-* **Version Control Integration:** Connect with any Git hosting provider of your choice.
-* **Branch Protection:** Protect one branche to maintain codebase integrity.
-* **Default Branch:** See your default branch for different environments.
+== Getting Started
 
+Using version control in Bonita UI Builder follows a typical Git workflow.
 
-== Getting started
-
-Version control in Bonita UI Builder is similar to the traditional Git workflow.
-
-* Different users who want to collaborate must install Bonita UI Builder locally.
-* A user needs to xref:./version-control-with-git/git-settings#_from_user_profile[configure] a git email and a git name from their profile for their local installation.
-* xref:./version-control-with-git/connect-git[Connect] to a Git repository from the application settings.
-
+* Collaborators must have Bonita UI Builder installed locally.
+* Each user needs to xref:./version-control-with-git/git-settings#_access_to_git_settings_from_your_user_profile[set] their git email and username in their local installation profile.
+* From the application settings, xref:./version-control-with-git/connect-git[connect] to a Git repository.
 
 [NOTE]
 ====
-* A user can xref:./version-control-with-git/git-settings#_from_an_application[configure] a git email and a git name on each application they are working on.
-* Each application is associated with a single git repository. A repository cannot be used for multiple applications.
+* Users can xref:./version-control-with-git/git-settings#_access_to_git_settings_from_an_application[configure] their git email and username for each application they work on.
+* Each application can only be associated with one Git repository, and a single repository cannot be shared across multiple applications.
 ====
-
 
 == Manage Git
 
-These guides help you manage Git integration from resolving merge conflicts.
+These resources guide you through managing Git integration, including handling merge conflicts.
 
 * xref:./version-control-with-git/import-from-git[**Import applications from Git**]
 * xref:./version-control-with-git/revert-changes[**Revert changes**]
 * xref:./version-control-with-git/resolve-merge-conflicts[**Resolve merge conflicts in Git**]
-* xref:./version-control-with-git/update-local-file-path.adoc[**Update local file path**]
+* xref:./version-control-with-git/update-local-file-path.adoc[**Update the local file path**]

@@ -1,61 +1,60 @@
-= Revert changes
+= Revert changes in Git
 :page-aliases: applications:revert-changes.adoc
-:description: This page shows how to revert a committed change to a specific branch or default branch in Git, allowing you to fix a mistake or undo an unwanted change.
-
+:description: Learn how to revert a committed change in Git to either a specific branch or the default branch, so you can fix bugs or undo unwanted changes.
 
 {description}
 
-* Difficulty: beginner
+* Difficulty: Beginner
 * Estimated time: 15 minutes
-* Prerequisites: Basic knowledge of Git
+* Prerequisites: Basic understanding of Git
 
-You can revert changes from Git user interfaces provided by some platforms, but it is recommended to perform reverts from the local system using Git commands.
+While some Git platforms provide user interfaces for reverting changes, it is recommended to perform reverts directly from the local system using Git commands for greater control and accuracy.
 
-1. Open your App Git repository and clone it to your local system.
+1. Open your application's Git repository and clone it to your local machine.
 
-2. Switch to the branch where you want to revert the change:
+2. Switch to the branch to which you want to revert a change:
 
 [source,bash]
 ----
 git checkout <branch-name>
 ----
 
-3. To identify the commits in the terminal use:
+3. To see the commit history, use the following command:
 
 [source,bash]
 ----
 git log
 ----
 
-This displays a list of commits in reverse chronological order, starting with the most recent commit. Each commit entry includes information such as the commit hash, author name, date, and commit message, like:
+This command lists commits in reverse chronological order, starting with the latest. Each commit entry shows details such as the commit hash, author, date, and message.
 
-4. To revert a commit, use the `git revert` command followed by the commit hash:
+4. To revert a commit, use the `git revert` command followed by the specific commit hash:
 
 *Example*:
 
-If you want to revert to a single commit:
+To revert a single commit:
 
 [source,bash]
 ----
 git revert a041f66990c3610982a8477d05931ac6a1636813
 ----
 
-If you want to revert multiple commits:
+To revert multiple commits, use a range of commit hashes:
 
 [source,bash]
 ----
 git revert a041f66990c3610982a8477d05931ac6a1636813^..3ce6a7e9a6d1e06eacec4c5b4ffca53d0eb7a3f9
 ----
 
-Make sure to revert changes in chronological order, starting with the newest commit first.
+Make sure you revert changes from the most recent commit first.
 
-Some Git platforms, like link:https://docs.github.com/en/desktop/managing-commits/reverting-a-commit-in-github-desktop[GitHub] & link:https://docs.gitlab.com/ee/user/project/merge_requests/revert_changes.html#revert-a-commit[GitLab], also offer a graphical user interface that allows you to revert changes directly from the platform's interface.
+Many Git platforms, such as link:https://docs.github.com/en/desktop/managing-commits/reverting-a-commit-in-github-desktop[GitHub] and link:https://docs.gitlab.com/ee/user/project/merge_requests/revert_changes.html#revert-a-commit[GitLab], offer graphical interfaces that allow you to revert changes directly on their platforms.
 
-5. If there are conflicts during the revert process, resolve them manually by editing the conflicting files and then continue with the revert process.
+5. If conflicts arise during the revert process, resolve them manually by editing the conflicting files and then continuing the revert.
 
-6. After resolving conflicts (if any), commit and push the changes to your remote Git repository.
+6. After resolving any conflicts, commit the changes and push them to your remote Git repository.
 
-7. Once your changes have been reverted, you can pull them in the Bonita UI Builder app to deploy the changes.
+7. Once the changes are committed, pull them into the Bonita UI Builder app to apply the updates.
 
 == See also
 
