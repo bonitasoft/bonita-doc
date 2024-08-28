@@ -1,0 +1,108 @@
+= HR Management application use cases
+:page-aliases: applications:hr-management-use-cases.adoc
+:description: Explore the most commonly used APIs and JS objects for building an app like HR Management in UIB.
+
+{description}
+
+
+The HR Management application developed using Bonita UI Builder is a comprehensive solution designed to manage various HR related tasks such as onboarding new employee, vacation management, organizational structure, etc.
+While this application was developed with the assistance of Bonita developers, customers building similar applications on their own may face challenges due to the complexity involved.
+This documentation aims to provide an overview of the use cases, relevant code snippets, JavaScript functions, and platform-specific elements that are integral to the HR Management application.
+
+
+image:ui-builder/guides/hr-mgmt-app.png[hr-mgmt-app]
+
+
+== Key Use Cases
+
+=== Onboarding employee
+Manages employee records, including personal details, job roles, and contact information.
+
+APIs/Queries: Retrieves employee profiles, updates records, and manages user authentication.
+
+JS Functions: Functions for validating employee data, generating user profiles, and securing sensitive information.
+
+=== Vacation Management
+Handles requests, approvals, and tracking of employee vacations.
+
+APIs/Queries: Retrieves vacation records, submits vacation requests, and manages approval workflows.
+
+JS Functions: Functions to validate vacation dates, calculate remaining vacation days, and update the vacation status in the system.
+
+=== Organizational structure
+Manages information about the company’s hierarchy, departments, and roles.
+
+APIs/Queries: Fetches organizational data, updates departmental information, and assigns roles.
+
+JS Functions: Functions to dynamically generate organizational charts, handle role assignments, and update department details.
+
+
+=== List on commonly used APIs
+
+Here is a list of the most commonly used APIs for building an HR Management application. These APIs are robust enough to enable the creation of an application in UI Builder.
+
+==== Session
+The `/API/system/session/unusedId` API is helpful for retrieving session information for the current user.
+You can find more detailed information in the xref:https://api-documentation.bonitasoft.com/latest/#tag/Session/operation/getSession[session API documentation].
+
+
+==== Users
+The `/API/identity/user` API is useful for retrieving a list of users by applying pagination parameters and filters.
+For more detailed information, refer to the xref:https://api-documentation.bonitasoft.com/latest/#tag/User/operation/searchUsers[users API documentation].
+
+
+==== Human tasks
+The `/API/bpm/humanTask` api is useful to get a list of humanTasks by adding pagination params and filters to it.
+You can have a details information on xref:https://api-documentation.bonitasoft.com/latest/#tag/HumanTask/operation/searchHumanTasks[humanTasks api documentation].
+
+==== User tasks
+The `/API/bpm/userTask` api is useful to get a list of userTasks by adding pagination params and filters to it.
+You can have a details information on xref:https://api-documentation.bonitasoft.com/latest/#tag/UserTask/operation/searchUserTasks[userTasks api documentation].
+
+==== User task context
+The `/API/bpm/userTask/{id}/context` api returns the context for the given userTask id.
+You can have a details information on xref:https://api-documentation.bonitasoft.com/latest/#tag/UserTask/operation/getContextByUserTaskId[context by userTask id api documentation].
+
+==== Processes
+The `/API/bpm/process` api is useful to get a list of process by adding pagination params and filters to it.
+You can have a details information on xref:https://api-documentation.bonitasoft.com/latest/#tag/Process/operation/searchProcesses[processes api documentation].
+
+==== Business data
+The `/API/bdm/businessData/{businessDataType}` api is useful to find business data with pagination params and filters by calling a `Named Query`. The business data query REST API resource is used to call a default or custom business data query.
+You can have a details information on xref:https://api-documentation.bonitasoft.com/latest/#tag/BusinessDataQuery/operation/searchBusinessData[business data api documentation].
+
+==== Professional contact data
+The `/API/identity/professionalcontactdata/{userId}` api is useful to retrieve professional contact data of a user by its id.
+You can have a details information on xref:https://api-documentation.bonitasoft.com/latest/#tag/ProfessionalContactData/operation/getProfessionalContactDataById[professional contact data api documentation].
+
+==== Group
+The `/API/identity/group` api is useful to get a list of groups by adding pagination params and filters to it.
+You can have a details information on xref:https://api-documentation.bonitasoft.com/latest/#tag/Group/operation/searchGroups[groups api documentation].
+
+==== Upload file
+The `/API/formFileUpload` api is useful to upload a file. It supports any type of files, used to upload a file before submitting a process or task form with a document in its contract
+You can have a details information on xref:https://api-documentation.bonitasoft.com/latest/#tag/FormFileUpload/operation/formFileUpload[formFileUpload api documentation].
+
+
+[source,JS]
+----
+export default {
+    // Declare a global variable named `username` and give it a value
+    username: 'Walter Bates',
+
+    // Retrieve the value of the global variable
+    getUsername() {
+        return this.username;
+    },
+
+    // Set a new value for the global variable
+    updateUsername() {
+        this.username = 'Helen Kelly';
+        return this.username;
+    }
+}
+----
+
+The HR Management application built with Bonita UI Builder showcases the power and flexibility of the platform, but it also highlights the potential challenges that customers may face when developing similar applications on their own.
+This documentation provides a starting point by outlining key use cases, offering code examples, and identifying common hurdles.
+Understanding these elements will be crucial for successfully implementing HR Management features in Bonita UIB.
