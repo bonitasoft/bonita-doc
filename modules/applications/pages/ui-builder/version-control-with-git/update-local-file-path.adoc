@@ -1,0 +1,21 @@
+= Update local file path
+:page-aliases: applications:update-local-file-path.adoc
+:description: For self-hosted instances, Bonita UI Builder clones the Git repositories in the local file system, attached to the persistent volume within the Docker container.
+
+{description}
+
+* Difficulty: beginner
+* Estimated time: 15 minutes
+* Prerequisites: Basic knowledge of Docker
+
+== Steps
+
+1. Update the `APPSMITH_GIT_ROOT` environment variable.
+2. Restart the container to apply changes.
+
+[NOTE]
+====
+If the file path is missing, Git repositories are cloned but not persisted. To avoid potential loss, it's important to set up persistent storage.
+
+Bonita UI Builder will try to re-clone repositories if they're deleted, like during a Docker restart
+====

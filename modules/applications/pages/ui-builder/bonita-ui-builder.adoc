@@ -1,6 +1,6 @@
 = Applications with Bonita UI Builder
 :page-aliases: applications:bonita-ui-builder.adoc
-:description: In this page you will learn more about Bonita UI Builder and Applications.
+:description: On this page, you will learn more about Bonita UI Builder and Applications.
 
 {description}
 

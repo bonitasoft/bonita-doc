@@ -1,0 +1,59 @@
+= Resolve merge conflicts in Git
+:page-aliases: applications:resolve-merge-conflicts.adoc
+:description: This guide offers strategies for resolving merge conflicts to ensure smoother collaboration and project management in Git.
+
+{description}
+
+* Difficulty: intermediate
+* Estimated time: 30 minutes
+* Prerequisites: Basic knowledge of Git
+
+== Branch merge conflicts
+
+Merge conflicts occur when changes from different branches overlap, leading to conflicts that need manual resolution.
+
+image::ui-builder/version-control-with-git/seperate-conflicts-git.png[]
+
+1. To resolve these conflicts, raise a pull request for your source branch, targeting the destination branch where you intend to merge the changes.
+
+*Example:*
+
+If you're working on the `feature` branch and want to merge changes into `staging`, but are facing conflicts, you can raise a pull request for your `feature` branch on your Git provider, targeting the `staging` branch for merging.
+
+2. Once the PR is created, scroll down to the bottom of the PR page:
+
+* If the *Resolve conflicts* button is available, you can resolve conflicts directly from the pull request interface by selecting the conflicting files and making the necessary changes.
+* If the *Resolve conflicts* button is disabled, you need to clone the Git repository to your local machine and resolve the conflicts using the command-line interface. If you don't want to resolve conflicts locally, you can use tools like link:https://github.com/github/dev[GitHub.dev], link:https://docs.gitlab.com/ee/user/project/web_ide/[GitLab Web IDE] to resolve conflicts directly from your browser.
+
+For more information, see how to resolve a merge conflict on link:https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github[GitHub], link:https://docs.gitlab.com/ee/user/project/merge_requests/conflicts.html#methods-of-resolving-conflicts[GitLab], link:https://support.atlassian.com/bitbucket-cloud/docs/resolve-merge-conflicts/[Bitbucket].
+
+3. After resolving all conflicts in all files and ensuring that the changes are correctly edited, click on *Commit merge*, and Merge the pull request.
+
+4. Update your Bonita UI Builder app by pulling the changes.
+
+*Example:*
+
+If you are facing issues merging from a `feature` branch to `staging`, then ensure you are on the `staging` branch in your Bonita UI Builder app and pull the changes there.
+
+== Remote branch pull conflicts
+
+These conflicts arise when changes in your local branch cannot be directly merged with changes in the remote branch. For example, If you're working on the `feature` branch and someone else pushes changes to the remote counterpart of the same branch, you may encounter conflicts if both have edited the same files.
+
+image::ui-builder/version-control-with-git/remote-conflicts.png[]
+
+1. Create a new branch from the conflicted branch and raise a Pull Request.
+
+*Example:*
+
+Create a new branch from your local `feature` branch, name it `feature-fix`, and then raise a pull request from this new branch against the original `feature` branch.
+
+2. Once the PR is created, scroll down to the bottom of the PR page:
+
+* If the *Resolve conflicts* button is available, you can resolve conflicts directly from the pull request interface by selecting the conflicting files and making the necessary changes.
+* If the *Resolve conflicts* button is disabled, you need to clone the Git repository to your local machine and resolve the conflicts using the command-line interface. If you don't want to resolve conflicts locally, you can use tools like link:https://github.com/github/dev[GitHub.dev], link:https://docs.gitlab.com/ee/user/project/web_ide/[GitLab Web IDE] to resolve conflicts directly from your browser.
+
+For more information, see how to resolve a merge conflict on link:https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github[GitHub], link:https://docs.gitlab.com/ee/user/project/merge_requests/conflicts.html#methods-of-resolving-conflicts[GitLab], link:https://support.atlassian.com/bitbucket-cloud/docs/resolve-merge-conflicts/[Bitbucket].
+
+3. After resolving all conflicts in all files and ensuring that the changes are correctly edited, click on *Commit merge*, and Merge the pull request.
+
+4. In Bonita UI Builder, click *Discard and Pull*

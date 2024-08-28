@@ -1,0 +1,52 @@
+= How to use Bonita UI Builder’s git feature
+:page-aliases: applications:how-to-use-ui-builder-git-feature.adoc
+:description: Learn how to use Bonita UI Builder’s git feature to manage your projects and collaborate with your team.
+
+{description}
+
+
+[WARNING]
+====
+The Bonita UI Builder’s Git feature is a Beta feature.
+
+Bonita UI Builder’s Git feature is separate from Bonita’s Git feature. It is designed solely for collaboration on the development of an application.
+====
+
+
+You can connect to Git using any provider of your choice with a Remote *SSH* URL. The following guides are tailored to popular Git providers such as GitHub, Bitbucket, GitLab, and Azure.
+
+
+image::ui-builder/version-control-with-git/git-version-control.png[]
+
+
+== Core components
+
+* **Version Control Integration:** Connect with any Git hosting provider of your choice.
+* **Branch Protection:** Protect one branche to maintain codebase integrity.
+* **Default Branch:** See your default branch for different environments.
+
+
+== Getting started
+
+Version control in Bonita UI Builder is similar to the traditional Git workflow.
+
+* Different users who want to collaborate must install Bonita UI Builder locally.
+* A user needs to xref:./version-control-with-git/git-settings#_from_user_profile[configure] a git email and a git name from their profile for their local installation.
+* xref:./version-control-with-git/connect-git[Connect] to a Git repository from the application settings.
+
+
+[NOTE]
+====
+* A user can xref:./version-control-with-git/git-settings#_from_an_application[configure] a git email and a git name on each application they are working on.
+* Each application is associated with a single git repository. A repository cannot be used for multiple applications.
+====
+
+
+== Manage Git
+
+These guides help you manage Git integration from resolving merge conflicts.
+
+* xref:./version-control-with-git/import-from-git[**Import applications from Git**]
+* xref:./version-control-with-git/revert-changes[**Revert changes**]
+* xref:./version-control-with-git/resolve-merge-conflicts[**Resolve merge conflicts in Git**]
+* xref:./version-control-with-git/update-local-file-path.adoc[**Update local file path**]

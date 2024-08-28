@@ -1,0 +1,85 @@
+= Import applications from Git
+:page-aliases: applications:import-from-git.adoc
+:description: This guide shows you how to import an existing application connected to Git a different Bonita UI Builder account, enabling you to manage multiple instances of the same application for tasks like feature development, testing, and deployment.
+
+{description}
+
+* Difficulty: beginner
+* Estimated time: 15 minutes
+* Prerequisites: Basic knowledge of Git
+
+
+You can connect to Git using any provider of your choice with a Remote *SSH* URL. The following steps are tailored to popular Git providers such as GitHub, Bitbucket, and GitLab.
+
+[CAUTION]
+====
+If the workspace already has a datasource with the same name but a different type, the import fails due to name conflicts. For example, a git-connected application has a RestAPI datasource - "movies", and you are importing it to a workspace that has an API datasource also named "movies." In such a case, the import fails.
+====
+
+.Import an application from GitHub
+[%collapsible]
+====
+1. Open the Bonita UI Builder workspace homepage, then click on the *Create New* button in the top-right corner, and select *Import*.
+2. Select the *Import from a Git repository* option from the import menu.
+3. Select *GitHub* as the service provider, and click on *Configure Git*.
+4. Navigate to the repository's landing page, click on the Code button, and copy the *SSH URL*.
+5. Paste the URL in the Generate SSH Key section on Bonita UI Builder.
+6. Click the *Generate SSH Keys* button, and unique `ECDSA 256` and `RSA 4096` keys are displayed. Choose the appropriate key based on your specific security requirements and system constraints.
+7. Copy one of the keys, then navigate to your *Repository settings*. Proceed to *Deploy keys*, click on *Add deploy keys*, paste the copied key, and provide a meaningful title for future reference.
+8. Check the *Allow write access* option and then add the key.
+9. In Bonita UI Builder, click the *Connect Git* button.
+10. After completing the import process, you need to reconfigure the datasource since Bonita UI Builder doesn't export any configuration values used for connecting a datasource. You can do this in the *Reconnect Datasources* modal or choose to configure them later.
+
+With this capability, you can collaborate on the same Git repository across different applications.
+====
+
+
+.Import an application from GitLab
+[%collapsible]
+====
+1. Open the Bonita UI Builder workspace homepage, then click on the *Create New* button in the top-right corner, and select *Import*.
+2. Select the *Import from a Git repository* option from the import menu.
+3. Select *Gitlab* as the service provider, and click on *Configure Git*.
+4. Navigate to the repository's landing page, click on the Code button, and copy the *SSH URL*.
+5. Paste the URL in the *Generate SSH Key* section on Bonita UI Builder.
+6. Click the *Generate SSH Keys* button, and unique `ECDSA 256` and `RSA 4096` keys are displayed. Choose the appropriate key based on your specific security requirements and system constraints.
+7. Copy one of the keys, then navigate to your *Repository settings*. Proceed to *Deploy keys*, click on *Add deploy keys*, paste the copied key, and provide a meaningful title for future reference.
+8. Check the *Allow write access* option and then add the key.
+9. In Bonita UI Builder, click the *Connect Git* button.
+10. After completing the import process, you need to reconfigure the datasource since Bonita UI Builder doesn't export any configuration values used for connecting a datasource. You can do this in the *Reconnect Datasources* modal or choose to configure them later.
+
+With this capability, you can collaborate on the same Git repository across different applications.
+====
+
+.Import an application from Bitbucket
+[%collapsible]
+====
+1. Open the Bonita UI Builder workspace homepage, then click on the *Create New* button in the top-right corner, and select *Import*.
+2. Select the *Import from a Git repository* option from the import menu.
+3. Select *Bitbucket* as the service provider, and click on *Configure Git*.
+4. After setting up an empty repository, navigate to the repository's landing page, click on the *Clone* button, select *SSH* and copy the *SSH* URL.
+5. Paste the SSH URL into the *Generate SSH Key* section in Bonita UI Builder, remove the `git clone` from the URL.
+6. Click the *Generate SSH Keys* button, and unique `ECDSA 256` and `RSA 4096` keys are displayed. Choose the appropriate key based on your specific security requirements and system constraints.
+7. Copy one of the keys, then navigate to your *Workspace settings*. Proceed to *SSH keys*, click on *Add SSH key*, paste the copied key, and provide a meaningful title for future reference.
+8. In Bonita UI Builder, click the *Connect Git* button.
+9. After completing the import process, you need to reconfigure the datasource since Bonita UI Builder doesn't export any configuration values used for connecting a datasource. You can do this in the *Reconnect Datasources* modal or choose to configure them later.
+
+With this capability, you can collaborate on the same Git repository across different applications.
+====
+
+.Import an application from Azure
+[%collapsible]
+====
+1. Open the Bonita UI Builder workspace homepage, then click on the *Create New* button in the top-right corner, and select *Import*.
+2. Select the *Import from a Git repository* option from the import menu.
+3. Select *Others* as the service provider, and click on *Configure Git*.
+4. Navigate to the repository's landing page, click on the *Clone* button, select *SSH* and copy the *SSH* URL.
+5. Paste the SSH URL into the *Generate SSH Key* section in Bonita UI Builder.
+6. Click the *Generate SSH Keys* button, and unique `ECDSA 256` and `RSA 4096` keys are generated. Select the `RSA 4096` key when connecting to Azure Repos.
+7. Copy the key, then navigate to *User Settings* from the top right corner and open *SSH public keys*.
+8. Click *+ New key*, add the key name and paste the generated `RSA 4096` key in the Public Key Data input box.
+9. In Bonita UI Builder, click the *Connect Git* button.
+10. After completing the import process, you need to reconfigure the datasource since Bonita UI Builder doesn't export any configuration values used for connecting a datasource. You can do this in the *Reconnect Datasources* modal or choose to configure them later.
+
+With this capability, you can collaborate on the same Git repository across different applications.
+====

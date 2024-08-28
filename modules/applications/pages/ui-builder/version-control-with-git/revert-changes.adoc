@@ -1,0 +1,62 @@
+= Revert changes
+:page-aliases: applications:revert-changes.adoc
+:description: This page shows how to revert a committed change to a specific branch or default branch in Git, allowing you to fix a mistake or undo an unwanted change.
+
+
+{description}
+
+* Difficulty: beginner
+* Estimated time: 15 minutes
+* Prerequisites: Basic knowledge of Git
+
+You can revert changes from Git user interfaces provided by some platforms, but it is recommended to perform reverts from the local system using Git commands.
+
+1. Open your App Git repository and clone it to your local system.
+
+2. Switch to the branch where you want to revert the change:
+
+[source,bash]
+----
+git checkout <branch-name>
+----
+
+3. To identify the commits in the terminal use:
+
+[source,bash]
+----
+git log
+----
+
+This displays a list of commits in reverse chronological order, starting with the most recent commit. Each commit entry includes information such as the commit hash, author name, date, and commit message, like:
+
+4. To revert a commit, use the `git revert` command followed by the commit hash:
+
+*Example*:
+
+If you want to revert to a single commit:
+
+[source,bash]
+----
+git revert a041f66990c3610982a8477d05931ac6a1636813
+----
+
+If you want to revert multiple commits:
+
+[source,bash]
+----
+git revert a041f66990c3610982a8477d05931ac6a1636813^..3ce6a7e9a6d1e06eacec4c5b4ffca53d0eb7a3f9
+----
+
+Make sure to revert changes in chronological order, starting with the newest commit first.
+
+Some Git platforms, like link:https://docs.github.com/en/desktop/managing-commits/reverting-a-commit-in-github-desktop[GitHub] & link:https://docs.gitlab.com/ee/user/project/merge_requests/revert_changes.html#revert-a-commit[GitLab], also offer a graphical user interface that allows you to revert changes directly from the platform's interface.
+
+5. If there are conflicts during the revert process, resolve them manually by editing the conflicting files and then continue with the revert process.
+
+6. After resolving conflicts (if any), commit and push the changes to your remote Git repository.
+
+7. Once your changes have been reverted, you can pull them in the Bonita UI Builder app to deploy the changes.
+
+== See also
+
+* xref:./resolve-merge-conflicts[Resolve merge conflicts in Git]

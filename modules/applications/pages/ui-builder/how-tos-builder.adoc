@@ -23,3 +23,8 @@ xref:how-to-control-visibility-of-widgets.adoc[[.card-title]#How to control visi
 --
 xref:how-to-upload-multiple-documents.adoc[[.card-title]#Upload multiple documents simultaneously# [.card-body.card-content-overflow]#pass:q[Learn how to upload multiple documents simultaneously.]#]
 --
+
+[.card.card-index]
+--
+xref:how-to-use-ui-builder-git-feature.adoc[[.card-title]#How to use Bonita UI Builder’s git feature# [.card-body.card-content-overflow]#pass:q[Learn how to use Bonita UI Builder’s git feature to manage your projects and collaborate with your team.]#]
+--
