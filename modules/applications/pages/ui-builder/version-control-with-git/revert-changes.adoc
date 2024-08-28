@@ -10,16 +10,16 @@
 
 While some Git platforms provide user interfaces for reverting changes, it is recommended to perform reverts directly from the local system using Git commands for greater control and accuracy.
 
-1. Open your application's Git repository and clone it to your local machine.
+* Open your application's Git repository and clone it to your local machine.
 
-2. Switch to the branch to which you want to revert a change:
+* Switch to the branch to which you want to revert a change:
 
 [source,bash]
 ----
 git checkout <branch-name>
 ----
 
-3. To see the commit history, use the following command:
+* To see the commit history, use the following command:
 
 [source,bash]
 ----
@@ -28,11 +28,12 @@ git log
 
 This command lists commits in reverse chronological order, starting with the latest. Each commit entry shows details such as the commit hash, author, date, and message.
 
-4. To revert a commit, use the `git revert` command followed by the specific commit hash:
+* To revert a commit, use the `git revert` command followed by the specific commit hash.
 
-*Example*:
-
-To revert a single commit:
+.Example
+[%collapsible]
+====
+To revert to a single commit:
 
 [source,bash]
 ----
@@ -45,17 +46,21 @@ To revert multiple commits, use a range of commit hashes:
 ----
 git revert a041f66990c3610982a8477d05931ac6a1636813^..3ce6a7e9a6d1e06eacec4c5b4ffca53d0eb7a3f9
 ----
+====
 
+[NOTE]
+====
 Make sure you revert changes from the most recent commit first.
 
-Many Git platforms, such as link:https://docs.github.com/en/desktop/managing-commits/reverting-a-commit-in-github-desktop[GitHub] and link:https://docs.gitlab.com/ee/user/project/merge_requests/revert_changes.html#revert-a-commit[GitLab], offer graphical interfaces that allow you to revert changes directly on their platforms.
+Many Git platforms, such as https://docs.github.com/en/desktop/managing-commits/reverting-a-commit-in-github-desktop[GitHub] and https://docs.gitlab.com/ee/user/project/merge_requests/revert_changes.html#revert-a-commit[GitLab], offer graphical interfaces that allow you to revert changes directly on their platforms.
+====
 
-5. If conflicts arise during the revert process, resolve them manually by editing the conflicting files and then continuing the revert.
+* If conflicts arise during the revert process, resolve them manually by editing the conflicting files and then continuing the revert.
 
-6. After resolving any conflicts, commit the changes and push them to your remote Git repository.
+* After resolving any conflicts, commit the changes and push them to your remote Git repository.
 
-7. Once the changes are committed, pull them into the Bonita UI Builder app to apply the updates.
+* Once the changes are committed, pull them into the Bonita UI Builder app to apply the updates.
 
 == See also
 
-* xref:./resolve-merge-conflicts[Resolve merge conflicts in Git]
+* xref:applications:resolve-merge-conflicts.adoc[Resolve merge conflicts in Git]

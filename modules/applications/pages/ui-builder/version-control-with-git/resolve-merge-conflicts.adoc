@@ -27,15 +27,15 @@ If you are working on a `feature` branch and need to merge your changes into the
 * After the PR is created, scroll down to the bottom of the PR page:
 
 ** If the *Resolve conflicts* button is enabled, you can resolve conflicts directly from the pull request interface by selecting the conflicting files and making the necessary adjustments.
-** If the *Resolve conflicts* button is disabled, you will need to clone the Git repository to your local machine and resolve conflicts from the command line interface. Alternatively, you can use online tools like link:https://github.com/github/dev[GitHub.dev] or link:https://docs.gitlab.com/ee/user/project/web_ide/[GitLab Web IDE] to resolve conflicts directly in your browser.
+** If the *Resolve conflicts* button is disabled, you will need to clone the Git repository to your local machine and resolve conflicts from the command line interface. Alternatively, you can use online tools like https://github.com/github/dev[GitHub.dev] or https://docs.gitlab.com/ee/user/project/web_ide/[GitLab Web IDE] to resolve conflicts directly in your browser.
 
 [NOTE]
 ====
 For detailed instructions on resolving merge conflicts, please refer to your specific Git provider's documentation:
 
-* link:https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github[GitHub]
-* link:https://docs.gitlab.com/ee/user/project/merge_requests/conflicts.html#methods-of-resolving-conflicts[GitLab]
-* link:https://support.atlassian.com/bitbucket-cloud/docs/resolve-merge-conflicts/[Bitbucket]
+* https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github[GitHub]
+* https://docs.gitlab.com/ee/user/project/merge_requests/conflicts.html#methods-of-resolving-conflicts[GitLab]
+* https://support.atlassian.com/bitbucket-cloud/docs/resolve-merge-conflicts/[Bitbucket]
 ====
 
 * Once all conflicts have been resolved and the changes have been verified, click *Commit merge* and merge the pull request.
@@ -68,15 +68,15 @@ Create a new branch from your local `feature` branch, name it `feature-fix`, and
 * Once the PR is created, scroll down to the bottom of the PR page:
 
 ** If the *Resolve conflicts* button is enabled, you can resolve conflicts directly in the pull request interface by editing the conflicting files.
-** If the *Resolve conflicts* button is disabled, you will need to clone the Git repository to your local machine in order to resolve conflicts using the command line interface. Alternatively, you can use browser-based tools like link:https://github.com/github/dev[GitHub.dev] or link:https://docs.gitlab.com/ee/user/project/web_ide/[GitLab Web IDE] to resolve conflicts without leaving your browser.
+** If the *Resolve conflicts* button is disabled, you will need to clone the Git repository to your local machine in order to resolve conflicts using the command line interface. Alternatively, you can use browser-based tools like https://github.com/github/dev[GitHub.dev] or https://docs.gitlab.com/ee/user/project/web_ide/[GitLab Web IDE] to resolve conflicts without leaving your browser.
 
 [NOTE]
 ====
 For detailed instructions on how to resolve merge conflicts on your specific Git platform, see the following guides:
 
-* link:https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github[GitHub]
-* link:https://docs.gitlab.com/ee/user/project/merge_requests/conflicts.html#methods-of-resolving-conflicts[GitLab]
-* link:https://support.atlassian.com/bitbucket-cloud/docs/resolve-merge-conflicts/[Bitbucket]
+* https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github[GitHub]
+* https://docs.gitlab.com/ee/user/project/merge_requests/conflicts.html#methods-of-resolving-conflicts[GitLab]
+* https://support.atlassian.com/bitbucket-cloud/docs/resolve-merge-conflicts/[Bitbucket]
 ====
 
 * Once you have resolved all conflicts and verified your changes, click *Commit merge* to merge the pull request.

@@ -46,7 +46,7 @@ This section explains how to connect your Bonita UI Builder application to an em
 
 1. Open the Bonita UI Builder application you want to connect to and click on **Connect Git** on the left side of the bottom bar.
 2. Select **GitLab** as the service provider.
-3. Create a new empty Git repository or open an existing one. See the link:https://docs.gitlab.com/ee/user/project/index.html[GitLab documentation] for instructions on creating a repository.
+3. Create a new empty Git repository or open an existing one. See the https://docs.gitlab.com/ee/user/project/index.html[GitLab documentation] for instructions on creating a repository.
 4. Go to the repository's main page, click on the **Code** button, and copy the **SSH** URL.
 5. Paste the SSH URL into the **Generate SSH Key** field in the Bonita UI Builder.
 6. Click on the **Generate SSH Keys** button to generate unique `ECDSA 256` and `RSA 4096` keys. Select the key type that meets your security requirements and system capabilities.
@@ -64,7 +64,7 @@ This section explains how to connect your Bonita UI Builder application to an em
 
 1. Open the Bonita UI Builder application you want to connect to and click on **Connect Git** on the left side of the bottom bar.
 2. Select **Bitbucket** as the service provider.
-3. Create a new empty git repository if you don't already have one. See the link:https://support.atlassian.com/bitbucket-cloud/docs/create-a-git-repository/[Bitbucket documentation] for details.
+3. Create a new empty git repository if you don't already have one. See the https://support.atlassian.com/bitbucket-cloud/docs/create-a-git-repository/[Bitbucket documentation] for details.
 4. Go to the repository's main page, click on the **Clone** button, select **SSH**, and copy the **SSH** URL.
 5. Paste the SSH URL into the **Generate SSH Key** field in the Bonita UI Builder, making sure to remove `git clone` from the URL.
 6. Click on the **Generate SSH Keys** button to generate unique `ECDSA 256` and `RSA 4096` keys. Select the key type that meets your security requirements and system capabilities.
@@ -93,4 +93,4 @@ Your application is now connected to your chosen Git provider.
 
 == See also
 
-* xref:./git-settings[Git Settings]
+* xref:applications:git-settings.adoc[Git Settings]
