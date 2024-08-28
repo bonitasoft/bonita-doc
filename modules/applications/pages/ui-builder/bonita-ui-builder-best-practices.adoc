@@ -16,5 +16,10 @@ xref:ui-builder/how-to-avoid-unnecessary-information-messages.adoc[[.card-title]
 
 [.card.card-index]
 --
+xref:ui-builder/how-to-use-mutable-js-variable.adoc[[.card-title]#Use mutable JS variable# [.card-body.card-content-overflow]#pass:q[Learn how to update a JS variable to store and read data.]#]
+--
+
+[.card.card-index]
+--
 xref:ui-builder/how-to-localize-your-application.adoc[[.card-title]#Localize your application for various languages# [.card-body.card-content-overflow]#pass:q[Discover how to make your application accessible in multiple languages.]#]
 --
