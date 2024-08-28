@@ -11,25 +11,27 @@
 
 == From user profile
 
-You can access these settings by clicking on your profile icon located on the top bar, then select **Edit profile** and **Git Configuration**.
+From the Home page, you can access these settings by clicking on your profile icon located on the top bar, then select **Edit profile** and **Git user config**.
 
-* **Name**: You can update the Git author's name, which changes how your identity is displayed in the commit history.
-* **Email**: You can specify a new email address. This change affects how your contributions are linked and identified across the repository's history.
+image::ui-builder/version-control-with-git/git-settings-from-profile.png[]
+
+* **Author name**: You can update the Git author's name, which changes how your identity is displayed in the commit history.
+* **Author email**: You can specify a new email address. This change affects how your contributions are linked and identified across the repository's history.
 
 == From an application
 
 These properties become available once you've connected your app to Git. You can access these settings by clicking on the gear icon located on the bottom bar.
 
-image::ui-builder/version-control-with-git/git-settings.png[]
+image::ui-builder/version-control-with-git/git-settings-from-application.png[]
 
 === General
 
 ==== Git author
 
-This section allows you to modify the name and email associated with the author. You can choose to either use the default settings or disable the *Use Default Configuration* button and add a new name and email.
+This section allows you to modify the name and email associated with the author. You can choose to either use the default settings or disable the *Use default configuration* button and add a new name and email.
 
 * **Name**: You can update the Git author's name, which changes how your identity is displayed in the commit history.
-* **Email**: You can specify a new email address. This change affects how your contributions are linked and identified across the repository's history.
+* **E-mail**: You can specify a new email address. This change affects how your contributions are linked and identified across the repository's history.
 
 ==== Danger zone
 
@@ -46,6 +48,8 @@ If you want to reconnect, you need to connect a new empty repository.
 ====
 
 === Branch
+
+image::ui-builder/version-control-with-git/git-branch-settings.png[]
 
 ==== Default branch
 
