@@ -1,4 +1,4 @@
-= Version control with Git in Bonita UI Builder
+= Version control with Git
 :page-aliases: applications:version-control-with-git.adoc
 :description: Discover how to use the Git feature in Bonita UI Builder for project management and team collaboration.
 

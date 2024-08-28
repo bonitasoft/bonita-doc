@@ -1,4 +1,4 @@
-= Git settings in Bonita UI Builder
+= Git settings
 :page-aliases: applications:git-settings.adoc
 :description: Learn about all the Git-related settings available in Bonita UI Builder to manage your version control preferences.
 
