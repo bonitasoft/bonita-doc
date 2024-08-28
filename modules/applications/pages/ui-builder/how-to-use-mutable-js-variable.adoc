@@ -1,0 +1,43 @@
+= Use mutable JS variable
+:page-aliases: applications:how-to-use-mutable-js-variable.adoc
+:description: Learn how to update a JS variable to store and read data.
+
+{description}
+
+* Difficulty: beginner
+* Prerequisites: have an application on Bonita UI Builder
+
+Bonita UI Builder allows the use of mutable JS variables, enabling you to create global variables that can be accessed by other widgets and functions on the same page.
+These variables can be updated at any time.
+This approach allows you to store and retrieve data directly from memory, significantly improving the performance of your applications.
+
+*Example*
+
+[source,JS]
+----
+export default {
+    // Declare a global variable named `username` and give it a value
+    username: 'Walter Bates',
+
+    // Retrieve the value of the global variable
+    getUsername() {
+        return this.username;
+    },
+
+    // Set a new value for the global variable
+    updateUsername() {
+        this.username = 'Helen Kelly';
+        return this.username;
+    }
+}
+----
+
+The provided code snippet above exports an object containing a global variable `username` set to `'Walter Bates'`.
+The `getUsername` function returns the current value of this variable, while the `updateUsername` function updates it to `'Helen Kelly'` and returns the new value.
+
+[TIP]
+====
+You can directly update the mutable variable in your widgets as well.
+For instance, `usersObject` is the name of the JS Object in this example.
+`{{usersObject.username = "William Jobs"}}`
+====

@@ -7,6 +7,9 @@ services:
       BONITA_API_URL: http://host.docker.internal:${BONITA_RUNTIME_PORT:-8080}/bonita/API
     ports:
       - "8090:80"
+    # Mount a volume to store persistent data
+    volumes:
+      - ./stacks:/appsmith-stacks
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
