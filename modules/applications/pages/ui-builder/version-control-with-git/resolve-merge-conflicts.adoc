@@ -17,10 +17,9 @@ image::ui-builder/version-control-with-git/seperate-conflicts-git.png[]
 
 * To resolve a merge conflict, start by creating a pull request for your source branch, pointing to the target branch where you want to merge your changes.
 
-[example]
+.*Example*
+[%collapsible]
 ====
-**Example:**
-
 If you are working on a `feature` branch and need to merge your changes into the `staging` branch, but encounter conflicts, create a pull request for the `feature` branch in your git provider, targeting the `staging` branch.
 ====
 
@@ -43,10 +42,9 @@ For detailed instructions on resolving merge conflicts, please refer to your spe
 * To update your Bonita UI Builder application, pull the changes from the updated branch.
 
 
-[example]
+.*Example*
+[%collapsible]
 ====
-**Example:**
-
 If you merged from the `feature` branch to `staging`, make sure you are on the `staging` branch in your Bonita UI Builder application and pull the latest changes.
 ====
 
@@ -58,10 +56,9 @@ image::ui-builder/version-control-with-git/remote-conflicts.png[]
 
 * To resolve this, create a new branch from the conflicted branch and make a pull request.
 
-[example]
+.*Example*
+[%collapsible]
 ====
-**Example:**
-
 Create a new branch from your local `feature` branch, name it `feature-fix`, and make a pull request from that new branch to the original `feature` branch.
 ====
 
