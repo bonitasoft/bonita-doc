@@ -42,4 +42,3 @@ These resources guide you through managing Git integration, including handling m
 * xref:applications:import-from-git.adoc[Import applications from Git]
 * xref:applications:revert-changes.adoc[Revert changes]
 * xref:applications:resolve-merge-conflicts.adoc[Resolve merge conflicts in Git]
-* xref:applications:update-local-file-path.adoc[Update the local file path]

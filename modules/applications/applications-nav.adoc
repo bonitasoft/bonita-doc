@@ -14,7 +14,6 @@
    **** xref:ui-builder/version-control-with-git/import-from-git.adoc[Import applications from Git]
    **** xref:ui-builder/version-control-with-git/revert-changes.adoc[Revert changes]
    **** xref:ui-builder/version-control-with-git/resolve-merge-conflicts.adoc[Resolve merge conflicts in Git]
-   **** xref:ui-builder/version-control-with-git/update-local-file-path.adoc[Update the local file path]
   *** xref:ui-builder/how-tos-builder.adoc[Guides]
    **** xref:ui-builder/how-to-share-data-across-pages.adoc[How to share data across pages]
    **** xref:ui-builder/how-to-control-visibility-of-widgets.adoc[How to control visibility of your widgets]
