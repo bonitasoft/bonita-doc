@@ -71,7 +71,7 @@ This section explains how to connect your Bonita UI Builder application to an em
 7. Copy one of the keys, go to **Workspace settings** in Bitbucket, navigate to **SSH keys**, click **Add SSH key**, paste the key and give it a descriptive title.
 8. Back in Bonita UI Builder, click **Connect Git**.
 
-Your application will now be connected to Bitbucket.
+Your application is now be connected to Bitbucket.
 ====
 
 .Connect to other Git providers

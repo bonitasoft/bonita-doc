@@ -59,7 +59,7 @@ Many Git platforms, such as https://docs.github.com/en/desktop/managing-commits/
 
 * After resolving any conflicts, commit the changes and push them to your remote Git repository.
 
-* Once the changes are committed, pull them into the Bonita UI Builder app to apply the updates.
+* Once the changes are committed, pull them into the Bonita UI Builder application to apply the updates.
 
 == See also
 
