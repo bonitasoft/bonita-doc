@@ -1,6 +1,6 @@
 = Applications with Bonita UI Builder
 :page-aliases: applications:bonita-ui-builder.adoc
-:description: In this page you will learn more about Bonita UI Builder and Applications.
+:description: On this page, you will learn more about Bonita UI Builder and Applications.
 
 {description}
 
@@ -52,6 +52,11 @@ If you have already subscribed to a Scale plan or purchased the UI Builder add-o
 [.card.card-index]
 --
 xref:initiation-manual.adoc[[.card-title]#Initiation manual# [.card-body.card-content-overflow]#pass:q[Steps to download and use Bonita UI Builder]#]
+--
+
+[.card.card-index]
+--
+xref:applications:version-control-with-git.adoc[[.card-title]#Version control with Git# [.card-body.card-content-overflow]#pass:q[Learn how to use Git in Bonita UI Builder to manage your projects and collaborate with your team.]#]
 --
 
 [.card.card-index]
