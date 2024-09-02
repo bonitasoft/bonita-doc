@@ -1,49 +1,20 @@
-= HR Management application use cases
-:page-aliases: applications:hr-management-use-cases.adoc
+= Common APIs to use
+:page-aliases: applications:common-apis-to-use.adoc
 :description: Explore the most commonly used APIs and JS objects for building an app like HR Management in UIB.
 
 {description}
 
-
-The HR Management application developed using Bonita UI Builder is a comprehensive solution designed to manage various HR related tasks such as onboarding new employee, vacation management, organizational structure, etc.
-While this application was developed with the assistance of Bonita developers, customers building similar applications on their own may face challenges due to the complexity involved.
-This documentation aims to provide an overview of the use cases, relevant code snippets, JavaScript functions, and platform-specific elements that are integral to the HR Management application.
+Bonita APIs combined with JS objects allow for building all kind of applications, such as: account management dashboard, custom CRM, HR Management tool, invoice processing dashboard…
 
 
 image:ui-builder/guides/hr-mgmt-app.png[hr-mgmt-app]
 
 
-== Key Use Cases
+== Commonly used APIs
 
-=== Onboarding employee
-Onboarding employee handles the management of employee records, such as personal information, job roles, and contact details.
+While how JS objects are designed highly depends on your need, here are the most frequently used Bonita APIs you will very likely need for your applications.
 
-APIs/Queries: fetches employee profiles, updates records, and manages user authentication.
-
-JS Functions: validates employee data, creates user profiles, and secures sensitive information."
-
-
-=== Vacation Management
-Vacation Management manages employee vacation requests, approvals, and tracking.
-
-APIs/Queries: fetch vacation records, submits vacation requests, and manages approval workflows.
-
-JS Functions: validates vacation dates, calculates remaining vacation days, and updates vacation status in the system.
-
-
-=== Organizational structure
-Organizational Structure oversees the management of company hierarchy, departmental information, and role assignments.
-
-APIs/Queries: fetches organizational data, updates departmental information, and assigns roles.
-
-JS Functions: dynamically generates organizational charts, manages role assignments, and updates department details.
-
-
-=== Commonly used APIs
-
-Here are the most frequently used APIs for building an HR Management application. These APIs are robust and well-suited for creating an application in UI Builder.
-
-==== Session
+=== Session
 The session API is useful for retrieving session information for the current user.
 
 For example:
@@ -52,7 +23,7 @@ For example:
 
 For more detailed information, refer to the link:https://api-documentation.bonitasoft.com/latest/#tag/Session/operation/getSession[session API documentation].
 
-==== Users
+=== Users
 The users API is useful for retrieving a list of users by applying pagination parameters and filters.
 
 For example:
@@ -61,25 +32,25 @@ For example:
 
 For more detailed information, refer to the link:https://api-documentation.bonitasoft.com/latest/#tag/User/operation/searchUsers[users API documentation].
 
-==== Human tasks
+=== Human tasks
 The human tasks API is useful to retrieve a list of human tasks by applying pagination parameters and filters.
 
 For example:
 
     - GET | `/API/bpm/humanTask?c=10&p=0&f=state=ready&f=caseId=[caseId]`
 
-For more details information, refer to the link:https://api-documentation.bonitasoft.com/latest/#tag/HumanTask/operation/searchHumanTasks[human tasks api documentation].
+For more detailed information, refer to the link:https://api-documentation.bonitasoft.com/latest/#tag/HumanTask/operation/searchHumanTasks[human tasks api documentation].
 
-==== User task context
+=== User task context
 The user task context API provides the context for a specific user task identified by its id.
 
 For example:
 
     - GET | `/bonita/API/bpm/userTask/[taskId]/context`
 
-For more details information, refer to the link:https://api-documentation.bonitasoft.com/latest/#tag/UserTask/operation/getContextByUserTaskId[context by userTask id api documentation].
+For more detailed information, refer to the link:https://api-documentation.bonitasoft.com/latest/#tag/UserTask/operation/getContextByUserTaskId[context by userTask id api documentation].
 
-==== Processes
+=== Processes
 The process API is used to retrieve a list of process by applying pagination parameters and filters.
 
 For example:
@@ -89,7 +60,7 @@ For example:
 
 For more detailed information, refer to the link:https://api-documentation.bonitasoft.com/latest/#tag/Process/operation/searchProcesses[processes API documentation].
 
-==== Business data
+=== Business data
 The business data is useful to find business data with pagination params and filters by invoking a `Named Query`. It allows to call either default or custom business data queries.
 
 For example:
@@ -98,7 +69,7 @@ For example:
 
 For more detailed information, refer to the link:https://api-documentation.bonitasoft.com/latest/#tag/BusinessDataQuery/operation/searchBusinessData[business data api documentation].
 
-==== Professional contact data
+=== Professional contact data
 The professional contact data is useful to retrieve the professional contact details of a user by their id.
 
 For example:
@@ -107,7 +78,7 @@ For example:
 
 For more detailed information, refer to the link:https://api-documentation.bonitasoft.com/latest/#tag/ProfessionalContactData/operation/getProfessionalContactDataById[professional contact data api documentation].
 
-==== Group
+=== Group
 The group api is used to retrieve a list of groups by applying pagination params and filters.
 
 For example:
@@ -116,7 +87,7 @@ For example:
 
 For more detailed information, refer to the link:https://api-documentation.bonitasoft.com/latest/#tag/Group/operation/searchGroups[groups api documentation].
 
-==== Upload file
+=== Upload file
 The upload file api is used to upload a file of any type, typically before submitting a process or task form that includes a document in its contract.
 
 For example:
@@ -128,7 +99,3 @@ For information on uploading multiple files, refer to the xref:ui-builder/how-to
 
 [NOTE]
 In addition to the commonly used APIs, JS objects can also be created to meet specific application needs.
-
-
-The HR Management application developed with Bonita UI Builder demonstrates the platform's capabilities and flexibility while also revealing potential challenges that customers might encounter when building similar applications independently.
-This documentation serves as a foundational guide, outlining key use cases, and highlighting common obstacles.

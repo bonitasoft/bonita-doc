@@ -23,7 +23,7 @@
    **** xref:ui-builder/bonita-ui-builder-best-practices.adoc[Best practices]
     ***** xref:ui-builder/how-to-avoid-unnecessary-information-messages.adoc[Avoid unnecessary information messages]
     ***** xref:ui-builder/how-to-use-mutable-js-variable.adoc[Use mutable JS variable]
-    ***** xref:ui-builder/hr-management-use-cases.adoc[HR Management application use cases]
+    ***** xref:ui-builder/common-apis-to-use.adoc[Common APIs to use]
   *** xref:ui-builder/resources.adoc[Resources]
   *** xref:ui-builder/faq.adoc[FAQ]
  ** xref:ui-designer/uid-applications-index.adoc[Living applications with Bonita UID]

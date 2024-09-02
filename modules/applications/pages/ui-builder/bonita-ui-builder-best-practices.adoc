@@ -22,5 +22,5 @@ xref:ui-builder/how-to-use-mutable-js-variable.adoc[[.card-title]#Use mutable JS
 
 [.card.card-index]
 --
-xref:ui-builder/hr-management-use-cases.adoc[[.card-title]#HR Management application use cases# [.card-body.card-content-overflow]#pass:q[Explore the most commonly used APIs and JS objects for building an app like HR Management in UIB.]#]
+xref:ui-builder/common-apis-to-use.adoc.adoc[[.card-title]#Common APIs to use# [.card-body.card-content-overflow]#pass:q[Explore the most commonly used APIs and JS objects for building an app like HR Management in UIB.]#]
 --
