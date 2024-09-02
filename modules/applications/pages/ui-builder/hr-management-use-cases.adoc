@@ -16,93 +16,112 @@ image:ui-builder/guides/hr-mgmt-app.png[hr-mgmt-app]
 == Key Use Cases
 
 === Onboarding employee
-Manages employee records, including personal details, job roles, and contact information.
+Onboarding employee handles the management of employee records, such as personal information, job roles, and contact details.
 
-APIs/Queries: Retrieves employee profiles, updates records, and manages user authentication.
+APIs/Queries: fetches employee profiles, updates records, and manages user authentication.
 
-JS Functions: Functions for validating employee data, generating user profiles, and securing sensitive information.
+JS Functions: validates employee data, creates user profiles, and secures sensitive information."
+
 
 === Vacation Management
-Handles requests, approvals, and tracking of employee vacations.
+Vacation Management manages employee vacation requests, approvals, and tracking.
 
-APIs/Queries: Retrieves vacation records, submits vacation requests, and manages approval workflows.
+APIs/Queries: fetch vacation records, submits vacation requests, and manages approval workflows.
 
-JS Functions: Functions to validate vacation dates, calculate remaining vacation days, and update the vacation status in the system.
+JS Functions: validates vacation dates, calculates remaining vacation days, and updates vacation status in the system.
+
 
 === Organizational structure
-Manages information about the company’s hierarchy, departments, and roles.
+Organizational Structure oversees the management of company hierarchy, departmental information, and role assignments.
 
-APIs/Queries: Fetches organizational data, updates departmental information, and assigns roles.
+APIs/Queries: fetches organizational data, updates departmental information, and assigns roles.
 
-JS Functions: Functions to dynamically generate organizational charts, handle role assignments, and update department details.
+JS Functions: dynamically generates organizational charts, manages role assignments, and updates department details.
 
 
-=== List on commonly used APIs
+=== Commonly used APIs
 
-Here is a list of the most commonly used APIs for building an HR Management application. These APIs are robust enough to enable the creation of an application in UI Builder.
+Here are the most frequently used APIs for building an HR Management application. These APIs are robust and well-suited for creating an application in UI Builder.
 
 ==== Session
-The `/API/system/session/unusedId` API is helpful for retrieving session information for the current user.
-You can find more detailed information in the xref:https://api-documentation.bonitasoft.com/latest/#tag/Session/operation/getSession[session API documentation].
+The session API is useful for retrieving session information for the current user.
 
+For example:
+    - GET | `/API/system/session/unusedId`
+
+For more detailed information, refer to the xref:https://api-documentation.bonitasoft.com/latest/#tag/Session/operation/getSession[session API documentation].
 
 ==== Users
-The `/API/identity/user` API is useful for retrieving a list of users by applying pagination parameters and filters.
+The users API is useful for retrieving a list of users by applying pagination parameters and filters.
+
+For example:
+    - GET | `/API/identity/user?c=10&p=0&time=0&o=lastname+ASC&f=enabled=true`
+
 For more detailed information, refer to the xref:https://api-documentation.bonitasoft.com/latest/#tag/User/operation/searchUsers[users API documentation].
 
-
 ==== Human tasks
-The `/API/bpm/humanTask` api is useful to get a list of humanTasks by adding pagination params and filters to it.
-You can have a details information on xref:https://api-documentation.bonitasoft.com/latest/#tag/HumanTask/operation/searchHumanTasks[humanTasks api documentation].
+The human tasks API is useful to retrieve a list of human tasks by applying pagination parameters and filters.
 
-==== User tasks
-The `/API/bpm/userTask` api is useful to get a list of userTasks by adding pagination params and filters to it.
-You can have a details information on xref:https://api-documentation.bonitasoft.com/latest/#tag/UserTask/operation/searchUserTasks[userTasks api documentation].
+For example:
+    - GET | `/API/bpm/humanTask?c=10&p=0&f=state=ready&f=caseId=[caseId]`
+
+For more details information, refer to the xref:https://api-documentation.bonitasoft.com/latest/#tag/HumanTask/operation/searchHumanTasks[humanTasks api documentation].
 
 ==== User task context
-The `/API/bpm/userTask/{id}/context` api returns the context for the given userTask id.
-You can have a details information on xref:https://api-documentation.bonitasoft.com/latest/#tag/UserTask/operation/getContextByUserTaskId[context by userTask id api documentation].
+The user task context API provides the context for a specific user task identified by its id.
+
+For example:
+    - GET | `/bonita/API/bpm/userTask/[taskId]/context`
+
+For more details information, refer to the xref:https://api-documentation.bonitasoft.com/latest/#tag/UserTask/operation/getContextByUserTaskId[context by userTask id api documentation].
 
 ==== Processes
-The `/API/bpm/process` api is useful to get a list of process by adding pagination params and filters to it.
-You can have a details information on xref:https://api-documentation.bonitasoft.com/latest/#tag/Process/operation/searchProcesses[processes api documentation].
+The process API is used to retrieve a list of process by applying pagination parameters and filters.
+
+For example:
+
+    - GET | `/bonita/API/bpm/process?c=10&p=0&f=name=[processName]&f=activationState=ENABLED` retrieves a list of specific process.
+    - POST | `/bonita/API/bpm/process/[processId]/instantiation` is used to instantiate a process.
+
+For more detailed information, refer to the xref:https://api-documentation.bonitasoft.com/latest/#tag/Process/operation/searchProcesses[processes API documentation].
 
 ==== Business data
-The `/API/bdm/businessData/{businessDataType}` api is useful to find business data with pagination params and filters by calling a `Named Query`. The business data query REST API resource is used to call a default or custom business data query.
-You can have a details information on xref:https://api-documentation.bonitasoft.com/latest/#tag/BusinessDataQuery/operation/searchBusinessData[business data api documentation].
+The business data is useful to find business data with pagination params and filters by invoking a `Named Query`. It allows to call either default or custom business data queries.
+
+For example:
+    - GET | `/API/bdm/businessData/com.company.hr.[businessObject]?q=[query]&p=0&c=10&f=[filterString]={filterParam}`
+
+For more detailed information, refer to the xref:https://api-documentation.bonitasoft.com/latest/#tag/BusinessDataQuery/operation/searchBusinessData[business data api documentation].
 
 ==== Professional contact data
-The `/API/identity/professionalcontactdata/{userId}` api is useful to retrieve professional contact data of a user by its id.
-You can have a details information on xref:https://api-documentation.bonitasoft.com/latest/#tag/ProfessionalContactData/operation/getProfessionalContactDataById[professional contact data api documentation].
+The professional contact data is useful to retrieve the professional contact details of a user by their id.
+
+For example:
+    - GET | `/API/identity/professionalcontactdata/[userId]`
+
+For more detailed information, refer to the xref:https://api-documentation.bonitasoft.com/latest/#tag/ProfessionalContactData/operation/getProfessionalContactDataById[professional contact data api documentation].
 
 ==== Group
-The `/API/identity/group` api is useful to get a list of groups by adding pagination params and filters to it.
-You can have a details information on xref:https://api-documentation.bonitasoft.com/latest/#tag/Group/operation/searchGroups[groups api documentation].
+The group api is used to retrieve a list of groups by applying pagination params and filters.
+
+For example:
+    - GET | `/API/identity/group?c=10&p=0&d=parent_group_id&t=0&o=displayName%20ASC`
+
+For more detailed information, refer to the xref:https://api-documentation.bonitasoft.com/latest/#tag/Group/operation/searchGroups[groups api documentation].
 
 ==== Upload file
-The `/API/formFileUpload` api is useful to upload a file. It supports any type of files, used to upload a file before submitting a process or task form with a document in its contract
-You can have a details information on xref:https://api-documentation.bonitasoft.com/latest/#tag/FormFileUpload/operation/formFileUpload[formFileUpload api documentation].
+The upload file api is used to upload a file of any type, typically before submitting a process or task form that includes a document in its contract.
+
+For example:
+    - POST | `/bonita/API/formFileUpload`
+
+For information on uploading multiple files, refer to the xref:ui-builder/how-to-upload-multiple-documents.adoc[upload multiple files] guide.
 
 
-[source,JS]
-----
-export default {
-    // Declare a global variable named `username` and give it a value
-    username: 'Walter Bates',
+[NOTE]
+In addition to the commonly used APIs, JS objects can also be created to meet specific application needs.
 
-    // Retrieve the value of the global variable
-    getUsername() {
-        return this.username;
-    },
 
-    // Set a new value for the global variable
-    updateUsername() {
-        this.username = 'Helen Kelly';
-        return this.username;
-    }
-}
-----
 
-The HR Management application built with Bonita UI Builder showcases the power and flexibility of the platform, but it also highlights the potential challenges that customers may face when developing similar applications on their own.
-This documentation provides a starting point by outlining key use cases, offering code examples, and identifying common hurdles.
-Understanding these elements will be crucial for successfully implementing HR Management features in Bonita UIB.
+The HR Management application developed with Bonita UI Builder demonstrates the platform's capabilities and flexibility while also revealing potential challenges that customers might encounter when building similar applications independently.
+This documentation serves as a foundational guide, outlining key use cases, and highlighting common obstacles.
