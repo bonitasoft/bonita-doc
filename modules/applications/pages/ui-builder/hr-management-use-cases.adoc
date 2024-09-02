@@ -49,7 +49,7 @@ The session API is useful for retrieving session information for the current use
 For example:
     - GET | `/API/system/session/unusedId`
 
-For more detailed information, refer to the xref:https://api-documentation.bonitasoft.com/latest/#tag/Session/operation/getSession[session API documentation].
+For more detailed information, refer to the https://api-documentation.bonitasoft.com/latest/#tag/Session/operation/getSession[session API documentation].
 
 ==== Users
 The users API is useful for retrieving a list of users by applying pagination parameters and filters.
@@ -57,7 +57,7 @@ The users API is useful for retrieving a list of users by applying pagination pa
 For example:
     - GET | `/API/identity/user?c=10&p=0&time=0&o=lastname+ASC&f=enabled=true`
 
-For more detailed information, refer to the xref:https://api-documentation.bonitasoft.com/latest/#tag/User/operation/searchUsers[users API documentation].
+For more detailed information, refer to the https://api-documentation.bonitasoft.com/latest/#tag/User/operation/searchUsers[users API documentation].
 
 ==== Human tasks
 The human tasks API is useful to retrieve a list of human tasks by applying pagination parameters and filters.
@@ -65,7 +65,7 @@ The human tasks API is useful to retrieve a list of human tasks by applying pagi
 For example:
     - GET | `/API/bpm/humanTask?c=10&p=0&f=state=ready&f=caseId=[caseId]`
 
-For more details information, refer to the xref:https://api-documentation.bonitasoft.com/latest/#tag/HumanTask/operation/searchHumanTasks[humanTasks api documentation].
+For more details information, refer to the https://api-documentation.bonitasoft.com/latest/#tag/HumanTask/operation/searchHumanTasks[human tasks api documentation].
 
 ==== User task context
 The user task context API provides the context for a specific user task identified by its id.
@@ -73,7 +73,7 @@ The user task context API provides the context for a specific user task identifi
 For example:
     - GET | `/bonita/API/bpm/userTask/[taskId]/context`
 
-For more details information, refer to the xref:https://api-documentation.bonitasoft.com/latest/#tag/UserTask/operation/getContextByUserTaskId[context by userTask id api documentation].
+For more details information, refer to the https://api-documentation.bonitasoft.com/latest/#tag/UserTask/operation/getContextByUserTaskId[context by userTask id api documentation].
 
 ==== Processes
 The process API is used to retrieve a list of process by applying pagination parameters and filters.
@@ -83,7 +83,7 @@ For example:
     - GET | `/bonita/API/bpm/process?c=10&p=0&f=name=[processName]&f=activationState=ENABLED` retrieves a list of specific process.
     - POST | `/bonita/API/bpm/process/[processId]/instantiation` is used to instantiate a process.
 
-For more detailed information, refer to the xref:https://api-documentation.bonitasoft.com/latest/#tag/Process/operation/searchProcesses[processes API documentation].
+For more detailed information, refer to the https://api-documentation.bonitasoft.com/latest/#tag/Process/operation/searchProcesses[processes API documentation].
 
 ==== Business data
 The business data is useful to find business data with pagination params and filters by invoking a `Named Query`. It allows to call either default or custom business data queries.
@@ -91,7 +91,7 @@ The business data is useful to find business data with pagination params and fil
 For example:
     - GET | `/API/bdm/businessData/com.company.hr.[businessObject]?q=[query]&p=0&c=10&f=[filterString]={filterParam}`
 
-For more detailed information, refer to the xref:https://api-documentation.bonitasoft.com/latest/#tag/BusinessDataQuery/operation/searchBusinessData[business data api documentation].
+For more detailed information, refer to the https://api-documentation.bonitasoft.com/latest/#tag/BusinessDataQuery/operation/searchBusinessData[business data api documentation].
 
 ==== Professional contact data
 The professional contact data is useful to retrieve the professional contact details of a user by their id.
@@ -99,7 +99,7 @@ The professional contact data is useful to retrieve the professional contact det
 For example:
     - GET | `/API/identity/professionalcontactdata/[userId]`
 
-For more detailed information, refer to the xref:https://api-documentation.bonitasoft.com/latest/#tag/ProfessionalContactData/operation/getProfessionalContactDataById[professional contact data api documentation].
+For more detailed information, refer to the https://api-documentation.bonitasoft.com/latest/#tag/ProfessionalContactData/operation/getProfessionalContactDataById[professional contact data api documentation].
 
 ==== Group
 The group api is used to retrieve a list of groups by applying pagination params and filters.
@@ -107,7 +107,7 @@ The group api is used to retrieve a list of groups by applying pagination params
 For example:
     - GET | `/API/identity/group?c=10&p=0&d=parent_group_id&t=0&o=displayName%20ASC`
 
-For more detailed information, refer to the xref:https://api-documentation.bonitasoft.com/latest/#tag/Group/operation/searchGroups[groups api documentation].
+For more detailed information, refer to the https://api-documentation.bonitasoft.com/latest/#tag/Group/operation/searchGroups[groups api documentation].
 
 ==== Upload file
 The upload file api is used to upload a file of any type, typically before submitting a process or task form that includes a document in its contract.
@@ -120,7 +120,6 @@ For information on uploading multiple files, refer to the xref:ui-builder/how-to
 
 [NOTE]
 In addition to the commonly used APIs, JS objects can also be created to meet specific application needs.
-
 
 
 The HR Management application developed with Bonita UI Builder demonstrates the platform's capabilities and flexibility while also revealing potential challenges that customers might encounter when building similar applications independently.
