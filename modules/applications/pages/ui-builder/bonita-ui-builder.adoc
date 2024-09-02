@@ -1,6 +1,6 @@
 = Applications with Bonita UI Builder
 :page-aliases: applications:bonita-ui-builder.adoc
-:description: In this page you will learn more about Bonita UI Builder and Applications.
+:description: On this page, you will learn more about Bonita UI Builder and Applications.
 
 {description}
 
@@ -32,7 +32,9 @@ They are not standalone elements (such as pages and forms) in a process anymore,
 
 Bonita also comes with four xref:runtime:bonita-applications-interface-overview.adoc[Bonita Applications].
 
-“Applications” are very similar to “Living Applications”, which are created with Bonita UI Designer and will be phased out. Once pushed to production, Applications cannot be live edited.
+“Applications” are very similar to “Living Applications”, which are created with Bonita UI Designer. Once pushed to production, Applications' content cannot be edited.
+
+"Applications" need to be defined via an `applicationLink` tag in the xref:builder-declare-interface-in-bonita.adoc[Application descriptor].
 
 
 == Subscription
@@ -50,6 +52,11 @@ If you have already subscribed to a Scale plan or purchased the UI Builder add-o
 [.card.card-index]
 --
 xref:initiation-manual.adoc[[.card-title]#Initiation manual# [.card-body.card-content-overflow]#pass:q[Steps to download and use Bonita UI Builder]#]
+--
+
+[.card.card-index]
+--
+xref:applications:version-control-with-git.adoc[[.card-title]#Version control with Git# [.card-body.card-content-overflow]#pass:q[Learn how to use Git in Bonita UI Builder to manage your projects and collaborate with your team.]#]
 --
 
 [.card.card-index]

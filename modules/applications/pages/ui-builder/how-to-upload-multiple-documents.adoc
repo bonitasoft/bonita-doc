@@ -1,0 +1,95 @@
+= Upload multiple documents simultaneously
+:page-aliases: applications:how-to-upload-multiple-documents.adoc
+:description: Learn how to upload multiple documents simultaneously
+
+{description}
+
+* Difficulty: intermediate
+* Prerequisites: have an xref:create-an-interface.adoc[interface created] on Bonita UI Builder
+
+If you need to upload multiple files using Bonita's formFileUpload servlet, you'll need to process each file separately by looping through them, adding a parameter to the API query for each file. Since Bonita's `formFileUpload` doesn't support uploading multiple files at once, you'll also need to synchronize the uploads.
+
+
+== Example
+
+Suppose you want to upload multiple files at the same time using a `FilePicker` widget in the Bonita UI Builder.
+
+=== 1. Use a FilePicker widget
+To do so, drag and drop a `FilePicker` widget onto your interface and configure it as follows:
+
+image:ui-builder/guides/file-picker-widget-properties.png[file-picker-widget-propeties]
+
+[WARNING]
+====
+Even though the default data format is `Base64`, you should select `Binary` as the data format, as shown in the image above.
+====
+
+
+[TIP]
+In this example, we don't set a limit for the `Max no. of files` because we're allowing multiple files to be uploaded. However, you can set a limit on the number of files to be uploaded, as well as adjust other properties if needed.
+
+
+=== 2. Create a file upload post request
+* Go to `Queries` section and create a new query/API and configure it as follows:
+
+image:ui-builder/guides/query-formFileUpload.png[query-formFileUpload]
+
+
+=== 3. Create JavaScript object
+
+* Go to the `JS` section and create a new JS object with the functions provided below that allows to upload multiple files simultaneously.
+
+* Function to get files
+
+[source, JS]
+----
+export default {
+     async getFileUpload () {
+		const files = testFileUpload.files;
+
+		const promises = files.map((file) => {
+			return formFileUpload.run({ file: file });
+		});
+
+		try {
+			const results = await Promise.all(promises);
+			const santizedResult = results.map(result => JSON.parse(result));
+			return santizedResult;
+		} catch (error) {
+			console.error('The error is ', error);
+			throw error;
+		}
+	}
+ }
+----
+
+The `getFileUpload` function is an asynchronous function that uploads multiple files concurrently. It retrieves the files from `testFileUpload.files` and maps each file to an upload promise using `formFileUpload.run()`.
+These promises are then executed simultaneously using `Promise.all`. Once all uploads are complete, the function parses the results into JSON objects and returns them.
+The function also includes error handling, logging any errors that occur during the upload process and re-throwing them for further handling.
+
+* Function to upload files
+Add given function below to the JS object after `getFileUpload` function.
+
+[source, JS]
+----
+async uploadFile() {
+    if(testFileUpload.files.length >= 3) {
+        const result = await this.getFileUpload();
+        return result;
+    } else {
+        return null;
+    }
+}
+----
+
+The `uploadFile` function triggers the file upload process only when at least three files are selected.
+It calls the `getFileUpload` function that we created previously to perform the upload and returns the result.
+If fewer than three files are selected, the function simply returns null, bypassing the upload process.
+You can modify the file count according to your preferences.
+
+
+=== 4. Bind function to the FilePicker widget
+
+* Go to the `UI` and select `testFileUpload` widget and bind the `uploadFile` function to the `onFilesSelected` event.
+
+image:ui-builder/guides/bind-file-upload.png[bind-file-upload]

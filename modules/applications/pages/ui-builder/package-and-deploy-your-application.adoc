@@ -30,7 +30,7 @@ The xref:production-packaging.adoc#dockerfile[Dockerfile] and more details on ho
 
 After building the Docker image, run it using the following command:
 
-[source,shell]
+[source,console]
 ----
 docker run --name <container-name> <image-name>:<version>
 ----

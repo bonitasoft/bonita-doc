@@ -18,3 +18,8 @@ xref:how-to-share-data-across-pages.adoc[[.card-title]#How to share data across 
 --
 xref:how-to-control-visibility-of-widgets.adoc[[.card-title]#How to control visibility of your widgets# [.card-body.card-content-overflow]#pass:q[Learn how to set conditions to make your widgets visible or not]#]
 --
+
+[.card.card-index]
+--
+xref:how-to-upload-multiple-documents.adoc[[.card-title]#Upload multiple documents simultaneously# [.card-body.card-content-overflow]#pass:q[Learn how to upload multiple documents simultaneously.]#]
+--
