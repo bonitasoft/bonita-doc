@@ -61,7 +61,7 @@ The business data is useful to find business data with pagination params and fil
 
 For example:
 
-    - GET | `/API/bdm/businessData/com.company.hr.[businessObject]?q=[query]&p=0&c=10&f=[filterString]=[filterParam]`
+    - GET | `/API/bdm/businessData/[businessObject]?q=[query]&p=0&c=10&f=[filterString]=[filterParam]`
 
 For more detailed information, refer to the {openApiUrl}/latest/#tag/BusinessDataQuery/operation/searchBusinessData[business data api documentation].
 
