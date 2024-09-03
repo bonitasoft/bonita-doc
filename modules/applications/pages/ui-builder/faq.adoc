@@ -139,6 +139,10 @@ Yes, they are compatible with both deployment modes.
 Yes it is. Reach out to your customer service representative to explore how you can migrate to Bonita Cloud.
 
 
+=== Is it possible to deploy multiple UI Builder node instances for redundancy?
+No, the UI Builder node cannot be deployed with redundancy. Currently, only a single container instance is supported, which means multiple instances for redundancy are not allowed.
+
+
 === Can multiple users collaborate on the same local Bonita UI Builder development server?
 No, the local Bonita UI Builder server is mono-user, meaning it only supports one Bonita user account at a time. To collaborate, each user should run their own local server and work with a shared Git repository for syncing and integrating their changes.
 
