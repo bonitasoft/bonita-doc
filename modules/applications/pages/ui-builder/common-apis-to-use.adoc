@@ -1,13 +1,9 @@
 = Common APIs to use
-:page-aliases: applications:common-apis-to-use.adoc
-:description: Explore the most commonly used APIs and JS objects for building an app like HR Management in UIB.
+:description: Discover frequently used Bonita APIs to efficiently build complex applications in the UI Builder.
 
 {description}
 
 Bonita APIs combined with JS objects allow for building all kind of applications, such as: account management dashboard, custom CRM, HR Management tool, invoice processing dashboard, and many more.
-
-
-image:ui-builder/guides/hr-mgmt-app.png[hr-mgmt-app]
 
 
 == Commonly used APIs
