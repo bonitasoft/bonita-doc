@@ -24,6 +24,7 @@
     ***** xref:ui-builder/how-to-avoid-unnecessary-information-messages.adoc[Avoid unnecessary information messages]
     ***** xref:ui-builder/how-to-use-mutable-js-variable.adoc[Use mutable JS variable]
     ***** xref:ui-builder/common-apis-to-use.adoc[Common APIs to use]
+    ***** xref:ui-builder/how-to-retrieve-user-avatar.adoc[Retrieve user avatar image]
   *** xref:ui-builder/resources.adoc[Resources]
   *** xref:ui-builder/faq.adoc[FAQ]
  ** xref:ui-designer/uid-applications-index.adoc[Living applications with Bonita UID]

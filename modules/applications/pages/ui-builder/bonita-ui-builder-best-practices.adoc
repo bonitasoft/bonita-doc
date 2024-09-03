@@ -19,8 +19,12 @@ xref:ui-builder/how-to-avoid-unnecessary-information-messages.adoc[[.card-title]
 xref:ui-builder/how-to-use-mutable-js-variable.adoc[[.card-title]#Use mutable JS variable# [.card-body.card-content-overflow]#pass:q[Learn how to update a JS variable to store and read data.]#]
 --
 
-
 [.card.card-index]
 --
 xref:ui-builder/common-apis-to-use.adoc[[.card-title]#Common APIs to use# [.card-body.card-content-overflow]#pass:q[Explore the most commonly used APIs and JS objects for building an app like HR Management in UIB.]#]
+--
+
+[.card.card-index]
+--
+xref:ui-builder/how-to-retrieve-user-avatar.adoc[[.card-title]#Retrieve user avatar image# [.card-body.card-content-overflow]#pass:q[Discover how to fetch user avatar images and display them using the image widget.]#]
 --
