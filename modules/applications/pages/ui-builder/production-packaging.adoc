@@ -72,9 +72,16 @@ To run the production docker image, you can use the following command:
 ----
 docker run --name <container-name> -p 8080:80 \
            -e BONITA_API_URL=<bonita-runtime-url>/bonita/API \
+           -e APPSMITH_ENCRYPTION_PASSWORD=<encryption-password> \
+           -e APPSMITH_ENCRYPTION_SALT=<encryption-salt> \
            <image-name>:<image-version>
 ----
 
 You can override and configure all xref:ui-builder-docker-installation.adoc#environment-variables[environment variables].
 
-NOTE: If you want to test your applications before going into production, instead of using `docker run`, you can use a `docker-compose.yml` file in the likes of what was done in the xref:download-and-launch.adoc#create-docker-environment[first steps] (i.e. with a `bonita-ui-proxy` image and the docker image xref:production-packaging.adoc#build-docker-image[built previously]).
+[NOTE]
+====
+If you want to test your applications before going into production, instead of using `docker run`, you can use a `docker-compose.yml` file in the likes of what was done in the xref:download-and-launch.adoc#create-docker-environment[first steps] (i.e. with a `bonita-ui-proxy` image and the docker image xref:production-packaging.adoc#build-docker-image[built previously]).
+
+Please note that currently, only a single container instance is supported, which means multiple instances of UI builder for redundancy are not allowed.
+====
