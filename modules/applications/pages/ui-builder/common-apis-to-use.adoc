@@ -30,7 +30,7 @@ For example:
 
     - GET | `/API/identity/user?c=10&p=0&time=0&o=lastname+ASC&f=enabled=true`
 
-For more detailed information, refer to the link:https://api-documentation.bonitasoft.com/latest/#tag/User/operation/searchUsers[users API documentation].
+For more detailed information, refer to the {openApiUrl}/latest/#tag/#tag/User/operation/searchUsers[users API documentation].
 
 === Human tasks
 The human tasks API is useful to retrieve a list of human tasks by applying pagination parameters and filters.
