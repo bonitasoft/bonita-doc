@@ -21,7 +21,7 @@ For example:
 
     - GET | `/API/system/session/unusedId`
 
-For more detailed information, refer to the link:https://api-documentation.bonitasoft.com/latest/#tag/Session/operation/getSession[session API documentation].
+For more detailed information, refer to the {openApiUrl}/latest/#tag/Session/operation/getSession[session API documentation].
 
 === Users
 The users API is useful for retrieving a list of users by applying pagination parameters and filters.
