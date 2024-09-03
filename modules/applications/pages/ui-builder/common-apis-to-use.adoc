@@ -94,7 +94,7 @@ For example:
 
     - POST | `/bonita/API/formFileUpload`
 
-For information on uploading multiple files, refer to the xref:ui-builder/how-to-upload-multiple-documents.adoc[upload multiple files.]
+For information on uploading multiple files, refer to the xref:how-to-upload-multiple-documents.adoc[upload multiple files.]
 
 
 [NOTE]
