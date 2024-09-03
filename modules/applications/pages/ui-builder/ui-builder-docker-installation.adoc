@@ -14,6 +14,7 @@ The following environment variable is mandatory:
 - `BONITA_API_URL`: The URL for the Bonita API.
 
 The following environment variables are optional:
+
 - `BONITA_HEALTHCHECK_USER`: Defines the username to request the Bonita healthcheck API (default: `monitoring`).
 - `BONITA_HEALTHCHECK_PASSWORD`: Defines the password to request the Bonita healthcheck API (default: `mon1tor1ng_adm1n`).
 - `BONITA_DEV_MODE`: Enables user to development mode when set to `true` (default: `true`).
