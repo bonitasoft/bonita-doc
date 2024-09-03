@@ -21,6 +21,11 @@ xref:ui-builder/how-to-use-mutable-js-variable.adoc[[.card-title]#Use mutable JS
 
 [.card.card-index]
 --
+xref:ui-builder/how-to-localize-your-application.adoc[[.card-title]#Localize your application for various languages# [.card-body.card-content-overflow]#pass:q[Discover how to make your application accessible in multiple languages.]#]
+--
+
+[.card.card-index]
+--
 xref:ui-builder/common-apis-to-use.adoc[[.card-title]#Common APIs to use# [.card-body.card-content-overflow]#pass:q[Discover frequently used Bonita APIs to efficiently build complex applications in the UI Builder.]#]
 --
 
