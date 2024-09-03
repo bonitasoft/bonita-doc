@@ -22,6 +22,7 @@
    **** xref:ui-builder/how-to-upload-multiple-documents.adoc[Upload multiple documents simultaneously]
    **** xref:ui-builder/bonita-ui-builder-best-practices.adoc[Best practices]
     ***** xref:ui-builder/how-to-avoid-unnecessary-information-messages.adoc[Avoid unnecessary information messages]
+    ***** xref:ui-builder/how-to-localize-your-application.adoc[Localize your application for various languages]
     ***** xref:ui-builder/how-to-use-mutable-js-variable.adoc[Use mutable JS variable]
     ***** xref:ui-builder/how-to-retrieve-user-avatar.adoc[Retrieve user avatar image]
   *** xref:ui-builder/resources.adoc[Resources]
