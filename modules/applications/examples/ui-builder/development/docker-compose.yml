@@ -7,13 +7,15 @@ services:
       BONITA_API_URL: http://host.docker.internal:${BONITA_RUNTIME_PORT:-8080}/bonita/API
     ports:
       - "8090:80"
+    # Mount a volume to store persistent data
+    volumes:
+      - ./stacks:/appsmith-stacks
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
-  reverse-proxy:
-    image: nginx
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
+  # A reverse proxy used to communicate between Bonita UI Builder and a Bonita Runtime
+  bonita-ui-proxy:
+    image: ${IMAGE_NAME:-pass:a[{bonita-ui-proxy-image}]:latest}
     ports:
       - 443:443
       - 80:80

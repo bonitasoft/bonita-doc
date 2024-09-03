@@ -61,11 +61,11 @@ Enter the following configuration:
 [source, JSON]
 ----
 {{
-	{
-		claimInput: {
-			description: Input1.text,
-		}
-	}
+  {
+    claimInput: {
+      description: Input1.text,
+    }
+  }
 }}
 ----
 

@@ -28,3 +28,8 @@ xref:how-to-handle-pagination.adoc[[.card-title]#How to handle server-side pagin
 --
 xref:how-to-create-editable-tables.adoc[[.card-title]#How to create editable and powerful Tables# [.card-body.card-content-overflow]#pass:q[Learn how to configure tables from which you can edit Bonita data, display dynamic values, color cells]#]
 --
+
+[.card.card-index]
+--
+xref:how-to-upload-multiple-documents.adoc[[.card-title]#Upload multiple documents simultaneously# [.card-body.card-content-overflow]#pass:q[Learn how to upload multiple documents simultaneously.]#]
+--

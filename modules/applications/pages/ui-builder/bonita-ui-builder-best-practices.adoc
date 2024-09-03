@@ -1,0 +1,25 @@
+= Bonita UI Builder Best Practices
+:page-aliases: applications:bonita-ui-builder-best-practices.adoc
+:description: Learn how to manage common issues and warnings in Bonita UI Builder to build advanced and effective interfaces.
+
+{description}
+
+
+
+[.card-section]
+== Sections
+
+[.card.card-index]
+--
+xref:ui-builder/how-to-avoid-unnecessary-information-messages.adoc[[.card-title]#Avoid unnecessary information messages# [.card-body.card-content-overflow]#pass:q[Discover how to deal with notifications encountered while importing a page.]#]
+--
+
+[.card.card-index]
+--
+xref:ui-builder/how-to-use-mutable-js-variable.adoc[[.card-title]#Use mutable JS variable# [.card-body.card-content-overflow]#pass:q[Learn how to update a JS variable to store and read data.]#]
+--
+
+[.card.card-index]
+--
+xref:ui-builder/how-to-localize-your-application.adoc[[.card-title]#Localize your application for various languages# [.card-body.card-content-overflow]#pass:q[Discover how to make your application accessible in multiple languages.]#]
+--

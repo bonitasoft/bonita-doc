@@ -1,0 +1,61 @@
+= Git settings
+:page-aliases: applications:git-settings.adoc
+:description: Learn about all the Git-related settings available in Bonita UI Builder to manage your version control preferences.
+
+{description}
+
+* Difficulty: Beginner
+* Estimated time: 15 minutes
+* Prerequisites: Basic understanding of Git
+
+== Access to Git settings from your user profile
+
+To access Git settings from your user profile, go to the home page, click on your profile icon in the top bar, select **Edit profile**, and then select **Git user config**.
+
+image::ui-builder/version-control-with-git/git-settings-from-profile.png[]
+
+* **Author name**: Update the Git author name to change how your identity appears in the commit history.
+* **Author email**: Specify a new email address to update how your commits are associated and identified in the repository.
+
+== Access to Git settings from an application
+
+These settings are available once your application is connected to Git. To access them, click the gear icon in the bottom bar.
+
+image::ui-builder/version-control-with-git/git-settings-from-application.png[]
+
+=== General settings
+
+==== Git Author
+
+In this section, you can change the name and email associated with the git author. You can either use the default configuration or uncheck the *Use default configuration* option to enter a new name and email.
+
+* **Name**: Update the git author name to change how your identity is displayed in the commit history.
+* **E-mail**: Specify a new email address to update how your commits are associated and identified in the repository history.
+
+==== Danger Zone
+
+This section contains critical Git settings, such as disconnecting Git from the Bonita UI Builder.
+
+===== Disconnect Git
+
+Permanently disconnect your Bonita UI Builder application from Git.
+
+[WARNING]
+====
+Once disconnected, you will not be able to reconnect to the same repository.
+To reconnect, you will need to connect to a new empty repository.
+====
+
+=== Branch Settings
+
+image::ui-builder/version-control-with-git/git-branch-settings.png[]
+
+==== Default branch
+
+Currently, you cannot change the default branch, which determines the base branch of your application.
+
+==== Branch protection
+
+Currently, only one branch can be set as protected to prevent changes.
+
+By default, Bonita UI Builder protects the default (`master/main`) branch, which means that direct changes to this branch are restricted. To make changes, create a new branch, make your updates, and then merge them into the default branch via a pull request / merge request.
