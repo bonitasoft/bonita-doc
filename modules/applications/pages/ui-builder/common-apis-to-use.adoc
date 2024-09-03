@@ -4,7 +4,7 @@
 
 {description}
 
-Bonita APIs combined with JS objects allow for building all kind of applications, such as: account management dashboard, custom CRM, HR Management tool, invoice processing dashboard…
+Bonita APIs combined with JS objects allow for building all kind of applications, such as: account management dashboard, custom CRM, HR Management tool, invoice processing dashboard, and many more.
 
 
 image:ui-builder/guides/hr-mgmt-app.png[hr-mgmt-app]
@@ -65,7 +65,7 @@ The business data is useful to find business data with pagination params and fil
 
 For example:
 
-    - GET | `/API/bdm/businessData/com.company.hr.[businessObject]?q=[query]&p=0&c=10&f=[filterString]={filterParam}`
+    - GET | `/API/bdm/businessData/com.company.hr.[businessObject]?q=[query]&p=0&c=10&f=[filterString]=[filterParam]`
 
 For more detailed information, refer to the {openApiUrl}/latest/#tag/BusinessDataQuery/operation/searchBusinessData[business data api documentation].
 
