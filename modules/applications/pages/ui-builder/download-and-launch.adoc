@@ -82,7 +82,7 @@ docker compose restart
 If encountering issues with Windows and WSL, check our xref:faq.adoc#WSLissue[FAQ] .
 ====
 
-== Authenticate with the UI Builder
+== Log in on Bonita UI Builder
 
 Log in on Bonita UI Builder with the authentication page of Bonita runtime using the credentials of one of the users of the Bonita runtime database.
 
