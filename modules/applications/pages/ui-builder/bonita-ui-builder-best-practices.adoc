@@ -18,3 +18,18 @@ xref:ui-builder/how-to-avoid-unnecessary-information-messages.adoc[[.card-title]
 --
 xref:ui-builder/how-to-use-mutable-js-variable.adoc[[.card-title]#Use mutable JS variable# [.card-body.card-content-overflow]#pass:q[Learn how to update a JS variable to store and read data.]#]
 --
+
+[.card.card-index]
+--
+xref:ui-builder/how-to-localize-your-application.adoc[[.card-title]#Localize your application for various languages# [.card-body.card-content-overflow]#pass:q[Discover how to make your application accessible in multiple languages.]#]
+--
+
+[.card.card-index]
+--
+xref:ui-builder/common-apis-to-use.adoc[[.card-title]#Common APIs to use# [.card-body.card-content-overflow]#pass:q[Discover frequently used Bonita APIs to efficiently build complex applications in the UI Builder.]#]
+--
+
+[.card.card-index]
+--
+xref:ui-builder/how-to-retrieve-user-avatar.adoc[[.card-title]#Retrieve user avatar image# [.card-body.card-content-overflow]#pass:q[Discover how to fetch user avatar images and display them using the image widget.]#]
+--

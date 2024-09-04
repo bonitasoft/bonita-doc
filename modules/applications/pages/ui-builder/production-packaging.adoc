@@ -63,6 +63,37 @@ docker build --build-arg "BASE={bonita-ui-builder-image}" \
              -t <image-name>:<version> .
 ----
 
+
+=== Configure and manage Bonita healthcheck settings in a production environment
+
+The xref:runtime:healthcheck-mechanism.adoc[Bonita healthcheck] is a mechanism used to monitor the health and availability of Bonita services in production environments.
+It periodically checks the status of these services to ensure they are functioning properly, helping to identify issues early and maintain system stability.
+
+Changing the default credentials for the healthcheck is crucial for security.
+The default values for `BONITA_HEALTHCHECK_USER` and `BONITA_HEALTHCHECK_PASSWORD` are publicly known, and failing to update them can expose your healthcheck endpoint to unauthorized access and potential manipulation.
+Configuring Bonita's healthcheck in a production environment involves several key steps to ensure both security and functionality.
+
+To manage this, begin by assigning custom values to the credentials through environment variables:
+
+- `BONITA_HEALTHCHECK_USER`: Defines a custom username. Example: `export BONITA_HEALTHCHECK_USER=my_custom_user`
+
+- `BONITA_HEALTHCHECK_PASSWORD`: Defines a custom password. Example: `export BONITA_HEALTHCHECK_PASSWORD=my_secure_password`
+
+Healthcheck configurations are not handled via the UI Builder but are instead managed through environment variables on the server where Bonita is deployed.
+To fine-tune the healthcheck behavior, adjust the following parameters:
+
+- `BONITA_HEALTHCHECK_RETRY_DELAY`: Sets the delay (in milliseconds) between retry attempts, with a default of `5000`. Example: export `BONITA_HEALTHCHECK_RETRY_DELAY=3000` for a 3-second delay.
+- `BONITA_HEALTHCHECK_MAX_ATTEMPTS`: Specifies the maximum number of retry attempts, defaulting to `20`. Example: `export BONITA_HEALTHCHECK_MAX_ATTEMPTS=10` reduces the number of attempts.
+
+[NOTE]
+====
+These variables should be configured in the server environment where Bonita is deployed. After configuration, verify the healthcheck via a browser to ensure the service is responsive and requires custom credentials.
+If issues arise, check the environment variables, service status, and logs, and adjust the retry delay and maximum attempts as needed.
+====
+
+By following these steps, you can effectively configure Bonita's healthcheck to maintain both security and optimal performance in your production environment.
+
+
 [[run-production-binary]]
 == Run the production binary
 
@@ -79,4 +110,9 @@ docker run --name <container-name> -p 8080:80 \
 
 You can override and configure all xref:ui-builder-docker-installation.adoc#environment-variables[environment variables].
 
-NOTE: If you want to test your applications before going into production, instead of using `docker run`, you can use a `docker-compose.yml` file in the likes of what was done in the xref:download-and-launch.adoc#create-docker-environment[first steps] (i.e. with a `bonita-ui-proxy` image and the docker image xref:production-packaging.adoc#build-docker-image[built previously]).
+[NOTE]
+====
+If you want to test your applications before going into production, instead of using `docker run`, you can use a `docker-compose.yml` file in the likes of what was done in the xref:download-and-launch.adoc#create-docker-environment[first steps] (i.e. with a `bonita-ui-proxy` image and the docker image xref:production-packaging.adoc#build-docker-image[built previously]).
+
+Please note that currently, only a single container instance is supported, which means multiple instances of UI builder for redundancy are not allowed.
+====

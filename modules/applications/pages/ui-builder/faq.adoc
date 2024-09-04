@@ -139,6 +139,10 @@ Yes, they are compatible with both deployment modes.
 Yes it is. Reach out to your customer service representative to explore how you can migrate to Bonita Cloud.
 
 
+=== Is it possible to deploy multiple UI Builder node instances for redundancy?
+No, the UI Builder node cannot be deployed with redundancy. Currently, only a single container instance is supported, which means multiple instances for redundancy are not allowed.
+
+
 === Can multiple users collaborate on the same local Bonita UI Builder development server?
 No, the local Bonita UI Builder server is mono-user, meaning it only supports one Bonita user account at a time. To collaborate, each user should run their own local server and work with a shared Git repository for syncing and integrating their changes.
 
@@ -201,4 +205,17 @@ These errors are likely related to your Bonita server being down.
 
 [.solution]#Solution#
 Ensure that your Bonita server is active and running.
+--
+
+[#DocumentViewerissue]
+[.troubleshooting-section]
+--
+[.symptom]
+The Document Viewer widget doesn't seem to be functioning as expected. How can I view my documents?
+
+[.cause]#Cause#
+The `Document Viewer` widget currently doesn't support the Bonita Document viewer links (formsDocumentImage).
+
+[.solution]#Solution#
+You can use an `Iframe` widget as an alternative solution.
 --
