@@ -63,7 +63,7 @@ Enter the following configuration:
 {{
   {
     claimInput: {
-      description: Input1.text,
+      description: Input1.text
     }
   }
 }}
