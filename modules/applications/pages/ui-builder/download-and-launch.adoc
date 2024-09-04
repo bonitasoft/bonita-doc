@@ -64,12 +64,12 @@ The first time, the initialisation can take a while, a waiting message appears. 
 
 [WARNING]
 ====
-By default, the database volumes are not persisted. Make sure you export your applications as .json files before running the command.
+By default, the database volumes are not persisted. Make sure you export your applications as .json files before running the command:
 [source,console]
 ----
 docker compose down
 ----
-If you do not want to loose your data, you can use instead these commands to stop and restart Bonita UI Builder:
+If you do not want to lose your data, you can use instead these commands to stop and restart Bonita UI Builder:
 [source,console]
 ----
 docker compose stop
