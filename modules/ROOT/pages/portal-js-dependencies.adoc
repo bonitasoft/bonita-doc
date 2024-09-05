@@ -1,4 +1,4 @@
-= Dependencies for Bonita Portal-JS 10.0.3
+= Dependencies for Bonita Portal-JS 10.0.4
 :description: NodeJS Dependencies for Bonita Portal JS project 
 
 
