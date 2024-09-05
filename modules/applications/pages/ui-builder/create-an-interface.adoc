@@ -32,7 +32,7 @@ Select a `form` widget, and drag and drop it on the central part:
 
 image:ui-builder/create-an-interface/drag-and-drop.gif[drag-and-drop]
 
-Now, drag and drop an `input` widget inside the form widget. This is what is should look like:
+Now, drag and drop an `input` widget inside the form widget. This is what it should look like:
 
 image:ui-builder/create-an-interface/first-form.png[first-form]
 
