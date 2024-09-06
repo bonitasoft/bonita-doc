@@ -17,7 +17,7 @@ You can interact with the Bonita runtime using the xref:api:rest-api-overview.ad
 == Create Bonita API requests
 
 You can create API requests and interact with the Bonita runtime with the xref:api:rest-api-overview.adoc[REST APIs].
-We will describe below how you can for example get a list of Bonita processes, and instantiate one of them.
+We will describe below how you can, for example, get a list of Bonita processes, and instantiate one of them.
 
 === Get a list of processes
 To get the list of the processeses deployed on the Bonita runtime (first 10): click the `Editor` icon from the left panel, click the `Queries` tab, then click the `new query / API` button and select the Bonita datasource created previously.
