@@ -126,6 +126,17 @@ A page that is generated with this version is still compatible with a previous v
 For the users of Bonita Community edition, Bonita 2022.2 also comes with all the bug fixes released in the Maintenance versions of Bonita 2022.1 (up until version 2022.1-u6).
 The detailed list is available in the "What’s new in Bonita 2022.1" page, in the "Bug fixes" section.
 
+=== Fixes in Bonita 2022.2-u10 (2024-09-10)
+
+==== Fixes in Bonita Runtime including Bonita Applications
+
+* RUNTIME-48   - SFlowNodeNotFoundException: Quartz's Trigger associated to a Boundary timer does not get deleted when the process instance terminates
+* RUNTIME-1802 - Search fields don't work when search term contain special characters
+* RUNTIME-1811 - "jaasAuthenticationService" and "authenticationService" beans not created if custom authentication service is configured
+* RUNTIME-1833 - SanitizerFilter removes html tags from HTTP payload
+* RUNTIME-1848 - ArchivedTasks filter on type is generating java.lang.ClassCastException
+* RUNTIME-1860 - Access Control panel is displayed in all subscription editions even when the feature is not active
+* RUNTIME-1884 - 'password' attribute silently removed from org.bonitasoft.engine.identity.impl.UserImpl class
 
 === Fixes in Bonita 2022.2-u9 (2024-04-18)
 
