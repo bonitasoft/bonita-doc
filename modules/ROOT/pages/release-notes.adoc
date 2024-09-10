@@ -32,6 +32,14 @@ We are pleased to bring several exciting advancements in this release, including
 
 == Bug fixes
 
+=== Fixes in Bonita 2024.2-u2 (2024-09-10)
+
+==== Fixes in Bonita Runtime including Bonita Applications
+
+* RUNTIME-48   - SFlowNodeNotFoundException: Quartz's Trigger associated to a Boundary timer does not get deleted when the process instance terminates
+* RUNTIME-1845 - Oracle ORA-00060: deadlock detected when multiple cases are done simultaneously
+* RUNTIME-1890 - [LDAP Synchronizer] - InaccessibleObjectException: Unable to make field private accessible
+* RUNTIME-1895 - [SAML & OIDC SSO]: Bonita redirects to IdP if redirected target URL request lands on different node than the one where the original request was received
 
 === Fixes in Bonita 2024.2-u1 (2024-07-17)
 
