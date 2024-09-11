@@ -6,7 +6,7 @@ This is the changelog of the purge tool.
 
 The purge tool is used to remove data from bonita archive tables. It is useful for big production environments.
 
-== 2.0.0 - August ?, 2024
+== 2.0.0 - September 11, 2024
 
 Breaking changes:
 
