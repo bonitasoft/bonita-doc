@@ -34,6 +34,13 @@ xref:api:rest-api-overview.adoc[REST APIs] (see _Application_ section) now also 
 
 == Bug fixes
 
+=== Fixes in Bonita 2024.3-b3 (2024/08/29)
+
+==== Fixes in Bonita Runtime (including Bonita Applications)
+
+* RUNTIME-48 - SFlowNodeNotFoundException: Quartz's Trigger associated to a Boundary timer does not get deleted when the process instance terminates
+* RUNTIME-1895 - [SAML & OIDC SSO]: Bonita redirects to IdP if redirected target URL request lands on different node than the one where the original request was received
+
 === Fixes in Bonita 2024.3-b2 (2024/07/26)
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
