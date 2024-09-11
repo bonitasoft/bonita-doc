@@ -376,6 +376,15 @@ The timezone can be set via *TZ* environment variable. Check the https://data.ia
 
 == Bug fixes
 
+
+=== Fixes in Bonita 2023.2-u6 (2024-09-09)
+
+==== Fixes in Bonita Runtime including Bonita Applications
+
+* RUNTIME-48   - SFlowNodeNotFoundException: Quartz's Trigger associated to a Boundary timer does not get deleted when the process instance terminates
+* RUNTIME-1845 - Oracle ORA-00060: deadlock detected when multiple cases are done simultaneously
+* RUNTIME-1895 - [SAML & OIDC SSO]: Bonita redirects to IdP if redirected target URL request lands on different node than the one where the original request was received
+
 === Fixes in Bonita 2023.2-u5 (2024-07-15)
 
 ==== Fixes in Bonita Runtime including Bonita Applications
