@@ -24,7 +24,7 @@ New features:
 - Add a new option to the `delete` command to set a timeout interval between each batch.
 - Add a new option to the `delete` command to use a period (e.g.: 1d, 2w, 3m, 4y) instead of an exact date timestamp to filter instances.
 - Process definition id is now optional in the `delete` command.
-- Add a new `delete-fileinput-content` command to delete archived file input values.
+- Add a new `delete-fileinput-content` command to delete archived contract file input content (Not supported for SQL Server).
 
 Fixes:
 
@@ -38,7 +38,7 @@ Others:
 - deps: update PostgreSQL driver to `42.7.4`
 - deps: update Oracle driver to `21.15.0.0`
 - deps: update MS SQL Server driver to `9.4.1.jre11`
-- deps: update Exposed JDBC to `0.53.0`
+- deps: update Exposed JDBC to `0.54.0`
 
 
 == 1.0.9 - June 11, 2024

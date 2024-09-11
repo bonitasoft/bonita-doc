@@ -212,6 +212,8 @@ Windows::
 ----
 ====
 
+WARNING: `delete-fileinput-content` command is not supported for SQLServer database.
+
 == Deletion strategy
 
 You need to have in mind 2 precepts to understand how this tool works:
