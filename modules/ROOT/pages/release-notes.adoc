@@ -166,6 +166,13 @@ Reminder : For commercial and support questions, please refer to your Customer S
 
 == Bug fixes
 
+
+=== Fixes in Bonita 2023.1-u6 (2024-09-09)
+
+==== Fixes in Bonita Runtime including Bonita Applications
+
+* RUNTIME-48   - SFlowNodeNotFoundException: Quartz's Trigger associated to a Boundary timer does not get deleted when the process instance terminates
+
 === Fixes in Bonita 2023.1-u5 (2024-07-18)
 
 ==== Fixes in Bonita Runtime including Bonita Applications

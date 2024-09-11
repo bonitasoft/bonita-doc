@@ -37,6 +37,16 @@ Here is a Bonita Platform version / Technical Id / UI Designer version correspon
 |===
 | Release date | Bonita Platform version | Technical Id | UI Designer version
 
+| 2024-09-09
+| 2023.1-u6
+| 8.0.6
+| 1.16.17
+
+| 2024-07-18
+| 2023.1-u5
+| 8.0.5
+| 1.16.17
+
 | 2024-04-23
 | 2023.1-u4
 | 8.0.4
