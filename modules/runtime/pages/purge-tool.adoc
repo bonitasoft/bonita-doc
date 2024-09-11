@@ -194,21 +194,21 @@ From Bonita 10.4, these data are no more archived, so it will not be necessary a
 ====
 
 
-.Delete all archived contract file input values
+.Delete all archived contract file input content
 [tabs]
 ====
 Unix::
 +
 [source,shell]
 ----
-./bin/bonita-purge-tool delete-file-input
+./bin/bonita-purge-tool delete-fileinput-content
 ----
 
 Windows::
 +
 [source,shell]
 ----
-./bin/bonita-purge-tool.bat delete-file-input
+./bin/bonita-purge-tool.bat delete-fileinput-content
 ----
 ====
 
