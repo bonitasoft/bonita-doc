@@ -131,7 +131,7 @@ Remove the default input from the definition, and add the two following inputs:
 [source,xml]
 ----
 <input mandatory="true" name="name" type="java.lang.String"/>
-<input mandatory="true" name="url" type="java.lang.String" defaultValue="http://swapi.dev/"/>
+<input mandatory="true" name="url" type="java.lang.String" defaultValue="https://swapi.dev/"/>
 ----
 
 Then we are going to create a _page_ and two _widgets_ for those inputs. _Pages_ and _widgets_ are used by the Bonita Studio to create a User Interface from the connector definition.
