@@ -1,0 +1,49 @@
+= Product Improvement Program
+
+:description: Learn about the telemetry data collected by Bonita Platform and how to disable it.
+
+== Introduction
+
+Bonita Runtime and Bonita Studio collect anonymous telemetry data that help Bonitasoft teams in understanding how the product is being used and in deciding what to focus on next.
+
+The data collected is minimal, statistical in nature and cannot be used to uniquely identify a user. Please see the next section to see what data is collected and sent. Access to collected data is strictly limited to the Bonitasoft team and not shared with 3rd parties.
+
+As a growing community, we greatly appreciate the usage data users send to us, as it is very valuable in helping us make Bonita Platform a better product for everyone! However, if you are concerned about sending usage stats, you can choose to disable telemetry as described xref:contributing:product-improvement-program.adoc#disable-telemetry[here].
+
+== What data is collected?
+
+=== Runtime
+
+The runtime sends the executed connectors/actor filters id along with their input and output names. This allows us to understand which connectors are used and how they are configured.
+
+.Runtime telemetry data sample
+[source,json]
+----
+{
+  "definition_id": "a-definition-id",
+  "definition_version": "1.0",
+  "input_names": ["inputName1", "inputName2"],
+  "output_names": ["outputName1", "outputName2"]
+}
+----
+
+=== Studio
+
+The studio sends the installed Marketplace extension id and version. This allows us to understand which extensions are used.
+
+[#disable-telemetry]
+== How do I turn off telemetry (opt-out)?
+
+[NOTE]
+====
+For Subscription editions only.
+====
+
+== Disable Runtime telemetry
+
+You can turn off telemetry on the Runtime by setting the env variable `BONITA_RUNTIME_DATA_COLLECTION_MODE=disabled` or the system property `bonita.runtime.data-collection.mode=disabled`.
+This property can also be set in the `bonita-platform-sp-custom.properties` file.
+
+== Disable Studio telemetry
+
+You can turn off telemetry on the Studio from the `Preferences > Advanced` panel and uncheck the `Contribute to Product Improvement Program` option. It will disable telemetry for the Studio and embedded Runtime.
