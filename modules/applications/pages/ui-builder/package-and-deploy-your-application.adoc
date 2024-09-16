@@ -46,6 +46,10 @@ Once the Docker image is running, all applications contained in the `workspace` 
 
 Then, these applications can be accessed from the Bonita Administrator Application and the Bonita Application Directory page.
 
+=== Setup permissions for your application
+
+You can now xref:ui-builder/how-to-declare-permissions-for-rest-api-request.adoc[declare permissions] for your application from Bonita Platform.
+
 [.troubleshooting-title]
 == Troubleshooting
 
