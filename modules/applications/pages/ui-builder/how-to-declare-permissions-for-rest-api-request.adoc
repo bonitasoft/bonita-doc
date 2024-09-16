@@ -1,0 +1,51 @@
+= How to grant permissions to perform request to Bonita REST API
+:description: Learn how to declare permissions to perform request to Bonita REST API
+
+{description}
+
+* Difficulty: intermediate
+* Prerequisites: have an application made from Bonita UI Builder deployed on Bonita Platform
+* Estimated time: 10 minutes
+
+This how-to guide will help you to declare the permissions that you need to grant to a profile or user to perform a request to a Bonita REST API.
+
+[WARNING]
+====
+You need to use the setup tool to xref:ROOT:bonita-platform-setup.adoc#update_platform_conf[update the configuration files] in order to apply the changes.
+====
+
+== Understand the Bonita REST API Authorizations:
+
+Check out the xref:identity:rest-api-authorization.adoc[REST API authorizations page] in order to understand more about how the permissions are given, depending on a profile or a user.
+
+=== 1. Identify the REST API used in your application
+
+From the Bonita UI Builder, identify the REST APIs that you want to grant permissions to.
+To do it, click on the `Queries` tab, for each Bonita API declared in your application, you need to list which permissions are required to perform the request.
+
+For example, if you want to perform a request to the `GET /bonita/API/identity/user` API,  you need to declare the permission for identify/user.
+
+=== 2. Retrieve the permissions mapping
+
+Based on the list of REST APIs you identified in the previous step, you need to xref:identity:rest-api-authorization#resources_permissions_mapping[retrieve the permissions] that are needed to perform the requests.
+
+From the Bonita Platform file, look into the file `resources-permissions-mapping.properties` and give the permissions to the required profile or users
+
+=== 3. Declare the permissions
+
+To grant permissions to a REST API resource, edit the `resources-permissions-mapping-custom.properties` file.
+
+Example:
+
+* To grant `organization_management` permission to user `walter.bates`: `user|walter.bates=[organization_management]`
+* To grant `organization_management` permission to custom profile  `manager`: `profile|manager=[organization_management]`
+
+=== 4. Push the configuration
+
+With the setup tool, you can now update the permissions configuration in the database using the `setup.sh push` command..
+
+== Default Permissions
+
+You can find the default REST API authorizations in this xref:identity:api-permissions-overview.adoc[page].
+
+

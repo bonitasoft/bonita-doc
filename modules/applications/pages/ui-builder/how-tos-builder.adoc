@@ -33,3 +33,8 @@ xref:how-to-create-editable-tables.adoc[[.card-title]#How to create editable and
 --
 xref:how-to-upload-multiple-documents.adoc[[.card-title]#Upload multiple documents simultaneously# [.card-body.card-content-overflow]#pass:q[Learn how to upload multiple documents simultaneously.]#]
 --
+
+[.card.card-index]
+--
+xref:how-to-declare-permissions-for-rest-api-request.adoc[[.card-title]#Grant permissions to perform request to Bonita REST API. # [.card-body.card-content-overflow]#pass:q[Learn how to grand permissions for pages to perform requests to Bonita REST API.]#]
+--
