@@ -42,7 +42,7 @@ Example:
 
 === 4. Push the configuration
 
-With the setup tool, you can now update the permissions configuration in the database using the `setup.sh push` command..
+With the setup tool, you can now update the permissions configuration in the database using the `setup.sh push` command.
 
 == Default Permissions
 

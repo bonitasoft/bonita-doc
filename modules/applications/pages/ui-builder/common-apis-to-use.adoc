@@ -101,10 +101,12 @@ In addition to the commonly used APIs, JS objects can also be created to meet sp
 
 [.troubleshooting-section]
 --
-[.symptom]  The APIs  declare from the Bonita Datasource are not working properly.
+[.symptom]
+The APIs  declare from the Bonita Datasource are not working properly.
 
-[.cause]  These errors are likely related to the permissions of the user that is trying to access the APIs.
+[.cause]#Cause#
+These errors are likely related to the permissions of the user that is trying to access the APIs.
 
-[.solution]  Ensure that the user has the correct permissions to access the APIs. See more details in this how-to guide: xref:applications:ui-builder/how-to-declare-permissions-for-rest-api-request.adoc[How to grant permissions to perform request to Bonita REST API].
+[.solution]#Solution#
+Ensure that the user has the correct permissions to access the APIs. See more details in this how-to guide: xref:applications:ui-builder/how-to-declare-permissions-for-rest-api-request.adoc[How to grant permissions to perform request to Bonita REST API].
 --
-
