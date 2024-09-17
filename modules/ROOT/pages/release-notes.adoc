@@ -32,6 +32,20 @@ xref:api:engine-api-overview.adoc[Engine APIs] that allowed applications manipul
 
 xref:api:rest-api-overview.adoc[REST APIs] (see _Application_ section) now also return application links in addition of legacy applications.
 
+
+== Deprecations
+
+=== Deprecated APIs
+
+==== License API
+
+The Rest API `GET /API/platform/license` is now replaced by `GET /API/system/information`. This latter requires to be logged in as a user with the "Admin" profile. See {openApiUrl}/latest/#tag/Information/operation/getSystemInformation[dedicated Rest API documentation] for more details.
+
+The corresponding Java API `com.bonitasoft.engine.api.PlatformAPI#getInformation()` is also deprecated and will be removed in a future release.
+
+Note that this new API is now also available in the Community edition and provides information about the case counters limit and current consumption.
+
+
 == Bug fixes
 
 === Fixes in Bonita 2024.3-b3 (2024/08/29)
