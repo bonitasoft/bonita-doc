@@ -56,7 +56,7 @@ xref:initiation-manual.adoc[[.card-title]#Initiation manual# [.card-body.card-co
 
 [.card.card-index]
 --
-xref:applications:version-control-with-git.adoc[[.card-title]#Version control with Git# [.card-body.card-content-overflow]#pass:q[Learn how to use Git in Bonita UI Builder to manage your projects and collaborate with your team.]#]
+xref:applications:version-control-with-git.adoc[[.card-title]#Version control with Git# [.card-body.card-content-overflow]#pass:q[Learn how to effectively collaborate on your Bonita UI Builder projects.]#]
 --
 
 [.card.card-index]
