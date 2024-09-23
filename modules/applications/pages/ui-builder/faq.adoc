@@ -7,7 +7,7 @@
 == Bonita UI Builder
 
 === What is Bonita UI Builder? 
-Bonita UI Builder (sometimes abbreviated UIB) is a development environment used for creating all kinds of interfaces, whether they are pages or forms or else, that make up an Application. It is a web-based tool that is launched from a Bonitasoft custom docker image. It is the new and only standard used in the Bonita ecosystem for designing interfaces.
+Bonita UI Builder (sometimes abbreviated UIB) is a development environment used for creating all kinds of interfaces, whether they are pages or forms or else, that make up an Application. It is a web-based tool that is launched from a Bonitasoft custom docker image. Introduced in the 2024.3 version, it is the new standard used in the Bonita ecosystem for designing interfaces.
 
 
 === What does it mean for my workflows? 
@@ -139,6 +139,10 @@ Yes, they are compatible with both deployment modes.
 
 === Is Bonita UI Builder Bonita Cloud compatible? 
 Yes, it is. Reach out to your customer service representative to explore how you can migrate to Bonita Cloud.
+
+
+=== Can Bonita UI Builder be used offline? 
+Yes, you can use Bonita UI Builder offline. You can perform all your tests and interact with your Bonita projects offline. An internet connexion is however required to download Bonita UI Builder.
 
 
 === Is it possible to deploy multiple UI Builder node instances for redundancy?
