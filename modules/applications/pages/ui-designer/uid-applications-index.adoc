@@ -5,7 +5,7 @@
 
 [NOTE]
 ====
-Starting from 2024.3 version, Bonita UI Builder is the only standard for designing all your applications. 
+Introduced in the 2024.3 version, Bonita UI Builder is the new standard for designing all your applications. 
 
 Bonita UI Builder is an application-centric development environment that allows for designing interfaces, forms and application pages, without distinction. It brings a host of advanced features and improved usability, designed to help you create even more compelling and user-friendly interfaces. 
 
@@ -16,7 +16,7 @@ Check our xref:ui-builder/bonita-ui-builder.adoc[documentation] to learn more an
 
 
 A Living Application is a navigation of pages that can be accessed by a xref:identity:profiles-overview.adoc[Profile]. +
-It is created and operated within Bonita Platform: created with Bonita Studio and UI Designer, deployed with Bonita Continuous Delivery, run by Bonita Runtime.
+It is created and operated within Bonita Platform: created with Bonita Studio and UI Builder (or UI Designer), deployed with Bonita Continuous Delivery, run by Bonita Runtime.
 
 Its purpose is to display and structure the right information and provide the right controls at the right time to the profiles, so they can efficiently perform their tasks. +
 
