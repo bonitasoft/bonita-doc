@@ -112,7 +112,8 @@ You can override and configure all xref:ui-builder-docker-installation.adoc#envi
 
 [NOTE]
 ====
-If you want to test your applications before going into production, instead of using `docker run`, you can use a `docker-compose.yml` file in the likes of what was done in the xref:download-and-launch.adoc#create-docker-environment[first steps] (i.e. with a `bonita-ui-proxy` image and the docker image xref:production-packaging.adoc#build-docker-image[built previously]).
+If you want to test your applications before going to production, instead of using `docker run`, you can use a `docker-compose.yml` file in the likes of what was done in the xref:download-and-launch.adoc#create-docker-environment[installation step]. In this `docker-compose.yml` file, you just need to replace the bonita-ui-build `image` name with the name of the docker production image xref:production-packaging.adoc#build-docker-image[built previously].
+Your applications will then be accessible at `http://localhost`.
 
 Please note that currently, only a single container instance is supported, which means multiple instances of UI builder for redundancy are not allowed.
 ====
