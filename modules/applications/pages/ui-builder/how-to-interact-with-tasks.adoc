@@ -38,11 +38,13 @@ For more detailed information, refer to the {openApiUrl}/latest/#tag/UserTask/op
 
 
 === User task execution
-The user task execution API executes a task identified by its id. The task contract values have to be provided in the query's body.
+The user task execution API executes a task identified by its id. 
 
 For example:
 
     - POST | `/bonita/API/bpm/userTask/[taskId]/execution`
+
+The task contract values have to be provided in the query's body:
 
 image:ui-builder/guides/execute_hr_mngt_task.png[execute_ht_mngt_task]
 
@@ -71,14 +73,12 @@ export default {
 				// this is the 'POST /execution' query shown in the previous section
 				task = executeAssignWorkspaceTask;
 				break;
-			case "Configure employee account":
-				task = executeConfigEmpAccountTask;
+			case "Another task":
+				//...
 				break;
 		}
 		task.run({taskId: this.currentTask.id}).then(response => {
-			//refresh page
-			//show alert
-			//...
+			//show alert, etc.
 		}).catch((error) => {
 			showAlert('fail', 'error');
 		});
@@ -90,7 +90,7 @@ export default {
 
 Once a JavaScript object is created, you can bind it to your form. 
 
-Here, when the submit button is clicked, the JavaScript `submitCurrentTask` object is called:
+Here, when the submit button is clicked, the `submitCurrentTask` JavaScript object is called:
 
 image:ui-builder/guides/submit_task_form.png[submit_task_form]
 
