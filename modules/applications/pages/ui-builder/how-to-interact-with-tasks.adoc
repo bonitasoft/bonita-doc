@@ -1,11 +1,11 @@
 = Interact with tasks
 :page-aliases: applications:how-to-interact-with-tasks.adoc
-:description: Discover how to interact with tasks from a Bonita project.
+:description: Discover how to interact with tasks from a Bonita UI Builder application.
 
 {description}
 
 * Difficulty: intermediate
-* Prerequisites: have a project created on Bonita Studio with defined BDM and contracts
+* Prerequisites: have a project created on Bonita Studio with defined BDM, tasks and contracts
 
 
 While Bonita UI Builder does not yet support automatic form creation from contract data, you can still easily interact with your tasks, processes, and data.
@@ -14,8 +14,7 @@ With xref:common-apis-to-use.adoc[Bonita API] and JavaScript, you can build all 
 
 == API resources
 
-There are mainly 2 Bonita API resources you need to interact with your tasks.
-To use them, open your Bonita UI Builder application, go to the `Queries` tab and create a new query to Bonita API.
+There are mainly 2 Bonita API resources you need to interact with your tasks. To use them, open your Bonita UI Builder application, go to the `Queries` tab and create a new query to Bonita API.
 
 === Human tasks
 The human tasks API is useful to retrieve a list of human tasks by applying pagination parameters and filters.
@@ -46,7 +45,7 @@ Below are examples of how you can interact with and manage your tasks from a Bon
 
 Open your Bonita UI Builder application, go to the `JS` tab to create a new JavaScript object.
 
-The code below is an example of how you can trigger different task execution, based on conditions:
+The code below is an example of how you can trigger different task executions, based on conditions:
 
 [source,JS]
 ----
@@ -57,15 +56,14 @@ export default {
 			case "Assign Workspace":
 				task = executeAssignWorkspaceTask; // executeAssignWorkspaceTaskthis is the POST /execution query shown in the example above
 				break;
-			case "Validate package":
-				task = executeValidatePackageTask;
-				break;
 			case "Configure employee account":
 				task = executeConfigEmpAccountTask;
 				break;
 		}
 		task.run({taskId: this.currentTask.id}).then(response => {
-			//refresh page, show alert...
+			//refresh page
+			//show alert
+			//...
 		}).catch((error) => {
 			showAlert('fail', 'error');
 		});
@@ -75,8 +73,14 @@ export default {
 
 === Bind JavaScript objects to a form
 
-Once a JavaScript object is created, you can bind it to a form widget:  
+Once a JavaScript object is created, you can bind it to your form. 
+
+When the submit button is clicked, the JavaScript `submitCurrentTask` object is called:
 
 image:ui-builder/guides/submit_task_form.png[submit_task_form]
 
-Or, you can just trigger queries directly from any kind of widgets. The choice is up to you.
+
+[NOTE]
+====
+You don't necessarily need JavaScript objects to execute tasks. You can just create API queries and bind them to any kind of widgets. The choice is up to you.
+====
