@@ -36,5 +36,5 @@ xref:ui-builder/how-to-retrieve-user-avatar.adoc[[.card-title]#Retrieve user ava
 
 [.card.card-index]
 --
-xref:ui-builder/reuse-code-and-components.adoc[[.card-title]#Reuse code and components# [.card-body.card-content-overflow]#pass:q[Improve reusability, maintenance, and consistency between your applications]#]
+xref:ui-builder/reuse-code-and-components.adoc[[.card-title]#Reuse code and components# [.card-body.card-content-overflow]#pass:q[Improve maintenance and consistency between your applications]#]
 --
