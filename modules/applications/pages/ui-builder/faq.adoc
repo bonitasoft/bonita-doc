@@ -4,24 +4,32 @@
 
 {description}
 
-== Bonita UI Builder
+== Generic information
 
 === What is Bonita UI Builder? 
 Bonita UI Builder (sometimes abbreviated UIB) is a development environment used for creating all kinds of interfaces, whether they are pages or forms or else, that make up an Application. It is a web-based tool that is launched from a Bonitasoft custom docker image. It is the new and only standard used in the Bonita ecosystem for designing interfaces.
-
-
-=== What does it mean for my workflows? 
-There should be no change in your logic, continuous integration, and workflows. You can still manage them the way you’re managing them today. Just download the docker image and follow the xref:initiation-manual.adoc[initiation manual].
 
 
 === How to subscribe? 
 Bonita UI Builder is available by default and for no additional cost in all https://www.bonitasoft.com/pricing[Scale subscriptions]. It is also available as a payable add-on in https://www.bonitasoft.com/pricing[Access subscriptions].
 
 
-
 === How to use? 
 Please refer to the xref:initiation-manual.adoc[initiation manual]. If you have any other additional questions, reach out to our https://csc.bonitacloud.bonitasoft.com[Support team].
 
+
+=== What does it mean for my workflows? 
+There should be no change in your logic, continuous integration, and workflows. You can still manage them the way you’re managing them today. Just download the docker image and follow the xref:initiation-manual.adoc[initiation manual].
+
+
+=== What does it mean for my existing forms and pages? 
+Your existing forms and pages will always be compatible with Bonita. It is also possible to have UI Designer and UI Builder pages coexist within the same BPA instance to enable a smooth transition.
+
+Eventually, Bonita UI Designer will be phased out as we fully transition to Bonita UI Builder. Our goal is to make this transition as smooth as possible, minimizing any disruption to your workflow:
+
+* Continued access: Bonita UI Designer will remain fully operational for an extended period, allowing ample time for adaptation.
+* Support and resources: We offer extensive documentation, tutorials, and support to help you make the most of xref:bonita-ui-builder.adoc[Bonita UI Builder]
+* Facilitated transition: We are dedicated to facilitate the transition, with detailed guides on how to use Bonita UI Builder, as well as https://www.bonitasoft.com/professional-services/on-demand-services[professional services support]
 
 
 === Can I expect any support from Bonitasoft?
@@ -31,24 +39,33 @@ Yes, you can!
 * Facilitated transition: We are dedicated to facilitate the transition, with detailed guides on how to use Bonita UI Builder, as well as https://www.bonitasoft.com/professional-services/on-demand-services[professional services support].
 
 
+== Versions and Subscriptions
 
 === I am using the Open source edition of Bonita, can I use Bonita UI Builder? 
 Unfortunately, no. You’ll need to either use Bonita UI Designer or design your interfaces with the language or tool of your choice and integrate them to Bonita. Upgrade to an Access or Scale edition if you want to use Bonita UI Builder.
-
 
 
 === Is Bonita UI Builder compatible with all supported versions of Bonita?
 Bonita UI Builder is compatible with all Bonita versions starting from 2024.3.
 
 
+=== Is Bonita UI Builder Bonita Cloud compatible? 
+Yes, it is. Reach out to your customer service representative to explore how you can migrate to Bonita Cloud.
+
+
+
+== Features and Technical
+
+=== Are the interfaces made with Bonita UI Builder compatible with platform mode and self-contained applications?
+Yes, they are compatible with both deployment modes.
+
 
 === What is an `applicationLink`?
 It is a tag used to describe an Application made with Bonita UI Builder in the Studio’s Application descriptor.
 
 
-
 === Can I use other datasources than Bonita’s? 
-Yes you can. You can call external REST APIs, GraphQL APIs and PostgreSQL database.
+Yes you can. You can call external REST APIs, GraphQL APIs and PostgreSQL databases.
 
 WARNING: Avoid using the DB datasource to connect to a Bonita database. Use the Bonita API datasource instead.
 
@@ -123,30 +140,20 @@ WARNING: Avoid using the DB datasource to connect to a Bonita database. Use the 
 
 
 
-=== What does it mean for my existing forms and pages? 
-Your existing forms and pages will always be compatible with Bonita. Eventually, Bonita UI Designer will be phased out as we fully transition to Bonita UI Builder. We cannot guarantee you will be able to edit your existing interfaces made with Bonita UI Designer in the future versions of Bonita.
-
-Our goal is to make this transition as smooth as possible, minimizing any disruption to your workflow:
-
-* Continued access: Bonita UI Designer will remain fully operational for an extended period, allowing ample time for adaptation.
-* Support and resources: We offer extensive documentation, tutorials, and support to help you make the most of xref:bonita-ui-builder.adoc[Bonita UI Builder]
-* Facilitated transition: We are dedicated to facilitate the transition, with detailed guides on how to use Bonita UI Builder, as well as https://www.bonitasoft.com/professional-services/on-demand-services[professional services support]
-
-
-=== Are the interfaces made with Bonita UI Builder compatible with platform mode and self-contained applications?
-Yes, they are compatible with both deployment modes.
-
-
-=== Is Bonita UI Builder Bonita Cloud compatible? 
-Yes, it is. Reach out to your customer service representative to explore how you can migrate to Bonita Cloud.
-
-
 === Is it possible to deploy multiple UI Builder node instances for redundancy?
 No, the UI Builder node cannot be deployed with redundancy. Currently, only a single container instance is supported, which means multiple instances for redundancy are not allowed.
 
 
 === Can multiple users collaborate on the same local Bonita UI Builder development server?
 No, the local Bonita UI Builder server is mono-user, meaning it only supports one Bonita user account at a time. To collaborate, each user should run their own local server and work with a shared Git repository for syncing and integrating their changes.
+
+
+=== Can I use fragments?
+While Bonita UI Builder does not natively support creating reusable components for process forms or UI elements (previously known as fragments), there are still xref:reuse-code-and-components.adoc[many workarounds] you can use to improve reusability, maintenance, and consistency between your pages and applications.
+
+
+=== How can I interact with my tasks?
+While Bonita UI Builder does not yet support automatic form creation from contract data, you can still easily interact with your tasks, processes, and data. Follow our xref:how-to-interact-with-tasks.adoc[dedicated guide] to learn more.
 
 
 [.troubleshooting-title]
