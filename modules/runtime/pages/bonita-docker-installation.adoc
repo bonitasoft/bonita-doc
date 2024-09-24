@@ -166,7 +166,7 @@ SQL Server::
 --
 [source,shell]
 ----
-docker run -d --name bonita-sqlserver -p 1433:1433 bonitasoft/bonita-sqlserver:2022-CU4
+docker run -d --name bonita-sqlserver -p 1433:1433 bonitasoft/bonita-sqlserver:2022-CU13
 ----
 --
 ====
@@ -187,24 +187,6 @@ Postgres::
 [source,yaml,subs="+macros,+attributes"]
 ----
 include::example$docker/community/postgres/docker-compose.yml[]
-----
---
-
-MySQL::
-+
---
-[source,yaml,subs="+macros,+attributes"]
-----
-include::example$docker/community/mysql/docker-compose.yml[]
-----
---
-
-SQL Server::
-+
---
-[source,yaml,subs="+macros,+attributes"]
-----
-include::example$docker/community/sqlserver/docker-compose.yml[]
 ----
 --
 =====

@@ -134,6 +134,11 @@ Keep in mind that the folder *`platform_conf/initial`* is not used anymore once 
 
 Before running it, make sure Bonita Setup tool is configured to point to the database of the Bonita stack.
 
+The platform-setup tool is available in 2 different editions:
+
+* The Community edition (only support PostgreSQL).
+* The Subscription edition (support PostgreSQL, MySQL, Oracle and SQL Server).
+
 [NOTE]
 ====
 
