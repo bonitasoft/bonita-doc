@@ -1,5 +1,5 @@
 = Reuse code and components
-:page-aliases: applications:how-to-resolve-issues-with-partially-import.adoc
+:page-aliases: applications:reuse-code-and-components.adoc
 :description: Improve productivity and consistency in your applications.
 
 {description}
