@@ -15,7 +15,7 @@ You need to use the setup tool to xref:ROOT:bonita-platform-setup.adoc#update_pl
 
 Check out the xref:identity:rest-api-authorization.adoc[REST API authorizations page] in order to understand more about how the permissions are granted.
 
-=== Existing platform
+=== Already initialized Bonita Runtime
 
 ==== 1. Identify the Bonita APIs used in your application
 
@@ -49,9 +49,9 @@ Example:
 
 With the setup tool, you can now xref:ROOT:bonita-platform-setup.adoc#update_platform_conf[update the permissions configuration] in the database using the `setup.sh push` command.
 
-=== Initial startup
+=== Initial setup (before first startup)
 
-If your Bonita platform has never been started, you configure the permissions in the `initial` folder to update the xref:ROOT:bonita-platform-setup.adoc#init_platform_conf[initial configuration].
+If your Bonita platform has never been started, you can configure the permissions in the  `/bonita/setup/platform_conf/initial` folder to update the xref:ROOT:bonita-platform-setup.adoc#init_platform_conf[initial configuration].
 
 == Default Permissions
 
