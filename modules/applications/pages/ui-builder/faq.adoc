@@ -23,7 +23,7 @@ There should be no change in your logic, continuous integration, and workflows. 
 
 
 === What does it mean for my existing forms and pages? 
-Your existing forms and pages will always be compatible with Bonita. It is also possible to have UI Designer and UI Builder pages coexist within the same BPA instance to enable a smooth transition.
+Your existing forms and pages will always be compatible with Bonita. It is also possible to have UI Designer and UI Builder pages coexist within the same Bonita instance to enable a smooth transition.
 
 Eventually, Bonita UI Designer will be phased out as we fully transition to Bonita UI Builder. Our goal is to make this transition as smooth as possible, minimizing any disruption to your workflow:
 
