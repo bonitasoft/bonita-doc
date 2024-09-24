@@ -36,5 +36,10 @@ xref:how-to-upload-multiple-documents.adoc[[.card-title]#Upload multiple documen
 
 [.card.card-index]
 --
+xref:how-to-interact-with-tasks.adoc[[.card-title]#Interact with tasks# [.card-body.card-content-overflow]#pass:q[Learn how to make your application interact with tasks]#]
+--
+
+[.card.card-index]
+--
 xref:bonita-ui-builder-best-practices.adoc[[.card-title]#Best pratices# [.card-body.card-content-overflow]#pass:q[Follow our best practices to empower your usage of Bonita UI Builder]#]
 --
