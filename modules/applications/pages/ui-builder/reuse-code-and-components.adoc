@@ -1,17 +1,17 @@
 = Reuse code and components
 :page-aliases: applications:how-to-resolve-issues-with-partially-import.adoc
-:description: Improve productivity and consistency in your applications
+:description: Improve productivity and consistency in your applications.
 
 {description}
 
-While Bonita UI Builder does not natively support creating reusable components for process forms or UI elements (previously known as fragments), there are still many workarounds you can use to improve reusability, maintenance, and consistency between your pages.
+While Bonita UI Builder does not natively support creating reusable components for process forms or UI elements (previously known as fragments), there are still many workarounds you can use to improve reusability, maintenance, and consistency between your pages and applications.
 
 
 == Custom widgets with an external source
 
 You can host your custom widget's logic or configuration externally, such as on a GitHub repository or a server. Inside the custom widget, you dynamically fetch the configuration or settings from that external source. Whenever updates are made to the external source, those changes automatically apply to all applications using the widget.
 
-Here is for example how you can load external code from files hosted on a Github repository. On your Bonita UI Builder application, drag and drop a custom widget, click 'edit source' and paste the following HTML code:
+Here is for example how you can load external HTML and CSS content from files hosted on a Github repository. On your Bonita UI Builder application, drag and drop a custom widget, click `edit source` and paste the following HTML code:
 
 [source,HTML]
 ----
@@ -54,7 +54,7 @@ Here is for example how you can load external code from files hosted on a Github
 
 == JS libraries
 
-In Bonita UI Builder, you can install custom libraries to help you build complex applications and business logic. Custom JavaScript libraries enable complex use cases like PDF generation, CSV Parsing, & authentication. Go to your Bonita UI Builder app, and click the 'library' icon above the 'App' settings in the bottom left corner. Then, click the '+' icon next to 'Installed libraries'.
+In Bonita UI Builder, you can install custom JavaScript libraries to help you build complex applications and business logic. Custom libraries enable complex use cases like PDF generation, CSV Parsing, & authentication. Go to your Bonita UI Builder app, and click the `library` icon above the application settings in the bottom left corner. Then, click the `+` icon next to `Installed libraries`.
 
 Additionally, You can also write and manage JavaScript code snippets directly within Bonita UI Builder's JS objects by embedding your JavaScript code inside the platform.
 
@@ -70,7 +70,7 @@ If you want to load a specific section of a page, there are several different op
 
 == Export and import features
 
-While you can export and import applications as a whole, you can also chose to export and import specific parts of applications, such as JS objects, databases, queries, custom libraries, widgets. To do so, go to your Bonita UI Builder app, click the page name on the top left corner, then click the '...' icon next to your page name and select 'Export':
+While you can export and import applications as a whole, you can also chose to export and import specific parts of applications, such as JS objects, databases, queries, custom libraries, widgets. To do so, go to your Bonita UI Builder app, click the page name on the top left corner, then click the `...` icon next to your page name and select `Export`:
 
 image:ui-builder/guides/export_pages.png[export_pages]
 
