@@ -4,7 +4,7 @@
 
 {description}
 
-While Bonita UI Builder does not natively support creating reusable components for process forms or UI elements (previously known as fragments), there are still many workarounds you can use to improve reusability, maintenance, and consistency between your pages and applications.
+While Bonita UI Builder does not natively support creating reusable components for process forms or UI elements (previously known as fragments in UI Designer), there are still many workarounds you can use to improve reusability, maintenance, and consistency between your pages and applications.
 
 
 == Custom widgets with an external source
