@@ -1,1 +1,19 @@
+= Interact with tasks
+:page-aliases: applications:how-to-interact-with-tasks.adoc
+:description: Discover how to interact with tasks from a Bonita project.
 
+{description}
+
+* Difficulty: intermediate
+* Prerequisites: have a project created on Bonita Studio with defined tasks and contracts
+
+Suppose you're creating an application and want to allow users to easily switch between several languages by choosing a language option.
+While UI Builder currently doesn't have a built-in feature for making an application multilingual, the steps below describe the recommended way to do so.
+
+While Bonita UI Builder does not yet support automatically creating forms from contract data, you can still easily interact with your tasks, processes, and data.
+
+As said in our xref:common-apis-to-use.adoc[Best practices], with Bonita APIs and JavaScript, you can build all kind of applications that interact with your Bonita projects. Here are the 2 api resources you need...
+
+== Example
+
+“can interact with all bonita tasks” - “as said in this guide[most used api] you only need this api and JS code to make it”
