@@ -15,14 +15,16 @@ You need to use the setup tool to xref:ROOT:bonita-platform-setup.adoc#update_pl
 
 Check out the xref:identity:rest-api-authorization.adoc[REST API authorizations page] in order to understand more about how the permissions are granted.
 
-=== 1. Identify the Bonita APIs used in your application
+=== Existing platform
+
+==== 1. Identify the Bonita APIs used in your application
 
 First, you need to list and identity all the queries that your Bonita UI Builder application is making to Bonita REST API.
 To do so, open Bonita UI Builder, select your application, and click on the `Queries` tab, and list all the Bonita API resources that your application is using.
 
 For example, if your application makes a request to the API resource `GET /bonita/API/identity/user`, you will need to xref:ui-builder/how-to-declare-permissions-for-rest-api-request.adoc#_3_declare_the_permissions[declare] the permission for `identity/user`.
 
-=== 2. Retrieve the permissions mapping
+==== 2. Retrieve the permissions mapping
 
 You now need to xref:identity:rest-api-authorization#resources_permissions_mapping[retrieve the permission mapping] that is needed to perform the requests.
 
@@ -30,7 +32,7 @@ To do so, open the `resources-permissions-mapping.properties` file (located in t
 
 For example, if your application makes a request to the API resource `GET /bonita/API/identity/user`, the `resources-permissions-mapping.properties` file maps it as `GET|identity/user=[organization_visualization]`.
 
-=== 3. Declare the permissions
+==== 3. Declare the permissions
 
 Edit the file `resources-permissions-mapping-custom.properties` using the mapping in the previous step.
 
@@ -43,9 +45,13 @@ Example:
 --
  It may be more convenient to map permissions to profiles rather than directly to users and map profiles to the organization entities (users, groups roles...)
 --
-=== 4. Push the configuration
+==== 4. Push the configuration
 
 With the setup tool, you can now xref:ROOT:bonita-platform-setup.adoc#update_platform_conf[update the permissions configuration] in the database using the `setup.sh push` command.
+
+=== Initial startup
+
+If your Bonita platform has never been started, you configure the permissions in the `initial` folder to update the xref:ROOT:bonita-platform-setup.adoc#init_platform_conf[initial configuration].
 
 == Default Permissions
 
