@@ -5,15 +5,78 @@
 {description}
 
 * Difficulty: intermediate
-* Prerequisites: have a project created on Bonita Studio with defined tasks and contracts
+* Prerequisites: have a project created on Bonita Studio with defined BDM and contracts
 
-Suppose you're creating an application and want to allow users to easily switch between several languages by choosing a language option.
-While UI Builder currently doesn't have a built-in feature for making an application multilingual, the steps below describe the recommended way to do so.
 
-While Bonita UI Builder does not yet support automatically creating forms from contract data, you can still easily interact with your tasks, processes, and data.
+While Bonita UI Builder does not yet support automatic form creation from contract data, you can still easily interact with your tasks, processes, and data.
 
-As said in our xref:common-apis-to-use.adoc[Best practices], with Bonita APIs and JavaScript, you can build all kind of applications that interact with your Bonita projects. Here are the 2 api resources you need...
+With xref:common-apis-to-use.adoc[Bonita API] and JavaScript, you can build all kind of applications that interact with your Bonita projects.
 
-== Example
+== API resources
 
-“can interact with all bonita tasks” - “as said in this guide[most used api] you only need this api and JS code to make it”
+There are mainly 2 Bonita API resources you need to interact with your tasks.
+To use them, open your Bonita UI Builder application, go to the `Queries` tab and create a new query to Bonita API.
+
+=== Human tasks
+The human tasks API is useful to retrieve a list of human tasks by applying pagination parameters and filters.
+
+For example:
+
+    - GET | `/API/bpm/humanTask?c=10&p=0&f=state=ready&f=caseId=[caseId]`
+
+For more detailed information, refer to the {openApiUrl}/latest/#tag/HumanTask/operation/searchHumanTasks[human tasks api documentation].
+
+=== User task execution
+The user task execution API executes a task identified by its id. The task contract values have to be provided in the query's body.
+
+For example:
+
+    - POST | `/bonita/API/bpm/userTask/[taskId]/execution`
+
+image:ui-builder/guides/execute_hr_mngt_task.png[execute_ht_mngt_task]
+
+For more detailed information, refer to the {openApiUrl}/latest/#tag/UserTask/operation/executeUserTask[task execution api documentation].
+
+
+== Manage tasks from the application
+
+Below are examples of how you can interact with and manage your tasks from a Bonita UI Builder application.
+
+=== Use JavaScript objects to execute tasks
+
+Open your Bonita UI Builder application, go to the `JS` tab to create a new JavaScript object.
+
+The code below is an example of how you can trigger different task execution, based on conditions:
+
+[source,JS]
+----
+export default {
+	submitCurrentTask(){
+		var task;
+		switch(this.currentTask.name){
+			case "Assign Workspace":
+				task = executeAssignWorkspaceTask; // executeAssignWorkspaceTaskthis is the POST /execution query shown in the example above
+				break;
+			case "Validate package":
+				task = executeValidatePackageTask;
+				break;
+			case "Configure employee account":
+				task = executeConfigEmpAccountTask;
+				break;
+		}
+		task.run({taskId: this.currentTask.id}).then(response => {
+			//refresh page, show alert...
+		}).catch((error) => {
+			showAlert('fail', 'error');
+		});
+	},
+----
+
+
+=== Bind JavaScript objects to a form
+
+Once a JavaScript object is created, you can bind it to a form widget:  
+
+image:ui-builder/guides/submit_task_form.png[submit_task_form]
+
+Or, you can just trigger queries directly from any kind of widgets. The choice is up to you.
