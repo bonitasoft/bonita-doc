@@ -66,23 +66,23 @@ The code below is an example of how you can trigger different task executions, b
 [source,JS]
 ----
 export default {
-	submitCurrentTask(){
-		var task;
-		switch(this.currentTask.name){
-			case "Assign Workspace":
-				// this is the 'POST /execution' query shown in the previous section
-				task = executeAssignWorkspaceTask;
-				break;
-			case "Another task":
-				//...
-				break;
-		}
-		task.run({taskId: this.currentTask.id}).then(response => {
-			//show alert, etc.
-		}).catch((error) => {
-			showAlert('fail', 'error');
-		});
-	},
+  submitCurrentTask(){
+    var task;
+    switch(this.currentTask.name){
+      case "Assign Workspace":
+        // this is the 'POST /execution' query shown in the previous section
+        task = executeAssignWorkspaceTask;
+        break;
+      case "Another task":
+        //...
+	break;
+    }
+    task.run({taskId: this.currentTask.id}).then(response => {
+      //show alert, etc.
+    }).catch((error) => {
+      showAlert('fail', 'error');
+    });
+  },
 ----
 
 
