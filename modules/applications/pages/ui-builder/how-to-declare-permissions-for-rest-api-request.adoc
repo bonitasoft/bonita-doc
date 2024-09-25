@@ -42,9 +42,10 @@ Example:
 * To grant `organization_management` permission to custom profile  `manager`: `profile|manager=[organization_management]`
 
 [NOTE]
---
+====
  It may be more convenient to map permissions to profiles rather than directly to users and map profiles to the organization entities (users, groups roles...)
---
+====
+
 ==== 4. Push the configuration
 
 With the setup tool, you can now xref:ROOT:bonita-platform-setup.adoc#update_platform_conf[update the permissions configuration] in the database using the `setup.sh push` command.
@@ -58,7 +59,7 @@ If your Bonita platform has never been started, you can configure the permission
 Some permissions are already set by default and might fit your needs. You can find the default REST API authorizations in this xref:identity:api-permissions-overview.adoc[page].
 
 [WARNING]
---
+====
 If xref:identity:rest-api-authorization.adoc#dynamic_authorization[dynamic authorizations] are defined for the resource, they override the custom permissions for profiles and roles.
---
+====
 
