@@ -43,7 +43,7 @@ Example:
 
 [NOTE]
 ====
- It may be more convenient to map permissions to profiles rather than directly to users and map profiles to the organization entities (users, groups roles...)
+It may be more convenient to map permissions to profiles rather than directly to users and map profiles to the organization entities (users, groups roles...)
 ====
 
 ==== 4. Push the configuration
