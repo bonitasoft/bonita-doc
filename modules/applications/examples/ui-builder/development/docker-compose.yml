@@ -1,10 +1,10 @@
 # Use for running a bonita-ui-builder during development.
 services:
   bonita-ui-builder:
-    image: ${IMAGE_NAME:-pass:a[{bonita-ui-builder-image}]:latest}
+    image: pass:a[{bonita-ui-builder-image}]:latest
     container_name: bonita-ui-builder
     environment:
-      BONITA_API_URL: http://host.docker.internal:${BONITA_RUNTIME_PORT:-8080}/bonita/API
+      BONITA_API_URL: http://host.docker.internal:8080/bonita/API
     ports:
       - "8090:80"
     # Mount a volume to store persistent data
@@ -15,7 +15,7 @@ services:
 
   # A reverse proxy used to communicate between Bonita UI Builder and a Bonita Runtime
   bonita-ui-proxy:
-    image: ${IMAGE_NAME:-pass:a[{bonita-ui-proxy-image}]:latest}
+    image: pass:a[{bonita-ui-proxy-image}]:latest
     ports:
       - 443:443
       - 80:80

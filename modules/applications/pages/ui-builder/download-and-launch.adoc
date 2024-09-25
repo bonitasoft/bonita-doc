@@ -36,7 +36,7 @@ Fill free to update the folder to another location on your local machine.
 
 [NOTE]
 ====
-You can override and configure all xref:ui-builder-docker-installation.adoc#environment-variables[environment variables] in the `docker-compose.yml` file.
+You can override and configure all xref:ui-builder-docker-installation.adoc#environment-variables[environment variables] in the `docker-compose.yml` file. This can be used for example if your Bonita is set on another port than the 8080 default port.
 ====
 
 == Download and launch the Docker image
