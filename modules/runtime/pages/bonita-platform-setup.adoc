@@ -136,8 +136,8 @@ Before running it, make sure Bonita Setup tool is configured to point to the dat
 
 The platform-setup tool is available in 2 different editions:
 
-* The Community edition (only support PostgreSQL).
-* The Subscription edition (support PostgreSQL, MySQL, Oracle and SQL Server).
+* The Community edition (only supports PostgreSQL).
+* The Subscription edition (supports PostgreSQL, MySQL, Oracle and SQL Server).
 
 [NOTE]
 ====

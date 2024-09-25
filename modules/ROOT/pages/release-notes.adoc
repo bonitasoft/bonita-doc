@@ -37,6 +37,7 @@ xref:api:rest-api-overview.adoc[REST APIs] (see _Application_ section) now also 
 === Database support
 
 Due to the cost of maintenance of multiple DBMS, we are removing support for the following databases in Community edition:
+
 * MySQL
 * Microsoft SQL Server
 * Oracle
