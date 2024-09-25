@@ -37,6 +37,15 @@ For example:
 
 For more detailed information, refer to the {openApiUrl}/latest/#tag/HumanTask/operation/searchHumanTasks[human tasks api documentation].
 
+=== User task execution
+The user task execution API executes a task identified by its id. The task contract values have to be provided.
+
+For example:
+
+    - POST | `/bonita/API/bpm/userTask/[taskId]/execution`
+
+For more detailed information, refer to the {openApiUrl}/latest/#tag/UserTask/operation/executeUserTask[task execution api documentation].
+
 === User task context
 The user task context API provides the context for a specific user task identified by its id.
 

@@ -1,0 +1,78 @@
+= Reuse code and components
+:page-aliases: applications:reuse-code-and-components.adoc
+:description: Improve productivity and consistency in your applications.
+
+{description}
+
+While Bonita UI Builder does not natively support creating reusable components for process forms or UI elements (previously known as fragments in UI Designer), there are still many workarounds you can use to improve reusability, maintenance, and consistency between your pages and applications.
+
+
+== Custom widgets with an external source
+
+You can host your custom widget's logic or configuration externally, such as on a GitHub repository or a server. Inside the custom widget, you dynamically fetch the configuration or settings from that external source. Whenever updates are made to the external source, those changes automatically apply to all applications using the widget.
+
+Below is an example of how you can load external HTML and CSS content from files hosted on a Github repository. On your Bonita UI Builder application, drag and drop a custom widget, click `Edit source` and paste the following HTML code:
+
+[source,HTML]
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load external content</title>
+    <script>
+        async function loadHTML() {
+            try {
+                const response = await fetch("https://raw.githubusercontent.com/yourrepo/main/htmlpage.html");
+                const htmlText = await response.text();
+                document.body.innerHTML = htmlText;
+            } catch (error) {
+                console.error("Failed to load HTML", error);
+            }
+        }
+        async function loadCSS() {
+            try {
+                const response = await fetch("https://raw.githubusercontent.com/yourrepo/main/customcss.css");
+                const cssText = await response.text();
+                const style = document.createElement('style');
+                style.textContent = cssText;
+                document.head.appendChild(style);
+            } catch (error) {
+                console.error("Failed to load CSS", error);
+            }
+        }
+        window.onload = function() {
+            loadHTML();
+            loadCSS();
+        };
+    </script>
+</head>
+</html>
+----
+
+
+== JS libraries
+
+In Bonita UI Builder, you can install custom JavaScript libraries to help you build complex applications and business logic. Custom libraries enable complex use cases like PDF generation or CSV parsing. Go to your Bonita UI Builder application and click the `library` icon in the bottom left corner. Then, click the `+` icon next to `Installed libraries`.
+
+Additionally, You can also write and manage JavaScript code snippets directly within Bonita UI Builder's JS objects by embedding your JavaScript code inside the platform.
+
+
+== Iframe widgets
+
+Even though it is not our recommended approach, you still can use iframe widgets to call external pages.
+If you want to load a specific section of a page, there are several different options depending on your situation:
+
+* If you control the target page, create a separate HTML file containing only the desired section, such as the header, and point the iframe to that file.
+* If you don't control the target page, use a server-side proxy to fetch the page content, extract the relevant section (like the header), and then serve it to the iframe.
+* For same-origin content, you can use client-side JavaScript to hide unwanted parts of the page or use the <object> element to load only the specific section you need.
+
+
+== Export and import features
+
+While you can export and import applications as a whole, you can also chose to export and import specific parts of applications, such as JS objects, databases, queries, custom libraries, widgets. To do so, go to your Bonita UI Builder app, click the page name on the top left corner, then click the `...` icon next to your page name and select `Export` or `Import`:
+
+image:ui-builder/guides/export_pages.png[export_pages]
+
+Also please note that Bonita UI Builder's drag and drop interface allows you to select multiple widgets at once (when holding down the left mouse button) and duplicate them between pages.
