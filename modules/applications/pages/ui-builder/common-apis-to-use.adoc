@@ -5,7 +5,6 @@
 
 Bonita APIs combined with JS objects allow for building all kind of applications, such as: account management dashboard, custom CRM, HR Management tool, invoice processing dashboard, and many more.
 
-
 == Commonly used APIs
 
 While how JS objects are designed highly depends on your need, here are the most frequently used Bonita APIs you will very likely need for your applications.
@@ -104,3 +103,19 @@ For information on uploading multiple files, refer to the xref:how-to-upload-mul
 
 [NOTE]
 In addition to the commonly used APIs, JS objects can also be created to meet specific application needs.
+
+
+[.troubleshooting-title]
+=== Troubleshooting
+
+[.troubleshooting-section]
+--
+[.symptom]
+The APIs  declare from the Bonita Datasource are not working properly.
+
+[.cause]#Cause#
+These errors are likely related to the permissions of the user that is trying to access the APIs.
+
+[.solution]#Solution#
+Ensure that the user has the correct permissions to access the APIs. See more details in this how-to guide: xref:applications:ui-builder/how-to-declare-permissions-for-rest-api-request.adoc[How to grant permissions to perform request to Bonita REST API].
+--

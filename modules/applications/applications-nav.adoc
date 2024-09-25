@@ -8,6 +8,7 @@
    **** xref:ui-builder/builder-declare-interface-in-bonita.adoc[Declare the interface into Bonita]
    **** xref:ui-builder/package-and-deploy-your-application.adoc[Package and deploy your application]
    ***** xref:ui-builder/production-packaging.adoc[Production packaging]
+   ***** xref:ui-builder/how-to-declare-permissions-for-rest-api-request.adoc[Grant permissions for your application]
   *** xref:ui-builder/version-control-with-git/version-control-with-git.adoc[Version control with Git]
    **** xref:ui-builder/version-control-with-git/git-settings.adoc[Git settings]
    **** xref:ui-builder/version-control-with-git/connect-git.adoc[Connect applications to Git]
