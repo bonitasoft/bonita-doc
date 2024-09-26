@@ -24,6 +24,8 @@ _Bonita Setup tool_ handles:
 
 It is located in the xref:tomcat-bundle.adoc[Tomcat bundle]. You can find the tool in the `setup` folder.
 
+It is also located in the Docker image of Bonita, in the `opt/bonita/setup/` folder.
+
 === Structure
 
 It is composed of the following items:
