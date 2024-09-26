@@ -83,8 +83,6 @@ To create the database(s), we recommend that you refer to your RDBMS documentati
 [WARNING]
 ====
 Your database(s) must be configured to use the UTF-8 character set.
-
-Search in Bonita are case-insensitive on all RDBMS except Oracle. xref:api:using-list-and-search-methods.adoc#case_sensitivity[More details here.]
 ====
 
 [#specific_database_configuration]
