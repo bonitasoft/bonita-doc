@@ -32,6 +32,18 @@ xref:api:engine-api-overview.adoc[Engine APIs] that allowed applications manipul
 
 xref:api:rest-api-overview.adoc[REST APIs] (see _Application_ section) now also return application links in addition of legacy applications.
 
+== Feature deprecations and removals
+
+=== Database support
+
+Due to the cost of maintenance of multiple DBMS, we are removing support for the following databases in Community edition:
+
+* MySQL
+* Microsoft SQL Server
+* Oracle
+
+These databases will still be supported in Subscription editions.
+
 == Bug fixes
 
 === Fixes in Bonita 2024.3-b3 (2024/08/29)
