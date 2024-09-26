@@ -31,7 +31,7 @@ _Bonita Update Tool_ contains a set of scripts that execute changes on the data 
 The tool is provided as a zip archive that contains an executable script to determine your current version and to request the targeted main Bonita version for the update.
 
 The update process is step-based, with each Bonita main version being equal to a step. +
-The script manages the sequence of steps from your current version to the targeted main version and supports MySQL, Postgres, Oracle, and Microsoft SQL Server. There is no update for h2 database.
+The script manages the sequence of steps from your current version to the targeted main version and supports MySQL, Postgres, Oracle, and Microsoft SQL Server. There is no update for H2 database.
 
 === Can Bonita Update Tool be used to upgrade/downgrade between community and subscription?
 The answer is *“NO”*.
