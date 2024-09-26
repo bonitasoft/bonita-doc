@@ -48,7 +48,7 @@ The task contract values have to be provided in the query's body:
 
 image:ui-builder/guides/execute_hr_mngt_task.png[execute_ht_mngt_task]
 
-Here, `newEmployeeInput` is the contract name, and `workspaceLocation` and `workspaceComments` are mandatory inputs of the contract.
+Here, `newEmployeeInput` is the contract name, and `workspaceLocation` and `workspaceComments` are mandatory inputs of the contract. They take as value what is typed in the `newEmployeeWorkspaceLocation` and `newEmployeeWorkspaceComment` widgets.
 
 Please note that a task can only be executed by the right actors, as defined in your Process Diagram. 
 
