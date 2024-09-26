@@ -70,6 +70,9 @@ The business data is useful to find business data with pagination params and fil
 For example:
 
     - GET | `/API/bdm/businessData/[businessObject]?q=[query]&p=0&c=10&f=[filterString]=[filterParam]`
+    - GET | `/API/bdm/businessData/com.company.model.Claim?c=1000&p=0&q=find`
+
+`q=[query]` is a mandatory parameter. Queries are used to get information about data objects stored in the database. A set of xref:define-and-deploy-the-bdm.adoc#_queries[default queries], `find` and `find_by`, is defined automatically for each object in the BDM. You can also create custom queries.
 
 For more detailed information, refer to the {openApiUrl}/latest/#tag/BusinessDataQuery/operation/searchBusinessData[business data api documentation].
 
