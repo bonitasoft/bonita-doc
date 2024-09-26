@@ -21,7 +21,7 @@ Upon login, a user is granted a set of permissions. These permissions define the
 
 == Summary
 
-For a new Bonita installation, a basic set of authorization checks is activated by default for the REST API. 
+For a new Bonita installation, a basic set of authorization checks is activated by default for the REST API.
 Here are the key points of the authorization's configuration :
 
 * The static check creates an authorization layer that exactly matches the standard Bonita Applications features and profiles.
@@ -58,7 +58,7 @@ Then use the tool again to save your changes into the database.
 
 [discrete]
 ==== Resources permissions mapping
-
+[#resources_permissions_mapping]
 The `resources-permissions-mapping-*.properties` files define the mapping of REST resources to simple permissions.
 This tells you what permission can grant you access to a given resource.
 
@@ -348,6 +348,7 @@ otherwise the compound permissions won't be automatically created when deploying
 When a new xref:identity:profile-creation.adoc[custom profile] is created, the permissions mappings are updated in the configuration files and in the cache.
 It is not necessary to restart the application server to activate security for the new custom profile.
 
+[#granting_permissions]
 == Granting permissions to a given resource
 
 If you only develop custom pages and the resources they use are declared properly, no custom permissions should be created.
