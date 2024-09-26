@@ -48,6 +48,10 @@ The task contract values have to be provided in the query's body:
 
 image:ui-builder/guides/execute_hr_mngt_task.png[execute_ht_mngt_task]
 
+Here, `newEmployeeInput` is the contract name, and `workspaceLocation` and `workspaceComments` are mandatory inputs of the contract.
+
+Please note that a task can only be executed by the right actors, as defined in your Process Diagram. 
+
 For more detailed information, refer to the {openApiUrl}/latest/#tag/UserTask/operation/executeUserTask[task execution api documentation].
 
 
@@ -97,5 +101,5 @@ image:ui-builder/guides/submit_task_form.png[submit_task_form]
 
 [NOTE]
 ====
-You don't necessarily need JavaScript objects to execute tasks. You can just create API queries and bind them to any kind of widgets. The choice is up to you.
+You don't necessarily need JavaScript objects to execute tasks. You can just create execution API queries and simply bind them to any kind of widgets. The choice is up to you.
 ====
