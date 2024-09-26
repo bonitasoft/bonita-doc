@@ -74,16 +74,16 @@ Software required for Bonita Platform.
 | *Database*
 | (see note 2)
 
-| MySQL
-| 8.0.33 and higher in the 8.0.x line (see note 3 & 4)
-
 | PostgreSQL
 | 15.3 and higher in the 15.x line
 
-| SQL Server
+| MySQL (Subscription only)
+| 8.0.33 and higher in the 8.0.x line (see note 3 & 4)
+
+| SQL Server (Subscription only)
 | 2022
 
-| Oracle
+| Oracle (Subscription only)
 | 19c (19.3.0.0.0) (see note 5)
 
 | *Browser*
