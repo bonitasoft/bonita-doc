@@ -11,7 +11,7 @@ Bonita uses an RDBMS (Relational DataBase Management System) for the following p
 * One database schema is required by Bonita Engine to store information about deployed process definitions, process configurations, history of process execution, users, as well as Bonita Platform configuration information.
 * We recommend that you configure a different database schema if your project uses xref:data:define-and-deploy-the-bdm.adoc[business data].
 
-Bonita supports MySQL, PostgreSQL, Microsoft SQL Server, and Oracle RDBMSs.
+Bonita supports PostgreSQL with all editions and MySQL, Microsoft SQL Server, and Oracle only with the Subscription edition.
 You can find the list of RDBMSs versions supported on the xref:ROOT:hardware-and-software-requirements.adoc[supported database list] page.
 
 == Default H2 database
@@ -105,7 +105,7 @@ See the https://www.postgresql.org/docs/11/runtime-config-resource.html#GUC-MAX-
 
 See also xref:ROOT:performance-tuning.adoc#postgresql-performance-tuning[how to finely tune performance for PostgreSQL].
 
-==== Oracle Database
+==== Oracle Database (Subscription only)
 
 Make sure your database is configured to use the AL32UTF8 character set.
 If your database already exists, see the Oracle documentation for details of how to https://docs.oracle.com/database/121/NLSPG/ch11charsetmig.htm#NLSPG011[migrate the character set].
@@ -221,7 +221,7 @@ GRANT FORCE ANY TRANSACTION TO business_data;
 ALTER USER business_data quota unlimited on users;
 ----
 
-==== Microsoft SQL Server
+==== Microsoft SQL Server (Subscription only)
 
 Use the default collation determined by the host OS's locale.
 
@@ -314,7 +314,7 @@ You must perform this for each Datasource.
 
 See https://msdn.microsoft.com/en-us/library/ms179586%28v%3Dsql.110%29.aspx[in-doubt xact resolution Server Configuration Option].
 
-==== MySQL
+==== MySQL (Subscription only)
 
 ===== XA Transactions
 

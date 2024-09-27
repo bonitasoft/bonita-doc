@@ -58,7 +58,7 @@ with care in a tomcat where other applications are already installed.
 === Data sources configuration
 
 . Open the file `TOMCAT_DIRECTORY/conf/Catalina/localhost/bonita.xml`
-. Remove or comment out the lines regarding the h2 database.
+. Remove or comment out the lines regarding the H2 database.
 . Uncomment the lines matching your RDBMS.
 . Update following attributes value:
  ** username: your RDBMS user name.
@@ -69,8 +69,8 @@ with care in a tomcat where other applications are already installed.
 === RDBMS vendor configuration
 
 . Open the file `TOMCAT_DIRECTORY/bin/setenv.sh` (Unix system) or `TOMCAT_DIRECTORY/bin/setenv.bat` (Windows system)
-. Change the value of sysprop.bonita.db.vendor according to your RDBMS vendor
-. Change the value of sysprop.bonita.bdm.db.vendor according to your RDBMS vendor
+. Change the value of `sysprop.bonita.db.vendor` according to your RDBMS vendor
+. Change the value of `sysprop.bonita.bdm.db.vendor` according to your RDBMS vendor
 
 [#driver]
 === Add JDBC driver
