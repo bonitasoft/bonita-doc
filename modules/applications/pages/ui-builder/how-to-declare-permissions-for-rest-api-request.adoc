@@ -34,7 +34,7 @@ For example, if your application makes a request to the API resource `GET /bonit
 
 ==== 3. Declare the permissions
 
-Edit the file `resources-permissions-mapping-custom.properties` using the mapping in the previous step.
+Edit the file `custom-permissions-mapping.properties` using the mapping in the previous step.
 
 Example:
 
