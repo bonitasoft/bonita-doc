@@ -22,7 +22,7 @@ asciidoc:
     # ref versions of other components
     bcdDocVersion: '4.0'
     testToolkitVersion: '3.0'
-    openApiLatestVersion: '0.0.19' # latest compatible version of bonita openApi with this Bonita version
+    openApiLatestVersion: '0.0.20' # latest compatible version of bonita openApi with this Bonita version
     # page attributes (global configuration)
     page-pagination: true # display links to previous/next pages at the bottom of the page
     page-editable: true

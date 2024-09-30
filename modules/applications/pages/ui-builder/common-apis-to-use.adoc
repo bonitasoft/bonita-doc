@@ -5,7 +5,6 @@
 
 Bonita APIs combined with JS objects allow for building all kind of applications, such as: account management dashboard, custom CRM, HR Management tool, invoice processing dashboard, and many more.
 
-
 == Commonly used APIs
 
 While how JS objects are designed highly depends on your need, here are the most frequently used Bonita APIs you will very likely need for your applications.
@@ -37,6 +36,15 @@ For example:
 
 For more detailed information, refer to the {openApiUrl}/latest/#tag/HumanTask/operation/searchHumanTasks[human tasks api documentation].
 
+=== User task execution
+The user task execution API executes a task identified by its id. The task contract values have to be provided.
+
+For example:
+
+    - POST | `/bonita/API/bpm/userTask/[taskId]/execution`
+
+For more detailed information, refer to the {openApiUrl}/latest/#tag/UserTask/operation/executeUserTask[task execution api documentation].
+
 === User task context
 The user task context API provides the context for a specific user task identified by its id.
 
@@ -62,6 +70,9 @@ The business data is useful to find business data with pagination params and fil
 For example:
 
     - GET | `/API/bdm/businessData/[businessObject]?q=[query]&p=0&c=10&f=[filterString]=[filterParam]`
+    - GET | `/API/bdm/businessData/com.company.model.Claim?c=1000&p=0&q=find`
+
+`q=[query]` is a mandatory parameter. Queries are used to get information about data objects stored in the database. A set of xref:data:define-and-deploy-the-bdm.adoc#queries[default queries], `find` and `find_by`, is defined automatically for each object in the BDM. You can also create custom queries. 
 
 For more detailed information, refer to the {openApiUrl}/latest/#tag/BusinessDataQuery/operation/searchBusinessData[business data api documentation].
 
@@ -95,3 +106,19 @@ For information on uploading multiple files, refer to the xref:how-to-upload-mul
 
 [NOTE]
 In addition to the commonly used APIs, JS objects can also be created to meet specific application needs.
+
+
+[.troubleshooting-title]
+=== Troubleshooting
+
+[.troubleshooting-section]
+--
+[.symptom]
+The APIs  declare from the Bonita Datasource are not working properly.
+
+[.cause]#Cause#
+These errors are likely related to the permissions of the user that is trying to access the APIs.
+
+[.solution]#Solution#
+Ensure that the user has the correct permissions to access the APIs. See more details in this how-to guide: xref:applications:ui-builder/how-to-declare-permissions-for-rest-api-request.adoc[How to grant permissions to perform request to Bonita REST API].
+--

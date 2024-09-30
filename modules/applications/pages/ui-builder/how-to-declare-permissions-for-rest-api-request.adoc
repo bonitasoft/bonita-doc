@@ -1,0 +1,65 @@
+= How to grant permissions to perform requests to Bonita REST API
+:description: Learn how to identify and grant the necessary permissions to your users.
+
+{description}
+
+When you create an application on Bonita UI Builder that is using Bonita REST API, and when you are pushing this application to production, you need to grant permissions on the API for your users or profiles.
+It ensures correct access to your production application and its resources by your users.
+
+[WARNING]
+====
+You need to use the setup tool to xref:ROOT:bonita-platform-setup.adoc#update_platform_conf[update the configuration files] in order to apply the changes.
+====
+
+== Grant permissions to Bonita REST API
+
+Check out the xref:identity:rest-api-authorization.adoc[REST API authorizations page] in order to understand more about how the permissions are granted.
+
+=== Already initialized Bonita Runtime
+
+==== 1. Identify the Bonita APIs used in your application
+
+First, you need to list and identify all the queries that your Bonita UI Builder application is making to Bonita REST API.
+To do so, open Bonita UI Builder, select your application, and click on the `Queries` tab, and list all the Bonita API resources that your application is using.
+
+For example, if your application makes a request to the API resource `GET /bonita/API/identity/user`, you will need to xref:ui-builder/how-to-declare-permissions-for-rest-api-request.adoc#_3_declare_the_permissions[declare] the permission for `identity/user`.
+
+==== 2. Retrieve the permissions mapping
+
+You now need to xref:identity:rest-api-authorization#resources_permissions_mapping[retrieve the permission mapping] that is needed to perform the requests.
+
+To do so, open the `resources-permissions-mapping.properties` file (located in the folder `/bonita/setup/platform_conf/current`) and check the mapping for the Bonita API resources you identified in the previous step.
+
+For example, if your application makes a request to the API resource `GET /bonita/API/identity/user`, the `resources-permissions-mapping.properties` file maps it as `GET|identity/user=[organization_visualization]`.
+
+==== 3. Declare the permissions
+
+Edit the file `custom-permissions-mapping.properties` using the mapping in the previous step.
+
+Example:
+
+* To grant `organization_visualization` permission (which includes API resources such as `/identity/user` and many others) to user `walter.bates`: `user|walter.bates=[organization_visualization]`
+* To grant `organization_management` permission to custom profile  `manager`: `profile|manager=[organization_management]`
+
+[NOTE]
+====
+It may be more convenient to map permissions to profiles rather than directly to users and map profiles to the organization entities (users, groups roles...).
+====
+
+==== 4. Push the configuration
+
+With the setup tool, you can now xref:ROOT:bonita-platform-setup.adoc#update_platform_conf[update the permissions configuration] in the database using the `setup.sh push` command.
+
+=== Initial setup (before first startup)
+
+If your Bonita platform has never been started, you can configure the permissions in the  `/bonita/setup/platform_conf/initial` folder to update the xref:ROOT:bonita-platform-setup.adoc#init_platform_conf[initial configuration].
+
+== Default Permissions
+
+Some permissions are already set by default and might fit your needs. You can find the default REST API authorizations in this xref:identity:api-permissions-overview.adoc[page].
+
+[WARNING]
+====
+If xref:identity:rest-api-authorization.adoc#dynamic_authorization[dynamic authorizations] are defined for the resource, they override the custom permissions for profiles and roles.
+====
+

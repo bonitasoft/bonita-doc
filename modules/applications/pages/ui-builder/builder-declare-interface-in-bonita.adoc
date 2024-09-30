@@ -42,8 +42,5 @@ Two applications cannot share the same slug. To resolve this, you can modify one
 
 Once your application descriptor is done, don't forget to deploy it by clicking the `deploy` button in the Studio.
 
-[NOTE]
-====
-Full form edition support will come in a future release.
-====
+
 

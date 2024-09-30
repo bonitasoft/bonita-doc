@@ -24,6 +24,8 @@ _Bonita Setup tool_ handles:
 
 It is located in the xref:tomcat-bundle.adoc[Tomcat bundle]. You can find the tool in the `setup` folder.
 
+It is also located in the xref:bonita-docker-installation.adoc[Docker image] of Bonita, in the `opt/bonita/setup/` folder.
+
 === Structure
 
 It is composed of the following items:
@@ -133,6 +135,11 @@ Keep in mind that the folder *`platform_conf/initial`* is not used anymore once 
 == Pre-requisites
 
 Before running it, make sure Bonita Setup tool is configured to point to the database of the Bonita stack.
+
+The platform-setup tool is available in 2 different editions:
+
+* The Community edition (only supports PostgreSQL).
+* The Subscription edition (supports PostgreSQL, MySQL, Oracle and SQL Server).
 
 [NOTE]
 ====

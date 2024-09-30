@@ -96,7 +96,7 @@ The default queries are `find` and `find_by` queries. There are three types:
 * based on simple attributes (with = criterion)
 * based on Select All (which returns all Business data on the Business Object)
 
-To create a custom query, use the query tab of the Expression editor to write a query script. You can use one of the default queries as an example. A custom query can be on multiple attributes. Only SELECT queries are supported.
+To create a custom query, open the `bom.xml` file in the Studio and go the `query` tab of the Expression editor to write a query script. You can use one of the default queries as an example. A custom query can be on multiple attributes. Only SELECT queries are supported.
 
 To use paged results with a custom query on a business object, you need to define a related query that counts the total number of results that the query would return without paging. The count query name is based on the custom query name; for example, for a query named `query1`, the count query must be named `countForQuery1`. For a default query, the count query is created automatically.
 

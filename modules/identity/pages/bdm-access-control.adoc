@@ -534,7 +534,7 @@ Make sure the living application works fine, and that while selecting subject fr
 *5. Define access control for queries on Business Object Request*
 
 . Go to _BonitaStudioSubscription-7.7.0/workspace/tomcat/setup/_
-. Modify the file _database.properties_, so it points to the target database. In our example we will use the provided h2 database.
+. Modify the file _database.properties_, so it points to the target database. In our example we will use the provided H2 database.
 . Add the following line to your _database.properties_ file :
 `h2.database.dir=/home/dolgonos/Desktop/BonitaStudioSubscription-7.7.0-SNAPSHOT/workspace/default/h2_database/`
 . Run _setup pull_. For more details on what this command does, see xref:runtime:bonita-platform-setup.adoc[Bonita Platform Setup].

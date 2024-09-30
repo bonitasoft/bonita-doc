@@ -130,8 +130,8 @@ Your database can be either a Docker container or an installed service.
 We provide preconfigured database images to work with Bonita which are available on https://hub.docker.com/u/bonitasoft[Bonita DockerHub], such as:
 
 * https://hub.docker.com/r/bonitasoft/bonita-postgres[Postgres]
-* https://hub.docker.com/r/bonitasoft/bonita-mysql[MySQL]
-* https://hub.docker.com/r/bonitasoft/bonita-sqlserver[SQL Server]
+* https://hub.docker.com/r/bonitasoft/bonita-mysql[MySQL] (not supported with Community edition)
+* https://hub.docker.com/r/bonitasoft/bonita-sqlserver[SQL Server] (not supported with Community edition)
 
 Those images are built from the GitHub repository https://github.com/Bonitasoft-Community/bonita-database-docker[bonita-database-docker], and can be further adapted or customized to suit your needs.
 
@@ -166,7 +166,7 @@ SQL Server::
 --
 [source,shell]
 ----
-docker run -d --name bonita-sqlserver -p 1433:1433 bonitasoft/bonita-sqlserver:2022-CU4
+docker run -d --name bonita-sqlserver -p 1433:1433 bonitasoft/bonita-sqlserver:2022-CU13
 ----
 --
 ====
@@ -187,24 +187,6 @@ Postgres::
 [source,yaml,subs="+macros,+attributes"]
 ----
 include::example$docker/community/postgres/docker-compose.yml[]
-----
---
-
-MySQL::
-+
---
-[source,yaml,subs="+macros,+attributes"]
-----
-include::example$docker/community/mysql/docker-compose.yml[]
-----
---
-
-SQL Server::
-+
---
-[source,yaml,subs="+macros,+attributes"]
-----
-include::example$docker/community/sqlserver/docker-compose.yml[]
 ----
 --
 =====
