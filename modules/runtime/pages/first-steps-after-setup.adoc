@@ -98,7 +98,7 @@ For more information, please take look at the xref:identity:rest-api-authorizati
 
 NOTE: For Subscription editions only.
 
-By default, some promotion messages are displayed in some Admin application page. To disable them, follow one of these steps:
+By default, some promotion messages are displayed in some Admin application pages. To disable them, follow one of these steps:
 
 .Start your SCA or Bonita docker image using environment variable
 [source, bash]
