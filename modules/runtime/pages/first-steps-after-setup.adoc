@@ -108,7 +108,7 @@ docker run -e BONITA_RUNTIME_PROMOTION_MESSAGES_ENABLED=false ...
 
 or
 
-.Setting the property in_bonita-platform-sp-custom.properties
+.Setting the property in bonita-platform-sp-custom.properties
 [source, properties]
 ----
 # Promotion
