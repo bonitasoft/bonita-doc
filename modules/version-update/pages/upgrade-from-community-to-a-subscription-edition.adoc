@@ -117,7 +117,7 @@ Here are the steps to follow :
 
 ==== Remove Community Admin App
 
-If you chose to include the Admin App in your SCA or you were using the Bundle, you will have two versions of the app installed: the community and enterprise versions. To avoid any confusion, you can remove the community version from the `Applications` menu of the Super Admin application.
+If you chose to include the Admin App in your SCA or if you were using the Bundle, you will have two versions of the app installed: the community and enterprise versions. To avoid any confusion, you can remove the community version from the `Applications` menu of the Super Admin application.
 
 ==== Enterprise specific configuration
 
