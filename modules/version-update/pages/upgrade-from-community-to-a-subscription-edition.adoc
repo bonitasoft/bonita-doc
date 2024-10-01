@@ -91,7 +91,7 @@ To upgrade a Bonita Runtime from a Community edition to an Enterprise edition, f
 
 . Download and unzip the Bonita Enterprise bundle to `<bonita-enterprise-installation>` folder
 . Copy your database.properties fom your Community installation `setup` folder to `<bonita-enterprise-installation>/setup` folder
-. Run `<bonita-enterprise-installation>/setup/setup(.sh/.bat) pull` to fetch your current Community configuration in `<bonita-enterprise-installation>/setup/platform_conf/current`
+. Run `<bonita-enterprise-installation>/setup/setup(.sh/.bat) pull` to fetch your current Community configuration.
 . Retrieve an xref:ROOT:licenses.adoc[Enterprise license] file
 . Copy your license file into `<bonita-enterprise-installation>/setup/platform_conf/licenses`
 . Push your new license in the database: `<bonita-enterprise-installation>/setup/setup(.sh/.bat) push`
