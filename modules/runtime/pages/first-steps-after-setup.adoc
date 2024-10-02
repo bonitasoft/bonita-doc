@@ -94,6 +94,27 @@ Input validation is performed to ensure only properly formed data is entering th
 
 For more information, please take look at the xref:identity:rest-api-authorization.adoc[REST API authorization] and the other features relating to xref:identity:user-authentication-overview.adoc[security and authentication] that are available in Bonita and in your operating system, and update your platform as required for your production environment.
 
+== Disable promotion messages in Admin application
+
+NOTE: For Subscription editions only.
+
+By default, some promotion messages are displayed in some Admin application pages. To disable them, follow one of these steps:
+
+.Start your SCA or Bonita docker image using environment variable
+[source, bash]
+----
+docker run -e BONITA_RUNTIME_PROMOTION_MESSAGES_ENABLED=false ...
+----
+
+or
+
+.Setting the property in bonita-platform-sp-custom.properties
+[source, properties]
+----
+# Promotion
+bonita.runtime.promotion.messages.enabled=false
+----
+
 == Create a Bonita administrator profile
 
 Create a user with the "administrator" profile:
