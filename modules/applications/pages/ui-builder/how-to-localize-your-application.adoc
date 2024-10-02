@@ -8,13 +8,13 @@
 * Prerequisites: have an application on Bonita UI Builder
 
 Suppose you're creating an application and want to allow users to easily switch between several languages by choosing a language option.
-While UI Builder currently doesn't have a built-in feature for making an application multilingual, the steps below describe the recommended way to do so.
+While UI Builder currently doesn't have a built-in feature for making an application multilingual, the steps below describe an example of the recommended way to do so.
 
 
-== Example
 
 
-=== 1 Design the application's interface
+
+== 1. Design the application's interface
 * Drag and drop a `Select` widget onto your interface, name it `SelectLanguage`, and configure the Source Data property as follows:
 
 [source, JS]
@@ -39,7 +39,7 @@ While UI Builder currently doesn't have a built-in feature for making an applica
 For example: `This is a sample application to demonstrate the possibility of making it available in multiple languages.`
 
 
-=== 2 Define JS objects
+== 2. Define JS objects
 * Go to the JS section, create a new JavaScript object, and name it `localization`. Then, define keys for each language to correspond with the values set for the `SelectLanguage` widget. 
 
 Include the words or sentences along with their translations as key-value pairs for all languages, as shown in the code snippet below:
@@ -91,7 +91,7 @@ Ensure that the `Run on page load` setting is enabled for the `setLanguageKey` f
 ====
 
 
-=== 3 Bind JS objects to the widgets
+== 3. Bind JS objects to widgets
 * Come back to the UI section and select the `SelectLanguage` widget.
 * Set its `Label` to `{{i18n.languageKeys["Select language"]}}`.
 * In the Events property, set `{{i18n.onLanguageChange();}}` to invoke the function when the language changes.
