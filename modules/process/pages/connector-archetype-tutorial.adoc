@@ -120,7 +120,7 @@ If you want to generate a test coverage report, you can add the following jacoco
 == 2 - Define connector inputs
 
 The connector inputs are defined in the connector definition. +
-Open the file _src/main/resouresources-filteredrces/connector-starwars.def_ +
+Open the file _src/main/resources-filtered/connector-starwars.def_ +
 We are first going to create two inputs for the connector:
 
 * An input *_name_*, which will contain the name of a star wars character
