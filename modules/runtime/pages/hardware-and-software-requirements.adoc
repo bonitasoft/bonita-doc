@@ -51,7 +51,7 @@ Software required for Bonita Platform.
 | 7 - 64 bits
 
 | Ubuntu
-| 20.04 LTS 64 bits
+| 22.04 LTS 64 bits
 
 | *Java Virtual Machine*
 |
@@ -75,7 +75,7 @@ Software required for Bonita Platform.
 | (see note 2)
 
 | PostgreSQL
-| 15.3 and higher in the 15.x line
+| 16.4 and higher in the 16.x line
 
 | MySQL (Subscription only)
 | 8.0.33 and higher in the 8.0.x line (see note 3 & 4)
