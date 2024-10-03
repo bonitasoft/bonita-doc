@@ -56,5 +56,5 @@ During development phase, from the Bonita application directory, I cannot open t
 Your UI Builder application is connected to a Git repository. This link between the application and the Bonita application directory is not yet supported.
 
 [.solution]#Possible solution#
-During development phase, you can access the UI Builder application from the default URL (e.g `http://localhost:8090/`)
+During development phase, you can access the UI Builder application from the UI Builder workspace using the default URL (e.g `http://localhost:8090/`)
 --
