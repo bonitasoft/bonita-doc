@@ -53,8 +53,8 @@ These resources guide you through managing Git integration, including handling m
 During development phase, from the application directory, I cannot see the living application.
 
 [.symptom-description]
-You UI-Builder application is connected to Git repository. This links between the application and bonita application directory is not supported.
+Your UI Builder application is connected to a Git repository. This link between the application and the Bonita application directory is not yet supported.
 
 [.solution]#Possible solution#
-During development, you can use the UI-Builder application directory.
+During development phase, you can access the UI Builder application from the default URL (e.g `http://localhost:8090/`)
 --
