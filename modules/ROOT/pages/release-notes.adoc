@@ -32,6 +32,17 @@ xref:api:engine-api-overview.adoc[Engine APIs] that allowed applications manipul
 
 xref:api:rest-api-overview.adoc[REST APIs] (see _Application_ section) now also return application links in addition of legacy applications.
 
+
+== Updates
+
+=== PostgreSQL
+
+Support for PostgreSQL has been updated to version **16.4**. See xref:runtime:hardware-and-software-requirements.adoc[hardware and software requirements] for the full matrix support.
+
+=== Ubuntu
+
+Support for Ubuntu has been updated to version **22.04**. See xref:runtime:hardware-and-software-requirements.adoc[hardware and software requirements] for the full matrix support.
+
 == Feature deprecations and removals
 
 === Database support
