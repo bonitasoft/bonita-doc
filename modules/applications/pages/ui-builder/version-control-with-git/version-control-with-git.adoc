@@ -42,3 +42,19 @@ These resources guide you through managing Git integration, including handling m
 * xref:applications:import-from-git.adoc[Import applications from Git]
 * xref:applications:revert-changes.adoc[Revert changes]
 * xref:applications:resolve-merge-conflicts.adoc[Resolve merge conflicts in Git]
+
+
+[.troubleshooting-title]
+== Troubleshooting
+
+[.troubleshooting-section]
+--
+[.symptom]
+During development phase, from the application directory, I cannot see the living application.
+
+[.symptom-description]
+You UI-Builder application is connected to Git repository. This links between the application and bonita application directory is not supported.
+
+[.solution]#Possible solution#
+During development, you can use the UI-Builder application directory.
+--
