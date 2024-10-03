@@ -8,7 +8,7 @@ We will then see how to deploy this connector on GitHub packages in order to ins
 This connector will be implemented using:
 
 * https://groovy-lang.org/[Groovy, window="_blank"]: __A programming language based on the JVM__
-* http://spockframework.org/[Spock, window="_blank"]: __A test framework for Groovy applications__
+* https://spockframework.org/[Spock, window="_blank"]: __A test framework for Groovy applications__
 * https://square.github.io/retrofit/[Retrofit, window="_blank"]: __A library which allows to create typed HTTP clients__
 
 [NOTE]
@@ -131,7 +131,7 @@ Remove the default input from the definition, and add the two following inputs:
 [source,xml]
 ----
 <input mandatory="true" name="name" type="java.lang.String"/>
-<input mandatory="true" name="url" type="java.lang.String" defaultValue="http://swapi.dev/"/>
+<input mandatory="true" name="url" type="java.lang.String" defaultValue="https://swapi.dev/"/>
 ----
 
 Then we are going to create a _page_ and two _widgets_ for those inputs. _Pages_ and _widgets_ are used by the Bonita Studio to create a User Interface from the connector definition.
@@ -436,7 +436,7 @@ class StarWarsServiceTest extends Specification {
     def should_retrieve_luke_data_using_retrofit() {
         given: 'A service'
         def httpClient = ConnectorStarWars.createHttpClient(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-        def service = ConnectorStarWars.createService(httpClient, "http://swapi.dev/")
+        def service = ConnectorStarWars.createService(httpClient, "https://swapi.dev/")
 
         when: 'Searching for luke'
         def call = service.person("Luke")
@@ -522,7 +522,7 @@ def should_fetch_person() {
                 "eye_color":"blue",
                 "birth_year":"19BBY",
                 "gender":"male",
-                "homeworld":"http://swapi.dev/api/planets/1/"
+                "homeworld":"https://swapi.dev/api/planets/1/"
             }
         ]}
     """
