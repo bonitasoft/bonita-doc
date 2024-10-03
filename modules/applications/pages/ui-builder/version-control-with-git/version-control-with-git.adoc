@@ -50,7 +50,7 @@ These resources guide you through managing Git integration, including handling m
 [.troubleshooting-section]
 --
 [.symptom]
-During development phase, from the application directory, I cannot see the living application.
+During development phase, from the Bonita application directory, I cannot open the application made with UI Builder (`Internal server error while processing request` error).
 
 [.symptom-description]
 Your UI Builder application is connected to a Git repository. This link between the application and the Bonita application directory is not yet supported.
