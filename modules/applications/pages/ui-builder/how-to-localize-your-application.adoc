@@ -8,16 +8,13 @@
 * Prerequisites: have an application on Bonita UI Builder
 
 Suppose you're creating an application and want to allow users to easily switch between several languages by choosing a language option.
-While UI Builder currently doesn't have a built-in feature for making an application multilingual, the steps below describe the recommended way to do so.
+While UI Builder currently doesn't have a built-in feature for making an application multilingual, the steps below describe an example of the recommended way to do so.
 
 
-== Example
 
-image:ui-builder/guides/localize-your-app.gif[localize-your-app]
 
-We will cover below all the steps shown in the gif above.
 
-=== 1 Design the application's interface
+== 1. Design the application's interface
 * Drag and drop a `Select` widget onto your interface, name it `SelectLanguage`, and configure the Source Data property as follows:
 
 [source, JS]
@@ -39,12 +36,13 @@ We will cover below all the steps shown in the gif above.
 ----
 
 * Now, drag and drop a `Text` widget onto your interface and add a sentence into its `Text` property.
-For example, `This is a sample application to demonstrate the possibility of making it available in multiple languages.`
+For example: `This is a sample application to demonstrate the possibility of making it available in multiple languages.`
 
 
-=== 2 Define JS objects
-* Go to the JS section, create a new JavaScript object, and name it `localization`.
-* In the `localization` file, define JavaScript objects for each language to correspond with the values set for the `SelectLanguage` widget. Include the words or sentences along with their translations as key-value pairs for all languages, as shown in the code snippet below:
+== 2. Define JS objects
+* Go to the JS section, create a new JavaScript object, and name it `localization`. Then, define keys for each language to correspond with the values set for the `SelectLanguage` widget. 
+
+Include the words or sentences along with their translations as key-value pairs for all languages, as shown in the code snippet below:
 
 [source, JS]
 ----
@@ -69,8 +67,7 @@ export default {
 Ensure that all language keys match the values set in the `SelectLanguage` source data, such as en, fr, and es, etc.
 ====
 
-* To keep the codebase organized, define another JavaScript object and name it `i18n`.
-* Copy and paste the JavaScript code blocks provided below:
+* To keep the codebase organized, define another JavaScript object and name it `i18n`. Then, copy and paste the JavaScript code below:
 
 [source, JS]
 ----
@@ -94,7 +91,7 @@ Ensure that the `Run on page load` setting is enabled for the `setLanguageKey` f
 ====
 
 
-=== 3 Bind JS objects to the widgets
+== 3. Bind JS objects to widgets
 * Come back to the UI section and select the `SelectLanguage` widget.
 * Set its `Label` to `{{i18n.languageKeys["Select language"]}}`.
 * In the Events property, set `{{i18n.onLanguageChange();}}` to invoke the function when the language changes.
