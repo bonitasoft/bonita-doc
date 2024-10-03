@@ -8,7 +8,7 @@ We will then see how to deploy this connector on GitHub packages in order to ins
 This connector will be implemented using:
 
 * https://groovy-lang.org/[Groovy, window="_blank"]: __A programming language based on the JVM__
-* http://spockframework.org/[Spock, window="_blank"]: __A test framework for Groovy applications__
+* https://spockframework.org/[Spock, window="_blank"]: __A test framework for Groovy applications__
 * https://square.github.io/retrofit/[Retrofit, window="_blank"]: __A library which allows to create typed HTTP clients__
 
 [NOTE]
