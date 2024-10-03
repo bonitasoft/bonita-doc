@@ -75,7 +75,7 @@ Software required for Bonita Platform.
 | (see note 2)
 
 | PostgreSQL
-| 16.4 and higher in the 15.x line
+| 16.4 and higher in the 16.x line
 
 | MySQL (Subscription only)
 | 8.0.33 and higher in the 8.0.x line (see note 3 & 4)
