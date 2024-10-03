@@ -41,7 +41,7 @@ To access its content:
 ====
 During the development phase, if you try to access a xref:applications:ui-builder/version-control-with-git/version-control-with-git.adoc[UI-Builder application connected to a Git repository] from the Application Directory, the redirection will fail.
 
-To access the UI Builder application, you need to access it directly from the U Builder workspace (e.g `http://localhost:8090/`)
+To access the UI Builder application, you need to access it directly from the UI Builder workspace (e.g `http://localhost:8090/`)
 ====
 
 == Status
