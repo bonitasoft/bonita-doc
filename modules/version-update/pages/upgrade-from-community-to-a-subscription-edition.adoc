@@ -110,7 +110,7 @@ In Enterprise edition, an additional application for administrators is available
 Here are the steps to follow :
 
 . Go to `<bonita-enterprise-installation>/server/webapps/bonita/WEB-INF/classes/org/bonitasoft/web/application/`.
-. Unzip the file `bonita-admin-application-sp-x.y.z.zip`. You should have a xml and a png file.
+. Unzip the file `bonita-admin-application-sp-x.y.z.zip`. You should have an xml and a png file.
 . Connect to the bonita platform using a super administrator user.
 . Go to applications, import the xml file.
 . ⚠ (Optionally, click on more details of your newly imported application, and import the png file as logo)

@@ -148,7 +148,7 @@ Postgres::
 --
 [source,shell]
 ----
-docker run -d --name bonita-postgres -p 5432:5432 bonitasoft/bonita-postgres:15.4
+docker run -d --name bonita-postgres -p 5432:5432 bonitasoft/bonita-postgres:16.4
 ----
 --
 
