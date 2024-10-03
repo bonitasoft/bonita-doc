@@ -6,19 +6,27 @@
 
 == Import a process diagram into Bonita Studio
 
-To import a diagram:
+From the Studio's home page:
 
 * From a .bos archive (a diagram from another Bonita studio)
 
-. Choose *_Import_* \-> *_BOS archive_* from the *_Diagram_* menu or click *_Import_* in the Cool bar.
+. Choose *_Import a BOS archive_* from the Home Page or click *_Import a project_* in the toolbar.
 . Specify the archive to be imported.
-. Manage eventual conflicts
+. Manage eventual conflicts.
 . Click *_Import_*, the .bos archive is imported, a new diagram is created.
 
-* From an other format
+From an open Bonita project:
 
-. Choose *_Import_* \-> *_other_* from the *_Diagram_* menu.
-. Select the input format.
+* From a .bos archive (a diagram from another Bonita studio)
+
+. Right-click on the name of your Project and select *_Import a project_*, or click *_Import a project_* in the toolbar.
+. Specify the archive to be imported.
+. Manage eventual conflicts.
+. Click *_Import_*, the .bos archive is imported, a new diagram is created.
+
+* From another format (.xml, .bpmn, .bpmn20)
+
+. Right-click on 'Process Diagram' (located on the left-hand panel) and select *_Import a BPMN 2.0 file_*.
 . Specify the file to be imported.
 . Click *_Import_*. A new diagram is created.
 
@@ -48,7 +56,7 @@ The following sections list restrictions for specific import formats.
 
 ==== BPMN 2.0 (*.bpmn)
 
-Most BPM applications export in the BPMN 2.0 file format. This format is the most compatible with Bonita Studio. See http://www.bpmn.org/#tabs-implementers[here] for a list of applications
+Most BPM applications export in the BPMN 2.0 file format. This format is the most suited for Bonita Studio. See http://www.bpmn.org/#tabs-implementers[here] for a list of applications
 which export in the .bpmn format.
 
 == Export a process diagram as a BPMN 2.0 archive
