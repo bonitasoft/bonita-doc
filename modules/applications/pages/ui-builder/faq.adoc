@@ -18,6 +18,10 @@ Bonita UI Builder is available by default and for no additional cost in all http
 Please refer to the xref:initiation-manual.adoc[initiation manual]. If you have any other additional questions, reach out to our https://csc.bonitacloud.bonitasoft.com[Support team].
 
 
+=== What are the system requirements? 
+Your system/server should have the following configuration for optimal performance: 2 virtual CPU and 4 GB of memory
+
+
 === What does it mean for my workflows? 
 There should be no change in your logic, continuous integration, and workflows. You can still manage them the way you’re managing them today. Just download the docker image and follow the xref:initiation-manual.adoc[initiation manual].
 
