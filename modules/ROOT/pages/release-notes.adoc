@@ -61,13 +61,13 @@ Support for Ubuntu has been updated to version **22.04**. See xref:runtime:hardw
 
 === Database support
 
-Due to the cost of maintenance of multiple DBMS, we are removing support for the following databases in Community edition:
+Due to the cost of maintenance of multiple DBMS, we are removing support for the following databases in the Community edition:
 
 * MySQL
 * Microsoft SQL Server
 * Oracle
 
-These databases will still be supported in Subscription editions.
+These databases will still be supported in Enterprise editions.
 
 === Deprecated APIs
 
