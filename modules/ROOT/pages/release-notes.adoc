@@ -10,6 +10,20 @@ The {bonitaVersion} version is in development.
 
 We are excited to announce the release of xref:applications:bonita-ui-builder.adoc[Bonita UI Builder], our new and enhanced development environment for creating all kind of interfaces, pages and forms for your applications! It brings along a host of advanced features and improved usability, designed to help you create compelling, responsive, and user-friendly interfaces.
 
+Key benefits:
+
+* Rapidly create and deploy UIs to reduce time to market
+* Connect UIs with Bonitasoft for end-to-end alignment
+* Tailor UIs to specific needs with advanced options
+* A drag-and-drop interface empowers all users, regardless of technical skill
+* Built with React for dynamic, responsive design
+
+Features include:
+
+* Drag & drop tools, 45+ widgets, React interfaces
+* Code completion, custom JavaScript, native debugging
+* Full Bonita Runtime compatibility
+
 You can continue to use Bonita UI Designer as usual, while also having the opportunity to explore and get familiar with the capabilities of Bonita UI Builder. 
 
 Eventually, Bonita UI Designer will be phased out as we progressively transition to Bonita UI Builder. Rest assured, we are committed to providing comprehensive support and resources throughout this process. Our goal is to make this transition as smooth as possible, minimizing any disruption to your workflow.
