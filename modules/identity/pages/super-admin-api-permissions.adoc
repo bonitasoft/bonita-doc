@@ -180,4 +180,4 @@ These are additional REST APIs that you have access to when you are using the Su
 
 === Additional accessible APIs
 * GET
-** platform/license
+** system/information

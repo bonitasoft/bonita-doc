@@ -37,6 +37,12 @@ To access its content:
 . In the menu, click on "Applications"
 . On the "Bonita Application Directory" row, click on the "..." _View application details_ icon
 
+[WARNING]
+====
+During the development phase, if you try to access a xref:applications:ui-builder/version-control-with-git/version-control-with-git.adoc[UI-Builder application connected to a Git repository] from the Application Directory, the redirection will fail.
+
+To access the UI Builder application, you need to access it directly from the UI Builder workspace (e.g `http://localhost:8090/`)
+====
 
 == Status
 This application is core to Bonita Platform. It is embedded in the Runtime and cannot be downloaded from the Studio nor be part of your automation project. +
