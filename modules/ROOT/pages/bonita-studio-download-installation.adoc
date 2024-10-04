@@ -106,6 +106,8 @@ Also click on the *UI Designer* button in the toolbar to check that the UI Desig
 
 image::getting-started:images/getting-started-tutorial/installation/ui-designer-first-start.png[UI Designer on first launch displayed in a web browser]
 
+You are also ready to download and start using Bonita UI Builder. Check out our xref:applications/ui-builder/download-and-launch.adoc[dedicated guide] to see how.
+
 == Ready to move on
 
 You have successfully installed Bonita Studio, and the tools and test environment are up and running.
