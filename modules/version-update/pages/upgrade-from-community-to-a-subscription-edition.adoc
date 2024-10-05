@@ -85,7 +85,7 @@ Replace __<platform-setup-install-folder>__ with the folder where you want to in
 Downloading the `platform-setup-sp` tool is optional as it is already packaged in the bundle archive when building your SCA using the `bundle` mode. It is recommended when using a Docker image.
 ====
 
-==== Upgrade a Bonita Runtime with a Tomcat bundle
+=== Upgrade a Bonita Runtime with a Tomcat bundle
 
 To upgrade a Bonita Runtime from a Community edition to an Enterprise edition, follow these steps:
 
@@ -102,7 +102,7 @@ Once you have started Bonita Enterprise Runtime at least once, you can pull your
 and change the Enterprise-specific configuration files to match your needs. See xref:runtime:bonita-platform-setup.adoc[Bonita Runtime setup tool] for details about
 how to apply configuration changes.
 
-===== Import Enterprise Admin App
+==== Import Enterprise Admin App
 
 Starting with Bonita 2021.2, Bonita Portal has been replaced with Bonita Applications.
 In Enterprise edition, an additional application for administrators is available for manual import - Bonita Administrator Application.
@@ -115,11 +115,11 @@ Here are the steps to follow :
 . Go to applications, import the xml file.
 . ⚠ (Optionally, click on more details of your newly imported application, and import the png file as logo)
 
-==== Remove Community Admin App
+=== Remove Community Admin App
 
 If you chose to include the Admin App in your SCA or if you were using the Bundle, you will have two versions of the app installed: the community and enterprise versions. To avoid any confusion, you can remove the community version from the `Applications` menu of the Super Admin application.
 
-==== Enterprise specific configuration
+=== Enterprise specific configuration
 
 The upgrade is now finished, you can verify that you are now running an Enterprise edition in the Super Administrator application; the edition displayed in the "Platform maintenance" page should indicate Enterprise edition.
 
