@@ -59,7 +59,7 @@ The bundle already contains the files needed to use OIDC with Bonita platform.
 To configure Bonita for OIDC:
 
 . If you do not already have one:
- .. Download a Subscription edition bundle from the https://customer.bonitasoft.com/[Customer Service Center]
+ .. Download a Subscription edition bundle from the {cscDownloadUrl}[Customer Service Center]
  .. xref:runtime:tomcat-bundle.adoc#configuration[Configure] it as needed
  .. Run it a first time, so that the first default tenant is created (TENANT_ID = 1)
  .. Stop it and run `setup[.sh][.bat] pull` to retrieve current configuration before modifying the configuration files below

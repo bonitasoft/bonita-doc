@@ -8,6 +8,9 @@ asciidoc:
     bonitasoft-docker-repository: '{bonitasoft-registry}/docker'
     bonitaTechnicalVersion: '7.15.0' # latest public community version
     javadocVersion: 7.15
+    cscRootUrl: https://csc.bonitacloud.bonitasoft.com/apps/CustomerServices
+    cscDownloadUrl: '{cscRootUrl}/downloads'
+    cscLicenseUrl: '{cscRootUrl}/licenses'
     # ref versions of other components
     bcdDocVersion: '3.6'
     # page attributes
@@ -38,4 +41,4 @@ nav:
   - modules/runtime/runtime-nav.adoc
   - modules/security/security-nav.adoc
   - modules/version-update/version-update-nav.adoc
-  - modules/ROOT/build-community-nav.adoc
+  - modules/contributing/contributing-nav.adoc

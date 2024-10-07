@@ -11,7 +11,7 @@ In keeping with Bonitasoft’s promise to continuously deliver valuable, high qu
 
 [NOTE]
 ====
-*For Subscription editions only.*
+*For Efficiency, Performance and Enterprise editions only.*
 
 Bonita Reporting App is available for download on the Customer Portal/Customer Service Center.
 

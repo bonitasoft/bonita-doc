@@ -6,6 +6,40 @@ This is the changelog of the purge tool.
 
 The purge tool is used to remove data from bonita archive tables. It is useful for big production environments.
 
+
+== 1.0.9 - June 11, 2024
+
+Fixes:
+
+- robustness: prevent the tool from being launched from bin folder.
+  Tool must be run from **root folder** by launching `bin/bonita-purge-tool`. If not, the tool will exit with a specific error message.
+
+
+== 1.0.8 - June 5, 2024
+
+Now the tool **MUST** be run from the **root folder** by calling:
+
+```shell
+bin/bonita-purge-tool[.sh/.bat]
+```
+It cannot be run from the **bin/** folder anymore.
+
+Fixes:
+
+- fix(config): config file not taken into account
+
+Others:
+
+- deps: update PostgreSQL driver
+- build: update build and GH Actions
+- build: update push to GDrive action
+
+== 1.0.7 - Dec 11, 2023
+- deps: update Springboot version
+- deps: update MySQL connector
+- build: use standard GH runners to build & release
+- deps: update snakeyaml
+
 == 1.0.6 - Oct 10, 2023
 - Use the latest version of Springboot 2.7.x
 

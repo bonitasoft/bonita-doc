@@ -1,4 +1,4 @@
-= Bonita engine dependencies (7.15.8)
+= Bonita engine dependencies (7.15.10)
 :description: List all dependencies uses for Bonita Engine
 
 
@@ -609,49 +609,49 @@
 
 | org.springframework
 | spring-aop
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jdbc
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-tx
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -765,7 +765,7 @@
 
 | org.postgresql
 | postgresql
-| 42.4.3
+| 42.4.4
 | https://jdbc.postgresql.org/[https://jdbc.postgresql.org/]
 |  https://jdbc.postgresql.org/about/license.html[BSD-2-Clause]
 
@@ -777,49 +777,49 @@
 
 | org.springframework
 | spring-aop
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jdbc
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-tx
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -1605,49 +1605,49 @@
 
 | org.springframework
 | spring-aop
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jdbc
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-tx
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -1761,7 +1761,7 @@
 
 | org.postgresql
 | postgresql
-| 42.4.3
+| 42.4.4
 | https://jdbc.postgresql.org/[https://jdbc.postgresql.org/]
 |  https://jdbc.postgresql.org/about/license.html[BSD-2-Clause]
 
@@ -1773,49 +1773,49 @@
 
 | org.springframework
 | spring-aop
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jdbc
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-tx
-| 5.3.27
+| 5.3.39
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 

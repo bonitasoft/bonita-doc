@@ -4,7 +4,7 @@
 
 [NOTE]
 ====
-For Subscription editions only.
+For Enterprise and Performance editions only.
 ====
 
 
