@@ -17,12 +17,12 @@ Hence, integrating the bpmn-visualization library to Bonita, was a very natural 
 
 The new values are available for Bonita Subscription Editions starting with the Efficiency edition.
 
-* Bonita Administration application users will get a faster and more robust view on the process execution data (thanks to the library and new REST APIs)
-* As the bpmn-visualization library evolves, more interactivity and information for a better monitoring capacity will be provided
-* Since the pages have been created by using Bonita UI Designer, developers can:
+  * Bonita Administration application users will get a faster and more robust view on the process execution data (thanks to the library and new REST APIs)
+  * As the bpmn-visualization library evolves, more interactivity and information for a better monitoring capacity will be provided
+  * Since the pages have been created by using Bonita UI Designer, developers can:
 
-** Use the custom widget embedded in the new pages in their own application pages. The widget has been wrapped into a fragment that makes it very easy to use.
-** Modify the process or case visualization page, and use it in any Bonita application
+        ** Use the custom widget embedded in the new pages in their own application pages. The widget has been wrapped into a fragment that makes it very easy to use.
+        ** Modify the process or case visualization page, and use it in any Bonita application
 
 For more details, check xref:pages-and-forms:customize-display-process-monitoring.adoc[How to page to customize the display of process execution monitoring]
 
@@ -140,7 +140,7 @@ The detailed list is available in the "What’s new in Bonita 2022.1" page, in t
 
 ==== Fixes in Bonita Studio including Bonita UI Designer
 
-* STUDIO-4515 - NPE generated during project migration
+* STUDIO-4515 - NPE generated during project migration 
 
 === Fixes in Bonita 2022.2-u9 (2024-04-18)
 
@@ -188,7 +188,7 @@ _We would like to thank both Tomas Castro Rojas and Mohammad A’mir for reporti
 * STUDIO-4483 - BonitaMarketplace: NPE generated in the log file when the HTTP response's entity-body is empty
 * STUDIO-4490 - Exception at runtime: the Call activity is wrong in the process-design.xml generated
 * UID-723     - Update to 7.15: Web browser's disk and memory caches break the product and custom pages
-* CVE-50      - Removing from the packaged maven repository an old vulnerable log4j library which wasn't executed
+* CVE-50      - Removing from the packaged maven repository an old vulnerable log4j library which wasn't executed 
 
 ==== Fixes in Bonita Runtime including Bonita Applications
 
@@ -306,7 +306,7 @@ Please note that, due to an https://github.com/hazelcast/hazelcast/issues/24688[
 * RUNTIME-1477 - [admin-case-details] improve display of Started by information
 * RUNTIME-1478 - [admin-task-details] improve display of Executed by information
 * RUNTIME-1485 - Fix [SSO] Allow the usage of any claim of the ID token for the OIDC adapter to fetch the username value from
-* RUNTIME-1486 - Fix [Rest API Extension][Java] Archetype generating bad InputStream management code
+* RUNTIME-1486 - Fix [Rest API Extension][Java] Archetype generating bad InputStream management code 
 * RUNTIME-1489 - [Security] Version update of several dependencies for 2022.2-u1 (7.15.1)
 * RUNTIME-1527 - Fix Platform API resources access should not need an API session along with the platform session
 * RUNTIME-1545 - Fix [SSO] OIDC auto detect bearer only option breaking json requests
