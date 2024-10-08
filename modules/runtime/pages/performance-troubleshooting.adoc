@@ -94,7 +94,7 @@ An increasing number of those logs can mean :
 
 * The connection between database server and Bonita server is becoming slow.
 * Database server is overloaded.
-* Big Database volume can slow queries down. In this case, you might consider to https://github.com/bonitasoft/bonita-purge-tool/releases[purge unnecessary archive data].
+* Big Database volume can slow queries down. In this case, you might consider to xref:purge-tool.adoc[purge unnecessary archive data].
 
 The execution threshold value can be configured in `bonita-platform-community.properties`
 

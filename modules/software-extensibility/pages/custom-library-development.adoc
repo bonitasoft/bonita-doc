@@ -530,7 +530,8 @@ $ git push -u origin main <3>
 <2> Create a _branch_ named `main` from the current HEAD (Our initial commit)
 <3> Push the branch to the defined remote origin
 
-If your refresh the GitHub project repository page (https://github.com/<owner>/bonita-extension-library) you should see your source code and single `main` branch.
+// Author note: escape the URL by adding a `\` to ensure that the link is not transformed into an invalid hyperlink in the generated documentation
+If your refresh the GitHub project repository page (`\https://github.com/<owner>/bonita-extension-library`) you should see your source code and single `main` branch.
 
 ===== Add a README.md
 
@@ -733,7 +734,8 @@ jobs:
 ----
 <1> We call the `release:prepare` goal of the `maven-release-plugin` to create and build a tag with the given version.
 
-This workflow is run on demand through the GitHub web interface in the _Actions_ tab of your repository (https://github.com/<owner>/bonita-extension-library/actions/workflows/release.yml).
+// Author note: escape the URL by adding a `\` to ensure that the link is not transformed into an invalid hyperlink in the generated documentation
+This workflow is run on demand through the GitHub web interface in the _Actions_ tab of your repository (`\https://github.com/<owner>/bonita-extension-library/actions/workflows/release.yml`).
 The released `jar` file will be attached to a GitHub release and you may use this GitHub release as a distribution channel for the consumers of your library.
 
 [TIP]
