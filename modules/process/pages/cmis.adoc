@@ -27,7 +27,8 @@ NOTE: If you have processes that use CMIS connectors from previous versions, the
 
 Document versioning is disabled by default in Alfresco.
 
-If you wish to use the "Upload a new version" connector to upload a new document version, you will have to enable document versioning following the http://docs.alfresco.com/community/concepts/versioning.html[official Alfresco documentation].
+If you wish to use the "Upload a new version" connector to upload a new document version, you may need to activate document version management depending on the version of Alfresco you are using.
+Please follow the https://docs.alfresco.com/content-services/latest/develop/reference/cmis-ref/#cmis-versioning[official Alfresco documentation].
 
 If this configuration is not set, new versions of documents will overwrite previous ones.
 
