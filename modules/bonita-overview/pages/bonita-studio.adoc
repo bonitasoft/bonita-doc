@@ -40,7 +40,7 @@ image:images/getting-started-tutorial/what-is-bonita/architecture-bonita-studio.
 
 [.card.card-index]
 --
-xref:ROOT:using-Bonita-Studio.adoc[[.card-title]#Using Bonita Studio# [.card-body.card-content-overflow]#pass:q[Studio structure and usage tips]#]
+xref:ROOT:using-bonita-studio.adoc[[.card-title]#Using Bonita Studio# [.card-body.card-content-overflow]#pass:q[Studio structure and usage tips]#]
 --
 
 [.card.card-index]
@@ -117,7 +117,7 @@ Caused by: java.lang.OutOfMemoryError: GC overhead limit exceeded
 You need to increase the memory allocated to the JVM that runs Bonita Studio. +
 To do so:
 
-  . Edit the `*.ini` file that corresponds to the executable you use to launch the Studio 
+  . Edit the `*.ini` file that corresponds to the executable you use to launch the Studio
   . Modify this line: `-Xmx512m` to `-Xmx1024m` (or higher).
   . Restart Bonita Studio.
 ****
@@ -146,8 +146,8 @@ First, ensure that a valid Java version is available. You can for exemple type _
 If you need another version:
 
   . Remove the installed Java versions
-  . Download the last stable build of the required Java version https://www.oracle.com/technetwork/java/javase/downloads/index.html[on the Oracle website] 
-  . Install it properly. 
+  . Download the last stable build of the required Java version https://www.oracle.com/technetwork/java/javase/downloads/index.html[on the Oracle website]
+  . Install it properly.
 ****
 
 === java.security.cert.CertificateException: No subject alternative DNS name matching github-releases.githubusercontent.com found.
