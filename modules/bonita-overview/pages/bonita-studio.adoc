@@ -40,7 +40,7 @@ image:images/getting-started-tutorial/what-is-bonita/architecture-bonita-studio.
 
 [.card.card-index]
 --
-xref:ROOT:using-bonita-studio.adoc[[.card-title]#Using Bonita Studio# [.card-body.card-content-overflow]#pass:q[Studio structure and usage tips]#]
+xref:bonita-overview:using-bonita-studio.adoc[[.card-title]#Using Bonita Studio# [.card-body.card-content-overflow]#pass:q[Studio structure and usage tips]#]
 --
 
 [.card.card-index]
