@@ -1,6 +1,6 @@
 = Using Bonita Studio
 :description: Learn how to efficiently use Bonita Studio
-:page-aliases: ROOT:using-Bonita-Studio.adoc, using-Bonita-Studio.adoc
+:page-aliases: ROOT:using-Bonita-Studio.adoc, bonita-overview:using-Bonita-Studio.adoc
 
 {description}
 
