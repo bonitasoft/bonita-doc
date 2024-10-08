@@ -112,7 +112,7 @@ Also, DAO interfaces and implementations are generated, to give access to the qu
     }
 ----
 
-DAO implementation code uses https://javadoc.bonitasoft.com/api/latest/org/bonitasoft/engine/api/CommandAPI.html[Engine Commands]
+DAO implementation code uses https://javadoc.bonitasoft.com/api/${javadocVersion}/org/bonitasoft/engine/api/CommandAPI.html[Engine Commands]
 to call from client-side queries that run server-side.
 
 Once generated, those Java classes are *compiled and packaged*:
