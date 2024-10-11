@@ -34,7 +34,7 @@ After building the Docker image, run it using the following command:
 ----
 docker run --name <container-name> <image-name>:<version>
 ----
-See xref:production-packaging.adoc#run-production-binary[run production binary page] for more details.
+See xref:production-packaging.adoc#run-production-binaries[run production binary page] for more details.
 
 === Access your Application
 
