@@ -1,0 +1,39 @@
+# Used for running a bonita env for production
+services:
+  bonita-ui-builder:
+    image: <my-uib-image-name>:<version>
+    container_name: bonita-ui-builder
+    environment:
+      BONITA_DEV_MODE: false
+      BONITA_API_URL: http://host.docker.internal:8080/bonita/API
+      APPSMITH_ENCRYPTION_PASSWORD: <encryption-password>
+      APPSMITH_ENCRYPTION_SALT: <encryption-salt>
+    ports:
+      - "8090:80"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      bonita:
+        condition: service_healthy
+
+  # A reverse proxy used to communicate between Bonita UI Builder and a Bonita Runtime
+  bonita-ui-proxy:
+    image: bonitasoft.jfrog.io/docker/bonita-ui-proxy:latest
+    ports:
+      - "443:443"
+      - "80:80"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  bonita-app:
+    # Replace below with your image name and version, as built following
+    # https://documentation.bonitasoft.com/bonita/latest/build-run/build-application#_docker_image_packaging
+    image: my-bonita-application:1.0.0
+    volumes:
+      - <YOUR_LICENSE_FOLDER>:/opt/bonita_lic
+    environment:
+      - <ANY_STANDARD_BONITA_ENV_VARIABLE_HERE>
+    ports:
+      - "8080:8080"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
