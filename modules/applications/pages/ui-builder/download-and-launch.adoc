@@ -28,16 +28,16 @@ First, create a `docker-compose.yml` file with the content below:
 include::example$ui-builder/development/docker-compose.yml[]
 ----
 
+If your Bonita is running on a different port than 8080, you need to edit the `BONITA_API_URL` in the `docker-compose.yml` file above. Also, you need to override the `BONITA_PORT` xref:ui-builder-docker-installation.adoc#environment-variables[environment variable].
+
+
 [NOTE]
 ====
 A volume is mounted to the local folder `./stacks` to store persistent data. In case the container crashes, your work will not be lost.
 Fill free to update the folder to another location on your local machine.
 ====
 
-[NOTE]
-====
-You can override and configure all xref:ui-builder-docker-installation.adoc#environment-variables[environment variables] in the `docker-compose.yml` file. This can be used for example if your Bonita is set on another port than the 8080 default port.
-====
+
 
 == Download and launch the Docker image
 
