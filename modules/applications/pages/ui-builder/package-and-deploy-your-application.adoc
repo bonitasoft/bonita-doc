@@ -56,7 +56,7 @@ In order to ensure correct access to your production application and its resourc
 [.troubleshooting-section]
 --
 [.symptom]
-After building and running the Bonita UI Builder, at least one application are missing.
+After building and running the Bonita UI Builder, at least one application is missing.
 
 [.cause]#Cause#
 The application is on error and the Bonita UI Builder is not able to import and deploy the application.
