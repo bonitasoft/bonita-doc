@@ -1,4 +1,4 @@
-= HTTPS configuration
+= HTTPS Configuration
 :page-aliases: applications:how-to-configure-https.adoc
 :description: In production, it is necessary to set up both Bonita Runtime and UI Builder for HTTPS instead of HTTP. The easiest way it to configure Bonita UI Proxy for SSL offloading.
 
