@@ -26,7 +26,7 @@ To create the production-ready binary, you need to build a Docker image. This im
 
 The xref:production-packaging.adoc#dockerfile[Dockerfile] and more details on how to build the Docker image can be found in this xref:production-packaging.adoc[dedicated page].
 
-=== Run the Docker image
+=== Run the production binary
 
 After building the Docker image, run it using the following command:
 
