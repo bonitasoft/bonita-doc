@@ -13,7 +13,7 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     depends_on:
-      bonita:
+      bonita-app:
         condition: service_healthy
 
   # A reverse proxy used to communicate between Bonita UI Builder and a Bonita Runtime

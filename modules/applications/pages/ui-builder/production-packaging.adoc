@@ -8,8 +8,8 @@ NOTE: Before starting, ensure you have **Docker** installed on your system.
 
 To build the production binaries, you need to:
 
-* Build a specific docker image containing Bonita UI Builder with you application(s). It will serve your application UI.
-* Use this new image, along with the Bonita runtime image, to interact with you processes.
+* Build a specific docker image containing Bonita UI Builder with your application(s). It will serve your application UI.
+* Use this new image, along with the Bonita runtime image, to interact with your processes.
 
 [[build-docker-image]]
 == Build a docker image containing your UI applications
