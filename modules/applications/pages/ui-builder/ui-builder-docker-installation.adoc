@@ -62,3 +62,17 @@ The Bonita UI Builder is not correctly configured.
 [.solution]#Solution#
 Check the environment variables and make sure they are correctly set. The `BONITA_API_URL` should target a valid Bonita Runtime.
 --
+
+
+[#Portissue]
+[.troubleshooting-section]
+--
+[.symptom]
+My Bonita is running on a different port than 8080 and I can't access Bonita UI Builder.
+
+[.cause]#Cause#
+The variables of the `docker-compose.yml` file have not been properly edited.
+
+[.solution]#Solution#
+You need to edit the `BONITA_API_URL` in the `docker-compose.yml` xref:download-and-launch.adoc#create-docker-environment[file]. Also, you need to override the `BONITA_PORT` xref:ui-builder-docker-installation.adoc#_configure_the_bonita_ui_proxy_image[environment variable].
+--
