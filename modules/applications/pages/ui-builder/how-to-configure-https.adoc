@@ -8,7 +8,7 @@ Configuring HTTPS for Bonita Runtime and UI Builder can be achieved just by upda
 
 == Prerequisites
 
-To configure HTTPS, you need to obtain a certificate issued by a certificate authority for our domain. It is also advised to create a Diffie-Hellman parameters file (dhparam.pem).
+To configure HTTPS, you need to obtain a certificate issued by a certificate authority for our domain. It is also advised to create a Diffie-Hellman parameters file (dhparam.pem) for increased security.
 
 == Configure Bonita UI Proxy
 
@@ -54,7 +54,7 @@ services:
 
 === Update the nginx configuration to activate HTTPS
 
-Start the service so that nginx.conf file is create on the Docker host, and update it to include a conf snippet to the server block:
+Start the service so that `nginx.conf` file is create on the Docker host, and update it to include a conf snippet to the server block:
 
 [source]
 ----
@@ -80,13 +80,13 @@ ssl_certificate /etc/ssl/certs/nginx.crt;  # ssl_certificate directive: Specifie
 ssl_certificate_key /etc/ssl/private/nginx.key;  # ssl_certificate_key directive: Specifies the path to the SSL certificate key.
 ssl_protocols TLSv1.2 TLSv1.3;  # ssl_protocols directive: Specifies the supported SSL protocols.
 ssl_dhparam /etc/ssl/certs/dhparam.pem;  # ssl_dhparam directive: Specifies the path to the Diffie-Hellman parameter file.
----
+----
 
 === secure the cookies
 
-The secure flag on Bonita runtime `X-Bonita-API-Token` and `JSESSIONID` and Bonita UI Builder `SESSION` cookies should be set when using HTTPS.
+The secure flag on Bonita Runtime `X-Bonita-API-Token` and `JSESSIONID` and Bonita UI Builder `SESSION` cookies should be set when using HTTPS.
 Activating the secure flag can be done by updating the nginx configuration of Bonita UI proxy.
-Update nginx.conf file and modify the `proxy_cookie_path` directive for the locations `/bonita/sessionLogout`, `/bonita/` and `/bonita/authservice` as such:
+Update `nginx.conf` file and modify the `proxy_cookie_path` directive for the locations `/bonita/sessionLogout`, `/bonita/` and `/bonita/authservice` as such:
 [source]
 ----
 proxy_cookie_path /bonita "/; Secure";
@@ -100,7 +100,7 @@ proxy_cookie_path / "/; secure";
 === Redirect HTTP to HTTPS
 
 To redirect HTTP requests to HTTPS, you need to update the nginx configuration of Bonita UI proxy.
-Update nginx.conf file to add the following server block:
+Update `nginx.conf` file to add the following server block:
 
 [source]
 ----
@@ -115,7 +115,7 @@ server {
 
 === configure the environment variables
 
-In order to replace the apparent scheme in requests to Bonita runtime (http) with the one of the browser (https), you need to set the environment variable `REMOTE_IP_VALVE_ENABLED: "true"` in the Bonita Runtime service in the `docker-compose.yml` file:
+In order to replace the apparent scheme in requests to Bonita Runtime (HTTP) with the one of the browser (HTTPS), you need to set the environment variable `REMOTE_IP_VALVE_ENABLED: "true"` in the Bonita Runtime service in the `docker-compose.yml` file:
 [source,yaml]
 ----
 services:
