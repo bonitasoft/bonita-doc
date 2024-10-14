@@ -1,0 +1,84 @@
+= HTTPS configuration
+:page-aliases: applications:how-to-configure-https.adoc
+:description: In production, it is necessary to set up both Bonita Runtime and UI Builder for HTTPS instead of HTTP. The easiest way it to configure Bonita UI Proxy for SSL offloading.
+
+{description}
+
+Configuring HTTPS for Bonita Runtime and UI Builder can be achieved just by updating the nginx configuration of Bonita UI proxy and setting some environment variables. This page contains some configuration  examples.
+
+== Prerequisites
+
+To configure HTTPS, you need to obtain a certificate issued by a certificate authority for our domain.
+
+== Configure Bonita UI Proxy
+
+=== configure the environment variables
+
+To activate HTTPS, you need to set the environment variable NGINX_LISTEN_ADDRESS in `docker-compose.yml` to the Bonita UI proxy service (`reverse-proxy`):
+
+[source,yaml]
+----
+services:
+  ...
+  reverse-proxy:
+    image: ...
+    environment:
+      NGINX_LISTEN_ADDRESS: 443 ssl
+----
+
+=== Volume mount
+
+To configure HTTPS, you need to mount the certificate and key files into Bonita UI proxy container. You can do this by mounting a volume.
+You will also need to mount other volumes to update the nginx configuration.
+
+Edit the `docker-compose.yml` file and add the following volumes to the reverse-proxy service:
+
+[source,yaml]
+----
+services:
+  ...
+  reverse-proxy:
+    image: ...
+    environment: ...
+    volumes:
+      - nginx.conf:/etc/nginx/templates/nginx.conf.template
+      - https.conf:/etc/nginx/snippets/https.conf
+      - https-redirect.conf:/etc/nginx/snippets/https-redirect.conf
+      - nginx.crt:/etc/ssl/certs/nginx.crt
+      - nginx.key:/etc/ssl/private/nginx.key
+      - dhparam.pem:/etc/ssl/certs/dhparam.pem
+----
+
+=== Update the nginx configuration to activate HTTPS
+
+
+
+=== secure the cookies
+
+The secure flag on Bonita runtime `X-Bonita-API-Token` and `JSESSIONID` and Bonita UI Builder `SESSION` cookies should be set when using HTTPS.
+
+Activating the secure flag can be done by updating the nginx configuration of Bonita UI proxy.
+
+=== Redirect HTTP to HTTPS
+
+To redirect HTTP requests to HTTPS, you need to update the nginx configuration of Bonita UI proxy.
+
+== Configure Bonita Runtime
+
+=== configure the environment variables
+
+In order to replace the apparent scheme in requests to Bonita runtime (http) with the one of the browser (https), you need to set the environment variable `REMOTE_IP_VALVE_ENABLED: "true"` in the Bonita Runtime service in the `docker-compose.yml` file:
+[source,yaml]
+----
+services:
+  ...
+  bonita:
+    image: ...
+    environment:
+      REMOTE_IP_VALVE_ENABLED: "true"
+----
+
+== Troubleshooting
+
+=== 302 Redirections are broken in Bonita applications
+
