@@ -21,6 +21,8 @@ It brings a host of advanced features and improved usability, designed to help y
 
 Bonita UI Builder is an application-centric development environment that allows for designing forms and application pages, without distinction. You can now design fully-fledged applications, embedding dashboards and complex interfaces. Or, you can just design single-page applications. The choice is up to you. 
 
+Bonita UI Builder is a standalone product available as a custom Docker image, which can be downloaded from the Bonitasoft JFrog repository. It also requires a 2024.3 Enterprise version of Bonita (or any later version) to work.
+
 With Bonita UI Builder, you can still manage your workflows, continuous integration, etc., the way you’re managing them now. 
 
 
