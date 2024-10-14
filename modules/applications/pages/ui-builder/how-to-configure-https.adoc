@@ -126,7 +126,7 @@ services:
       REMOTE_IP_VALVE_ENABLED: "true"
 ----
 
-== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+== Troubleshooting
 
 *Symptom:* +
 302 Redirections are broken in Bonita applications and users get redircted to a URL without HTTPS
