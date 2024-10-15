@@ -1,6 +1,6 @@
 = HTTPS Configuration
 :page-aliases: applications:how-to-configure-https.adoc
-:description: In production, it is necessary to set up both Bonita Runtime and UI Builder for HTTPS instead of HTTP. The easiest way is to configure Bonita UI Proxy for SSL offloading.
+:description: In production, it is necessary to set up both Bonita Runtime and UI Builder for HTTPS instead of HTTP. The easiest way to do that is to configure Bonita UI Proxy for SSL offloading.
 
 {description}
 
@@ -8,7 +8,7 @@ Configuring HTTPS for Bonita Runtime and UI Builder can be achieved just by upda
 
 == Prerequisites
 
-To configure HTTPS, you need to obtain a certificate issued by a certificate authority for your domain (you can also use a service to automate renewal of SSL certificates like Let’s Encrypt with Certbot). It is also advised to create a Diffie-Hellman parameters file (dhparam.pem) for increased security (for example on Linux running  `openssl dhparam -out /etc/nginx/dhparam.pem 4096`).
+To configure HTTPS, you need to obtain a certificate issued by a certificate authority for your domain (you can also use a service to automate renewal of SSL certificates like Let’s Encrypt with Certbot). It is also advised to create a Diffie-Hellman parameters file (dhparam.pem) for increased security (for example on Linux running `openssl dhparam -out /etc/nginx/dhparam.pem 4096`).
 
 == Configure Bonita UI Proxy
 
@@ -52,7 +52,7 @@ services:
       - <path_on_docker_host>/dhparam.pem:/etc/ssl/certs/dhparam.pem
 ----
 
-=== Update the nginx configuration to activate HTTPS
+=== Update the nginx configuration to configure HTTPS
 
 Start the service so that the `nginx.conf` file is created on the Docker host (`docker compose up bonita-ui-proxy`). Then, update it to include a conf snippet to the server block:
 
@@ -72,10 +72,10 @@ Then update the file `https.conf` with your configuration (see http://nginx.org/
 ----
 server_name bonitasoft.com;  # server_name directive: Sets the server domain.
 ssl_ciphers 'ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES256-SHA:ECDHE-ECDSA-DES-CBC3-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:DES-CBC3-SHA:!DSS';
-ssl_prefer_server_ciphers on;
-ssl_session_cache shared:SSL:50m;
-ssl_session_timeout 5m;
-add_header Strict-Transport-Security max-age=15768000;
+ssl_prefer_server_ciphers on; # only enable modern list of ciphers listed by directive ssl_ciphers
+ssl_session_cache shared:SSL:50m; # cache existing TLS connections so that each new request from a client/browser does not need to perform the full TLS handshake
+ssl_session_timeout 5m; # timeout for cached TLS connections
+add_header Strict-Transport-Security max-age=15768000; # HSTS header to ensure that all subsequent requests are made over HTTPS
 ssl_certificate /etc/ssl/certs/nginx.crt;  # ssl_certificate directive: Specifies the path to the SSL certificate.
 ssl_certificate_key /etc/ssl/private/nginx.key;  # ssl_certificate_key directive: Specifies the path to the SSL certificate key.
 ssl_protocols TLSv1.2 TLSv1.3;  # ssl_protocols directive: Specifies the supported SSL protocols.
@@ -106,7 +106,7 @@ Update `nginx.conf` file to add the following server block:
 ----
 server {
     listen 80;
-    server_name localhost;
+    server_name bonitasoft.com; # should match the server_name declared in https.conf
     return 302 https://$server_name$request_uri;
 }
 ----
@@ -126,6 +126,7 @@ services:
       REMOTE_IP_VALVE_ENABLED: "true"
 ----
 
+If you deploy Bonita Runtime Tomcat bundle instead of the docker container, make sure you xref:identity:ssl.adoc#_tomcat_and_ssl_offloading[activate the remoteIpValve].
 [.troubleshooting-title]
 == Troubleshooting
 
