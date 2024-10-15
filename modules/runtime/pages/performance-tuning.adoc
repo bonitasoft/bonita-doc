@@ -156,7 +156,7 @@ Subscription only:
 bonita.tenant.work.corePoolSize=25
 bonita.tenant.work.maximumPoolSize=25
 bonita.tenant.work.keepAliveTimeSeconds=60
----
+----
 
 It is very similar to the constructor provided in the http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ThreadPoolExecutor.html#ThreadPoolExecutor-int-int-long-java.util.concurrent.TimeUnit-java.util.concurrent.BlockingQueue-[default JDK ThreadPoolExecutor]. +
 For a reminder of how the threadpool behaves, see the Queuing section of the
