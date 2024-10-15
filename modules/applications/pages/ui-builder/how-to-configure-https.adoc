@@ -115,7 +115,7 @@ server {
 
 === Configure the environment variables
 
-In order to replace the apparent scheme in requests to Bonita Runtime (HTTP) with the one of the browser (HTTPS), you need to set the environment variable `REMOTE_IP_VALVE_ENABLED: "true"` in the Bonita Runtime service in the `docker-compose.yml` file:
+In order to replace the apparent scheme in requests to Bonita Runtime (HTTP) with the one of the browser (HTTPS), you need to set the environment variable `REMOTE_IP_VALVE_ENABLED: "true"` in the `bonita-app` service in the `docker-compose.yml` file:
 [source,yaml]
 ----
 services:
@@ -126,7 +126,7 @@ services:
       REMOTE_IP_VALVE_ENABLED: "true"
 ----
 
-If you deploy Bonita Runtime Tomcat bundle instead of the docker container, make sure you xref:identity:ssl.adoc#_tomcat_and_ssl_offloading[activate the remoteIpValve].
+If you deploy Bonita Runtime Tomcat bundle instead of the docker container, make sure you xref:identity:ssl.adoc#_tomcat_and_ssl_offloading[activate the RemoteIpValve].
 
 [.troubleshooting-title]
 == Troubleshooting
