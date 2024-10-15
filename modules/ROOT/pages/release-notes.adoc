@@ -1,11 +1,6 @@
 = Release notes
 :description: This is the release notes for Bonita {bonitaVersion} versions
 
-[NOTE]
-====
-The {bonitaVersion} version is in development.
-====
-
 == Bonita UI Builder
 
 We are excited to announce the release of xref:applications:bonita-ui-builder.adoc[Bonita UI Builder], our new and enhanced development environment for creating all kind of interfaces, pages and forms for your applications! It brings along a host of advanced features and improved usability, designed to help you create compelling, responsive, and user-friendly interfaces.
