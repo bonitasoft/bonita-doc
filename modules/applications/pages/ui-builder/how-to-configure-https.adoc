@@ -1,0 +1,148 @@
+= HTTPS Configuration
+:page-aliases: applications:how-to-configure-https.adoc
+:description: In production, it is necessary to set up both Bonita Runtime and UI Builder for HTTPS instead of HTTP. The easiest way is to configure Bonita UI Proxy for SSL offloading.
+
+{description}
+
+Configuring HTTPS for Bonita Runtime and UI Builder can be achieved just by updating the nginx configuration of Bonita UI proxy and setting some environment variables. This page contains some configuration  examples.
+
+== Prerequisites
+
+To configure HTTPS, you need to obtain a certificate issued by a certificate authority for your domain (you can also use a service to automate renewal of SSL certificates like Let’s Encrypt with Certbot). It is also advised to create a Diffie-Hellman parameters file (dhparam.pem) for increased security (for example on Linux running  `openssl dhparam -out /etc/nginx/dhparam.pem 4096`).
+
+== Configure Bonita UI Proxy
+
+=== Configure the environment variables
+
+To activate HTTPS on Bonita UI Proxy, you need to set the environment variable NGINX_LISTEN_ADDRESS in `docker-compose.yml` for the service `bonita-ui-proxy`:
+
+[source,yaml]
+----
+services:
+  ...
+  bonita-ui-proxy:
+    image: ...
+    environment:
+      NGINX_LISTEN_ADDRESS: 443 ssl
+----
+
+=== Volumes mount
+
+To configure HTTPS, you need to mount the certificate and key files into the Bonita UI proxy container. You can do this by mounting volumes.
+You will also need other mounts to update the nginx configuration.
+
+Edit the `docker-compose.yml` file and add the following volumes/bind mounts to the bonita-ui-proxy service (replacing <path_on_docker_host> by the local files paths):
+
+[source,yaml]
+----
+services:
+  ...
+  bonita-ui-proxy:
+    image: ...
+    environment: ...
+    volumes:
+      - type: bind
+        source: <path_on_docker_host>/nginx.conf
+        target: /etc/nginx/templates/nginx.conf.template
+      - type: bind
+        source: <path_on_docker_host>/https.conf
+        target: /etc/nginx/snippets/https.conf
+      - <path_on_docker_host>/nginx.crt:/etc/ssl/certs/nginx.crt
+      - <path_on_docker_host>/nginx.key:/etc/ssl/private/nginx.key
+      - <path_on_docker_host>/dhparam.pem:/etc/ssl/certs/dhparam.pem
+----
+
+=== Update the nginx configuration to activate HTTPS
+
+Start the service so that the `nginx.conf` file is created on the Docker host (`docker compose up bonita-ui-proxy`). Then, update it to include a conf snippet to the server block:
+
+[source]
+----
+server {
+    ...
+    listen ${NGINX_LISTEN_ADDRESS}; # listen directive: Sets the server port to listen on for incoming connections.
+    include snippets/https.conf;  # include directive: Includes the https and certificate configuration.
+    ...
+    }
+----
+
+Then update the file `https.conf` with your configuration (see http://nginx.org/en/docs/http/ngx_http_ssl_module.html[Nginx official documentation] for all configuration capabilities). Here is an example of content:
+
+[source]
+----
+server_name bonitasoft.com;  # server_name directive: Sets the server domain.
+ssl_ciphers 'ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES256-SHA:ECDHE-ECDSA-DES-CBC3-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:DES-CBC3-SHA:!DSS';
+ssl_prefer_server_ciphers on;
+ssl_session_cache shared:SSL:50m;
+ssl_session_timeout 5m;
+add_header Strict-Transport-Security max-age=15768000;
+ssl_certificate /etc/ssl/certs/nginx.crt;  # ssl_certificate directive: Specifies the path to the SSL certificate.
+ssl_certificate_key /etc/ssl/private/nginx.key;  # ssl_certificate_key directive: Specifies the path to the SSL certificate key.
+ssl_protocols TLSv1.2 TLSv1.3;  # ssl_protocols directive: Specifies the supported SSL protocols.
+ssl_dhparam /etc/ssl/certs/dhparam.pem;  # ssl_dhparam directive: Specifies the path to the Diffie-Hellman parameter file.
+----
+
+=== Secure the cookies
+
+The secure flag on Bonita Runtime `X-Bonita-API-Token` and `JSESSIONID` and Bonita UI Builder `SESSION` cookies should be set when using HTTPS.
+Activating the secure flag can be done by updating the nginx configuration of Bonita UI proxy.
+Update `nginx.conf` file and modify the `proxy_cookie_path` directive for the locations `/bonita/sessionLogout`, `/bonita/` and `/bonita/authservice` as such:
+[source]
+----
+proxy_cookie_path /bonita "/; Secure";
+----
+Also add the following line to the locations `~* ^/app/([^?/#]+)` and `\`:
+[source]
+----
+proxy_cookie_path / "/; secure";
+----
+
+=== Redirect HTTP to HTTPS
+
+To redirect HTTP requests to HTTPS, you need to update the nginx configuration of Bonita UI proxy.
+Update `nginx.conf` file to add the following server block:
+
+[source]
+----
+server {
+    listen 80;
+    server_name localhost;
+    return 302 https://$server_name$request_uri;
+}
+----
+
+== Configure Bonita Runtime
+
+=== Configure the environment variables
+
+In order to replace the apparent scheme in requests to Bonita Runtime (HTTP) with the one of the browser (HTTPS), you need to set the environment variable `REMOTE_IP_VALVE_ENABLED: "true"` in the Bonita Runtime service in the `docker-compose.yml` file:
+[source,yaml]
+----
+services:
+  ...
+  bonita-app:
+    image: ...
+    environment:
+      REMOTE_IP_VALVE_ENABLED: "true"
+----
+
+[.troubleshooting-title]
+== Troubleshooting
+
+[.troubleshooting-section]
+--
+[.symptom]
+Navigation is broken in Bonita Applications
+
+[.symptom-description]
+302 Redirections are broken in Bonita applications and users get redirected to a URL without HTTPS
+
+[.cause]#Cause#
+This issue arises because the incoming requests that are recieved by Bonita Runtime are HTTP requests and not HTTPS (since the reverse proxy is used for SSL offloading)
+
+[.solution]#Possible solution#
+Activate the Remote IP Valve on Bonita container as described in the previous section in order for the `X-Forwarded-...` headers to be retrieved as request headers by Bonita Runtime.
+--
+
+
+
