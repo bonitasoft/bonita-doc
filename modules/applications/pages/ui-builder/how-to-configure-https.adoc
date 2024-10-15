@@ -1,6 +1,6 @@
 = HTTPS Configuration
 :page-aliases: applications:how-to-configure-https.adoc
-:description: In production, it is necessary to set up both Bonita Runtime and UI Builder for HTTPS instead of HTTP. The easiest way it to configure Bonita UI Proxy for SSL offloading.
+:description: In production, it is necessary to set up both Bonita Runtime and UI Builder for HTTPS instead of HTTP. The easiest way is to configure Bonita UI Proxy for SSL offloading.
 
 {description}
 
@@ -8,19 +8,19 @@ Configuring HTTPS for Bonita Runtime and UI Builder can be achieved just by upda
 
 == Prerequisites
 
-To configure HTTPS, you need to obtain a certificate issued by a certificate authority for our domain. It is also advised to create a Diffie-Hellman parameters file (dhparam.pem) for increased security.
+To configure HTTPS, you need to obtain a certificate issued by a certificate authority for your domain (you can also use a service to automate renewal of SSL certificates like Let’s Encrypt with Certbot). It is also advised to create a Diffie-Hellman parameters file (dhparam.pem) for increased security (for example on Linux running  `openssl dhparam -out /etc/nginx/dhparam.pem 4096`).
 
 == Configure Bonita UI Proxy
 
 === Configure the environment variables
 
-To activate HTTPS, you need to set the environment variable NGINX_LISTEN_ADDRESS in `docker-compose.yml` to the Bonita UI proxy service (`reverse-proxy`):
+To activate HTTPS on Bonita UI Proxy, you need to set the environment variable NGINX_LISTEN_ADDRESS in `docker-compose.yml` for the service `bonita-ui-proxy`:
 
 [source,yaml]
 ----
 services:
   ...
-  reverse-proxy:
+  bonita-ui-proxy:
     image: ...
     environment:
       NGINX_LISTEN_ADDRESS: 443 ssl
@@ -28,16 +28,16 @@ services:
 
 === Volumes mount
 
-To configure HTTPS, you need to mount the certificate and key files into Bonita UI proxy container. You can do this by mounting volumes.
+To configure HTTPS, you need to mount the certificate and key files into the Bonita UI proxy container. You can do this by mounting volumes.
 You will also need other mounts to update the nginx configuration.
 
-Edit the `docker-compose.yml` file and add the following volumes/bind mounts to the reverse-proxy service (replacing <path_on_docker_host> by the local files paths):
+Edit the `docker-compose.yml` file and add the following volumes/bind mounts to the bonita-ui-proxy service (replacing <path_on_docker_host> by the local files paths):
 
 [source,yaml]
 ----
 services:
   ...
-  reverse-proxy:
+  bonita-ui-proxy:
     image: ...
     environment: ...
     volumes:
@@ -54,7 +54,7 @@ services:
 
 === Update the nginx configuration to activate HTTPS
 
-Start the service so that `nginx.conf` file is create on the Docker host, and update it to include a conf snippet to the server block:
+Start the service so that the `nginx.conf` file is created on the Docker host (`docker compose up bonita-ui-proxy`). Then, update it to include a conf snippet to the server block:
 
 [source]
 ----
@@ -66,7 +66,7 @@ server {
     }
 ----
 
-Then update the file https.conf with your configuration (see http://nginx.org/en/docs/http/ngx_http_ssl_module.html[Nginx official documentation] for all configuration capabilities). Here is an example of content:
+Then update the file `https.conf` with your configuration (see http://nginx.org/en/docs/http/ngx_http_ssl_module.html[Nginx official documentation] for all configuration capabilities). Here is an example of content:
 
 [source]
 ----
@@ -120,22 +120,29 @@ In order to replace the apparent scheme in requests to Bonita Runtime (HTTP) wit
 ----
 services:
   ...
-  bonita:
+  bonita-app:
     image: ...
     environment:
       REMOTE_IP_VALVE_ENABLED: "true"
 ----
 
+[.troubleshooting-title]
 == Troubleshooting
 
-*Symptom:* +
-302 Redirections are broken in Bonita applications and users get redircted to a URL without HTTPS
+[.troubleshooting-section]
+--
+[.symptom]
+Navigation is broken in Bonita Applications
 
-*Cause:* +
+[.symptom-description]
+302 Redirections are broken in Bonita applications and users get redirected to a URL without HTTPS
+
+[.cause]#Cause#
 This issue arises because the incoming requests that are recieved by Bonita Runtime are HTTP requests and not HTTPS (since the reverse proxy is used for SSL offloading)
 
-*Solution:* +
+[.solution]#Possible solution#
 Activate the Remote IP Valve on Bonita container as described in the previous section in order for the `X-Forwarded-...` headers to be retrieved as request headers by Bonita Runtime.
+--
 
 
 
