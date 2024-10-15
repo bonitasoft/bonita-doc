@@ -13,7 +13,7 @@ services:
 
   # In case you have built an Application, use instead as example:
   # my-application:
-  #  image: my-application-[my built environment]:[my aplication's semantic version]
+  #  image: my-application-[my built environment]:[my application's semantic version]
   bonita:
     image: bonita:pass:a[{bonitaVersion}]
     ports:

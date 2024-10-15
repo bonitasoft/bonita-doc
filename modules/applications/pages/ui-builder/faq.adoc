@@ -204,6 +204,7 @@ Once you know that https://learn.microsoft.com/en-us/windows/wsl/networking#acce
 you must adapt the `docker-compose.yml` to use it instead of `host.docker.internal` where Bonita is concerned.
 
 Set the following environment variables:
+
 * `BONITA_API_URL` under the `bonita-ui-builder` service.
 * `BONITA_HOST` under the `bonita-ui-proxy` service.
 --
