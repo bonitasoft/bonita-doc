@@ -127,6 +127,7 @@ services:
 ----
 
 If you deploy Bonita Runtime Tomcat bundle instead of the docker container, make sure you xref:identity:ssl.adoc#_tomcat_and_ssl_offloading[activate the remoteIpValve].
+
 [.troubleshooting-title]
 == Troubleshooting
 
