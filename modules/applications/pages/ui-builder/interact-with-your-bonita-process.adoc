@@ -20,7 +20,7 @@ You can create API requests and interact with the Bonita runtime with the xref:a
 We will describe below how you can, for example, get a list of Bonita processes, and instantiate one of them.
 
 === Get a list of processes
-To get the list of the processeses deployed on the Bonita runtime (first 10): click the `Editor` icon from the left panel, click the `Queries` tab, then click the `new query / API` button and select the Bonita datasource created previously.
+To get the list of the processes deployed on the Bonita runtime (first 10): click the `Editor` icon from the left panel, click the `Queries` tab, then click the `new query / API` button and select the Bonita datasource created previously.
 Enter the following configuration:
 
 * `Method`: GET
@@ -52,11 +52,6 @@ Enter the following configuration:
 * `Name`: instantiateProcess
 * `Method`: POST
 * `URL`: /bonita/API/bpm/process/{{getProcess.data[0].id}}/instantiation
-* `Params`:
-    - `Key`: p
-    - `Value`: 0
-    - `Key`: c
-    - `Value`: 10
 * `Body`:
 [source, JSON]
 ----

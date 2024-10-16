@@ -1,17 +1,19 @@
 = Download and launch Bonita UI Builder
 :page-aliases: applications:download-and-launch.adoc
-:description: Describes how to download and launch Bonita UI Builder.
+:description: Learn how to download, launch, and set up the Bonita UI Builder environment for development.
 
 [NOTE]
 ====
 For Subscription editions only.
 ====
 
-== Prerequisites
-* Docker installed
-* 2024.3 Bonita (or any later version) started on the local machine
+{description}
 
-To use Bonita UI Builder, a Bonita runtime running on your local machine is required (it may be a Bonita Studio or a standalone Bonita runtime).
+== Prerequisites
+* Docker installed.
+* 2024.3 Bonita (or any later version) started on your local machine.
+
+To use Bonita UI Builder, a Bonita runtime running on your local machine is required (it may be a Bonita Studio or a standalone Bonita runtime). Make sure no firewall is blocking the connection between Bonita UI Builder and Bonita Runtime.
 
 [[create-docker-environment]]
 == Create the Docker environment
@@ -27,6 +29,8 @@ First, create a `docker-compose.yml` file with the content below:
 ----
 include::example$ui-builder/development/docker-compose.yml[]
 ----
+
+If Bonita is running on a port other than 8080, you need to update the `8080` in the `BONITA_API_URL` variable within the `docker-compose.yml` file described above. Also, you need to override the `BONITA_PORT` xref:ui-builder-docker-installation.adoc#environment-variables[environment variable].
 
 [NOTE]
 ====

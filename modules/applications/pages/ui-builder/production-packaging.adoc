@@ -4,10 +4,17 @@
 
 NOTE: Before starting, ensure you have **Docker** installed on your system.
 
-[[build-docker-image]]
-== Build a docker image
+== What you need to do
 
-Add this Dockerfile in your project to the root of your project:
+To build the production binaries, you need to:
+
+* Build a specific docker image containing Bonita UI Builder with your application(s). It will serve your application UI.
+* Use this new image, along with the Bonita runtime image, to interact with your processes.
+
+[[build-docker-image]]
+== Build a docker image containing your UI applications
+
+Add this **Dockerfile** at the root of your project:
 
 [[dockerfile]]
 [source,docker,subs="+macros,+attributes"]
@@ -39,7 +46,7 @@ WARNING: If you use this command, be sure to have the `workspace` folder next to
 
 [source,console]
 ----
-docker build -t <image-name> .
+docker build -t <my-uib-image-name>:<version> .
 ----
 
 === Advanced build
@@ -60,8 +67,27 @@ You can override some default values by using the following build arguments:
 docker build --build-arg "BASE={bonita-ui-builder-image}" \
              --build-arg "VERSION={bonita-ui-builder-version}" \
              --build-arg "WORKSPACE=./workspace/" \
-             -t <image-name>:<version> .
+             -t <my-uib-image-name>:<version> .
 ----
+
+
+[[run-production-binaries]]
+== Run the production binaries
+
+To run the production binaries, you need to:
+
+* start a container with the Bonita Application image
+* start a container with Bonita UI Builder containing you application UI
+* start a container with a reverse proxy to link the two previous containers
+
+To do that, you can use the following `docker-compose.yml` file as a starting point:
+
+[source,docker,subs="+macros,+attributes"]
+----
+include::example$ui-builder/production/docker-compose.yml[]
+----
+
+Your applications will then be accessible at `http://localhost` or `http://YOUR_PUBLIC_IP_ADDRESS`.
 
 
 === Configure and manage Bonita healthcheck settings in a production environment
@@ -94,26 +120,12 @@ If issues arise, check the environment variables, service status, and logs, and 
 By following these steps, you can effectively configure Bonita's healthcheck to maintain both security and optimal performance in your production environment.
 
 
-[[run-production-binary]]
-== Run the production binary
-
-To run the production docker image, you can use the following command:
-
-[source,console]
-----
-docker run --name <container-name> -p 8080:80 \
-           -e BONITA_API_URL=<bonita-runtime-url>/bonita/API \
-           -e APPSMITH_ENCRYPTION_PASSWORD=<encryption-password> \
-           -e APPSMITH_ENCRYPTION_SALT=<encryption-salt> \
-           <image-name>:<image-version>
-----
+=== Customize your bonita-ui-builder image
 
 You can override and configure all xref:ui-builder-docker-installation.adoc#environment-variables[environment variables].
 
+
 [NOTE]
 ====
-If you want to test your applications before going to production, instead of using `docker run`, you can use a `docker-compose.yml` file in the likes of what was done in the xref:download-and-launch.adoc#create-docker-environment[installation step]. In this `docker-compose.yml` file, you just need to replace the bonita-ui-build `image` name with the name of the docker production image xref:production-packaging.adoc#build-docker-image[built previously].
-Your applications will then be accessible at `http://localhost`.
-
 Please note that currently, only a single container instance is supported, which means multiple instances of UI builder for redundancy are not allowed.
 ====
