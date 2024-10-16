@@ -50,7 +50,7 @@ services:
 
 === Update the nginx configuration to configure HTTPS
 
-First, retrieve the nging configuration form the service `bonita-ui-proxy` using the following steps:
+First, retrieve the nging configuration from the service `bonita-ui-proxy` using the following steps:
 * create the `bonita-ui-proxy` container by running `docker compose create bonita-ui-proxy`
 * list the containers `docker container ps -a` and copy the container name for `bonita-ui-proxy` image (for example `docker-bonita-ui-proxy-1`)
 * copy on the host the nginx configuration form the container `docker cp docker-bonita-ui-proxy-1:/etc/nginx/templates/nginx.conf.template <path_on_docker_host>/nginx.conf`
