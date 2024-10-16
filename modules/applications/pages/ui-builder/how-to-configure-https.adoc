@@ -31,7 +31,7 @@ services:
 To configure HTTPS, you need to mount the certificate and key files into the Bonita UI proxy container. You can do this by mounting volumes.
 You will also need other mounts to update the nginx configuration.
 
-Edit the `docker-compose.yml` file and add the following volumes/bind mounts to the bonita-ui-proxy service (replacing <path_on_docker_host> by the local files paths):
+Edit the `docker-compose.yml` file and add the following volumes to the bonita-ui-proxy service (replacing <path_on_docker_host> by the local files paths):
 
 [source,yaml]
 ----
@@ -41,12 +41,8 @@ services:
     image: ...
     environment: ...
     volumes:
-      - type: bind
-        source: <path_on_docker_host>/nginx.conf
-        target: /etc/nginx/templates/nginx.conf.template
-      - type: bind
-        source: <path_on_docker_host>/https.conf
-        target: /etc/nginx/snippets/https.conf
+      - <path_on_docker_host>/nginx.conf:/etc/nginx/templates/nginx.conf.template
+      - <path_on_docker_host>/https.conf:/etc/nginx/snippets/https.conf
       - <path_on_docker_host>/nginx.crt:/etc/ssl/certs/nginx.crt
       - <path_on_docker_host>/nginx.key:/etc/ssl/private/nginx.key
       - <path_on_docker_host>/dhparam.pem:/etc/ssl/certs/dhparam.pem
@@ -54,7 +50,12 @@ services:
 
 === Update the nginx configuration to configure HTTPS
 
-Start the service so that the `nginx.conf` file is created on the Docker host (`docker compose up bonita-ui-proxy`). Then, update it to include a conf snippet to the server block:
+First, retrieve the nging configuration form the service `bonita-ui-proxy` using the following steps:
+* create the `bonita-ui-proxy` container by running `docker compose create bonita-ui-proxy`
+* list the containers `docker container ps -a` and copy the container name for `bonita-ui-proxy` image (for example `docker-bonita-ui-proxy-1`)
+* copy on the host the nginx configuration form the container `docker cp docker-bonita-ui-proxy-1:/etc/nginx/templates/nginx.conf.template <path_on_docker_host>/nginx.conf`
+
+Update the `nginx.conf` file on the host to include a conf snippet in the server block:
 
 [source]
 ----
@@ -66,7 +67,7 @@ server {
     }
 ----
 
-Then update the file `https.conf` with your configuration (see http://nginx.org/en/docs/http/ngx_http_ssl_module.html[Nginx official documentation] for all configuration capabilities). Here is an example of content:
+Then create the file `https.conf` in the same directory and update it with your SSL configuration (see http://nginx.org/en/docs/http/ngx_http_ssl_module.html[Nginx official documentation] for all configuration capabilities). Here is an example of content:
 
 [source]
 ----
