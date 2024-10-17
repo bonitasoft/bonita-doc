@@ -137,15 +137,25 @@ The work service is responsible for asynchronously processing execution of proce
 This is one of the key configurations to optimize, because even though there are many client threads, client threads are held only for a short time before being released, and then execution flow continues using work service threads. +
 A thread from the pool of the work service is known as a worker.
 
-The work service is configured in xref:runtime:bonita-platform-setup.adoc[`bonita-tenant-community-custom.properties`].
+The work service is configured in `bonita-tenant-community-custom.properties` and `bonita-tenant-sp-custom.properties` (cf xref:bonita-platform-setup.adoc[platform setup]).
 
+Community:
+
+.bonita-tenant-community-custom.properties
 [source,properties]
 ----
 bonita.tenant.work.terminationTimeout=30
+bonita.tenant.work.queueCapacity=10000
+----
+
+Subscription only:
+
+.bonita-tenant-sp-custom.properties
+[source, properties]
+----
 bonita.tenant.work.corePoolSize=25
 bonita.tenant.work.maximumPoolSize=25
 bonita.tenant.work.keepAliveTimeSeconds=60
-bonita.tenant.work.queueCapacity=10000
 ----
 
 It is very similar to the constructor provided in the http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ThreadPoolExecutor.html#ThreadPoolExecutor-int-int-long-java.util.concurrent.TimeUnit-java.util.concurrent.BlockingQueue-[default JDK ThreadPoolExecutor]. +
@@ -195,19 +205,21 @@ The Connector service is configured in `bonita-tenant-community-custom.propertie
 
 Community:
 
+.bonita-tenant-community-custom.properties
 [source,properties]
 ----
 bonita.tenant.connector.queueCapacity=10000
-bonita.tenant.connector.corePoolSize=5
-bonita.tenant.connector.maximumPoolSize=100
-bonita.tenant.connector.keepAliveTimeSeconds=100
 ----
 
 Subscription only:
 
+.bonita-tenant-sp-custom.properties
 [source,properties]
 ----
 bonita.tenant.connector.timeout=300
+bonita.tenant.connector.corePoolSize=5
+bonita.tenant.connector.maximumPoolSize=100
+bonita.tenant.connector.keepAliveTimeSeconds=100
 ----
 
 For details of these parameters, see <<work_service,Work service>>.
