@@ -68,7 +68,7 @@ server {
     }
 ----
 
-Then create the file `https.conf` in the same directory and update it with your SSL configuration (see http://nginx.org/en/docs/http/ngx_http_ssl_module.html[Nginx official documentation] for all configuration capabilities). Here is an example of content:
+Then create the file `https.conf` in the same directory and update it with your SSL configuration (see http://nginx.org/en/docs/http/ngx_http_ssl_module.html[Nginx official documentation] for all configuration capabilities). Here is an example of content (the value of `server_name` should at least be changed with the correct domain):
 
 [source]
 ----
@@ -102,7 +102,7 @@ proxy_cookie_path / "/; secure";
 === Redirect HTTP to HTTPS
 
 To redirect HTTP requests to HTTPS, you need to update the nginx configuration of Bonita UI proxy.
-Update `nginx.conf` file to add the following server block:
+Update `nginx.conf` file to add the following server block (update the value of `server_name` with your domain):
 
 [source]
 ----
