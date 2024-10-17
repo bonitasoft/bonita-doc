@@ -55,7 +55,7 @@ First, retrieve the nginx configuration snippets from the `bonita-ui-proxy` serv
 
 * Create the `bonita-ui-proxy` container by running `docker compose create bonita-ui-proxy`
 * List the containers `docker container ps -a` and copy the container name for `bonita-ui-proxy` image (for example `docker-bonita-ui-proxy-1`)
-* Copy on the host the nginx configuration form the container:
+* Copy on the host the nginx configuration snippets form the container:
 `docker cp docker-bonita-ui-proxy-1:/etc/nginx/snippets/https.conf <path_on_docker_host>/https.conf`
 `docker cp docker-bonita-ui-proxy-1:/etc/nginx/snippets/cookies.conf <path_on_docker_host>/cookies.conf`
 `docker cp docker-bonita-ui-proxy-1:/etc/nginx/snippets/https-redirect.conf <path_on_docker_host>/https-redirect.conf`
