@@ -43,6 +43,7 @@ or `uid` on other LDAP servers, value: `john.smith`)
 
 This section explains how to put together all the LDAP server information you have to create or edit a JAAS configuration file compatible with your JEE application server.
 
+[#loginContextName-anchor]
 === Login context name
 
 The JAAS configuration can include one or several login contexts. The Bonita login context must be named `BonitaAuthentication-<TENANT_ID>` (where `<TENANT_ID>` is your tenant id).
@@ -121,6 +122,7 @@ You will need to perform following changes:
 * Comment out the `authenticationService` line
 * Add this new line: `authentication.service.ref.name=jaasAuthenticationService`
 
+[#configureJAAS-anchor]
 === Configure JAAS
 
 To define the JAAS configuration file location you need to set a JVM property, `java.security.auth.login.config`.
@@ -283,10 +285,10 @@ There are two potential causes:
 
 [.solution]#Possible solution#
 
-* Make sure the `SECURITY_OPTS` in the `setenv.sh` file has the correct file path to the jaas configuration file.
-* Make sure the line in the `setenv.sh(.bat)` file defining the `SECURITY_OPTS` is uncommented AND the  `${SECURITY_OPTS}` / `%SECURITY_OPTS%` tag is added among the options in the line defining the `CATALINA_OPTS`.
+* Make sure the `SECURITY_OPTS` in the `setenv.sh` file has the correct file path to the jaas configuration file. (See <<configureJAAS-anchor, Configure JAAS section>>)
+* Make sure the line in the `setenv.sh(.bat)` file defining the `SECURITY_OPTS` is uncommented AND the  `+${SECURITY_OPTS}+` / `%SECURITY_OPTS%` tag is added among the options in the line defining the `CATALINA_OPTS`. (See <<configureJAAS-anchor, Configure JAAS section>>)
 * If you are starting Bonita using the start-bonita.sh(.bat) script, make sure you actually modify the file `<BUNDLE_HOME>/setup/tomcat-templates/setenv.sh(.bat)`.
-* Make sure the definition of the LoginModules in your jaas configuration file respects the naming convention: the Bonita login context must be named `BonitaAuthentication-<TENANT_ID>` (where `<TENANT_ID>` is your tenant id).
+* Make sure the definition of the LoginModules in your jaas configuration file respects the naming convention: the Bonita login context must be named `BonitaAuthentication-<TENANT_ID>` (where `<TENANT_ID>` is your tenant id). (See <<loginContextName-anchor, Login Context Name>> section)
 --
 
 [.troubleshooting-section]
