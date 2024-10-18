@@ -287,7 +287,7 @@ There are two potential causes:
 * Make sure the line in the `setenv.sh(.bat)` file defining the `SECURITY_OPTS` is uncommented AND the  `${SECURITY_OPTS}` / `%SECURITY_OPTS%` tag is added among the options in the line defining the `CATALINA_OPTS`.
 * If you are starting Bonita using the start-bonita.sh(.bat) script, make sure you actually modify the file `<BUNDLE_HOME>/setup/tomcat-templates/setenv.sh(.bat)`.
 * Make sure the definition of the LoginModules in your jaas configuration file respects the naming convention: the Bonita login context must be named `BonitaAuthentication-<TENANT_ID>` (where `<TENANT_ID>` is your tenant id).
-
+--
 
 [.troubleshooting-section]
 --
@@ -312,7 +312,7 @@ Caused by: javax.net.ssl.SSLHandshakeException: sun.security.validator.Validator
 (In order to add your SSL server's certificate into this truststore, the default password is: `changeit`).
 * Check if your Anti-Virus tool has "SSL Scanning" blocking SSL/TLS. If it does, disable this feature or set exceptions for the target addresses.
 * Make sure that your LDAP server is indeed reachable at the SSL port. You may try connecting to the LDAPS URL with an external ldap client tool (e.g. ldapsearch).
-
+--
 
 [.troubleshooting-section]
 --
@@ -335,7 +335,7 @@ The enpoint identification (i.e. hostname verification) check is failing to vali
 * Make sure the server name used in the _ldaps://_ address of the LdapLoginModule's _userProvider_ matches that of the LDAP server's certificate.
 * Have the LDAP server use a certificate with a subject (or at least a subject alternative name) that matches the server's domain name (so the one used in the ldaps:// addresse of the LdapLoginModule).
 * Disable the endpoint identification (note that the endpoint identification is https://www.oracle.com/technetwork/java/javase/8u181-relnotes-4479407.html[enabled by default since java version 1.8.0_181]) in Bonita's application server by adding the following system property to the java options in your application server's environment setting file (e.g. `<TOMCAT_HOME>/setup/tomcat-templates/setenv.sh(.bat)`): `-Dcom.sun.jndi.ldap.object.disableEndpointIdentification=true`
-
+--
 
 [.troubleshooting-section]
 --
@@ -405,3 +405,4 @@ This problem is related to the configuration of Workstation Restrictions in Micr
 In order to get over the error, there seem to be two possible solutions (to be handled by your Active Directory administrator):
  ** Disable the workstations restrictions in AD
  ** Add the hostname of the Active Directory server to "userWorkstations" attribute. (Note: If it is an AD cluster, you need to add each AD server.)
+--
