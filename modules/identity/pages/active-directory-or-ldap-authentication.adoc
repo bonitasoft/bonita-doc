@@ -43,6 +43,7 @@ or `uid` on other LDAP servers, value: `john.smith`)
 
 This section explains how to put together all the LDAP server information you have to create or edit a JAAS configuration file compatible with your JEE application server.
 
+[#loginContextName]
 === Login context name
 
 The JAAS configuration can include one or several login contexts. The Bonita login context must be named `BonitaAuthentication-<TENANT_ID>` (where `<TENANT_ID>` is your tenant id).
@@ -121,6 +122,7 @@ You will need to perform following changes:
 * Comment out the `authenticationService` line
 * Add this new line: `authentication.service.ref.name=jaasAuthenticationService`
 
+[#configureJAAS]
 === Configure JAAS
 
 To define the JAAS configuration file location you need to set a JVM property, `java.security.auth.login.config`.
@@ -134,7 +136,6 @@ If you're using the xref:runtime:tomcat-bundle.adoc[`tomcat bundle`] installatio
 * Uncomment this line, i.e. remove the # sign and set property value to: `+${CATALINA_HOME}/conf/jaas.cfg+`
 * Locate the line that starts: `CATALINA_OPTS=`
 * Add the tag `+${SECURITY_OPTS}+` after the tag `+${PLATFORM_SETUP}+`
-* Push into database the changes: `./setup.sh push`
 
 ==== For Windows
 
@@ -143,7 +144,6 @@ If you're using the xref:runtime:tomcat-bundle.adoc[`tomcat bundle`] installatio
 * Uncomment it, i.e. remove "rem" keyword and set property value to: `%CATALINA_HOME%\conf\jaas.cfg`
 * Locate the line that starts: `set CATALINA_OPTS=`
 * Add the tag `%SECURITY_OPTS%` after the tag `%PLATFORM_SETUP%`
-* Push into database the changes: `.\setup.bat push`
 
 == Configure SSL (optional)
 
@@ -254,6 +254,7 @@ BonitaAuthentication-1 {
 
 The Active Directory configuration has been tested in single domain configuration. If you a running with multiple domains it's likely that the user will have to type a username including domain name when logging in.
 
+[.troubleshooting-title]
 == Troubleshooting
 
 If necessary, you can edit your configuration to have additional logs (please note, a server restart will be required for the new configuration to be taken into account, though):
@@ -263,15 +264,47 @@ If necessary, you can edit your configuration to have additional logs (please no
 
 === Common error examples
 
-****
-*Symptom:* You see the following error in your logs:
+[.troubleshooting-section]
+--
+[.symptom]
+LDAP Authentication can't find any LoginModule.
+
+[.symptom-description]
+You see the following WARN message in your logs:
+
+[source,log]
+----
+c.b.e.a.i.JAASGenericAuthenticationServiceImpl - error on context creation :javax.security.auth.login.LoginException: No LoginModules configured for BonitaAuthentication-1
+----
+
+[.cause]#Potential cause#
+There are two potential causes:
+
+* The engine could not find the jaas (e.g. `jaas-standard.cfg`) configuration file where the LoginModule is defined.
+* The jaas configuration file does not contain any module named _BonitaAuthentication-1_.
+
+[.solution]#Possible solution#
+
+* Make sure the `SECURITY_OPTS` in the `setenv.sh` file has the correct file path to the jaas configuration file. (See <<configureJAAS, Configure JAAS section>>)
+* Make sure the line in the `setenv.sh(.bat)` file defining the `SECURITY_OPTS` is uncommented AND the  `+${SECURITY_OPTS}+` / `%SECURITY_OPTS%` tag is added among the options in the line defining the `CATALINA_OPTS`. (See <<configureJAAS, Configure JAAS section>>)
+* If you are starting Bonita using the start-bonita.sh(.bat) script, make sure you actually modify the file `<BUNDLE_HOME>/setup/tomcat-templates/setenv.sh(.bat)`.
+* Make sure the definition of the LoginModules in your jaas configuration file respects the naming convention: the Bonita login context must be named `BonitaAuthentication-<TENANT_ID>` (where `<TENANT_ID>` is your tenant id). (See <<loginContextName, Login Context Name>> section)
+--
+
+[.troubleshooting-section]
+--
+[.symptom]
+LDAP Authentication fails to connect to LDAP server over SSL.
+
+[.symptom-description]
+You see the following error in your logs:
 
 [source,log]
 ----
 Caused by: javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed:sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
 ----
 
-*Possible Solutions:*
+[.solution]#Possible solutions#
 
 * Make sure you have imported the public certificate of the LDAP server into the truststore being used by the application server.
 * Make sure the imported certificate has not expired.
@@ -281,27 +314,38 @@ Caused by: javax.net.ssl.SSLHandshakeException: sun.security.validator.Validator
 (In order to add your SSL server's certificate into this truststore, the default password is: `changeit`).
 * Check if your Anti-Virus tool has "SSL Scanning" blocking SSL/TLS. If it does, disable this feature or set exceptions for the target addresses.
 * Make sure that your LDAP server is indeed reachable at the SSL port. You may try connecting to the LDAPS URL with an external ldap client tool (e.g. ldapsearch).
-****
+--
 
-****
-*Symptom:* You see the following error in your logs (it may sometimes be necessary to have set the `-Djavax.net.debug=all` system property before hand):
+[.troubleshooting-section]
+--
+[.symptom]
+LDAP Authentication fails to connect to LDAP server over SSL.
+
+[.symptom-description]
+You see the following error in your logs (it may sometimes be necessary to have set the `-Djavax.net.debug=all` system property before hand):
 
 [source,log]
 ----
 javax.net.ssl.SSLHandshakeException: java.security.cert.CertificateException: No subject alternative DNS name matching my.ldap.server found.
 ----
 
-*Problem:* The enpoint identification (i.e. hostname verification) check is failing to validate the LDAP server's certificate because its subject does not match the hostname specified in the LDAPS url.
+[.cause]#Cause#
+The enpoint identification (i.e. hostname verification) check is failing to validate the LDAP server's certificate because its subject does not match the hostname specified in the LDAPS url.
 
-*Possible Solutions:*
+[.solution]#Possible solutions#
 
 * Make sure the server name used in the _ldaps://_ address of the LdapLoginModule's _userProvider_ matches that of the LDAP server's certificate.
 * Have the LDAP server use a certificate with a subject (or at least a subject alternative name) that matches the server's domain name (so the one used in the ldaps:// addresse of the LdapLoginModule).
 * Disable the endpoint identification (note that the endpoint identification is https://www.oracle.com/technetwork/java/javase/8u181-relnotes-4479407.html[enabled by default since java version 1.8.0_181]) in Bonita's application server by adding the following system property to the java options in your application server's environment setting file (e.g. `<TOMCAT_HOME>/setup/tomcat-templates/setenv.sh(.bat)`): `-Dcom.sun.jndi.ldap.object.disableEndpointIdentification=true`
-****
+--
 
-****
-*Symptom:* The following stacktrace appears in the Bonita server log:
+[.troubleshooting-section]
+--
+[.symptom]
+LDAP Authentication against Active Directory fails with invaild credentials error 
+
+[.symptom-description]
+The following stacktrace appears in the Bonita server log:
 
 [source,log]
 ----
@@ -312,7 +356,8 @@ at com.sun.security.auth.module.LdapLoginModule.login(LdapLoginModule.java:565)
 Caused by: javax.naming.AuthenticationException: [LDAP: error code 49 - 80090308: LdapErr: DSID-XXXXXXXX, comment: AcceptSecurityContext error, data YYY, vZZZZ..]
 ----
 
-*Problem:* As per LDAP standard, error code 49 means: "Invalid credentials" (i.e. the user credentials presented in the bind operation are not valid). +
+[.cause]#Cause#
+As per LDAP standard, error code 49 means: "Invalid credentials" (i.e. the user credentials presented in the bind operation are not valid). +
 When connecting to Active Directory, this error may appear for multiple reasons. The AD-specific error code is the one (`YYY`) after "data" in the error message:
 
 [%autowidth,frame=all,grid=all]
@@ -347,7 +392,7 @@ When connecting to Active Directory, this error may appear for multiple reasons.
 | user account locked
 |===
 
-*Possible Solutions:*
+[.solution]#Possible solutions#
 
 * *52e*: invalid credentials +
 `LDAP: error code 49 - 80090308: LdapErr: DSID-0C0903A9, comment: AcceptSecurityContext error, data 52e, v1db1`. +
@@ -362,4 +407,4 @@ This problem is related to the configuration of Workstation Restrictions in Micr
 In order to get over the error, there seem to be two possible solutions (to be handled by your Active Directory administrator):
  ** Disable the workstations restrictions in AD
  ** Add the hostname of the Active Directory server to "userWorkstations" attribute. (Note: If it is an AD cluster, you need to add each AD server.)
-****
+--
