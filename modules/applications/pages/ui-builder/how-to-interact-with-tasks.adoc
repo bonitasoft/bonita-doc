@@ -63,7 +63,7 @@ Below are examples of how you can interact with and manage your tasks using Java
 
 === Use JavaScript objects to execute tasks
 
-Open your Bonita UI Builder application, go to the `JS` tab to create a new JavaScript object.
+Open your Bonita UI Builder application, go to the `JS` tab to create a new JavaScript object called for example `humanTask`.
 
 The code below is an example of how you can trigger different task executions, based on conditions:
 
@@ -72,17 +72,18 @@ The code below is an example of how you can trigger different task executions, b
 export default {
   submitCurrentTask(){
     var task;
-    switch(this.currentTask.name){
+    switch(name){
       case "Assign Workspace":
-        // this is the 'POST /execution' query shown in the previous section
         task = executeAssignWorkspaceTask;
         break;
       case "Another task":
         //...
 	break;
     }
-    task.run({taskId: this.currentTask.id}).then(response => {
-      //show alert, etc.
+    //run the executeAssignWorkspaceTask query shown in the previous section
+    task.run({taskId: ...}).then(response => {
+      showAlert('success', 'info');
+      otherTasks.run();
     }).catch((error) => {
       showAlert('fail', 'error');
     });
