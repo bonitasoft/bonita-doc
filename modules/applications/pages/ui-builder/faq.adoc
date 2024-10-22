@@ -68,6 +68,10 @@ Yes, they are compatible with both deployment modes.
 It is a tag used to describe an Application made with Bonita UI Builder in the Studio’s Application descriptor.
 
 
+=== Is Bonita UI Builder secure?
+Yes. We conducted a security audit with cybersecurity experts, and no vulnerabilities were found within the scope of Bonita UI Builder.
+
+
 === Can I use other datasources than Bonita’s? 
 Yes you can. You can call external REST APIs, GraphQL APIs and PostgreSQL databases.
 
