@@ -41,8 +41,9 @@ services:
     image: ...
     environment: ...
     volumes:
-      - <path_on_docker_host>/nginx.conf:/etc/nginx/templates/nginx.conf.template
       - <path_on_docker_host>/https.conf:/etc/nginx/snippets/https.conf
+      - <path_on_docker_host>/cookies.conf:/etc/nginx/snippets/cookies.conf
+      - <path_on_docker_host>/https-redirect.conf:/etc/nginx/snippets/https-redirect.conf
       - <path_on_docker_host>/nginx.crt:/etc/ssl/certs/nginx.crt
       - <path_on_docker_host>/nginx.key:/etc/ssl/private/nginx.key
       - <path_on_docker_host>/dhparam.pem:/etc/ssl/certs/dhparam.pem
@@ -50,25 +51,16 @@ services:
 
 === Update the nginx configuration to configure HTTPS
 
-First, retrieve the nginx configuration from the `bonita-ui-proxy` service using the following steps:
+First, retrieve the nginx configuration snippets from the `bonita-ui-proxy` service using the following steps:
 
 * Create the `bonita-ui-proxy` container by running `docker compose create bonita-ui-proxy`
 * List the containers `docker container ps -a` and copy the container name for `bonita-ui-proxy` image (for example `docker-bonita-ui-proxy-1`)
-* Copy on the host the nginx configuration form the container `docker cp docker-bonita-ui-proxy-1:/etc/nginx/templates/nginx.conf.template <path_on_docker_host>/nginx.conf`
+* Copy on the host the nginx configuration snippets form the container:
+`docker cp docker-bonita-ui-proxy-1:/etc/nginx/snippets/https.conf <path_on_docker_host>/https.conf`
+`docker cp docker-bonita-ui-proxy-1:/etc/nginx/snippets/cookies.conf <path_on_docker_host>/cookies.conf`
+`docker cp docker-bonita-ui-proxy-1:/etc/nginx/snippets/https-redirect.conf <path_on_docker_host>/https-redirect.conf`
 
-Update the `nginx.conf` file on the host to include a conf snippet in the server block:
-
-[source]
-----
-server {
-    ...
-    listen ${NGINX_LISTEN_ADDRESS}; # listen directive: Sets the server port to listen on for incoming connections.
-    include snippets/https.conf;  # include directive: Includes the https and certificate configuration.
-    ...
-    }
-----
-
-Then create the file `https.conf` in the same directory and update it with your SSL configuration (see http://nginx.org/en/docs/http/ngx_http_ssl_module.html[Nginx official documentation] for all configuration capabilities). Here is an example of content (the value of `server_name` should at least be changed with the correct domain):
+Then update the file `<path_on_docker_host>/https.conf` with your SSL configuration (see http://nginx.org/en/docs/http/ngx_http_ssl_module.html[Nginx official documentation] for all configuration capabilities). Here is an example of content (the value of `server_name` should at least be changed with the correct domain):
 
 [source]
 ----
@@ -88,21 +80,18 @@ ssl_dhparam /etc/ssl/certs/dhparam.pem;  # ssl_dhparam directive: Specifies the 
 
 The secure flag on Bonita Runtime `X-Bonita-API-Token` and `JSESSIONID` and Bonita UI Builder `SESSION` cookies should be set when using HTTPS.
 Activating the secure flag can be done by updating the nginx configuration of Bonita UI proxy.
-Update `nginx.conf` file and modify the `proxy_cookie_path` directive for the locations `/bonita/sessionLogout`, `/bonita/` and `/bonita/authservice` as such:
+Update `<path_on_docker_host>/cookies.conf` file to comment the first line and uncomment the last two:
+
 [source]
 ----
 proxy_cookie_path /bonita "/; Secure";
-----
-Also add the following line to the locations `~* ^/app/([^?/#]+)` and `\`:
-[source]
-----
 proxy_cookie_path / "/; secure";
 ----
 
 === Redirect HTTP to HTTPS
 
 To redirect HTTP requests to HTTPS, you need to update the nginx configuration of Bonita UI proxy.
-Update `nginx.conf` file to add the following server block (update the value of `server_name` with your domain):
+Update `<path_on_docker_host>/https-redirect.conf` file to uncomment the server block and update the value of `server_name` with your domain:
 
 [source]
 ----
