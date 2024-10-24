@@ -2,65 +2,217 @@
 :page-aliases: ROOT:purge-tool.adoc
 :description: Bonita Purge Tool provides the capability to purge finished (archived) process instances from Bonita Runtime environment.
 
-Bonita Purge Tool provides the capability to purge finished (archived) process instances from Bonita Runtime environment.
-
-By default, all archives are preserved forever in Bonita runtime, but if your functional context allows you to remove old unused process instances
-(for example, if you only need to keep a history of last 6 months), use this tool to clean up your Bonita database.
-
-
-[WARNING]
-====
-The purge tool doesn't delete documents (stored in the DOCUMENT table) from the platform. It will only remove the mapping between the archived cases and the document itself. If you need to reduce the size of the Document table in the engine database, please refer to the documentation: xref:ROOT:handling-documents.adoc#delete_document_archived_case[Delete documents of archived cases based on archive date]
-====
-
 [NOTE]
 ====
 For Subscription editions only. +
 This tool is not available publicly. Use {cscDownloadUrl}[Bonita Customer Service Center] to download it.
 ====
 
+
+Bonita Purge Tool provides the capability to purge finished (archived) process instances from Bonita Runtime environment.
+
+By default, all archives are preserved forever in Bonita runtime, but if your functional context allows you to remove old unused process instances
+(for example, if you only need to keep a history of last 6 months), use this tool to clean up your Bonita database.
+
+[WARNING]
+====
+The purge tool doesn't delete documents (stored in the DOCUMENT table) from the platform. It will only remove the mapping between the archived cases and the document itself. If you need to reduce the size of the Document table in the engine database, please refer to the documentation: xref:ROOT:handling-documents.adoc#delete_document_archived_case[Delete documents of archived cases based on archive date]
+====
+
 == Pre-requisites
 
-This tool can be run on a Bonita runtime environment in a version greater than or equal to 7.7.0. +
-Bonita runtime environment should be shut down when running this tool, i.e. Bonita server should be stopped.
+This tool requires a Java 17+ runtime environment to run. +
+This tool can be run on a Bonita runtime environment in a version greater than or equal to 7.7.0.
+
+[CAUTION]
+====
+When deleting archives using the `copy-truncate` mode, the Bonita runtime connected to the database must be shut down when running this tool.
+====
 
 == Configuration
 
-Once {cscDownloadUrl}[downloaded Bonita Purge Tool], unzip it somewhere and go into the main directory. +
+Once {cscDownloadUrl}[downloaded], unzip it somewhere and go into the main directory. +
 Enter your database configuration properties in the file `application.properties`
+
+.Configuration example
+[source,properties]
+----
+# Database configuration
+database.vendor=postgres
+database.name=bonita
+database.username=db_user
+database.password=secret
+database.host=localhost
+database.port=5432
+----
+
+[NOTE]
+====
+It is also possible to use environment variables to set these properties.
+
+.Environment variables example
+[source,shell]
+----
+DATABASE_PASSWORD=secret ./bin/bonita-purge-tool list --older-than 6m
+----
+====
 
 == Run Bonita Purge Tool
 
-This command will delete all archived process instances belonging to the process identified by *PROCESS_DEFINITION_ID*,
-that are finished since at least *OLDEST_DATE_TIMESTAMP*.
+The Bonita Purge Tool is a command-line tool. +
+To run it, open a terminal and go to the directory where you unzipped the tool.
 
-example (Unix):
+View the usage information by running the following command:
 
+[tabs]
+====
+Unix::
++
 [source,shell]
 ----
-# If no PROCESS_DEFINITION_ID parameter is given, the program lists all existing process definitions and stops:
-bin/bonita-purge-tool
-
-bin/bonita-purge-tool <PROCESS_DEFINITION_ID> <OLDEST_DATE_TIMESTAMP> [<TENANT_ID>]
+./bin/bonita-purge-tool --help
 ----
 
-example (Windows):
-
+Windows::
++
 [source,shell]
 ----
-# If no PROCESS_DEFINITION_ID parameter is given, the program lists all existing process definitions and stops:
-bin/bonita-purge-tool.bat
+./bin/bonita-purge-tool.bat --help
+----
+====
 
-bin/bonita-purge-tool.bat <PROCESS_DEFINITION_ID> <OLDEST_DATE_TIMESTAMP> [<TENANT_ID>]`
+=== `list` command
+
+This command lists all existing process definitions that have root process instances archived for given date filter.
+
+.List process definitions with archived root process instances older than 6 months
+[tabs]
+====
+Unix::
++
+[source,shell]
+----
+./bin/bonita-purge-tool list --older-than 6m
 ----
 
-An optional *TENANT_ID* parameter can be given if the platform uses multiple tenants to specify on which tenant should the process instances be deleted.
-If multi-tenancy is used and if the TENANT_ID is not set, an error is issued, and the program stops.
+Windows::
++
+[source,shell]
+----
+./bin/bonita-purge-tool.bat list --older-than 6m
+----
+====
 
-*OLDEST_DATE_TIMESTAMP* must be a Timestamp (in milliseconds) from which all process instances that finished before that date will be deleted. +
-Unfinished process instances and process instances that finished after that date will not be affected. +
-Its format is a standard Java timestamp since https://docs.oracle.com/en/java/javase/{minimalRequiredJavaVersion}/docs/api/java.base/java/time/Instant.html#EPOCH[EPOCH] (in milliseconds).
-You can use websites such as https://www.epochconverter.com/[Epoch Converter] to format such a timestamp.
+=== `delete` command
+
+This command deletes archived process instances and their related archived elements (flownodes, data, comments, etc.) for given date filter.
+
+.Delete all archived process instances older than 6 months
+[tabs]
+====
+Unix::
++
+[source,shell]
+----
+./bin/bonita-purge-tool delete --older-than 6m
+----
+
+Windows::
++
+[source,shell]
+----
+./bin/bonita-purge-tool.bat delete --older-than 6m
+----
+====
+
+.Delete archived process instances older than 6 months for a specific process definition
+[tabs]
+====
+Unix::
++
+[source,shell]
+----
+./bin/bonita-purge-tool delete --older-than 6m --process-definition-id 1234567890
+----
+
+Windows::
++
+[source,shell]
+----
+./bin/bonita-purge-tool.bat delete --older-than 6m --process-definition-id 1234567890
+----
+====
+
+.Delete archived process instances before 5 July 2022
+[tabs]
+====
+Unix::
++
+[source,shell]
+----
+./bin/bonita-purge-tool delete --before-date 1656979200000
+----
+
+Windows::
++
+[source,shell]
+----
+./bin/bonita-purge-tool.bat delete --before-date 1656979200000
+----
+====
+NOTE: The `--before-date` parameter must be in https://www.epochconverter.com/[milliseconds since the epoch].
+
+==== Delete modes
+
+===== `batch-delete`
+
+By default, the tool uses the `batch-delete` mode to delete rows in database tables. +
+This mode will be slower than the copy-truncate mode, but it doesn't require the Runtime to be shutdown and can be stopped and resumed at any time.
+
+In this mode, each deleted batch is committed in database. +
+The batch size and the timeout interval between each batch can be configured using the `--batch-size` and `--timeout-interval` options on the `delete` command.
+
+Fine tune the batch size and timeout interval depending on your database configuration and the volume of data to delete. By default, the batch size is `5000` and the timeout interval is `0` ms.
+
+===== `copy-truncate`
+
+In this mode, the tool will copy the rows to keep in a temporary table, then truncate and drop the original table and rename the temporary table and recreate all required constraints and indices.
+
+Due to the efficiency of the TRUNCATE command, this method should be faster in most cases, especially when the number of rows to delete is higher than the number of rows to keep in the table, but it requires the Runtime to be stopped during the operation.
+
+Use the `--delete-mode copy-truncate` option to use this mode with the `delete` command.
+
+=== `delete-file-input` command
+
+Delete all archived contract file input values. +
+In other words, delete all rows in table `arch_contract_data` corresponding to contract data of type `File` (in Studio) or `org.bonitasoft.engine.bpm.contract.FileInputValue` in Bonita Engine. +
+These data are not used by Bonita and can take a large amout of space in your database, so deleting them is advised.
+
+[NOTE]
+====
+From Bonita 10.4, these data are no more archived, so it will not be necessary anymore to run this command.
+====
+
+
+.Delete all archived contract file input content
+[tabs]
+====
+Unix::
++
+[source,shell]
+----
+./bin/bonita-purge-tool delete-fileinput-content
+----
+
+Windows::
++
+[source,shell]
+----
+./bin/bonita-purge-tool.bat delete-fileinput-content
+----
+====
+
+WARNING: `delete-fileinput-content` command is not supported for SQLServer database.
 
 == Deletion strategy
 
