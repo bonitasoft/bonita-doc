@@ -12,11 +12,11 @@ This guide provides instructions on how to configure the `bonita-ui-builder` and
 The following environment variable is mandatory:
 
 - `BONITA_API_URL`: The URL for the Bonita API.
+- `APPSMITH_ENCRYPTION_PASSWORD`: The encryption password is critical for safeguarding your datasource credentials through encryption. Set a strong password of your choice that exhibits a good level of entropy to prevent easy decryption.
+- `APPSMITH_ENCRYPTION_SALT`: The encryption salt contributes to the security strategy by adding a layer of complexity during the encryption process. Set a strong salt of your choice in order to make it more resistant to attacks such as brute-force attempts.
 
 The following environment variables are optional:
 
-- `APPSMITH_ENCRYPTION_PASSWORD`: The encryption password is critical for safeguarding your datasource credentials through encryption. Set a strong password of your choice that exhibits a good level of entropy to prevent easy decryption.
-- `APPSMITH_ENCRYPTION_SALT`: The encryption salt contributes to the security strategy by adding a layer of complexity during the encryption process. Set a strong salt of your choice in order to make it more resistant to attacks such as brute-force attempts.
 - `BONITA_HEALTHCHECK_USER`: Defines the username to request the Bonita healthcheck API (default: `monitoring`).
 - `BONITA_HEALTHCHECK_PASSWORD`: Defines the password to request the Bonita healthcheck API (default: `mon1tor1ng_adm1n`).
 - `BONITA_DEV_MODE`: Enables user to development mode when set to `true` (default: `true`).
