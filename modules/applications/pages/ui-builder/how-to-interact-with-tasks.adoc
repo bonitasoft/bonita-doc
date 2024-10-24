@@ -88,15 +88,15 @@ Go to the `Queries` tab and create the following query:
     - `Key`: c
     - `Value`: 10
 
-Then, bind this query to a Table widget. Your open tasks should be displayed in the table.
+Then, bind this query to a Table widget in order to display your open tasks.
 
 === Interact with tasks from the table
 
-Add a new column in the table called "Open task" and select `Icon button` as column type. Then, on the `OnClick` property, select `Show Modal` and create a new modal:
+In the table widget, add a new column called "Open task" and select `Icon button` as column type. Then, on the `OnClick` property, select `Show Modal` and create a new modal:
 
 image:ui-builder/guides/create_modal.png[create_modal]
 
-Here, we will create a modal that will execute the "Review and answer claim" task from the xref:getting-started:create-web-user-interfaces.adoc[Getting Started] tutorial:
+Here, we will create a modal that will execute the "Review and answer claim" task from the xref:getting-started:create-web-user-interfaces.adoc[Getting Started] tutorial. The modal should look like this:
 
 image:ui-builder/guides/modal_task.png[modal_task]
 
@@ -129,7 +129,7 @@ image:ui-builder/guides/bind_confirm_modal.png[bind_confirm_modal]
 
 [NOTE]
 ====
-If you have other tasks you would like to manage that way, you can create new modals and new execution queries in the same way.
+If you have other tasks you would like to manage, you can create new modals and new execution queries in the same way.
 
 To make sure you open the right modal, you can add the following code in the `Onclick` property of the "Open task" column: `{{ currentRow.displayName === "my task name" ? showModal(Modal1.name) : currentRow.displayName === "my other task name" ? showModal(Modal2.name) : null }}`
 ====
