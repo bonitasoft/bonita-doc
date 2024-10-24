@@ -68,6 +68,10 @@ Yes, they are compatible with both deployment modes.
 It is a tag used to describe an Application made with Bonita UI Builder in the Studio’s Application descriptor.
 
 
+=== Is Bonita UI Builder secure?
+Yes. We conducted a security audit with cybersecurity experts, and no vulnerabilities were found within the scope of Bonita UI Builder.
+
+
 === Can I use other datasources than Bonita’s? 
 Yes you can. You can call external REST APIs, GraphQL APIs and PostgreSQL databases.
 
@@ -148,6 +152,8 @@ WARNING: Avoid using the DB datasource to connect to a Bonita database. Use the 
 === Is it possible to deploy multiple UI Builder node instances for redundancy?
 No, the UI Builder node cannot be deployed with redundancy. Currently, only a single container instance is supported, which means multiple instances for redundancy are not allowed.
 
+=== Is it possible to deploy UI Builder on EKS?
+Yes, it is totally possible. Note however that currently, only a single container instance is supported, which means multiple instances for redundancy are not allowed.
 
 === Can multiple users collaborate on the same local Bonita UI Builder development server?
 No, the local Bonita UI Builder server is mono-user, meaning it only supports one Bonita user account at a time. To collaborate, each user should run their own local server and work with a shared Git repository for syncing and integrating their changes.

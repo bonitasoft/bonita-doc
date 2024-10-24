@@ -13,7 +13,12 @@ While Bonita UI Builder does not yet support automatic form creation from contra
 
 == API resources
 
-There are three Bonita xref:ui-builder/common-apis-to-use.adoc[API resources] you mostly need to interact with your tasks: `GET /humanTask`, `GET /userTask/context` and `POST /userTask/execution` 
+There are four Bonita xref:ui-builder/common-apis-to-use.adoc[API resources] you mostly need to interact with your tasks: 
+
+* `GET /humanTask`, 
+* `POST /userTask/execution`, 
+* `GET /userTask/context`,
+* `GET /bdm/businessData`.
 
 To use them, open your Bonita UI Builder application, go to the `Queries` tab and create a new query to Bonita API.
 
@@ -25,16 +30,6 @@ For example:
     - GET | `/API/bpm/humanTask?c=10&p=0&f=state=ready&f=caseId=[caseId]`
 
 For more detailed information, refer to the {openApiUrl}/latest/#tag/HumanTask/operation/searchHumanTasks[human tasks api documentation].
-
-
-=== User task context
-The user task context API provides the context for a specific user task identified by its id.
-
-For example:
-
-    - GET | `/bonita/API/bpm/userTask/[taskId]/context`
-
-For more detailed information, refer to the {openApiUrl}/latest/#tag/UserTask/operation/getContextByUserTaskId[context by userTask id api documentation].
 
 
 === User task execution
@@ -55,51 +50,101 @@ Please note that a task can only be executed by the right actors, as defined in 
 For more detailed information, refer to the {openApiUrl}/latest/#tag/UserTask/operation/executeUserTask[task execution api documentation].
 
 
+=== User task context
+The user task context API provides the context for a specific user task identified by its id.
+
+For example:
+
+    - GET | `/bonita/API/bpm/userTask/[taskId]/context`
+
+For more detailed information, refer to the {openApiUrl}/latest/#tag/UserTask/operation/getContextByUserTaskId[context by userTask id api documentation].
+
+
+=== Business data
+The business data is useful to find business data with pagination params and filters by invoking a `Named Query`. It allows to call either default or custom business data queries.
+
+For example:
+
+    - GET | `/API/bdm/businessData/[businessObject]?q=[query]&p=0&c=10&f=[filterString]=[filterParam]`
+    - GET | `/API/bdm/businessData/com.company.model.Claim?c=1000&p=0&q=find`
+
+`q=[query]` is a mandatory parameter. Queries are used to get information about data objects stored in the database. A set of xref:data:define-and-deploy-the-bdm.adoc#queries[default queries], `find` and `find_by`, is defined automatically for each object in the BDM. You can also create custom queries. 
+
+For more detailed information, refer to the {openApiUrl}/latest/#tag/BusinessDataQuery/operation/searchBusinessData[business data api documentation].
+
+
+
 == Manage tasks from the application
 
-Once you created queries to retrieve your tasks, you can interact with them from your Bonita UI Builder application in many different ways.
+You can interact with tasks from your Bonita UI Builder application in many different ways.
 
-Below are examples of how you can interact with and manage your tasks using JavaScript objects and widgets.
+Let's say you want to display your open tasks in a table and interact with them directly from the table.
 
-=== Use JavaScript objects to execute tasks
+=== Display a list of tasks
 
-Open your Bonita UI Builder application, go to the `JS` tab to create a new JavaScript object.
+Go to the `Queries` tab and create the following query:
 
-The code below is an example of how you can trigger different task executions, based on conditions:
+* `Name`: getTasks
+* `Method`: GET
+* `URL`: /bonita/API/bpm/humanTask
+* `Params`:
+    - `Key`: p
+    - `Value`: 0
+    - `Key`: c
+    - `Value`: 10
 
-[source,JS]
+Then, bind this query to a Table widget in order to display your open tasks.
+
+=== Interact with tasks from the table
+
+In the table widget, add a new column called "Open task" and select `Icon button` as column type. Then, on the `OnClick` property, select `Show Modal` and create a new modal:
+
+image:ui-builder/guides/create_modal.png[create_modal]
+
+Here, we will create a modal that will execute the "Review and answer claim" task from the xref:getting-started:create-web-user-interfaces.adoc[Getting Started] tutorial. The modal should look like this:
+
+image:ui-builder/guides/modal_task.png[modal_task]
+
+Go back to the `Queries` tab and create the following query:
+
+* `Name`: executeReviewAndAnswerClaim
+* `Method`: POST
+* `URL`: /bonita/API/bpm/userTask/{{Table1.triggeredRow.id}}/execution
+* `Body`:
+[source, JSON]
 ----
-export default {
-  submitCurrentTask(){
-    var task;
-    switch(this.currentTask.name){
-      case "Assign Workspace":
-        // this is the 'POST /execution' query shown in the previous section
-        task = executeAssignWorkspaceTask;
-        break;
-      case "Another task":
-        //...
-	break;
+{{
+  {
+    claimInput: {
+      answer: Input1.text
     }
-    task.run({taskId: this.currentTask.id}).then(response => {
-      //show alert, etc.
-    }).catch((error) => {
-      showAlert('fail', 'error');
-    });
-  },
+  }
+}}
 ----
 
+The `claimInput` contract of the task expects a parameter called 'answer', which will be fetched from the `Input1` widget.
 
-=== Bind JavaScript objects to a form
+This query will use the task id fetched from the table (`Table1.triggeredRow.id`) to execute the task. 
 
-Once a JavaScript object is created, you can bind it to your form. 
+Then, open the modal and bind the `executeReviewAndAnswerClaim` query to the `Onclick` property of the confirm button:
 
-Here, when the submit button is clicked, the `submitCurrentTask` JavaScript object is called:
+image:ui-builder/guides/bind_confirm_modal.png[bind_confirm_modal]
 
-image:ui-builder/guides/submit_task_form.png[submit_task_form]
 
 
 [NOTE]
 ====
-You don't necessarily need JavaScript objects to execute tasks. You can just create execution API queries and simply bind them to any kind of widgets. The choice is up to you.
+If you have other tasks you would like to manage, you can create new modals and new execution queries in the same way.
+
+To make sure you open the right modal, you can add the following code in the `Onclick` property of the "Open task" column: `{{ currentRow.displayName === "my task name" ? showModal(Modal1.name) : currentRow.displayName === "my other task name" ? showModal(Modal2.name) : null }}`
 ====
+
+
+=== Retrieve business data 
+
+If you would like to display business data, context and information from your previous tasks, here is what you should do:
+
+* Call `GET /userTask/context` to retrieve a `storageId`. For example: `GET /bonita/API/bpm/userTask/{{Table1.triggeredRow.id}}/context` 
+* Call `GET /API/bdm/businessData` to retrieve your business data, using the `storageId` returned previously. For example: `GET /API/bdm/businessData/com.company.model.Claim?c=1000&p=0&q=findByPersistenceId&f=persistenceId={{storageId}}`
+
+These steps could be done for example in a JS object and bound to a widget. 

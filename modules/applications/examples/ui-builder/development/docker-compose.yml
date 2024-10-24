@@ -1,7 +1,7 @@
 # Use for running a bonita-ui-builder during development.
 services:
   bonita-ui-builder:
-    image: pass:a[{bonita-ui-builder-image}]:latest
+    image: pass:a[{bonita-ui-builder-image}]:pass:a[{bonita-ui-builder-version}]
     container_name: bonita-ui-builder
     environment:
       BONITA_API_URL: http://host.docker.internal:8080/bonita/API
