@@ -13,7 +13,12 @@ While Bonita UI Builder does not yet support automatic form creation from contra
 
 == API resources
 
-There are four Bonita xref:ui-builder/common-apis-to-use.adoc[API resources] you mostly need to interact with your tasks: `GET /humanTask`, `POST /userTask/execution`, `GET /userTask/context` and  `GET /bdm/businessData`.
+There are four Bonita xref:ui-builder/common-apis-to-use.adoc[API resources] you mostly need to interact with your tasks: 
+
+* `GET /humanTask`, 
+* `POST /userTask/execution`, 
+* `GET /userTask/context`,
+* `GET /bdm/businessData`.
 
 To use them, open your Bonita UI Builder application, go to the `Queries` tab and create a new query to Bonita API.
 
