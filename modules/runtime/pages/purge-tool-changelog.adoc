@@ -6,7 +6,7 @@ This is the changelog of the purge tool.
 
 The purge tool is used to remove data from bonita archive tables. It is useful for big production environments.
 
-== 2.0.0 - September 11, 2024
+== 2.0.0 - October 24, 2024
 
 Breaking changes:
 
@@ -33,12 +33,12 @@ Fixes:
 
 Others:
 
-- deps: update Springboot version to `3.3.3`
+- deps: update Springboot version to `3.3.4`
 - deps: update MySQL connector to `8.4.0`
 - deps: update PostgreSQL driver to `42.7.4`
 - deps: update Oracle driver to `21.15.0.0`
 - deps: update MS SQL Server driver to `9.4.1.jre11`
-- deps: update Exposed JDBC to `0.54.0`
+- deps: update Exposed JDBC to `0.55.0`
 
 
 == 1.0.9 - June 11, 2024
