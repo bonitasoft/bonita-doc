@@ -145,6 +145,6 @@ To make sure you open the right modal, you can add the following code in the `On
 If you would like to display business data, context and information from your previous tasks, here is what you should do:
 
 * Call `GET /userTask/context` to retrieve a storageId. For example: `GET /bonita/API/bpm/userTask/{{Table1.triggeredRow.id}}/context` 
-* Call `GET /API/bdm/businessData` to retrieve your business data, using the storageId returned previously. For example: `GET /API/bdm/businessData/com.company.model.Claim?c=1000&p=0&q=findByPersistenceId&f=persistenceId={{storageId}}`
+* Call `GET /API/bdm/businessData` to retrieve your business data, using the storageId returned previously. For example: `GET /API/bdm/businessData/com.company.model.Claim?c=1000&p=0&q=findByPersistenceId&f=persistenceId=+{{storageId}}+`
 
 These steps could be done for example in a JS object and bound to a widget. 
