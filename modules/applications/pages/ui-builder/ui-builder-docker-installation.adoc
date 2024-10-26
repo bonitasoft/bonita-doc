@@ -12,8 +12,8 @@ This guide provides instructions on how to configure the `bonita-ui-builder` and
 The following environment variable is mandatory:
 
 - `BONITA_API_URL`: The URL for the Bonita API.
-- `APPSMITH_ENCRYPTION_PASSWORD`: The encryption password is critical for safeguarding your datasource credentials through encryption. Select a strong password that exhibits a good level of entropy to prevent easy decryption.
-- `APPSMITH_ENCRYPTION_SALT`: The encryption salt contributes to the security strategy by adding a layer of complexity during the encryption process. This long, unique string enhances encryption strength, making it more resistant to attacks such as brute-force attempts.
+- `APPSMITH_ENCRYPTION_PASSWORD`: The encryption password is critical for safeguarding your datasource credentials through encryption. Set a strong password of your choice that exhibits a good level of entropy to prevent easy decryption.
+- `APPSMITH_ENCRYPTION_SALT`: The encryption salt contributes to the security strategy by adding a layer of complexity during the encryption process. Set a strong salt of your choice in order to make it more resistant to attacks such as brute-force attempts.
 
 The following environment variables are optional:
 
