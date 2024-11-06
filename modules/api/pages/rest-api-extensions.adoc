@@ -19,7 +19,7 @@ The following sections show how to create a REST API extension. As an example, w
 There is some additional prerequisites when creating a REST API extension:
 
 * Basic knowledge of Maven
-* *Access to http://central.maven.org/maven2[Maven central repository]*.
+* *Access to https://repo.maven.apache.org/maven2[Maven central repository]*.
 * More information on maven configuration xref:setup-dev-environment:configure-maven.adoc[here]
 
 === Generate a new REST API extension skeleton

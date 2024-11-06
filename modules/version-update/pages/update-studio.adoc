@@ -41,7 +41,7 @@ or
 
 * Installed the required dependencies for this version:
 ** By installing and starting a Studio of this version at least once
-** By downloading those dependencies from the https://customer.bonitasoft.com[Customer Service Center] (Maven repository) and copying them into their local Maven repository
+** By downloading those dependencies from the {cscRootUrl}[Customer Service Center] (Maven repository) and copying them into their local Maven repository
 
 Keeping the target runtime version up-to-date may be useful in some cases like including bug fixes or having a reliable dependency resolution in case of dependencies updates (CVE fixes).
 
