@@ -18,7 +18,7 @@
    **** xref:ui-builder/version-control-with-git/resolve-merge-conflicts.adoc[Resolve merge conflicts in Git]
   *** xref:ui-builder/how-tos-builder.adoc[Guides]
    **** xref:ui-builder/how-to-interact-with-tasks.adoc[How to interact with tasks]
-   **** xref:ui-builder/how-to-share-data-across-pages.adoc[How to share data across pages]
+   **** xref:ui-builder/how-to-share-data-across-pages.adoc[How to store and share data across pages]
    **** xref:ui-builder/how-to-control-visibility-of-widgets.adoc[How to control visibility of your widgets]
    **** xref:ui-builder/how-to-handle-pagination.adoc[How to handle server-side pagination]
    **** xref:ui-builder/how-to-create-editable-tables.adoc[How to create editable and powerful Tables]
