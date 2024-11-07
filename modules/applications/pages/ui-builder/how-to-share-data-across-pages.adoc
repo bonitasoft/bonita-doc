@@ -24,7 +24,7 @@ The `navigate to` function will redirect to the chosen page. The query params wi
 
 The `storeValue()` function stores the data in the browser’s local storage as key-value pairs that represent storage objects and can be later accessed anywhere in the application.
 
-If you want to store the text of an input widget, you can use storeValue() as shown below:
+If you want to store the text of an input widget, you can use `storeValue()` as shown below:
 [source, JS]
 ----
 {{storeValue('email',input1.text)}}
