@@ -50,3 +50,5 @@ Instead of writing code, you can also store data from the widget's settings, see
 
 Please note that you can use the `clearStore()` function which clears all the data that was stored in the local storage of the browser, as well as the `removeValue()` function which clears the value associated with a specified key.
 
+For more details, see this https://docs.appsmith.com/reference/appsmith-framework/widget-actions/store-value[dedicated guide].
+
