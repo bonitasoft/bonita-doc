@@ -32,19 +32,7 @@ If you want to store the text of an input widget, you can use `storeValue()` as 
 
 Here, `email` is the key where the value is stored, and `input1.text` is the value in the input widget that's saved in the storage object.
 
-
-You can also create a JS object to store key-value pairs within the local storage:
-[source, JS]
-----
-export default {
-     populate_store () {
-         storeValue('keyName', 'value', true);
-         return appsmith.store.keyName;
-     }
- }
-----
-
-Once done, retrieve stored data using `{{appsmith.store.keyName}}` in your queries and other widgets.
+Once done, retrieve stored data using `{{appsmith.store.email}}` in your queries and other widgets.
 
 Instead of writing code, you can also store data from the widget's settings, see our xref:how-to-control-visibility-of-widgets.adoc#_using_the_storevalue_function[other guide] for more details.
 
