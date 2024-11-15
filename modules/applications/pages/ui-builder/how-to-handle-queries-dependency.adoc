@@ -36,8 +36,6 @@ Go to the `Queries` tab and create a first Bonita query that will fetch the user
 * `Settings`:
     - `Run API on page load`: true
 
-From the `Settings` tav, enable the
-
 Next, create a second Bonita query to fetch the manager of the first user:
 
 * `Name`: getManagerOfFirstUser
