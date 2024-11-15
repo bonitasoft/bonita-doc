@@ -17,7 +17,7 @@ For example, if you want to get the list of users and display the manager of the
 
 Note: make sure the first user has a manager. If not, choose another user.
 
-Since you want to get these information on page load, you *may* have an issue if the second API call is executed *before* the first one is done.
+Since you want to get this information on page load, you *may* have an issue if the second API call is executed *before* the first one is done.
 
 To handle this kind of situation, let's do the following.
 
