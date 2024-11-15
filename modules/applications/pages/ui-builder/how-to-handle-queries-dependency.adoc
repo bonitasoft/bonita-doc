@@ -1,6 +1,6 @@
 = How to handle query dependencies
 :page-aliases: applications:how-to-handle-queries-dependency.adoc
-:description: Learn how to handle dependencies between queries
+:description: Learn how to handle dependencies between queries.
 
 {description}
 
