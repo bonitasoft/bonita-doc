@@ -13,7 +13,7 @@ you may have issues with the order of execution of the API calls.
 For example, if you want to get the list of users and display the manager of the first one in the list, you need to make two API calls:
 
 * One to get the list of users
-* One to get the manager of the first user (so that take as parameter the manager id of the first user from the first API call)
+* One to get the manager of the first user (which takes the manager ID of the first user from the first API call as a parameter)
 
 Note: make sure the first user has a manager. If not, choose another user.
 
