@@ -38,7 +38,7 @@ Go to the `Queries` tab and create a first Bonita query that will fetch the user
 
 From the `Settings` tav, enable the
 
-Then, create a second Bonita query that will fetch the manager of the first user:
+Next, create a second Bonita query to fetch the manager of the first user:
 
 * `Name`: getManagerOfFirstUser
 * `Method`: GET
