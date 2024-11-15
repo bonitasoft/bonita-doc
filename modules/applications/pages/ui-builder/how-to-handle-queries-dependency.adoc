@@ -23,7 +23,7 @@ To handle this kind of situation, let's do the following.
 
 == 1. Create the API requests
 
-Go to the `Queries` tab and create a first query that will fetch the users:
+Go to the `Queries` tab and create a first Bonita query that will fetch the users:
 
 * `Name`: getUsers
 * `Method`: GET
@@ -38,7 +38,7 @@ Go to the `Queries` tab and create a first query that will fetch the users:
 
 From the `Settings` tav, enable the
 
-Then, create a second query that will fetch the manager of the first user:
+Then, create a second Bonita query that will fetch the manager of the first user:
 
 * `Name`: getManagerOfFirstUser
 * `Method`: GET
@@ -53,9 +53,9 @@ On the interface, drag and drop a Text widget and set its text to `{{First user:
 
 Then, drag and drop a second Text widget and set its text to `{{Manager: {{getManagerOfFirstUser.data.lastname}}}}`.
 
-Reload the page and if the second query is called first you should get an error: `The action "getManagerOfFirstUser" has failed`.
+Reload the page and *if the second query is called first* you should get an error: `The action "getManagerOfFirstUser" has failed`.
 
-To solve this issue, we will create a JS Object that will run the queries in the right order.
+To solve this (potential) issue, we will create a JS Object that will run the queries in the right order.
 
 == 3. Create a JS object
 
