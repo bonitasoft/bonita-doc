@@ -13,6 +13,11 @@
 Version control in Bonita UI Builder requires a Git hosting service that supports SSH protocol and deploys keys. HTTPS connections are not currently supported.
 ====
 
+[NOTE]
+====
+Currently, a remote Git repository can be linked to one UI Builder application only. Of course, you can use multiple repositories to connect to multiple applications.
+====
+
 [WARNING]
 ====
 The Git repository must be empty for the connection to be successful.

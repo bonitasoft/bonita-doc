@@ -60,6 +60,11 @@ Yes, it is. Reach out to your customer service representative to explore how you
 
 == Features and Technical
 
+=== Can I have applications made with UI Designer and UI Builder coexist on the same runtime?
+Yes you can! You will need to declare both kind of applications in the xref:builder-declare-interface-in-bonita.adoc[application descriptor]. 
+However, we do not recommend embedding a UI Designer application inside an iframe widget within a UI Builder application.
+
+
 === Are the interfaces made with Bonita UI Builder compatible with platform mode and self-contained applications?
 Yes, they are compatible with both deployment modes.
 

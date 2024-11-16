@@ -1,6 +1,6 @@
-= How to share data across pages
+= How to store and share data across pages
 :page-aliases: applications:how-to-share-data-across-pages.adoc
-:description: Learn how to send data through you application's pages
+:description: Learn how to store and send data through you application's pages
 
 {description}
 
@@ -8,7 +8,7 @@
 * Prerequisites: have an xref:create-an-interface.adoc[interface created] on Bonita UI Builder
 * Estimated time: 5 minutes
 
-== Using query parameters
+== Send data using query parameters
 
 Let’s say you want to send parameters to another page using what was typed in a text widget.
 
@@ -20,20 +20,23 @@ image:ui-builder/guides/configure-query-params.png[configure-query-params]
 The `navigate to` function will redirect to the chosen page. The query params will be passed between the source and the target page's URL: `your-application/target-page/edit?xx=value`
 
 
-== Using JavaScript objects
+== Store data using Store functions
 
-You can also create a JS object to store key-value pairs within the local storage:
+The `storeValue()` function stores the data in the browser’s local storage as key-value pairs that represent storage objects and can be later accessed anywhere in the application.
+
+If you want to store the text of an input widget, you can use `storeValue()` as shown below:
 [source, JS]
 ----
-export default {
-     populate_store () {
-         storeValue('keyName', 'value', true);
-         return appsmith.store.name;
-     }
- }
+{{storeValue('email',input1.text)}}
 ----
 
-Once done, retrieve data using: `{{appsmith.store.keyName}}` in your queries and other widgets.
+Here, `email` is the key where the value is stored, and `input1.text` is the value in the input widget that's saved in the storage object.
 
+Once done, retrieve stored data using `{{appsmith.store.email}}` in your queries and other widgets.
 
+Instead of writing code, you can also store data from the widget's settings, see our xref:how-to-control-visibility-of-widgets.adoc#_using_the_storevalue_function[other guide] for more details.
+
+Please note that you can use the `clearStore()` function which clears all the data that was stored in the local storage of the browser, as well as the `removeValue()` function which clears the value associated with a specified key.
+
+For more details, see this https://docs.appsmith.com/reference/appsmith-framework/widget-actions/store-value[dedicated guide].
 

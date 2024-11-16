@@ -40,6 +40,8 @@ Two applications cannot share the same slug. To resolve this, you can modify one
 
 ====
 
+As you can see on the screenshot above, both UI Designer applications (declared with an `application` tag) and UI Builder applications (declared with an `applicationLink` tag) can coexist on the application descriptor and on the same runtime.
+
 Once your application descriptor is done, don't forget to deploy it by clicking the `deploy` button in the Studio.
 
 
