@@ -31,6 +31,11 @@ xref:how-to-create-editable-tables.adoc[[.card-title]#How to create editable and
 
 [.card.card-index]
 --
+xref:how-to-handle-queries-dependency.adoc[[.card-title]#How to handle dependencies between queries# [.card-body.card-content-overflow]#pass:q[Learn how to handle dependencies for queries on page load]#]
+--
+
+[.card.card-index]
+--
 xref:how-to-upload-multiple-documents.adoc[[.card-title]#Upload multiple documents simultaneously# [.card-body.card-content-overflow]#pass:q[Learn how to upload multiple documents simultaneously]#]
 --
 
