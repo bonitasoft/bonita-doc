@@ -1,0 +1,16 @@
+name: Deploy PR preview
+
+
+on:
+  workflow_run:
+    workflows:
+      - "Build PR preview"
+    types:
+      - completed
+
+jobs:
+  deploy:
+    permissions:
+      pull-requests: write
+    uses: bonitasoft/bonita-documentation-site/.github/workflows/_reusable_surge-deploy-preview.yml@master
+    secrets: inherit

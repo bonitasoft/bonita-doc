@@ -1,0 +1,16 @@
+name: Validate xref
+
+on:
+  pull_request:
+    paths:
+      - 'modules/**'
+      - 'antora.yml'
+      - '.github/workflows/pr-validate-references.yml'
+
+jobs:
+  validate_xref:
+    uses: bonitasoft/bonita-documentation-site/.github/workflows/_reusable_pr-validate-references.yml@master
+    secrets: inherit
+    with:
+      component-name: bonita
+      fail-on-warning: true
