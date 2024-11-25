@@ -1,0 +1,117 @@
+= How to make a contract with a `multiple` attribute
+:page-aliases: applications:how-to-contract-multiple.adoc
+:description: Learn how to make a contract with a `multiple` attribute.
+
+{description}
+
+* Difficulty: intermediate
+* Estimated time: 20 minutes
+
+With Bonita, you can create a contract with a `multiple` attribute.
+For example, a provider may have multiple contacts.
+
+Creating a UI to start a Process Instance, you will need a UI interface that allows the user to create a new Provider and add multiple Contacts.
+In this guide, we will focus on how to create a list of contacts, and store them in a JSON object.
+This will be used to fill the `contacts` attribute in the contract.
+
+== Create a JS Object to manage the list of contacts
+
+Go to the `JS` tab and create a new JS Object called `contactsHandler` and copy and paste the following code:
+
+[source,JS]
+----
+export default {
+	contacts: [{
+		  id: 0,
+			title: "Mr",
+			firstname: "Alejandro",
+			surname: "Dupont",
+			email: "alejandro@dupont.com",
+			contactType: "technical"
+		}],
+	getAll () {
+		return this.contacts;
+	},
+	add(contactToAdd) {
+		if (!contactToAdd) {
+			showAlert("Invalid contact!");
+			return;
+		}
+		contactToAdd.id = this.contacts.length;
+		this.contacts.push(contactToAdd);
+		this.getAll();
+	},
+
+	delete(idToDelete) {
+		if (idToDelete === undefined) {
+			showAlert("Invalid id!");
+			return;
+		}
+		this.contacts = this.contacts.filter(contact => {
+			return contact.id !== idToDelete;
+		});
+		this.getAll();
+	},
+	update(contactToUpdate) {
+		  const index = this.contacts.findIndex(contact => contact.id === contactToUpdate.id);
+		if (index === -1) {
+			showAlert("contact not found! id=", contactToUpdate.id);
+			return;
+		}
+		this.delete(contactToUpdate.id);
+		this.add(contactToUpdate);
+		this.getAll();
+	},
+	getContactTypes() {
+		return [
+            {label: "Administration", value: "administration"},
+            {label: "Technical", value: "technical"},
+            {label: "Other", value: "other"}
+        ]
+	},
+	getTitleTypes() {
+		return [
+			{label: "Mrs", value: "Mrs"},
+			{label: "Mr", value: "Mr"}
+		]
+	}
+}
+----
+
+This simple code allows to create, update and delete contacts.
+
+Now, from the `Settings` tab, enable `Run on page load` for the `getAll`, `getContactTypes` and `getTitleTypes` functions.
+
+== Create a UI to manage the list of contacts
+
+* Drop a Table widget on the page
+* Set the `Table data` property as `JS` and as `{{ContactsHandler.getAll.data}}`
+* For the Columns, check the `Editable` property, and uncheck the `id` column, since it is automatically generated
+
+== Enable adding a row
+
+* In the `Adding a row` section:
+    ** enable the `Allow adding a row` property
+    ** Set the `onSave` property to `Execute a JS function` -> `ContactsHandler.add(data)` with `{{Table1.newRow}}` parameter:
+
+image:ui-builder/guides/adding-a-row-on-save.png[adding-a-row-on-save, 500]
+
+* From the `Columns` section, click on the `Save / Discard` spin wheel icon to edit the column properties
+* Set the `onSave` property as `JS` and as `{{ContactsHandler.update(Table1.updatedRow)}}` :
+
+image:ui-builder/guides/table-save-discard-column.png[table-save-discard-column, 300]
+
+* Set the `Title` column as `Select` and set the `Options` property as `{{ContactsHandler.getTitleTypes.data}}`
+* Set the `ContactType` column as `Select` and set the `Options` property as `{{ContactsHandler.getContactTypes.data}}`
+
+=== Add a button to delete a row
+
+* Add a `delete` column to the table
+* Edit the column properties:
+    ** Set the `Column type` as `delete` icon
+    ** Set the `Icon` property as `delete`
+    ** Set the `onClick` property to `Execute a JS function` -> `ContactsHandler.delete` with `{{Table1.triggeredRow.id}}` parameter
+    ** You may also want to set the icon color as red, from the `Style` tab
+
+You can now play with your UI by adding, updating and deleting contacts!
+
