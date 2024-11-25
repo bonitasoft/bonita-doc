@@ -1,5 +1,4 @@
 = How to make a contract with a `multiple` attribute
-:page-aliases: applications:how-to-contract-multiple.adoc
 :description: Learn how to make a contract with a `multiple` attribute.
 
 {description}
