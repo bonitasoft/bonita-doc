@@ -15,7 +15,7 @@ This will be used to fill the `contacts` attribute in the contract.
 
 == Create a JS Object to manage the list of contacts
 
-Go to the `JS` tab and create a new JS Object called `contactsHandler` and copy and paste the following code:
+Go to the `JS` tab and create a new JS Object called `ContactsHandler` and copy and paste the following code:
 
 [source,JS]
 ----
