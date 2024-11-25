@@ -1,5 +1,4 @@
 = Create Fully Responsive Applications
-:page-aliases: applications:create-fully-responsive-apps.adoc
 :description: Enhance the layout to ensure the application is fully responsive.
 
 {description}

@@ -41,5 +41,5 @@ xref:ui-builder/reuse-code-and-components.adoc[[.card-title]#Reuse code and comp
 
 [.card.card-index]
 --
-xref:ui-builder/create-fully-responsive-apps.adoc[[.card-title]#Make your application responsive# [.card-body.card-content-overflow]#pass:q[Enhance the layout to ensure the application is fully responsive]#]
+xref:ui-builder/create-fully-responsive-apps.adoc[[.card-title]#Create fully responsive applications# [.card-body.card-content-overflow]#pass:q[Enhance the layout to ensure the application is fully responsive]#]
 --
