@@ -1,0 +1,35 @@
+= Create Fully Responsive Applications
+:description: Enhance the layout to ensure the application is fully responsive.
+
+{description}
+
+Although applications built with UI Builder are responsive by default, certain settings should be avoided to ensure full responsiveness.
+
+== Fixed Height
+
+Setting a fixed height for a widget may cause display issues on different window sizes.
+
+For example, if you set the `Height` property to `Fixed` for a Container widget, the content may become truncated when the window is resized.
+
+== Scroll Content
+
+For some widgets, for example the Container widget, you can use the `Scroll content` property if you want to maintain a fixed size.
+
+== Example
+
+1. Drop a Container widget on the page:
+- Set the `Height` property to `Fixed`
+- Disable the `Scroll contents` property
+
+2. Drop a Text widget inside the Container:
+- Expand it to the width of the Container
+- Add some text to fill the Text widget
+
+Preview the page and resize the window: you will see that the content is truncated when the window is small:
+
+image:ui-builder/guides/responsive-container-ko.png[responsive-container-ko, 400, 200]
+
+Now, set the `Height` property of the Container to `Auto Height` and preview the page again:
+you will see that the content is displayed correctly, the Container height adapts to the content:
+
+image:ui-builder/guides/responsive-container-ok.png[responsive-container-ok, 400, 200]
