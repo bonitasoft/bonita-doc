@@ -1,5 +1,5 @@
 = How to make a contract with a `multiple` attribute
-:description: Learn how to make a contract with a `multiple` attribute.
+:description: Learn how to make a contract with a multiple attribute.
 
 {description}
 
