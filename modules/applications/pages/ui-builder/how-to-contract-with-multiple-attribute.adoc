@@ -9,7 +9,7 @@
 With Bonita, you can create a contract with a `multiple` attribute.
 For example, a provider may have multiple contacts.
 
-Creating a UI to start a Process Instance, you will need a UI interface that allows the user to create a new Provider and add multiple Contacts.
+To start a Process Instance, the UI should allow users to create a new Provider and add multiple Contacts.
 In this guide, we will focus on how to create a list of contacts, and store them in a JSON object.
 This will be used to fill the `contacts` attribute in the contract.
 
