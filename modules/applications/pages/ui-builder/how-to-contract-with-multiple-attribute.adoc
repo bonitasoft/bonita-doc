@@ -20,14 +20,8 @@ Go to the `JS` tab and create a new JS Object called `contactsHandler` and copy 
 [source,JS]
 ----
 export default {
-	contacts: [{
-		  id: 0,
-			title: "Mr",
-			firstname: "Alejandro",
-			surname: "Dupont",
-			email: "alejandro@dupont.com",
-			contactType: "technical"
-		}],
+	contacts: [],
+	maxId: 0,
 	getAll () {
 		return this.contacts;
 	},
@@ -36,11 +30,10 @@ export default {
 			showAlert("Invalid contact!");
 			return;
 		}
-		contactToAdd.id = this.contacts.length;
+		contactToAdd.id = this.maxId++;
 		this.contacts.push(contactToAdd);
 		this.getAll();
 	},
-
 	delete(idToDelete) {
 		if (idToDelete === undefined) {
 			showAlert("Invalid id!");
@@ -57,22 +50,8 @@ export default {
 			showAlert("contact not found! id=", contactToUpdate.id);
 			return;
 		}
-		this.delete(contactToUpdate.id);
-		this.add(contactToUpdate);
+		this.contacts[index] = contactToUpdate;
 		this.getAll();
-	},
-	getContactTypes() {
-		return [
-            {label: "Administration", value: "administration"},
-            {label: "Technical", value: "technical"},
-            {label: "Other", value: "other"}
-        ]
-	},
-	getTitleTypes() {
-		return [
-			{label: "Mrs", value: "Mrs"},
-			{label: "Mr", value: "Mr"}
-		]
 	}
 }
 ----
@@ -100,8 +79,16 @@ image:ui-builder/guides/adding-a-row-on-save.png[adding-a-row-on-save, 500]
 
 image:ui-builder/guides/table-save-discard-column.png[table-save-discard-column, 300]
 
-* Set the `Title` column as `Select` and set the `Options` property as `{{ContactsHandler.getTitleTypes.data}}`
-* Set the `ContactType` column as `Select` and set the `Options` property as `{{ContactsHandler.getContactTypes.data}}`
+* Set the `Title` column as `Select` and set the `Options` property as:
+[source,json]
+----
+[{"label": "Mrs", "value": "Mrs"}, {"label": "Mr", "value": "Mr"}]
+----
+* Set the `ContactType` column as `Select` and set the `Options` property as:
+[source,json]
+----
+[{"label": "Administration", "value": "administration"}, {"label": "Technical", "value": "technical"}, {"label": "Other", "value": "other"}]
+----
 
 === Add a button to delete a row
 
