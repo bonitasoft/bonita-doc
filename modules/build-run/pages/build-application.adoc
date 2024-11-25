@@ -90,8 +90,8 @@ When building a project with Subscription editions, make sure to be xref:softwar
 When using a Windows terminal, a space must be added between the `-D` flag and the `property=value` assignment.
 --
 
-* `-Dbonita.environment`: `local` by default. Select the target environment to use when building. The value is case-insensitive.
-* `-Dbonita.allowEmptyFormMapping`: `false` by default. It is possible to set this flag to `true` to keep the legacy behavior of the `la-builder`.
+* `-Dbonita.environment`=`local` by default. Select the target environment to use when building. The value is case-insensitive.
+* `-Dbonita.allowEmptyFormMapping`=`false` by default. It is possible to set this flag to `true` to keep the legacy behavior of the `la-builder`.
 
 ==== Filtering artifacts to include/exclude
 
