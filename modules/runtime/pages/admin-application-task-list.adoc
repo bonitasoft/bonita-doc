@@ -66,6 +66,16 @@ This means that the flow node does not have to be done successfully for the foll
 
 The task is moved from "Failed" to "Done", while the connector stays in the "Failed" state.
 
+
+== Error details
+
+This feature is available with the Access, Enterprise or the Performance editions.
+
+When a flownode is failed, an additional "Error details" panel displays the information about the exception that caused the failure.
+When available, the scope and context of the error is attached to failure to help locating the issue in the process definition.
+A failure history is also displayed in case of successive failures on <<#_replay_a_failed_flow_node,replay>>.
+
+
 [#_replay_a_failed_flow_node]
 == Replay a failed flow node
 
@@ -80,3 +90,6 @@ This feature is available with the Access, Enterprise or the Performance edition
 . Click on _Replay_
 . Click on _Close_
 . Refresh the flow node details page to view its new state
+
+
+
