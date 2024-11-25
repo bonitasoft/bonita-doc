@@ -58,7 +58,7 @@ export default {
 
 This simple code allows to create, update and delete contacts.
 
-Now, from the `Settings` tab, enable `Run on page load` for the `getAll`, `getContactTypes` and `getTitleTypes` functions.
+Now, from the `Settings` tab, enable `Run on page load` for the `getAll` function.
 
 == Create a UI to manage the list of contacts
 
