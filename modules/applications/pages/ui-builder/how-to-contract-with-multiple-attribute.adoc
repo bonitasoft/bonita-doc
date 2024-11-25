@@ -79,12 +79,12 @@ image:ui-builder/guides/adding-a-row-on-save.png[adding-a-row-on-save, 500]
 
 image:ui-builder/guides/table-save-discard-column.png[table-save-discard-column, 300]
 
-* Set the `Title` column as `Select` and set the `Options` property as:
+* Set the `Title` column type as `Select` and set the `Options` property as:
 [source,json]
 ----
 [{"label": "Mrs", "value": "Mrs"}, {"label": "Mr", "value": "Mr"}]
 ----
-* Set the `ContactType` column as `Select` and set the `Options` property as:
+* Set the `ContactType` column type as `Select` and set the `Options` property as:
 [source,json]
 ----
 [{"label": "Administration", "value": "administration"}, {"label": "Technical", "value": "technical"}, {"label": "Other", "value": "other"}]
@@ -94,8 +94,8 @@ image:ui-builder/guides/table-save-discard-column.png[table-save-discard-column,
 
 * Add a `delete` column to the table
 * Edit the column properties:
-    ** Set the `Column type` as `delete` icon
-    ** Set the `Icon` property as `delete`
+    ** Set the `Column type` as `Icon button`
+    ** Set the `Icon` property as `delete` icon
     ** Set the `onClick` property to `Execute a JS function` -> `ContactsHandler.delete` with `{{Table1.triggeredRow.id}}` parameter
     ** You may also want to set the icon color as red, from the `Style` tab
 
