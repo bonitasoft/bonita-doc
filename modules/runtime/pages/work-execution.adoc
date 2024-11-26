@@ -57,7 +57,7 @@ When a work fails, there is a mechanism in place to retry it. If we identify tha
 
 === Failures
 
-When a flownode fails, the exception that caused the failure is stored and can be retrieved by the API (Enterprise only). A failure is annotated with additional context information and can also be consulted after the flownode has been archived.
+When a flownode fails, the exception that caused the failure is stored and can be retrieved by the API (subscription editions only). A failure is annotated with additional context information and can also be consulted after the flownode has been archived.
 
 == Auditing
 
