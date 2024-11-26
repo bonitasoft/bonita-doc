@@ -13,7 +13,7 @@ to specify that you may have several contacts for a provider.
 
 To start a Process Instance, the UI should allow users to create a new provider and add multiple contacts.
 In this guide, we will focus on how to create a list of contacts, and store them in a JSON object.
-This will be used to fill the `contacts` attribute in the contract.
+This will be used to fill the `contact` attribute in the contract.
 
 == Create a JS Object to manage the list of contacts
 
