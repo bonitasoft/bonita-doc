@@ -38,3 +38,8 @@ xref:ui-builder/how-to-retrieve-user-avatar.adoc[[.card-title]#Retrieve user ava
 --
 xref:ui-builder/reuse-code-and-components.adoc[[.card-title]#Reuse code and components# [.card-body.card-content-overflow]#pass:q[Improve maintenance and consistency between your applications]#]
 --
+
+[.card.card-index]
+--
+xref:ui-builder/create-fully-responsive-apps.adoc[[.card-title]#Create fully responsive applications# [.card-body.card-content-overflow]#pass:q[Enhance the layout to ensure the application is fully responsive]#]
+--
