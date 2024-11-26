@@ -35,9 +35,11 @@ Then, go to the `Queries` tab and check that the `uploadDocument` query has been
 
 You can now display the document name in a text widget. Drag and drop a Text widget onto your interface and
 set the `Text` property to `{{JSON.parse(uploadDocument.data).filename}}`.
+
 Note the `JSON.parse()` call that allow to transform the response (string) into a JSON object.
 
 == View the document
 
 Drag and drop a `DocumentViewer` widget onto your interface and set the `Document link` property to `{{FilePicker1.files[0].data}}`.
+
 You should see the document displayed in the widget!
