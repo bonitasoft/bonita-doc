@@ -6,10 +6,12 @@
 * Difficulty: intermediate
 * Estimated time: 20 minutes
 
-With Bonita, you can create a contract with a `multiple` attribute.
-For example, a provider may have multiple contacts.
+With Bonita, in the BDM (Business Data Model), you can create an object with a relationship with another object.
+For example, a Provider object may have a relationship with a Contact object.
+Then, you can create a Process contract with a `contact` attribute set as `multiple`,
+to specify that you may have several contacts for a provider.
 
-To start a Process Instance, the UI should allow users to create a new Provider and add multiple Contacts.
+To start a Process Instance, the UI should allow users to create a new provider and add multiple contacts.
 In this guide, we will focus on how to create a list of contacts, and store them in a JSON object.
 This will be used to fill the `contacts` attribute in the contract.
 
@@ -20,8 +22,8 @@ Go to the `JS` tab and create a new JS Object called `ContactsHandler` and copy 
 [source,JS]
 ----
 export default {
-	contacts: [],
-	maxId: 0,
+	contacts: [{id: 0, title: "Mr", firstname: "Alejandro", surname: "Dupont", email: "alejandro@dupont.com", contactType: "technical"}],
+	maxId: 1,
 	getAll () {
 		return this.contacts;
 	},
