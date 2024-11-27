@@ -6,7 +6,7 @@ Discover how to explore the xref:ROOT:define-business-data-model.adoc[Business D
 
 A *Data Model* tab is available from the Palette of the Page editor:
 
-image::images/uid_data_model_panel.png[data_model_panel]
+image:uid_data_model_panel.png[data_model_panel]
 
 == Exploring the BDM
 
@@ -21,7 +21,7 @@ You can use also the graphical view to explore the model.
 Note: we are using the graphql-voyager tool, which represents a GraphQL schema as an interactive graph.
 ====
 
-image::images/uid_graphql_voyager.png[graphql_voyager]
+image:uid_graphql_voyager.png[graphql_voyager]
 
 Once you know which business object you want to use, you can either:
 
@@ -34,7 +34,7 @@ Drag and drop a Business Object in the whiteboard.
 A configuration wizard appears: provide information on how to retrieve elements of this Business Object.
 You can find information on how to use this wizard from the xref:pages-and-forms:variables.adoc[Business Data Variables] page.
 
-image::images/uid_data_management_wizard.png[data_management_wizard]
+image:uid_data_management_wizard.png[data_management_wizard]
 
 A user interface is generated. It follows the master/details pattern: a Table widget is displayed with all the object instances, and the details are shown when a line is selected.
 The details section map each Business Object attribute to a corresponding widget (for instance, an Input widget for an attribute of type String).

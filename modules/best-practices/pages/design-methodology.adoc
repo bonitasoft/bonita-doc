@@ -4,7 +4,7 @@
 
 {description}
 
-image:images/project phases.png[Project phases]
+image:project phases.png[Project phases]
 
 == Project discovery and design
 

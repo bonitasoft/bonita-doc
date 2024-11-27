@@ -8,7 +8,7 @@ WARNING: xref:2022.2@ROOT:multi-tenancy-and-tenant-configuration.adoc[Multi-tena
 
 Learn how to use the multi-tenant to multi-runtime tool to convert a multi-tenant platform into a multi-runtime one.
 
-image:images/mtmr-general-idea-schema.svg[General idea of the conversion tool, width=400]
+image:mtmr-general-idea-schema.svg[General idea of the conversion tool, width=400]
 
 == Overview
 

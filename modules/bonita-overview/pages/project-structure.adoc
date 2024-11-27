@@ -8,7 +8,7 @@ This page defines the elements used to compose a Bonita project.
 Bonita projects are based on processes but also data, user interfaces, identity management and extensions.
 
 [.text-center]
-image:images/BonitaProjectElements.png[]
+image:bonita-project-elements.png[]
 
 [NOTE]
 ====
