@@ -17,7 +17,7 @@ A task can fail in Bonita Engine for several reasons. Typical reasons include:
 * A connector fails to execute because of erroneous connector implementation.
 * A connector fails to execute because a connector input or output expression fails to evaluate.
 
-In these cases, the activity is considered to have failed, and its state is recorded as FAILED in the Bonita database.
+In these cases, the activity is considered to have failed, and its state is recorded as FAILED and failure is created in the Bonita database.
 
 Note that if communication between the server and the database is interrupted, the activity failure cannot be recorded. In this case,
 the state of the activity will be the state previously recorded.
@@ -31,6 +31,8 @@ The Process Management API provides the following actions:
 * Retry a failed activity, using replayActivity(long activityInstanceId).
 * Reset the states of a list of failed connectors and, in the same operation, retry the corresponding failed activity, using
 replayActivity(long activityInstanceId, `Map<Long` connectorsToReset>connectorsToReset).
+* Retrieve the list of failures for a given activity/flownode, using getFlowNodeFailures(long flowNodeInstanceId, int maxResults).
+
 
 == Code explained
 
