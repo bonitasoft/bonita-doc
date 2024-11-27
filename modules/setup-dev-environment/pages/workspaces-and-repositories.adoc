@@ -189,7 +189,7 @@ You need to configure Proxy Settings in the xref:bonita-bpm-studio-preferences.a
 [.troubleshooting-section]
 --
 [.symptom]
-My diagram has many validation issues after a clone / a switch branch operation:
+My diagram has many validation issues after a clone / a switch branch operation
 
 [.cause]*Potential cause*
 Keep in mind that Bonita artifacts (Business Data Model, Organization, Profiles, Applications, Pages ...) are not redeployed when you perform a clone or a switch branch operation.
