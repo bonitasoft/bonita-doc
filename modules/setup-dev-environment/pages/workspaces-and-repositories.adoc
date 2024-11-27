@@ -225,7 +225,7 @@ Use SSH URL instead (e.g. `git@ssh.dev.azure.com:v3/user/organization/repository
 [.troubleshooting-section]
 --
 [.symptom]
-I try to use git with HTTPS, but I have authentication issues (_not authorized_)
+I try to use git with HTTPS, but I have authentication issues (not authorized)
 
 [.cause]*Potential cause*
 This might happen if you have enabled the _two factor authentication_ on your GitHub account.
@@ -237,7 +237,7 @@ You must use an https://help.github.com/en/articles/creating-a-personal-access-t
 [.troubleshooting-section]
 --
 [.symptom]
-I have _invalid privatekey_ issues when I try to use Git with ssh on macOs:
+I have  "invalid privatekey" issues when I try to use Git with ssh on macOs
 
 [.cause]*Potential cause*
 Since the macOs mojave update, the ssh-keygen default export format has changed. The new format isn't compatible with all eclipse versions.
@@ -246,10 +246,20 @@ Since the macOs mojave update, the ssh-keygen default export format has changed.
 Use the following command to force ssh-keygen to export the private key as PEM format if you face this issue: _ssh-keygen -m PEM -t rsa -b 4096 -C "your_email@example.com"_
 --
 
-=== My Studio crashed and I've lost my projects in my workspace
+[.troubleshooting-section]
+--
+[.symptom]
+My Studio crashed and I've lost my projects in my workspace
 
+[.cause]*Potential cause*
+You can enabled the workspace recovery mode that will synchronize the file system and the Studio workspace.
+
+[.solution]*Possible solution*
 NOTE: Since 2021.2-u1
-
-You can enabled the workspace recovery mode that will synchronize the file system and the Studio workspace. +
 Open the `BonitaStudio*.ini` file matching the executable name (in the bonita installation folder, next to the workspace folder) and set the value of the system property `workspace.recovery.mode` to `true`. Then, restart the Studio. +
 In the Studio logs, you should see that the recovery mode is enabled and the import operation of the missing projects into the workspace. Once the recovery operation done, you may want to disable the workspace recovery mode by resetting the property value to `false` in the `.ini` file.
+--
+
+
+
+
