@@ -16,7 +16,7 @@ See also: +
 xref:ROOT:data-handling-overview.adoc[Data types and defining a variable] +
 xref:pages-and-forms:variables.adoc[Data handling in a form]
 
-image::images/images-6_0/variables_scope.png[Scope of variables]
+image:images-6_0/variables_scope.png[Scope of variables]
 
 Best practice:
 
