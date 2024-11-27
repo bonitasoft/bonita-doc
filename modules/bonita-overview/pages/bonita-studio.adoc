@@ -31,8 +31,7 @@ Bonita Studio is not intended for any use other than development. As a consequen
 
 == Architecture overview
 
-image:images/getting-started-tutorial/what-is-bonita/architecture-bonita-studio.png[Bonita Studio architecture]
-// {.img-responsive .img-thumbnail}
+image:architecture-bonita-studio.png[Bonita Studio architecture]
 
 
 [.card-section]
@@ -68,7 +67,7 @@ xref:setup-dev-environment:setup-dev-environment-index.adoc[[.card-title]#Develo
 xref:ROOT:update-studio.adoc[[.card-title]#Update Bonita Studio# [.card-body.card-content-overflow]#pass:q[The recommended flow to update the development environment]#]
 --
 
-== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+== image:troubleshooting.png[troubleshooting-icon] Troubleshooting
 
 === Log files
 
@@ -153,7 +152,7 @@ If you need another version:
 === java.security.cert.CertificateException: No subject alternative DNS name matching github-releases.githubusercontent.com found.
 
 ****
-Bonita Studio needs to retrieve some remote assets from Github. +
+Bonita Studio needs to retrieve some remote assets from GitHub. +
 *Symptom:* +
 The download of those assets fails with the above exception. +
 *Potential cause:* +
