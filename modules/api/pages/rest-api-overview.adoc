@@ -21,7 +21,7 @@ If your application is using a technology other than Java, you can integrate it 
 
 Access to the Web REST API depends on xref:identity:rest-api-authorization.adoc[REST API authorization] settings.
 
-image::images/rest_api_architecture_overview.png[diagram of architecture of a REST client integrated with Bonita]
+image::rest_api_architecture_overview.png[diagram of architecture of a REST client integrated with Bonita]
 
 === Execute REST calls and integrate the results in your application
 

@@ -68,7 +68,7 @@ The Bonita Engine APIs can be accessed locally or remotely, in the following mod
 * Local: the client accesses the server directly in local mode
 * HTTP&#x3A; the client accesses a remote server via HTTP
 
-image::images/images-6_0/dev_overview_api_access.png[Diagram of API access options]
+image::dev_overview_api_access.png[Diagram of API access options]
 
 The mode you use must be specified in the bonita-client-custom.properties file. By default, the access mode is local. This can be used when the client and engine are using the same JVM. The file contains commented out configurations for remote access modes. To change the mode, simply comment out the configuration for local and uncomment the relevant remote configuration.
 

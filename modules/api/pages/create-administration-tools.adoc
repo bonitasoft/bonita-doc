@@ -240,7 +240,7 @@ java -Dbonita.home=bonita -jar lib/bonita-cli-1.0.0.jar %*
 
 Build the whole project again. When the build completes, the zip file should contain the following structure:
 
-image::images/images-6_0/content-zip.png[Zip file structure]
+image::content-zip.png[Zip file structure]
 
 Run the appropriate script:
 
