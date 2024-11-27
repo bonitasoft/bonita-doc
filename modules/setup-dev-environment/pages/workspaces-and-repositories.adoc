@@ -173,9 +173,9 @@ Git workflow offers a lot of other features that are not directly integrated in 
 
 [.troubleshooting-section]
 --
-[.symptom]*Symptom:*
-_I see this type of message in the Studio log, but when I open the URL in my browser, it works fine:_ `!MESSAGE An exception occurred during push on URI http://your_remote_git_repository/repository/my_bonita_repo.git: http://your_remote_git_repository/repository/my_bonita_repo.git: 503 Service Unavailable`
 
+[.symptom]*Symptom:*
+I see this type of message in the Studio log, but when I open the URL in my browser, it works fine:  `!MESSAGE An exception occurred during push on URI http://your_remote_git_repository/repository/my_bonita_repo.git: http://your_remote_git_repository/repository/my_bonita_repo.git: 503 Service Unavailable`
 
 [.cause]*Potential cause*
 You probably connect to the internet through a Proxy
@@ -186,9 +186,9 @@ You need to configure Proxy Settings in the xref:bonita-bpm-studio-preferences.a
 
 [.troubleshooting-section]
 --
+
 [.symptom]*Symptom:*
 My diagram has many validation issues after a clone / a switch branch operation:
-
 
 [.cause]*Potential cause*
 Keep in mind that Bonita artifacts (Business Data Model, Organization, Profiles, Applications, Pages ...) are not redeployed when you perform a clone or a switch branch operation.
@@ -199,6 +199,7 @@ So, if you switch from a branch A to a branch B, you may need for example to dep
 
 [.troubleshooting-section]
 --
+
 [.symptom]*Symptom:*
 My Git history view is empty
 
@@ -211,6 +212,7 @@ Just open a diagram for example and then re-open your history view.
 
 [.troubleshooting-section]
 --
+
 [.symptom]*Symptom:*
 Cloning a repository hosted on Azure DevOps
 
@@ -223,6 +225,7 @@ Use SSH URL instead (e.g. `git@ssh.dev.azure.com:v3/user/organization/repository
 
 [.troubleshooting-section]
 --
+
 [.symptom]*Symptom:*
 I try to use git with HTTPS, but I have authentication issues (_not authorized_)
 
@@ -235,6 +238,7 @@ You must use an https://help.github.com/en/articles/creating-a-personal-access-t
 
 [.troubleshooting-section]
 --
+
 [.symptom]*Symptom:*
 I have _invalid privatekey_ issues when I try to use Git with ssh on macOs:
 
