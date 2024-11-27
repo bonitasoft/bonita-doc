@@ -24,7 +24,7 @@ A row is a mechanism for aligning widgets, from top left to bottom right. When y
 
 To move or delete a row, position your mouse in the row, and the row toolbar is displayed.
 
-image::row-over.png[row toolbar]
+image::uid-row-over.png[row toolbar]
 
 Use the controls in the toolbar to move the row up or down, or to delete it.
 
@@ -44,7 +44,7 @@ There are different types of containers:
 
 Once a container is added to the page, it contains a row. Therefore, widgets can be dropped in a container row or directly on a whiteboard row. In this example, you can see a container with four rows.
 
-image::row-normal.png[A 4 row container]
+image::uid-row-normal.png[A 4 row container]
 
 The behavior of a page is determined by the widget properties. Any property you configure for a container is applied to all widgets in the container unless you override it with a widget-specific value.
 

@@ -8,7 +8,7 @@ This page defines the elements used to compose a Bonita Automation project.
 Bonita Automation projects are based on processes but also data, user interfaces, identity management and extensions.
 
 [.text-center]
-image:BonitaProjectElements.png[]
+image:bonita-project-elements.png[]
 
 [NOTE]
 ====
