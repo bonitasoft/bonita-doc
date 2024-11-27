@@ -1,0 +1,105 @@
+= How to make a contract with a `multiple` attribute
+:description: Learn how to make a contract with a multiple attribute.
+
+{description}
+
+* Difficulty: intermediate
+* Estimated time: 20 minutes
+
+With Bonita, in the BDM (Business Data Model), you can create an object with a relationship with another object.
+For example, a Provider object may have a relationship with a Contact object.
+Then, you can create a Process contract with a `contact` attribute set as `multiple`,
+to specify that you may have several contacts for a provider.
+
+To start a Process Instance, the UI should allow users to create a new provider and add multiple contacts.
+In this guide, we will focus on how to create a list of contacts, and store them in a JSON object.
+This will be used to fill the `contact` attribute in the contract.
+
+== Create a JS Object to manage the list of contacts
+
+Go to the `JS` tab and create a new JS Object called `ContactsHandler` and copy and paste the following code:
+
+[source,JS]
+----
+export default {
+	contacts: [{id: 0, title: "Mr", firstname: "Alejandro", surname: "Dupont", email: "alejandro@dupont.com", contactType: "technical"}],
+	maxId: 1,
+	getAll () {
+		return this.contacts;
+	},
+	add(contactToAdd) {
+		if (!contactToAdd) {
+			showAlert("Invalid contact!");
+			return;
+		}
+		contactToAdd.id = this.maxId++;
+		this.contacts.push(contactToAdd);
+		this.getAll();
+	},
+	delete(idToDelete) {
+		if (idToDelete === undefined) {
+			showAlert("Invalid id!");
+			return;
+		}
+		this.contacts = this.contacts.filter(contact => {
+			return contact.id !== idToDelete;
+		});
+		this.getAll();
+	},
+	update(contactToUpdate) {
+		  const index = this.contacts.findIndex(contact => contact.id === contactToUpdate.id);
+		if (index === -1) {
+			showAlert("contact not found! id=", contactToUpdate.id);
+			return;
+		}
+		this.contacts[index] = contactToUpdate;
+		this.getAll();
+	}
+}
+----
+
+This simple code allows to create, update and delete contacts.
+
+Now, from the `Settings` tab, enable `Run on page load` for the `getAll` function.
+
+== Create a UI to manage the list of contacts
+
+* Drop a Table widget on the page
+* Set the `Table data` property as `JS` and as `{{ContactsHandler.getAll.data}}`
+* For the Columns, check the `Editable` property, and uncheck the `id` column, since it is automatically generated
+
+== Enable adding a row
+
+* In the `Adding a row` section:
+    ** enable the `Allow adding a row` property
+    ** Set the `onSave` property to `Execute a JS function` -> `ContactsHandler.add(data)` with `{{Table1.newRow}}` parameter:
+
+image:ui-builder/guides/adding-a-row-on-save.png[adding-a-row-on-save, 500]
+
+* From the `Columns` section, click on the `Save / Discard` spin wheel icon to edit the column properties
+* Set the `onSave` property as `JS` and as `{{ContactsHandler.update(Table1.updatedRow)}}` :
+
+image:ui-builder/guides/table-save-discard-column.png[table-save-discard-column, 300]
+
+* Set the `Title` column type as `Select` and set the `Options` property as:
+[source,json]
+----
+[{"label": "Mrs", "value": "Mrs"}, {"label": "Mr", "value": "Mr"}]
+----
+* Set the `ContactType` column type as `Select` and set the `Options` property as:
+[source,json]
+----
+[{"label": "Administration", "value": "administration"}, {"label": "Technical", "value": "technical"}, {"label": "Other", "value": "other"}]
+----
+
+=== Add a button to delete a row
+
+* Add a `delete` column to the table
+* Edit the column properties:
+    ** Set the `Column type` as `Icon button`
+    ** Set the `Icon` property as `delete` icon
+    ** Set the `onClick` property to `Execute a JS function` -> `ContactsHandler.delete` with `{{Table1.triggeredRow.id}}` parameter
+    ** You may also want to set the icon color as red, from the `Style` tab
+
+You can now play with your UI by adding, updating and deleting contacts!
+

@@ -41,6 +41,11 @@ xref:how-to-upload-multiple-documents.adoc[[.card-title]#Upload multiple documen
 
 [.card.card-index]
 --
+xref:applications:ui-builder/how-to-contract-with-multiple-attribute.adoc[[.card-title]#Contract with a multiple attribute# [.card-body.card-content-overflow]#pass:q[Learn how to make a contract with a multiple attribute]#]
+--
+
+[.card.card-index]
+--
 xref:how-to-interact-with-tasks.adoc[[.card-title]#Interact with tasks# [.card-body.card-content-overflow]#pass:q[Learn how to make your application interact with tasks]#]
 --
 
