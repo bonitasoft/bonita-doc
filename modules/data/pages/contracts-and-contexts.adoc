@@ -32,12 +32,12 @@ In the *Constraints* tab, declare expressions that check the validity of the val
 
 In the Leave Request Process example, the contract inputs and the constraints would be similar to the following:
 
-image::images/images-6_0/contractDoc.PNG[]
+image:images-6_0/contractDoc.PNG[]
 
-image::images/images-6_0/ConstraintsDoc.PNG[]
+image:images-6_0/ConstraintsDoc.PNG[]
 
 Stacktrace example in case of contract violation:
-  image:images/images-6_0/constraintError.PNG[]
+  image:images-6_0/constraintError.PNG[]
 
 Supported input types:
 
@@ -99,10 +99,10 @@ When generating a Form from a contract, a Text widget is created to display erro
 
 == Context
 
-To display contextual information of the task or the process instance in a form, you can leverage the business data and document references made publicly available through the context. The notion of context is available at two levels : process instance and human task. The context is a list of references to the business data and documents manipulated by the process instance during its execution. All the business data and documents defined are public.  
+To display contextual information of the task or the process instance in a form, you can leverage the business data and document references made publicly available through the context. The notion of context is available at two levels : process instance and human task. The context is a list of references to the business data and documents manipulated by the process instance during its execution. All the business data and documents defined are public.
 
-Most of the time, context is the same for a human task and its process instance. The human task context contains more information when the task is multi-instantiated based on a Multiple<Business Object>:   
-You will find a "multiInstanceIterator_ref" that points to the business object in the collection that has been used to create the multi-instance. 
+Most of the time, context is the same for a human task and its process instance. The human task context contains more information when the task is multi-instantiated based on a Multiple<Business Object>:
+You will find a "multiInstanceIterator_ref" that points to the business object in the collection that has been used to create the multi-instance.
 
 This is usefull when designing the form to know on which child instance of the multi-instantiation the form will be displayed (to display the right contextual information).
 
@@ -123,7 +123,7 @@ In `Edit` mode, additional `persistenceId_string` input are generated to ensure 
 In `Edit` mode, you have the possibility to generate read only widgets for attributes related to the contract but not in the contract. +
 The following example describes the logic:
 
-image:images/formGenerationReadOnly.svg[Read only example]
+image:formGenerationReadOnly.svg[Read only example]
 
 Elements in blue are the contract inputs, i.e a sub-part of the business model that will be edited. +
 Elements in red are the attributes considered as _related to a contract input_. We will propose you to generate read only widgets to display the values of those attributes.

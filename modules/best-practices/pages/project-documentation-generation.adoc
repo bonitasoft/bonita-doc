@@ -30,7 +30,7 @@ However, we provide examples to make your life easier and a framework so that bu
 
 Right-click on your project and select the `menu:Documentation[Generate]` menu:
 
-image::images/doc-generation/generate_doc_menu.png[Generate documentation]
+image:doc-generation/generate_doc_menu.png[Generate documentation]
 
 It will trigger the documentation generation based on the default templates.
 The following artifacts will be created in the project's root folder:
@@ -98,26 +98,26 @@ The Studio documentation editor allows to export your documentation in two forma
 
 === Export as PDF
 
-As a PDF file thanks to the image:images/doc-generation/pdfIcon.png[pdf export button] button
+As a PDF file thanks to the image:doc-generation/pdfIcon.png[pdf export button] button
 
-image::images/doc-generation/export_as_pdf.png[pdf export button]
+image:doc-generation/export_as_pdf.png[pdf export button]
 
 === Export as HTML
 
-As a HTML document thanks to the image:images/doc-generation/previewHTML.png[Open in external browser] button.
+As an HTML document thanks to the image:doc-generation/previewHTML.png[Open in external browser] button.
 
 If you need to industrialize the HTML generation you can use many tools. The most straightforward way is to install asciidoctor command line interface like explained in the https://asciidoctor.org/docs/install-toolchain/[official documentation].
 
 Then follow the instructions of the https://asciidoctor.org/docs/user-manual/#html[official documentation] for more information to generate a `.html` file from an `.adoc` file. The `.html` file needs the `documentation` folder to be at the same level to properly display the images assets.
 
-There are also other solutions to process asciidoc documents using https://asciidoctor.org/docs/asciidoctor-maven-plugin/[Maven] or https://asciidoctor.org/docs/asciidoctor-gradle-plugin/[Gradle] plugins.
+There are other solutions to process AsciiDoc documents using https://asciidoctor.org/docs/asciidoctor-maven-plugin/[Maven] or https://asciidoctor.org/docs/asciidoctor-gradle-plugin/[Gradle] plugins.
 
 === View in GitHub or GitLab
 
 If you are using https://github.com[GitHub] or https://about.gitlab.com/[GitLab] for your project, your documentation will be displayed below the content of the repository (like any readme file).
 All you need to do is generate your documentation and push it to your repository thanks to xref:ROOT:workspaces-and-repositories.adoc["Team" features].
 
-image::images/doc-generation/github_preview.png[GitHub preview]
+image::doc-generation/github_preview.png[GitHub preview]
 
 == Collaboration thanks documentation generation feature
 

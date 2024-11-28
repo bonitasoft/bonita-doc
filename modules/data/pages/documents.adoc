@@ -76,7 +76,7 @@ The decision about where to store a document is critical to your process definit
 * <<file,File>>
 * <<resource,Resource>>
 +
-image::images/images-6_0/document_lifecycle.png[Document lifecycle]
+image:images-6_0/document_lifecycle.png[Document lifecycle]
 
 The table below shows the possible interactions between each storage option and a process.
 

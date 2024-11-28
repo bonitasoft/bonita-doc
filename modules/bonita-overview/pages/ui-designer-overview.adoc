@@ -29,7 +29,7 @@ A row is a mechanism for aligning widgets, from top left to bottom right. When y
 
 To move or delete a row, position your mouse in the row, and the row toolbar is displayed.
 
-image::images/images-6_0/row-over.png[row toolbar]
+image::uid-row-over.png[row toolbar]
 
 Use the controls in the toolbar to move the row up or down, or to delete it.
 
@@ -49,7 +49,7 @@ There are different types of containers:
 
 Once a container is added to the page, it contains a row. Therefore, widgets can be dropped in a container row or directly on a whiteboard row. In this example, you can see a container with four rows.
 
-image::images/images-6_0/row-normal.png[A 4 row container]
+image::uid-row-normal.png[A 4 row container]
 
 The behavior of a page is determined by the widget properties. Any property you configure for a container is applied to all widgets in the container unless you override it with a widget-specific value.
 
@@ -162,7 +162,7 @@ Oops, some artifacts from the UI Designer got corrupted in your git repository!
 
 The UI Designer has a log file that you can consult, either from menu:Bonita Studio[Help > Bonita UI-Designer log] menu:
 
-image:images/ui-designer-troubleshooting/uid-logs.png[Open UI Designer log from the Studio]
+image:uid-logs.png[Open UI Designer log from the Studio]
 
 Or from your file system here: `STUDIO_HOME/workspace/.metadata/.plugins/org.bonitasoft.studio.designer/.extract/logs/ui-designer.log`. +
 When reading the log file, you see this kind of error: +
