@@ -1,6 +1,6 @@
 = Work execution
 :page-aliases: ROOT:work-execution.adoc
-:description: == Definition
+:description: This page describes the work execution mechanism in Bonita Engine.
 
 == Definition
 
@@ -27,7 +27,7 @@ The BonitaThreadPoolExecutor is responsible for executing the work. The basic ca
 [cols=2*]
 |===
 | *LockProcessInstanceWork* [[tries to obtain an exclusive lock
-| Work-locking]] on the containing process instance corresponding to the flownode to execute:
+| [[work-locking]] on the containing process instance corresponding to the flownode to execute:
 |===
 
 * If it cannot get the lock within 20ms (by default), a LockTimeoutException is thrown so that the work is placed at the end of the work queue, for later execution
@@ -43,7 +43,7 @@ There are 3 types of errors:
 * An exception of temporary nature occurred (Timeout, OptimisticLockException, database connection issues...).
 * All the other type of exceptions.
 
-If the lock could not be acquired a specific set of action occurs. [[see here|Work-locking]].
+If the lock could not be acquired a specific set of action occurs. <<work-locking,see here>>.
 If an exception of temporary nature occurred, the work would be retried (see below).
 Other exceptions are handled by the method _handleFailure()_ . On a flownode it sets its state to "failed".
 
@@ -54,6 +54,10 @@ When a work fails, there is a mechanism in place to retry it. If we identify tha
 * put it at the end of the queue
 * set a date before which the work should not be retried
 * increment the `retryCount` of the `WorkDescriptor`
+
+=== Failures
+
+When a flownode fails, the exception that caused the failure is stored and can be retrieved by the API (subscription editions only). A failure is annotated with additional context information and can also be consulted after the flownode has been archived.
 
 == Auditing
 
