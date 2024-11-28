@@ -1,4 +1,4 @@
-= Handle a document
+= Upload and view documents
 :description: Learn how to upload and view a document
 
 {description}
