@@ -6,7 +6,7 @@
 * Difficulty: intermediate
 * Estimated time: 10 minutes
 
-If you want to select a document from your computer and upload it to your Bonita application, you can use the `FilePicker` widget, and the Bonita's `formFileUpload` API.
+If you want to select a document from your computer and upload it to your Bonita application, you can use the `FilePicker` widget along with the Bonita's `formFileUpload` API.
 The DocumentViewer widget allows you to view the uploaded document.
 
 == Upload a document
