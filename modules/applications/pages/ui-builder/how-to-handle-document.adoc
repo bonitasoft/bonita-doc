@@ -43,3 +43,24 @@ Note the `JSON.parse()` call, which transforms the response (string) into a JSON
 Drag and drop a `DocumentViewer` widget onto your interface and set the `Document link` property to `{{FilePicker1.files[0].data}}`.
 
 You should see the document displayed in the widget!
+
+== Instantiate a Bonita process with a document
+
+You may have a Bonita process with a contract that includes a document (`FILE` type).
+
+To instantiate the process with a document (called `document` in the contract), go to the `Queries` tab and create a Bonita query:
+
+* `Name`: instantiateProcess
+* `Method`: POST
+* `URL`: /bonita/API/bpm/process/<your process id>/instantiation
+* `Body`:
+- JSON
+
+[source, json]
+----
+{
+    "document": {{JSON.parse(uploadDocument.data)}}
+}
+----
+
+You can now launch this query from your UI, using a `Button` widget for example.
