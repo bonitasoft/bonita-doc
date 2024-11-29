@@ -1,6 +1,6 @@
 = Connectors execution
 :page-aliases: ROOT:connectors-execution.adoc
-:description: == What are connectors
+:description: The page provides detailed instructions on how to edit, deploy, export, and import applications, as well as update application definitions and resources in Bonita Runtime.
 
 == What are connectors
 

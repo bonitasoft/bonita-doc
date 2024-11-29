@@ -1,5 +1,6 @@
 = Embed Bonita Engine in your application
 :page-aliases: ROOT:embed-engine.adoc
+:description: Artifacts allow to start an embedded engine in your application.
 
 [WARNING]
 ====
