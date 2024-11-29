@@ -8,7 +8,7 @@ A flow node is an element of a process. It defines an action to be performed (au
 Those users can view the list of flow nodes in error, pending tasks, done tasks, assign and unassign a task, do a task for someone else, skip a failed flow node, replay a failed flow node, and write a comment about the case.
 
 Here is a view of the task list:
-image:images/UI2021.1/admin-application-task-list.png[Task list Administrator Application]
+image:UI2021.1/admin-application-task-list.png[Task list Administrator Application]
 
 == View tasks and flow nodes
 

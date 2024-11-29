@@ -27,7 +27,7 @@ Choose the "32-bit/64-bit Windows Service Installer" installation.
 * *_Install_* apache-tomcat-x.y.exe. From now on we'll call the installation path as %TOMCAT_INSTALL_FOLDER%
 * *_Verify_* that Tomcat is well installed browsing the following URL: http://localhost:8080
 
-image::images/bonita-as-windows-service/tomcatHome.png[Tomcat home page]
+image::bonita-as-windows-service/tomcatHome.png[Tomcat home page]
 
 * *_Download_* the bundle BonitaSubscription-VERSION.zip (or BonitaCommunity-VERSION.zip for the community edition)
 * *_Unzip_* the bundle in a folder that we'll call: %TOMCAT_BUNDLE%
@@ -43,12 +43,12 @@ image::images/bonita-as-windows-service/tomcatHome.png[Tomcat home page]
 * Follow the documentation xref:ROOT:database-configuration.adoc#postgres_setup[here] to correctly prepare the PostgreSQL database
 * *_Configure_* the file `%TOMCAT_BUNDLE%/setup/database.properties` to point towards the suited database (engine and BDM)
 
-image::images/bonita-as-windows-service/databaseProperties.png[database-properties file]
+image::bonita-as-windows-service/databaseProperties.png[database-properties file]
 
 * *_Execute_* the command "%TOMCAT_BUNDLE%/setup/setup.bat init" in order to initialize the Bonita database with the default configuration.
 * *_Verify_* that setup tool properly created the tables in the engine database.
 
-image::images/bonita-as-windows-service/postgresTables.png[database tables]
+image::bonita-as-windows-service/postgresTables.png[database tables]
 
 * *_Execute_* the command "%TOMCAT_BUNDLE%/setup/setup.bat configure" in order to configure file in the %TOMCAT_BUNDLE%.
 Those files will be copied to the tomcat installation.
@@ -119,14 +119,14 @@ Then for example
 
 is correct
 
-image::images/bonita-as-windows-service/tomcatw.png[tomcatw configuration]
+image::bonita-as-windows-service/tomcatw.png[tomcatw configuration]
 
 * Setup `+%TOMCAT_INSTALL_FOLDER%/bin/Tomcat9w.exe -> Java+` \-> "Initial memory" with a proper value based on your hardware and project requirements.
 * Do the same with "Maximum Memory pool" property.
 As an example, if your Operating system has 8 GB of ram you could setup Initial Memory Pool = Maximum Memory Pool = 4096.
 * Verify that in the Startup tab the "Mode" property is set to "Jvm".
 
-image::images/bonita-as-windows-service/tomcatWStartup.png[tomcatw startup tab]
+image::bonita-as-windows-service/tomcatWStartup.png[tomcatw startup tab]
 
 == System restart and test
 

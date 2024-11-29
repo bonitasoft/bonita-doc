@@ -5,7 +5,7 @@
 {description}
 
 Here is a view of this page:
-image:images/UI2021.1/install-export.png[Install export organization]
+image:UI2021.1/install-export.png[Install export organization]
 
 == How to install an organization
 

@@ -7,7 +7,7 @@ This page explains what a user with the _Administrator_ profile in Bonita Portal
 Administrators can view and update Custom User Information.
 
 Here is a view of this page:
-image:images/UI2021.1/custom-user-info.png[Custom User Information UI]
+image:UI2021.1/custom-user-info.png[Custom User Information UI]
 // {.img-responsive}
 
 == Overview
