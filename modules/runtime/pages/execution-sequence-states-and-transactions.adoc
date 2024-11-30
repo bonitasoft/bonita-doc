@@ -102,7 +102,7 @@ If so, the next state is executed, in another background task (if terminal or no
 
 === Work service mechanism
 
-image::images/images-6_0/user_task_details.png[Diagram of the details of user task execution]
+image::images-6_0/user_task_details.png[Diagram of the details of user task execution]
 
 . Bonita Engine commits the transaction and then submits a work to execute the connectors asynchronously. The connectors are executed outside any transaction and thus are not a problem for the data integrity if the execution takes too long
 . As soon as there is a free slot in the Work Service, it executes the work, which is in fact the connector execution
@@ -139,11 +139,11 @@ The first state is _initializing_: it is automatically executed and the flow nod
 
 *In the first diagram, the task contains connectors*
 
-image::images/images-6_0/user_task_execution_with_connector.png[Diagram of the states and transactions when a user task with connectors is executed]
+image::images-6_0/user_task_execution_with_connector.png[Diagram of the states and transactions when a user task with connectors is executed]
 
 *In the second diagram, there are no connectors in the task*
 
-image::images/images-6_0/user_task_execution_without_connector.png[Diagram of the states and transactions when a user task with connectors is executed]
+image::images-6_0/user_task_execution_without_connector.png[Diagram of the states and transactions when a user task with connectors is executed]
 
 As you can see in these illustrations, there is a non-negligible cost when adding some connectors on an activity: +
 

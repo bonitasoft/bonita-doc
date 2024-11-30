@@ -15,7 +15,7 @@ Starting with Bonita 2022.2, bpmn-visualization library of https://process-analy
 ====
 
 Here is a view of the Monitoring page
-image:images/UI2021.1/monitoring.png[Monitoring]
+image:UI2021.1/monitoring.png[Monitoring]
 
 Go to _BPM_> _Monitoring_ for Administrator and _Monitoring_ for Process Manager.
 The *Monitor open cases* page is displayed, with the following summary information:

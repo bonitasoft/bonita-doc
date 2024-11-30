@@ -5,7 +5,7 @@
 {description} +
 
 Here is a view of the page:
-image:images/UI2021.1/admin_applications.png[Administrator Applications]
+image:UI2021.1/admin_applications.png[Administrator Applications]
 
 == Application definition
 
@@ -124,7 +124,7 @@ To update the navigation:
 . Click the _Edit_ icon for the application you want to edit. The application details page is displayed.
 . In the _Navigation_ zone, at top level, you can define one-page menus that point directly to pages (like Home in the illustration), or multi-page menus (like Holidays).
 
-image::images/images-6_0/living_app_navigation.png[Specifying application navigation]
+image:images-6_0/living_app_navigation.png[Specifying application navigation]
 
 If you define a multi-page menu, you can add menu items (like Trekking and Safari).
 

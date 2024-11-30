@@ -15,19 +15,19 @@ Here are the values of the user task list:
 * Default Master/Detail design pattern, to view list and form in the same screen
 * _Panel expand_ feature, to display wide forms in a large modal window
 
-image:images/tasklist-elements.png[]
+image:tasklist-elements.png[]
 
-image:images/tasklist-popup.png[]
+image:tasklist-popup.png[]
 
 * List settings: number of tasks in a page, choice of columns, columns ordering
 * Easy access to case information, one tab away from the form. This case information is the case overview page, that the development team can customize
 * Easy access to case comments, also one tab away from the form or case information
 
-image:images/tasklist-settings-and-tabs.png[]
+image:tasklist-settings-and-tabs.png[]
 
 * Alternate "full width" list, with task information displayed in a large modal window
 
-image:images/tasklist-fullpage.png[]
+image:tasklist-fullpage.png[]
 
 This list also leverages :
 

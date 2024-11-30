@@ -36,7 +36,7 @@ For an application:
 . Click on the _first name last name_ or _avatar_ in the application header
 . Click on *Sign out*
 
-image:images/UI2021.1/sign-out.png[Sign out]
+image:UI2021.1/sign-out.png[Sign out]
 // {.img-responsive}
 
 [NOTE]

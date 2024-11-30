@@ -8,7 +8,7 @@ Processes using Business Objects with persisted data need to run with a Business
 On top of that, it is possible to define access rights on some attributes of business objects based on the user profile. This file is also managed in the Bonita Super Administrator Application.
 
 Here is a view of the page:
-image:images/UI2021.1/bdm-management.png[BDM in UI]
+image:UI2021.1/bdm-management.png[BDM in UI]
 
 == Manage the BDM
 
