@@ -1,4 +1,5 @@
 = Sharepoint integration example
+:description: The page provides instructions on integrating Bonita applications with Microsoft 365 using Graph API, focusing on SharePoint integration.
 
 This article will help you explore one of the possible ways to integrate your Bonita applications with Microsoft 365 - using Graph API.
 https://docs.microsoft.com/en-us/graph/overview[Microsoft Graph] is a single endpoint, providing access to data and services in the Microsoft cloud.
