@@ -17,7 +17,7 @@ To do so:
 
 . From Bonita Studio coolbar, click on the *_Applications_* icon, and open the *_Administrator Application_*
 . Go to the *_Resources_* menu, filter by page, and find the *_Bonita Admin Process Visualization_*  or *_Bonita Admin Case Visualization_* page (you may have to click on the *_Load more resources_* link)
-. Export the page by clicking on the *_Export_* button image:images/images-6_0/pb-export.png[Export button]
+. Export the page by clicking on the *_Export_* button image:images-6_0/pb-export.png[Export button]
 . From Bonita Studio coolbar, click on the *_UI Designer_* icon to open the UI Designer
 . Import the page in the UI Designer
 
@@ -35,7 +35,7 @@ Open it, to understand its content. +
 As you can see, it embeds the *_bpmnVisu_* custom widget, and includes some variables to get the BPMN diagram, and information about the process or case. +
 Note that it also includes a variable to check the availability of the feature, and another one (*_allCaseInfo_*) dedicated for testing.
 
-image:images/process-visu-fragment-variables.png[Process visualization fragment variables]
+image:process-visu-fragment-variables.png[Process visualization fragment variables]
 
 [NOTE]
 ====
@@ -49,7 +49,7 @@ Selecting the fragment in the white board, you can see a *_Bindable fragment dat
 
 From your page, create a processId or caseId variable, which will contain the id of the required process or case you want to monitor.
 
-image:images/process-visu-page-fragment.png[Process visualization page fragment variable, 300]
+image:process-visu-page-fragment.png[Process visualization page fragment variable, 300]
 
 [NOTE]
 ====
