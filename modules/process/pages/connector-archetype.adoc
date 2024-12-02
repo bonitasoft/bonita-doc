@@ -95,7 +95,7 @@ A definition contains the inputs and the outputs parameters of a connector. It c
 The definition XSD is available in _schemas/connector-definition-descriptor.xsd_ (same definition model for Connectors and Actor filters definitions), you can import it in an IDE for completion.
 ====
 
-image::images/connector-def-xsd-overview.png[Connector definition xsd overview]
+image::connector-def-xsd-overview.png[Connector definition xsd overview]
 
 Example:
 
@@ -208,7 +208,7 @@ The implementation XML file is located in _src/main/resources-filtered/[artifact
 The implementation XSD is available in _schemas/connector-implementation-descriptor.xsd_, you can import it in a IDE to get completion.
 ====
 
-image::images/connector-impl-xsd-overview.png[Connector implementation xsd overview]
+image::connector-impl-xsd-overview.png[Connector implementation xsd overview]
 
 Example:
 

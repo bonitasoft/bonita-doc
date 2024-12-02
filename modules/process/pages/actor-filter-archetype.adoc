@@ -97,7 +97,7 @@ A definition defines the inputs of an actor filter. It can be seen as a contract
 
 The connector definition XSD is available in _schemas/connector-definition-descriptor.xsd_ (it is the same for definition model for Connectors and Actor filters definitions), you can import it in a IDE to get completion.
 
-image::images/connector-def-xsd-overview.png[Connector definition xsd overview]
+image::connector-def-xsd-overview.png[Connector definition xsd overview]
 
 Example:
 
@@ -189,7 +189,7 @@ An actor filter implementation is made of two elements:
 The implementation XML file is located in _src/main/resources-filtered/[artifactId].impl_ by default. +
 The implementation XSD is available in _schemas/connector-implementation-descriptor.xsd_, you can import it in a IDE to get completion.
 
-image::images/connector-impl-xsd-overview.png[Connector implementation xsd overview]
+image::connector-impl-xsd-overview.png[Connector implementation xsd overview]
 
 Example:
 

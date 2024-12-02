@@ -54,17 +54,17 @@ This example uses key values taken from a business variable.
 Here is a xref:attachment$study-leave-template.docx[template example] for Leave Request submission and approval. +
 This .docx file uses keys, most of which will be replaced by values from business variables created from the following *Business Data Model*:
 
-image::images/images-6_0/MyUser_Model_lazy.png[]
+image::images-6_0/MyUser_Model_lazy.png[]
 
-image::images/images-6_0/Address_Model.png[]
+image::images-6_0/Address_Model.png[]
 
-image::images/images-6_0/StudyLeave_Model.png[]
+image::images-6_0/StudyLeave_Model.png[]
 
 === Connector configuration
 
 The configuration is as follows:
 
-image::images/images-6_0/document_templating_input_mappings.png[]
+image::images-6_0/document_templating_input_mappings.png[]
 
 In this example, the key named `user` is mapped to the business variable `user`, the key named `leave` is mapped to the business variable `studyLeave`, and the key named `today` is mapped to a groovy script expression with the following content:
 
@@ -80,7 +80,7 @@ In this example, the key named `user` is mapped to the business variable `user`,
 
 And the output file mapping:
 
-image::images/images-6_0/document_templating_outputs.png[]
+image::images-6_0/document_templating_outputs.png[]
 
 In this business example, the requesting user enters personal information in a process form. In a subsequent step, the reviewing user adds Approval information. The entered values are then provided as inputs to the *insert data in a .docx/.odt template connector* to replace the keys. +
 The generated output file is then stored in a document of the process. +
@@ -104,7 +104,7 @@ OutOfMemory error
 You may encounter memory issues using this connector.
 
 [.cause]#Potential cause#
-This connector is using a substantial size of dependencies. 
+This connector is using a substantial size of dependencies.
 
 [.solution]#Possible solution#
 You may increase the maximum memory allocation value of the Tomcat server JVM. +

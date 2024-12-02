@@ -19,7 +19,7 @@ The web service used in this example provides the capital of a given country.
 
 . Create the diagram (as shown in the example bellow)
 
-image::images/connector_webservice_tuto/webservice_diagram.png[web service process diagram]
+image::connector_webservice_tuto/webservice_diagram.png[web service process diagram]
 
 . Select the Pool > Data, click on the _*Pool Variables tab*_, add a process variable _country_ (Text) and a Business variable _countryBo_ (Country)
 . Select the Pool > Execution, click on the _*Contract tab*_, and add a variable _countryInput_ (Text) on the contract.
