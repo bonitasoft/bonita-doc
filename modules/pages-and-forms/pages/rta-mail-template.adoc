@@ -167,7 +167,7 @@ It will look like this:
 image:rta-mail/rta-mail-template-ooom-check-mail-select-properties.png[Out of office message - Check email content - select properties]
 
 We need to retrieve the business object _outOfOfficeMessage_ which contains the mail contents. +
-We use an _External API_ variable named *outOfOfficeMessage* which uses the *context* variable business object reference link: `../{{context.outOfOfficeMessage_ref.link}}`
+We use an _External API_ variable named *outOfOfficeMessage* which uses the *context* variable business object reference link `../{{context.outOfOfficeMessage_ref.link}}`
 
 We bind the attributes of *outOfOfficeMessage* to fill the *formInput* variable that is already bound to inputs. +
 Change the *formInput* type to _Javascript Expression_ and set the _value_ to:

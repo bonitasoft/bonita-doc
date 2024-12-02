@@ -1,5 +1,5 @@
 == Containers
-
+:description: The page explains how to use containers in Bonita UI Designer to structure and manage page layouts, including adding widgets, rows, and special container types like tabs, forms, and modals.
 
 image::widgets/containers.png[containers]
 

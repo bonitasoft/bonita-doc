@@ -1,4 +1,5 @@
 == Display widgets
+:description: The page explains how to use display widgets in Bonita UI Designer to present various types of information.
 
 Use a display widget for information that the user can read on a page. This includes titles, paragraphs, and text. For each, you can specify the text and its alignment. There are several types of display widgets:
 

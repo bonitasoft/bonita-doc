@@ -1,4 +1,5 @@
 == Input widgets
+:description: Ui-designer contains  different input to collect user input.
 
 Use an input widget to enable a user to provide input. In addition to the general widget properties, all input widgets have the following:
 
