@@ -9,7 +9,7 @@ Those users can view a list of open or archived cases, as well as cases with fai
 NOTE: Starting with Bonita 2022.2, bpmn-visualization library of https://process-analytics.dev/[Bonita's Process Analytics project] has been integrated in process and case visualization diagram.
 
 Here is a view of the page:
-image:images/UI2021.1/admin-case-list.png[Admin Case list]
+image:UI2021.1/admin-case-list.png[Admin Case list]
 
 == View the status of cases
 

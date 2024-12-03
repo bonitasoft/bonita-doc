@@ -1,6 +1,6 @@
 = Connectors execution
 :page-aliases: ROOT:connectors-execution.adoc
-:description: == What are connectors
+:description: The page provides detailed instructions on how to edit, deploy, export, and import applications, as well as update application definitions and resources in Bonita Runtime.
 
 == What are connectors
 
@@ -12,7 +12,7 @@ Connectors are extension points that can be added to a process to extend Bonita 
 
 Connectors execution are triggered by a `Work` and are executed in their own thread pool.
 
-image::images/connector_execution.png[Connector execution]
+image::connector_execution.png[Connector execution]
 
 === Connector timeout
 
@@ -28,7 +28,7 @@ If the code executing in the thread cannot be interrupted, the thread will not s
 In practice, it means that in this case, the connector will timeout, releasing the execution of the task that called it, but the connector executor will still try to finish executing the connector's code, and will not be available to execute another connector.
 A typical example of this is if the custom code in a groovy connector falls into an infinite loop : the connector will timeout, but the connector executor will be running forever.
 
-image::images/connector_execution_timeout.png[Connector execution with timeout]
+image::connector_execution_timeout.png[Connector execution with timeout]
 
 === Connector failure handling
 

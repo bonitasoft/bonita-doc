@@ -1,9 +1,10 @@
 = Embed Bonita Engine in your application
 :page-aliases: ROOT:embed-engine.adoc
+:description: Artifacts allow to start an embedded engine in your application.
 
 [WARNING]
 ====
-image:images/bonita-lab-icon.png[] This is a Lab feature and is subject to change without warning in any version. It is not recommended for production.
+image:bonita-lab-icon.png[] This is a Lab feature and is subject to change without warning in any version. It is not recommended for production.
 ====
 
 Starting from version 7.9.0, new artifacts allow to start an embedded engine in your application.

@@ -70,7 +70,7 @@ For security reasons, the network used by the nodes to communicate with each oth
 
 === Cluster structure diagram
 
-image::images/images-6_0/cluster_structure.png[Cluster structure diagram]
+image::images-6_0/cluster_structure.png[Cluster structure diagram]
 
 === Definitions:
 

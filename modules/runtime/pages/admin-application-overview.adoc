@@ -78,7 +78,7 @@ Creating your adminstrator application based on Bonita Administrator Application
 
 From Bonita Studio *Welcome page* _Resources_ tile, click on "Import Bonita Admin Application".
 
-image::images/UI2021.1/studio-get-application.png[Get application from Studio]
+image::UI2021.1/studio-get-application.png[Get application from Studio]
 
 You can also get it from our https://github.com/bonitasoft/bonita-admin-application/[Admin Application GitHub repository]. +
 There are two ways to get the .bos file. You can either get it from the _Releases_ on the right or by cloning the repository of your choice and building it using maven. +

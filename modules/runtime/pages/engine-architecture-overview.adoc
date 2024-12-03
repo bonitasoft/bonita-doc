@@ -8,7 +8,7 @@
 
 The Bonita Engine is the runtime processor at the core of Bonita.  It executes processes, handling actions related to tasks, such as database access, and housekeeping actions such as logging. The Engine is composed of a number of services and APIs. The services are either BPM services or generic services.
 
-image::images/images-6_0/dev_arch_engine_architecture_simple.png[engine architecture diagram]
+image::images-6_0/dev_arch_engine_architecture_simple.png[engine architecture diagram]
 
 The Bonita Engine component services are completely configurable using the xref:runtime:bonita-platform-setup.adoc[plaform setup tool] to retrieve the current configuration and update it.
 
