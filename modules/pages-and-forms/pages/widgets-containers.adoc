@@ -1,7 +1,7 @@
 == Containers
+:description: The page explains how to use containers in Bonita UI Designer to structure and manage page layouts, including adding widgets, rows, and special container types like tabs, forms, and modals.
 
-
-image::images/widgets/containers.png[containers]
+image::widgets/containers.png[containers]
 
 A container is a special kind of widget that contains other widgets. You can create nested containers. A typical use for containers is to control the main layout of your page. For example, if you want to create a two-column layout, you will start your page by adding two containers on the same row, each one spanning six columns of the page. A page does not need to have a container, but it is useful. +
 By default, a container contains one row, where you can drop component widgets or containers. You can also make the page layout dynamic by xref:ROOT:repeat-a-container-for-a-collection-of-data.adoc[repeating a container to display a collection of data].
@@ -18,11 +18,11 @@ To add a widget in a new row, a container has two dropzones where you can drop a
 
 Example 1: add a title widget in a new row above a paragraph widget:
 
-image::images/images-6_0/create-row-top.png[drop at the top]
+image::images-6_0/create-row-top.png[drop at the top]
 
 Example 2: add a paragraph widget in a new row below a title widget:
 
-image::images/images-6_0/create-row-bottom.png[drop at the bottom]
+image::images-6_0/create-row-bottom.png[drop at the bottom]
 
 When you drop a widget in one of these two zones, a new row is automatically created.
 

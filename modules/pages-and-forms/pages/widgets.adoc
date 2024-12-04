@@ -14,7 +14,7 @@ A page consists of widgets that are arranged in rows, and optionally, containers
 The UI Designer provides a set of default widgets that you can use to design a page. The default widgets are available from the palette panel, which is on the left side of the Page editor. A widget has properties that control how it appears and how it is used. There are some general properties that all widgets have, and some properties that are specific to the widget type. You can also create xref:custom-widgets.adoc[custom widgets].
 Each widget in the palette has a description. To show a widget description, just roll over the widget in the palette.
 
-image::images/widgets/page-rows-and-widgets.png[page-rows-and-widgets-palette]
+image::widgets/page-rows-and-widgets.png[page-rows-and-widgets-palette]
 
 include::widgets-containers.adoc[]
 
@@ -26,7 +26,7 @@ include::widgets-displays.adoc[]
 
 == File viewer widget
 
-image::images/widgets/fileviewer.png[fileviewer,align="left"]
+image::widgets/fileviewer.png[fileviewer,align="left"]
 
 Use the file viewer widget to preview or download a file or a process document in any UI Designer artifact (page or form for instance).
 You can display a document in a modal dialog box or directly in a page.
@@ -46,7 +46,7 @@ Limitations:
 
 == Rich Text Area widget
 
-image::images/widgets/rich-text-area.png[rich-text-area,align="left"]
+image::widgets/rich-text-area.png[rich-text-area,align="left"]
 
 [CAUTION]
 --
@@ -86,7 +86,7 @@ Image below shows wizard of switch widget behaviour
 This action is not available for containers.
 ====
 
-image::images/widget_switch_mapping.png[widget_switch_mapping]
+image::widget_switch_mapping.png[widget_switch_mapping]
 
 In this wizard, select or type the widget to switch to, then click *Show properties*.
 

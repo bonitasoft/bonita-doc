@@ -119,7 +119,7 @@ An example on how to use a Bonita fragment: xref:ROOT:customize-display-process-
 == Responsiveness
 
 You can optimize the page or form design for a given device type by configuring xref:ROOT:widget-properties.adoc[device-specific values for the Width property] for widgets. Use the a device types bar in the Page editor to choose the target device type.
-image:images/images-6_0/pb-resolution.png[Device type selection]
+image:images-6_0/pb-resolution.png[Device type selection]
 
 == Modify an element
 
@@ -145,7 +145,7 @@ The preview displays the element as it would be displayed on the selected type o
 You can export a page or a layout to deploy it in Bonita Admin Application as a custom page. +
 You can export any element to import it into another UI Designer. +
 
-To export an element, click the *_Export_* button image:images/images-6_0/pb-export.png[Export button] on the Page editor or the UI Designer home page. A zip file is downloaded to your computer. It contains a Bonita custom page, which is also suitable for import into another UI Designer. +
+To export an element, click the *_Export_* button image:images-6_0/pb-export.png[Export button] on the Page editor or the UI Designer home page. A zip file is downloaded to your computer. It contains a Bonita custom page, which is also suitable for import into another UI Designer. +
 
 After export you can modify your page or layout code by directly editing the code located in _resources_ folder. Be aware that such a modification to the code will work when the page or layout is deployed in the Bonita Runtime, but it may be broken if you import the page into another UI Designer.
 
@@ -155,7 +155,7 @@ To import elements in another Studio, you can export pages and forms in the proc
 
 == Import an element
 
-To import an element from another UI Designer, go to the UI Designer home page and click the *_Import_* button image:images/images-6_0/pb-import.png[Import button]. When you import a page, layout, form or fragment, its dependencies (such as custom widgets and fragments used) are automatically be imported too. +
+To import an element from another UI Designer, go to the UI Designer home page and click the *_Import_* button image:images-6_0/pb-import.png[Import button]. When you import a page, layout, form or fragment, its dependencies (such as custom widgets and fragments used) are automatically be imported too. +
 
 [WARNING]
 ====
