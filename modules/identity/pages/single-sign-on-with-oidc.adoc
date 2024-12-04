@@ -27,7 +27,7 @@ Only the *Authorization Code Flow* of OpenID Connect (with or without refresh to
 This is an overview that describes the steps of the authentication process on a Bonita bundle configured as an OIDC client:
 [#oidc-overview]
 
-image:images/oidc-overview.png[Authentication over OIDC]
+image:oidc-overview.png[Authentication over OIDC]
 
 Here are some details about the Bonita OIDC module,
 it is composed of:

@@ -24,7 +24,7 @@ Upon login, a user is granted a set of permissions. These permissions define the
 
 == Summary
 
-For a new Bonita installation, a basic set of authorization checks is activated by default for the REST API. 
+For a new Bonita installation, a basic set of authorization checks is activated by default for the REST API.
 Here are the key points of the authorization's configuration :
 
 * The static check creates an authorization layer that exactly matches the standard Bonita Applications features and profiles.
@@ -394,7 +394,7 @@ To deactivate authorization, set the above property to `false`, then restart the
 
 [#troubleshooting]
 
-== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+== Troubleshooting
 
 To troubleshoot REST API permissions issues, you need to increase the xref:ROOT:logging.adoc[log level] to `DEBUG` (or `TRACE` for even more logs) for the packages `org.bonitasoft.authorization` and `com.bonitasoft.authorization` in order requests attempts to be displayed in the log files `bonita-*.log` (by default, they are not).
 

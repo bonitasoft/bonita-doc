@@ -177,25 +177,31 @@ To activate the addition of the secure flag, edit the configuration file and cha
 
 For more information on this cookie see xref:ROOT:csrf-security.adoc[CSRF security].
 
-== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+[.troubleshooting-title]
+== Troubleshooting
 
-*Symptom:* +
+[.troubleshooting-section]
+--
+[.symptom]
 The following stacktrace appears in the Bonita Runtime log:
 
+[.symptom-description]
 [source,log]
 ----
  javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed:
  sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
 ----
 
-*Cause:* +
+
+[.cause]#Potential cause#
+
 This issue arises for one of these reasons:
 
 * You are using a self-signed certificate
 * You are using a certificate that has been issued by an internal certificate authority
 * Your certificate is outdated
 
-*Solutions:* +
+[.solution]#Possible solution#
 
 . Make sure you have imported the public certificate of the target instance into the truststore according to the Connecting to SSLServices instructions listed above
 . Make sure any certificates have been imported into the correct truststore; you may have multiple JRE/JDKs
@@ -204,3 +210,6 @@ This issue arises for one of these reasons:
 . Verify that the target server is configured to serve SSL correctly. This can be done with an SSL Server Test tool
 . Make sure you used keytool to install the new certificate. More info http://docs.oracle.com/javase/8/docs/technotes/tools/windows/keytool.html[online].
 . Make sure your truststore is not out of date
+--
+
+

@@ -22,7 +22,7 @@ Bonita uses http://www.keycloak.org/[Keycloak] as SAML Service Provider adapter.
 
 This is an overview that relates the steps required to integrate a bonita bundle with an SAML Identity Provider.
 
-image:images/saml-overview.png[Authentication over SAML]
+image:saml-overview.png[Authentication over SAML]
 
 Here are some details about the Bonita SAML2 module,
 it is composed of:

@@ -22,7 +22,7 @@ Bonita uses http://spnego.sourceforge.net/[Spnego] library that allows to reques
 
 Kerberos SSO with AD relies on a minimum on 3 physical machines that are member of the same AD domain:
 
-image:images/kerberos-ad.png[Kerberos with AD]
+image:kerberos-ad.png[Kerberos with AD]
 
 * Domain Controller: the AD domain controller providing the SSO tickets through the Kerberos KDC component.
 * Service Server: the server on which resides the service we want to access (Bonita for instance). This server is referred to as the "Principal". It uses the credentials of an AD service account and is member of the domain.
@@ -32,7 +32,7 @@ image:images/kerberos-ad.png[Kerberos with AD]
 
 The target architecture for integrating Kerberos SSO with Bonita and Spnego will involve a custom web application filter: Bonita Kerberos filter.
 
-image:images/kerberos-overview.png[Authentication over Kerberos]
+image:kerberos-overview.png[Authentication over Kerberos]
 
 The scenario covered by the filter is the following:
 
@@ -294,7 +294,7 @@ Note that if you try to access `http ://<bundle host>:<port>/bonita/login.jsp`, 
 The most commonly used solution is to hide the logout button from the Bonita Layout. Users are logged in as long as they don't close their web browser and their session does not time out. +
 To do this, set the `logout.link.hidden` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
 
-== image:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+== Troubleshooting
 
 To troubleshoot Kerberos SSO login issues, you need to add a logging handler for the package `net.sourceforge.spnego` and increase the xref:ROOT:logging.adoc[log level] to `TRACE` and `DEBUG` for the packages `org.bonitasoft.console`, `org.bonitasoft.engine.authentication`, `com.bonitasoft.engine.authentication`, and `net.sourceforge.spnego` in order for errors to be displayed in the log files bonita.log (by default, they are not).
 

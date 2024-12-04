@@ -23,7 +23,7 @@ An organization is a collection of users, usually defined in a hierarchical stru
 Within the organization, users belong to one or more groups. +
 For each group a user belongs to, the user has a role. You can define roles as required. The combination of a group and a role for a user is called a membership. A user can have several memberships but each one must apply to a different group.
 
-image::images/images-6_0/admin_org_MyCorp_structure.png[The structure of MyCorp]
+image::images-6_0/admin_org_MyCorp_structure.png[The structure of MyCorp]
 
 In this corporation, there is a hierarchical structure, with the following units:
 
@@ -40,7 +40,7 @@ These hierarchical units can be used as groups within the Bonita organization. I
 
 A group can be created based on any set of criteria useful to a process. For example, if MyCorp is conducting trials of a new process to control just-in-time parts delivery from a supplier, you could create a group that contains the specific users involved in the trials. The figure below shows the groups in the MyCorp organization, seen in Bonita Studio.
 
-image::images/images-6_0/admin_org_mycorp_groups.png[The groups of MyCorp]
+image::images-6_0/admin_org_mycorp_groups.png[The groups of MyCorp]
 
 All the users who participate in a process must be in the same Bonita organization. For example, if you use a process to track order processing with a supplier, the supplier employees who perform steps in the process must be in the organization.
 
