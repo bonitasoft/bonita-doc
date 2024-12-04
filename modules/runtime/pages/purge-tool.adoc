@@ -1,5 +1,5 @@
 = Purge Tool
-:page-aliases: ROOT:purge-tool.adoc
+:page-aliases: ROOT:purge-tool.adoc, ROOT:purge-tool-deletion-volume-testing.adoc
 :description: Bonita Purge Tool provides the capability to purge finished (archived) process instances from Bonita Runtime environment.
 :tabs-sync-option:
 
@@ -275,7 +275,3 @@ WHERE a.containertype = 'PROCESS_INSTANCE'
 
 This strategy allows this tool to be more robust, it can be stopped at any given time, relaunching it will continue the deletion from where it stopped.
 However, this means that the time required to execute a purge will be the same when deleting a few elements or a lot of elements.
-
-== Database deletion volume testing reference
-
-This xref:ROOT:purge-tool-deletion-volume-testing.adoc[reference page] provides the tests run on all supported databases.
