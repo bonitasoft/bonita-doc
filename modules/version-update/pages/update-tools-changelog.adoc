@@ -10,6 +10,12 @@ All changes in both tools are logged: from the version that was delivered with t
 This is due to the fact that improvements in any version of the tools can affect all supported Bonita versions. 
 This changelog must be read before xref:update-overview.adoc[updating to a newer version of Bonita].
 
+== 3.6.1 - December 5th, 2024 - Bonita Update Tool changes
+Bonita Update Tool handles updates from all Bonita 7.10 versions up to Bonita 2024.3 (10.2) version.
+
+* [PERFORMANCE] This patch version fixes update versions 9.0 and all of the above, to fix database indexes, in order to improve performance.
+* [PERFORMANCE] it also introduces a new option `-i` or `--update-indexes` to fix the indexes of the database. This command can be launched without updating Bonita to a newer version. It can also be launched several times without risk: it does nothing if not necessary.
+
 == 3.5.0 - May 27th, 2024 - Bonita Update Tool changes
 Bonita Update Tool handles updates from all Bonita 7.10 versions up to Bonita 2024.2(10.1) version.
 
