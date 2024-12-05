@@ -1,10 +1,39 @@
-= Purge tool change log
+= Purge Tool change log
 :page-aliases: ROOT:purge-tool-changelog.adoc
-:description: This is the changelog of the purge tool.
+:description: This is the changelog of the Purge Tool.
 
-This is the changelog of the purge tool.
+{description}
 
-The purge tool is used to remove data from bonita archive tables. It is useful for big production environments.
+The Purge Tool is used to remove data from Bonita archive tables. It is useful for big production environments.
+
+== 2.1.0 - December 4, 2024
+
+Breaking changes:
+
+- Rename `-t, --timeout-interval` option to `-i, --batch-interval` without changing its behavior: +
+Time interval in milliseconds to wait between each batch query execution. Default value is 0 ms.
+
+New features:
+
+- Support purge of document content.
+- Add a new command `delete-orphan-document-content`.
+- Add a new option `--preserve-document-content` for the `delete` command: +
+Skip deletion of document content. +
+When set to true, document content will be preserved in the database. Default is false. +
+This is a fallback option to preserve the behaviour before 2.1.0 version.
+- Add a new option `--delete-interval` for the `delete` command: +
+Time interval in milliseconds to wait between each table deletion operation. +
+A waiting interval can be set to avoid requests to be locked by the database engine (e.g. when computing indexes after their creation). +
+Default value is 5000 ms.
+- Purge the new `arch_bpm_failure` table introduced in Bonita 2025.1.
+- Optimize requests for all vendors.
+
+Others:
+
+- deps: update Springboot version to `3.4.0`
+- deps: update Oracle driver to `21.16.0.0`
+- deps: update Exposed JDBC to `0.56.0`
+
 
 == 2.0.0 - October 24, 2024
 
