@@ -36,6 +36,11 @@ xref:how-to-handle-queries-dependency.adoc[[.card-title]#How to handle dependenc
 
 [.card.card-index]
 --
+xref:applications:ui-builder/how-to-handle-document.adoc[[.card-title]#Upload and view a document# [.card-body.card-content-overflow]#pass:q[Learn how to upload and view a document]#]
+--
+
+[.card.card-index]
+--
 xref:how-to-upload-multiple-documents.adoc[[.card-title]#Upload multiple documents simultaneously# [.card-body.card-content-overflow]#pass:q[Learn how to upload multiple documents simultaneously]#]
 --
 

@@ -16,7 +16,7 @@ If you want to find out how to customize authentication refer to the dedicated d
 
 To help understand how user authentication is performed, let's take a typical case where a user accesses the Bonita Applications for the first time. This scenario is the default (no LDAP authentication, nor CAS).
 
-image::images/images-6_0/user_auth_schema_70.png[user authentication]
+image::images-6_0/user_auth_schema_70.png[user authentication]
 
 . In a web browser, the user types the URL of Bonita Applications
 (e.g. `+http://localhost:8080/bonita+`) that will initiate a

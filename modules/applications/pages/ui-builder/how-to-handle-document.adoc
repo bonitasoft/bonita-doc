@@ -1,0 +1,66 @@
+= Upload and view documents
+:description: Learn how to upload and view a document
+
+{description}
+
+* Difficulty: intermediate
+* Estimated time: 10 minutes
+
+If you want to select a document from your computer and upload it to your Bonita application, you can use the `FilePicker` widget along with the Bonita's `formFileUpload` API.
+The `DocumentViewer` widget allows you to view the uploaded document.
+
+== Upload a document
+
+Go to the `Queries` tab and create a Bonita query that will upload a document, given as parameter to the query:
+
+* `Name`: uploadDocument
+* `Method`: POST
+* `URL`: /bonita/API/formFileUpload
+* `Body`:
+  - MULTI_PART_FORM_DATA
+  - `Key`: file
+  - `Type`: FILE
+  - `Value`: {{this.params.file}}
+
+Drag and drop a `FilePicker` widget onto your interface and set the `onFilesSelected` event to call
+the `uploadDocument` query with the selected file as a parameter:
+
+image:ui-builder/guides/file-picker-setting.png[file-picker-setting, 500]
+
+To test this step, click on the `FilePicker` widget, select a file from your computer, and click on the `Upload` button.
+
+Then, go to the `Queries` tab and check that the `uploadDocument` query has been called (`Response` tab), the status is `200 OK` and the response contains the document name.
+
+== Display the document name
+
+You can now display the document name in a `Text` widget. Drag and drop a `Text` widget onto your interface and
+set its `Text` property to `{{JSON.parse(uploadDocument.data).filename}}`.
+
+Note the `JSON.parse()` call, which transforms the response (string) into a JSON object.
+
+== View the document
+
+Drag and drop a `DocumentViewer` widget onto your interface and set the `Document link` property to `{{FilePicker1.files[0].data}}`.
+
+You should see the document displayed in the widget!
+
+== Instantiate a Bonita process with a document
+
+You may have a Bonita process with a contract that includes a document (`FILE` type).
+
+To instantiate the process with a document (called `document` in the contract), go to the `Queries` tab and create a Bonita query:
+
+* `Name`: instantiateProcess
+* `Method`: POST
+* `URL`: /bonita/API/bpm/process/<your process id>/instantiation
+* `Body`:
+- JSON
+
+[source, json]
+----
+{
+    "document": {{JSON.parse(uploadDocument.data)}}
+}
+----
+
+You can now launch this query from your UI, using a `Button` widget for example.
