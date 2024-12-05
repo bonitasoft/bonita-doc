@@ -17,7 +17,7 @@ By default, all archives are preserved forever in Bonita runtime, but if your fu
 
 [WARNING]
 ====
-*Prior to version 2.1.0*, the Purge Tool did not delete documents (stored in the DOCUMENT table) from the platform. It only removed the mapping between the archived cases and the document itself. If you need to reduce the size of the Document table in the engine database, please refer to the documentation: xref:ROOT:handling-documents.adoc#delete_document_archived_case[Delete documents of archived cases based on archive date]
+*Prior to version 2.1.0*, the Purge Tool did not delete documents (stored in the DOCUMENT table) from the platform. It only removed the mapping between the archived cases and the document itself. If you need to reduce the size of the Document table in the engine database, consider using command `delete-orphan-document-content` to remove all documents not linked to any process instance anymore. Moreover, by default, subsequent runs of Purge Tool 2.1+ will automatically purge documents along with archived process instances, unless option `--preserve-document-content` is explicitly set.
 ====
 
 == Pre-requisites
@@ -84,6 +84,7 @@ Windows::
 ----
 ====
 
+[[list]]
 === `list` command
 
 This command lists all existing process definitions that have root process instances archived for a given date filter.
@@ -106,6 +107,7 @@ Windows::
 ----
 ====
 
+[[delete]]
 === `delete` command
 
 This command deletes archived process instances and their related archived elements (flownodes, data, comments, etc.) for a given date filter.
@@ -199,16 +201,17 @@ In this mode, the rows to keep are copied in batches to a temporary table, then 
 As mentioned before, both modes use batch processing to either delete or copy rows. +
 The batch processing can be fine-tuned using the `--batch-size` and `--batch-interval` options:
 
-    * `--batch-size` to define the number of rows to delete or copy in each batch. +
-With the `batch-delete` mode, although it depends on your database configuration and the volume of data to delete, we recommend starting with a batch size of `5000` rows. You can increase this value based on the performance of your database. +
-With the `copy-truncate` mode, you can use a larger batch size to improve performance.
+* `--batch-size` to define the number of rows to delete or copy in each batch.
+** With the `batch-delete` mode: although it depends on your database configuration and the volume of data to delete, we recommend starting with the default batch size of `5000` rows. You can increase this value based on the performance of your database.
+** With the `copy-truncate` mode: since the Bonita runtime is stopped when using this mode, you can use a much larger batch size to reduce the number of batches, even until reaching a unique one, which could improve performance. As a reminder, the main criterion with this mode is the number of rows to keep in the tables.
 
-    * `--batch-interval` to define the time in milliseconds to wait between each batch. +
+* `--batch-interval` to define the time in milliseconds to wait between each batch. +
 We introduce this option because it may happen that batch requests slow down or get blocked due to their quick sequence of execution. Adjust this interval if you face this issue, but take into consideration that it will significantly increase the execution time if the number of batches is important.
 
 When using the `copy-truncate` mode, some requests may be locked by the database engine when computing indexes after their re-creation.
 To prevent this, use the `--delete-interval` option to set a waiting interval between each table deletion operation.
 
+[[delete-file-input]]
 === `delete-file-input` command
 
 Delete all archived contract file input values. +
@@ -241,6 +244,7 @@ Windows::
 
 WARNING: `delete-fileinput-content` command is not supported for SQLServer database.
 
+[[delete-orphan-document-content]]
 === `delete-orphan-document-content` command
 
 As mentioned above, the Purge Tool did not delete documents from the platform before the version 2.1.0. +

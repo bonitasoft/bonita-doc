@@ -162,7 +162,7 @@ The use case is to delete the documents of archived cases older than a certain d
 `searchArchivedDocumentsOlderThanArchivedDate` look for archived documents
 `deleteArchivedDocumentsOlderThan` delete the content of the document
 
-WARNING: Although the document binary will be deleted there will still be records in the database. No methods are provided to completely get rid of the document from the database
+WARNING: Although the document binary will be deleted there will still be records in the database. The xref:runtime:purge-tool.adoc#delete-orphan-document-content[Purge Tool] should be used to completely get rid of the document from the database to free disk space.
 
 [source,groovy]
 ----

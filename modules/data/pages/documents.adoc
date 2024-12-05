@@ -152,7 +152,7 @@ In a process instance, there is no specific versioning. When a document is updat
 
 === Document archives
 
-When a process element is archived the associated documents are also archived. It is possible to delete the archived documents using the Engine API or REST API when they are no longer needed, to save space. You can delete an archived document from a live process instance or from an archived process instance. When you delete an archived document, only the content is deleted. The metadata, such as the name, last updated date, and uploader, is kept so that it can be retrieved if needed for audit.
+When a process element is archived the associated documents are also archived. It is possible to delete the archived documents using the Engine API, the REST API or the xref:runtime:purge-tool.adoc[Purge Tool] when they are no longer needed, to free disk space. You can delete an archived document from a live process instance or from an archived process instance. When you delete an archived document, only the content is deleted. The metadata, such as the name, last updated date, and uploader, is kept so that it can be retrieved if needed for audit.
 
 == Define a document in a process definition
 
