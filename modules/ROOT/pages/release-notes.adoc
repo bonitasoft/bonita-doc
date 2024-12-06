@@ -386,6 +386,9 @@ The timezone can be set via *TZ* environment variable. Check the https://data.ia
 * RUNTIME-1885 - Doubtful queries on application_* tables each time we navigate to a page
 * RUNTIME-1889 - Super Admin App page is refreshed for each page switch
 * RUNTIME-1911 - Using tenantid column in index causing query performance degradation
+
+==== Fixes in Bonita Studio (including Bonita UI Designer)
+
 * STUDIO-4477  - Some reserved keyword (limit) are missing during validation on Business Data Attributes
 * STUDIO-4516  - Errors at .bos file import and migration
 * STUDIO-4540  - Cloning a community project into a Subscription studio should migrate the internal build for subscription
