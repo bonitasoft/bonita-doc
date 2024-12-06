@@ -382,7 +382,7 @@ The timezone can be set via *TZ* environment variable. Check the https://data.ia
 ==== Fixes in Bonita Runtime including Bonita Applications
 
 * RUNTIME-1786 - When updating an SCA application with profiles mapping, the log is deceitful
-* RUNTIME-1870 - REST API: JSON in the HTTP GET response cannot be parsed /API/bpm/caseInfo/{id}
+* RUNTIME-1870 - REST API: JSON in the HTTP GET response cannot be parsed /API/bpm/caseInfo/\{id\}
 * RUNTIME-1885 - Doubtful queries on application_* tables each time we navigate to a page
 * RUNTIME-1889 - Super Admin App page is refreshed for each page switch
 * RUNTIME-1911 - Using tenantid column in index causing query performance degradation
