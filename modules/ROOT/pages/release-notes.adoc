@@ -6,7 +6,7 @@
 The required Java version is now **Java 17**.
 ====
 
-We’re proud to announce Bonita {bonitaVersion}, the first major Bonita platform release of this year! 
+We’re proud to announce Bonita {bonitaVersion}, the first major Bonita platform release of this year!
 This new major release improves security, search capabilities and performance.
 
 == The {bonitaVersion} release in a nutshell
@@ -25,7 +25,7 @@ This new major release improves security, search capabilities and performance.
 
 ==== Java 17 update
 
-We’re updating to the next long-term support (LTS) Java version: Java 17. 
+We’re updating to the next long-term support (LTS) Java version: Java 17.
 Worldwide adoption of Java 17 has been growing since last year, including among our Bonita users. In Bonita {bonitaVersion}, we have updated the version from 11 to 17!
 
 Following the Java 17 update, it is now required to specify the following jvm arguments when using the `bonita-client` library in a standalone application:
@@ -119,6 +119,27 @@ The property allowing to enable/disable xref:identity:rest-api-authorization.ado
 
 == Bug fixes
 
+=== Fixes in Bonita 2024.1-u5 (2024-12-06)
+
+==== Fixes in Bonita Runtime including Bonita Applications
+
+* RUNTIME-1786 - When updating an SCA application with profiles mapping, the log is deceitful
+* RUNTIME-1870 - REST API: JSON in the HTTP GET response cannot be parsed /API/bpm/caseInfo/\{id\}
+* RUNTIME-1885 - Doubtful queries on application_* tables each time we navigate to a page
+* RUNTIME-1889 - Super Admin App page is refreshed for each page switch
+* RUNTIME-1911 - Using tenantid column in index causing query performance degradation
+
+==== Fixes in Bonita Studio (including Bonita UI Designer)
+
+* STUDIO-4477  - Some reserved keyword (limit) are missing during validation on Business Data Attributes
+* STUDIO-4516  - Errors at .bos file import and migration
+* STUDIO-4540  - Cloning a community project into a Subscription studio should migrate the internal build for subscription
+* STUDIO-4542  - Due to Maven archetype plugin update, rest api generation generates invalid test class
+* STUDIO-4543  - Rest API Extension validation fails with NPE when project folder and artifactId does not match
+* STUDIO-4547  - Git repository clone failed when migrating a project which has already been cloned in the workspace.
+* STUDIO-4551  - Bonita Project Analyze Plugin Market Type error
+* UID-732      - $form.$invalid x Tabs container : the Submit button is enabled when the widgets' Required of the current tab have a value, and even if there are empty Required widgets in other tabs
+
 === Fixes in Bonita 2024.1-u4 (2024-09-05)
 
 ==== Fixes in Bonita Runtime including Bonita Applications
@@ -155,7 +176,7 @@ Bonita Runtime makes heavy usage of *cache* to improve performance. In that cont
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
 * RUNTIME-1844 - Update Tomcat to latest 9.0.87
-* RUNTIME-1833 - SanitizerFilter removes html tags from HTTP payload 
+* RUNTIME-1833 - SanitizerFilter removes html tags from HTTP payload
 * RUNTIME-1835 - SInvalidExpressionException generated when a parameter is used from within a groovy script
 * RUNTIME-1848 - ArchivedTasks filter on type is generating java.lang.ClassCastException
 * RUNTIME-1860 - Access Control panel is displayed in all subscription editions even when the feature is not active
@@ -166,7 +187,7 @@ Bonita Runtime makes heavy usage of *cache* to improve performance. In that cont
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
-* RUNTIME-407  - Open Cases Administrator call API/bpm/case performance slowness since 2021.1-0617 
+* RUNTIME-407  - Open Cases Administrator call API/bpm/case performance slowness since 2021.1-0617
 * RUNTIME-1398 - Prevent login via GET request by default
 * RUNTIME-1725 - graphical issue with admin living app
 * RUNTIME-1790 - When server is unavailable due to maintenance, or any error page is displayed, language cookie is systematically set to french
@@ -178,7 +199,7 @@ Bonita Runtime makes heavy usage of *cache* to improve performance. In that cont
 * RUNTIME-1815 - Cannot update application information after updated logo file of the application
 * RUNTIME-1816 - New sanitize filter makes payloads with "null" attribute values fail
 * RUNTIME-1817 - Compilation Errors when non 7 bit US ascii chars are used in the description of a Business Object in the BDM
-* RUNTIME-1818 - [Kerberos SSO] - IOException: conf/login.conf (No such file or directory) 
+* RUNTIME-1818 - [Kerberos SSO] - IOException: conf/login.conf (No such file or directory)
 * RUNTIME-1819 - [SAML SSO] Decrypt of encrypted assertion fails with ClassNotFoundException: EncryptedData
 * RUNTIME-1820 - [SAML SSO] Decrypt of encrypted assertion fails with NoSuchMethodError: SingletonIterator.create
 * RUNTIME-1821 - Docker image fails to start with JMX_REMOTE_ACCESS=true
