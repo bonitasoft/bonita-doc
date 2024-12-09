@@ -26,7 +26,7 @@ Start with the process instantiation form:
 . Rename the form from _newForm_ to _submitClaimForm_
 . Click on *Save* to save the form with its new name
 +
-image:images/getting-started-tutorial/create-web-user-interfaces/create-instantiation-form.gif[Create process instantiation form based on contract definition]
+image:getting-started-tutorial/create-web-user-interfaces/create-instantiation-form.gif[Create process instantiation form based on contract definition]
 
 Customize the form appearance. For example, you can switch from a one line text widget to a text area widget:
 
@@ -37,7 +37,7 @@ Customize the form appearance. For example, you can switch from a one line text 
 . Click on *Switch*
 . Click on *Save* to save your modifications
 +
-image:images/getting-started-tutorial/create-web-user-interfaces/switch-widget.gif[Switch to a different widget type]
+image:getting-started-tutorial/create-web-user-interfaces/switch-widget.gif[Switch to a different widget type]
 
 [NOTE]
 ====

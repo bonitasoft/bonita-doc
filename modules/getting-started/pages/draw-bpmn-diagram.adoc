@@ -69,15 +69,15 @@ The new diagram includes:
 
 and it should look like this:
 
-image::images/getting-started-tutorial/draw-bpmn-diagram/new-default-diagram.png[Default diagram content]
+image::getting-started-tutorial/draw-bpmn-diagram/new-default-diagram.png[Default diagram content]
 
 Rename the diagram and the pool:
 
 . In the *Project explorer* on the left-hand side of the Bonita Studio window, select the diagram _MyDiagram-1.0.proc_
 . Right-click and select *Rename...*
-image:images/getting-started-tutorial/draw-bpmn-diagram/rename.png[Rename contextual menu]
+image:getting-started-tutorial/draw-bpmn-diagram/rename.png[Rename contextual menu]
 . In the pop-up window, enter the new name for the diagram: _ClaimsManagementDiagram_, and for the pool: _ClaimsManagement_
-image:images/getting-started-tutorial/draw-bpmn-diagram/choose-new-name-version.png[Choose a new name and version pop-up window]
+image:getting-started-tutorial/draw-bpmn-diagram/choose-new-name-version.png[Choose a new name and version pop-up window]
 
 Rename the start event (i.e. the green disc on the left-hand side of the process):
 
@@ -85,7 +85,7 @@ Rename the start event (i.e. the green disc on the left-hand side of the process
 . At the bottom of the Bonita Studio screen, go to the menu:General[General] tab
 . Edit the *Name* attribute and set the value: _Submit claim_
 +
-image::images/getting-started-tutorial/draw-bpmn-diagram/rename-start-event.png[Rename start event]
+image::getting-started-tutorial/draw-bpmn-diagram/rename-start-event.png[Rename start event]
 
 Also, rename the default user task:
 
@@ -102,7 +102,7 @@ Add another task to the process:
 . Select the user icon
 . Rename the task to _Read the answer and rate it_
 +
-image::images/getting-started-tutorial/draw-bpmn-diagram/add-task.gif[Add user task]
+image::getting-started-tutorial/draw-bpmn-diagram/add-task.gif[Add user task]
 
 In order to define another path in the process execution, add an exclusive gateway. This gateway will direct the process execution to a different path based on certain conditions. Adding an exclusive gateway is done in the same way as adding a task:
 
@@ -111,7 +111,7 @@ In order to define another path in the process execution, add an exclusive gatew
 . Click on the toolbox icon
 . Change the gateway type from parallel (the one with the *+* sign) to exclusive (the one with the *x* sign)
 +
-image::images/getting-started-tutorial/draw-bpmn-diagram/switch-from-parallel-to-exclusive-gateway.png[Switch from parallel to exclusive gateway]
+image::getting-started-tutorial/draw-bpmn-diagram/switch-from-parallel-to-exclusive-gateway.png[Switch from parallel to exclusive gateway]
 
 . Rename the gateway to _Satisfaction level_
 
@@ -121,7 +121,7 @@ From the gateway, there are two possible paths. The first one completes the proc
 . Drag and drop the event icon (the disc icon)
 . Select the end event type (red disc icon)
 +
-image::images/getting-started-tutorial/draw-bpmn-diagram/event-type-selection.png[Event type selection: end event]
+image::getting-started-tutorial/draw-bpmn-diagram/event-type-selection.png[Event type selection: end event]
 
 . Rename the event to: _End client satisfied_
 
@@ -143,7 +143,7 @@ And from this _Deal with unsatisfied customer_ task the path will go to a second
 
 Your process diagram should look like this:
 
-image::images/getting-started-tutorial/draw-bpmn-diagram/process-diagram-before-transitions-configuration.png[Process diagram]
+image::getting-started-tutorial/draw-bpmn-diagram/process-diagram-before-transitions-configuration.png[Process diagram]
 
 [NOTE]
 ====
@@ -157,7 +157,7 @@ Configure the conditions required to define the path to follow when executing th
 . Go to the menu:General[General] tab
 . Check the checkbox *Default flow*
 +
-image::images/getting-started-tutorial/draw-bpmn-diagram/transitions-name-and-condition.gif[Transitions names and conditions configuration]
+image::getting-started-tutorial/draw-bpmn-diagram/transitions-name-and-condition.gif[Transitions names and conditions configuration]
 
 [NOTE]
 ====
@@ -189,20 +189,20 @@ Congratulations! You have now your first valid BPMN process diagram!
 You can now build, package, deploy and execute this process definition in the Bonita Studio embedded test environment:
 
 . Select the process pool, the rectangle shape that includes start events and tasks
-. Click on *Run* image:images/getting-started-tutorial/draw-bpmn-diagram/run.png[Run button] in the toolbar at the top of the Bonita Studio window
+. Click on *Run* image:getting-started-tutorial/draw-bpmn-diagram/run.png[Run button] in the toolbar at the top of the Bonita Studio window
 . On the instantiation form, click on *Start*. The process instance is started and you are redirected to the Bonita User Application task list
 . Move your mouse over the _Review and answer claim_ form on the right-hand side of the Bonita User Application and click on *Take* to "claim" the task
 . Click on the *Execute* button to actually perform the task and move the process execution forward
-. Click on the *Refresh* button image:images/getting-started-tutorial/draw-bpmn-diagram/refresh.png[Refresh button] at the top of the task list to update it
+. Click on the *Refresh* button image:getting-started-tutorial/draw-bpmn-diagram/refresh.png[Refresh button] at the top of the task list to update it
 . Click on the *Overview* tab on the right side to see the process execution overview form with information about process execution
 . Click on the *Form* tab to get back to the _Read the answer and rate it_ user task form
 . You can click on *Take* and execute for both tasks, _Read the answer and rate it_ and _Deal with unsatisfied customer_, to finish the process execution
-. In the menu, click on *Cases* image:images/getting-started-tutorial/draw-bpmn-diagram/cases.png[Cases button]
+. In the menu, click on *Cases* image:getting-started-tutorial/draw-bpmn-diagram/cases.png[Cases button]
 . Click on the *Archived cases* tab
 . Click the "..." button on the corresponding case to open it
 . Click on the *Overview* button to display the overview form with information about process execution
 
-image:images/getting-started-tutorial/draw-bpmn-diagram/run-process.gif[Process execution]
+image:getting-started-tutorial/draw-bpmn-diagram/run-process.gif[Process execution]
 
 [NOTE]
 ====
