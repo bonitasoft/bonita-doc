@@ -8,6 +8,19 @@ The {bonitaVersion} version is in development.
 
 == New available values
 
+== API deprecations and removals
+
+=== API removals
+
+==== Command API
+
+Up to 2024.3, you could implement custom commands by inheriting either from the `org.bonitasoft.engine.api.TenantCommand` interface or from the `org.bonitasoft.engine.command.PlatformCommand` interface. With multitenancy removal, those two commands have been merged into `org.bonitasoft.engine.command.RuntimeCommand` +
+If you have not done it yet, recompile your custom commands by changing parent class to `RuntimeCommand`, https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/CommandAPI.html#unregister(long)[unregister] the previous one and https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/CommandAPI.html#register(java.lang.String,java.lang.String,java.lang.String)[register] the new one.
+
+==== Platform API
+
+Deprecated method PlatformAPI.updateTenant() has been removed.
+
 == Bug fixes
 
 === Fixes in Bonita 2025.1 (! DATE TO ADD HERE !)
