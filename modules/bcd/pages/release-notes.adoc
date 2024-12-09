@@ -1,5 +1,5 @@
 = Release notes
-:description: BCD release notes
+:description: Bonita Continuous Delivery (BCD) release notes
 
 :page-aliases: scenarios.adoc, how_to_use_bcd_with_data_encrypted.adoc
 

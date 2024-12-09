@@ -1,5 +1,5 @@
 = Troubleshooting guide
-:description: BCD Troubleshooting
+:description: Bonita Continuous Delivery (BCD) Troubleshooting
 
 [.troubleshooting-title]
 == Troubleshooting
