@@ -1,4 +1,4 @@
-= Bonita Runtime dependencies (10.2.0)
+= Bonita Runtime dependencies (10.2.1)
 :page-aliases: ROOT:bonita-web-dependencies.adoc, ROOT:bonita-engine-dependencies.adoc
 :description: List all dependencies used by Bonita Runtime
 
@@ -136,7 +136,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.20
+| 1.4.21
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -304,7 +304,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.20
+| 1.4.21
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -328,7 +328,7 @@
 
 | commons-io
 | commons-io
-| 2.16.1
+| 2.17.0
 | https://commons.apache.org/proper/commons-io/[https://commons.apache.org/proper/commons-io/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
@@ -424,97 +424,97 @@
 
 | org.codehaus.groovy
 | groovy
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-console
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-datetime
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-dateutil
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-docgenerator
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-groovysh
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-jmx
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-json
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-jsr223
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-nio
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-servlet
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-sql
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-swing
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-templates
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-xml
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-yaml
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -850,7 +850,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.20
+| 1.4.21
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -880,7 +880,7 @@
 
 | commons-io
 | commons-io
-| 2.16.1
+| 2.17.0
 | https://commons.apache.org/proper/commons-io/[https://commons.apache.org/proper/commons-io/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
@@ -982,7 +982,7 @@
 
 | org.codehaus.groovy
 | groovy
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1174,7 +1174,7 @@
 
 | commons-io
 | commons-io
-| 2.16.1
+| 2.17.0
 | https://commons.apache.org/proper/commons-io/[https://commons.apache.org/proper/commons-io/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
@@ -1426,7 +1426,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.20
+| 1.4.21
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -1660,7 +1660,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.20
+| 1.4.21
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -1696,7 +1696,7 @@
 
 | commons-io
 | commons-io
-| 2.16.1
+| 2.17.0
 | https://commons.apache.org/proper/commons-io/[https://commons.apache.org/proper/commons-io/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
@@ -1883,97 +1883,97 @@
 
 | org.codehaus.groovy
 | groovy
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-console
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-datetime
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-dateutil
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-docgenerator
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-groovysh
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-jmx
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-json
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-jsr223
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-nio
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-servlet
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-sql
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-swing
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-templates
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-xml
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
 | groovy-yaml
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -2351,7 +2351,7 @@
 
 | com.thoughtworks.xstream
 | xstream
-| 1.4.20
+| 1.4.21
 | http://x-stream.github.io[http://x-stream.github.io]
 |  http://x-stream.github.io/license.html[BSD-3-Clause]
 
@@ -2381,7 +2381,7 @@
 
 | commons-io
 | commons-io
-| 2.16.1
+| 2.17.0
 | https://commons.apache.org/proper/commons-io/[https://commons.apache.org/proper/commons-io/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
@@ -2549,7 +2549,7 @@
 
 | org.codehaus.groovy
 | groovy
-| 3.0.21
+| 3.0.19
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -2897,7 +2897,7 @@
 
 | commons-io
 | commons-io
-| 2.16.1
+| 2.17.0
 | https://commons.apache.org/proper/commons-io/[https://commons.apache.org/proper/commons-io/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
