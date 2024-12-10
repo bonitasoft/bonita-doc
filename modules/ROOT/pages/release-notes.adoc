@@ -8,7 +8,7 @@ The {bonitaVersion} version is in development.
 
 == New available values
 
-== API deprecations and removals
+== Deprecations and removals
 
 === API removals
 
@@ -26,5 +26,9 @@ Deprecated method PlatformAPI.updateTenant() has been removed.
 === Fixes in Bonita 2025.1 (! DATE TO ADD HERE !)
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
+
+* RUNTIME-28 - The deletion of a running process instance leaves lines in the DOCUMENT table. +
+Before this fix, when a process instance was deleted, the documents associated with it were not deleted. As a consequence, this behavior creates orphan documents that are unused and not linked to any other object. Note that it was not the case for archived process instances where documents were correctly deleted. +
+If you have a lot of orphan documents in your database, you can use the latest version of the xref:ROOT:purge-tool.adoc#delete-orphan-document-content[Purge Tool] to remove them.
 
 ==== Fixes in Bonita Studio (including Bonita UI Designer)
