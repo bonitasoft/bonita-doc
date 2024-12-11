@@ -19,7 +19,7 @@ To avoid settings that are specific to a real email provider, use a tool for a f
 . When the user interface is displayed, set the *listening port* to _2525_
 . Click on *Start server*
 +
-image:images/getting-started-tutorial/configure-email-connector/fakesmtp-configured-and-listening.png[FakeSMTP configured and listening]
+image:getting-started-tutorial/configure-email-connector/fakesmtp-configured-and-listening.png[FakeSMTP configured and listening]
 
 Now that you have a fake email server running, configure the email connector on the _Deal with unsatisfied customer_ task:
 
@@ -36,7 +36,7 @@ Now that you have a fake email server running, configure the email connector on 
  ** SSL (in the *Security* section): _unchecked_
 . Click on *Next*
 . Enter `no-reply@acme.com` in the *From* field
-. Use the image:images/getting-started-tutorial/configure-email-connector/pencil.png[pencil icon] icon to edit the expression of the *To* field
+. Use the image:getting-started-tutorial/configure-email-connector/pencil.png[pencil icon] icon to edit the expression of the *To* field
 . Set the *Expression type* to *Script*
 . Paste the following Groovy script into the code editing zone: `apiAccessor.getIdentityAPI().getUserContactData(taskAssigneeId, false).email`
 . Click on *OK*
@@ -44,7 +44,7 @@ Now that you have a fake email server running, configure the email connector on 
 . Set _You have a pending task_ as the subject
 . Click on *Finish*
 +
-image:images/getting-started-tutorial/configure-email-connector/configure-email-connector.gif[Email connector configuration]
+image:getting-started-tutorial/configure-email-connector/configure-email-connector.gif[Email connector configuration]
 
 Run the process with the connector configured, and see a new incoming email in the FakeSMTP user interface when task _Deal with unsatisfied customer_ becomes available.
 

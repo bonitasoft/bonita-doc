@@ -17,7 +17,7 @@ To create the application, add a new application descriptor:
 
 The `applicationDescriptorFile.xml` is initialized and the editor will help you create the application directly from Bonita Studio.
 
-image:images/getting-started-tutorial/create-application/applicationEditor.png[Application Descriptor Editor]
+image:getting-started-tutorial/create-application/applicationEditor.png[Application Descriptor Editor]
 
 To create an application, you have to define:
 
@@ -32,7 +32,7 @@ To create an application, you have to define:
 . Type the page name _claimsList_ in the column *Application page*
 . Enter _dashboard_ in the column *Token*
 +
-image:images/getting-started-tutorial/create-application/create-application.gif[Application deployment]
+image:getting-started-tutorial/create-application/create-application.gif[Application deployment]
 
 [NOTE]
 ====
@@ -41,13 +41,13 @@ The look & feel can be fully customized by modifying the xref:ROOT:layouts.adoc[
 
 The application is ready to be deployed in Bonita Applications. Now you need to deploy it in Bonita Applications:
 
-. Click on the *Deploy* icon image:images/getting-started-tutorial/create-application/deploy-icon.png[deploy icon]
+. Click on the *Deploy* icon image:getting-started-tutorial/create-application/deploy-icon.png[deploy icon]
 . Click on *Select all* to make sure everything is deployed: test organization, business data model, process definition, application page
 . Make sure that *Clean BDM database before deployment* is not checked as you want to keep your data for testing
 . Click on *Deploy*
 . In the *Deploy status* pop up window, click on *Close*
 +
-image:images/getting-started-tutorial/create-application/application-deployment.gif[Application deployment]
+image:getting-started-tutorial/create-application/application-deployment.gif[Application deployment]
 
 Congratulations! You have successfully created your first process and your first application with Bonita.
 
@@ -56,7 +56,7 @@ Congratulations! You have successfully created your first process and your first
 
 Confirm that the application is available :
 
-. Click on the Applications icon image:images/getting-started-tutorial/create-application/applications-icon.png[Applications icon] in the Bonita Studio coolbar.
+. Click on the Applications icon image:getting-started-tutorial/create-application/applications-icon.png[Applications icon] in the Bonita Studio coolbar.
 . You will see the application _Claims_ that you have just deployed listed in Bonita Application Directory. If you click on the URL, _My Dashboard_ page will be displayed in your browser.
 
 ====

@@ -1,5 +1,5 @@
 = Migrate from an earlier version of BCD
-:description: How to upgrade BCD tools
+:description: How to upgrade Bonita Continuous Delivery (BCD) tools
 
 == Overview
 

@@ -14,7 +14,7 @@ In our process we will deal with a single object: a claim. The claim object will
 
 . Select the process pool, the rectangle that contains events and tasks.
 +
-image:images/getting-started-tutorial/declare-business-variable/select-process-pool.gif[Select the pool]
+image:getting-started-tutorial/declare-business-variable/select-process-pool.gif[Select the pool]
 
 . At the bottom of the Bonita Studio screen, go to menu:Data[Pool variables]
 . Click on *Add...* next to *Business variables*
@@ -22,7 +22,7 @@ image:images/getting-started-tutorial/declare-business-variable/select-process-p
 . Select the *Business Object*: _Claim_
 . Click on *Finish*
 +
-image:images/getting-started-tutorial/declare-business-variable/declare-business-variable.gif[Declare business variable]
+image:getting-started-tutorial/declare-business-variable/declare-business-variable.gif[Declare business variable]
 
 Now that a business variable is declared, use it in the transition condition definition:
 
@@ -39,7 +39,7 @@ Now that a business variable is declared, use it in the transition condition def
 You can also enter the Groovy script directly: `claim.satisfactionLevel < 3`
 ====
 
-image:images/getting-started-tutorial/declare-business-variable/define-condition.gif[Define transition condition using business variable value]
+image:getting-started-tutorial/declare-business-variable/define-condition.gif[Define transition condition using business variable value]
 
 [NOTE]
 ====

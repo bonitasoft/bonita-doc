@@ -26,7 +26,7 @@ In Bonita Studio, create a BDM:
 . _answer_ of type _STRING_, _optional_
 . _satisfactionLevel_ of type _INTEGER_, _optional_
 +
-image:images/getting-started-tutorial/define-business-data-model/create-business-object-with-attributes.gif[Create business object with attributes]
+image:getting-started-tutorial/define-business-data-model/create-business-object-with-attributes.gif[Create business object with attributes]
 
 . Save your work (Ctrl+S)
 . Click on *Deploy* button
