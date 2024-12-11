@@ -32,12 +32,12 @@ When creating a KPI definition, you must specify its database connection setting
 . Fill in the database JDBC connection settings:
  .. Choose the _Driver template_ that matches your reporting database type:
 
-image::images/images-6_0/generic_driver.png[JDBC driver templates]
+image::images-6_0/generic_driver.png[JDBC driver templates]
 
 . Click on the *_Apply template_* button. This pre-fills the _Driver class name_ and _JDBC URL_ fields.
 . Update the configuration with your database name, user name, and password:
 
-image::images/images-6_0/createKPI_step4.png[JDBC connection settings]
+image::images-6_0/createKPI_step4.png[JDBC connection settings]
 
 . Click on *_Test connection_* to validate your settings.
 . Click on *_Next_*.
@@ -50,7 +50,7 @@ image::images/images-6_0/createKPI_step4.png[JDBC connection settings]
   *** the SQL type as defined in the database
   *** whether the values should be surrounded with quotes in the SQL insertion query
 
-image::images/images-6_0/editKPI.png[KPI fields]
+image::images-6_0/editKPI.png[KPI fields]
 
 . Click on *_Create_*.
 
