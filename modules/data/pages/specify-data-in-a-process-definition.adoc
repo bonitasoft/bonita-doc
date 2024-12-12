@@ -194,7 +194,7 @@ The set of available values for a checkbox, checkbox list, dropdown list, radio 
 
 If you do not want to define a set of available values but need to specify constraints on the value, you can use a validator.
 
-==  image:ROOT:images/troubleshooting.png[troubleshooting-icon] Troubleshooting
+==  image:ROOT:troubleshooting.png[troubleshooting-icon] Troubleshooting
 
 === Java Object process variables serialization fails
 
@@ -213,7 +213,7 @@ message[2]          : Unable to make field private transient java.math.BigIntege
 -------------------------------
 ----
 
-Bonita Runtime uses Xstream under the hood to serialize Java Object. 
+Bonita Runtime uses Xstream under the hood to serialize Java Object.
 With Java 17, using reflection to access private fields or methods is now forbidden and XStream is relying on such a mechanism.
 To workaround this issue you may open specific package for reflection using additional JVM launch argument.
 In the example above you can add the following argument:
