@@ -100,11 +100,11 @@ If not, you can manually start it by using the installed shortcut or by using th
 
 To make sure that everything is properly installed, you may create a new project from the Welcome Page or the _File_ menu. Once the project initialized, click on the *Applications* button in the toolbar. This should open the Bonita Application Directory in your web browser:
 
-image::images/installation/web-browser-display-application-list.png[Bonita Application display in a web browser]
+image::installation/web-browser-display-application-list.png[Bonita Application display in a web browser]
 
 Also click on the *UI Designer* button in the toolbar to check that the UI Designer is ready to use:
 
-image::images/installation/ui-designer-first-start.png[UI Designer on first launch displayed in a web browser]
+image::installation/ui-designer-first-start.png[UI Designer on first launch displayed in a web browser]
 
 You are also ready to download and start using Bonita UI Builder. Check out our xref:applications:download-and-launch.adoc[dedicated guide] to see how.
 

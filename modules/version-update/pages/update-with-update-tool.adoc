@@ -210,7 +210,7 @@ a|
 [#updating-bonita-bundle-step-by-step-procedure]
 == Updating Bonita bundle: step-by-step procedure
 
-image::ROOT:images/images-6_0/update_bigsteps.png[Update steps]
+image::update_bigsteps.png[Update steps]
 
 This section explains how to update a platform that uses one of the Bonita bundles.
 
