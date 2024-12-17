@@ -10,8 +10,6 @@ You might want to consult the xref:ROOT:documents.adoc[document documentation] f
 
 A document is treated in a similar way to a variable in Bonita Engine database. It is defined in Bonita Studio or programmatically, and is stored in the Bonita Engine database. Inside a process instance, a document is a byte stream.
 
-A document is treated in a similar way to a variable in Bonita Engine database. It is defined in Bonita Studio or programmatically, and is stored in the Bonita Engine database.
-
 == Set or update the value of a document in a process operation using a script
 
 In a process operation, you might want to set / update the value of a document data using a groovy script instead of simply use a contract input. +
@@ -156,13 +154,13 @@ def attachNewDocumentVersionToCase(ProcessAPI processAPI, long processInstanceId
 
 [#delete_document_archived_case]
 
-== Delete documents of archived cases based on archive date
+== Delete content of archived case documents based on archive date
 
-The use case is to delete the documents of archived cases older than a certain date.
-`searchArchivedDocumentsOlderThanArchivedDate` look for archived documents
-`deleteArchivedDocumentsOlderThan` delete the content of the document
+The use case is to free database disk space by deleting the content of archived case documents older than a certain date. However, it keeps metadata attached to the process instance. +
+`searchArchivedDocumentsOlderThanArchivedDate` look for archived documents. +
+`deleteArchivedDocumentsOlderThan` delete the content of the document.
 
-WARNING: Although the document binary will be deleted there will still be records in the database. The xref:runtime:purge-tool.adoc#delete-orphan-document-content[Purge Tool] should be used to completely get rid of the document from the database to free disk space.
+WARNING: Although the document binary will be deleted, records will remain in the database. To completely remove the document from the database, delete the process instance to which it is attached, this will delete all elements of the process instance on cascade.
 
 [source,groovy]
 ----
