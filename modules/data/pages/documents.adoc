@@ -102,7 +102,7 @@ For most use cases, we recommend storing documents in a CMS.
 
 === CMS
 
-Typically, business documents are stored in an external system such as a CMS, and accessed by other applications in addition to Bonita. Bonita is not iteself a CMS, and it is more efficient for performance to store documents in an external system and store only links in the process instance. This is particularly true if you have many documents attached to a process instance.
+Typically, business documents are stored in an external system such as a CMS, and accessed by other applications in addition to Bonita. Bonita is not itself a CMS, and it is more efficient for performance to store documents in an external system and store only links in the process instance. This is particularly true if you have many documents attached to a process instance.
 
 You can initialize a document object in a process instance by specifying a URL that identifies the document. The document object stores a reference to the URL, not the content itself. The document can be updated in the process instance when the user specifies a URL in a form, or using a connector. You can also use a connector to push an update to the CMS.
 
