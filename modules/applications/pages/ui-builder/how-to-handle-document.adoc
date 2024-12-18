@@ -25,7 +25,7 @@ Go to the `Queries` tab and create a Bonita query that will upload a document, g
 Drag and drop a `FilePicker` widget onto your interface and set the `onFilesSelected` event to call
 the `uploadDocument` query with the selected file as a parameter:
 
-image:ui-builder/guides/file-picker-setting.png[file-picker-setting, 500]
+image::ui-builder/guides/file-picker-setting.png[file-picker-setting, 500]
 
 To test this step, click on the `FilePicker` widget, select a file from your computer, and click on the `Upload` button.
 

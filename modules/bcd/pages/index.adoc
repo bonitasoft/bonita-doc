@@ -19,7 +19,7 @@ We want to assure you that our teams are available to answer your questions and 
 
 BCD lets you build a Living Application from source code in a repository and deploy the generated artifacts, all from the command line.
 
-image::images/bcd-capabilities.png[Bonita Continuous Delivery Capabilities]
+image::bcd-capabilities.png[Bonita Continuous Delivery Capabilities]
 
 == Basic concepts
 
