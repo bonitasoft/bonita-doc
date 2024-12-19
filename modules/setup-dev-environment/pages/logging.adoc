@@ -56,6 +56,22 @@ Bonita Runtime uses Mapped Diagnostic Context (MDC) to bring contextual informat
 `%X` brings all the contextual information in the log. You can also write your own pattern to pick specific information. E.g. use `%X{userId}` to get the id of the authenticated user. All the usable variables such as `userId` are in the https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-commons/src/main/java/org/bonitasoft/engine/mdc/MDCConstants.java[MDCConstants class].
 
 
+==== HTTP Request tracing configuration
+
+Troubleshooting HTTP requests can be challenging, especially in distributed systems.
+To simplify tracing, each HTTP request is now identified by a requestId attached to the request. For distributed systems, a correlationId can be used to identify a transaction.  By default, the custom HTTP headers used to trace a request are:
+
+[source,properties]
+----
+req.requestId.attributeName             track.requestId
+req.requestId.headerName                X-Request-ID
+req.correlationId.attributeName         track.correlationId
+req.correlationId.headerName            X-Correlation-ID
+----
+
+This properties could be update in the console-config.properties file. You need to use the setup tool provided in `workspace/tomcat/setup/` to update `console-config.properties`.
+
+
 === Bonita Studio
 
 To change the Bonita Studio log level (usually to debug Studio), go to the Studio installation folder, configuration directory, and edit the `config.ini` file. You need to set the property `eclipse.log.level` to one of the following values: INFO, WARNING or ERROR.
