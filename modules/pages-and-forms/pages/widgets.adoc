@@ -130,7 +130,7 @@ Autocomplete widget does not update its displayed value
 Autocomplete widget does not update its displayed value when the value is changed by a variable.
 
 [.solution]#Possible solution#
-Make a custom widget from the Autocomplete widget, and Update the controller by replacing the function that set the formatLabel as follows:
+Make a custom widget from the Autocomplete widget, and Update the controller by replacing the function that set the `formatLabel` as follows:
 
 [source,javascript]
 ----
