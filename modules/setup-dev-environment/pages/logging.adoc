@@ -46,6 +46,16 @@ Here is an example of the Log4j2 configuration for the logger used in the exampl
 <Logger name="org.bonitasoft.groovy.script" level="TRACE"/>
 ----
 
+Bonita Runtime uses Mapped Diagnostic Context (MDC) to bring contextual information into your logs. You can configure the log pattern with the `LOG_PATTERN` property. The default value is:
+
+[source,xml]
+----
+<Property name="LOG_PATTERN">%highlight{%d{ISO8601_OFFSET_DATE_TIME_HHMM} | ${hostName} | %-5p%notEmpty{[%marker]} | [%t|%T] %c{1.} - %m%notEmpty{ - %X}%n}{FATAL=Bright red, ERROR=red, WARN=yellow bold, INFO=Normal, DEBUG=green bold, TRACE=blue}</Property>
+----
+
+`%X` brings all the contextual information in the log. You can also write your own pattern to pick specific information. E.g. use `%X{userId}` to get the id of the authenticated user. All the usable variables such as `userId` are in the https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-commons/src/main/java/org/bonitasoft/engine/mdc/MDCConstants.java[MDCConstants class].
+
+
 === Bonita Studio
 
 To change the Bonita Studio log level (usually to debug Studio), go to the Studio installation folder, configuration directory, and edit the `config.ini` file. You need to set the property `eclipse.log.level` to one of the following values: INFO, WARNING or ERROR.
@@ -103,3 +113,26 @@ On a Bonita bundle, you can configure the log level, and you can access the log 
 Each file name includes the date when the file was created. Log files:
 
 * _bonita.date_.log is the Bonita log file.
+
+== Integrate Bonita Runtime logs into an external Log Management System
+
+You can exploit the Mapped Diagnostic Context (MDC) information from the Bonita Runtime log to integrate it in an external Log Management System. +
+These instructions demonstrate how to do it with https://eclipse.dev/tracecompass/[Eclipse Trace Compass] a free and open source traces and logs manager. You can adapt these to your favorite tool of choice.
+
+
+. Download, install and launch Trace Compass.
+. Create a new project. Import your logs file in the Traces.
+. Create a custom parser to parse the log4j lines. +
+  With the default `LOG_PATTERN` property, you can use this pattern in Trace Compass (adapt it otherwise):
++
+[source,regex]
+----
+\s*\D*0m([^+]*)\+\d*\s+\|\s+(\S*)\s+\|\s+(\S*)\s+\|\s+\[([\w-]*)\|(\d*)\]\s*([\w\.]*)\s*\-\s*(.*?)(?: \- \{(?:requestId=(\w*)|txUid=([\w:]*)|userId=([\d]*)|rootProcessInstanceId=([\d]*)|.*?)+\})?
+----
++
+You can add as many `propertyName=([...]*)|` blocks as you want to match MDC variables from the https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-commons/src/main/java/org/bonitasoft/engine/mdc/MDCConstants.java[MDCConstants class].
+
+. Select your custom parser for the trace type.
+. Open the trace to visualize.
+
+You can also configure Trace Compass to visualize the logs live from a stream. https://eclipse.dev/tracecompass/#docs[Read the documentation] for more information.
