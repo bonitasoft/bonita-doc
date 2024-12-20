@@ -8,6 +8,14 @@ The {bonitaVersion} version is in development.
 
 == New available values
 
+=== Enhanced Log Tracing and Filtering
+
+Log tracing and filtering in Bonita have been enhanced using MDC (Mapped Diagnostic Context) to add contextual information across all scopes.
+This improvement ensures higher-quality, more readable logs and simplifies integration with third-party monitoring tools, helping customers troubleshoot issues and monitor performance more effectively.
+
+You can see the xref:setup-dev-environment:logging.adoc#logging-configuration[logging configuration] for more details.
+
+
 == Deprecations and removals
 
 === API removals
