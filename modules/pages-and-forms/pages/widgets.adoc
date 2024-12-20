@@ -42,6 +42,8 @@ Limitations:
 * The URL should have the file type as extension (e.g. \https://myhost/doc/sample.pdf)
 ====
 
+See <<troubleshooting-ui-designer-widgets>> to solve common issues with this widget.
+
 [#rich-text-area]
 
 == Rich Text Area widget
@@ -102,6 +104,7 @@ When the switch is completed, you still may have to set properties from the prop
 Switch feature not available for Internet Explorer 11 and Microsoft Edge.
 ====
 
+[#troubleshooting-ui-designer-widgets]
 
 [.troubleshooting-title]
 == Troubleshooting UI Designer widgets
@@ -121,19 +124,48 @@ The URL points on a file without extension (e.g. \https://myhost/doc/sample)
 Make a custom widget from the File Viewer widget, and adapt the `controller.isPDF` or `controller.isImage`.
 --
 
-[#widgets-templating-troubleshooting]
 [.troubleshooting-section]
 --
 [.symptom]
-My custom styling on pbChecklist or pbRadiobuttons isn't working as it was in previous Bonita UI Designer versions. 
+Autocomplete widget does not update its displayed value
+
+[.symptom-description]
+Autocomplete widget does not update its displayed value when the value is changed by a variable.
+
+[.solution]#Possible solution#
+Make a custom widget from the Autocomplete widget, and update the controller by replacing the function that set the `formatLabel` as follows:
+
+[source,javascript]
+----
+  this.formatLabel = function ($model) {
+    if (this.selectedItem) {
+      let sel = this.selectedItem;
+      this.selectedItem = undefined;
+      return this.getLabel(sel);
+    } else {
+      if (typeof $model === 'object') {
+        return this.getLabel($model);
+      } else {
+        return $model;
+      }
+    }
+  };
+----
+--
+
+[#widgets-templating-troubleshooting]
+
+[.troubleshooting-section]
+--
+[.symptom]
+My custom styling on pbChecklist or pbRadiobuttons isn't working as it was in previous Bonita UI Designer versions.
 
 [.symptom-description]
 My custom css rule, from a theme or a css file is not applied after the migration on {bonitaVersion}.
 
 [.cause]#Potential cause#
-The internal HTML templating has been changed so that accessibility rules could be applied for the two widgets. 
+The internal HTML templating has been changed so that accessibility rules could be applied for the two widgets.
 
 [.solution]#Possible solution#
 Check you custom css selector. For example, <label> html tag has been replaced by <legend>. More details are available in UI-Designer, Editor > Help (in the top right corner) > Migrations.
 --
-
