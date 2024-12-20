@@ -154,6 +154,7 @@ Make a custom widget from the Autocomplete widget, and update the controller by 
 --
 
 [#widgets-templating-troubleshooting]
+
 [.troubleshooting-section]
 --
 [.symptom]
