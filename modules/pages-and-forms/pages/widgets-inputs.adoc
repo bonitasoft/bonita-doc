@@ -45,6 +45,8 @@ image::widgets/autocomplete.png[autocomplete]
 
 Use an autocomplete widget to offer the user a list of possible values based on data entered in the field. For example, in a firstName field, if the user types _chri_, the values _chris_, _christine_, _christian_, _christiane_ are proposed. The user selects the correct value. To define the *available values*, bind a data source to initialize the suggestions. For suggestions that are an array of objects, you can specify a *displayed key* to identify the attribute to show as a suggestion in the widget. The value must be bound to a variable that will hold the selected suggestion.
 
+See xref:ROOT:widgets.adoc#troubleshooting-ui-designer-widgets[Troubleshooting UI Designer widgets] to solve common issues with this widget.
+
 === Select widget
 
 image::widgets/select.png[select]
