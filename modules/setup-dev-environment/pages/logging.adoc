@@ -138,17 +138,26 @@ These instructions demonstrate how to do it with https://eclipse.dev/tracecompas
 
 . Download, install and launch Trace Compass.
 . Create a new project. Import your logs file in the Traces.
++
+image::logging/NewTraceCompassProject.gif[New Trace Compass project]
 . Create a custom parser to parse the log4j lines. +
   With the default `LOG_PATTERN` property, you can use this pattern in Trace Compass (adapt it otherwise):
 +
 [source,regex]
 ----
-\s*\D*0m([^+]*)\+\d*\s+\|\s+(\S*)\s+\|\s+(\S*)\s+\|\s+\[([\w-]*)\|(\d*)\]\s*([\w\.]*)\s*\-\s*(.*?)(?: \- \{(?:requestId=(\w*)|txUid=([\w:]*)|userId=([\d]*)|rootProcessInstanceId=([\d]*)|.*?)+\})?
+\s*\D*\d*m([^+]*)\+\d*\s+\|\s+(\S*)\s+\|\s+(\S*)\s+\|\s+\[([\w-]*)\|(\d*)\]\s*([\w\.]*)\s*\-\s*(.*?)(?: \- \{(?:req.correlationId=(\w*)|req.requestId=(\w*)|req.requestURL=(\S*)|txUid=([\w:]*)|userId=([\d]*)|rootProcessInstanceId=([\d]*)|.*?)+\})?
 ----
 +
-You can add as many `propertyName=([...]*)|` blocks as you want to match MDC variables from the https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-commons/src/main/java/org/bonitasoft/engine/mdc/MDCConstants.java[MDCConstants class].
-
+You can add/remove as many `propertyName=([...]*)|` blocks as you want to match MDC variables from the https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-commons/src/main/java/org/bonitasoft/engine/mdc/MDCConstants.java[MDCConstants class]. +
+Use `yyyy-MM-ddTHH:mm:ss,SSS` for Time Stamp value.
+Test your pattern on an example log line.
++
+image::logging/NewLog4jParser.gif[New Log4j parser]
 . Select your custom parser for the trace type.
++
+image::logging/SelectParser.gif[Select parser]
 . Open the trace to visualize.
++
+image::logging/OpenTrace.gif[Open the trace]
 
 You can also configure Trace Compass to visualize the logs live from a stream. https://eclipse.dev/tracecompass/#docs[Read the documentation] for more information.
