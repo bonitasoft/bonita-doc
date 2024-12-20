@@ -82,7 +82,7 @@ edit the `authenticationManager-config.properties` as follows:
     -->  logout.link.hidden=true
 ----
 +
-Make sure to xref:ROOT:multi-tenancy-and-tenant-configuration.adoc[set the right tenant admin username].
+Make sure to set the right admin username (property `auth.tenant.admin.username`).
  It is recommended to also replace the value of the passphrase (property `auth.passphrase`) which is used by the engine to verify the authentication request.
  The value must be the same as in the file *bonita-tenant-sp-custom.properties*. +
  If you need users to be able to log in without having an account on the IDP, you can authorize it by setting the property `oidc.auth.standard.allowed` to true. Users will then be able to log in using the Bonita login page (`/login.jsp`) provided they have a Bonita account and their password is different from their username. +
@@ -117,8 +117,12 @@ Make sure to xref:ROOT:multi-tenancy-and-tenant-configuration.adoc[set the right
 
          # Create users on the fly, when they are missing from bonita but authenticated by the SSO. The user will belong to the group and role specified below.
          #authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable=true
-         #authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipGroupPath=/acmr/hr
+         #bonita.runtime.authentication.passphrase-or-password.create-missing-user.addDefaultMembership.enable=true
+         #authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipGroupPath=/acme/hr
          #authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipRoleName=member
+         #bonita.runtime.authentication.passphrase-or-password.create-missing-user.createDefaultGroupAndRole.enabled=true
+         #bonita.runtime.authentication.passphrase-or-password.create-missing-user.createUserGroupsAndRole.enabled=true
+         #bonita.runtime.authentication.passphrase-or-password.create-missing-user.lowerGroupsAndRoleNamesCase.enabled=true
 
          # CAS authentication delegate : enables the user, providing login/password,
          # to be logged in automatically against CAS web application
@@ -130,13 +134,11 @@ Make sure to xref:ROOT:multi-tenancy-and-tenant-configuration.adoc[set the right
 +
 It is recommended to also replace the value of the passphrase (property auth.passphrase). The value must be the same as in the file *authenticationManager-config.properties* updated previously.
 +
-If you want Bonita engine to create the accounts on the fly once a user accessing Bonita has been authenticated with the IdP, you can uncomment the property `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable` (and set its value to true) as well as the next 2 properties to add a default membership to each user account:
-
- ** `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipGroupPath` specify the group in which every user account created on the fly will be added (the full group path is needed)
- ** `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.defaultMembershipRoleName` specify the role to use to create the membership
-
+When accounts creation on the fly is required for all users accessing Bonita that have been authenticated with the IdP, *uncomment* the property `authentication.passphraseOrPasswordAuthenticationService.createMissingUser.enable` , as well as subsequent properties and set the value to true. For more information see xref:identity:user-account-provisioning-with-sso.adoc[User account provisioning with single sign-on (SSO)].
 +
+
 NOTE: Activating this option means any user authorized by the IdP to access Bonita will have an account created automatically in Bonita Database.
+
 . In the tenant_portal folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`, +
  edit the file *keycloak-oidc.json* to setup Bonita webapp as an OIDC client working with your OIDC provider.
 +
@@ -179,7 +181,7 @@ NOTE: Activating this option means any user authorized by the IdP to access Boni
  ** `scope-values` can be used to set the value of the `scope` parameter sent to the OIDC provider in the authentication request. The scope value `openid` is automatically added if it is no present, but you can add other scope values like `email` or `profile` depending on your OIDC provider configuration and the claims you need in the JWTs to match Bonita username. This property is specific to Bonita OIDC module and is not supported/documented by Keycloak.
  ** Some OpenID Connect providers do not support having a pattern of valid redirecting URIs. It is the case with Google's for example. With those providers you can use the `state` parameter to pass the target URL (the URL you initially requested and want to be redirected to). In order to do that, set the property `save-target-url-in-state` to `true`. When you do that, the redirect_URI query parameter will always be the same. Its default value is the path `/bonita/keycloak` on Bonita server, but you can set a different value using the property `redirect-uri-path`. Make sure this URL is part of the valid redirect URIs in you OIDC provider configuration for the Bonita client. When `save-target-url-in-state` is set to `false` or not present, the `redirect_URI` query parameter is used to save the target URL. Those properties are specific to Bonita OIDC module and are not supported/documented by Keycloak.
  ** the `ssl-required` property value may need to be changed if Bonita Runtime and the IdP are not both accessed via HTTPS. Possible values for this property are: `all`, `external`, and `none`. For `all`, all requests must come in via HTTPS. For `external`, only non-private IP addresses must come over via HTTPS. For `none`, no requests are required to come over via HTTPS (not recommended for production). For instance, using Azure AD as OIDC provider requires this property to be set to `all`.
- ** the `principal-attribute` value indicates the OIDC Tokens attribute/claim to use to be considered as user identifier in the client application. It should match the username in Bonita. Supported values are: `sub`, `preferred_username`, `email`, `name`, `nickname`, `given_name`, `family_name`. Using another value will result in `sub` claim being used.
+ ** the `principal-attribute` value indicates the OIDC Tokens attribute/claim to use to be considered as user identifier in the client application. It should match the username in Bonita. Possible values are: `sub`, `preferred_username`, `email`, `name`, `nickname`, `given_name`, `family_name`, `middle_name`, `profile`. Using another claim is also possible as long as it is not part of the specified OIDC token standard claims (which are reserved). If the OIDC provider defines a custom claim whose value matches the username of Bonita accounts, just use this claim's name as value for `principal-attribute`.
  ** `public-client` needs to be set to `false` if the OIDC provider requires the client requests to be authenticated (with a client secret for example). In this case you also need to use the `credentials` property. If this property is set to `true`, then no client Authentication header will be sent to the OIDC provider.
  ** `enable-cors` is required only if you want to be able to use Bonita REST API from a web application located on a different domain from your Bonita installation's. It comes with additional options `cors-max-age`, `cors-allowed-methods`, `cors-allowed-headers`, `cors-exposed-headers`. You can check the https://www.keycloak.org/docs/21.1.2/securing_apps/index.html#_java_adapter_config[Keycloak client adapter config documentation] for more information.
  ** `credentials` defines the https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication[authentication method] used for token requests to the OIDC provider when Bonita client is configured with a confidential access type to the OIDC provider (`public-client` is set to `false`). You can set this property with an object containing just a `secret` (in this case `client_secret_basic` authentication method is used) or, since Bonita 2022.1-u6, you can specify the authentication method explicitly (for older versions see the https://www.keycloak.org/docs/21.1.2/securing_apps/index.html#_client_authentication_adapter[Keycloak client authentication documentation] for the configuration of this property). Supported keys are: `client-secret-basic`, `client-secret-post`, `client-secret-jwt` (or `secret-jwt`), `private-key-jwt` (or `jwt`). Here are some examples:
@@ -237,10 +239,10 @@ NOTE: Activating this option means any user authorized by the IdP to access Boni
 [NOTE]
 ====
 
-More configuration options can be found in https://www.keycloak.org/docs/18.0/securing_apps/#_java_adapter_config[Keycloak official documentation]
+Additional configuration options are available in https://www.keycloak.org/docs/18.0/securing_apps/#_java_adapter_config[Keycloak official documentation]
 ====
 
-Once your Identity Provider is correctly configured (see the section _Configure the Identity Provider_), try to access any Bonita Application page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in). +
+Once your Identity Provider is correctly configured (see the section _Configure the Identity Provider_), test the access to any Bonita Application page, an app page or a form URL (or just `http://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in). +
 Note that if you try to access `http://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected to the OIDC provider's authentication end point since this page needs to be accessible for the tenant administrator (or another user if you set the property `oidc.auth.standard.allowed` to `true`) to be able to log in without an account on the Identity Provider.
 
 [WARNING]
@@ -278,7 +280,7 @@ More information can be found in Tomcat offical documentation https://tomcat.apa
 
 == Configure the Identity Provider
 
-Your OIDC identity provider (IdP) should declare an OIDC Service Provider named (or whose client Id is) `bonita` (or the value of the `resource` property set in the file *keycloack-oidc.json* of Bonita bundle if it is different ) with the following configuration or the equivalent depending on your IdP:
+Your OIDC identity provider (IdP) should declare an OIDC Service Provider named (or whose client Id is) `bonita` or the value of the `resource` property set in the file *keycloack-oidc.json* of Bonita bundle if it is different, with the following configuration or the equivalent depending on your IdP:
 
 ----
     "clientId": "bonita",
@@ -298,7 +300,7 @@ Your OIDC identity provider (IdP) should declare an OIDC Service Provider named 
     "directAccessGrantsEnabled": true, (or false if you don't want to use the Resource Owner Credentials Grant type to access the REST API)
 ----
 
-If you use "Signed JWT" as the method of authentication for your bonita client you must either provide the public key or the certificate of the Bonita server to the OIDC provider or a JWKS URL where the OIDC provider can download the client’s public keys. Bonita OIDC module provides this service at the following URL: "http://my.company.domain:8080/bonita/k_jwks" +
+If you use "Signed JWT" as the method of authentication for your bonita client, you must either provide the public key or the certificate of the Bonita server to the OIDC provider or a JWKS URL where the OIDC provider can download the client’s public keys. Bonita OIDC module provides this service at the following URL: "http://my.company.domain:8080/bonita/k_jwks" +
 You may also define some access or ID token signature and encryption mechanism. In this case, make sure to update Bonita bundle configuration file *keycloack-oidc.json* accordingly.
 
 [NOTE]
@@ -352,50 +354,6 @@ bonita.runtime.security.csrf.header.content.security.policy=frame-ancestors 'sel
 
 If the logout flow supported by your OIDC provider is not the same as the one supported by Bonita platform, the preferred solution to handle it anyway is to intercept the requests to /logoutservice and handle the logout programmatically.
 ====
-
-== Troubleshoot
-
-To troubleshoot SSO login issues, you need to increase the xref:ROOT:logging.adoc[log level] to `DEBUG` for the packages `org.bonitasoft`, `com.bonitasoft`, and `TRACE` for `org.keycloak` in order for errors to be displayed in the log files `bonita.log` (by default, they are not).
-
-In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/log4j2-loggers.xml`.
-
-* Make sure the following lines are not commented or add them if they are not present (the syntaxe of the line with `class org.keycloak` is necessary because of the way some of the loggers are created in Keycloak):
-
-[source,xml]
-----
-    <Logger level="TRACE" name="org.keycloak"/>
-    <Logger level="TRACE" name="class org.keycloak"/>
-----
-
-* Update the existing lines (to set the level to `DEBUG`):
-
-[source,xml]
-----
-    <Logger level="DEBUG" name="org.bonitasoft"/>
-    <Logger level="DEBUG" name="com.bonitasoft"/>
-----
-
-[discrete]
-==== Common error examples
-
-****
-*Symptom:* After configuring OIDC SSO in Bonita, the Bonita login page appears and you are not redirected to the SSO login page. +
-*Possible Solutions:*
-
-* Check all the Bonita configuration settings are correct.
-* Make sure `setup[.sh][.bat] push` has been executed and the server restarted after the changes.
-* Try cleaning the cache and cookies of the web browser.
-****
-
-****
-*Symptom:* After logging in on the OIDC provider, you are redirected to Bonita but you get a 403 error. +
-*Problem:* Either Bonita OIDC module does not manage to obtain the access tokens, or you don't have the required rights to access the page (when trying to display a page of an application without having the required profile for example). +
-*Solution:*
-Check the logs:
-
-* If you see a message `failed to turn code into token`, it meens you are in the first situation. The next lines in the logs should indicate the origin of the problem. Usually, you will need to update the file *keycloak-oidc.json* to match the configuration of Bonita client declared on the OIDC provider. For example, you may get the following error in the logs: `Unauthorized client` with as error description: `invalid client secret`. In this case, just fix the client secret in the file *keycloak-oidc.json* (and push the new configuration into database using the setup tool).
-* If you don't see any keycloak message, then it probably means the user trying to log in just does not have the required profile to see the application. Go to the profile list page and check the profile associated with the application to make sure the user has this profile.
-****
 
 == Manage passwords
 
@@ -493,3 +451,57 @@ You don't need to configure any xref:security:enable-cors-in-tomcat-bundle.adoc#
 ==== Configure the Identity Provider
 
 In your OIDC identity provider (IdP) configuration, you should make sure the `bonita` OIDC Service Provider declares the URLs of the domains where the pages requiring calls to Bonita REST API are hosted (or `*` if you want to allow all origins) as `Allowed CORS web origins`.
+
+
+[.troubleshooting-title]
+== Troubleshooting
+
+=== How to troubleshoot?
+
+To troubleshoot SSO login issues, you need to increase the xref:ROOT:logging.adoc[log level] to `DEBUG` for the packages `org.bonitasoft`, `com.bonitasoft`, and `TRACE` for `org.keycloak` in order for errors to be displayed in the log files `bonita.log` (by default, they are not).
+
+In order to do that in a Tomcat bundle, you need to edit the file `<BUNDLE_HOME>/server/conf/log4j2-loggers.xml`.
+
+* Make sure the following lines are not commented or add them if they are not present (the syntaxe of the line with `class org.keycloak` is necessary because of the way some of the loggers are created in Keycloak):
+
+[source,xml]
+----
+    <Logger level="TRACE" name="org.keycloak"/>
+    <Logger level="TRACE" name="class org.keycloak"/>
+----
+
+* Update the existing lines (to set the level to `DEBUG`):
+
+[source,xml]
+----
+    <Logger level="DEBUG" name="org.bonitasoft"/>
+    <Logger level="DEBUG" name="com.bonitasoft"/>
+----
+
+[.troubleshooting-section]
+--
+[.symptom]
+After configuring OIDC SSO in Bonita, the Bonita login page appears and you are not redirected to the SSO login page.
+
+[.solution]#Possible solution#
+
+. Check all the Bonita configuration settings are correct.
+. Make sure `setup[.sh][.bat] push` has been executed and the server restarted after the changes.
+. Try cleaning the cache and cookies of the web browser.
+--
+
+[.troubleshooting-section]
+--
+[.symptom]
+After logging in on the OIDC provider, you are redirected to Bonita but you get a 403 error.
+
+[.cause]#Potential cause#
+Either Bonita OIDC module does not manage to obtain the access tokens, or you don't have the required rights to access the page (when trying to display a page of an application without having the required profile for example).
+
+[.solution]#Possible solution#
+Check the logs:
+
+* If you see a message `failed to turn code into token`, it meens you are in the first situation. The next lines in the logs should indicate the origin of the problem. Usually, you will need to update the file *keycloak-oidc.json* to match the configuration of Bonita client declared on the OIDC provider. For example, you may get the following error in the logs: `Unauthorized client` with as error description: `invalid client secret`. In this case, just fix the client secret in the file *keycloak-oidc.json* (and push the new configuration into database using the setup tool).
+* If you don't see any keycloak message, then it probably means the user trying to log in just does not have the required profile to see the application. Go to the profile list page and check the profile associated with the application to make sure the user has this profile.
+--
+

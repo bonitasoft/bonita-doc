@@ -17,10 +17,10 @@ configured by selecting the `Only load related objects when needed` radio button
 == Groovy code sample
 
 Below is an example of a REST API extension groovy script that accesses the Business Data model.
+For more details about BDM Java dependencies consult the following xref:data:define-and-deploy-the-bdm.adoc#generated-java-dependencies[section, window="blank"].
 
 [NOTE]
 ====
-
 *Good practices* are:
 
 * If lazy loaded objects are not necessary in the response, ONLY extract the information needed. This avoids costly loading of unnecessary objects.

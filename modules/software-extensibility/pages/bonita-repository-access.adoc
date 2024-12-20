@@ -1,18 +1,22 @@
-= Access to Bonita Artifact Repository (Subscription editions only)
+= Access to Bonita Artifact Repository
 :page-aliases: ROOT:bonita-repository-access.adoc
 :description: Set up access to Bonita Artifact Repository to download development dependencies and Docker images.
 
 {description}
 
+[NOTE]
+====
+*For Subscription editions only.*
+====
+
 [#bonita-artifact-repository]
 == What is Bonita Artifact Repository?
 
-Bonita Artifact Repository is a solution to access Maven artifacts and Docker images produced by Bonitasoft. Maven artifacts can simply be consumed as dependencies in downstream projects. Docker images can be pulled directly.
+Bonita Artifact Repository is a solution to access Maven artifacts and Docker images produced by Bonitasoft.
 
-[WARNING]
-====
-Docker images used to be accessible from quay.io. Usage of quay.io is now deprecated in favor of the Bonita Artifact Repository.
-====
+Maven artifacts can simply be consumed as dependencies in downstream projects. Bonita docker images can be pulled directly.
+
+Starting with Bonita 2023.1 version, the usage of quay.io is deprecated for Bonita docker images storage. Bonita docker images up until Bonita 2023.1 will stay available on quay.io during the deprecation period. 
 
 [IMPORTANT]
 ====
@@ -20,15 +24,18 @@ An Internet connection is required.
 ====
 
 [#credentials]
-== Ask for credentials to your account manager
+== How to get the credentials? 
 
-Once your subscription is registered, your account manager will automatically receive an email with valid credentials.
+Once your Bonita subscription is registered, your Bonita account manager will receive the connection credentials - username and authentification token.
+
 The credentials have the same validity duration as your subscription renewal included, meaning that you will not have to change them at each renewal.
 
 Credentials are unique per subscription access and include:
 
-* A subscription access login (email that is used for the subscription)
-* A subscription access token
+* A subscription access username (email used for the subscription registration)
+* A subscription access token (password) 
+
+In case of any issues regarding credentials information, please contact Customer Success at customer.success@bonitasoft.com
 
 [#maven]
 == Maven

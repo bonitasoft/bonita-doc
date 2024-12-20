@@ -10,12 +10,13 @@ After creation, custom widgets are available in the palette to design pages, app
 
 In UI Designer editor, custom widgets are composed of:
 
-* A description that briefly describes the widget
-* Properties exposed by the widget
 * A template that describe the widget HTML markup
 * A controller that describe the widget logic
+* Properties exposed by the widget
+* A description that briefly describes the widget
 * Some assets if the widget uses external JavaScript libraries, CSS definitions, or images
 * AngularJS modules declaration if the widget uses services or directives that are not built in to the AngularJS framework
+* The Bonita REST API resources if needed for the widget.
 
 Custom widget implementation is based on the AngularJS framework. +
 When you open the custom widget editor to create a new custom widget, a simple example is displayed to show the basic uses of these concepts.

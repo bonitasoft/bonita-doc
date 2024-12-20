@@ -292,7 +292,7 @@ Notes: Store categories with the persistence service
 | org.bonitasoft.engine.core.filter.impl.UserFilterServiceImpl
 
 | Notes:
-| Uses the cache and read user filter of the file system
+| Uses the cache and read user filter from the file system
 |===
 
 == Generic services
@@ -347,7 +347,7 @@ Generic services  perform actions that are not related to BPM but are required f
 | org.bonitasoft.engine.services.impl.SyncBusinessLoggerServiceImpl (Community edition: insert logs directly in database)  org.bonitasoft.engine.log.api.impl.BatchBusinessLoggerImpl (Teamwork, Efficiency, Performance, and Enterprise editions: inserts all logs in batch at the end of the transaction)
 |===
 
-=== Tenant cache
+=== Caching in Bonita
 
 |===
 |  |
@@ -360,24 +360,6 @@ Generic services  perform actions that are not related to BPM but are required f
 
 | Implementation:
 | org.bonitasoft.engine.cache.ehcache.EhCacheCacheService
-
-| Notes:
-| Uses EhCache to cache objects
-|===
-
-=== Platform cache
-
-|===
-|  |
-
-| Description:
-| Store objects in the cache, and retrieve them. The service handles different caches that can be configured separately.
-
-| Used by:
-| ProcessDefinition service, Connector service, Expression service: put reusable definition objects in cache
-
-| Implementation:
-| org.bonitasoft.engine.cache.ehcache.PlatformEhCacheCacheService
 
 | Notes:
 | Uses EhCache to cache objects
@@ -557,7 +539,7 @@ Generic services  perform actions that are not related to BPM but are required f
 |  |
 
 | Description:
-| Service that reports incidents to an administrator.  An incident is an error that cannot be handled by the engine. The default implementation log is a file named "Incidents.log" inside the tenant folder.
+| Service that reports incidents to an administrator.  An incident is an error that cannot be handled by the engine. The default implementation log is a file named "incidents.log" inside <CATALINA_HOME>/logs folder.
 
 | Used by:
 | Mainly by the work service.

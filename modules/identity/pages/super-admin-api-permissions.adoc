@@ -55,7 +55,6 @@ This user is linked to the Bonita Super Administrator Application by default. Mo
 ** portal/profile
 ** portal/bonitaPage
 ** portal/page
-** portal/profileEntry
 ** portal/profileMember
 ** userXP/profile
 ** userXP/profileEntry
@@ -115,7 +114,6 @@ This user is linked to the Bonita Super Administrator Application by default. Mo
 ** bpm/comment
 ** portal/profile
 ** portal/page
-** portal/profileEntry
 ** portal/profileMember
 ** platform/platform
 ** platform/tenant
@@ -141,7 +139,6 @@ This user is linked to the Bonita Super Administrator Application by default. Mo
 ** customuserinfo/value
 ** portal/profile
 ** portal/page
-** portal/profileEntry
 ** userXP/profile
 ** userXP/profileEntry
 ** system/tenant
@@ -158,7 +155,6 @@ This user is linked to the Bonita Super Administrator Application by default. Mo
 ** customuserinfo/definition
 ** portal/profile
 ** portal/page
-** portal/profileEntry
 ** portal/profileMember
 ** userXP/profile
 ** userXP/profileEntry
