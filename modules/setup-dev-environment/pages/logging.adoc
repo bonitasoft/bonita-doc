@@ -53,7 +53,7 @@ Bonita Runtime uses Mapped Diagnostic Context (MDC) to bring contextual informat
 <Property name="LOG_PATTERN">%highlight{%d{ISO8601_OFFSET_DATE_TIME_HHMM} | ${hostName} | %-5p%notEmpty{[%marker]} | [%t|%T] %c{1.} - %m%notEmpty{ - %X}%n}{FATAL=Bright red, ERROR=red, WARN=yellow bold, INFO=Normal, DEBUG=green bold, TRACE=blue}</Property>
 ----
 
-`%X` brings all the contextual information in the log. You can also write your own pattern to pick specific information. E.g. use `%X{userId}` to get the id of the authenticated user. All the usable variables such as `userId` are in the https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-commons/src/main/java/org/bonitasoft/engine/mdc/MDCConstants.java[MDCConstants class].
+`%X` brings all the contextual information in the log. You can also write your own pattern to pick specific information. E.g. use `%X\{userId\}` to get the id of the authenticated user. All the usable variables such as `userId` are in the https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-commons/src/main/java/org/bonitasoft/engine/mdc/MDCConstants.java[MDCConstants class].
 
 
 ==== HTTP Request tracing configuration
