@@ -42,7 +42,7 @@ Limitations:
 * The URL should have the file type as extension (e.g. \https://myhost/doc/sample.pdf)
 ====
 
-See [#Troubleshooting UI Designer widgets] to solve common issues with this widget.
+See <<troubleshooting-ui-designer-widgets>> to solve common issues with this widget.
 
 [#rich-text-area]
 
