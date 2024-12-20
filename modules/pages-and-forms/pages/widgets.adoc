@@ -42,25 +42,6 @@ Limitations:
 * The URL should have the file type as extension (e.g. \https://myhost/doc/sample.pdf)
 ====
 
-[.troubleshooting-title]
-=== Troubleshooting
-
-[.troubleshooting-section]
---
-[.symptom]
-File Viewer widget does not preview a file (although I point on a supported format)
-
-[.symptom-description]
-I set the URL property to a pointer on a pdf or image file, but I can't see the preview: I get a "Preview is not available" message.
-
-[.cause]#Potential cause#
-The URL points on a file without extension (e.g. \https://myhost/doc/sample)
-
-[.solution]#Possible solution#
-Make a custom widget from the File Viewer widget, and adapt the `controller.isPDF` or `controller.isImage`.
---
-
-
 [#rich-text-area]
 
 == Rich Text Area widget
@@ -114,3 +95,58 @@ When the switch is completed, you still may have to set properties from the prop
 
 Switch feature not available for Internet Explorer 11 and Microsoft Edge.
 ====
+
+
+[.troubleshooting-title]
+== Troubleshooting UI Designer widgets
+
+[.troubleshooting-title]
+=== Troubleshooting File Viewer
+
+[.troubleshooting-section]
+--
+[.symptom]
+File Viewer widget does not preview a file (although I point on a supported format)
+
+[.symptom-description]
+I set the URL property to a pointer on a pdf or image file, but I can't see the preview: I get a "Preview is not available" message.
+
+[.cause]#Potential cause#
+The URL points on a file without extension (e.g. \https://myhost/doc/sample)
+
+[.solution]#Possible solution#
+Make a custom widget from the File Viewer widget, and adapt the `controller.isPDF` or `controller.isImage`.
+--
+
+[.troubleshooting-title]
+=== Troubleshooting Auto Complete
+
+[.troubleshooting-section]
+--
+[.symptom]
+Autocomplete widget does not update its displayed value
+
+[.symptom-description]
+Autocomplete widget does not update its displayed value when the value is changed by a variable.
+
+[.solution]#Possible solution#
+Make a custom widget from the Autocomplete widget, and update the controller by replacing the function that set the `formatLabel` as follows:
+
+[source,javascript]
+----
+  this.formatLabel = function ($model) {
+    if (this.selectedItem) {
+      let sel = this.selectedItem;
+      this.selectedItem = undefined;
+      return this.getLabel(sel);
+    } else {
+      if (typeof $model === 'object') {
+        return this.getLabel($model);
+      } else {
+        return $model;
+      }
+    }
+  };
+----
+--
+

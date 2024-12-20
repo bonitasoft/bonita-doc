@@ -45,38 +45,6 @@ image::widgets/autocomplete.png[autocomplete]
 
 Use an autocomplete widget to offer the user a list of possible values based on data entered in the field. For example, in a firstName field, if the user types _chri_, the values _chris_, _christine_, _christian_, _christiane_ are proposed. The user selects the correct value. To define the *available values*, bind a data source to initialize the suggestions. For suggestions that are an array of objects, you can specify a *displayed key* to identify the attribute to show as a suggestion in the widget. The value must be bound to a variable that will hold the selected suggestion.
 
-[.troubleshooting-title]
-==== Troubleshooting
-
-[.troubleshooting-section]
---
-[.symptom]
-Autocomplete widget does not update its displayed value
-
-[.symptom-description]
-Autocomplete widget does not update its displayed value when the value is changed by a variable.
-
-[.solution]#Possible solution#
-Make a custom widget from the Autocomplete widget, and update the controller by replacing the function that set the `formatLabel` as follows:
-
-[source,javascript]
-----
-  this.formatLabel = function ($model) {
-    if (this.selectedItem) {
-      let sel = this.selectedItem;
-      this.selectedItem = undefined;
-      return this.getLabel(sel);
-    } else {
-      if (typeof $model === 'object') {
-        return this.getLabel($model);
-      } else {
-        return $model;
-      }
-    }
-  };
-----
---
-
 === Select widget
 
 image::widgets/select.png[select]
