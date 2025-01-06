@@ -137,7 +137,7 @@ These instructions demonstrate how to do it with https://eclipse.dev/tracecompas
 
 [NOTE]
 ====
-This demonstration uses the textual log. In case you prefer using the JSON log format, you will find all the contextual information in `"contextMap"` attribute instead.
+This demo uses the textual log. If you prefer to use the JSON log format, you will find all the contextual information in the `"contextMap"` attribute instead.
 ====
 
 
