@@ -135,6 +135,11 @@ Each file name includes the date when the file was created. Log files:
 You can exploit the Mapped Diagnostic Context (MDC) information from the Bonita Runtime log to integrate it in an external Log Management System. +
 These instructions demonstrate how to do it with https://eclipse.dev/tracecompass/[Eclipse Trace Compass] a free and open source traces and logs manager. You can adapt these to your favorite tool of choice.
 
+[NOTE]
+====
+This demonstration uses the textual log. In case you prefer using the JSON log format, you will find all the contextual information in `"contextMap"` attribute instead.
+====
+
 
 . Download, install and launch Trace Compass.
 . Create a new project. Import your logs file in the Traces.
