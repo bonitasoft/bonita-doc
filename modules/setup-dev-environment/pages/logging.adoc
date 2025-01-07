@@ -46,6 +46,32 @@ Here is an example of the Log4j2 configuration for the logger used in the exampl
 <Logger name="org.bonitasoft.groovy.script" level="TRACE"/>
 ----
 
+
+==== How to configure the JSON output
+
+To configure a JSON appender, you need to add a **File** appender with a JSONLayout to your log4j2-appenders.xml file in `Appenders` section. Here is an example configuration:
+
+[source, xml]
+----
+<File name="JsonFileAppender" fileName="${baseDir}/bonita.json">
+    <JSONLayout compact="true" eventEol="true" properties="true" stacktraceAsString="true">
+        <KeyValuePair key="timestamp" value="$${date:yyyy-MM-dd'T'HH:mm:ss.SSSZ}"/>
+    </JSONLayout>
+</File>
+----
+
+Then you need to add in `Loogers` block
+[source, xml]
+----
+<Loggers>
+        <Root level="INFO">
+            <!-- [...] -->
+            <AppenderRef ref="JsonFileAppender"/> <!-- Add this AppenderRef -->
+            <!-- [...] -->
+        </Root>
+    </Loggers>
+----
+
 === Bonita Studio
 
 To change the Bonita Studio log level (usually to debug Studio), go to the Studio installation folder, configuration directory, and edit the `config.ini` file. You need to set the property `eclipse.log.level` to one of the following values: INFO, WARNING or ERROR.
