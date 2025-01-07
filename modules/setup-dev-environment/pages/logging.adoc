@@ -47,26 +47,29 @@ Here is an example of the Log4j2 configuration for the logger used in the exampl
 ----
 
 
-==== How to configure the JSON output
+==== Stream logs to a remote server
 
-To configure a JSON appender, you need to add a **File** appender with a JSONLayout to your log4j2-appenders.xml file in `Appenders` section. Here is an example configuration:
+You need to declare a socket in `log4j-appenders.xml` with a `JSONLayout` to stream to a remote server.
+
+This configuration is used to stream JSON-formatted log entries to a remote server, such as Logstash, for further processing and analysis.
 
 [source, xml]
 ----
-<File name="JsonFileAppender" fileName="${baseDir}/bonita.json">
+<Socket name="runtimeLogStream" host="<host>" port="<port>">
     <JSONLayout compact="true" eventEol="true" properties="true" stacktraceAsString="true">
         <KeyValuePair key="timestamp" value="$${date:yyyy-MM-dd'T'HH:mm:ss.SSSZ}"/>
     </JSONLayout>
-</File>
+</Socket>
 ----
 
-Then you need to add in `Loogers` block
+Then you need to add in `Loggers` block this new appender:
+
 [source, xml]
 ----
 <Loggers>
         <Root level="INFO">
             <!-- [...] -->
-            <AppenderRef ref="JsonFileAppender"/> <!-- Add this AppenderRef -->
+            <AppenderRef ref="runtimeLogStream"/> <!-- Add this AppenderRef -->
             <!-- [...] -->
         </Root>
     </Loggers>
