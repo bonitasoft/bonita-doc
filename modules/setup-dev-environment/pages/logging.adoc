@@ -49,13 +49,13 @@ Here is an example of the Log4j2 configuration for the logger used in the exampl
 
 ==== Stream logs to a remote server
 
-You need to declare a socket in `log4j-appenders.xml` with a `JSONLayout` to stream to a remote server.
+You need to declare a Socket appender in `log4j-appenders.xml` to stream to a remote server. You can choose to use Socket with JSONLayout or PatternLayout.
 
-This configuration is used to stream JSON-formatted log entries to a remote server, such as Logstash, for further processing and analysis.
+As example, this configuration is used to stream JSON-formatted log entries to a remote server, such as Logstash, for further processing and analysis.
 
 [source, xml]
 ----
-<Socket name="runtimeLogStream" host="<host>" port="<port>">
+<Socket name="runtimeLogSocket" host="<host>" port="<port>">
     <JSONLayout compact="true" eventEol="true" properties="true" stacktraceAsString="true">
         <KeyValuePair key="timestamp" value="$${date:yyyy-MM-dd'T'HH:mm:ss.SSSZ}"/>
     </JSONLayout>
@@ -69,7 +69,7 @@ Then you need to add in `Loggers` block this new appender:
 <Loggers>
         <Root level="INFO">
             <!-- [...] -->
-            <AppenderRef ref="runtimeLogStream"/> <!-- Add this AppenderRef -->
+            <AppenderRef ref="runtimeLogSocket"/> <!-- Add this AppenderRef -->
             <!-- [...] -->
         </Root>
     </Loggers>
