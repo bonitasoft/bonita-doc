@@ -47,9 +47,37 @@ Here is an example of the Log4j2 configuration for the logger used in the exampl
 ----
 
 
+==== Use JSON format for logs
+
+The default configuration contains an unused `Console-JSON` appender which formats logs as JSON.
+
+[source, xml]
+----
+    <Appenders>
+        <!-- use json logger if json output is required -->
+        <Console name="Console-JSON" target="SYSTEM_OUT">
+            <JSONLayout compact="true" eventEol="true" properties="true" stacktraceAsString="true">
+                <KeyValuePair key="timestamp" value="$${date:yyyy-MM-dd'T'HH:mm:ss.SSSZ}"/>
+            </JSONLayout>
+        </Console>
+        <!-- [...] -->
+    </Appenders>
+----
+
+To use it, you can update the `AppenderRef` in the `Loggers` block or add a new one.
+
+[source, xml]
+----
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="Console-JSON"/>
+        </Root>
+    </Loggers>
+----
+
 ==== Stream logs to a remote server
 
-You need to declare a Socket appender in `log4j-appenders.xml` to stream to a remote server. You can choose to use Socket with JSONLayout or PatternLayout.
+You need to declare a Socket appender in `log4j-appenders.xml` to stream to a remote server. You can choose to use Socket with various formats, such as JSONLayout or PatternLayout.
 
 As example, this configuration is used to stream JSON-formatted log entries to a remote server, such as Logstash, for further processing and analysis.
 
@@ -62,11 +90,11 @@ As example, this configuration is used to stream JSON-formatted log entries to a
 </Socket>
 ----
 
-Then you need to add in `Loggers` block this new appender:
+Then, do not forget to reference this new appender in `Loggers` block:
 
 [source, xml]
 ----
-<Loggers>
+    <Loggers>
         <Root level="INFO">
             <!-- [...] -->
             <AppenderRef ref="runtimeLogSocket"/> <!-- Add this AppenderRef -->
