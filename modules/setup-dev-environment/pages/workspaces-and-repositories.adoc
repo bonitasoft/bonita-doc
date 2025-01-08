@@ -94,7 +94,7 @@ If the list does not contain the name of the project you want to use, check that
 ==== Prerequisites
 
 * A remote Git repository (https://github.com/[GitHub], https://bitbucket.org[Bitbucket]...)
-* Basic Git workflow knowledge (https://git-scm.com/book/en/v2/Getting-Started-Git-Basics[Reference article])
+* Basic Git workflow knowledge (https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository[Reference article])
 
 ==== Git integration in Studio
 
