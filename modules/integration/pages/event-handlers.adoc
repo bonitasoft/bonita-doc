@@ -106,30 +106,6 @@ pom.xml :
         </pluginManagement>
     </build>
 
-    <!-- Add required additional repositories -->
-    <repositories>
-        <repository>
-            <id>restlet</id>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <url>https://maven.restlet.talend.com/</url>
-        </repository>
-        <repository>
-            <id>terracotta</id>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <url>https://repo.terracotta.org/maven2/</url>
-        </repository>
-    </repositories>
-
 </project>
 ----
 
