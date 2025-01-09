@@ -76,9 +76,9 @@ performs an extra check to verify that the provided username exists in the Bonit
 does not trust https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-authentication/src/main/java/org/bonitasoft/engine/authentication/impl/AuthenticationServiceImpl.java[AuthenticationServiceImpl]).
 *Note:* A specific behavior applies for the tenant technical user.
 . https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-login/src/main/java/org/bonitasoft/engine/core/login/SecuredLoginServiceImpl.java[SecuredLoginServiceImpl]
-returns an object that represents the session. This is a server side only object (https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-session/bonita-session-api/src/main/java/org/bonitasoft/engine/session/model/SSession.java[SSession])
+returns an object that represents the session. This is a server side only object (https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-session/src/main/java/org/bonitasoft/engine/session/model/SSession.java[SSession])
 . Call get back to https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-process-engine/src/main/java/org/bonitasoft/engine/api/impl/LoginAPIImpl.java[LoginAPIImpl]
-that converts https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-session/bonita-session-api/src/main/java/org/bonitasoft/engine/session/model/SSession.java[SSession]
+that converts https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-session/src/main/java/org/bonitasoft/engine/session/model/SSession.java[SSession]
 to https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-api/bonita-common-api/src/main/java/org/bonitasoft/engine/session/APISession.java[APISession].
 . https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-api/bonita-common-api/src/main/java/org/bonitasoft/engine/session/APISession.java[APISession]
 is provided back up to the https://github.com/bonitasoft/bonita-web/blob/{bonitaTechnicalVersion}/server/src/main/java/org/bonitasoft/console/common/server/login/LoginManager.java[LoginManager]
