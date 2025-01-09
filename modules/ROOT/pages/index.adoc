@@ -49,7 +49,7 @@ xref:ROOT:runtime-installation-index.adoc[[.card-title]#Runtime installation# [.
 
 [.card.card-index]
 --
-https://community.bonitasoft.com/questions-and-answers[[.card-title]#Questions & Answers among Bonita Community# [.card-body.card-content-overflow]#pass:q[Ask your question, provide an answer]#]
+https://community.bonitasoft.com/c/q-a/6[[.card-title]#Questions & Answers among Bonita Community# [.card-body.card-content-overflow]#pass:q[Ask your question, provide an answer]#]
 --
 
 [.card.card-index]
