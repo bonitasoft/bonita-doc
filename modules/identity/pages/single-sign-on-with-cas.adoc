@@ -214,7 +214,7 @@ It allows to retrieve authentication tickets to authenticate in the Bonita Runti
 
 For detailed information about the procedure to install Restful access on your CAS SSO server, see the following links:
 
-* http://apereo.github.io/cas/4.2.x/index.html[CAS SSO RESTful API]
+* https://apereo.github.io/cas/7.0.x/index.html[CAS SSO RESTful API]
 * xref:ROOT:rest-api-overview.adoc[Bonita REST API]
 
 [NOTE]
