@@ -44,7 +44,7 @@ When done you will have a database with all tables created and with a table `CON
 . xref:ROOT:database-configuration.adoc#database_creation[Create the database].
 . In case you use  xref:data:define-and-deploy-the-bdm.adoc[Business data],  xref:database-configuration.adoc#database_creation[create a database for the Business Data].
 . Download a Bonita  xref:tomcat-bundle.adoc[Tomcat bundle] and unzip it in your chosen folder.
-. Edit file *`setup/database.properties`* and modify the properties to suit your databases (Bonita internal database & Business Data database). Beware of  xref:runtime:bonita-platform-setup.adoc#backslash_support[backslash characters].
+. Edit file *`setup/database.properties`* and modify the properties to suit your databases (Bonita internal database & Business Data database). Beware of  xref:runtime:bonita-platform-setup.adoc#troubleshooting[backslash characters].
 
 In the following steps, you will update the configuration files that are in the `setup/platform_conf/initial` folder of the platform setup tool.
 
