@@ -177,7 +177,7 @@ Git workflow offers a lot of other features that are not directly integrated in 
 I see this type of message in the Studio log, but when I open the URL in my browser, it works fine
 
 [.symptom-description]
-`!MESSAGE An exception occurred during push on URI http://your_remote_git_repository/repository/my_bonita_repo.git: http://your_remote_git_repository/repository/my_bonita_repo.git: 503 Service Unavailable`
+`!MESSAGE An exception occurred during push on URI +http://your_remote_git_repository/repository/my_bonita_repo.git+: +http://your_remote_git_repository/repository/my_bonita_repo.git+: 503 Service Unavailable`
 
 [.cause]*Potential cause*
 You probably connect to the internet through a Proxy
