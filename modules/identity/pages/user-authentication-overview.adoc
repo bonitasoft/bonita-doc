@@ -79,8 +79,8 @@ does not trust https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnical
 returns an object that represents the session. This is a server side only object (https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-session/src/main/java/org/bonitasoft/engine/session/model/SSession.java[SSession])
 . Call get back to https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-process-engine/src/main/java/org/bonitasoft/engine/api/impl/LoginAPIImpl.java[LoginAPIImpl]
 that converts https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-session/src/main/java/org/bonitasoft/engine/session/model/SSession.java[SSession]
-to https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-api/bonita-common-api/src/main/java/org/bonitasoft/engine/session/APISession.java[APISession].
-. https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-api/bonita-common-api/src/main/java/org/bonitasoft/engine/session/APISession.java[APISession]
+to https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-common/src/main/java/org/bonitasoft/engine/session/APISession.java[APISession].
+. https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-common/src/main/java/org/bonitasoft/engine/session/APISession.java[APISession]
 is provided back up to the https://github.com/bonitasoft/bonita-web/blob/{bonitaTechnicalVersion}/server/src/main/java/org/bonitasoft/console/common/server/login/LoginManager.java[LoginManager]
 that will add session information as HTTP session attribute.
 . Call get back to https://github.com/bonitasoft/bonita-web/blob/{bonitaTechnicalVersion}/server/src/main/java/org/bonitasoft/console/common/server/login/servlet/LoginServlet.java[LoginServlet]
@@ -106,7 +106,7 @@ and corresponds to one user.
 
 *The Bonita Engine session*
 
-See https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-api/bonita-common-api/src/main/java/org/bonitasoft/engine/session/APISession.java[APISession]
+See https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-common/src/main/java/org/bonitasoft/engine/session/APISession.java[APISession]
 class. This session is created by Bonita Engine when the user submits a login page.
 
 *Session expiration*
@@ -136,7 +136,7 @@ Engine session and HTTP session will be invalidated.
 
 == How do Bonita Applications know if a user is authenticated?
 
-The Bonita Applications check if a valid Bonita Engine session (https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-api/bonita-common-api/src/main/java/org/bonitasoft/engine/session/APISession.java[APISession]
+The Bonita Applications check if a valid Bonita Engine session (https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-common/src/main/java/org/bonitasoft/engine/session/APISession.java[APISession]
 object) is found in the
 `apiSession`
 attribute inside the HttpRequest. If the engine session is still valid, the user will have access to the required resource.
