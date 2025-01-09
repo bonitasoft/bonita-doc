@@ -56,7 +56,7 @@ Make sure to set the username and password of the guest user account created in 
 
 . Use the xref:runtime:bonita-platform-setup.adoc[platform setup tool] again to save your changes into the database (Eg. setup.sh/.bat push). +
 Restart Bonita server.
-. If your configuration is correct you should be able to access your public application directly with the URL `http://<host>:<port>/bonita/apps/<app token>` without being logged in first. +
+. If your configuration is correct you should be able to access your public application directly with the URL `+http://<host>:<port>/bonita/apps/<app token>+` without being logged in first. +
 You are done.
 
 [NOTE.bonitacloud,caption=Bonita Cloud]
