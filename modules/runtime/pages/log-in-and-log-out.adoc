@@ -18,11 +18,11 @@ Or an administrator needs to perform monitoring or maintenance on the Bonita Pla
 For any of this, they need to log in. To do so:
 
 . Enter the login page URL. (The default port number is 8080.) +
-    * For Bonita User Application: `http://`_`hostname:port`_`/bonita/apps/userApp`. +
+    * For Bonita User Application: `+http://hostname:port/bonita/apps/userApp+`. +
     * For Bonita Administrator Application:
- ** For the Enterprise edition: `http://`_`hostname:port`_`/bonita/apps/adminAppSP`
- ** For the Community edition: `http://`_`hostname:port`_`/bonita/apps/adminApp`
-  *** For a custom application: `http://`_`hostname:port`_`/bonita/apps/yourAppName`.
+ ** For the Enterprise edition: `+http://hostname:port/bonita/apps/adminAppSP+`
+ ** For the Community edition: `+http://hostname:port/bonita/apps/adminApp+`
+  *** For a custom application: `+http://hostname:port/bonita/apps/yourAppName+`.
 . In the fields, enter the _username_, and the _password_
 . Click on the *Login* button.
 
