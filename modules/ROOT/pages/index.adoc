@@ -54,7 +54,7 @@ https://community.bonitasoft.com/c/q-a/6[[.card-title]#Questions & Answers among
 
 [.card.card-index]
 --
-https://community.bonitasoft.com/project[[.card-title]#Community projects# [.card-body.card-content-overflow]#pass:q[Do not start from scratch and use artifacts shared by the Community members]#]
+https://community.bonitasoft.com/c/project/5[[.card-title]#Community projects# [.card-body.card-content-overflow]#pass:q[Do not start from scratch and use artifacts shared by the Community members]#]
 --
 
 [.card.card-index]

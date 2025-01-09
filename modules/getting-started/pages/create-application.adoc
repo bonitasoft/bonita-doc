@@ -61,4 +61,7 @@ Confirm that the application is available :
 
 ====
 
-To learn more about Bonita components and concepts, we recommend the https://www.youtube.com/playlist?list=PLvvoQatxaHOMHRiP7hFayNXTJNdxIEiYp[Bonita Camp tutorial]. Of course the xref:ROOT:index.adoc[official documentation] is also a great place to learn more about Bonita. If you prefer to learn from examples, you can find several on the https://community.bonitasoft.com/project?title=&field_type_tid=3869[community website]. And finally, remember that you can always get help and https://community.bonitasoft.com/c/q-a/6/[ask questions of the Bonita Community].
+To learn more about Bonita components and concepts, we recommend the https://www.youtube.com/playlist?list=PLvvoQatxaHOMHRiP7hFayNXTJNdxIEiYp[Bonita Camp tutorial].
+Of course the xref:ROOT:index.adoc[official documentation] is also a great place to learn more about Bonita.
+If you prefer to learn from examples, you can find several on the https://community.bonitasoft.com/c/project/5[community website]. +
+And finally, remember that you can always get help and https://community.bonitasoft.com/c/q-a/6/[ask questions of the Bonita Community].

@@ -21,7 +21,7 @@ Developers can xref:applications:customize-living-application-theme.adoc[create 
 
 Bonita UI Designer comes with a set of xref:ROOT:widgets.adoc[provided containers and widgets]. +
 xref:custom-widgets.adoc[Custom widgets] can also be created to make the palette richer. +
-Those are developed by professional developers, from scratch or from an https://community.bonitasoft.com/project[existing project] of the Community. +
+Those are developed by professional developers, from scratch or from an https://community.bonitasoft.com/c/project/5[existing project] of the Community. +
 
 The following chapters give more information on how to develop all the others elements in the UI Designer.
 
