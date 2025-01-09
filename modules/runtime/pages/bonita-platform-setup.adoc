@@ -185,7 +185,7 @@ It is made of both data entered in file `database.properties` as well as other d
 This file *should not* be modified manually in most cases, unless for specific use-cases like adding parameters in the connection URL or using a specific database driver.
 
 This file contains the Database configuration information that are not inside file `database.properties` (database driver class name, connection URL, etc).
-Those information are used internally by the Bonita Setup tool to configure properly the bundle (See <<run_bundle_configure,configure command>>) and the database initialization procedure (See <<init_platform_conf,init command>>). +
+This information are used internally by the Bonita Setup tool to configure properly the bundle (See <<run_bundle_configure,configure command>>) and the database initialization procedure (See <<init_platform_conf,init command>>). +
 Bonita Setup tool uses the values provided in file `database.properties` as replacement strings to the properties defined in file `internal.properties`. Those new processed values are then used by the tool.
 
 _Usage_: +
