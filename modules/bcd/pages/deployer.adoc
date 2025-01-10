@@ -7,13 +7,11 @@ This page describes how to deploy Bonita Living Application artifacts from the c
 
 [NOTE]
 --
-BCD deployer is deprecated/being phased out.
+The BCD Deployer, as the technical artifact for CI/CD in Bonita, is deprecated and being phased out.
 
-As of September 2023, BCD deployer is deprecated (no more updates or improvements as it is being replaced by new functionality). The deployer supports Bonita 2023.2, but support for future versions is not guaranteed. Bonita artifacts are now deployed and updated at startup using the standalone application feature.
+As of September 2023, the BCD Deployer is no longer receiving updates or improvements, as it is being replaced. The CI/CD pipeline now relies on the Bonita LA Deployer, which is described hereafter and does not require a separate Docker container.
 
-This change is due to the introduction of our Self Contained Application approach (from 2023.2 version), we are moving to a new deployment mode that no longer relies on the "BCD" mechanism as you knew it. In fact, the SCA mode natively integrates this capability into the build package (via Maven).
-
-This means that we are gradually phasing it out and that there will be no more updates or improvements to this functionality. However, platform mode is still supported for versions 2023.2, 2024.1, 2024.2, it's just no longer our 'nominal' mode.
+Access to the Bonita LA Deployer is included in the contract as part of the CI/CD suite (formerly the BCD offering).
 --
 
 IMPORTANT: First make sure your maven installation is configured to access xref:software-extensibility:bonita-repository-access.adoc[Bonita Artifact Repository] !
