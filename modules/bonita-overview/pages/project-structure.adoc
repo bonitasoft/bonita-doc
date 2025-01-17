@@ -35,7 +35,7 @@ However, it is not required to use all the concepts to create a valid Bonita Aut
 
 |xref:process:actor-filtering.adoc[Actor filter]
 |Filters users that can access a human task in a process
-|A couple is provided in the Marketplace and you can create custom actor filters
+|A couple are provided in the Marketplace and you can create custom actor filters
 |Studio or xref:ROOT:actor-filter-archetype.adoc[Dedicated SDK] (custom actor filters)
 |-
 
