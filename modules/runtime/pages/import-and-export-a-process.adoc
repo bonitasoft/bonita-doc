@@ -87,7 +87,7 @@ The resulting .bos file can be imported into Bonita Studio.
 
 == Build a process for deployment
 
-See xref:ROOT:build-a-process-for-deployment.adoc[Build a process for deployment].
+See the dedicated page: xref:ROOT:build-a-process-for-deployment.adoc[Build a process for deployment].
 
 == Export a process diagram as an image
 
