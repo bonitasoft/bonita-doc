@@ -51,6 +51,13 @@ You should see the document displayed in the widget!
 
 You may have a Bonita process with a contract that includes a document (`FILE` type).
 
+[NOTE]
+====
+The `FilePicker` widget's `Data format` property is set to `Base 64` by default.
+For uploading documents to a Bonita process, it is recommended to change this property to `Binary` to get a more compact file size
+and prevent rendering issues with large Base64 strings. The following steps assume the `Binary` format is used.
+====
+
 To instantiate the process with a document (called `document` in the contract), go to the `Queries` tab and create a Bonita query:
 
 * `Name`: instantiateProcess
