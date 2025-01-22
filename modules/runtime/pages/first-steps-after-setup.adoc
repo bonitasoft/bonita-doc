@@ -122,7 +122,7 @@ Create a user with the "administrator" profile:
 NOTE: do not create a user or an administrator with the same login and password as the technical users (platform or tenant)
 
 . Log into the Bonita Runtime as the technical user. +
-*Note:* If your system is using single sign-on with CAS, you need to log in with the following URL: `http://`_`hostname:port`_`/bonita/login.jsp?redirectUrl=/bonita/apps/appDirectoryBonita/`.
+*Note:* If your system is using single sign-on with CAS, you need to log in with the following URL: `+http://hostname:port/bonita/login.jsp?redirectUrl=/bonita/apps/appDirectoryBonita/+`.
 . Open the Bonita Super Admin Application
 . Create a user with the standard profile.
 . Go to *Organization* > *Profiles*. Click on triple dots button for "Administrator" profile.

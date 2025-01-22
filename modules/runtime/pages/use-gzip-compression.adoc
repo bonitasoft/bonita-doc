@@ -62,7 +62,7 @@ Official Tomcat documentation for https://tomcat.apache.org/tomcat-9.0-doc/confi
 == Check changes
 
 After you modify the file, restart your application server and test with the following `curl` command:
-`curl -I -H 'Accept-Encoding: gzip' http://`_`ip_address:port`_`/bonita/login.jsp`
+`curl -I -H 'Accept-Encoding: gzip' +http://ip_address:port/bonita/login.jsp+`
 
 Check that the header returned contains the line `Content-Encoding: gzip`. The output should be similar to this:
 
