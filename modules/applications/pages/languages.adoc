@@ -62,8 +62,8 @@ Instructions below assume that the language you want to add is already available
 
 Instructions below explain how to add a language to the Bonita Runtime. Steps below involve using content created by Bonitasoft community and therefore not officially supported.
 
-[discrete]
-==== Download the language files
+
+=== Download the language files
 
 . Go to http://translate.bonitasoft.org/[Bonita translation project].
 . Select the language you are interested in.
@@ -72,8 +72,7 @@ Instructions below explain how to add a language to the Bonita Runtime. Steps be
 . For each file in the folder: open it and in the *_File_* menu click on *_Download_*. Each `.po/.pot` file has a language indicator and a locale indicator. For example, the files for the Brazilian Portuguese language end with `pt_BR.po`.
 . For Subscription editions, you also need to get the files from `{bonitaVersion}/bonita-web-sp/portal` folder.
 
-[discrete]
-==== Install the files and configure java
+=== Install the files and configure java
 
 . Create a new folder depending on the situation:
  ** `[TOMCAT_HOME]/server/i18n/`

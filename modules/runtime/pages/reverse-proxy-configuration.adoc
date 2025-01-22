@@ -13,7 +13,7 @@ Bonitasoft does not support anymore having Bonita Runtime running on a dedicated
 
 If you have to expose Bonita Runtime or a Bonita-developed application publicly, but legitimately want to protect any other resources behind your firewall, you should set up a software architecture similar to this one:
 
-image::https://people.apache.org/~mturk/docs/article/fig2.gif[Tomcat behind a firewall with reverse proxy]
+image::tomcat-behind-reverse-proxy.png[Tomcat behind a firewall with reverse proxy]
 
 where the Web Server serves as a reverse proxy, and where the Tomcat server hosts Bonita.
 

@@ -41,7 +41,7 @@ To use a localization asset, replace the default `localization.json` file with a
   ...
 ----
 
-The code that specifies a language in `localization.json` must be the same as the code in the `.po` files used to xref:ROOT:languages.adoc#_add_a_new_language[add a new language].
+The code that specifies a language in `localization.json` must be the same as the code in the `.po` files used to xref:ROOT:languages.adoc#add-new-language[add a new language].
 
 By default, translation keys are in en-US english texts. If you want to have custom texts, you can create a new translation section for en-US and handle it as a new translation. This option allows to freely change texts by avoiding duplicates on other language sections.
 
@@ -79,7 +79,7 @@ Now translate the text outside of Bonita, in any suitable translation editor, or
 
 === Add a new language
 
-Before you can view a page in a language, that language must be supported for Bonita web applications. French is one of the default languages supported, so you just need to add support for Russian. To do this, xref:ROOT:languages.adoc#_add_a_new_language[add Russian from the Community translations to your Bonita Runtime]. Then restart your Bonita Studio, start the Bonita Runtime, and change the language to Russian to check that it is available.
+Before you can view a page in a language, that language must be supported for Bonita web applications. French is one of the default languages supported, so you just need to add support for Russian. To do this, xref:ROOT:languages.adoc#add-new-language[add Russian from the Community translations to your Bonita Runtime]. Then restart your Bonita Studio, start the Bonita Runtime, and change the language to Russian to check that it is available.
 
 === Add a localization asset to the page
 
