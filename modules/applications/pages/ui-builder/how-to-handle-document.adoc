@@ -93,7 +93,7 @@ To do this, you need to:
 * Create a Bonita query to get the task context of this task, and its associated document:
     - `Name`: getTaskContext
     - `Method`: GET
-    - `URL`: /bonita/API/bpm/task/{{getTaskFromCase.data[0].id}}/context
+    - `URL`: /bonita/API/bpm/userTask/{{getTaskFromCase.data[0].id}}/context
 * Use the `DocumentViewer` widget (or `Image widget` for images) and set the `Document link` property to:
 `http://localhost/bonita/API/formsDocumentImage?fileName={{encodeURIComponent(getTaskContext.data.myDoc_ref.fileName)}}&document={{getTaskContext.data.myDoc_ref.id}}`.
 
