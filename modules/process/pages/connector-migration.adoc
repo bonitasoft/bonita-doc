@@ -15,7 +15,7 @@ All the content of this page can be applied to migrate actor filters created wit
 First of all, a new connector project has to be created using the provided maven archetype. +
 xref:connector-archetype#_generate_the_project_using_the_maven_archetype[This piece of documentation] explains how to create a connector project using the maven archetype.
 
-Some parameters have to be passed to the maven archetype to create the project (groupid, artifactId, version, package, language...). Make sure to use *Java* as the language, so the existing implementation code will be reusable. It is also recommended to keep the package of the current connector implementation, else you might need to edit some part of your implementation source code.
+Some parameters have to be passed to the maven archetype to create the project (groupId, artifactId, version, package, language...). Make sure to use *Java* as the language, so the existing implementation code will be reusable. It is also recommended to keep the package of the current connector implementation, else you might need to edit some part of your implementation source code.
 
 [TIP]
 ====
@@ -296,4 +296,4 @@ The migration from the old project is completed. +
 The project can be built using the command `./mvnw clean package` at the root of the project. +
 The jar built in the folder _target_ can be imported as an extension in the Studio, to test that the migration has been done correctly.
 
-Once you are done, it is recommended to publish your connector on a maven repository, so it will be possible to use this connector as a Bonita extension using its maven coordinates. An example is available xref:connector-archetype-tutorial#_6_publish_the_connector_on_github_packages[here].
+Once you are done, it is recommended to publish your connector on a maven repository, so it will be possible to use this connector as a Bonita extension using its maven coordinates. An example is available xref:connector-archetype-tutorial.adoc#publish_connector_to_gh_packages[here].

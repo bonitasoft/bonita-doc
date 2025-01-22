@@ -51,7 +51,7 @@ sob.or();
 sob.differentFrom</b>(HumanTaskInstanceSearchDescriptor.ASSIGNEE_ID, myUser.getId());
 ----
 
-
+[#case_sensitivity]
 == Case sensitivity
 
 

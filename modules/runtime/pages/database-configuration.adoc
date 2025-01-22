@@ -231,8 +231,8 @@ To support XA transactions, SQL Server requires a specific configuration.
 You can refer to https://msdn.microsoft.com/en-us/library/aa342335(v=sql.110).aspx[MSDN] for more information.
 Here is the list of steps to perform (as an example, the database name BONITA is used):
 
-. Download the zip package of https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=11774[Microsoft SQL Server JDBC Driver 6.0] and unzip it.
-. Copy the `sqljdbc_xa.dll` from `%JDBC_DRIVER_INSTALL_ROOT%\sqljdbc_6.0\enu\xa\x64\` (x64 for 64 bit version of Windows, x86 for 32 bit version of Windows) to `%SQLSERVER_INSTALL_ROOT%\MSSQL13.<instance_name>\MSSQL\Binn\.`
+. Download the zip package of https://learn.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server[Microsoft SQL Server JDBC Driver] and unzip it.
+. Copy the `sqljdbc_xa.dll` from `%JDBC_DRIVER_INSTALL_ROOT%\sqljdbc\enu\xa\x64\` (x64 for 64 bit version of Windows, x86 for 32 bit version of Windows) to `%SQLSERVER_INSTALL_ROOT%\MSSQL13.<instance_name>\MSSQL\Binn\.`
 . Copy/paste the content of `install.sql` file (located in `%JDBC_DRIVER_INSTALL_ROOT%\sqljdbc\6.0\enu\xa`) to SQL Server Management Studio's Query Editor.
 . Execute the query in the Query Editor.
 . To confirm successful execution of the script, open the "Object Explorer" and go to: *Master* > *Programmability* > *Extended Stored Procedures*. +

@@ -225,7 +225,7 @@ This file defines the connection settings and specifies the account used for use
 |
 
 | serverUrl
-| Url to access the Bonita Server (http://myHost:8080)
+| Url to access the Bonita Server (`+http://myHost:8080+`)
 | no default value
 
 | applicationName
@@ -760,7 +760,7 @@ Oct 06, 2022 3:51:55 PM com.bonitasoft.ldapsynchronizer.repository.BonitaUserRep
 INFO: Using tenant id specified in configuration: 1
 Oct 06, 2022 3:51:56 PM com.bonitasoft.ldapsynchronizer.LDAPSynchronizer run
 SEVERE: Synchronization failed
-java.lang.Exception: Failed to connect to Bonita server: HTTP: url[http://localhost:8080] application[bonita] login[BonitaTechUser] password[PRESENT] 
+java.lang.Exception: Failed to connect to Bonita server: HTTP: url[http://localhost:8080] application[bonita] login[BonitaTechUser] password[PRESENT]
     at com.bonitasoft.ldapsynchronizer.repository.BonitaUserRepository.initialize(BonitaUserRepository.java:151)
     at com.bonitasoft.ldapsynchronizer.LDAPSynchronizer.run(LDAPSynchronizer.java:65)
     at com.bonitasoft.ldapsynchronizer.LDAPSynchronizer.main(LDAPSynchronizer.java:238)
