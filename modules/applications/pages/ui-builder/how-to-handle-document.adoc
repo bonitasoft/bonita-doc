@@ -31,6 +31,9 @@ To test this step, click on the `FilePicker` widget, select a file from your com
 
 Then, go to the `Queries` tab and check that the `uploadDocument` query has been called (`Response` tab), the status is `200 OK` and the response contains the document name.
 
+If you want to view the uploaded document (see below), the `Data format` property of the `FilePicker` should be set to `Base 64`.
+
+
 == Display the document name
 
 You can now display the document name in a `Text` widget. Drag and drop a `Text` widget onto your interface and
@@ -48,6 +51,13 @@ You should see the document displayed in the widget!
 
 You may have a Bonita process with a contract that includes a document (`FILE` type).
 
+[NOTE]
+====
+The `FilePicker` widget's `Data format` property is set to `Base 64` by default.
+For uploading documents to a Bonita process, it is recommended to change this property to `Binary` to get a more compact file size
+and prevent rendering issues with large Base64 strings. The following steps assume the `Binary` format is used.
+====
+
 To instantiate the process with a document (called `document` in the contract), go to the `Queries` tab and create a Bonita query:
 
 * `Name`: instantiateProcess
@@ -64,3 +74,27 @@ To instantiate the process with a document (called `document` in the contract), 
 ----
 
 You can now launch this query from your UI, using a `Button` widget for example.
+
+== View a document linked to a Bonita process
+
+[NOTE]
+====
+Viewing is supported only for pdf and image files. For other file types (docx, xlsx, ...), a download prompt will appear.
+====
+
+Once the process is instantiated, you may need to display the document later, in another page for example.
+
+To do this, you need to:
+
+* Create a Bonita query to get the task associated to the `caseId` related to the instantiated process:
+    - `Name`: getTaskFromCase
+    - `Method`: GET
+    - `URL`: /bonita/API/bpm/userTask?p=0&c=10&f=caseId=<your case id>
+* Create a Bonita query to get the task context of this task, and its associated document:
+    - `Name`: getTaskContext
+    - `Method`: GET
+    - `URL`: /bonita/API/bpm/userTask/{{getTaskFromCase.data[0].id}}/context
+* Use the `DocumentViewer` widget (or `Image widget` for images) and set the `Document link` property to:
+`http://localhost/bonita/API/formsDocumentImage?fileName={{encodeURIComponent(getTaskContext.data.myDoc_ref.fileName)}}&document={{getTaskContext.data.myDoc_ref.id}}`.
+
+You should see the document displayed in the widget!
