@@ -585,6 +585,7 @@ You can build the connector using the following command line at the root of the 
 ./mvnw clean package
 ----
 
+[#publish_connector_to_gh_packages]
 == 6 - Publish the connector on GitHub packages
 
 [NOTE]

@@ -756,7 +756,7 @@ The released `jar` file will be attached to a GitHub release and you may use thi
 * https://maven.apache.org/repository/guide-central-repository-upload.html[Maven Central]
 ** How to automate it with https://docs.github.com/en/actions/guides/publishing-java-packages-with-maven[GitHub actions]
 * https://github.com/features/packages[GitHub packages]
-** Example for xref:ROOT:connector-archetype-tutorial.adoc#_6_publish_the_connector_on_github_packages[connector extension]
+** Example for xref:ROOT:connector-archetype-tutorial.adoc#publish_connector_to_gh_packages[connector extension]
 * Private Nexus or Artifactory...etc
 
 ====
