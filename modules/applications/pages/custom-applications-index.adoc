@@ -16,7 +16,7 @@ _Structurally_, an application is made of various xref:ROOT:project-structure.ad
 
 Bonita comes with four xref:ROOT:bonita-applications-interface-overview.adoc[Bonita Applications]. +
 
-We encourage our users to create their own *custom applications* so as to create the best user experience for their specific use-cases. +
+We encourage our users to create their own *custom applications* in order to benefit from the best user experience for their specific use-cases. +
 The application can be put together by the citizen developer or a professional developer. +
 You just need to make sure that all the elements have been developed before you can use them in the application descriptor. +
 For testing purposes, Bonita provides a layout and several themes, before you create your own.
@@ -82,7 +82,7 @@ xref:ROOT:admin-application-overview.adoc[[.card-title]#Bonita Administrator App
 
 [.card.card-index]
 --
-https://community.bonitasoft.com/project?title=&field_type_tid=All&field_project_category_tid=1341&field_certification_tid=All&sort_by=created&sort_order=DESC[[.card-title]#Community projects# [.card-body.card-content-overflow]#pass:q[Browse the Community members' applications to get inspired]#]
+https://community.bonitasoft.com/c/project/5[[.card-title]#Community projects# [.card-body.card-content-overflow]#pass:q[Browse the Community members' applications to get inspired]#]
 --
 
 [.card.card-index]

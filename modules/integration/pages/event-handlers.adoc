@@ -105,30 +105,6 @@ This example shows an event handler that detects changes in the state of activit
         </pluginManagement>
     </build>
 
-    <!-- Add required additional repositories -->
-    <repositories>
-        <repository>
-            <id>restlet</id>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <url>pass:[https://maven.restlet.talend.com/]</url>
-        </repository>
-        <repository>
-            <id>terracotta</id>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <url>pass:[https://repo.terracotta.org/maven2/]</url>
-        </repository>
-    </repositories>
-
 </project>
 ----
 

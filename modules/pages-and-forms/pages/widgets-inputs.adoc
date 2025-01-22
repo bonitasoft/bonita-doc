@@ -22,6 +22,7 @@ There are four types of input:
 * number: a decimal or integer number
 * password: like text but each character is replaced by an asterisk.
 
+[#currency-input-widget]
 === Currency input widget
 
 image::widgets/currency-input.png[currency-input]
