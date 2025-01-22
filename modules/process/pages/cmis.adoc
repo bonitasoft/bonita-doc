@@ -52,9 +52,9 @@ If this configuration is not set, new versions of documents will overwrite previ
 * Binding type: webservices (or atompub)
 * The URL (server address) for the atompub binding if it is used
 * If using webservices, there are four new URLs:
- ** RepositoryService, for example _https://localhost:12345/alfresco/cmis/RepositoryService?wsdl_
+ ** RepositoryService, for example _++https://localhost:12345/alfresco/cmis/RepositoryService?wsdl++_
  ** RepositoryService endpoint
- ** ObjectService, for example _https://localhost:12345/alfresco/cmis/ObjectService?wsdl_
+ ** ObjectService, for example _++https://localhost:12345/alfresco/cmis/ObjectService?wsdl++_
  ** ObjectService endpoint
 * Click *_Next_*.
 
@@ -90,7 +90,7 @@ This example presents the creation of a folder on a local installation of Alfres
 * Username and password
 * Repository name: -default-
 * Binding type: atompub
-* URL: http://localhost:8080/alfresco/api/-default-/public/cmis/versions/1.1/atom/
+* URL: _++http://localhost:8080/alfresco/api/-default-/public/cmis/versions/1.1/atom/++_
 * Click *_Next_*.
 
 . In the Folder window, enter the location and name of the folder you wish to create:
