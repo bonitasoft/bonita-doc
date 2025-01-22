@@ -123,7 +123,7 @@ If the list does not contain the name of the project you want to use, check that
 ==== Prerequisites
 
 * A remote Git repository (https://github.com/[GitHub], https://bitbucket.org[Bitbucket]...)
-* Basic Git workflow knowledge (https://git-scm.com/book/en/v2/Getting-Started-Git-Basics[Reference article])
+* Basic Git workflow knowledge (https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository[Reference article])
 
 ==== Git integration in Studio
 
@@ -193,7 +193,7 @@ Bonita Studio integrates the default merge tool of EGit. Here are some hints on 
 
 ==== Advanced Git commands
 
-Git workflow offers a lot of other features that are not directly integrated in Bonita Studio. You can still use them using the command line interface (https://git-scm.com/download/[available here]). To retrieve the location of your project on your filesystem do a right click on the project name in the project explorer and select *Show in system explorer* (default location of your project would be: <bonita_studio_install_dir>/workspace/<name_of_the_project>).
+Git workflow offers a lot of other features that are not directly integrated in Bonita Studio. You can still use them using the command line interface (https://git-scm.com/downloads[available here]). To retrieve the location of your project on your filesystem do a right click on the project name in the project explorer and select *Show in system explorer* (default location of your project would be: <bonita_studio_install_dir>/workspace/<name_of_the_project>).
 
 [#git-troubleshooting]
 
@@ -206,7 +206,7 @@ Git workflow offers a lot of other features that are not directly integrated in 
 I see this type of message in the Studio log, but when I open the URL in my browser, it works fine
 
 [.symptom-description]
-`!MESSAGE An exception occurred during push on URI http://your_remote_git_repository/repository/my_bonita_repo.git: http://your_remote_git_repository/repository/my_bonita_repo.git: 503 Service Unavailable`
+`!MESSAGE An exception occurred during push on URI +http://your_remote_git_repository/repository/my_bonita_repo.git+: +http://your_remote_git_repository/repository/my_bonita_repo.git+: 503 Service Unavailable`
 
 [.cause]*Potential cause*
 You probably connect to the internet through a Proxy
