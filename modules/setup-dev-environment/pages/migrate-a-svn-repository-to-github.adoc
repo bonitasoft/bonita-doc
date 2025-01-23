@@ -92,4 +92,4 @@ You can now clone this git repository in Bonita Studio.
 
 For a more advanced migration read the following article
 
-* https://john.albin.net/git/convert-subversion-to-git
+* https://john.albin.net/blog/git/convert-subversion-to-git
