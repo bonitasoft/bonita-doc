@@ -39,7 +39,7 @@ This strategy is the most common and recommended way to deploy your application 
 
 With this strategy, you can use the default Bonita UI Builder image and mount a volume containing your applications.
 
-You don't need to build a new image, but you need to ensure the volume is correctly mounted and declared on the xref:applications:ui-builder/production-packaging.adoc#run-production-binaries [dockre compose file].
+You don't need to build a new image, but you need to ensure the volume is correctly mounted and declared on the xref:applications:ui-builder/production-packaging.adoc#run-production-binaries [docker compose file].
 
 [source, yaml]
 ----
