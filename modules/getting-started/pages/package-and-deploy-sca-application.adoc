@@ -17,6 +17,7 @@ You have to add them manually if you want to deploy them. To do it:
 * Add the desired default applications to your project
 * In the pom.xml file, you will see the new dependencies added for the application
 
+[[package-application]]
 === Packaging as a docker image
 
 To package your application as a docker image, you need to run this commands at the root of your project:
