@@ -1,5 +1,6 @@
 = Bonita Documentation
 :description: Learn how to get the most out of the Bonita Platform and all of its components.
+:page-aliases: ROOT:how-tos-index.adoc
 
 Learn how to get the most out of the Bonita Platform and all of its components.
 
