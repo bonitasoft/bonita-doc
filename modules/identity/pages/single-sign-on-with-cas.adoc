@@ -16,8 +16,6 @@ The configuration steps detailed in this page include some modifications to the 
 
 This information applies to a Bonita platform deployed from a bundle, not to the Engine launched from Bonita Studio.
 
-CAS configuration is at tenant level. Each tenant can use a different CAS service.
-
 NOTE: On a system using CAS to manage logins, if a user who is not already logged in tries to access a page in the Bonita Applications by opening the URL link, they are re-directed to the login page.
 After logging in, the requested page is not displayed automatically. The user must click the link again.
 
@@ -56,7 +54,7 @@ The `BUNDLE_HOME/server/conf/jaas-standard.cfg` file contains the following (rep
 
 [source,conf]
 ----
-BonitaAuthentication-1 {
+BonitaAuthentication {
   org.apereo.cas.client.jaas.CasLoginModule required
     ticketValidatorClass="org.apereo.cas.client.validation.Cas20ServiceTicketValidator"
     casServerUrlPrefix="http://ip_address:port/cas"
@@ -73,10 +71,10 @@ BonitaAuthentication-1 {
 
 [WARNING]
 ====
-module names must be unique (from the example above, BonitaAuthentication-1 is the module name). Therefore, remove the unecessary ones
+module names must be unique (from the example above, BonitaAuthentication is the module name). Therefore, remove the unnecessary ones
 ====
 
-The JAAS configuration file, `jaas-standard.cfg`, is sorted by sets of authentication modules. For Bonita, each set matches a tenant configuration and the name is prefixed with _BonitaAuthentication-`<tenant-id>`_. Make sure there is a set of authentication modules for each tenant in your platform. For each tenant, set the CAS service to point to the application login page and set `casServerUrlPrefix` to point to the CAS server.
+The JAAS configuration file, `jaas-standard.cfg`, is sorted by sets of authentication modules. Make sure the CAS service points to the application login page and set `casServerUrlPrefix` to point to the CAS server.
 
 . In the `CasLoginModule` configuration, check that the `principalGroupName` property is set to `CallerPrincipal`. +
 This is required to retrieve the username from the Bonita application.
@@ -112,7 +110,7 @@ Specify the relevant IP address and port number.
 [discrete]
 ==== Configure the Bonita Runtime for CAS SSO
 
-For your active tenant, edit `authenticationManager-config.properties` to enable the CASRemoteAuthenticationManager and its properties.
+Edit `authenticationManager-config.properties` to enable the CASRemoteAuthenticationManager and its properties.
 Edit the `authenticationManager-config.properties` located in `platform_conf/initial/tenant_template_portal` for not initialized platform or `platform_conf/current/tenant_template_portal` and `platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
 
 [NOTE]
@@ -187,9 +185,9 @@ If this option is set, when users navigate away from the Bonita Applications, th
 
 By default, logging out from Bonita Engine logs the user out of CAS. You can change this behavior by implementing your own Authentication Service.
 
-== Tenant administrator login
+== Administrator login
 
-The xref:ROOT:tenant_admin_credentials.adoc[Tenant administrator] (also known as the _tenant technical user_) will always be able to log in without a CAS account. To log with the tenant administrator, use the standard Bonita Runtime login page accessible on `+http://<host>:<port>/bonita/login.jsp+`.
+The xref:ROOT:tenant_admin_credentials.adoc[administrator] (also known as the _technical user_) will always be able to log in without a CAS account. To log with the administrator, use the standard Bonita Runtime login page accessible on `+http://<host>:<port>/bonita/login.jsp+`.
 
 == Manage passwords
 
@@ -198,7 +196,7 @@ When you are using CAS, the password for a user is managed in your CAS system. H
 == LDAP synchronizer and CAS
 
 If you are using an LDAP service and the xref:ROOT:ldap-synchronizer.adoc[LDAP synchronizer] to manage your user data, you can continue to do this and use CAS. The LDAP synchronizer user must be registered in CAS.
-Alternatively, the LDAP synchronizer could be run with the tenant technical user, because this bypasses the SSO login.
+Alternatively, the LDAP synchronizer could be run with the technical user, because this bypasses the SSO login.
 
 We recommend that you use LDAP as your master source for information, synchronizing the relevant information with your CAS server.
 
