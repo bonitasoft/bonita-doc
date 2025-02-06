@@ -35,6 +35,15 @@ If you have not done it yet, recompile your custom commands by changing parent c
 
 Deprecated method PlatformAPI.updateTenant() has been removed.
 
+
+=== Configuration changes
+
+==== JAAS / CAS SSO configuration
+
+With the removal of the multi-tenancy feature, the configuration of the xref:identity:active-directory-or-ldap-authentication.adoc[JAAS] / xref:identity:single-sign-on-with-cas.adoc[CAS] SSO has been simplified. +
+The notable change is that the configuration module is now named `BonitaAuthentication` (without `-<TENANT_ID>` suffix). +
+
+
 == Bug fixes
 
 === Fixes in Bonita 2025.1 (! DATE TO ADD HERE !)

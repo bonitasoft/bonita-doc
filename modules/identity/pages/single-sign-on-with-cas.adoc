@@ -187,7 +187,7 @@ By default, logging out from Bonita Engine logs the user out of CAS. You can cha
 
 == Administrator login
 
-The xref:ROOT:tenant_admin_credentials.adoc[administrator] (also known as the _technical user_) will always be able to log in without a CAS account. To log with the administrator, use the standard Bonita Runtime login page accessible on `+http://<host>:<port>/bonita/login.jsp+`.
+The xref:identity:tenant-admin-credentials.adoc[administrator] (also known as the _technical user_) will always be able to log in without a CAS account. To log with the administrator, use the standard Bonita Runtime login page accessible on `+http://<host>:<port>/bonita/login.jsp+`.
 
 == Manage passwords
 
