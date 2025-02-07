@@ -42,6 +42,15 @@ This concept has been completely removed because the associated feature was not 
 It was used to map arbitrary external IDs to Bonita identity (user, group, role, membership). +
 Event keys EXTERNAL_IDENTITY_MAPPING_CREATED and EXTERNAL_IDENTITY_MAPPING_DELETED have been removed from the event API and cannot be listened to anymore.
 
+
+=== Configuration changes
+
+==== JAAS / CAS SSO configuration
+
+With the removal of the multi-tenancy feature, the configuration of the xref:identity:active-directory-or-ldap-authentication.adoc[JAAS] / xref:identity:single-sign-on-with-cas.adoc[CAS] SSO has been simplified. +
+The notable change is that the configuration module is now named `BonitaAuthentication` (without `-<TENANT_ID>` suffix). +
+
+
 == Bug fixes
 
 === Fixes in Bonita 2025.1 (! DATE TO ADD HERE !)
