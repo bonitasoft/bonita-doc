@@ -35,6 +35,11 @@ If you have not done it yet, recompile your custom commands by changing parent c
 
 Deprecated method PlatformAPI.updateTenant() has been removed.
 
+=== EntityMember (aka. External Identity Mapping)
+
+This concept has been completely removed because the associated feature was not used internally and was not documented.
+It was used to map arbitrary external IDs to Bonita identity (user, group, role, membership). +
+Event keys EXTERNAL_IDENTITY_MAPPING_CREATED and EXTERNAL_IDENTITY_MAPPING_DELETED have been removed from the event API and cannot be listened to anymore.
 
 === Configuration changes
 
