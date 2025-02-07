@@ -14,6 +14,8 @@ image:UI2021.1/admin-case-list.png[Admin Case list]
 == View the status of cases
 
 To view the open or archived cases, go to _BPM_>__Cases__. The case table is displayed, showing the open cases.
+It is possible to choose between displaying only the root cases (this was the only option before Bonita 2025.1) and all the cases
+ including the one started by call ativities.
 
 * To switch between _Open cases_ and _Archived cases_ cases, use the tabs.
 * View the cases of a specified process, by selecting the process name, or name and version, from the dropdown lists.
@@ -25,7 +27,7 @@ The _Failed tasks_ column shows the number of failed tasks. A connector failure 
 From this table, you can delete a case. Find the cases you want to delete, and click on the _Delete_ icon. Confirm in the popup that you want to delete the selected case.
 
 To open the case details page, click on a case id or the _Eye_ icon.
-The case details page displays general information about the case as well as counters of tasks for the case and its possible child cases (started by call activities).
+The case details page displays general information about the case as well as counters of done, pending and faled flow nodes for the case and its possible child cases (started by call activities).
 
 If you are using the Enterprise, Performance or Efficiency edition, you can also open the diagram of a case (case visualization), by clicking on the _Picture_ icon for the case. +
 On the diagram, colored flags on the steps show the number of step instances in each state. +
@@ -50,7 +52,7 @@ You can customize the diagram page, or embed the BPMN diagram in your own page: 
 This feature is available with the Access, Enterprise, Efficiency or Performance editions.
 
 In the case details page, when the case or a flow node of the case or a child case is failed, an additional "Error details" panel displays the information about the exception that caused the failure.
-When available, the scope and context of the error is attached to the failure to help locating the issue in the process definition.
+When available, the scope and context of the error is attached to the failure to help locating the issue in the process definition. If the failure happened on a flow node, a link to the flow node details page is provided.
 A failure history is also displayed in case of successive failures in the case.
 
 == Add a comment to a case
