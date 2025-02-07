@@ -10,6 +10,15 @@ All changes in both tools are logged: from the version that was delivered with t
 This is due to the fact that improvements in any version of the tools can affect all supported Bonita versions. 
 This changelog must be read before xref:update-overview.adoc[updating to a newer version of Bonita].
 
+== 3.7.0 - April XX-th (TO BE UPDATED), 2025 - Bonita Update Tool changes
+Bonita Update Tool handles updates from all Bonita 7.10 versions up to Bonita 2025.1 (10.3) version.
+
+* [CLEANUP] with multi-tenancy removal, the tool removes tenantId column from many tables. It also renames many Foreign / Primary / Unique keys and indexes. +
+Some unused tables are also removed.
+* [NAMING] the tool script itself is now named `bonita-update` / `bonita-update.bat` (all editions)
+
+
+
 == 3.6.1 - December 5th, 2024 - Bonita Update Tool changes
 Bonita Update Tool handles updates from all Bonita 7.10 versions up to Bonita 2024.3 (10.2) version.
 
