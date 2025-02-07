@@ -29,7 +29,7 @@ asciidoc:
     page-editable: true
     page-out-of-support: false
     page-next-release: true
-    page-hide-search-bar: true
+    page-hide-search-bar: false
     page-hide-components: 'bcd'
 nav:
   - modules/ROOT/release-note-nav.adoc
