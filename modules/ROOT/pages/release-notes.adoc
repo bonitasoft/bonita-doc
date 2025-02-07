@@ -22,6 +22,18 @@ If you have limited space for logs and do not wish this information, you may dea
 You can see the xref:setup-dev-environment:logging.adoc#logging-configuration[logging configuration] for more details.
 
 
+== Notable changes
+
+=== Update tool script has been renamed
+
+To simplify and rationalize the naming of the scripts, the update tool script has been renamed.
+
+The formerly named `bonita-update-tool.sh/.bat` script has been renamed to `bonita-update.sh/.bat`.
+
+Moreover, the Subscription version of the script is also named `bonita-update.sh/.bat`. (there is no `-sp` suffix anymore)
+
+
+
 == Deprecations and removals
 
 === API removals

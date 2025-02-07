@@ -262,19 +262,8 @@ For example, db.url=jdbc:mysql://localhost:3306/bonita-update?allowMultiQueries=
 === Run Bonita Update Tool
 . Go to the directory containing Bonita Update Tool/Bonita Migration Tool.
 . Run the appropriate update script:
-|===
-|*Version* |*Edition* |*Script*
-|Bonita Update Tool 3.x
-|Community edition
-a|
- * bonita-update-tool (Linux)
- * bonita-update-tool.bat (Windows)
-|Bonita Update Tool 3.x
-|Subscription edition
-a|
- * bonita-update-tool-sp (Linux)
- * bonita-update-tool-sp.bat (Windows)
-|===
+    * bonita-update (Linux)
+    * bonita-update.bat (Windows)
 
 NOTE: A script called _check-update-dryrun_ is available. It can be used as a *pre-update check* as it does all the verification without actually updating the elements. This is equivalent to running the update script with a `--verify` option.
 
@@ -504,7 +493,7 @@ If you have applications that have Bonita as client, you will have to change you
 // link to release notes =>
 For backward compatibility checks, refer to the xref:ROOT:release-notes.adoc[release notes].
 
-// link to bonita client library => to decomment
+// link to bonita client library => to uncomment
 In addition, if your application connects to Bonita Engine using the HTTP access mode, see the xref:api:configure-client-of-bonita-bpm-engine.adoc[bonita-client library] documentation page.
 
 [#troubleshooting]
