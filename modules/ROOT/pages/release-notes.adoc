@@ -28,9 +28,9 @@ You can see the xref:setup-dev-environment:logging.adoc#logging-configuration[lo
 
 To simplify and rationalize the naming of the scripts, the update tool script has been renamed.
 
-The formerly named `bonita-update-tool.sh/.bat` script has been renamed to `bonita-update.sh/.bat`.
+The formerly named `bonita-update-tool(.bat)` script has been renamed to `bonita-update(.bat)`.
 
-Moreover, the Subscription version of the script is also named `bonita-update.sh/.bat`. (there is no `-sp` suffix anymore)
+Moreover, the Subscription version of the script is also named `bonita-update(.bat)`. (there is no `-sp` suffix anymore)
 
 
 
