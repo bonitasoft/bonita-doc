@@ -27,7 +27,7 @@ The _Failed tasks_ column shows the number of failed tasks. A connector failure 
 From this table, you can delete a case. Find the cases you want to delete, and click on the _Delete_ icon. Confirm in the popup that you want to delete the selected case.
 
 To open the case details page, click on a case id or the _Eye_ icon.
-The case details page displays general information about the case as well as counters of done, pending and faled flow nodes for the case and its possible child cases (started by call activities).
+The case details page displays general information about the case, as well as monitoring information showing the number of done, pending, and failed flow nodes for the case and its possible child cases (started by call activities).
 
 If you are using the Enterprise, Performance or Efficiency edition, you can also open the diagram of a case (case visualization), by clicking on the _Picture_ icon for the case. +
 On the diagram, colored flags on the steps show the number of step instances in each state. +
