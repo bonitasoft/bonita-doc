@@ -52,8 +52,6 @@ The `username` attribute of Bonita user accounts should match one of the _claims
 == Configure Bonita Bundle for OIDC
 
 You need to execute the following actions in the folder of each tenant for which you want to support authentication over OpenID Connect.
-If you want this configuration to also apply to each tenant created later, make sure to also perform those actions in the _template_ tenant configuration folder:
-`<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_*` (if you have not started the Bonita bundle yet, the files are located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_*`)
 
 The bundle already contains the files needed to use OIDC with Bonita platform.
 To configure Bonita for OIDC:
@@ -63,7 +61,7 @@ To configure Bonita for OIDC:
  .. xref:runtime:tomcat-bundle.adoc#configuration[Configure] it as needed
  .. Run it a first time, so that the first default tenant is created (TENANT_ID = 1)
  .. Stop it and run `setup[.sh][.bat] pull` to retrieve current configuration before modifying the configuration files below
-. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
+. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal`,
 edit the `authenticationManager-config.properties` as follows:
 +
 ----
@@ -89,7 +87,7 @@ Make sure to set the right admin username (property `auth.tenant.admin.username`
  If only a limited group of users need to bypass OIDC authentication method you can restrain it by setting the property `oidc.auth.standard.allowed` to false and setting the property `auth.tenant.standard.whitelist` with the list of authorized usernames (comma separated). Otherwise you can keep it commented. +
  Only if you want Bonita logout to perform OpenID logout you can uncomment and configure the properties `oidc.logout.url` and `oidc.logout.url.redirectQuery`. See the <<configure-logout-behaviour, Configure logout behavior>> section for more details about logout.
 
-. In the tenant_engine folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
+. In the tenant_engine folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenant_engine/`
   edit the file bonita-tenant-sp-custom.properties as follows:
 +
 ----
@@ -139,7 +137,7 @@ When accounts creation on the fly is required for all users accessing Bonita tha
 
 NOTE: Activating this option means any user authorized by the IdP to access Bonita will have an account created automatically in Bonita Database.
 
-. In the tenant_portal folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`, +
+. In the tenant_portal folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal`, +
  edit the file *keycloak-oidc.json* to setup Bonita webapp as an OIDC client working with your OIDC provider.
 +
 ----
@@ -320,7 +318,7 @@ To avoid this, you have two options :
 ==== Hide the logout button of the Bonita Layout
 
 This is the most commonly used solution. Users are logged in as long as they don't close their web browser and their session does not time out.
-To do this, set the `logout.link.hidden` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
+To do this, set the `logout.link.hidden` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal/`.
 
 [NOTE]
 ====
@@ -336,7 +334,7 @@ https://openid.net/specs/openid-connect-rpinitiated-1_0.html[RP-Initiated logout
 As OIDC Providers do not necessarily support OpenID logout and have different ways of handling it, Bonita only offers OIDC logout through an OIDC logout endpoint URL that the OIDC provider should provide and support.
 To setup Bonita for OIDC logout:
 
-. Set the value of the property `oidc.logout.url` with your OIDC provider logout endpoint URL in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/`.
+. Set the value of the property `oidc.logout.url` with your OIDC provider logout endpoint URL in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal/`.
 . If the logout URL of your OIDC provider supports a parameter to redirect after the logout, you can set the property `oidc.logout.url.redirectQuery` with the query string to use (it will be concatenated to the logout URL). The placeholder `+{encodedRedirectUri}+` will be replaced at runtime with the current Bonita URL at the time on the logout action. It is also possible to pass the ID token of the logged in user in the query string using the placeholder `+{idToken}+`. This is useful if the OIDC provider supports the `id_token_hint` parameter of the OIDC RP-Initiated logout specification (since Bonita 2022.1-u2). For this use case, make sure Bonita is configured for HTTPS since the ID token will be sent in the URL.
 
 On the OIDC provider side, you need to configure Bonita OIDC service provider for:

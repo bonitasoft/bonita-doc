@@ -116,7 +116,7 @@ If your project contains REST API Extensions with custom permissions, you can cr
 
 [source,shell]
 ----
-docker run --name bonita [...] -v ~/local-folder-path/:/opt/bonita/setup/platform_conf/initial/tenant_template_portal/ [...]
+docker run --name bonita [...] -v ~/local-folder-path/:/opt/bonita/setup/platform_conf/initial/tenant_portal/ [...]
 ----
 
 === Connect Bonita to a database

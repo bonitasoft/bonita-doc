@@ -80,7 +80,7 @@ The JAAS configuration file, `jaas-standard.cfg`, is sorted by sets of authentic
 This is required to retrieve the username from the Bonita application.
 Bonita uses the CAS LoginModule in the JASIG implementation, so see the CAS LoginModule section of the https://wiki.jasig.org/display/CASC/JAAS+Integration[Jasig documentation] for more information.
 . Copy `commons-logging-x.x.x.jar` from `BonitaSubscription-x.x.x/tools//BonitaSubscription-x.x.x-LDAP-Synchronizer/lib` into the `BUNDLE_HOME/server/lib` directory.
-. Update `bonita-tenant-sp-custom.properties` from `setup/platform_conf/initial/tenant_template_engine/` if platform has not been initialized yet or `setup/platform_conf/current/tenants/[TENANT_ID]/tenant_engine/` and `setup/platform_conf/current/tenant_template_engine/`.
+. Update `bonita-tenant-sp-custom.properties` from `setup/platform_conf/initial/tenant_engine/` if platform has not been initialized yet or `setup/platform_conf/current/tenant_engine/` and `setup/platform_conf/current/tenant_engine/`.
 +
 [NOTE]
 ====
@@ -111,7 +111,7 @@ Specify the relevant IP address and port number.
 ==== Configure the Bonita Runtime for CAS SSO
 
 Edit `authenticationManager-config.properties` to enable the CASRemoteAuthenticationManager and its properties.
-Edit the `authenticationManager-config.properties` located in `platform_conf/initial/tenant_template_portal` for not initialized platform or `platform_conf/current/tenant_template_portal` and `platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
+Edit the `authenticationManager-config.properties` located in `platform_conf/initial/tenant_portal` for not initialized platform or `platform_conf/current/tenant_portal` and `platform_conf/current/tenant_portal/`.
 
 [NOTE]
 ====
@@ -166,7 +166,7 @@ To troubleshoot SSO login issues, you need to increase the xref:ROOT:logging.ado
 ==== Bonita Runtime
 
 If you are using CAS, when users log out of Bonita Runtime, they log out of CAS. Therefore they are logged out of all applications that are using the CAS service. To avoid this, you can hide the logout option of the Bonita Layout.
-To do this, set the `logout.link.hidden=true` option in `authenticationManager-config.properties` located in `platform_conf/initial/tenant_template_portal` for not initialized platform or `platform_conf/current/tenant_template_portal` and `platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
+To do this, set the `logout.link.hidden=true` option in `authenticationManager-config.properties` located in `platform_conf/initial/tenant_portal` for not initialized platform or `platform_conf/current/tenant_portal` and `platform_conf/current/tenant_portal/`.
 
 [NOTE]
 ====
