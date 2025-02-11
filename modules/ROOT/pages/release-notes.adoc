@@ -24,14 +24,14 @@ You can see the xref:setup-dev-environment:logging.adoc#logging-configuration[lo
 === Improved Admin application
 
 The Admin application has been improved to provide a better user experience and a better way to identify and recover from errors +
-The task and case details pages have been redesigned to provide clearer information and new error sections when there are some failures at task or case level (For Access, Performance and Enterprise editions only). +
+The task and case details pages have been redesigned to provide clearer information and new error sections when there are some failures at task or case level (For Access, Performance, Enterprise and Scale editions only). +
 It is now possible to see child cases (started by call activities) and not just root cases from the case details and the case list page. This improves the consistency of the whole application and allows an administrator to understand more easily what is happening in a case by navigating to the child cases details and diagram visualisation or list of tasks +
 
 === New BPM Failures recording and API
 
 [NOTE]
 ====
-For Access, Performance and Enterprise editions only.
+For Access, Performance, Enterprise and Scale editions only.
 ====
 
 All failures happening in a task or a case are now recorded in the database (and archived when the task/case is archived). The records include a scope (e.g.: Data initialization, Connector, etc), a detailed context (e.g.: data name, connector name, script name etc..) and the exception and its stacktrace. +
