@@ -17,7 +17,7 @@ You must also ensure that the prerequisite infrastructure is highly available.
 
 See also: +
 xref:ROOT:install-a-bonita-bpm-cluster.adoc[Install a Bonita cluster] +
-xref:ROOT:cluster-administration.adoc[Cluster administration]
+xref:runtime:cluster-administration.adoc[Cluster administration]
 
 == Introduction
 

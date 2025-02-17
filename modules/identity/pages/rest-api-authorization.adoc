@@ -51,9 +51,9 @@ The static phase uses a set of configuration files:
 These files grant permissions to sets of users based on profile or username.
 You cannot deny permissions in the configuration files (it's a "white list" mechanism only), so you must ensure that the default definitions grant the minimum permissions that you want to give to any user.
 
-The default versions of these files are located in `setup/platform_conf/initial/tenant_template_portal`.
+The default versions of these files are located in `setup/platform_conf/initial/tenant_portal`.
 In order to change the configuration on an installation whose platform has already been initialized, use the xref:runtime:bonita-platform-setup.adoc[platform setup tool] to
-retrieve the current configuration and update the files in `setup/platform_conf/current/tenants/[tenantId]/tenant_portal`.
+retrieve the current configuration and update the files in `setup/platform_conf/current/tenant_portal`.
 Then use the tool again to save your changes into the database.
 
 [discrete]
@@ -146,7 +146,7 @@ From Bonita version 2024.1, Dynamic authorization checking is also enabled by de
 From Bonita version 2024.2, Dynamic authorization checking is also enabled by default in Access edition.
 ====
 
-For some API resources, the static authorization check may not be specific enough to properly define when the access is granted. In those situations, the static authorization check may be overriden using dynamic checks.
+For some API resources, the static authorization check may not be specific enough to properly define when the access is granted. In those situations, the static authorization check may be overridden using dynamic checks.
 A user is then granted a permission only if the dynamic check authorizes it.
 A dynamic check is implemented as a sequence of conditions, including a Groovy script.
 This enables you to tailor the permissions needed to access a resource using dynamic information related to processes.
@@ -195,13 +195,13 @@ If you specify a condition that calls a Groovy script, you must add the new scri
 
 If the platform has never been started yet:
 
-* add the script to the `setup/platform_conf/initial/tenant_template_security_scripts` folder
+* add the script to the `setup/platform_conf/initial/tenant_security_scripts` folder
 * it will be pushed to database at first run
 
 If the platform has already been started:
 
 * use the xref:runtime:bonita-platform-setup.adoc[platform setup tool] to retrieve the current configuration
-* add the script to the `setup/platform_conf/current/tenants/[tenantId]/tenant_security_scripts` folder
+* add the script to the `setup/platform_conf/current/tenant_security_scripts` folder
 * then use the xref:runtime:bonita-platform-setup.adoc[platform setup tool] again to push the new / modified scripts to database
 
 The `tenant_security_scripts` folder contains a script sample that can be used to write your own.
@@ -213,8 +213,8 @@ If you write your own scripts:
 
 * make sure you either inherit from an existing rule, or implement the PermissionRule interface, by overriding the isAllowed() method
 * make sure you use the default package declaration at the top of your groovy class (no `package` keyword used)
-* make sure this .groovy file is placed in the default directory, under 'initial/tenant_template_security_scripts/' if the platform has never been started,
-or under 'current/tenants/TENANT_ID/tenant_security_scripts/' if the platform has already been started
+* make sure this .groovy file is placed in the default directory, under 'initial/tenant_security_scripts/' if the platform has never been started,
+or under 'current/tenant_security_scripts/' if the platform has already been started
 
 [WARNING]
 ====

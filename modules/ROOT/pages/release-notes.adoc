@@ -33,6 +33,325 @@ The formerly named `bonita-update-tool(.bat)` script has been renamed to `bonita
 Moreover, the Subscription version of the script is also named `bonita-update(.bat)`. (there is no `-sp` suffix anymore)
 
 
+=== Setup Tool (aka Platform Setup) file structure has been simplified
+
+The setup tool file structure has been simplified to better fit the multitenancy removal.
+For those who were used to fetch their configuration files under `platform_conf/current/tenants/<TENANT_ID>/tenant_engine`, for instance, the path is now `platform_conf/current/tenant_engine`. All the documentation has been updated accordingly. +
+For the curious ones, here is the full comparison:
+
+.Up to 2024.3 (10.2)
+[%collapsible]
+====
+Content of the `setup/` folder:
+
+[source,shell]
+----
+platform_conf
+├── current
+│  ├── platform_engine
+│  │  ├── bonita-platform-community-custom.properties
+│  │  ├── bonita-platform-custom.xml
+│  │  ├── bonita-platform-sp-cluster-custom.properties
+│  │  ├── bonita-platform-sp-custom.properties
+│  │  ├── bonita-platform-sp-custom.xml
+│  │  └── hazelcast.xml
+│  ├── platform_portal
+│  │  ├── cache-config.xml
+│  │  ├── platform-tenant-config.properties
+│  │  └── security-config.properties
+│  ├── tenants
+│  │  └── 1
+│  │      ├── tenant_engine
+│  │      │  ├── bonita-tenant-community-custom.properties
+│  │      │  ├── bonita-tenants-custom.xml
+│  │      │  ├── bonita-tenant-sp-cluster-custom.properties
+│  │      │  ├── bonita-tenant-sp-custom.properties
+│  │      │  └── bonita-tenant-sp-custom.xml
+│  │      ├── tenant_portal
+│  │      │  ├── authenticationManager-config.properties
+│  │      │  ├── compound-permissions-mapping-custom.properties
+│  │      │  ├── compound-permissions-mapping-internal.properties
+│  │      │  ├── compound-permissions-mapping.properties
+│  │      │  ├── console-config.properties
+│  │      │  ├── custom-permissions-mapping.properties
+│  │      │  ├── dynamic-permissions-checks-custom.properties
+│  │      │  ├── dynamic-permissions-checks.properties
+│  │      │  ├── keycloak-oidc.json
+│  │      │  ├── keycloak-saml.xml
+│  │      │  ├── resources-permissions-mapping-custom.properties
+│  │      │  ├── resources-permissions-mapping-internal.properties
+│  │      │  ├── resources-permissions-mapping.properties
+│  │      │  ├── security-config.properties
+│  │      │  ├── spnego-config.properties
+│  │      │  ├── user-creation-attribute-mapping-custom.properties
+│  │      │  ├── user-creation-attribute-mapping.properties
+│  │      │  ├── user-creation-group-mapping.properties
+│  │      │  └── user-creation-group-profile-mapping.properties
+│  │      └── tenant_security_scripts
+│  │          └── SamplePermissionRule.groovy.sample
+│  ├── tenant_template_engine
+│  │  ├── bonita-tenant-community-custom.properties
+│  │  ├── bonita-tenants-custom.xml
+│  │  ├── bonita-tenant-sp-cluster-custom.properties
+│  │  ├── bonita-tenant-sp-custom.properties
+│  │  └── bonita-tenant-sp-custom.xml
+│  ├── tenant_template_portal
+│  │  ├── authenticationManager-config.properties
+│  │  ├── compound-permissions-mapping-custom.properties
+│  │  ├── compound-permissions-mapping-internal.properties
+│  │  ├── compound-permissions-mapping.properties
+│  │  ├── console-config.properties
+│  │  ├── custom-permissions-mapping.properties
+│  │  ├── dynamic-permissions-checks-custom.properties
+│  │  ├── dynamic-permissions-checks.properties
+│  │  ├── keycloak-oidc.json
+│  │  ├── keycloak-saml.xml
+│  │  ├── resources-permissions-mapping-custom.properties
+│  │  ├── resources-permissions-mapping-internal.properties
+│  │  ├── resources-permissions-mapping.properties
+│  │  ├── security-config.properties
+│  │  ├── spnego-config.properties
+│  │  ├── user-creation-attribute-mapping-custom.properties
+│  │  ├── user-creation-attribute-mapping.properties
+│  │  ├── user-creation-group-mapping.properties
+│  │  └── user-creation-group-profile-mapping.properties
+│  └── tenant_template_security_scripts
+│      └── SamplePermissionRule.groovy.sample
+├── initial
+│  ├── platform_engine
+│  │  ├── bonita-platform-community-custom.properties
+│  │  ├── bonita-platform-custom.xml
+│  │  ├── bonita-platform-sp-cluster-custom.properties
+│  │  ├── bonita-platform-sp-custom.properties
+│  │  ├── bonita-platform-sp-custom.xml
+│  │  └── hazelcast.xml
+│  ├── PLATFORM_ENGINE_VERSION
+│  ├── platform_portal
+│  │  ├── cache-config.xml
+│  │  ├── platform-tenant-config.properties
+│  │  └── security-config.properties
+│  ├── tenant_template_engine
+│  │  ├── bonita-tenant-community-custom.properties
+│  │  ├── bonita-tenants-custom.xml
+│  │  ├── bonita-tenant-sp-cluster-custom.properties
+│  │  ├── bonita-tenant-sp-custom.properties
+│  │  └── bonita-tenant-sp-custom.xml
+│  ├── tenant_template_portal
+│  │  ├── authenticationManager-config.properties
+│  │  ├── compound-permissions-mapping-custom.properties
+│  │  ├── compound-permissions-mapping-internal.properties
+│  │  ├── compound-permissions-mapping.properties
+│  │  ├── console-config.properties
+│  │  ├── custom-permissions-mapping.properties
+│  │  ├── dynamic-permissions-checks-custom.properties
+│  │  ├── dynamic-permissions-checks.properties
+│  │  ├── keycloak-oidc.json
+│  │  ├── keycloak-saml.xml
+│  │  ├── resources-permissions-mapping-custom.properties
+│  │  ├── resources-permissions-mapping-internal.properties
+│  │  ├── resources-permissions-mapping.properties
+│  │  ├── security-config.properties
+│  │  ├── spnego-config.properties
+│  │  ├── user-creation-attribute-mapping-custom.properties
+│  │  ├── user-creation-attribute-mapping.properties
+│  │  ├── user-creation-group-mapping.properties
+│  │  └── user-creation-group-profile-mapping.properties
+│  └── tenant_template_security_scripts
+│      └── SamplePermissionRule.groovy.sample
+├── licenses
+│  └── team-license-21230624-10.2-003-enterprise.lic
+└── sql
+    ├── h2
+    │  ├── cleanTables.sql
+    │  ├── createQuartzTables.sql
+    │  ├── createTables.sql
+    │  ├── dropQuartzTables.sql
+    │  ├── dropTables.sql
+    │  ├── initTables.sql
+    │  ├── postCreateStructure.sql
+    │  └── preDropStructure.sql
+    ├── mysql
+    │  ├── cleanTables.sql
+    │  ├── createQuartzTables.sql
+    │  ├── createTables.sql
+    │  ├── dropQuartzTables.sql
+    │  ├── dropTables.sql
+    │  ├── initTables.sql
+    │  ├── postCreateStructure.sql
+    │  └── preDropStructure.sql
+    ├── oracle
+    │  ├── cleanTables.sql
+    │  ├── createQuartzTables.sql
+    │  ├── createTables.sql
+    │  ├── dropQuartzTables.sql
+    │  ├── dropTables.sql
+    │  ├── initTables.sql
+    │  ├── postCreateStructure.sql
+    │  └── preDropStructure.sql
+    ├── postgres
+    │  ├── cleanTables.sql
+    │  ├── createQuartzTables.sql
+    │  ├── createTables.sql
+    │  ├── dropQuartzTables.sql
+    │  ├── dropTables.sql
+    │  ├── initTables.sql
+    │  ├── postCreateStructure.sql
+    │  └── preDropStructure.sql
+    └── sqlserver
+        ├── cleanTables.sql
+        ├── createQuartzTables.sql
+        ├── createTables.sql
+        ├── dropQuartzTables.sql
+        ├── dropTables.sql
+        ├── initTables.sql
+        ├── postCreateStructure.sql
+        └── preDropStructure.sql
+----
+====
+
+.From 2025.1 (10.3) and above
+[%collapsible]
+====
+Content of the `setup/` folder:
+
+[source,shell]
+----
+platform_conf
+├── current
+│  ├── platform_engine
+│  │  ├── bonita-platform-community-custom.properties
+│  │  ├── bonita-platform-custom.xml
+│  │  ├── bonita-platform-sp-cluster-custom.properties
+│  │  ├── bonita-platform-sp-custom.properties
+│  │  ├── bonita-platform-sp-custom.xml
+│  │  └── hazelcast.xml
+│  ├── platform_portal
+│  │  ├── cache-config.xml
+│  │  ├── platform-tenant-config.properties
+│  │  └── security-config.properties
+│  ├── tenant_engine
+│  │  ├── bonita-tenant-community-custom.properties
+│  │  ├── bonita-tenants-custom.xml
+│  │  ├── bonita-tenant-sp-cluster-custom.properties
+│  │  ├── bonita-tenant-sp-custom.properties
+│  │  └── bonita-tenant-sp-custom.xml
+│  ├── tenant_portal
+│  │  ├── authenticationManager-config.properties
+│  │  ├── compound-permissions-mapping-custom.properties
+│  │  ├── compound-permissions-mapping-internal.properties
+│  │  ├── compound-permissions-mapping.properties
+│  │  ├── console-config.properties
+│  │  ├── custom-permissions-mapping.properties
+│  │  ├── dynamic-permissions-checks-custom.properties
+│  │  ├── dynamic-permissions-checks.properties
+│  │  ├── keycloak-oidc.json
+│  │  ├── keycloak-saml.xml
+│  │  ├── resources-permissions-mapping-custom.properties
+│  │  ├── resources-permissions-mapping-internal.properties
+│  │  ├── resources-permissions-mapping.properties
+│  │  ├── security-config.properties
+│  │  ├── spnego-config.properties
+│  │  ├── user-creation-attribute-mapping-custom.properties
+│  │  ├── user-creation-attribute-mapping.properties
+│  │  ├── user-creation-group-mapping.properties
+│  │  └── user-creation-group-profile-mapping.properties
+│  └── tenant_security_scripts
+│      └── SamplePermissionRule.groovy.sample
+├── initial
+│  ├── platform_engine
+│  │  ├── bonita-platform-community-custom.properties
+│  │  ├── bonita-platform-custom.xml
+│  │  ├── bonita-platform-sp-cluster-custom.properties
+│  │  ├── bonita-platform-sp-custom.properties
+│  │  ├── bonita-platform-sp-custom.xml
+│  │  └── hazelcast.xml
+│  ├── PLATFORM_ENGINE_VERSION
+│  ├── platform_portal
+│  │  ├── cache-config.xml
+│  │  ├── platform-tenant-config.properties
+│  │  └── security-config.properties
+│  ├── tenant_engine
+│  │  ├── bonita-tenant-community-custom.properties
+│  │  ├── bonita-tenants-custom.xml
+│  │  ├── bonita-tenant-sp-cluster-custom.properties
+│  │  ├── bonita-tenant-sp-custom.properties
+│  │  └── bonita-tenant-sp-custom.xml
+│  ├── tenant_portal
+│  │  ├── authenticationManager-config.properties
+│  │  ├── compound-permissions-mapping-custom.properties
+│  │  ├── compound-permissions-mapping-internal.properties
+│  │  ├── compound-permissions-mapping.properties
+│  │  ├── console-config.properties
+│  │  ├── custom-permissions-mapping.properties
+│  │  ├── dynamic-permissions-checks-custom.properties
+│  │  ├── dynamic-permissions-checks.properties
+│  │  ├── keycloak-oidc.json
+│  │  ├── keycloak-saml.xml
+│  │  ├── resources-permissions-mapping-custom.properties
+│  │  ├── resources-permissions-mapping-internal.properties
+│  │  ├── resources-permissions-mapping.properties
+│  │  ├── security-config.properties
+│  │  ├── spnego-config.properties
+│  │  ├── user-creation-attribute-mapping-custom.properties
+│  │  ├── user-creation-attribute-mapping.properties
+│  │  ├── user-creation-group-mapping.properties
+│  │  └── user-creation-group-profile-mapping.properties
+│  └── tenant_security_scripts
+│      └── SamplePermissionRule.groovy.sample
+├── licenses
+│  └── team-license-21230624-10.2-003-enterprise.lic
+└── sql
+    ├── h2
+    │  ├── cleanTables.sql
+    │  ├── createQuartzTables.sql
+    │  ├── createTables.sql
+    │  ├── dropQuartzTables.sql
+    │  ├── dropTables.sql
+    │  ├── initTables.sql
+    │  └── preDropStructure.sql
+    ├── mysql
+    │  ├── cleanTables.sql
+    │  ├── createQuartzTables.sql
+    │  ├── createTables.sql
+    │  ├── dropQuartzTables.sql
+    │  ├── dropTables.sql
+    │  ├── initTables.sql
+    │  └── preDropStructure.sql
+    ├── oracle
+    │  ├── cleanTables.sql
+    │  ├── createQuartzTables.sql
+    │  ├── createTables.sql
+    │  ├── dropQuartzTables.sql
+    │  ├── dropTables.sql
+    │  ├── initTables.sql
+    │  └── preDropStructure.sql
+    ├── postgres
+    │  ├── cleanTables.sql
+    │  ├── createQuartzTables.sql
+    │  ├── createTables.sql
+    │  ├── dropQuartzTables.sql
+    │  ├── dropTables.sql
+    │  ├── initTables.sql
+    │  └── preDropStructure.sql
+    └── sqlserver
+        ├── cleanTables.sql
+        ├── createQuartzTables.sql
+        ├── createTables.sql
+        ├── dropQuartzTables.sql
+        ├── dropTables.sql
+        ├── initTables.sql
+        └── preDropStructure.sql
+----
+====
+
+[WARNING]
+====
+If you're starting Bonita with the Docker image and using custom scripts, please check the scripts to make sure they use the new file structure. +
+Otherwise, script execution may fail, preventing Bonita from starting.
+
+The changes mainly involve removing `_template` from the Bonita paths used in scripts.
+====
+
 
 == Deprecations and removals
 

@@ -354,7 +354,7 @@ If you have done specific configuration and customization actions in your server
 |===
 
 ==== Manual operations
-Perform a diff between the source version and the target version of tenants/[TENANT_ID]/tenant_portal/dynamic-permissions-checks.properties and put the additional lines into the file tenants/[TENANT_ID]/tenant_portal/dynamic-permissions-checks-custom.properties
+Perform a diff between the source version and the target version of tenant_portal/dynamic-permissions-checks.properties and put the additional lines into the file tenant_portal/dynamic-permissions-checks-custom.properties
 
 === Licenses
 // link to Runtime configuration
@@ -461,12 +461,12 @@ cd setup
 Some manual operation have to be done on files that are located in the _bonita home_ folder if version <7.3.0 or in the extracted setup/platform_conf/current folder in target version >=7.3.0. You will need to check and merge the previous file version and the migrated one:
 . In the case where deployed resources have required dedicated authorizations to use the REST API, these authorizations are not automatically migrated.
 
-`tenants/[TENANT_ID]/conf/compound-permissions-mapping.properties` : contains list of permissions used for each resources
-`tenants/[TENANT_ID]/conf/resources-permissions-mapping.properties` : contains permissions for REST API extensions
-`tenants/[TENANT_ID]/conf/custom-permissions-mapping.properties` : contains custom permissions for users and profiles
-`tenants/[TENANT_ID]/conf/dynamic-permissions-checks.properties` : used if dynamic check on permissions is enabled
+`conf/compound-permissions-mapping.properties` : contains list of permissions used for each resources
+`conf/resources-permissions-mapping.properties` : contains permissions for REST API extensions
+`conf/custom-permissions-mapping.properties` : contains custom permissions for users and profiles
+`conf/dynamic-permissions-checks.properties` : used if dynamic check on permissions is enabled
 
-. You will have to reapply this configuration in the same files in `/setup/platform_conf/current/tenants/[TENANT_ID]/tenant_portal/` folder.
+. You will have to reapply this configuration in the same files in `/setup/platform_conf/current/tenant_portal/` folder.
 
 . When done, push the updated configuration into the database:
 +

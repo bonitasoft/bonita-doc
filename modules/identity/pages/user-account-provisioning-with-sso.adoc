@@ -19,7 +19,7 @@ Making possible user accounts and their authorization groups automatically creat
 == Configure Bonita to create new user accounts
 If you want the Bonita Runtime accounts to be created automatically once a user accessing Bonita has been authenticated with the SSO provider, make sure you have a Bonita Runtime configured for single sign-on with xref:identity:single-sign-on-with-oidc.adoc[OIDC] or xref:identity:single-sign-on-with-saml.adoc[SAML] first.
 
-Then, in the tenant_engine folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/` edit the file bonita-tenant-sp-custom.properties to uncomment, and modify when needed, the following lines :
+Then, in the tenant_engine folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenant_engine/` edit the file bonita-tenant-sp-custom.properties to uncomment, and modify when needed, the following lines :
 ----
 ...
 # Create users on the fly, when they are missing from bonita but authenticated by the SSO. The users will belong to the groups and role specified below.
@@ -50,7 +50,7 @@ User accounts update is not supported. Once an account exists for a user in Boni
 
 In addition of the username it is possible to use more information coming from the Identity Provider of the SSO in order to create the user account in Bonita, like first name, last name, email, etc... +
 Actually, all the user information retrieved from the SAML response attributes or the OIDC ID tokens can be mapped to the attributes of a user account in Bonita. +
-In order to do that, in the tenant_portal folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/` edit the file `user-creation-attribute-mapping-custom.properties` and copy (and uncomment) from the file `user-creation-attribute-mapping.properties` the lines for the attributes you want to map. +
+In order to do that, in the tenant_portal folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal/` edit the file `user-creation-attribute-mapping-custom.properties` and copy (and uncomment) from the file `user-creation-attribute-mapping.properties` the lines for the attributes you want to map. +
 Use `$account.` prefix to target a SAML attribute from the SAML response of a claim from the OIDC ID token. +
 A value without prefix will be directly used as it is for all users created through this feature. +
 For example:
@@ -97,7 +97,7 @@ If the property `bonita.runtime.authentication.passphrase-or-password.create-mis
 == Configure groups mapping
 
 When the value of the property `bonita.runtime.authentication.passphrase-or-password.create-missing-user.userAttribute.groups` in `user-creation-attribute-mapping-custom.properties` starts with the `$account.` attribute, it means the list of groups of the user should be retrieved from the SAML response attributes or the OIDC ID token and each group that should result in a membership creation should be associated with a group path to use in Bonita. +
-In order to do that, in the tenant_portal folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/` edit the file `user-creation-group-mapping.properties` and add one line for each group mapping. For example:
+In order to do that, in the tenant_portal folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal/` edit the file `user-creation-group-mapping.properties` and add one line for each group mapping. For example:
 ----
 bonita_user=/acme
 bonita_hr=/acme/hr
@@ -109,7 +109,7 @@ The format the groups attribute value coming from an SAML response can either be
 If the property `bonita.runtime.authentication.passphrase-or-password.create-missing-user.lowerGroupsAndRoleNamesCase.enabled` is set to `true` (default value), this file is not case sensitive and the groups will be created with lower case names/paths (However, the case used in the file will be kept for the display names of the groups).
 
 In order to access a Bonita application a user needs to have the profile associated with this application. The mapping between groups and profiles can also be automatized to avoid having to do it manually once the groups have been created. +
-In order to do that, in the tenant_portal folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/` edit the file `user-creation-group-profile-mapping.properties` and add one line for each group-to-profile mapping. For example:
+In order to do that, in the tenant_portal folder of the existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal/` edit the file `user-creation-group-profile-mapping.properties` and add one line for each group-to-profile mapping. For example:
 ----
 /acme=User
 /acme/hr=User

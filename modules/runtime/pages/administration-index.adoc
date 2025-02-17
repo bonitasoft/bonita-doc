@@ -31,5 +31,5 @@ xref:ROOT:back-up-bonita-bpm-platform.adoc[[.card-title]#Runtime backups# [.card
 
 [.card.card-index]
 --
-xref:ROOT:cluster-administration.adoc[[.card-title]#Cluster# [.card-body.card-content-overflow]#pass:q[Specificities to be aware of with a cluster]#]
+xref:runtime:cluster-administration.adoc[[.card-title]#Cluster# [.card-body.card-content-overflow]#pass:q[Specificities to be aware of with a cluster]#]
 --

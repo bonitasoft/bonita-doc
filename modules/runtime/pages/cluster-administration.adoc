@@ -1,6 +1,6 @@
 = Cluster administration
 :page-aliases: ROOT:cluster-administration.adoc
-:description: [NOTE]
+:description: Discover how to administer, monitor and manage a Bonita cluster.
 
 [NOTE]
 ====
@@ -8,7 +8,7 @@
 For Enterprise and Performance editions only.
 ====
 
-Discover how to administer, monitor and manage a Bonita cluster.
+{description}
 
 == Backing up a cluster
 
@@ -42,5 +42,5 @@ Each Bonita Engine maintains its own log file on the node
 
 [.symptom-description]
 You can find it under <BUNDLE_HOME>/logs/bonita.`date`.log, where `date` is the date the file is created.
-In addition, there is an incident file <BUNDLE_HOME>/logs/tenants/[TENANT_ID]/incident.log (where [TENANT_ID] is the ID of the tenant on which the error occurred) that is used as a last resort to record an error that cannot be handled, such as failure to access the database.
+In addition, there is an incident file <BUNDLE_HOME>/logs/incident.log (where [TENANT_ID] is the ID of the tenant on which the error occurred) that is used as a last resort to record an error that cannot be handled, such as failure to access the database.
 --

@@ -52,9 +52,7 @@ Bonita "username" should match the NameId or one of the attributes returned by t
 
 == Configure Bonita Bundle for SAML
 
-You need to execute the following actions in the folder of each tenant for which you want to support authentication over SAML. Files are located in `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>`. +
-If you want this configuration to also apply to each tenant created later, make sure to also perform those actions in the _template_ tenant configuration folder:
-`<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_*` (if you have not started the Bonita bundle yet, the files are located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_*`)
+You need to execute the following actions in the folder of each tenant for which you want to support authentication over SAML. Files are located in `<BUNDLE_HOME>/setup/platform_conf/current/setup/platform_conf/current/tenant_*` (if you have not started the Bonita bundle yet, the files are located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_*`)
 
 The bundle already contains the files needed to use SAML with Bonita platform.
 To configure Bonita for SAML:
@@ -64,7 +62,7 @@ To configure Bonita for SAML:
  .. xref:runtime:tomcat-bundle.adoc[Configure] it as needed
  .. Run it a first time, so that the first default tenant is created (TENANT_ID = 1)
  .. Stop it before modifying the configuration files below
-. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
+. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal`,
 edit the authenticationManager-config.properties as follows:
 +
 [source,properties]
@@ -98,7 +96,7 @@ The value must be the same as in the file *bonita-tenant-sp-custom.properties*. 
 If you need users to be able to log in without having an account on the IDP, you can authorize it by setting the property `saml.auth.standard.allowed` to true. Users will then be able to log in using the Bonita login page (/login.jsp) provided they have a bonita account and their password is different from their username. +
 If only a limited group of users needs to bypass SAML authentication method, you can restrain it by setting the property `saml.auth.standard.allowed` to false and setting the property `auth.tenant.standard.whitelist` with the list of authorized usernames (comma separated).
 
-. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
+. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenant_engine/`
 edit the file bonita-tenant-sp-custom.properties as follows:
 +
 [source,properties]
@@ -154,7 +152,7 @@ For example on linux, you can use the command ssh-keygen, then go to "`cd ~/.ssh
 +
 NOTE: The expected format for Keys and certificates is PEM (with or without the comment header and footer). +
 
-. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`, +
+. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal`, +
 edit the file *keycloak-saml.xml* to setup Bonita webapp as a Service provider working with your IdP.
  ** The entityID is the Service Provider given to your Bonita installation. You can change it if you want, but you need to provide it to your IdP.
  ** The sslPolicy option may need to be changed if Bonita Runtime and the IdP are not both accessed via HTTPS. Possible values for this property are: ALL, EXTERNAL, and NONE. For ALL, all requests must come in via HTTPS. For EXTERNAL, only non-private IP addresses must come over via HTTPS. For NONE, no requests are required to come over via HTTPS.
@@ -317,7 +315,7 @@ To avoid this, you have two options :
 === Hide the logout button of the Bonita Layout
 
 This is the most commonly used solution. Users are logged in as long as they don't close their web browser and their session does not time out.
-To do this, set the `logout.link.hidden` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
+To do this, set the `logout.link.hidden` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal/`.
 
 [NOTE]
 ====
@@ -332,8 +330,8 @@ As Identity Providers do not necessarily support single logout and have differen
 Therefore, there is no guaranty that the global logout will work with your Identity Provider. However, if your IdP supports the Service Provider initiated flow of SAML's Web Browser Single Logout profile, single logout is likely to work.
 To setup Bonita for global logout:
 
-. Set the `saml.logout.global` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/`.
-. Update the SingleLogoutService section of `keycloak-saml.xml` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal/` to match your Identity Provider configuration and set the property `logoutPage` with he URL of your Bonita server (this is the URL the users will be redirected to once the logout operation succeeded).
+. Set the `saml.logout.global` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal/`.
+. Update the SingleLogoutService section of `keycloak-saml.xml` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal/` to match your Identity Provider configuration and set the property `logoutPage` with he URL of your Bonita server (this is the URL the users will be redirected to once the logout operation succeeded).
 . Update your Identity Provider configuration to setup the Logout Service POST/Redirect Binding URL to `<Bonita_server_URL>/bonita/samlLogout?redirect=true`
 
 [NOTE]
