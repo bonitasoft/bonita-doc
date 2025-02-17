@@ -36,7 +36,7 @@ For Access, Performance, Enterprise and Scale editions only.
 
 All failures happening in a task or a case are now recorded in the database (and archived when the task/case is archived). The records include a scope (e.g.: Data initialization, Connector, etc), a detailed context (e.g.: data name, connector name, script name etc..) and the exception and its stacktrace. +
 Those failures with detailed information are visible in the Admin application in the case details and task details pages. +
-New {openApiUrl}/{openApiLatestVersion}#tag/Failure[BPM/failure] and {openApiUrl}/{openApiLatestVersion}#tag/ArchivedFailure[BPM/archivedFailure] REST API resources have been added to retrieve the failures of a task, a case or a root case (including all the child cases). +
+New {openApiUrl}/{openApiLatestVersion}#tag/Failure[bpm/failure] and {openApiUrl}/{openApiLatestVersion}#tag/ArchivedFailure[bpm/archivedFailure] REST API resources have been added to retrieve the failures of a task, a case or a root case (including all the child cases). +
 Java API also includes new methods to retrieve those failures (see getProcessInstanceFailures or getFlowNodeInstanceFailures in ProcessRuntimeAPI). +
 
 == Notable changes
