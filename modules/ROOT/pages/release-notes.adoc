@@ -348,6 +348,8 @@ platform_conf
 ====
 If you're starting Bonita with the Docker image and using custom scripts, please check the scripts to make sure they use the new file structure. +
 Otherwise, script execution may fail, preventing Bonita from starting.
+
+The changes mainly involve removing `_template` from the Bonita paths used in scripts.
 ====
 
 
