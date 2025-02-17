@@ -36,6 +36,15 @@ Moreover, the Subscription version of the script is also named `bonita-update(.b
 
 == Deprecations and removals
 
+=== API deprecations
+
+As part of the multi-tenancy remove, some APIs have been deprecated and will be removed in the future:
+
+* com.bonitasoft.engine.api.APIClient
+** getLoginAPI
+** 2 login methods using a tenantId parameter
+* com.bonitasoft.engine.api.TenantAPIAccessor#getLoginAPI
+
 === API removals
 
 ==== Command API
@@ -46,6 +55,10 @@ If you have not done it yet, recompile your custom commands by changing parent c
 ==== Platform API
 
 Deprecated method PlatformAPI.updateTenant() has been removed.
+
+==== REST API
+
+Depecated resource `system/tenant` has been removed. You can use API {openApiUrl}/{openApiLatestVersion}#tag/Maintenance[system/maintenance] instead to enable/disable maintenance mode.
 
 
 === EntityMember (aka. External Identity Mapping)
