@@ -58,7 +58,7 @@ Deprecated method PlatformAPI.updateTenant() has been removed.
 
 ==== REST API
 
-Depecated resource `system/tenant` has been removed. You can use API `system/maintenance` instead to pause/resume BPM services.
+Depecated resource `system/tenant` has been removed. You can use API {openApiUrl}/{openApiLatestVersion}#tag/Maintenance[system/maintenance] instead to pause/resume BPM services.
 
 
 === EntityMember (aka. External Identity Mapping)
