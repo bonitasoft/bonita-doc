@@ -20,15 +20,41 @@ image:ui-builder/advanced-app/export-application.png[Export application]
 Move the exported JSON application(s) in a designated `workspace` folder. This folder will be referenced during the build process.
 You can store these applications in a Git repository too.
 
-=== Build the production binary
+=== Deployment strategies
+
+There are several ways to deploy your application in production:
+
+==== 1. Build the production binary
 
 To create the production-ready binary, you need to build a Docker image. This image will contain the application(s) and the Bonita UI Builder runtime.
 
 The xref:production-packaging.adoc#dockerfile[Dockerfile] and more details on how to build the Docker image can be found in this xref:production-packaging.adoc[dedicated page].
 
+[NOTE]
+====
+This strategy is the most common and recommended way to deploy your application in production. It allows you to be close with the xref:getting-started:package-and-deploy-sca-application.adoc[application packaging] strategy.
+====
+
+==== 2. Use a default UI Builder image and mount and mounted volume
+
+With this strategy, you can use the default Bonita UI Builder image and mount a volume containing your applications.
+
+You don't need to build a new image, but you need to ensure the volume is correctly mounted and declared on the xref:applications:ui-builder/production-packaging.adoc#run-production-binaries [docker compose file].
+
+[source, yaml]
+----
+    volumes:
+      - <local-path>:/opt/appsmith/workspace/applications
+----
+
+[WARNING]
+--
+This strategy don't set by default the `BONITA_DEV_MODE` to `false`. You need to set it manually in the environment variables in docker compose file.
+--
+
 === Run the production binary
 
-After building the Docker image, run it by following xref:production-packaging.adoc#run-production-binaries[the specific instructions].
+Run it by following xref:production-packaging.adoc#run-production-binaries[the specific instructions].
 
 === Access your Application
 

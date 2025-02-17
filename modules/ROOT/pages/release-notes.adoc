@@ -379,6 +379,15 @@ Event keys EXTERNAL_IDENTITY_MAPPING_CREATED and EXTERNAL_IDENTITY_MAPPING_DELET
 With the removal of the multi-tenancy feature, the configuration of the xref:identity:active-directory-or-ldap-authentication.adoc[JAAS] / xref:identity:single-sign-on-with-cas.adoc[CAS] SSO has been simplified. +
 The notable change is that the configuration module is now named `BonitaAuthentication` (without `-<TENANT_ID>` suffix). +
 
+==== Ldap Synchronizer configuration
+
+With the removal of the multi-tenancy feature, the configuration of the xref:identity:ldap-synchronizer.adoc[LDAP Synchronizer] has been simplified. +
+The notable changes are:
+
+- in the `bonita.properties` configuration file, the `technicalPassword`, `technicalUser` and `tenantId` properties are no longer used
+- when using the Docker image, the `BONITA_PLATFORM_LOGIN`, `BONITA_PLATFORM_PASSWORD` and `BONITA_TENANT_ID` environment variables are no longer used
+
+
 
 == Bug fixes
 
