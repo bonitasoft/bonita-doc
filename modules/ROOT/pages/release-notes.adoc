@@ -54,11 +54,14 @@ If you have not done it yet, recompile your custom commands by changing parent c
 
 ==== Platform API
 
-Deprecated method PlatformAPI.updateTenant() has been removed.
+The following deprecated methods have been removed:
+
+* com.bonitasoft.engine.api.PlatformAPI#updateTenant()
+* com.bonitasoft.engine.api.PlatformAPI#getDefaultTenantId()
 
 ==== REST API
 
-Depecated resource `system/tenant` has been removed. You can use API {openApiUrl}/{openApiLatestVersion}#tag/Maintenance[system/maintenance] instead to enable/disable maintenance mode.
+Deprecated resource `system/tenant` has been removed. You can use API {openApiUrl}/{openApiLatestVersion}#tag/Maintenance[system/maintenance] instead to enable/disable maintenance mode.
 
 
 === EntityMember (aka. External Identity Mapping)
