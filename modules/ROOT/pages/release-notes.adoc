@@ -344,6 +344,12 @@ platform_conf
 ----
 ====
 
+[WARNING]
+====
+If you're starting Bonita with the Docker image and using custom scripts, please check the scripts to make sure they use the new file structure. +
+Otherwise, script execution may fail, preventing Bonita from starting.
+====
+
 
 == Deprecations and removals
 
