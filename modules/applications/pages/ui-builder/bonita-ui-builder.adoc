@@ -4,6 +4,11 @@
 
 {description}
 
+[IMPORTANT]
+====
+Actually, this documentation corresponds to the latest version of Bonita UI Builder, which is 1.2.0.
+====
+
 
 == Bonita UI Builder
 
