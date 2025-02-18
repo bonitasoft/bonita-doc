@@ -17,8 +17,9 @@ Introduced in the 2024.3 version, it is the new standard used in the Bonita ecos
 Bonita UI Builder is available by default and for no additional cost in all https://www.bonitasoft.com/pricing[Scale subscriptions]. It is also available as a payable add-on in https://www.bonitasoft.com/pricing[Access subscriptions].
 
 
-=== How to use? 
-Please refer to the xref:initiation-manual.adoc[initiation manual]. If you have any other additional questions, reach out to our https://csc.bonitacloud.bonitasoft.com[Support team].
+=== How to use?
+[subs=+macros]
+Please refer to the xref:initiation-manual.adoc[initiation manual]. If you have any other additional questions, reach out to our {cscSupportTeamUrl}[Support team].
 
 
 === What are the system requirements? 
