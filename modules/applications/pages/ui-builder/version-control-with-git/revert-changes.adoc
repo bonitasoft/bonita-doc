@@ -44,6 +44,7 @@ To revert multiple commits, use a range of commit hashes:
 
 [source,bash]
 ----
+//git revert <commit-hash-1>^..<commit-hash-2>
 git revert a041f66990c3610982a8477d05931ac6a1636813^..3ce6a7e9a6d1e06eacec4c5b4ffca53d0eb7a3f9
 ----
 ====

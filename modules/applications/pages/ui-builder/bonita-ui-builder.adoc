@@ -7,7 +7,7 @@
 
 == Bonita UI Builder
 
-Bonita UI Builder is a development environment made for designing all kind of interfaces, pages, forms, for your applications. 
+Bonita UI Builder is a development environment made for designing all kinds of interfaces, pages, forms, for your applications.
 It brings a host of advanced features and improved usability, designed to help you create even more compelling and user-friendly interfaces: 
 
 * A set of more than 45 widgets
@@ -19,7 +19,7 @@ It brings a host of advanced features and improved usability, designed to help y
 * React interfaces
 * ...and many more
 
-Bonita UI Builder is an application-centric development environment that allows for designing forms and application pages, without distinction. You can now design fully-fledged applications, embedding dashboards and complex interfaces. Or, you can just design single-page applications. The choice is up to you. 
+Bonita UI Builder is an application-centric development environment that allows for designing forms and application pages, without distinction. You can now design fully-fledged applications, embedding dashboards, and complex interfaces. Or, you can just design single-page applications. The choice is up to you.
 
 Bonita UI Builder is a standalone product available as a custom Docker image, which can be downloaded from the Bonitasoft JFrog repository. It also requires a 2024.3 Enterprise version of Bonita (or any later version) to work.
 
@@ -89,5 +89,5 @@ For Subscription editions only.
 
 *Bonita UI Builder* has been developed based on Appsmith and modifies some portions of it to integrate with the Bonita Platform.
 
-*Appsmith* is an open-source project. It can be obtained in its original version at https://github.com/appsmithorg/appsmith[its Github home page] or through the https://www.appsmith.com/[official website]. +
+*Appsmith* is an open-source project. It can be obtained in its original version at https://github.com/appsmithorg/appsmith[its GitHub home page] or through the https://www.appsmith.com/[official website]. +
 It is licensed under the https://www.apache.org/licenses/LICENSE-2.0[Apache License 2.0].

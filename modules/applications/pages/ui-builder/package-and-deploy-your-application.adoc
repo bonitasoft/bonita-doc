@@ -49,7 +49,7 @@ You don't need to build a new image, but you need to ensure the volume is correc
 
 [WARNING]
 --
-This strategy don't set by default the `BONITA_DEV_MODE` to `false`. You need to set it manually in the environment variables in docker compose file.
+This strategy doesn't set by default the `BONITA_DEV_MODE` to `false`. You need to set it manually in the environment variables in a docker compose file.
 --
 
 === Run the production binary
@@ -68,7 +68,7 @@ Then, these applications can be accessed from the Bonita Administrator Applicati
 
 === Grant permissions for your application
 
-In order to ensure correct access to your production application and its resources (i.e. widgets, data...), you need to check and xref:ui-builder/how-to-declare-permissions-for-rest-api-request.adoc[grant the necessary permissions] for users or profiles. This is needed if your application is performing requests to Bonita REST API.
+In order to ensure correct access to your production application and its resources (i.e., widgets, data...), you need to check and xref:ui-builder/how-to-declare-permissions-for-rest-api-request.adoc[grant the necessary permissions] for users or profiles. This is needed if your application is performing requests to Bonita REST API.
 
 [.troubleshooting-title]
 == Troubleshooting
@@ -76,14 +76,14 @@ In order to ensure correct access to your production application and its resourc
 [.troubleshooting-section]
 --
 [.symptom]
-After building and running the Bonita UI Builder, at least one application are missing.
+After building and running the Bonita UI Builder, at least one application is missing.
 
 [.cause]#Cause#
-The application is on error and the Bonita UI Builder is not able to import and deploy the application.
+The application is on error, and the Bonita UI Builder is not able to import and deploy the application.
 
 [.solution]#Solution#
 Check the log of the bonita-ui-builder container with `docker logs <container-name>` to find which application is on error.
-Then fix your application and be sure your export are compatible and a valid JSON.
+Then fix your application and be sure your export is compatible and a valid JSON.
 --
 
 [.troubleshooting-section]
