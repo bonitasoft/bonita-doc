@@ -11,6 +11,7 @@ asciidoc:
     javadocVersion: '10.2'
     keycloakDocumentationVersion: 21.1.2
     openApiUrl: 'https://api-documentation.bonitasoft.com'
+    cscSupportTeamUrl: https://csc.bonitacloud.bonitasoft.com
     cscRootUrl: https://csc.bonitacloud.bonitasoft.com/apps/CustomerServices
     cscDownloadUrl: '{cscRootUrl}/downloads'
     cscLicenseUrl: '{cscRootUrl}/licenses'

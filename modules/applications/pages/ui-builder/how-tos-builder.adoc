@@ -11,7 +11,7 @@
 
 [.card.card-index]
 --
-xref:how-to-share-data-across-pages.adoc[[.card-title]#How to share data across pages# [.card-body.card-content-overflow]#pass:q[Learn how to send data through you application's pages]#]
+xref:how-to-share-data-across-pages.adoc[[.card-title]#How to share data across pages# [.card-body.card-content-overflow]#pass:q[Learn how to send data through your application's pages]#]
 --
 
 [.card.card-index]

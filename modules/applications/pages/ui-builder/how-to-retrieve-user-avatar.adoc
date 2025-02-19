@@ -57,7 +57,7 @@ image:ui-builder/guides/firstname.png[firstname]
 * Similarly, bind the `lastname` and `username` to the other text widgets.
 For example use `Last name {{ currentItem.lastname }}` and `Username {{ currentItem.username }}`.
 
-* Now, select the image widget and call the Javascript function created previously to bind it to the user's avatar icon.
+* Now, select the image widget and call the JavaScript function created previously to bind it to the user's avatar icon.
 For example, user `{{ userAvatar.getIconFullURL(currentItem.icon) }}`:
 
 image:ui-builder/guides/user-avatar.png[user-avatar]
