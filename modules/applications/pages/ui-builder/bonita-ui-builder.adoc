@@ -6,14 +6,14 @@
 
 [IMPORTANT]
 ====
-Actually, this documentation corresponds to the latest version of Bonita UI Builder, which is 1.2.0.
+Actually, this documentation corresponds to the latest version of Bonita UI Builder, which is pass:a[{bonita-ui-builder-version}].
 ====
 
 
 == Bonita UI Builder
 
 Bonita UI Builder is a development environment made for designing all kinds of interfaces, pages, forms, for your applications.
-It brings a host of advanced features and improved usability, designed to help you create even more compelling and user-friendly interfaces: 
+It brings a host of advanced features and improved usability, designed to help you create even more compelling and user-friendly interfaces:
 
 * A set of more than 45 widgets
 * Code completion
@@ -28,12 +28,12 @@ Bonita UI Builder is an application-centric development environment that allows 
 
 Bonita UI Builder is a standalone product available as a custom Docker image, which can be downloaded from the Bonitasoft JFrog repository. It also requires a 2024.3 Enterprise version of Bonita (or any later version) to work.
 
-With Bonita UI Builder, you can still manage your workflows, continuous integration, etc., the way you’re managing them now. 
+With Bonita UI Builder, you can still manage your workflows, continuous integration, etc., the way you’re managing them now.
 
 
 == Applications
 
-Applications are created and operated within Bonita Platform, created with Bonita Studio and Bonita UI Builder, run by Bonita Runtime. 
+Applications are created and operated within Bonita Platform, created with Bonita Studio and Bonita UI Builder, run by Bonita Runtime.
 
 They are not standalone elements (such as pages and forms) in a process anymore, which is a paradigm change compared to Bonita UI Designer.
 
@@ -46,7 +46,7 @@ Bonita also comes with four xref:runtime:bonita-applications-interface-overview.
 
 == Subscription
 
-Bonita UI Builder is available by default and for no additional cost in all https://www.bonitasoft.com/pricing[Scale subscriptions]. It is also available as a payable add-on in https://www.bonitasoft.com/pricing[Access subscriptions]. 
+Bonita UI Builder is available by default and for no additional cost in all https://www.bonitasoft.com/pricing[Scale subscriptions]. It is also available as a payable add-on in https://www.bonitasoft.com/pricing[Access subscriptions].
 
 If you haven’t subscribed to a Scale of Access plan yet, please https://www.bonitasoft.com/contact-us[get in touch] with our sales team to start your journey today!
 
