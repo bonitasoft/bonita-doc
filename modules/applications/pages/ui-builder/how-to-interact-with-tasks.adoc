@@ -126,7 +126,7 @@ The `claimInput` contract of the task expects a parameter called 'answer', which
 
 This query will use the task id fetched from the table (`Table1.triggeredRow.id`) to execute the task. 
 
-Then, open the modal and bind the `executeReviewAndAnswerClaim` query to the `Onclick` property of the confirm button:
+Then, open the modal and bind the `executeReviewAndAnswerClaim` query to the `Onclick` property of the `Confirm` button:
 
 image:ui-builder/guides/bind_confirm_modal.png[bind_confirm_modal]
 
@@ -147,4 +147,4 @@ If you would like to display business data, context and information from your pr
 * Call `GET /userTask/context` to retrieve a storageId. For example: `GET /bonita/API/bpm/userTask/{{Table1.triggeredRow.id}}/context` 
 * Call `GET /API/bdm/businessData` to retrieve your business data, using the storageId returned previously. For example: `GET /API/bdm/businessData/com.company.model.Claim?c=1000&p=0&q=findByPersistenceId&f=persistenceId=+{{storageId}}+`
 
-These steps could be done for example in a JS object and bound to a widget. 
+These steps could be done, for example, in a JS object and bound to a widget.

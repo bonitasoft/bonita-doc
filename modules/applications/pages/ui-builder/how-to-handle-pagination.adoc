@@ -5,7 +5,7 @@
 {description}
 
 * Difficulty: beginner
-* Prerequisites: have your interface xref:interact-with-your-bonita-process.adoc[interact] with Bonita process
+* Prerequisites: have your interface xref:interact-with-your-bonita-process.adoc[interact] with a Bonita process
 * Estimated time: 10 minutes
 
 
@@ -17,7 +17,7 @@ Let's create an interface where a user types something in an input widget, and t
   
 == 1. Create a JS object
 
-Go to the `JS` tab (between `Queries` and `UI`), create a new JS object called “Pagination” and copy paste the following code:
+Go to the `JS` tab (between `Queries` and `UI`), create a new JS object called “Pagination” and copy/paste the following code:
 
 [source, JS]
 ----
@@ -28,7 +28,7 @@ export default {
 }
 ----
 
-NOTE: All Bonita API calls returning a collection of elements are paginated and their response contains a https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Range[Content-Range header].
+NOTE: All Bonita API calls returning a collection of elements are paginated, and their response contains a https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Range[Content-Range header].
 
 == 2. Create a dynamic API request
 
