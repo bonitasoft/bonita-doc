@@ -35,6 +35,13 @@ Using version control in Bonita UI Builder follows a typical Git workflow.
 * Each application can only be associated with one Git repository, and a single repository cannot be shared across multiple applications.
 ====
 
+[WARNING]
+====
+Connecting the main branch of a Git repository should be avoided.
+Indeed, the Auto Commit feature ensures that changes related to a Bonita UI Builder version upgrade are automatically committed.
+See xref:applications:git-settings.adoc#_disable_auto_commit[Disable Auto-Commit] for details.
+====
+
 == Manage Git
 
 These resources guide you through managing Git integration, including handling merge conflicts.
