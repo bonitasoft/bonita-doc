@@ -1,5 +1,5 @@
 = Release Notes
-:description: This is the release notes for Bonita 1.2.0 version
+:description: This is the release notes for Bonita UI Builder
 
 == UI Builder 1.2.0
 
