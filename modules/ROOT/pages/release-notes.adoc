@@ -382,8 +382,9 @@ Deprecated method org.bonitasoft.engine.platform.Platform#getPreviousVersion() h
 
 ==== REST API
 
-Deprecated resource `system/tenant` has been removed. You can use API {openApiUrl}/{openApiLatestVersion}#tag/Maintenance[system/maintenance] instead to enable/disable maintenance mode.
-
+* Deprecated resource `system/tenant` has been removed. You can use API {openApiUrl}/{openApiLatestVersion}#tag/Maintenance[system/maintenance] instead to enable/disable maintenance mode.
+* Deprecated attribute isHidden has been removed from the resource `portal/page`
+* Deprecated attribute iconPath has been removed from the resource `living/application`
 
 === EntityMember (aka. External Identity Mapping)
 
