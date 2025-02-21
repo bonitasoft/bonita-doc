@@ -8,7 +8,7 @@ Here’s an overview of the enhancements (not an exhaustive list):
 === Enhancements in the JS and Query Editors
 
 New Split View for both the JS editor and the Query editor is a major convenience upgrade.
-It gives you an all-in-one workspace for writing and debugging code or queries while viewing the live, interactive UI on the same screen.
+It gives you an all-in-one workspace for writing and debugging code or queries while viewing the live, interactive UI on the same screen. +
 Moreover, the editors have been enhanced to let you open and manage multiple queries or JS editors in separate tabs within the same panel.
 
 === Widget UI Enhancements
