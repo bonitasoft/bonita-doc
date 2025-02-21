@@ -7,7 +7,7 @@
 [NOTE]
 ====
 This documentation corresponds to the latest version of Bonita UI Builder, which is pass:a[{bonita-ui-builder-version}].
-See the xref:ROOT:release-notes.adoc[release notes] for more information.
+See the xref:ui-builder/ui-builder-release-notes.adoc[release notes] for more information.
 ====
 
 
