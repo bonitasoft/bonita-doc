@@ -37,7 +37,7 @@ Using version control in Bonita UI Builder follows a typical Git workflow.
 
 [WARNING]
 ====
-Connecting the main branch of a Git repository should be avoided.
+Connecting to the main branch of a Git repository should be avoided.
 Indeed, the Auto Commit feature ensures that changes related to a Bonita UI Builder version upgrade are automatically committed.
 See xref:applications:git-settings.adoc#_disable_auto_commit[Disable Auto-Commit] for details.
 ====
