@@ -128,9 +128,7 @@ Trust this user for delegation to any service (Kerberos only).
 
 == Configure Bonita Bundle for Kerberos
 
-You need to execute the following actions in the folder of each tenant for which you want to support authentication over Kerberos. Files are located in `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>`. +
-If you want this configuration to also apply to each tenant created later, make sure to also perform those actions in the _template_ tenant configuration folder:
-`<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_*` (if you have not started the Bonita bundle yet, the files are located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_*`)
+You need to execute the following actions in the folder of each tenant for which you want to support authentication over Kerberos. Files are located in `<BUNDLE_HOME>/setup/platform_conf/current/setup/platform_conf/current/tenant_*` (if you have not started the Bonita bundle yet, the files are located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_*`)
 
 The bundle already contains the files needed to use Kerberos with Bonita platform. +
 To configure Bonita for Kerberos:
@@ -186,7 +184,7 @@ edit the login.conf file as follows:
 In addition, the system property `java.security.auth.login.config` should not already be set or, if it is, it should target the file `conf/login.conf`. In order to do that, you can edit the file `<BUNDLE_HOME>/server/bin/setenv.sh (.bat)` and set the SECURITY_OPT variable as follows: +
 `+SECURITY_OPTS="-Djava.security.auth.login.config=${CATALINA_HOME}/conf/login.conf"+`
 
-. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
+. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal`,
 edit the authenticationManager-config.properties as follows:
 +
 [source,properties]
@@ -216,7 +214,7 @@ The value must be the same as in the file *bonita-tenant-sp-custom.properties*. 
 If the users need to bypass kerberos authentication method, you can authorize it by setting the property `kerberos.auth.standard.allowed` to true. Users will then be able to log in using the Bonita Login page (/login.jsp) provided they have a Bonita account and their password is different from their username. +
 If only a limited group of users need to bypass kerberos authentication method you can restrain it by setting the property `kerberos.auth.standard.allowed` to false and setting the property `auth.tenant.standard.whitelist` with the list of authorized usernames (comma separated).
 
-. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_portal`,
+. In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal`,
 edit the spnego-config.properties file as follows:
 +
 [source,properties]
@@ -239,7 +237,7 @@ edit the spnego-config.properties file as follows:
 +
 Make sure to set your principal user name and password.
 +
-. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenants/<TENANT_ID>/tenant_engine/`
+. In the tenant_engine folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenant_engine/`
 edit the file bonita-tenant-sp-custom.properties as follows:
 +
 [source,properties]
@@ -299,7 +297,7 @@ Note that if you try to access `http ://<bundle host>:<port>/bonita/login.jsp`, 
 == Logout behavior
 
 The most commonly used solution is to hide the logout button from the Bonita Layout. Users are logged in as long as they don't close their web browser and their session does not time out. +
-To do this, set the `logout.link.hidden` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_template_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_template_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenants/[TENANT_ID]/tenant_portal/`.
+To do this, set the `logout.link.hidden` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal/`.
 
 == Troubleshooting
 

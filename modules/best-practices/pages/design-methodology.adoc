@@ -67,7 +67,7 @@ Here again, the negotiation between the need and how it can be efficiently rende
 When the UI mockups are precise enough from the workshops, they are ready to be implemented in Bonita:
 
 * For forms: from the pool _Execution_ properties (instantiation form and case overview), and human tasks (task forms)
-* For application pages: directly from the UI Designer
+* For application pages: directly from the UI Builder
 
 ==== Business Data Model
 

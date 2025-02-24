@@ -13,17 +13,19 @@ asciidoc:
     javadocVersion: '10.3'
     keycloakDocumentationVersion: 21.1.2
     openApiUrl: 'https://api-documentation.bonitasoft.com'
-    cscRootUrl: https://csc.bonitacloud.bonitasoft.com/apps/CustomerServices
+    cscSupportTeamUrl: https://csc.bonitacloud.bonitasoft.com
+    cscRootUrl: 'https://csc.bonitacloud.bonitasoft.com'
+    cscCustomerServices: '{cscRootUrl}/apps/CustomerServices'
     cscDownloadUrl: '{cscRootUrl}/downloads'
     cscLicenseUrl: '{cscRootUrl}/licenses'
     # UI Builder attributes
-    bonita-ui-builder-version: '1.0.0-beta.3'
+    bonita-ui-builder-version: '1.1.1'
     bonita-ui-builder-image: '{bonitasoft-docker-repository}/bonita-ui-builder'
     bonita-ui-proxy-image: '{bonitasoft-docker-repository}/bonita-ui-proxy'
     # ref versions of other components
     bcdDocVersion: '4.0'
     testToolkitVersion: '3.0'
-    openApiLatestVersion: '0.0.20' # latest compatible version of bonita openApi with this Bonita version
+    openApiLatestVersion: '1.0.2' # latest compatible version of bonita openApi with this Bonita version
     # page attributes (global configuration)
     page-pagination: true # display links to previous/next pages at the bottom of the page
     page-editable: true

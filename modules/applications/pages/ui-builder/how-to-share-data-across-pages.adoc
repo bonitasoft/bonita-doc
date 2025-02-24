@@ -1,6 +1,6 @@
 = How to store and share data across pages
 :page-aliases: applications:how-to-share-data-across-pages.adoc
-:description: Learn how to store and send data through you application's pages
+:description: Learn how to store and send data through your application's pages
 
 {description}
 

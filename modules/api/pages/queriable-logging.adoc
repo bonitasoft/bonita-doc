@@ -42,7 +42,7 @@ The queriable logger service stores log message in the Bonita Engine back-end da
 
 == Disabling the Queriable logger
 
-Each queriable log type can be turned off individually with its associated property. The properties must be listed into the `/setup/platform_conf/current/tenants/[tenantId]/tenant_engine/bonita-tenant-sp-custom.properties` file.
+Each queriable log type can be turned off individually with its associated property. The properties must be listed into the `/setup/platform_conf/current/tenant_engine/bonita-tenant-sp-custom.properties` file.
 
 === Find the list of properties
 
@@ -52,7 +52,7 @@ Each queriable log type can be turned off individually with its associated prope
 === Disable the Queriable Logs
 
 . Use the xref:runtime:bonita-platform-setup.adoc[Platform configuration setup tool] to pull the configuration on the disk: `./setup.sh pull`
-. Edit the `/setup/platform_conf/current/tenants/[tenantId]/tenant_engine/bonita-tenant-sp-custom.properties` file.
+. Edit the `/setup/platform_conf/current/tenant_engine/bonita-tenant-sp-custom.properties` file.
 . Add one line per property for each type of queriable log you want to disable, and set it to false, e.g.:
 `bonita.tenant.queriable.log.ACTOR_CREATED.INTERNAL=false`
 `bonita.tenant.queriable.log.APPLICATION_PAGE_DELETED.INTERNAL=false`

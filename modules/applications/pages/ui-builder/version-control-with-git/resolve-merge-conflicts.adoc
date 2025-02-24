@@ -50,7 +50,9 @@ If you merged from the `feature` branch to `staging`, make sure you are on the `
 
 == Resolve conflicts when pulling from a remote branch
 
-Conflicts can also occur when there are changes in your local branch that conflict with changes in the corresponding remote branch. For example, if you're working on a `features' branch, and someone else pushes changes to the remote version of the same branch, you may run into conflicts if you both edited the same files.
+Conflicts can also occur when there are changes in your local branch that conflict with changes in the corresponding remote branch.
+For example, if you're working on a `feature` branch,
+and someone else pushes changes to the remote version of the same branch, you may run into conflicts if you both edited the same files.
 
 image::ui-builder/version-control-with-git/remote-conflicts.png[]
 
@@ -65,7 +67,7 @@ Create a new branch from your local `feature` branch, name it `feature-fix`, and
 * Once the PR is created, scroll down to the bottom of the PR page:
 
 ** If the *Resolve conflicts* button is enabled, you can resolve conflicts directly in the pull request interface by editing the conflicting files.
-** If the *Resolve conflicts* button is disabled, you will need to clone the Git repository to your local machine in order to resolve conflicts using the command line interface. Alternatively, you can use browser-based tools like https://github.com/github/dev[GitHub.dev] or https://docs.gitlab.com/ee/user/project/web_ide/[GitLab Web IDE] to resolve conflicts without leaving your browser.
+** If the *Resolve conflicts* button is disabled, you will need to clone the Git repository to your local machine to resolve conflicts using the command line interface. Alternatively, you can use browser-based tools like https://github.com/github/dev[GitHub.dev] or https://docs.gitlab.com/ee/user/project/web_ide/[GitLab Web IDE] to resolve conflicts without leaving your browser.
 
 [NOTE]
 ====

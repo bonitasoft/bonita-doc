@@ -79,10 +79,10 @@ You can now launch this query from your UI, using a `Button` widget for example.
 
 [NOTE]
 ====
-Viewing is supported only for pdf and image files. For other file types (docx, xlsx, ...), a download prompt will appear.
+Viewing is supported only for PDF and image files. For other file types (docx, xlsx, ...), a download prompt will appear.
 ====
 
-Once the process is instantiated, you may need to display the document later, in another page for example.
+Once the process is instantiated, you may need to display the document later, in another page, for example.
 
 To do this, you need to:
 

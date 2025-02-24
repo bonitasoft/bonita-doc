@@ -8,7 +8,7 @@ Configuring HTTPS for Bonita Runtime and UI Builder can be achieved just by upda
 
 == Prerequisites
 
-To configure HTTPS, you need to obtain a certificate issued by a certificate authority for your domain (you can also use a service to automate renewal of SSL certificates like Let’s Encrypt with Certbot). It is also advised to create a Diffie-Hellman parameters file (dhparam.pem) for increased security (for example on Linux running `openssl dhparam -out /etc/nginx/dhparam.pem 4096`).
+To configure HTTPS, you need to obtain a certificate issued by a certificate authority for your domain (you can also use a service to automate renewal of SSL certificates like Let’s Encrypt with Certbot). It is also advised to create a Diffie-Hellman parameters file (dhparam.pem) for increased security (for example, on Linux running `openssl dhparam -out /etc/nginx/dhparam.pem 4096`).
 
 == Configure Bonita UI Proxy
 
@@ -128,10 +128,10 @@ If you deploy Bonita Runtime Tomcat bundle instead of the docker container, make
 Navigation is broken in Bonita Applications
 
 [.symptom-description]
-302 Redirections are broken in Bonita applications and users get redirected to a URL without HTTPS
+302 Redirections are broken in Bonita applications, and users get redirected to a URL without HTTPS
 
 [.cause]#Cause#
-This issue arises because the incoming requests that are recieved by Bonita Runtime are HTTP requests and not HTTPS (since the reverse proxy is used for SSL offloading)
+This issue arises because the incoming requests that are received by Bonita Runtime are HTTP requests and not HTTPS (since the reverse proxy is used for SSL offloading)
 
 [.solution]#Possible solution#
 Activate the Remote IP Valve on Bonita container as described in the previous section in order for the `X-Forwarded-...` headers to be retrieved as request headers by Bonita Runtime.

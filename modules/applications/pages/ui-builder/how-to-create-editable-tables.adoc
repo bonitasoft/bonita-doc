@@ -26,7 +26,7 @@ As you might be using Bonita UI Builder to create applications that answer compl
 === Via JavaScript objects
 Let’s say you want to add a column whose values are a multiplication of two other columns.
 
-First, go to the `JS` tab (between the `Queries` and `UI` tabs), create a new JS object called *Calculation* and copy paste the following code:
+First, go to the `JS` tab (between the `Queries` and `UI` tabs), create a new JS object called *Calculation* and copy/paste the following code:
 
 [source, JS]
 ----
@@ -38,7 +38,7 @@ export default {
 }
 ----
 
-Click the Table widget (which displays the list of Bonita users). Then click `add new column`, click the wheel icon to customize it and copy paste the following code in the `Computed value` zone: `{{Calculation.calculate(currentRow.manager_id,currentRow.id)}}`
+Click the Table widget (which displays the list of Bonita users). Then click `add new column`, click the wheel icon to customize it and copy/paste the following code in the `Computed value` zone: `{{Calculation.calculate(currentRow.manager_id,currentRow.id)}}`
 
 image:ui-builder/guides/multiplication.gif[multiplication]
 
@@ -53,7 +53,7 @@ In a similar way to what was done in the previous example, create a *Gender* col
 
 == How to dynamically configure cells' color 
 
-You might also want your Table’s cells to have different background colors, defined according specific conditions.
+You might also want your Table’s cells to have different background colors, defined according to specific conditions.
 
 Let’s say you want to color cells depending on the user’s title.
 Click the wheel icon next to the `title` column, go to the `Style` tab, click the `JS` icon next to _Cell background_ and add the following code: 
@@ -63,7 +63,7 @@ Click the wheel icon next to the `title` column, go to the `Style` tab, click th
 image:ui-builder/guides/background_color.gif[background_color]
 
 
-You can also trigger conditions on numbers, for example if the user’s id is superior or equal to 35: `{{currentRow.id >= 35 ? "#fce7f3" : "#dbeafe"}}`
+You can also trigger conditions on numbers, for example, if the user’s id is superior or equal to 35: `{{currentRow.id >= 35 ? "#fce7f3" : "#dbeafe"}}`
 
 
 
@@ -71,7 +71,7 @@ You can also trigger conditions on numbers, for example if the user’s id is su
 
 Editing your data directly from a Table has just become easy with Bonita UI Builder.
 
-Let’s create a table from which we can edit a user's firstname, and propagate these changes to your actual Bonita users.
+Let’s create a table from which we can edit a user's first name, and propagate these changes to your actual Bonita users.
 
 === 1. Create an update request
 
@@ -114,7 +114,7 @@ The Table can now update the user's fistname after clicking `Save`.
 
 [TIP]
 You can also make the `firstname` column editable under conditions. 
-Click the wheel icon next to `firstname`, then click the `JS` icon next to *Editable* and copy paste the following code: 
+Click the wheel icon next to `firstname`, then click the `JS` icon next to *Editable* and copy/paste the following code:
 `{{currentRow.title === "Mrs" ? true : false}}`. 
 This makes it editable only if the user is a _Mrs_.
 
@@ -133,5 +133,5 @@ Your applications can quickly get complex and dense. In this situation, widgets'
 
 Let’s say we want to display a form whenever `last_connection` cells are empty.
 
-To do so, drag and drop a form widget, click the `JS` button next to `Visible` and copy paste the following code: 
+To do so, drag and drop a form widget, click the `JS` button next to `Visible` and copy/paste the following code:
 `{{Table1.selectedRow.last_connection === "" ? true : false}}`

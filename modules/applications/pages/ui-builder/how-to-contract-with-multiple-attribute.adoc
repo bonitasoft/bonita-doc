@@ -58,7 +58,7 @@ export default {
 }
 ----
 
-This simple code allows to create, update and delete contacts.
+This simple code allows creating, updating and deleting contacts.
 
 Now, from the `Settings` tab, enable `Run on page load` for the `getAll` function.
 

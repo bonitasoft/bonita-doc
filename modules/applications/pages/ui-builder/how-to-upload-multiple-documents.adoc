@@ -29,7 +29,7 @@ Even though the default data format is `Base64`, you should select `Binary` as t
 In this example, we don't set a limit for the `Max no. of files` because we're allowing multiple files to be uploaded. However, you can set a limit on the number of files to be uploaded, as well as adjust other properties if needed.
 
 
-=== 2. Create a file upload post request
+=== 2. Create a file upload Post request
 * Go to `Queries` section and create a new query/API and configure it as follows:
 
 image:ui-builder/guides/query-formFileUpload.png[query-formFileUpload]
@@ -68,7 +68,7 @@ These promises are then executed simultaneously using `Promise.all`. Once all up
 The function also includes error handling, logging any errors that occur during the upload process and re-throwing them for further handling.
 
 * Function to upload files
-Add given function below to the JS object after `getFileUpload` function.
+Add the given function below to the JS object after `getFileUpload` function.
 
 [source, JS]
 ----

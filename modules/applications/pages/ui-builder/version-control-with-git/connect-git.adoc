@@ -32,7 +32,7 @@ This section explains how to connect your Bonita UI Builder application to an em
 
 1. Open the Bonita UI Builder application you want to connect to and click on **Connect Git** on the left side of the bottom bar.
 2. Select **GitHub** as the service provider.
-3. Create a new empty Git repository or open an existing one.
+3. Create a new Git repository or open an existing empty repository.
 4. Go to the repository's main page, click on the **Code** button, and copy the **SSH** URL.
 5. Paste the SSH URL into the **Generate SSH Key** field in the Bonita UI Builder.
 6. Click on the **Generate SSH Keys** button to generate unique `ECDSA 256` and `RSA 4096` keys. Select the key type that meets your security requirements and system capabilities.
@@ -51,7 +51,7 @@ This section explains how to connect your Bonita UI Builder application to an em
 
 1. Open the Bonita UI Builder application you want to connect to and click on **Connect Git** on the left side of the bottom bar.
 2. Select **GitLab** as the service provider.
-3. Create a new empty Git repository or open an existing one. See the https://docs.gitlab.com/ee/user/project/index.html[GitLab documentation] for instructions on creating a repository.
+3. Create a new Git repository or open an existing empty repository. See the https://docs.gitlab.com/ee/user/project/index.html[GitLab documentation] for instructions on creating a repository.
 4. Go to the repository's main page, click on the **Code** button, and copy the **SSH** URL.
 5. Paste the SSH URL into the **Generate SSH Key** field in the Bonita UI Builder.
 6. Click on the **Generate SSH Keys** button to generate unique `ECDSA 256` and `RSA 4096` keys. Select the key type that meets your security requirements and system capabilities.
@@ -76,7 +76,7 @@ This section explains how to connect your Bonita UI Builder application to an em
 7. Copy one of the keys, go to **Workspace settings** in Bitbucket, navigate to **SSH keys**, click **Add SSH key**, paste the key and give it a descriptive title.
 8. Back in Bonita UI Builder, click **Connect Git**.
 
-Your application is now be connected to Bitbucket.
+Your application is now connected to Bitbucket.
 ====
 
 .Connect to other Git providers
@@ -86,7 +86,7 @@ This section explains how to connect your Bonita UI Builder application to any o
 
 1. Open the Bonita UI Builder application you want to connect to and click on **Connect Git** on the left side of the bottom bar.
 2. Select **Others** as the service provider.
-3. Create a new empty Git repository or open an existing one.
+3. Create a new Git repository or open an existing empty repository.
 4. Go to the repository's main page and copy the **SSH** URL.
 5. Paste the SSH URL into the **Generate SSH Key** field in the Bonita UI Builder.
 6. Click on the **Generate SSH Keys** button to generate unique `ECDSA 256` and `RSA 4096` keys. When connecting to Azure Repos, select the `RSA 4096` key.

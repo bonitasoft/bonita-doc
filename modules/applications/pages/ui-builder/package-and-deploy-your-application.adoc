@@ -20,15 +20,41 @@ image:ui-builder/advanced-app/export-application.png[Export application]
 Move the exported JSON application(s) in a designated `workspace` folder. This folder will be referenced during the build process.
 You can store these applications in a Git repository too.
 
-=== Build the production binary
+=== Deployment strategies
+
+There are several ways to deploy your application in production:
+
+==== 1. Build the production binary
 
 To create the production-ready binary, you need to build a Docker image. This image will contain the application(s) and the Bonita UI Builder runtime.
 
 The xref:production-packaging.adoc#dockerfile[Dockerfile] and more details on how to build the Docker image can be found in this xref:production-packaging.adoc[dedicated page].
 
+[NOTE]
+====
+This strategy is the most common and recommended way to deploy your application in production. It allows you to be close with the xref:getting-started:package-and-deploy-sca-application.adoc[application packaging] strategy.
+====
+
+==== 2. Use a default UI Builder image and mount and mounted volume
+
+With this strategy, you can use the default Bonita UI Builder image and mount a volume containing your applications.
+
+You don't need to build a new image, but you need to ensure the volume is correctly mounted and declared on the xref:applications:ui-builder/production-packaging.adoc#run-production-binaries [docker compose file].
+
+[source, yaml]
+----
+    volumes:
+      - <local-path>:/opt/appsmith/workspace/applications
+----
+
+[WARNING]
+--
+This strategy doesn't set by default the `BONITA_DEV_MODE` to `false`. You need to set it manually in the environment variables in a docker compose file.
+--
+
 === Run the production binary
 
-After building the Docker image, run it by following xref:production-packaging.adoc#run-production-binaries[the specific instructions].
+Run it by following xref:production-packaging.adoc#run-production-binaries[the specific instructions].
 
 === Access your Application
 
@@ -42,7 +68,7 @@ Then, these applications can be accessed from the Bonita Administrator Applicati
 
 === Grant permissions for your application
 
-In order to ensure correct access to your production application and its resources (i.e. widgets, data...), you need to check and xref:ui-builder/how-to-declare-permissions-for-rest-api-request.adoc[grant the necessary permissions] for users or profiles. This is needed if your application is performing requests to Bonita REST API.
+In order to ensure correct access to your production application and its resources (i.e., widgets, data...), you need to check and xref:ui-builder/how-to-declare-permissions-for-rest-api-request.adoc[grant the necessary permissions] for users or profiles. This is needed if your application is performing requests to Bonita REST API.
 
 [.troubleshooting-title]
 == Troubleshooting
@@ -50,14 +76,14 @@ In order to ensure correct access to your production application and its resourc
 [.troubleshooting-section]
 --
 [.symptom]
-After building and running the Bonita UI Builder, at least one application are missing.
+After building and running the Bonita UI Builder, at least one application is missing.
 
 [.cause]#Cause#
-The application is on error and the Bonita UI Builder is not able to import and deploy the application.
+The application is on error, and the Bonita UI Builder is not able to import and deploy the application.
 
 [.solution]#Solution#
 Check the log of the bonita-ui-builder container with `docker logs <container-name>` to find which application is on error.
-Then fix your application and be sure your export are compatible and a valid JSON.
+Then fix your application and be sure your export is compatible and a valid JSON.
 --
 
 [.troubleshooting-section]
