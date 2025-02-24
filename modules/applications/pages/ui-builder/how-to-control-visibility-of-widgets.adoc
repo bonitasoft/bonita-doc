@@ -1,4 +1,4 @@
-= How to control visibility of your widgets
+= How to control the visibility of your widgets
 :page-aliases: applications:how-to-control-visibility-of-widgets.adoc
 :description: Learn how to set conditions to make your widgets visible or not
 
@@ -14,7 +14,7 @@
 Widgets' visibility can be controlled by JavaScript. 
 
 === On text widgets 
-Let’s say you want to make a widget visible on specific conditions, for example if another widget contains a specific string. 
+Let’s say you want to make a widget visible on specific conditions, for example, if another widget contains a specific string.
 Click the `JS` button on your widget’s settings:
 
 image:ui-builder/guides/js-button-disabled.png[js-button-disabled]

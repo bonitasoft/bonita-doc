@@ -7,15 +7,19 @@
 == Generic information
 
 === What is Bonita UI Builder? 
-Bonita UI Builder (sometimes abbreviated UIB) is a development environment used for creating all kinds of interfaces, whether they are pages or forms or else, that make up an Application. It is a web-based tool that is launched from a Bonitasoft custom docker image. Introduced in the 2024.3 version, it is the new standard used in the Bonita ecosystem for designing interfaces.
+Bonita UI Builder (sometimes abbreviated UIB) is a development environment used for creating all kinds of interfaces,
+whether they are pages or forms or else; that make up an Application.
+It is a web-based tool launched from a Bonitasoft custom docker image.
+Introduced in the 2024.3 version, it is the new standard used in the Bonita ecosystem for designing interfaces.
 
 
 === How to subscribe? 
 Bonita UI Builder is available by default and for no additional cost in all https://www.bonitasoft.com/pricing[Scale subscriptions]. It is also available as a payable add-on in https://www.bonitasoft.com/pricing[Access subscriptions].
 
 
-=== How to use? 
-Please refer to the xref:initiation-manual.adoc[initiation manual]. If you have any other additional questions, reach out to our https://csc.bonitacloud.bonitasoft.com[Support team].
+=== How to use?
+[subs=+macros]
+Please refer to the xref:initiation-manual.adoc[initiation manual]. If you have any other additional questions, reach out to our {cscSupportTeamUrl}[Support team].
 
 
 === What are the system requirements? 
@@ -33,14 +37,14 @@ Eventually, Bonita UI Designer will be phased out as we fully transition to Boni
 
 * Continued access: Bonita UI Designer will remain fully operational for an extended period, allowing ample time for adaptation.
 * Support and resources: We offer extensive documentation, tutorials, and support to help you make the most of xref:bonita-ui-builder.adoc[Bonita UI Builder]
-* Facilitated transition: We are dedicated to facilitate the transition, with detailed guides on how to use Bonita UI Builder, as well as https://www.bonitasoft.com/professional-services/on-demand-services[professional services support]
+* Facilitated transition: We are dedicated to facilitating the transition, with detailed guides on how to use Bonita UI Builder, as well as https://www.bonitasoft.com/professional-services/on-demand-services[professional services support]
 
 
 === Can I expect any support from Bonitasoft?
 Yes, you can!
 
 * Support and resources: We offer extensive documentation, tutorials, and support to help you make the most of xref:bonita-ui-builder.adoc[Bonita UI Builder].
-* Facilitated transition: We are dedicated to facilitate the transition, with detailed guides on how to use Bonita UI Builder, as well as https://www.bonitasoft.com/professional-services/on-demand-services[professional services support].
+* Facilitated transition: We are dedicated to facilitating the transition, with detailed guides on how to use Bonita UI Builder, as well as https://www.bonitasoft.com/professional-services/on-demand-services[professional services support].
 
 
 == Versions and Subscriptions
@@ -60,8 +64,8 @@ Yes, it is. Reach out to your customer service representative to explore how you
 
 == Features and Technical
 
-=== Can I have applications made with UI Designer and UI Builder coexist on the same runtime?
-Yes you can! You will need to declare both kind of applications in the xref:builder-declare-interface-in-bonita.adoc[application descriptor]. 
+=== Can I have applications made with UI Designer and UI Builder coexisting on the same runtime?
+Yes, you can! You will need to declare both kinds of applications in the xref:builder-declare-interface-in-bonita.adoc[application descriptor].
 However, we do not recommend embedding a UI Designer application inside an iframe widget within a UI Builder application.
 
 
@@ -78,7 +82,7 @@ Yes. We conducted a security audit with cybersecurity experts, and no vulnerabil
 
 
 === Can I use other datasources than Bonita’s? 
-Yes you can. You can call external REST APIs, GraphQL APIs and PostgreSQL databases.
+Yes, you can. You can call external REST APIs, GraphQL APIs and PostgreSQL databases.
 
 WARNING: Avoid using the DB datasource to connect to a Bonita database. Use the Bonita API datasource instead.
 
@@ -158,7 +162,7 @@ WARNING: Avoid using the DB datasource to connect to a Bonita database. Use the 
 No, the UI Builder node cannot be deployed with redundancy. Currently, only a single container instance is supported, which means multiple instances for redundancy are not allowed.
 
 === Is it possible to deploy UI Builder on EKS?
-Yes, it is totally possible. Note however that currently, only a single container instance is supported, which means multiple instances for redundancy are not allowed.
+Yes, it is totally possible. Note, however, that currently, only a single container instance is supported, which means multiple instances, for redundancy, are not allowed.
 
 === Can multiple users collaborate on the same local Bonita UI Builder development server?
 No, the local Bonita UI Builder server is mono-user, meaning it only supports one Bonita user account at a time. To collaborate, each user should run their own local server and work with a shared Git repository for syncing and integrating their changes.
@@ -195,7 +199,7 @@ Fix this by using `custompage_layoutBonita` as the layout value, which will auto
 
 You may also encounter this issue if you use a xref:ui-designer/customize-layouts.adoc[customized layout] instead of the official one. In that case, update your application's layout by re-applying your modifications to the latest layout version that implements the improvements for Application Links.
 
-The same applies to the Application directory page that is used in the default application directory app: if you use a customized version of it, you need to re-apply your changes on the latest version packaged with Bonita runtime.
+The same applies to the Application directory page used in the default application directory app: if you use a customized version of it, you need to re-apply your changes on the latest version packaged with Bonita runtime.
 --
 
 [#WSLissue]

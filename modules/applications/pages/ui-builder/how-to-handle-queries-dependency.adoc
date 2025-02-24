@@ -17,7 +17,7 @@ For example, if you want to get the list of users and display the manager of the
 
 Note: make sure the first user has a manager. If not, choose another user.
 
-Since you want to get this information on page load, you *may* have an issue if the second API call is executed *before* the first one is done.
+Since you want to get this information on a page load, you *may* have an issue if the second API call is executed *before* the first one is done.
 
 To handle this kind of situation, let's do the following.
 
@@ -51,13 +51,13 @@ On the interface, drag and drop a Text widget and set its text to `{{First user:
 
 Then, drag and drop a second Text widget and set its text to `{{Manager: {{getManagerOfFirstUser.data.lastname}}}}`.
 
-Reload the page and *if the second query is called first* you should get an error: `The action "getManagerOfFirstUser" has failed`.
+Reload the page, and *if the second query is called first* you should get an error: `The action "getManagerOfFirstUser" has failed`.
 
 To solve this (potential) issue, we will create a JS Object that will run the queries in the right order.
 
 == 3. Create a JS object
 
-Go to the `JS` tab (between `Queries` and `UI`), create a new JS Object called “runQueries” and copy paste the following code:
+Go to the `JS` tab (between `Queries` and `UI`), create a new JS Object called “runQueries” and copy/paste the following code:
 
 [source, JS]
 ----
@@ -73,7 +73,7 @@ The first query is called synchronously (`await` keyword), and the second one is
 
 Now, from the `Settings` tab, enable the `Run on page load` option.
 
-== 4. Disable the running on page load for the queries
+== 4. Disable the running on a page load for the queries
 
 For the 2 queries, from the `Settings` tab, set the `Run API on page load` option to `false`.
 

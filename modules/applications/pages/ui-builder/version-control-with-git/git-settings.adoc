@@ -34,7 +34,37 @@ In this section, you can change the name and email associated with the git autho
 
 ==== Danger Zone
 
-This section contains critical Git settings, such as disconnecting Git from the Bonita UI Builder.
+This section contains critical Git settings, such as disabling auto-commit or disconnecting Git from the Bonita UI Builder.
+
+===== Disable Auto-Commit
+
+The Auto Commit feature in Bonita UI Builder ensures that changes related to version upgrades are automatically committed. When enabled, it performs the following actions:
+
+* Automatically commits changes to a non-protected branch when you open it in your application. If the application is not in active use, auto-commit does not occur.
+
+* Commits only the changes related to Bonita UI Builder's Domain Specific Language (DSL) components, excluding any specific application changes.
+
+If you disable auto-commit, it prevents automatic changes from Bonita UI Builder, potentially resulting in uncommitted system changes after a Bonita UI Builder instance upgrade. This may require manual handling and could lead to discrepancies in Git versioning.
+
+.*Example*
+[%collapsible]
+====
+When Bonita UI Builder updates its version and automatically commits changes, only updates related to the table widget-such as new properties or methods-are committed. Your customizations, such as styling or data updates, are not affected. DSL-related changes can be found in your Git repository in the appropriate page folder.
+
+[json]
+----
+//example dsl code
+"dsl": {
+    "widgetName": "MainContainer",
+    "parentRowSpace": 1,
+    "type": "CANVAS_WIDGET",
+    "canExtend": true,
+    "version": 89,
+    "minHeight": 1292,
+    "parentColumnSpace": 1,
+},
+----
+====
 
 ===== Disconnect Git
 

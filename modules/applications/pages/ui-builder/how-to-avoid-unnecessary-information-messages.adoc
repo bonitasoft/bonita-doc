@@ -8,13 +8,13 @@
 * Prerequisites: have an application on Bonita UI Builder
 * Estimated time: 5 minutes
 
-Imagine you're importing a page into an existing application, and Bonita UI Builder notifies you that the page has been partially imported, displaying some errors, warnings, or informational messages.
+Imagine you are importing a page into an existing application and Bonita UI Builder notifies you that the page has been partially imported and displays some errors, warnings, or informational messages.
 
 == Concerning the Queries
 
 image:ui-builder/guides/partially-imported.png[partially-imported]
 
-To resolve this,
+To resolve this:
 
  * Navigate to the Queries section and select the query from the sidebar that is causing the issue
  * Go to the Settings tab
@@ -23,7 +23,7 @@ To resolve this,
 
 image:ui-builder/guides/run-on-page-load.png[run-on-page-load]
 
-This will resolve the issue if it was caused by queries that were supposed to be executed on page load.
+This will resolve the issue if it was caused by queries that were supposed to be executed on a page load.
 
 
 == Concerning JavaScript objects
@@ -39,5 +39,5 @@ image:ui-builder/guides/run-js-on-page-load.png[run-js-on-page-load]
 
 [NOTE]
 ====
-Ensure that any conditional logic used in these queries or functions (e.g., using `if` conditions to decide whether they should run) is correct and returns `true` on page load.
+Ensure that any conditional logic used in these queries or functions (e.g., using `if` conditions to decide whether they should run) is correct and returns `true` on a page load.
 ====

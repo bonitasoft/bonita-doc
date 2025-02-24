@@ -15,7 +15,7 @@ services:
 
   # A reverse proxy used to communicate between Bonita UI Builder and a Bonita Runtime
   bonita-ui-proxy:
-    image: pass:a[{bonita-ui-proxy-image}]:latest
+    image: pass:a[{bonita-ui-proxy-image}]:pass:a[{bonita-ui-builder-version}]
     ports:
       - 443:443
       - 80:80
