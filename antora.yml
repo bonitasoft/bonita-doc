@@ -9,7 +9,7 @@ asciidoc:
     bonitaTechnicalVersion: '7.15.0' # latest public community version
     javadocVersion: 7.15
     keycloakDocumentationVersion: 21.1.2
-    cscRootUrl: https://csc.bonitacloud.bonitasoft.com/
+    cscRootUrl: 'https://csc.bonitacloud.bonitasoft.com'
     cscCustomerServices: '{cscRootUrl}/apps/CustomerServices'
     cscDownloadUrl: '{cscCustomerServices}/downloads'
     cscLicenseUrl: '{cscCustomerServices}/licenses'
