@@ -271,6 +271,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.concurrent.Callable;
 
+import org.bonitasoft.engine.api.APIClient;
 import org.bonitasoft.engine.api.ProcessRuntimeAPI;
 import org.bonitasoft.engine.bpm.flownode.ActivityInstance;
 import org.bonitasoft.engine.bpm.flownode.ActivityInstanceSearchDescriptor;
