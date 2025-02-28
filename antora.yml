@@ -11,11 +11,10 @@ asciidoc:
     javadocVersion: '10.2'
     keycloakDocumentationVersion: 21.1.2
     openApiUrl: 'https://api-documentation.bonitasoft.com'
-    cscSupportTeamUrl: https://csc.bonitacloud.bonitasoft.com
     cscRootUrl: 'https://csc.bonitacloud.bonitasoft.com'
     cscCustomerServices: '{cscRootUrl}/apps/CustomerServices'
-    cscDownloadUrl: '{cscRootUrl}/downloads'
-    cscLicenseUrl: '{cscRootUrl}/licenses'
+    cscDownloadUrl: '{cscCustomerServices}/downloads'
+    cscLicenseUrl: '{cscCustomerServices}/licenses'
     # UI Builder attributes
     bonita-ui-builder-version: '1.2.0'
     bonita-ui-builder-image: '{bonitasoft-docker-repository}/bonita-ui-builder'

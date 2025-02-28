@@ -6,31 +6,31 @@
 
 == Generic information
 
-=== What is Bonita UI Builder? 
+=== What is Bonita UI Builder?
 Bonita UI Builder (sometimes abbreviated UIB) is a development environment used for creating all kinds of interfaces,
 whether they are pages or forms or else; that make up an Application.
 It is a web-based tool launched from a Bonitasoft custom docker image.
 Introduced in the 2024.3 version, it is the new standard used in the Bonita ecosystem for designing interfaces.
 
 
-=== How to subscribe? 
+=== How to subscribe?
 Bonita UI Builder is available by default and for no additional cost in all https://www.bonitasoft.com/pricing[Scale subscriptions]. It is also available as a payable add-on in https://www.bonitasoft.com/pricing[Access subscriptions].
 
 
 === How to use?
 [subs=+macros]
-Please refer to the xref:initiation-manual.adoc[initiation manual]. If you have any other additional questions, reach out to our {cscSupportTeamUrl}[Support team].
+Please refer to the xref:initiation-manual.adoc[initiation manual]. If you have any other additional questions, reach out to our {cscRootUrl}[Support team].
 
 
-=== What are the system requirements? 
+=== What are the system requirements?
 Your system/server should have the following configuration for optimal performance: 2 virtual CPU and 4 GB of memory
 
 
-=== What does it mean for my workflows? 
+=== What does it mean for my workflows?
 There should be no change in your logic, continuous integration, and workflows. You can still manage them the way you’re managing them today. Just download the docker image and follow the xref:initiation-manual.adoc[initiation manual].
 
 
-=== What does it mean for my existing forms and pages? 
+=== What does it mean for my existing forms and pages?
 Your existing forms and pages will always be compatible with Bonita. It is also possible to have UI Designer and UI Builder pages coexist within the same Bonita instance to enable a smooth transition.
 
 Eventually, Bonita UI Designer will be phased out as we fully transition to Bonita UI Builder. Our goal is to make this transition as smooth as possible, minimizing any disruption to your workflow:
@@ -49,7 +49,7 @@ Yes, you can!
 
 == Versions and Subscriptions
 
-=== I am using the Open source edition of Bonita, can I use Bonita UI Builder? 
+=== I am using the Open source edition of Bonita, can I use Bonita UI Builder?
 Unfortunately, no. You’ll need to either use Bonita UI Designer or design your interfaces with the language or tool of your choice and integrate them to Bonita. Upgrade to an Access or Scale edition if you want to use Bonita UI Builder.
 
 
@@ -57,7 +57,7 @@ Unfortunately, no. You’ll need to either use Bonita UI Designer or design your
 Bonita UI Builder is compatible with all Bonita versions starting from 2024.3.
 
 
-=== Is Bonita UI Builder Bonita Cloud compatible? 
+=== Is Bonita UI Builder Bonita Cloud compatible?
 Yes, it is. Reach out to your customer service representative to explore how you can migrate to Bonita Cloud.
 
 
@@ -81,7 +81,7 @@ It is a tag used to describe an Application made with Bonita UI Builder in the S
 Yes. We conducted a security audit with cybersecurity experts, and no vulnerabilities were found within the scope of Bonita UI Builder.
 
 
-=== Can I use other datasources than Bonita’s? 
+=== Can I use other datasources than Bonita’s?
 Yes, you can. You can call external REST APIs, GraphQL APIs and PostgreSQL databases.
 
 WARNING: Avoid using the DB datasource to connect to a Bonita database. Use the Bonita API datasource instead.
