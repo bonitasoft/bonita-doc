@@ -10,8 +10,10 @@ The following example shows how to use a list method to see the archived activit
 
 [source,java]
 ----
+final APIClient apiClient = new APIClient();
+apiClient.login(username, password);
 List<ArchivedActivityInstance> archivedActivityInstances =
-    TenantAPIAccessor.getProcessAPI(session).getArchivedActivityInstances(instance.getId(), 0, 100, ActivityInstanceCriterion.NAME_ASC);
+    apiClient.getProcessAPI().getArchivedActivityInstances(instance.getId(), 0, 100, ActivityInstanceCriterion.NAME_ASC);
 ----
 
 The advantage of using list is that it is a single query, so has better performance. It is also simpler to code.
@@ -22,9 +24,11 @@ The following example shows how to use a search method to see the archived activ
 
 [source,java]
 ----
+final APIClient apiClient = new APIClient();
+apiClient.login(username, password);
 SearchOptionsBuilder searchBuilder = new SearchOptionsBuilder(0, 100);
 searchBuilder.sort(ArchivedActivityInstanceSearchDescriptor.NAME, Order.ASC);
-SearchResult<ArchivedActivityInstance> archActivityResult = TenantAPIAccessor.getProcessAPI(session).searchArchivedActivities(searchBuilder.done());
+SearchResult<ArchivedActivityInstance> archActivityResult = apiClient.getProcessAPI().searchArchivedActivities(searchBuilder.done());
 ----
 
 The advantage of using search is that you can specify filters to get a more precise set of results, which can be more efficient. Several filters can be added. By default, an implicit AND clause is added when several filters are added. If the need is different,
@@ -38,7 +42,7 @@ SearchOptionsBuilder searchBuilder = new SearchOptionsBuilder(0, 100);
 searchBuilder.filter(ArchivedActivityInstanceSearchDescriptor.ROOT_PROCESS_INSTANCE_ID, processInstance.getId());
 searchBuilder.filter(ArchivedActivityInstanceSearchDescriptor.ASSIGNEE_ID, myUser.getId());
 searchBuilder.sort(ArchivedActivityInstanceSearchDescriptor.NAME, Order.ASC);
-SearchResult<ArchivedActivityInstance> archActivityResult = TenantAPIAccessor.getProcessAPI(session).searchArchivedActivities(searchBuilder.done());
+SearchResult<ArchivedActivityInstance> archActivityResult = apiClient.getProcessAPI().searchArchivedActivities(searchBuilder.done());
 ----
 
 Below is another example of a more complex search filtering.

@@ -68,12 +68,12 @@ There is also a high-level xref:ROOT:rest-api-overview.adoc[Web REST API], inten
 
 The Bonita Engine APIs can be accessed locally or remotely, in the following modes:
 
-* Local: the client accesses the server directly in local mode
+* Local: the client accesses the server directly in local mode (both are running under the same JVM)
 * HTTP&#x3A; the client accesses a remote server via HTTP
 
 image::dev_overview_api_access.png[Diagram of API access options]
 
-The mode you use must be specified in the bonita-client-custom.properties file. By default, the access mode is local. This can be used when the client and engine are using the same JVM. The file contains commented out configurations for remote access modes. To change the mode, simply comment out the configuration for local and uncomment the relevant remote configuration.
+The mode you use must be specified, either in the `bonita-client-custom.properties` file, or programmatically (*recommended* way, see next section). By default, the access mode is local. This can be used when the client and engine are using the same JVM. The file contains commented out configurations for remote access modes. To change the mode, simply comment out the configuration for local and uncomment the relevant remote configuration.
 
 There is a slight overhead in using the remote access methods, so you are recommended to use local access whenever it is possible.
 
@@ -81,12 +81,12 @@ There is a slight overhead in using the remote access methods, so you are recomm
 
 == Getting started with the Bonita Engine APIs
 
-Before you run a Bonita application, configure how the application (client) accesses the Bonita Engine (server). For a HTTP access it can be done using following code:
+Before you run a Bonita application, configure how the application (client) accesses the Bonita Engine (server). For a HTTP access it can be done using following java code:
 
 [source,java]
 ----
  final Map<String, String> parameters = new HashMap<>();
- if(HTTP.equals(apiType)){
+ if (HTTP.equals(apiType)) {
    parameters.put("server.url", "http://localhost:8080");
    //application name is the name of context, default is bonita
    parameters.put("application.name", "bonita");
@@ -94,24 +94,27 @@ Before you run a Bonita application, configure how the application (client) acce
  APITypeManager.setAPITypeAndParams(ApiAccessType.valueOf(apiType), parameters);
 ----
 
-All sequences of API calls start with logging in to create a session then using the AccessorUtil to retrieve the APIs that will be used in the application.
+All sequences of API calls start with logging in (internally, Bonita runtime creates a session) then retrieving the APIs that will be used in the application.
 
-The APIs are retrieved using an accessor. To retrieve the PlatformLoginAPI and the PlatformAPI, use the PlatformAPIAccessor.
-After the platform has been created and initialized, use the TenantAPIAccessor to retrieve the other APIs. The TenantAPIAccessor is used even though there is a single tenant.
+The APIs are retrieved using the APIClient.
 
-The following example shows how to retrieve the LoginAPI, then use it to log in and create a session, then retrieve for API for that session.
-The platform has already been created and initialized and the Engine is started.
+The following example shows how to retrieve the log in, then retrieve the Process API for that session.
+Pre-requisite: the platform has already been created and initialized and the Engine is running.
 
 [source,java]
 ----
-final LoginAPI loginAPI = TenantAPIAccessor.getLoginAPI();
-APISession session = loginAPI.login(userName, password);
-ProcessAPI processAPI = TenantAPIAccessor.getProcessAPI(session);
+// Create a new API client:
+final APIClient apiClient = new APIClient();
+// use it to log in:
+apiClient.login(username, password);
+
+// Then retrieve the Process API:
+final ProcessAPI processAPI = apiClient.getProcessAPI();
 ----
 
 When the application has finished processing, log out to delete the session:
 
 [source,java]
 ----
-loginAPI.logout(session);
+apiClient.logout();
 ----

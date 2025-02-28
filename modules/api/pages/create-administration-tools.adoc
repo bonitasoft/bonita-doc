@@ -41,7 +41,7 @@ public Void call() throws Exception {
 }
 ----
 
-The business logic of this example gets a list of the failed tasks and prints them to standard output. The maximum number of failed activities to retrieve is provided by the class field `nbTodisplay`. The method `printFailedTasks` is doing the actual job of searching for activities whose state is FAILED.
+The business logic of this example gets a list of the failed tasks and prints them to standard output. The maximum number of failed activities to retrieve is provided by the class field `nbToDisplay`. The method `printFailedTasks` is doing the actual job of searching for activities whose state is FAILED.
 
 TIP: Like for any methods in the API listing elements, the `searchActivities` method takes paging information to limit the number of elements to retrieve. This prevents clients from retrieving too much data at the same time and filling up the whole memory.
 This is a common way to avoid users getting `OutOfMemory` errors. It is better to make several successive calls to the API than to retrieve too much data.
@@ -50,14 +50,19 @@ This is a common way to avoid users getting `OutOfMemory` errors. It is better t
 ----
 protected void printFailedTasks() throws BonitaHomeNotSetException,
     		ServerAPIException, UnknownAPITypeException, SearchException {
+    final APIClient apiClient = new APIClient();
+    apiClient.login(username, password);
+    try {
+        ProcessRuntimeAPI taskAPI = (ProcessRuntimeAPI) apiClient.getProcessAPI();
+        SearchOptions failedSearchOptions = new SearchOptionsBuilder(0,nbToDisplay)
+            .filter(ActivityInstanceSearchDescriptor.STATE_NAME, ActivityStates.FAILED_STATE)
+            .done();
 
-ProcessRuntimeAPI taskAPI = (ProcessRuntimeAPI) TenantAPIAccessor.getProcessAPI(session);
-SearchOptions failedSearchOptions = new SearchOptionsBuilder(0,nbTodisplay)
-    .filter(ActivityInstanceSearchDescriptor.STATE_NAME, ActivityStates.FAILED_STATE)
-    .done();
-
-SearchResult<ActivityInstance> failedTasks = taskAPI.searchActivities(failedSearchOptions);
-print(failedTasks);
+        SearchResult<ActivityInstance> failedTasks = taskAPI.searchActivities(failedSearchOptions);
+        print(failedTasks);
+    } finally {
+        apiClient.logout();
+    }
 }
 ----
 
@@ -267,19 +272,14 @@ import java.util.List;
 import java.util.concurrent.Callable;
 
 import org.bonitasoft.engine.api.ProcessRuntimeAPI;
-import org.bonitasoft.engine.api.TenantAPIAccessor;
 import org.bonitasoft.engine.bpm.flownode.ActivityInstance;
 import org.bonitasoft.engine.bpm.flownode.ActivityInstanceSearchDescriptor;
 import org.bonitasoft.engine.bpm.flownode.ActivityStates;
-import org.bonitasoft.engine.exception.BonitaHomeNotSetException;
 import org.bonitasoft.engine.exception.SearchException;
-import org.bonitasoft.engine.exception.ServerAPIException;
-import org.bonitasoft.engine.exception.UnknownAPITypeException;
 import org.bonitasoft.engine.platform.LoginException;
 import org.bonitasoft.engine.search.SearchOptions;
 import org.bonitasoft.engine.search.SearchOptionsBuilder;
 import org.bonitasoft.engine.search.SearchResult;
-import org.bonitasoft.engine.session.APISession;
 
 public class ListFailedTasksCmd implements Callable<Void> {
     private static final String ROW_SEPARATOR = "\n";
@@ -287,13 +287,13 @@ public class ListFailedTasksCmd implements Callable<Void> {
 
 	private String userName;
 	private String password;
-	private APISession session;
-	private int nbTodisplay;
+	private APIClient apiClient;
+	private int nbToDisplay;
 
-	public ListFailedTasksCmd(String user, String pass, int nbTodisplay) {
+	public ListFailedTasksCmd(String user, String pass, int nbToDisplay) {
 		userName = user;
 		password = pass;
-		this.nbTodisplay = nbTodisplay;
+		this.nbToDisplay = nbToDisplay;
 	}
 
 	public Void call() throws Exception {
@@ -308,10 +308,10 @@ public class ListFailedTasksCmd implements Callable<Void> {
 
 	protected void printFailedTasks() throws BonitaHomeNotSetException,
 			ServerAPIException, UnknownAPITypeException, SearchException {
-		ProcessRuntimeAPI taskAPI = (ProcessRuntimeAPI) TenantAPIAccessor
-				.getProcessAPI(session);
+		ProcessRuntimeAPI taskAPI = (ProcessRuntimeAPI) apiClient
+				.getProcessAPI();
 		SearchOptions failedSearchOptions = new SearchOptionsBuilder(0,
-				nbTodisplay).filter(
+				nbToDisplay).filter(
 				ActivityInstanceSearchDescriptor.STATE_NAME,
 				ActivityStates.FAILED_STATE).done();
 		SearchResult<ActivityInstance> failedTasks = taskAPI
@@ -345,19 +345,18 @@ public class ListFailedTasksCmd implements Callable<Void> {
 	}
 
 	private void logout() {
-		if (session != null) {
+		if (apiClient != null) {
 			try {
-				TenantAPIAccessor.getLoginAPI().logout(session);
+				apiClient.logout();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 	}
 
-	protected void login() throws LoginException, BonitaHomeNotSetException,
-			ServerAPIException, UnknownAPITypeException {
-		this.session = TenantAPIAccessor.getLoginAPI()
-				.login(userName, password);
+	protected void login() throws LoginException {
+		apiClient = new APIClient();
+        apiClient.login(userName, password);
 	}
 }
 ----

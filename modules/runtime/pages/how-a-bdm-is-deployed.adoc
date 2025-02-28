@@ -96,8 +96,10 @@ Also, DAO interfaces and implementations are generated, to give access to the qu
 [source,java]
 ----
     public com.acme.operations.Invoice findByPersistenceId(Long persistenceId) {
+        APIClient apiClient = new APIClient();
         try {
-            CommandAPI commandApi = org.bonitasoft.engine.api.TenantAPIAccessor.getCommandAPI(session);
+            apiClient.login(username, password);
+            CommandAPI commandApi = apiClient.getCommandAPI();
             Map<String, Serializable> commandParameters = new HashMap<String, Serializable>();
             commandParameters.put("queryName", "Invoice.findByPersistenceId");
             commandParameters.put("returnsList", false);
@@ -108,6 +110,8 @@ Also, DAO interfaces and implementations are generated, to give access to the qu
             return proxyfier.proxify(deserializer.deserialize(((byte[]) commandApi.execute("executeBDMQuery", commandParameters)), com.acme.operations.Invoice.class));
         } catch (Exception e) {
             throw new IllegalArgumentException(e);
+        } finally {
+            apiClient.logout();
         }
     }
 ----

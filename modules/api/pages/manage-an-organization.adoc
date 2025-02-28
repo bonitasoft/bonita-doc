@@ -31,7 +31,9 @@ Only one organization can be loaded in Bonita Engine at a time, so there is no n
 
 [source,groovy]
 ----
-final IdentityAPI identityAPI = TenantAPIAccessor.getIdentityAPI(apiSession)
+final APIClient apiClient = new APIClient()
+apiClient.login(username, password)
+final IdentityAPI identityAPI = apiClient.getIdentityAPI()
 final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100)
 final SearchResult<Group> groupResults = identityAPI(apiSession).searchGroups(builder.done())
 ----
@@ -55,7 +57,7 @@ Deleting a group does not delete the users who belong to it. However, if the act
 
 [source,groovy]
 ----
-final IdentityAPI identityAPI = TenantAPIAccessor.getIdentityAPI(apiSession)
+final IdentityAPI identityAPI = apiClient.getIdentityAPI()
 identityAPI.deleteGroup(groupId)
 ----
 
@@ -65,7 +67,7 @@ This example shows how to add a role to the current organization.
 
 [source,groovy]
 ----
-final IdentityAPI identityAPI = new IdentityAccessor().getIdentityAPI(apiSession)
+final IdentityAPI identityAPI = apiClient.getIdentityAPI()
 final RoleCreator roleCreator = new RoleCreator(name).setDescription(description)
 final Role role = identityAPI.createRole(roleCreator)
 ----
@@ -79,6 +81,6 @@ However, if the actor assignment for a process uses a role that is deleted, the 
 
 [source,groovy]
 ----
-final IdentityAPI identityAPI = TenantAPIAccessor.getIdentityAPI(apiSession)
+final IdentityAPI identityAPI = apiClient.getIdentityAPI()
 identityAPI.deleteRole(roleId)
 ----

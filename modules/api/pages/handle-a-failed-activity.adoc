@@ -41,7 +41,7 @@ In this example, a task has failed because a connector failed to execute.
 The methods that are used to reset process items are in the ProcessManagementAPI, and the details are in the
 https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Javadoc]. These methods are accessed through the ProcessAPI, which extends the ProcessManagementAPI.
 
-First you need to log in, create the session, and get the ProcessAPI:
+First you need to log in and get the ProcessAPI:
 
 [source,groovy]
 ----
@@ -101,7 +101,6 @@ import org.bonitasoft.engine.session.APISession
 import com.bonitasoft.engine.api.APIClient
 import com.bonitasoft.engine.api.LogAPI
 import com.bonitasoft.engine.api.ProcessAPI
-import com.bonitasoft.engine.api.TenantAPIAccessor
 import com.bonitasoft.engine.log.Log
 import com.bonitasoft.engine.log.LogSearchDescriptor
 
