@@ -38,7 +38,6 @@ All profiles are linked to the Bonita Application Directory by default. More inf
 ** platform/jvmDynamic
 ** platform/jvmStatic
 ** platform/systemProperty
-** platform/tenant
 ** living/application
 ** living/application-page
 ** living/application-menu
