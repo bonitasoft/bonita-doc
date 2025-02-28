@@ -13,8 +13,8 @@ asciidoc:
     openApiUrl: 'https://api-documentation.bonitasoft.com'
     cscRootUrl: 'https://csc.bonitacloud.bonitasoft.com'
     cscCustomerServices: '{cscRootUrl}/apps/CustomerServices'
-    cscDownloadUrl: '{cscRootUrl}/downloads'
-    cscLicenseUrl: '{cscRootUrl}/licenses'
+    cscDownloadUrl: '{cscCustomerServices}/downloads'
+    cscLicenseUrl: '{cscCustomerServices}/licenses'
     # ref versions of other components
     bcdDocVersion: '4.0'
     testToolkitVersion: '2.0'
