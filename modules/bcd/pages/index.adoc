@@ -1,7 +1,7 @@
 = Bonita CI/CD suite
 :description: Bonita tools for continuous delivery
 
-:page-aliases: bcd_cli.adoc, bcd_controller.adoc, getting_started.adoc
+:page-aliases: bcd_cli.adoc, bcd_controller.adoc, getting_started.adoc, builder.adoc
 
 
 [NOTE]
