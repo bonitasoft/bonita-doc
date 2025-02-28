@@ -36,7 +36,7 @@ If an `apiSession` attribute exists, this means a user is already authenticated.
 . If the attribute `apiSession` is not set, the user will be redirected to the login page.
 *Note:* Information about the original page the user tried to reach is included in a URL parameter named `redirectURL`.
 The login page URL is determined by the https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-web-server/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java[AuthenticationManager]
-implementation. The implementation to use for the current tenant is configured in a file `authenticationManager-config.properties`
+implementation. The implementation to use is configured in a file `authenticationManager-config.properties`
 (located in `setup/platform_conf/initial/tenant_portal` or `setup/platform_conf/current/tenant_portal` and updatable using the xref:runtime:bonita-platform-setup.adoc[platform setup tool]).
 The default https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-web-server/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java[AuthenticationManager]
 is https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-web-server/src/main/java/org/bonitasoft/console/common/server/auth/impl/standard/StandardAuthenticationManagerImpl.java[StandardAuthenticationManagerImpl].
@@ -45,8 +45,7 @@ Supporting different implementations enables authentication on an external appli
 . `login.jsp` page will ask the user for the username
 and password (HTML form). When submitting the form, a `POST`
 request is sent to `/loginservice`. The request includes the
-username, password, tenant id (if provided in the URL, only applied to
-subscription editions), locale (optional, by priority order: provided
+username, password, locale (optional, by priority order: provided
 in the URL, stored in HTTP cookie) and the `redirectURL`
 information.
 . URL `/loginservice` is handled by https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-web-server/src/main/java/org/bonitasoft/console/common/server/login/servlet/LoginServlet.java[LoginServlet].
@@ -54,7 +53,7 @@ information.
 calls `login` method of https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-web-server/src/main/java/org/bonitasoft/console/common/server/login/LoginManager.java[LoginManager]
 . https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-web-server/src/main/java/org/bonitasoft/console/common/server/login/LoginManager.java[LoginManager]
 searches for an https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-web-server/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java[AuthenticationManager]
-implementation based on configuration file for current tenant (xref:runtime:bonita-platform-setup.adoc[`authenticationManager-config.properties`]). The default https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-web-server/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java[AuthenticationManager]
+implementation based on configuration file (xref:runtime:bonita-platform-setup.adoc[`authenticationManager-config.properties`]). The default https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-web-server/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java[AuthenticationManager]
 is https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-web-server/src/main/java/org/bonitasoft/console/common/server/auth/impl/standard/StandardAuthenticationManagerImpl.java[StandardAuthenticationManagerImpl].
 . `authenticate` method is called on the https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-web-server/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java[AuthenticationManager].
 `authenticate` method of https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-web-server/src/main/java/org/bonitasoft/console/common/server/auth/impl/standard/StandardAuthenticationManagerImpl.java[StandardAuthenticationManagerImpl]
@@ -63,7 +62,7 @@ implementation of this method does nothing (the subsequent engine login is enoug
 . https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-web-server/src/main/java/org/bonitasoft/console/common/server/login/LoginManager.java[LoginManager]
 will then call engine API https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/LoginAPI.html#login(java.lang.String,%20java.lang.String)[LoginAPI.login()]
 . At this point, operations are processed on Bonita Engine side. Engine (see https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-process-engine/src/main/java/org/bonitasoft/engine/api/impl/LoginAPIImpl.java[LoginAPIImpl]
-class) verifies that the username and password are not empty. A verification is also done to validate that the tenant is enabled (use provided tenant id or default one if not provided). Then https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-process-engine/src/main/java/org/bonitasoft/engine/api/impl/LoginAPIImpl.java[LoginAPIImpl]
+class) verifies that the username and password are not empty. Then https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-process-engine/src/main/java/org/bonitasoft/engine/api/impl/LoginAPIImpl.java[LoginAPIImpl]
 will call https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-login/src/main/java/org/bonitasoft/engine/core/login/LoginService.java[LoginService]
 (one implementation available: https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-login/src/main/java/org/bonitasoft/engine/core/login/SecuredLoginServiceImpl.java[SecuredLoginService]).
 . SecuredLoginService calls https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-authentication/src/main/java/org/bonitasoft/engine/authentication/GenericAuthenticationService.java[GenericAuthenticationService].
@@ -74,7 +73,7 @@ verifies that your username and password are valid.
 https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-login/src/main/java/org/bonitasoft/engine/core/login/SecuredLoginServiceImpl.java[SecuredLoginServiceImpl]
 performs an extra check to verify that the provided username exists in the Bonita database (https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-login/src/main/java/org/bonitasoft/engine/core/login/SecuredLoginServiceImpl.java[SecuredLoginServiceImpl]
 does not trust https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-authentication/src/main/java/org/bonitasoft/engine/authentication/impl/AuthenticationServiceImpl.java[AuthenticationServiceImpl]).
-*Note:* A specific behavior applies for the tenant technical user.
+*Note:* A specific behavior applies for the technical admin.
 . https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-login/src/main/java/org/bonitasoft/engine/core/login/SecuredLoginServiceImpl.java[SecuredLoginServiceImpl]
 returns an object that represents the session. This is a server side only object (https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-session/src/main/java/org/bonitasoft/engine/session/model/SSession.java[SSession])
 . Call get back to https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/bpm/bonita-core/bonita-process-engine/src/main/java/org/bonitasoft/engine/api/impl/LoginAPIImpl.java[LoginAPIImpl]
@@ -88,7 +87,7 @@ that will redirect the user to the requested page.
 
 NOTE: If you xref:ROOT:single-sign-on-with-cas.adoc[configure your Bonita platform to use CAS], the logical flow of authentication is the same as above.
 The difference is that at step 7 the CASRemoteLoginManager is used instead of the default loginManager and at step 12 the `JAASGenericAuthenticationServiceImpl` is called instead of the default authentication service, `AuthenticationServiceImpl`.
-The `loginManager-config.properties` file for a tenant controls which login manager and authentication service (`cfg-bonita-authentication-impl.xml`) are used.
+The `loginManager-config.properties` file controls which login manager and authentication service (`cfg-bonita-authentication-impl.xml`) are used.
 
 == Information about sessions
 

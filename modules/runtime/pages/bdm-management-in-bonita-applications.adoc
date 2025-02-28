@@ -20,7 +20,7 @@ The Business Objects must match the structure used by the deployed processes. Ma
 ====
 
 . To import the Business Data Model created in Bonita Studio, first xref:data:define-and-deploy-the-bdm.adoc[export the Business Data Model] from Bonita  Studio where it was designed.
-. In the Bonita Runtime, log in as the technical user (default login 'install', default password 'install').
+. In the Bonita Runtime, log in as the technical administrator (default login 'install', default password 'install').
 . Go to the *Platform maintenance* menu.
 . Click on *Activate maintenance mode* button.
 +
@@ -32,7 +32,7 @@ For Subscription editions, you must have no <<installAccessControl,access contro
 
 To do so:
 
-. Log in as the technical user (default login 'install', default password 'install', or refer to the internal documentation if modified as it should be).
+. Log in as the technical administrator (default login 'install', default password 'install', or refer to the internal documentation if modified as it should be).
 . Go to the _Platform maintenance_ menu.
 . Click on the _Activate maintenance mode_ button.
 
@@ -119,7 +119,7 @@ The easiest way to do it is to first install your new BDM on a clean database. T
 Apply this sql script to your BDM database
 . Restart your Bonita server
 . Install your new BDM the usual way
-. Restart your tenant services
+. Restart your BPM and BDM services (by disabling the maintenance mode)
 
 
 [#installAccessControl]
@@ -135,8 +135,8 @@ It is possible to define Business Data Model access control rules in Bonita Stud
 The Access control rules must match the Business Data model.
 
 . To import the BDM access control rules created in Bonita Studio, first xref:identity:bdm-access-control.adoc[export the Access Control file] from Bonita Studio where it was designed.
-. In the Bonita Runtime, log in as the technical user (default login 'install', default password 'install') or as a user with the administrator profile.
-. As the tenant technical user or as an administrator, go to the *BDM* menu.
+. In the Bonita Runtime, log in as the technical administrator (default login 'install', default password 'install') or as a user with the administrator profile.
+. As the technical admin or as an administrator, go to the *BDM* menu.
 . A page with a section *Business Data Model access control* is displayed.
 . Click *_Install_* to open import popup and choose the file containing the Business Data Model access control definition exported from Bonita Studio, and click on *_Install_*.
 . A successful import message will be displayed.
@@ -165,7 +165,7 @@ There is nothing specific to do in a cluster environment.
 When the BDM is installed / updated in a cluster environment, 2 things occur:
 
 * The BDM database is updated to reflect the model changes. As the database is common for all nodes, there is nothing specific to do in a cluster environment. +
-* The Java classes that map the new model are created / updated and loaded in the JVM classloader (at tenant level). This triggers the refreshing of the tenant classloader of *all nodes of the cluster* automatically.
+* The Java classes that map the new model are created / updated and loaded in the JVM classloader. This triggers the refreshing of the tenant classloader of *all nodes of the cluster* automatically.
 
 With that is mind, the new BDM is fully available, and deploying on a different node a process that makes usage of the new Business Data Model will be available straight away.
 

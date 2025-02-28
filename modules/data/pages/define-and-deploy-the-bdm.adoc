@@ -4,26 +4,21 @@
 
 {description}
 
-The Business Data Model is the definition of the business data that is shared by processes and process-based applications in a tenant. This page explains how to define the Business Data Model and how to deploy it. After the model is defined, you can use it to xref:ROOT:specify-data-in-a-process-definition.adoc[specify the business data used in a process].
+The Business Data Model is the definition of the business data that is shared by processes and process-based applications. This page explains how to define the Business Data Model and how to deploy it. After the model is defined, you can use it to xref:ROOT:specify-data-in-a-process-definition.adoc[specify the business data used in a process].
 
 == Business data model (BDM)
 
-Your business data is the information that is shared between your processes and applications. It is defined as a set of business object in a business data model (BDM). There is one BDM that is used by all processes and applications in a tenant.
-
-[NOTE]
-====
-A BDM is defined at tenant level. It means you can have different BDM per tenant on the same Bonita platform. See <<bdm_storage,BDM data storage>> for more information on how to configure a business data model per tenant.
-====
+Your business data is the information that is shared between your processes and applications. It is defined as a set of business objects in a business data model (BDM). There is one BDM that is used by all processes and applications on the same Bonita platform.
 
 When you define a process, you specify the business objects that are relevant to the process. When a process is instantiated (a case is started), the specified business objects are instantiated as required, becoming variables within the process instance.
 
-You are recommended to use business data instead of process data for any data that has meaning outside of one single process. The business data objects are stored in a database that can be accessed by all applications and processes in a tenant. There is no need to import data from an external system or write it back after a change. The data is automatically stored persistently. It is simple to specify the business objects relevant to a process or task, using Bonita Studio. You can also access a business object programmatically by its data access object (DAO).
+You are recommended to use business data instead of process data for any data that has meaning outside of one single process. The business data objects are stored in a database that can be accessed by all applications and processes. There is no need to import data from an external system or write it back after a change. The data is automatically stored persistently. It is simple to specify the business objects relevant to a process or task, using Bonita Studio. You can also access a business object programmatically by its data access object (DAO).
 
 To design your BDM, you need to consider the following:
 
 * In a BDM, you create predefined business object definitions that represent key concepts which are manipulated by your processes. For example, Orders, Invoices, and Leave requests are be shared by all processes when running in the Bonita Engine during production.
 * A BDM is composed of simple and complex business objects, and the composition and aggregation relationships between them.
-* There is one BDM for a tenant, so it must include all the objects needed. Updating a model must be done with care, so that the changes do not cause problems for deployed processes or applications.
+* There is only one BDM for the entire Bonita platform, so it must include all the objects needed. Updating a model must be done with care, so that the changes do not cause problems for deployed processes or applications.
 * Business objects are instantiated at diagram or process level, not at task or form level.
 
 The <<bdm_spec,BDM specification>> explains the details of what you must configure in a BDM. Use Bonita Studio to <<define_bdm,define a BDM>>.
@@ -114,7 +109,7 @@ When you view a business object in the Bonita Studio business data model wizard,
 
 NOTE: If you are using an Oracle database, do not define an index on a unique constraint attribute. The database creates indexes automatically for unique constraint attributes, so there are problems during execution if you also specify an index on a unique constraint attribute.
 
-In a production environment, indexes are built when a tenant starts or after a new BDM is deployed. In a development environment, indexes are built when Bonita Studio starts and when the Studio BDM wizard is closed.
+In a production environment, indexes are built when the platform starts or after a new BDM is deployed. In a development environment, indexes are built when Bonita Studio starts and when the Studio BDM wizard is closed.
 
 [#compos]
 
@@ -194,7 +189,7 @@ You can use a list business object or variable to create multiple instances of a
 == Define the BDM
 
 You define the BDM using Bonita Studio. It is automatically deployed to the built-in Bonita Engine and available to processes being run from Studio.
-This means that you can have a different BDM in each Studio during development, which enables you to test the BDM before deploying it in your tenant.
+This means that you can have a different BDM in each Studio during development, which enables you to test the BDM before deploying it.
 However, if you are sharing diagrams and other artifacts in development, you need to synchronize BDM definitions, either by exporting your BDM manually for import
 into other development systems, or by using a shared project (not available in the Community edition).
 
@@ -367,7 +362,7 @@ Follow these steps:
 . Right click on your Business Data Model and select *Export*.
 . Select a destination folder.
 . Click *Export*. A file called `bdm.zip` is written to the folder that you specified.
-. Log into the Bonita Runtime as the technical user.
+. Log into the Bonita Runtime as the technical administrator.
 . Go to the *Platform maintenance* page.
 . Click *Activate maintenance mode*.
 . Then, go to the *Business Data Model* menu (and, for Efficiency, Performance and Enterprise editions, choose *Definition*).
@@ -522,13 +517,11 @@ For that, you can use the alternative we provide, by uncommenting the following 
 ----
     <!-- Schema Manager that avoids to update the database schema when updating BDM -->
     <!--
-    <bean id="schemaManager" class="org.bonitasoft.engine.business.data.impl.SchemaManagerReadOnly">
-        <constructor-arg name="loggerService" ref="tenantTechnicalLoggerService" />
-    </bean>
+    <bean id="schemaManager" class="org.bonitasoft.engine.business.data.impl.SchemaManagerReadOnly" />
     -->
 ----
 
-With this alternative, you should carefully update the database before deploying the new BDM version. Otherwise, there are a number of pitfals you may fall into.
+With this alternative, you should carefully update the database before deploying the new BDM version. Otherwise, there are a number of pitfalls you may fall into.
 
 Errors you can get if you:
 

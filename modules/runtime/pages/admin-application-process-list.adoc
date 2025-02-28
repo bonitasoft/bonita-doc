@@ -48,7 +48,7 @@ To resolve a process for actors, parameters, connectors, and forms:
 To resolve a process for business variables:
 
 . Logout
-. Login in Bonita Administrator Portal with the xref:ROOT:tenant_admin_credentials.adoc[technical user credentials]
+. Login in Bonita Administrator Portal with the xref:identity:technical-admin-credentials.adoc[technical administrator credentials]
 . xref:ROOT:platform-maintenance-mode.adoc[Activate the maintenance mode]
 . xref:ROOT:bdm-management-in-bonita-bpm-portal.adoc[Update the BDM]
 . End the maintenance mode

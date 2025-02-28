@@ -114,7 +114,7 @@ This password is used for platform-level administration tasks, such as creating 
 
 ==== Technical administrator
 
-The Bonita platform has a technical administrator, with a specific username and password. The technical administrator was formerly known as the tenant technical user.
+The Bonita platform has a technical administrator, with a specific username and password. The technical administrator was formerly known as the tenant technical administrator.
 
 When the platform is created, default values for the technical administrator username and password are defined in the file xref:runtime:bonita-platform-setup.adoc[`<BUNDLE_HOME>/setup/platform_conf/initial/tenant_engine/bonita-tenant-community-custom.properties`], by the following properties:
 

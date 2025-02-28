@@ -11,7 +11,7 @@ For Teamwork, Efficiency, Performance and Enterprise editions only.
 
 This information applies to a Bonita platform deployed from a bundle, not to the Engine launched from Bonita Studio. `<BUNDLE_HOME>` refers to the root directory of the bundle.
 
-SAML configuration is at tenant level. Each tenant can use a different authentication method (over SAML or not).
+SAML configuration is global to the entire Bonita platform.
 
 [NOTE]
 ====
@@ -52,7 +52,7 @@ Bonita "username" should match the NameId or one of the attributes returned by t
 
 == Configure Bonita Bundle for SAML
 
-You need to execute the following actions in the folder of each tenant for which you want to support authentication over SAML. Files are located in `<BUNDLE_HOME>/setup/platform_conf/current/setup/platform_conf/current/tenant_*` (if you have not started the Bonita bundle yet, the files are located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_*`)
+You need to execute the following actions in the folder for which you want to support authentication over SAML. Files are located in `<BUNDLE_HOME>/setup/platform_conf/current/setup/platform_conf/current/tenant_*` (if you have not started the Bonita bundle yet, the files are located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_*`)
 
 The bundle already contains the files needed to use SAML with Bonita platform.
 To configure Bonita for SAML:
@@ -60,7 +60,7 @@ To configure Bonita for SAML:
 . If you do not already have one:
  .. Download a Subscription edition bundle from the {cscDownloadUrl}[Customer Service Center]
  .. xref:runtime:tomcat-bundle.adoc[Configure] it as needed
- .. Run it a first time, so that the first default tenant is created (TENANT_ID = 1)
+ .. Run it a first time, so that the Bonita platform is created
  .. Stop it before modifying the configuration files below
 . In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal`,
 edit the authenticationManager-config.properties as follows:

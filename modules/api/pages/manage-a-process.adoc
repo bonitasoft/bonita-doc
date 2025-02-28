@@ -296,7 +296,7 @@ System.out.println("A new process was deployed with id: " + processDefinition.ge
 
 Once the process is deployed, it's necessary to *map the actors* defined in the process to existing users in the database before enabling the process.
 In this example, the actor defined in the process will be mapped to the current logged in user, whose id is available in the session
-(attention, this user cannot be the technical user):
+(attention, this user cannot be the technical administrator):
 
 [source,java]
 ----
