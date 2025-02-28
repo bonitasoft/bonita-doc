@@ -244,7 +244,6 @@ platform_conf
 │  │  └── hazelcast.xml
 │  ├── platform_portal
 │  │  ├── cache-config.xml
-│  │  ├── platform-tenant-config.properties
 │  │  └── security-config.properties
 │  ├── tenant_engine
 │  │  ├── bonita-tenant-community-custom.properties
@@ -285,7 +284,6 @@ platform_conf
 │  ├── PLATFORM_ENGINE_VERSION
 │  ├── platform_portal
 │  │  ├── cache-config.xml
-│  │  ├── platform-tenant-config.properties
 │  │  └── security-config.properties
 │  ├── tenant_engine
 │  │  ├── bonita-tenant-community-custom.properties

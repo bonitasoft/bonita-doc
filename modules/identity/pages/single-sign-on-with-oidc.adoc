@@ -362,7 +362,7 @@ However, when you create a user in Bonita Applications, specifying a password is
 
 If you are using an LDAP service and the xref:ROOT:ldap-synchronizer.adoc[LDAP synchronizer] to manage your user data, +
 you can continue to do this and manage authentication over OIDC. +
-The LDAP synchronizer user must be registered in Bonita (no need for an OIDC account). It is recommended though to use the tenant admin account.
+The LDAP synchronizer user must be registered in Bonita (no need for an OIDC account). It is recommended though to use the technical admin account.
 We recommend that you use LDAP as your master source for information, synchronizing the relevant information with your Bonita platform.
 
 [NOTE]
