@@ -62,7 +62,6 @@ This user is linked to the Bonita Super Administrator Application by default. Mo
 ** userXP/bonitaPage
 ** system/session
 ** system/log
-** system/tenant
 ** system/feature
 ** system/license
 ** system/monitoring
@@ -141,7 +140,6 @@ This user is linked to the Bonita Super Administrator Application by default. Mo
 ** portal/page
 ** userXP/profile
 ** userXP/profileEntry
-** system/tenant
 ** platform/platform
 ** platform/tenant
 ** living/application

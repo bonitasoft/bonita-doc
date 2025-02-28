@@ -30,7 +30,6 @@ All profiles are linked to the Bonita Application Directory by default. More inf
 ** customuserinfo/value
 ** system/session
 ** system/log
-** system/tenant
 ** system/feature
 ** system/monitoring
 ** system/i18nlocale
