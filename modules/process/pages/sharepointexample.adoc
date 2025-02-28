@@ -23,9 +23,9 @@ You can use the POST connector and generate a token that you can then use for ot
 The URL to call is:
 [source,groovy]
 ----
-https://login.microsoftonline.com/' + sharepointAccount +'/oauth2/v2.0/token
+https://login.microsoftonline.com/' + sharepointTenant +'/oauth2/v2.0/token
 ----
-where sharepointAccount should contain your account name (such as abcdef.microsoft.com).
+where sharepointTenant should contain your tenant name (such as abcdef.microsoft.com).
 You need to use `application/x-www-form-urlencoded` as the Content Type, and your Payload could be as follows:
 [source,groovy]
 ----
