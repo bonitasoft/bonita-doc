@@ -15,7 +15,7 @@ image:UI2021.1/bdm-management.png[BDM in UI]
 [WARNING]
 ====
 
-Only one model can be deployed at a time in the Bonita Runtime, so make sure it contains the Business Object definitions used in all processes that will run within this tenant.
+Only one model can be deployed at a time in the Bonita Runtime, so make sure it contains the Business Object definitions used in all processes that will run.
 The Business Objects must match the structure used by the deployed processes. Make sure that when modifying the Business Data Model, the processes are modified accordingly.
 ====
 
@@ -77,6 +77,7 @@ This limitation is well known and will be addressed in a future Bonita version.
 ====
 
 
+[#_limitations]
 === Limitations
 
 Regarding the *deployment of a new version of the BDM*, `Hibernate hbm2ddl` can handle certain changes, but not all
@@ -165,7 +166,7 @@ There is nothing specific to do in a cluster environment.
 When the BDM is installed / updated in a cluster environment, 2 things occur:
 
 * The BDM database is updated to reflect the model changes. As the database is common for all nodes, there is nothing specific to do in a cluster environment. +
-* The Java classes that map the new model are created / updated and loaded in the JVM classloader. This triggers the refreshing of the tenant classloader of *all nodes of the cluster* automatically.
+* The Java classes that map the new model are created / updated and loaded in the JVM classloader. This triggers the refreshing of the classloader of *all nodes of the cluster* automatically.
 
 With that is mind, the new BDM is fully available, and deploying on a different node a process that makes usage of the new Business Data Model will be available straight away.
 

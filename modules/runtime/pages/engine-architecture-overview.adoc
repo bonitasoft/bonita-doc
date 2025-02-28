@@ -10,19 +10,17 @@ The Bonita Engine is the runtime processor at the core of Bonita.  It executes p
 
 image::images-6_0/dev_arch_engine_architecture_simple.png[engine architecture diagram]
 
-The Bonita Engine component services are completely configurable using the xref:runtime:bonita-platform-setup.adoc[plaform setup tool] to retrieve the current configuration and update it.
+The Bonita Engine component services are completely configurable using the xref:runtime:bonita-platform-setup.adoc[platform setup tool] to retrieve the current configuration and update it.
 
 Services are provided to the Engine using a ServiceAccessor. By default, this uses Spring to bind services and to retrieve service instances.
 The Spring configuration files are present in the classpath but beans can be added or overridden using configuration files stored in database under the *CONFIGURATION*  table.
 These files are all suffixed with -custom.xml and contain Spring bean declaration examples.
 These files can be retrieved and updated using the xref:runtime:bonita-platform-setup.adoc[platform setup tool].
 
-Folder  `setup/platform_conf/[initial|current]/tenant_engine` contains tenant-level template configuration files used when creating a new tenant (Subscription edition):
+Folder  `setup/platform_conf/[initial|current]/tenant_engine` contains the following configuration files (Subscription editions only):
 
-* `bonita-tenant-community-custom.properties` : contains as comments all the available properties that can be overridden at tenant level.
-* `bonita-tenants-custom.xml`: XML file can be modified to add any Spring bean you need to add/override at tenant level.
-
-Folder  `setup/platform_conf/current/tenant_engine` where `[TENANT_ID]` is your tenant id (e.g. `1`). Contains same files use for an already existing tenant.
+* `bonita-tenant-community-custom.properties` : contains as comments all the available properties that can be overridden.
+* `bonita-tenants-custom.xml`: XML file can be modified to add any Spring bean you need to add/override.
 
 The Engine can be installed on a Java Virtual Machine (JVM), in any web/Java EE container, or can be used as a simple Java library.
 
@@ -58,8 +56,11 @@ https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Javadoc].
 | Document API
 | Manages documents that are attached to a process instance.
 
-| Tenant Management API
-| Used to pause service in a tenant for maintenance, to resume service, and to check whether a tenant is paused. Available in subscription editions only.
+| Maintenance API
+| Gives access to maintenance administration tasks such as enabling maintenance mode and enabling/disabling maintenance message..
+
+| Tenant Administration API
+| Used to deploy, update and manage the BDM (Business Data Model).
 |===
 
 There is also a Web API, which is for internal use only, and a Command API, which is primarily for internal use.
@@ -602,7 +603,7 @@ Generic services  perform actions that are not related to BPM but are required f
 |  |
 
 | Description:
-| Provide metrics on a tenant.
+| Provide metrics on certain services.
 
 | Used by:
 | API

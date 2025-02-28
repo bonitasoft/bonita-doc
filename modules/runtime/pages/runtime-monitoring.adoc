@@ -118,19 +118,19 @@ Sample extract of exposed Prometheus data:
  jvm_buffer_memory_used_bytes{id="mapped",} 0.0
  # HELP bonita_bpmengine_connector_pending
  # TYPE bonita_bpmengine_connector_pending gauge
- bonita_bpmengine_connector_pending{tenant="1",} 0.0
+ bonita_bpmengine_connector_pending 0.0
  # HELP bonita_bpmengine_connector_executed_total
  # TYPE bonita_bpmengine_connector_executed_total counter
- bonita_bpmengine_connector_executed_total{tenant="1",} 0.0
+ bonita_bpmengine_connector_executed_total 0.0
  # HELP bonita_bpmengine_work_running
  # TYPE bonita_bpmengine_work_running gauge
- bonita_bpmengine_work_running{tenant="1",} 0.0
+ bonita_bpmengine_work_running 0.0
  # HELP jvm_gc_max_data_size_bytes Max size of old generation memory pool
  # TYPE jvm_gc_max_data_size_bytes gauge
  jvm_gc_max_data_size_bytes 7.16177408E8
  # HELP bonita_bpmengine_work_pending
  # TYPE bonita_bpmengine_work_pending gauge
- bonita_bpmengine_work_pending{tenant="1",} 0.0
+ bonita_bpmengine_work_pending 0.0
  # HELP tomcat_servlet_request_max_seconds
  # TYPE tomcat_servlet_request_max_seconds gauge
  tomcat_servlet_request_max_seconds{name="default",} 0.0

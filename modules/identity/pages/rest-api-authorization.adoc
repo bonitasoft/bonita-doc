@@ -92,7 +92,7 @@ including <<custom_pages,custom pages>>.
 
 For example: `cusompage_adminUserList=[profile_visualization, process_comment, organization_visualization, tenant_platform_visualization, organization_management]`
 
-This specifies the REST API permissions that are granted by the Bonita Administrator User List page that lists all the users in the tenant.
+This specifies the REST API permissions that are granted by the Bonita Administrator User List page that lists all the users.
 
 By default, there is a compound permission defined for each page that is installed by default in the Bonita Runtime.
 
