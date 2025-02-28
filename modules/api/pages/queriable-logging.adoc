@@ -23,15 +23,15 @@ Here is an example of how to search for log message about a specific activity:
 
 [source,groovy]
 ----
-final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100);
-builder.filter(LogSearchDescriptor.ACTION_SCOPE, aTaskId);
-builder.searchTerm("Adding a new user");
-builder.sort(LogSearchDescriptor.ACTION_TYPE, Order.ASC);
-final LogAPI logAPI = TenantAPIAccessor.getLogAPI(session);
-final SearchResult<Log> searchedLogs = logAPI.searchLogs(builder.done());
+final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100)
+builder.filter(LogSearchDescriptor.ACTION_SCOPE, aTaskId)
+builder.searchTerm("Adding a new user")
+builder.sort(LogSearchDescriptor.ACTION_TYPE, Order.ASC)
+final LogAPI logAPI = TenantAPIAccessor.getLogAPI(session)
+final SearchResult<Log> searchedLogs = logAPI.searchLogs(builder.done())
 for (Log log : searchedLogs.getResult()) {
      // Print the detailed user creation message:
-    System.out.println(log.getMessage());
+    System.out.println(log.getMessage())
 }
 ----
 

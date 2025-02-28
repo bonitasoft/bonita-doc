@@ -156,21 +156,21 @@ To update the value of a variable with a custom data type, you need to call a Gr
 
 [source,groovy]
 ----
-final ProcessAPI processAPI = apiClient.getProcessAPI();
-final String dataInstanceName = "acase";
-final long activityInstanceId = 2;
+final ProcessAPI processAPI = apiClient.getProcessAPI()
+final String dataInstanceName = "acase"
+final long activityInstanceId = 2
 
 final LeftOperand leftOperand = new LeftOperandBuilder().createNewInstance().setName(dataInstanceName)
-                .setType(LeftOperand.TYPE_DATA).done();
+                .setType(LeftOperand.TYPE_DATA).done()
 final Expression expression = new ExpressionBuilder().createGroovyScriptExpression("updateDataCaseTest",
                 "new com.bonitasoft.support.Case(\"title\", \"description\")",
-                Case.class.getName());
+                Case.class.getName())
 final Operation operation = new OperationBuilder().createNewInstance().setOperator("=").setLeftOperand(leftOperand).setType(OperatorType.ASSIGNMENT)
-                .setRightOperand(expression).done();
+                .setRightOperand(expression).done()
 
-final List<Operation> operations = new ArrayList<>();
-operations.add(operation);
-processAPI.updateActivityInstanceVariables(operations, activityInstanceId, null);
+final List<Operation> operations = new ArrayList<>()
+operations.add(operation)
+processAPI.updateActivityInstanceVariables(operations, activityInstanceId, null)
 ----
 
 Another method, `updateActivityDataInstance` also exists. However, this cannot be used with custom data types if you are using a remote connection,

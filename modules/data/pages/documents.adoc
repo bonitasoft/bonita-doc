@@ -215,8 +215,8 @@ To do this, define an operation in the automatic task as follows:
 
 [source,groovy]
 ----
-import org.bonitasoft.engine.bpm.document.Document;
-import org.bonitasoft.engine.bpm.document.DocumentValue;
+import org.bonitasoft.engine.bpm.document.Document
+import org.bonitasoft.engine.bpm.document.DocumentValue
 
 Document doc = apiAccessor.getProcessAPI().getDocument(sub_docId)
 new DocumentValue(apiAccessor.getProcessAPI().getDocumentContent(doc.getContentStorageId()), doc.getContentMimeType(), doc.getContentFileName())

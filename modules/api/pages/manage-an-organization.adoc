@@ -16,9 +16,9 @@ In the following example, the organization definition is stored in a file called
 [source,groovy]
 ----
 final pOrganizationResourceName = "path/ACME.xml"
-final File orgFile = FileUtils.toFile(getClass().getResource(pOrganizationResourceName));
-final String orgContent = FileUtils.readFileToString(orgFile, CharEncoding.UTF_8);
-getIdentityAPI().importOrganization(orgContent);
+final File orgFile = FileUtils.toFile(getClass().getResource(pOrganizationResourceName))
+final String orgContent = FileUtils.readFileToString(orgFile, CharEncoding.UTF_8)
+getIdentityAPI().importOrganization(orgContent)
 ----
 
 == List the groups in an organization
@@ -31,9 +31,9 @@ Only one organization can be loaded in Bonita Engine at a time, so there is no n
 
 [source,groovy]
 ----
-final IdentityAPI identityAPI = TenantAPIAccessor.getIdentityAPI(apiSession);
-final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100);
-final SearchResult<Group> groupResults = identityAPI(apiSession).searchGroups(builder.done());
+final IdentityAPI identityAPI = TenantAPIAccessor.getIdentityAPI(apiSession)
+final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100)
+final SearchResult<Group> groupResults = identityAPI(apiSession).searchGroups(builder.done())
 ----
 
 == Add a group
@@ -42,9 +42,9 @@ This example shows how to add a group to the current organization.
 
 [source,groovy]
 ----
-final IdentityAPI identityAPI = new IdentityAccessor().getIdentityAPI(apiSession);
-final GroupCreator groupCreator = new GroupCreator(name).setDescription(description);
-final Group group = identityAPI.createGroup(groupCreator);
+final IdentityAPI identityAPI = new IdentityAccessor().getIdentityAPI(apiSession)
+final GroupCreator groupCreator = new GroupCreator(name).setDescription(description)
+final Group group = identityAPI.createGroup(groupCreator)
 ----
 
 == Delete a group from the organization
@@ -55,8 +55,8 @@ Deleting a group does not delete the users who belong to it. However, if the act
 
 [source,groovy]
 ----
-final IdentityAPI identityAPI = TenantAPIAccessor.getIdentityAPI(apiSession);
-identityAPI.deleteGroup(groupId);
+final IdentityAPI identityAPI = TenantAPIAccessor.getIdentityAPI(apiSession)
+identityAPI.deleteGroup(groupId)
 ----
 
 == Add a role
@@ -65,9 +65,9 @@ This example shows how to add a role to the current organization.
 
 [source,groovy]
 ----
-final IdentityAPI identityAPI = new IdentityAccessor().getIdentityAPI(apiSession);
-final RoleCreator roleCreator = new RoleCreator(name).setDescription(description);
-final Role role = identityAPI.createRole(roleCreator);
+final IdentityAPI identityAPI = new IdentityAccessor().getIdentityAPI(apiSession)
+final RoleCreator roleCreator = new RoleCreator(name).setDescription(description)
+final Role role = identityAPI.createRole(roleCreator)
 ----
 
 == Delete a role from the organization
@@ -79,6 +79,6 @@ However, if the actor assignment for a process uses a role that is deleted, the 
 
 [source,groovy]
 ----
-final IdentityAPI identityAPI = TenantAPIAccessor.getIdentityAPI(apiSession);
-identityAPI.deleteRole(roleId);
+final IdentityAPI identityAPI = TenantAPIAccessor.getIdentityAPI(apiSession)
+identityAPI.deleteRole(roleId)
 ----

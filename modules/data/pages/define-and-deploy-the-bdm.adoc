@@ -465,14 +465,14 @@ Enter the following code snippet to have a new BDM _com.company.model.LeaveReque
 
 [source,groovy]
 ----
-var leaveRequest = new com.company.model.LeaveRequest();
-        leaveRequest.setStartDate(leaveRequestInput.getStartDate());
-        leaveRequest.setEndDate(leaveRequestInput.getEndDate());
-        leaveRequest.setReturnDate(leaveRequestInput.getReturnDate());
-        leaveRequest.setDaysOff(leaveRequestInput.getDaysOff());
-        leaveRequest.setLeaveType(leaveRequestInput.getLeaveType());
-        leaveRequest.setApproved(leaveRequestInput.getApproved());
-        return leaveRequest;
+var leaveRequest = new com.company.model.LeaveRequest()
+        leaveRequest.setStartDate(leaveRequestInput.getStartDate())
+        leaveRequest.setEndDate(leaveRequestInput.getEndDate())
+        leaveRequest.setReturnDate(leaveRequestInput.getReturnDate())
+        leaveRequest.setDaysOff(leaveRequestInput.getDaysOff())
+        leaveRequest.setLeaveType(leaveRequestInput.getLeaveType())
+        leaveRequest.setApproved(leaveRequestInput.getApproved())
+        return leaveRequest
 ----
 
 === Initialize BDM attributes from contract inputs in task operations

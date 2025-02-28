@@ -187,7 +187,7 @@ When the leave request is submitted, _status_ and _requesterName_ default values
 +
 [source,groovy]
 ----
-def initiator = BonitaUsers.getProcessInstanceInitiator(apiAccessor,processInstanceId);
+def initiator = BonitaUsers.getProcessInstanceInitiator(apiAccessor,processInstanceId)
 leaveRequestVar.requesterName = "$initiator.firstName $initiator.lastName"
 ----
 +
@@ -199,7 +199,7 @@ def leaveRequestVar = new com.company.model.LeaveRequest()
 leaveRequestVar.startDate = leaveRequestInput.startDate
 leaveRequestVar.endDate = leaveRequestInput.endDate
 leaveRequestVar.status = "submitted"
-def initiator = BonitaUsers.getProcessInstanceInitiator(apiAccessor,processInstanceId);
+def initiator = BonitaUsers.getProcessInstanceInitiator(apiAccessor,processInstanceId)
 leaveRequestVar.requesterName = "$initiator.firstName $initiator.lastName"
 return leaveRequestVar
 ----
@@ -286,9 +286,9 @@ The status of the request when it's validated as well as the validator's name ar
 +
 [source,groovy]
 ----
- import com.bonitasoft.engine.api.APIAccessor;
+ import com.bonitasoft.engine.api.APIAccessor
 
- def executedBy = BonitaUsers.getUser(apiAccessor, apiAccessor.processAPI.getHumanTaskInstance(activityInstanceId).executedBy);
+ def executedBy = BonitaUsers.getUser(apiAccessor, apiAccessor.processAPI.getHumanTaskInstance(activityInstanceId).executedBy)
  return "${leaveRequest.status} by ${executedBy.firstName} ${executedBy.lastName}".toString()
 ----
 
