@@ -47,8 +47,11 @@ Bonita Engine has the following Java APIs:
 | Document API
 | Manages documents that are attached to a process instance.
 
-| Tenant Management API
-| Used to pause service in a tenant for maintenance, to resume service, and to check whether a tenant is paused. Available in Access, Teamwork, Efficiency, Performance and Enterprise editions.
+| Maintenance API
+| Gives access to maintenance administration tasks such as enabling maintenance mode and enabling/disabling maintenance message..
+
+| Tenant Administration API
+| Used to deploy, update and manage the BDM (Business Data Model).
 |===
 
 There is also a Web API, which is for internal use only, and a Command API,

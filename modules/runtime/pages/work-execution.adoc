@@ -10,7 +10,7 @@ A work often wraps one another to add specific behaviors.
 An *ExecuteFlowNodeWork* contains the flownode execution logic.
 It is wrapped in a *TxBonitaWork*, to ensure everything is executing inside a transaction.
 It is itself wrapped into a *LockProcessInstanceWork*, to allow to lock any concurrent access to the same process instance. +
-It is itself wrapped into a *InSessionBonitaWork*, to set the tenant context (tenantId).
+It is itself wrapped into a *InSessionBonitaWork*.
 
 == Basic call flow
 
@@ -20,7 +20,7 @@ The *ThreadPoolExecutor* is responsible for executing works. It calls the _work(
 
 The BonitaThreadPoolExecutor is responsible for executing the work. The basic call flow is explained below:
 
-* The top-level work (of type *InSessionBonitaWork*) sets the tenantId and then calls the work() method on its wrapped lower-level work, which is of type *ProcessInstanceContextWork*.
+* The top-level work (of type *InSessionBonitaWork*) calls the work() method on its wrapped lower-level work, which is of type *ProcessInstanceContextWork*.
 * *ProcessInstanceContextWork* fills in some context information and then calls work() on its wrapped lower-level work, which is of type *LockProcessInstanceWork*.
 * {blank}
 +
@@ -64,7 +64,7 @@ When a flownode fails, the exception that caused the failure is stored and can b
 A special logger can help identify potential issue of work execution:
 
 ----
-29-Jul-2020 17:24:04.674 AVERTISSEMENT [Bonita-Worker-1-09] org.bonitasoft.engine.work.audit.AuditListener.abnormalExecutionStatusDetected Potential abnormal execution detected - cause TOO_MANY_EXECUTIONS. org.bonitasoft.engine.work.WorkDescriptor@323b63d6[uuid=55a92f06-7061-43e9-8523-1c6955a26fc2,type=EXECUTE_FLOWNODE,tenantId=1,parameters={processDefinitionId=XXXX, processInstanceId=XXXX, stateCanceling=false, stateExecuting=false, stateId=37, stateAborting=false, flowNodeInstanceId=CCC},retryCount=Y,executionThreshold=2020-07-29T06:24:04.674Z,executionCount=10,registrationDate=2020-07-29T06:11:44.943Z,abnormalExecutionDetected=true]
+29-Jul-2020 17:24:04.674 AVERTISSEMENT [Bonita-Worker-1-09] org.bonitasoft.engine.work.audit.AuditListener.abnormalExecutionStatusDetected Potential abnormal execution detected - cause TOO_MANY_EXECUTIONS. org.bonitasoft.engine.work.WorkDescriptor@323b63d6[uuid=55a92f06-7061-43e9-8523-1c6955a26fc2,type=EXECUTE_FLOWNODE,parameters={processDefinitionId=XXXX, processInstanceId=XXXX, stateCanceling=false, stateExecuting=false, stateId=37, stateAborting=false, flowNodeInstanceId=CCC},retryCount=Y,executionThreshold=2020-07-29T06:24:04.674Z,executionCount=10,registrationDate=2020-07-29T06:11:44.943Z,abnormalExecutionDetected=true]
 ----
 
 In that case the warning tells us the work was taken for execution but not completed 10 times.

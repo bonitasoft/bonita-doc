@@ -270,10 +270,9 @@ and when the tool deletes the `arch_data_instance` rows, the tool only needs to 
 ----
 DELETE FROM arch_data_instance a
 WHERE a.containertype = 'PROCESS_INSTANCE'
-  AND a.tenantid = 1
   AND NOT EXISTS (
     SELECT 1 FROM arch_process_instance b
-    WHERE a.containerid = b.sourceobjectid AND b.tenantid = 1
+    WHERE a.containerid = b.sourceobjectid
   );
 ----
 

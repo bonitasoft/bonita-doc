@@ -290,7 +290,7 @@ NOTE: Activating this option means any user logged in on the domain trying to ac
 . Restart your server to apply the changes. +
 
 . Confirm that your Domain Controller is correctly configured. +
-Then you can start the bundle and try to access any Bonita Application page, an app page or a form URL (or just `http ://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are automatically logged in.
+Then you can start the bundle and try to access any Bonita Application page, an app page or a form URL (or just `http ://<host>:<port>/bonita`) and make sure that you are automatically logged in.
 
 Note that if you try to access `http ://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `kerberos.auth.standard.allowed` to true or define a whitelist with the property `auth.tenant.standard.whitelist`) to be able to log in without an account on AD.
 

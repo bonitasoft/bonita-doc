@@ -272,8 +272,8 @@ More configuration options can be found in https://www.keycloak.org/docs/{keyclo
     </keycloak-saml-adapter>
 ----
 
-Once your Identity Provider is corectly configured (see the section _Configure the Identity Provider_), try to access any Bonita Application page, an app page or a form URL (or just `+http://<host>:<port>/bonita[?tenant=<tenantId>]+`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in). +
-Note that if you try to access `+http://<host>:<port>/bonita/login.jsp+`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `saml.auth.standard.allowed` to true) to be able to log in without an account on the Identity Provider.
+Once your Identity Provider is correctly configured (see the section _Configure the Identity Provider_), try to access any Bonita Application page, an app page or a form URL (or just `+http://<host>:<port>/bonita+`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in). +
+Note that if you try to access `+http://<host>:<port>/bonita/login.jsp+`, then you won't be redirected as this page still needs to be accessible in order for the technical administrator (or another user if you set the property `saml.auth.standard.allowed` to true) to be able to log in without an account on the Identity Provider.
 
 [WARNING]
 ====
