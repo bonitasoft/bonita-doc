@@ -6,13 +6,15 @@ You will also find information about Bonita CI/CD suite CLIs and Bonita version 
 
 == System requirements
 
-The Bonita CI/CD suite features (build and deploy) are implemented by two standalone Java CLIs (command line interface).
+The Bonita CI/CD suite features (build and deploy) are implemented by two standalone Java utilities, a maven plugin and a CLI.
 
 IMPORTANT: You have to ensure that your maven installation is configured to access the xref:software-extensibility:bonita-repository-access.adoc[Bonita Artifact Repository]
 
-=== Bonita LA Builder
+=== Bonita project build
 
-The bonita-la-builder program delegate some work to `maven` during its execution, so requirement are:
+In versions 2023.2 and above, a Bonita project can be built xref:{bonitaDocVersion}@bonita:build-run:build-application.adoc[using Maven].
+
+Building a bonita project requires: 
 
 - https://adoptium.net/temurin/releases/?version=11[Java JDK 11]
 - https://maven.apache.org/install.html[Apache Maven]
