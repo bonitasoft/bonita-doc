@@ -2,13 +2,13 @@
 :description: Best Practices when building and deploying Bonita Apps
 
 Bonita Continuous Delivery enables you to easily build and deploy a Bonita Applications on a Bonita runtime. +
-It uses the xref:builder.adoc[Bonita Application Builder] and the xref:deployer.adoc[Bonita Application Deployer].
+It uses the xref:build-run:build-application.adoc[Bonita Application Builder] and the xref:deployer.adoc[Bonita Application Deployer].
 
 In the following, we present best practices and various use cases to let you easily build and deploy your Bonita Application repository.
 
 All examples assume that:
 
-* you have cloned a Git repository as described in the xref:builder.adoc[Bonita Application Builder] documentation
+* you have cloned a Git repository as described in the xref:build-run:build-application.adoc[Bonita Application Builder] documentation
 * you already have a Bonita runtime up and running
 
 == Best practices about repositories
@@ -46,18 +46,13 @@ The idea is always the same:
 * *Update* the application or configuration artifacts created by the builder
 * *Deploy* the updated artifacts
 
-First, we build the Bonita repository:
-
-[source,bash]
-----
-java -jar bonita-la-builder.jar build -e <environment> <path/to/bonita/repository>
-----
+First, we build the Bonita repository as explained xref:build-run:build-application.adoc[here] 
 
 The build operation creates a *target* directory in the Bonita repository. Let's move to this directory:
 
 [source,bash]
 ----
-cd <path/to/bonita/repository>/target
+cd <path/to/bonita/repository>target
 ----
 
 This directory contains built artifacts, including the application archive we want to update. Keep in mind that the deployer can take a zip file or a directory as input. So, we are going to unzip the raw application archive, in a _to-deploy_ directory:

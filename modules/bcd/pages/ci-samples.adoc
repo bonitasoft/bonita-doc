@@ -1,7 +1,7 @@
 = How to integrate Bonita CI/CD suite features in a CI pipeline
 :description: Bonita CI/CD suite features integration in a CI pipelines
 
-:page-aliases: jenkins_example.adoc
+:page-aliases: jenkins_example.adoc, builder.adoc
 
 
 The Bonita CI/CD suite CLIs can not only be run interactively, but also within standard Continuous Delivery servers such as https://jenkins.io/[Jenkins CI], or https://github.com/features/actions[Github Actions], or https://docs.gitlab.com/ee/ci/[Gitlab CI], etc.

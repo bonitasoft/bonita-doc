@@ -37,7 +37,7 @@ xref:release-notes.adoc[[.card-title]#What's new in BCD?# [.card-body]#pass:q[Fi
 
 [.card.card-index]
 --
-xref:builder.adoc[[.card-title]#Start building# [.card-body]#pass:q[Check out how to build a Living App repository.]#]
+xref:ci_samples.adoc[[.card-title]#Start building# [.card-body]#pass:q[Check out how to build a Living App repository.]#]
 --
 
 [.card.card-index]

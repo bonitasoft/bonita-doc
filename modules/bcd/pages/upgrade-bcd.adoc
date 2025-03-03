@@ -13,5 +13,5 @@ Each of the versions follows the MAJOR.MINOR.PATCH format.
 
 . Remove all BCD docker images.
 . Configure your access to xref:software-extensibility:bonita-repository-access.adoc[Bonita Artifact Repository]
-. Follow the CLIs (xref:builder.adoc[Builder] and xref:deployer.adoc[Deployer]) documentations
+. Follow the CLIs (xref:build-run:build-application.adoc[Build] and xref:deployer.adoc[Deployer]) documentations
 . Delete useless scenario files (pass parameters as arguments to the CLI)

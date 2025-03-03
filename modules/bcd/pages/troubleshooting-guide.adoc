@@ -117,9 +117,12 @@ When using Windows, the characters are encoded into `Windows-1250`, instead of `
 There are two possible solutions for this:
 
 * Use the HTML character code. For example, the one for `&euro;` is `\&euro;`
-* If you don't need a special file encoding, when building the project using the xref:builder.adoc[builder], you can add a UTF-8 file encoding parameter, like so:
-[code,bash]
+* If you don't need a special file encoding, ensure the project is configured to use UTF-8 file encoding. The project `pom.xml` file should content these lines:
+[code,xml]
 ----
-java -Dfile.encoding=UTF-8 -jar bonita-la-builder.jar build <path to the bonita project> -e production
+<properties>
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+</properties>
 ----
 --
