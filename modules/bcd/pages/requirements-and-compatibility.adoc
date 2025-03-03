@@ -12,7 +12,7 @@ IMPORTANT: You have to ensure that your maven installation is configured to acce
 
 === Bonita project build
 
-In versions 2023.2 and above, a Bonita project can be built xref:{bonitaDocVersion}@bonita:build-run:build-application.adoc[using Maven].
+In versions 2023.2 and above, a Bonita project can be built xref:build-run:build-application.adoc[using Maven].
 
 Building a bonita project requires: 
 
