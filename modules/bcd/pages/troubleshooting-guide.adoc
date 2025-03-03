@@ -1,5 +1,5 @@
 = Troubleshooting guide
-:description: BCD Troubleshooting
+:description: BCD Troubleshooting. Troubleshooting regarding Bonita Artifact repository or network access.
 
 [.troubleshooting-title]
 == Troubleshooting
