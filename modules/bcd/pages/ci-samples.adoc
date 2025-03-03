@@ -6,116 +6,133 @@
 
 The Bonita CI/CD suite CLIs can not only be run interactively, but also within standard Continuous Delivery servers such as https://jenkins.io/[Jenkins CI], or https://github.com/features/actions[Github Actions], or https://docs.gitlab.com/ee/ci/[Gitlab CI], etc.
 
-There are many ways to integrate Bonita CI/CD suite CLIs in a CI pipeline. The samples proposed here explain how to integrate bonita-la-builder the bonita-la-deployer in a JenkinsCI pipeline job.
+There are many ways to integrate Bonita CI/CD suite in a CI pipeline. The samples proposed here explain how to integrate a bonita build and the bonita-la-deployer in a Github Action CI job.
 
 == Building a Bonita Project
 
-The bonita-la-builder is a standalone java program, so you run it as sepcific step in your CI pipeline.
+Since version 2023.2, a bonita project is a standard maven project, so you just to do a standard maven build in your CI as first step. 
 
-https://www.jenkins.io/doc/book/pipeline/[JenkinsCI pipeline] are made of steps (stage). Here is a way to use the bonita-la-builder as a step in a JenkinsCI pipeline.
-
-.Sample build step in a Jenkinsfile
-[source, groovy]
-----
-node {
-
-        stage 'Checkout', {
-            // Checkout your project source code
-            checkout scm
-        }
-
-        stage 'Build App', {
-            // Download bonita-la-builder using maven
-            def bonitaRuntimeVersion = sh returnStdout: true, script: 'mvn help:evaluate -Dexpression=bonita.runtime.version -q -DforceStdout'
-
-            sh "mvn dependency:copy -Dartifact=com.bonitasoft.tools:bonita-la-builder:${bonitaRuntimeVersion}:jar:exec -Dmdep.stripVersion -Dmdep.stripClassifier -DoutputDirectory=./" <1>
-            // Execute the builder using maven
-            sh 'mvn --non-recursive exec:exec -Dexec.executable=java -Dexec.args="-jar bonita-la-builder.jar build . -o my-app.zip"' <2>
-        }
-
-        // other steps omitted ...
-}
-----
-<1> Download the bonita-la-builder using maven in order to use the already configured credentials to access Bonita Artifact Repository.
-<2> Execute the bonita-la-builder CLI via a maven command in order to use the same Java version as the one used to build the project.
+Let's assume the project to build is named `my-project` and the target deployment bonita profile is `Qualification`. Placeholders like `... XXX ...` are to be replaced with your own values.
 
 IMPORTANT: Default maven executable (mvn command) has to be configured to use the settings.xml file with access to "Bonita artifact repository". Use the default `.m2/settings.xml` location or use the `.mvn/maven.config` file https://maven.apache.org/configure.html#mvn-maven-config-file[option] to specify the settings.xml path.
 
+
+=== Classical build
+
+.Sample build steps in Github Action
+[source, yaml]
+----
+name: Build main
+on:
+  push:
+    branches:
+        - main
+jobs:
+    build:
+        runs-on: ubuntu-24.04
+        steps:
+        - uses: actions/checkout@v4 <1>
+        - uses: actions/setup-java@v4 <2>
+            with:
+            java-version: 17
+            distribution: 'temurin'
+            cache: 'maven'
+        - name: Setup Maven configuration <3>
+          uses: ... Use secret management to configure the maven settings with JFrog credentials ...
+        - name: 🪶 Build <4>
+            run: mvn -B -ntp verify
+        - name: 🪶 Publish to maven repository <5>
+            run: mvn -B -ntp  deploy -DskipTests -DaltDeploymentRepository= ... REPOSITORY_ID ...
+    # other steps omitted ...
+----
+<1> Checkout the repository
+<2> Install Java JDK and use maven dependency cache
+<3> Configure your maven settings with the credentials to access Bonita Maven repository (use secret management)
+<4> Build the bonita project, using SCA mode when using docker profile
+<5> Publish project artifacts to your maven repository.
+
+
+=== Docker build
+
+.Sample docker build steps in Github Action
+[source, yaml]
+----
+name: Build main
+on:
+  push:
+    branches:
+        - main
+jobs:
+    build:
+        runs-on: ubuntu-24.04
+        steps:
+        - uses: actions/checkout@v4 <1>
+        - uses: actions/setup-java@v4 <2>
+            with:
+            java-version: 17
+            distribution: 'temurin'
+            cache: 'maven'
+        - name: Setup Maven configuration <3>
+          uses: ... Use secret management to configure the maven settings with JFrog credentials ...
+    
+        - name: 🐳 Login to Bonita docker registry <4>
+            uses: docker/login-action@v3
+            with:
+            registry: ... DOCKER_REGISTRY ...
+            username: ... USER ...
+            password: ... TOKEN ...
+        - name: 🪶🐳 Build <5>
+            run: mvn -B -ntp verify -Pdocker
+                
+        - name: 🐳 Login to destination docker registry <6>
+            uses: docker/login-action@v3
+            with:
+            registry: ... DOCKER_REGISTRY ...
+            username: ... USER ...
+            password: ... TOKEN ... 
+        - name: 🐳 Publish docker image <7>
+            run: docker push ... IMAGE NAME ...
+    # other steps omitted ...
+----
+<1> Checkout the repository
+<2> Install Java JDK and use maven dependency cache
+<3> Configure your maven settings with the credentials to access Bonita Maven repository (use secret management)
+<4> Login to Bonita docker registry to be able to pull base image for SCA builds 
+<5> Build the bonita project, using SCA mode when using docker profile
+<6> Login to your own docker registry
+<7> Push your SCA image to your docker registry
+
 == Deploy step as part of CI job
 
-Just like the builder, the deployer is a standalone java program. The simplest way to use it, is to download it, and execute it with the desired arguments.
+The deployer is a standalone java program. The simplest way to use it, is to download it from Bonita Maven repository, and execute it with the desired arguments.
 
-.Sample deploy step in a Jenkinsfile
-[source, groovy]
+NOTE: To access the `bonita-la-deployer`, you need a valid Bonita CI/CD suite subscription.
+
+.Sample deploy steps in Github Action
+[source, yaml]
 ----
-node {
-        stage 'Checkout', {
-            checkout([
-                    $class                           : 'GitSCM',
-                    branches                         : scm.branches,
-                    doGenerateSubmoduleConfigurations: scm.doGenerateSubmoduleConfigurations,
-                    extensions                       : scm.extensions + [[$class: 'CloneOption', noTags: true, shallow: true, depth: 0, timeout: 20]],
-                    userRemoteConfigs                : scm.userRemoteConfigs
-            ])
-        }
 
-        stage 'Build App', {
-             // Step that produce a "my-app.zip" zip file
-        }
+    # other steps omitted ...
 
-      withCredentials([usernamePassword(credentialsId: 'bonitaTechUser', passwordVariable: 'BONITA_TECH_PASSWD', usernameVariable: 'BONITA_TECH_LOGIN')]) { <1>
-        stage 'Deploy App', {
-            // Here the la-builder version is hardcoded but you may use an environment variable to store the version.
-            sh 'mvn dependency:copy -Dartifact=com.bonitasoft.deployer:bonita-la-deployer:1.0.0:jar -Dmdep.stripVersion -DoutputDirectory=./' <2>
-            sh 'mvn --non-recursive exec:exec -Dexec.args="-jar bonita-la-deployer.jar -f target/my-app.zip -t http://my-server:8080/bonita --username $BONITA_TECH_LOGIN --password $BONITA_TECH_PASSWD"' <3>
-        }
-      }
-}
+        - name: Extract version <1>
+            id: extract-version
+            run: echo 'version=$(mvn -B -ntp org.apache.maven.plugins:maven-help-plugin:3.3.0:evaluate -Dexpression=project.version -q -DforceStdout)' >> "$GITHUB_OUTPUT"
+
+        - name: 🪶 Publish configurations to artifactory <2>
+            run: |
+            mvn -B -ntp package -Dbonita.environment=Qualification
+            mvn -B -ntp deploy:deploy-file -Dfile=app/target/my-project-${{ steps.extract-version.outputs.version }}-Qualification.bconf -DgeneratePom=false -DgroupId=com.acme.my-project -DartifactId=my-project -Dversion=${{ steps.extract-version.outputs.version }} -Dtype=bconf -Dclassifier=Qualification -DrepositoryId=releases -Durl=... RELEASES_REPOSITORY_URL ...
+
+        - name: 🚀 Deploy to integration environment <3>
+            run: |
+            mvn -B dependency:copy -Dartifact=com.bonitasoft.deployer:bonita-la-deployer:1.1.0:jar -Dmdep.stripVersion -DoutputDirectory=./'
+            mvn -B --non-recursive exec:exec -Dexec.args="-jar bonita-la-deployer.jar -f app/target/ai-demo-${{ steps.extract-version.outputs.version }}-Qualification.zip -t ... BONITA_URL ... --username ... BONITA_TECH_LOGIN ... --password ... BONITA_TECH_PASSWD... "  
+
 ----
-<1> See https://plugins.jenkins.io/credentials[Jenkins Credentials plugin]
-<2> Download the bonita-la-deployer (using maven credentials configured in your https://maven.apache.org/settings.html#servers[settings.xml] file)
-<3> run the deployer on the target server (here `http://my-server:8080/bonita`)
+<1> Retrieve the project version
+<2> Build configuration for the target environment and pubish it
+<3> run the deployer on the target server (here `... BONITA_URL ...`)
 
 
-== Sample with build, deploy and integration test steps
+NOTE: If you think quality is important, you can add an integration-tests maven module based on our xref:{testToolkitVersion}@test-toolkit::index.adoc[test toolkit]. As a standard maven module, all test present will be executed during the `test` or `integration-test` phase of your maven build.
 
-If you think quality is important, you have probably already added an integration-tests maven module based on our xref:{testToolkitVersion}@test-toolkit::index.adoc[test toolkit]. If so, you can have a complete pipeline like the following
-including `checkout`, `build`, `deploy` and `test` steps.
-
-.Sample pipeline in a Jenkinsfile
-[source, groovy]
-----
-node {
-
-        stage 'Checkout', {
-            checkout([
-                    $class                           : 'GitSCM',
-                    branches                         : scm.branches,
-                    doGenerateSubmoduleConfigurations: scm.doGenerateSubmoduleConfigurations,
-                    extensions                       : scm.extensions + [[$class: 'CloneOption', noTags: true, shallow: true, depth: 0, timeout: 20]],
-                    userRemoteConfigs                : scm.userRemoteConfigs
-            ])
-        }
-
-        stage 'Build App', {
-            def bonitaRuntimeVersion = sh('mvn org.apache.maven.plugins:maven-help-plugin:3.3.0:evaluate -Dexpression=bonita.runtime.version -q -DforceStdout', true)
-            sh "mvn dependency:copy -Dartifact=com.bonitasoft.tools:bonita-la-builder:${bonitaRuntimeVersion}:jar:exec -Dmdep.stripVersion -Dmdep.stripClassifier -DoutputDirectory=./"
-            sh 'mvn --non-recursive exec:exec -Dexec.executable=java -Dexec.args="-jar bonita-la-builder.jar build . -o my-app.zip"'
-        }
-
-        withCredentials([usernamePassword(credentialsId: 'bonitaTechUser', passwordVariable: 'BONITA_TECH_PASSWD', usernameVariable: 'BONITA_TECH_LOGIN')]) {
-            stage 'Deploy App', {
-                sh 'mvn dependency:copy -Dartifact=com.bonitasoft.deployer:bonita-la-deployer:1.0.0:jar -Dmdep.stripVersion -DoutputDirectory=./'
-                sh 'mvn --non-recursive exec:exec -Dexec.args="-jar bonita-la-deployer.jar -f target/my-app.zip -t http://my-server:8080/bonita --username $BONITA_TECH_LOGIN --password $BONITA_TECH_PASSWD"'
-            }
-
-            stage 'Integration tests', {
-                try {
-                    sh 'mvn -f integration-tests/pom.xml verify -Dbonita.url=http://my-server:8080/bonita -Dbonita.tech.user=$BONITA_TECH_LOGIN -Dbonita.tech.password=$BONITA_TECH_PASSWD'
-                } finally {
-                    junit 'tests/target/*-reports/*.xml'
-                }
-            }
-        }
-}
-----
