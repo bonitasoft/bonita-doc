@@ -12,7 +12,7 @@ In the URL field of your web browser, enter the local host address, e.g. `+http:
 
 NOTE: If the Bonita Runtime login page is not displayed, http://www.wikihow.com/Clear-Your-Browser's-Cache[empty your browser cache] and http://www.wikihow.com/Clear-Your-Browser%27s-Cookies[cookies] and then reload the page.
 
-At this stage no organization information is loaded: only the technical user account exists.
+At this stage no organization information is loaded: only the technical administrator account exists.
 
 [#security-best-practices]
 == Security Best Practices
@@ -98,9 +98,9 @@ For more information, please take look at the xref:identity:rest-api-authorizati
 
 Create a user with the "administrator" profile:
 
-NOTE: do not create a user or an administrator with the same login and password as the technical users (platform or tenant)
+NOTE: do not create a user or an administrator with the same login and password as the technical accounts (platform admin or technical administrator)
 
-. Log into the Bonita Runtime as the technical user. +
+. Log into the Bonita Runtime as the technical administrator. +
 *Note:* If your system is using single sign-on with CAS, you need to log in with the following URL: `+http://hostname:port/bonita/login.jsp?redirectUrl=/bonita/apps/appDirectoryBonita/+`.
 . Open the Bonita Super Admin Application
 . Create a user with the standard profile.

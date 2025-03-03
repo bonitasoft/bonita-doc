@@ -10,7 +10,7 @@ It assumes that you are a Java programmer familiar with https://maven.apache.org
 
 In this example, we use the following APIs:
 
-* LoginAPI: Manages the login on tenants. Using this API you can obtain an APISession, which is required for access to the tenant APIs, such as the IdentityAPI and the ProcessAPI.
+* LoginAPI: Manages the login. Using this API you can obtain an APISession, which is required for access to the APIs, such as the IdentityAPI and the ProcessAPI.
 * ProcessAPI: Manages processes. Using this API you can handle process execution (for example, start a process, retrieve a task, execute a task, or retrieve data) and process management
 (for example, deploy, undeploy, enable or disable a process).
 

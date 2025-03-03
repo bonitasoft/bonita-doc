@@ -70,7 +70,7 @@ In this example, the key named `user` is mapped to the business variable `user`,
 
 [source,groovy]
 ----
-        import java.text.SimpleDateFormat;
+        import java.text.SimpleDateFormat
         new SimpleDateFormat("yyyy/MM/dd").format(new Date())
 ----
 

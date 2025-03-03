@@ -96,4 +96,4 @@ This will create database schema and initial values.
 == Next steps
 
 You are done with Bonita installation. You can now start your application server as usual. +
-You can also xref:ROOT:first-steps-after-setup.adoc[complete the setup] of your system by validating the installation, setting passwords, and creating the technical user who will act as the Super Administrator.
+You can also xref:ROOT:first-steps-after-setup.adoc[complete the setup] of your system by validating the installation, setting passwords, and creating the technical administrator who will act as the Super Administrator.

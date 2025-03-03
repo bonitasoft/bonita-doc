@@ -96,44 +96,33 @@ Copy the file to the `<BUNDLE_HOME>/setup/platform_conf/licenses` folder before 
 
 === Change the default credentials (optional, recommended for production)
 
-As a security precaution, we *strongly recommend* that before you start your application server, you change the default username and password used for the platform administrator and for the default tenant administrator.
+As a security precaution, we *strongly recommend* that before you start your application server, you change the default username and password used for the platform administrator and for the default technical administrator.
 
 ==== Platform administrator
 
 The username and password are defined in a text file:
 
-* Before the very first Tomcat start: xref:runtime:bonita-platform-setup.adoc[`<BUNDLE_HOME>/setup/platform_conf/initial/platform_engine/bonita-platform-community-custom.properties`]
-* After the first Tomcat start: xref:runtime:bonita-platform-setup.adoc[`<BUNDLE_HOME>/setup/platform_conf/current/platform_engine/bonita-platform-community-custom.properties`]
+* Before the very first Tomcat start in the `initial` folder: xref:runtime:bonita-platform-setup.adoc[`<BUNDLE_HOME>/setup/platform_conf/initial/platform_engine/bonita-platform-community-custom.properties`]
+* After the first Tomcat start in the `current` folder: xref:runtime:bonita-platform-setup.adoc[`<BUNDLE_HOME>/setup/platform_conf/current/platform_engine/bonita-platform-community-custom.properties`]
 
 The properties are listed below:
 
 * `platformAdminUsername` defines the username (default `platformAdmin`)
 * `platformAdminPassword` defines the password (default `platform`)
 
-This password is used for platform-level administration tasks, such as creating a tenant.
+This password is used for platform-level administration tasks, such as starting/stopping a node, retrieving the platform state...
 
-==== Tenant administrator
+==== Technical administrator
 
-Each tenant has an administrator, with a tenant-specific username and password. The tenant administrator is also known as the tenant technical user.
+The Bonita platform has a technical administrator, with a specific username and password. The technical administrator was formerly known as the technical administrator.
 
-When the platform is created, default values for the tenant administrator username and password are defined in the file xref:runtime:bonita-platform-setup.adoc[`<BUNDLE_HOME>/setup/platform_conf/initial/tenant_engine/bonita-tenant-community-custom.properties`], by the following properties:
+When the platform is created, default values for the technical administrator username and password are defined in the file xref:runtime:bonita-platform-setup.adoc[`<BUNDLE_HOME>/setup/platform_conf/initial/tenant_engine/bonita-tenant-community-custom.properties`], by the following properties:
 
-* `userName` defines the username (default `install`)
-* `userPassword` defines the password (default `install`)
+* `bonita.runtime.admin.username` defines the username (default `install`)
+* `bonita.runtime.admin.password` defines the password (default `install`)
 
-When you create a tenant, the tenant administrator is created with the default username and password, unless you specify new values.
-Change these tenant-specific credentials for an existing tenant by updating the `userName` and `userPassword` properties in `<BUNDLE_HOME>/setup/platform_conf/current/tenant_engine/bonita-tenant-community-custom.properties`.
+You can change these credentials by updating these properties directly in the file.
 
-[WARNING]
-====
-
-For the *default tenant*, the tenant administrator username and password must also be changed in file:
-
-* Before the very first Tomcat start: xref:runtime:bonita-platform-setup.adoc[`<BUNDLE_HOME>/setup/platform_conf/initial/platform_portal/platform-tenant-config.properties`]
-* After the first Tomcat start: xref:runtime:bonita-platform-setup.adoc[`<BUNDLE_HOME>/setup/platform_conf/current/platform_portal/platform-tenant-config.properties`],
-
-For further details and a better understanding, please read the section xref:ROOT:tenant_admin_credentials.adoc[Tenant administrator credentials].
-====
 
 [#configuration]
 

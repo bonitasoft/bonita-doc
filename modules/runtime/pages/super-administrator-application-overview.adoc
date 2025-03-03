@@ -6,7 +6,7 @@
 
 == Values
 
-This application is only available to the user with the xref:ROOT:special-users.adoc#_technical_user[Technical User] credentials. +
+This application is only available to the user with the xref:ROOT:special-users.adoc#technical-user[Technical User] credentials. +
 It is the tool needed to:
 
 * Bootstrap a Bonita Runtime in Non-Production and Production environments, for example, xref:first-steps-after-setup.adoc#_create_a_bonita_administrator_profile[creating the administrators]

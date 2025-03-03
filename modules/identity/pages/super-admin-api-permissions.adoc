@@ -6,7 +6,7 @@ This user is linked to the Bonita Super Administrator Application by default. Mo
 
 == Accessible pages
 * Bonita Layout
-* Tenant Status
+* Platform maintenance
 * User List
 * User Details
 * Group List
@@ -62,7 +62,6 @@ This user is linked to the Bonita Super Administrator Application by default. Mo
 ** userXP/bonitaPage
 ** system/session
 ** system/log
-** system/tenant
 ** system/feature
 ** system/license
 ** system/monitoring
@@ -72,7 +71,6 @@ This user is linked to the Bonita Super Administrator Application by default. Mo
 ** platform/jvmDynamic
 ** platform/jvmStatic
 ** platform/systemProperty
-** platform/tenant
 ** tenant/bdm
 ** living/application
 ** living/application-page
@@ -116,7 +114,6 @@ This user is linked to the Bonita Super Administrator Application by default. Mo
 ** portal/page
 ** portal/profileMember
 ** platform/platform
-** platform/tenant
 ** tenant/bdm
 ** living/application
 ** living/application-page
@@ -141,9 +138,7 @@ This user is linked to the Bonita Super Administrator Application by default. Mo
 ** portal/page
 ** userXP/profile
 ** userXP/profileEntry
-** system/tenant
 ** platform/platform
-** platform/tenant
 ** living/application
 ** living/application-page
 ** living/application-menu
@@ -160,7 +155,6 @@ This user is linked to the Bonita Super Administrator Application by default. Mo
 ** userXP/profileEntry
 ** userXP/profileMember
 ** platform/platform
-** platform/tenant
 ** living/application
 ** living/application-page
 ** living/application-menu
