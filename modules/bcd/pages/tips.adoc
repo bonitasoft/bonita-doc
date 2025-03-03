@@ -52,7 +52,7 @@ The build operation creates a *target* directory in the Bonita repository. Let's
 
 [source,bash]
 ----
-cd <path/to/bonita/repository>target
+cd <path/to/bonita/repository>/app/target
 ----
 
 This directory contains built artifacts, including the application archive we want to update. Keep in mind that the deployer can take a zip file or a directory as input. So, we are going to unzip the raw application archive, in a _to-deploy_ directory:
