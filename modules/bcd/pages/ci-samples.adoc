@@ -10,7 +10,7 @@ There are many ways to integrate Bonita CI/CD suite in a CI pipeline. The sample
 
 == Building a Bonita Project
 
-Since version 2023.2, a bonita project is a standard maven project, so you just to do a standard maven build in your CI as first step. 
+Since version 2023.2, a bonita project is a standard maven project, so you just have to do a standard maven build in your CI as first step. 
 
 Let's assume the project to build is named `my-project` and the target deployment bonita profile is `Qualification`. Placeholders like `... XXX ...` are to be replaced with your own values.
 
@@ -47,8 +47,8 @@ jobs:
 ----
 <1> Checkout the repository
 <2> Install Java JDK and use maven dependency cache
-<3> Configure your maven settings with the credentials to access Bonita Maven repository (use secret management)
-<4> Build the bonita project, using SCA mode when using docker profile
+<3> Configure your maven settings with the credentials to access Bonita Artifact Repository (use secret management)
+<4> Build the bonita project
 <5> Publish project artifacts to your maven repository.
 
 
@@ -96,15 +96,15 @@ jobs:
 ----
 <1> Checkout the repository
 <2> Install Java JDK and use maven dependency cache
-<3> Configure your maven settings with the credentials to access Bonita Maven repository (use secret management)
+<3> Configure your maven settings with the credentials to access Bonita Artifact Repository (use secret management)
 <4> Login to Bonita docker registry to be able to pull base image for SCA builds 
-<5> Build the bonita project, using SCA mode when using docker profile
+<5> Build the bonita project, using SCA mode by activating `docker` profile
 <6> Login to your own docker registry
 <7> Push your SCA image to your docker registry
 
 == Deploy step as part of CI job
 
-The deployer is a standalone java program. The simplest way to use it, is to download it from Bonita Maven repository, and execute it with the desired arguments.
+The deployer is a standalone java program. The simplest way to use it, is to download it from Bonita Artifact Repository, and execute it with the desired arguments.
 
 NOTE: To access the `bonita-la-deployer`, you need a valid Bonita CI/CD suite subscription.
 
@@ -112,27 +112,26 @@ NOTE: To access the `bonita-la-deployer`, you need a valid Bonita CI/CD suite su
 [source, yaml]
 ----
 
-    # other steps omitted ...
+# other steps omitted ...
 
-        - name: Extract version <1>
-            id: extract-version
-            run: echo 'version=$(mvn -B -ntp org.apache.maven.plugins:maven-help-plugin:3.3.0:evaluate -Dexpression=project.version -q -DforceStdout)' >> "$GITHUB_OUTPUT"
+- name: Extract version <1>
+    id: extract-version
+    run: echo 'version=$(mvn -B -ntp org.apache.maven.plugins:maven-help-plugin:3.5.1:evaluate -Dexpression=project.version -q -DforceStdout)' >> "$GITHUB_OUTPUT"
 
-        - name: 🪶 Publish configurations to artifactory <2>
-            run: |
-            mvn -B -ntp package -Dbonita.environment=Qualification
-            mvn -B -ntp deploy:deploy-file -Dfile=app/target/my-project-${{ steps.extract-version.outputs.version }}-Qualification.bconf -DgeneratePom=false -DgroupId=com.acme.my-project -DartifactId=my-project -Dversion=${{ steps.extract-version.outputs.version }} -Dtype=bconf -Dclassifier=Qualification -DrepositoryId=releases -Durl=... RELEASES_REPOSITORY_URL ...
+- name: 🪶 Publish configurations to artifactory <2>
+    run: |
+    mvn -B -ntp package -Dbonita.environment=Qualification
+    mvn -B -ntp deploy:deploy-file -Dfile=app/target/my-project-${{ steps.extract-version.outputs.version }}-Qualification.bconf -DgeneratePom=false -DgroupId=com.acme.my-project -DartifactId=my-project -Dversion=${{ steps.extract-version.outputs.version }} -Dtype=bconf -Dclassifier=Qualification -DrepositoryId=releases -Durl=... RELEASES_REPOSITORY_URL ...
 
-        - name: 🚀 Deploy to integration environment <3>
-            run: |
-            mvn -B dependency:copy -Dartifact=com.bonitasoft.deployer:bonita-la-deployer:1.1.0:jar -Dmdep.stripVersion -DoutputDirectory=./'
-            mvn -B --non-recursive exec:exec -Dexec.args="-jar bonita-la-deployer.jar -f app/target/ai-demo-${{ steps.extract-version.outputs.version }}-Qualification.zip -t ... BONITA_URL ... --username ... BONITA_TECH_LOGIN ... --password ... BONITA_TECH_PASSWD... "  
+- name: 🚀 Deploy to integration environment <3>
+    run: |
+    mvn -B dependency:copy -Dartifact=com.bonitasoft.deployer:bonita-la-deployer:1.1.0:jar -Dmdep.stripVersion -DoutputDirectory=./'
+    mvn -B --non-recursive exec:exec -Dexec.args="-jar bonita-la-deployer.jar -f app/target/my-project-${{ steps.extract-version.outputs.version }}-Qualification.zip -t ... BONITA_URL ... --username ... BONITA_TECH_LOGIN ... --password ... BONITA_TECH_PASSWD... "  
 
 ----
 <1> Retrieve the project version
 <2> Build configuration for the target environment and pubish it
-<3> run the deployer on the target server (here `... BONITA_URL ...`)
-
+<3> Run the deployer on the target server (here `... BONITA_URL ...`)
 
 NOTE: If you think quality is important, you can add an integration-tests maven module based on our xref:{testToolkitVersion}@test-toolkit::index.adoc[test toolkit]. As a standard maven module, all test present will be executed during the `test` or `integration-test` phase of your maven build.
 
