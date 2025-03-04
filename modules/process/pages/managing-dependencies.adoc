@@ -9,6 +9,11 @@ A dependency is an external module, not provided by the Bonita runtime, that is 
 You can have an overview of your project dependencies using the project _Overview_ in a Bonita Studio. From there you can navigate to the _Extensions_ view.
 This view only displays the root dependencies. In most cases, a java dependency has transitive dependencies. Bonita Studio helps you deal with those transitive dependencies by using Apache Maven as a dependency management tool for your Bonita project.
 
+[NOTE]
+====
+If you need to review all the dependencies associated with your project—or just a specific process—simply right-click on the desired element and select Dependency Tree. This will displays a comprehensive Maven dependency tree, detailing every dependency included in your project.
+====
+
 == Configure process dependencies
 
 Once you have added the required dependencies for your project. You need to add them to the process configuration that will use them.
