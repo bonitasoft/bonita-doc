@@ -110,6 +110,10 @@ When using a Windows terminal, a space must be added between the `-D` flag and t
 * `-Ddocker.imageName`: `${docker.imageRepository}:${project.version}` by default. The image tag given to the build image.
 * `-Ddocker.buildArgs`: Additional docker build arguments. _e.g._: `-Ddocker.buildArgs="--no-cache"` to add the `--no-cache` option to the build command.
 
+==== Maven build options
+
+* `mvn clean package -Penv-MyConfig`: Where `MyConfig` is the name of one of your custom configuration. Using this profile ensures that the application is built with all the necessary Maven dependencies included.
+
 == Custom application dependencies
 
 It is possible to add any additional dependency in the classpath of your application using the Project extension in the Studio. Any dependency `jar` that is not a Connector or an Actor filter will be added in the parent classpath of the application.
