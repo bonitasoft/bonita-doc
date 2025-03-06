@@ -408,6 +408,19 @@ It was used to map arbitrary external IDs to Bonita identity (user, group, role,
 Event keys EXTERNAL_IDENTITY_MAPPING_CREATED and EXTERNAL_IDENTITY_MAPPING_DELETED have been removed from the event API and cannot be listened to anymore.
 
 
+=== Custom component changes
+
+If you used custom Spring beans, to customize Bonita event handlers, authentication, authorization rules, etc., you may need to update your code and your bean configuration to adapt to the removal of the tenant notion. +
+Check the following configuration files:
+
+* bonita-tenants-custom.xml
+* bonita-tenant-sp-custom.xml
+* bonita-platform-custom.xml
+* bonita-platform-sp-custom.xml
+
+for customizations you may have done there. In particular, if you have inherited from Bonita Spring beans with specialized behaviour, make sure the `tenantId` constructor parameter is removed from the bean definition. If relevant, redeploy a fixed version of your custom component and change its declaration.
+
+
 === Configuration changes
 
 ==== JAAS / CAS SSO configuration
