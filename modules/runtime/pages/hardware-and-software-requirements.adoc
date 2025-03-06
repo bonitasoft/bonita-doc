@@ -48,7 +48,7 @@ Software required for Bonita Platform.
 | 8.x & 9.x 64 bits
 
 | CentOS
-| 7 - 64 bits
+| 8.4 64 bits
 
 | Ubuntu
 | 20.04 LTS 64 bits
