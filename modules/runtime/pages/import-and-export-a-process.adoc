@@ -87,16 +87,7 @@ The resulting .bos file can be imported into Bonita Studio.
 
 == Build a process for deployment
 
-When a process is ready for deployment, you must create an executable business archive (.bar file) for deployment.
-
-To create the business archive:
-
-. Choose *_Build..._* from the *_Server_* menu.
-. Select the process to be exported.
-. Specify whether you want to export a configuration with the process. Exporting a configuration will export all the information and other items that you
-configured, including connectors and dependencies.
-. Specify the location where the .bar file will be created. The filename is determined by the process name and cannot be changed at this stage.
-. Click *_Finish_*. The business archive is created.
+See the dedicated page: xref:ROOT:build-a-process-for-deployment.adoc[Build a process for deployment].
 
 == Export a process diagram as an image
 
