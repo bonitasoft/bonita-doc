@@ -12,7 +12,7 @@ These REST APIs aims to solve the following cloud deployment use cases:
 [NOTE]
 ====
 These APIs are allowed to the Bonita technical user only. +
-See the https://api-documentation.bonitasoft.com/latest/#tag/Authentication/operation/login[Bonita login API] to log in.
+See the {openApiUrl}/{openApiLatestVersion}#tag/Authentication/operation/login[Bonita login API] to log in.
 The `X-Bonita-API-Token` and `JSESSIONID` cookies are required for these APIs (in the Headers).
 ====
 
