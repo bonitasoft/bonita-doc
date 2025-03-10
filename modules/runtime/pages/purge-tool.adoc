@@ -56,7 +56,7 @@ It is also possible to use environment variables to set these properties.
 .Environment variables example
 [source,shell]
 ----
-DATABASE_PASSWORD=secret ./bin/bonita-purge-tool list --older-than 6m
+DATABASE_PASSWORD=secret ./bin/bonita-purge list --older-than 6m
 ----
 ====
 
@@ -73,14 +73,14 @@ Unix::
 +
 [source,shell]
 ----
-./bin/bonita-purge-tool --help
+./bin/bonita-purge --help
 ----
 
 Windows::
 +
 [source,shell]
 ----
-./bin/bonita-purge-tool.bat --help
+./bin/bonita-purge.bat --help
 ----
 ====
 
@@ -96,14 +96,14 @@ Unix::
 +
 [source,shell]
 ----
-./bin/bonita-purge-tool list --older-than 6m
+./bin/bonita-purge list --older-than 6m
 ----
 
 Windows::
 +
 [source,shell]
 ----
-./bin/bonita-purge-tool.bat list --older-than 6m
+./bin/bonita-purge.bat list --older-than 6m
 ----
 ====
 
@@ -131,14 +131,14 @@ Unix::
 +
 [source,shell]
 ----
-./bin/bonita-purge-tool delete --older-than 6m
+./bin/bonita-purge delete --older-than 6m
 ----
 
 Windows::
 +
 [source,shell]
 ----
-./bin/bonita-purge-tool.bat delete --older-than 6m
+./bin/bonita-purge.bat delete --older-than 6m
 ----
 ====
 
@@ -149,14 +149,14 @@ Unix::
 +
 [source,shell]
 ----
-./bin/bonita-purge-tool delete --older-than 6m --process-definition-id 1234567890
+./bin/bonita-purge delete --older-than 6m --process-definition-id 1234567890
 ----
 
 Windows::
 +
 [source,shell]
 ----
-./bin/bonita-purge-tool.bat delete --older-than 6m --process-definition-id 1234567890
+./bin/bonita-purge.bat delete --older-than 6m --process-definition-id 1234567890
 ----
 ====
 
@@ -167,14 +167,14 @@ Unix::
 +
 [source,shell]
 ----
-./bin/bonita-purge-tool delete --before-date 1656979200000
+./bin/bonita-purge delete --before-date 1656979200000
 ----
 
 Windows::
 +
 [source,shell]
 ----
-./bin/bonita-purge-tool.bat delete --before-date 1656979200000
+./bin/bonita-purge.bat delete --before-date 1656979200000
 ----
 ====
 NOTE: The `--before-date` parameter must be in https://www.epochconverter.com/[milliseconds since the epoch].
@@ -231,14 +231,14 @@ Unix::
 +
 [source,shell]
 ----
-./bin/bonita-purge-tool delete-fileinput-content
+./bin/bonita-purge delete-fileinput-content
 ----
 
 Windows::
 +
 [source,shell]
 ----
-./bin/bonita-purge-tool.bat delete-fileinput-content
+./bin/bonita-purge.bat delete-fileinput-content
 ----
 ====
 
