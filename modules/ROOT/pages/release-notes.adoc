@@ -50,6 +50,18 @@ The formerly named `bonita-update-tool(.bat)` script has been renamed to `bonita
 Moreover, the Subscription version of the script is also named `bonita-update(.bat)`. (there is no `-sp` suffix anymore)
 
 
+=== Purge tool script has been renamed
+
+[NOTE]
+====
+For Subscription editions only.
+====
+
+To simplify and rationalize the naming of the scripts, the purge tool script has been renamed.
+
+The formerly named `bonita-purge-tool(.bat)` script has been renamed to `bonita-purge(.bat)`.
+
+
 === Setup Tool (aka Platform Setup) file structure has been simplified
 
 The setup tool file structure has been simplified to better fit the multitenancy removal.
