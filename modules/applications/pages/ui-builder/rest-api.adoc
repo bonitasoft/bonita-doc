@@ -12,7 +12,7 @@ These REST APIs aims to solve the following cloud deployment use cases:
 [NOTE]
 ====
 These APIs are allowed to the Bonita technical user only. +
-See the https://api-documentation.bonitasoft.com/0.0.21/#tag/PortalAuthentication/operation/login[Bonita login API] to log in.
+See the https://api-documentation.bonitasoft.com/latest/#tag/Authentication/operation/login[Bonita login API] to log in.
 The `X-Bonita-API-Token` and `JSESSIONID` cookies are required for these APIs (in the Headers).
 ====
 
@@ -36,7 +36,13 @@ The `X-Bonita-API-Token` and `JSESSIONID` cookies are required for these APIs (i
 
 ==== Example
 
-`curl 'http://localhost/api/v1/uib/workspaces/import' --header 'x-requested-by: Appsmith' --header 'Cookie: X-Bonita-API-Token=xxxxx ; JSESSIONID=xxxxx' --form 'file=@"apps_path/App1.json"'`
+[source,bash]
+----
+curl 'http://localhost/api/v1/uib/workspaces/import' \
+  --header 'x-requested-by: Appsmith' \
+  --header 'Cookie: X-Bonita-API-Token=xxxxx ; JSESSIONID=xxxxx' \
+  --form 'file=@"apps_path/App1.json"'
+----
 
 === Import a set of applications
 
@@ -57,8 +63,13 @@ The `X-Bonita-API-Token` and `JSESSIONID` cookies are required for these APIs (i
 
 ==== Example
 
-`curl 'http://localhost/api/v1/uib/workspaces/import-bulk' --header 'x-requested-by: Appsmith' --header 'Cookie: X-Bonita-API-Token=xxxxx ; JSESSIONID=xxxxx' --form 'file=@"zip_path/apps.zip"'`
-
+[source,bash]
+----
+curl 'http://localhost/api/v1/uib/workspaces/import-bulk' \
+  --header 'x-requested-by: Appsmith' \
+  --header 'Cookie: X-Bonita-API-Token=xxxxx ; JSESSIONID=xxxxx' \
+  --form 'file=@"zip_path/apps.zip"'
+----
 
 == Deleting all applications
 
@@ -67,7 +78,7 @@ The `X-Bonita-API-Token` and `JSESSIONID` cookies are required for these APIs (i
 * **Headers**:
 ** `x-requested-by: Appsmith`
 
-==== Response Status
+=== Response Status
 
 * 200 OK
 ** If all the applications have been deleted
@@ -76,6 +87,11 @@ The `X-Bonita-API-Token` and `JSESSIONID` cookies are required for these APIs (i
 * 207 MULTI_STATUS
 ** If some applications have not been deleted
 
-==== Example
+=== Example
 
-`curl 'http://localhost/api/v1/uib/workspaces/clean' --header 'x-requested-by: Appsmith' --header 'Cookie: X-Bonita-API-Token=xxxxx ; JSESSIONID=xxxxx'`
+[source,bash]
+----
+curl 'http://localhost/api/v1/uib/workspaces/clean' \
+  --header 'x-requested-by: Appsmith' \
+  --header 'Cookie: X-Bonita-API-Token=xxxxx ; JSESSIONID=xxxxx'
+----
