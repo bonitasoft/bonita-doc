@@ -21,9 +21,9 @@ The following environment variables are optional:
 - `BONITA_HEALTHCHECK_PASSWORD`: Defines the password to request the Bonita healthcheck API (default: `mon1tor1ng_adm1n`).
 - `BONITA_DEV_MODE`: Enables user to development mode when set to `true` (default: `true`).
 - `LOGGING_LEVEL_ROOT`: Sets the logging level for the root logger (default: `debug`).
-- `LOGGING_LEVEL_COM_APPSMITH`: Sets the logging level for Appsmith components (default: `debug`).
-- `LOGGING_LEVEL_COM_BONITASOFT`: Sets the logging level for BonitaSoft components (default: `debug`).
-- `LOGGING_LEVEL_COM_EXTERNAL_PLUGINS`: Sets the logging level for external plugins (default: `debug`).
+- `LOGGING_LEVEL_COM_APPSMITH`: Sets the logging level for Appsmith components (default: `info`).
+- `LOGGING_LEVEL_COM_BONITASOFT`: Sets the logging level for BonitaSoft components (default: `info`).
+- `LOGGING_LEVEL_COM_EXTERNAL_PLUGINS`: Sets the logging level for external plugins (default: `info`).
 
 === Configure the `bonita-ui-proxy` image
 
