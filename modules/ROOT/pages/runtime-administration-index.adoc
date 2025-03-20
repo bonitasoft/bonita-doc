@@ -1,4 +1,0 @@
-= Runtime administration
-:description: blabla
-
-App du portal, monitoring ...
