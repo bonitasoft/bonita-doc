@@ -10,6 +10,17 @@ All changes in both tools are logged: from the version that was delivered with t
 This is due to the fact that improvements in any version of the tools can affect all supported Bonita versions. 
 This changelog must be read before xref:update-overview.adoc[updating to a newer version of Bonita].
 
+== 3.6.3 - March 21th, 2025 - Bonita Update Tool changes
+Bonita Update Tool handles updates from all Bonita 7.10 versions up to Bonita 2024.3 (10.2) version.
+
+* Add an index to prevent Database Deadlocks (Oracle & MS SQL Server). This fix is applied automatically when updating to Bonita 9.0+,
+and also when run using option `-i` or `--update-indexes` to fix the indexes of the database without actually updating Bonita.
+
+== 3.6.2 - December 16th, 2024 - Bonita Update Tool changes
+Bonita Update Tool handles updates from all Bonita 7.10 versions up to Bonita 2024.3 (10.2) version.
+
+* fix wrong FK recreation on Mysql after index recreation (without tenantid)
+
 == 3.6.1 - December 5th, 2024 - Bonita Update Tool changes
 Bonita Update Tool handles updates from all Bonita 7.10 versions up to Bonita 2024.3 (10.2) version.
 
