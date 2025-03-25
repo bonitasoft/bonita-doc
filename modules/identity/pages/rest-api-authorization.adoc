@@ -92,7 +92,7 @@ including <<custom_pages,custom pages>>.
 
 For example: `cusompage_adminUserList=[profile_visualization, process_comment, organization_visualization, tenant_platform_visualization, organization_management]`
 
-This specifies the REST API permissions that are granted by the Bonita Administrator User List page that lists all the users in the tenant.
+This specifies the REST API permissions that are granted by the Bonita Administrator User List page that lists all the users.
 
 By default, there is a compound permission defined for each page that is installed by default in the Bonita Runtime.
 
@@ -249,9 +249,9 @@ class CasePermissionRule implements PermissionRule {
     @Override
     boolean isAllowed(APISession apiSession, APICallContext apiCallContext, APIAccessor apiAccessor, Logger logger) {
         long currentUserId = apiSession.getUserId()
-        if ("GET".equals(apiCallContext.getMethod())) {
+        if ("GET" == apiCallContext.getMethod()) {
             return checkGetMethod(apiCallContext, apiAccessor, currentUserId, logger)
-        } else if ("POST".equals(apiCallContext.getMethod())) {
+        } else if ("POST" == apiCallContext.getMethod()) {
             return checkPostMethod(apiCallContext, apiAccessor, currentUserId, logger)
         }
         return false
@@ -261,7 +261,7 @@ class CasePermissionRule implements PermissionRule {
         def body = apiCallContext.getBodyAsJSON()
         def processDefinitionId = body.optLong("processDefinitionId")
         if (processDefinitionId <= 0) {
-            return false;
+            return false
         }
         def processAPI = apiAccessor.getProcessAPI()
         def identityAPI = apiAccessor.getIdentityAPI()
@@ -295,7 +295,7 @@ class CasePermissionRule implements PermissionRule {
             }
         } else {
             def stringUserId = String.valueOf(currentUserId)
-            if (stringUserId.equals(filters.get("started_by")) || stringUserId.equals(filters.get("user_id")) || stringUserId.equals(filters.get("supervisor_id"))) {
+            if (stringUserId == filters.get("started_by") || stringUserId == filters.get("user_id") || stringUserId == filters.get("supervisor_id")) {
                 logger.debug("RuleCase : allowed because searching filters contains user id")
                 return true
             }

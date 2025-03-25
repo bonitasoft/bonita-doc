@@ -50,6 +50,18 @@ The formerly named `bonita-update-tool(.bat)` script has been renamed to `bonita
 Moreover, the Subscription version of the script is also named `bonita-update(.bat)`. (there is no `-sp` suffix anymore)
 
 
+=== Purge tool script has been renamed
+
+[NOTE]
+====
+For Subscription editions only.
+====
+
+To simplify and rationalize the naming of the scripts, the purge tool script has been renamed.
+
+The formerly named `bonita-purge-tool(.bat)` script has been renamed to `bonita-purge(.bat)`.
+
+
 === Setup Tool (aka Platform Setup) file structure has been simplified
 
 The setup tool file structure has been simplified to better fit the multitenancy removal.
@@ -244,7 +256,6 @@ platform_conf
 │  │  └── hazelcast.xml
 │  ├── platform_portal
 │  │  ├── cache-config.xml
-│  │  ├── platform-tenant-config.properties
 │  │  └── security-config.properties
 │  ├── tenant_engine
 │  │  ├── bonita-tenant-community-custom.properties
@@ -285,7 +296,6 @@ platform_conf
 │  ├── PLATFORM_ENGINE_VERSION
 │  ├── platform_portal
 │  │  ├── cache-config.xml
-│  │  ├── platform-tenant-config.properties
 │  │  └── security-config.properties
 │  ├── tenant_engine
 │  │  ├── bonita-tenant-community-custom.properties
@@ -370,6 +380,13 @@ The changes mainly involve removing `_template` from the Bonita paths used in sc
 ====
 
 
+== Support matrix changes
+
+=== Ubuntu update
+
+Support for Ubuntu has been updated to version **24.04**. See xref:runtime:hardware-and-software-requirements.adoc[hardware and software requirements] for the full matrix support.
+
+
 == Deprecations and removals
 
 === API deprecations
@@ -408,6 +425,19 @@ Deprecated method org.bonitasoft.engine.platform.Platform#getPreviousVersion() h
 This concept has been completely removed because the associated feature was not used internally and was not documented.
 It was used to map arbitrary external IDs to Bonita identity (user, group, role, membership). +
 Event keys EXTERNAL_IDENTITY_MAPPING_CREATED and EXTERNAL_IDENTITY_MAPPING_DELETED have been removed from the event API and cannot be listened to anymore.
+
+
+=== Custom component changes
+
+If you used custom Spring beans, to customize Bonita event handlers, authentication, authorization rules, etc., you may need to update your code and your bean configuration to adapt to the removal of the tenant notion. +
+Check the following configuration files:
+
+* bonita-tenants-custom.xml
+* bonita-tenant-sp-custom.xml
+* bonita-platform-custom.xml
+* bonita-platform-sp-custom.xml
+
+for customizations you may have done there. In particular, if you have inherited from Bonita Spring beans with specialized behaviour, make sure the `tenantId` constructor parameter is removed from the bean definition. If relevant, redeploy a fixed version of your custom component and change its declaration.
 
 
 === Configuration changes

@@ -27,12 +27,12 @@ image:bdm-tuto/bdm-expense-report.png[Expense report business object]
 
 [source,groovy]
 ----
-	def aDummyExpense = expenseDAO.newInstance();
+	def aDummyExpense = expenseDAO.newInstance()
 	aDummyExpense.amount = 5
 	aDummyExpense.nature = "A dummy expense"
 	aDummyExpense.expenseDate = new Date()
 
-	def anotherDummyExpense = expenseDAO.newInstance();
+	def anotherDummyExpense = expenseDAO.newInstance()
 	anotherDummyExpense.amount = 55
 	anotherDummyExpense.nature = "A another dummy expense"
 	anotherDummyExpense.expenseDate = new Date()
@@ -102,7 +102,7 @@ JSON number type range does not extend to _java.lang.Long.MAX_VALUE_. A conversi
 
 [source,groovy]
 ----
-	import com.company.model.Expense;
+	import com.company.model.Expense
 
 	def updatedExpenses = []
 	updatedExpenses.addAll(report.getExpenses())

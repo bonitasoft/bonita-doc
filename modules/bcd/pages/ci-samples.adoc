@@ -1,12 +1,12 @@
-= How to integrate BCD features in a CI pipeline
-:description: BCD features integration in a CI pipelines
+= How to integrate Bonita CI/CD suite features in a CI pipeline
+:description: Bonita CI/CD suite features integration in a CI pipelines
 
 :page-aliases: jenkins_example.adoc
 
 
-The BCD CLIs can not only be run interactively, but also within standard Continuous Delivery servers such as https://jenkins.io/[Jenkins CI], or https://github.com/features/actions[Github Actions], or https://docs.gitlab.com/ee/ci/[Gitlab CI], etc.
+The Bonita CI/CD suite CLIs can not only be run interactively, but also within standard Continuous Delivery servers such as https://jenkins.io/[Jenkins CI], or https://github.com/features/actions[Github Actions], or https://docs.gitlab.com/ee/ci/[Gitlab CI], etc.
 
-There are many ways to integrate BCD CLIs in a CI pipeline. The samples proposed here explain how to integrate bonita-la-builder the bonita-la-deployer in a JenkinsCI pipeline job.
+There are many ways to integrate Bonita CI/CD suite CLIs in a CI pipeline. The samples proposed here explain how to integrate bonita-la-builder the bonita-la-deployer in a JenkinsCI pipeline job.
 
 == Building a Bonita Project
 

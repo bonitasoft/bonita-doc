@@ -3,7 +3,7 @@
 
 == Overview
 
-This application is designed for system administrators (the technical user) to perform critical system-level tasks that impact all users and processes, such as updates and system settings configurations.
+This application is designed for system administrators (the technical admin) to perform critical system-level tasks that impact all users and processes, such as updates and system settings configurations.
 The source code is available here : https://github.com/bonitasoft/bonita-super-admin-application.
 
 == Steps to Build

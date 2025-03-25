@@ -1,10 +1,20 @@
 = Purge Tool change log
 :page-aliases: ROOT:purge-tool-changelog.adoc
-:description: This is the changelog of the Purge Tool.
+:description: This is the changelog of Bonita Purge Tool.
 
 {description}
 
 The Purge Tool is used to remove data from Bonita archive tables. It is useful for big production environments.
+
+== 2.2.0 - May 4, 2025 (TO BE UPDATED WITH THE REAL DATE)
+
+Breaking changes:
+
+- Script has been renamed from `bonita-purge-tool(.bat)` to `bonita-purge(.bat)`.
+
+New features:
+
+- Support Bonita versions 10.3+ (where multitenancy is not present anymore).
 
 == 2.1.0 - December 4, 2024
 

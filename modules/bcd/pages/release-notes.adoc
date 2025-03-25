@@ -59,7 +59,7 @@ The bonita-la-deployer release 1.0.0 is now available.
 
 Reminder:
 
-- the bonita-la-deployer requires authentication and authorization on the Rest API by passing credentials (username/password). To ensure that all operations can be performed, we advise you to use the credentials of the Tenant Administrator. It is mandatory to deploy a Business Data Model.
+- the bonita-la-deployer requires authentication and authorization on the Rest API by passing credentials (username/password). To ensure that all operations can be performed, we advise you to use the credentials of the Technical Administrator. It is mandatory to deploy a Business Data Model.
 - you can only log to the default tenant (id 1). Multi-tenant is removed from Bonita Platform 2023.1 (8.0).
 - Prior to deploying a Business Data Model, the bonita-la-deployer put the Tenant in the paused state. It then restarts it after deployment of the BDM. So a downtime of the related Bonita Tenant occurs in this case
 

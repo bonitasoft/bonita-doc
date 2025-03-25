@@ -32,8 +32,8 @@ platformAPI.createPlatform();
 +
 . *Initialize the platform*
 +
-This will create the default tenant and initialize Bonita Engine environment.
-After this step, the technical user will be able to connect to the engine and create new users or xref:ROOT:manage-an-organization.adoc[import the organization].
+This will create and initialize Bonita Engine environment.
+After this step, the technical administrator will be able to connect to the engine and create new users or xref:ROOT:manage-an-organization.adoc[import the organization].
 +
 [source,bash]
 ----
@@ -41,7 +41,7 @@ After this step, the technical user will be able to connect to the engine and cr
 platformAPI.initializePlatform();
 ----
 +
-No business users are created by default and the default username/password for the technical user to connect to Bonita Engine can be retrieved in the file `setup/platform_conf/current/tenant_engine/bonita-tenant-community-custom.properties` using the xref:runtime:bonita-platform-setup.adoc[platform setup tool] (`[tenant_id]` being the default tenant ID, that is to say `1` when using the default configuration on a fresh installation).
+No business users are created by default and the default username/password for the technical administrator to connect to Bonita Engine can be retrieved in the file `setup/platform_conf/current/tenant_engine/bonita-tenant-community-custom.properties` using the xref:runtime:bonita-platform-setup.adoc[platform setup tool].
 +
 Once you retrieved the default configuration using the xref:runtime:bonita-platform-setup.adoc[platform setup tool], you can change this username/password by editing the file `bonita-tenant-community-custom.properties` and use the tool again to xref:runtime:bonita-platform-setup.adoc#update_platform_conf[push the configuration to database].
 +

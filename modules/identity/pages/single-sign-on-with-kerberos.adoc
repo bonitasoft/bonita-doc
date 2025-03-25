@@ -16,7 +16,7 @@ The configuration steps detailed in this page include some modifications to the 
 
 This information applies to a Bonita platform deployed from a bundle, not to the Engine launched from Bonita Studio. `<BUNDLE_HOME>` refers to the root directory of the bundle.
 
-Kerberos configuration is at tenant level. Each tenant can use a different authentication method (over Kerberos or not).
+Kerberos configuration is global to the entire Bonita platform.
 
 [NOTE]
 ====
@@ -128,7 +128,7 @@ Trust this user for delegation to any service (Kerberos only).
 
 == Configure Bonita Bundle for Kerberos
 
-You need to execute the following actions in the folder of each tenant for which you want to support authentication over Kerberos. Files are located in `<BUNDLE_HOME>/setup/platform_conf/current/setup/platform_conf/current/tenant_*` (if you have not started the Bonita bundle yet, the files are located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_*`)
+You need to execute the following actions in the folder for which you want to support authentication over Kerberos. Files are located in `<BUNDLE_HOME>/setup/platform_conf/current/setup/platform_conf/current/tenant_*` (if you have not started the Bonita bundle yet, the files are located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_*`)
 
 The bundle already contains the files needed to use Kerberos with Bonita platform. +
 To configure Bonita for Kerberos:
@@ -136,7 +136,7 @@ To configure Bonita for Kerberos:
 . If you do not already have one:
  .. Download a Subscription edition bundle from the customer portal
  .. xref:runtime:tomcat-bundle.adoc#configuration[Configure] it as needed
- .. Run it a first time, so that the first default tenant is created (TENANT_ID = 1)
+ .. Run it a first time, so that the Bonita platform is created
  .. Stop it before modifying the configuration files below
 . You will need to edit the Kerberos configuration file in order to select the desired encryption types used to secure the communication. In the following folder `<BUNDLE_HOME>/server/conf`,
 edit the krb5.conf file as follows:
@@ -290,9 +290,9 @@ NOTE: Activating this option means any user logged in on the domain trying to ac
 . Restart your server to apply the changes. +
 
 . Confirm that your Domain Controller is correctly configured. +
-Then you can start the bundle and try to access any Bonita Application page, an app page or a form URL (or just `http ://<host>:<port>/bonita[?tenant=<tenantId>]`) and make sure that you are automatically logged in.
+Then you can start the bundle and try to access any Bonita Application page, an app page or a form URL (or just `http ://<host>:<port>/bonita`) and make sure that you are automatically logged in.
 
-Note that if you try to access `http ://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property `kerberos.auth.standard.allowed` to true or define a whitelist with the property `auth.tenant.standard.whitelist`) to be able to log in without an account on AD.
+Note that if you try to access `http ://<bundle host>:<port>/bonita/login.jsp`, then you won't be redirected as this page still needs to be accessible in order for the technical administrator (or another user if you set the property `kerberos.auth.standard.allowed` to true or define a whitelist with the property `auth.tenant.standard.whitelist`) to be able to log in without an account on AD.
 
 == Logout behavior
 
@@ -340,7 +340,7 @@ However, when you create a user in the Bonita Administrator Application, specify
 
 If you are using an LDAP (or AD) service and the xref:ROOT:ldap-synchronizer.adoc[LDAP synchronizer] to manage your user data, +
 you can continue to do this and manage authentication over Kerberos. +
-The LDAP synchronizer user must be registered in Bonita (no need for an LDAP/AD account). It is recommended though to use the tenant admin account. +
+The LDAP synchronizer user must be registered in Bonita (no need for an LDAP/AD account). It is recommended though to use the technical admin account. +
 We recommend that you use LDAP or AD as your master source for information, synchronizing the relevant information with your Bonita platform.
 
 [NOTE]

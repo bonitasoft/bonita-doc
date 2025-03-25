@@ -32,7 +32,7 @@ in Bonita Studio so it can be shared and versioned with the whole project, or th
 
 === Create a user
 
-Reminder: do not create a user with the same login and password as the xref:ROOT:first-steps-after-setup.adoc[platform administrator nor the technical user].
+Reminder: do not create a user with the same login and password as the xref:ROOT:first-steps-after-setup.adoc[platform administrator nor the technical administrator].
 
 . Go to _Organization_/_Users_
 . Click on _Create_

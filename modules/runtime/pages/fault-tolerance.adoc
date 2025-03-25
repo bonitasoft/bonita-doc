@@ -118,18 +118,18 @@ Here is an example of metrics published using the Prometheus publisher, more inf
 ----
 # HELP bonita_bpmengine_recovery_duration_seconds_max duration of recovery task
 # TYPE bonita_bpmengine_recovery_duration_seconds_max gauge
-bonita_bpmengine_recovery_duration_seconds_max{tenant="1",} 0.0
+bonita_bpmengine_recovery_duration_seconds_max 0.0
 # HELP bonita_bpmengine_recovery_duration_seconds duration of recovery task
 # TYPE bonita_bpmengine_recovery_duration_seconds summary
-bonita_bpmengine_recovery_duration_seconds_active_count{tenant="1",} 0.0
-bonita_bpmengine_recovery_duration_seconds_duration_sum{tenant="1",} 0.0
+bonita_bpmengine_recovery_duration_seconds_active_count 0.0
+bonita_bpmengine_recovery_duration_seconds_duration_sum 0.0
 # HELP bonita_bpmengine_recovery_recovered_last_elements number of elements recovered
 # TYPE bonita_bpmengine_recovery_recovered_last_elements gauge
-bonita_bpmengine_recovery_recovered_last_elements{tenant="1",} 0.0
+bonita_bpmengine_recovery_recovered_last_elements 0.0
 # HELP bonita_bpmengine_recovery_recovered_total_elements_total Total number of elements recovered
 # TYPE bonita_bpmengine_recovery_recovered_total_elements_total counter
-bonita_bpmengine_recovery_recovered_total_elements_total{tenant="1",} 39768.0
+bonita_bpmengine_recovery_recovered_total_elements_total 39768.0
 # HELP bonita_bpmengine_recovery_execution_executions_total Number of recovery executed
 # TYPE bonita_bpmengine_recovery_execution_executions_total counter
-bonita_bpmengine_recovery_execution_executions_total{tenant="1",} 818.0
+bonita_bpmengine_recovery_execution_executions_total 818.0
 ----
