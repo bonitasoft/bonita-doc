@@ -28,8 +28,7 @@ Alternatively, you can create a more complex user object as follows:
 // create complex user
 UserCreator creator = new UserCreator("john", "bpm")
 creator.setFirstName("Johnny").setLastName("B. Good")
-ContactDataCreator proContactDataCreator = new ContactDataCreator().setAddress("32 rue
-        Gustave Eiffel").setCity("Grenoble").setPhoneNumber("555 14 12 541")
+ContactDataCreator proContactDataCreator = new ContactDataCreator().setAddress("32 rue Gustave Eiffel").setCity("Grenoble").setPhoneNumber("555 14 12 541")
 creator.setProfessionalContactData(proContactDataCreator)
 final User user2 = identityAPI.createUser(creator)
 ----

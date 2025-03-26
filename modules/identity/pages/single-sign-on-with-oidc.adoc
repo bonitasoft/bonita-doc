@@ -11,9 +11,6 @@ For Teamwork, Efficiency, Performance and Enterprise editions only.
 
 This information applies to a Bonita platform deployed from a bundle, not to the Engine launched from Bonita Studio. `<BUNDLE_HOME>` refers to the root directory of the bundle.
 
-//OpenID Connect configuration is at tenant level. Each tenant can use a different authentication method (over OIDC or not).
-OpenID Connect configuration is at tenant level.
-
 [NOTE]
 ====
 Bonita uses http://www.keycloak.org/[Keycloak] OIDC Service client adapter. It has been extended to support other OIDC providers than Keycloak. +
@@ -51,7 +48,7 @@ The `username` attribute of Bonita user accounts should match one of the _claims
 
 == Configure Bonita Bundle for OIDC
 
-You need to execute the following actions in the folder of each tenant for which you want to support authentication over OpenID Connect.
+You need to execute the following actions in the folder for which you want to support authentication over OpenID Connect.
 
 The bundle already contains the files needed to use OIDC with Bonita platform.
 To configure Bonita for OIDC:
@@ -59,7 +56,7 @@ To configure Bonita for OIDC:
 . If you do not already have one:
  .. Download a Subscription edition bundle from the {cscDownloadUrl}[Customer Service Center]
  .. xref:runtime:tomcat-bundle.adoc#configuration[Configure] it as needed
- .. Run it a first time, so that the first default tenant is created (TENANT_ID = 1)
+ .. Run it a first time, so that the Bonita platform is created
  .. Stop it and run `setup[.sh][.bat] pull` to retrieve current configuration before modifying the configuration files below
 . In the tenant_portal folder of each existing tenant: `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal`,
 edit the `authenticationManager-config.properties` as follows:
@@ -240,8 +237,8 @@ NOTE: Activating this option means any user authorized by the IdP to access Boni
 Additional configuration options are available in https://www.keycloak.org/docs/{keycloakDocumentationVersion}/securing_apps/#_java_adapter_config[Keycloak official documentation]
 ====
 
-Once your Identity Provider is correctly configured (see the section _Configure the Identity Provider_), test the access to any Bonita Application page, an app page or a form URL (or just `+http://<host>:<port>/bonita[?tenant=<tenantId>]+`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in). +
-Note that if you try to access `+http://<host>:<port>/bonita/login.jsp+`, then you won't be redirected to the OIDC provider's authentication end point since this page needs to be accessible for the tenant administrator (or another user if you set the property `oidc.auth.standard.allowed` to `true`) to be able to log in without an account on the Identity Provider.
+Once your Identity Provider is correctly configured (see the section _Configure the Identity Provider_), test the access to any Bonita Application page, an app page or a form URL (or just `+http://<host>:<port>/bonita+`) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in). +
+Note that if you try to access `+http://<host>:<port>/bonita/login.jsp+`, then you won't be redirected to the OIDC provider's authentication end point since this page needs to be accessible for the technical administrator (or another user if you set the property `oidc.auth.standard.allowed` to `true`) to be able to log in without an account on the Identity Provider.
 
 [WARNING]
 ====
@@ -362,7 +359,7 @@ However, when you create a user in Bonita Applications, specifying a password is
 
 If you are using an LDAP service and the xref:ROOT:ldap-synchronizer.adoc[LDAP synchronizer] to manage your user data, +
 you can continue to do this and manage authentication over OIDC. +
-The LDAP synchronizer user must be registered in Bonita (no need for an OIDC account). It is recommended though to use the tenant admin account.
+The LDAP synchronizer user must be registered in Bonita (no need for an OIDC account). It is recommended though to use the technical admin account.
 We recommend that you use LDAP as your master source for information, synchronizing the relevant information with your Bonita platform.
 
 [NOTE]

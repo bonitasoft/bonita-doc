@@ -242,7 +242,7 @@ The following artifacts are used with **implicit policies**. It means that you d
 === Caveats
 
 * `FAIL` policy implies that the deployment stops right after the failure meaning that subsequent elements of the deployment are not deployed at all.
-* Prior to deploying a Business Data Model, xref:runtime:platform-maintenance-mode.adoc[the Bonita tenant is paused]. So a downtime of the tenant occurs. The tenant is resumed after the deployment of the BDM.
+* Prior to deploying a Business Data Model, xref:runtime:platform-maintenance-mode.adoc[the Bonita platform is paused]. So a downtime of the services occurs. The platform is resumed after the deployment of the BDM.
 * REST API extension authorizations are not configured as part of the deployment process. They have to be configured while provisioning the Bonita platform.
 
 [#preconfigured_deployment_policies]

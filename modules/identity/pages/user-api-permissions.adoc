@@ -97,7 +97,6 @@ This profile is linked to the Bonita User Application by default. More informati
 ** portal/profileMember
 ** system/session
 ** system/log
-** system/tenant
 ** system/feature
 ** system/license
 ** system/monitoring
@@ -107,7 +106,6 @@ This profile is linked to the Bonita User Application by default. More informati
 ** platform/jvmDynamic
 ** platform/jvmStatic
 ** platform/systemProperty
-** platform/tenant
 ** living/application
 ** living/application-page
 ** living/application-menu

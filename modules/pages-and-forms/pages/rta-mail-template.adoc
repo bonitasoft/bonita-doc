@@ -38,18 +38,18 @@ The template will be filled with the initiator information and its manager conta
 
 [source,groovy]
 ----
-import org.bonitasoft.engine.identity.ContactData;
-import org.bonitasoft.engine.identity.User;
+import org.bonitasoft.engine.identity.ContactData
+import org.bonitasoft.engine.identity.User
 
-def ooom = new com.company.model.OutOfOfficeMessage();
+def ooom = new com.company.model.OutOfOfficeMessage()
 
-User u = BonitaUsers.getProcessInstanceInitiator(apiAccessor,processInstanceId);
-User manager = BonitaUsers.getProcessInstanceInitiatorManager(apiAccessor,processInstanceId);
+User u = BonitaUsers.getProcessInstanceInitiator(apiAccessor,processInstanceId)
+User manager = BonitaUsers.getProcessInstanceInitiatorManager(apiAccessor,processInstanceId)
 
-ContactData managerData = BonitaUsers.getProcessInstanceInitiatorManagerProfessionalContactInfo(apiAccessor,processInstanceId);
+ContactData managerData = BonitaUsers.getProcessInstanceInitiatorManagerProfessionalContactInfo(apiAccessor,processInstanceId)
 ContactData userData = BonitaUsers.getProcessInstanceInitiatorProfessionalContactInfo(apiAccessor,processInstanceId)
 
-ooom.setTitle("Out of office");
+ooom.setTitle("Out of office")
 ooom.setBody("""
 <p>Hi,<br>
 <br>
@@ -66,11 +66,11 @@ ${u.firstName} ${u.lastName}
 // ...
 </div>
 
-""");
-ooom.setStartDate(new Date());
-ooom.setEndDate(new Date());
+""")
+ooom.setStartDate(new Date())
+ooom.setEndDate(new Date())
 
-return ooom;
+return ooom
 ----
 
 This process instantiation do not hold any form (_no form_ in the menu:Execution[Instantiation form] tab) and a business object will be created with a groovy script setting the mail template.
@@ -106,7 +106,7 @@ The connector properties will be :
 +
 [source,groovy]
 ----
-BonitaUsers.getProcessInstanceInitiatorProfessionalContactInfo(apiAccessor,processInstanceId).email;
+BonitaUsers.getProcessInstanceInitiatorProfessionalContactInfo(apiAccessor,processInstanceId).email
 ----
 
 * The _Subject_ will use a groovy script too to retrieve the business variable property:

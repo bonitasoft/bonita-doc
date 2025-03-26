@@ -83,17 +83,6 @@ xref:rest-api-extension-archetype.adoc[[.card-title]#Create a REST API extension
 {openApiUrl}/{openApiLatestVersion}/++#++tag/PortalAuthentication[[.card-title]#Portal API# [.card-body.card-content-overflow]#pass:q[Access and manage pages, profiles and themes]#]
 --
 
-[.card.card-index]
---
-{openApiUrl}/{openApiLatestVersion}/++#++tag/System[[.card-title]#System API# [.card-body.card-content-overflow]#pass:q[Retrieve information on the current session and on localisation / translation.]#]
---
-
-[.card.card-index]
---
-{openApiUrl}/{openApiLatestVersion}/++#++tag/SystemTenant[[.card-title]#Tenant API# [.card-body.card-content-overflow]#pass:q[Show the tenant status or install / update the BDM]#]
---
-
-
 == Java API
 
 [.card-section]

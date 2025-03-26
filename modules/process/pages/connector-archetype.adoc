@@ -251,9 +251,9 @@ Example (using _Groovy_):
 ----
 package myGroupId
 
-import org.bonitasoft.engine.connector.AbstractConnector;
-import org.bonitasoft.engine.connector.ConnectorException;
-import org.bonitasoft.engine.connector.ConnectorValidationException;
+import org.bonitasoft.engine.connector.AbstractConnector
+import org.bonitasoft.engine.connector.ConnectorException
+import org.bonitasoft.engine.connector.ConnectorValidationException
 
 class Connector extends AbstractConnector {
 

@@ -1,6 +1,6 @@
 = CAS SSO configuration
 :page-aliases: ROOT:single-sign-on-with-cas.adoc
-:description: Bonita can be configured to use CAS to provide single sign-on (SSO), as long as you already have a working CAS service and all Bonita users are registered in CAS.
+:description: Bonita can be configured to use CAS to provide single sign-on (SSO), provided you have a working CAS service and all Bonita users are registered in CAS.
 
 {description}
 
@@ -187,7 +187,7 @@ By default, logging out from Bonita Engine logs the user out of CAS. You can cha
 
 == Administrator login
 
-The xref:identity:tenant-admin-credentials.adoc[administrator] (also known as the _technical user_) will always be able to log in without a CAS account. To log with the administrator, use the standard Bonita Runtime login page accessible on `+http://<host>:<port>/bonita/login.jsp+`.
+The xref:identity:technical-admin-credentials.adoc[administrator] (also known as the _technical administrator_) will always be able to log in without a CAS account. To log with the administrator, use the standard Bonita Runtime login page accessible on `+http://<host>:<port>/bonita/login.jsp+`.
 
 == Manage passwords
 
@@ -196,7 +196,7 @@ When you are using CAS, the password for a user is managed in your CAS system. H
 == LDAP synchronizer and CAS
 
 If you are using an LDAP service and the xref:ROOT:ldap-synchronizer.adoc[LDAP synchronizer] to manage your user data, you can continue to do this and use CAS. The LDAP synchronizer user must be registered in CAS.
-Alternatively, the LDAP synchronizer could be run with the technical user, because this bypasses the SSO login.
+Alternatively, the LDAP synchronizer could be run with the technical administrator, because this bypasses the SSO login.
 
 We recommend that you use LDAP as your master source for information, synchronizing the relevant information with your CAS server.
 

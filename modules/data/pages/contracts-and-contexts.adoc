@@ -74,7 +74,7 @@ Example of a stacktrace when a constraint fails:
 
 [source,log]
 ----
-2019-03-19 11:28:09.088 +0100 AVERTISSEMENT: org.bonitasoft.engine.bpm.contract.validation.ContractConstraintsValidator THREAD_ID=64 | HOSTNAME=*** | TENANT_ID=1 | Constraint [mandatory_invoiceInput_customer] on input(s) [invoiceInput] is not valid
+2019-03-19 11:28:09.088 +0100 AVERTISSEMENT: org.bonitasoft.engine.bpm.contract.validation.ContractConstraintsValidator THREAD_ID=64 | HOSTNAME=*** | Constraint [mandatory_invoiceInput_customer] on input(s) [invoiceInput] is not valid
 2019-03-19 11:28:09.200 +0100 INFOS: org.restlet.Component.BonitaSPRestletApplication Error while validating constraints
 Explanations:
 Customer is mandatory for Invoice

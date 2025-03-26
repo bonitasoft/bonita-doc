@@ -23,15 +23,17 @@ Here is an example of how to search for log message about a specific activity:
 
 [source,groovy]
 ----
-final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100);
-builder.filter(LogSearchDescriptor.ACTION_SCOPE, aTaskId);
-builder.searchTerm("Adding a new user");
-builder.sort(LogSearchDescriptor.ACTION_TYPE, Order.ASC);
-final LogAPI logAPI = TenantAPIAccessor.getLogAPI(session);
-final SearchResult<Log> searchedLogs = logAPI.searchLogs(builder.done());
+final APIClient apiClient = new APIClient()
+apiClient.login(username, password)
+final SearchOptionsBuilder builder = new SearchOptionsBuilder(0, 100)
+builder.filter(LogSearchDescriptor.ACTION_SCOPE, aTaskId)
+builder.searchTerm("Adding a new user")
+builder.sort(LogSearchDescriptor.ACTION_TYPE, Order.ASC)
+final LogAPI logAPI = apiClient.getLogAPI()
+final SearchResult<Log> searchedLogs = logAPI.searchLogs(builder.done())
 for (Log log : searchedLogs.getResult()) {
      // Print the detailed user creation message:
-    System.out.println(log.getMessage());
+    System.out.println(log.getMessage())
 }
 ----
 
@@ -47,7 +49,7 @@ Each queriable log type can be turned off individually with its associated prope
 === Find the list of properties
 
 * You can deactivate the logging on all the events listed xref:integration:event-handlers.adoc#_event_list[here].
-* Or, you can also find a set of properties for each product version. You'll find them in a java library: The `bonita-tenant-sp.xml` file contains the list of properties, and it is packed into the `/server/webapps/bonita/WEB-INF/lib/bonita-server-sp-[BonitaVersion].jar` file.
+* Or, you can also find a set of properties for each product version. You'll find them in a java library: The `bonita-subscription.xml` file contains the list of properties, and it is packed into the `/server/webapps/bonita/WEB-INF/lib/bonita-server-sp-[BonitaVersion].jar` file.
 
 === Disable the Queriable Logs
 

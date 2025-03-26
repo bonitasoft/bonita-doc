@@ -133,7 +133,7 @@ If you are running Bonita Engine inside a container, the maximum number of clien
 [#work_service]
 === Work service
 
-The work service is responsible for asynchronously processing execution of process instances. The work service has its own thread pool, which can be configured for each tenant. +
+The work service is responsible for asynchronously processing execution of process instances. The work service has its own thread pool, which is configurable. +
 This is one of the key configurations to optimize, because even though there are many client threads, client threads are held only for a short time before being released, and then execution flow continues using work service threads. +
 A thread from the pool of the work service is known as a worker.
 
@@ -197,7 +197,7 @@ bonita.tenant.work.sqlserver.delayOnMultipleXAResource=100
 [#connector_service]
 === Connector service
 
-The connector service executes connectors. To improve tenant isolation (and to protect against denial-of-service attacks), the default implementation of the connector service has its own thread pool and requires executes connectors in a separate thread from the worker. +
+The connector service executes connectors. To improve isolation (and to protect against denial-of-service attacks), the default implementation of the connector service has its own thread pool and executes connectors in a separate thread from the worker. +
 The configuration of the thread pool of this service is independent of the configuration of the work service.
 If you have processes that use a lot of connectors, then you can have more threads to execute connectors. See the xref:ROOT:connectors-execution.adoc[connector execution] page for details on how connectors are executed.
 
