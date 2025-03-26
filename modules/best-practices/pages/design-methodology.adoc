@@ -76,7 +76,7 @@ Through the process and user interfaces workshops, the business data model is id
 == Configuration - Installation
 
 While the project team works on the content of the project, the development team needs to xref:setup-dev-environment:setup-dev-environment-index.adoc[set up their development environment], to easily version and share the project, as well as automate the project builds. +
-For Subscription editions users, this is also the time to configure {bcdDocVersion}@bcd::index.adoc[Bonita Continuous Delivery]. +
+For Subscription editions users, this is also the time to configure xref:{bcdDocVersion}@bcd::index.adoc[Bonita Continuous Delivery]. +
 
 Moreover, if the project will be deployed on premises, the infrastructure team works on the installation of the non-production and production environments. +
 There are many options for how Bonita can be installed: see the xref:runtime:runtime-installation-index.adoc[Installation overview] for details.
