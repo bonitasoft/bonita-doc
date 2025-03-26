@@ -4,7 +4,7 @@
 
 {description}
 
-A dependency is an external module, not provided by the Bonita runtime, that is used by a process. It can be an xref:bonita-overview:managing-extension-studio.adoc[extension] or any third party jar to you may need in your process.
+A dependency is an external module, not provided by the Bonita runtime, that is used by a process. It can be an xref:bonita-overview:managing-extension-studio.adoc[extension] or any Maven dependency you may need in your process.
 
 You can have an overview of your project dependencies using the project _Overview_ in a Bonita Studio. From there you can navigate to the _Extensions_ view.
 This view only displays the root dependencies. In most cases, a java dependency has transitive dependencies. Bonita Studio helps you deal with those transitive dependencies by using Apache Maven as a dependency management tool for your Bonita project.
@@ -59,6 +59,51 @@ If you want to develop custom extensions for your processes, it is highly recomm
 ----
 
 This will help Maven selecting the matching versions if you are using a dependency already available in the Bonita runtime. When it is the case a warning should be displayed by your IDE. You can remove the version and set the scope to _provided_.
+
+== Managing Environment-Specific Dependencies with Maven Profiles
+
+Bonita Studio supports managing environment-specific dependencies via custom Maven profiles. This approach is preferred over directly adding jar dependencies, as it keeps your build configuration flexible and maintainable.
+
+By default, your project uses the active profile (e.g., the "default" profile). You can define additional profiles for specific environments. For example, consider a custom profile called `mylib-stub` that simulates a dependency by referencing a stub library (a fake artifact such as `stub.jar` that does not actually exist).
+
+Below is an extract of a pom.xml that illustrates the default profile along with the `mylib-stub` profile:
+
+[source,xml]
+----
+<profiles>
+  <!-- Default profile (active by default) -->
+  <profile>
+    <id>default</id>
+    <activation>
+      <activeByDefault>true</activeByDefault>
+    </activation>
+  </profile>
+  
+  <!-- Custom profile for a stub dependency -->
+  <profile>
+    <id>mylib-stub</id>
+    <dependencies>
+      <dependency>
+        <groupId>com.mycompany</groupId>
+        <artifactId>mylib</artifactId>
+        <version>1.0.0</version>
+      </dependency>
+    </dependencies>
+  </profile>
+</profiles>
+----
+
+To build your project with your custom profile, run:
+
+[source,bash]
+----
+mvn clean package -Penv-mylib-stub
+----
+
+[WARNING]
+====
+Limit modifications to your pom.xml to avoid breaking compatibility with Bonita Studio or complicating future migrations.
+====
 
 == Troubleshooting 
 
