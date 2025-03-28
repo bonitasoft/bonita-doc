@@ -1,6 +1,6 @@
 = Configure a process
 :page-aliases: ROOT:configuring-a-process.adoc
-:description: Process configuration contains Actor mapping, Connectors, Actor filter, Parameters, Java dependencies. Configuration can be done per Environment.
+:description: Process configuration contains Actor mapping, Connectors, Actor filter, Parameters. Configuration can be done per Environment.
 
 {description}
 
@@ -24,7 +24,7 @@ The following items can be configured:
 * Connectors
 * Parameters
 * Actor filters
-* xref:ROOT:managing-dependencies.adoc[Process dependencies]
 * Run user
+* xref:ROOT:managing-dependencies.adoc[Process dependencies]
 
 After deployment, depending on the Bonita edition that you are using, you can xref:runtime:live-update.adoc[update the process configuration in production] for some aspects of the process.

@@ -4,10 +4,15 @@
 
 {description}
 
-A dependency is an external module, not provided by the Bonita runtime, that is used by a process. It can be an xref:bonita-overview:managing-extension-studio.adoc[extension] or any third party jar to you may need in your process.
+A dependency is an external module, not provided by the Bonita runtime, that is used by a process. It can be an xref:bonita-overview:managing-extension-studio.adoc[extension] or any Maven dependency you may need in your process.
 
 You can have an overview of your project dependencies using the project _Overview_ in a Bonita Studio. From there you can navigate to the _Extensions_ view.
 This view only displays the root dependencies. In most cases, a java dependency has transitive dependencies. Bonita Studio helps you deal with those transitive dependencies by using Apache Maven as a dependency management tool for your Bonita project.
+
+[NOTE]
+====
+If you need to review all the dependencies associated with your project—or just a specific process—simply right-click on the desired element and select Dependency Tree. This will displays a comprehensive Maven dependency tree, detailing every dependency included in your project.
+====
 
 == Configure process dependencies
 
@@ -54,6 +59,66 @@ If you want to develop custom extensions for your processes, it is highly recomm
 ----
 
 This will help Maven selecting the matching versions if you are using a dependency already available in the Bonita runtime. When it is the case a warning should be displayed by your IDE. You can remove the version and set the scope to _provided_.
+
+== Managing Environment-Specific Dependencies with Maven Profiles
+
+Maven dependencies xref:ROOT:custom-library-development.adoc[you add as extensions] are available for all environments. But sometime, you may need different libraries depending on your environment configuration. +
+For this purpose, Bonita Studio supports managing environment-specific dependencies via custom Maven profiles.
+
+By default, your project uses the active profile (e.g., the `default` profile here). You can define additional profiles for specific environments. +
+For example, consider a complex library `mylib` which has to connect to a complex system. In development phase, developers prefer using a stub library called `mylib-stub` that simulates it with lower costs and/or request times.
+
+Below is an extract of a pom.xml that illustrates the default profile along with the `env-Local` using `mylib-stub`:
+
+[source,xml]
+----
+<profiles>
+  <!-- Default profile with actual library (active by default) -->
+  <profile>
+    <id>default</id>
+    <activation>
+      <activeByDefault>true</activeByDefault>
+    </activation>
+    <dependencies>
+      <dependency>
+        <groupId>com.mycompany</groupId>
+        <artifactId>mylib</artifactId>
+        <version>1.0.0</version>
+      </dependency>
+    </dependencies>
+  </profile>
+  
+  <!-- Custom profile for a stub library -->
+  <profile>
+    <id>env-Local</id>
+    <dependencies>
+      <dependency>
+        <groupId>com.mycompany</groupId>
+        <artifactId>mylib-stub</artifactId>
+        <version>1.0.0</version>
+      </dependency>
+    </dependencies>
+  </profile>
+</profiles>
+----
+
+
+[IMPORTANT]
+====
+Make sure your environment profile is always named `env-` followed by the actual name of your environment (as seen in Studio). This profile will be automatically selected when running from Studio.
+====
+
+To build your project with your custom profile, run:
+
+[source,bash]
+----
+mvn clean package -Penv-Local
+----
+
+[WARNING]
+====
+Limit modifications to your pom.xml to avoid breaking compatibility with Bonita Studio or complicating future migrations.
+====
 
 == Troubleshooting 
 
