@@ -6,15 +6,10 @@
 
 [NOTE]
 --
-Dear user,
-
-With the introduction of our Self Contained Application approach, we are moving to a new deployment mode that no longer relies on the "BCD" mechanism as you know it. In fact, the SCA mode natively integrates this capability into the "build" package (via Maven). These changes have an impact on our BCD 'add-on' component, which will begin a gradual withdrawal process. This means that we are gradually phasing it out and that there will be no more updates or improvements to this functionality. However, platform mode is still supported for versions 2023.2, 2024.1, 2024.2, it's just no longer our 'nominal' mode.
-
-The continuous deployment process is of course still part of the Bonita offering, but is based on new methods. However, we would like to reassure you about this transition. A new documentation section has been created to guide you through this transition, along with migration recommendations that you can find xref:build-run:build-application.adoc[here].
-
-This is why this BCD section (both builder + deployer) is currently being deprecated, as we are replacing it with the new, more powerful mode that is better suited to IT issues. There will therefore be no more new versions of BCD.
-
-We want to assure you that our teams are available to answer your questions and support you through this change. Please do not hesitate to contact us if you require any further assistance.
+The BCD Deployer, as the technical artifact for Bonita CI/CD suite in Bonita, is deprecated and being phased out.
+As of September 2023, the BCD Deployer is no longer receiving updates or improvements, as it is being replaced. 
+The CI/CD pipeline now relies on the Bonita LA Deployer, which is described hereafter and does not require a separate Docker container.
+Access to the Bonita LA Deployer is included in the contract as part of the Bonita CI/CD suite offering (formerly the BCD offering).
 --
 
 Bonita CI/CD suite lets you build a Living Application from source code in a repository and deploy the generated artifacts, all from the command line.
