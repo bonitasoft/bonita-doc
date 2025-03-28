@@ -245,8 +245,19 @@ You can configure:
 [source,properties]
 ----
 bonita.platform.scheduler.quartz.threadpool.size=5
-bonita.platform.scheduler.batchsize=1000
 ----
+or by setting the java property `-Dbonita.platform.scheduler.quartz.threadpool.size` in the `setenv.sh/.bat` file, or by setting the Environment variable
+`BONITA_PLATFORM_SCHEDULER_QUARTZ_THREADPOOL_SIZE`
+
+Additionally, if you are running a Subscription edition in cluster mode, you can configure the frequency (in milliseconds) at which this instance "checks-in"* with the other instances of the cluster, in file `bonita-platform-sp-cluster-custom.properties`:
+
+[source,properties]
+----
+# The interval at which this instance checks-in with the other instances of the cluster (default 10s):
+bonita.platform.scheduler.quartz.clusterCheckinInterval=10000
+----
+or by setting the java property `-Dbonita.platform.scheduler.quartz.clusterCheckinInterval` in the `setenv.sh/.bat` file, or by setting the Environment variable
+`BONITA_PLATFORM_SCHEDULER_QUARTZ_CLUSTERCHECKININTERVAL`
 
 [#db_connections]
 === Database connections
