@@ -62,26 +62,23 @@ This will help Maven selecting the matching versions if you are using a dependen
 
 == Managing Environment-Specific Dependencies with Maven Profiles
 
-Bonita Studio supports managing environment-specific dependencies via custom Maven profiles. This approach is preferred over directly adding jar dependencies, as it keeps your build configuration flexible and maintainable.
+Maven dependencies xref:ROOT:custom-library-development.adoc[you add as extensions] are available for all environments. But sometime, you may need different libraries depending on your environment configuration. +
+For this purpose, Bonita Studio supports managing environment-specific dependencies via custom Maven profiles.
 
-By default, your project uses the active profile (e.g., the "default" profile). You can define additional profiles for specific environments. For example, consider a custom profile called `mylib-stub` that simulates a dependency by referencing a stub library (a fake artifact such as `stub.jar` that does not actually exist).
+By default, your project uses the active profile (e.g., the `default` profile here). You can define additional profiles for specific environments. +
+For example, consider a complex library `mylib` which has to connect to a complex system. In development phase, developers prefer using a stub library called `mylib-stub` that simulates it with lower costs and/or request times.
 
-Below is an extract of a pom.xml that illustrates the default profile along with the `mylib-stub` profile:
+Below is an extract of a pom.xml that illustrates the default profile along with the `env-Local` using `mylib-stub`:
 
 [source,xml]
 ----
 <profiles>
-  <!-- Default profile (active by default) -->
+  <!-- Default profile with actual library (active by default) -->
   <profile>
     <id>default</id>
     <activation>
       <activeByDefault>true</activeByDefault>
     </activation>
-  </profile>
-  
-  <!-- Custom profile for a stub dependency -->
-  <profile>
-    <id>mylib-stub</id>
     <dependencies>
       <dependency>
         <groupId>com.mycompany</groupId>
@@ -90,14 +87,32 @@ Below is an extract of a pom.xml that illustrates the default profile along with
       </dependency>
     </dependencies>
   </profile>
+  
+  <!-- Custom profile for a stub library -->
+  <profile>
+    <id>env-Local</id>
+    <dependencies>
+      <dependency>
+        <groupId>com.mycompany</groupId>
+        <artifactId>mylib-stub</artifactId>
+        <version>1.0.0</version>
+      </dependency>
+    </dependencies>
+  </profile>
 </profiles>
 ----
+
+
+[IMPORTANT]
+====
+Make sure your environment profile is always named `env-` followed by the actual name of your environment (as seen in Studio). This profile will be automatically selected when running from Studio.
+====
 
 To build your project with your custom profile, run:
 
 [source,bash]
 ----
-mvn clean package -Penv-mylib-stub
+mvn clean package -Penv-Local
 ----
 
 [WARNING]

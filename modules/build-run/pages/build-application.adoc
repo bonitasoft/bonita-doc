@@ -112,7 +112,7 @@ When using a Windows terminal, a space must be added between the `-D` flag and t
 
 ==== Maven build options
 
-* `mvn clean package -Penv-MyConfig`: Where `MyConfig` is the name of one of your custom configuration. Using this profile ensures that the application is built with all the necessary Maven dependencies included.
+* `mvn clean package -Penv-MyEnvConfig`: Where `MyEnvConfig` is the name of one of your custom environment configurations. Using this profile ensures that the application is built with all the necessary Maven dependencies included from your  xref:ROOT:managing-dependencies.adoc[Process dependencies].
 
 == Custom application dependencies
 
