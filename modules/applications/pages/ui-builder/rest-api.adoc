@@ -67,7 +67,7 @@ curl 'http://localhost/api/v1/uib/workspaces/import' \
 ----
 curl 'http://localhost/api/v1/uib/workspaces/import-bulk' \
   --header 'x-requested-by: Appsmith' \
-  --header 'Cookie: X-Bonita-API-Token=xxxxx ; JSESSIONID=xxxxx' \
+   --header 'Cookie: X-Bonita-API-Token=xxxxx ; JSESSIONID=xxxxx ; SESSION=xxxxx' \
   --form 'file=@"zip_path/apps.zip"'
 ----
 
