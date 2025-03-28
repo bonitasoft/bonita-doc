@@ -40,7 +40,7 @@ The `X-Bonita-API-Token` and `JSESSIONID` cookies are required for these APIs (i
 ----
 curl 'http://localhost/api/v1/uib/workspaces/import' \
   --header 'x-requested-by: Appsmith' \
-  --header 'Cookie: X-Bonita-API-Token=xxxxx ; JSESSIONID=xxxxx' \
+  --header 'Cookie: X-Bonita-API-Token=xxxxx ; JSESSIONID=xxxxx ; SESSION=xxxxx' \
   --form 'file=@"apps_path/App1.json"'
 ----
 
