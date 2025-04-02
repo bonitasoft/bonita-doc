@@ -521,7 +521,7 @@ you need to redesign them in the Studio using Bonita UI designer, as explained i
 
 Example of output issued when running the tool:
 
-[asciinema,rows=32,autoPlay=true]
+[asciinema,rows=32]
 ----
 include::image$case_overview_update_mode-ascii.cast[]
 ----
