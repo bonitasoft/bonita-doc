@@ -3,7 +3,7 @@
 
 {description}
 
-These REST APIs aims to solve the following cloud deployment use cases:
+These REST APIs aim to solve the following cloud deployment use cases:
 
 * Deploy initial applications
 * Update applications: add, update, and remove applications
