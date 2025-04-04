@@ -38,13 +38,14 @@ Example: to build a 2023.1 (8.0.0) bonita project, you have to use the 8.0.0 ver
 
 IMPORTANT: *Builder is not supported for Bonita project designed with Bonita Studio 2023.2 and above*. In those versions, a Bonita project can be built xref:build-run:build-application.adoc[using Maven].
 
+[#la-deployer-versions]
 === Bonita LA Deployer
 
 The following table shows which bonita-la-deployer CLI versions support specific Bonita releases. +
 
 |===
 | bonita-la-deployer version | Bonita release
-| 1.0.x       | 2021.2.x, 2022.1.x, 2022.2.x, 2023.1.x, 2023.2.x, 2024.1.x
+| 1.1.x       | 2021.2.x, 2022.1.x, 2022.2.x, 2023.1.x, 2023.2.x, 2024.1.x, 2024.2.x, 2024.3.x
 |===
 
 WARNING: If a Bonita release is not listed in the previous table, then it is not supported by the Bonita CI/CD suite offering.
