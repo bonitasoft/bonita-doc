@@ -21,7 +21,7 @@ The `X-Bonita-API-Token` and `JSESSIONID` cookies are required for these APIs (i
 === Import an application
 
 * **Method**: POST
-* **URL**: `/uib/api/v1/workspaces/import`
+* **URL**: `/uib/api/v1/applications/import`
 * **Headers**:
 ** `x-requested-by: Appsmith`
 * **Body** (form-data): A JSON application file
@@ -38,7 +38,7 @@ The `X-Bonita-API-Token` and `JSESSIONID` cookies are required for these APIs (i
 
 [source,bash]
 ----
-curl 'http://localhost/uib/api/v1/workspaces/import' \
+curl 'http://localhost/uib/api/v1/applications/import' \
   --header 'x-requested-by: Appsmith' \
   --header 'Cookie: X-Bonita-API-Token=xxxxx ; JSESSIONID=xxxxx' \
   --form 'file=@"apps_path/App1.json"'
@@ -47,7 +47,7 @@ curl 'http://localhost/uib/api/v1/workspaces/import' \
 === Import a set of applications
 
 * **Method**: POST
-* **URL**: `/uib/api/v1/workspaces/import-bulk`
+* **URL**: `/uib/api/v1/applications/import-bulk`
 * **Headers**:
 ** `x-requested-by: Appsmith`
 * **Body** (form-data): A zip file containing JSON application files
@@ -65,7 +65,7 @@ curl 'http://localhost/uib/api/v1/workspaces/import' \
 
 [source,bash]
 ----
-curl 'http://localhost/uib/api/v1/workspaces/import-bulk' \
+curl 'http://localhost/uib/api/v1/applications/import-bulk' \
   --header 'x-requested-by: Appsmith' \
   --header 'Cookie: X-Bonita-API-Token=xxxxx ; JSESSIONID=xxxxx' \
   --form 'file=@"zip_path/apps.zip"'
@@ -74,7 +74,7 @@ curl 'http://localhost/uib/api/v1/workspaces/import-bulk' \
 == Deleting all applications
 
 * **Method**: DELETE
-* **URL**: `/uib/api/v1/workspaces/clean`
+* **URL**: `/uib/api/v1/applications/all`
 * **Headers**:
 ** `x-requested-by: Appsmith`
 
@@ -91,7 +91,7 @@ curl 'http://localhost/uib/api/v1/workspaces/import-bulk' \
 
 [source,bash]
 ----
-curl 'http://localhost/uib/api/v1/workspaces/clean' \
+curl 'http://localhost/uib/api/v1/applications/all' \
   --header 'x-requested-by: Appsmith' \
   --header 'Cookie: X-Bonita-API-Token=xxxxx ; JSESSIONID=xxxxx'
 ----
