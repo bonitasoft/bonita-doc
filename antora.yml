@@ -9,19 +9,18 @@ asciidoc:
     bonitaTechnicalVersion: '7.15.0' # latest public community version
     javadocVersion: 7.15
     keycloakDocumentationVersion: 21.1.2
+    openApiUrl: 'https://api-documentation.bonitasoft.com'
     cscRootUrl: 'https://csc.bonitacloud.bonitasoft.com'
     cscCustomerServices: '{cscRootUrl}/apps/CustomerServices'
     cscDownloadUrl: '{cscCustomerServices}/downloads'
     cscLicenseUrl: '{cscCustomerServices}/licenses'
     # ref versions of other components
     bcdDocVersion: '3.6'
+    openApiLatestVersion: '0.0.16' # latest compatible version of bonita openApi with this Bonita version
     # page attributes
     page-pagination: true # display links to previous/next pages at the bottom of the page
     page-editable: true
     page-out-of-support: false
-    openApiUrl: 'https://api-documentation.bonitasoft.com'
-    #Latest compatible version of bonita openApi with this Bonita version
-    openApiLatestVersion: '0.0.16'
     page-next-release: false
     page-hide-search-bar: false
 nav:
