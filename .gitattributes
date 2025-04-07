@@ -6,4 +6,3 @@ modules/ROOT/pages/bonita-runtime-dependencies.adoc merge=ours
 modules/ROOT/pages/bonita-web-dependencies.adoc merge=ours
 modules/ROOT/pages/portal-js-dependencies.adoc merge=ours
 modules/version-update/pages/product-versioning.adoc merge=ours
-antora.yml merge=ours
