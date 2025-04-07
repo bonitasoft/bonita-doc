@@ -21,10 +21,12 @@ IMPORTANT: First make sure your maven installation is configured to access xref:
 
 You can download the `bonita-la-deployer` with a single maven command (that will reuse the credentials declared in your maven settings.xml configuration file).
 
+NOTE: The available versions of `bonita-la-deployer` and the Bonita versions they support are described in the xref:requirements-and-compatibility.adoc#la-deployer-versions [compatibility table].
+
 .Download with maven
-[source, bash]
+[source, bash, subs="attributes+"]
 ----
-mvn dependency:copy -Dartifact=com.bonitasoft.deployer:bonita-la-deployer:<deployer.version>:jar -Dmdep.stripVersion -Dmdep.stripClassifier -DoutputDirectory=./
+mvn dependency:copy -Dartifact=com.bonitasoft.deployer:bonita-la-deployer:{laDeployerVersion}:jar -Dmdep.stripVersion -Dmdep.stripClassifier -DoutputDirectory=./
 ----
 
 Then just use the CLI jar once downloaded :
