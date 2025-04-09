@@ -345,7 +345,7 @@ Before going into production, we encourage to finely tune the "Level-2" entity c
 
 * run load tests to simulate a production environment
 * analyse the global "2nd Level Cache Ratio" log messages generated in standard log output. This gives an idea of the usage of the cache globally: all entities together
-* Hibernate metrics are available from the API route `https://<BONITA_URL>/bonita/metrics` (see xref:runtime:runtime-monitoring.adoc#prometheus-publisher[Prometheus Publisher] for more details on how to retrieve those metrics)
+* Hibernate metrics are available from the API route `+https://<BONITA_URL>/bonita/metrics+` (see xref:runtime:runtime-monitoring.adoc#prometheus-publisher[Prometheus Publisher] for more details on how to retrieve those metrics)
 * you will see metrics of type:
 
 [source]
