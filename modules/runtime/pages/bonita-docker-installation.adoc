@@ -269,7 +269,7 @@ Below is an example on how to simulate the run of Bonita in a cluster mode.
 
 We use Postgres as database and https://hub.docker.com/_/traefik[Traefik] as an HTTP reverse proxy and load balancer.
 
-After execution, Bonita is available at `http://bonita.localhost` (the address can be changed with the label `traefik.http.routers.bonita.rule`).
+After execution, Bonita is available at `+http://bonita.localhost+` (the address can be changed with the label `traefik.http.routers.bonita.rule`).
 
 [source,yaml,subs="+macros,+attributes"]
 ----
