@@ -55,8 +55,8 @@ Once your application descriptor is done, don't forget to deploy it by clicking 
 After deployment of an application link from a Studio, you can't access to the application from application directory and get a 404 error page.
 
 [.cause]#Cause#
-The url in the browser is probably wrong and you tried to access to something like `http://localhost:<Runtime-port>/app/<app-token>`.
+The url in the browser is probably wrong and you tried to access to something like `+http://localhost:<runtime-port>/app/<app-token>+`.
 
 [.solution]#Solution#
-The workaround for this issue is to remove the port in the url and try to access directly to `http://localhost/app/<app-token>`.
+The workaround for this issue is to remove the port in the url and try to access directly to `+http://localhost/app/<app-token>+`.
 --
