@@ -76,9 +76,9 @@ docker build --build-arg "BASE={bonita-ui-builder-image}" \
 
 To run the production binaries, you need to:
 
-* Start a container (`bonita-app`) with the Bonita Application image (containing your Bonita project) 
-* Start a container (`bonita-ui-builder`) with the Bonita UI Builder runtime and applications 
-* Start a container (`bonita-ui-proxy`) with a reverse proxy to link the two previous containers 
+* Start a container (`bonita-app`) with the Bonita Application image (containing your Bonita project)
+* Start a container (`bonita-ui-builder`) with the Bonita UI Builder runtime and applications
+* Start a container (`bonita-ui-proxy`) with a reverse proxy to link the two previous containers
 
 To do that, you can use the following `docker-compose.yml` file as a starting point:
 
@@ -87,7 +87,7 @@ To do that, you can use the following `docker-compose.yml` file as a starting po
 include::example$ui-builder/production/docker-compose.yml[]
 ----
 
-Your applications will then be accessible at `http://localhost` or `http://YOUR_PUBLIC_IP_ADDRESS`.
+Your applications will then be accessible at `+http://localhost+` or `+http://YOUR_PUBLIC_IP_ADDRESS+`.
 
 
 === Configure and manage Bonita healthcheck settings in a production environment

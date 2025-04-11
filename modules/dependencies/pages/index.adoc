@@ -1,18 +1,17 @@
 = Dependencies
 :description: You will find below the list of dependencies used by Bonita.
+:page-aliases: ROOT:dependencies-index.adoc
 
 {description}
 
 == Development suite
 
-[discrete]
-==== Bonita Studio
+=== Bonita Studio
 
 The list of Bonita Studio dependencies are directly available in the Bonita Studio:
 Click on the menu *Help* \-> *About* \-> *Installation Details*
 
-[discrete]
-==== Others
+=== Others
 
 xref:ROOT:bonita-ui-designer-dependencies.adoc[List of UI Designer dependencies]
 
@@ -26,3 +25,5 @@ xref:ROOT:bonita-runtime-dependencies.adoc[List of Runtime dependencies]
 xref:ROOT:portal-js-dependencies.adoc[List of Portal-js dependencies]
 
 xref:ROOT:react-page-dependencies.adoc[List of React pages dependencies]
+
+xref:ROOT:bonita-web-dependencies.adoc[List of Bonita web dependencies]
