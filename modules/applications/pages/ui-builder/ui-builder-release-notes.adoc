@@ -13,8 +13,8 @@ In this release we are adding a new REST API, that lets you automatize some UI B
 
 === Bug fixes
 
-* Enable the Custom widget, that was not available in the previous release
-* Fix the JS `onPageLoad` and Theme update, that were not working in Production mode
+* BPM-472: The Custom widget is missing in 1.2.0
+* BPM-492: JS onPageLoad and Theme update not working with UIB 1.2.x
 
 == UI Builder 1.2.0
 
