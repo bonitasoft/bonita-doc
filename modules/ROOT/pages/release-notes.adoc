@@ -48,7 +48,7 @@ This migration now happens in a wizard which let you examine and execute the mig
 All migration step executions are detailed in the log.
 
 When building your process, process dependencies are now handled with maven and the configuration have been simplified to reduce the risk of error while selecting Java libraries.
-You can also visualize process dependencies xref:process:managing-dependencies.adoc[with a right_click in the explorer view]. +
+You can also visualize process dependencies xref:process:managing-dependencies.adoc[with a right click in the explorer view]. +
 In an SCA build, these dependencies are not added to the Business Archive, but directly to the webapp classpath.
 
 === Update tool script has been renamed
