@@ -31,8 +31,7 @@ The `X-Bonita-API-Token` and `JSESSIONID` cookies are required for these APIs (i
 * 200 OK
 * 400 BAD_REQUEST
 ** If the file is not a JSON file
-* 409 CONFLICT
-** If the application already exists
+** If the file does not contain a JSON application file or the application have already been imported
 
 ==== Example
 
