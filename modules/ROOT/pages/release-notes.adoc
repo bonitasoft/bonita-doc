@@ -47,7 +47,7 @@ The automatic migration of a Bonita project in Studio has been improved when usi
 This migration now happens in a wizard which lets you examine and execute the migration steps one by one, or cancel the whole operation any time you wish. You can also execute them all in batch if you do not want the details. +
 All migration step executions are detailed in the log.
 
-When building your process, process dependencies are now handled with maven and the configuration have been simplified to reduce the risk of error while selecting Java libraries.
+When building your process, process dependencies are now handled with maven and the configuration has been simplified to reduce the risk of error while selecting Java libraries.
 You can also visualize process dependencies xref:process:managing-dependencies.adoc[with a right click in the explorer view]. +
 In an SCA build, these dependencies are not added to the Business Archive, but directly to the webapp classpath.
 
