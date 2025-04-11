@@ -71,6 +71,11 @@ curl 'http://localhost/uib/api/v1/applications/import-bulk' \
   --form 'file=@"zip_path/apps.zip"'
 ----
 
+[NOTE]
+====
+The JSON descriptors must be placed at the root of the ZIP file to be imported correctly.
+====
+
 == Deleting all applications
 
 * **Method**: DELETE
