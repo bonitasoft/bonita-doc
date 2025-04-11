@@ -1,6 +1,21 @@
 = Release Notes
 :description: This is the release notes for Bonita UI Builder
 
+== UI Builder 1.3.0
+
+=== New UI Builder Rest API for managing applications
+
+In this release we are adding a new REST API, that lets you automatize some UI Builder actions with HTTP requests:
+
+* Import an application from a JSON application file
+* Import a set of applications from a zip file containing JSON application files
+* Delete all applications
+
+=== Bug fixes
+
+* Enable the Custom widget, that was not available in the previous release
+* Fix the JS `onPageLoad` and Theme update, that were not working in Production mode
+
 == UI Builder 1.2.0
 
 Here’s an overview of the enhancements (not an exhaustive list):
