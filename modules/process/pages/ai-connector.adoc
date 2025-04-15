@@ -1,4 +1,4 @@
-= Twitter connector
+= AI connectors
 :page-aliases: ROOT:ai-connector.adoc
 :description: The Bonita AI connectors allow to interact with OpenAI and MistralAI chat models by sending prompt and documents and returning the generated output.
 
@@ -15,35 +15,13 @@ The connector is still under development and current state is just a draft versi
 
 == Getting started
 
-To use a connector, add it as a dependency to your Bonita process. (Choose the one related to your AI provider)
-
-=== OpenAI
-
-[source,xml,subs="attributes+"]
-----
-<dependency>
-    <groupId>org.bonitasoft.connectors</groupId>
-    <artifactId>bonita-connector-ai-openai</artifactId>
-    <version>{project-version}</version>
-</dependency>
-----
-
-=== MistralAI
-
-[source,xml,subs="attributes+"]
-----
-<dependency>
-    <groupId>org.bonitasoft.connectors</groupId>
-    <artifactId>bonita-connector-ai-mistral</artifactId>
-    <version>{project-version}</version>
-</dependency>
-----
+To use a connector, add it as a dependency to your Bonita process. Choose the one related to your AI provider, we currently support OpenAI and Mistral.
 
 WARNING: Image documents are not supported yet for Mistral connector due to a langchain4j limitation.
 
 === Common configuration
 
-[caption=Configuration,options=autowidth]
+[caption=Configuration]
 |===
 |Parameter name |Required |Description |Default value
 
