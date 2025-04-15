@@ -5,7 +5,7 @@
 
 === New UI Builder Rest API for managing applications
 
-In this release we are adding a new REST API, that lets you automatize some UI Builder actions with HTTP requests:
+In this release we are adding a new xref:rest-api.adoc[REST API], that lets you automatize some UI Builder actions with HTTP requests:
 
 * Import an application from a JSON application file
 * Import a set of applications from a zip file containing JSON application files
