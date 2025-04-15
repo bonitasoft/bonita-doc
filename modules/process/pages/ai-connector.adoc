@@ -58,7 +58,7 @@ WARNING: Image documents are not supported yet for Mistral connector due to a la
 
 Take a user prompt and send it to OpenAI then return the AI response. The prompt text can ask question about a provided process document.
 
-[caption=Configuration,options=autowidth]
+[caption=Configuration]
 |===
 |Parameter name |Required |Description |Default value
 
@@ -91,7 +91,7 @@ This result will be placed as a map entry of type `java.lang.String` for the key
 
 This connector allow extracting information from a bonita document.
 
-[caption=Configuration,options=autowidth]
+[caption=Configuration]
 |===
 |Parameter name |Required |Description |Default value
 
@@ -121,7 +121,7 @@ This connector result will be placed as a map entry of type `java.lang.String` f
 
 This connector allow to classify a bonita process document according to a list of category provided by the user.
 
-[caption=Configuration,options=autowidth]
+[caption=Configuration]
 |===
 |Parameter name |Required |Description |Default value
 
