@@ -1,4 +1,5 @@
 = Twitter connector
+:page-aliases: ROOT:ai-connector.adoc
 :description: The Bonita AI connectors allow to interact with OpenAI and MistralAI chat models by sending prompt and documents and returning the generated output.
 
 {description}
