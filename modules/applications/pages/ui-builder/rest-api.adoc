@@ -37,7 +37,7 @@ The `X-Bonita-API-Token` and `JSESSIONID` cookies are required for these APIs (i
 
 [source,bash]
 ----
-curl 'http://localhost/uib/api/v1/applications/import' \
+curl -X POST 'http://localhost/uib/api/v1/applications/import' \
   --header 'x-requested-by: Appsmith' \
   --header 'Cookie: X-Bonita-API-Token=xxxxx ; JSESSIONID=xxxxx' \
   --form 'file=@"apps_path/App1.json"'
@@ -64,7 +64,7 @@ curl 'http://localhost/uib/api/v1/applications/import' \
 
 [source,bash]
 ----
-curl 'http://localhost/uib/api/v1/applications/import-bulk' \
+curl -X POST 'http://localhost/uib/api/v1/applications/import-bulk' \
   --header 'x-requested-by: Appsmith' \
   --header 'Cookie: X-Bonita-API-Token=xxxxx ; JSESSIONID=xxxxx' \
   --form 'file=@"zip_path/apps.zip"'
@@ -95,7 +95,7 @@ The JSON descriptors must be placed at the root of the ZIP file to be imported c
 
 [source,bash]
 ----
-curl 'http://localhost/uib/api/v1/applications/all' \
+curl -X DELETE 'http://localhost/uib/api/v1/applications/all' \
   --header 'x-requested-by: Appsmith' \
   --header 'Cookie: X-Bonita-API-Token=xxxxx ; JSESSIONID=xxxxx'
 ----
