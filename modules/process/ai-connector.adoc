@@ -17,8 +17,6 @@ The connector is still under development and current state is just a draft versi
 
 To use a connector, add it as a dependency to your Bonita process. (Choose the one related to your AI provider)
 
-For more details on Bonita Connector please refer to {doc-url}/connector-archetype[documentation]
-
 === OpenAI
 
 [source,xml,subs="attributes+"]
