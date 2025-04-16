@@ -585,9 +585,9 @@ docker run -v ~/my-config/log4j/:/opt/bonita/conf/logs/ ...
 ----
 
 The volume must contain the 2 files
-https://raw.githubusercontent.com/bonitasoft/bonita-distrib/{bonitaTechnicalVersion}/tomcat-resources/tomcat-distrib-for-bonita/src/main/resources/tomcat/server/conf/log4j2-loggers.xml[log4j2-loggers.xml]
+https://raw.githubusercontent.com/bonitasoft/bonita-distrib/{bonitaTagOrBranch}/tomcat-resources/tomcat-distrib-for-bonita/src/main/resources/tomcat/server/conf/log4j2-loggers.xml[log4j2-loggers.xml]
 and
-https://raw.githubusercontent.com/bonitasoft/bonita-distrib/{bonitaTechnicalVersion}/docker/files/log4j2/log4j2-appenders.xml[log4j2-appenders.xml]
+https://raw.githubusercontent.com/bonitasoft/bonita-distrib/{bonitaTagOrBranch}/docker/files/log4j2/log4j2-appenders.xml[log4j2-appenders.xml]
 
 [NOTE]
 ====
