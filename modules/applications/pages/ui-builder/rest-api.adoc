@@ -1,0 +1,101 @@
+= REST API for Bonita UI Builder
+:description: The REST API lets you automatize some UI Builder actions with HTTP requests.
+
+{description}
+
+These REST APIs aim to solve the following cloud deployment use cases:
+
+* Deploy initial applications
+* Update applications: add, update, and remove applications
+* Re-deploy applications: ensuring resilience (for example in case of a Kubernetes pod crash)
+
+[NOTE]
+====
+These APIs are allowed to the Bonita technical user only. +
+See the {openApiUrl}/{openApiLatestVersion}#tag/Authentication/operation/login[Bonita login API] to log in.
+The `X-Bonita-API-Token` and `JSESSIONID` cookies are required for these APIs (in the Headers).
+====
+
+
+== Importing applications
+=== Import an application
+
+* **Method**: POST
+* **URL**: `/uib/api/v1/applications/import`
+* **Headers**:
+** `x-requested-by: Appsmith`
+* **Body** (form-data): A JSON application file
+
+==== Response Status
+
+* 200 OK
+* 400 BAD_REQUEST
+** If the file is not a JSON file
+** If the file does not contain a JSON application file or the application have already been imported
+
+==== Example
+
+[source,bash]
+----
+curl -X POST 'http://localhost/uib/api/v1/applications/import' \
+  --header 'x-requested-by: Appsmith' \
+  --header 'Cookie: X-Bonita-API-Token=xxxxx ; JSESSIONID=xxxxx' \
+  --form 'file=@"apps_path/App1.json"'
+----
+
+=== Import a set of applications
+
+* **Method**: POST
+* **URL**: `/uib/api/v1/applications/import-bulk`
+* **Headers**:
+** `x-requested-by: Appsmith`
+* **Body** (form-data): A zip file containing JSON application files
+
+==== Response Status
+
+* 200 OK
+** If all the applications have been imported
+** If only a subset of the applications have been imported: the response body contains a status 206 (PARTIAL_CONTENT) and the list of applications that have been imported
+* 400 BAD_REQUEST
+** If the file is not a zip file
+** If the zip file does not contain JSON application files or the applications have already been imported
+
+==== Example
+
+[source,bash]
+----
+curl -X POST 'http://localhost/uib/api/v1/applications/import-bulk' \
+  --header 'x-requested-by: Appsmith' \
+  --header 'Cookie: X-Bonita-API-Token=xxxxx ; JSESSIONID=xxxxx' \
+  --form 'file=@"zip_path/apps.zip"'
+----
+
+[NOTE]
+====
+The JSON descriptors must be placed at the root of the ZIP file to be imported correctly.
+====
+
+== Deleting all applications
+
+* **Method**: DELETE
+* **URL**: `/uib/api/v1/applications/all`
+* **Headers**:
+** `x-requested-by: Appsmith`
+
+=== Response Status
+
+* 200 OK
+** If all the applications have been deleted
+* 204 NO_CONTENT
+** If there is no application to delete
+* 207 MULTI_STATUS
+** If some applications have not been deleted
+
+=== Example
+
+[source,bash]
+----
+curl -X DELETE 'http://localhost/uib/api/v1/applications/all' \
+  --header 'x-requested-by: Appsmith' \
+  --header 'Cookie: X-Bonita-API-Token=xxxxx ; JSESSIONID=xxxxx'
+----
