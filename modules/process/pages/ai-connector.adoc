@@ -62,7 +62,7 @@ a|
 
 == Connectors
 
-AI connectors have the capability to retrun structured data in JSON format. It is possible to pass a link:https://json-schema.org/learn/getting-started-step-by-step[JSON schema] to tell the LLM how to format response data. 
+AI connectors have the capability to retrun structured data in JSON format. It is possible to pass a https://json-schema.org/learn/getting-started-step-by-step[JSON schema] to tell the LLM how to format response data. 
 
 When using a JSON schema, you **must** list in the `required` property, all the fields you want in the JSON response. 
 
