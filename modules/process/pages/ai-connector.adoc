@@ -128,7 +128,7 @@ Take a user prompt and send it to OpenAI then return the AI response. The prompt
 
 |*sourceDocumentRef*
 |false
-|The reference to the process document to load and add to the user prompt. If not null, the connector will try to read the specified document and send it as an attachment to the user prompt. Format supported are "doc", "docx", "pdf", "png", "jpg", "jpeg", ... (see https://tika.apache.org/3.1.0/formats.html)
+|The reference to the process document to load and add to the user prompt. If not null, the connector will try to read the specified document and send it as an attachment to the user prompt. Format supported are "doc", "docx", "pdf", ... (see https://tika.apache.org/3.1.0/formats.html)
 |null
 
 |*outputJsonSchema*
@@ -151,7 +151,7 @@ This connector allow extracting information from a bonita document.
 
 |*sourceDocumentRef*
 |*true*
-|The reference to the process document to load and add to the user prompt. If not null, the connector will try to read the specified document  and send it as an attachment to the user prompt. Format supported are "doc", "docx", "pdf", "png", "jpg", "jpeg", ... (see https://tika.apache.org/3.1.0/formats.html)
+|The reference to the process document to load and add to the user prompt. If not null, the connector will try to read the specified document  and send it as an attachment to the user prompt. Format supported are "doc", "docx", "pdf", ... (see https://tika.apache.org/3.1.0/formats.html)
 |null
 
 |*fieldsToExtract*
@@ -181,7 +181,7 @@ This connector allow to classify a bonita process document according to a list o
 
 |*sourceDocumentRef*
 |*true*
-|The reference to the process document to load and add to the user prompt. If not null, the connector will try to read the specified document  and send it as an attachment to the user prompt. Format supported are "doc", "docx", "pdf", "png", "jpg", "jpeg", ... (see https://tika.apache.org/3.1.0/formats.html)
+|The reference to the process document to load and add to the user prompt. If not null, the connector will try to read the specified document  and send it as an attachment to the user prompt. Format supported are "doc", "docx", "pdf", ... (see https://tika.apache.org/3.1.0/formats.html)
 |null
 
 |*categories*
