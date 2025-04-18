@@ -9,12 +9,6 @@ The Bonita AI Connectors are available for **Bonita 10.2 Community (2024.3)** ve
 
 image::ai-connectors.png[AI Connectors flux]
 
-[WARNING]
-====
-The connector is still under development and current state is just a draft version.
-====
-
-
 == Getting started
 
 To use a connector, add it as a dependency to your Bonita process. Choose the one related to your AI provider.
@@ -34,7 +28,15 @@ WARNING: Image documents are not supported yet for Mistral connector due to a li
 
 |*apiKey*
 |false
-|The AI provider API key. Parameter is optional for testing purpose but obviously required with official OpenAI endpoint. The connector will use the system environment variable named `AI_API_KEY` or the same JVM property (`-DAI_API_KEY=xxx`) or the provided connector parameter and at last a dummy `changeMe` value.
+a|The AI provider API key. Parameter is optional for testing purpose but obviously required with official OpenAI endpoint. 
+
+The connector will look for API key value in this order: 
+
+- A system environment variable named `AI_API_KEY` 
+- A JVM property named `AI_API_KEY` (`-DAI_API_KEY=xxx`) 
+- the provided connector `apiKey` parameter 
+ 
+And at last it will use a dummy default `changeMe` value if no other value found. 
 | changeMe
 
 |*url*
@@ -56,7 +58,11 @@ a|
 
 |*modelTemperature*
 |false
-|The temperature to use for the model. Higher values will result in more creative responses. Must be between 0 and 1. Leave blank if the selected model does not support this parameter. If parameter is not present, the temperature will not be set in chat context.
+a|The temperature to use for the model. Higher values will result in more creative responses. Must be between 0 and 1. 
+
+Leave blank if the selected model does not support this parameter. 
+
+If parameter is not present, the temperature will not be set in chat context.
 |null
 |===
 
@@ -129,7 +135,9 @@ Take a user prompt and send it to OpenAI then return the AI response. The prompt
 
 |*sourceDocumentRef*
 |false
-|The reference to the process document to load and add to the user prompt. If not null, the connector will try to read the specified document and send it as an attachment to the user prompt. Format supported are "doc", "docx", "pdf", ... (see https://tika.apache.org/3.1.0/formats.html)
+a|The reference to the process document to load and add to the user prompt. 
+
+If not null, the connector will try to read the specified document and send it as an attachment to the user prompt. Format supported are "doc", "docx", "pdf", ... (see https://tika.apache.org/3.1.0/formats.html)
 |null
 
 |*outputJsonSchema*
@@ -152,17 +160,23 @@ This connector allow extracting information from a bonita document.
 
 |*sourceDocumentRef*
 |*true*
-|The reference to the process document to load and add to the user prompt. If not null, the connector will try to read the specified document  and send it as an attachment to the user prompt. Format supported are "doc", "docx", "pdf", ... (see https://tika.apache.org/3.1.0/formats.html)
+a|The reference to the process document to load and add to the user prompt. 
+
+If not null, the connector will try to read the specified document  and send it as an attachment to the user prompt. Format supported are "doc", "docx", "pdf", ... (see https://tika.apache.org/3.1.0/formats.html)
 |null
 
 |*fieldsToExtract*
 |false
-|The list of fields to extract from the given document. The connector expect a list of String (like `List.of("firstName","lastName","address")`.
+a|The list of fields to extract from the given document. 
+
+The connector expect a list of String (like `List.of("firstName","lastName","address")`.
 |null
 
 |*outputJsonSchema*
 |false
-|The JSON schema that represent how to structure the JSON connector output. If a JSON schema is specified, the `fieldsToExtract` parameter is ignored.
+a|The JSON schema that represent how to structure the JSON connector output. 
+
+If a JSON schema is specified, the `fieldsToExtract` parameter is ignored.
 |null
 
 |===
@@ -182,12 +196,16 @@ This connector allow to classify a bonita process document according to a list o
 
 |*sourceDocumentRef*
 |*true*
-|The reference to the process document to load and add to the user prompt. If not null, the connector will try to read the specified document  and send it as an attachment to the user prompt. Format supported are "doc", "docx", "pdf", ... (see https://tika.apache.org/3.1.0/formats.html)
+a|The reference to the process document to load and add to the user prompt. 
+
+If not null, the connector will try to read the specified document  and send it as an attachment to the user prompt. Format supported are "doc", "docx", "pdf", ... (see https://tika.apache.org/3.1.0/formats.html)
 |null
 
 |*categories*
 |*true*
-|The list of category used to classify the given document. The connector expect a list of String (like `List.of("RIB","ID",...)`.
+a|The list of category used to classify the given document. 
+
+The connector expect a list of String (like `List.of("RIB","ID",...)`.
 It is recommended to add a default category if none other matches such as `Unknown`
 |null
 
