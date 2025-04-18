@@ -5,7 +5,7 @@
 {description}
 
 
-The Bonita AI Connectors are available for **Bonita 10.2**  **Community** version and above.
+The Bonita AI Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
 
 
 [WARNING]
@@ -15,7 +15,13 @@ The connector is still under development and current state is just a draft versi
 
 == Getting started
 
-To use a connector, add it as a dependency to your Bonita process. Choose the one related to your AI provider, we currently support OpenAI and Mistral.
+To use a connector, add it as a dependency to your Bonita process. Choose the one related to your AI provider.
+
+
+Currently supported providers:
+
+- OpenAI
+- Mistral AI
 
 WARNING: Image documents are not supported yet for Mistral connector due to a langchain4j limitation.
 
@@ -33,7 +39,7 @@ WARNING: Image documents are not supported yet for Mistral connector due to a la
 |*url*
 |false
 |The OpenAI endpoint url. This parameter allows to use an alternate endpoint for tests.
-|Default to the official OpenAI endpoint
+|Default to the official provider endpoint if not specified.
 
 |*requestTimeout*
 |false
@@ -43,7 +49,9 @@ WARNING: Image documents are not supported yet for Mistral connector due to a la
 |*chatModelName*
 |false
 |The model to use for chat like gpt-4o, gpt-4o-mini, llama, pixtral, ... See OpenAI documentation at https://platform.openai.com/docs/models/models and Mistral AI documentation at https://docs.mistral.ai/getting-started/models/models_overview/ for detailed information about models.
-|`gpt-4o` for OpenAI and `pixtral-12b-2409` for MistralAI
+a|
+- OpenAI : `gpt-4o`
+- MistralAI : `pixtral-12b-2409`
 
 |*modelTemperature*
 |false
@@ -53,6 +61,52 @@ WARNING: Image documents are not supported yet for Mistral connector due to a la
 
 
 == Connectors
+
+AI connectors have the capability to retrun structured data in JSON format. It is possible to pass a link:https://json-schema.org/learn/getting-started-step-by-step[JSON schema] to tell the LLM how to format response data. 
+
+When using a JSON schema, you **must** list in the `required` property, all the fields you want in the JSON response. 
+
+.JSON schema sample
+[source, json]
+----
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ProofOfAddress",
+  "type": "object",
+  "required": [
+    "firstName",
+    "lastName",
+    "fullName",
+    "fullAddress",
+    "emissionDate",
+    "issuerName",
+    "identificationNumber"
+  ],
+  "properties": {
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "fullName": {
+      "type": "string"
+    },
+    "fullAddress": {
+      "type": "string"
+    },
+    "emissionDate": {
+      "type": "string"
+    },
+    "issuerName": {
+      "type": "string"
+    },
+    "identificationNumber": {
+      "type": "string"
+    }
+  }
+}
+----
 
 === Ask connector
 
