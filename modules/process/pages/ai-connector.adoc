@@ -7,7 +7,7 @@
 
 The Bonita AI Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
 
-image:ai-connectors.png[AI Connectors flux]
+image::ai-connectors.png[AI Connectors flux]
 
 [WARNING]
 ====
