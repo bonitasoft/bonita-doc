@@ -7,11 +7,13 @@
 
 The Bonita AI Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
 
+image::ai-connectors.png[AI Connectors flux]
 
 [WARNING]
 ====
 The connector is still under development and current state is just a draft version.
 ====
+
 
 == Getting started
 
@@ -22,7 +24,7 @@ Currently supported providers:
 * image:openai.png[OpenAI] OpenAI
 * image:mistral.png[MistralAI] Mistral AI
 
-WARNING: Image documents are not supported yet for Mistral connector due to a langchain4j limitation.
+WARNING: Image documents are not supported yet for Mistral connector due to a limitation of the underlying library we use.
 
 === Common configuration
 
@@ -32,7 +34,7 @@ WARNING: Image documents are not supported yet for Mistral connector due to a la
 
 |*apiKey*
 |false
-|The AI provider API key. Parameter is optional for testing purpose but obviously required with official OpenAI endpoint. The connector will use the system environment variable named AI_API_KEY or the same JVM property (`-DAI_API_KEY=xxx`) or the provided connector parameter and at last a dummy `changeMe` value.
+|The AI provider API key. Parameter is optional for testing purpose but obviously required with official OpenAI endpoint. The connector will use the system environment variable named `AI_API_KEY` or the same JVM property (`-DAI_API_KEY=xxx`) or the provided connector parameter and at last a dummy `changeMe` value.
 | changeMe
 
 |*url*
@@ -47,7 +49,7 @@ WARNING: Image documents are not supported yet for Mistral connector due to a la
 
 |*chatModelName*
 |false
-|The model to use for chat like gpt-4o, gpt-4o-mini, llama, pixtral, ... See OpenAI documentation at https://platform.openai.com/docs/models/models and Mistral AI documentation at https://docs.mistral.ai/getting-started/models/models_overview/ for detailed information about models.
+|The model to use for chat like `gpt-4o`, `gpt-4o-mini`, `llama`, `pixtral`, ... See OpenAI documentation at https://platform.openai.com/docs/models/models and Mistral AI documentation at https://docs.mistral.ai/getting-started/models/models_overview/ for detailed information about models.
 a|
 - OpenAI : `gpt-4o`
 - MistralAI : `pixtral-12b-2409`
