@@ -17,11 +17,10 @@ The connector is still under development and current state is just a draft versi
 
 To use a connector, add it as a dependency to your Bonita process. Choose the one related to your AI provider.
 
-
 Currently supported providers:
 
-- OpenAI
-- Mistral AI
+* image:openai.png[OpenAI] OpenAI
+* image:mistral.png[MistralAI] Mistral AI
 
 WARNING: Image documents are not supported yet for Mistral connector due to a langchain4j limitation.
 
