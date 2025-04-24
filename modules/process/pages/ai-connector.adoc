@@ -52,6 +52,7 @@ And at last it will use a dummy default `changeMe` value if no other value found
 |*chatModelName*
 |false
 a|The model to use for chat like `gpt-4o`, `gpt-4o-mini`, `llama`, `pixtral`, ... See respective documentation for detailed information about models.
+
 - OpenAI : https://platform.openai.com/docs/models/models
 - Mistral AI : https://docs.mistral.ai/getting-started/models/models_overview
 a|
