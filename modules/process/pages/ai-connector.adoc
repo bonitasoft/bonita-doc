@@ -1,6 +1,6 @@
 = AI connectors
 :page-aliases: ROOT:ai-connector.adoc
-:description: The Bonita AI connectors allow to interact with OpenAI and MistralAI chat models by sending prompt and documents and returning the generated output.
+:description: The Bonita AI connectors allows for interacting with OpenAI and MistralAI chat models by sending prompt and documents and returning the generated output.
 
 {description}
 
@@ -11,7 +11,7 @@ image::ai-connectors.png[AI Connectors flux]
 
 == Getting started
 
-To use a connector, add it as a dependency to your Bonita process. Choose the one related to your AI provider.
+To use a connector, add it as an extension dependency to your Bonita project. Choose the one related to your AI provider.
 
 Currently supported providers:
 
@@ -51,18 +51,20 @@ And at last it will use a dummy default `changeMe` value if no other value found
 
 |*chatModelName*
 |false
-|The model to use for chat like `gpt-4o`, `gpt-4o-mini`, `llama`, `pixtral`, ... See OpenAI documentation at https://platform.openai.com/docs/models/models and Mistral AI documentation at https://docs.mistral.ai/getting-started/models/models_overview/ for detailed information about models.
+a|The model to use for chat like `gpt-4o`, `gpt-4o-mini`, `llama`, `pixtral`, ... See respective documentation for detailed information about models.
+- OpenAI : https://platform.openai.com/docs/models/models
+- Mistral AI : https://docs.mistral.ai/getting-started/models/models_overview
 a|
 - OpenAI : `gpt-4o`
 - MistralAI : `pixtral-12b-2409`
 
 |*modelTemperature*
 |false
-a|The temperature to use for the model. Higher values will result in more creative responses. Must be between 0 and 1. 
+a|The temperature to use for the model. Higher values will result in more creative responses. Must be between `0` and `1`. 
 
 Leave blank if the selected model does not support this parameter. 
 
-If parameter is not present, the temperature will not be set in chat context.
+If the parameter is not present, the temperature will not be set in chat context.
 |null
 |===
 
@@ -137,7 +139,7 @@ Take a user prompt and send it to OpenAI then return the AI response. The prompt
 |false
 a|The reference to the process document to load and add to the user prompt. 
 
-If not null, the connector will try to read the specified document and send it as an attachment to the user prompt. Format supported are "doc", "docx", "pdf", ... (see https://tika.apache.org/3.1.0/formats.html)
+If not null, the connector will try to read the specified document and send it as an attachment to the user prompt. Supported formats are "doc", "docx", "pdf", ... (see https://tika.apache.org/3.1.0/formats.html)
 |null
 
 |*outputJsonSchema*
@@ -162,14 +164,14 @@ This connector allow extracting information from a bonita document.
 |*true*
 a|The reference to the process document to load and add to the user prompt. 
 
-If not null, the connector will try to read the specified document  and send it as an attachment to the user prompt. Format supported are "doc", "docx", "pdf", ... (see https://tika.apache.org/3.1.0/formats.html)
+If not null, the connector will try to read the specified document  and send it as an attachment to the user prompt. Supported formats are "doc", "docx", "pdf", ... (see https://tika.apache.org/3.1.0/formats.html)
 |null
 
 |*fieldsToExtract*
 |false
 a|The list of fields to extract from the given document. 
 
-The connector expect a list of String (like `List.of("firstName","lastName","address")`.
+The connector expect a list of String (like `firstName`, `lastName`, `address`).
 |null
 
 |*outputJsonSchema*
@@ -188,7 +190,7 @@ This connector result will be placed as a map entry of type `java.lang.String` f
 
 === Classify connector
 
-This connector allow to classify a bonita process document according to a list of category provided by the user.
+This connector allows classifying a bonita process document according to a list of categories provided by the user.
 
 [caption=Configuration]
 |===
@@ -198,14 +200,14 @@ This connector allow to classify a bonita process document according to a list o
 |*true*
 a|The reference to the process document to load and add to the user prompt. 
 
-If not null, the connector will try to read the specified document  and send it as an attachment to the user prompt. Format supported are "doc", "docx", "pdf", ... (see https://tika.apache.org/3.1.0/formats.html)
+If not null, the connector will try to read the specified document and to send it as an attachment to the user prompt. Supported formats are "doc", "docx", "pdf", ... (see https://tika.apache.org/3.1.0/formats.html)
 |null
 
 |*categories*
 |*true*
-a|The list of category used to classify the given document. 
+a|The list of categories used to classify the given document. 
 
-The connector expect a list of String (like `List.of("RIB","ID",...)`.
+The connector expect a list of String (like `RIB`, `ID`, ...).
 It is recommended to add a default category if none other matches such as `Unknown`
 |null
 
