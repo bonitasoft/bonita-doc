@@ -23,6 +23,13 @@ xref:ROOT:connector-archetype.adoc[[.card-title]#Create your own connector# [.ca
 
 All the Bonita official connectors are available from the Bonita marketplace. They can be imported as xref:bonita-overview:managing-extension-studio.adoc[extensions] in the Bonita Studio.
 
+
+[.card.card-index]
+--
+xref:ROOT:ai-connector.adoc[[.card-title]#AI# [.card-body.card-content-overflow]#pass:q[Combine the power of AI and Process Automation]#]
+--
+
+
 [.card.card-index]
 --
 xref:ROOT:uipath.adoc[[.card-title]#UiPath# [.card-body.card-content-overflow]#pass:q[Combine the power of BPMN and Robot Process Automation]#]
