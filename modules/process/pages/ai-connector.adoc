@@ -1,8 +1,14 @@
 = AI connectors
 :page-aliases: ROOT:ai-connector.adoc
-:description: The Bonita AI connectors allows for interacting with OpenAI and MistralAI chat models by sending prompt and documents and returning the generated output.
+:description: Bonitasoft now offers AI connectors that let you seamlessly integrate advanced language models like OpenAI and Mistral into your business processes.
 
-{description}
+{description} These connectors support three powerful use cases:
+
+- Generate text content from custom prompts
+- Classify documents into predefined categories
+- Extract structured data from unstructured text or images
+
+By securely sending data from your processes to LLMs over HTTPS, you can enhance automation, improve decision-making, and streamline information handling—all without writing custom code.
 
 
 The Bonita AI Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
