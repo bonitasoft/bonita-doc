@@ -1,0 +1,242 @@
+= AI connectors
+:page-aliases: ROOT:ai-connector.adoc
+:description: Bonitasoft now offers AI connectors that let you seamlessly integrate advanced language models like OpenAI and Mistral into your business processes.
+
+{description} These connectors support three powerful use cases:
+
+- Generate text content from custom prompts
+- Classify documents into predefined categories
+- Extract structured data from unstructured text or images
+
+By securely sending data from your processes to LLMs over HTTPS, you can enhance automation, improve decision-making, and streamline information handling—all without writing custom code.
+
+
+The Bonita AI Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+image::ai-connectors.png[AI Connectors flux]
+
+== Getting started
+
+To use a connector, add it as an extension dependency to your Bonita project. Choose the one related to your AI provider.
+
+Currently supported providers:
+
+* image:openai.png[OpenAI] OpenAI
+* image:mistral.png[MistralAI] Mistral AI
+
+WARNING: Image documents are not supported yet for Mistral connector due to a limitation of the underlying library we use.
+
+=== Common configuration
+
+[caption=Configuration]
+|===
+|Parameter name |Required |Description |Default value
+
+|*apiKey*
+|false
+a|The AI provider API key. Parameter is optional for testing purpose but obviously required with official OpenAI endpoint. 
+
+The connector will look for API key value in this order: 
+
+- A system environment variable named `AI_API_KEY` 
+- A JVM property named `AI_API_KEY` (`-DAI_API_KEY=xxx`) 
+- the provided connector `apiKey` parameter 
+ 
+And at last it will use a dummy default `changeMe` value if no other value found. 
+| changeMe
+
+|*url*
+|false
+|The OpenAI endpoint url. This parameter allows to use an alternate endpoint for tests.
+|Default to the official provider endpoint if not specified.
+
+|*requestTimeout*
+|false
+|The request timeout in milliseconds for OpenAI calls.
+|null
+
+|*chatModelName*
+|false
+a|The model to use for chat like `gpt-4o`, `gpt-4o-mini`, `llama`, `pixtral`, ... See respective documentation for detailed information about models.
+
+- OpenAI : https://platform.openai.com/docs/models/models
+- Mistral AI : https://docs.mistral.ai/getting-started/models/models_overview
+a|
+- OpenAI : `gpt-4o`
+- MistralAI : `pixtral-12b-2409`
+
+|*modelTemperature*
+|false
+a|The temperature to use for the model. Higher values will result in more creative responses. Must be between `0` and `1`. 
+
+Leave blank if the selected model does not support this parameter. 
+
+If the parameter is not present, the temperature will not be set in chat context.
+|null
+|===
+
+
+== Connectors
+
+AI connectors have the capability to retrun structured data in JSON format. It is possible to pass a https://json-schema.org/learn/getting-started-step-by-step[JSON schema] to tell the LLM how to format response data. 
+
+When using a JSON schema, you **must** list in the `required` property, all the fields you want in the JSON response. 
+
+.JSON schema sample
+[source, json]
+----
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ProofOfAddress",
+  "type": "object",
+  "required": [
+    "firstName",
+    "lastName",
+    "fullName",
+    "fullAddress",
+    "emissionDate",
+    "issuerName",
+    "identificationNumber"
+  ],
+  "properties": {
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "fullName": {
+      "type": "string"
+    },
+    "fullAddress": {
+      "type": "string"
+    },
+    "emissionDate": {
+      "type": "string"
+    },
+    "issuerName": {
+      "type": "string"
+    },
+    "identificationNumber": {
+      "type": "string"
+    }
+  }
+}
+----
+
+=== Ask connector
+
+Take a user prompt and send it to OpenAI then return the AI response. The prompt text can ask question about a provided process document.
+
+[caption=Configuration]
+|===
+|Parameter name |Required |Description |Default value
+
+|*systemPrompt*
+|false
+|The system prompt to pass to the OpenAI endpoint.  It helps to influence the behavior of the assistant and specify a default context. (ex: You are a personal finance advisor, providing guidance, etc.)
+|"You are a polite Assistant"
+
+|*userPrompt*
+|*true*
+|The user prompt content to send to the AI provider
+|
+
+|*sourceDocumentRef*
+|false
+a|The reference to the process document to load and add to the user prompt. 
+
+If not null, the connector will try to read the specified document and send it as an attachment to the user prompt. Supported formats are "doc", "docx", "pdf", ... (see https://tika.apache.org/3.1.0/formats.html)
+|null
+
+|*outputJsonSchema*
+|false
+|The JSON schema that represent how to structure the JSON connector output.
+|null
+
+|===
+
+The result can be a simple JSON object or one compliant with a provided JSON schema.
+This result will be placed as a map entry of type `java.lang.String` for the key named *output*.
+
+=== Extract connector
+
+This connector allow extracting information from a bonita document.
+
+[caption=Configuration]
+|===
+|Parameter name |Required |Description |Default value
+
+|*sourceDocumentRef*
+|*true*
+a|The reference to the process document to load and add to the user prompt. 
+
+If not null, the connector will try to read the specified document  and send it as an attachment to the user prompt. Supported formats are "doc", "docx", "pdf", ... (see https://tika.apache.org/3.1.0/formats.html)
+|null
+
+|*fieldsToExtract*
+|false
+a|The list of fields to extract from the given document. 
+
+The connector expect a list of String (like `firstName`, `lastName`, `address`).
+|null
+
+|*outputJsonSchema*
+|false
+a|The JSON schema that represent how to structure the JSON connector output. 
+
+If a JSON schema is specified, the `fieldsToExtract` parameter is ignored.
+|null
+
+|===
+
+IMPORTANT: You must provide at least one of `fieldsToExtract` or `outputJsonSchema` parameters.
+
+The result can be a simple JSON object or one compliant with a provided JSON schema.
+This connector result will be placed as a map entry of type `java.lang.String` for the key named *output*.
+
+=== Classify connector
+
+This connector allows classifying a bonita process document according to a list of categories provided by the user.
+
+[caption=Configuration]
+|===
+|Parameter name |Required |Description |Default value
+
+|*sourceDocumentRef*
+|*true*
+a|The reference to the process document to load and add to the user prompt. 
+
+If not null, the connector will try to read the specified document and to send it as an attachment to the user prompt. Supported formats are "doc", "docx", "pdf", ... (see https://tika.apache.org/3.1.0/formats.html)
+|null
+
+|*categories*
+|*true*
+a|The list of categories used to classify the given document. 
+
+The connector expect a list of String (like `RIB`, `ID`, ...).
+It is recommended to add a default category if none other matches such as `Unknown`
+|null
+
+|===
+
+
+The result is a JSON String such as the following sample.
+
+.sample classification result
+[source,json]
+----
+{
+  "category": "xxx",
+  "confidence": 0.9
+}
+----
+
+The confidence score is defined as :
+
+- [0.0..0.3]: Very uncertain or guessing
+- [0.3..0.6]: Some uncertainty, potential ambiguity exists
+- [0.6..0.8]: Reasonably certain, minor doubt
+- [0.8..1.0]: Very certain, no doubt
+
+This connector result will be placed as a map entry of type `java.lang.String` for the key named *output*.
