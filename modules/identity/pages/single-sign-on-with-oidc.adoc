@@ -46,6 +46,7 @@ The `username` attribute of Bonita user accounts should match one of the _claims
  You can configure Bonita engine to create the accounts on the fly in the database once a user accessing Bonita has been authenticated with the IdP (see the configuration of `bonita-tenant-sp-custom.properties` in the 3rd section of the next chapter).
 ====
 
+[#configure-bonita-bundle]
 == Configure Bonita Bundle for OIDC
 
 You need to execute the following actions in the folder for which you want to support authentication over OpenID Connect.
@@ -308,14 +309,14 @@ If the IdP declares a redirect URI, it might override the target URL (`redirect_
 == Configure logout behaviour
 
 If your Bonita platform is configured to manage authentication over OIDC, when users log out of Bonita Runtime, they do not log out of the OIDC Identity Provider (IdP).
-Therefore they are not logged out of all applications that are using the OIDC provider.
+Therefore, they are not logged out of all applications that are using the OIDC provider.
 To avoid this, you have two options :
 
 [discrete]
 ==== Hide the logout button of the Bonita Layout
 
 This is the most commonly used solution. Users are logged in as long as they don't close their web browser and their session does not time out.
-To do this, set the `logout.link.hidden` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal/`.
+To do this, set the `logout.link.hidden` option to `true` in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal`.
 
 [NOTE]
 ====
@@ -331,11 +332,12 @@ https://openid.net/specs/openid-connect-rpinitiated-1_0.html[RP-Initiated logout
 As OIDC Providers do not necessarily support OpenID logout and have different ways of handling it, Bonita only offers OIDC logout through an OIDC logout endpoint URL that the OIDC provider should provide and support.
 To setup Bonita for OIDC logout:
 
-. Set the value of the property `oidc.logout.url` with your OIDC provider logout endpoint URL in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal` and `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal/`.
+. Set the value of the property `oidc.logout.url` with your OIDC provider logout endpoint URL in `authenticationManager-config.properties` located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal`.
 . If the logout URL of your OIDC provider supports a parameter to redirect after the logout, you can set the property `oidc.logout.url.redirectQuery` with the query string to use (it will be concatenated to the logout URL). The placeholder `+{encodedRedirectUri}+` will be replaced at runtime with the current Bonita URL at the time on the logout action. It is also possible to pass the ID token of the logged in user in the query string using the placeholder `+{idToken}+`. This is useful if the OIDC provider supports the `id_token_hint` parameter of the OIDC RP-Initiated logout specification (since Bonita 2022.1-u2). For this use case, make sure Bonita is configured for HTTPS since the ID token will be sent in the URL.
 
 On the OIDC provider side, you need to configure Bonita OIDC service provider for:
 
+[#front-back-channel-logout]
 * either back-channel logout with the URL `<your bonita server URL>/keycloak/k_logout` (for example http://my.company.domain:8080/bonita/keycloak/k_logout) and a signature algorithm for the logout token (Logout JWT tokens must be signed).
 
 * or front-channel logout with the URL `<your bonita server URL>/logoutservice/oidc` (for example http://my.company.domain:8080/bonita/logoutservice/oidc). Front-channel logout is only supported since Bonita 2022.1-u6. If Bonita and the OIDC provider are not on the same domain, you must make sure the provider adds the session ID (`sid`) and issuer (`iss`) parameters to the logout request and you also need to configure the file `<BUNDLE_HOME>/setup/platform_conf/current/platform_portal/security-config.properties` to add the domain of the OIDC provider to the list of authorized frame-ancestors for Bonita applications (front channet logout request are sent in an Iframe by the OIDC provider) as follows:
@@ -347,7 +349,42 @@ bonita.runtime.security.csrf.header.content.security.policy=frame-ancestors 'sel
 [NOTE]
 ====
 
-If the logout flow supported by your OIDC provider is not the same as the one supported by Bonita platform, the preferred solution to handle it anyway is to intercept the requests to /logoutservice and handle the logout programmatically.
+If the logout flow supported by your OIDC provider is not the same as the ones supported by Bonita platform, the preferred solution to handle it anyway is to intercept the requests to /logoutservice and handle the logout programmatically.
+====
+
+[#multi-providers]
+== Configure Bonita for multiple OIDC providers
+
+It is possible to configure Bonita to Handle authentication with several OpenID Connect providers. With such a configuration, the user will be able to choose the OIDC provider to use when logging in. +
+In order to do this, you need to duplicate the file *keycloak-oidc.json* to have one file *keycloak-oidc-<provider ID>.json* for each OIDC provider and set the property `oidc.providers` in the file *authenticationManager-config.properties* located in `<BUNDLE_HOME>/setup/platform_conf/initial/tenant_portal` for not initialized platform or `<BUNDLE_HOME>/setup/platform_conf/current/tenant_portal`. Other properties need to be configured as well in this file:
+
+----
+oidc.providers = provider1,provider2
+oidc.provider.query.param = provider
+oidc.provider.provider1.displayName = Keycloak
+oidc.provider.provider1.logoutUrl = http://provider1.url/realms/bonita/protocol/openid-connect/logout
+oidc.provider.provider1.logoutQuery = ?post_logout_redirect_uri={encodedRedirectUri}&id_token_hint={idToken}
+oidc.provider.provider2.displayName = Custom provider
+oidc.provider.provider2.logoutUrl = http://provider2.url/realms/bonita/protocol/openid-connect/logout
+oidc.provider.provider2.logoutQuery = ?post_logout_redirect_uri={encodedRedirectUri}&id_token_hint={idToken}
+bonita.runtime.authentication.providers.url=authproviders.jsp
+----
+
+* `oidc.providers` is a comma separated list of the ID of the available OIDC providers. When this property is set, the file *keycloak-oidc.json* is no longer used and *keycloak-oidc-<provider ID>.json* files are used instead. You can choose the ID you want for each provider, but it is recommended to avoid special characters and whitespaces and keep it short since it will be used in the URLs and the files names. The order of the providers in this list will be the order in which they are displayed in the providers choice page.
+* `oidc.provider.query.param` (optional) is the name of the query parameter to set in the URL to identify the OIDC provider to use to log in. By default, it is set to `provider` but you can change it if you want. When Accessing Bonita with this query parameter in the URL, the users will be redirected to the provider authentication page. When this query parameter is not in the URL they will get the providers landing page (see `bonita.runtime.authentication.providers.url` property).
+* For each provider, you need to set the following properties:
+  ** `oidc.provider.<provider ID>.displayName` (mandatory) is the display name of the OIDC provider to use. It will be displayed in the providers list page page when accessing Bonita application without being logged in and without any provider ID in the URL query string.
+  ** `oidc.provider.<provider ID>.logoutUrl` (mandatory) is the logout URL of the OIDC provider. It is used to log out from the OIDC provider when logging out from Bonita. This property replaces the property `oidc.logout.url` that is used when only one OIDC provider is configured.
+  ** `oidc.provider.<provider ID>.logoutQuery` (mandatory) is the query string to use when redirecting to the OIDC provider logout URL. The placeholders `+{encodedRedirectUri}+` and `+{idToken}+` will be replaced at runtime with the current Bonita URL at the time on the logout action and the ID token of the logged-in user respectively. This property replaces the property `oidc.logout.url.redirectQuery` that is used when only one OIDC provider is configured.
+* `bonita.runtime.authentication.providers.url` (optional) is the URL of the page to use to display the list of OIDC providers available to authenticate. By default, it is set to target the interal page `authproviders.jsp` but you can change it if you want to target an external page (use the full URL of the page). This external page must be accessible without authentication. The list of providers will be hard-coded in the page and for each provider, the link should target the current redirectUrl query parameter value with the addition of a provider query parameter (e.g.: provider=<provider ID>. This property can also be set using the environment variable `BONITA_RUNTIME_AUTHENTICATION_PROVIDERS_URL`.
+* `oidc.auth.standard.allowed` (optional) this property controls whether the standard authentication (username/password) is allowed or not (see <<configure-bonita-bundle, Configure Bonita Bundle for OIDC>>). When using multiple OIDC providers and this property is set to true, an additional option to authenticate will be available on the providers list page to navigate to Bonita standard login page.
+
+Other properties of this file should be configured the same way as described in the section <<configure-bonita-bundle, Configure Bonita Bundle for OIDC>>. +
+
+[NOTE]
+====
+
+When configuring <<front-back-channel-logout, front or back channel logout>> on the OIDC provider, make sure the provider ID is present in the query parameter of Bonita client logout URL (e.g.: `<your bonita server URL>/keycloak/k_logout?provider=provider1` or `<your bonita server URL>/logoutservice/oidc?provider=provider1`. +
 ====
 
 == Manage passwords
@@ -420,6 +457,12 @@ Once you obtained the Access token, you can make your REST API request in a norm
 ====
 
 If the OIDC provider returns opaque access token (non JWT), then Bonita OIDC client module will use UserInfo OIDC endpoint to validate the token and retrieve the user claims. Make sure the property `user-info-url` is correct in the file `keycloak-oidc.json`.
+====
+
+[NOTE]
+====
+
+When using <<multi-providers, multiple OIDC providers>>, the provider ID must be added as a query parameter to the API call URL (e.g.: `http://<host>:<port>/bonita/API/bpm/user/1?provider=oidc-provider-id`).
 ====
 
 === CORS
