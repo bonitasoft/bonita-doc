@@ -39,6 +39,15 @@ Those failures with detailed information are visible in the Admin application in
 New {openApiUrl}/{openApiLatestVersion}#tag/Failure[bpm/failure] and {openApiUrl}/{openApiLatestVersion}#tag/ArchivedFailure[bpm/archivedFailure] REST API resources have been added to retrieve the failures of a task, a case or a root case (including all the child cases). +
 Java API also includes new methods to retrieve those failures (see getProcessInstanceFailures or getFlowNodeInstanceFailures in ProcessRuntimeAPI). +
 
+=== Support for multiple OpenID Connect providers
+
+When Bonita is configured for xref:identity:single-sign-on-with-oidc.adoc[Single Sign-On (SSO) with OpenID Connect], it is now possible to configure xref:identity:single-sign-on-with-oidc.adoc#multi-providers[multiple OIDC providers] and allow end-users to choose the provider they want to use. +
+
+[NOTE]
+====
+For Teamwork, Efficiency, Performance, Enterprise and Scale editions only.
+====
+
 == Notable changes
 
 === Improving user experience in Studio

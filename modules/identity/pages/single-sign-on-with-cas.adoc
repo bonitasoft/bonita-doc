@@ -6,7 +6,7 @@
 
 [NOTE]
 ====
-For Teamwork, Efficiency, Performance and Enterprise editions only.
+For Teamwork, Efficiency, Performance, Enterprise and Scale editions only.
 ====
 
 [NOTE]
