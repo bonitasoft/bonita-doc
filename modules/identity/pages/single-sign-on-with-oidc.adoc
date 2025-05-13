@@ -413,9 +413,10 @@ When Bonita web application is configured for authentication with OpenID Connect
 [WARNING]
 ====
 
-Make sure the property `autodetect-bearer-only` is set to `true` in the file *keycloak-oidc.json*. This property allows Bonita OIDC filter to detect if the request is a REST API call or a navigation call based on the headers of the request. In order for the Bonita REST API request to be authorized with the Bearer token, one of the following assertion must be true:
-* `X-Requested-With` header is present in the request with the value `XMLHttpRequest`
-* `Accept` header is either absent from the request or present with any other value than `text/html`, `text/*` or `*/*`
+Make sure the property `autodetect-bearer-only` is set to `true` in the file *keycloak-oidc.json*. +
+This property allows Bonita OIDC filter to detect if the request is a REST API call or a navigation call based on the headers of the request. In order for the Bonita REST API request to be authorized with the Bearer token, one of the following assertion must be true: +
+- `X-Requested-With` header is present in the request with the value `XMLHttpRequest` +
+- `Accept` header is either absent from the request or present with any other value than `text/html`, `text/*` or `*/*`
 ====
 
 === Authentication
