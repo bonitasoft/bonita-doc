@@ -14,7 +14,7 @@ This new major release improves security, search capabilities and performance.
 * Java 17 update for more security, better performance and language enhancements
 * Improved security in Bonita REST APIs
 * Boosted search experience on all APIs and pages
-* Better platform performance thanks to the L2 Cache (Enterprise Edition only), extended to clustered environments.
+* Better platform performance thanks to the L2 Cache (Enterprise Edition only), extended to clustered environments.CVE-2025-24813
 * Bonita Studio packaging changes
 * REST API authorizations in Community edition
 * Find out how Bonitasoft handles GDPR
@@ -123,10 +123,8 @@ The property allowing to enable/disable xref:identity:rest-api-authorization.ado
 
 ==== Fixes in Bonita Runtime including Bonita Applications
 
-* RUNTIME-1786 - When updating an SCA application with profiles mapping, the log is deceitful
-
-* CVE-77 - Improper verification of SAML responses leading to impersonation attacks in Keycloak SAML adapter
-* CVE-78 - Apache Tomcat - Potential RCE and/or information disclosure and/or information corruption with partial PUT
+* CVE-77 - Keycloak SAML adapter - Improper verification of SAML responses leading to impersonation attacks (fixing CVE-2024-8698)
+* CVE-78 - Apache Tomcat - Potential RCE and/or information disclosure and/or information corruption with partial PUT (fixing CVE-2025-24813)
 * RUNTIME-44 - NPE when iterating on multiple BDM object in event subprocess
 * RUNTIME-1865 - When level 2 cache is enabled and Cluster disabled, two or more nodes connect via Hazelcast
 * RUNTIME-1932 - Cancelled and Aborted process instances are not returns when using the REST API (bpm/archivedCase)
