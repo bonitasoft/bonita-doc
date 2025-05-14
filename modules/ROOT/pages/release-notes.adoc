@@ -46,7 +46,7 @@ Java API also includes new methods to retrieve those failures (see getProcessIns
 For Teamwork, Efficiency, Performance, Enterprise and Scale editions only.
 ====
 
-When Bonita is configured for xref:identity:single-sign-on-with-oidc.adoc[Single Sign-On (SSO) with OpenID Connect], it is now possible to configure xref:identity:single-sign-on-with-oidc.adoc#multi-providers[several OIDC providers] and allow end-users to choose the provider they want to use. +
+When Bonita is configured for xref:identity:single-sign-on-with-oidc.adoc[Single Sign-On (SSO) with OpenID Connect], it is now possible to configure xref:identity:single-sign-on-with-oidc.adoc#multi-providers[several OIDC providers] and allow end-users to choose the provider they want to use to log in. +
 
 == Notable changes
 
