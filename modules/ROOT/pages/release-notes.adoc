@@ -36,8 +36,7 @@ We are pleased to bring several exciting advancements in this release, including
 
 ==== Fixes in Bonita Runtime including Bonita Applications
 
-* CVE-77 - Improper verification of SAML responses leading to impersonation attacks in Keycloak SAML adapter
-* CVE-78 - Apache Tomcat - Potential RCE and/or information disclosure and/or information corruption with partial PUT
+* CVE-77 - Keycloak SAML adapter - Improper verification of SAML responses leading to impersonation attacks (fixing CVE-2024-8698)
 * RUNTIME-44 - NPE when iterating on multiple BDM object in event subprocess
 * RUNTIME-1865 - When level 2 cache is enabled and Cluster disabled, two or more nodes connect via Hazelcast
 * RUNTIME-1932 - Cancelled and Aborted process instances are not returns when using the REST API (bpm/archivedCase)
