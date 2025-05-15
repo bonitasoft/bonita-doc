@@ -574,6 +574,21 @@ When set to true, the application exit right after the initialization/update pha
 This environment variable activates the xref:overview-of-bonita-bpm-in-a-cluster.adoc[Cluster mode] on Bonita, allowing to start several nodes that will join the cluster.
 
 
+[#initialization-scripts]
+== Initialization scripts
+Also called init scripts, which helps you perform any critical operations before your services are fully up and running.
+To ensure the below init scripts are available when the container is started or restarted, place them on the host system and mount them using the `volumes` section in the Docker Compose YAML file.
+
+=== `/opt/files/config.sh` script
+
+If it exists and is executable, it is run once during the first start of the Docker container. 
+It is ignored during subsequent restarts of the container.
+
+=== `/opt/custom-init.d/` directory
+
+All initialization scripts with the .sh suffix located in this directory are sourced at every container start, including restarts.
+
+
 [#logger_configuration]
 == Logger configuration
 
