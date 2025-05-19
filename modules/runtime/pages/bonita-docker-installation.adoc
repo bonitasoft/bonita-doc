@@ -405,6 +405,11 @@ To ensure the below init scripts are available when the container is started or 
 
 === `/opt/custom-config.d/` directory
 
+[NOTE]
+====
+For Subscription editions only.
+====
+
 All configuration scripts with the .sh suffix located in this directory are sourced at first container start.
 It is ignored during subsequent restarts of the container.
 
