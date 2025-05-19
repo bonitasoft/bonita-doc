@@ -398,6 +398,26 @@ Since Bonita 7.9 BONITA_SERVER_LOGGING_FILE and BONITA_SETUP_LOGGING_FILE can be
 `BONITA_SETUP_LOGGING_FILE` default value is `/opt/bonita/setup/logback.xml`
 
 
+[#initialization-scripts]
+== Initialization scripts
+Also called init scripts, which help you perform any critical operations before your services are fully up and running.
+To ensure the below init scripts are available when the container is started or restarted, place them on the host system and mount a Docker volume on the containing directory.
+
+=== `/opt/custom-config.d/` directory
+
+[NOTE]
+====
+For Subscription editions only.
+====
+
+All configuration scripts with the .sh suffix located in this directory are sourced at first container start.
+It is ignored during subsequent restarts of the container.
+
+=== `/opt/custom-init.d/` directory
+
+All initialization scripts with the .sh suffix located in this directory are sourced at EVERY container start, including restarts.
+
+
 [#logger_configuration]
 == Logger configuration
 
