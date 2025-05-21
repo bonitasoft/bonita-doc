@@ -119,6 +119,23 @@ The property allowing to enable/disable xref:identity:rest-api-authorization.ado
 
 == Bug fixes
 
+=== Fixes in Bonita 2024.1-u6 (2025-04-28)
+
+==== Fixes in Bonita Runtime including Bonita Applications
+
+* CVE-77 - Keycloak SAML adapter - Improper verification of SAML responses leading to impersonation attacks (fixing CVE-2024-8698)
+* CVE-78 - Apache Tomcat - Potential RCE and/or information disclosure and/or information corruption with partial PUT (fixing CVE-2025-24813)
+* RUNTIME-44 - NPE when iterating on multiple BDM object in event subprocess
+* RUNTIME-1865 - When level 2 cache is enabled and Cluster disabled, two or more nodes connect via Hazelcast
+* RUNTIME-1932 - Cancelled and Aborted process instances are not returns when using the REST API (bpm/archivedCase)
+* RUNTIME-1947 - Oracle/MS SQL Server Deadlock Occurring During Mass Task Completion/Cancellation
+
+==== Fixes in Bonita Studio (including Bonita UI Designer)
+
+* STUDIO-4520 - Old version Git repository clone fails with NullPointerException during the execution of bonita-project-maven-plugin:create-bdm-module if local .m2/repository/ is empty
+* STUDIO-4566 - Studio freeze during check dependencies in Groovy console
+* UID-732 - $form.$invalid x Tabs container : the Submit button is enabled when the widgets' Required of the current tab have a value, and even if there are empty Required widgets in other tabs
+
 === Fixes in Bonita 2024.1-u5 (2024-12-06)
 
 ==== Fixes in Bonita Runtime including Bonita Applications
