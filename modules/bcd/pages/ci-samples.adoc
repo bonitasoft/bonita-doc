@@ -1,6 +1,5 @@
 = How to integrate Bonita CI/CD suite features in a CI pipeline
 :description: Bonita CI/CD suite features integration in a CI pipelines
-
 :page-aliases: jenkins_example.adoc, builder.adoc
 
 

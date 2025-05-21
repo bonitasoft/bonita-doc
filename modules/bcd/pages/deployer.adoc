@@ -1,6 +1,5 @@
 = How to deploy Living App artifacts
 :description: Deploy a Bonita application archive
-
 :page-aliases: livingapp_build_and_deploy_without_docker.adoc
 
 This page describes how to deploy Bonita Living Application artifacts from the command line.
