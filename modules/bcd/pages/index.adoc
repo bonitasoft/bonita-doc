@@ -1,6 +1,8 @@
 = Bonita CI/CD suite
 :description: Bonita tools for continuous delivery
 
+:page-aliases: bcd/builder.adoc
+
 
 [NOTE]
 --
