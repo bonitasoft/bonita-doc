@@ -1,6 +1,8 @@
 = Release notes
 :description: BCD release notes, listing breaking changes, deprecations and new features.
 
+:page-aliases: scenarios.adoc, how_to_use_bcd_with_data_encrypted.adoc
+
 == What's new in 4.0
 
 The original BCD controller is now provided as two separated Java CLIs.
