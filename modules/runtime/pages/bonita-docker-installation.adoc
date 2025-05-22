@@ -269,7 +269,7 @@ Below is an example on how to simulate the run of Bonita in a cluster mode.
 
 We use Postgres as database and https://hub.docker.com/_/traefik[Traefik] as an HTTP reverse proxy and load balancer.
 
-After execution, Bonita is available at `http://bonita.localhost` (the address can be changed with the label `traefik.http.routers.bonita.rule`).
+After execution, Bonita is available at `+http://bonita.localhost+` (the address can be changed with the label `traefik.http.routers.bonita.rule`).
 
 [source,yaml,subs="+macros,+attributes"]
 ----
@@ -562,6 +562,26 @@ This environment variable activates the xref:overview-of-bonita-bpm-in-a-cluster
 ====
 This will automatically disable https://www.google.com/search?q=Hibernate+L2+cache[Hibernate L2 cache].
 ====
+
+[#initialization-scripts]
+== Initialization scripts
+Also called init scripts, which help you perform any critical operations before your services are fully up and running.
+To ensure the below init scripts are available when the container is started or restarted, place them on the host system and mount a Docker volume on the containing directory.
+
+=== `/opt/custom-config.d/` directory
+
+[NOTE]
+====
+For Subscription editions only.
+====
+
+All configuration scripts with the .sh suffix located in this directory are sourced at first container start.
+It is ignored during subsequent restarts of the container.
+
+=== `/opt/custom-init.d/` directory
+
+All initialization scripts with the .sh suffix located in this directory are sourced at EVERY container start, including restarts.
+
 
 [#logger_configuration]
 == Logger configuration
