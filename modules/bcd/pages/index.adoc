@@ -1,13 +1,12 @@
 = Bonita CI/CD suite
 :description: Bonita tools for continuous delivery
-
-:page-aliases: bcd_cli.adoc, bcd_controller.adoc, getting_started.adoc, builder.adoc
+:page-aliases: bcd_cli.adoc, bcd_controller.adoc, getting_started.adoc
 
 
 [NOTE]
 --
 The BCD Deployer, as the technical artifact for Bonita CI/CD suite in Bonita, is deprecated and being phased out.
-As of September 2023, the BCD Deployer is no longer receiving updates or improvements, as it is being replaced. 
+As of September 2023, the BCD Deployer is no longer receiving updates or improvements, as it is being replaced.
 The CI/CD pipeline now relies on the Bonita LA Deployer, which is described hereafter and does not require a separate Docker container.
 Access to the Bonita LA Deployer is included in the contract as part of the Bonita CI/CD suite offering (formerly the BCD offering).
 --
@@ -32,7 +31,7 @@ xref:release-notes.adoc[[.card-title]#What's new in BCD?# [.card-body]#pass:q[Fi
 
 [.card.card-index]
 --
-xref:builder.adoc[[.card-title]#Start building# [.card-body]#pass:q[Check out how to build a Living App repository.]#]
+xref:ci-samples.adoc[[.card-title]#Start building# [.card-body]#pass:q[Check out how to build a Living App repository.]#]
 --
 
 [.card.card-index]
