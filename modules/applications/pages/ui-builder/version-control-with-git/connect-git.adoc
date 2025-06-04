@@ -118,10 +118,10 @@ Docker assigns internal IP addresses dynamically. Some IP ranges (such as `172.1
 Use a dedicated and controlled IP range to avoid conflicts. Two approaches are available:
 
 
-1. **Manual (to assign a fixed IP to a specific service)**
-
+. **Manual (to assign a fixed IP to a specific service)**
++
 Set a https://docs.docker.com/reference/compose-file/services/#ipv4_address-ipv6_address[static IP] in `docker-compose.yml`:
-
++
 [source,yaml]
 ----
 networks:
@@ -145,9 +145,11 @@ services:
         ipv4_address: 10.160.1.12
 ----
 
-1. **Global (recommended for multi-project environments)**
-Configure Docker via the `daemon.json` file:
 
+. **Global (recommended for multi-project environments)**
++
+Configure Docker via the `daemon.json` file:
++
 [source,json]
 ----
 {
@@ -162,7 +164,6 @@ Configure Docker via the `daemon.json` file:
 
 [WARNING]
 ====
-
 Ask to your network administrator to ensure that the new IP range does not conflict with existing network rules or other services.
 ====
 
