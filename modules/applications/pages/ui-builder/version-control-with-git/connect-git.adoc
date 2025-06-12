@@ -99,3 +99,72 @@ Your application is now connected to your chosen Git provider.
 == See also
 
 * xref:applications:git-settings.adoc[Git Settings]
+
+[.troubleshooting-title]
+== Troubleshooting
+
+[.troubleshooting-section]
+--
+[.symptom]
+Unable to connect to self-hosted Git providers.
+
+[.symptom-description]
+The SSH connection randomly fails. It may start working again after restarting the container, without any apparent changes.
+
+[.cause]#Potential cause#
+Docker assigns internal IP addresses dynamically. Some IP ranges (such as `172.18.0.0/16`) may be blocked or incompatible with self-hosted Git providers network or security rules, preventing SSH access.
+
+[.solution]#Possible solution#
+Use a dedicated and controlled IP range to avoid conflicts. Two approaches are available:
+
+
+. **Manual (to assign a fixed IP to a specific service)**
++
+Set a https://docs.docker.com/reference/compose-file/services/#ipv4_address-ipv6_address[static IP] in `docker-compose.yml`:
++
+[source,yaml]
+----
+networks:
+  mynet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.160.0.0/16
+
+services:
+  bonita-ui-builder:
+    [...]
+    networks:
+      mynet:
+        ipv4_address: 10.160.1.11
+
+  bonita-ui-proxy:
+    [...]
+    networks:
+      mynet:
+        ipv4_address: 10.160.1.12
+----
+
+
+. **Global (recommended for multi-project environments)**
++
+Configure Docker via the `daemon.json` file:
++
+[source,json]
+----
+{
+  "default-address-pools": [
+    {
+      "base": "10.160.0.0/16",
+      "size": 24
+    }
+  ]
+}
+----
+
+[WARNING]
+====
+Ask to your network administrator to ensure that the new IP range does not conflict with existing network rules or other services.
+====
+
+--
