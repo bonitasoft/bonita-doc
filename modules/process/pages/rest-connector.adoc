@@ -39,10 +39,11 @@ REST connectors support SSL and proxy settings.
 | For the PUT FILE and POST FILE connectors, the file to upload or update
 
 | Headers
-| The HTTP headers to be sent with the request
+| The HTTP headers to be sent with the request. It is also possible to send predefined Bonita context headers such as task Id, case Id, process definition Id...
 |===
 
 == Error Management
 
-It is possible to make the connector fail on 5xx or 4xx response satus codes (with exclusion on specific codes).
-The request can alos be replayed when it fails on 5xx or specific response satus codes.
+It is possible to make the connector fail on 5xx or 4xx response status codes (with exclusion on specific codes).
+
+The request can also be replayed several times when it fails on 5xx or any other specific response status codes. The retry mechanism and configuration are xref:runtime:fault-tolerance.adoc#_retry_mechanism[the same as for the whole BPM engine works].
