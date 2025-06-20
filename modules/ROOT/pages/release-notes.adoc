@@ -48,6 +48,30 @@ For Teamwork, Efficiency, Performance, Enterprise and Scale editions only.
 
 When Bonita is configured for xref:identity:single-sign-on-with-oidc.adoc[Single Sign-On (SSO) with OpenID Connect], it is now possible to configure xref:identity:single-sign-on-with-oidc.adoc#multi-providers[several OIDC providers] and allow end-users to choose the provider they want to use to log in. +
 
+
+=== New REST APIs to create / update / delete referential Business Data
+
+New REST APIs have been added to create, update and delete business data. +
+This allows you to manage business data without having to run process operations for that. +
+
+These APIs are recommended for referential business data only, and are limited to Business Data that do not have references to other business data. +
+
+Moreover, if BDM Access Control is set, these APIs are only available to users without any restriction on the business data being created, updated or deleted. +
+
+The new APIs are:
+
+* {openApiUrl}/{openApiLatestVersion}#tag/businessData[POST bdm/businessData/+{businessDataType}+] to create a new business data object
+* {openApiUrl}/{openApiLatestVersion}#tag/businessData[PUT bdm/businessData/+{businessDataType}+/+{ID}+] to update an existing business data object
+* {openApiUrl}/{openApiLatestVersion}#tag/businessData[DELETE bdm/businessData/+{businessDataType}+/+{ID}+] to delete an existing business data object
+* {openApiUrl}/{openApiLatestVersion}#tag/businessData[POST bdm/businessData/+{businessDataType}+/import] to import a csv-formatted file for bulk import of new business data objects
+
+Along with these APIs, the xref:integration:event-handlers.adoc#_event_list[following events are triggered], so that you can listen to them and react accordingly, if needed:
+
+* BUSINESS_DATA_CREATED
+* BUSINESS_DATA_UPDATED
+* BUSINESS_DATA_DELETED
+
+
 == Notable changes
 
 === Improving user experience in Studio
