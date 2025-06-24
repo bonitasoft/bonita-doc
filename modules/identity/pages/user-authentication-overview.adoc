@@ -148,7 +148,8 @@ The custom login page must POST a form to Bonita `/loginservice` endpoint with t
 * `username`: the username of the user to authenticate
 * `password`: the password of the user to authenticate
 
-
-NOTE: The POST request must be a standard HTML form submission, not a request handled in javascript, otherwise the Browser will block the response due to CORS policy if the custom login page has a different origin (scheme, host and port) as Bonita webapp.
+NOTE: If the custom login page has a different origin (scheme, host and port) as Bonita webapp:
+* The POST request must be a standard HTML form submission, not a request handled in javascript, otherwise the Browser will block the response due to CORS policy
+* The scheme of the custom login page URL should be HTTPS, otherwise the web browser may display a warning when submitting the form
 
 
