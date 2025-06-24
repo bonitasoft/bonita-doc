@@ -143,8 +143,9 @@ attribute inside the HttpRequest. If the engine session is still valid, the user
 
 == Custom login page
 
-You can create your own login form to customize the user experience using the technology of your choice and host it anywhere, then use the environment variable `BONITA_RUNTIME_AUTHENTICATION_LOGIN_URL` or the property `bonita.runtime.authentication.login.url` in configuration file `authenticationManager-config.properties` (using the xref:runtime:bonita-platform-setup.adoc[platform setup tool]) to point to your custom login page.
+You can create your own login form to customize the user experience using the technology of your choice and host it anywhere externally, then set the environment variable `BONITA_RUNTIME_AUTHENTICATION_LOGIN_URL` or the property `bonita.runtime.authentication.login.url` in configuration file `authenticationManager-config.properties` (using the xref:runtime:bonita-platform-setup.adoc[platform setup tool]) with the URL of your custom login form.
 The custom login page must POST a form to Bonita `/loginservice?redirect=true` endpoint with the following parameters:
+
 * `username`: the username of the user to authenticate
 * `password`: the password of the user to authenticate
 * `redirectUrl` : The Bonita applications URL to redirect to after succesful login (optional, can be retrieved from the current URL)
