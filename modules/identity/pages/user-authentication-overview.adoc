@@ -144,11 +144,44 @@ attribute inside the HttpRequest. If the engine session is still valid, the user
 == Custom login page
 
 You can create your own login form to customize the user experience using the technology of your choice and host it anywhere externally, then set the environment variable `BONITA_RUNTIME_AUTHENTICATION_LOGIN_URL` or the property `bonita.runtime.authentication.login.url` in configuration file `authenticationManager-config.properties` (using the xref:runtime:bonita-platform-setup.adoc[platform setup tool]) with the URL of your custom login form.
+
 The custom login page must POST a form to Bonita `/loginservice?redirect=true` endpoint with the following parameters:
 
 * `username`: the username of the user to authenticate
 * `password`: the password of the user to authenticate
-* `redirectUrl` : The Bonita applications URL to redirect to after succesful login (optional, can be retrieved from the current URL)
+* `redirectUrl` : The Bonita applications URL to redirect to after successful login (optional, can be retrieved from the current URL)
+
+.Example of login form
+[%collapsible]
+====
+[source,html]
+----
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Login to Bonita</title>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const redirectUrl = params.get('redirectUrl');
+        if (redirectUrl) {
+            document.getElementById('redirectUrl').value = redirectUrl;
+        }
+    </script>
+</head>
+<body>
+    <form action="http://bonita-sso:8090/bonita/loginservice?redirect=true" method="POST">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <input type="hidden" id="redirectUrl" name="redirectUrl">
+        <button type="submit">Log in</button>
+    </form>
+</body>
+</html>
+----
+====
 
 [NOTE]
 ====
