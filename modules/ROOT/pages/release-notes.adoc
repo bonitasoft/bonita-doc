@@ -398,6 +398,10 @@ Otherwise, script execution may fail, preventing Bonita from starting.
 The changes mainly involve removing `_template` from the Bonita paths used in scripts.
 ====
 
+=== Custom login page
+
+You can now create xref:identity:user-authentication-overview.adoc#_custom_login_page[a custom external login form] using the technology of your choice and set an environment variable to have Bonita Runtime redirect to this page instead of the default one (login.jsp).
+
 
 == Support matrix changes
 

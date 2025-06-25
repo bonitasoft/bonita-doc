@@ -40,14 +40,14 @@ implementation. The implementation to use is configured in a file `authenticatio
 (located in `setup/platform_conf/initial/tenant_portal` or `setup/platform_conf/current/tenant_portal` and updatable using the xref:runtime:bonita-platform-setup.adoc[platform setup tool]).
 The default https://github.com/bonitasoft/bonita-engine/blob/{bonitaTagOrBranch}/bpm/bonita-web-server/src/main/java/org/bonitasoft/console/common/server/auth/AuthenticationManager.java[AuthenticationManager]
 is https://github.com/bonitasoft/bonita-engine/blob/{bonitaTagOrBranch}/bpm/bonita-web-server/src/main/java/org/bonitasoft/console/common/server/auth/impl/standard/StandardAuthenticationManagerImpl.java[StandardAuthenticationManagerImpl].
-Its behavior is to redirect to the `login.jsp` page embedded in the webapp.
+Its behavior is to redirect to the login form.
 Supporting different implementations enables authentication on an external application (useful for SSO deployment for example).
-. `login.jsp` page will ask the user for the username
+. Login form will ask the user for the username
 and password (HTML form). When submitting the form, a `POST`
 request is sent to `/loginservice`. The request includes the
 username, password, locale (optional, by priority order: provided
 in the URL, stored in HTTP cookie) and the `redirectURL`
-information.
+information. The default login form is the `login.jsp` page embedded in bonita webapp but it can be <<_custom_login_page,customized>>.
 . URL `/loginservice` is handled by https://github.com/bonitasoft/bonita-engine/blob/{bonitaTagOrBranch}/bpm/bonita-web-server/src/main/java/org/bonitasoft/console/common/server/login/servlet/LoginServlet.java[LoginServlet].
 . https://github.com/bonitasoft/bonita-engine/blob/{bonitaTagOrBranch}/bpm/bonita-web-server/src/main/java/org/bonitasoft/console/common/server/login/servlet/LoginServlet.java[LoginServlet]
 calls `login` method of https://github.com/bonitasoft/bonita-engine/blob/{bonitaTagOrBranch}/bpm/bonita-web-server/src/main/java/org/bonitasoft/console/common/server/login/LoginManager.java[LoginManager]
@@ -140,3 +140,58 @@ The Bonita Applications check if a valid Bonita Engine session (https://github.c
 object) is found in the
 `apiSession`
 attribute inside the HttpRequest. If the engine session is still valid, the user will have access to the required resource.
+
+== Custom login page
+
+You can create your own login form to customize the user experience using the technology of your choice and host it anywhere externally, then set the environment variable `BONITA_RUNTIME_AUTHENTICATION_LOGIN_URL` or the property `bonita.runtime.authentication.login.url` in configuration file `authenticationManager-config.properties` (using the xref:runtime:bonita-platform-setup.adoc[platform setup tool]) with the URL of your custom login form.
+
+The custom login page must POST a form to Bonita `/loginservice?redirect=true` endpoint with the following parameters:
+
+* `username`: the username of the user to authenticate
+* `password`: the password of the user to authenticate
+* `redirectUrl` : The Bonita applications URL to redirect to after successful login (optional, can be retrieved from the current URL)
+
+.Example of login form
+[%collapsible]
+====
+[source,html]
+----
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Login to Bonita</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const redirectUrl = params.get('redirectUrl');
+            if (redirectUrl) {
+                document.getElementById('redirectUrl').value = redirectUrl;
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Welcome to Bonita Applications</h1>
+    <form action="https://<host>:<port>/bonita/loginservice?redirect=true" method="POST">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <input type="hidden" id="redirectUrl" name="redirectUrl">
+        <button type="submit">Log in</button>
+    </form>
+</body>
+</html>
+----
+====
+
+[NOTE]
+====
+If the custom login page has a different origin (scheme, host or port) than Bonita webapp:
+
+* The POST request must be a standard HTML form submission, not a request handled in javascript, otherwise the Browser will block the response due to CORS policy
+* The scheme of the custom login page URL should be HTTPS, otherwise the web browser may display a warning when submitting the form
+====
+
+
