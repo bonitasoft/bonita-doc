@@ -77,7 +77,7 @@ Note that this new API is now also available in the Community edition and provid
 
 == Bug fixes
 
-=== Fixes in Bonita 2024.3-u3 (2025-05-xx)
+=== Fixes in Bonita 2024.3-u3 (2025-06-25)
 
 Several dependencies updated.
 
