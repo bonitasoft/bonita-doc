@@ -170,7 +170,8 @@ The custom login page must POST a form to Bonita `/loginservice?redirect=true` e
     </script>
 </head>
 <body>
-    <form action="http://bonita-sso:8090/bonita/loginservice?redirect=true" method="POST">
+    <h1>Welcome to Bonita Applications</h1>
+    <form action="https://<host>:<port>/bonita/loginservice?redirect=true" method="POST">
         <label for="username">Username</label>
         <input type="text" id="username" name="username" required>
         <label for="password">Password</label>
