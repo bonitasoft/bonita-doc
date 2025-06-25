@@ -48,6 +48,11 @@ For Teamwork, Efficiency, Performance, Enterprise and Scale editions only.
 
 When Bonita is configured for xref:identity:single-sign-on-with-oidc.adoc[Single Sign-On (SSO) with OpenID Connect], it is now possible to configure xref:identity:single-sign-on-with-oidc.adoc#multi-providers[several OIDC providers] and allow end-users to choose the provider they want to use to log in. +
 
+=== Custom login page
+
+You can now create xref:identity:user-authentication-overview.adoc#_custom_login_page[a custom external login form] using the technology of your choice and set an environment variable to have Bonita Runtime redirect to this page instead of the default one (login.jsp).
+
+
 == Notable changes
 
 === Improving user experience in Studio
@@ -397,10 +402,6 @@ Otherwise, script execution may fail, preventing Bonita from starting.
 
 The changes mainly involve removing `_template` from the Bonita paths used in scripts.
 ====
-
-=== Custom login page
-
-You can now create xref:identity:user-authentication-overview.adoc#_custom_login_page[a custom external login form] using the technology of your choice and set an environment variable to have Bonita Runtime redirect to this page instead of the default one (login.jsp).
 
 
 == Support matrix changes
