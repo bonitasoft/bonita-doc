@@ -162,11 +162,13 @@ The custom login page must POST a form to Bonita `/loginservice?redirect=true` e
     <meta charset="UTF-8">
     <title>Login to Bonita</title>
     <script>
-        const params = new URLSearchParams(window.location.search);
-        const redirectUrl = params.get('redirectUrl');
-        if (redirectUrl) {
-            document.getElementById('redirectUrl').value = redirectUrl;
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const redirectUrl = params.get('redirectUrl');
+            if (redirectUrl) {
+                document.getElementById('redirectUrl').value = redirectUrl;
+            }
+        });
     </script>
 </head>
 <body>
