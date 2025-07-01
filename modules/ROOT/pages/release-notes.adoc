@@ -376,6 +376,9 @@ The timezone can be set via *TZ* environment variable. Check the https://data.ia
 
 == Bug fixes
 
+=== Fixes in Bonita 2023.2-u9 (2025-07-xx)
+
+Several dependencies updated.
 
 === Fixes in Bonita 2023.2-u8 (2025-04-29)
 
