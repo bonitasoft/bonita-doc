@@ -19,5 +19,5 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-    uses: bonitasoft/bonita-documentation-site/.github/workflows/_reusable_compress-images.yml@chore/reusable_compress_image_workflow
+    uses: bonitasoft/bonita-documentation-site/.github/workflows/_reusable_compress-images.yml@master
 
