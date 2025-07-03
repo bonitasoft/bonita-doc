@@ -63,7 +63,7 @@ The new APIs are:
 * {openApiUrl}/{openApiLatestVersion}#tag/businessData[POST bdm/businessData/+{businessDataType}+] to create a new business data object
 * {openApiUrl}/{openApiLatestVersion}#tag/businessData[PUT bdm/businessData/+{businessDataType}+/+{ID}+] to update an existing business data object
 * {openApiUrl}/{openApiLatestVersion}#tag/businessData[DELETE bdm/businessData/+{businessDataType}+/+{ID}+] to delete an existing business data object
-* {openApiUrl}/{openApiLatestVersion}#tag/businessData[POST bdm/businessData/+{businessDataType}+/import] to import a csv-formatted file for bulk import of new business data objects
+* {openApiUrl}/{openApiLatestVersion}#tag/businessData[POST bdm/businessData/+{businessDataType}+/import] to import a CSV-formatted file for bulk import of new business data objects
 
 Along with these APIs, the xref:integration:event-handlers.adoc#_event_list[following events are triggered], so that you can listen to them and react accordingly, if needed:
 
@@ -71,6 +71,7 @@ Along with these APIs, the xref:integration:event-handlers.adoc#_event_list[foll
 * BUSINESS_DATA_UPDATED
 * BUSINESS_DATA_DELETED
 
+Note that these three events are always triggered, whether through these new APIs or through operations on tasks.
 
 == Notable changes
 
