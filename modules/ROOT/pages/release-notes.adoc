@@ -64,10 +64,10 @@ Moreover, if BDM Access Control is set, these APIs are only available to users w
 
 The new APIs are:
 
-* {openApiUrl}/{openApiLatestVersion}#tag/businessData[POST bdm/businessData/+{businessDataType}+] to create a new business data object
-* {openApiUrl}/{openApiLatestVersion}#tag/businessData[PUT bdm/businessData/+{businessDataType}+/+{ID}+] to update an existing business data object
-* {openApiUrl}/{openApiLatestVersion}#tag/businessData[DELETE bdm/businessData/+{businessDataType}+/+{ID}+] to delete an existing business data object
-* {openApiUrl}/{openApiLatestVersion}#tag/businessData[POST bdm/businessData/+{businessDataType}+/import] to import a CSV-formatted file for bulk import of new business data objects
+* {openApiUrl}/{openApiLatestVersion}#tag/Business-Data-Operations[POST bdm/businessData/+{businessDataType}+] to create a new business data object
+* {openApiUrl}/{openApiLatestVersion}#tag/Business-Data-Operations[PUT bdm/businessData/+{businessDataType}+/+{ID}+] to update an existing business data object
+* {openApiUrl}/{openApiLatestVersion}#tag/Business-Data-Operations[DELETE bdm/businessData/+{businessDataType}+/+{ID}+] to delete an existing business data object
+* {openApiUrl}/{openApiLatestVersion}#tag/Business-Data-Operations[POST bdm/businessData/+{businessDataType}+/import] to import a CSV-formatted file for bulk import of new business data objects
 
 Along with these APIs, the xref:integration:event-handlers.adoc#_event_list[following events are triggered], so that you can listen to them and react accordingly, if needed:
 
