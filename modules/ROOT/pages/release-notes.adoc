@@ -119,6 +119,10 @@ The property allowing to enable/disable xref:identity:rest-api-authorization.ado
 
 == Bug fixes
 
+=== Fixes in Bonita 2024.1-u7 (2025-07-07)
+
+Several dependencies updated.
+
 === Fixes in Bonita 2024.1-u6 (2025-04-28)
 
 ==== Fixes in Bonita Runtime including Bonita Applications
