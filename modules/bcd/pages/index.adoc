@@ -13,7 +13,7 @@ Access to the Bonita LA Deployer is included in the contract as part of the Boni
 
 Bonita CI/CD suite lets you build a Living Application from source code in a repository and deploy the generated artifacts, all from the command line.
 
-image::bcd-capabilities.png[Bonita Continuous Delivery Capabilities]
+image::CI-CD-architecture-diagrams.png[Bonita Continuous Delivery Capabilities]
 
 == Basic concepts
 
