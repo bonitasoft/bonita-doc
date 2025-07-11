@@ -7,7 +7,7 @@ on:
       - '**.jpeg'
       - '**.png'
       - '**.webp'
-      - '.github/workflows/pr-compress-images.yml'
+      - '.github/workflows/compress-images-pr.yml'
 
 permissions:
   pull-requests: write
