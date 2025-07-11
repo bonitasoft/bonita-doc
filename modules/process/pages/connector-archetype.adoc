@@ -1,17 +1,25 @@
-= Create a connector using the connector maven archetype
+= Create a connector
 :page-aliases: ROOT:connector-archetype.adoc
-:description: In this page it is explained how to create and test custom connectors using the provided maven archetype.
+:description: This page explains how to create and test custom connectors using the provided maven archetype or Bonita Studio.
 
 Bonita offers the possibility to create and plug custom connectors, to allow you to connect with any needed external system. +
+{description}
+
+== Create a custom connector with Bonita Studio
+
+Bonita Studio allows you to create a connector directly in your Bonita Project. See xref:software-extensibility:extensions-sdk.adoc#servers[more details here].
+
+== Create an independent custom connector from the Maven Archetype
+
 We provide a maven archetype to help you bootstrap a connector project. The source code of the archetype is available https://github.com/bonitasoft/bonita-connector-archetype[here].
 
-== Pre-requisite
+=== Pre-requisite
 
 . https://adoptium.net/temurin/releases/?version={minimalRequiredJavaVersion}[Java {minimalRequiredJavaVersion}] must be installed
 .  https://maven.apache.org/install.html[Maven] must be installed
 . Connector development requires some software development skills. The archetype offers the possibility to develop the connector in _Java_, _Groovy_ or _Kotlin_. Make sure that you are comfortable with at least one of those three languages.
 
-== Generate the project using the maven archetype
+=== Generate the project using the maven archetype
 
 A https://maven.apache.org/archetype/index.html[maven archetype] is a maven project templating toolkit. This archetype allows you to bootstrap a Bonita connector project on your file system. A Bonita connector project is a maven project. It can be built, tested and then imported into a Bonita project using Bonita Studio.
 

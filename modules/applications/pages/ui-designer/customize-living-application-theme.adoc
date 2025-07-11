@@ -1,6 +1,6 @@
 = Customize the living application theme
 :page-aliases: ROOT:customize-living-application-theme.adoc, applications:customize-living-application-theme.adoc
-:description: This page explains how to create a theme project using the dedicated maven archetype.
+:description: This page explains how to create a theme project using Bonita Studio or the dedicated maven archetype.
 
 {description}
 
@@ -16,7 +16,11 @@ Each application can have its own theme.
 * CSS basic knowledge
 
 
-== Create a theme project using the maven archetype
+== Create a custom theme with Bonita Studio
+
+Bonita Studio allows you to create a theme directly in your Bonita Project. See xref:software-extensibility:extensions-sdk.adoc#servers[more details here].
+
+== Create an independent theme project using the maven archetype
 
 We provide a maven archetype to help you to bootstrap a theme project outside of the Studio. The source code of the archetype is available  https://github.com/bonitasoft/bonita-theme-archetype[here].
 

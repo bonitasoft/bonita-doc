@@ -65,6 +65,8 @@ When building your process, process dependencies are now handled with maven and 
 You can also visualize process dependencies xref:process:managing-dependencies.adoc[with a right click in the explorer view]. +
 In an SCA build, these dependencies are not added to the Business Archive, but directly to the webapp classpath.
 
+Bonita Studio allows you to create an extension modules directly in your Bonita Project. See xref:software-extensibility:extensions-sdk.adoc#servers[more details here]. The xref:process:connector-migration.adoc[migration for connectors and actor filters for Bonita projects created with Bonita 2021.1 or lower] has also been facilitated.
+
 === Update tool script has been renamed
 
 To simplify and rationalize the naming of the scripts, the update tool script has been renamed.

@@ -1,12 +1,16 @@
-= Bonita actor filter archetype
+= Create an actor filter
 :page-aliases: ROOT:actor-filter-archetype.adoc
-:description: A set of best of breed tools to develop and test custom actor filters independently of the Bonita Studio.
-
-{description}
-
-== Create a custom actor filter
+:description: This page explains how to create and test custom actor filters using the provided maven archetype or Bonita Studio.
 
 Bonita offers the possibility to create and plug custom actor filters, to allow you to fine tune the potential candidates for a task. +
+{description}
+
+== Create a custom actor filter with Bonita Studio
+
+Bonita Studio allows you to create a connector directly in your Bonita Project. See xref:software-extensibility:extensions-sdk.adoc#servers[more details here].
+
+== Create an independent custom actor filter from the Maven Archetype
+
 We provide a maven archetype to help you bootstrap an actor filter project. The source code of the archetype is available https://github.com/bonitasoft/bonita-actorfilter-archetype[here].
 
 === Prerequisite
@@ -86,7 +90,7 @@ mvn -B archetype:generate \
 ----
 ====
 
-=== Actor filter development
+== Actor filter development
 
 In this section we'll look into the different components of an actor filter project, and how you should use them to develop your filter.
 

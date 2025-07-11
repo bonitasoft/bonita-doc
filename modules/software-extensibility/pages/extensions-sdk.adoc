@@ -3,6 +3,17 @@
 
 {description}
 
+== Creating an independent Extension or a submodule Extension
+
+Bonita Studio lets you create Extensions directly in your Bonita Project as maven submodules, in the `extensions` module. +
+Click on the image:add.png[`+`] action and let the wizard guide you to create your desired Extension.
+
+This approach makes sense when your Extension is tightly coupled to your Bonita Project and follows the same release lifecycle.
+
+When your Extension is more independent, we encourage you to create a separate Extension Project, using the corresponding Maven Archetype.
+This way you can release it independently of your Bonita Project and use it in different Bonita Projects.
+
+Look at the next section to see how to use the Maven Archetype, and how to develop each kind of Extension.
 
 [.card-section]
 == The provided SDKs
