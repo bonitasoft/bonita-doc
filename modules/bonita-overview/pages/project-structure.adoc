@@ -119,11 +119,11 @@ Extensions can be developed outside the Studio with your favorite IDE.
 
 |xref:ROOT:connectivity-overview.adoc[Connector]
 |When the provided connector do not cover your requirements
-|xref:ROOT:connector-archetype.adoc[Dedicated SDK]
+|xref:ROOT:connector-archetype.adoc[Dedicated SDK] or in the Studio
 
 |xref:process:actor-filtering.adoc[Actor Filter]
 |When the provided actor filter do not cover your requirements
-|xref:ROOT:actor-filter-archetype.adoc[Dedicated SDK]
+|xref:ROOT:actor-filter-archetype.adoc[Dedicated SDK] or in the Studio
 
 |Theme
 |When the provided theme do not cover your requirements

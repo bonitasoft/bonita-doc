@@ -1,4 +1,4 @@
-= Bonita Rest API Extension archetype
+= Bonita Rest API Extension
 :page-aliases: ROOT:rest-api-extension-archetype.adoc
 :description: A set of best of breed tools to develop and test Rest API Extension independently of Bonita Studio.
 
@@ -36,7 +36,12 @@ REST API Extensions examples show how to:
 
 Another REST API Extensions example with SQL data source is available on http://community.bonitasoft.com/project/data-source-rest-api-extension[Bonitasoft Community]. This example shows how to execute SQL queries on a external database.
 
-== Create a REST API Extension
+
+== Create a REST API Extension with Bonita Studio
+
+Bonita Studio allows you to create a REST API Extension directly in your Bonita Project. See xref:software-extensibility:extensions-sdk.adoc#servers[more details here].
+
+== Create an independant REST API Extension from the Maven Archetype
 
 Bonita offers the possibility to extend the set of existing REST API with custom extension that let you enrich your forms and applications with specific needs.
 They can be used to query xref:data:define-and-deploy-the-bdm.adoc[business data], Bonita Engine APIs, or an external information system (such as a database, web service, LDAP directory...). They also help to keep a clean separation between the front-end (forms, pages, and interfaces visible to users) and the back-end (processes).
