@@ -15,6 +15,8 @@ All the content of this page can be applied to migrate actor filters created wit
 
 == 1 - Create a new connector project
 
+Either:
+
 === 1.a - Create a new connector project with the automatic migration
 
 When you migrate your Bonita Project from a version lower than 2021.1, your definition and implementation files are automatically moved to newly created connector modules.
