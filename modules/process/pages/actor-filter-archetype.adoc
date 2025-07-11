@@ -94,7 +94,7 @@ mvn -B archetype:generate \
 
 In this section we'll look into the different components of an actor filter project, and how you should use them to develop your filter.
 
-==== Definition
+=== Definition
 
 An actor filter is first defined by its *definition*.  It is an XML file located in _src/main/resources-filtered/[artifactId].def_ by default. +
 A definition defines the inputs of an actor filter. It can be seen as a contract. Then, implementations of this definition can be created, they just need to respect the inputs contract of the definition.
@@ -133,7 +133,7 @@ Example:
 
 `definition-id` and `definition-version` are properties defined in the `pom.xml`.
 
-===== Actor filter Inputs
+==== Actor filter Inputs
 
 The inputs of an actor filter are defined in the definition. Those inputs are valued by processes, and are retrieved by the implementation classes of the actor filter to execute the business logic. +
 A actor filter input:
@@ -143,7 +143,7 @@ A actor filter input:
 * Has an optional default value
 * Can be mandatory
 
-===== Pages and widgets
+==== Pages and widgets
 
 A definition includes _pages_ and _widgets_.  Those elements define the UI that will appear in the Bonita Studio to configure the actor filter.
 
@@ -173,12 +173,12 @@ Some widgets can require additional informations. For example, if you want to cr
 </widget>
 ----
 
-===== Add multiple definitions
+==== Add multiple definitions
 
 To add a new definition create a `.def` file in the `src/main/resources-filtered/` folder. They will be added to `all` zip archive at build time. It is recommended to use the maven properties for definition id and version.
 
 
-==== Actor filter implementation
+=== Actor filter implementation
 
 An _actor filter implementation_ implements a definition. A definition defines a set of inputs, implementing a definition means use the provided inputs to create the expected list of users ids. +
 Several implementations can be created for a given definition.
@@ -188,7 +188,7 @@ An actor filter implementation is made of two elements:
 * An xml file used to explicit the definition implemented, the dependencies required and the name of the implementation class
 * A set of Java based classes, constituting the implementation sources
 
-===== Implementation XML file
+==== Implementation XML file
 
 The implementation XML file is located in _src/main/resources-filtered/[artifactId].impl_ by default. +
 The implementation XSD is available in _schemas/connector-implementation-descriptor.xsd_, you can import it in a IDE to get completion.
@@ -217,7 +217,7 @@ ${impl-dependencies}
 `impl-id`, `impl-version`, `definition-id`, `definition-version` and `impl-main-class` are properties defined in the `pom.xml`. +
 `impl-dependencies` is replaced at build time using `src\script\dependencies-as-var.groovy` script.
 
-===== Implementation sources
+==== Implementation sources
 
 The implementation sources contain all the logic of the actor filter:
 
@@ -229,11 +229,11 @@ The archetype offers the possibility to generate the default sources in Java, Gr
 The entry point of the implementation sources must extend the https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/filter/AbstractUserFilter.html[__AbstractUserFilter__, window="_blank"] class
 or implement https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/filter/UserFilter.html[__UserFilter__, window="_blank"] interface.
 
-===== Add multiple implementations
+==== Add multiple implementations
 
 To add a new implementation create a `.impl` file in the `src/main/resources-filtered/` folder. They will be added to the `all` zip archive at build time. It is recommended to use the Maven properties for implementation id and version.
 
-==== Build the project
+=== Build the project
 
 Build the project by typing the following command at the root of the project:
 
