@@ -1,0 +1,22 @@
+name: Compress Images
+on:
+  pull_request_target:
+    # Run Image Actions when JPG, JPEG, PNG or WebP files are added or changed
+    paths:
+      - '**.jpg'
+      - '**.jpeg'
+      - '**.png'
+      - '**.webp'
+      - '.github/workflows/compress-images-pr.yml'
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  compress_images:
+    permissions:
+      contents: write
+      pull-requests: write
+    uses: bonitasoft/bonita-documentation-site/.github/workflows/_reusable_compress-images.yml@master
+
