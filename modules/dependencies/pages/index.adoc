@@ -25,5 +25,3 @@ xref:ROOT:bonita-runtime-dependencies.adoc[List of Runtime dependencies]
 xref:ROOT:portal-js-dependencies.adoc[List of Portal-js dependencies]
 
 xref:ROOT:react-page-dependencies.adoc[List of React pages dependencies]
-
-xref:ROOT:bonita-web-dependencies.adoc[List of Bonita web dependencies]
