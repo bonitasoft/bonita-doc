@@ -1,0 +1,9 @@
+= Business Data Management
+:description: XXX
+
+
+intro explaining what can be done, use case.
+
+link to API documentation for business data management
+
+how to use with UI Designer and UIB
