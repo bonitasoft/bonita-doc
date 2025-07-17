@@ -11,7 +11,7 @@ The import operation allows to upload a CSV-formatted file containing referentia
 This REST API is implemented in a one-step operation, which means that the file is uploaded and processed in a single request. As a comparison, the previous "import" REST APIs in Bonita used a two-step operation, where the file was first uploaded and then processed in a second request.
 
 As a consequence, the UI Designer is not fully compatible with this new API out of the box. +
-This page describes how to design a page with the UI Designer that imports a CSV-formatted file containing referential Business Data into the BDM.
+This page describes how to design a page with the UI Designer that imports a CSV-formatted file containing referential xref:data:define-and-deploy-the-bdm.adoc[Business Data] into the BDM.
 
 
 == Create a custom Upload Widget
