@@ -11,9 +11,29 @@ The CI/CD pipeline now relies on the Bonita LA Deployer, which is described here
 Access to the Bonita LA Deployer is included in the contract as part of the Bonita CI/CD suite offering (formerly the BCD offering).
 --
 
+To meet diverse customer environments and DevOps strategies, our BPM solution supports two deployment models:
+
+- Application Deployment: For environments where the BPM platform is already provisioned, only the business application layer is updated—ensuring quick, lightweight deployments.
+
+- Full Deployment: A complete bundle of the BPM platform and application is delivered together, ready to run on any target server even if no prior installation exists.
+
+This flexibility makes it easy to adapt deployments to your infrastructure and governance needs.
+
 Bonita CI/CD suite lets you build a Living Application from source code in a repository and deploy the generated artifacts, all from the command line.
 
-image::CI-CD-architecture-diagrams.png[Bonita Continuous Delivery Capabilities]
+These deployment modes are illustrated in the diagram below to help visualize their architecture and usage.
+
+This section presents the overall concept, pleaserefer to the product documentation or contact Bonitasoft for implementation details and best practices.
+
+=== Application Deployment
+The BPM platform is already installed. Only the application artifacts (process definitions, user interfaces, scripts, connectors, etc.) are updated or redeployed. This is an incremental deployment model.
+
+image::CI_CD architecture-diagram-application-deployment.png[Bonita Continuous Delivery Capabilities]
+
+=== Full Deployment
+For each new version, the platform and the application code are packaged together and redeployed as a whole. The package (image, bundle, etc.) is archived in a repository and installed on servers that don’t have the platform pre-installed.
+
+image::CI-CD-architecture-diagram-full-deployment.png[Bonita Continuous Delivery Capabilities]
 
 == Basic concepts
 
