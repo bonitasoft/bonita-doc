@@ -1,9 +1,21 @@
 = Business Data Management
-:description: XXX
+:description: Learn how to create, update, delete and import referential Business Data in your Bonita applications, and how to design pages to manage them.
+
+{description}
+
+== Introduction
+
+intro explaining what can be done, use case. Bla bla bla...
 
 
-intro explaining what can be done, use case.
+== API documentation reference
 
-link to API documentation for business data management
+{openApiUrl}/{openApiLatestVersion}#tag/Business-Data-Operations[API documentation for business data management]
 
-how to use with UI Designer and UIB
+
+== Business Data Management in Bonita UI Builder
+
+
+== Business Data Management in the UI Designer
+
+xref:pages-and-forms:referential-bdm-operations-in-uid.adoc[This how-to page] explains the procedure to create a Bonita UI Designer page that allows uploading a CSV-formatted file containing referential Business Data to import into your BDM.
