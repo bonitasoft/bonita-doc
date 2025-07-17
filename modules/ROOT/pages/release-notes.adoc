@@ -53,6 +53,32 @@ When Bonita is configured for xref:identity:single-sign-on-with-oidc.adoc[Single
 You can now create xref:identity:user-authentication-overview.adoc#_custom_login_page[a custom external login form] using the technology of your choice and set an environment variable to have Bonita Runtime redirect to this page instead of the default one (login.jsp).
 
 
+=== New REST APIs to create / update / delete referential Business Data
+
+New REST APIs have been added to create, update and delete business data. +
+This allows you to manage business data without having to run process operations for that. +
+
+These APIs are recommended for referential business data only, and are limited to Business Data that do not have references to other business data. +
+
+Moreover, if BDM Access Control is set, these APIs are only available to users without any restriction on the business data being created, updated or deleted. +
+
+The new APIs are:
+
+* {openApiUrl}/{openApiLatestVersion}#tag/Business-Data-Operations[POST bdm/businessData/+{businessDataType}+] to create a new business data object
+* {openApiUrl}/{openApiLatestVersion}#tag/Business-Data-Operations[PUT bdm/businessData/+{businessDataType}+/+{ID}+] to update an existing business data object
+* {openApiUrl}/{openApiLatestVersion}#tag/Business-Data-Operations[DELETE bdm/businessData/+{businessDataType}+/+{ID}+] to delete an existing business data object
+* {openApiUrl}/{openApiLatestVersion}#tag/Business-Data-Operations[POST bdm/businessData/+{businessDataType}+/import] to import a CSV-formatted file for bulk import of new business data objects
+
+To support these new APIs, https://github.com/bonitasoft/bonita-java-client[Bonita REST client] has been updated accordingly.
+
+Along with these APIs, the xref:integration:event-handlers.adoc#_event_list[following events are triggered], so that you can listen to them and react accordingly, if needed:
+
+* BUSINESS_DATA_CREATED
+* BUSINESS_DATA_UPDATED
+* BUSINESS_DATA_DELETED
+
+Note that these three events are always triggered, whether through these new APIs or through operations on tasks.
+
 == Notable changes
 
 === Improving user experience in Studio

@@ -296,4 +296,7 @@ This is a snapshot of the events used in the Engine.
 | SupervisorMappingServiceImpl
 | SUPERVISOR_CREATED, SUPERVISOR_DELETED
 
+| JPABusinessDataRepositoryImpl
+| BUSINESS_DATA_CREATED, BUSINESS_DATA_DELETED, BUSINESS_DATA_UPDATED
+
 |===
