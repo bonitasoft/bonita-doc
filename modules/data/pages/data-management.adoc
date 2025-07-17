@@ -60,4 +60,6 @@ Once the variable is created, you can create your user interface using this vari
 
 == BDM Data Update
 
-Explain how to do bulk import. Do not use the file upload widget, but rather the BDM import feature.
+TODO add a link to a new dedicated how-to page in the "pages and forms how-tos" 
+
+In this new page, explain how to do bulk import. Do not use the file upload widget, but rather the BDM import feature.
