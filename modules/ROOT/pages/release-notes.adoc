@@ -69,6 +69,8 @@ The new APIs are:
 * {openApiUrl}/{openApiLatestVersion}#tag/Business-Data-Operations[DELETE bdm/businessData/+{businessDataType}+/+{ID}+] to delete an existing business data object
 * {openApiUrl}/{openApiLatestVersion}#tag/Business-Data-Operations[POST bdm/businessData/+{businessDataType}+/import] to import a CSV-formatted file for bulk import of new business data objects
 
+To support these new APIs, https://github.com/bonitasoft/bonita-java-client[Bonita REST client] has been updated accordingly.
+
 Along with these APIs, the xref:integration:event-handlers.adoc#_event_list[following events are triggered], so that you can listen to them and react accordingly, if needed:
 
 * BUSINESS_DATA_CREATED
