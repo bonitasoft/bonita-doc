@@ -22,8 +22,8 @@ asciidoc:
     openApiLatestVersion: '0.0.16' # latest compatible version of bonita openApi with this Bonita version
     # page attributes (global configuration)
     page-pagination: true # display links to previous/next pages at the bottom of the page
-    page-editable: true
-    page-out-of-support: false
+    page-editable: false
+    page-out-of-support: true
     page-next-release: false
     page-hide-search-bar: false
     page-hide-components: 'bcd'
