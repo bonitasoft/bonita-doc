@@ -25,7 +25,7 @@ These deployment modes are illustrated in the diagram below to help visualize th
 
 This section presents the overall concept, please refer to the product documentation or contact Bonitasoft for implementation details and best practices.
 
-=== Application Deployment
+== Application Deployment
 The BPM platform is already installed. Only the application artifacts (process definitions, user interfaces, scripts, connectors, etc.) are updated or redeployed. This is an incremental deployment model.
 
 image::CI-CD-architecture-diagram-application-deployment.png[Bonita Continuous Delivery Capabilities]
