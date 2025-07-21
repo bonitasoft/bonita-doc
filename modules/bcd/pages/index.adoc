@@ -28,7 +28,8 @@ This section presents the overall concept, pleaserefer to the product documentat
 === Application Deployment
 The BPM platform is already installed. Only the application artifacts (process definitions, user interfaces, scripts, connectors, etc.) are updated or redeployed. This is an incremental deployment model.
 
-image::CI_CD architecture-diagram-application-deployment.png[Bonita Continuous Delivery Capabilities]
+image::CI-CD-architecture-diagram-application-deployment.png[Bonita Continuous Delivery Capabilities]
+
 
 === Self contained Application Deployment
 In this mode, a Bonita project is build into a single binary (image or Tomcat bundle) packaging the platform and the application code together.
