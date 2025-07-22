@@ -23,7 +23,15 @@ Create a new page in Bonita UI Builder and drag and drop a Table widget onto the
 
 Configure the Table widget to allow update and delete operations, and allow to add new rows.
 
-TIP: remember to read the xref:how-to-create-editable-tables.adoc["create an editable table"] how-to to see UIB screenshots.
+[TIP]
+====
+Remember to read the xref:how-to-create-editable-tables.adoc["create an editable table"] how-to to see UIB screenshots.
+See also the following guides in Appsmith documentation:
+
+* https://docs.appsmith.com/reference/widgets/table/editable[inline editing]
+* https://docs.appsmith.com/reference/widgets/table/inline-editing#update-single-row[updating a single row]
+* https://docs.appsmith.com/build-apps/how-to-guides/insert-data#use-table[insert data in table]
+====
 
 === Create Queries
 
@@ -49,6 +57,8 @@ Body
   - content: create an object with the attributes of the Business Data Model entity
 ----
 
+Use the `{{BDM_list.newRow}}` object to access to the new row data in the Table widget.
+
 ==== Update an existing Business Data entry
 ----
 Name: BDM_update
@@ -57,6 +67,8 @@ Body
   - type: JSON
   - content: create an object with the attributes of the Business Data Model entity
 ----
+
+Use the `{{BDM_list.updatedRow}}` object to access to the selected row data in the Table widget that
 
 ==== Delete an existing Business Data entry
 ----
@@ -79,7 +91,7 @@ Configure the Table widget to use the queries created above.
 
 Here, we want to upload a single CSV file time using a `FilePicker` widget in the Bonita UI Builder and perform a bulk data import.
 
-TIP: remember to read the xref:how-to-upload-multiple-documents.adoc["perform file upload"] how-to to see UIB screenshots.
+TIP: Remember to read the xref:how-to-upload-multiple-documents.adoc["perform file upload"] how-to to see UIB screenshots.
 
 === Use a FilePicker widget
 
