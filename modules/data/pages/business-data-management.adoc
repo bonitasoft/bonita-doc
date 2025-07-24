@@ -5,9 +5,20 @@
 
 == Introduction
 
-intro explaining what can be done, use case. Bla bla bla...
+Bonita now provides a native and secure way to update Business Data Model (BDM) entries at runtime. 
 
-insist on referential data and limitations
+Until now, updating reference data or other BDM content required either direct SQL queries—posing risks to data integrity and auditability—or the deployment of dedicated Bonita processes, adding unnecessary complexity for simple operations.
+
+With this new REST API, technical users and administrators can perform real-time updates on aggregated BDM data through secure endpoints: modify existing entries, delete outdated records, or bulk-import data via file upload. 
+
+All actions are authenticated, authorized, and fully traceable through Bonita's existing logging mechanism.
+
+By simplifying updates while ensuring control and traceability, this API reduces operational friction and improves maintainability in production environments.
+
+=== Example Use Case: Referential Data Maintenance
+
+An organization needs to update its list of countries stored in the BDM—used across multiple processes for forms and compliance. 
+With the new API, an admin can securely update this reference data at runtime, without redeploying processes or risking data integrity. All changes are logged for full traceability.
 
 == API documentation reference
 
