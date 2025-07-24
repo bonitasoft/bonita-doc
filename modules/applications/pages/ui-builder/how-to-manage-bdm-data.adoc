@@ -81,8 +81,8 @@ DELETE /bonita/API/bdm/businessData/<name_of_the_bdm_entity>/{{BDM_list.triggere
 
 Configure the Table widget to use the queries created above.
 
-* Table Data: {{BDM_get_all.data}}
-* Adding a row: bind "Adding a Row" onSave event to `BDM_create.run` and on success, execute query `BDM_get_all`
+* Table Data: `{{BDM_get_all.data}}`
+* Adding a row: bind *Adding a Row* onSave event to `BDM_create.run` and on success, execute query `BDM_get_all`
 * Editing a row: bind `onSave` event to `BDM_update.run` and on success, execute query `BDM_get_all`
 * Deleting a row: bind the delete button `onClick` event to `BDM_delete.run` and on success, execute query `BDM_get_all`
 
@@ -91,7 +91,7 @@ Configure the Table widget to use the queries created above.
 
 Here, we want to upload a single CSV file time using a `FilePicker` widget in the Bonita UI Builder and perform a bulk data import.
 
-TIP: Remember to read the xref:how-to-upload-multiple-documents.adoc["perform file upload"] how-to to see UIB screenshots.
+TIP: Remember to read the xref:how-to-upload-multiple-documents.adoc[perform file upload] how-to to see UIB screenshots.
 
 === Use a FilePicker widget
 
