@@ -5,15 +5,13 @@
 
 == Introduction
 
-Bonita now provides a native and secure way to update Business Data Model (BDM) entries at runtime. 
-
-Until now, updating reference data or other BDM content required either direct SQL queries—posing risks to data integrity and auditability—or the deployment of dedicated Bonita processes, adding unnecessary complexity for simple operations.
-
-With this new REST API, technical users and administrators can perform real-time updates on aggregated BDM data through secure endpoints: modify existing entries, delete outdated records, or bulk-import data via file upload. 
+With the BDM REST API, technical users and administrators can perform real-time updates on aggregated BDM data through secure endpoints: modify existing entries, delete outdated records, or bulk-import data via file upload.
 
 All actions are authenticated, authorized, and fully traceable through Bonita's existing logging mechanism.
 
-By simplifying updates while ensuring control and traceability, this API reduces operational friction and improves maintainability in production environments.
+These APIs are recommended for referential business data only, and are limited to Business Data that do not have references to other business data.
+
+Moreover, if xref:identity:bdm-access-control.adoc[BDM Access Control] is set, these APIs are only available to users without any restriction on the business data being created, updated or deleted.
 
 === Example Use Case: Referential Data Maintenance
 
@@ -23,6 +21,23 @@ With the new API, an admin can securely update this reference data at runtime, w
 == API documentation reference
 
 {openApiUrl}/{openApiLatestVersion}#tag/Business-Data-Operations[API documentation for business data management]
+
+== Reacting to BDM Operations
+
+If you need to react to BDM operations, the xref:integration:event-handlers.adoc#_event_list[following specific events are triggered]:
+
+* BUSINESS_DATA_CREATED
+* BUSINESS_DATA_UPDATED
+* BUSINESS_DATA_DELETED
+
+As for any event, you can implement your custom logic in a xref:integration:event-handlers.adoc[Bonita Event Handler] to react to these events.
+
+These three events are always triggered, whether through APIs or through operations on tasks.
+
+
+== Traceability of BDM Operations
+
+Each operation on the BDM through these REST APIs is traced using the standard xref:api:queriable-logging.adoc[Bonita queriable log system].
 
 
 == Business Data Management in Bonita UI Builder
