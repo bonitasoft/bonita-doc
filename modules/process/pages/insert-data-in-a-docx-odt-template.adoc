@@ -42,7 +42,7 @@ Tested versions are *Microsoft Word 2007/2010*. This connector may work with lat
 * Go to Variables tab, select UserField and use a template (see Velocity templating language) as value (eg: $\{name}, ${user.Name}...etc)
 * Choose Text format
 * Click Insert +
-For further information about the template design, https://code.google.com/p/xdocreport/wiki/DesignReport[click here]
+For further information about the template design, https://github.com/opensagres/xdocreport/wiki/Template[click here]
 *Warning:* there is a known issue when adding an image in a .docx using drag'n'drop instead of a copy/paste. The image is not rendered properly if you convert the generated file into PDF.
 
 == Example
