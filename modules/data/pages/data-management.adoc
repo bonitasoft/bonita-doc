@@ -52,8 +52,20 @@ Notes:
 
 You can try it with the Preview, and modify it as needed.
 
+
+== Create a user interface to import Business Data into the BDM
+
+xref:pages-and-forms:referential-bdm-operations-in-uid.adoc[This how-to page] describes how to create a Bonita UI Designer page that allows uploading a CSV-formatted file containing referential Business Data to import into your BDM.
+
+
 == Create a variable from a Business Object
 
 Create a new variable from the Variables panel and select BusinessData as a type.
 A configuration wizard appears (see the instructions just above).
 Once the variable is created, you can create your user interface using this variable.
+
+== Referential BDM Data Update
+
+Added in Bonita 2025.1, it is now possible to manage the xref:business-data-management.adoc[Referential BDM Data Update].
+
+In this new page, explain how to do bulk import, create, edit and delete business data.

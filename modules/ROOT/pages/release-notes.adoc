@@ -55,12 +55,15 @@ You can now create xref:identity:user-authentication-overview.adoc#_custom_login
 
 === New REST APIs to create / update / delete referential Business Data
 
-New REST APIs have been added to create, update and delete business data. +
-This allows you to manage business data without having to run process operations for that. +
+Bonita now provides a native and secure way to update Business Data Model (BDM) entries at runtime.
+
+Until now, updating reference data or other BDM content required either direct SQL queries, posing risks to data integrity and auditability, or the deployment of dedicated Bonita processes, adding unnecessary complexity for simple operations.
+
+By simplifying updates while ensuring control and traceability, this API reduces operational friction and eases maintainability in production environments.
+
+New REST APIs have been added to create, update and delete business data.
 
 These APIs are recommended for referential business data only, and are limited to Business Data that do not have references to other business data. +
-
-Moreover, if BDM Access Control is set, these APIs are only available to users without any restriction on the business data being created, updated or deleted. +
 
 The new APIs are:
 

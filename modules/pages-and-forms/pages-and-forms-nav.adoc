@@ -15,5 +15,6 @@
   *** xref:manage-control-in-forms.adoc[How to control and validate forms in the UI Designer]
   *** xref:uid-case-overview-tutorial.adoc[How to customize the case overview page]
   *** xref:datetimes-management-tutorial.adoc[How to manage dates and times in BDM and User Interfaces]
+  *** xref:pages-and-forms:referential-bdm-operations-in-uid.adoc[How to create a UI Designer page to import referential Business Data]
   *** xref:rta-mail-template.adoc[How to use the rich text area widget in a mail template]
   *** xref:customize-display-process-monitoring.adoc[How to customize the display of process execution monitoring]

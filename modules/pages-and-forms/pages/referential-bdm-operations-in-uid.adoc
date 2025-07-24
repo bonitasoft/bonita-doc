@@ -1,0 +1,37 @@
+= How to create a UI Designer page to import referential Business Data
+
+:description: Learn how to create a Bonita UI Designer page that allows uploading a CSV-formatted file containing referential Business Data to import into your BDM.
+
+{description}
+
+== Context
+
+Bonita 2025.1 introduces {openApiUrl}/{openApiLatestVersion}#tag/Business-Data-Operations[new APIs to create, update, delete and import referential Business Data]. +
+The import operation allows to upload a CSV-formatted file containing referential Business Data to import into the BDM. +
+This REST API is implemented in a one-step operation, which means that the file is uploaded and processed in a single request. As a comparison, the previous "import" REST APIs in Bonita used a two-step operation, where the file was first uploaded and then processed in a second request.
+
+As a consequence, the UI Designer is not fully compatible with this new API out of the box. +
+This page describes how to design a page with the UI Designer that imports a CSV-formatted file containing referential xref:data:define-and-deploy-the-bdm.adoc[Business Data] into the BDM.
+
+
+== Create a custom Upload Widget
+
+From a dummy page in the UI Designer, add a new widget of type "File Upload". +
+On the top right corner of the widget, next to the "UPLOAD" label of the widget properties panel, click on the "..." menu and click on "View...". It opens the Widget Editor. +
+Click "Save as..." and give a name to your widget, for example "Custom File Upload". +
+Modify the template code on the left side panel, by replacing `{{ctrl.name}}` by `dataset` (this is the name of the API variable that will contain the uploaded file). +
+Save the widget. +
+
+
+== Create the page
+
+Inside your UI Designer page, add the newly created "Custom File Upload" widget. +
+Configure the URL property of the widget to point to the new import Business Data API endpoint: `../API/bdm/businessData/<MY.PACKAGE.DOMAIN.BUSINESSDATA>/import` (Eg. `../API/bdm/businessData/org.acme.billing.Product/import`) +
+Your page is ready to be used to import a CSV-formatted file containing referential Business Data.
+
+
+[NOTE]
+====
+Since the API is a one-step operation, as soon as the file is uploaded, the import operation is triggered and the data is imported into the BDM. +
+There is no need to add a "Submit" button to trigger the import operation.
+====

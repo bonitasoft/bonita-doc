@@ -56,5 +56,10 @@ xref:how-to-interact-with-tasks.adoc[[.card-title]#Interact with tasks# [.card-b
 
 [.card.card-index]
 --
-xref:bonita-ui-builder-best-practices.adoc[[.card-title]#Best pratices# [.card-body.card-content-overflow]#pass:q[Follow our best practices to empower your usage of Bonita UI Builder]#]
+xref:applications:ui-builder/how-to-manage-bdm-data.adoc[[.card-title]#Manage referential BDM Data# [.card-body.card-content-overflow]#pass:q[Learn how you can create, edit, delete referential Business Data and bulk import data]#]
+--
+
+[.card.card-index]
+--
+xref:bonita-ui-builder-best-practices.adoc[[.card-title]#Best practices# [.card-body.card-content-overflow]#pass:q[Follow our best practices to empower your usage of Bonita UI Builder]#]
 --

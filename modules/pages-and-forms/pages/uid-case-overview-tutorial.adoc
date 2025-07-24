@@ -12,7 +12,7 @@ Let's get started by creating a new page in the UI Designer.
 [NOTE]
 ====
 
-Since Bonita 7.7.0 you can export the default case overview from the Bonita Administrator Application and import it directly in the UI Designer for edition. The explanantions below may give you a good understanding on how it is built.
+Since Bonita 7.7.0 you can export the default case overview from the Bonita Administrator Application and import it directly in the UI Designer for edition. The explanations below may give you a good understanding on how it is built.
 ====
 
 == Manage a 'caseId' url parameter

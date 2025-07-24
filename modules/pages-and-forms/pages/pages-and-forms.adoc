@@ -84,5 +84,10 @@ xref:ROOT:datetimes-management-tutorial.adoc[[.card-title]#How to manage dates a
 
 [.card.card-index]
 --
+xref:pages-and-forms:referential-bdm-operations-in-uid.adoc[[.card-title]#How to create a UI Designer page to import referential Business Data# [.card-body.card-content-overflow]#pass:q[]#]
+--
+
+[.card.card-index]
+--
 xref:rta-mail-template.adoc[[.card-title]#How to use the rich text area widget in a mail template# [.card-body.card-content-overflow]#pass:q[]#]
 --
