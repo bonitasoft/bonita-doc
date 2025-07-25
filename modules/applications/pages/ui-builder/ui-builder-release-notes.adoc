@@ -1,8 +1,16 @@
 = Release Notes
 :description: This is the release notes for Bonita UI Builder
 
-== UI Builder 1.3.0
+== UI Builder 1.3.1
 
+This release is a patch release adds some minor enhancements.
+
+* The release date is now displayed in the Help section of the Bonita UI Builder.
+image:ui-builder/uib-help-section-release-date.png[UIB Help section release date]
+
+* Is it now possible to configure the Bonita UI Builder to use a Redis Sentinel cluster for caching.
+
+== UI Builder 1.3.0
 === New UI Builder Rest API for managing applications
 
 In this release we are adding a new xref:ui-builder/rest-api.adoc[REST API], that lets you automatize some UI Builder actions with HTTP requests:
