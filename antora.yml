@@ -8,7 +8,7 @@ asciidoc:
     bonitasoft-docker-repository: '{bonitasoft-registry}/docker'
     bonitaTechnicalVersion: '9.0.0' # latest public community version
     javadocVersion: '9.0'
-    laDeployerVersion: '1.1.0'
+    laDeployerVersion: '1.1.2'
     keycloakDocumentationVersion: 21.1.2
     openApiUrl: 'https://api-documentation.bonitasoft.com'
     cscRootUrl: 'https://csc.bonitacloud.bonitasoft.com'
