@@ -38,7 +38,10 @@ Several dependencies updated.
 
 === Fixes in Bonita 2024.2-u5 (2025-07-03)
 
-Several dependencies updated.
+* CVE-81 - Apache Tomcat - DoS in multipart upload (fixing CVE-2025-48988)
+* CVE-82 - Apache Tomcat - Security constraint bypass for pre/post-resources (fixing CVE-2025-49125)
+* CVE-83 - Apache Commons FileUpload - Allocation of resources for multipart headers with insufficient limits enabled a DoS (fixing CVE-2025-48976)
+* CVE-84 - Apache Commons BeanUtils - Insufficient input validation may lead to remote code execution (fixing CVE-2025-48734)
 
 === Fixes in Bonita 2024.2-u4 (2025-04-30)
 
