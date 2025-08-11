@@ -77,9 +77,18 @@ Note that this new API is now also available in the Community edition and provid
 
 == Bug fixes
 
+=== Fixes in Bonita 2024.3-u4 (2025-08-08)
+
+* BPA-135 - [SSO] Refreshing a UIB app page when the session is expired triggers a redirect to login.jsp
+* Several dependencies updates
+
 === Fixes in Bonita 2024.3-u3 (2025-06-25)
 
-Several dependencies updated.
+* CVE-81 - Apache Tomcat - DoS in multipart upload
+* CVE-82 - Apache Tomcat - Security constraint bypass for pre/post-resources
+* CVE-83 - Apache Commons FileUpload - Allocation of resources for multipart headers with insufficient limits enabled a DoS
+* CVE-84 - Apache Commons BeanUtils - Insufficient input validation may lead to remote code execution
+* CVE-83 - Apache Commons FileUpload - Allocation of resources for multipart headers with insufficient limits enabled a DoS
 
 === Fixes in Bonita 2024.3-u2 (2025-05-06)
 
