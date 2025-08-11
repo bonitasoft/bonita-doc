@@ -88,7 +88,6 @@ Note that this new API is now also available in the Community edition and provid
 * CVE-82 - Apache Tomcat - Security constraint bypass for pre/post-resources
 * CVE-83 - Apache Commons FileUpload - Allocation of resources for multipart headers with insufficient limits enabled a DoS
 * CVE-84 - Apache Commons BeanUtils - Insufficient input validation may lead to remote code execution
-* CVE-83 - Apache Commons FileUpload - Allocation of resources for multipart headers with insufficient limits enabled a DoS
 
 === Fixes in Bonita 2024.3-u2 (2025-05-06)
 
