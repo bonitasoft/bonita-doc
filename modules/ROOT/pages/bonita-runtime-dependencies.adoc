@@ -1,4 +1,4 @@
-= Bonita Runtime dependencies (10.3.0.alpha-01)
+= Bonita Runtime dependencies (10.3.0.beta-01)
 :page-aliases: ROOT:bonita-web-dependencies.adoc, ROOT:bonita-engine-dependencies.adoc
 :description: List all dependencies used by Bonita Runtime
 
@@ -346,19 +346,19 @@
 
 | io.micrometer
 | micrometer-commons
-| 1.15.2
+| 1.15.3
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-core
-| 1.15.2
+| 1.15.3
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-observation
-| 1.15.2
+| 1.15.3
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -880,19 +880,19 @@
 
 | io.micrometer
 | micrometer-commons
-| 1.15.2
+| 1.15.3
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-core
-| 1.15.2
+| 1.15.3
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-observation
-| 1.15.2
+| 1.15.3
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1198,7 +1198,7 @@
 
 | commons-cli
 | commons-cli
-| 1.9.0
+| 1.10.0
 | https://commons.apache.org/proper/commons-cli/[https://commons.apache.org/proper/commons-cli/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
@@ -1216,13 +1216,13 @@
 
 | org.apache.commons
 | commons-lang3
-| 3.17.0
+| 3.18.0
 | https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | org.apache.commons
 | commons-text
-| 1.13.1
+| 1.14.0
 | https://commons.apache.org/proper/commons-text[https://commons.apache.org/proper/commons-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
@@ -1750,25 +1750,25 @@
 
 | io.micrometer
 | micrometer-commons
-| 1.15.2
+| 1.15.3
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-core
-| 1.15.2
+| 1.15.3
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-observation
-| 1.15.2
+| 1.15.3
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-registry-jmx
-| 1.15.2
+| 1.15.3
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -2404,19 +2404,19 @@
 
 | io.micrometer
 | micrometer-commons
-| 1.15.2
+| 1.15.3
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-core
-| 1.15.2
+| 1.15.3
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-observation
-| 1.15.2
+| 1.15.3
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -2926,7 +2926,7 @@
 
 | com.oracle.database.jdbc
 | ojdbc8
-| 19.27.0.0
+| 19.28.0.0
 | https://www.oracle.com/database/technologies/maven-central-guide.html[https://www.oracle.com/database/technologies/maven-central-guide.html]
 |  https://www.oracle.com/downloads/licenses/oracle-free-license.html[Oracle Free Use Terms and Conditions (FUTC)]
 
@@ -2938,7 +2938,7 @@
 
 | commons-cli
 | commons-cli
-| 1.9.0
+| 1.10.0
 | https://commons.apache.org/proper/commons-cli/[https://commons.apache.org/proper/commons-cli/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
@@ -2956,13 +2956,13 @@
 
 | org.apache.commons
 | commons-lang3
-| 3.17.0
+| 3.18.0
 | https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | org.apache.commons
 | commons-text
-| 1.13.1
+| 1.14.0
 | https://commons.apache.org/proper/commons-text[https://commons.apache.org/proper/commons-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
