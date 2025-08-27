@@ -378,7 +378,9 @@ The timezone can be set via *TZ* environment variable. Check the https://data.ia
 
 === Fixes in Bonita 2023.2-u10 (2025-08-05)
 
-Several dependencies updated.
+* CVE-104 - Apache Tomcat - DoS via excessive HTTP/2 streams (fixing CVE-2025-53506)
+* CVE-105 - Apache Tomcat - APR/Native Connector crash leading to DoS (fixing CVE-2025-52434)
+* Several dependencies updated.
 
 === Fixes in Bonita 2023.2-u9 (2025-07-04)
 
