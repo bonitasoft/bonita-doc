@@ -79,6 +79,8 @@ Note that this new API is now also available in the Community edition and provid
 
 === Fixes in Bonita 2024.3-u4 (2025-08-08)
 
+* CVE-104 - Apache Tomcat - DoS via excessive HTTP/2 streams (fixing CVE-2025-53506)
+* CVE-105 - Apache Tomcat - APR/Native Connector crash leading to DoS (fixing CVE-2025-52434)
 * BPA-135 - [SSO] Refreshing a UIB app page when the session is expired triggers a redirect to login.jsp
 * Several dependencies updates
 
