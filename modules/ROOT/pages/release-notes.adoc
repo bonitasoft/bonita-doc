@@ -121,7 +121,9 @@ The property allowing to enable/disable xref:identity:rest-api-authorization.ado
 
 === Fixes in Bonita 2024.1-u8 (2025-08-05)
 
-Several dependencies updated.
+* CVE-104 - Apache Tomcat - DoS via excessive HTTP/2 streams (fixing CVE-2025-53506)
+* CVE-105 - Apache Tomcat - APR/Native Connector crash leading to DoS (fixing CVE-2025-52434)
+* Several dependencies updated.
 
 === Fixes in Bonita 2024.1-u7 (2025-07-07)
 
