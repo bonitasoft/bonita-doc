@@ -14,7 +14,7 @@ IMPORTANT: You have to ensure that your maven installation is configured to acce
 
 In versions 2023.2 and above, a Bonita project can be built xref:build-run:build-application.adoc[using Maven].
 
-Building a bonita project requires: 
+Building a bonita project requires:
 
 - https://adoptium.net/temurin/releases/?version=11[Java JDK 11]
 - https://maven.apache.org/install.html[Apache Maven]
@@ -38,7 +38,8 @@ The bonita-la-builder versions follow the Bonita engine versions.
 
 Example: to build a 2023.1 (8.0.0) bonita project, you have to use the 8.0.0 version of the bonita-la-builder.
 
-IMPORTANT: *Builder is not supported for Bonita project designed with Bonita Studio 2023.2 and above*. In those versions, a Bonita project can be built xref:build-run:build-application.adoc[using Maven].
+IMPORTANT: *Builder is not supported for Bonita project designed with Bonita Studio 2023.2 and above*.
+In those versions, a Bonita project can be built xref:build-run:build-application.adoc[using Maven].
 
 [#la-deployer-versions]
 === Bonita LA Deployer
@@ -48,6 +49,7 @@ The following table shows which bonita-la-deployer CLI versions support specific
 |===
 | bonita-la-deployer version | Bonita release
 | 1.1.x       | 2021.2.x, 2022.1.x, 2022.2.x, 2023.1.x, 2023.2.x, 2024.1.x, 2024.2.x, 2024.3.x
+| 1.2.x       | 2021.2.x, 2022.1.x, 2022.2.x, 2023.1.x, 2023.2.x, 2024.1.x, 2024.2.x, 2024.3.x, 2025.1.x
 |===
 
 WARNING: If a Bonita release is not listed in the previous table, then it is not supported by the Bonita CI/CD suite offering.
