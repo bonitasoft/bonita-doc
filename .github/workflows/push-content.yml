@@ -4,14 +4,14 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - '2025.1'
+      - '[0-9][0-9][0-9][0-9].[0-9]' # generic pattern for release branches like 2024.1, 2025.2, etc.
     paths:
       - 'modules/**'
       - 'antora.yml'
       - '.github/workflows/push-content.yml'
 jobs:
   triggerJob:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Notify content changes
         uses: peter-evans/repository-dispatch@v3
@@ -19,5 +19,4 @@ jobs:
           token: ${{secrets.GH_TOKEN_DOC_TRIGGER_WF}}
           repository: bonitasoft/bonita-documentation-site
           event-type: source_documentation_change
-          client-payload: '{ "component": "bonita", "branch": "2025.1" }'
-
+          client-payload: '{ "component": "bonita", "branch": "${{ github.ref_name }}" }'
