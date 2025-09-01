@@ -518,6 +518,8 @@ The notable changes are:
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
+* CVE-104 - Apache Tomcat - DoS via excessive HTTP/2 streams (fixing CVE-2025-53506)
+* CVE-105 - Apache Tomcat - APR/Native Connector crash leading to DoS (fixing CVE-2025-52434)
 * BPA-135 - [SSO] Refreshing a UIB app page when the session is expired triggers a redirect to login.jsp
 * BPA-144 - [SSO] OIDC access tokens refresh is failing when the token is opaque (non JWT)
 * RUNTIME-28 - The deletion of a running process instance leaves lines in the DOCUMENT table. +
