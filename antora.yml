@@ -12,7 +12,7 @@ asciidoc:
     bonitaTagOrBranch: 'dev' # for links to the code hosted on GitHub
     minimalRequiredJavaVersion: '17'
     javadocVersion: '10.4'
-    laDeployerVersion: '1.1.2'
+    laDeployerVersion: '1.2.0'
     keycloakDocumentationVersion: 21.1.2
     openApiUrl: 'https://api-documentation.bonitasoft.com'
     cscRootUrl: 'https://csc.bonitacloud.bonitasoft.com'
