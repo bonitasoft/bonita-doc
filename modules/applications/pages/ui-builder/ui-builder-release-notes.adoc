@@ -1,16 +1,25 @@
 = Release Notes
 :description: This is the release notes for Bonita UI Builder
 
-== UI Builder 1.3.1
+== UI Builder 1.3.2 (2025-09-10)
+
+This release is a patch release which adds some minor updates.
+
+* Upgrade Appsmith from 1.61 to v1.85
+* Use latest Java 17 version
+* Several other dependencies updates
+
+== UI Builder 1.3.1 (2025-07-24)
 
 This release is a patch release which adds some minor enhancements.
 
 * The release date is now displayed in the Help section of the Bonita UI Builder.
+
 image:ui-builder/uib-help-section-release-date.png[UIB Help section release date]
 
 * Is it now possible to configure the Bonita UI Builder to use a Redis Sentinel cluster for caching.
 
-== UI Builder 1.3.0
+== UI Builder 1.3.0 (2025-04-15)
 === New UI Builder Rest API for managing applications
 
 In this release we are adding a new xref:ui-builder/rest-api.adoc[REST API], that lets you automatize some UI Builder actions with HTTP requests:
@@ -24,7 +33,7 @@ In this release we are adding a new xref:ui-builder/rest-api.adoc[REST API], tha
 * BPM-472: The Custom widget is missing in 1.2.0
 * BPM-492: JS onPageLoad and Theme update not working with UIB 1.2.x
 
-== UI Builder 1.2.0
+== UI Builder 1.2.0 (2025-02-18)
 
 Here’s an overview of the enhancements (not an exhaustive list):
 
