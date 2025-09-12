@@ -82,7 +82,7 @@ Along with these APIs, the xref:integration:event-handlers.adoc#_event_list[foll
 
 Note that these three events are always triggered, whether through these new APIs or through operations on tasks.
 
-=== New REST APIs to cancel a case(process instance)
+=== New REST API to cancel a case (process instance)
 
 Bonita now provides a way to cancel a process instance (case) using the REST API.
 
