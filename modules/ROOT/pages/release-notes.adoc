@@ -86,7 +86,7 @@ Note that these three events are always triggered, whether through these new API
 
 Bonita now provides a way to cancel a process instance (case) using the REST API.
 
-Until no this was only supported in the Java API.
+Until now this was only supported in the Java API.
 
 The new API is:
 
