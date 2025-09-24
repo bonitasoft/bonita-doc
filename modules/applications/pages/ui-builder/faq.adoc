@@ -19,7 +19,8 @@ Bonita UI Builder is available by default and for no additional cost in all http
 
 === How to use?
 [subs=+macros]
-Please refer to the xref:initiation-manual.adoc[initiation manual]. If you have any other additional questions, reach out to our {cscRootUrl}[Support team].
+You can easily test a xref:development-instance-from-studio.adoc[Development instance from Studio]. +
+Please refer to the xref:initiation-manual.adoc[initiation manual] for more general use cases. If you have any other additional questions, reach out to our {cscRootUrl}[Support team].
 
 
 === What are the system requirements?
@@ -248,4 +249,59 @@ The `Document Viewer` widget currently doesn't support the Bonita Document viewe
 
 [.solution]#Solution#
 You can use an `Iframe` widget as an alternative solution.
+--
+
+[#ContainerNameTakenIssue]
+[.troubleshooting-section]
+--
+[.symptom]
+When starting Bonita Studio, I get the UI Builder warning:
+[quote,UI Builder warning]
+____
+It looks like there is already an application running on the UI Builder port. You may have another instance of UI Builder running on your machine but not responding, or another application in place. Make sure to stop it before starting UI Builder.
+____
+
+[.cause]#Cause#
+This warning may have several causes:
+
+* You have another instance of Bonita UI Builder running on your machine.
+* Another application is using the same port as Bonita UI Builder (default: 80).
+* Another container is already using the same container name as Bonita UI Builder (default: `bonita-ui-builder` and `bonita-ui-proxy`).
+
+[.solution]#Solution#
+Check which application is using the port and stop it before starting UI Builder. +
+Check which container is using the same name and delete it before starting UI Builder. +
+You do not need to restart Bonita Studio before restarting UI Builder. +
+You may also get extra hints looking at the Bonita UI Builder log.
+--
+
+[#UIBuilderRestartingFromStudioIssue]
+[.troubleshooting-section]
+--
+[.symptom]
+When launching Bonita UI Builder from Bonita Studio, progress is stuck and I get the message:
+[quote,UI Builder Start progress]
+____
+UI Builder could not connect to the Bonita runtime. +
+It is restarting. +
+You can either: +
+- check that Bonita runtime is up and running, +
+- cancel UI Builder start.
+____
+
+[.cause]#Cause#
+This indicates that the UI Builder is having a hard time contacting the Bonita runtime.
+This may have several causes:
+
+* Bonita runtime is not running.
+* A firewall is blocking the connection between Bonita UI Builder and Bonita Runtime.
+* You have corrupted the `docker-compose.yml` file.
+
+[.solution]#Solution#
+
+* Make sure Bonita runtime is running from Bonita Studio by clicking on the "Applications" button.
+* Try and disable any firewall that may be blocking the connection.
+* Cancel UI Builder start, select "Edit project information" from the "Project explorer" view, and reset the launch configuration to default.
+* If the issue persists, you can also check for additional hints in the Bonita UI Builder log by clicking on the Studio menu.
+
 --
