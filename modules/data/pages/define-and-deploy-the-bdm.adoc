@@ -224,7 +224,7 @@ To modify a new or existing object:
 . In the *Attributes* section, specify the attributes of the object. For each attribute:
  .. Specify a name. This must be unique within the object, and start with a lower-case letter.
  .. Specify the type, by clicking on the exiting type and choosing the new type from the drop-down list.
- .. If the attribute is multi-valued, check the box in the *Multiple* column.
+ .. If the attribute is multivalued, check the box in the *Multiple* column.
  .. If the attribute is mandatory, check the box in the *Mandatory* column.
  .. If the attribute is of type String, set the attribute length in the field below the attribute list.
  .. If the attribute is of type of a BDM object, set type the *Relationship* (Aggregation or Composition) and the loading configuration (for `lazy`, select
@@ -272,7 +272,7 @@ Can be used as dependency of:
 
 * The main application module
 * Any Rest API Extension
-* A Java client application using the https://search.maven.org/search?q=g:org.bonitasoft.web%20AND%20a:bonita-java-client[bonita-java-client^] and the https://github.com/bonitasoft/bonita-java-client#41-bdm-typed-queries[Bdm typed queries^]
+* A Java client application using the https://github.com/bonitasoft/bonita-java-client[bonita-java-client^] and the https://github.com/bonitasoft/bonita-java-client#41-bdm-typed-queries[Bdm typed queries^]
 * Integration tests, using the xref:test-toolkit::business-data.adoc#_as_a_typed_object[Bonita Test Toolkit, window="blank"] and the typed Business Objects.
 
 .The generated dao-client dependency template
@@ -285,7 +285,7 @@ Can be used as dependency of:
 </dependency>
 ----
 Contains client side implementation of the Business Objects DAO.
-Can be used as dependency of a java client application using the https://search.maven.org/search?q=g:org.bonitasoft.engine%20AND%20a:bonita-client[bonita-client^] and the https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/APIClient.html#getDAO(java.lang.Class)[APIClient#getDAO^] factory method.
+Can be used as dependency of a java client application using the xref:api:create-your-first-project-with-the-engine-apis-and-maven.adoc#_bonita_client_apis[bonita-client^] and the https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/APIClient.html#getDAO(java.lang.Class)[APIClient#getDAO^] factory method.
 
 The `bdm-model` dependency is automatically added when a REST API Extension is created from the Bonita Studio. It allows to manipulate Business Objects from a REST API Extension. +
 
@@ -310,7 +310,7 @@ To install the artifacts in your local repository you can run:
 $ mvn install
 ----
 
-To publish the artifacts on a remote repository (Nexus, Artifactory, Github packages...etc) you can run:
+To publish the artifacts on a remote repository (Nexus, Artifactory, GitHub packages...etc.) you can run:
 
 [source, shell]
 ----
@@ -318,7 +318,7 @@ $ mvn deploy -DaltDeploymentRepository=<server_id>::<remote_repository_url>
 ----
 NOTE: Proper remote repository credentials must be configured in the https://maven.apache.org/settings.html#Servers[Maven settings^] (`<USER_HOME>/.m2/settings.xml` by default) for the given `server_id` if required.
 
-By default running those commands from the project root will build and deploy all the project submodules. You may cherry pick what module to deploy using:
+By default, running those commands from the project root will build and deploy all the project submodules. You may cherry pick what module to deploy using:
 
 .Only publish the `*-bdm-model` artifact
 [source, shell]
