@@ -277,7 +277,7 @@ Can be used as dependency of:
 
 * The main application module
 * Any Rest API Extension
-* A Java client application using the https://search.maven.org/search?q=g:org.bonitasoft.web%20AND%20a:bonita-java-client[bonita-java-client^] and the https://github.com/bonitasoft/bonita-java-client#41-bdm-typed-queries[Bdm typed queries^]
+* A Java client application using the https://github.com/bonitasoft/bonita-java-client[bonita-java-client^] and the https://github.com/bonitasoft/bonita-java-client#41-bdm-typed-queries[Bdm typed queries^]
 * Integration tests, using the xref:test-toolkit::business-data.adoc#_as_a_typed_object[Bonita Test Toolkit, window="blank"] and the typed Business Objects.
 
 .The generated dao-client dependency template
@@ -290,7 +290,7 @@ Can be used as dependency of:
 </dependency>
 ----
 Contains client side implementation of the Business Objects DAO.
-Can be used as dependency of a java client application using the https://search.maven.org/search?q=g:org.bonitasoft.engine%20AND%20a:bonita-client[bonita-client^] and the https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/APIClient.html#getDAO(java.lang.Class)[APIClient#getDAO^] factory method.
+Can be used as dependency of a java client application using the xref::api:create-your-first-project-with-the-engine-apis-and-maven.adoc#_bonita_client_apis[bonita-client^] and the https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/APIClient.html#getDAO(java.lang.Class)[APIClient#getDAO^] factory method.
 
 The `bdm-model` dependency is automatically added when a REST API Extension is created from the Bonita Studio. It allows to manipulate Business Objects from a REST API Extension. +
 
