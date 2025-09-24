@@ -8,5 +8,4 @@ on:
 jobs:
   compress-images:
     uses: bonitasoft/bonita-documentation-site/.github/workflows/_reusable_compress-images-nightly.yml@master
-    secrets:
-      github-token: ${{ secrets.BONITA_CI_PAT }}
+    secrets: inherit
