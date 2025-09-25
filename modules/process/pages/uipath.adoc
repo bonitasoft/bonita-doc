@@ -9,6 +9,12 @@ RPA is a complementary technology to BPM that handles high-volume, repeatable ta
 
 All connectors share common authentication settings, and have other specific settings.
 
+[CAUTION]
+====
+Version 2.3.0 and upwards of the connector requires Bonita Studio released after October 2025. +
+Earlier versions of Bonita Studio are not compatible with this connector versions and connector versions earlier than 2.3.0 are not compatible with former Bonita Studio releases.
+====
+
 == UiPath - Authentication settings
 
 Depending on the type of your UiPath platform (On-premise / Cloud), the authentication settings are different.
