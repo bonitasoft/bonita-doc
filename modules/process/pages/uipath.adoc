@@ -11,8 +11,8 @@ All connectors share common authentication settings, and have other specific set
 
 [CAUTION]
 ====
-Version 2.3.0 and upwards of the connector requires Bonita Studio released after October 2025. +
-Earlier versions of Bonita Studio are not compatible with this connector versions and connector versions earlier than 2.3.0 are not compatible with former Bonita Studio releases.
+Version 2.3.0 and later of the connector require Bonita Studio released after October 2025. +
+If you are using an earlier version of Bonita Studio, please use a connector version prior to 2.3.0.
 ====
 
 == UiPath - Authentication settings
@@ -62,15 +62,20 @@ Details concerning UiPath cloud authentication can be found on the https://docs.
 | string
 | BonitasoftDq96g314984
 
-| User key
+| User key (required for connector versions earlier than 2.3.0)
 | Unique key to generate login tokens
 | string
 | pb9Mm0s5xc-upnDIr3v1Uey9ZlCjwXIE1bO9i2LN7gQpT
 
 | Client ID
-| Specific to the Orchestrator application itself
+| Identifier of the Orchestrator application itself
 | string
 | 8DEv1AMNXczW3y4U15LL3jYf62jK93n5
+
+| Client Secret (required for connector versions 2.3.0 and later)
+| Secret of the Orchestrator application itself
+| string
+| Ic0iKUP1504b$%c$O$WORq3xbsMM02uu6QJ3SqGc8@LK@oD5Did)R9LTKx8Y1234
 |===
 
 == UiPath - Add queue item
