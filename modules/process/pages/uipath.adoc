@@ -76,6 +76,16 @@ Details concerning UiPath cloud authentication can be found on the https://docs.
 | Secret of the Orchestrator application itself
 | string
 | Ic0iKUP1504b$%c$O$WORq3xbsMM02uu6QJ3SqGc8@LK@oD5Did)R9LTKx8Y1234
+
+| Scope
+| xxx separated by space
+| string
+| OR.Queues OR.Queues.Read OR.Queues.Write
+
+| Token
+| ???
+| string
+| ???
 |===
 
 == UiPath - Add queue item
