@@ -270,7 +270,7 @@ This warning may have several causes:
 
 [.solution]#Solution#
 Check which application is using the port and stop it before starting UI Builder. +
-Check which container is using the same name and delete it before starting UI Builder. +
+Check which container is using the same name and delete it before starting UI Builder or eventually, modify `docker-compose.yml` file to avoid name conflict. +
 You do not need to restart Bonita Studio before restarting UI Builder. +
 You may also get extra hints looking at the Bonita UI Builder log.
 --
@@ -300,7 +300,7 @@ This may have several causes:
 [.solution]#Solution#
 
 * Make sure Bonita runtime is running from Bonita Studio by clicking on the "Applications" button.
-* Try and disable any firewall that may be blocking the connection.
+* Try and disable any firewall that may be blocking the connection, or configure a firewall exception for the Bonita Runtime port.
 * Cancel UI Builder start, select "Edit project information" from the "Project explorer" view, and reset the launch configuration to default.
 * If the issue persists, you can also check for additional hints in the Bonita UI Builder log by clicking on the Studio menu.
 
