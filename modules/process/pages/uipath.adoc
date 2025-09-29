@@ -103,7 +103,7 @@ These inputs are shared between both authentication types.
 | Ic0iKUP1504b$%c$O$WORq3xbsMM02uu6QJ3SqGc8@LK@oD5Did)R9LTKx8Y1234
 
 | Scope
-| xxx separated by space
+| Scopes required for the operation, separated by space
 | string
 | OR.Queues OR.Queues.Read OR.Queues.Write
 
