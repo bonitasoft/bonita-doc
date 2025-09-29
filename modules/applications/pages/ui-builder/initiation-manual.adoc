@@ -13,6 +13,11 @@ The initiation manual describes all the mandatory steps to successfully push you
 
 [.card.card-index]
 --
+xref:development-instance-from-studio.adoc[[.card-title]#Development instance from Studio# [.card-body.card-content-overflow]#pass:q[How to launch Bonita UI Builder from Bonita Studio for development only]#]
+--
+
+[.card.card-index]
+--
 xref:download-and-launch.adoc[[.card-title]#Download and launch# [.card-body.card-content-overflow]#pass:q[Steps to download and launch Bonita UI Builder]#]
 --
 

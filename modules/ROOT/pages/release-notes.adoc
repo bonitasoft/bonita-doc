@@ -8,6 +8,7 @@ The {bonitaVersion} version is in development.
 
 == New available values
 
+During development, the Bonita Studio now allows you to launch Bonita UI Builder very easily (for production, the Studio is not used). See xref:applications:development-instance-from-studio.adoc[Development instance from Studio] for more information.
 
 == Notable changes
 
