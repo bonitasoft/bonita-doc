@@ -89,6 +89,8 @@ These inputs are shared between both authentication types.
 
 ==== Client Credentials (OAuth) authentication
 
+For more details about the OAuth authentication, please refer to the https://docs.uipath.com/automation-cloud/automation-cloud/latest/api-guide/accessing-uipath-resources-using-external-applications[UiPath documentation].
+
 |===
 | Name | Description | Type | Example
 
@@ -111,13 +113,15 @@ These inputs are shared between both authentication types.
 
 ==== Token (Bearer) authentication
 
+For more details about the Token authentication, please refer to the https://docs.uipath.com/automation-cloud/automation-cloud/latest/api-guide/personal-access-tokens[UiPath documentation].
+
 |===
 | Name | Description | Type | Example
 
 | Token
-| ???
+| Personal Access Token (PAT) to access UiPath services and resources
 | string
-| ???
+|
 |===
 
 
