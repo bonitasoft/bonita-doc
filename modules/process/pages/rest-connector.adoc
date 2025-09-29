@@ -7,12 +7,14 @@
 
 The available REST connectors are:
 
-* GET: Use the GET HTTP verb to retrieve resources from a third-party
-* DELETE: Use the DELETE HTTP verb to delete resources on a third-party
-* POST: Use the POST HTTP verb to upload data to a third-party
+* HEAD: Use the HEAD HTTP verb to requests the metadata of a third-party resource in the form of headers
+* GET: Use the GET HTTP verb to retrieve third-party resources
+* DELETE: Use the DELETE HTTP verb to delete a third-party resource
+* POST: Use the POST HTTP verb to create a resource on a third-party
 * POST FILE: Use the POST HTTP verb to upload files to a third-party
-* PUT: Use the PUT HTTP verb to update data to a third-party
+* PUT: Use the PUT HTTP verb to update a third-party resource
 * PUT FILE: Use the PUT HTTP verb to update files to a third-party
+* PATCH: Use the PATCH HTTP verb to make partial changes to a third-party resource
 * OAuth2 Token Retrieval: Dedicated connector to obtain OAuth2 access tokens without making subsequent REST API calls
 
 REST connectors support SSL, proxy settings, and OAuth2 authentication.
@@ -36,7 +38,16 @@ REST connectors support SSL, proxy settings, and OAuth2 authentication.
 
 | Document
 | For the PUT FILE and POST FILE connectors, the file to upload or update
+
+| Headers
+| The HTTP headers to be sent with the request. It is also possible to send predefined Bonita context headers such as task Id, case Id, process definition Id...
 |===
+
+== Error Management
+
+It is possible to make the connector fail on 5xx or 4xx response status codes (with exclusion on specific codes).
+
+The request can also be replayed several times when it fails on 5xx or any other specific response status codes. The retry mechanism and configuration are xref:runtime:fault-tolerance.adoc#_retry_mechanism[the same as for the whole BPM engine works].
 
 == Authentication
 
