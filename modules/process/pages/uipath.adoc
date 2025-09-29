@@ -68,6 +68,11 @@ These inputs are shared between both authentication types.
 | string
 | BonitasoftDq96g314984
 
+| Organization Unit ID (optional)
+| The ID of the organization unit to target
+| string
+| 354849
+
 |===
 
 ==== Connector versions earlier than 2.3.0
