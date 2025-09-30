@@ -524,7 +524,7 @@ The notable changes are:
 
 == Bug fixes
 
-=== Fixes in Bonita 2025.1 (! DATE TO ADD HERE !)
+=== Fixes in Bonita 2025.1 (2025-09-30)
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
