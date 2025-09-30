@@ -8,7 +8,6 @@
 
 [CAUTION]
 ====
-
 The hardware recommended for Bonita Platform is strongly dependent on your environment and
 processes (number of processes instances, number of current users, operations and complexity...).
 ====
@@ -69,7 +68,7 @@ Software required for Bonita Platform.
 |
 
 | Apache Tomcat
-| 9.0.x (x >= 52)
+| 9.0.x (x ≥ 107)
 
 | *Database*
 | (see note 2)
