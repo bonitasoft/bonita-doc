@@ -1,11 +1,19 @@
 = UiPath
 :page-aliases: ROOT:uipath.adoc
-:description: This page explains how to configure the UiPath connectors in Bonita Studio. UiPath is a global software company that develops a platform for robotic process automation (RPA). +
+:description: This page explains how to configure the UiPath connectors in Bonita Studio.
 
 {description} +
+UiPath is a global software company that develops a platform for robotic process automation (RPA).
+
 RPA is a complementary technology to BPM that handles high-volume, repeatable tasks that previously required humans to perform. RPA technology consists of software robots that mimic a human. Processes can leverage RPA technology when needed to gain efficiency and focus human on added value tasks. https://www.bonitasoft.com/robotic-process-automation[Combining BPM and RPA] allows end to end automation and avoids what is called "islands of automation" by adding the orchestration capacity of a BPM platform to the RPA approach.
 
 All connectors share common authentication settings, and have other specific settings.
+
+[CAUTION]
+====
+Versions 2.3.0 and later of the connector require a Bonita Studio released after October 2025. +
+If you are using an earlier version of Bonita Studio, please use a connector version prior to 2.3.0.
+====
 
 == UiPath - Authentication settings
 
@@ -41,6 +49,12 @@ Depending on the type of your UiPath platform (On-premise / Cloud), the authenti
 
 Details concerning UiPath cloud authentication can be found on the https://docs.uipath.com/orchestrator/reference#consuming-cloud-api[UiPath documentation]
 
+When using the connector version 2.3.0 or later, there are 2 authentication types: Client Credentials (OAuth) or Token (Bearer).
+
+==== Shared Inputs
+
+These inputs are shared between both authentication types.
+
 |===
 | Name | Description | Type | Example
 
@@ -54,16 +68,62 @@ Details concerning UiPath cloud authentication can be found on the https://docs.
 | string
 | BonitasoftDq96g314984
 
+| Organization Unit ID (optional)
+| The ID of the organization unit to target
+| string
+| 354849
+
+|===
+
+==== Connector versions earlier than 2.3.0
+
+|===
+| Name | Description | Type | Example
+
 | User key
 | Unique key to generate login tokens
 | string
 | pb9Mm0s5xc-upnDIr3v1Uey9ZlCjwXIE1bO9i2LN7gQpT
 
+|===
+
+==== Client Credentials (OAuth) authentication
+
+For more details about the OAuth authentication, please refer to the https://docs.uipath.com/automation-cloud/automation-cloud/latest/api-guide/accessing-uipath-resources-using-external-applications[UiPath documentation].
+
+|===
+| Name | Description | Type | Example
+
 | Client ID
-| Specific to the Orchestrator application itself
+| Identifier of the Orchestrator application itself
 | string
 | 8DEv1AMNXczW3y4U15LL3jYf62jK93n5
+
+| Client Secret (required for connector versions 2.3.0 and later)
+| Secret of the Orchestrator application itself
+| string
+| Ic0iKUP1504b$%c$O$WORq3xbsMM02uu6QJ3SqGc8@LK@oD5Did)R9LTKx8Y1234
+
+| Scope
+| Scopes required for the operation, separated by space
+| string
+| OR.Queues OR.Queues.Read OR.Queues.Write
+
 |===
+
+==== Token (Bearer) authentication
+
+For more details about the Token authentication, please refer to the https://docs.uipath.com/automation-cloud/automation-cloud/latest/api-guide/personal-access-tokens[UiPath documentation].
+
+|===
+| Name | Description | Type | Example
+
+| Token
+| Personal Access Token (PAT) to access UiPath services and resources
+| string
+|
+|===
+
 
 == UiPath - Add queue item
 
