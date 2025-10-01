@@ -6,7 +6,7 @@
 
 The Purge Tool is used to remove data from Bonita archive tables. It is useful for big production environments.
 
-== 2.2.0 - May 4, 2025 (TO BE UPDATED WITH THE REAL DATE)
+== 2.2.0 - September 30, 2025
 
 Breaking changes:
 
