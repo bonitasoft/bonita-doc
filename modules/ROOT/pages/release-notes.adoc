@@ -1,11 +1,6 @@
 = Release notes
 :description: This is the release notes for Bonita {bonitaVersion} versions
 
-[NOTE]
-====
-The {bonitaVersion} version is in development.
-====
-
 == New available values
 
 === Enhanced Log Tracing and Filtering
@@ -524,7 +519,7 @@ The notable changes are:
 
 == Bug fixes
 
-=== Fixes in Bonita 2025.1 (2025-09-30)
+=== Fixes in Bonita 2025.1-u0 (2025-09-30)
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
