@@ -31,7 +31,7 @@ The BPM platform is already installed. Only the application artifacts (process d
 image::CI-CD-architecture-diagram-application-deployment.png[Bonita Continuous Delivery Capabilities]
 
 
-== Self contained Application Deployment
+== Full Deployment
 In this mode, a Bonita project is build into a single binary (image or Tomcat bundle) packaging the platform and the application code together.
 A new deployment is required for each new version of the project. 
 In this scenario all artifacts updates are done at startup.
