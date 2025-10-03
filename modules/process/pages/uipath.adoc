@@ -11,7 +11,9 @@ All connectors share common authentication settings, and have other specific set
 
 [CAUTION]
 ====
-Versions 2.3.0 and later of the connector require a Bonita Studio released after October 2025. In particular, starting from 2025.1-u1. +
+Connector versions 2.3.0 and later require Bonita Studio released after October 2025. +
+Supported Studio versions: 2023.2-u11, 2024.1-u9, 2024.2-u7, 2024.3-u5, and 2025.1-u1 or newer.
+
 If you are using an earlier version of Bonita Studio, please use a connector version prior to 2.3.0.
 ====
 
