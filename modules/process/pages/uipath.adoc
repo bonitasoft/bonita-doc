@@ -11,7 +11,9 @@ All connectors share common authentication settings, and have other specific set
 
 [CAUTION]
 ====
-Versions 2.3.0 and later of the connector require a Bonita Studio released after October 2025. +
+Connector versions 2.3.0 and later require Bonita Studio released after October 2025. +
+Supported Studio versions: 2023.2-u11, 2024.1-u9, 2024.2-u7, 2024.3-u5, and 2025.1-u1 or newer.
+
 If you are using an earlier version of Bonita Studio, please use a connector version prior to 2.3.0.
 ====
 
@@ -49,7 +51,7 @@ Depending on the type of your UiPath platform (On-premise / Cloud), the authenti
 
 Details concerning UiPath cloud authentication can be found on the https://docs.uipath.com/orchestrator/reference#consuming-cloud-api[UiPath documentation]
 
-When using the connector version 2.3.0 or later, there are 2 authentication types: Client Credentials (OAuth) or Token (Bearer).
+When using the connector version 2.3.0 or later, there are 2 authentication types: `Client Credentials (OAuth)` or `Token (Bearer)`. `Token` is the default authenticaiton type.
 
 ==== Shared Inputs
 
