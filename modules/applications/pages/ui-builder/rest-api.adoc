@@ -8,7 +8,7 @@ These REST APIs aim to solve the following cloud deployment use cases:
 * Deploy initial applications
 * Update applications: add, update, and remove applications
 * Re-deploy applications: ensuring resilience (for example in case of a Kubernetes pod crash)
-* Export all applications for store files in a Bonita Studio project
+* Export all applications for storing files in a Bonita Studio project
 
 [NOTE]
 ====
@@ -19,7 +19,7 @@ The `X-Bonita-API-Token` and `JSESSIONID` cookies are required for these APIs (i
 
 == Overview
 
-The Applications Management API provides endpoints to manage applications in the BonitAppsmith workspace. These endpoints allow you to list, import, export, and delete applications.
+The Applications Management API provides endpoints to manage applications in the UIB workspace. These endpoints allow you to list, import, export, and delete applications.
 
 **Base URL**: `/uib/api/v1/applications`
 
@@ -194,7 +194,7 @@ curl -X GET 'http://localhost/uib/api/v1/applications/' \
 
 * Retrieves applications from the default workspace only
 * Returns applications in the order they are stored
-* The `full` parameter allows control over response payload size
+* The `full` parameter allows to control the size of the response payload
 * Errors are logged but return a 500 status with error details
 
 
@@ -593,7 +593,7 @@ Import multiple applications from a ZIP archive containing JSON descriptor files
 
 |400
 |BAD_REQUEST
-|Invalid file (not a file part, not a .zip file, or no applications imported from the archive).
+|Invalid file (not a file part, not a .zip file, or no valid applications found in the archive).
 
 |500
 |INTERNAL_SERVER_ERROR
@@ -1025,7 +1025,7 @@ All error responses follow this structure:
 === Authentication and Authorization
 
 * **Session-Based**: All endpoints require valid session cookies
-* **CSRF Protection**: The `x-requested-by: Appsmith` header provides CSRF protection
+* CSRF protection requires header `x-requested-by: Appsmith` to be present
 * **Workspace Scoped**: Operations are limited to the default workspace
 * **Permission Checks**: Users must have appropriate permissions on the workspace
 
@@ -1089,86 +1089,3 @@ All error responses follow this structure:
 * **Partial Failures**: Some operations continue on errors (partial success possible)
 * **Memory Constraints**: Large files may impact server memory
 * **Concurrent Operations**: Multiple simultaneous requests may affect performance
-
-=== Scalability
-
-For large-scale deployments:
-
-* Consider batching operations during off-peak hours
-* Monitor server resources during bulk operations
-* Implement rate limiting if needed
-* Use asynchronous processing for very large workspaces
-* Consider splitting large exports/imports into smaller batches
-
-
-
-== Logging
-
-All endpoints provide comprehensive logging:
-
-=== Log Levels
-
-* **INFO**: Operation start/completion, counts, major milestones
-* **DEBUG**: Detailed flow, individual item processing, IDs
-* **WARN**: Non-critical issues, missing files, empty results
-* **ERROR**: Failures, exceptions, critical errors
-
-=== Example Log Messages
-
-```
-INFO  - Going to delete all applications from workspace...
-DEBUG - Deleting Application ID: 64a1b2c3d4e5f6, Name: Dashboard
-INFO  - All applications deleted successfully from default workspace
-ERROR - Failed to delete Application ID: 74b2c3d4e5f6a7, Name: Admin Panel
-```
-
-```
-INFO  - Starting export of all applications...
-DEBUG - Workspace retrieved: workspace-id-123
-DEBUG - Application found: id=app-1, name=Dashboard
-DEBUG - Export successful for application: Dashboard
-INFO  - Number of applications exported: 5
-INFO  - Export finished, streaming zip to client
-```
-
-=== Troubleshooting with Logs
-
-Check server logs to diagnose:
-
-* Individual application failures in bulk operations
-* Performance bottlenecks
-* File system issues
-* Database connection problems
-* Authentication/authorization failures
-
-
-
-== API Version and Compatibility
-
-* **Current Version**: v1
-* **Base Path**: `/uib/api/v1/applications`
-* **Stability**: Production-ready
-* **Backward Compatibility**: Changes to v1 endpoints maintain backward compatibility
-
-=== Future Considerations
-
-Potential future enhancements:
-
-* Asynchronous processing for large operations
-* Progress tracking for long-running exports/imports
-* Selective export (by application IDs)
-* Scheduled automated backups
-* Workspace selection parameter
-* Dry-run mode for import operations
-* Diff comparison between environments
-
-
-
-== Additional Resources
-
-* **Export Format Specification**: Appsmith `ArtifactExchangeJson` format
-* **Import Service Documentation**: ApplicationDescriptorHelper implementation
-* **File System Configuration**: `bonitaProperties.applicationFolderPath`
-* **Error Codes Reference**: Standard HTTP status codes
-
-For support or questions, consult the BonitAppsmith documentation or contact your system administrator.
