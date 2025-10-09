@@ -373,7 +373,7 @@ curl -X DELETE 'http://localhost/uib/api/v1/applications/all' \
 
 For each application deleted, the corresponding JSON file is removed from:
 ```
-{bonitaProperties.applicationFolderPath}/{applicationName}.json
+{bonitaProperties.applicationFolderPath}/\{applicationName}.json
 ```
 
 If the file doesn't exist, a warning is logged but deletion continues.
@@ -521,7 +521,7 @@ curl -X POST 'http://localhost/uib/api/v1/applications/import' \
 * **Automatic Publishing**: The application is automatically published after import
 * **File Persistence**: A copy of the JSON descriptor is saved to the file system at:
 ```
-{bonitaProperties.applicationFolderPath}/{applicationName}.json
+{bonitaProperties.applicationFolderPath}/\{applicationName}.json
 ```
 * **Memory Usage**: The entire JSON file is loaded into memory during processing
 * **Name Conflicts**: If an application with the same `slug` exists, the import fails
@@ -747,7 +747,7 @@ applications.zip
 * **Memory Usage**: The entire ZIP is loaded into memory, then each JSON is processed
 * **File Persistence**: Each imported application's JSON is saved to:
 ```
-{bonitaProperties.applicationFolderPath}/{applicationName}.json
+{bonitaProperties.applicationFolderPath}/\{applicationName}.json
 ```
 
 [[export-all-applications]]
@@ -847,7 +847,7 @@ Each JSON file contains the complete application descriptor in Appsmith's `Artif
 
 ===== JSON File Naming
 
-Each file inside the ZIP is named using the pattern: `{ApplicationName}.json`
+Each file inside the ZIP is named using the pattern: `\{ApplicationName}.json`
 
 === Examples
 
