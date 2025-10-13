@@ -8,17 +8,28 @@ Once you've designed an application that interacts with your xref:interact-with-
 == Move from Development to Production
 
 [[export-application]]
-=== Export your application
+=== Export application
 
 Once the design is complete, export the application(s) as JSON file from Bonita UI Builder by clicking the `export` button on the home page. This export will be used for building the production binary.
 
 image:ui-builder/advanced-app/export-application.png[Export application]
+
+You can export all applications with the button `Export all applications` in the workspace.
+
+image:ui-builder/advanced-app/export-all-application.png[Export all application]
 
 [[store-application]]
 === Store your application in a workspace folder
 
 Move the exported JSON application(s) in a designated `workspace` folder. This folder will be referenced during the build process.
 You can store these applications in a Git repository too.
+
+With an integration in a Bonita Studio, the `workspace` folder is automatically created in the project folder. You need to store the exported application(s) in this folder.
+
+[NOTE]
+====
+By default, the `workspace` folder in a Bonita Studio project, is store in: `<project-workspace-path>/app/.settings/org.bonitasoft.studio.common.repository/uib/workspace`
+====
 
 === Deployment strategies
 
