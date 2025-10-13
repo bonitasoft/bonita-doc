@@ -1,6 +1,6 @@
 name: Compress Images
 on:
-  pull_request_target:
+  pull_request:
     # Run Image Actions when JPG, JPEG, PNG or WebP files are added or changed
     paths:
       - '**.jpg'
