@@ -228,7 +228,10 @@ Delete all applications from the default workspace (workspace cleanup).
 |===
 
 ==== Query Parameters
-None
+
+| Parameter              | Type    | Required | Default | Description                                               |
+|------------------------|---------|----------|---------|-----------------------------------------------------------|
+| `cleanGitApplication`  | boolean | No       | `true`  | If `true`, deletes Git-connected applications. If `false`, skips Git-connected applications and only deletes non-Git applications. |
 
 ==== Request Body
 None
@@ -294,7 +297,7 @@ None
 
 [source,bash]
 ----
-curl -X DELETE 'http://localhost/uib/api/v1/applications/all' \
+curl -X DELETE 'http://localhost/uib/api/v1/applications/all?cleanGitApplication=false' \
   --header 'x-requested-by: Appsmith' \
   --header 'Cookie: X-Bonita-API-Token=abc123; JSESSIONID=def456'
 ----
@@ -787,7 +790,10 @@ This endpoint is accessible as follows:
 |===
 
 ==== Query Parameters
-None
+
+| Parameter           | Type    | Required | Default | Description                                               |
+|---------------------|---------|----------|---------|-----------------------------------------------------------|
+| `exportAsZipFormat` | boolean | No       | `true`  | If `true`, returns ZIP file. If `false`, exports to filesystem (requires `BONITA_APPLICATION_EXPORT_PATH` configuration). |
 
 ==== Request Body
 None
