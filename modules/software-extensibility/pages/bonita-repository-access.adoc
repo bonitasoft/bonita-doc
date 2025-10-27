@@ -212,6 +212,29 @@ You may also log out at the end with the command
 docker logout {bonitasoft-registry}
 ----
 
+==== macOS specific configuration
+
+On macOS, Docker Desktop may require additional authentication setup to access the Bonita Artifact Repository. This is particularly important for features that start Docker containers automatically, such as UI Builder launched from Bonita Studio.
+
+To enable seamless Docker authentication on macOS, store your JFrog credentials in the macOS Keychain:
+
+[source, shell]
+----
+# 1. Get your JFrog token from https://bonitasoft.jfrog.io
+#    (Click on your profile → Edit Profile → Generate an Identity Token)
+
+# 2. Add credentials to macOS Keychain
+security add-generic-password -a "$USER" -s "jfrog_username" -w "your.email@bonitasoft.com"
+security add-generic-password -a "$USER" -s "jfrog_token" -w "your_jfrog_token"
+----
+
+[NOTE]
+====
+Replace `your.email@bonitasoft.com` with your subscription access login and `your_jfrog_token` with your actual JFrog token.
+
+These credentials will be automatically used by Docker when pulling images from the Bonita Artifact Repository, eliminating the need for repeated manual authentication.
+====
+
 === Pull Docker images from Bonita Artifact Repository
 
 Once authenticated, you can pull images with the `docker pull` command. For example:
