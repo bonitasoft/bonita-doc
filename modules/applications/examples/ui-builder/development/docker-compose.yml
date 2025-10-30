@@ -10,6 +10,7 @@ services:
     # Mount a volume to store persistent data
     volumes:
       - ./stacks:/appsmith-stacks
+      - ./web_applications:/opt/appsmith/workspace/app/export
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
