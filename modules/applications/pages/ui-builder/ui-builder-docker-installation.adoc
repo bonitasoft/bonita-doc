@@ -24,6 +24,7 @@ The following environment variables are optional:
 - `LOGGING_LEVEL_COM_APPSMITH`: Sets the logging level for Appsmith components (default: `debug`).
 - `LOGGING_LEVEL_COM_BONITASOFT`: Sets the logging level for BonitaSoft components (default: `debug`).
 - `LOGGING_LEVEL_COM_EXTERNAL_PLUGINS`: Sets the logging level for external plugins (default: `debug`).
+- `BONITA_APPLICATION_EXPORT_PATH`: Internal Path to export Bonita UIB Application from Bonita Runtime (default: `/opt/appsmith/workspace/app/exports/`).
 
 === Configure the `bonita-ui-proxy` image
 
