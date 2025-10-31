@@ -37,11 +37,10 @@ Here is a Bonita Platform version / Technical Id / UI Designer version correspon
 |===
 | Release date | Bonita Platform version | Technical Id | UI Designer version
 
-| TBA
-| N/C
-| N/C
-| N/C
-
+| XXXX
+| 2025.2-b1
+| 10.4.0.beta-01
+| 1.19.1
 |===
 
 == Element version
