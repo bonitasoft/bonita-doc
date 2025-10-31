@@ -520,6 +520,12 @@ The notable changes are:
 
 == Bug fixes
 
+=== Fixes in Bonita 2025.1-u1 (2025-11-03)
+
+* BPA-187 - Engine fails to start with Access edition license or with invalid license
+* BPA-200 - Ongoing case's visualisation doesn't display any status regarding the flownode execution when start event is a Timer
+* BPA-209 - Generate Request Key fails in the Docker image with the error "Invalid Java version 21"
+
 === Fixes in Bonita 2025.1-u0 (2025-09-30)
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
