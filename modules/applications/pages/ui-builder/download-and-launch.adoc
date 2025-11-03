@@ -35,7 +35,7 @@ If Bonita is running on a port other than 8080, you need to update the `8080` in
 [NOTE]
 ====
 A volume is mounted to the local folder `./stacks` to store persistent data. In case the container crashes, your work will not be lost.
-Fill free to update the folder to another location on your local machine.
+Feel free to update the folder to another location on your local machine.
 ====
 
 [NOTE]
@@ -51,6 +51,11 @@ Once you got the credentials, you have to authenticate with the `docker login` c
 ----
 docker login {bonitasoft-registry}
 ----
+
+[NOTE]
+====
+*macOS users*: If you plan to launch UI Builder from Bonita Studio, additional Keychain configuration is required. See the xref:software-extensibility:bonita-repository-access.adoc#docker-configuration[macOS specific configuration] section.
+====
 
 Run the following command to launch Bonita UI Builder:
 [source,console]
