@@ -14,7 +14,17 @@ Once the design is complete, export the application(s) as JSON file from Bonita 
 
 image:ui-builder/advanced-app/export-application.png[Export application]
 
-You can export all applications with the button `Export all applications` in the workspace.
+You can export all applications with the button `Export applications` in the workspace. Two possibilities are offered:
+
+* *Save into project* option allows to export all applications and save them directly into the Bonita Studio project in the `web_applications` folder.
+* *Download as zip* option allows to export all applications and download them as a zip file containing all JSON application files.
+
+[WARNING]
+====
+When using the *Save into project* option, be sure that a volume is mount for `/opt/appsmith/workspace/app/exports/` in your docker-compose.
+In a Bonita Studio project, the volume should be set as:
+`- ${UIB_WEB_APPLICATIONS:-../../../web_applications}:/opt/appsmith/workspace/app/exports/`
+====
 
 image:ui-builder/advanced-app/export-all-application.png[Export all applications]
 
