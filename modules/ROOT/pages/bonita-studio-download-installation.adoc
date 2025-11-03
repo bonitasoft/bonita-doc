@@ -52,13 +52,14 @@ Then follow the installation wizard through to the end of the installation proce
          * Windows: `C:\BonitaStudioCommunity-x.y`
          * macOS: `/Applications/BonitaStudioCommunity-x.y`
 +
-==== macOS specific note
-+
-macOS applies strict security restrictions to the `/Applications` directory, which can prevent Docker from modifying files inside it. To avoid permission issues with features like UI Builder:
-+
+[NOTE,caption=MacOS specific note]
+====
+MacOS applies strict security restrictions to the `/Applications` directory, which can prevent Docker from modifying files inside it. To avoid permission issues with features like UI Builder:
+
 * *Option 1 (Recommended)*: Install Bonita Studio in a different directory during the installation process (for example `~/BonitaStudioCommunity-x.y` or `~/Documents/BonitaStudioCommunity-x.y`). This ensures both the Studio and its internal Docker operations can run without elevated permissions.
 * *Option 2*: If Studio is already installed in `/Applications`, make sure your workspace is located outside of `/Applications` (for example in `~/bonita-workspace`).
-+
+====
+
 . Confirmation that installation is about to start: click on "Next"
 . Actual installation: wait a little bit
 . License request. For the Subscription edition only. If you do not have your licence file ready, you can skip that; Bonita Studio will request the license at first start.
