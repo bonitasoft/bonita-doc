@@ -17,7 +17,7 @@ asciidoc:
     cscDownloadUrl: '{cscCustomerServices}/downloads'
     cscLicenseUrl: '{cscCustomerServices}/licenses'
     # UI Builder attributes
-    bonita-ui-builder-version: '1.3.2'
+    bonita-ui-builder-version: '1.3.3'
     bonita-ui-builder-image: '{bonitasoft-docker-repository}/bonita-ui-builder'
     bonita-ui-proxy-image: '{bonitasoft-docker-repository}/bonita-ui-proxy'
     # ref versions of other components
