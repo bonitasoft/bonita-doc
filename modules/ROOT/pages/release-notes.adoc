@@ -1,14 +1,11 @@
 = Release notes
 :description: This is the release notes for Bonita {bonitaVersion} versions
 
-[NOTE]
-====
-The {bonitaVersion} version is in development.
-====
-
 == New available values
 
 During development, the Bonita Studio now allows you to launch Bonita UI Builder very easily (for production, the Studio is not used). See xref:applications:development-instance-from-studio.adoc[Development instance from Studio] for more information.
+
+New functionalities and improvements are on dedicated UIB xref:applications:ui-builder/ui-builder-release-notes.adoc#release-uib-integration[release notes].
 
 == Notable changes
 
@@ -29,7 +26,7 @@ During development, the Bonita Studio now allows you to launch Bonita UI Builder
 
 == Bug fixes
 
-=== Fixes in Bonita {bonitaVersion} (! DATE TO ADD HERE !)
+=== Fixes in Bonita {bonitaVersion} (November 05, 2025)
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
