@@ -1,6 +1,8 @@
 = Release Notes
 :description: This is the release notes for Bonita UI Builder
 
+
+[#release-uib-integration]
 == UI Builder 1.3.3 (2025-10-28)
 
 * Upgrade Appsmith from 1.85 to v1.89
