@@ -11,10 +11,11 @@ The available REST connectors are:
 * DELETE: Use the DELETE HTTP verb to delete resources on a third-party
 * POST: Use the POST HTTP verb to upload data to a third-party
 * POST FILE: Use the POST HTTP verb to upload files to a third-party
-* PUT: Use the POST HTTP verb to update data to a third-party
-* PUT FILE: Use the POST HTTP verb to update files to a third-party
+* PUT: Use the PUT HTTP verb to update data to a third-party
+* PUT FILE: Use the PUT HTTP verb to update files to a third-party
+* OAuth2 Token Retrieval: Dedicated connector to obtain OAuth2 access tokens without making subsequent REST API calls
 
-REST connectors support SSL and proxy settings.
+REST connectors support SSL, proxy settings, and OAuth2 authentication.
 
 == Connector Basic Parameters
 
@@ -36,3 +37,91 @@ REST connectors support SSL and proxy settings.
 | Document
 | For the PUT FILE and POST FILE connectors, the file to upload or update
 |===
+
+== Authentication
+
+REST connectors support multiple authentication methods:
+
+* None: No authentication
+* Basic: HTTP Basic authentication using username and password
+* Digest: HTTP Digest authentication
+* Header: Custom header-based authentication
+* OAuth2 Client Credentials: OAuth2 client credentials grant type for machine-to-machine authentication (RFC 6749)
+* OAuth2 Authorization Code: OAuth2 authorization code grant type with optional PKCE support (RFC 6749)
+* OAuth2 Bearer: Use a pre-obtained OAuth2 access token
+
+=== OAuth2 Authentication Parameters
+
+==== OAuth2 Client Credentials Flow
+
+Used for machine-to-machine authentication where the application authenticates itself to access resources.
+
+|===
+| Parameter name | Description | Required
+
+| Token Endpoint
+| The OAuth2 token endpoint URL provided by the authentication server
+| Yes
+
+| Client ID
+| The OAuth2 client identifier
+| Yes
+
+| Client Secret
+| The OAuth2 client secret
+| Yes
+
+| Scope
+| Space-separated list of scopes to request (e.g., "read write")
+| No
+|===
+
+==== OAuth2 Authorization Code Flow
+
+Used for user authentication where an authorization code is obtained after browser-based authentication.
+
+|===
+| Parameter name | Description | Required
+
+| Token Endpoint
+| The OAuth2 token endpoint URL provided by the authentication server
+| Yes
+
+| Client ID
+| The OAuth2 client identifier
+| Yes
+
+| Client Secret
+| The OAuth2 client secret
+| Yes
+
+| Authorization Code
+| The authorization code obtained from the OAuth2 provider after user authentication
+| Yes
+
+| Code Verifier
+| PKCE code verifier for enhanced security (RFC 7636)
+| No
+
+| Redirect URI
+| The redirect URI used during authorization (required by some providers)
+| No
+
+| Scope
+| Space-separated list of scopes to request
+| No
+|===
+
+==== OAuth2 Bearer Token
+
+Used when you already have a valid OAuth2 access token (e.g., obtained using the OAuth2 Token Retrieval connector).
+
+|===
+| Parameter name | Description | Required
+
+| Access Token
+| The pre-obtained OAuth2 access token
+| Yes
+|===
+
+NOTE: OAuth2 authentication support is available in REST connector version 2.0.0 and later.
