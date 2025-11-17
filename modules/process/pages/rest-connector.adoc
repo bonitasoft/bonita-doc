@@ -136,7 +136,7 @@ Used when you already have a valid OAuth2 access token (e.g., obtained using the
 | Yes
 |===
 
-NOTE: OAuth2 authentication support is available in REST connector version 2.0.0 and later.
+NOTE: OAuth2 authentication support is available in REST connector version 1.5.0 and later.
 
 == OAuth2 Token Retrieval Connector
 
