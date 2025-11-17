@@ -156,4 +156,4 @@ The typical usage pattern is:
 
 === Security Best Practice
 
-IMPORTANT: It is *strongly advised* to store the access token in a *task transient data* variable rather than a process variable or business variable. Task transient data is not persisted in the database, which prevents sensitive authentication tokens from being stored permanently. This approach enhances security by ensuring that access tokens remain in memory only and are not exposed through database backups or logs.
+IMPORTANT: It is *strongly advised* to store the access token in a *task transient* variable rather than a process variable or business variable. Task transient data is not persisted in the database, which prevents sensitive authentication tokens from being stored permanently. This approach enhances security by ensuring that access tokens remain in memory only and are not exposed through database backups or logs.
