@@ -51,8 +51,7 @@ The expression must return a value of the required type. To specify the message 
 | String
 |===
 
-NOTE: OAuth2 authentication (XOAUTH2 SASL) is supported in connector version 1.5.0 and later. This authentication method is required for modern email providers like Gmail and Office 365/Exchange Online that no longer support basic username/password authentication. You must obtain an OAuth2 access token from your email provider before using this authentication type.
-
+NOTE: OAuth2 authentication (XOAUTH2 SASL) is supported in connector version 1.5.0 and later. This authentication method is required for modern email providers like Gmail and Office 365/Exchange Online that don't support basic username/password authentication. You must obtain an OAuth2 access token from your email provider before using this authentication type. You can use Bonita REST connector for that.
 *Addressing information:*
 
 |===
