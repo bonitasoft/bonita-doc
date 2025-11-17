@@ -56,10 +56,11 @@ REST connectors support multiple authentication methods:
 * None: No authentication
 * Basic: HTTP Basic authentication using username and password
 * Digest: HTTP Digest authentication
-* Header: Custom header-based authentication
 * OAuth2 Client Credentials: OAuth2 client credentials grant type for machine-to-machine authentication (RFC 6749)
 * OAuth2 Authorization Code: OAuth2 authorization code grant type with optional PKCE support (RFC 6749)
 * OAuth2 Bearer: Use a pre-obtained OAuth2 access token
+
+It is also possible to use a custom header-based authentication if required.
 
 === OAuth2 Authentication Parameters
 
