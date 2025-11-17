@@ -34,14 +34,24 @@ The expression must return a value of the required type. To specify the message 
 | Check the box if STARTTLS security authorization is required
 |
 
+| Authentication > Authentication type
+| Select authentication method: "Basic authentication" (username/password) or "OAuth (XOAUTH2)" for modern email providers (available in version 1.5.0+)
+| Radio button
+
 | Authentication > Username
-| User name for the host account
+| User name for the host account (for Basic authentication and OAuth)
 | String
 
 | Authentication > Password
-| User password for the host account
+| User password for the host account (for Basic authentication)
+| String
+
+| Authentication > OAuth2 Access Token
+| OAuth2 access token for XOAUTH2 authentication (for OAuth authentication type). Required for providers like Gmail and Office 365/Exchange Online that use OAuth2
 | String
 |===
+
+NOTE: OAuth2 authentication (XOAUTH2 SASL) is supported in connector version 1.5.0 and later. This authentication method is required for modern email providers like Gmail and Office 365/Exchange Online that no longer support basic username/password authentication. You must obtain an OAuth2 access token from your email provider before using this authentication type.
 
 *Addressing information:*
 
