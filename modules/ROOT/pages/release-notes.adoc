@@ -9,7 +9,7 @@ New functionalities and improvements are on dedicated UIB xref:applications:ui-b
 
 === REST Connector OAuth2 Authentication Support
 
-The REST connectors now support OAuth2 authentication methods. This includes:
+The REST connectors now provide built-in OAuth2 authentication support.
 
 * **OAuth2 Client Credentials Flow**: For machine-to-machine authentication (RFC 6749)
 * **OAuth2 Authorization Code Flow**: For user-specific authentication with optional PKCE support (RFC 7636)
