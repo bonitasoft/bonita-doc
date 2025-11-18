@@ -1,6 +1,6 @@
 = AI connectors
 :page-aliases: ROOT:ai-connector.adoc
-:description: Bonitasoft now offers AI connectors that let you seamlessly integrate advanced language models like OpenAI and Mistral into your business processes.
+:description: Bonitasoft now offers AI connectors that let you seamlessly integrate advanced language models like OpenAI, Mistral, and Ollama into your business processes.
 
 {description} These connectors support three powerful use cases:
 
@@ -23,8 +23,44 @@ Currently supported providers:
 
 * image:openai.png[OpenAI] OpenAI
 * image:mistral.png[MistralAI] Mistral AI
+* image:ollama.png[Ollama] Ollama
 
 WARNING: Image documents are not supported yet for Mistral connector due to a limitation of the underlying library we use.
+
+=== Ollama - Local LLM execution
+
+Ollama enables running large language models locally on your infrastructure without requiring API keys or cloud services. This provides several advantages:
+
+**🔒 Privacy & Security**
+
+* No API keys required
+* All data processing on-premises
+* Full control over your data
+
+**💰 Cost Optimization**
+
+* No per-token charges
+* No subscription fees
+* Hardware costs only
+
+**🔧 Flexibility**
+
+* Support for any Ollama-compatible model (Llama, Mistral, DeepSeek, etc.)
+* Easy model switching
+* Custom model support
+
+To get started with Ollama, install it from https://ollama.com/ and pull a model:
+
+[source,bash]
+----
+# Pull a model
+ollama pull llama3.1
+
+# Start Ollama (runs automatically on http://localhost:11434)
+ollama serve
+----
+
+For more information on setting up and using Ollama, refer to the https://github.com/bonitasoft/bonita-connector-ai[Bonita AI Connector repository].
 
 === Common configuration
 
@@ -34,21 +70,29 @@ WARNING: Image documents are not supported yet for Mistral connector due to a li
 
 |*apiKey*
 |false
-a|The AI provider API key. Parameter is optional for testing purpose but obviously required with official OpenAI endpoint. 
+a|The AI provider API key. Parameter is optional for testing purpose but obviously required with official OpenAI endpoint.
 
-The connector will look for API key value in this order: 
+**Not required for Ollama** as it runs locally without authentication.
 
-- A system environment variable named `AI_API_KEY` 
-- A JVM property named `AI_API_KEY` (`-DAI_API_KEY=xxx`) 
-- the provided connector `apiKey` parameter 
- 
-And at last it will use a dummy default `changeMe` value if no other value found. 
+The connector will look for API key value in this order:
+
+- A system environment variable named `AI_API_KEY`
+- A JVM property named `AI_API_KEY` (`-DAI_API_KEY=xxx`)
+- the provided connector `apiKey` parameter
+
+And at last it will use a dummy default `changeMe` value if no other value found.
 | changeMe
 
 |*url*
 |false
-|The OpenAI endpoint url. This parameter allows to use an alternate endpoint for tests.
-|Default to the official provider endpoint if not specified.
+a|The AI provider endpoint URL. This parameter allows to use an alternate endpoint for tests.
+
+**Default values by provider:**
+
+- OpenAI: Official OpenAI endpoint
+- Mistral: Official Mistral AI endpoint
+- Ollama: `http://localhost:11434`
+|Default to the official provider endpoint if not specified (or `http://localhost:11434` for Ollama).
 
 |*requestTimeout*
 |false
@@ -57,13 +101,15 @@ And at last it will use a dummy default `changeMe` value if no other value found
 
 |*chatModelName*
 |false
-a|The model to use for chat like `gpt-4o`, `gpt-4o-mini`, `llama`, `pixtral`, ... See respective documentation for detailed information about models.
+a|The model to use for chat like `gpt-4o`, `gpt-4o-mini`, `llama3.1`, `pixtral`, ... See respective documentation for detailed information about models.
 
-- OpenAI : https://platform.openai.com/docs/models/models
-- Mistral AI : https://docs.mistral.ai/getting-started/models/models_overview
+- OpenAI: https://platform.openai.com/docs/models/models
+- Mistral AI: https://docs.mistral.ai/getting-started/models/models_overview
+- Ollama: https://ollama.com/library (any Ollama-compatible model)
 a|
-- OpenAI : `gpt-4o`
-- MistralAI : `pixtral-12b-2409`
+- OpenAI: `gpt-4o`
+- MistralAI: `pixtral-12b-2409`
+- Ollama: `llama3.1`
 
 |*modelTemperature*
 |false
