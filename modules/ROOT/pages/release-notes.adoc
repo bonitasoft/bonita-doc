@@ -3,9 +3,33 @@
 
 == New available values
 
+=== Bonita UI Builder integration into Bonita Studio
+
 During development, the Bonita Studio now allows you to launch Bonita UI Builder very easily (for production, the Studio is not used). See xref:applications:development-instance-from-studio.adoc[Development instance from Studio] for more information.
 
 New functionalities and improvements are on dedicated UIB xref:applications:ui-builder/ui-builder-release-notes.adoc#release-uib-integration[release notes].
+
+=== New Ollama AI Connector
+
+A new AI connector for Ollama is now available, enabling you to run AI models locally without requiring cloud-based API keys or internet connectivity. This connector extends the existing AI connector capabilities (Ask, Extract, and Classify) to work with locally-hosted Ollama models.
+
+**Key features:**
+
+* **Local deployment**: Run AI models on your own infrastructure using Ollama
+* **Privacy-first**: Keep sensitive data within your organization without sending it to external AI providers
+* **No API key required**: Works out-of-the-box with your local Ollama instance
+* **Cost-effective**: Eliminate per-request API costs for development and production environments
+* **Offline capability**: Process automation continues even without internet access
+* **Same functionality**: Supports all three use cases (Ask, Extract, Classify) with the same interface as cloud providers
+
+**Default configuration:**
+
+* Base URL: `http://localhost:11434`
+* Default model: `llama3.1`
+* Supports all Ollama-compatible models including Llama, Mistral, CodeLlama, and more
+
+This connector is ideal for organizations with strict data governance requirements, development/testing environments, or scenarios where internet connectivity is limited. See xref:process:ai-connector.adoc[AI Connectors documentation] for complete configuration details.
+
 
 === REST Connector OAuth2 Authentication Support
 
