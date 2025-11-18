@@ -17,7 +17,7 @@ The available REST connectors are:
 * PATCH: Use the PATCH HTTP verb to make partial changes to a third-party resource
 * OAuth2 Token Retrieval: Dedicated connector to obtain OAuth2 access tokens without making subsequent REST API calls
 
-REST connectors support SSL, proxy settings, and OAuth2 authentication.
+REST connectors support SSL, proxy settings, and several authentication protocols.
 
 == Connector Basic Parameters
 
