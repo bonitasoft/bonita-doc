@@ -392,12 +392,12 @@ A restart is required to take the configuration changes into account.
 [#app_cache]
 === Application cache
 
-Bonita Engine uses an application cache to store specific objects. The default implementation of this service relies on EhCache. It is configured in these files:
+Bonita Engine uses an application cache to store specific objects. Starting with Bonita {bonitaVersion}, the default implementation relies on Ehcache 3.11 (upgraded from Ehcache 2.x). Cache configuration is now programmatic in Java code, with property-based tuning available in these configuration files:
 
 * `bonita-platform-community-custom.properties`
 * `bonita-tenant-community-custom.properties`
-* `bonita-platform-sp-cluster-custom.properties`
-* `bonita-tenant-sp-cluster-custom.properties`
+* `bonita-platform-sp-cluster-custom.properties` (Subscription edition)
+* `bonita-tenant-sp-cluster-custom.properties` (Subscription edition)
 
 The following cache configurations can be defined:
 
@@ -407,7 +407,10 @@ The following cache configurations can be defined:
 | connector
 | stores connector implementations for a given connector definition
 
-| processDefinition
+| parameter
+| stores process parameters
+
+| processDef
 | stores process definition objects
 
 | userFilter
@@ -419,9 +422,61 @@ The following cache configurations can be defined:
 | transientData
 | stores transient data
 
-| parameterCacheConfig
-| stores process parameters
+| configfiles
+| stores Bonita configuration files for faster access
+
+| session
+| stores Bonita sessions for Subscription edition clustered deployments
 |===
+
+==== Ehcache 3 Configuration Properties
+
+Each cache can be tuned using properties in the format `bonita.(platform\|tenant).cache.<cache-name>.<property>=<value>`.
+
+*Commonly used properties:*
+
+[cols="1,3"]
+|===
+| Property | Description
+
+| `maxElementsInMemory`
+| Maximum number of elements stored in heap memory (default varies by cache)
+
+| `eternal`
+| If `true`, elements never expire (default: `false`)
+
+| `timeToLiveSeconds`
+| Maximum time (in seconds) an element can exist in the cache before expiring (default: varies by cache)
+
+| `offHeapSizeMB`
+| Size of off-heap memory in megabytes. Set to `0` to disable off-heap storage (default: `0`)
+
+| `evictionPolicy`
+| Policy for evicting elements when cache is full: `LRU` (Least Recently Used), `LFU` (Least Frequently Used), or `FIFO` (First In First Out)
+|===
+
+*Example configuration for the connector cache:*
+
+[source,properties]
+----
+# Platform connector cache tuning
+bonita.platform.cache.connector.maxElementsInMemory=100
+bonita.platform.cache.connector.eternal=false
+bonita.platform.cache.connector.timeToLiveSeconds=3600
+bonita.platform.cache.connector.offHeapSizeMB=0
+bonita.platform.cache.connector.evictionPolicy=LRU
+----
+
+NOTE: Off-heap caching (`offHeapSizeMB > 0`) can significantly improve performance for large-scale deployments by reducing garbage collection pressure, but requires careful memory management. Contact Bonitasoft Support for guidance on enabling off-heap caching.
+
+*Deprecated properties (automatically removed during migration):*
+
+The following Ehcache 2.x properties are no longer supported and should not be used:
+
+* `inMemoryOnly`, `maxElementsOnDisk`
+* `copyOnRead`, `copyOnWrite`
+
+These properties are automatically removed when upgrading to Bonita {bonitaVersion}.
 
 [#jvm]
 === Java Virtual Machine

@@ -24,6 +24,34 @@ The {bonitaVersion} version is in development.
 
 === Configuration changes
 
+==== Ehcache upgraded from 2.x to 3.11
+
+Bonita Runtime internal caching system has been upgraded from Ehcache 2.x to Ehcache 3.11 to benefit from improved performance, better memory management, and continued vendor support.
+
+*Impact on configuration:*
+
+The migration process automatically:
+
+* Removes the deprecated `cache-config.xml` file (cache configuration is now programmatic in Java)
+* Removes 4 obsolete Ehcache 2 properties from configuration files:
+** `inMemoryOnly`, `maxElementsOnDisk`
+** `copyOnRead`, `copyOnWrite`
+* Adds new `offHeapSizeMB=0` property to all cache configurations (defaults to on-heap caching)
+
+*What you need to know:*
+
+* If you customized cache configuration in `bonita-platform-community-custom.properties`, `bonita-tenant-community-custom.properties`, or cluster configuration files, these obsolete properties will be automatically removed during platform update
+* The new Ehcache 3 configuration uses different property names and is managed programmatically - contact Bonitasoft Support if you need to tune cache behavior
+* Most Ehcache 3 properties (like `maxElementsInMemory`, `eternal`, `timeToLiveSeconds`) remain compatible and will be preserved
+* Off-heap caching is disabled by default (`offHeapSizeMB=0`) but can be enabled for performance optimization on large-scale deployments
+
+*Affected configuration files:*
+
+* Community edition: `bonita-platform-community-custom.properties`, `bonita-tenant-community-custom.properties`
+* Subscription edition (cluster): `bonita-platform-sp-cluster-custom.properties`, `bonita-tenant-sp-cluster-custom.properties`
+
+For advanced cache tuning after migration, refer to the xref:runtime:performance-tuning.adoc[Performance tuning] documentation.
+
 
 == Bug fixes
 
