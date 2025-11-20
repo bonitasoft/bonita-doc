@@ -23,8 +23,11 @@ Currently supported providers:
 
 * image:openai.png[OpenAI] OpenAI
 * image:mistral.png[MistralAI] Mistral AI
+* image:ollama.png[Ollama] Ollama (local deployment)
 
 WARNING: Image documents are not supported yet for Mistral connector due to a limitation of the underlying library we use.
+
+NOTE: Ollama enables you to run AI models locally on your own infrastructure, providing privacy-first AI integration without requiring cloud API keys or internet connectivity. This is ideal for organizations with strict data governance requirements or offline environments.
 
 === Common configuration
 
@@ -34,20 +37,26 @@ WARNING: Image documents are not supported yet for Mistral connector due to a li
 
 |*apiKey*
 |false
-a|The AI provider API key. Parameter is optional for testing purpose but obviously required with official OpenAI endpoint. 
+a|The AI provider API key. Parameter is optional for testing purpose but obviously required with official OpenAI endpoint.
 
-The connector will look for API key value in this order: 
+The connector will look for API key value in this order:
 
-- A system environment variable named `AI_API_KEY` 
-- A JVM property named `AI_API_KEY` (`-DAI_API_KEY=xxx`) 
-- the provided connector `apiKey` parameter 
- 
-And at last it will use a dummy default `changeMe` value if no other value found. 
+- A system environment variable named `AI_API_KEY`
+- A JVM property named `AI_API_KEY` (`-DAI_API_KEY=xxx`)
+- the provided connector `apiKey` parameter
+
+And at last it will use a dummy default `changeMe` value if no other value found.
+
+NOTE: Ollama connector does not require an API key since it runs locally.
 | changeMe
 
 |*url*
 |false
-|The OpenAI endpoint url. This parameter allows to use an alternate endpoint for tests.
+a|The AI provider endpoint URL. This parameter allows to use an alternate endpoint for tests.
+
+- OpenAI: Default to official OpenAI endpoint
+- Mistral AI: Default to official Mistral AI endpoint
+- Ollama: Default to `http://localhost:11434`
 |Default to the official provider endpoint if not specified.
 
 |*requestTimeout*
@@ -57,13 +66,15 @@ And at last it will use a dummy default `changeMe` value if no other value found
 
 |*chatModelName*
 |false
-a|The model to use for chat like `gpt-4o`, `gpt-4o-mini`, `llama`, `pixtral`, ... See respective documentation for detailed information about models.
+a|The model to use for chat like `gpt-4o`, `gpt-4o-mini`, `llama3.1`, `pixtral`, ... See respective documentation for detailed information about models.
 
-- OpenAI : https://platform.openai.com/docs/models/models
-- Mistral AI : https://docs.mistral.ai/getting-started/models/models_overview
+- OpenAI: https://platform.openai.com/docs/models/models
+- Mistral AI: https://docs.mistral.ai/getting-started/models/models_overview
+- Ollama: https://ollama.com/library (must be pulled locally first)
 a|
-- OpenAI : `gpt-4o`
-- MistralAI : `pixtral-12b-2409`
+- OpenAI: `gpt-4o`
+- Mistral AI: `pixtral-12b-2409`
+- Ollama: `llama3.1`
 
 |*modelTemperature*
 |false
