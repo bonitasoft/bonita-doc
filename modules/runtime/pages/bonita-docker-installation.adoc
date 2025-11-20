@@ -535,6 +535,9 @@ Change the default value for the Bonita and/or the BDM datasource `minIdle`. Thi
 === BONITA_DS_CONNECTION_POOL_MAX_IDLE, BDM_DS_CONNECTION_POOL_MAX_IDLE
 Change the default value for the Bonita and/or the BDM datasource `maxIdle`. This is the maximum number of connections that should be kept in the pool at all times.
 
+=== BONITA_RUNTIME_CLASSLOADER_INITIALIZATION_TIMEOUT_MINUTES
+Change the default timeout value (5 minutes) used when the classloaders are initialized or refreshed.
+
 === DB_NAME, DB_USER, DB_PASS
 
 These variables are used in conjunction to create a new user, set that user's password, and create the bonita database.

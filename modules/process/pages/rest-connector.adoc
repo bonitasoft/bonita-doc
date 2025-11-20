@@ -7,14 +7,17 @@
 
 The available REST connectors are:
 
-* GET: Use the GET HTTP verb to retrieve resources from a third-party
-* DELETE: Use the DELETE HTTP verb to delete resources on a third-party
-* POST: Use the POST HTTP verb to upload data to a third-party
+* HEAD: Use the HEAD HTTP verb to requests the metadata of a third-party resource in the form of headers
+* GET: Use the GET HTTP verb to retrieve third-party resources
+* DELETE: Use the DELETE HTTP verb to delete a third-party resource
+* POST: Use the POST HTTP verb to create a resource on a third-party
 * POST FILE: Use the POST HTTP verb to upload files to a third-party
-* PUT: Use the POST HTTP verb to update data to a third-party
-* PUT FILE: Use the POST HTTP verb to update files to a third-party
+* PUT: Use the PUT HTTP verb to update a third-party resource
+* PUT FILE: Use the PUT HTTP verb to update files to a third-party
+* PATCH: Use the PATCH HTTP verb to make partial changes to a third-party resource
+* OAuth2 Token Retrieval: Dedicated connector to obtain OAuth2 access tokens without making subsequent REST API calls
 
-REST connectors support SSL and proxy settings.
+REST connectors support SSL, proxy settings, and several authentication protocols.
 
 == Connector Basic Parameters
 
@@ -35,4 +38,122 @@ REST connectors support SSL and proxy settings.
 
 | Document
 | For the PUT FILE and POST FILE connectors, the file to upload or update
+
+| Headers
+| The HTTP headers to be sent with the request. It is also possible to send predefined Bonita context headers such as task Id, case Id, process definition Id...
 |===
+
+== Error Management
+
+It is possible to make the connector fail on 5xx or 4xx response status codes (with exclusion on specific codes).
+
+The request can also be replayed several times when it fails on 5xx or any other specific response status codes. The retry mechanism and configuration are xref:runtime:fault-tolerance.adoc#_retry_mechanism[the same as for the whole BPM engine works].
+
+== Authentication
+
+REST connectors support multiple authentication methods:
+
+* None: No authentication
+* Basic: HTTP Basic authentication using username and password
+* Digest: HTTP Digest authentication
+* OAuth2 Client Credentials: OAuth2 client credentials grant type for machine-to-machine authentication (RFC 6749)
+* OAuth2 Authorization Code: OAuth2 authorization code grant type with optional PKCE support (RFC 6749)
+* OAuth2 Bearer: Use a pre-obtained OAuth2 access token
+
+It is also possible to use a custom header-based authentication if required.
+
+=== OAuth2 Authentication Parameters
+
+==== OAuth2 Client Credentials Flow
+
+Used for machine-to-machine authentication where the application authenticates itself to access resources.
+
+|===
+| Parameter name | Description | Required
+
+| Token Endpoint
+| The OAuth2 token endpoint URL provided by the authentication server
+| Yes
+
+| Client ID
+| The OAuth2 client identifier
+| Yes
+
+| Client Secret
+| The OAuth2 client secret
+| Yes
+
+| Scope
+| Space-separated list of scopes to request (e.g., "read write")
+| No
+|===
+
+==== OAuth2 Authorization Code Flow
+
+Used for user authentication where an authorization code is obtained after browser-based authentication. This flow enables obtaining an access token specific to a user who has authenticated front-end side with the OAuth provider. The authorization code is then exchanged server-side for an access token that carries the authenticated user's identity and permissions, allowing the process to make API calls on behalf of that specific user.
+
+|===
+| Parameter name | Description | Required
+
+| Token Endpoint
+| The OAuth2 token endpoint URL provided by the authentication server
+| Yes
+
+| Client ID
+| The OAuth2 client identifier
+| Yes
+
+| Client Secret
+| The OAuth2 client secret
+| Yes
+
+| Authorization Code
+| The authorization code obtained from the OAuth2 provider after user authentication (obtained front-end side)
+| Yes
+
+| Code Verifier
+| PKCE code verifier for enhanced security (RFC 7636)
+| No
+
+| Redirect URI
+| The redirect URI used during authorization (required by some providers)
+| No
+
+| Scope
+| Space-separated list of scopes to request
+| No
+|===
+
+==== OAuth2 Bearer Token
+
+Used when you already have a valid OAuth2 access token (e.g., obtained using the OAuth2 Token Retrieval connector).
+
+|===
+| Parameter name | Description | Required
+
+| Access Token
+| The pre-obtained OAuth2 access token
+| Yes
+|===
+
+NOTE: OAuth2 authentication support is available in REST connector version 1.5.0 and later.
+
+== OAuth2 Token Retrieval Connector
+
+The OAuth2 Token Retrieval connector is a specialized connector designed to obtain OAuth2 access tokens without making subsequent REST API calls. This connector is particularly useful when you need to:
+
+* Obtain an access token that will be reused across multiple API calls
+* Separate the authentication step from the actual API requests
+* Use the same access token with the OAuth2 Bearer authentication mode in subsequent REST connector calls
+
+=== Usage Pattern
+
+The typical usage pattern is:
+
+1. Use the OAuth2 Token Retrieval connector to obtain an access token (supports both Client Credentials and Authorization Code flows)
+2. Store the access token output in a *task transient data variable*
+3. Use the stored access token with other REST connectors (GET, POST, PUT, DELETE) by selecting "OAuth2 Bearer" authentication mode
+
+=== Security Best Practice
+
+IMPORTANT: It is *strongly advised* to store the access token in a *task transient* variable rather than a process variable or business variable. Task transient data is not persisted in the database, which prevents sensitive authentication tokens from being stored permanently. This approach enhances security by ensuring that access tokens remain in memory only and are not exposed through database backups or logs.
