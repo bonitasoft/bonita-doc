@@ -83,7 +83,7 @@ Software required for Bonita Platform.
 | 2022
 
 | Oracle
-| 19c (19.3.0.0.0) (see note 5)
+| 19c (19.3.0.0.0) & 23-ai (23.9.0.0) (see note 5)
 
 | *Browser*
 |
