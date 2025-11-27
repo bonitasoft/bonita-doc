@@ -1,0 +1,266 @@
+= BDM Query Response Formats
+:page-aliases: ROOT:bdm-query-response-formats.adoc
+:description: Understand the difference between legacy array-based format and standard REST shape format for BDM query responses.
+
+{description}
+
+== Overview
+
+Starting from version 2026.1, the response format for BDM queries has been standardized to follow REST API conventions.
+
+=== Legacy Array-Based Format
+
+In previous versions, all BDM queries returned results wrapped in JSON arrays:
+
+[source,json]
+----
+// COUNT query
+[42]
+
+// Single entity
+[{"persistenceId": 1, "name": "John Doe"}]
+
+// Multiple entities
+[{"persistenceId": 1}, {"persistenceId": 2}]
+----
+
+=== Standard REST Shape Format
+
+The new standard format aligns with REST API best practices:
+
+[source,json]
+----
+// COUNT query - scalar value wrapped in object
+{"value": 42}
+
+// Single entity - direct object
+{"persistenceId": 1, "name": "John Doe"}
+
+// Multiple entities - array (unchanged)
+[{"persistenceId": 1}, {"persistenceId": 2}]
+----
+
+== Format Comparison
+
+[cols="1,1,2,2"]
+|===
+|Query Type |Return Type |Legacy Format |Standard Format
+
+|COUNT
+|Long
+|`[42]`
+|`{"value": 42}`
+
+|AVG/MAX/MIN/SUM
+|Double
+|`[55000.75]`
+|`{"value": 55000.75}`
+
+|Single Entity
+|Entity
+|`[{...}]`
+|`{...}`
+
+|Multiple Entities
+|List
+|`[{...}, {...}]`
+|`[{...}, {...}]`
+
+|Empty Result (scalar)
+|null
+|`[null]`
+|`{"value": null}`
+
+|Empty Result (entity)
+|null
+|`[]`
+|`{}`
+|===
+
+== Configuration
+
+The property `bonita.runtime.business-data.serialization.standard-shape.enabled` controls the response format.
+
+[cols="1,2"]
+|===
+|Property |`bonita.runtime.business-data.serialization.standard-shape.enabled`
+|Type |Boolean
+|Default Value |`true` (from version 2026.1)
+|Scope |Tenant-level
+|===
+
+=== Using Properties File
+
+Edit `bonita-tenant-community-custom.properties`:
+
+[source,properties]
+----
+# Standard REST shape (default)
+bonita.runtime.business-data.serialization.standard-shape.enabled=true
+
+# Legacy array-based format
+bonita.runtime.business-data.serialization.standard-shape.enabled=false
+----
+
+=== Using Environment Variable (Docker)
+
+[source,yaml]
+----
+environment:
+  BONITA_RUNTIME_BUSINESS_DATA_SERIALIZATION_STANDARD_SHAPE_ENABLED: "true"
+----
+
+See xref:runtime:bonita-docker-installation.adoc#environment-variables[Docker environment variables] for more details.
+
+== Pagination and Content-Range Header
+
+When querying BDM entity lists via REST API, Bonita returns pagination metadata in the `Content-Range` HTTP header:
+
+[source,http]
+----
+Content-Range: 0-9/150
+----
+
+Where `0` is the start index, `9` is the end index, and `150` is the total count of matching entities.
+
+=== When Content-Range Appears
+
+The `Content-Range` header is returned only for **entity list queries** that have a corresponding count query defined:
+
+* ✅ **Provided queries** (auto-generated): `find`, `findBy{AttributeName}` - count queries are created automatically
+* ✅ **Custom list queries** with a defined `countFor{QueryName}` query
+* ❌ **Scalar queries** (COUNT, AVG, MAX, MIN, SUM) - no Content-Range header
+* ❌ **Single entity queries** - no pagination needed
+* ❌ **Custom list queries without count query** - query works but no Content-Range
+
+=== Defining Count Queries for Custom Queries
+
+For custom queries returning lists, you must define a corresponding count query to enable pagination metadata:
+
+[source,xml]
+----
+<!-- Custom list query -->
+<query name="findByStatus"
+       content="SELECT e FROM Employee e WHERE e.status = :status"
+       returnType="java.util.List">
+    <queryParameter name="status" className="java.lang.String"/>
+</query>
+
+<!-- Count query for pagination (required for Content-Range) -->
+<query name="countForFindByStatus"
+       content="SELECT COUNT(e) FROM Employee e WHERE e.status = :status"
+       returnType="java.lang.Long">
+    <queryParameter name="status" className="java.lang.String"/>
+</query>
+----
+
+Rules for count queries:
+
+* Name must be `countFor{QueryName}` (e.g., `countForFindByStatus`)
+* Return type must be `java.lang.Long`
+* Query parameters must match the base query exactly
+
+[NOTE]
+====
+Calling a COUNT query directly (e.g., `?q=countForFindByStatus`) returns a scalar result with no Content-Range header. The header only appears when querying entity lists.
+====
+
+== Migration Guide
+
+=== Option 1: Adopt Standard Format (Recommended)
+
+Update your client code to handle the new format:
+
+Before (Legacy):
+
+[source,javascript]
+----
+// Scalar query
+const response = await fetch('/API/bdm/businessData/Employee?q=countForFind');
+const count = (await response.json())[0];  // Extract from array
+
+// Single entity
+const response = await fetch('/API/bdm/businessData/Employee?q=findByEmail&f=email=john@acme.com');
+const employee = (await response.json())[0];  // Extract from array
+----
+
+After (Standard):
+
+[source,javascript]
+----
+// Scalar query
+const response = await fetch('/API/bdm/businessData/Employee?q=countForFind');
+const count = (await response.json()).value;  // Access value property
+
+// Single entity
+const response = await fetch('/API/bdm/businessData/Employee?q=findByEmail&f=email=john@acme.com');
+const employee = await response.json();  // Direct object
+----
+
+=== Option 2: Maintain Legacy Format
+
+To keep backward compatibility, disable the standard format:
+
+[source,properties]
+----
+bonita.runtime.business-data.serialization.standard-shape.enabled=false
+----
+
+[NOTE]
+====
+DAO methods in Groovy always return Lists, so server-side code doesn't change. Only REST API consumers are affected.
+====
+
+=== UI Designer Migration
+
+If you use BDM queries in UI Designer pages via External API variables, update your widget code to handle the new format.
+
+==== Single Entity Query
+
+Variable `customerData` with URL: `../API/bdm/businessData/org.acme.billing.Customer?q=findByCodeClient&f=codeClient=C001`
+
+Before (Legacy - array format):
+
+[source,javascript]
+----
+// Legacy format returns: [{"persistenceId": 1, "nom": "Acme Corp", ...}]
+var customer = $data.customerData[0];
+
+if (customer) {
+    return "Customer " + customer.nom + " (" + customer.codeClient + ") is active.";
+} else {
+    return "Customer not found.";
+}
+----
+
+After (Standard - direct object):
+
+[source,javascript]
+----
+// Standard format returns: {"persistenceId": 1, "nom": "Acme Corp", ...}
+var customer = $data.customerData;
+
+if (customer && customer.persistenceId) {
+    return "Customer " + customer.nom + " (" + customer.codeClient + ") is active.";
+} else {
+    return "Customer not found.";
+}
+----
+
+==== Scalar Query (COUNT, AVG, etc.)
+
+Variable `invoiceCount` with URL: `../API/bdm/businessData/org.acme.billing.Invoice?q=countForFind`
+
+[source,javascript]
+----
+// Legacy format returns: [8]
+var total = $data.invoiceCount[0];
+
+// Standard format returns: {"value": 8}
+var total = $data.invoiceCount.value;
+----
+
+== See Also
+
+* xref:define-and-deploy-the-bdm.adoc[Business Data Model]
+* xref:runtime:bonita-platform-setup.adoc[Bonita Platform Setup]
