@@ -1,6 +1,7 @@
 * Data
  ** Business data
   *** xref:define-and-deploy-the-bdm.adoc[Business Data Model]
+  *** xref:bdm-query-response-formats.adoc[BDM Query Response Formats]
   *** xref:bo-multiple-refs-tutorial.adoc[Multiple references in Business Objects]
   *** xref:business-data-management.adoc[Data Management]
   *** xref:data-management.adoc[Data in the UI Designer]
