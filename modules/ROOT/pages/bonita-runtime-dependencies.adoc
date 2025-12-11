@@ -1,4 +1,4 @@
-= Bonita Runtime dependencies (10.4.0.beta-01)
+= Bonita Runtime dependencies (10.4.0)
 :page-aliases: ROOT:bonita-web-dependencies.adoc, ROOT:bonita-engine-dependencies.adoc
 :description: List all dependencies used by Bonita Runtime
 
@@ -2306,6 +2306,12 @@
 | https://owasp.org[https://owasp.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
+| com.hazelcast
+| hazelcast
+| 5.4.0
+| http://www.hazelcast.com/[http://www.hazelcast.com/]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
 | com.sun.activation
 | jakarta.activation
 | 1.2.2
@@ -2914,7 +2920,7 @@
 
 | com.microsoft.sqlserver
 | mssql-jdbc
-| 9.4.1.jre11
+| 12.6.5.jre11
 | https://github.com/Microsoft/mssql-jdbc[https://github.com/Microsoft/mssql-jdbc]
 |  http://www.opensource.org/licenses/mit-license.php[MIT License]
 
@@ -2925,8 +2931,8 @@
 |  The GNU General Public License, v2 with Universal FOSS Exception, v1.0
 
 | com.oracle.database.jdbc
-| ojdbc8
-| 19.28.0.0
+| ojdbc11
+| 23.26.0.0.0
 | https://www.oracle.com/database/technologies/maven-central-guide.html[https://www.oracle.com/database/technologies/maven-central-guide.html]
 |  https://www.oracle.com/downloads/licenses/oracle-free-license.html[Oracle Free Use Terms and Conditions (FUTC)]
 
