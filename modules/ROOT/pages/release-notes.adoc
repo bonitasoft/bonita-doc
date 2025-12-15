@@ -5,7 +5,7 @@
 
 === Bonita UI Builder integration into Bonita Studio
 
-During development, the Bonita Studio now allows you to launch Bonita UI Builder very easily (for production, the Studio is not used). See xref:applications:development-instance-from-studio.adoc[Development instance from Studio] for more information.
+During development, the Bonita Studio now allows you to launch Bonita UI Builder very easily (for production, the Studio is not used). See xref:applications:ui-builder/development-instance-from-studio.adoc[Development instance from Studio] for more information.
 
 New functionalities and improvements are on dedicated UIB xref:applications:ui-builder/ui-builder-release-notes.adoc#release-uib-integration[release notes].
 
