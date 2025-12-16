@@ -24,7 +24,7 @@ An Internet connection is required.
 ====
 
 [#credentials]
-== How to get the credentials? 
+== How to get the credentials?
 
 Once your Bonita subscription is registered, your Bonita account manager will receive the connection credentials - username and authentication token.
 
@@ -212,6 +212,7 @@ You may also log out at the end with the command
 docker logout {bonitasoft-registry}
 ----
 
+[#macOS-configuration]
 ==== macOS specific configuration
 
 On macOS, Docker Desktop may require additional authentication setup to access the Bonita Artifact Repository. This is particularly important for features that start Docker containers automatically, such as UI Builder launched from Bonita Studio.

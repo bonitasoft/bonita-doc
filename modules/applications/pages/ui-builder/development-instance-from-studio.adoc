@@ -64,7 +64,7 @@ You can re-import applications from JSON files in UI Builder with the "Synchroni
 
 image::ui-builder/development-instance-from-studio/synchronize-applications.png[]
 
-As each application has its own Git repository in UI Builder, you can even choose different strategies for different applications in the same Bonita project. 
+As each application has its own Git repository in UI Builder, you can even choose different strategies for different applications in the same Bonita project.
 
 image::ui-builder/development-instance-from-studio/git-mixed.png[]
 
@@ -80,6 +80,11 @@ image::ui-builder/development-instance-from-studio/launch.png[]
 The latest tool you used during this session is selected.
 
 After UI Builder has started, a browser window opens automatically to access the UI Builder interface.
+
+[WARNING]
+====
+On MacOs, be sure to follow the xref:software-extensibility:bonita-repository-access.adoc#macOS-configuration[specific configuration] to access to Bonita Artifact Repository.
+====
 
 [TIP]
 ====
