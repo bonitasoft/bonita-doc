@@ -86,7 +86,6 @@ The property `bonita.runtime.business-data.serialization.standard-shape.enabled`
 |Property |`bonita.runtime.business-data.serialization.standard-shape.enabled`
 |Type |Boolean
 |Default Value |`true` (from version 2026.1)
-|Scope |Tenant-level
 |===
 
 === Using Properties File
