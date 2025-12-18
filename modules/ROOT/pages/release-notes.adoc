@@ -52,27 +52,14 @@ This feature allows the Email connector to authenticate using a pre-obtained OAu
 
 See xref:process:messaging.adoc[Email Connector documentation] for more information.
 
-== Notable changes
-
-
-== Support matrix changes
-
-
-== Deprecations and removals
-
-=== API deprecations
-
-=== API removals
-
-=== Custom component changes
-
-=== Configuration changes
-
 
 == Bug fixes
 
-=== Fixes in Bonita {bonitaVersion} (November 05, 2025)
+=== Fixes in Bonita 2025.2-u0 (2025-11-05)
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
-==== Fixes in Bonita Studio (including Bonita UI Designer)
+* BPA-204 Classloader initialisation fails because of a hardcoded 5-minutes timeout
+* BPA-209 Incorrect Java Version in Docker 2025.1 Image
+* BPA-215 [OIDC][Cluster] Parallel token refresh race condition and failure to save new tokens
+* BPA-244 [OIDC][CORS] Allowed origins verification fails with opaque tokens (it assumes access token is a JWT)
