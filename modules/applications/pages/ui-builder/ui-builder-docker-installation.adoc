@@ -26,6 +26,13 @@ The following environment variables are optional:
 - `LOGGING_LEVEL_COM_EXTERNAL_PLUGINS`: Sets the logging level for external plugins (default: `debug`).
 - `BONITA_APPLICATION_EXPORT_PATH`: Internal Path to export Bonita UIB Application from Bonita Runtime (default: `/opt/appsmith/workspace/app/exports/`).
 
+
+
+[NOTE]
+====
+If you want to see the applications export in your file system, you need to mount a volume on the path defined in the `BONITA_APPLICATION_EXPORT_PATH` variable.
+====
+
 === Configure the `bonita-ui-proxy` image
 
 The *bonita-ui-proxy* image is based on the official Nginx Docker image. It includes a custom `nginx.conf` file built to establish communications between Bonita UI Builder and a Bonita Runtime.
