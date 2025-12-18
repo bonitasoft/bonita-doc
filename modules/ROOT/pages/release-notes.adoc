@@ -10,6 +10,23 @@ The {bonitaVersion} version is in development.
 
 == Notable changes
 
+=== BDM REST API response format standardization
+
+Starting from this version, the response format for BDM queries via REST API has been standardized to follow REST conventions:
+
+* **Scalar queries** (COUNT, AVG, MAX, MIN, SUM): Now return `{"value": n}` instead of `[n]`
+* **Single entity queries**: Now return the object directly `{...}` instead of wrapping it in an array `[{...}]`
+* **List queries**: Unchanged, still return arrays `[{...}, {...}]`
+
+This change affects REST API consumers (JavaScript clients, UI Designer pages, external applications). Server-side Groovy code using DAO methods is not affected.
+
+To maintain backward compatibility, you can disable the new format by setting:
+[source,properties]
+----
+bonita.runtime.business-data.serialization.standard-shape.enabled=false
+----
+
+See xref:data:bdm-query-response-formats.adoc[BDM Query Response Formats] for detailed migration guidance.
 
 == Support matrix changes
 

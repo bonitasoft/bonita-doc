@@ -541,7 +541,7 @@ Change the default timeout value (5 minutes) used when the classloaders are init
 === BONITA_RUNTIME_BUSINESS_DATA_SERIALIZATION_STANDARD_SHAPE_ENABLED
 This optional environment variable controls whether BDM JSON serialization follows standard REST shapes or legacy array-based formats. +
 When enabled (*true*): Count queries return `{ "value": n }` instead of `[n]`, and single-entity queries return `{ ... }` instead of `[ { ... } ]`. +
-When disabled (*false*, default): Legacy array format is used for backward compatibility. +
+When disabled (*false*): Legacy array format is used for backward compatibility. +
 Default value is *true*. +
 See xref:data:bdm-query-response-formats.adoc[BDM Query Response Formats] for detailed information about response formats and migration guidance.
 

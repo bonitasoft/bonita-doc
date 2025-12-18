@@ -127,8 +127,8 @@ Where `0` is the start index, `9` is the end index, and `150` is the total count
 
 The `Content-Range` header is returned only for **entity list queries** that have a corresponding count query defined:
 
-* ✅ **Provided queries** (auto-generated): `find`, `findBy{AttributeName}` - count queries are created automatically
-* ✅ **Custom list queries** with a defined `countFor{QueryName}` query
+* ✅ **Provided queries** (auto-generated): `find`, `findBy\{AttributeName}` - count queries are created automatically
+* ✅ **Custom list queries** with a defined `countFor\{QueryName}` query
 * ❌ **Scalar queries** (COUNT, AVG, MAX, MIN, SUM) - no Content-Range header
 * ❌ **Single entity queries** - no pagination needed
 * ❌ **Custom list queries without count query** - query works but no Content-Range
@@ -156,7 +156,7 @@ For custom queries returning lists, you must define a corresponding count query 
 
 Rules for count queries:
 
-* Name must be `countFor{QueryName}` (e.g., `countForFindByStatus`)
+* Name must be `countFor\{QueryName}` (e.g., `countForFindByStatus`)
 * Return type must be `java.lang.Long`
 * Query parameters must match the base query exactly
 
