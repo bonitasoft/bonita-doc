@@ -117,8 +117,6 @@ Create a class that implements `SHandler<SEvent>`.
 ----
 package org.bonitasoft.example;
 
-import java.util.UUID;
-
 import org.bonitasoft.engine.events.model.SEvent;
 import org.bonitasoft.engine.events.model.SHandler;
 import org.bonitasoft.engine.events.model.SHandlerExecutionException;
@@ -129,7 +127,7 @@ public class EventHandlerExample implements SHandler<SEvent> {
 
     private static Logger logger = LoggerFactory.getLogger(EventHandlerExample.class);
 
-    private final String identifier = UUID.randomUUID().toString();
+    private static final String IDENTIFIER = "EventHandlerExample";
 
     public EventHandlerExample() {
     }
@@ -152,7 +150,7 @@ public class EventHandlerExample implements SHandler<SEvent> {
 
     @Override
     public String getIdentifier() {
-        return identifier;
+        return IDENTIFIER;
     }
 }
 ----
@@ -231,6 +229,85 @@ public boolean isInterested(SEvent event) {
 ----
 
 Event handlers are recursive, that is, if an event handler itself modifies something and triggers an event, the relevant event handler is called. This means you might need to include loop detection in your event handler.
+
+
+== Cluster Considerations and Best Practices
+
+When deploying event handlers in a clustered Bonita environment, special attention must be paid to handler registration and identification to avoid duplicate handler registration across cluster nodes.
+
+=== Handler Identifiers
+
+Each event handler must implement the `getIdentifier()` method which returns a unique identifier for the handler. This identifier is critical in clustered environments because:
+
+* Handlers are stored in a distributed Hazelcast map shared across all cluster nodes
+* The identifier is used to determine if a handler is already registered
+* Multiple nodes initializing simultaneously may attempt to register the same handler
+
+[WARNING]
+====
+*DO NOT use random or instance-specific identifiers* such as `UUID.randomUUID().toString()` for your handler identifier.
+
+Using random UUIDs will cause each cluster node to register a separate instance of the same handler, leading to:
+
+* Multiple executions of the same handler logic for each event
+* Inconsistent behavior across the cluster
+* Performance degradation due to duplicate processing
+* Potential data inconsistency issues
+
+Instead, use a *static, deterministic identifier* that is the same across all instances of your handler class.
+====
+
+.Bad Practice - Random Identifier
+[source,java]
+----
+public class MyEventHandler implements SHandler<SEvent> {
+    // WRONG: Each instance gets a different identifier
+    private final String identifier = UUID.randomUUID().toString(); // DO NOT DO that!
+
+    @Override
+    public String getIdentifier() {
+        return identifier;
+    }
+}
+----
+
+.Good Practice - Static Identifier
+[source,java]
+----
+public class MyEventHandler implements SHandler<SEvent> {
+    // CORRECT: All instances share the same identifier
+    private static final String IDENTIFIER = "MyEventHandler";
+
+    @Override
+    public String getIdentifier() {
+        return IDENTIFIER;
+    }
+}
+----
+
+=== Idempotent Handler Registration
+
+[NOTE]
+====
+If you deploy your event handlers via `bonita-tenant-sp-custom.xml` described above, this section is not relevant for you.
+====
+
+When registering event handlers programmatically (e.g., in a Spring `@PostConstruct` method or service initialization), use the `registerHandlerIfNotExists()` method instead of `addHandler()` to ensure idempotent registration:
+
+[source,java]
+----
+@PostConstruct
+public void initialize() {
+    // RECOMMENDED: Only registers if not already present (cluster-safe)
+    eventService.registerHandlerIfNotExists("PROCESSINSTANCE_CREATED",
+        new MyEventHandler());
+
+    // AVOID: Will throw exception if handler already registered by another node of the cluster
+    // eventService.addHandler("PROCESSINSTANCE_CREATED", new MyEventHandler());
+}
+----
+
+The `registerHandlerIfNotExists()` method checks if a handler with the same identifier is already registered before adding it, making it safe for concurrent registration attempts from multiple cluster nodes.
 
 == Event list
 
