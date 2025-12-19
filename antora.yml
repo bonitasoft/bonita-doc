@@ -8,10 +8,10 @@ asciidoc:
     bonitaVersion: 2026.1
     bonitasoft-registry: 'bonitasoft.jfrog.io'
     bonitasoft-docker-repository: '{bonitasoft-registry}/docker'
-    bonitaTechnicalVersion: '10.4.0' # latest public community version
+    bonitaTechnicalVersion: '10.5.0' # latest public community version
     bonitaTagOrBranch: 'dev' # for links to the code hosted on GitHub
     minimalRequiredJavaVersion: '17'
-    javadocVersion: '10.4'
+    javadocVersion: '10.5'
     laDeployerVersion: '1.2.0'
     keycloakDocumentationVersion: 21.1.2
     openApiUrl: 'https://api-documentation.bonitasoft.com'
