@@ -166,7 +166,7 @@ SQL Server::
 --
 [source,shell]
 ----
-docker run -d --name bonita-sqlserver -p 1433:1433 bonitasoft/bonita-sqlserver:2022-CU4
+docker run -d --name bonita-sqlserver -p 1433:1433 bonitasoft/bonita-sqlserver:2022-CU21
 ----
 --
 ====
