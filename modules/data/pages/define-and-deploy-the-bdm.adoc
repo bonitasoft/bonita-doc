@@ -95,7 +95,7 @@ To create a custom query, open the `bom.xml` file in the Studio and go the `quer
 
 To use paged results with a custom query on a business object, you need to define a related query that counts the total number of results that the query would return without paging. The count query name is based on the custom query name; for example, for a query named `query1`, the count query must be named `countForQuery1`. For a default query, the count query is created automatically.
 
-When you call a query via the REST API, the relevant count query is automatically called in the background to get the total count, which can be used to calculate the number of pages necessary to retrieve all matching results. The result of the count query is visible in the HTTP response header, in the Content-Range field.
+When you call a query via the REST API, the relevant count query is automatically called in the background to get the total count, which can be used to calculate the number of pages necessary to retrieve all matching results. The result of the count query is visible in the HTTP response header, in the Content-Range field. See xref:bdm-query-response-formats.adoc#_pagination_and_content_range_header[Pagination and Content-Range Header] for more details.
 
 To call a query, use the DAO instance. For a Groovy expression, there is a provided variable that implements the business object DAO class.
 
