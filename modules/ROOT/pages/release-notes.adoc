@@ -26,6 +26,11 @@ To maintain backward compatibility, you can disable the new format by setting:
 bonita.runtime.business-data.serialization.standard-shape.enabled=false
 ----
 
+[NOTE]
+====
+If you are updating from a previous version of Bonita, backward compatibility is maintained for you by disabling automatically this new property. You are free to activate it when you code is compatible by modifying file `bonita-tenant-community-custom.properties`
+====
+
 See xref:data:bdm-query-response-formats.adoc[BDM Query Response Formats] for detailed migration guidance.
 
 == Support matrix changes
