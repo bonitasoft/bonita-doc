@@ -55,7 +55,7 @@ See xref:process:messaging.adoc[Email Connector documentation] for more informat
 
 == Bug fixes
 
-=== Fixes in Bonita 2025.2-u0 (2025-11-05)
+=== Fixes in Bonita 2025.2-u0 (2025-12-15)
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)
 
