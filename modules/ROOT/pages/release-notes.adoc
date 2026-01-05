@@ -376,6 +376,13 @@ The timezone can be set via *TZ* environment variable. Check the https://data.ia
 
 == Bug fixes
 
+=== Fixes in Bonita 2023.2-u11
+
+==== Fixes in Bonita Runtime including Bonita Applications
+
+* xref:security:java-security-policy.adoc[Java Security Policy] is now enabled by default in Docker deployments (Subscription editions only). This security feature uses ProGrade to protect against malicious Groovy script execution, including command execution, credential theft, and access to sensitive files. +
+*Note:* The xref:process:script.adoc[System script connector] will not work when this policy is active. Set `PRO_GRADE=false` to disable if needed (not recommended).
+
 === Fixes in Bonita 2023.2-u10 (2025-08-05)
 
 * CVE-104 - Apache Tomcat - DoS via excessive HTTP/2 streams (fixing CVE-2025-53506)
