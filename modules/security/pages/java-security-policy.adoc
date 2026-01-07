@@ -1,0 +1,141 @@
+= Java Security Policy
+:page-aliases: ROOT:java-security-policy.adoc
+:description: Bonita Docker images include Java Security Policy using ProGrade to protect against malicious Groovy script execution.
+
+{description}
+
+[NOTE]
+====
+For Subscription editions only.
+====
+
+== Default security setup in Bonita
+
+Starting from Bonita 2025.2-u1, Java Security Policy is enabled by default in Docker deployments using the `PRO_GRADE=true` environment variable.
+
+This security feature uses https://github.com/pro-grade/pro-grade[ProGrade], a Java Security Manager implementation, to enforce security policies that protect against malicious Groovy script execution in the runtime environment.
+
+== Security Protections
+
+The Java Security Policy protects against the following threats:
+
+* Command execution
+* Groovy `.execute()` method
+* Security Manager bypass
+* JVM crash attempts
+* Credential theft
+* Sensitive file reads
+* Container secrets access
+* Configuration theft
+
+== Connector compatibility
+
+The following connectors are *not compatible* with the Java Security Policy and will fail when it is enabled:
+
+* xref:process:script.adoc[System script connector] - Executes shell commands which are blocked by the policy
+
+If your processes rely on these connectors, you will need to either refactor your processes or disable the security policy.
+
+== Migration impact
+
+When upgrading to Bonita 2025.2-u1 or later, be aware of the following:
+
+* Java Security Policy is *enabled by default* in Subscription Docker images
+* Existing Groovy scripts that use blocked operations will fail with a security exception
+* Custom connectors or REST API extensions using system commands need to be reviewed
+* Scripts attempting to read environment variables from Groovy will fail
+* The xref:process:script.adoc[System script connector] will not work
+
+If your existing Groovy scripts, REST API extensions or connectors rely on any of the blocked operations listed above, you will need to either:
+
+* Refactor your scripts to avoid using blocked operations
+* Temporarily disable the security policy (not recommended) while you update your scripts
+
+== How to disable Java Security Policy
+
+[WARNING]
+====
+Disabling the Java Security Policy is *not recommended* as it removes important protections against malicious script execution. Only disable it temporarily if you need to migrate existing scripts that rely on blocked operations.
+====
+
+To disable the Java Security Policy, set the `PRO_GRADE` environment variable to `false` when starting your Docker container:
+
+[source,shell,subs="+macros,+attributes"]
+----
+docker run --name bonita -h <hostname> -v ~/bonita-lic/:/opt/bonita_lic/ \
+    -e PRO_GRADE=false \
+    -d -p 8080:8080 {bonitasoft-docker-repository}/bonita-subscription:pass:a[{bonitaVersion}]
+----
+
+Or in a Docker Compose file:
+
+[source,yaml]
+----
+services:
+  bonita:
+    environment:
+      - PRO_GRADE=false
+----
+
+== Customizing the security policy
+
+For advanced users who need to customize the security policy, there are two approaches:
+
+=== Using Helm chart override
+
+If you are deploying Bonita using Helm charts, you can mount your own custom policy file that will override the default policy. The Helm chart allows you to specify a custom policy through values configuration.
+
+=== Using Docker volume mount
+
+You can mount a custom policy file by creating a volume that maps to `/opt/bonita/conf/prograde/` inside the container:
+
+[source,shell]
+----
+docker run --name bonita \
+    -v ~/my-custom-policy/prograde.policy:/opt/bonita/conf/prograde/prograde.policy \
+    ...
+----
+
+[WARNING]
+====
+Customizing the security policy requires a deep understanding of Java Security Manager policies and the ProGrade syntax. Incorrect policies may either break Bonita functionality or leave security gaps.
+====
+
+== Troubleshooting
+
+=== Groovy script fails with SecurityException
+
+If your Groovy scripts fail with a `SecurityException`, it means the script is attempting to perform an operation that is blocked by the security policy.
+
+*Symptom:* A Groovy expression or script fails with an error like:
+----
+java.security.AccessControlException: access denied
+----
+
+*Solutions:*
+
+* Review your script to identify which blocked operation it is attempting
+* Refactor the script to avoid using blocked operations
+* If the operation is absolutely required, consider temporarily disabling the security policy while you work on an alternative approach
+
+=== Connector fails to execute system commands
+
+If a custom connector that previously worked now fails when executing system commands:
+
+*Symptom:* Connector execution fails with a security-related exception.
+
+*Solutions:*
+
+* Review the connector implementation to identify system command usage
+* Consider using alternative approaches that don't require system command execution
+* If using a third-party connector, check with the vendor for an updated version that works with the security policy
+
+=== Identifying blocked operations in logs
+
+To identify which operations are being blocked, you can enable debug logging. Check the Tomcat logs for security-related exceptions that will indicate which permission is being denied.
+
+== See also
+
+* xref:runtime:bonita-docker-installation.adoc#environment-variables[Docker environment variables]
+* xref:csrf-security.adoc[CSRF security]
+* xref:sanitizer-security.adoc[Input validation]

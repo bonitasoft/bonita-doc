@@ -55,6 +55,11 @@ See xref:process:messaging.adoc[Email Connector documentation] for more informat
 
 == Bug fixes
 
+=== Fixes in Bonita 2025.2-u1 (2026-01-08)
+
+* xref:security:java-security-policy.adoc[Java Security Policy] is now enabled by default in Docker image (Subscription editions only). This security feature protects against malicious Groovy script execution, including command execution and access to sensitive files. +
+*Note:* The xref:process:script.adoc[System script connector] will not work when this policy is active. Set `PRO_GRADE=false` to disable if needed (not recommended).
+
 === Fixes in Bonita 2025.2-u0 (2025-12-15)
 
 ==== Fixes in Bonita Runtime (including Bonita Applications)

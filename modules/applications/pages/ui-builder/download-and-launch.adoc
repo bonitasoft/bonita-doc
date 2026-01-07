@@ -30,7 +30,7 @@ First, create a `docker-compose.yml` file with the content below:
 include::example$ui-builder/development/docker-compose.yml[]
 ----
 
-If Bonita is running on a port other than 8080, you need to update the `8080` in the `BONITA_API_URL` variable within the `docker-compose.yml` file described above. Also, you need to override the `BONITA_PORT` xref:ui-builder-docker-installation.adoc#environment-variables[environment variable].
+If Bonita is running on a port other than 8080, you need to override the `BONITA_PORT` xref:ui-builder-docker-installation.adoc#environment-variables[environment variable] in the `bonita-ui-proxy` service within the `docker-compose.yml` file.
 
 [NOTE]
 ====
