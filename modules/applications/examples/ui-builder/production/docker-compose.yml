@@ -23,6 +23,7 @@ services:
       UIB_PORT: 80
       BONITA_HOST: bonita-app
       BONITA_PORT: 8080
+      # NGINX_EXTERNAL_PORT: 8888  # Uncomment and set if using a non-standard port (e.g., ports: 8888:80)
 
   bonita-app:
     # Replace below with your image name and version, as built following
