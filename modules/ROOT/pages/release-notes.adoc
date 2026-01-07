@@ -32,6 +32,11 @@ We are pleased to bring several exciting advancements in this release, including
 
 == Bug fixes
 
+=== Fixes in Bonita 2024.2-u7 (2025-01-07)
+
+* xref:security:java-security-policy.adoc[Java Security Policy] is now enabled by default in Docker image (Subscription editions only). This security feature protects against malicious Groovy script execution, including command execution and access to sensitive files. +
+*Note:* The xref:process:script.adoc[System script connector] will not work when this policy is active. Set `PRO_GRADE=false` to disable if needed (not recommended).
+
 === Fixes in Bonita 2024.2-u6 (2025-08-05)
 
 * CVE-104 - Apache Tomcat - DoS via excessive HTTP/2 streams (fixing CVE-2025-53506)
