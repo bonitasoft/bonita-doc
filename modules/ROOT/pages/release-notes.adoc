@@ -81,7 +81,7 @@ Note that this new API is now also available in the Community edition and provid
 
 * BPA-141 - Process diagram (Case visu) shows whitespace on top when the process is not first in the diagram
 * BPA-144 - [SSO] OIDC access tokens refresh is failing when the token is opaque (non JWT)
-* BPA-158 - UiPath connector does not support OAuth2 authentication to connect to UiPath Cloud
+* BPA-178 - UiPath connector fails with java.lang.NoSuchFieldError
 * BPA-200 - On-going case's visualisation doesn't display any status regarding the flownode execution when start event is a Timer
 * BPA-204 - Classloader initialisation fails because of a hardcoded 5-minutes timeout
 * BPA-215 - [OIDC][Cluster] Parallel token refresh race condition and failure to save new tokens
@@ -89,6 +89,7 @@ Note that this new API is now also available in the Community edition and provid
 * BPA-244 - [OIDC][CORS] Allowed origins verification fails with opaque tokens (it assumes access token is a JWT)
 * BPA-256 - [Cluster] Bonita Usage Metrics Plugin: Duplicate Requests
 * BPA-266 - [Cluster] Incorrect counting of active sessions in tomcat.sessions.active.current
+* BPA-271 - UiPath connector does not support OAuth2 authentication to connect to UiPath Cloud
 
 === Fixes in Bonita 2024.3-u4 (2025-08-08)
 
