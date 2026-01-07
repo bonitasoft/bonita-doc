@@ -46,7 +46,7 @@ When upgrading to Bonita 2023.2-u11 or later, be aware of the following:
 * Scripts attempting to read environment variables from Groovy will fail
 * The xref:process:script.adoc[System script connector] will not work
 
-If your existing Groovy scripts or connectors rely on any of the blocked operations listed above, you will need to either:
+If your existing Groovy scripts, REST API extensions or connectors rely on any of the blocked operations listed above, you will need to either:
 
 * Refactor your scripts to avoid using blocked operations
 * Temporarily disable the security policy (not recommended) while you update your scripts
