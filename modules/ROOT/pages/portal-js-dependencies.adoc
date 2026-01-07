@@ -1,4 +1,4 @@
-= Dependencies for Bonita Portal-JS 10.1.6
+= Dependencies for Bonita Portal-JS 10.1.7
 :description: NodeJS Dependencies for Bonita Portal JS project 
 
 
@@ -84,7 +84,7 @@
 
 | duplexer2 | 0.0.2 | [BSD*]
 
-| error-ex | 1.3.2 | [MIT]
+| error-ex | 1.3.4 | [MIT]
 
 | es5-shim | 4.1.1 | [MIT]
 
@@ -274,7 +274,7 @@
 
 | repeating | 2.0.1 | [MIT]
 
-| resolve | 1.22.10 | [MIT]
+| resolve | 1.22.11 | [MIT]
 
 | semver | 5.7.2 | [ISC]
 
@@ -288,7 +288,7 @@
 
 | spdx-expression-parse | 3.0.1 | [MIT]
 
-| spdx-license-ids | 3.0.21 | [CC0-1.0]
+| spdx-license-ids | 3.0.22 | [CC0-1.0]
 
 | string_decoder | 0.10.31 | [MIT]
 
