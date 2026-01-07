@@ -42,7 +42,7 @@ When upgrading to Bonita 2023.2-u11 or later, be aware of the following:
 
 * Java Security Policy is *enabled by default* in Subscription Docker images
 * Existing Groovy scripts that use blocked operations will fail with a security exception
-* Custom connectors using system commands need to be reviewed
+* Custom connectors or REST API extensions using system commands need to be reviewed
 * Scripts attempting to read environment variables from Groovy will fail
 * The xref:process:script.adoc[System script connector] will not work
 
