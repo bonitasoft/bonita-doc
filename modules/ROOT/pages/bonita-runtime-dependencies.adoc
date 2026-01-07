@@ -1,4 +1,4 @@
-= Bonita Runtime dependencies (10.1.6)
+= Bonita Runtime dependencies (10.1.7)
 :page-aliases: ROOT:bonita-web-dependencies.adoc, ROOT:bonita-engine-dependencies.adoc
 :description: List all dependencies used by Bonita Runtime
 
@@ -406,9 +406,15 @@
 
 | org.apache.commons
 | commons-lang3
-| 3.11
+| 3.20.0
 | https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
+
+| org.apache.commons
+| commons-text
+| 1.15.0
+| https://commons.apache.org/proper/commons-text[https://commons.apache.org/proper/commons-text]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | org.codehaus.groovy
 | groovy
@@ -770,42 +776,6 @@
 | https://github.com/FasterXML/woodstox[https://github.com/FasterXML/woodstox]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
-| com.google.code.findbugs
-| jsr305
-| 3.0.2
-| http://findbugs.sourceforge.net/[http://findbugs.sourceforge.net/]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| com.google.errorprone
-| error_prone_annotations
-| 2.18.0
-| N/A
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache 2.0]
-
-| com.google.guava
-| failureaccess
-| 1.0.1
-| https://github.com/google/guava/[https://github.com/google/guava/]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| com.google.guava
-| guava
-| 32.1.2-jre
-| https://github.com/google/guava/[https://github.com/google/guava/]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
-
-| com.google.guava
-| guava-parent
-| 32.1.2-jre
-| N/A
-|  N/A
-
-| com.google.guava
-| listenablefuture
-| 9999.0-empty-to-avoid-conflict-with-guava
-| N/A
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
 | com.googlecode.json-simple
 | json-simple
 | 1.1
@@ -813,8 +783,20 @@
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.googlecode.owasp-java-html-sanitizer
+| java10-shim
+| 20260102.1
+| https://github.com/OWASP/java-html-sanitizer[https://github.com/OWASP/java-html-sanitizer]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+
+| com.googlecode.owasp-java-html-sanitizer
+| java8-shim
+| 20260102.1
+| https://github.com/OWASP/java-html-sanitizer[https://github.com/OWASP/java-html-sanitizer]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+
+| com.googlecode.owasp-java-html-sanitizer
 | owasp-java-html-sanitizer
-| 20220608.1
+| 20260102.1
 | https://owasp.org[https://owasp.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -934,9 +916,9 @@
 
 | org.apache.commons
 | commons-lang3
-| 3.11
+| 3.20.0
 | https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | org.apache.httpcomponents
 | httpclient
@@ -961,12 +943,6 @@
 | 3.7
 | http://geronimo.apache.org/maven/xbean/3.7/xbean-classloader[http://geronimo.apache.org/maven/xbean/3.7/xbean-classloader]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.checkerframework
-| checker-qual
-| 3.33.0
-| https://checkerframework.org/[https://checkerframework.org/]
-|  http://opensource.org/licenses/MIT[The MIT License]
 
 | org.codehaus.groovy
 | groovy
@@ -1132,7 +1108,7 @@
 
 | com.microsoft.sqlserver
 | mssql-jdbc
-| 8.4.1.jre8
+| 12.6.5.jre11
 | https://github.com/Microsoft/mssql-jdbc[https://github.com/Microsoft/mssql-jdbc]
 |  http://www.opensource.org/licenses/mit-license.php[MIT License]
 
@@ -1143,10 +1119,10 @@
 |  The GNU General Public License, v2 with Universal FOSS Exception, v1.0
 
 | com.oracle.database.jdbc
-| ojdbc8
-| 19.3.0.0
-| https://www.oracle.com/database/technologies/appdev/jdbc.html[https://www.oracle.com/database/technologies/appdev/jdbc.html]
-|  Oracle Free Use Terms and Conditions (FUTC)
+| ojdbc11
+| 23.26.0.0.0
+| https://www.oracle.com/database/technologies/maven-central-guide.html[https://www.oracle.com/database/technologies/maven-central-guide.html]
+|  https://www.oracle.com/downloads/licenses/oracle-free-license.html[Oracle Free Use Terms and Conditions (FUTC)]
 
 | com.zaxxer
 | HikariCP
@@ -1174,25 +1150,25 @@
 
 | org.apache.commons
 | commons-lang3
-| 3.12.0
+| 3.20.0
 | https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | org.apache.commons
 | commons-text
-| 1.10.0
+| 1.15.0
 | https://commons.apache.org/proper/commons-text[https://commons.apache.org/proper/commons-text]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | org.checkerframework
 | checker-qual
-| 3.5.0
-| https://checkerframework.org[https://checkerframework.org]
+| 3.49.5
+| https://checkerframework.org/[https://checkerframework.org/]
 |  http://opensource.org/licenses/MIT[The MIT License]
 
 | org.postgresql
 | postgresql
-| 42.4.4
+| 42.7.8
 | https://jdbc.postgresql.org/[https://jdbc.postgresql.org/]
 |  https://jdbc.postgresql.org/about/license.html[BSD-2-Clause]
 
@@ -1817,9 +1793,15 @@
 
 | org.apache.commons
 | commons-lang3
-| 3.11
+| 3.20.0
 | https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
+
+| org.apache.commons
+| commons-text
+| 1.15.0
+| https://commons.apache.org/proper/commons-text[https://commons.apache.org/proper/commons-text]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | org.apache.httpcomponents
 | httpclient
@@ -2235,42 +2217,6 @@
 | https://github.com/FasterXML/woodstox[https://github.com/FasterXML/woodstox]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
-| com.google.code.findbugs
-| jsr305
-| 3.0.2
-| http://findbugs.sourceforge.net/[http://findbugs.sourceforge.net/]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| com.google.errorprone
-| error_prone_annotations
-| 2.3.4
-| N/A
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache 2.0]
-
-| com.google.guava
-| failureaccess
-| 1.0.1
-| https://github.com/google/guava/[https://github.com/google/guava/]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| com.google.guava
-| guava
-| 30.1-jre
-| https://github.com/google/guava/[https://github.com/google/guava/]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
-
-| com.google.guava
-| listenablefuture
-| 9999.0-empty-to-avoid-conflict-with-guava
-| N/A
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| com.google.j2objc
-| j2objc-annotations
-| 1.3
-| https://github.com/google/j2objc/[https://github.com/google/j2objc/]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
 | com.googlecode.json-simple
 | json-simple
 | 1.1
@@ -2278,10 +2224,28 @@
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.googlecode.owasp-java-html-sanitizer
+| java10-shim
+| 20260102.1
+| https://github.com/OWASP/java-html-sanitizer[https://github.com/OWASP/java-html-sanitizer]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+
+| com.googlecode.owasp-java-html-sanitizer
+| java8-shim
+| 20260102.1
+| https://github.com/OWASP/java-html-sanitizer[https://github.com/OWASP/java-html-sanitizer]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+
+| com.googlecode.owasp-java-html-sanitizer
 | owasp-java-html-sanitizer
-| 20220608.1
+| 20260102.1
 | https://owasp.org[https://owasp.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+
+| com.hazelcast
+| hazelcast
+| 5.3.5
+| http://www.hazelcast.com/[http://www.hazelcast.com/]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.sun.activation
 | jakarta.activation
@@ -2355,6 +2319,12 @@
 | http://commons.apache.org/collections/[http://commons.apache.org/collections/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
+| commons-digester
+| commons-digester
+| 2.1
+| http://commons.apache.org/digester/[http://commons.apache.org/digester/]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
 | commons-fileupload
 | commons-fileupload
 | 1.6.0
@@ -2371,6 +2341,12 @@
 | commons-logging
 | 1.3.5
 | https://commons.apache.org/proper/commons-logging/[https://commons.apache.org/proper/commons-logging/]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
+
+| commons-validator
+| commons-validator
+| 1.10.1
+| https://commons.apache.org/proper/commons-validator/[https://commons.apache.org/proper/commons-validator/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | io.github.x-stream
@@ -2471,9 +2447,9 @@
 
 | org.apache.commons
 | commons-lang3
-| 3.11
+| 3.20.0
 | https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | org.apache.httpcomponents
 | httpclient
@@ -2522,12 +2498,6 @@
 | 1.78.1
 | https://www.bouncycastle.org/java.html[https://www.bouncycastle.org/java.html]
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
-
-| org.checkerframework
-| checker-qual
-| 3.5.0
-| https://checkerframework.org[https://checkerframework.org]
-|  http://opensource.org/licenses/MIT[The MIT License]
 
 | org.codehaus.groovy
 | groovy
@@ -2831,7 +2801,7 @@
 
 | com.microsoft.sqlserver
 | mssql-jdbc
-| 8.4.1.jre8
+| 12.6.5.jre11
 | https://github.com/Microsoft/mssql-jdbc[https://github.com/Microsoft/mssql-jdbc]
 |  http://www.opensource.org/licenses/mit-license.php[MIT License]
 
@@ -2842,10 +2812,10 @@
 |  The GNU General Public License, v2 with Universal FOSS Exception, v1.0
 
 | com.oracle.database.jdbc
-| ojdbc8
-| 19.3.0.0
-| https://www.oracle.com/database/technologies/appdev/jdbc.html[https://www.oracle.com/database/technologies/appdev/jdbc.html]
-|  Oracle Free Use Terms and Conditions (FUTC)
+| ojdbc11
+| 23.26.0.0.0
+| https://www.oracle.com/database/technologies/maven-central-guide.html[https://www.oracle.com/database/technologies/maven-central-guide.html]
+|  https://www.oracle.com/downloads/licenses/oracle-free-license.html[Oracle Free Use Terms and Conditions (FUTC)]
 
 | com.zaxxer
 | HikariCP
@@ -2873,25 +2843,25 @@
 
 | org.apache.commons
 | commons-lang3
-| 3.12.0
+| 3.20.0
 | https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | org.apache.commons
 | commons-text
-| 1.10.0
+| 1.15.0
 | https://commons.apache.org/proper/commons-text[https://commons.apache.org/proper/commons-text]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | org.checkerframework
 | checker-qual
-| 3.5.0
-| https://checkerframework.org[https://checkerframework.org]
+| 3.49.5
+| https://checkerframework.org/[https://checkerframework.org/]
 |  http://opensource.org/licenses/MIT[The MIT License]
 
 | org.postgresql
 | postgresql
-| 42.4.4
+| 42.7.8
 | https://jdbc.postgresql.org/[https://jdbc.postgresql.org/]
 |  https://jdbc.postgresql.org/about/license.html[BSD-2-Clause]
 
