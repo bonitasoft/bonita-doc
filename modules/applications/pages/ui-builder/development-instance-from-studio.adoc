@@ -83,7 +83,7 @@ After UI Builder has started, a browser window opens automatically to access the
 
 [WARNING]
 ====
-On MacOs, be sure to follow the xref:software-extensibility:bonita-repository-access.adoc#macOS-configuration[specific configuration] to access to Bonita Artifact Repository.
+On macOS, be sure to follow the xref:software-extensibility:bonita-repository-access.adoc#macOS-configuration[specific configuration] to access to Bonita Artifact Repository.
 ====
 
 [TIP]
