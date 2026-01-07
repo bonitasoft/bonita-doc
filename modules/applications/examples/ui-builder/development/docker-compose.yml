@@ -4,15 +4,11 @@ services:
     image: pass:a[{bonita-ui-builder-image}]:pass:a[{bonita-ui-builder-version}]
     container_name: bonita-ui-builder
     environment:
-      BONITA_API_URL: http://host.docker.internal:8080/bonita/API
-    ports:
-      - "8090:80"
+      BONITA_API_URL: http://bonita-ui-proxy/bonita/API
     # Mount a volume to store persistent data
     volumes:
       - ./stacks:/appsmith-stacks
       - ./web_applications:/opt/appsmith/workspace/app/export
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
 
   # A reverse proxy used to communicate between Bonita UI Builder and a Bonita Runtime
   bonita-ui-proxy:
@@ -20,5 +16,11 @@ services:
     ports:
       - 443:443
       - 80:80
+    environment:
+      UIB_HOST: bonita-ui-builder
+      UIB_PORT: 80
+      # Target existing Bonita installation running on docker host
+      BONITA_HOST: host.docker.internal
+      BONITA_PORT: 8080
     extra_hosts:
       - "host.docker.internal:host-gateway"
