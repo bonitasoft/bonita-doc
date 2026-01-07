@@ -218,10 +218,7 @@ When using Windows and Windows Subsystem for Linux (WSL), the localhost URLs do 
 Once you know that https://learn.microsoft.com/en-us/windows/wsl/networking#accessing-windows-networking-apps-from-linux-host-ip[specific IP address], if Bonita is hosted on Windows,
 you must adapt the `docker-compose.yml` to use it instead of `host.docker.internal` where Bonita is concerned.
 
-Set the following environment variables:
-
-* `BONITA_API_URL` under the `bonita-ui-builder` service.
-* `BONITA_HOST` under the `bonita-ui-proxy` service.
+Set the `BONITA_HOST` environment variable under the `bonita-ui-proxy` service to the Windows IP address.
 --
 
 [#5xxissue]
