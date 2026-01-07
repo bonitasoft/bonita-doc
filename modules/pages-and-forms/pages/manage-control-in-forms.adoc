@@ -39,7 +39,7 @@ image::ContractSimple.png[Leave Request - Instantiation contract]
 
 You can also add constraints on the contract inputs in the *Constraints* tab.
 
-For more information about process, business data management and contract, check out http://shop.oreilly.com/product/0636920039402.do[*Designing Efficient BPM Applications: A Process-Based Guide for Beginners*].
+For more information about process, business data management, and contract, check out https://www.oreilly.com/library/view/designing-efficient-bpm/9781491924709/[*Designing Efficient BPM Applications: A Process-Based Guide for Beginners*].
 
 To generate an instantiation form that complies with the contract (where the user will start a new request), go to the *Instantiation Form* tab, and click on the pen icon. This will take you to an open form in the UI Designer.
 By default, this form contains a *form container* with 4 *widgets* matching the contract:
