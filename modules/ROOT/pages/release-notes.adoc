@@ -79,6 +79,9 @@ Note that this new API is now also available in the Community edition and provid
 
 === Fixes in Bonita 2024.3-u5 (2026-01-06)
 
+* xref:security:java-security-policy.adoc[Java Security Policy] is now enabled by default in Docker image (Subscription editions only). This security feature protects against malicious Groovy script execution, including command execution and access to sensitive files. +
+*Note:* The xref:process:script.adoc[System script connector] will not work when this policy is active. Set `PRO_GRADE=false` to disable if needed (not recommended).
+
 * BPA-141 - Process diagram (Case visu) shows whitespace on top when the process is not first in the diagram
 * BPA-144 - [SSO] OIDC access tokens refresh is failing when the token is opaque (non JWT)
 * BPA-178 - UiPath connector fails with java.lang.NoSuchFieldError
