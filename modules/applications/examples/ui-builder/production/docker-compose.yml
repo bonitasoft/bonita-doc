@@ -5,7 +5,7 @@ services:
     container_name: bonita-ui-builder
     environment:
       BONITA_DEV_MODE: false
-      BONITA_API_URL: http://bonita-ui-proxy/bonita/API
+      BONITA_API_URL: +http://bonita-ui-proxy/bonita/API+
       APPSMITH_ENCRYPTION_PASSWORD: <encryption-password>
       APPSMITH_ENCRYPTION_SALT: <encryption-salt>
     depends_on:
@@ -23,6 +23,7 @@ services:
       UIB_PORT: 80
       BONITA_HOST: bonita-app
       BONITA_PORT: 8080
+      # NGINX_EXTERNAL_PORT: 8888  # Uncomment and set if using a non-standard port (e.g., ports: 8888:80)
 
   bonita-app:
     # Replace below with your image name and version, as built following
