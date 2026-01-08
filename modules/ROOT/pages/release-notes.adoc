@@ -93,6 +93,7 @@ Note that this new API is now also available in the Community edition and provid
 * BPA-256 - [Cluster] Bonita Usage Metrics Plugin: Duplicate Requests
 * BPA-266 - [Cluster] Incorrect counting of active sessions in tomcat.sessions.active.current
 * BPA-271 - UiPath connector does not support OAuth2 authentication to connect to UiPath Cloud
+* Several dependencies updated
 
 === Fixes in Bonita 2024.3-u4 (2025-08-08)
 
