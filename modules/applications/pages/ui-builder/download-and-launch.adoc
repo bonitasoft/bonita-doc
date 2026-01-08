@@ -68,7 +68,7 @@ Then, you can access Bonita UI Builder at `http://localhost`.
 
 [NOTE]
 ====
-The first time, the initialisation can take a while, a waiting message appears. Reload the page if the page is blank.
+The first time, the initialization can take a while; a waiting message appears. Reload the page if the page is blank.
 ====
 
 [WARNING]
