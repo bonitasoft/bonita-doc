@@ -391,6 +391,7 @@ The timezone can be set via *TZ* environment variable. Check the https://data.ia
 * BPA-256 - [Cluster] Bonita Usage Metrics Plugin: Duplicate Requests
 * BPA-266 - [Cluster] Incorrect counting of active sessions in tomcat.sessions.active.current
 * BPA-271 - UiPath connector does not support OAuth2 authentication to connect to UiPath Cloud
+* Several dependencies updated
 
 === Fixes in Bonita 2023.2-u10 (2025-08-05)
 
