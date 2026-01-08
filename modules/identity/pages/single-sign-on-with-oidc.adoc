@@ -493,7 +493,7 @@ In the file *keycloak-oidc.json*, make sure the property `enable-cors` is set to
   "cors-exposed-headers": "Access-Control-Allow-Origin,Access-Control-Allow-Credentials,x-bonita-api-token,content-type",
 ----
 
-Additionally (since Bonita 2024.3-u5), you can configure the `cors-allowed-origins` property to explicitly specify which origins are allowed to make cross-origin requests:
+Additionally (since Bonita 2025.1-u2), you can configure the `cors-allowed-origins` property to explicitly specify which origins are allowed to make cross-origin requests:
 
 ----
   "cors-allowed-origins": "https://example.com,https://app.example.com",
