@@ -5,7 +5,7 @@ services:
     container_name: bonita-ui-builder
     environment:
       BONITA_DEV_MODE: false
-      BONITA_API_URL: http://bonita-ui-proxy/bonita/API
+      BONITA_API_URL: +http://bonita-ui-proxy/bonita/API+
       APPSMITH_ENCRYPTION_PASSWORD: <encryption-password>
       APPSMITH_ENCRYPTION_SALT: <encryption-salt>
     depends_on:

@@ -4,7 +4,7 @@ services:
     image: pass:a[{bonita-ui-builder-image}]:pass:a[{bonita-ui-builder-version}]
     container_name: bonita-ui-builder
     environment:
-      BONITA_API_URL: http://bonita-ui-proxy/bonita/API
+      BONITA_API_URL: +http://bonita-ui-proxy/bonita/API+
     # Mount a volume to store persistent data
     volumes:
       - ./stacks:/appsmith-stacks
