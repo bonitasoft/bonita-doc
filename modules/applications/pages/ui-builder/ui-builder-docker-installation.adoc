@@ -41,6 +41,7 @@ The following environment variables are available to customize the configuration
 
 - `NGINX_ACCESS_LOG_ALL`: By default, 2xx and 3xx requests are not logged. Set to `1` to log all requests (default: `0`).
 - `NGINX_LISTEN_ADDRESS`: The address `host:[port]` on which Nginx is listen on for incoming requests (default: `80`). More information on the https://nginx.org/en/docs/http/ngx_http_core_module.html#listen[Nginx documentation].
+- `NGINX_EXTERNAL_PORT`: The external port used to access Nginx from outside the container. Set this to match the host port mapping in your `docker-compose.yml` when using a non-standard port (default: `80`). For example, if you map port 8888 on the host to port 80 in the container (`8888:80`), set this variable to `8888`.
 - `BONITA_HOST`: Host of the Bonita runtime to which UI Builder will request (default: `host.docker.internal`).
 - `BONITA_PORT`: Port of the Bonita runtime to which UI Builder will request (default: `8080`).
 - `UIB_HOST`: Host of the UI Builder instance. Use the Docker service name when services are on the same network (e.g., `bonita-ui-builder`).
