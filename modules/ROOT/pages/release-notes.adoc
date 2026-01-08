@@ -524,9 +524,19 @@ The notable changes are:
 
 * xref:security:java-security-policy.adoc[Java Security Policy] is now enabled by default in Docker image (Subscription editions only). This security feature protects against malicious Groovy script execution, including command execution and access to sensitive files. +
 *Note:* The xref:process:script.adoc[System script connector] will not work when this policy is active. Set `PRO_GRADE=false` to disable if needed (not recommended).
+* BPA-141 - Process diagram (Case visu) shows whitespace on top when the process is not first in the diagram.
+* BPA-178 - UiPath connector fails with java.lang.NoSuchFieldError: Companion
+* BPA-215 - [OIDC][Cluster] Parallel token refresh race condition and failure to save new tokens
+* BPA-220 - session_user missing from access logs when cluster mode is enabled
+* BPA-244 - [OIDC][CORS] Allowed origins verification fails with opaque tokens (it assumes access token is a JWT)
+* BPA-256 - Bonita Usage Metrics Plugin: Duplicate Requests
+* BPA-266 - Incorrect counting of active sessions in tomcat.sessions.active.current
+* BPA-271 - UiPath connector does not support OAuth2 authentication to connect to UiPath Cloud
+* Several dependencies updated.
 
 === Fixes in Bonita 2025.1-u1 (2025-11-03)
 
+* BPA-144 - [SSO] OIDC access tokens refresh is failing when the token is opaque (non JWT)
 * BPA-187 - Engine fails to start with Access edition license or with invalid license
 * BPA-200 - Ongoing case's visualisation doesn't display any status regarding the flownode execution when start event is a Timer
 * BPA-209 - Generate Request Key fails in the Docker image with the error "Invalid Java version 21"
