@@ -37,7 +37,7 @@ for (Log log : searchedLogs.getResult()) {
 
 == Implementation details
 
-The queriable logger service stores log message in the Bonita Engine back-end database using the Hibernate library. The https://github.com/bonitasoft/bonita-engine/blob/master/services/bonita-log/src/main/java/org/bonitasoft/engine/services/QueriableLoggerService.java[interface] and the https://github.com/bonitasoft/bonita-engine/tree/master/services/bonita-log/src/main/java/org/bonitasoft/engine/services/impl[implementation] of the service are available from the source code repository on https://github.com/bonitasoft/[GitHub].
+The queriable logger service stores log message in the Bonita Engine back-end database using the Hibernate library. The https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-log/src/main/java/org/bonitasoft/engine/services/QueriableLoggerService.java[interface] and the https://github.com/bonitasoft/bonita-engine/blob/{bonitaTechnicalVersion}/services/bonita-log/src/main/java/org/bonitasoft/engine/services/impl[implementation] of the service are available from the source code repository on https://github.com/bonitasoft/[GitHub].
 
 
 == Disabling the Queriable logger
