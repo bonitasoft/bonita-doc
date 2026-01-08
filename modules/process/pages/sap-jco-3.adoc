@@ -22,7 +22,7 @@ You must have an SAP license and an SAP server to use the connector.
 
 To connect to an SAP system from Bonita Studio, and have the correct graphic display, you must install the SAP .dll and .jar files onto your (Windows) machine. You must have an SAP User ID and password to enter the SAP Support Portal to download the files.
 
-Go here (you will need to login first) http://service.sap.com/connectors[SAP Service marketplace.]
+Go here (you will need to login first) https://support.sap.com/en/product/connectors.html[SAP Service marketplace.]
 
 JCo 3: `sapjco3-ntamd64-3.0.3`
 
