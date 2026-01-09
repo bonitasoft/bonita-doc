@@ -228,7 +228,7 @@ Use the default collation determined by the host OS's locale.
 ===== XA Transactions
 
 To support XA transactions, SQL Server requires a specific configuration.
-You can refer to https://msdn.microsoft.com/en-us/library/aa342335(v=sql.110).aspx[MSDN] for more information.
+You can refer to https://learn.microsoft.com/en-us/sql/connect/jdbc/understanding-xa-transactions[MSDN] for more information.
 Here is the list of steps to perform (as an example, the database name BONITA is used):
 
 . Download the zip package of https://learn.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server[Microsoft SQL Server JDBC Driver] and unzip it.
@@ -275,7 +275,7 @@ ALTER DATABASE BONITA SET READ_COMMITTED_SNAPSHOT ON
 ALTER DATABASE BONITA SET MULTI_USER
 ----
 
-See https://msdn.microsoft.com/en-us/library/ms175095(v=sql.110).aspx[MSDN].
+See https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options[MSDN].
 
 ===== Recommended configuration for in-doubt xact resolution
 
@@ -312,7 +312,7 @@ Edit the file `setup/tomcat-templates/bonita.xml` by adding the following attrib
 
 You must perform this for each Datasource.
 
-See https://msdn.microsoft.com/en-us/library/ms179586%28v%3Dsql.110%29.aspx[in-doubt xact resolution Server Configuration Option].
+See https://learn.microsoft.com/en-us/sql/database-engine/configure-windows/in-doubt-xact-resolution-server-configuration-option[in-doubt xact resolution Server Configuration Option].
 
 ==== MySQL
 
