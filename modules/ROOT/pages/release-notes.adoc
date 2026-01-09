@@ -526,6 +526,7 @@ The notable changes are:
 *Note:* The xref:process:script.adoc[System script connector] will not work when this policy is active. Set `PRO_GRADE=false` to disable if needed (not recommended).
 * BPA-141 - Process diagram (Case visu) shows whitespace on top when the process is not first in the diagram.
 * BPA-178 - UiPath connector fails with java.lang.NoSuchFieldError: Companion
+* BPA-204 - Classloader initialisation fails because of a hardcoded 5-minutes timeout
 * BPA-215 - [OIDC][Cluster] Parallel token refresh race condition and failure to save new tokens
 * BPA-220 - session_user missing from access logs when cluster mode is enabled
 * BPA-244 - [OIDC][CORS] Allowed origins verification fails with opaque tokens (it assumes access token is a JWT)
