@@ -128,14 +128,7 @@ If a custom connector that previously worked now fails when executing system com
 
 * Review the connector implementation to identify system command usage
 * Consider using alternative approaches that don't require system command execution
-* If using a third-party connector, check with the vendor for an updated version that works with the security policy
-
-=== Identifying blocked operations in logs
-
-To identify which operations are being blocked, you can enable debug logging. Check the Tomcat logs for security-related exceptions that will indicate which permission is being denied.
 
 == See also
 
 * xref:runtime:bonita-docker-installation.adoc#environment-variables[Docker environment variables]
-* xref:csrf-security.adoc[CSRF security]
-* xref:sanitizer-security.adoc[Input validation]

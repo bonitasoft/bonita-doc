@@ -431,11 +431,6 @@ If the OIDC provider returns opaque access token (non JWT), then Bonita OIDC cli
 
 If you want to call Bonita REST API from a page hosted on another domain than the one of the Bonita server, you need to enable Cross-Origin Resource Sharing (CORS) through Open ID Connect.
 
-[NOTE]
-====
-A limitation prevents CORS requests from working with Open ID Connect authentication in version 2021.2-u0 of Bonita. Please upgrade to 2021.2-u1 (or a more recent version) if you want to allow CORS through OIDC.
-====
-
 ==== Configure Bonita Bundle with OIDC for CORS
 
 In the file *keycloak-oidc.json*, make sure the property `enable-cors` is set to true and the properties `cors-allowed-methods`, `cors-allowed-headers`, `cors-exposed-headers` have the correct values. For a basic configuration, you can use the following values:
