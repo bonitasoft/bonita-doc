@@ -520,12 +520,13 @@ The notable changes are:
 
 == Bug fixes
 
-=== Fixes in Bonita 2025.1-u2 (2026-01-07)
+=== Fixes in Bonita 2025.1-u3 (2026-01-12)
 
 * xref:security:java-security-policy.adoc[Java Security Policy] is now enabled by default in Docker image (Subscription editions only). This security feature protects against malicious Groovy script execution, including command execution and access to sensitive files. +
 *Note:* The xref:process:script.adoc[System script connector] will not work when this policy is active. Set `PRO_GRADE=false` to disable if needed (not recommended).
 * BPA-141 - Process diagram (Case visu) shows whitespace on top when the process is not first in the diagram.
-* BPA-178 - UiPath connector fails with java.lang.NoSuchFieldError: Companion
+* BPA-178 - UiPath connector fails with java.lang.NoSuchFieldError
+* BPA-189 - Studio Extra long build duration compare to previous version
 * BPA-204 - Classloader initialisation fails because of a hardcoded 5-minutes timeout
 * BPA-215 - [OIDC][Cluster] Parallel token refresh race condition and failure to save new tokens
 * BPA-220 - session_user missing from access logs when cluster mode is enabled
