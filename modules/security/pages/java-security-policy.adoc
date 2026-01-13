@@ -79,11 +79,7 @@ services:
 
 == Customizing the security policy
 
-For advanced users who need to customize the security policy, there are two approaches:
-
-=== Using Helm chart override
-
-If you are deploying Bonita using Helm charts, you can mount your own custom policy file that will override the default policy. The Helm chart allows you to specify a custom policy through values configuration.
+For advanced users who need to customize the security policy:
 
 === Using Docker volume mount
 
