@@ -55,12 +55,13 @@ See xref:process:messaging.adoc[Email Connector documentation] for more informat
 
 == Bug fixes
 
-=== Fixes in Bonita 2025.2-u1 (2026-01-08)
+=== Fixes in Bonita 2025.2-u2 (2026-01-13)
 
 * xref:security:java-security-policy.adoc[Java Security Policy] is now enabled by default in Docker image (Subscription editions only). This security feature protects against malicious Groovy script execution, including command execution and access to sensitive files. +
 *Note:* The xref:process:script.adoc[System script connector] will not work when this policy is active. Set `PRO_GRADE=false` to disable if needed (not recommended).
 * BPA-141 - Process diagram (Case visu) shows whitespace on top when the process is not first in the diagram.
-* BPA-178 - UiPath connector fails with java.lang.NoSuchFieldError: Companion
+* BPA-178 - UiPath connector fails with java.lang.NoSuchFieldError
+* BPA-189 - Studio Extra long build duration compare to previous version
 * BPA-220 - session_user missing from access logs when cluster mode is enabled
 * BPA-256 - Bonita Usage Metrics Plugin: Duplicate Requests
 * BPA-266 - Incorrect counting of active sessions in tomcat.sessions.active.current
