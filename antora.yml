@@ -1,14 +1,13 @@
 name: bonita
 title: Bonita
 version: 2025.1
-# TODO: When releasing beta version, replace alpha by beta. Remove when releasing GA
 asciidoc:
   attributes:
     bonitaVersion: 2025.1
     bonitasoft-registry: 'bonitasoft.jfrog.io'
     bonitasoft-docker-repository: '{bonitasoft-registry}/docker'
     bonitaTechnicalVersion: '10.3.0' # latest public community version
-    bonitaTagOrBranch: 'dev' # for links to the code hosted on GitHub
+    bonitaTagOrBranch: '10.3.0' # for links to the code hosted on GitHub. Use 'dev' for a development version, or the version number (same as bonitaTechnicalVersion) for released versions
     minimalRequiredJavaVersion: '17'
     javadocVersion: '10.3'
     laDeployerVersion: '1.2.0'
