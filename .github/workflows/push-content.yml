@@ -12,7 +12,7 @@ on:
 
 jobs:
   triggerJob:
-    permissions: {}
     uses: bonitasoft/bonita-documentation-site/.github/workflows/_reusable_notify_content_change.yml@master
+    secrets: inherit
     with:
         component: 'bonita'
