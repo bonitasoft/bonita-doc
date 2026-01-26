@@ -6,7 +6,7 @@
 
 [NOTE]
 ====
-For Subscription editions only.
+For Subscription editions only before 2025.2-u3. All editions from 2025.2-u3.
 ====
 
 == Default security setup in Bonita
