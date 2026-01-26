@@ -57,6 +57,7 @@ See xref:process:messaging.adoc[Email Connector documentation] for more informat
 
 === Fixes in Bonita 2025.2-u3 (2026-01-21)
 
+* xref:security:java-security-policy.adoc[Java Security Policy] is now enabled by default in Docker image in community edition as well. This security feature protects against malicious Groovy script execution, including command execution and access to sensitive files. +
 * BPA-276 - REST API regression: Cannot get or install/update BDM on Community edition (10.3 & 10.4)
 * BPA-279 - [OIDC] Bearer authentication (Oauth) for REST API is broken
 
