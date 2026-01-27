@@ -583,8 +583,7 @@ When set to true, the application exit right after the initialization/update pha
 
 This environment variable activates the xref:overview-of-bonita-bpm-in-a-cluster.adoc[Cluster mode] on Bonita, allowing to start several nodes that will join the cluster.
 
-
-=== PRO_GRADE (Subscription editions only)
+=== PRO_GRADE
 
 This optional environment variable is used to enable/disable the xref:security:java-security-policy.adoc[Java Security Policy] (using ProGrade) on Bonita Docker images. The default value is *true*, which activates the security policy protecting against malicious Groovy script execution.
 
