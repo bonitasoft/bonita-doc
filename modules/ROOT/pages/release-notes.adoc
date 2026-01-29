@@ -72,6 +72,13 @@ See xref:process:messaging.adoc[Email Connector documentation] for more informat
 * BPA-256 - Bonita Usage Metrics Plugin: Duplicate Requests
 * BPA-266 - Incorrect counting of active sessions in tomcat.sessions.active.current
 * BPA-271 - UiPath connector does not support OAuth2 authentication to connect to UiPath Cloud
+* CVE-120 - SQL Server JDBC driver - Improper input validation (fixing CVE-2025-59250)
+* CVE-123 - Apache Tomcat - Console manipulation via escape sequences in log messages (fixing CVE-2025-55754)
+* CVE-124 - RCE through admin resources upload or admin process script update
+* CVE-125 - OWASP Java HTML sanitizer - XSS via noscript tag and improper sanitization in style tags (fixing CVE-2025-66021)
+* CVE-126 - postgresql JDBC Driver - Channel binding option in pgJDBC may allow local network attackers to perform man-in-the-middle (fixing CVE-2025-49146)
+* CVE-127 - Apache Commons Lang is vulnerable to Uncontrolled Recursion when processing long inputs (fixing CVE-2025-48924)
+* CVE-128 - Bouncy Castle for Java - bcpkix, bcprov, bcpkix-fips on All (API modules) allows Excessive Allocation (fixing CVE-2025-8916)
 * Several dependencies updated.
 
 === Fixes in Bonita 2025.2-u0 (2025-12-15)
