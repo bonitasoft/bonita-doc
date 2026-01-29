@@ -72,7 +72,6 @@ See xref:process:messaging.adoc[Email Connector documentation] for more informat
 * BPA-256 - Bonita Usage Metrics Plugin: Duplicate Requests
 * BPA-266 - Incorrect counting of active sessions in tomcat.sessions.active.current
 * BPA-271 - UiPath connector does not support OAuth2 authentication to connect to UiPath Cloud
-* CVE-120 - SQL Server JDBC driver - Improper input validation (fixing CVE-2025-59250)
 * CVE-123 - Apache Tomcat - Console manipulation via escape sequences in log messages (fixing CVE-2025-55754)
 * CVE-124 - RCE through admin resources upload or admin process script update
 * CVE-125 - OWASP Java HTML sanitizer - XSS via noscript tag and improper sanitization in style tags (fixing CVE-2025-66021)
@@ -89,3 +88,4 @@ See xref:process:messaging.adoc[Email Connector documentation] for more informat
 * BPA-209 Incorrect Java Version in Docker 2025.1 Image
 * BPA-215 [OIDC][Cluster] Parallel token refresh race condition and failure to save new tokens
 * BPA-244 [OIDC][CORS] Allowed origins verification fails with opaque tokens (it assumes access token is a JWT)
+* CVE-120 - SQL Server JDBC driver - Improper input validation (fixing CVE-2025-59250)
