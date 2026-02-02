@@ -1,6 +1,12 @@
 = Release Notes
 :description: This is the release notes for Bonita UI Builder
 
+== UI Builder 1.3.6 (2026-01-30)
+
+* Upgrade Appsmith from v1.90 to v1.93
+* Handle UI proxy external port: NGINX now correctly generates redirect URLs with the external host port
+* Add feature flag to enable or disable zoom controls in deployed applications
+
 == UI Builder 1.3.5 (2025-12-03)
 
 * fix application import at startup or with /application/import API, the theme or others ressources are not loaded correctly
