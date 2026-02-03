@@ -25,8 +25,24 @@ The following environment variables are optional:
 - `LOGGING_LEVEL_COM_BONITASOFT`: Sets the logging level for BonitaSoft components (default: `debug`).
 - `LOGGING_LEVEL_COM_EXTERNAL_PLUGINS`: Sets the logging level for external plugins (default: `debug`).
 - `BONITA_APPLICATION_EXPORT_PATH`: Internal Path to export Bonita UIB Application from Bonita Runtime (default: `/opt/appsmith/workspace/app/exports/`).
+- `BONITA_ENABLE_ZOOM`: Enables zoom in deployed applications when set to `true` (default: `false`).
 
+[WARNING]
+====
+*Beta Feature: Zoom Controls for Deployed Applications*
 
+Zoom controls can be enabled. When enabled, end users can zoom in and out when viewing the deployed application for better accessibility.
+
+This feature is disabled by default and must be explicitly enabled for each instance.
+
+However, this feature may cause display issues in certain scenarios, such as:
+
+* Widget alignment may appear offset at certain zoom levels
+* Some UI elements may not scale correctly
+* Drag and drop behavior may be affected when zoomed
+
+Use this feature with caution. If you experience display issues, disable the feature in the application's Zoom settings.
+====
 
 [NOTE]
 ====
