@@ -34,8 +34,9 @@ The Applications Management API provides endpoints to manage applications in the
 1. <<list-applications>>
 2. <<delete-all-applications>>
 3. <<import-single-application>>
-4. <<import-multiple-applications>>
-5. <<export-all-applications>>
+4. <<update-existing-application>>
+5. <<import-multiple-applications>>
+6. <<export-all-applications>>
 
 
 
@@ -529,6 +530,280 @@ curl -X POST 'http://localhost/uib/api/v1/applications/import' \
 * **Memory Usage**: The entire JSON file is loaded into memory during processing
 * **Name Conflicts**: If an application with the same `slug` exists, the import fails
 * **Validation**: The JSON must be a valid Appsmith application descriptor
+
+
+[[update-existing-application]]
+== Update Existing Application
+
+Updates an existing application from a JSON descriptor file. The application is identified by its `slug` field in the JSON descriptor.
+
+*Since*: `UIB 1.3.7`
+
+=== Request
+
+==== HTTP Method
+`PUT`
+
+==== URL
+`/uib/api/v1/applications`
+
+==== Headers
+
+[cols="1,1,3"]
+|===
+|Header |Required |Description
+
+|`x-requested-by`
+|Yes
+|Must be set to `Appsmith`
+
+|`Cookie`
+|Yes
+|Must include valid session cookies: `X-Bonita-API-Token` and `JSESSIONID`
+
+|`Content-Type`
+|Yes
+|Must be `multipart/form-data`
+|===
+
+==== Request Body
+
+[cols="1,1,1,3"]
+|===
+|Field |Type |Required |Description
+
+|`file`
+|File
+|Yes
+|JSON file containing the application descriptor
+|===
+
+==== File Requirements
+
+* **File extension:** Must be `.json`
+* **Content type:** `application/json`
+* **Format:** Valid Appsmith application descriptor JSON
+* **Slug field:** Must contain a `slug` that matches an existing application
+
+=== Response
+
+==== Content Type
+`application/json`
+
+==== Response Status Codes
+
+[cols="1,1,3"]
+|===
+|Status Code |Status |Description
+
+|200
+|OK
+|Application updated successfully.
+
+|400
+|BAD_REQUEST
+|Invalid file type or malformed JSON.
+
+|403
+|FORBIDDEN
+|Access denied to the application with the specified slug.
+
+|404
+|NOT_FOUND
+|No application found with the specified slug.
+
+|500
+|INTERNAL_SERVER_ERROR
+|Server error during update (e.g., database connection failure, update operation failed).
+|===
+
+==== Response Body Structure
+
+[source,json]
+----
+{
+  "responseMeta": {
+    "status": 200,
+    "success": true
+  },
+  "data": {
+    "name": "My Updated Application",
+    "status": "UPDATED"
+  },
+  "errorDisplay": null
+}
+----
+
+==== Error Response Examples
+
+**400 BAD_REQUEST - Invalid file type:**
+[source,json]
+----
+{
+  "responseMeta": {
+    "status": 400,
+    "success": false
+  },
+  "data": null,
+  "errorDisplay": "File is not a .json application descriptor"
+}
+----
+
+**400 BAD_REQUEST - Malformed JSON:**
+[source,json]
+----
+{
+  "responseMeta": {
+    "status": 400,
+    "success": false
+  },
+  "data": null,
+  "errorDisplay": "Failed to parse JSON descriptor: <error details>"
+}
+----
+
+**403 FORBIDDEN:**
+[source,json]
+----
+{
+  "responseMeta": {
+    "status": 403,
+    "success": false
+  },
+  "data": null,
+  "errorDisplay": "Access denied to application with slug 'my-app-slug'"
+}
+----
+
+**404 NOT_FOUND:**
+[source,json]
+----
+{
+  "responseMeta": {
+    "status": 404,
+    "success": false
+  },
+  "data": null,
+  "errorDisplay": "Application with slug 'my-app-slug' not found"
+}
+----
+
+**500 INTERNAL_SERVER_ERROR:**
+[source,json]
+----
+{
+  "responseMeta": {
+    "status": 500,
+    "success": false
+  },
+  "data": null,
+  "errorDisplay": "Failed to update application with slug 'my-app-slug'"
+}
+----
+
+=== Behavior Details
+
+. The JSON descriptor is uploaded and parsed
+. The `slug` field is extracted from the JSON
+. An existing application with that slug is located in the default workspace
+. The application is updated with the new JSON content
+. The application is automatically published after update
+. The descriptor file is updated in the configured `applicationFolderPath` directory
+. Returns `UPDATED` status on success
+
+=== Security Considerations
+
+* **Access Control:** Users must have read permissions on the target application. Unauthorized access returns a 403 FORBIDDEN response.
+
+=== Key Differences from Import
+
+[cols="1,2,2"]
+|===
+|Aspect |Import (POST) |Update (PUT)
+
+|Purpose
+|Create new application
+|Modify existing application
+
+|Slug handling
+|Creates new slug or uses provided
+|Must match existing application
+
+|If slug exists
+|Returns error (duplicate)
+|Updates the application
+
+|If slug not found
+|Creates new application
+|Returns 404 error
+
+|Response status
+|`IMPORTED`
+|`UPDATED`
+|===
+
+=== Examples
+
+==== Example 1: Update application
+
+[source,bash]
+----
+curl -X PUT 'http://localhost/uib/api/v1/applications' \
+  --header 'x-requested-by: Appsmith' \
+  --header 'Cookie: X-Bonita-API-Token=abc123; JSESSIONID=def456' \
+  -F 'file=@my-updated-application.json'
+----
+
+**Response:**
+[source,json]
+----
+{
+  "responseMeta": {
+    "status": 200,
+    "success": true
+  },
+  "data": {
+    "name": "My Updated Application",
+    "status": "UPDATED"
+  },
+  "errorDisplay": null
+}
+----
+
+==== Example 2: Update with verbose output
+
+[source,bash]
+----
+curl -X PUT 'http://localhost/uib/api/v1/applications' \
+  --header 'x-requested-by: Appsmith' \
+  --header 'Cookie: X-Bonita-API-Token=abc123; JSESSIONID=def456' \
+  -F 'file=@my-updated-application.json' \
+  -v
+----
+
+=== Workflow Example
+
+. **Export existing application:**
++
+[source,bash]
+----
+curl -X GET 'http://localhost/uib/api/v1/applications/export/all' \
+  --header 'x-requested-by: Appsmith' \
+  --header 'Cookie: X-Bonita-API-Token=abc123; JSESSIONID=def456' \
+  --output applications-export.zip
+----
+
+. **Extract and modify the JSON** (add new pages, modify widgets, etc.)
+
+. **Update the application:**
++
+[source,bash]
+----
+curl -X PUT 'http://localhost/uib/api/v1/applications' \
+  --header 'x-requested-by: Appsmith' \
+  --header 'Cookie: X-Bonita-API-Token=abc123; JSESSIONID=def456' \
+  -F 'file=@modified-application.json'
+----
 
 
 [[import-multiple-applications]]
@@ -1095,3 +1370,4 @@ All error responses follow this structure:
 * **Partial Failures**: Some operations continue on errors (partial success possible)
 * **Memory Constraints**: Large files may impact server memory
 * **Concurrent Operations**: Multiple simultaneous requests may affect performance
+
