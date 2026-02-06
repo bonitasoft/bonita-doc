@@ -33,10 +33,11 @@ The Applications Management API provides endpoints to manage applications in the
 
 1. <<list-applications>>
 2. <<delete-all-applications>>
-3. <<import-single-application>>
-4. <<update-existing-application>>
-5. <<import-multiple-applications>>
-6. <<export-all-applications>>
+3. <<delete-application-by-slug>>
+4. <<import-single-application>>
+5. <<update-existing-application>>
+6. <<import-multiple-applications>>
+7. <<export-all-applications>>
 
 
 
@@ -383,6 +384,193 @@ For each application deleted, the corresponding JSON file is removed from:
 If the file doesn't exist, a warning is logged but deletion continues.
 
 
+
+[[delete-application-by-slug]]
+== Delete Application by Slug
+
+Delete a single application from the default workspace identified by its slug.
+
+[NOTE]
+====
+*Since*: `UIB 1.3.7`
+====
+
+=== Request
+
+==== HTTP Method
+`DELETE`
+
+==== URL
+`/uib/api/v1/applications/{slug}`
+
+==== Path Parameters
+
+[cols="1,1,1,3"]
+|===
+|Parameter |Type |Required |Description
+
+|`slug`
+|string
+|Yes
+|The unique slug identifier of the application to delete
+|===
+
+==== Headers
+
+[cols="1,1,3"]
+|===
+|Header |Required |Description
+
+|`x-requested-by`
+|Yes
+|Must be set to `Appsmith`
+
+|`Cookie`
+|Yes
+|Must include valid session cookies: `X-Bonita-API-Token` and `JSESSIONID`
+|===
+
+==== Request Body
+None
+
+=== Response
+
+==== Content Type
+`application/json`
+
+==== Response Status Codes
+
+[cols="1,1,3"]
+|===
+|Status Code |Status |Description
+
+|200
+|OK
+|Application was successfully deleted.
+
+|403
+|FORBIDDEN
+|Access denied to the application with the specified slug.
+
+|404
+|NOT_FOUND
+|No application found with the specified slug.
+
+|500
+|INTERNAL_SERVER_ERROR
+|An error occurred while deleting the application.
+|===
+
+==== Response Body Structure
+
+[source,json]
+----
+{
+  "responseMeta": {
+    "status": 200,
+    "success": true
+  },
+  "data": {
+    "id": "app-id-123",
+    "name": "Application Name",
+    "deleted": true,
+    "errorMessage": null
+  },
+  "errorDisplay": "Application deleted successfully"
+}
+----
+
+==== Error Response Examples
+
+**403 FORBIDDEN:**
+[source,json]
+----
+{
+  "responseMeta": {
+    "status": 403,
+    "success": false
+  },
+  "data": null,
+  "errorDisplay": "Access denied to application with slug 'my-app-slug'"
+}
+----
+
+**404 NOT_FOUND:**
+[source,json]
+----
+{
+  "responseMeta": {
+    "status": 404,
+    "success": false
+  },
+  "data": null,
+  "errorDisplay": "Application with slug 'my-app-slug' not found"
+}
+----
+
+**500 INTERNAL_SERVER_ERROR:**
+[source,json]
+----
+{
+  "responseMeta": {
+    "status": 500,
+    "success": false
+  },
+  "data": null,
+  "errorDisplay": "Failed to delete application: <error details>"
+}
+----
+
+=== Examples
+
+==== Example 1: Delete application successfully
+
+[source,bash]
+----
+curl -X DELETE 'http://localhost/uib/api/v1/applications/my-dashboard-app' \
+  --header 'x-requested-by: Appsmith' \
+  --header 'Cookie: X-Bonita-API-Token=abc123; JSESSIONID=def456'
+----
+
+**Response:**
+[source,json]
+----
+{
+  "responseMeta": {
+    "status": 200,
+    "success": true
+  },
+  "data": {
+    "id": "64a1b2c3d4e5f6",
+    "name": "My Dashboard App",
+    "deleted": true,
+    "errorMessage": null
+  },
+  "errorDisplay": "Application deleted successfully"
+}
+----
+
+==== Example 2: Application not found
+
+[source,bash]
+----
+curl -X DELETE 'http://localhost/uib/api/v1/applications/non-existent-app' \
+  --header 'x-requested-by: Appsmith' \
+  --header 'Cookie: X-Bonita-API-Token=abc123; JSESSIONID=def456'
+----
+
+**Response:**
+[source,json]
+----
+{
+  "responseMeta": {
+    "status": 404,
+    "success": false
+  },
+  "data": null,
+  "errorDisplay": "Application with slug 'non-existent-app' not found"
+}
+----
 
 [[import-single-application]]
 == Import Single Application
