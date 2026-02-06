@@ -401,7 +401,7 @@ Delete a single application from the default workspace identified by its slug.
 `DELETE`
 
 ==== URL
-`/uib/api/v1/applications/{slug}`
+`/uib/api/v1/applications/\{slug}`
 
 ==== Path Parameters
 
