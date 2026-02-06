@@ -4,8 +4,8 @@
 == UI Builder 1.3.7 (2026-02-XX)
 
 * Upgrade Appsmith from 1.93 to v1.95
-* Restore "Custom" widget in the widget list after a regression in 1.3.6 version
-* Fix memory leak caused by HTTP client instances not being released, which could lead to Out-Of-Memory errors on long-running pods
+* BPA-296: Restore "Custom" widget in the widget list after a regression in 1.3.6 version
+* BPA-292: Fix memory leak caused by HTTP client instances not being released, which could lead to Out-Of-Memory errors on long-running pods
 
 === Two new UI Builder Rest API for managing applications
 
