@@ -26,6 +26,7 @@ The following environment variables are optional:
 - `LOGGING_LEVEL_COM_EXTERNAL_PLUGINS`: Sets the logging level for external plugins (default: `debug`).
 - `BONITA_APPLICATION_EXPORT_PATH`: Internal Path to export Bonita UIB Application from Bonita Runtime (default: `/opt/appsmith/workspace/app/exports/`).
 - `BONITA_ENABLE_ZOOM`: Enables zoom in deployed applications when set to `true` (default: `false`).
+- `UIB_INTERNAL_PORT`: The internal HTTP port the UI Builder listens on (default: `80`). Set to a non-80 value when port 80 is already occupied inside the container, for example on Kubernetes platforms where a sidecar proxy binds to port 80. See <<custom-internal-port>> for details.
 
 [WARNING]
 ====
@@ -61,7 +62,7 @@ The following environment variables are available to customize the configuration
 - `BONITA_HOST`: Host of the Bonita runtime to which UI Builder will request (default: `host.docker.internal`).
 - `BONITA_PORT`: Port of the Bonita runtime to which UI Builder will request (default: `8080`).
 - `UIB_HOST`: Host of the UI Builder instance. Use the Docker service name when services are on the same network (e.g., `bonita-ui-builder`).
-- `UIB_PORT`: Internal port of the UI Builder instance (default: `80`).
+- `UIB_PORT`: Internal port of the UI Builder instance (default: `80`). Must match the `UIB_INTERNAL_PORT` value set on the `bonita-ui-builder` container.
 
 To use the provided `bonita-ui-proxy` Docker image without modification, ensure the Bonita runtime is accessible at `http://localhost:8080`.
 
@@ -71,6 +72,104 @@ If you want to see our custom Nginx configuration used in this image, run this c
 ----
 docker run --rm {bonita-ui-proxy-image} \
     cat /etc/nginx/templates/nginx.conf.template
+----
+
+[[custom-internal-port]]
+== Custom internal port (Kubernetes / sidecar proxy)
+
+By default, the `bonita-ui-builder` container listens on *port 80*. On some Kubernetes platforms (e.g., Null Platform, Istio, Linkerd), a sidecar proxy is automatically injected into every Pod and also binds to port 80. Since all containers in a Pod share the same network namespace, the UI Builder fails to start with a port conflict.
+
+To solve this, set `UIB_INTERNAL_PORT` to a different port on the `bonita-ui-builder` container, and update `UIB_PORT` on the `bonita-ui-proxy` container to match.
+
+=== Configuration
+
+Set the following environment variables:
+
+[cols="1,1,2,1", options="header"]
+|===
+| Variable | Container | Description | Default
+
+| `UIB_INTERNAL_PORT`
+| `bonita-ui-builder`
+| Internal port the UI Builder listens on
+| `80`
+
+| `UIB_PORT`
+| `bonita-ui-proxy`
+| Port the proxy uses to reach UI Builder (must match `UIB_INTERNAL_PORT`)
+| `80`
+
+| `NGINX_LISTEN_ADDRESS`
+| `bonita-ui-proxy`
+| Internal port NGINX listens on (change if port 80 is also occupied on the proxy container)
+| `80`
+|===
+
+=== Docker Compose example
+
+[source,yaml]
+----
+services:
+  bonita-ui-builder:
+    image: ${bonita-ui-builder-image}:${UIB_VERSION}
+    environment:
+      BONITA_API_URL: http://bonita-ui-proxy:${NGINX_LISTEN_ADDRESS:-80}/bonita/API
+      UIB_INTERNAL_PORT: 8090  # <1>
+
+  bonita-ui-proxy:
+    image: ${bonita-ui-proxy}:${UIB_VERSION}
+    environment:
+      NGINX_LISTEN_ADDRESS: ${NGINX_LISTEN_ADDRESS:-80}
+      UIB_HOST: bonita-ui-builder
+      UIB_PORT: 8090  # <2>
+      BONITA_HOST: bonita
+      BONITA_PORT: 8080
+    ports:
+      - "${NGINX_HTTP_PORT:-80}:${NGINX_LISTEN_ADDRESS:-80}"
+----
+<1> Caddy inside the UI Builder now listens on port 8090 instead of 80.
+<2> Must match the `UIB_INTERNAL_PORT` value so the proxy routes traffic to the correct port.
+
+=== Kubernetes example
+
+In a Kubernetes manifest or Helm values, set the environment variables directly:
+
+[source,yaml]
+----
+# bonita-ui-builder container
+env:
+  - name: UIB_INTERNAL_PORT
+    value: "8090"
+ports:
+  - containerPort: 8090
+livenessProbe:
+  httpGet:
+    port: 8090
+    path: /
+
+# bonita-ui-proxy container
+env:
+  - name: UIB_PORT
+    value: "8090"
+  - name: NGINX_LISTEN_ADDRESS
+    value: "8082"
+ports:
+  - containerPort: 8082
+----
+
+=== Verification
+
+After starting, verify the configuration:
+
+[source,console]
+----
+# Port 80 should be free inside the UI Builder container
+docker exec bonita-ui-builder curl -s -o /dev/null -w "%{http_code}" --max-time 2 http://localhost:80/
+# Expected: 000 (connection refused)
+
+# UI Builder should respond on the custom port
+docker exec bonita-ui-builder curl -s -o /dev/null -w "%{http_code}" --max-time 2 http://localhost:8090/
+# Expected: 200
 ----
 
 [.troubleshooting-title]
