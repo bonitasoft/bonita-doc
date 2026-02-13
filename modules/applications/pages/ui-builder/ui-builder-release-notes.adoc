@@ -1,6 +1,11 @@
 = Release Notes
 :description: This is the release notes for Bonita UI Builder
 
+== UI Builder 1.3.8 (2026-02-12)
+
+* Fixed an issue in production mode that prevented importing applications via the API, introduced in version 1.3.7.
+
+
 == UI Builder 1.3.7 (2026-02-09)
 
 * Upgrade Appsmith from 1.93 to v1.95
