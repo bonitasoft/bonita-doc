@@ -111,13 +111,13 @@ Set the following environment variables:
 ----
 services:
   bonita-ui-builder:
-    image: ${bonita-ui-builder-image}:${UIB_VERSION}
+    image: {bonita-ui-builder-image}:${UIB_VERSION}
     environment:
       BONITA_API_URL: http://bonita-ui-proxy:${NGINX_LISTEN_ADDRESS:-80}/bonita/API
       UIB_INTERNAL_PORT: 8090  # <1>
 
   bonita-ui-proxy:
-    image: ${bonita-ui-proxy}:${UIB_VERSION}
+    image: {bonita-ui-proxy}:${UIB_VERSION}
     environment:
       NGINX_LISTEN_ADDRESS: ${NGINX_LISTEN_ADDRESS:-80}
       UIB_HOST: bonita-ui-builder
