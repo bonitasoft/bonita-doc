@@ -116,7 +116,7 @@ cd setup
 Starting with Bonita 2021.2 (Bonita Runtime 7.13), Bonita Applications replaced Bonita Portal. If you need to use some of the Portal Look&Feel assets in the themes of your applications, make sure you create backups of those files before launching the updating procedure.
 
 === JRE requirements
-Based on your target Bonita version, check whether JRE update is required in your environment before launching the update process:
+Based on your target Bonita version, check whether JRE update is required in your environment before launching the update tool:
 
 |===
 |*JRE version* |*Bonita version*
