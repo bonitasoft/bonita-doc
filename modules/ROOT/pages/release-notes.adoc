@@ -46,12 +46,17 @@ This concerns the following endpoints:
 * `/API/bdm/businessDataReference/+{caseId}+/+{dataName}+`
 * `/API/bpm/activityReplay/+{activityInstanceId}+`
 * `/API/bpm/activityVariable/+{activityId}+/+{dataName}+`
-    - this API now returns `HTTP 404` when `activityId` or `dataName` is not found (instead of `HTTP 500`)
+    - ⚠️ this API now returns `HTTP 404` when `activityId` or `dataName` is not found (instead of `HTTP 500`)
 * `/API/bpm/archivedActivityVariable/+{activityId}+/+{variableName}+`
-    - this API now returns `HTTP 404` when `activityId` or `variableName` is not found (instead of `HTTP 500`)
+    - ⚠️ this API now returns `HTTP 404` when `activityId` or `variableName` is not found (instead of `HTTP 500`)
 * `/API/bpm/archivedCase/+{archivedCaseId}+/context`
-* `/API/bpm/archivedCaseVariable`
+* `/API/bpm/archivedCaseVariable?f=case_id=12005&p=0&c=10`
+    - ⚠️ this API now returns `HTTP 400` instead of `HTTP 500`:
+        . when `case_id` filter is not provided, or filter `f` completely absent
+        . when pagination parameter `p` is not provided
+        . when pagination parameter `c` is not provided
 * `/API/bpm/archivedCaseVariable/+{caseId}+/+{variableName}+`
+    - ⚠️ this API now returns `HTTP 404` when `caseId` or `variableName` is not found (instead of `HTTP 500`)
 * `/API/bpm/archivedUserTask/+{archivedTaskId}+/context`
 * `/API/bpm/case/+{caseId}+/context`
 * `/API/bpm/diagram/+{processId}+`
