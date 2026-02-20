@@ -1,6 +1,17 @@
 = Release Notes
 :description: This is the release notes for Bonita UI Builder
 
+== UI Builder 1.3.9 (2026-02-19)
+
+=== New features
+
+* Add xref:ui-builder/ui-builder-docker-installation.adoc[configuration internal port] (`UIB_INTERNAL_PORT`) to allow
+deployment on platforms where a sidecar proxy occupies port 80 (e.g., Kubernetes with Istio or Linkerd)
+
+=== Bug fixes
+
+* Fix "Save into project" action exporting applications
+
 == UI Builder 1.3.8 (2026-02-12)
 
 * Fixed an issue in production mode that prevented importing applications via the API, introduced in version 1.3.7.
