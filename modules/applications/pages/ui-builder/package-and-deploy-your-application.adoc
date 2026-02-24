@@ -10,6 +10,11 @@ Once you've designed an application that interacts with your xref:interact-with-
 [[export-application]]
 === Export application
 
+[NOTE]
+====
+*Since*: `UIB 1.3.3`
+====
+
 Once the design is complete, export the application(s) as JSON file from Bonita UI Builder by clicking the `export` button on the home page. This export will be used for building the production binary.
 
 image:ui-builder/advanced-app/export-application.png[Export application]
@@ -22,6 +27,11 @@ You can export all applications with the button `Export applications` in the wor
 [WARNING]
 ====
 When using the *Save into project* option, be sure that a volume is mount for `/opt/appsmith/workspace/app/exports/` in your docker-compose.
+
+You should have a volume declaration in your docker compose file like this:
+
+`- <path-to-your-bonita-project>/web_applications:/opt/appsmith/workspace/app/exports/`
+
 In a Bonita Studio project, the volume should be set as:
 `- ${UIB_WEB_APPLICATIONS:-../../../web_applications}:/opt/appsmith/workspace/app/exports/`
 ====
