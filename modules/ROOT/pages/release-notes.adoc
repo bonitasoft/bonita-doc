@@ -55,6 +55,13 @@ See xref:process:messaging.adoc[Email Connector documentation] for more informat
 
 == Bug fixes
 
+=== Fixes in Bonita 2025.2-u4 (2026-02-24)
+
+* BPA-206 - LASTUPDATEDATE of rows in the flownode_instance table is not updated
+* BPA-278 - Bonita Administrator Application - License page is broken
+* BPA-294 - Docker: Slow reverse DNS lookups with ProGrade security manager cause delays on HTTP requests
+* Several dependencies updated
+
 === Fixes in Bonita 2025.2-u3 (2026-01-21)
 
 * xref:security:java-security-policy.adoc[Java Security Policy] is now enabled by default in Docker image in community edition as well. This security feature protects against malicious Groovy script execution, including command execution and access to sensitive files. +
@@ -77,7 +84,7 @@ See xref:process:messaging.adoc[Email Connector documentation] for more informat
 * CVE-125 - OWASP Java HTML sanitizer - XSS via noscript tag and improper sanitization in style tags (fixing CVE-2025-66021)
 * CVE-126 - postgresql JDBC Driver - Channel binding option in pgJDBC may allow local network attackers to perform man-in-the-middle (fixing CVE-2025-49146)
 * CVE-128 - Bouncy Castle for Java - bcpkix, bcprov, bcpkix-fips on All (API modules) allows Excessive Allocation (fixing CVE-2025-8916)
-* Several dependencies updated.
+* Several dependencies updated
 
 === Fixes in Bonita 2025.2-u0 (2025-12-15)
 
