@@ -1,6 +1,12 @@
 = How to use static URLs for applications and pages
 :description: Learn how to configure stable, readable URLs for your applications and pages in Bonita UI Builder.
 
+{description}
+
+* Difficulty: beginner
+* Prerequisites: have an application on Bonita UI Builder
+* Estimated time: 5 minutes
+
 NOTE: This feature is available starting from UI Builder version *1.3.10*.
 
 == What are static URLs?
