@@ -517,10 +517,9 @@ The notable changes are:
 - when using the Docker image, the `BONITA_PLATFORM_LOGIN`, `BONITA_PLATFORM_PASSWORD` and `BONITA_TENANT_ID` environment variables are no longer used
 
 
-
 == Bug fixes
 
-=== Fixes in Bonita 2025.1-u4 (2026-02-24)
+=== Fixes in Bonita 2025.1-u5 (2026-02-26)
 
 * BPA-206 - LASTUPDATEDATE of rows in the flownode_instance table is not updated
 * BPA-278 - Bonita Administrator Application - License page is broken
