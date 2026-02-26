@@ -1,6 +1,14 @@
 = Release Notes
 :description: This is the release notes for Bonita UI Builder
 
+== UI Builder 1.3.10 (2026-0x-xx)
+
+=== New features
+
+* Some Appsmith features have been activated
+  * Static URLS: TODO add link to guides when available (see PR #3243 for more details)
+  * Page size dimension: appsmith.ui object, useful for mobile development. TODO add link to guides when available (see PR #xxx for more details)
+
 == UI Builder 1.3.9 (2026-02-19)
 
 === New features
