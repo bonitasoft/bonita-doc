@@ -77,7 +77,7 @@ Note that this new API is now also available in the Community edition and provid
 
 == Bug fixes
 
-=== Fixes in Bonita 2024.3-u6 (2026-02-23)
+=== Fixes in Bonita 2024.3-u7 (2026-02-26)
 
 * BPA-206 - LASTUPDATEDATE of rows in the flownode_instance table is not updated
 * BPA-278 - Bonita Administrator Application - License page is broken
