@@ -32,7 +32,7 @@ We are pleased to bring several exciting advancements in this release, including
 
 == Bug fixes
 
-=== Fixes in Bonita 2024.2-u8 (2026-02-23)
+=== Fixes in Bonita 2024.2-u9 (2026-02-26)
 
 * BPA-206 - LASTUPDATEDATE of rows in the flownode_instance table is not updated
 * BPA-294 - Docker: Slow reverse DNS lookups with ProGrade security manager cause delays on HTTP requests
