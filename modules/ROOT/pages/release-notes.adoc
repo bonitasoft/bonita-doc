@@ -119,7 +119,7 @@ The property allowing to enable/disable xref:identity:rest-api-authorization.ado
 
 == Bug fixes
 
-=== Fixes in Bonita 2024.1-u10 (2026-02-23)
+=== Fixes in Bonita 2024.1-u11 (2026-02-26)
 
 * BPA-206 - LASTUPDATEDATE of rows in the flownode_instance table is not updated
 * BPA-294 - Docker: Slow reverse DNS lookups with ProGrade security manager cause delays on HTTP requests
