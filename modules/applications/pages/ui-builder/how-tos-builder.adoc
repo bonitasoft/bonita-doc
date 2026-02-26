@@ -56,7 +56,7 @@ xref:how-to-interact-with-tasks.adoc[[.card-title]#Interact with tasks# [.card-b
 
 [.card.card-index]
 --
-xref:how-to-use-static-url.adoc[[.card-title]#How to use static URLs# [.card-body.card-content-overflow]#pass:q[Configure stable, readable URLs for your applications and pages]#]
+xref:ui-builder/how-to-use-static-url.adoc[[.card-title]#How to use static URLs# [.card-body.card-content-overflow]#pass:q[Configure stable, readable URLs for your applications and pages]#]
 --
 
 [.card.card-index]
