@@ -72,7 +72,7 @@ The following ports must be available on the host:
 
 == Getting the installation package
 
-NOTE: The Docker environment package is not publicly distributed. To receive the package for your Bonita version, please open a request with https://customer.bonitasoft.com[Bonitasoft Support].
+NOTE: The Docker environment package is not publicly distributed. To receive the package for your Bonita version, please open a request with {cscCustomerServices}[Bonitasoft Support].
 
 You will also need:
 
