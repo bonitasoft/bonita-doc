@@ -19,7 +19,7 @@ For some widgets, for example the Container widget, you can use the `Scroll cont
 
 [NOTE]
 ====
-Available as of UI Builder 1.3.10.
+This feature is available starting from UI Builder version *1.3.10*.
 ====
 
 The `appsmith.ui` property exposes the viewport dimensions at the time the page is loaded. These values are captured once and are not updated when the viewport is resized.
