@@ -59,6 +59,7 @@ See xref:process:messaging.adoc[Email Connector documentation] for more informat
 
 * BPA-206 - LASTUPDATEDATE of rows in the flownode_instance table is not updated
 * BPA-278 - Bonita Administrator Application - License page is broken
+* BPA-281 - BDM JPQL x Custom REST API BDM query with String[] as input: the result only includes elements with String[0]
 * BPA-294 - Docker: Slow reverse DNS lookups with ProGrade security manager cause delays on HTTP requests
 * Several dependencies updated
 
