@@ -15,6 +15,17 @@ For example, if you set the `Height` property to `Fixed` for a Container widget,
 
 For some widgets, for example the Container widget, you can use the `Scroll content` property if you want to maintain a fixed size.
 
+== Viewport Dimensions with `appsmith.ui`
+
+[NOTE]
+====
+Available as of UI Builder 1.3.10.
+====
+
+The `appsmith.ui` property exposes the viewport dimensions at the time the page is loaded. These values are captured once and are not updated when the viewport is resized.
+
+You can use this property to conditionally adjust the layout or hide widgets depending on the device. For example, use `{{appsmith.ui.width}}` in a widget's `Visible` property to hide it on small screens, or switch between layouts based on the viewport width.
+
 == Example
 
 1. Drop a Container widget on the page:
