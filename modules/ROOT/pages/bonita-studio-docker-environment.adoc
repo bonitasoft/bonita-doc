@@ -98,7 +98,7 @@ cp /path/to/BonitaStudioSubscription-<version>.tar.gz bonita-studio-vnc/download
 
 Create a `.env` file at the root of the package with the following content, replacing placeholder values with your actual credentials and settings:
 
-[source,bash]
+[source,bash,subs="+attributes"]
 ----
 # PostgreSQL (Guacamole internal database)
 POSTGRES_DB=guacamole_db
@@ -109,7 +109,7 @@ POSTGRES_PASSWORD=<ChangeMe123!>
 VNC_PASSWORD=vncpassword
 
 # Bonita version (must match the archive placed in downloads/)
-BONITA_VERSION=2025.2-u0
+BONITA_VERSION={bonitaStudioArchiveVersion}
 
 # JFrog Artifactory credentials (provided with your subscription)
 JFROG_USERNAME=<your_username>
