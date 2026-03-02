@@ -113,7 +113,7 @@ BONITA_VERSION=2025.2-u0
 
 # JFrog Artifactory credentials (provided with your subscription)
 JFROG_USERNAME=<your_username>
-JFROG_PASSWORD=your_password
+JFROG_PASSWORD=<your_password>
 
 # Timezone
 TZ=Europe/Paris
