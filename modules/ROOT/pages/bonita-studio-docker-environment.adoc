@@ -103,7 +103,7 @@ Create a `.env` file at the root of the package with the following content, repl
 # PostgreSQL (Guacamole internal database)
 POSTGRES_DB=guacamole_db
 POSTGRES_USER=guacamole_user
-POSTGRES_PASSWORD=ChangeMe123!
+POSTGRES_PASSWORD=<ChangeMe123!>
 
 # VNC session password
 VNC_PASSWORD=vncpassword
