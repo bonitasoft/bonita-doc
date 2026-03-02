@@ -28,6 +28,7 @@
    **** xref:ui-builder/how-to-upload-multiple-documents.adoc[Upload multiple documents simultaneously]
    **** xref:ui-builder/how-to-contract-with-multiple-attribute.adoc[How to make a contract with a multiple attribute]
    **** xref:ui-builder/how-to-manage-bdm-data.adoc[How to manage referential BDM Data]
+   **** xref:ui-builder/how-to-use-static-url.adoc[How to use static URLs]
    **** xref:ui-builder/bonita-ui-builder-best-practices.adoc[Best practices]
     ***** xref:ui-builder/how-to-avoid-unnecessary-information-messages.adoc[Avoid unnecessary information messages]
     ***** xref:ui-builder/how-to-localize-your-application.adoc[Localize your application for various languages]
