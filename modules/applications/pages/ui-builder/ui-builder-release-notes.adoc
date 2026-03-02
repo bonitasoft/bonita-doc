@@ -1,7 +1,7 @@
 = Release Notes
 :description: This is the release notes for Bonita UI Builder
 
-== UI Builder 1.3.10 (2026-0x-xx)
+== UI Builder 1.3.10 (2026-03-02)
 
 This release activates new Appsmith features:
 
