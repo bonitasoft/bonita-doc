@@ -43,6 +43,10 @@ This concerns the following endpoints:
 
 * `/API/accessControl/bdm`
 * `/API/bdm/businessDataReference`
+    - ⚠️ this API now returns `HTTP 400` instead of `HTTP 500`:
+        . when `caseId` filter is not provided, or filter `f` completely absent
+        . when pagination parameter `p` is not provided
+        . when pagination parameter `c` is not provided
 * `/API/bdm/businessDataReference/+{caseId}+/+{dataName}+`
 * `/API/bpm/activityReplay/+{activityInstanceId}+`
 * `/API/bpm/activityVariable/+{activityId}+/+{dataName}+`
