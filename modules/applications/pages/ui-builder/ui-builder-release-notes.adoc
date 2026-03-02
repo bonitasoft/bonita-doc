@@ -10,11 +10,13 @@ This release activates new Appsmith features:
 
 == UI Builder 1.3.9 (2026-02-19)
 
+[discrete]
 === New features
 
 * Add xref:ui-builder/ui-builder-docker-installation.adoc[configuration internal port] (`UIB_INTERNAL_PORT`) to allow
 deployment on platforms where a sidecar proxy occupies port 80 (e.g., Kubernetes with Istio or Linkerd)
 
+[discrete]
 === Bug fixes
 
 * Fix "Save into project" action exporting applications
@@ -30,6 +32,7 @@ deployment on platforms where a sidecar proxy occupies port 80 (e.g., Kubernetes
 * BPA-296: Restore "Custom" widget in the widget list after a regression in 1.3.6 version
 * BPA-292: Fix memory leak caused by HTTP client instances not being released, which could lead to Out-Of-Memory errors on long-running pods
 
+[discrete]
 === Two new UI Builder Rest API for managing applications
 
 In this release we are adding a two new xref:ui-builder/rest-api.adoc[REST API], that lets you automatize some UI Builder actions with HTTP requests:
@@ -86,6 +89,8 @@ image:ui-builder/uib-help-section-release-date.png[UIB Help section release date
 * Is it now possible to configure the Bonita UI Builder to use a Redis Sentinel cluster for caching.
 
 == UI Builder 1.3.0 (2025-04-15)
+
+[discrete]
 === New UI Builder Rest API for managing applications
 
 In this release we are adding a new xref:ui-builder/rest-api.adoc[REST API], that lets you automatize some UI Builder actions with HTTP requests:
@@ -94,6 +99,7 @@ In this release we are adding a new xref:ui-builder/rest-api.adoc[REST API], tha
 * Import a set of applications from a zip file containing JSON application files
 * Delete all applications
 
+[discrete]
 === Bug fixes
 
 * BPM-472: The Custom widget is missing in 1.2.0
@@ -113,6 +119,7 @@ Moreover, the editors have been enhanced to let you open and manage multiple que
 [discrete]
 === Widget UI Enhancements
 
+[discrete]
 ==== Table Widget V2
 
 * In-line Editing: Edit cells directly in the table without extra forms.
@@ -120,6 +127,7 @@ Moreover, the editors have been enhanced to let you open and manage multiple que
 * Server-Side Pagination with improved UI controls for large datasets (loading states, fetch-on-scroll, etc.).
 
 
+[discrete]
 ==== Form Controls & Input Widgets
 
 * New or Enhanced Inputs: Phone input (with country selector), currency input, date pickers with better ranges.
