@@ -55,7 +55,7 @@ See xref:process:messaging.adoc[Email Connector documentation] for more informat
 
 == Bug fixes
 
-=== Fixes in Bonita 2025.2-u5 (2026-02-56)
+=== Fixes in Bonita 2025.2-u5 (2026-02-26)
 
 * BPA-206 - LASTUPDATEDATE of rows in the flownode_instance table is not updated
 * BPA-278 - Bonita Administrator Application - License page is broken
