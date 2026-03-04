@@ -1,1 +1,3 @@
-* xref:bonita-studio-download-installation.adoc[Studio installation]
+* Studio installation
+** xref:bonita-studio-download-installation.adoc[Standard installation]
+** xref:bonita-studio-docker-environment.adoc[Docker environment]
