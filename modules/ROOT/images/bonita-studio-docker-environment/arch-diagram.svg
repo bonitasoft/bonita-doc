@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 480" width="860" height="480" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,1 L9,5 L0,9 Z" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,1 L9,5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00000018"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="860" height="480" fill="#f8fafc" rx="12"/>
+
+  <!-- ── DOCKER HOST boundary ── -->
+  <rect x="220" y="30" width="610" height="430" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="236" y="54" font-size="11" fill="#94a3b8" font-weight="600" letter-spacing="0.5">DOCKER HOST</text>
+
+  <!-- ── bonita-studio-vnc container ── -->
+  <rect x="420" y="80" width="380" height="270" rx="8" fill="#e0f2fe" stroke="#7dd3fc" stroke-width="1.5"/>
+  <text x="436" y="104" font-size="11" fill="#0369a1" font-weight="600" letter-spacing="0.5">bonita-studio-vnc  (container)</text>
+
+  <!-- XFCE Desktop label -->
+  <rect x="436" y="115" width="348" height="220" rx="6" fill="#bae6fd" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="452" y="135" font-size="10" fill="#0284c7" font-weight="600">XFCE Desktop</text>
+
+  <!-- Bonita Studio box -->
+  <rect x="448" y="145" width="148" height="64" rx="6" fill="#fff" stroke="#e2803a" stroke-width="2" filter="url(#shadow)"/>
+  <text x="522" y="170" font-size="12" fill="#c2440c" font-weight="700" text-anchor="middle">Bonita Studio</text>
+  <text x="522" y="186" font-size="10" fill="#9a3412" text-anchor="middle">Tomcat :8080</text>
+  <text x="522" y="200" font-size="10" fill="#9a3412" text-anchor="middle">Workspace (volume)</text>
+
+  <!-- Firefox box -->
+  <rect x="616" y="145" width="148" height="64" rx="6" fill="#fff" stroke="#6366f1" stroke-width="2" filter="url(#shadow)"/>
+  <text x="690" y="170" font-size="12" fill="#4338ca" font-weight="700" text-anchor="middle">Firefox</text>
+  <text x="690" y="186" font-size="10" fill="#4338ca" text-anchor="middle">pre-installed</text>
+  <text x="690" y="200" font-size="10" fill="#4338ca" text-anchor="middle">default browser</text>
+
+  <!-- UI Builder sub-containers -->
+  <rect x="448" y="232" width="314" height="88" rx="6" fill="#fff" stroke="#10b981" stroke-width="1.5"/>
+  <text x="605" y="252" font-size="10" fill="#065f46" font-weight="600" text-anchor="middle">UI Builder containers  (managed by Studio)</text>
+  <!-- UIB box 1 -->
+  <rect x="460" y="260" width="130" height="48" rx="4" fill="#d1fae5" stroke="#34d399" stroke-width="1"/>
+  <text x="525" y="279" font-size="10" fill="#065f46" font-weight="600" text-anchor="middle">bonita-ui-builder</text>
+  <text x="525" y="295" font-size="9" fill="#047857" text-anchor="middle">:80 via SSO</text>
+  <!-- UIB box 2 -->
+  <rect x="604" y="260" width="130" height="48" rx="4" fill="#d1fae5" stroke="#34d399" stroke-width="1"/>
+  <text x="669" y="279" font-size="10" fill="#065f46" font-weight="600" text-anchor="middle">bonita-ui-proxy</text>
+  <text x="669" y="295" font-size="9" fill="#047857" text-anchor="middle">routing bridge</text>
+
+  <!-- ── Nginx box ── -->
+  <rect x="240" y="160" width="140" height="80" rx="8" fill="#fff" stroke="#f97316" stroke-width="2" filter="url(#shadow)"/>
+  <text x="310" y="192" font-size="13" fill="#c2440c" font-weight="700" text-anchor="middle">Nginx</text>
+  <text x="310" y="210" font-size="10" fill="#9a3412" text-anchor="middle">Reverse proxy</text>
+  <text x="310" y="224" font-size="10" fill="#9a3412" text-anchor="middle">HTTPS :8443</text>
+
+  <!-- ── Guacamole box ── -->
+  <rect x="240" y="295" width="140" height="80" rx="8" fill="#fff" stroke="#8b5cf6" stroke-width="2" filter="url(#shadow)"/>
+  <text x="310" y="326" font-size="13" fill="#5b21b6" font-weight="700" text-anchor="middle">Guacamole</text>
+  <text x="310" y="344" font-size="10" fill="#5b21b6" text-anchor="middle">Web VNC interface</text>
+  <text x="310" y="358" font-size="10" fill="#5b21b6" text-anchor="middle">:8088 internal</text>
+
+  <!-- ── guac-db box ── -->
+  <rect x="240" y="420" width="140" height="32" rx="6" fill="#fff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="310" y="441" font-size="10" fill="#475569" text-anchor="middle" font-weight="600">guac-db  (PostgreSQL)</text>
+
+  <!-- ── Developer browser (left) ── -->
+  <rect x="20" y="175" width="160" height="70" rx="8" fill="#fff" stroke="#1e40af" stroke-width="2" filter="url(#shadow)"/>
+  <text x="100" y="204" font-size="13" fill="#1e3a8a" font-weight="700" text-anchor="middle">Developer</text>
+  <text x="100" y="222" font-size="11" fill="#1e3a8a" text-anchor="middle">Browser</text>
+  <text x="100" y="237" font-size="9" fill="#3b82f6" text-anchor="middle">Any OS / Any browser</text>
+
+  <!-- ── ARROWS ── -->
+
+  <!-- Browser → Nginx  (HTTPS :8443) -->
+  <line x1="180" y1="200" x2="238" y2="200" stroke="#64748b" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <rect x="183" y="186" width="52" height="14" rx="3" fill="#e2e8f0"/>
+  <text x="209" y="196" font-size="9" fill="#334155" text-anchor="middle" font-weight="600">HTTPS :8443</text>
+
+  <!-- Nginx → Guacamole -->
+  <line x1="310" y1="240" x2="310" y2="293" stroke="#64748b" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <text x="318" y="270" font-size="9" fill="#64748b">proxy_pass</text>
+
+  <!-- Guacamole → bonita-studio-vnc (VNC) -->
+  <line x1="380" y1="335" x2="418" y2="205" stroke="#64748b" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <rect x="378" y="258" width="42" height="14" rx="3" fill="#e2e8f0"/>
+  <text x="399" y="268" font-size="9" fill="#334155" text-anchor="middle" font-weight="600">VNC :5901</text>
+
+  <!-- Guacamole ↔ guac-db -->
+  <line x1="310" y1="375" x2="310" y2="418" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#arrow-white)" stroke-dasharray="4 3"/>
+
+  <!-- Studio → UIB -->
+  <line x1="522" y1="209" x2="540" y2="230" stroke="#10b981" stroke-width="1.4" marker-end="url(#arrow-white)" stroke-dasharray="4 2"/>
+
+  <!-- Firefox → UIB (SSO) -->
+  <line x1="660" y1="209" x2="630" y2="230" stroke="#10b981" stroke-width="1.4" marker-end="url(#arrow-white)" stroke-dasharray="4 2"/>
+
+  <!-- Legend -->
+  <rect x="240" y="390" width="860" height="1" fill="none"/>
+  <text x="240" y="408" font-size="9" fill="#94a3b8">External traffic</text>
+  <line x1="240" y1="415" x2="290" y2="415" stroke="#64748b" stroke-width="1.8"/>
+  <polygon points="290,411 296,415 290,419" fill="#64748b"/>
+  <text x="305" y="419" font-size="9" fill="#94a3b8">Internal / Docker network</text>
+  <line x1="305" y1="428" x2="355" y2="428" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="4 3"/>
+  <polygon points="355,424 361,428 355,432" fill="#94a3b8"/>
+</svg>

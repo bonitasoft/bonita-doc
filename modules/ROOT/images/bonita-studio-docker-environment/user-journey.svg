@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 160" width="820" height="160" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1.5 L8,5 L0,8.5 Z" fill="#94a3b8"/>
+    </marker>
+    <filter id="sh" x="-5%" y="-5%" width="115%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00000015"/>
+    </filter>
+  </defs>
+
+  <rect width="820" height="160" fill="#f8fafc" rx="12"/>
+
+  <!-- Step boxes -->
+  <!-- 1 -->
+  <rect x="20" y="40" width="140" height="80" rx="8" fill="#fff" stroke="#1e40af" stroke-width="2" filter="url(#sh)"/>
+  <text x="90" y="72" font-size="28" text-anchor="middle">🌐</text>
+  <text x="90" y="96" font-size="12" fill="#1e3a8a" font-weight="700" text-anchor="middle">Open browser</text>
+  <text x="90" y="111" font-size="10" fill="#64748b" text-anchor="middle">Any OS, any device</text>
+
+  <!-- arrow -->
+  <line x1="162" y1="80" x2="188" y2="80" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- 2 -->
+  <rect x="190" y="40" width="140" height="80" rx="8" fill="#fff" stroke="#f97316" stroke-width="2" filter="url(#sh)"/>
+  <text x="260" y="72" font-size="28" text-anchor="middle">🔒</text>
+  <text x="260" y="96" font-size="12" fill="#c2440c" font-weight="700" text-anchor="middle">Navigate to URL</text>
+  <text x="260" y="111" font-size="10" fill="#64748b" text-anchor="middle">https://server:8443</text>
+
+  <!-- arrow -->
+  <line x1="332" y1="80" x2="358" y2="80" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- 3 -->
+  <rect x="360" y="40" width="140" height="80" rx="8" fill="#fff" stroke="#8b5cf6" stroke-width="2" filter="url(#sh)"/>
+  <text x="430" y="72" font-size="28" text-anchor="middle">🔑</text>
+  <text x="430" y="96" font-size="12" fill="#5b21b6" font-weight="700" text-anchor="middle">Log in</text>
+  <text x="430" y="111" font-size="10" fill="#64748b" text-anchor="middle">Guacamole auth</text>
+
+  <!-- arrow -->
+  <line x1="502" y1="80" x2="528" y2="80" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- 4 -->
+  <rect x="530" y="40" width="140" height="80" rx="8" fill="#fff" stroke="#e2803a" stroke-width="2" filter="url(#sh)"/>
+  <text x="600" y="72" font-size="28" text-anchor="middle">🖥️</text>
+  <text x="600" y="96" font-size="12" fill="#c2440c" font-weight="700" text-anchor="middle">Studio ready</text>
+  <text x="600" y="111" font-size="10" fill="#64748b" text-anchor="middle">Full desktop in browser</text>
+
+  <!-- arrow -->
+  <line x1="672" y1="80" x2="698" y2="80" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- 5 -->
+  <rect x="700" y="40" width="100" height="80" rx="8" fill="#fff" stroke="#10b981" stroke-width="2" filter="url(#sh)"/>
+  <text x="750" y="72" font-size="28" text-anchor="middle">✨</text>
+  <text x="750" y="96" font-size="12" fill="#065f46" font-weight="700" text-anchor="middle">Build!</text>
+  <text x="750" y="111" font-size="10" fill="#64748b" text-anchor="middle">Studio + UIB</text>
+
+  <!-- step labels -->
+  <text x="90"  y="136" font-size="9" fill="#94a3b8" text-anchor="middle">Step 1</text>
+  <text x="260" y="136" font-size="9" fill="#94a3b8" text-anchor="middle">Step 2</text>
+  <text x="430" y="136" font-size="9" fill="#94a3b8" text-anchor="middle">Step 3</text>
+  <text x="600" y="136" font-size="9" fill="#94a3b8" text-anchor="middle">Step 4</text>
+  <text x="750" y="136" font-size="9" fill="#94a3b8" text-anchor="middle">Step 5</text>
+</svg>

@@ -18,6 +18,8 @@ asciidoc:
     cscCustomerServices: '{cscRootUrl}/apps/CustomerServices'
     cscDownloadUrl: '{cscCustomerServices}/downloads'
     cscLicenseUrl: '{cscCustomerServices}/licenses'
+    # Bonita Studio Docker Environment
+    bonitaStudioArchiveVersion: '2025.1-u0'
     # UI Builder attributes
     bonita-ui-builder-version: '1.3.9'
     bonita-ui-builder-image: '{bonitasoft-docker-repository}/bonita-ui-builder'
