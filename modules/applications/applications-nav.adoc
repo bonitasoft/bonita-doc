@@ -1,5 +1,6 @@
 * xref:custom-applications-index.adoc[Living Applications]
- ** xref:@ui-builder:index.adoc[Applications with Bonita UI Builder]
+ ** Applications with Bonita UI Builder
+//** xref:@ui-builder:index.adoc[Applications with Bonita UI Builder]
  ** xref:ui-designer/uid-applications-index.adoc[Living applications with Bonita UID]
   *** xref:ui-designer/application-creation.adoc[Application descriptor]
   *** xref:ui-designer/layout-development.adoc[Layout]
