@@ -66,5 +66,7 @@ In the xref:ROOT:define-who-can-do-what.adoc[next chapter] you'll assure that in
 
 [NOTE]
 ====
-This Getting Started tutorial is using Bonita UI Designer, which is a development environment that will be phased out as we fully transition to Bonita UI Builder. Bonita UI Builder allows for designing all kind of interfaces, forms and pages, without distinction. Check out the dedicated xref:applications:initiation-manual.adoc[document section] to learn how to use Bonita UI Builder to make forms.
+This Getting Started tutorial is using Bonita UI Designer, which is a development environment that will be phased out as we fully transition to Bonita UI Builder. Bonita UI Builder allows for designing all kind of interfaces, forms and pages, without distinction. Check out the dedicated
+// @UIB xref:applications:initiation-manual.adoc[document section]
+document section to learn how to use Bonita UI Builder to make forms.
 ====
