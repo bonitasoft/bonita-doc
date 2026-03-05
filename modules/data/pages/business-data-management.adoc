@@ -15,7 +15,7 @@ Moreover, if xref:identity:bdm-access-control.adoc[BDM Access Control] is set, t
 
 === Example Use Case: Referential Data Maintenance
 
-An organization needs to update its list of countries stored in the BDM—used across multiple processes for forms and compliance. 
+An organization needs to update its list of countries stored in the BDM—used across multiple processes for forms and compliance.
 With the new API, an admin can securely update this reference data at runtime, without redeploying processes or risking data integrity. All changes are logged for full traceability.
 
 == API documentation reference
@@ -42,7 +42,8 @@ Each operation on the BDM through these REST APIs is traced using the standard x
 
 == Business Data Management in Bonita UI Builder
 
-xref:applications:ui-builder/how-to-manage-bdm-data.adoc[This how-to page] explains the procedure to create Bonita UI Builder pages that allows to bulk import, create, edit and delete referential Business Data.
+// @UIB add link to the dedicated how-to page for BDM management in UIB when it's ready xref:applications:ui-builder/how-to-manage-bdm-data.adoc
+[This how-to page] explains the procedure to create Bonita UI Builder pages that allows to bulk import, create, edit and delete referential Business Data.
 
 == Business Data Management in the UI Designer
 
