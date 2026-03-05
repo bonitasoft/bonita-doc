@@ -3,8 +3,11 @@
 
 == Bonita UI Builder
 
-We are excited to announce the release of xref:{bonitaUiBuilderVersion}@ui-builder::index.adoc[Bonita
- UI Builder], our new and enhanced development environment for creating all kind of interfaces, pages and forms for your applications! It brings along a host of advanced features and improved usability, designed to help you create compelling, responsive, and user-friendly interfaces.
+We are excited to announce the release of
+// @UIB xref:{bonitaUiBuilderVersion}@ui-builder::index.adoc[Bonita UI Builder],
+Bonita UI Builder our new and enhanced development environment for creating all kind of interfaces, pages and forms
+for your
+applications! It brings along a host of advanced features and improved usability, designed to help you create compelling, responsive, and user-friendly interfaces.
 
 Key benefits:
 
@@ -27,7 +30,9 @@ Eventually, Bonita UI Designer will be phased out as we progressively transition
 Here’s what you can expect during this transition period:
 
 * Continued access: Bonita UI Designer will remain fully operational for an extended period, allowing ample time for adaptation
-* Support and resources: We offer extensive documentation, tutorials, and support to help you make the most of xref:{bonitaUiBuilderVersion}@ui-builder::index.adoc[Bonita UI Builder]
+* Support and resources: We offer extensive documentation, tutorials, and support to help you make the most of
+// @UIB xref:{bonitaUiBuilderVersion}@ui-builder::index.adoc[Bonita UI Builder]
+Bonita UI Builder
 * Facilitated transition: We are dedicated to facilitate the transition, with detailed guides on how to use Bonita UI Builder, as well as https://www.bonitasoft.com/professional-services/on-demand-services[professional services support]
 
 
@@ -35,9 +40,14 @@ Here’s what you can expect during this transition period:
 
 === Application Links
 
-You can now use application links. See xref:{bonitaUiBuilderVersion}@ui-builder::index.adoc[Applications with
-Bonita UI Builder] for more details. Community users can also integrate their own links for applications developed with other tools.
-See xref:{bonitaUiBuilderVersion}@ui-builder::faq.adoc[FAQ] for common problems and solutions (e.g. if you use a customized or an old layout).
+You can now use application links. See
+// @UIB xref:{bonitaUiBuilderVersion}@ui-builder::index.adoc[Applications with Bonita UI Builder]
+Applications with Bonita UI Builder for more details. Community users can also integrate their own links for
+applications developed4 with other tools.
+See
+// @UIB xref:{bonitaUiBuilderVersion}@ui-builder::faq.adoc[FAQ]
+FAQ for common problems and solutions (e.g. if you use a
+customized or an old layout).
 
 xref:api:engine-api-overview.adoc[Engine APIs] that allowed applications manipulation still work with legacy applications and have been deprecated in favor of new APIs that manipulate both application links and legacy applications.
 

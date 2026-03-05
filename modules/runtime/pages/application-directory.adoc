@@ -40,7 +40,9 @@ To access its content:
 [WARNING]
 ====
 During the development phase, if you try to access a
-xref:{bonitaUiBuilderVersion}@ui-builder:git:version-control-with-git.adoc[UI-Builder application connected to a Git repository] from the Application Directory, the redirection will fail.
+// @UIB xref:{bonitaUiBuilderVersion}@ui-builder:git:version-control-with-git.adoc[UI-Builder application connected
+// to a Git repository]
+UI-Builder application connected to a Git repository from the Application Directory, the redirection will fail.
 
 To access the UI Builder application, you need to access it directly from the UI Builder workspace (e.g `http://localhost:8090/`)
 ====
