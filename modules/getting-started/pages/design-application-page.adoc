@@ -66,6 +66,6 @@ Now you have your first application page. It's time to move to the xref:ROOT:cre
 This Getting Started tutorial is using Bonita UI Designer, which is a development environment that will be phased out
  as we fully transition to Bonita UI Builder. Bonita UI Builder allows for designing all kind of interfaces, forms
  and pages, without distinction. Check out the dedicated
-// @UIB xref:ui-builder:applications/initiation-manual.adoc[document section]
-document section to learn how to use Bonita UI Builder to make application pages.
+ xref:{bonitaUiBuilderVersion}@ui-builder:getting-started:initiation-manual.adoc[document section] to learn how to
+ use Bonita UI Builder to make application pages.
 ====

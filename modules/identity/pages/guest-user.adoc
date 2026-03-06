@@ -62,8 +62,7 @@ You are done.
 [NOTE,caption=UI Builder]
 ====
 If you are using the UI Builder, you need to recreate the
-// @UIB xref:{bonitaUiBuilderVersion}@ui-builder:deployment:production-packaging.adoc[UI Builder production container]
-UI Builder production container to be able to use the guest user access.
+xref:{bonitaUiBuilderVersion}@ui-builder:deployment:production-packaging.adoc[UI Builder production container] to be able to use the guest user access.
 ====
 
 [NOTE.bonitacloud,caption=Bonita Cloud]
