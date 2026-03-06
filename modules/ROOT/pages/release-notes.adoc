@@ -5,11 +5,9 @@
 
 === Bonita UI Builder integration into Bonita Studio
 
-// @UIB xref:applications:ui-builder/development-instance-from-studio.adoc
-During development, the Bonita Studio now allows you to launch Bonita UI Builder very easily (for production, the Studio is not used). See [Development instance from Studio] for more information.
+During development, the Bonita Studio now allows you to launch Bonita UI Builder very easily (for production, the Studio is not used). See xref:{bonitaUiBuilderVersion}@ui-builder:development:development-instance-from-studio.adoc[Development instance from Studio] for more information.
 
-// @UIB xref:applications:ui-builder/ui-builder-release-notes.adoc#release-uib-integration
-New functionalities and improvements are on dedicated UIB [release notes].
+New functionalities and improvements are on dedicated UIB xref:{bonitaUiBuilderVersion}@ui-builder:ROOT:release-notes.adoc#release-uib-integration[release notes].
 
 === New Ollama AI Connector
 
