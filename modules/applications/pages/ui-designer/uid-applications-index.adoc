@@ -1,6 +1,7 @@
 = Living Applications with Bonita UID
 :page-aliases: applications:uid-applications-index.adoc
 :description: This page explains what a Living Application is, what it is made of, and how you can create your own applications.
+
 {description}
 
 [NOTE]
@@ -11,9 +12,7 @@ Bonita UI Builder is an application-centric development environment that allows 
 
 You can continue to use Bonita UI Designer as usual, while also having the opportunity to explore and get familiar with the capabilities of Bonita UI Builder. Bonita UI Designer will remain fully operational for an extended period, allowing ample time for adaptation.
 
-Check our
-// @UIB xref:{bonitaUiBuilderVersion}@ui-builder::index.adoc[documentation]
-documentation to learn more and start creating applications with Bonita UI Builder.
+Check our xref:{bonitaUiBuilderVersion}@ui-builder::index.adoc[documentation] to learn more and start creating applications with Bonita UI Builder.
 ====
 
 
