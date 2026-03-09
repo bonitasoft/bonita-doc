@@ -12,7 +12,7 @@ This improvement ensures higher-quality, more readable logs and simplifies integ
 [WARNING]
 ====
 This extra information also means more volume for logs. +
-If you have limited space for logs and do not wish this information, you may deactivate this feature by removing `{ - %X}` from the xref:setup-dev-environment:logging.adoc#logging-configuration[logging configuration].
+If you have limited space for logs and do not wish this information, you may deactivate this feature by removing `%notEmpty{ - %X}` from the xref:setup-dev-environment:logging.adoc#logging-configuration[logging configuration].
 ====
 
 You can see the xref:setup-dev-environment:logging.adoc#logging-configuration[logging configuration] for more details.
