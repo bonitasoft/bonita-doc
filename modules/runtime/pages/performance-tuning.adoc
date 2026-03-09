@@ -392,7 +392,7 @@ A restart is required to take the configuration changes into account.
 [#app_cache]
 === Application cache
 
-Bonita Engine uses an application cache to store specific objects. Starting with Bonita {bonitaVersion}, the default implementation relies on Ehcache 3.11 (upgraded from Ehcache 2.x). Cache configuration is now programmatic in Java code, with property-based tuning available in these configuration files:
+Bonita Engine uses an application cache to store specific objects. Starting with Bonita 2026.1, the default implementation relies on Ehcache 3.11 (upgraded from Ehcache 2.x). Cache configuration is now programmatic in Java code, with property-based tuning available in these configuration files:
 
 * `bonita-platform-community-custom.properties`
 * `bonita-tenant-community-custom.properties`
@@ -476,7 +476,7 @@ The following Ehcache 2.x properties are no longer supported and should not be u
 * `inMemoryOnly`, `maxElementsOnDisk`
 * `copyOnRead`, `copyOnWrite`
 
-These properties are automatically removed when upgrading to Bonita {bonitaVersion}.
+These properties are automatically removed when upgrading to Bonita 2026.1.
 
 [#jvm]
 === Java Virtual Machine
