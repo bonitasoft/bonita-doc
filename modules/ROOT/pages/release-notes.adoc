@@ -33,6 +33,55 @@ If you are updating from a previous version of Bonita, backward compatibility is
 
 See xref:data:bdm-query-response-formats.adoc[BDM Query Response Formats] for detailed migration guidance.
 
+
+=== Rest API refactoring
+
+Many Rest APIs have been refactored to better prepare evolutions in the future.
+(Technically, we moved the implementation from unmaintained Restlet to Spring MVC).
+
+This concerns the following endpoints:
+
+* `/API/accessControl/bdm`
+* `/API/bdm/businessDataReference`
+    - ⚠️ this API now returns `HTTP 400` instead of `HTTP 500`:
+        . when `caseId` filter is not provided, or filter `f` completely absent
+        . when pagination parameter `p` is not provided
+        . when pagination parameter `c` is not provided
+* `/API/bdm/businessDataReference/+{caseId}+/+{dataName}+`
+* `/API/bpm/activityReplay/+{activityInstanceId}+`
+* `/API/bpm/activityVariable/+{activityId}+/+{dataName}+`
+    - ⚠️ this API now returns `HTTP 404` when `activityId` or `dataName` is not found (instead of `HTTP 500`)
+* `/API/bpm/archivedActivityVariable/+{activityId}+/+{variableName}+`
+    - ⚠️ this API now returns `HTTP 404` when `activityId` or `variableName` is not found (instead of `HTTP 500`)
+* `/API/bpm/archivedCase/+{archivedCaseId}+/context`
+* `/API/bpm/archivedCaseVariable?f=case_id=12005&p=0&c=10`
+    - ⚠️ this API now returns `HTTP 400` instead of `HTTP 500`:
+        . when `case_id` filter is not provided, or filter `f` completely absent
+        . when pagination parameter `p` is not provided
+        . when pagination parameter `c` is not provided
+* `/API/bpm/archivedCaseVariable/+{caseId}+/+{variableName}+`
+    - ⚠️ this API now returns `HTTP 404` when `caseId` or `variableName` is not found (instead of `HTTP 500`)
+* `/API/bpm/archivedUserTask/+{archivedTaskId}+/context`
+* `/API/bpm/case/+{caseId}+/context`
+* `/API/bpm/diagram/+{processId}+`
+* `/API/bpm/message`
+* `/API/bpm/process/+{processDefinitionId}+/contract`
+* `/API/bpm/process/+{processDefinitionId}+/design`
+* `/API/bpm/process/+{processDefinitionId}+/expression/+{expressionId}+`
+* `/API/bpm/process/+{processDefinitionId}+/instantiation`
+* `/API/bpm/signal`
+* `/API/bpm/timerEventTrigger`
+* `/API/bpm/timerEventTrigger/+{id}+`
+* `/API/bpm/userTask/+{taskId}+/context`
+* `/API/bpm/userTask/+{taskId}+/contract`
+* `/API/bpm/userTask/+{taskId}+/execution`
+* `/API/form/mapping/+{id}+`
+* `/API/platform/license`
+* `/API/system/i18ntranslation`
+* `/API/tenant/bdm`
+
+The behaviour remains unchanged, even if some HTTP headers may be slightly different.
+
 == Support matrix changes
 
 
