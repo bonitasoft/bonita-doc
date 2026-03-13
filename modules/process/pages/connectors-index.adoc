@@ -89,6 +89,11 @@ xref:ROOT:script.adoc[[.card-title]#Script# [.card-body.card-content-overflow]#p
 
 [.card.card-index]
 --
+xref:ROOT:slack-connector.adoc[[.card-title]#Slack# [.card-body.card-content-overflow]#pass:q[Send messages, upload files, and manage channels from your processes]#]
+--
+
+[.card.card-index]
+--
 xref:ROOT:twitter.adoc[[.card-title]#Twitter# [.card-body.card-content-overflow]#pass:q[Create tweets in your processes]#]
 --
 

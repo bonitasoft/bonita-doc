@@ -42,6 +42,7 @@
     **** xref:salesforce.adoc[Salesforce]
     **** xref:sap-jco-3.adoc[SAP]
     **** xref:script.adoc[Script]
+    **** xref:slack-connector.adoc[Slack]
     **** xref:twitter.adoc[Twitter]
     **** xref:uipath.adoc[UiPath]
     **** Web service
