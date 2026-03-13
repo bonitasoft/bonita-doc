@@ -62,6 +62,11 @@ xref:ROOT:google-calendar.adoc[[.card-title]#Google calendar# [.card-body.card-c
 
 [.card.card-index]
 --
+xref:ROOT:google-drive.adoc[[.card-title]#Google Drive# [.card-body.card-content-overflow]#pass:q[Manage files and folders in Google Drive from your processes]#]
+--
+
+[.card.card-index]
+--
 xref:ROOT:ldap.adoc[[.card-title]#LDAP# [.card-body.card-content-overflow]#pass:q[Retrieve external organization information from your processes]#]
 --
 
