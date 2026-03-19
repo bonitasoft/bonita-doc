@@ -17,7 +17,7 @@ This new major release improves security, search capabilities and performance.
 * Better platform performance thanks to the L2 Cache (Enterprise Edition only), extended to clustered environments.
 * Bonita Studio packaging changes
 * REST API authorizations in Community edition
-* Find out how Bonitasoft handles GDPR
+* Find out how Bonitasoft xref:best-practices:gdpr-guidelines.adoc[handles GDPR]
 
 == New available values
 
@@ -57,7 +57,7 @@ For more information on how to tune the L2 Cache with Bonita, please refer to th
 
 ==== Like-based search
 
-Bonita {bonitaVersion} introduces a new search engine algorithm on all APIs and the Bonita pages included by default on Bonita User Application, Bonita Administrator and Super Administrator Applications. This new “like-based” search algorithm replaces the previous “word-based” search and it will allow you to rapidly find all matching records for a given search string anywhere in a phrase or a word. 
+Bonita {bonitaVersion} introduces a new search engine algorithm on all APIs and the Bonita pages included by default on Bonita User Application, Bonita Administrator and Super Administrator Applications. This new “like-based” search algorithm replaces the previous “word-based” search and it will allow you to rapidly find all matching records for a given search string anywhere in a phrase or a word. +
 This is now the default search behavior for all search APIs and pages of Bonita Runtime.
 
 The result is simple: a better understanding of your queries without any configuration changes!
