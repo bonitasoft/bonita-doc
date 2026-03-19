@@ -29,6 +29,11 @@ All the Bonita official connectors are available from the Bonita marketplace. Th
 xref:ROOT:ai-connector.adoc[[.card-title]#AI# [.card-body.card-content-overflow]#pass:q[Combine the power of AI and Process Automation]#]
 --
 
+[.card.card-index]
+--
+xref:ROOT:aws-s3-connector.adoc[[.card-title]#AWS S3# [.card-body.card-content-overflow]#pass:q[Manage files and objects in Amazon S3 from your processes]#]
+--
+
 
 [.card.card-index]
 --
