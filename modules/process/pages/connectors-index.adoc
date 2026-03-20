@@ -64,6 +64,10 @@ xref:ROOT:google-calendar.adoc[[.card-title]#Google calendar# [.card-body.card-c
 xref:ROOT:ldap.adoc[[.card-title]#LDAP# [.card-body.card-content-overflow]#pass:q[Retrieve external organization information from your processes]#]
 --
 
+[.card.card-index]
+--
+xref:ROOT:msteams-connector.adoc[[.card-title]#Microsoft Teams# [.card-body.card-content-overflow]#pass:q[Send messages, manage channels, schedule meetings from your processes]#]
+--
 
 [.card.card-index]
 --

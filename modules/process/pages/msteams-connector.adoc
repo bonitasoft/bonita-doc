@@ -1,0 +1,774 @@
+= Microsoft Teams connectors
+:page-aliases: ROOT:msteams-connector.adoc
+:description: The Bonita Microsoft Teams connectors let you send messages, manage channels and teams, schedule meetings, and upload files to Microsoft Teams directly from your Bonita processes.
+
+{description}
+
+The Bonita Microsoft Teams Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+== Overview
+
+The Microsoft Teams connector provides fourteen operations organized into five functional areas:
+
+=== Messaging
+
+* **Send Channel Message** -- send a text or HTML message to a Teams channel via webhook
+* **Send Adaptive Card** -- send a rich Adaptive Card to a channel via webhook
+* **Send Chat Message** -- send a message to a Teams chat via Graph API
+* **Reply to Message** -- reply to a message in a Teams channel
+
+=== Channels
+
+* **List Channels** -- list all channels in a team
+* **Create Channel** -- create a new channel (standard, private, or shared)
+* **Delete Channel** -- delete a channel from a team
+
+=== Teams
+
+* **List Teams** -- list all teams in the organization
+* **Get Team** -- get details of a specific team
+* **Add Team Member** -- add a user to a team
+* **Remove Team Member** -- remove a member from a team
+
+=== Meetings
+
+* **Create Online Meeting** -- create a Teams online meeting with a join URL
+* **Get Online Meeting** -- retrieve meeting details
+
+=== Files
+
+* **Upload File** -- upload a file to a channel's SharePoint folder
+
+== Prerequisites
+
+Before using the Microsoft Teams connector, ensure the following:
+
+* A **Microsoft 365 tenant** with Microsoft Teams enabled
+* For webhook operations: an **Incoming Webhook** configured in the target Teams channel
+* For Graph API operations: an **Entra ID (Azure AD) app registration** with the required permissions
+* **Admin consent** granted for application permissions
+* The connector extension imported into your Bonita project (see <<import-connector>>)
+
+== Authentication
+
+The connector supports three authentication modes depending on the operation.
+
+=== Webhook
+
+Used by: Send Channel Message, Send Adaptive Card.
+
+No Azure AD registration required. Simply configure an https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook[Incoming Webhook] in the target Teams channel and use the generated URL.
+
+==== Webhook parameters
+
+[caption=Configuration]
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*webhookUrl*
+|String
+|Yes
+|The Teams Incoming Webhook URL for the target channel.
+|
+
+|*connectTimeout*
+|Integer
+|No
+|Connection timeout in milliseconds.
+|`30000`
+|===
+
+=== App-only (Client Credentials)
+
+Used by: List Channels, Create Channel, Delete Channel, List Teams, Get Team, Add Member, Remove Member, Upload File.
+
+Uses an Entra ID app registration with client credentials. The connector authenticates as the application (not as a user).
+
+Required Graph **Application** permissions (admin consent required):
+
+* `Team.ReadBasic.All` -- list and get teams
+* `Channel.ReadBasic.All` -- list channels
+* `Channel.Create` -- create channels
+* `Channel.Delete.All` -- delete channels
+* `TeamMember.ReadWrite.All` -- add/remove team members
+* `Files.ReadWrite.All` -- upload files
+
+==== App-only parameters
+
+[caption=Configuration]
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*tenantId*
+|String
+|Yes
+|Microsoft Entra ID tenant ID (GUID).
+|
+
+|*clientId*
+|String
+|Yes
+|Application (client) ID of the Entra app registration.
+|
+
+|*clientSecret*
+|String
+|Yes
+|Client secret value.
+|
+
+|*connectTimeout*
+|Integer
+|No
+|Connection timeout in milliseconds.
+|`30000`
+|===
+
+=== Delegated (User context)
+
+Used by: Send Chat Message, Reply to Message, Create Meeting, Get Meeting.
+
+Uses an Entra ID app registration with delegated permissions and an OAuth2 refresh token. Operations execute in the context of a specific user.
+
+Required Graph **Delegated** permissions:
+
+* `Chat.ReadWrite` -- send chat messages
+* `ChannelMessage.Send` -- reply to channel messages
+* `OnlineMeetings.ReadWrite` -- create and get meetings
+
+==== Delegated parameters
+
+[caption=Configuration]
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*tenantId*
+|String
+|Yes
+|Microsoft Entra ID tenant ID (GUID).
+|
+
+|*clientId*
+|String
+|Yes
+|Application (client) ID of the Entra app registration.
+|
+
+|*clientSecret*
+|String
+|Yes
+|Client secret value.
+|
+
+|*refreshToken*
+|String
+|Yes
+|OAuth2 refresh token obtained from the authorization code flow.
+|
+
+|*connectTimeout*
+|Integer
+|No
+|Connection timeout in milliseconds.
+|`30000`
+|===
+
+== Common outputs
+
+All operations return the following outputs in addition to their specific outputs:
+
+|===
+|Output name |Type |Description
+
+|*success*
+|Boolean
+|`true` if the operation completed successfully, `false` otherwise.
+
+|*errorMessage*
+|String
+|Error details if `success` is `false`. Empty when the operation succeeds.
+|===
+
+== Messaging Operations
+
+[#send-channel-message]
+=== Send Channel Message
+
+Send a text or HTML message to a Teams channel via an Incoming Webhook.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*message*
+|String
+|Yes
+|Message text (supports HTML formatting).
+|
+
+|*title*
+|String
+|No
+|Optional message title.
+|
+
+|*themeColor*
+|String
+|No
+|Hex color code for the message accent (e.g., `FF0000` for red).
+|
+|===
+
+==== Outputs
+
+No operation-specific outputs beyond the common outputs.
+
+[#send-adaptive-card]
+=== Send Adaptive Card
+
+Send a rich https://learn.microsoft.com/en-us/adaptive-cards/[Adaptive Card] (v1.4) to a Teams channel via webhook. You can use the builder parameters for simple cards, or provide raw Adaptive Card JSON for full control.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*cardTitle*
+|String
+|No
+|Card title text.
+|
+
+|*cardBody*
+|String
+|No
+|Main body text of the card.
+|
+
+|*themeColor*
+|String
+|No
+|Hex color code for the card accent.
+|
+
+|*factsJson*
+|String
+|No
+|JSON array of key-value facts: `[{"key":"Status","value":"Approved"}]`.
+|
+
+|*actionsJson*
+|String
+|No
+|JSON array of URL actions: `[{"label":"View","url":"https://..."}]`.
+|
+
+|*advancedCardJson*
+|String
+|No
+|Raw Adaptive Card JSON payload. If provided, overrides the builder fields above.
+|
+|===
+
+==== Outputs
+
+No operation-specific outputs beyond the common outputs.
+
+[#send-chat-message]
+=== Send Chat Message
+
+Send a message to a Teams chat conversation via the Microsoft Graph API. Requires delegated authentication.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*chatId*
+|String
+|Yes
+|The ID of the Teams chat conversation.
+|
+
+|*message*
+|String
+|Yes
+|Message content to send.
+|
+
+|*contentType*
+|String
+|No
+|Message format: `text` or `html`.
+|`text`
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*messageId*
+|String
+|ID of the created message.
+
+|*createdDateTime*
+|String
+|ISO 8601 creation timestamp.
+|===
+
+[#reply-message]
+=== Reply to Message
+
+Reply to a message in a Teams channel. Requires delegated authentication.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*teamId*
+|String
+|Yes
+|The ID of the Teams team.
+|
+
+|*channelId*
+|String
+|Yes
+|The ID of the channel containing the message.
+|
+
+|*messageId*
+|String
+|Yes
+|The ID of the message to reply to.
+|
+
+|*replyContent*
+|String
+|Yes
+|Reply message content.
+|
+
+|*contentType*
+|String
+|No
+|Message format: `text` or `html`.
+|`text`
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*replyId*
+|String
+|ID of the reply message.
+
+|*createdDateTime*
+|String
+|ISO 8601 creation timestamp.
+|===
+
+== Channel Operations
+
+[#list-channels]
+=== List Channels
+
+List all channels in a Teams team. Requires app-only authentication.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*teamId*
+|String
+|Yes
+|The ID of the Teams team.
+|
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*channelsJson*
+|String
+|JSON array of channel objects (id, displayName, description, membershipType).
+
+|*channelCount*
+|Integer
+|Number of channels returned.
+|===
+
+[#create-channel]
+=== Create Channel
+
+Create a new channel in a Teams team. Requires app-only authentication.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*teamId*
+|String
+|Yes
+|The ID of the team to create the channel in.
+|
+
+|*displayName*
+|String
+|Yes
+|Display name for the new channel.
+|
+
+|*description*
+|String
+|No
+|Optional channel description.
+|
+
+|*membershipType*
+|String
+|No
+|Channel type: `standard`, `private`, or `shared`.
+|`standard`
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*channelId*
+|String
+|ID of the created channel.
+
+|*webUrl*
+|String
+|Web URL to the channel in Teams.
+|===
+
+[#delete-channel]
+=== Delete Channel
+
+Delete a channel from a Teams team. Requires app-only authentication.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*teamId*
+|String
+|Yes
+|The ID of the Teams team.
+|
+
+|*channelId*
+|String
+|Yes
+|The ID of the channel to delete.
+|
+|===
+
+==== Outputs
+
+No operation-specific outputs beyond the common outputs.
+
+== Team Operations
+
+[#list-teams]
+=== List Teams
+
+List all teams in the organization. Requires app-only authentication.
+
+==== Inputs
+
+No operation-specific inputs beyond the authentication parameters.
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*teamsJson*
+|String
+|JSON array of team objects (id, displayName, description).
+
+|*teamCount*
+|Integer
+|Number of teams returned.
+|===
+
+[#get-team]
+=== Get Team
+
+Get details of a specific Teams team. Requires app-only authentication.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*teamId*
+|String
+|Yes
+|The ID of the Teams team.
+|
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*teamJson*
+|String
+|Complete team object as JSON.
+
+|*displayName*
+|String
+|Team display name.
+
+|*description*
+|String
+|Team description.
+|===
+
+[#add-member]
+=== Add Team Member
+
+Add a user to a Teams team. Requires app-only authentication.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*teamId*
+|String
+|Yes
+|The ID of the Teams team.
+|
+
+|*userId*
+|String
+|Yes
+|The Azure AD user ID to add.
+|
+
+|*role*
+|String
+|No
+|Member role: `owner` or `member`.
+|`member`
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*membershipId*
+|String
+|ID of the team membership.
+|===
+
+[#remove-member]
+=== Remove Team Member
+
+Remove a member from a Teams team. Requires app-only authentication.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*teamId*
+|String
+|Yes
+|The ID of the Teams team.
+|
+
+|*membershipId*
+|String
+|Yes
+|The membership ID of the member to remove.
+|
+|===
+
+==== Outputs
+
+No operation-specific outputs beyond the common outputs.
+
+== Meeting Operations
+
+[#create-meeting]
+=== Create Online Meeting
+
+Create a Teams online meeting. Requires delegated authentication. The meeting is created under the specified user's calendar.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*userId*
+|String
+|Yes
+|Azure AD user ID of the meeting organizer.
+|
+
+|*subject*
+|String
+|Yes
+|Meeting subject/title.
+|
+
+|*startDateTime*
+|String
+|Yes
+|Meeting start time in ISO 8601 format (e.g., `2026-03-20T10:00:00Z`).
+|
+
+|*endDateTime*
+|String
+|Yes
+|Meeting end time in ISO 8601 format.
+|
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*meetingId*
+|String
+|ID of the created meeting.
+
+|*joinUrl*
+|String
+|URL to join the meeting.
+
+|*meetingJson*
+|String
+|Complete meeting object as JSON.
+|===
+
+[#get-meeting]
+=== Get Online Meeting
+
+Retrieve details of a Teams online meeting. Requires delegated authentication.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*userId*
+|String
+|Yes
+|Azure AD user ID of the meeting organizer.
+|
+
+|*meetingId*
+|String
+|Yes
+|The ID of the online meeting.
+|
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*meetingJson*
+|String
+|Complete meeting object as JSON.
+
+|*joinUrl*
+|String
+|URL to join the meeting.
+
+|*subject*
+|String
+|Meeting subject/title.
+|===
+
+== File Operations
+
+[#upload-file]
+=== Upload File
+
+Upload a file to a Teams channel's SharePoint document library folder. Requires app-only authentication.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*teamId*
+|String
+|Yes
+|The ID of the Teams team.
+|
+
+|*channelId*
+|String
+|Yes
+|The ID of the channel.
+|
+
+|*fileName*
+|String
+|Yes
+|Name for the file in Teams (e.g., `report.pdf`).
+|
+
+|*filePath*
+|String
+|Conditional
+|Local file path to upload. Provide either `filePath` or `fileContent`, not both.
+|
+
+|*fileContent*
+|String
+|Conditional
+|Text content to upload as a file. Provide either `filePath` or `fileContent`, not both.
+|
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*fileId*
+|String
+|ID of the uploaded file.
+
+|*webUrl*
+|String
+|Web URL to the file in Teams.
+|===
+
+[#import-connector]
+== Importing the connector into Bonita Studio
+
+To use the Microsoft Teams connector in your Bonita project:
+
+. Download the connector `.zip` extension from the https://marketplace.bonitasoft.com/[Bonita Marketplace].
+. In Bonita Studio, go to the *Project* menu and select *Extensions*.
+. Click *Import extension* and select the downloaded `.zip` file.
+. The Microsoft Teams connector operations will appear in the connector palette when configuring a task or a process.
+
+For more details on managing extensions, see xref:bonita-overview:managing-extension-studio.adoc[Managing extensions in Bonita Studio].
