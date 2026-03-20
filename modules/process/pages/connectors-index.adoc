@@ -80,6 +80,10 @@ xref:ROOT:salesforce.adoc[[.card-title]#Salesforce# [.card-body.card-content-ove
 xref:ROOT:sap-jco-3.adoc[[.card-title]#SAP# [.card-body.card-content-overflow]#pass:q[Connect your processes to SAP]#]
 --
 
+[.card.card-index]
+--
+xref:ROOT:sharepoint-connector.adoc[[.card-title]#SharePoint# [.card-body.card-content-overflow]#pass:q[Manage documents and lists in Microsoft SharePoint Online]#]
+--
 
 [.card.card-index]
 --

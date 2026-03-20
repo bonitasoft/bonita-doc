@@ -1,0 +1,575 @@
+= SharePoint connectors
+:page-aliases: ROOT:sharepoint-connector.adoc
+:description: The Bonita SharePoint connectors let you interact with Microsoft SharePoint Online directly from your Bonita processes, providing operations for uploading and downloading documents, organizing folder structures, and reading and writing structured list data.
+
+{description}
+
+The Bonita SharePoint Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+== Overview
+
+The SharePoint connector provides eight operations organized into two functional areas:
+
+=== File & Folder Management
+
+* **Upload File** -- upload files to a SharePoint document library (automatic simple/resumable upload based on file size)
+* **Download File** -- download files from a document library as Base64
+* **Create Folder** -- create folders in a document library
+* **List Folder Contents** -- list files and sub-folders with filtering options
+* **Delete Item** -- remove files or folders (to recycle bin or permanently)
+
+=== List Item Management
+
+* **Create List Item** -- create a new row in a SharePoint list
+* **Get List Item** -- read a list item by ID with optional field selection
+* **Update List Item** -- update specific fields on an existing list item (PATCH semantics)
+
+== Prerequisites
+
+Before using the SharePoint connector, ensure the following:
+
+* A **Microsoft 365 tenant** with SharePoint Online enabled
+* An **Entra ID (Azure AD) app registration** with the required Graph API permissions
+* **Admin consent** granted for the application permissions
+* A **SharePoint site** accessible to the registered application
+* The connector extension imported into your Bonita project (see <<import-connector>>)
+
+== Authentication
+
+All SharePoint connector operations share a common authentication configuration. Two authentication modes are supported, both using OAuth 2.0 Client Credentials flow via Microsoft Entra ID.
+
+=== Client Secret
+
+Provide a Tenant ID, Client ID, and Client Secret from your Entra ID app registration. This is the simplest mode, suitable for development and testing.
+
+=== Client Certificate
+
+Provide a Tenant ID, Client ID, and a PEM-encoded private key for certificate-based authentication. This mode offers higher security and is recommended for production environments.
+
+=== Required Entra App Permissions
+
+The following Microsoft Graph **Application** permissions must be granted (admin consent required):
+
+|===
+|Permission |Operations enabled
+
+|`Sites.Selected` _(recommended)_
+|All file, folder, and list item operations on explicitly granted sites
+
+|`Sites.ReadWrite.All`
+|All operations on all sites (broader scope, use when `Sites.Selected` is not feasible)
+
+|`Files.ReadWrite.All`
+|Upload, download, create folder, delete, list operations
+|===
+
+NOTE: `Sites.Selected` is strongly preferred -- it restricts the application to explicitly granted sites. Grant it via SharePoint Admin PowerShell or the Graph API.
+
+=== Common connection parameters
+
+[caption=Configuration]
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*tenantId*
+|String
+|Yes
+|Microsoft Entra ID tenant ID (GUID). Found in Azure Portal > Entra ID > Overview.
+|
+
+|*clientId*
+|String
+|Yes
+|Application (client) ID of the Entra app registration.
+|
+
+|*clientSecret*
+|String
+|Conditional
+|Client secret value. Required unless `clientCertificatePem` is provided.
+|
+
+|*clientCertificatePem*
+|String
+|Conditional
+|PEM-encoded private key for certificate-based auth. Takes precedence over `clientSecret` if provided.
+|
+
+|*siteId*
+|String
+|Yes
+|SharePoint site identifier. Accepts either the Graph composite site ID (`hostname,collection-guid,web-guid`) or a site URL (`\https://contoso.sharepoint.com/sites/mysite`).
+|
+
+|*connectTimeout*
+|Integer
+|No
+|Connection timeout in milliseconds.
+|`30000`
+
+|*readTimeout*
+|Integer
+|No
+|Read timeout in milliseconds.
+|`60000`
+|===
+
+== Common outputs
+
+All operations return the following outputs in addition to their specific outputs:
+
+|===
+|Output name |Type |Description
+
+|*success*
+|Boolean
+|`true` if the operation completed successfully, `false` otherwise.
+
+|*errorMessage*
+|String
+|Error details if `success` is `false`. Empty when the operation succeeds. Truncated to 1000 characters.
+|===
+
+== File & Folder Operations
+
+[#upload-file]
+=== Upload File
+
+Upload a file from a Bonita process (Base64-encoded content) to a SharePoint document library folder, returning the uploaded item's ID and web URL. Files up to 4 MB use a simple PUT request; larger files automatically use a resumable upload session.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*fileName*
+|String
+|Yes
+|Name of the file including extension (e.g., `contract_2026.pdf`).
+|
+
+|*fileContentBase64*
+|String
+|Yes
+|File content encoded as Base64.
+|
+
+|*mimeType*
+|String
+|Yes
+|MIME type of the file (e.g., `application/pdf`).
+|`application/octet-stream`
+
+|*parentItemId*
+|String
+|No
+|Drive item ID of the destination folder. Use `root` to upload to the library root.
+|`root`
+
+|*driveId*
+|String
+|No
+|ID of the target document library drive. If empty, the site's default document library is used.
+|
+
+|*conflictBehavior*
+|String
+|No
+|Behavior when a file with the same name exists: `replace`, `rename`, or `fail`.
+|`replace`
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*itemId*
+|String
+|Drive item ID of the uploaded file.
+
+|*itemWebUrl*
+|String
+|URL to view the file in SharePoint.
+
+|*eTag*
+|String
+|ETag of the uploaded version (for optimistic concurrency on subsequent operations).
+|===
+
+[#download-file]
+=== Download File
+
+Retrieve a file's binary content from a SharePoint document library, returning it as Base64.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*itemId*
+|String
+|Yes
+|Drive item ID of the file to download.
+|
+
+|*driveId*
+|String
+|No
+|ID of the document library drive. If empty, the site's default drive is used.
+|
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*fileContentBase64*
+|String
+|File content encoded as Base64.
+
+|*fileName*
+|String
+|File name as stored in SharePoint.
+
+|*mimeType*
+|String
+|MIME type of the file.
+
+|*fileSizeBytes*
+|Long
+|Size of the file in bytes.
+|===
+
+[#create-folder]
+=== Create Folder
+
+Create a new folder within a SharePoint document library, returning the folder's item ID for use in subsequent file operations.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*folderName*
+|String
+|Yes
+|Name of the folder to create (e.g., `LoanRequest_2026_00842`).
+|
+
+|*parentItemId*
+|String
+|No
+|Drive item ID of the parent folder. Use `root` to create at library root.
+|`root`
+
+|*driveId*
+|String
+|No
+|ID of the document library drive. If empty, the site's default drive is used.
+|
+
+|*conflictBehavior*
+|String
+|No
+|Behavior when a folder with the same name exists: `fail` (error -- default, prevents duplicates), `replace`, or `rename` (auto-suffix).
+|`fail`
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*folderId*
+|String
+|Drive item ID of the newly created folder. Store this as a process variable for subsequent file operations.
+
+|*folderWebUrl*
+|String
+|URL to open the folder in SharePoint.
+|===
+
+[#list-children]
+=== List Folder Contents
+
+List all files and sub-folders within a SharePoint document library folder, returning item IDs, names, types, sizes, and URLs.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*parentItemId*
+|String
+|No
+|Drive item ID of the folder to list. Use `root` for library root.
+|`root`
+
+|*driveId*
+|String
+|No
+|ID of the document library drive. If empty, the site's default drive is used.
+|
+
+|*maxResults*
+|Integer
+|No
+|Maximum number of items to return.
+|`100`
+
+|*includeFiles*
+|Boolean
+|No
+|Include non-folder files in results.
+|`true`
+
+|*includeFolders*
+|Boolean
+|No
+|Include sub-folders in results.
+|`true`
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*items*
+|List
+|List of maps, each with `id`, `name`, `isFolder`, `mimeType`, `webUrl`, `size`, `lastModifiedDateTime`.
+
+|*totalCount*
+|Integer
+|Number of items returned.
+
+|*nextPageToken*
+|String
+|Pagination token for retrieving the next page of results (empty if all results returned).
+|===
+
+[#delete-item]
+=== Delete Item
+
+Remove a file or folder from a SharePoint document library -- to the recycle bin (recoverable for 93 days) or permanently. This operation is idempotent -- deleting a non-existent item does not produce an error.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*itemId*
+|String
+|Yes
+|Drive item ID of the file or folder to delete.
+|
+
+|*driveId*
+|String
+|No
+|ID of the document library drive. If empty, the site's default drive is used.
+|
+
+|*permanent*
+|Boolean
+|No
+|`false` = move to SharePoint recycle bin (recoverable). `true` = permanently delete.
+|`false`
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*deletedItemId*
+|String
+|ID of the deleted item (for audit logging).
+
+|*permanent*
+|Boolean
+|Whether deletion was permanent (echoed for audit logging).
+|===
+
+== List Item Operations
+
+[#create-list-item]
+=== Create List Item
+
+Create a new row in a SharePoint List with specified field values.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*listId*
+|String
+|Yes
+|GUID or display name of the target SharePoint list.
+|
+
+|*fields*
+|String
+|Yes
+|JSON object of field name/value pairs to set on the new item (e.g., `{"Title": "Case-001", "Status": "In Progress"}`). Field names are case-sensitive internal column names.
+|
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*listItemId*
+|String
+|Auto-assigned integer ID of the new item.
+
+|*listItemWebUrl*
+|String
+|URL to view the item in SharePoint.
+
+|*createdDateTime*
+|String
+|ISO 8601 timestamp of creation.
+|===
+
+[#get-list-item]
+=== Get List Item
+
+Read a single row from a SharePoint List by its item ID, returning all field values as a map.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*listId*
+|String
+|Yes
+|GUID or display name of the SharePoint list.
+|
+
+|*listItemId*
+|String
+|Yes
+|Integer ID of the list item to retrieve.
+|
+
+|*selectFields*
+|String
+|No
+|Comma-separated field names to return. If empty, all fields are returned.
+|
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*fields*
+|Map<String, Object>
+|Map of field name to value for the item. Values are typed per SharePoint column type.
+
+|*listItemId*
+|String
+|Item ID (echoed for process variable chaining).
+
+|*createdDateTime*
+|String
+|ISO 8601 creation timestamp.
+
+|*lastModifiedDateTime*
+|String
+|ISO 8601 last-modified timestamp.
+|===
+
+[#update-list-item]
+=== Update List Item
+
+Update one or more field values on an existing SharePoint List item (PATCH semantics -- only specified fields change, omitted fields are untouched).
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*listId*
+|String
+|Yes
+|GUID or display name of the SharePoint list.
+|
+
+|*listItemId*
+|String
+|Yes
+|Integer ID of the list item to update.
+|
+
+|*fields*
+|String
+|Yes
+|JSON object of field name/value pairs to update (e.g., `{"Status": "Approved", "ApprovalDate": "2026-03-20"}`). Unspecified fields are untouched.
+|
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*listItemId*
+|String
+|ID of the updated item (echoed).
+
+|*lastModifiedDateTime*
+|String
+|ISO 8601 timestamp of the update.
+|===
+
+== Error handling
+
+The connector implements automatic retry with exponential backoff for transient errors:
+
+|===
+|HTTP Code |Behavior
+
+|400
+|Fail immediately -- invalid request parameters.
+
+|401
+|Token auto-refresh attempted; if still 401, fail.
+
+|403
+|Fail immediately -- missing permissions.
+
+|404
+|Fail with "not found" (except delete, which returns `success = true` for idempotency).
+
+|409
+|Fail (unless `conflictBehavior` is `rename` or `replace`).
+
+|423
+|Retry up to 3 times with 5-second delay (file locked by another user).
+
+|429
+|Honor `Retry-After` header; exponential backoff fallback.
+
+|500/502/503
+|Retry with exponential backoff (max 5 attempts).
+|===
+
+[#import-connector]
+== Importing the connector into Bonita Studio
+
+To use the SharePoint connector in your Bonita project:
+
+. Download the connector `.zip` extension from the https://marketplace.bonitasoft.com/[Bonita Marketplace].
+. In Bonita Studio, go to the *Project* menu and select *Extensions*.
+. Click *Import extension* and select the downloaded `.zip` file.
+. The SharePoint connector operations will appear in the connector palette when configuring a task or a process.
+
+For more details on managing extensions, see xref:bonita-overview:managing-extension-studio.adoc[Managing extensions in Bonita Studio].
