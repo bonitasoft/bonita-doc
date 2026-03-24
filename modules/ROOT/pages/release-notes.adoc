@@ -37,6 +37,8 @@ We are pleased to bring several exciting advancements in this release, including
 * BPA-206 - LASTUPDATEDATE of rows in the flownode_instance table is not updated
 * BPA-294 - Docker: Slow reverse DNS lookups with ProGrade security manager cause delays on HTTP requests
 * CVE-128 - Bouncy Castle for Java - bcpkix, bcprov, bcpkix-fips on All (API modules) allows Excessive Allocation (fixing CVE-2025-8916)
+* CVE-240 - Input Sanitizer reports but leaves unchanged HTML and JS
+* CVE-241 - Reflected XSS / Information disclosure via RestRequestParser error messages
 * Several dependencies updated
 
 === Fixes in Bonita 2024.2-u7 (2026-01-07)
