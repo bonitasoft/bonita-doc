@@ -56,8 +56,6 @@ When a user is locked out after too many failed login attempts:
 
 == Cluster mode
 
-In single-node deployments, failed login attempts are tracked in memory.
-
 In *cluster deployments* (Subscription editions), the lockout state is shared across all nodes, ensuring that an attacker cannot bypass the protection by targeting different nodes.
 
 == How to disable
