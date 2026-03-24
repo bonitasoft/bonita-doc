@@ -88,6 +88,8 @@ Note that this new API is now also available in the Community edition and provid
 * BPA-278 - Bonita Administrator Application - License page is broken
 * BPA-294 - Docker: Slow reverse DNS lookups with ProGrade security manager cause delays on HTTP requests
 * CVE-128 - Bouncy Castle for Java - bcpkix, bcprov, bcpkix-fips on All (API modules) allows Excessive Allocation (fixing CVE-2025-8916)
+* CVE-240 - Input Sanitizer reports but leaves unchanged HTML and JS
+* CVE-241 - Reflected XSS / Information disclosure via RestRequestParser error messages
 * Several dependencies updated
 
 === Fixes in Bonita 2024.3-u5 (2026-01-06)
