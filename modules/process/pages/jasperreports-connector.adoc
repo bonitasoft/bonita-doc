@@ -1,9 +1,19 @@
 = JasperReports connectors
+:page-aliases: ROOT:jasperreports-connector.adoc
 :description: The JasperReports connectors enable Bonita BPM processes to trigger report generation on a JasperReports Server, monitor execution asynchronously, retrieve the output document, and cancel stalled executions.
 
 {description}
 
 The Bonita JasperReports Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+[WARNING]
+====
+This connector is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-jasperreports/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+
+We are eager to collaborate with early adopters to bring this connector to General Availability.
+====
 
 == Overview
 
