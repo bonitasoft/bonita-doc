@@ -6,6 +6,15 @@
 
 The Bonita AWS S3 Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
 
+[WARNING]
+====
+This connector is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-s3/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+
+We are eager to collaborate with early adopters to bring this connector to General Availability.
+====
+
 == Overview
 
 The AWS S3 connector provides eight operations to manage objects in Amazon S3 buckets:

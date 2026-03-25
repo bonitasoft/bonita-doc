@@ -31,12 +31,6 @@ xref:ROOT:ai-connector.adoc[[.card-title]#AI# [.card-body.card-content-overflow]
 
 [.card.card-index]
 --
-xref:ROOT:aws-s3-connector.adoc[[.card-title]#AWS S3# [.card-body.card-content-overflow]#pass:q[Manage files and objects in Amazon S3 from your processes]#]
---
-
-
-[.card.card-index]
---
 xref:ROOT:uipath.adoc[[.card-title]#UiPath# [.card-body.card-content-overflow]#pass:q[Combine the power of BPMN and Robot Process Automation]#]
 --
 
@@ -107,3 +101,8 @@ xref:ROOT:web-service-connector-overview.adoc[[.card-title]#Web service# [.card-
 == Bonita official connectors [BETA]
 
 These connectors are currently in beta and have not yet been fully validated in production environments. We welcome feedback from early adopters — each connector page includes a link to report testing results.
+
+[.card.card-index]
+--
+xref:ROOT:aws-s3-connector.adoc[[.card-title]#AWS S3 [BETA]# [.card-body.card-content-overflow]#pass:q[Interact with Amazon S3 storage buckets]#]
+--
