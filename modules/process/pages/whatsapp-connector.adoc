@@ -1,0 +1,342 @@
+= WhatsApp Business connectors
+:description: Send template messages, text, media and manage conversations via the WhatsApp Business API from Bonita processes.
+
+{description}
+
+The Bonita WhatsApp Business Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+== Overview
+
+The WhatsApp Business connector allows Bonita processes to interact with the WhatsApp Business Cloud API. It provides six operations:
+
+* *Send Template* -- Send a pre-approved WhatsApp template message
+* *Send Text* -- Send a free-form text message within the 24-hour session window
+* *Send Media* -- Send an image, document, audio, or video
+* *Get Status* -- Retrieve the delivery status of a sent message
+* *List Conversations* -- Retrieve conversation analytics for a WhatsApp Business Account
+* *Get Messages* -- Retrieve messages exchanged with a contact
+
+== Getting started
+
+. Download the connector JAR from the https://github.com/bonitasoft/bonita-connector-whatsapp/releases[GitHub releases page]
+. In Bonita Studio, go to *Development > Connector > Import connector...*
+. Select the downloaded `.jar` file
+. The connector is now available in the *Messaging* category
+
+== Connection configuration
+
+All operations share these connection parameters:
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Token*
+|Yes
+|Permanent System User Token from Meta Business Manager
+|_Resolved from env var `++WHATSAPP_TOKEN++` if not set_
+
+|*Phone Number ID*
+|Yes
+|WhatsApp Business phone number ID
+|
+
+|*Base URL*
+|No
+|WhatsApp Cloud API base URL
+|`++https://graph.facebook.com/v21.0++`
+
+|*Connect Timeout*
+|No
+|Connection timeout in milliseconds
+|`10000`
+
+|*Read Timeout*
+|No
+|Read timeout in milliseconds
+|`30000`
+|===
+
+== Send Template
+
+Sends a pre-approved WhatsApp template message. Template messages can be sent outside the 24-hour session window.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*To*
+|Yes
+|Recipient phone number in international format (e.g., `+34612345678`)
+|
+
+|*Template Name*
+|Yes
+|Name of the approved template
+|
+
+|*Language Code*
+|Yes
+|Template language code (e.g., `en_US`, `es`)
+|`en_US`
+
+|*Header Parameters*
+|No
+|JSON array of header parameter values
+|
+
+|*Body Parameters*
+|No
+|JSON array of body parameter values
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*messageId*
+|String
+|The WhatsApp message ID
+
+|*errorMessage*
+|String
+|Error description if failed
+|===
+
+== Send Text
+
+Sends a free-form text message. Only available within the 24-hour session window after the customer initiates contact.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*To*
+|Yes
+|Recipient phone number
+|
+
+|*Body*
+|Yes
+|Message text content
+|
+
+|*Preview URL*
+|No
+|Enable URL preview in the message
+|`false`
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*messageId*
+|String
+|The WhatsApp message ID
+
+|*errorMessage*
+|String
+|Error description if failed
+|===
+
+== Send Media
+
+Sends a media file (image, document, audio, video) to a contact.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*To*
+|Yes
+|Recipient phone number
+|
+
+|*Media URL*
+|Yes
+|Public URL of the media file
+|
+
+|*Media Type*
+|Yes
+|Type of media: `image`, `document`, `audio`, `video`
+|
+
+|*Caption*
+|No
+|Media caption (images and documents only)
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*messageId*
+|String
+|The WhatsApp message ID
+
+|*errorMessage*
+|String
+|Error description if failed
+|===
+
+== Get Status
+
+Retrieves the delivery status of a previously sent message.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Message ID*
+|Yes
+|The WhatsApp message ID to check
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*status*
+|String
+|Delivery status: `sent`, `delivered`, `read`, `failed`
+
+|*timestamp*
+|String
+|Timestamp of the status update
+
+|*errorMessage*
+|String
+|Error description if failed
+|===
+
+== List Conversations
+
+Retrieves conversation analytics for a WhatsApp Business Account.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*WABA ID*
+|Yes
+|WhatsApp Business Account ID
+|
+
+|*Start Date*
+|No
+|Start date for analytics (ISO format)
+|
+
+|*End Date*
+|No
+|End date for analytics (ISO format)
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*conversations*
+|String
+|JSON array of conversation analytics
+
+|*totalCount*
+|Integer
+|Total number of conversations
+
+|*errorMessage*
+|String
+|Error description if failed
+|===
+
+== Get Messages
+
+Retrieves messages exchanged with contacts.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Phone Number ID*
+|Yes
+|Phone number ID to retrieve messages for
+|
+
+|*Since*
+|No
+|Retrieve messages since this timestamp
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*messages*
+|String
+|JSON array of messages
+
+|*totalCount*
+|Integer
+|Total number of messages
+
+|*errorMessage*
+|String
+|Error description if failed
+|===
+
+== Error handling
+
+[caption=Error behavior]
+|===
+|HTTP Code |Behavior
+
+|400 Bad Request
+|Immediate failure -- check parameters
+
+|401 Unauthorized
+|Immediate failure -- check token
+
+|403 Forbidden
+|Immediate failure -- insufficient permissions
+
+|429 Rate Limited
+|Automatic retry with backoff
+
+|500+ Server Error
+|Automatic retry with exponential backoff
+|===
+
+== Source code
+
+https://github.com/bonitasoft/bonita-connector-whatsapp[bonita-connector-whatsapp on GitHub]

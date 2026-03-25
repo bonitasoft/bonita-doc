@@ -1,0 +1,183 @@
+= Gemini AI connectors
+:description: Integrate Google Gemini AI models into Bonita processes for text generation, classification and data extraction.
+
+{description}
+
+The Bonita Gemini AI Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+== Overview
+
+The Gemini AI connector allows Bonita processes to interact with Google Gemini models via the Google AI Studio API. It provides three operations:
+
+* *Ask* -- Send a free-form prompt to a Gemini model and get a text response
+* *Classify* -- Classify a document into predefined categories
+* *Extract* -- Extract structured data from a document using a JSON Schema
+
+These connectors are part of the xref:ai-connector.adoc[Bonita AI Connectors] family and share the same architecture with the OpenAI, Anthropic, and Mistral connectors.
+
+== Getting started
+
+. Download the connector JAR from the https://github.com/bonitasoft/bonita-connector-ai/releases[GitHub releases page]
+. In Bonita Studio, go to *Development > Connector > Import connector...*
+. Select the downloaded `.jar` file
+. The connector is now available in the *AI* category
+
+== Connection configuration
+
+All operations share these connection parameters:
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*API Key*
+|Yes
+|Google AI Studio API key
+|_Resolved from env var `++AI_API_KEY++` if not set_
+
+|*Chat Model Name*
+|No
+|Gemini model to use
+|`gemini-2.0-flash`
+
+|*Model Temperature*
+|No
+|Controls randomness (0.0 to 1.0)
+|
+
+|*Request Timeout*
+|No
+|API request timeout in milliseconds
+|
+
+|*Enable Debug Logging*
+|No
+|Log API requests and responses (may expose sensitive data)
+|`false`
+|===
+
+== Ask
+
+Sends a user prompt (with optional system prompt and documents) to a Gemini model and returns the generated response.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*User Prompt*
+|Yes
+|The prompt to send to Gemini
+|
+
+|*System Prompt*
+|No
+|System instructions to guide the model behavior
+|`You are a polite assistant.`
+
+|*Output JSON Schema*
+|No
+|JSON Schema to structure the response as JSON
+|
+
+|*Source Document Reference*
+|No
+|Bonita process document to include as context
+|
+
+|*Source Document References*
+|No
+|List of Bonita process documents to include as context
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|The generated response from the Gemini model
+|===
+
+== Classify
+
+Classifies a document into one of the predefined categories using a Gemini model.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Categories*
+|Yes
+|Comma-separated list of classification categories
+|
+
+|*Source Document Reference*
+|No
+|Bonita process document to classify
+|
+
+|*Source Document References*
+|No
+|List of documents to classify
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|JSON with `category` and `confidence` fields
+|===
+
+== Extract
+
+Extracts structured data from a document using field names or a JSON Schema.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Fields to Extract*
+|No
+|Comma-separated list of field names to extract
+|
+
+|*Output JSON Schema*
+|No
+|JSON Schema defining the extraction structure
+|
+
+|*Source Document Reference*
+|No
+|Bonita process document to extract from
+|
+
+|*Source Document References*
+|No
+|List of documents to extract from
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|JSON with extracted fields
+|===
+
+== Supported models
+
+The connector supports all Google AI Studio Gemini models:
+
+* `gemini-2.0-flash` (default) -- Fast and efficient
+* `gemini-1.5-pro` -- Most capable
+* `gemini-1.5-flash` -- Balanced speed and quality
+
+== Source code
+
+https://github.com/bonitasoft/bonita-connector-ai[bonita-connector-ai on GitHub] (module `bonita-connector-ai-gemini`)
