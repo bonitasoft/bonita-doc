@@ -97,3 +97,8 @@ xref:ROOT:twitter.adoc[[.card-title]#Twitter# [.card-body.card-content-overflow]
 --
 xref:ROOT:web-service-connector-overview.adoc[[.card-title]#Web service# [.card-body.card-content-overflow]#pass:q[Connect your processes to any generic Web service]#]
 --
+
+[.card-section]
+== Bonita official connectors [BETA]
+
+These connectors are currently in beta and have not yet been fully validated in production environments. We welcome feedback from early adopters — each connector page includes a link to report testing results.
