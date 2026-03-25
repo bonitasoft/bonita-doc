@@ -56,7 +56,7 @@ xref:process:insert-data-in-a-docx-odt-template.adoc[[.card-title]#Document temp
 
 [.card.card-index]
 --
-xref:ROOT:gemini-connector.adoc[[.card-title]#Gemini AI# [.card-body.card-content-overflow]#pass:q[Integrate Google Gemini AI into your processes]#]
+xref:gemini-connector.adoc[[.card-title]#Gemini AI# [.card-body.card-content-overflow]#pass:q[Integrate Google Gemini AI into your processes]#]
 --
 
 [.card.card-index]
@@ -92,7 +92,7 @@ xref:ROOT:script.adoc[[.card-title]#Script# [.card-body.card-content-overflow]#p
 
 [.card.card-index]
 --
-xref:ROOT:telegram-connector.adoc[[.card-title]#Telegram# [.card-body.card-content-overflow]#pass:q[Send messages and files via Telegram Bot API]#]
+xref:telegram-connector.adoc[[.card-title]#Telegram# [.card-body.card-content-overflow]#pass:q[Send messages and files via Telegram Bot API]#]
 --
 
 [.card.card-index]
@@ -107,7 +107,7 @@ xref:ROOT:web-service-connector-overview.adoc[[.card-title]#Web service# [.card-
 
 [.card.card-index]
 --
-xref:ROOT:whatsapp-connector.adoc[[.card-title]#WhatsApp Business# [.card-body.card-content-overflow]#pass:q[Send messages via WhatsApp Business API]#]
+xref:whatsapp-connector.adoc[[.card-title]#WhatsApp Business# [.card-body.card-content-overflow]#pass:q[Send messages via WhatsApp Business API]#]
 --
 
 [.card-section]
