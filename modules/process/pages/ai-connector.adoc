@@ -88,6 +88,13 @@ If the parameter is not present, the temperature will not be set in chat context
 
 ==== Anthropic (Claude)
 
+[WARNING]
+====
+This provider is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-ai/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+====
+
 The Anthropic connector uses the https://docs.anthropic.com/en/api[Anthropic Messages API]. Key differences from other providers:
 
 * The `apiKey` must be an Anthropic API key (starts with `sk-ant-`), obtainable from https://console.anthropic.com[console.anthropic.com]
@@ -95,6 +102,13 @@ The Anthropic connector uses the https://docs.anthropic.com/en/api[Anthropic Mes
 * The `url` parameter defaults to `\https://api.anthropic.com` if not specified
 
 ==== Azure OpenAI
+
+[WARNING]
+====
+This provider is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-ai/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+====
 
 The Azure OpenAI connector uses models deployed in your own Azure subscription. Key differences:
 
