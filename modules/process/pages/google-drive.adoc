@@ -4,6 +4,17 @@
 
 {description}
 
+The Bonita Google Drive Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+[WARNING]
+====
+This connector is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-googledrive/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+
+We are eager to collaborate with early adopters to bring this connector to General Availability.
+====
+
 == Overview
 
 The Google Drive connectors enable your Bonita processes to interact with Google Drive using the Google Drive API v3. You can upload, download, list, move, and delete files, as well as create folders and retrieve file metadata — all from within your automation processes.
