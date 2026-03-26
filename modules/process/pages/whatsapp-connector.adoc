@@ -337,6 +337,113 @@ Retrieves messages exchanged with contacts.
 |Automatic retry with exponential backoff
 |===
 
+== Use cases
+
+=== Send appointment reminders
+
+Use *Send Template* to send a pre-approved reminder 24 hours before an appointment:
+
+[source,json]
+----
+{
+  "token": "${WHATSAPP_TOKEN}",
+  "phoneNumberId": "123456789012345",
+  "to": "+34612345678",
+  "templateName": "appointment_reminder",
+  "languageCode": "es",
+  "bodyParameters": ["Juan García", "25/03/2026", "10:00", "Dr. López"]
+}
+----
+
+NOTE: Template messages must be pre-approved by Meta. They are the only way to initiate conversations outside the 24-hour session window.
+
+=== Send order confirmations
+
+Use *Send Text* within a customer service conversation:
+
+[source,json]
+----
+{
+  "token": "${WHATSAPP_TOKEN}",
+  "phoneNumberId": "123456789012345",
+  "to": "+34612345678",
+  "body": "Your order #12345 has been confirmed. Estimated delivery: March 28, 2026. Track at: https://example.com/track/12345",
+  "previewUrl": true
+}
+----
+
+=== Send invoices as PDF
+
+Use *Send Media* to share a document:
+
+[source,json]
+----
+{
+  "token": "${WHATSAPP_TOKEN}",
+  "phoneNumberId": "123456789012345",
+  "to": "+34612345678",
+  "mediaUrl": "https://your-server.com/invoices/INV-2026-001.pdf",
+  "mediaType": "document",
+  "caption": "Invoice INV-2026-001 - Total: 1,250.00€"
+}
+----
+
+=== Monitor message delivery
+
+Use *Get Status* to verify a critical notification was delivered:
+
+[source,json]
+----
+{
+  "token": "${WHATSAPP_TOKEN}",
+  "phoneNumberId": "123456789012345",
+  "messageId": "wamid.HBgLMzQ2MTIzNDU2NzgVAgASGBQzRUI..."
+}
+----
+
+Response:
+[source,json]
+----
+{
+  "success": true,
+  "status": "delivered",
+  "timestamp": "2026-03-25T10:30:00Z"
+}
+----
+
+== Configuration tips
+
+=== Getting a WhatsApp Business Token
+
+1. Go to https://business.facebook.com[Meta Business Manager]
+2. Navigate to *System Users* > Create a system user
+3. Generate a *Permanent Token* with `whatsapp_business_messaging` permission
+4. Store it securely as a Bonita parameter
+
+=== Template message parameters
+
+Template parameters are positional arrays. If your template has:
+
+----
+Hello {{1}}, your appointment with {{2}} is on {{3}} at {{4}}.
+----
+
+Then `bodyParameters` should be: `["Juan", "Dr. López", "25/03/2026", "10:00"]`
+
+=== Phone number format
+
+Always use international format with country code:
+
+* Spain: `+34612345678`
+* France: `+33612345678`
+* US: `+12125551234`
+
+=== 24-hour session window
+
+* *Template messages* can be sent anytime (pre-approved by Meta)
+* *Text and media messages* can only be sent within 24 hours after the customer's last message
+* If the window expires, use a template message to re-engage
+
 == Source code
 
 https://github.com/bonitasoft/bonita-connector-whatsapp[bonita-connector-whatsapp on GitHub]

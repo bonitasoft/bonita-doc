@@ -178,6 +178,105 @@ The connector supports all Google AI Studio Gemini models:
 * `gemini-1.5-pro` -- Most capable
 * `gemini-1.5-flash` -- Balanced speed and quality
 
+== Use cases
+
+=== Classify incoming documents automatically
+
+Use *Classify* to route documents in a process:
+
+[source,json]
+----
+{
+  "apiKey": "${GEMINI_API_KEY}",
+  "chatModelName": "gemini-2.0-flash",
+  "categories": "INVOICE,CONTRACT,ID_CARD,PROOF_OF_ADDRESS,OTHER"
+}
+----
+
+Response:
+[source,json]
+----
+{
+  "category": "INVOICE",
+  "confidence": 0.95
+}
+----
+
+Use this in a gateway to route the process based on the document type.
+
+=== Extract data from invoices
+
+Use *Extract* to populate business data:
+
+[source,json]
+----
+{
+  "apiKey": "${GEMINI_API_KEY}",
+  "fieldsToExtract": "invoiceNumber,issuerName,totalAmount,currency,dueDate",
+  "chatModelName": "gemini-1.5-pro"
+}
+----
+
+Response:
+[source,json]
+----
+{
+  "invoiceNumber": "INV-2026-001",
+  "issuerName": "Acme Corp",
+  "totalAmount": "1250.00",
+  "currency": "EUR",
+  "dueDate": "2026-04-25"
+}
+----
+
+=== Generate email drafts from process data
+
+Use *Ask* with a JSON schema for structured output:
+
+[source,json]
+----
+{
+  "apiKey": "${GEMINI_API_KEY}",
+  "systemPrompt": "You are a professional email writer for a B2B company.",
+  "userPrompt": "Write an email to ${customerName} confirming their order #${orderId} for ${amount}€. Be concise and professional.",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"subject\",\"body\"],\"properties\":{\"subject\":{\"type\":\"string\"},\"body\":{\"type\":\"string\"}}}"
+}
+----
+
+=== Summarize meeting notes
+
+Use *Ask* with document context:
+
+Attach a PDF meeting transcript as a process document, then:
+
+[source,json]
+----
+{
+  "apiKey": "${GEMINI_API_KEY}",
+  "systemPrompt": "You summarize meetings into action items.",
+  "userPrompt": "Extract all action items from this meeting, with responsible person and deadline.",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"actionItems\"],\"properties\":{\"actionItems\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"required\":[\"task\",\"owner\",\"deadline\"],\"properties\":{\"task\":{\"type\":\"string\"},\"owner\":{\"type\":\"string\"},\"deadline\":{\"type\":\"string\"}}}}}}"
+}
+----
+
+== Choosing the right model
+
+|===
+|Use Case |Recommended Model |Why
+
+|Fast classification/routing
+|`gemini-2.0-flash`
+|Low latency, good accuracy
+
+|Complex document analysis
+|`gemini-1.5-pro`
+|Larger context window, better reasoning
+
+|Cost-sensitive batch processing
+|`gemini-2.0-flash`
+|Lower cost per token
+|===
+
 == Source code
 
 https://github.com/bonitasoft/bonita-connector-ai[bonita-connector-ai on GitHub] (module `bonita-connector-ai-gemini`)

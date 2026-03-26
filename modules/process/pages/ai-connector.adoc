@@ -352,3 +352,307 @@ The confidence score is defined as :
 - [0.8..1.0]: Very certain, no doubt
 
 This connector result will be placed as a map entry of type `java.lang.String` for the key named *output*.
+
+== Provider-specific configuration
+
+The AI connectors support multiple providers. Each provider requires its own connector JAR and may have specific configuration requirements.
+
+=== OpenAI
+
+[caption=OpenAI configuration]
+|===
+|Parameter |Value
+
+|*Connector module*
+|`bonita-connector-ai-openai`
+
+|*Default model*
+|`gpt-4o`
+
+|*API endpoint*
+|`++https://api.openai.com/v1++`
+
+|*API key source*
+|https://platform.openai.com/api-keys[OpenAI API Keys]
+|===
+
+.Example: Summarize a customer complaint
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "gpt-4o",
+  "systemPrompt": "You are a customer service analyst. Summarize complaints into structured reports.",
+  "userPrompt": "Summarize this complaint and suggest a resolution: ${complaintText}",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"summary\",\"category\",\"suggestedResolution\",\"priority\"],\"properties\":{\"summary\":{\"type\":\"string\"},\"category\":{\"type\":\"string\"},\"suggestedResolution\":{\"type\":\"string\"},\"priority\":{\"type\":\"string\"}}}"
+}
+----
+
+.Example: Extract structured data from a contract
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "gpt-4o",
+  "fieldsToExtract": "contractNumber,parties,startDate,endDate,totalValue,currency"
+}
+----
+
+=== Anthropic (Claude)
+
+[caption=Anthropic configuration]
+|===
+|Parameter |Value
+
+|*Connector module*
+|`bonita-connector-ai-anthropic`
+
+|*Default model*
+|`claude-sonnet-4-20250514`
+
+|*API endpoint*
+|`++https://api.anthropic.com/v1++`
+
+|*API key source*
+|https://console.anthropic.com/settings/keys[Anthropic Console]
+|===
+
+.Example: Analyze a legal document for compliance risks
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "claude-sonnet-4-20250514",
+  "systemPrompt": "You are a legal compliance analyst. Identify potential risks and non-compliant clauses.",
+  "userPrompt": "Analyze this contract for GDPR compliance issues and list each finding with its severity.",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"findings\"],\"properties\":{\"findings\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"required\":[\"clause\",\"issue\",\"severity\",\"recommendation\"],\"properties\":{\"clause\":{\"type\":\"string\"},\"issue\":{\"type\":\"string\"},\"severity\":{\"type\":\"string\"},\"recommendation\":{\"type\":\"string\"}}}}}}"
+}
+----
+
+=== Mistral AI
+
+[caption=Mistral configuration]
+|===
+|Parameter |Value
+
+|*Connector module*
+|`bonita-connector-ai-mistral`
+
+|*Default model*
+|`pixtral-12b-2409`
+
+|*API endpoint*
+|`++https://api.mistral.ai/v1++`
+
+|*API key source*
+|https://console.mistral.ai/api-keys[Mistral Console]
+|===
+
+WARNING: Image documents are not supported yet for the Mistral connector due to a limitation of the underlying library.
+
+.Example: Classify support tickets by department
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "mistral-large-latest",
+  "categories": "BILLING,TECHNICAL_SUPPORT,ACCOUNT_MANAGEMENT,FEATURE_REQUEST,OTHER"
+}
+----
+
+=== Google Gemini
+
+[caption=Gemini configuration]
+|===
+|Parameter |Value
+
+|*Connector module*
+|`bonita-connector-ai-gemini`
+
+|*Default model*
+|`gemini-2.0-flash`
+
+|*API endpoint*
+|Google AI Studio (automatic)
+
+|*API key source*
+|https://aistudio.google.com/apikey[Google AI Studio]
+|===
+
+See xref:gemini-connector.adoc[Gemini AI connectors] for detailed documentation and use cases.
+
+.Example: Classify incoming documents
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "gemini-2.0-flash",
+  "categories": "INVOICE,CONTRACT,ID_CARD,PROOF_OF_ADDRESS,OTHER"
+}
+----
+
+=== Azure OpenAI
+
+[caption=Azure OpenAI configuration]
+|===
+|Parameter |Value
+
+|*Connector module*
+|`bonita-connector-ai-openai` (with custom URL)
+
+|*Default model*
+|Depends on your Azure deployment name
+
+|*API endpoint*
+|`++https://<your-resource>.openai.azure.com/openai/deployments/<deployment-name>++`
+
+|*API key source*
+|Azure Portal > Cognitive Services > Keys
+|===
+
+To use Azure OpenAI, configure the *url* parameter with your Azure endpoint and use the *chatModelName* matching your deployment name.
+
+.Example: Azure OpenAI configuration
+[source,json]
+----
+{
+  "apiKey": "${AZURE_OPENAI_API_KEY}",
+  "url": "https://my-company.openai.azure.com/openai/deployments/gpt-4o",
+  "chatModelName": "gpt-4o",
+  "systemPrompt": "You are a helpful assistant for HR processes.",
+  "userPrompt": "Evaluate this CV against the job description and provide a fit score: ${cvText}"
+}
+----
+
+NOTE: Azure OpenAI uses the same OpenAI connector module but requires setting the `url` parameter to your Azure endpoint. API versioning is handled automatically.
+
+=== Ollama (local models)
+
+[caption=Ollama configuration]
+|===
+|Parameter |Value
+
+|*Connector module*
+|`bonita-connector-ai-openai` (with custom URL)
+
+|*Default model*
+|Depends on your local setup (e.g., `llama3`, `mistral`)
+
+|*API endpoint*
+|`++http://localhost:11434/v1++`
+
+|*API key source*
+|Not required (use any non-empty value)
+|===
+
+Ollama provides a local, OpenAI-compatible API. Use the OpenAI connector module with a custom URL pointing to your Ollama instance.
+
+.Example: Ollama local model configuration
+[source,json]
+----
+{
+  "apiKey": "not-needed",
+  "url": "http://localhost:11434/v1",
+  "chatModelName": "llama3",
+  "systemPrompt": "You are a document analysis assistant.",
+  "userPrompt": "Extract the key dates and amounts from this invoice."
+}
+----
+
+NOTE: Ollama runs entirely on-premises, making it suitable for sensitive data that cannot leave the organization's network. Ensure sufficient GPU/CPU resources for acceptable response times.
+
+== Use cases
+
+=== Classify incoming documents automatically
+
+Add a *Classify* connector to a service task after document upload:
+
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "gpt-4o",
+  "categories": "INVOICE,CONTRACT,ID_CARD,PROOF_OF_ADDRESS,OTHER"
+}
+----
+
+Use the result in an exclusive gateway to route the process based on the document type:
+
+* `category == "INVOICE"` -> Invoice processing lane
+* `category == "CONTRACT"` -> Legal review lane
+* `category == "ID_CARD"` -> Identity verification lane
+
+=== Extract structured data from documents
+
+Use *Extract* to populate BDM fields automatically from uploaded documents:
+
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "gpt-4o",
+  "fieldsToExtract": "invoiceNumber,issuerName,totalAmount,currency,dueDate,lineItems"
+}
+----
+
+Then parse the JSON output to populate your business data model variables.
+
+=== Generate responses with structured output
+
+Use *Ask* with a JSON schema to generate structured content that can be directly mapped to process variables:
+
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "gpt-4o",
+  "systemPrompt": "You are a professional email writer.",
+  "userPrompt": "Write a follow-up email for customer ${customerName} regarding case #${caseId}. The issue was: ${issueDescription}. It has been resolved.",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"subject\",\"body\"],\"properties\":{\"subject\":{\"type\":\"string\"},\"body\":{\"type\":\"string\"}}}"
+}
+----
+
+=== Multi-document analysis
+
+Use *Ask* with multiple source document references to compare or cross-reference documents:
+
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "gpt-4o",
+  "systemPrompt": "You are a financial auditor.",
+  "userPrompt": "Compare these two invoices and identify any discrepancies in amounts, dates, or line items.",
+  "sourceDocumentRefs": ["invoice_v1", "invoice_v2"]
+}
+----
+
+== Choosing the right provider
+
+|===
+|Criteria |Recommended Provider |Why
+
+|Best general-purpose reasoning
+|OpenAI (`gpt-4o`) or Anthropic (`claude-sonnet-4-20250514`)
+|Strong at complex analysis, extraction, and generation
+
+|Cost-sensitive batch processing
+|Mistral (`mistral-large-latest`) or Gemini (`gemini-2.0-flash`)
+|Lower cost per token with good quality
+
+|Data sovereignty / on-premises
+|Ollama (local)
+|Data never leaves your infrastructure
+
+|Enterprise compliance (Azure AD)
+|Azure OpenAI
+|Integrates with existing Azure security policies
+
+|Fast classification and routing
+|Gemini (`gemini-2.0-flash`)
+|Very low latency, good accuracy
+
+|Document understanding with images
+|OpenAI (`gpt-4o`) or Gemini (`gemini-1.5-pro`)
+|Native multimodal support
+|===

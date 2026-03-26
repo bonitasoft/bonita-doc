@@ -250,6 +250,92 @@ Pins a message in a Telegram chat.
 |Automatic retry with exponential backoff
 |===
 
+== Use cases
+
+=== Notify stakeholders when a process reaches a milestone
+
+Configure a *Send Message* connector on a service task after a critical approval step:
+
+[source,json]
+----
+{
+  "botToken": "${TELEGRAM_BOT_TOKEN}",
+  "chatId": "-100123456789",
+  "text": "<b>Order #${orderId} approved</b>\nApproved by: ${approverName}\nAmount: ${amount}€",
+  "parseMode": "HTML"
+}
+----
+
+=== Send a document for signature
+
+Use *Send Document* to share a generated PDF with a Telegram group:
+
+[source,json]
+----
+{
+  "botToken": "${TELEGRAM_BOT_TOKEN}",
+  "chatId": "-100123456789",
+  "documentUrl": "https://your-bonita-server.com/API/documentDownload?fileName=${documentName}",
+  "caption": "Please review and sign: ${documentName}"
+}
+----
+
+=== Pin important announcements
+
+After sending a critical notification, pin it so it stays visible:
+
+[source,json]
+----
+{
+  "botToken": "${TELEGRAM_BOT_TOKEN}",
+  "chatId": "-100123456789",
+  "messageId": "${previousMessageId}",
+  "disableNotification": true
+}
+----
+
+=== Send a photo report
+
+Share a chart or dashboard screenshot:
+
+[source,json]
+----
+{
+  "botToken": "${TELEGRAM_BOT_TOKEN}",
+  "chatId": "-100123456789",
+  "photoUrl": "https://your-bonita-server.com/charts/monthly-report.png",
+  "caption": "Monthly KPI Report - ${currentMonth}"
+}
+----
+
+== Configuration tips
+
+=== Getting a Bot Token
+
+1. Open Telegram and search for `@BotFather`
+2. Send `/newbot` and follow the prompts
+3. Copy the token (format: `123456789:ABCdefGHIjklMNOpqrsTUVwxyz`)
+4. Store it as a Bonita parameter or environment variable -- never hardcode it
+
+=== Finding a Chat ID
+
+* For **groups**: Add the bot to the group, send a message, then call `++https://api.telegram.org/bot<TOKEN>/getUpdates++` and look for `chat.id` (negative number for groups)
+* For **channels**: The chat ID is `@channelUsername` or the numeric ID
+* For **private chats**: Send `/start` to the bot, then check getUpdates
+
+=== HTML formatting
+
+Telegram supports a subset of HTML in messages:
+
+[source,html]
+----
+<b>bold</b>
+<i>italic</i>
+<code>inline code</code>
+<pre>code block</pre>
+<a href="https://example.com">link</a>
+----
+
 == Source code
 
 https://github.com/bonitasoft/bonita-connector-telegram[bonita-connector-telegram on GitHub]
