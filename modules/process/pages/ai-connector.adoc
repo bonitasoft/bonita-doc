@@ -10,29 +10,26 @@
 
 By securely sending data from your processes to LLMs over HTTPS, you can enhance automation, improve decision-making, and streamline information handling--all without writing custom code.
 
-
 The Bonita AI Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
 
 image::ai-connectors.png[AI Connectors flux]
 
 == Getting started
 
-To use a connector, add it as an extension dependency to your Bonita project. Choose the one related to your AI provider.
+To use a connector, add it as an extension dependency to your Bonita project. Choose the one related to your AI provider:
 
-Currently supported providers:
+* image:openai.png[OpenAI] xref:ai-openai-connector.adoc[OpenAI] -- GPT-4o and GPT models
+* xref:ai-anthropic-connector.adoc[Anthropic] -- Claude models with vision support
+* xref:ai-gemini-connector.adoc[Google Gemini] -- Fast and cost-effective, large context
+* image:mistral.png[MistralAI] xref:ai-mistral-connector.adoc[Mistral AI] -- EU-hosted, GDPR-friendly
+* xref:ai-azure-connector.adoc[Azure AI Foundry] -- Enterprise compliance with Azure AD
+* xref:ai-ollama-connector.adoc[Ollama] -- Local/on-premise LLMs, no API key needed
 
-* image:openai.png[OpenAI] OpenAI
-* Anthropic (Claude)
-* Google Gemini
-* image:mistral.png[MistralAI] Mistral AI
-* Azure AI Foundry
-* Ollama (local LLMs)
-
-WARNING: Image documents are not supported yet for Mistral connector due to a limitation of the underlying library we use.
+WARNING: Image documents are not supported yet for the Mistral connector due to a limitation of the underlying library.
 
 == Connection configuration (shared parameters)
 
-All AI connectors share these connection parameters regardless of the provider.
+All AI connectors share these connection parameters regardless of the provider. See each provider page for provider-specific details.
 
 [caption=Configuration]
 |===
@@ -63,13 +60,7 @@ And at last it will use a dummy default `changeMe` value if no other value found
 
 |*chatModelName*
 |false
-a|The model to use for chat. See respective documentation for detailed information about models.
-
-- OpenAI: https://platform.openai.com/docs/models/models
-- Anthropic: https://docs.anthropic.com/en/docs/about-claude/models
-- Gemini: https://ai.google.dev/gemini-api/docs/models
-- Mistral AI: https://docs.mistral.ai/getting-started/models/models_overview
-- Ollama: https://ollama.com/library
+a|The model to use for chat. See each provider page for details.
 a|
 - OpenAI: `gpt-4o`
 - Anthropic: `claude-sonnet-4-6`
@@ -89,597 +80,23 @@ If the parameter is not present, the temperature will not be set in chat context
 |===
 
 
-== Providers
+== Operations overview
 
-[#openai]
-=== OpenAI
-
-[caption=OpenAI configuration]
-|===
-|Parameter |Value
-
-|*Connector module*
-|`bonita-connector-ai-openai`
-
-|*Default model*
-|`gpt-4o`
-
-|*API endpoint*
-|`++https://api.openai.com/v1++`
-
-|*API key source*
-|https://platform.openai.com/api-keys[OpenAI API Keys]
-|===
-
-.Example: Summarize a customer complaint
-[source,json]
-----
-{
-  "apiKey": "${AI_API_KEY}",
-  "chatModelName": "gpt-4o",
-  "systemPrompt": "You are a customer service analyst. Summarize complaints into structured reports.",
-  "userPrompt": "Summarize this complaint and suggest a resolution: ${complaintText}",
-  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"summary\",\"category\",\"suggestedResolution\",\"priority\"],\"properties\":{\"summary\":{\"type\":\"string\"},\"category\":{\"type\":\"string\"},\"suggestedResolution\":{\"type\":\"string\"},\"priority\":{\"type\":\"string\"}}}"
-}
-----
-
-.Example: Extract structured data from a contract
-[source,json]
-----
-{
-  "apiKey": "${AI_API_KEY}",
-  "chatModelName": "gpt-4o",
-  "fieldsToExtract": "contractNumber,parties,startDate,endDate,totalValue,currency"
-}
-----
-
-[#anthropic]
-=== Anthropic (Claude)
-
-[caption=Anthropic configuration]
-|===
-|Parameter |Value
-
-|*Connector module*
-|`bonita-connector-ai-anthropic`
-
-|*Default model*
-|`claude-sonnet-4-6`
-
-|*API endpoint*
-|`++https://api.anthropic.com/v1++`
-
-|*API key source*
-|https://console.anthropic.com/settings/keys[Anthropic Console]
-|===
-
-Available models:
-
-* `claude-sonnet-4-6` (default) -- Strong at complex analysis, extraction, and generation
-* `claude-haiku-4-5-20251001` -- Fast and cost-effective for simpler tasks
-* `claude-opus-4-6` -- Most capable, best for nuanced reasoning
-
-.Example: Analyze a legal document for compliance risks
-[source,json]
-----
-{
-  "apiKey": "${AI_API_KEY}",
-  "chatModelName": "claude-sonnet-4-6",
-  "systemPrompt": "You are a legal compliance analyst. Identify potential risks and non-compliant clauses.",
-  "userPrompt": "Analyze this contract for GDPR compliance issues and list each finding with its severity.",
-  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"findings\"],\"properties\":{\"findings\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"required\":[\"clause\",\"issue\",\"severity\",\"recommendation\"],\"properties\":{\"clause\":{\"type\":\"string\"},\"issue\":{\"type\":\"string\"},\"severity\":{\"type\":\"string\"},\"recommendation\":{\"type\":\"string\"}}}}}}"
-}
-----
-
-[#gemini]
-=== Google Gemini
-
-[caption=Gemini configuration]
-|===
-|Parameter |Value
-
-|*Connector module*
-|`bonita-connector-ai-gemini`
-
-|*Default model*
-|`gemini-2.0-flash`
-
-|*API endpoint*
-|Google AI Studio (automatic)
-
-|*API key source*
-|https://aistudio.google.com/apikey[Google AI Studio]
-|===
-
-Available models:
-
-* `gemini-2.0-flash` (default) -- Fast and efficient, low latency
-* `gemini-1.5-pro` -- Most capable, larger context window
-* `gemini-1.5-flash` -- Balanced speed and quality
-
-See xref:gemini-connector.adoc[Gemini AI connectors] for detailed documentation and use cases.
-
-.Example: Classify incoming documents
-[source,json]
-----
-{
-  "apiKey": "${AI_API_KEY}",
-  "chatModelName": "gemini-2.0-flash",
-  "categories": "INVOICE,CONTRACT,ID_CARD,PROOF_OF_ADDRESS,OTHER"
-}
-----
-
-.Example: Extract invoice data
-[source,json]
-----
-{
-  "apiKey": "${AI_API_KEY}",
-  "chatModelName": "gemini-1.5-pro",
-  "fieldsToExtract": "invoiceNumber,issuerName,totalAmount,currency,dueDate"
-}
-----
-
-[#mistral]
-=== Mistral AI
-
-[caption=Mistral configuration]
-|===
-|Parameter |Value
-
-|*Connector module*
-|`bonita-connector-ai-mistral`
-
-|*Default model*
-|`pixtral-12b-2409`
-
-|*API endpoint*
-|`++https://api.mistral.ai/v1++`
-
-|*API key source*
-|https://console.mistral.ai/api-keys[Mistral Console]
-|===
-
-WARNING: Image documents are not supported yet for the Mistral connector due to a limitation of the underlying library.
-
-.Example: Classify support tickets by department
-[source,json]
-----
-{
-  "apiKey": "${AI_API_KEY}",
-  "chatModelName": "mistral-large-latest",
-  "categories": "BILLING,TECHNICAL_SUPPORT,ACCOUNT_MANAGEMENT,FEATURE_REQUEST,OTHER"
-}
-----
-
-[#azure]
-=== Azure AI Foundry
-
-[caption=Azure AI Foundry configuration]
-|===
-|Parameter |Value
-
-|*Connector module*
-|`bonita-connector-ai-azure`
-
-|*Default model*
-|Depends on your Azure deployment name
-
-|*API endpoint*
-|`++https://<your-resource>.openai.azure.com++`
-
-|*API key source*
-|Azure Portal > Azure AI Foundry > Keys and Endpoint
-|===
-
-NOTE: Azure AI Foundry requires setting the `url` parameter to your Azure endpoint and the `chatModelName` to your deployment name. Both are **mandatory** for this provider.
-
-.Example: Azure AI Foundry configuration
-[source,json]
-----
-{
-  "apiKey": "${AZURE_OPENAI_API_KEY}",
-  "url": "https://my-company.openai.azure.com",
-  "chatModelName": "gpt-4o",
-  "systemPrompt": "You are a helpful assistant for HR processes.",
-  "userPrompt": "Evaluate this CV against the job description and provide a fit score: ${cvText}"
-}
-----
-
-[#ollama]
-=== Ollama (local models)
-
-[caption=Ollama configuration]
-|===
-|Parameter |Value
-
-|*Connector module*
-|`bonita-connector-ai-ollama`
-
-|*Default model*
-|`llama3.1`
-
-|*API endpoint*
-|`++http://localhost:11434++`
-
-|*API key source*
-|Not required (use any non-empty value or leave blank)
-|===
-
-Ollama runs entirely on-premises, making it suitable for sensitive data that cannot leave the organization's network.
-
-.Example: Ollama local model configuration
-[source,json]
-----
-{
-  "apiKey": "not-needed",
-  "url": "http://localhost:11434",
-  "chatModelName": "llama3.1",
-  "systemPrompt": "You are a document analysis assistant.",
-  "userPrompt": "Extract the key dates and amounts from this invoice."
-}
-----
-
-NOTE: Ensure sufficient GPU/CPU resources for acceptable response times. Smaller models like `llama3.2:1b` are faster but less accurate.
-
-
-== Operations
-
-AI connectors have the capability to return structured data in JSON format. It is possible to pass a https://json-schema.org/learn/getting-started-step-by-step[JSON schema] to tell the LLM how to format response data.
-
-When using a JSON schema, you **must** list in the `required` property, all the fields you want in the JSON response.
-
-.JSON schema sample
-[source, json]
-----
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "ProofOfAddress",
-  "type": "object",
-  "required": [
-    "firstName",
-    "lastName",
-    "fullName",
-    "fullAddress",
-    "emissionDate",
-    "issuerName",
-    "identificationNumber"
-  ],
-  "properties": {
-    "firstName": { "type": "string" },
-    "lastName": { "type": "string" },
-    "fullName": { "type": "string" },
-    "fullAddress": { "type": "string" },
-    "emissionDate": { "type": "string" },
-    "issuerName": { "type": "string" },
-    "identificationNumber": { "type": "string" }
-  }
-}
-----
+AI connectors support three operations. See each provider page for detailed input/output parameter tables and JSON examples.
 
 === Ask
 
-Take a user prompt and send it to the AI provider then return the response. The prompt text can ask questions about a provided process document.
-
-[caption=Configuration]
-|===
-|Parameter name |Required |Description |Default value
-
-|*systemPrompt*
-|false
-|The system prompt to pass to the AI endpoint. It helps to influence the behavior of the assistant and specify a default context. (ex: You are a personal finance advisor, providing guidance, etc.)
-|"You are a polite Assistant"
-
-|*userPrompt*
-|*true*
-|The user prompt content to send to the AI provider
-|
-
-|*sourceDocumentRef*
-|false
-a|The reference to the process document to load and add to the user prompt.
-
-If not null, the connector will try to read the specified document and send it as an attachment to the user prompt. Supported formats are "doc", "docx", "pdf", ... (see https://tika.apache.org/3.1.0/formats.html)
-|null
-
-|*outputJsonSchema*
-|false
-|The JSON schema that represent how to structure the JSON connector output.
-|null
-
-|===
-
-The result can be a simple JSON object or one compliant with a provided JSON schema.
-This result will be placed as a map entry of type `java.lang.String` for the key named *output*.
-
-=== Extract
-
-This connector allows extracting information from a bonita document.
-
-[caption=Configuration]
-|===
-|Parameter name |Required |Description |Default value
-
-|*sourceDocumentRef*
-|*true*
-a|The reference to the process document to load and add to the user prompt.
-
-If not null, the connector will try to read the specified document and send it as an attachment to the user prompt. Supported formats are "doc", "docx", "pdf", ... (see https://tika.apache.org/3.1.0/formats.html)
-|null
-
-|*fieldsToExtract*
-|false
-a|The list of fields to extract from the given document.
-
-The connector expect a list of String (like `firstName`, `lastName`, `address`).
-|null
-
-|*outputJsonSchema*
-|false
-a|The JSON schema that represent how to structure the JSON connector output.
-
-If a JSON schema is specified, the `fieldsToExtract` parameter is ignored.
-|null
-
-|===
-
-IMPORTANT: You must provide at least one of `fieldsToExtract` or `outputJsonSchema` parameters.
-
-The result can be a simple JSON object or one compliant with a provided JSON schema.
-This connector result will be placed as a map entry of type `java.lang.String` for the key named *output*.
+Take a user prompt and send it to the AI provider then return the response. The prompt text can ask questions about a provided process document. Supports optional JSON schema for structured output.
 
 === Classify
 
-This connector allows classifying a bonita process document according to a list of categories provided by the user.
+Classify a process document into one of your predefined categories. Returns a JSON object with `category` and `confidence` fields.
 
-[caption=Configuration]
-|===
-|Parameter name |Required |Description |Default value
+=== Extract
 
-|*sourceDocumentRef*
-|*true*
-a|The reference to the process document to load and add to the user prompt.
+Extract structured data from a document using field names or a JSON Schema. You must provide at least one of `fieldsToExtract` or `outputJsonSchema` parameters.
 
-If not null, the connector will try to read the specified document and to send it as an attachment to the user prompt. Supported formats are "doc", "docx", "pdf", ... (see https://tika.apache.org/3.1.0/formats.html)
-|null
-
-|*categories*
-|*true*
-a|The list of categories used to classify the given document.
-
-The connector expect a list of String (like `RIB`, `ID`, ...).
-It is recommended to add a default category if none other matches such as `Unknown`
-|null
-
-|===
-
-
-The result is a JSON String such as the following sample.
-
-.sample classification result
-[source,json]
-----
-{
-  "category": "xxx",
-  "confidence": 0.9
-}
-----
-
-The confidence score is defined as :
-
-- [0.0..0.3]: Very uncertain or guessing
-- [0.3..0.6]: Some uncertainty, potential ambiguity exists
-- [0.6..0.8]: Reasonably certain, minor doubt
-- [0.8..1.0]: Very certain, no doubt
-
-This connector result will be placed as a map entry of type `java.lang.String` for the key named *output*.
-
-
-== Use cases with examples
-
-=== Document classification pipeline
-
-Classify incoming documents (invoice, contract, ID card, proof of address) and route them to the correct department automatically.
-
-*Process flow:*
-
-. User uploads a document in a Bonita form
-. A service task uses the *Classify* connector to identify the document type
-. An exclusive gateway routes the process based on the classification result
-. Each branch handles the document according to its type (e.g., invoice processing, legal review, identity verification)
-
-*Configuration:*
-[source,json]
-----
-{
-  "apiKey": "${AI_API_KEY}",
-  "chatModelName": "gemini-2.0-flash",
-  "categories": "INVOICE,CONTRACT,ID_CARD,PROOF_OF_ADDRESS,RIB,TAX_NOTICE,OTHER"
-}
-----
-
-*Expected output:*
-[source,json]
-----
-{
-  "category": "INVOICE",
-  "confidence": 0.95
-}
-----
-
-Use the result in an exclusive gateway:
-
-* `category == "INVOICE"` -> Invoice processing lane
-* `category == "CONTRACT"` -> Legal review lane
-* `category == "ID_CARD"` -> Identity verification lane
-* `category == "PROOF_OF_ADDRESS"` -> Address validation lane
-* Default -> Manual review
-
-=== Invoice data extraction
-
-Extract structured fields from PDF invoices and populate BDM (Business Data Model) objects automatically.
-
-*Process flow:*
-
-. An invoice document is uploaded or received via email
-. A service task uses the *Extract* connector to parse the invoice
-. The JSON output is mapped to BDM variables (InvoiceData business object)
-. A human task displays the extracted data for validation
-. Upon validation, the data is saved and the invoice enters the approval workflow
-
-*Configuration (using field names):*
-[source,json]
-----
-{
-  "apiKey": "${AI_API_KEY}",
-  "chatModelName": "gpt-4o",
-  "fieldsToExtract": "invoiceNumber,issuerName,issuerAddress,recipientName,issueDate,dueDate,totalAmountExclTax,taxAmount,totalAmountInclTax,currency,lineItems"
-}
-----
-
-*Configuration (using JSON schema for precise control):*
-[source,json]
-----
-{
-  "apiKey": "${AI_API_KEY}",
-  "chatModelName": "gpt-4o",
-  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"invoiceNumber\",\"issuerName\",\"totalAmount\",\"currency\",\"dueDate\",\"lineItems\"],\"properties\":{\"invoiceNumber\":{\"type\":\"string\"},\"issuerName\":{\"type\":\"string\"},\"issuerAddress\":{\"type\":\"string\"},\"totalAmount\":{\"type\":\"number\"},\"currency\":{\"type\":\"string\"},\"dueDate\":{\"type\":\"string\"},\"lineItems\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"required\":[\"description\",\"quantity\",\"unitPrice\",\"total\"],\"properties\":{\"description\":{\"type\":\"string\"},\"quantity\":{\"type\":\"number\"},\"unitPrice\":{\"type\":\"number\"},\"total\":{\"type\":\"number\"}}}}}}"
-}
-----
-
-*Expected output:*
-[source,json]
-----
-{
-  "invoiceNumber": "INV-2026-00142",
-  "issuerName": "Acme Corp",
-  "issuerAddress": "123 Business Ave, Paris 75001",
-  "totalAmount": 1250.00,
-  "currency": "EUR",
-  "dueDate": "2026-04-25",
-  "lineItems": [
-    { "description": "Consulting services Q1", "quantity": 1, "unitPrice": 1000.00, "total": 1000.00 },
-    { "description": "Travel expenses", "quantity": 1, "unitPrice": 250.00, "total": 250.00 }
-  ]
-}
-----
-
-=== Customer email response generation
-
-Generate professional email drafts based on customer cases, using process context to personalize the response.
-
-*Process flow:*
-
-. A support ticket is created with customer information and issue description
-. A service task uses the *Ask* connector to generate an email draft
-. A human task presents the draft for agent review and editing
-. The agent approves or modifies the draft
-. The email is sent via an email connector
-
-*Configuration:*
-[source,json]
-----
-{
-  "apiKey": "${AI_API_KEY}",
-  "chatModelName": "claude-sonnet-4-6",
-  "systemPrompt": "You are a professional customer service representative for a B2B SaaS company. Write concise, empathetic, and solution-oriented emails. Use a formal but friendly tone.",
-  "userPrompt": "Write a follow-up email for customer ${customerName} (company: ${companyName}) regarding support case #${caseId}.\n\nIssue: ${issueDescription}\nResolution: ${resolutionDescription}\nSLA status: ${slaStatus}",
-  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"subject\",\"body\",\"tone\"],\"properties\":{\"subject\":{\"type\":\"string\"},\"body\":{\"type\":\"string\"},\"tone\":{\"type\":\"string\"}}}"
-}
-----
-
-*Expected output:*
-[source,json]
-----
-{
-  "subject": "Resolution for Case #CS-2026-0142 - Database connectivity issue",
-  "body": "Dear Mr. Dupont,\n\nThank you for your patience regarding case #CS-2026-0142.\n\nWe have identified and resolved the database connectivity issue that was affecting your production environment. The root cause was a misconfigured connection pool timeout, which has now been corrected.\n\nPlease verify that the system is functioning as expected on your end. If you notice any further issues, do not hesitate to reach out.\n\nBest regards,\nSupport Team",
-  "tone": "formal-friendly"
-}
-----
-
-=== Meeting notes summarization
-
-Extract action items, decisions, and key topics from meeting transcripts uploaded as process documents.
-
-*Process flow:*
-
-. A meeting transcript (PDF, DOCX, or text) is uploaded to the process
-. A service task uses the *Ask* connector with the document as context
-. The structured output is stored as BDM objects (ActionItem list)
-. A notification task sends action items to responsible persons
-. A follow-up task is created for each action item with its deadline
-
-*Configuration:*
-[source,json]
-----
-{
-  "apiKey": "${AI_API_KEY}",
-  "chatModelName": "gemini-1.5-pro",
-  "systemPrompt": "You are a meeting assistant. Extract structured information from meeting transcripts. Be precise about names, dates, and commitments.",
-  "userPrompt": "Analyze this meeting transcript and extract all action items, key decisions, and discussed topics.",
-  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"meetingDate\",\"participants\",\"actionItems\",\"decisions\",\"topics\"],\"properties\":{\"meetingDate\":{\"type\":\"string\"},\"participants\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"actionItems\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"required\":[\"task\",\"owner\",\"deadline\",\"priority\"],\"properties\":{\"task\":{\"type\":\"string\"},\"owner\":{\"type\":\"string\"},\"deadline\":{\"type\":\"string\"},\"priority\":{\"type\":\"string\"}}}},\"decisions\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"topics\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}}}"
-}
-----
-
-*Expected output:*
-[source,json]
-----
-{
-  "meetingDate": "2026-03-20",
-  "participants": ["Alice Martin", "Bob Dupont", "Claire Lefebvre"],
-  "actionItems": [
-    { "task": "Prepare Q2 budget proposal", "owner": "Bob Dupont", "deadline": "2026-03-27", "priority": "high" },
-    { "task": "Schedule vendor demo for new CRM", "owner": "Claire Lefebvre", "deadline": "2026-04-01", "priority": "medium" },
-    { "task": "Update project timeline in Jira", "owner": "Alice Martin", "deadline": "2026-03-25", "priority": "low" }
-  ],
-  "decisions": [
-    "Approved migration to new cloud provider by Q3 2026",
-    "Postponed mobile app redesign to Q4 2026"
-  ],
-  "topics": ["Q2 budget planning", "CRM vendor evaluation", "Cloud migration timeline"]
-}
-----
-
-=== Multi-language translation
-
-Translate process content (emails, documents, form labels) between languages to support international operations.
-
-*Process flow:*
-
-. Content to translate is available as a process variable or document
-. A service task uses the *Ask* connector with translation instructions
-. The translated content is stored and used downstream (e.g., in notifications, forms, or reports)
-. An optional human task validates the translation quality for critical content
-
-*Configuration:*
-[source,json]
-----
-{
-  "apiKey": "${AI_API_KEY}",
-  "chatModelName": "gpt-4o",
-  "systemPrompt": "You are a professional translator. Translate accurately while preserving the original meaning, tone, and formatting. Do not add explanations.",
-  "userPrompt": "Translate the following text from ${sourceLanguage} to ${targetLanguage}. Preserve any HTML tags, variable placeholders (${...}), and formatting.\n\nText to translate:\n${contentToTranslate}",
-  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"translatedText\",\"sourceLanguage\",\"targetLanguage\"],\"properties\":{\"translatedText\":{\"type\":\"string\"},\"sourceLanguage\":{\"type\":\"string\"},\"targetLanguage\":{\"type\":\"string\"}}}"
-}
-----
-
-*Expected input:*
-[source]
-----
-sourceLanguage = "French"
-targetLanguage = "English"
-contentToTranslate = "Cher client,\n\nNous avons bien recu votre demande de remboursement pour la commande #${orderId}.\n\nCordialement,\nL'equipe support"
-----
-
-*Expected output:*
-[source,json]
-----
-{
-  "translatedText": "Dear customer,\n\nWe have received your refund request for order #${orderId}.\n\nBest regards,\nThe support team",
-  "sourceLanguage": "French",
-  "targetLanguage": "English"
-}
-----
+When using a JSON schema, you **must** list in the `required` property all the fields you want in the JSON response.
 
 
 == Choosing the right provider
@@ -688,35 +105,39 @@ contentToTranslate = "Cher client,\n\nNous avons bien recu votre demande de remb
 |Criteria |Recommended Provider |Why
 
 |Best general-purpose reasoning
-|OpenAI (`gpt-4o`) or Anthropic (`claude-sonnet-4-6`)
+|xref:ai-openai-connector.adoc[OpenAI] (`gpt-4o`) or xref:ai-anthropic-connector.adoc[Anthropic] (`claude-sonnet-4-6`)
 |Strong at complex analysis, extraction, and generation
 
 |Cost-sensitive batch processing
-|Mistral (`mistral-large-latest`) or Gemini (`gemini-2.0-flash`)
+|xref:ai-mistral-connector.adoc[Mistral] (`mistral-large-latest`) or xref:ai-gemini-connector.adoc[Gemini] (`gemini-2.0-flash`)
 |Lower cost per token with good quality
 
 |Data sovereignty / on-premises
-|Ollama (local)
+|xref:ai-ollama-connector.adoc[Ollama] (local)
 |Data never leaves your infrastructure
 
 |Enterprise compliance (Azure AD)
-|Azure AI Foundry
+|xref:ai-azure-connector.adoc[Azure AI Foundry]
 |Integrates with existing Azure security policies
 
 |Fast classification and routing
-|Gemini (`gemini-2.0-flash`)
+|xref:ai-gemini-connector.adoc[Gemini] (`gemini-2.0-flash`)
 |Very low latency, good accuracy
 
 |Document understanding with images
-|OpenAI (`gpt-4o`) or Gemini (`gemini-1.5-pro`)
+|xref:ai-openai-connector.adoc[OpenAI] (`gpt-4o`) or xref:ai-gemini-connector.adoc[Gemini] (`gemini-1.5-pro`)
 |Native multimodal support
 
 |Complex legal and compliance analysis
-|Anthropic (`claude-sonnet-4-6`)
+|xref:ai-anthropic-connector.adoc[Anthropic] (`claude-sonnet-4-6`)
 |Excellent instruction following and nuanced reasoning
 
+|EU data residency
+|xref:ai-mistral-connector.adoc[Mistral AI]
+|European hosting, GDPR-compliant infrastructure
+
 |Multi-language content
-|OpenAI (`gpt-4o`) or Anthropic (`claude-sonnet-4-6`)
+|xref:ai-openai-connector.adoc[OpenAI] (`gpt-4o`) or xref:ai-anthropic-connector.adoc[Anthropic] (`claude-sonnet-4-6`)
 |Best multilingual capabilities
 |===
 
@@ -725,37 +146,37 @@ contentToTranslate = "Cher client,\n\nNous avons bien recu votre demande de remb
 |===
 |Provider |Default Model |Context Window |Strengths |Cost Tier
 
-|OpenAI
+|xref:ai-openai-connector.adoc[OpenAI]
 |`gpt-4o`
 |128K tokens
 |Versatile, multimodal, strong coding
 |Medium
 
-|Anthropic
+|xref:ai-anthropic-connector.adoc[Anthropic]
 |`claude-sonnet-4-6`
 |200K tokens
 |Instruction following, long documents, safety
 |Medium
 
-|Google Gemini
+|xref:ai-gemini-connector.adoc[Google Gemini]
 |`gemini-2.0-flash`
 |1M tokens
 |Speed, large context, multimodal
 |Low
 
-|Mistral AI
+|xref:ai-mistral-connector.adoc[Mistral AI]
 |`pixtral-12b-2409`
 |128K tokens
 |European hosting, efficiency, open-weights option
 |Low-Medium
 
-|Azure AI Foundry
+|xref:ai-azure-connector.adoc[Azure AI Foundry]
 |_(deployment-based)_
 |128K tokens
 |Enterprise compliance, Azure AD integration
 |Medium-High
 
-|Ollama
+|xref:ai-ollama-connector.adoc[Ollama]
 |`llama3.1`
 |128K tokens
 |Free, on-premises, full data control

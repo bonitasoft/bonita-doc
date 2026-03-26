@@ -1,0 +1,285 @@
+= Azure AI Foundry connectors
+:description: Integrate Azure AI Foundry (Azure OpenAI) models into Bonita processes with enterprise-grade security, Azure AD integration and VNet support.
+
+{description}
+
+The Azure AI Foundry connector is part of the xref:ai-connector.adoc[Bonita AI Connectors] family.
+
+== Getting started
+
+Import the `bonita-connector-ai-azure` module as an extension dependency in your Bonita project. See the xref:ai-connector.adoc[AI connectors overview] for general setup instructions.
+
+== Connection configuration
+
+NOTE: Azure AI Foundry requires setting the `url` parameter to your Azure endpoint and the `chatModelName` to your deployment name. Both are **mandatory** for this provider.
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*API Key*
+|Yes
+|Azure OpenAI API key from Azure Portal > Azure AI Foundry > Keys and Endpoint
+|_Resolved from env var `++AI_API_KEY++` if not set_
+
+|*Endpoint URL*
+|**Yes**
+|Your Azure OpenAI endpoint (e.g. `++https://my-resource.openai.azure.com++`)
+|_None -- must be set_
+
+|*Model Name (Deployment Name)*
+|**Yes**
+|Your Azure deployment name (e.g. `gpt-4o`)
+|_None -- must be set_
+
+|*Temperature*
+|No
+|Controls randomness (0.0 to 1.0)
+|
+
+|*Timeout*
+|No
+|Request timeout in milliseconds
+|
+|===
+
+To find your endpoint and key:
+
+. Go to the https://portal.azure.com[Azure Portal]
+. Navigate to *Azure AI Foundry* (or *Azure OpenAI Service*)
+. Select your resource
+. Go to *Keys and Endpoint*
+
+== Available models
+
+Azure AI Foundry supports any model deployed in your Azure subscription. Common models include:
+
+* `gpt-4o` -- Most capable OpenAI model
+* `gpt-4o-mini` -- Cost-effective for simpler tasks
+* `gpt-4-turbo` -- Previous generation
+
+The model name in the connector must match your **deployment name** in Azure, not the base model name.
+
+== Operations
+
+=== Ask
+
+Send a user prompt (with optional system prompt and documents) to the model and return the generated response.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*User Prompt*
+|Yes
+|The prompt to send to the model
+|
+
+|*System Prompt*
+|No
+|System instructions to guide the model behavior
+|`You are a polite assistant.`
+
+|*Output JSON Schema*
+|No
+|JSON Schema to structure the response as JSON
+|
+
+|*Source Document Reference*
+|No
+|Bonita process document to include as context
+|
+
+|*Source Document References*
+|No
+|List of Bonita process documents to include as context
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|The generated response from the model
+|===
+
+=== Classify
+
+Classify a document into one of the predefined categories.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Categories*
+|Yes
+|Comma-separated list of classification categories
+|
+
+|*Source Document Reference*
+|Yes
+|Bonita process document to classify
+|
+
+|*Source Document References*
+|No
+|List of documents to classify
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|JSON with `category` and `confidence` fields
+|===
+
+.Sample classification result
+[source,json]
+----
+{
+  "category": "EXPENSE_REPORT",
+  "confidence": 0.89
+}
+----
+
+=== Extract
+
+Extract structured data from a document using field names or a JSON Schema.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Fields to Extract*
+|No
+|Comma-separated list of field names to extract
+|
+
+|*Output JSON Schema*
+|No
+|JSON Schema defining the extraction structure
+|
+
+|*Source Document Reference*
+|Yes
+|Bonita process document to extract from
+|
+
+|*Source Document References*
+|No
+|List of documents to extract from
+|
+|===
+
+IMPORTANT: You must provide at least one of `fieldsToExtract` or `outputJsonSchema` parameters.
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|JSON with extracted fields
+|===
+
+== Use cases
+
+=== Enterprise document processing
+
+Process internal HR and finance documents using Azure AI within your corporate network, leveraging Azure AD authentication and VNet integration for maximum security.
+
+*Process flow:*
+
+. An expense report is submitted through a Bonita form
+. A service task uses the *Extract* connector to parse the document
+. The data is validated against company policies via business rules
+. A human task presents the extracted data for manager approval
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "${AZURE_OPENAI_API_KEY}",
+  "url": "https://my-company.openai.azure.com",
+  "chatModelName": "gpt-4o",
+  "fieldsToExtract": "employeeName,department,expenseDate,totalAmount,currency,category,receipts",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"employeeName\",\"department\",\"expenseDate\",\"totalAmount\",\"currency\",\"category\"],\"properties\":{\"employeeName\":{\"type\":\"string\"},\"department\":{\"type\":\"string\"},\"expenseDate\":{\"type\":\"string\"},\"totalAmount\":{\"type\":\"number\"},\"currency\":{\"type\":\"string\"},\"category\":{\"type\":\"string\"},\"receipts\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"required\":[\"vendor\",\"amount\",\"date\"],\"properties\":{\"vendor\":{\"type\":\"string\"},\"amount\":{\"type\":\"number\"},\"date\":{\"type\":\"string\"}}}}}}"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "employeeName": "Sophie Bernard",
+  "department": "Sales",
+  "expenseDate": "2026-03-15",
+  "totalAmount": 847.50,
+  "currency": "EUR",
+  "category": "Business Travel",
+  "receipts": [
+    { "vendor": "Air France", "amount": 450.00, "date": "2026-03-10" },
+    { "vendor": "Hotel Mercure", "amount": 320.00, "date": "2026-03-11" },
+    { "vendor": "Restaurant Le Petit", "amount": 77.50, "date": "2026-03-11" }
+  ]
+}
+----
+
+=== CV screening and candidate evaluation
+
+Use Azure AI to evaluate candidate CVs against job descriptions, scoring candidates and extracting key qualifications within the secure corporate network.
+
+*Process flow:*
+
+. A CV document is received through the recruitment process
+. A service task uses the *Ask* connector to evaluate the CV against the job requirements
+. The structured evaluation is stored as BDM objects
+. A human task presents the evaluation for recruiter review
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "${AZURE_OPENAI_API_KEY}",
+  "url": "https://my-company.openai.azure.com",
+  "chatModelName": "gpt-4o",
+  "systemPrompt": "You are an HR assistant. Evaluate candidates objectively based on qualifications, experience, and job fit. Be fair and unbiased.",
+  "userPrompt": "Evaluate this CV against the following job description and provide a structured assessment.\n\nJob: ${jobTitle}\nRequirements: ${jobRequirements}\n\nProvide a fit score (0-100), key strengths, gaps, and a recommendation.",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"fitScore\",\"strengths\",\"gaps\",\"recommendation\"],\"properties\":{\"fitScore\":{\"type\":\"number\"},\"strengths\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"gaps\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"recommendation\":{\"type\":\"string\"}}}"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "fitScore": 78,
+  "strengths": [
+    "8 years of Java experience including Spring Boot and microservices",
+    "Previous experience with BPM platforms (Camunda)",
+    "Strong team leadership background"
+  ],
+  "gaps": [
+    "No direct experience with Bonita platform",
+    "Limited cloud infrastructure experience (requirement: AWS/Azure)"
+  ],
+  "recommendation": "Strong candidate. Technical skills align well with role requirements. Recommend interview with focus on cloud infrastructure experience and Bonita platform learning curve."
+}
+----
+
+== Configuration tips
+
+* **Both `url` and `chatModelName` are mandatory** for Azure. The `chatModelName` must match your Azure deployment name exactly.
+* Use environment variable `AZURE_OPENAI_API_KEY` to store the Azure API key securely.
+* Azure AI Foundry integrates with **Azure AD** for authentication and **VNet** for network isolation, making it the best choice for enterprise compliance requirements.
+* If your Azure resource has content filters enabled, be aware they may affect responses. Adjust filter settings in the Azure Portal if needed.
+* For high-throughput scenarios, check your Azure resource's **rate limits** and scale accordingly.
+
+== Source code
+
+https://github.com/bonitasoft/bonita-connector-ai[bonita-connector-ai on GitHub] (module `bonita-connector-ai-azure`)

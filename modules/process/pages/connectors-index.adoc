@@ -56,11 +56,6 @@ xref:process:insert-data-in-a-docx-odt-template.adoc[[.card-title]#Document temp
 
 [.card.card-index]
 --
-xref:gemini-connector.adoc[[.card-title]#Gemini AI# [.card-body.card-content-overflow]#pass:q[Integrate Google Gemini AI into your processes]#]
---
-
-[.card.card-index]
---
 xref:ROOT:google-calendar.adoc[[.card-title]#Google calendar# [.card-body.card-content-overflow]#pass:q[Manage events in your processes]#]
 --
 
