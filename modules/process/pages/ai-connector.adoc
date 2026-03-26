@@ -14,16 +14,19 @@ The Bonita AI Connectors are available for **Bonita 10.2 Community (2024.3)** ve
 
 image::ai-connectors.png[AI Connectors flux]
 
+[.text-center]
+*Supported providers:* image:openai.png[OpenAI,20] OpenAI | image:anthropic.png[Anthropic,20] Anthropic | image:gemini.png[Gemini,20] Gemini | image:mistral.png[Mistral,20] Mistral | image:azure.png[Azure,20] Azure | image:ollama.png[Ollama,20] Ollama
+
 == Getting started
 
 To use a connector, add it as an extension dependency to your Bonita project. Choose the one related to your AI provider:
 
-* image:openai.png[OpenAI] xref:ai-openai-connector.adoc[OpenAI] -- GPT-4o and GPT models
-* xref:ai-anthropic-connector.adoc[Anthropic] -- Claude models with vision support
-* xref:ai-gemini-connector.adoc[Google Gemini] -- Fast and cost-effective, large context
-* image:mistral.png[MistralAI] xref:ai-mistral-connector.adoc[Mistral AI] -- EU-hosted, GDPR-friendly
-* xref:ai-azure-connector.adoc[Azure AI Foundry] -- Enterprise compliance with Azure AD
-* xref:ai-ollama-connector.adoc[Ollama] -- Local/on-premise LLMs, no API key needed
+* image:openai.png[OpenAI,20] xref:ai-openai-connector.adoc[OpenAI] -- GPT-4o and GPT models
+* image:anthropic.png[Anthropic,20] xref:ai-anthropic-connector.adoc[Anthropic] -- Claude models with vision support
+* image:gemini.png[Gemini,20] xref:ai-gemini-connector.adoc[Google Gemini] -- Fast and cost-effective, large context
+* image:mistral.png[MistralAI,20] xref:ai-mistral-connector.adoc[Mistral AI] -- EU-hosted, GDPR-friendly
+* image:azure.png[Azure,20] xref:ai-azure-connector.adoc[Azure AI Foundry] -- Enterprise compliance with Azure AD
+* image:ollama.png[Ollama,20] xref:ai-ollama-connector.adoc[Ollama] -- Local/on-premise LLMs, no API key needed
 
 WARNING: Image documents are not supported yet for the Mistral connector due to a limitation of the underlying library.
 
