@@ -1,0 +1,349 @@
+= DeepSeek AI connectors
+:description: Integrate DeepSeek V3 and R1 models into Bonita processes for cost-effective AI with chain-of-thought reasoning.
+
+{description}
+
+The DeepSeek connector is part of the xref:ai-connector.adoc[Bonita AI Connectors] family.
+
+== Getting started
+
+Import the `bonita-connector-ai-deepseek` module as an extension dependency in your Bonita project. See the xref:ai-connector.adoc[AI connectors overview] for general setup instructions.
+
+== Connection configuration
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*API Key*
+|Yes
+|DeepSeek API key from https://platform.deepseek.com[DeepSeek Platform]
+|_Resolved from env var `++AI_API_KEY++` if not set_
+
+|*Base URL*
+|No
+|Custom endpoint URL for alternate deployments
+|`++https://api.deepseek.com++`
+
+|*Model Name*
+|No
+|DeepSeek model to use
+|`deepseek-chat`
+
+|*Temperature*
+|No
+|Controls randomness (0.0 to 1.0)
+|
+
+|*Timeout*
+|No
+|Request timeout in milliseconds
+|
+|===
+
+== Available models
+
+* `deepseek-chat` (default, V3 -- 685B MoE) -- General purpose, 10-70x cheaper than GPT-4o
+* `deepseek-reasoner` (R1) -- Chain-of-thought reasoning, outputs thinking process
+
+DeepSeek models are OpenAI API-compatible, making them a cost-effective drop-in alternative for many use cases.
+
+See https://platform.deepseek.com/api-docs[DeepSeek API documentation] for the full list.
+
+== Operations
+
+=== Ask
+
+Send a user prompt (with optional system prompt and documents) to a DeepSeek model and return the generated response.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*User Prompt*
+|Yes
+|The prompt to send to DeepSeek
+|
+
+|*System Prompt*
+|No
+|System instructions to guide the model behavior
+|`You are a polite assistant.`
+
+|*Output JSON Schema*
+|No
+|JSON Schema to structure the response as JSON
+|
+
+|*Source Document Reference*
+|No
+|Bonita process document to include as context
+|
+
+|*Source Document References*
+|No
+|List of Bonita process documents to include as context
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|The generated response from the model
+|===
+
+=== Classify
+
+Classify a document into one of the predefined categories.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Categories*
+|Yes
+|Comma-separated list of classification categories
+|
+
+|*Source Document Reference*
+|Yes
+|Bonita process document to classify
+|
+
+|*Source Document References*
+|No
+|List of documents to classify
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|JSON with `category` and `confidence` fields
+|===
+
+.Sample classification result
+[source,json]
+----
+{
+  "category": "INVOICE",
+  "confidence": 0.94
+}
+----
+
+=== Extract
+
+Extract structured data from a document using field names or a JSON Schema.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Fields to Extract*
+|No
+|Comma-separated list of field names to extract
+|
+
+|*Output JSON Schema*
+|No
+|JSON Schema defining the extraction structure
+|
+
+|*Source Document Reference*
+|Yes
+|Bonita process document to extract from
+|
+
+|*Source Document References*
+|No
+|List of documents to extract from
+|
+|===
+
+IMPORTANT: You must provide at least one of `fieldsToExtract` or `outputJsonSchema` parameters.
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|JSON with extracted fields
+|===
+
+== Use cases
+
+=== Cost-effective document summarization
+
+Use the *Ask* operation to summarize large volumes of documents at a fraction of the cost of other providers. DeepSeek V3 delivers quality comparable to GPT-4o at 10-70x lower cost per token.
+
+*Process flow:*
+
+. A batch of support tickets or reports is collected in the process
+. A service task uses the *Ask* connector to generate structured summaries
+. The summaries are stored as BDM objects for dashboards and reporting
+. A human task reviews flagged items that require attention
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "deepseek-chat",
+  "systemPrompt": "You are a business analyst. Summarize documents into structured reports with key findings, action items, and priority level.",
+  "userPrompt": "Summarize the following support ticket and extract key information:\n\n${ticketContent}",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"summary\",\"keyFindings\",\"actionItems\",\"priority\"],\"properties\":{\"summary\":{\"type\":\"string\"},\"keyFindings\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"actionItems\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"priority\":{\"type\":\"string\"}}}"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "summary": "Customer reports recurring timeout errors on the procurement module after migrating to version 2025.2. Issue affects 15 users in the purchasing department.",
+  "keyFindings": [
+    "Timeout occurs during purchase order validation step",
+    "Issue started after 2025.2 upgrade on March 15",
+    "Only affects users with more than 50 pending orders"
+  ],
+  "actionItems": [
+    "Check database query performance for purchase order validation",
+    "Review connection pool configuration post-upgrade",
+    "Contact customer to gather server logs"
+  ],
+  "priority": "high"
+}
+----
+
+=== Chain-of-thought loan evaluation with R1
+
+Use the *Ask* operation with the `deepseek-reasoner` (R1) model to produce auditable, step-by-step reasoning for loan applications. The model outputs its thinking process, providing transparency for compliance audits.
+
+*Process flow:*
+
+. A loan application with financial documents is submitted
+. A service task uses the *Ask* connector with R1 to evaluate the application
+. The reasoning chain and decision are stored for audit purposes
+. A human task presents the AI recommendation for final approval
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "deepseek-reasoner",
+  "systemPrompt": "You are a credit risk analyst. Evaluate loan applications step by step, showing your reasoning for each criterion. Consider income-to-debt ratio, credit history, employment stability, and collateral value.",
+  "userPrompt": "Evaluate this loan application:\n\nApplicant: ${applicantName}\nRequested amount: ${loanAmount} EUR\nAnnual income: ${annualIncome} EUR\nExisting debt: ${existingDebt} EUR\nEmployment: ${employmentYears} years at current employer\nCredit score: ${creditScore}\nCollateral: ${collateralDescription}",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"recommendation\",\"riskLevel\",\"reasoning\",\"conditions\"],\"properties\":{\"recommendation\":{\"type\":\"string\"},\"riskLevel\":{\"type\":\"string\"},\"reasoning\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"required\":[\"criterion\",\"assessment\",\"score\"],\"properties\":{\"criterion\":{\"type\":\"string\"},\"assessment\":{\"type\":\"string\"},\"score\":{\"type\":\"string\"}}}},\"conditions\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}}}"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "recommendation": "APPROVE_WITH_CONDITIONS",
+  "riskLevel": "moderate",
+  "reasoning": [
+    {
+      "criterion": "Income-to-debt ratio",
+      "assessment": "Current ratio is 35% (existing debt 21,000 EUR / income 60,000 EUR). Adding the new loan would bring it to 52%, which is above the recommended 40% threshold but manageable with conditions.",
+      "score": "fair"
+    },
+    {
+      "criterion": "Employment stability",
+      "assessment": "8 years at current employer in a stable industry sector. Strong positive indicator.",
+      "score": "excellent"
+    },
+    {
+      "criterion": "Credit history",
+      "assessment": "Credit score of 720 indicates good payment history with minor late payments 3 years ago.",
+      "score": "good"
+    },
+    {
+      "criterion": "Collateral",
+      "assessment": "Property valued at 180,000 EUR provides adequate coverage for the 100,000 EUR loan request.",
+      "score": "good"
+    }
+  ],
+  "conditions": [
+    "Reduce existing revolving credit lines by 5,000 EUR before disbursement",
+    "Provide proof of property insurance",
+    "Quarterly income verification for the first year"
+  ]
+}
+----
+
+=== Code generation for process scripting
+
+Use the *Ask* operation to generate Groovy scripts for Bonita process automation. DeepSeek V3 has strong coding capabilities at significantly lower cost.
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "deepseek-chat",
+  "systemPrompt": "You are a Bonita BPM expert. Generate Groovy scripts for Bonita process automation. Use Bonita API patterns and Java 17 features. Return only the script code without explanations.",
+  "userPrompt": "Generate a Groovy script that queries the Bonita REST API to find all overdue human tasks (past their expected end date) and returns a list with task name, case ID, and days overdue.\n\nContext: ${processDescription}",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"script\",\"description\",\"dependencies\"],\"properties\":{\"script\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"dependencies\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}}}"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "script": "import java.time.LocalDate\nimport java.time.temporal.ChronoUnit\n\ndef today = LocalDate.now()\ndef tasks = apiAccessor.processAPI.searchHumanTaskInstances(0, 100, null).result\ndef overdueTasks = tasks.findAll { task ->\n    task.expectedEndDate != null && task.expectedEndDate.toLocalDate().isBefore(today)\n}.collect { task ->\n    [taskName: task.name, caseId: task.parentCaseId, daysOverdue: ChronoUnit.DAYS.between(task.expectedEndDate.toLocalDate(), today)]\n}\nreturn overdueTasks",
+  "description": "Queries all human tasks and filters those past their expected end date, returning task details with days overdue count.",
+  "dependencies": ["bonita-server-api"]
+}
+----
+
+=== Multi-language customer support
+
+Use the *Ask* operation to generate responses in the customer's language, leveraging DeepSeek's strong multilingual capabilities.
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "deepseek-chat",
+  "systemPrompt": "You are a multilingual customer support agent. Detect the language of the customer message and respond in the same language. Be professional, empathetic, and solution-oriented.",
+  "userPrompt": "Customer message: ${customerMessage}\n\nContext:\n- Product: ${productName}\n- Account status: ${accountStatus}\n- Known issues: ${knownIssues}",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"detectedLanguage\",\"response\",\"suggestedActions\"],\"properties\":{\"detectedLanguage\":{\"type\":\"string\"},\"response\":{\"type\":\"string\"},\"suggestedActions\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}}}"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "detectedLanguage": "fr",
+  "response": "Bonjour,\n\nMerci de nous avoir contactes concernant le probleme de connexion a votre espace client. Nous comprenons que cette situation est frustrante.\n\nNous avons identifie un incident en cours sur le module d'authentification qui affecte certains utilisateurs. Notre equipe technique travaille activement a sa resolution.\n\nEn attendant, nous vous recommandons de vider le cache de votre navigateur et de reessayer dans 30 minutes.\n\nCordialement,\nL'equipe Support",
+  "suggestedActions": [
+    "Monitor authentication service status",
+    "Follow up in 2 hours if issue persists",
+    "Escalate to L2 if not resolved within 4 hours"
+  ]
+}
+----
+
+== Configuration tips
+
+* DeepSeek V3 offers GPT-4o-level quality at a fraction of the cost, making it ideal for high-volume batch processing.
+* The R1 model (`deepseek-reasoner`) outputs its chain-of-thought reasoning, which is valuable for auditable AI decisions in regulated industries.
+* DeepSeek uses an OpenAI-compatible API, so you can switch between providers by changing the base URL and API key.
+* For cost optimization, use `deepseek-chat` for routine tasks and reserve `deepseek-reasoner` for complex reasoning scenarios.
+* Set `requestTimeout` to at least 90000 ms when using `deepseek-reasoner`, as chain-of-thought reasoning takes longer.
+
+== Source code
+
+https://github.com/bonitasoft/bonita-connector-ai[bonita-connector-ai on GitHub] (module `bonita-connector-ai-deepseek`)

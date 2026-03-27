@@ -1,6 +1,6 @@
 = AI connectors
 :page-aliases: ROOT:ai-connector.adoc
-:description: Bonitasoft AI connectors let you integrate advanced language models like OpenAI, Anthropic, Google Gemini, Mistral, Azure AI Foundry, and Ollama into your business processes.
+:description: Bonitasoft AI connectors let you integrate advanced language models like OpenAI, Anthropic, Google Gemini, Mistral, Azure AI Foundry, Ollama, DeepSeek, Groq, and Cohere into your business processes.
 
 {description} These connectors support three powerful use cases:
 
@@ -15,7 +15,7 @@ The Bonita AI Connectors are available for **Bonita 10.2 Community (2024.3)** ve
 image::ai-connectors.png[AI Connectors flux]
 
 [.text-center]
-*Supported providers:* image:openai.png[OpenAI,20] OpenAI | image:anthropic.png[Anthropic,20] Anthropic | image:gemini.png[Gemini,20] Gemini | image:mistral.png[Mistral,20] Mistral | image:azure.png[Azure,20] Azure | image:ollama.png[Ollama,20] Ollama
+*Supported providers:* image:openai.png[OpenAI,20] OpenAI | image:anthropic.png[Anthropic,20] Anthropic | image:gemini.png[Gemini,20] Gemini | image:mistral.png[Mistral,20] Mistral | image:azure.png[Azure,20] Azure | image:ollama.png[Ollama,20] Ollama | image:deepseek.png[DeepSeek,20] DeepSeek | image:groq.png[Groq,20] Groq | image:cohere.png[Cohere,20] Cohere
 
 == Getting started
 
@@ -27,6 +27,9 @@ To use a connector, add it as an extension dependency to your Bonita project. Ch
 * image:mistral.png[MistralAI,20] xref:ai-mistral-connector.adoc[Mistral AI] -- EU-hosted, GDPR-friendly
 * image:azure.png[Azure,20] xref:ai-azure-connector.adoc[Azure AI Foundry] -- Enterprise compliance with Azure AD
 * image:ollama.png[Ollama,20] xref:ai-ollama-connector.adoc[Ollama] -- Local/on-premise LLMs, no API key needed
+* image:deepseek.png[DeepSeek,20] xref:ai-deepseek-connector.adoc[DeepSeek] -- Cost-effective AI with chain-of-thought reasoning (R1)
+* image:groq.png[Groq,20] xref:ai-groq-connector.adoc[Groq] -- Ultra-fast LPU inference, 10-100x faster than GPU providers
+* image:cohere.png[Cohere,20] xref:ai-cohere-connector.adoc[Cohere] -- Enterprise RAG with citations and multilingual support
 
 WARNING: Image documents are not supported yet for the Mistral connector due to a limitation of the underlying library.
 
@@ -71,6 +74,9 @@ a|
 - MistralAI: `pixtral-12b-2409`
 - Azure: _(your deployment name)_
 - Ollama: `llama3.1`
+- DeepSeek: `deepseek-chat`
+- Groq: `llama-3.3-70b-versatile`
+- Cohere: `command-r-plus`
 
 |*modelTemperature*
 |false
@@ -112,8 +118,8 @@ When using a JSON schema, you **must** list in the `required` property all the f
 |Strong at complex analysis, extraction, and generation
 
 |Cost-sensitive batch processing
-|xref:ai-mistral-connector.adoc[Mistral] (`mistral-large-latest`) or xref:ai-gemini-connector.adoc[Gemini] (`gemini-2.0-flash`)
-|Lower cost per token with good quality
+|xref:ai-deepseek-connector.adoc[DeepSeek] (`deepseek-chat`) or xref:ai-gemini-connector.adoc[Gemini] (`gemini-2.0-flash`)
+|DeepSeek V3 is 10-70x cheaper than GPT-4o with comparable quality
 
 |Data sovereignty / on-premises
 |xref:ai-ollama-connector.adoc[Ollama] (local)
@@ -124,8 +130,8 @@ When using a JSON schema, you **must** list in the `required` property all the f
 |Integrates with existing Azure security policies
 
 |Fast classification and routing
-|xref:ai-gemini-connector.adoc[Gemini] (`gemini-2.0-flash`)
-|Very low latency, good accuracy
+|xref:ai-groq-connector.adoc[Groq] (`llama-3.3-70b-versatile`) or xref:ai-gemini-connector.adoc[Gemini] (`gemini-2.0-flash`)
+|Groq delivers ~500 tokens/sec, ideal for real-time classification
 
 |Document understanding with images
 |xref:ai-openai-connector.adoc[OpenAI] (`gpt-4o`) or xref:ai-gemini-connector.adoc[Gemini] (`gemini-1.5-pro`)
@@ -142,6 +148,18 @@ When using a JSON schema, you **must** list in the `required` property all the f
 |Multi-language content
 |xref:ai-openai-connector.adoc[OpenAI] (`gpt-4o`) or xref:ai-anthropic-connector.adoc[Anthropic] (`claude-sonnet-4-6`)
 |Best multilingual capabilities
+
+|Auditable AI decisions with reasoning
+|xref:ai-deepseek-connector.adoc[DeepSeek] (`deepseek-reasoner`)
+|Chain-of-thought reasoning with visible thinking process
+
+|Ultra-low latency inference
+|xref:ai-groq-connector.adoc[Groq] (`llama-3.1-8b-instant`)
+|Sub-200ms responses for real-time user-facing features
+
+|RAG with citations and grounding
+|xref:ai-cohere-connector.adoc[Cohere] (`command-r-plus`)
+|Grounded answers with automatic source citations
 |===
 
 == Model comparison
@@ -184,4 +202,22 @@ When using a JSON schema, you **must** list in the `required` property all the f
 |128K tokens
 |Free, on-premises, full data control
 |Free (hardware cost)
+
+|xref:ai-deepseek-connector.adoc[DeepSeek]
+|`deepseek-chat`
+|64K tokens
+|Cost-effective, chain-of-thought reasoning (R1)
+|Very Low
+
+|xref:ai-groq-connector.adoc[Groq]
+|`llama-3.3-70b-versatile`
+|128K tokens
+|Ultra-fast inference (~500 tok/sec), LPU hardware
+|Low (free tier available)
+
+|xref:ai-cohere-connector.adoc[Cohere]
+|`command-r-plus`
+|128K tokens
+|RAG with citations, multilingual, enterprise-grade
+|Medium
 |===
