@@ -290,7 +290,7 @@ Use the *Ask* operation to generate Groovy scripts for Bonita process automation
 {
   "apiKey": "${AI_API_KEY}",
   "chatModelName": "deepseek-chat",
-  "systemPrompt": "You are a Bonita BPM expert. Generate Groovy scripts for Bonita process automation. Use Bonita API patterns and Java 17 features. Return only the script code without explanations.",
+  "systemPrompt": "You are a Bonita expert. Generate Groovy scripts for Bonita process automation. Use Bonita API patterns and Java 17 features. Return only the script code without explanations.",
   "userPrompt": "Generate a Groovy script that queries the Bonita REST API to find all overdue human tasks (past their expected end date) and returns a list with task name, case ID, and days overdue.\n\nContext: ${processDescription}",
   "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"script\",\"description\",\"dependencies\"],\"properties\":{\"script\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"dependencies\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}}}"
 }
