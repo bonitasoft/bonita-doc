@@ -43,6 +43,7 @@
         ***** xref:sharepointexample.adoc[Connecting to Sharepoint with REST]
     **** xref:salesforce.adoc[Salesforce]
     **** xref:sap-jco-3.adoc[SAP]
+    **** xref:sharepoint-connector.adoc[SharePoint]
     **** xref:script.adoc[Script]
     **** xref:twitter.adoc[Twitter]
     **** xref:uipath.adoc[UiPath]
