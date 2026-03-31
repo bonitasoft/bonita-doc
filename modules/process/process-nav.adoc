@@ -26,6 +26,7 @@
   *** xref:connector-migration.adoc[Migrate an old connector]
   *** Bonita official connectors
     **** xref:ai-connector.adoc[AI]
+    **** xref:aws-s3-connector.adoc[AWS S3]
     **** xref:cmis.adoc[CMIS]
     **** xref:database-connectors-index.adoc[Database]
         ***** xref:list-of-database-connectors.adoc[List of database connectors]
