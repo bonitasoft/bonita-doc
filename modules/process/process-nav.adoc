@@ -75,6 +75,7 @@
     **** xref:uipath.adoc[UiPath]
     **** xref:whatsapp-connector.adoc[WhatsApp Business]
     **** xref:workday-connector.adoc[Workday HCM]
+    **** xref:yousign-connector.adoc[Yousign]
     **** Web service
         ***** xref:web-service-connector-overview.adoc[Connector web service]
         ***** xref:web-service-tutorial.adoc[Web service tutorial]

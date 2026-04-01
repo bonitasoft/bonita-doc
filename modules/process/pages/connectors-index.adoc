@@ -211,5 +211,10 @@ xref:ROOT:workday-connector.adoc[[.card-title]#Workday HCM &#91;BETA&#93;# [.car
 
 [.card.card-index]
 --
+xref:ROOT:yousign-connector.adoc[[.card-title]#Yousign &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Create and manage electronic signature requests]#]
+--
+
+[.card.card-index]
+--
 xref:ROOT:zendesk-connector.adoc[[.card-title]#Zendesk &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Manage support tickets and comments]#]
 --
