@@ -129,3 +129,8 @@ xref:ROOT:jasperreports-connector.adoc[[.card-title]#JasperReports [BETA]# [.car
 --
 xref:ROOT:sharepoint-connector.adoc[[.card-title]#SharePoint [BETA]# [.card-body.card-content-overflow]#pass:q[Connect to Microsoft SharePoint sites and lists]#]
 --
+
+[.card.card-index]
+--
+xref:ROOT:yousign-connector.adoc[[.card-title]#Yousign [BETA]# [.card-body.card-content-overflow]#pass:q[Create and manage electronic signature requests]#]
+--
