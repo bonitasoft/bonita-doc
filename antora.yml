@@ -1,7 +1,7 @@
 name: bonita
 title: Bonita
 version: 2026.2
-prerelease: -beta
+prerelease: -alpha
 asciidoc:
   attributes:
     bonitaVersion: 2026.2
