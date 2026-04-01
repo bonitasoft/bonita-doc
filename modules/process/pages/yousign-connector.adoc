@@ -28,6 +28,26 @@ The Yousign connector provides eight operations to manage electronic signature w
 * **List** -- list signature requests with filters and pagination
 * **Register Webhook** -- register a webhook for signature events
 
+=== Signature request lifecycle
+
+A signature request follows this lifecycle:
+
+----
+draft --> approval --> ongoing --> done
+                         |
+                         +--> declined
+                         +--> canceled
+                         +--> expired
+----
+
+* **draft** -- The request has been created but not yet activated
+* **approval** -- The request is pending internal approval (if configured)
+* **ongoing** -- Signers have been invited and the request is awaiting signatures
+* **done** -- All signers have signed; documents are available for download
+* **declined** -- A signer has declined to sign
+* **canceled** -- The request was canceled by the initiator
+* **expired** -- The request passed its expiration date without completion
+
 == Prerequisites
 
 Before using the Yousign connector, ensure the following:
@@ -346,8 +366,8 @@ Downloads the signed document(s) from a completed signature request. If no speci
 |Output name |Type |Description
 
 |*documentContent*
-|byte[]
-|The binary content of the downloaded document or ZIP archive.
+|String
+|The Base64-encoded content of the downloaded document or ZIP archive. Use `java.util.Base64.getDecoder().decode()` to convert to binary.
 
 |*documentName*
 |String
@@ -391,8 +411,8 @@ Downloads the audit trail PDF for a signature request, providing a certified rec
 |Output name |Type |Description
 
 |*auditTrailContent*
-|byte[]
-|The binary content of the audit trail PDF.
+|String
+|The Base64-encoded content of the audit trail PDF. Use `java.util.Base64.getDecoder().decode()` to convert to binary.
 
 |*auditTrailName*
 |String
@@ -530,3 +550,51 @@ To use the Yousign connector in your Bonita project:
 . The Yousign connector operations will appear in the connector palette when configuring a task or a process.
 
 For more details on managing extensions, see xref:bonita-overview:managing-extension-studio.adoc[Managing extensions in Bonita Studio].
+
+== Troubleshooting
+
+=== Common errors
+
+[cols="1,2,2"]
+|===
+|Error |Cause |Solution
+
+|`Authentication error: invalid API key`
+|The API key is invalid, expired, or for the wrong environment.
+|Verify the key in the Yousign dashboard. Ensure sandbox keys are used with the sandbox URL and production keys with the production URL.
+
+|`Resource not found`
+|The signatureRequestId or documentId UUID does not exist.
+|Verify the UUID is correct. Check that the resource has not been deleted.
+
+|`Bad request: invalid template`
+|The template ID is invalid or the signer label does not match any role in the template.
+|Verify the template exists in your Yousign account. Check that the `signerLabel` exactly matches a role defined in the template.
+
+|`Rate limit exceeded`
+|Too many API calls in a short period.
+|The connector automatically retries 3 times with exponential backoff. If the error persists, reduce polling frequency.
+
+|`Access denied`
+|The API key does not have sufficient permissions.
+|Check the API key permissions in the Yousign dashboard.
+|===
+
+=== Status transition errors
+
+[cols="1,2"]
+|===
+|Scenario |Explanation
+
+|Cannot activate a request
+|The request must be in `draft` or `approval` status. It may have already been activated, canceled, or expired.
+
+|Cannot cancel a request
+|The request must be in `draft`, `approval`, or `ongoing` status. Terminal states (`done`, `declined`, `expired`) cannot be canceled.
+
+|Cannot download documents
+|Documents are only available when the request is in `done` status. Check the status before attempting to download.
+
+|Webhook not receiving events
+|Verify the endpoint URL is publicly accessible over HTTPS. Check the webhook status in the Yousign dashboard.
+|===
