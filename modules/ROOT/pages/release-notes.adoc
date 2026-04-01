@@ -519,6 +519,15 @@ The notable changes are:
 
 == Bug fixes
 
+=== Fixes in Bonita 2025.1-u7 (2026-04-01)
+
+This version restores the dependencies configuration page with selective export that was available in 2024.3 and older versions.
+
+* BPA-316 - Prograde Java policy is too restrictictive for AI connectors
+* BPA-321 - ThreadLocal EntityManager leak after JTA transaction timeout causes stale persistence context reuse
+* BPA-411 - [OIDC] - Multi-pod refresh token invalidation causes repeated session loss for Gigya external users
+* Several dependencies updated
+
 === Fixes in Bonita 2025.1-u5 (2026-02-26)
 
 * BPA-206 - LASTUPDATEDATE of rows in the flownode_instance table is not updated
