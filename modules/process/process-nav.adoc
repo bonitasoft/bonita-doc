@@ -48,6 +48,7 @@
     **** xref:jasperreports-connector.adoc[JasperReports]
     **** xref:ldap.adoc[LDAP]
     **** xref:messaging.adoc[Messaging]
+    **** xref:msteams-connector.adoc[Microsoft Teams]
     **** xref:generate-pdf-from-an-office-document.adoc[Document converter]
     **** xref:rest-connector.adoc[REST]
         ***** xref:sharepointexample.adoc[Connecting to Sharepoint with REST]

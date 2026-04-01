@@ -64,7 +64,6 @@ xref:ROOT:google-calendar.adoc[[.card-title]#Google calendar# [.card-body.card-c
 xref:ROOT:ldap.adoc[[.card-title]#LDAP# [.card-body.card-content-overflow]#pass:q[Retrieve external organization information from your processes]#]
 --
 
-
 [.card.card-index]
 --
 xref:ROOT:generate-pdf-from-an-office-document.adoc[[.card-title]#Document converter# [.card-body.card-content-overflow]#pass:q[Generate PDF in your processes]#]
@@ -123,6 +122,11 @@ xref:ROOT:google-drive.adoc[[.card-title]#Google Drive &#91;BETA&#93;# [.card-bo
 [.card.card-index]
 --
 xref:ROOT:jasperreports-connector.adoc[[.card-title]#JasperReports &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Generate reports from JasperReports Server]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:msteams-connector.adoc[[.card-title]#Microsoft Teams &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Send messages and manage teams and channels]#]
 --
 
 [.card.card-index]
