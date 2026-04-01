@@ -1,6 +1,6 @@
 = AI connectors
 :page-aliases: ROOT:ai-connector.adoc
-:description: Bonitasoft now offers AI connectors that let you seamlessly integrate advanced language models like OpenAI, Mistral, Anthropic Claude, Azure OpenAI, Gemini, Cohere, DeepSeek, and Groq into your business processes.
+:description: Bonitasoft AI connectors let you integrate advanced language models like OpenAI, Anthropic, Google Gemini, Mistral, Azure AI Foundry, Ollama, DeepSeek, Groq, and Cohere into your business processes.
 
 {description} These connectors support three powerful use cases:
 
@@ -8,35 +8,34 @@
 - Classify documents into predefined categories
 - Extract structured data from unstructured text or images
 
-By securely sending data from your processes to LLMs over HTTPS, you can enhance automation, improve decision-making, and streamline information handling—all without writing custom code.
-
+By securely sending data from your processes to LLMs over HTTPS, you can enhance automation, improve decision-making, and streamline information handling--all without writing custom code.
 
 The Bonita AI Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
 
 image::ai-connectors.png[AI Connectors flux]
 
+[.text-center]
+*Supported providers:* image:openai.png[OpenAI,20] OpenAI | image:anthropic.png[Anthropic,20] Anthropic | image:gemini.png[Gemini,20] Gemini | image:mistral.png[Mistral,20] Mistral | image:azure.png[Azure,20] Azure | image:ollama.png[Ollama,20] Ollama | image:deepseek.png[DeepSeek,20] DeepSeek | image:groq.png[Groq,20] Groq | image:cohere.png[Cohere,20] Cohere
+
 == Getting started
 
-To use a connector, add it as an extension dependency to your Bonita project. Choose the one related to your AI provider.
+To use a connector, add it as an extension dependency to your Bonita project. Choose the one related to your AI provider:
 
-Currently supported providers:
+* image:openai.png[OpenAI,20] xref:ai-openai-connector.adoc[OpenAI] -- GPT-4o and GPT models
+* image:anthropic.png[Anthropic,20] xref:ai-anthropic-connector.adoc[Anthropic] -- Claude models with vision support
+* image:gemini.png[Gemini,20] xref:ai-gemini-connector.adoc[Google Gemini] -- Fast and cost-effective, large context
+* image:mistral.png[MistralAI,20] xref:ai-mistral-connector.adoc[Mistral AI] -- EU-hosted, GDPR-friendly
+* image:azure.png[Azure,20] xref:ai-azure-connector.adoc[Azure AI Foundry] -- Enterprise compliance with Azure AD
+* image:ollama.png[Ollama,20] xref:ai-ollama-connector.adoc[Ollama] -- Local/on-premise LLMs, no API key needed
+* image:deepseek.png[DeepSeek,20] xref:ai-deepseek-connector.adoc[DeepSeek] -- Cost-effective AI with chain-of-thought reasoning (R1)
+* image:groq.png[Groq,20] xref:ai-groq-connector.adoc[Groq] -- Ultra-fast LPU inference, 10-100x faster than GPU providers
+* image:cohere.png[Cohere,20] xref:ai-cohere-connector.adoc[Cohere] -- Enterprise RAG with citations and multilingual support
 
-* image:openai.png[OpenAI] OpenAI
-* image:mistral.png[MistralAI] Mistral AI
-* image:anthropic.png[Anthropic] Anthropic (Claude)
-* image:azure-openai.png[Azure OpenAI] Azure OpenAI
-* image:gemini.png[Gemini] Google Gemini [BETA]
-* image:cohere.png[Cohere] Cohere [BETA]
-* image:deepseek.png[DeepSeek] DeepSeek [BETA]
-* image:groq.png[Groq] Groq [BETA]
+WARNING: Image documents are not supported yet for the Mistral connector due to a limitation of the underlying library.
 
-WARNING: Image documents are not supported yet for Mistral connector due to a limitation of the underlying library we use.
+== Connection configuration (shared parameters)
 
-NOTE: The Anthropic and Azure OpenAI connectors were added in version 1.3.0 of the AI connector extension.
-
-NOTE: Gemini, Cohere, DeepSeek, and Groq connectors were added in version 1.1.1 of the AI connector extension.
-
-=== Common configuration
+All AI connectors share these connection parameters regardless of the provider. See each provider page for provider-specific details.
 
 [caption=Configuration]
 |===
@@ -44,311 +43,181 @@ NOTE: Gemini, Cohere, DeepSeek, and Groq connectors were added in version 1.1.1 
 
 |*apiKey*
 |false
-a|The AI provider API key. Parameter is optional for testing purpose but obviously required with official OpenAI endpoint. 
+a|The AI provider API key. Parameter is optional for testing purpose but obviously required with official endpoints.
 
-The connector will look for API key value in this order: 
+The connector will look for API key value in this order:
 
-- A system environment variable named `AI_API_KEY` 
-- A JVM property named `AI_API_KEY` (`-DAI_API_KEY=xxx`) 
-- the provided connector `apiKey` parameter 
- 
-And at last it will use a dummy default `changeMe` value if no other value found. 
+- A system environment variable named `++AI_API_KEY++`
+- A JVM property named `AI_API_KEY` (`-DAI_API_KEY=xxx`)
+- the provided connector `apiKey` parameter
+
+And at last it will use a dummy default `changeMe` value if no other value found.
 | changeMe
 
 |*url*
 |false
-|The AI provider endpoint URL. This parameter allows to use an alternate endpoint for tests. For Azure OpenAI, this must be your Azure OpenAI resource endpoint (e.g., `\https://myresource.openai.azure.com`).
+|The AI provider endpoint url. This parameter allows to use an alternate endpoint for tests or custom deployments.
 |Default to the official provider endpoint if not specified.
 
 |*requestTimeout*
 |false
-|The request timeout in milliseconds for OpenAI calls.
+|The request timeout in milliseconds for AI provider calls.
 |null
 
 |*chatModelName*
 |false
-a|The model to use for chat like `gpt-4o`, `gpt-4o-mini`, `llama`, `pixtral`, `claude-sonnet-4-20250514`, ... See respective documentation for detailed information about models.
-
-- OpenAI : https://platform.openai.com/docs/models/models
-- Mistral AI : https://docs.mistral.ai/getting-started/models/models_overview
-- Anthropic : https://docs.anthropic.com/en/docs/about-claude/models
-- Azure OpenAI : https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models
-- Gemini : https://ai.google.dev/gemini-api/docs/models/gemini
-- Cohere : https://docs.cohere.com/docs/models
-- DeepSeek : https://platform.deepseek.com/api-docs
-- Groq : https://console.groq.com/docs/models
+a|The model to use for chat. See each provider page for details.
 a|
-- OpenAI : `gpt-4o`
-- MistralAI : `pixtral-12b-2409`
-- Anthropic : `claude-sonnet-4-20250514`
-- Azure OpenAI : deployment name (configured in Azure Portal)
-- Gemini : `gemini-2.0-flash`
-- Cohere : `command-r-plus`
-- DeepSeek : `deepseek-chat`
-- Groq : `llama-3.3-70b-versatile`
+- OpenAI: `gpt-4o`
+- Anthropic: `claude-sonnet-4-6`
+- Gemini: `gemini-2.0-flash`
+- MistralAI: `pixtral-12b-2409`
+- Azure: _(your deployment name)_
+- Ollama: `llama3.1`
+- DeepSeek: `deepseek-chat`
+- Groq: `llama-3.3-70b-versatile`
+- Cohere: `command-r-plus`
 
 |*modelTemperature*
 |false
-a|The temperature to use for the model. Higher values will result in more creative responses. Must be between `0` and `1`. 
+a|The temperature to use for the model. Higher values will result in more creative responses. Must be between `0` and `1`.
 
-Leave blank if the selected model does not support this parameter. 
+Leave blank if the selected model does not support this parameter.
 
 If the parameter is not present, the temperature will not be set in chat context.
 |null
 |===
 
 
-=== Provider-specific notes
+== Operations overview
 
-==== Anthropic (Claude)
+AI connectors support three operations. See each provider page for detailed input/output parameter tables and JSON examples.
 
-[WARNING]
-====
-This provider is currently in **Beta**. It has not yet been fully validated in production environments.
+=== Ask
 
-We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-ai/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
-====
+Take a user prompt and send it to the AI provider then return the response. The prompt text can ask questions about a provided process document. Supports optional JSON schema for structured output.
 
-The Anthropic connector uses the https://docs.anthropic.com/en/api[Anthropic Messages API]. Key differences from other providers:
+=== Classify
 
-* The `apiKey` must be an Anthropic API key (starts with `sk-ant-`), obtainable from https://console.anthropic.com[console.anthropic.com]
-* Supports vision (image analysis) natively with Claude models
-* The `url` parameter defaults to `\https://api.anthropic.com` if not specified
+Classify a process document into one of your predefined categories. Returns a JSON object with `category` and `confidence` fields.
 
-==== Azure OpenAI
+=== Extract
 
-[WARNING]
-====
-This provider is currently in **Beta**. It has not yet been fully validated in production environments.
+Extract structured data from a document using field names or a JSON Schema. You must provide at least one of `fieldsToExtract` or `outputJsonSchema` parameters.
 
-We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-ai/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
-====
+When using a JSON schema, you **must** list in the `required` property all the fields you want in the JSON response.
 
-The Azure OpenAI connector uses models deployed in your own Azure subscription. Key differences:
 
-* The `url` parameter is **required** and must point to your Azure OpenAI resource endpoint (e.g., `\https://myresource.openai.azure.com`)
-* The `apiKey` must be an Azure OpenAI API key from the Azure Portal (Keys and Endpoint section)
-* The `chatModelName` must match the **deployment name** configured in Azure Portal (not the model name)
-
-==== Google Gemini
-
-[WARNING]
-====
-This provider is currently in **Beta**. It has not yet been fully validated in production environments.
-
-We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-ai/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
-====
-
-The Gemini connector uses the https://ai.google.dev/docs[Google AI Studio / Vertex AI] API. Key notes:
-
-* The `apiKey` must be a Google AI API key, obtainable from https://aistudio.google.com[Google AI Studio]
-* Supports vision (image analysis) natively
-* The default model is `gemini-2.0-flash`
-
-==== Cohere
-
-[WARNING]
-====
-This provider is currently in **Beta**. It has not yet been fully validated in production environments.
-
-We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-ai/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
-====
-
-The Cohere connector uses the https://docs.cohere.com/reference/about[Cohere API]. Key notes:
-
-* The `apiKey` must be a Cohere API key, obtainable from https://dashboard.cohere.com[Cohere Dashboard]
-* The default model is `command-r-plus`
-
-==== DeepSeek
-
-[WARNING]
-====
-This provider is currently in **Beta**. It has not yet been fully validated in production environments.
-
-We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-ai/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
-====
-
-The DeepSeek connector uses the https://platform.deepseek.com/api-docs[DeepSeek API]. Key notes:
-
-* The `apiKey` must be a DeepSeek API key, obtainable from https://platform.deepseek.com[DeepSeek Platform]
-* The default model is `deepseek-chat`
-
-==== Groq
-
-[WARNING]
-====
-This provider is currently in **Beta**. It has not yet been fully validated in production environments.
-
-We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-ai/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
-====
-
-The Groq connector uses the https://console.groq.com/docs[Groq API] for fast inference on open-source models. Key notes:
-
-* The `apiKey` must be a Groq API key, obtainable from https://console.groq.com[Groq Console]
-* Supports various open-source models including Llama and Mixtral
-* The default model is `llama-3.3-70b-versatile`
-
-== Connectors
-
-AI connectors have the capability to return structured data in JSON format. It is possible to pass a https://json-schema.org/learn/getting-started-step-by-step[JSON schema] to tell the LLM how to format response data. 
-
-When using a JSON schema, you **must** list in the `required` property, all the fields you want in the JSON response. 
-
-.JSON schema sample
-[source, json]
-----
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "ProofOfAddress",
-  "type": "object",
-  "required": [
-    "firstName",
-    "lastName",
-    "fullName",
-    "fullAddress",
-    "emissionDate",
-    "issuerName",
-    "identificationNumber"
-  ],
-  "properties": {
-    "firstName": {
-      "type": "string"
-    },
-    "lastName": {
-      "type": "string"
-    },
-    "fullName": {
-      "type": "string"
-    },
-    "fullAddress": {
-      "type": "string"
-    },
-    "emissionDate": {
-      "type": "string"
-    },
-    "issuerName": {
-      "type": "string"
-    },
-    "identificationNumber": {
-      "type": "string"
-    }
-  }
-}
-----
-
-=== Ask connector
-
-Take a user prompt and send it to OpenAI then return the AI response. The prompt text can ask question about a provided process document.
-
-[caption=Configuration]
-|===
-|Parameter name |Required |Description |Default value
-
-|*systemPrompt*
-|false
-|The system prompt to pass to the OpenAI endpoint.  It helps to influence the behavior of the assistant and specify a default context. (ex: You are a personal finance advisor, providing guidance, etc.)
-|"You are a polite Assistant"
-
-|*userPrompt*
-|*true*
-|The user prompt content to send to the AI provider
-|
-
-|*sourceDocumentRef*
-|false
-a|The reference to the process document to load and add to the user prompt. 
-
-If not null, the connector will try to read the specified document and send it as an attachment to the user prompt. Supported formats are "doc", "docx", "pdf", ... (see https://tika.apache.org/3.1.0/formats.html)
-|null
-
-|*outputJsonSchema*
-|false
-|The JSON schema that represent how to structure the JSON connector output.
-|null
+== Choosing the right provider
 
 |===
+|Criteria |Recommended Provider |Why
 
-The result can be a simple JSON object or one compliant with a provided JSON schema.
-This result will be placed as a map entry of type `java.lang.String` for the key named *output*.
+|Best general-purpose reasoning
+|xref:ai-openai-connector.adoc[OpenAI] (`gpt-4o`) or xref:ai-anthropic-connector.adoc[Anthropic] (`claude-sonnet-4-6`)
+|Strong at complex analysis, extraction, and generation
 
-=== Extract connector
+|Cost-sensitive batch processing
+|xref:ai-deepseek-connector.adoc[DeepSeek] (`deepseek-chat`) or xref:ai-gemini-connector.adoc[Gemini] (`gemini-2.0-flash`)
+|DeepSeek V3 is 10-70x cheaper than GPT-4o with comparable quality
 
-This connector allow extracting information from a bonita document.
+|Data sovereignty / on-premises
+|xref:ai-ollama-connector.adoc[Ollama] (local)
+|Data never leaves your infrastructure
 
-[caption=Configuration]
-|===
-|Parameter name |Required |Description |Default value
+|Enterprise compliance (Azure AD)
+|xref:ai-azure-connector.adoc[Azure AI Foundry]
+|Integrates with existing Azure security policies
 
-|*sourceDocumentRef*
-|*true*
-a|The reference to the process document to load and add to the user prompt. 
+|Fast classification and routing
+|xref:ai-groq-connector.adoc[Groq] (`llama-3.3-70b-versatile`) or xref:ai-gemini-connector.adoc[Gemini] (`gemini-2.0-flash`)
+|Groq delivers ~500 tokens/sec, ideal for real-time classification
 
-If not null, the connector will try to read the specified document  and send it as an attachment to the user prompt. Supported formats are "doc", "docx", "pdf", ... (see https://tika.apache.org/3.1.0/formats.html)
-|null
+|Document understanding with images
+|xref:ai-openai-connector.adoc[OpenAI] (`gpt-4o`) or xref:ai-gemini-connector.adoc[Gemini] (`gemini-1.5-pro`)
+|Native multimodal support
 
-|*fieldsToExtract*
-|false
-a|The list of fields to extract from the given document. 
+|Complex legal and compliance analysis
+|xref:ai-anthropic-connector.adoc[Anthropic] (`claude-sonnet-4-6`)
+|Excellent instruction following and nuanced reasoning
 
-The connector expect a list of String (like `firstName`, `lastName`, `address`).
-|null
+|EU data residency
+|xref:ai-mistral-connector.adoc[Mistral AI]
+|European hosting, GDPR-compliant infrastructure
 
-|*outputJsonSchema*
-|false
-a|The JSON schema that represent how to structure the JSON connector output. 
+|Multi-language content
+|xref:ai-openai-connector.adoc[OpenAI] (`gpt-4o`) or xref:ai-anthropic-connector.adoc[Anthropic] (`claude-sonnet-4-6`)
+|Best multilingual capabilities
 
-If a JSON schema is specified, the `fieldsToExtract` parameter is ignored.
-|null
+|Auditable AI decisions with reasoning
+|xref:ai-deepseek-connector.adoc[DeepSeek] (`deepseek-reasoner`)
+|Chain-of-thought reasoning with visible thinking process
 
-|===
+|Ultra-low latency inference
+|xref:ai-groq-connector.adoc[Groq] (`llama-3.1-8b-instant`)
+|Sub-200ms responses for real-time user-facing features
 
-IMPORTANT: You must provide at least one of `fieldsToExtract` or `outputJsonSchema` parameters.
-
-The result can be a simple JSON object or one compliant with a provided JSON schema.
-This connector result will be placed as a map entry of type `java.lang.String` for the key named *output*.
-
-=== Classify connector
-
-This connector allows classifying a bonita process document according to a list of categories provided by the user.
-
-[caption=Configuration]
-|===
-|Parameter name |Required |Description |Default value
-
-|*sourceDocumentRef*
-|*true*
-a|The reference to the process document to load and add to the user prompt. 
-
-If not null, the connector will try to read the specified document and to send it as an attachment to the user prompt. Supported formats are "doc", "docx", "pdf", ... (see https://tika.apache.org/3.1.0/formats.html)
-|null
-
-|*categories*
-|*true*
-a|The list of categories used to classify the given document. 
-
-The connector expect a list of String (like `RIB`, `ID`, ...).
-It is recommended to add a default category if none other matches such as `Unknown`
-|null
-
+|RAG with citations and grounding
+|xref:ai-cohere-connector.adoc[Cohere] (`command-r-plus`)
+|Grounded answers with automatic source citations
 |===
 
+== Model comparison
 
-The result is a JSON String such as the following sample.
+|===
+|Provider |Default Model |Context Window |Strengths |Cost Tier
 
-.sample classification result
-[source,json]
-----
-{
-  "category": "xxx",
-  "confidence": 0.9
-}
-----
+|xref:ai-openai-connector.adoc[OpenAI]
+|`gpt-4o`
+|128K tokens
+|Versatile, multimodal, strong coding
+|Medium
 
-The confidence score is defined as :
+|xref:ai-anthropic-connector.adoc[Anthropic]
+|`claude-sonnet-4-6`
+|200K tokens
+|Instruction following, long documents, safety
+|Medium
 
-- [0.0..0.3]: Very uncertain or guessing
-- [0.3..0.6]: Some uncertainty, potential ambiguity exists
-- [0.6..0.8]: Reasonably certain, minor doubt
-- [0.8..1.0]: Very certain, no doubt
+|xref:ai-gemini-connector.adoc[Google Gemini]
+|`gemini-2.0-flash`
+|1M tokens
+|Speed, large context, multimodal
+|Low
 
-This connector result will be placed as a map entry of type `java.lang.String` for the key named *output*.
+|xref:ai-mistral-connector.adoc[Mistral AI]
+|`pixtral-12b-2409`
+|128K tokens
+|European hosting, efficiency, open-weights option
+|Low-Medium
+
+|xref:ai-azure-connector.adoc[Azure AI Foundry]
+|_(deployment-based)_
+|128K tokens
+|Enterprise compliance, Azure AD integration
+|Medium-High
+
+|xref:ai-ollama-connector.adoc[Ollama]
+|`llama3.1`
+|128K tokens
+|Free, on-premises, full data control
+|Free (hardware cost)
+
+|xref:ai-deepseek-connector.adoc[DeepSeek]
+|`deepseek-chat`
+|64K tokens
+|Cost-effective, chain-of-thought reasoning (R1)
+|Very Low
+
+|xref:ai-groq-connector.adoc[Groq]
+|`llama-3.3-70b-versatile`
+|128K tokens
+|Ultra-fast inference (~500 tok/sec), LPU hardware
+|Low (free tier available)
+
+|xref:ai-cohere-connector.adoc[Cohere]
+|`command-r-plus`
+|128K tokens
+|RAG with citations, multilingual, enterprise-grade
+|Medium
+|===

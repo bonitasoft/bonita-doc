@@ -1,0 +1,324 @@
+= Groq AI connectors
+:description: Ultra-fast AI inference for Bonita processes via Groq's LPU hardware -- 10-100x faster than GPU-based providers.
+
+{description}
+
+The Groq connector is part of the xref:ai-connector.adoc[Bonita AI Connectors] family.
+
+== Getting started
+
+Import the `bonita-connector-ai-groq` module as an extension dependency in your Bonita project. See the xref:ai-connector.adoc[AI connectors overview] for general setup instructions.
+
+== Connection configuration
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*API Key*
+|Yes
+|Groq API key from https://console.groq.com[Groq Console]
+|_Resolved from env var `++AI_API_KEY++` if not set_
+
+|*Base URL*
+|No
+|Custom endpoint URL for alternate deployments
+|`++https://api.groq.com/openai/v1++`
+
+|*Model Name*
+|No
+|Groq model to use
+|`llama-3.3-70b-versatile`
+
+|*Temperature*
+|No
+|Controls randomness (0.0 to 1.0)
+|
+
+|*Timeout*
+|No
+|Request timeout in milliseconds
+|
+|===
+
+== Available models
+
+* `llama-3.3-70b-versatile` (default) -- Best quality, Meta's Llama 3.3 on Groq hardware
+* `llama-3.1-8b-instant` -- Fastest, lowest latency (~500 tokens/sec)
+* `mixtral-8x7b-32768` -- Good balance of speed and quality, 32K context
+* `gemma2-9b-it` -- Google's Gemma 2 on Groq hardware
+
+Groq's LPU (Language Processing Unit) hardware delivers inference speeds of ~500 tokens/sec compared to ~50 tokens/sec for typical GPU-based providers.
+
+See https://console.groq.com/docs/models[Groq Models documentation] for the full list and rate limits.
+
+== Operations
+
+=== Ask
+
+Send a user prompt (with optional system prompt and documents) to a Groq-hosted model and return the generated response.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*User Prompt*
+|Yes
+|The prompt to send to Groq
+|
+
+|*System Prompt*
+|No
+|System instructions to guide the model behavior
+|`You are a polite assistant.`
+
+|*Output JSON Schema*
+|No
+|JSON Schema to structure the response as JSON
+|
+
+|*Source Document Reference*
+|No
+|Bonita process document to include as context
+|
+
+|*Source Document References*
+|No
+|List of Bonita process documents to include as context
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|The generated response from the model
+|===
+
+=== Classify
+
+Classify a document into one of the predefined categories.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Categories*
+|Yes
+|Comma-separated list of classification categories
+|
+
+|*Source Document Reference*
+|Yes
+|Bonita process document to classify
+|
+
+|*Source Document References*
+|No
+|List of documents to classify
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|JSON with `category` and `confidence` fields
+|===
+
+.Sample classification result
+[source,json]
+----
+{
+  "category": "SUPPORT_REQUEST",
+  "confidence": 0.91
+}
+----
+
+=== Extract
+
+Extract structured data from a document using field names or a JSON Schema.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Fields to Extract*
+|No
+|Comma-separated list of field names to extract
+|
+
+|*Output JSON Schema*
+|No
+|JSON Schema defining the extraction structure
+|
+
+|*Source Document Reference*
+|Yes
+|Bonita process document to extract from
+|
+
+|*Source Document References*
+|No
+|List of documents to extract from
+|
+|===
+
+IMPORTANT: You must provide at least one of `fieldsToExtract` or `outputJsonSchema` parameters.
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|JSON with extracted fields
+|===
+
+== Use cases
+
+=== Real-time form assistance
+
+Use the *Ask* operation with Groq's ultra-fast inference to provide sub-second AI assistance in user-facing tasks. This is ideal for live form validation, auto-completion suggestions, or contextual help within human tasks.
+
+*Process flow:*
+
+. A user opens a human task form with complex data entry requirements
+. As the user fills fields, a service task calls Groq for instant validation and suggestions
+. The AI response is returned in under 500ms, providing a seamless user experience
+. The validated data is stored in BDM variables
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "llama-3.1-8b-instant",
+  "systemPrompt": "You are a form assistant for a procurement application. Validate input fields and suggest corrections. Be concise -- respond in under 50 words.",
+  "userPrompt": "Validate this supplier information:\n\nCompany: ${companyName}\nVAT Number: ${vatNumber}\nCountry: ${country}\nIBAN: ${iban}\n\nCheck for format errors and inconsistencies.",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"isValid\",\"errors\",\"suggestions\"],\"properties\":{\"isValid\":{\"type\":\"boolean\"},\"errors\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"required\":[\"field\",\"issue\"],\"properties\":{\"field\":{\"type\":\"string\"},\"issue\":{\"type\":\"string\"}}}},\"suggestions\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}}}"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "isValid": false,
+  "errors": [
+    {
+      "field": "vatNumber",
+      "issue": "French VAT numbers must start with 'FR' followed by 11 digits. Provided value has only 9 digits."
+    },
+    {
+      "field": "iban",
+      "issue": "IBAN checksum is invalid. Please verify the account number."
+    }
+  ],
+  "suggestions": [
+    "Verify VAT number on the EU VIES validation service",
+    "Request a bank certificate (RIB) from the supplier to confirm IBAN"
+  ]
+}
+----
+
+=== High-volume batch classification
+
+Use the *Classify* operation with Groq to process large volumes of documents quickly. Groq's free tier supports 30 requests per minute, and paid plans offer significantly higher throughput.
+
+*Process flow:*
+
+. A batch of incoming emails or documents is queued for processing
+. A multi-instance service task uses the *Classify* connector on each document
+. Documents are routed to appropriate process branches based on category
+. A dashboard displays classification statistics
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "llama-3.3-70b-versatile",
+  "categories": "INVOICE,PURCHASE_ORDER,DELIVERY_NOTE,CREDIT_NOTE,CONTRACT,CORRESPONDENCE,OTHER"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "category": "PURCHASE_ORDER",
+  "confidence": 0.97
+}
+----
+
+=== Instant document triage in support processes
+
+Use the *Ask* operation to instantly triage incoming support requests and assign priority, category, and routing in real time.
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "llama-3.3-70b-versatile",
+  "systemPrompt": "You are a support ticket triage system. Analyze incoming tickets and assign priority, category, and the best team to handle them. Be fast and accurate.",
+  "userPrompt": "Triage this support ticket:\n\nSubject: ${ticketSubject}\nBody: ${ticketBody}\nCustomer tier: ${customerTier}\nSLA deadline: ${slaDeadline}",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"priority\",\"category\",\"assignedTeam\",\"estimatedResolutionHours\",\"summary\"],\"properties\":{\"priority\":{\"type\":\"string\"},\"category\":{\"type\":\"string\"},\"assignedTeam\":{\"type\":\"string\"},\"estimatedResolutionHours\":{\"type\":\"number\"},\"summary\":{\"type\":\"string\"}}}"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "priority": "P1",
+  "category": "SYSTEM_OUTAGE",
+  "assignedTeam": "Infrastructure",
+  "estimatedResolutionHours": 4,
+  "summary": "Production environment login service is down affecting all users. Gold-tier customer with 4-hour SLA. Requires immediate infrastructure team response."
+}
+----
+
+=== Live chat AI assistant for human tasks
+
+Use the *Ask* operation with Groq's low-latency inference to power a conversational AI assistant that helps users complete complex human tasks.
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "llama-3.1-8b-instant",
+  "systemPrompt": "You are a helpful assistant embedded in a business process application. Answer questions about the current task, process rules, and data entry requirements. Keep answers concise (under 100 words). If you are unsure, say so.",
+  "userPrompt": "The user is working on task '${taskName}' in process '${processName}'.\n\nTask description: ${taskDescription}\nAvailable data: ${contextData}\n\nUser question: ${userQuestion}",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"answer\",\"confidence\",\"relatedFields\"],\"properties\":{\"answer\":{\"type\":\"string\"},\"confidence\":{\"type\":\"string\"},\"relatedFields\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}}}"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "answer": "The 'Approved Budget' field must be filled in EUR and cannot exceed the department's annual allocation of 50,000 EUR. Based on the current request of 35,000 EUR and the remaining budget of 42,000 EUR, you have sufficient allocation to approve this request.",
+  "confidence": "high",
+  "relatedFields": ["approvedBudget", "departmentAllocation", "remainingBudget"]
+}
+----
+
+== Configuration tips
+
+* Groq's key advantage is speed: use it for latency-sensitive tasks like real-time form validation and user-facing AI features.
+* The free tier offers 30 requests per minute with `llama-3.3-70b-versatile`, sufficient for development and low-volume production use.
+* Use `llama-3.1-8b-instant` for the fastest possible response times (under 200ms for short prompts).
+* Groq uses an OpenAI-compatible API, making it easy to switch from other providers by changing the base URL and API key.
+* Image document support is limited -- use text-based documents for best results.
+* Set `requestTimeout` to a lower value (e.g., 15000 ms) since Groq responses are typically very fast; a timeout may indicate an issue.
+
+== Source code
+
+https://github.com/bonitasoft/bonita-connector-ai[bonita-connector-ai on GitHub] (module `bonita-connector-ai-groq`)

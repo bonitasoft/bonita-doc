@@ -1,0 +1,321 @@
+= Gemini AI connectors
+:page-aliases: gemini-connector.adoc
+:description: Integrate Google Gemini AI models into Bonita processes for text generation, classification and data extraction.
+
+{description}
+
+The Gemini connector is part of the xref:ai-connector.adoc[Bonita AI Connectors] family.
+
+== Getting started
+
+Import the `bonita-connector-ai-gemini` module as an extension dependency in your Bonita project. See the xref:ai-connector.adoc[AI connectors overview] for general setup instructions.
+
+You can also download the connector from the https://github.com/bonitasoft/bonita-connector-ai/releases[GitHub releases page].
+
+== Connection configuration
+
+Gemini supports dual authentication: Google AI Studio (API key) and Vertex AI (service account). The connector uses Google AI Studio by default.
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*API Key*
+|Yes
+|Google AI Studio API key from https://aistudio.google.com/apikey[Google AI Studio]
+|_Resolved from env var `++AI_API_KEY++` if not set_
+
+|*Base URL*
+|No
+|Custom endpoint (use for Vertex AI or proxy)
+|Google AI Studio endpoint (automatic)
+
+|*Model Name*
+|No
+|Gemini model to use
+|`gemini-2.0-flash`
+
+|*Temperature*
+|No
+|Controls randomness (0.0 to 1.0)
+|
+
+|*Timeout*
+|No
+|Request timeout in milliseconds
+|
+|===
+
+== Available models
+
+* `gemini-2.0-flash` (default) -- Fast and efficient, low latency
+* `gemini-1.5-pro` -- Most capable, 1M token context window
+* `gemini-1.5-flash` -- Balanced speed and quality
+
+See https://ai.google.dev/gemini-api/docs/models[Gemini Models documentation] for the full list.
+
+== Operations
+
+=== Ask
+
+Send a user prompt (with optional system prompt and documents) to a Gemini model and return the generated response.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*User Prompt*
+|Yes
+|The prompt to send to Gemini
+|
+
+|*System Prompt*
+|No
+|System instructions to guide the model behavior
+|`You are a polite assistant.`
+
+|*Output JSON Schema*
+|No
+|JSON Schema to structure the response as JSON
+|
+
+|*Source Document Reference*
+|No
+|Bonita process document to include as context
+|
+
+|*Source Document References*
+|No
+|List of Bonita process documents to include as context
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|The generated response from the model
+|===
+
+=== Classify
+
+Classify a document into one of the predefined categories.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Categories*
+|Yes
+|Comma-separated list of classification categories
+|
+
+|*Source Document Reference*
+|Yes
+|Bonita process document to classify
+|
+
+|*Source Document References*
+|No
+|List of documents to classify
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|JSON with `category` and `confidence` fields
+|===
+
+.Sample classification result
+[source,json]
+----
+{
+  "category": "INVOICE",
+  "confidence": 0.95
+}
+----
+
+=== Extract
+
+Extract structured data from a document using field names or a JSON Schema.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Fields to Extract*
+|No
+|Comma-separated list of field names to extract
+|
+
+|*Output JSON Schema*
+|No
+|JSON Schema defining the extraction structure
+|
+
+|*Source Document Reference*
+|Yes
+|Bonita process document to extract from
+|
+
+|*Source Document References*
+|No
+|List of documents to extract from
+|
+|===
+
+IMPORTANT: You must provide at least one of `fieldsToExtract` or `outputJsonSchema` parameters.
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|JSON with extracted fields
+|===
+
+== Use cases
+
+=== Invoice data extraction
+
+Extract structured fields from PDF invoices and populate BDM objects automatically. Gemini's fast processing makes it ideal for high-volume invoice pipelines.
+
+*Process flow:*
+
+. An invoice document is uploaded or received via email
+. A service task uses the *Extract* connector to parse the invoice
+. The JSON output is mapped to BDM variables (InvoiceData business object)
+. A human task displays the extracted data for validation
+
+*Configuration (using field names):*
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "gemini-1.5-pro",
+  "fieldsToExtract": "invoiceNumber,issuerName,issuerAddress,totalAmount,currency,dueDate,lineItems"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "invoiceNumber": "INV-2026-001",
+  "issuerName": "Acme Corp",
+  "issuerAddress": "123 Business Ave, Paris 75001",
+  "totalAmount": "1250.00",
+  "currency": "EUR",
+  "dueDate": "2026-04-25",
+  "lineItems": [
+    { "description": "Consulting Q1", "quantity": 1, "unitPrice": 1000.00, "total": 1000.00 },
+    { "description": "Travel expenses", "quantity": 1, "unitPrice": 250.00, "total": 250.00 }
+  ]
+}
+----
+
+=== Document classification pipeline
+
+Classify incoming documents and route them to the correct department automatically. Gemini Flash is optimized for fast, accurate classification.
+
+*Process flow:*
+
+. User uploads a document in a Bonita form
+. A service task uses the *Classify* connector to identify the document type
+. An exclusive gateway routes the process based on the classification result
+. Each branch handles the document according to its type
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "gemini-2.0-flash",
+  "categories": "INVOICE,CONTRACT,ID_CARD,PROOF_OF_ADDRESS,RIB,TAX_NOTICE,OTHER"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "category": "INVOICE",
+  "confidence": 0.95
+}
+----
+
+Use the result in an exclusive gateway:
+
+* `category == "INVOICE"` -> Invoice processing lane
+* `category == "CONTRACT"` -> Legal review lane
+* `category == "ID_CARD"` -> Identity verification lane
+* Default -> Manual review
+
+=== Meeting notes summarization
+
+Extract action items, decisions, and key topics from meeting transcripts using Gemini's large context window.
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "gemini-1.5-pro",
+  "systemPrompt": "You are a meeting assistant. Extract structured information from meeting transcripts. Be precise about names, dates, and commitments.",
+  "userPrompt": "Analyze this meeting transcript and extract all action items, key decisions, and discussed topics.",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"meetingDate\",\"participants\",\"actionItems\",\"decisions\"],\"properties\":{\"meetingDate\":{\"type\":\"string\"},\"participants\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"actionItems\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"required\":[\"task\",\"owner\",\"deadline\"],\"properties\":{\"task\":{\"type\":\"string\"},\"owner\":{\"type\":\"string\"},\"deadline\":{\"type\":\"string\"}}}},\"decisions\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}}}"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "meetingDate": "2026-03-20",
+  "participants": ["Alice Martin", "Bob Dupont", "Claire Lefebvre"],
+  "actionItems": [
+    { "task": "Prepare Q2 budget proposal", "owner": "Bob Dupont", "deadline": "2026-03-27" },
+    { "task": "Schedule vendor demo for new CRM", "owner": "Claire Lefebvre", "deadline": "2026-04-01" }
+  ],
+  "decisions": [
+    "Approved migration to new cloud provider by Q3 2026",
+    "Postponed mobile app redesign to Q4 2026"
+  ]
+}
+----
+
+== Choosing the right model
+
+|===
+|Use Case |Recommended Model |Why
+
+|Fast classification and routing
+|`gemini-2.0-flash`
+|Low latency, good accuracy
+
+|Complex document analysis
+|`gemini-1.5-pro`
+|1M token context window, better reasoning
+
+|Cost-sensitive batch processing
+|`gemini-2.0-flash`
+|Lower cost per token
+|===
+
+== Configuration tips
+
+* Gemini Flash models offer the best latency for classification tasks -- ideal for real-time document routing.
+* The 1M token context window of `gemini-1.5-pro` makes it suited for very long documents (annual reports, legal compilations).
+* For Vertex AI deployments, set the `url` parameter to your Vertex AI endpoint.
+* Gemini supports multimodal input natively. Attach image or PDF documents directly.
+
+== Source code
+
+https://github.com/bonitasoft/bonita-connector-ai[bonita-connector-ai on GitHub] (module `bonita-connector-ai-gemini`)

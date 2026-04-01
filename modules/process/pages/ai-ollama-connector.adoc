@@ -1,0 +1,300 @@
+= Ollama connectors
+:description: Integrate local LLMs via Ollama into Bonita processes for text generation, classification and data extraction without sending data to external APIs.
+
+{description}
+
+The Ollama connector is part of the xref:ai-connector.adoc[Bonita AI Connectors] family.
+
+== Getting started
+
+Import the `bonita-connector-ai-ollama` module as an extension dependency in your Bonita project. See the xref:ai-connector.adoc[AI connectors overview] for general setup instructions.
+
+You must also have https://ollama.com[Ollama] installed and running, either on the same server as Bonita or on an accessible network host.
+
+== Connection configuration
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*API Key*
+|No
+|Not required for Ollama (use any non-empty value or leave blank)
+|
+
+|*Base URL*
+|No
+|Ollama server endpoint
+|`++http://localhost:11434++`
+
+|*Model Name*
+|No
+|Local model to use
+|`llama3.1`
+
+|*Temperature*
+|No
+|Controls randomness (0.0 to 1.0)
+|
+
+|*Timeout*
+|No
+|Request timeout in milliseconds
+|
+|===
+
+Ollama runs entirely on-premises, making it suitable for sensitive data that cannot leave the organization's network.
+
+== Available models
+
+Ollama supports any model from the https://ollama.com/library[Ollama Library]. Common models include:
+
+* `llama3.2` -- Meta's latest, good general-purpose model
+* `llama3.1` (default) -- Previous generation, well tested
+* `mistral` -- Mistral 7B, fast and efficient
+* `codellama` -- Optimized for code-related tasks
+* `gemma2` -- Google's open model
+* `phi3` -- Microsoft's small but capable model
+* `llama3.2:1b` -- Very small, fastest inference
+
+To install a model, run:
+[source,bash]
+----
+ollama pull llama3.2
+----
+
+== Operations
+
+=== Ask
+
+Send a user prompt (with optional system prompt and documents) to a local model and return the generated response.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*User Prompt*
+|Yes
+|The prompt to send to the model
+|
+
+|*System Prompt*
+|No
+|System instructions to guide the model behavior
+|`You are a polite assistant.`
+
+|*Output JSON Schema*
+|No
+|JSON Schema to structure the response as JSON
+|
+
+|*Source Document Reference*
+|No
+|Bonita process document to include as context
+|
+
+|*Source Document References*
+|No
+|List of Bonita process documents to include as context
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|The generated response from the model
+|===
+
+=== Classify
+
+Classify a document into one of the predefined categories.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Categories*
+|Yes
+|Comma-separated list of classification categories
+|
+
+|*Source Document Reference*
+|Yes
+|Bonita process document to classify
+|
+
+|*Source Document References*
+|No
+|List of documents to classify
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|JSON with `category` and `confidence` fields
+|===
+
+.Sample classification result
+[source,json]
+----
+{
+  "category": "INTERNAL_MEMO",
+  "confidence": 0.82
+}
+----
+
+=== Extract
+
+Extract structured data from a document using field names or a JSON Schema.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Fields to Extract*
+|No
+|Comma-separated list of field names to extract
+|
+
+|*Output JSON Schema*
+|No
+|JSON Schema defining the extraction structure
+|
+
+|*Source Document Reference*
+|Yes
+|Bonita process document to extract from
+|
+
+|*Source Document References*
+|No
+|List of documents to extract from
+|
+|===
+
+IMPORTANT: You must provide at least one of `fieldsToExtract` or `outputJsonSchema` parameters.
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|JSON with extracted fields
+|===
+
+== Use cases
+
+=== Development and testing
+
+Use Ollama during development and testing phases to iterate on AI prompts and configurations without incurring API costs or sending sensitive test data to external services.
+
+*Process flow:*
+
+. Developer configures a connector in Bonita Studio with Ollama
+. Prompts and JSON schemas are tested locally with instant feedback
+. Once validated, the connector configuration is switched to a cloud provider for production
+. The same prompt and schema work across all providers
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "not-needed",
+  "url": "http://localhost:11434",
+  "chatModelName": "llama3.2",
+  "systemPrompt": "You are a document analysis assistant. Return structured JSON only.",
+  "userPrompt": "Extract the key dates, amounts, and parties from this invoice.",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"invoiceNumber\",\"issuer\",\"totalAmount\",\"dueDate\"],\"properties\":{\"invoiceNumber\":{\"type\":\"string\"},\"issuer\":{\"type\":\"string\"},\"totalAmount\":{\"type\":\"number\"},\"dueDate\":{\"type\":\"string\"}}}"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "invoiceNumber": "INV-2026-TEST-001",
+  "issuer": "Test Company Ltd",
+  "totalAmount": 500.00,
+  "dueDate": "2026-04-30"
+}
+----
+
+=== Air-gapped environments
+
+Run AI-powered document processing in environments with no internet access, such as government, defense, or highly regulated industries.
+
+*Process flow:*
+
+. Documents are uploaded to the Bonita process in the air-gapped network
+. A service task uses the *Extract* connector pointed at the local Ollama server
+. All processing happens within the network perimeter
+. No data leaves the secured environment
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "not-needed",
+  "url": "http://ollama-server.internal:11434",
+  "chatModelName": "llama3.1",
+  "fieldsToExtract": "documentTitle,classification,author,date,summary,sensitivityLevel"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "documentTitle": "Q1 2026 Security Assessment Report",
+  "classification": "Internal Use Only",
+  "author": "Security Team",
+  "date": "2026-03-01",
+  "summary": "Quarterly security assessment covering network infrastructure, application security, and access control audit results.",
+  "sensitivityLevel": "CONFIDENTIAL"
+}
+----
+
+=== Classify internal documents for archival
+
+Use the *Classify* operation to automatically categorize documents for a records management workflow.
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "not-needed",
+  "url": "http://localhost:11434",
+  "chatModelName": "llama3.2",
+  "categories": "FINANCIAL_REPORT,MEETING_MINUTES,POLICY_DOCUMENT,CORRESPONDENCE,TECHNICAL_SPEC,OTHER"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "category": "MEETING_MINUTES",
+  "confidence": 0.85
+}
+----
+
+== Configuration tips
+
+* Ensure sufficient **GPU/CPU resources** for acceptable response times. Larger models (70B+) require significant GPU memory.
+* Smaller models like `llama3.2:1b` or `phi3` are much faster but less accurate -- suitable for simple classification tasks.
+* Set a generous `requestTimeout` (60000-120000 ms) for larger models or complex prompts, as local inference can be slower than cloud APIs.
+* Use `llama3.2` or `mistral` for the best balance of quality and speed on consumer hardware.
+* For production on-premises deployments, consider running Ollama on a dedicated GPU server accessible via the network URL parameter.
+* The same prompt configurations work across all AI providers, so you can develop with Ollama and deploy with a cloud provider.
+
+== Source code
+
+https://github.com/bonitasoft/bonita-connector-ai[bonita-connector-ai on GitHub] (module `bonita-connector-ai-ollama`)

@@ -1,0 +1,341 @@
+= Telegram connectors
+:description: Send messages, documents, photos, and pin messages via Telegram Bot API from Bonita processes.
+
+{description}
+
+The Bonita Telegram Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+== Overview
+
+The Telegram connector allows Bonita processes to interact with the Telegram Bot API. It provides four operations:
+
+* *Send Message* -- Send a text message (with optional HTML/Markdown formatting) to a chat
+* *Send Document* -- Send a document by URL with an optional caption
+* *Send Photo* -- Send a photo by URL with an optional caption
+* *Pin Message* -- Pin a previously sent message in a chat
+
+== Getting started
+
+. Download the connector JAR from the https://github.com/bonitasoft/bonita-connector-telegram/releases[GitHub releases page]
+. In Bonita Studio, go to *Development > Connector > Import connector...*
+. Select the downloaded `.jar` file
+. The connector is now available in the *Messaging* category
+
+== Connection configuration
+
+All operations share these connection parameters:
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Bot Token*
+|Yes
+|Bot token obtained from https://t.me/BotFather[@BotFather]
+|_Resolved from env var `++TELEGRAM_BOT_TOKEN++` if not set_
+
+|*Chat ID*
+|Yes
+|Target chat, group, or channel ID
+|
+
+|*Base URL*
+|No
+|Telegram Bot API base URL
+|`++https://api.telegram.org++`
+
+|*Connect Timeout*
+|No
+|Connection timeout in milliseconds
+|`10000`
+
+|*Read Timeout*
+|No
+|Read timeout in milliseconds
+|`30000`
+|===
+
+== Send Message
+
+Sends a text message to a Telegram chat.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Text*
+|Yes
+|The message text to send
+|
+
+|*Parse Mode*
+|No
+|Message formatting: `HTML`, `Markdown`, or `MarkdownV2`
+|
+
+|*Disable Notification*
+|No
+|Send message silently
+|`false`
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*messageId*
+|Long
+|The ID of the sent message
+
+|*errorMessage*
+|String
+|Error description if the operation failed
+|===
+
+== Send Document
+
+Sends a document to a Telegram chat via URL.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Document URL*
+|Yes
+|URL of the document to send
+|
+
+|*Caption*
+|No
+|Document caption
+|
+
+|*Parse Mode*
+|No
+|Caption formatting
+|
+
+|*Disable Notification*
+|No
+|Send silently
+|`false`
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*messageId*
+|Long
+|The ID of the sent message
+
+|*fileId*
+|String
+|Telegram file ID of the uploaded document
+
+|*errorMessage*
+|String
+|Error description if failed
+|===
+
+== Send Photo
+
+Sends a photo to a Telegram chat via URL.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Photo URL*
+|Yes
+|URL of the photo to send
+|
+
+|*Caption*
+|No
+|Photo caption
+|
+
+|*Parse Mode*
+|No
+|Caption formatting
+|
+
+|*Disable Notification*
+|No
+|Send silently
+|`false`
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*messageId*
+|Long
+|The ID of the sent message
+
+|*fileId*
+|String
+|Telegram file ID of the highest-resolution photo
+
+|*errorMessage*
+|String
+|Error description if failed
+|===
+
+== Pin Message
+
+Pins a message in a Telegram chat.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Message ID*
+|Yes
+|ID of the message to pin
+|
+
+|*Disable Notification*
+|No
+|Pin silently
+|`false`
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error description if failed
+|===
+
+== Error handling
+
+[caption=Error behavior]
+|===
+|HTTP Code |Behavior
+
+|400 Bad Request
+|Immediate failure
+
+|401 Unauthorized
+|Immediate failure -- check bot token
+
+|403 Forbidden
+|Immediate failure -- bot not added to chat
+
+|429 Too Many Requests
+|Automatic retry after `retry_after` seconds
+
+|500+ Server Error
+|Automatic retry with exponential backoff
+|===
+
+== Use cases
+
+=== Notify stakeholders when a process reaches a milestone
+
+Configure a *Send Message* connector on a service task after a critical approval step:
+
+[source,json]
+----
+{
+  "botToken": "${TELEGRAM_BOT_TOKEN}",
+  "chatId": "-100123456789",
+  "text": "<b>Order #${orderId} approved</b>\nApproved by: ${approverName}\nAmount: ${amount}€",
+  "parseMode": "HTML"
+}
+----
+
+=== Send a document for signature
+
+Use *Send Document* to share a generated PDF with a Telegram group:
+
+[source,json]
+----
+{
+  "botToken": "${TELEGRAM_BOT_TOKEN}",
+  "chatId": "-100123456789",
+  "documentUrl": "https://your-bonita-server.com/API/documentDownload?fileName=${documentName}",
+  "caption": "Please review and sign: ${documentName}"
+}
+----
+
+=== Pin important announcements
+
+After sending a critical notification, pin it so it stays visible:
+
+[source,json]
+----
+{
+  "botToken": "${TELEGRAM_BOT_TOKEN}",
+  "chatId": "-100123456789",
+  "messageId": "${previousMessageId}",
+  "disableNotification": true
+}
+----
+
+=== Send a photo report
+
+Share a chart or dashboard screenshot:
+
+[source,json]
+----
+{
+  "botToken": "${TELEGRAM_BOT_TOKEN}",
+  "chatId": "-100123456789",
+  "photoUrl": "https://your-bonita-server.com/charts/monthly-report.png",
+  "caption": "Monthly KPI Report - ${currentMonth}"
+}
+----
+
+== Configuration tips
+
+=== Getting a Bot Token
+
+1. Open Telegram and search for `@BotFather`
+2. Send `/newbot` and follow the prompts
+3. Copy the token (format: `123456789:ABCdefGHIjklMNOpqrsTUVwxyz`)
+4. Store it as a Bonita parameter or environment variable -- never hardcode it
+
+=== Finding a Chat ID
+
+* For **groups**: Add the bot to the group, send a message, then call `++https://api.telegram.org/bot<TOKEN>/getUpdates++` and look for `chat.id` (negative number for groups)
+* For **channels**: The chat ID is `@channelUsername` or the numeric ID
+* For **private chats**: Send `/start` to the bot, then check getUpdates
+
+=== HTML formatting
+
+Telegram supports a subset of HTML in messages:
+
+[source,html]
+----
+<b>bold</b>
+<i>italic</i>
+<code>inline code</code>
+<pre>code block</pre>
+<a href="https://example.com">link</a>
+----
+
+== Source code
+
+https://github.com/bonitasoft/bonita-connector-telegram[bonita-connector-telegram on GitHub]
