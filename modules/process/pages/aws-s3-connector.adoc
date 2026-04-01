@@ -1,0 +1,701 @@
+= AWS S3 connectors
+:page-aliases: ROOT:aws-s3-connector.adoc
+:description: The Bonita AWS S3 connectors let you interact with Amazon S3 storage directly from your Bonita processes, providing operations for uploading, downloading, copying, deleting, listing objects, retrieving metadata, generating presigned URLs, and performing multipart uploads.
+
+{description}
+
+The Bonita AWS S3 Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+[WARNING]
+====
+This connector is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-s3/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+
+We are eager to collaborate with early adopters to bring this connector to General Availability.
+====
+
+== Overview
+
+The AWS S3 connector provides eight operations to manage objects in Amazon S3 buckets:
+
+* **Upload Object** -- upload files to S3
+* **Download Object** -- download files from S3
+* **Delete Object** -- remove objects from a bucket
+* **Copy Object** -- copy objects within or across buckets
+* **Head Object** -- retrieve object metadata without downloading the content
+* **List Objects** -- list objects in a bucket with pagination support
+* **Generate Presigned URL** -- create time-limited signed URLs for secure access
+* **Multipart Upload** -- upload large files using the S3 Transfer Manager
+
+== Prerequisites
+
+Before using the AWS S3 connector, ensure the following:
+
+* An **AWS account** with access to the Amazon S3 service
+* An **S3 bucket** created in the target AWS region
+* **IAM credentials** with appropriate permissions (e.g., `s3:PutObject`, `s3:GetObject`, `s3:DeleteObject`, `s3:ListBucket`) depending on the operations you intend to use
+* The connector extension imported into your Bonita project (see <<import-connector>>)
+
+== Authentication
+
+All S3 connector operations share a common authentication configuration. Three authentication modes are supported.
+
+=== Static IAM credentials
+
+Provide an AWS Access Key ID and Secret Access Key directly. This is the simplest mode, suitable for development and testing.
+
+=== STS session token
+
+Provide an AWS Access Key ID, Secret Access Key, and a temporary Session Token obtained via AWS Security Token Service (STS). Use this mode when working with temporary credentials or assumed roles.
+
+=== Default credential chain
+
+Enable the `useDefaultCredentialChain` option. The connector will use the https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/credentials-chain.html[AWS default credential provider chain], which looks for credentials in environment variables, system properties, the AWS credentials file, EC2 instance profiles, and other standard locations. This is the recommended mode for production environments.
+
+=== Common connection parameters
+
+[caption=Configuration]
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*accessKeyId*
+|String
+|Conditional
+|The AWS access key ID. Required unless `useDefaultCredentialChain` is `true`.
+|
+
+|*secretAccessKey*
+|String
+|Conditional
+|The AWS secret access key. Required unless `useDefaultCredentialChain` is `true`.
+|
+
+|*sessionToken*
+|String
+|No
+|An optional STS session token for temporary credentials.
+|
+
+|*region*
+|String
+|Yes
+|The AWS region where the S3 bucket is located (e.g., `us-east-1`, `eu-west-1`).
+|
+
+|*useDefaultCredentialChain*
+|Boolean
+|No
+|When `true`, the connector uses the AWS default credential provider chain instead of explicit keys.
+|`false`
+
+|*connectTimeout*
+|Integer
+|No
+|Connection timeout in milliseconds.
+|`30000`
+
+|*readTimeout*
+|Integer
+|No
+|Read timeout in milliseconds.
+|`60000`
+|===
+
+== Common outputs
+
+All operations return the following outputs in addition to their specific outputs:
+
+|===
+|Output name |Type |Description
+
+|*success*
+|Boolean
+|`true` if the operation completed successfully, `false` otherwise.
+
+|*errorMessage*
+|String
+|Error details if `success` is `false`. Empty when the operation succeeds.
+|===
+
+== Operations
+
+[#upload-object]
+=== Upload Object
+
+Upload a file to an S3 bucket using a single PUT request.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*bucketName*
+|String
+|Yes
+|The name of the target S3 bucket.
+|
+
+|*objectKey*
+|String
+|Yes
+|The key (path) of the object in S3.
+|
+
+|*fileContentBase64*
+|String
+|Yes
+|The file content encoded as a Base64 string.
+|
+
+|*contentType*
+|String
+|No
+|The MIME type of the file.
+|`application/octet-stream`
+
+|*storageClass*
+|String
+|No
+|The S3 storage class (e.g., `STANDARD`, `INTELLIGENT_TIERING`, `GLACIER`).
+|`STANDARD`
+
+|*metadata*
+|Map<String, String>
+|No
+|Custom metadata key-value pairs to attach to the object.
+|
+
+|*serverSideEncryption*
+|String
+|No
+|Server-side encryption algorithm (e.g., `AES256`, `aws:kms`).
+|
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*objectUrl*
+|String
+|The URL of the uploaded object.
+
+|*eTag*
+|String
+|The ETag of the uploaded object.
+
+|*versionId*
+|String
+|The version ID (if bucket versioning is enabled).
+|===
+
+[#download-object]
+=== Download Object
+
+Download a file from an S3 bucket. The file content is returned as a Base64-encoded string.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*bucketName*
+|String
+|Yes
+|The name of the S3 bucket.
+|
+
+|*objectKey*
+|String
+|Yes
+|The key (path) of the object in S3.
+|
+
+|*versionId*
+|String
+|No
+|A specific object version to download (if bucket versioning is enabled).
+|
+
+|*byteRangeStart*
+|Long
+|No
+|Start byte for a partial (range) download.
+|
+
+|*byteRangeEnd*
+|Long
+|No
+|End byte for a partial (range) download.
+|
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*fileContentBase64*
+|String
+|The file content encoded as a Base64 string.
+
+|*contentType*
+|String
+|The MIME type of the object.
+
+|*contentLengthBytes*
+|Long
+|The size of the object in bytes.
+
+|*eTag*
+|String
+|The ETag of the object.
+
+|*lastModified*
+|String
+|The last modified timestamp.
+
+|*versionId*
+|String
+|The version ID of the downloaded object.
+
+|*metadata*
+|Map<String, String>
+|Custom metadata attached to the object.
+|===
+
+[#delete-object]
+=== Delete Object
+
+Remove an object from an S3 bucket. This operation is idempotent -- deleting a non-existent object does not produce an error.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*bucketName*
+|String
+|Yes
+|The name of the S3 bucket.
+|
+
+|*objectKey*
+|String
+|Yes
+|The key (path) of the object to delete.
+|
+
+|*versionId*
+|String
+|No
+|A specific version to delete (if bucket versioning is enabled).
+|
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*deletedObjectKey*
+|String
+|The key of the deleted object.
+
+|*deleteMarkerCreated*
+|Boolean
+|`true` if a delete marker was created (versioned buckets).
+
+|*versionId*
+|String
+|The version ID of the deleted object or delete marker.
+|===
+
+[#copy-object]
+=== Copy Object
+
+Copy an object within the same bucket or across different buckets. Optionally replace the object metadata during the copy.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*sourceBucketName*
+|String
+|Yes
+|The source bucket name.
+|
+
+|*sourceObjectKey*
+|String
+|Yes
+|The key of the source object.
+|
+
+|*sourceVersionId*
+|String
+|No
+|A specific version of the source object to copy.
+|
+
+|*destinationBucketName*
+|String
+|Yes
+|The destination bucket name.
+|
+
+|*destinationObjectKey*
+|String
+|Yes
+|The key for the destination object.
+|
+
+|*storageClass*
+|String
+|No
+|The storage class for the destination object.
+|
+
+|*replaceMetadata*
+|Boolean
+|No
+|If `true`, the metadata provided in `newMetadata` replaces the source metadata.
+|`false`
+
+|*newMetadata*
+|Map<String, String>
+|No
+|New metadata key-value pairs (only used when `replaceMetadata` is `true`).
+|
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*destinationObjectKey*
+|String
+|The key of the destination object.
+
+|*destinationObjectUrl*
+|String
+|The URL of the destination object.
+
+|*eTag*
+|String
+|The ETag of the copied object.
+
+|*versionId*
+|String
+|The version ID of the destination object.
+|===
+
+[#head-object]
+=== Head Object
+
+Retrieve metadata about an object without downloading its content. Useful for checking object existence, size, and attributes.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*bucketName*
+|String
+|Yes
+|The name of the S3 bucket.
+|
+
+|*objectKey*
+|String
+|Yes
+|The key (path) of the object.
+|
+
+|*versionId*
+|String
+|No
+|A specific version to inspect.
+|
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*contentType*
+|String
+|The MIME type of the object.
+
+|*contentLengthBytes*
+|Long
+|The size of the object in bytes.
+
+|*eTag*
+|String
+|The ETag of the object.
+
+|*lastModified*
+|String
+|The last modified timestamp.
+
+|*storageClass*
+|String
+|The storage class of the object.
+
+|*versionId*
+|String
+|The version ID of the object.
+
+|*serverSideEncryption*
+|String
+|The server-side encryption algorithm used.
+
+|*metadata*
+|Map<String, String>
+|Custom metadata attached to the object.
+
+|*objectUrl*
+|String
+|The URL of the object.
+|===
+
+[#list-objects]
+=== List Objects
+
+List objects in an S3 bucket with support for prefix filtering, delimiter-based grouping, and pagination.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*bucketName*
+|String
+|Yes
+|The name of the S3 bucket.
+|
+
+|*prefix*
+|String
+|No
+|Filter results to keys that start with this prefix (e.g., `documents/2024/`).
+|
+
+|*delimiter*
+|String
+|No
+|A character used to group keys (e.g., `/` for folder-like grouping).
+|`/`
+
+|*maxKeys*
+|Integer
+|No
+|Maximum number of keys to return per request.
+|`1000`
+
+|*continuationToken*
+|String
+|No
+|Token for paginated results. Use the `nextContinuationToken` output from a previous call.
+|
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*objects*
+|String (JSON)
+|A JSON array of object entries (key, size, last modified, etc.).
+
+|*commonPrefixes*
+|String (JSON)
+|A JSON array of common prefixes (virtual folders) when a delimiter is used.
+
+|*totalCount*
+|Integer
+|The number of objects returned in this page.
+
+|*isTruncated*
+|Boolean
+|`true` if there are more results to fetch.
+
+|*nextContinuationToken*
+|String
+|Token to pass in the next request to retrieve the next page of results.
+|===
+
+[#generate-presigned-url]
+=== Generate Presigned URL
+
+Generate a time-limited, pre-authenticated URL for accessing an S3 object. This is useful for granting temporary access to private objects without sharing credentials.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*bucketName*
+|String
+|Yes
+|The name of the S3 bucket.
+|
+
+|*objectKey*
+|String
+|Yes
+|The key (path) of the object.
+|
+
+|*httpMethod*
+|String
+|No
+|The HTTP method the URL will be valid for (`GET` for download, `PUT` for upload).
+|`GET`
+
+|*expirationSeconds*
+|Integer
+|No
+|The number of seconds until the URL expires.
+|`3600` (1 hour)
+
+|*contentType*
+|String
+|No
+|The expected content type (used with `PUT` to restrict uploads).
+|
+
+|*versionId*
+|String
+|No
+|A specific object version for the presigned URL.
+|
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*presignedUrl*
+|String
+|The generated presigned URL.
+
+|*expiresAt*
+|String
+|The expiration timestamp of the URL.
+
+|*httpMethod*
+|String
+|The HTTP method the URL is valid for.
+|===
+
+[#multipart-upload]
+=== Multipart Upload
+
+Upload large files using the S3 multipart upload mechanism via the AWS Transfer Manager. The file is automatically split into parts and uploaded in parallel. This operation supports files provided as Base64-encoded content or as a local file path.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*bucketName*
+|String
+|Yes
+|The name of the target S3 bucket.
+|
+
+|*objectKey*
+|String
+|Yes
+|The key (path) of the object in S3.
+|
+
+|*fileContentBase64*
+|String
+|Conditional
+|The file content encoded as Base64. Either this or `localFilePath` must be provided, but not both.
+|
+
+|*localFilePath*
+|String
+|Conditional
+|Path to a local file on the Bonita server. Either this or `fileContentBase64` must be provided, but not both.
+|
+
+|*contentType*
+|String
+|No
+|The MIME type of the file.
+|`application/octet-stream`
+
+|*storageClass*
+|String
+|No
+|The S3 storage class.
+|`STANDARD`
+
+|*partSizeBytes*
+|Long
+|No
+|The size of each part in bytes.
+|`52428800` (50 MB)
+
+|*metadata*
+|Map<String, String>
+|No
+|Custom metadata key-value pairs.
+|
+
+|*serverSideEncryption*
+|String
+|No
+|Server-side encryption algorithm.
+|
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*objectUrl*
+|String
+|The URL of the uploaded object.
+
+|*eTag*
+|String
+|The ETag of the uploaded object.
+
+|*versionId*
+|String
+|The version ID (if bucket versioning is enabled).
+
+|*totalPartsUploaded*
+|Integer
+|The number of parts that were uploaded.
+
+|*totalBytesUploaded*
+|Long
+|The total number of bytes uploaded.
+|===
+
+[#import-connector]
+== Importing the connector into Bonita Studio
+
+To use the AWS S3 connector in your Bonita project:
+
+. Download the connector `.zip` extension from the https://marketplace.bonitasoft.com/[Bonita Marketplace].
+. In Bonita Studio, go to the *Project* menu and select *Extensions*.
+. Click *Import extension* and select the downloaded `.zip` file.
+. The S3 connector operations will appear in the connector palette when configuring a task or a process.
+
+For more details on managing extensions, see xref:bonita-overview:managing-extension-studio.adoc[Managing extensions in Bonita Studio].

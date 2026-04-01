@@ -1,6 +1,6 @@
 = AI connectors
 :page-aliases: ROOT:ai-connector.adoc
-:description: Bonitasoft now offers AI connectors that let you seamlessly integrate advanced language models like OpenAI and Mistral into your business processes.
+:description: Bonitasoft now offers AI connectors that let you seamlessly integrate advanced language models like OpenAI, Mistral, Ollama, Anthropic Claude, Azure OpenAI, Gemini, Cohere, DeepSeek, and Groq into your business processes.
 
 {description} These connectors support three powerful use cases:
 
@@ -24,10 +24,20 @@ Currently supported providers:
 * image:openai.png[OpenAI] OpenAI
 * image:mistral.png[MistralAI] Mistral AI
 * image:ollama.png[Ollama] Ollama (local deployment)
+* image:anthropic.png[Anthropic] Anthropic (Claude)
+* image:azure-openai.png[Azure OpenAI] Azure OpenAI
+* image:gemini.png[Gemini] Google Gemini [BETA]
+* image:cohere.png[Cohere] Cohere [BETA]
+* image:deepseek.png[DeepSeek] DeepSeek [BETA]
+* image:groq.png[Groq] Groq [BETA]
 
 WARNING: Image documents are not supported yet for Mistral connector due to a limitation of the underlying library we use.
 
 NOTE: Ollama enables you to run AI models locally on your own infrastructure, providing privacy-first AI integration without requiring cloud API keys or internet connectivity. This is ideal for organizations with strict data governance requirements or offline environments.
+
+NOTE: The Anthropic and Azure OpenAI connectors were added in version 1.3.0 of the AI connector extension.
+
+NOTE: Gemini, Cohere, DeepSeek, and Groq connectors were added in version 1.1.1 of the AI connector extension.
 
 === Common configuration
 
@@ -57,6 +67,7 @@ a|The AI provider endpoint URL. This parameter allows to use an alternate endpoi
 - OpenAI: Default to official OpenAI endpoint
 - Mistral AI: Default to official Mistral AI endpoint
 - Ollama: Default to `http://localhost:11434`
+- Azure OpenAI: Must be your Azure OpenAI resource endpoint (e.g., `\https://myresource.openai.azure.com`)
 |Default to the official provider endpoint if not specified.
 
 |*requestTimeout*
@@ -66,15 +77,27 @@ a|The AI provider endpoint URL. This parameter allows to use an alternate endpoi
 
 |*chatModelName*
 |false
-a|The model to use for chat like `gpt-4o`, `gpt-4o-mini`, `llama3.1`, `pixtral`, ... See respective documentation for detailed information about models.
+a|The model to use for chat like `gpt-4o`, `gpt-4o-mini`, `llama3.1`, `pixtral`, `claude-sonnet-4-20250514`, ... See respective documentation for detailed information about models.
 
 - OpenAI: https://platform.openai.com/docs/models/models
 - Mistral AI: https://docs.mistral.ai/getting-started/models/models_overview
 - Ollama: https://ollama.com/library (must be pulled locally first)
+- Anthropic: https://docs.anthropic.com/en/docs/about-claude/models
+- Azure OpenAI: https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models
+- Gemini: https://ai.google.dev/gemini-api/docs/models/gemini
+- Cohere: https://docs.cohere.com/docs/models
+- DeepSeek: https://platform.deepseek.com/api-docs
+- Groq: https://console.groq.com/docs/models
 a|
 - OpenAI: `gpt-4o`
 - Mistral AI: `pixtral-12b-2409`
 - Ollama: `llama3.1`
+- Anthropic: `claude-sonnet-4-20250514`
+- Azure OpenAI: deployment name (configured in Azure Portal)
+- Gemini: `gemini-2.0-flash`
+- Cohere: `command-r-plus`
+- DeepSeek: `deepseek-chat`
+- Groq: `llama-3.3-70b-versatile`
 
 |*modelTemperature*
 |false
@@ -86,6 +109,96 @@ If the parameter is not present, the temperature will not be set in chat context
 |null
 |===
 
+
+=== Provider-specific notes
+
+==== Anthropic (Claude)
+
+[WARNING]
+====
+This provider is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-ai/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+====
+
+The Anthropic connector uses the https://docs.anthropic.com/en/api[Anthropic Messages API]. Key differences from other providers:
+
+* The `apiKey` must be an Anthropic API key (starts with `sk-ant-`), obtainable from https://console.anthropic.com[console.anthropic.com]
+* Supports vision (image analysis) natively with Claude models
+* The `url` parameter defaults to `\https://api.anthropic.com` if not specified
+
+==== Azure OpenAI
+
+[WARNING]
+====
+This provider is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-ai/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+====
+
+The Azure OpenAI connector uses models deployed in your own Azure subscription. Key differences:
+
+* The `url` parameter is **required** and must point to your Azure OpenAI resource endpoint (e.g., `\https://myresource.openai.azure.com`)
+* The `apiKey` must be an Azure OpenAI API key from the Azure Portal (Keys and Endpoint section)
+* The `chatModelName` must match the **deployment name** configured in Azure Portal (not the model name)
+
+==== Google Gemini
+
+[WARNING]
+====
+This provider is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-ai/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+====
+
+The Gemini connector uses the https://ai.google.dev/docs[Google AI Studio / Vertex AI] API. Key notes:
+
+* The `apiKey` must be a Google AI API key, obtainable from https://aistudio.google.com[Google AI Studio]
+* Supports vision (image analysis) natively
+* The default model is `gemini-2.0-flash`
+
+==== Cohere
+
+[WARNING]
+====
+This provider is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-ai/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+====
+
+The Cohere connector uses the https://docs.cohere.com/reference/about[Cohere API]. Key notes:
+
+* The `apiKey` must be a Cohere API key, obtainable from https://dashboard.cohere.com[Cohere Dashboard]
+* The default model is `command-r-plus`
+
+==== DeepSeek
+
+[WARNING]
+====
+This provider is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-ai/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+====
+
+The DeepSeek connector uses the https://platform.deepseek.com/api-docs[DeepSeek API]. Key notes:
+
+* The `apiKey` must be a DeepSeek API key, obtainable from https://platform.deepseek.com[DeepSeek Platform]
+* The default model is `deepseek-chat`
+
+==== Groq
+
+[WARNING]
+====
+This provider is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-ai/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+====
+
+The Groq connector uses the https://console.groq.com/docs[Groq API] for fast inference on open-source models. Key notes:
+
+* The `apiKey` must be a Groq API key, obtainable from https://console.groq.com[Groq Console]
+* Supports various open-source models including Llama and Mixtral
+* The default model is `llama-3.3-70b-versatile`
 
 == Connectors
 
