@@ -1,0 +1,341 @@
+= JasperReports connectors
+:page-aliases: ROOT:jasperreports-connector.adoc
+:description: The JasperReports connectors enable Bonita BPM processes to trigger report generation on a JasperReports Server, monitor execution asynchronously, retrieve the output document, and cancel stalled executions.
+
+{description}
+
+The Bonita JasperReports Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+[WARNING]
+====
+This connector is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-jasperreports/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+
+We are eager to collaborate with early adopters to bring this connector to General Availability.
+====
+
+== Overview
+
+The JasperReports connector provides five operations that implement a **split async pattern** designed for Bonita's native timer loop:
+
+* **Start Report** — Submit an asynchronous report execution request
+* **Get Execution Status** — Poll the status of a running report execution
+* **Download Report** — Retrieve the binary output of a completed report
+* **Cancel Execution** — Cancel a running or queued report execution
+* **Get Input Controls** — Retrieve declared input parameters for a report (design-time helper)
+
+The recommended process pattern:
+
+. `jasper-start-report` stores the `requestId` and `exportId` in process variables
+. `jasper-get-execution-status` is called in a loop task every N minutes
+. `jasper-download-report` is called once status is `ready`
+. `jasper-cancel-execution` is called on timeout boundary
+
+This avoids connector timeout on long-running reports.
+
+== Getting started
+
+Add the connector as an extension dependency to your Bonita project. Import the `.jar` file via *Import from file* in Bonita Studio.
+
+=== Connection configuration (shared by all operations)
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*serverUrl*
+|Yes
+|Base URL of the JasperReports Server (e.g., `\http://localhost:8080/jasperserver`)
+|—
+
+|*username*
+|Yes
+|Jasper username. For multi-tenant deployments use pipe notation: `user\|organization_1`
+|—
+
+|*password*
+|Yes
+|Jasper password
+|—
+
+|*connectTimeout*
+|No
+|Connection timeout in milliseconds
+|5000
+
+|*readTimeout*
+|No
+|Read timeout in milliseconds
+|30000
+|===
+
+Authentication uses **HTTP Basic Auth** — credentials are sent on every request with no session management.
+
+== Start Report (`jasper-start-report`)
+
+Submits an asynchronous report execution request to JasperReports Server.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*reportUri*
+|Yes
+|Full repository path of the report (e.g., `/reports/finance/InvoiceSummary`)
+|—
+
+|*outputFormat*
+|Yes
+|Export format: `pdf`, `xlsx`, `xls`, `csv`, `docx`, `rtf`, `odt`, `ods`, `pptx`, `html`, `xml`, `json`, `txt`
+|pdf
+
+|*reportParameters*
+|No
+|Report input parameters as key-value pairs
+|—
+
+|*pages*
+|No
+|Page range to export (e.g., `1-5`). Leave empty for all pages.
+|—
+
+|*ignorePagination*
+|No
+|When `true`, exports the entire report as a single page. Recommended for CSV/XLS data exports.
+|false
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*requestId*
+|String
+|Unique execution identifier — store in a process variable for downstream connectors
+
+|*exportId*
+|String
+|Export identifier — store in a process variable for download
+
+|*status*
+|String
+|Initial execution status (typically `queued` or `execution`)
+
+|*success*
+|Boolean
+|Whether the execution was successfully submitted
+
+|*errorMessage*
+|String
+|Error description (empty on success)
+|===
+
+== Get Execution Status (`jasper-get-execution-status`)
+
+Polls the status of a previously submitted report execution. Designed to be called repeatedly inside a Bonita loop task with a timer boundary.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description
+
+|*requestId*
+|Yes
+|Execution request ID returned by `jasper-start-report`
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*status*
+|String
+|Execution status: `queued`, `execution`, `ready`, `failed`, `cancelled`
+
+|*isReady*
+|Boolean
+|Convenience flag: `true` when status is `ready`. Bind directly to the Bonita loop exit condition.
+
+|*isFailed*
+|Boolean
+|Convenience flag: `true` when status is `failed` or `cancelled`
+
+|*success*
+|Boolean
+|Whether the status check call itself succeeded
+
+|*errorMessage*
+|String
+|Error description when status is `failed`
+|===
+
+== Download Report (`jasper-download-report`)
+
+Retrieves the binary output of a completed report execution as a base64-encoded string.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*requestId*
+|Yes
+|Execution request ID returned by `jasper-start-report`
+|—
+
+|*exportId*
+|Yes
+|Export ID returned by `jasper-start-report`
+|—
+
+|*readTimeout*
+|No
+|Read timeout in milliseconds (higher default for large files)
+|120000
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*fileContentBase64*
+|String
+|Base64-encoded binary content. Decode and attach to a Bonita document or pass to an email connector.
+
+|*contentType*
+|String
+|MIME type of the output file (e.g., `application/pdf`)
+
+|*fileName*
+|String
+|Suggested file name derived from report URI and format
+
+|*fileSizeBytes*
+|Long
+|Size of the downloaded content in bytes
+
+|*success*
+|Boolean
+|Whether the download completed successfully
+
+|*errorMessage*
+|String
+|Error description (empty on success)
+|===
+
+== Cancel Execution (`jasper-cancel-execution`)
+
+Cancels a running or queued report execution. Designed to be called from a Bonita timeout boundary after N polling iterations.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description
+
+|*requestId*
+|Yes
+|Execution request ID to cancel
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*cancelledStatus*
+|String
+|Final status after cancellation attempt: `cancelled` or `completed`
+
+|*success*
+|Boolean
+|Whether the cancellation request was accepted
+
+|*errorMessage*
+|String
+|Error description (empty on success)
+|===
+
+== Get Input Controls (`jasper-get-input-controls`)
+
+Retrieves the list of declared input parameters for a given report. Useful for design-time discovery.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description
+
+|*reportUri*
+|Yes
+|Full repository path of the report
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*inputControls*
+|List
+|List of input control descriptors with keys: `id`, `label`, `type`, `mandatory`, `visible`, `values`
+
+|*inputControlCount*
+|Integer
+|Number of input controls declared for this report
+
+|*success*
+|Boolean
+|Whether the call succeeded
+
+|*errorMessage*
+|String
+|Error description (empty on success)
+|===
+
+== Error handling
+
+All operations set `success=false` and populate `errorMessage` on failure. Error messages are truncated to 1000 characters to prevent database column overflow in Bonita.
+
+[caption=HTTP error handling]
+|===
+|HTTP Code |Behavior
+
+|200/201
+|Success — parse response and populate outputs
+
+|204
+|No content (cancel on already-finished execution) — treat as success
+
+|400
+|Bad request — fail with parsed error body
+
+|401
+|Authentication failure — fail immediately
+
+|403
+|Insufficient permissions — fail immediately
+
+|404
+|Resource not found — fail immediately
+
+|500
+|Server error — retry once after 2s, then fail
+|===
+
+== Source code
+
+The connector source code is available on GitHub: https://github.com/bonitasoft/bonita-connector-jasperreports[bonita-connector-jasperreports]
