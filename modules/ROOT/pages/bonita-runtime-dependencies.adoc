@@ -85,7 +85,7 @@
 | 1.7.36
 | http://www.slf4j.org[http://www.slf4j.org]
 |  http://www.opensource.org/licenses/mit-license.php[MIT License]
-|=== 
+|===
 
 == bonita-client
 
@@ -217,7 +217,7 @@
 | 1.1.3.1
 | http://www.xmlpull.org[http://www.xmlpull.org]
 |  http://www.xmlpull.org/v1/download/unpacked/LICENSE.txt[Public Domain]
-|=== 
+|===
 
 == bonita-server
 
@@ -715,7 +715,7 @@
 | 1.1.3.1
 | http://www.xmlpull.org[http://www.xmlpull.org]
 |  http://www.xmlpull.org/v1/download/unpacked/LICENSE.txt[Public Domain]
-|=== 
+|===
 
 == bonita-web-server
 
@@ -1153,7 +1153,7 @@
 | 1.1.3.1
 | http://www.xmlpull.org[http://www.xmlpull.org]
 |  http://www.xmlpull.org/v1/download/unpacked/LICENSE.txt[Public Domain]
-|=== 
+|===
 
 == platform-setup
 
@@ -1333,7 +1333,7 @@
 | 2.7.18
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
-|=== 
+|===
 
 == bonita-common-sp
 
@@ -1417,7 +1417,7 @@
 | 1.7.36
 | http://www.slf4j.org[http://www.slf4j.org]
 |  http://www.opensource.org/licenses/mit-license.php[MIT License]
-|=== 
+|===
 
 == bonita-client-sp
 
@@ -1549,7 +1549,7 @@
 | 1.1.3.1
 | http://www.xmlpull.org[http://www.xmlpull.org]
 |  http://www.xmlpull.org/v1/download/unpacked/LICENSE.txt[Public Domain]
-|=== 
+|===
 
 == bonita-server-sp
 
@@ -2221,7 +2221,7 @@
 | 1.1.3.1
 | http://www.xmlpull.org[http://www.xmlpull.org]
 |  http://www.xmlpull.org/v1/download/unpacked/LICENSE.txt[Public Domain]
-|=== 
+|===
 
 == bonita-web-server-sp
 
@@ -2905,7 +2905,7 @@
 | 1.1.3.1
 | http://www.xmlpull.org[http://www.xmlpull.org]
 |  http://www.xmlpull.org/v1/download/unpacked/LICENSE.txt[Public Domain]
-|=== 
+|===
 
 == platform-setup-sp
 
@@ -3103,4 +3103,4 @@
 | 2.7.18
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
-|=== 
+|===

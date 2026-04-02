@@ -1,6 +1,11 @@
 = Sharepoint integration example
 :description: The page provides instructions on integrating Bonita applications with Microsoft 365 using Graph API, focusing on SharePoint integration.
 
+[NOTE]
+====
+Bonita now provides a **native SharePoint connector** with built-in authentication, automatic retry, and resumable upload support. For new projects, we recommend using the xref:sharepoint-connector.adoc[SharePoint connector] instead of the manual REST approach described below.
+====
+
 This article will help you explore one of the possible ways to integrate your Bonita applications with Microsoft 365 - using Graph API.
 https://docs.microsoft.com/en-us/graph/overview[Microsoft Graph] is a single endpoint, providing access to data and services in the Microsoft cloud.
 It exposes REST APIs to access data on Microsoft 365 services like OneDrive, Outlook, Sharepoint, Team etc. Using it, you can imagine different kinds of applications that let you handle your meetings based on process tasks, generate excel files in your OneDrive with the data handled by your processes, …

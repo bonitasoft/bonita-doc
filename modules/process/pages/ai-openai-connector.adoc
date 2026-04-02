@@ -1,0 +1,284 @@
+= OpenAI connectors
+:description: Integrate OpenAI GPT models into Bonita processes for text generation, classification and data extraction.
+
+{description}
+
+The OpenAI connector is part of the xref:ai-connector.adoc[Bonita AI Connectors] family.
+
+== Getting started
+
+Import the `bonita-connector-ai-openai` module as an extension dependency in your Bonita project. See the xref:ai-connector.adoc[AI connectors overview] for general setup instructions.
+
+== Connection configuration
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*API Key*
+|Yes
+|OpenAI API key from https://platform.openai.com/api-keys[OpenAI API Keys]
+|_Resolved from env var `++AI_API_KEY++` if not set_
+
+|*Base URL*
+|No
+|Custom endpoint URL for alternate deployments
+|`++https://api.openai.com/v1++`
+
+|*Model Name*
+|No
+|GPT model to use
+|`gpt-4o`
+
+|*Temperature*
+|No
+|Controls randomness (0.0 to 1.0)
+|
+
+|*Timeout*
+|No
+|Request timeout in milliseconds
+|
+|===
+
+== Available models
+
+* `gpt-4o` (default) -- Most capable, multimodal (text + images)
+* `gpt-4o-mini` -- Fast and cost-effective for simpler tasks
+* `gpt-4-turbo` -- Previous generation, large context window
+
+See https://platform.openai.com/docs/models/models[OpenAI Models documentation] for the full list.
+
+== Operations
+
+=== Ask
+
+Send a user prompt (with optional system prompt and documents) to the model and return the generated response.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*User Prompt*
+|Yes
+|The prompt to send to OpenAI
+|
+
+|*System Prompt*
+|No
+|System instructions to guide the model behavior
+|`You are a polite assistant.`
+
+|*Output JSON Schema*
+|No
+|JSON Schema to structure the response as JSON
+|
+
+|*Source Document Reference*
+|No
+|Bonita process document to include as context
+|
+
+|*Source Document References*
+|No
+|List of Bonita process documents to include as context
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|The generated response from the model
+|===
+
+=== Classify
+
+Classify a document into one of the predefined categories.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Categories*
+|Yes
+|Comma-separated list of classification categories
+|
+
+|*Source Document Reference*
+|Yes
+|Bonita process document to classify
+|
+
+|*Source Document References*
+|No
+|List of documents to classify
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|JSON with `category` and `confidence` fields
+|===
+
+.Sample classification result
+[source,json]
+----
+{
+  "category": "INVOICE",
+  "confidence": 0.95
+}
+----
+
+=== Extract
+
+Extract structured data from a document using field names or a JSON Schema.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Fields to Extract*
+|No
+|Comma-separated list of field names to extract
+|
+
+|*Output JSON Schema*
+|No
+|JSON Schema defining the extraction structure
+|
+
+|*Source Document Reference*
+|Yes
+|Bonita process document to extract from
+|
+
+|*Source Document References*
+|No
+|List of documents to extract from
+|
+|===
+
+IMPORTANT: You must provide at least one of `fieldsToExtract` or `outputJsonSchema` parameters.
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|JSON with extracted fields
+|===
+
+== Use cases
+
+=== Generate customer email responses
+
+Use the *Ask* operation to generate professional email drafts based on customer support cases.
+
+*Process flow:*
+
+. A support ticket is created with customer information and issue description
+. A service task uses the *Ask* connector to generate an email draft
+. A human task presents the draft for agent review and editing
+. The email is sent via an email connector
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "gpt-4o",
+  "systemPrompt": "You are a professional customer service representative for a B2B SaaS company. Write concise, empathetic, and solution-oriented emails.",
+  "userPrompt": "Write a follow-up email for customer ${customerName} regarding support case #${caseId}.\n\nIssue: ${issueDescription}\nResolution: ${resolutionDescription}",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"subject\",\"body\",\"tone\"],\"properties\":{\"subject\":{\"type\":\"string\"},\"body\":{\"type\":\"string\"},\"tone\":{\"type\":\"string\"}}}"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "subject": "Resolution for Case #CS-2026-0142 - Database connectivity issue",
+  "body": "Dear Mr. Dupont,\n\nThank you for your patience regarding case #CS-2026-0142.\n\nWe have identified and resolved the database connectivity issue affecting your production environment. The root cause was a misconfigured connection pool timeout, which has now been corrected.\n\nPlease verify that the system is functioning as expected. If you notice any further issues, do not hesitate to reach out.\n\nBest regards,\nSupport Team",
+  "tone": "formal-friendly"
+}
+----
+
+=== Extract structured data from contracts
+
+Use the *Extract* operation to parse contract documents and populate BDM objects automatically.
+
+*Process flow:*
+
+. A contract document is uploaded to the process
+. A service task uses the *Extract* connector to parse the contract
+. The structured output is mapped to BDM variables
+. A human task displays the extracted data for validation
+
+*Configuration (using JSON schema):*
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "gpt-4o",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"contractNumber\",\"parties\",\"startDate\",\"endDate\",\"totalValue\",\"currency\"],\"properties\":{\"contractNumber\":{\"type\":\"string\"},\"parties\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"startDate\":{\"type\":\"string\"},\"endDate\":{\"type\":\"string\"},\"totalValue\":{\"type\":\"number\"},\"currency\":{\"type\":\"string\"}}}"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "contractNumber": "CTR-2026-00087",
+  "parties": ["Acme Corp", "Global Services Ltd"],
+  "startDate": "2026-01-01",
+  "endDate": "2027-12-31",
+  "totalValue": 150000.00,
+  "currency": "EUR"
+}
+----
+
+=== Summarize support tickets
+
+Use the *Ask* operation with a JSON schema to extract a structured summary from unstructured ticket text.
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "gpt-4o",
+  "systemPrompt": "You are a customer service analyst. Summarize complaints into structured reports.",
+  "userPrompt": "Summarize this complaint and suggest a resolution: ${complaintText}",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"summary\",\"category\",\"suggestedResolution\",\"priority\"],\"properties\":{\"summary\":{\"type\":\"string\"},\"category\":{\"type\":\"string\"},\"suggestedResolution\":{\"type\":\"string\"},\"priority\":{\"type\":\"string\"}}}"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "summary": "Customer reports intermittent login failures since the last platform update. Issue occurs on both mobile and desktop browsers.",
+  "category": "AUTHENTICATION",
+  "suggestedResolution": "Investigate session token expiration after the 2026.1 update. Check browser compatibility matrix and clear CDN cache.",
+  "priority": "high"
+}
+----
+
+== Configuration tips
+
+* OpenAI models support native multimodal input (images, PDFs). Use `sourceDocumentRef` to attach documents directly.
+* For batch processing, consider `gpt-4o-mini` to reduce costs while maintaining good quality.
+* Set `outputJsonSchema` with a `required` array listing all fields you need in the response.
+* Use environment variable `AI_API_KEY` to avoid hardcoding API keys in process definitions.
+
+== Source code
+
+https://github.com/bonitasoft/bonita-connector-ai[bonita-connector-ai on GitHub] (module `bonita-connector-ai-openai`)
