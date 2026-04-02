@@ -1,0 +1,288 @@
+= Anthropic connectors
+:description: Integrate Anthropic Claude models into Bonita processes for text generation, classification, data extraction and document analysis with vision.
+
+{description}
+
+The Anthropic connector is part of the xref:ai-connector.adoc[Bonita AI Connectors] family.
+
+== Getting started
+
+Import the `bonita-connector-ai-anthropic` module as an extension dependency in your Bonita project. See the xref:ai-connector.adoc[AI connectors overview] for general setup instructions.
+
+== Connection configuration
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*API Key*
+|Yes
+|Anthropic API key from https://console.anthropic.com/settings/keys[Anthropic Console]
+|_Resolved from env var `++AI_API_KEY++` if not set_
+
+|*Base URL*
+|No
+|Custom endpoint URL
+|`++https://api.anthropic.com/v1++`
+
+|*Model Name*
+|No
+|Claude model to use
+|`claude-sonnet-4-6`
+
+|*Temperature*
+|No
+|Controls randomness (0.0 to 1.0)
+|
+
+|*Timeout*
+|No
+|Request timeout in milliseconds
+|
+|===
+
+== Available models
+
+* `claude-sonnet-4-6` (default) -- Strong at complex analysis, extraction, and generation
+* `claude-haiku-4-5-20251001` -- Fast and cost-effective for simpler tasks
+* `claude-opus-4-6` -- Most capable, best for nuanced reasoning
+
+Claude models support native vision for images, making them well suited for document analysis involving visual elements.
+
+See https://docs.anthropic.com/en/docs/about-claude/models[Anthropic Models documentation] for the full list.
+
+== Operations
+
+=== Ask
+
+Send a user prompt (with optional system prompt and documents) to a Claude model and return the generated response.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*User Prompt*
+|Yes
+|The prompt to send to Claude
+|
+
+|*System Prompt*
+|No
+|System instructions to guide the model behavior
+|`You are a polite assistant.`
+
+|*Output JSON Schema*
+|No
+|JSON Schema to structure the response as JSON
+|
+
+|*Source Document Reference*
+|No
+|Bonita process document to include as context
+|
+
+|*Source Document References*
+|No
+|List of Bonita process documents to include as context
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|The generated response from the model
+|===
+
+=== Classify
+
+Classify a document into one of the predefined categories.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Categories*
+|Yes
+|Comma-separated list of classification categories
+|
+
+|*Source Document Reference*
+|Yes
+|Bonita process document to classify
+|
+
+|*Source Document References*
+|No
+|List of documents to classify
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|JSON with `category` and `confidence` fields
+|===
+
+.Sample classification result
+[source,json]
+----
+{
+  "category": "CONTRACT",
+  "confidence": 0.92
+}
+----
+
+=== Extract
+
+Extract structured data from a document using field names or a JSON Schema.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Fields to Extract*
+|No
+|Comma-separated list of field names to extract
+|
+
+|*Output JSON Schema*
+|No
+|JSON Schema defining the extraction structure
+|
+
+|*Source Document Reference*
+|Yes
+|Bonita process document to extract from
+|
+
+|*Source Document References*
+|No
+|List of documents to extract from
+|
+|===
+
+IMPORTANT: You must provide at least one of `fieldsToExtract` or `outputJsonSchema` parameters.
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|JSON with extracted fields
+|===
+
+== Use cases
+
+=== Document analysis with vision
+
+Use Claude's native vision support to analyze scanned documents, photos of forms, or image-based PDFs with visual elements like signatures, stamps, or handwritten notes.
+
+*Process flow:*
+
+. A scanned identity document is uploaded to the process
+. A service task uses the *Ask* connector with the document attached
+. Claude analyzes both text and visual elements (stamps, signatures, formatting)
+. The structured result is stored for downstream verification
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "claude-sonnet-4-6",
+  "systemPrompt": "You are a document analysis expert. Analyze the provided document image and extract all relevant information, including visual elements like signatures and stamps.",
+  "userPrompt": "Analyze this scanned identity document. Extract the personal information and indicate whether the document appears authentic (check for stamps, signatures, and standard formatting).",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"documentType\",\"fullName\",\"dateOfBirth\",\"documentNumber\",\"expiryDate\",\"hasSignature\",\"hasOfficialStamp\",\"authenticityAssessment\"],\"properties\":{\"documentType\":{\"type\":\"string\"},\"fullName\":{\"type\":\"string\"},\"dateOfBirth\":{\"type\":\"string\"},\"documentNumber\":{\"type\":\"string\"},\"expiryDate\":{\"type\":\"string\"},\"hasSignature\":{\"type\":\"boolean\"},\"hasOfficialStamp\":{\"type\":\"boolean\"},\"authenticityAssessment\":{\"type\":\"string\"}}}"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "documentType": "National ID Card",
+  "fullName": "Jean-Pierre Martin",
+  "dateOfBirth": "1985-03-15",
+  "documentNumber": "FR-1234567890",
+  "expiryDate": "2028-03-14",
+  "hasSignature": true,
+  "hasOfficialStamp": true,
+  "authenticityAssessment": "Document appears authentic: official stamp present, standard formatting consistent with French national ID cards, signature field properly completed."
+}
+----
+
+=== Legal contract review
+
+Analyze contracts for GDPR compliance risks, missing clauses, and potential legal issues.
+
+*Process flow:*
+
+. A contract PDF is uploaded or received through a process
+. A service task uses the *Ask* connector to analyze the document
+. The structured findings are stored as BDM objects
+. A human task presents the analysis for legal review
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "claude-sonnet-4-6",
+  "systemPrompt": "You are a legal compliance analyst. Identify potential risks, non-compliant clauses, and missing standard provisions.",
+  "userPrompt": "Analyze this contract for GDPR compliance issues and list each finding with its severity. Also check for missing standard clauses (liability limitation, termination, force majeure).",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"overallRisk\",\"findings\",\"missingClauses\"],\"properties\":{\"overallRisk\":{\"type\":\"string\"},\"findings\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"required\":[\"clause\",\"issue\",\"severity\",\"recommendation\"],\"properties\":{\"clause\":{\"type\":\"string\"},\"issue\":{\"type\":\"string\"},\"severity\":{\"type\":\"string\"},\"recommendation\":{\"type\":\"string\"}}}},\"missingClauses\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"required\":[\"clauseName\",\"importance\",\"recommendation\"],\"properties\":{\"clauseName\":{\"type\":\"string\"},\"importance\":{\"type\":\"string\"},\"recommendation\":{\"type\":\"string\"}}}}}}"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "overallRisk": "medium",
+  "findings": [
+    {
+      "clause": "Section 4.2 - Data Processing",
+      "issue": "No mention of data subject rights (access, rectification, erasure)",
+      "severity": "high",
+      "recommendation": "Add explicit provisions for handling data subject requests within 30 days as required by GDPR Article 12."
+    },
+    {
+      "clause": "Section 7.1 - Data Retention",
+      "issue": "Retention period of 10 years exceeds necessity for stated purpose",
+      "severity": "medium",
+      "recommendation": "Reduce retention period or provide justification per GDPR Article 5(1)(e)."
+    }
+  ],
+  "missingClauses": [
+    {
+      "clauseName": "Data Protection Officer contact",
+      "importance": "high",
+      "recommendation": "Include DPO contact details as required by GDPR Article 37-39."
+    },
+    {
+      "clauseName": "Force Majeure",
+      "importance": "medium",
+      "recommendation": "Add standard force majeure clause to protect both parties."
+    }
+  ]
+}
+----
+
+== Configuration tips
+
+* Claude excels at instruction following -- use detailed system prompts with specific formatting requirements.
+* The 200K context window makes Claude ideal for analyzing long documents (contracts, reports, transcripts).
+* Native vision support requires no special configuration. Attach image documents and they are analyzed automatically.
+* Use `claude-haiku-4-5-20251001` for high-volume classification tasks to reduce costs while maintaining accuracy.
+* Set `requestTimeout` to at least 60000 ms for complex document analysis tasks.
+
+== Source code
+
+https://github.com/bonitasoft/bonita-connector-ai[bonita-connector-ai on GitHub] (module `bonita-connector-ai-anthropic`)

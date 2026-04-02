@@ -1,0 +1,309 @@
+= Mistral AI connectors
+:description: Integrate Mistral AI models into Bonita processes for text generation, classification and data extraction with EU data residency.
+
+{description}
+
+The Mistral connector is part of the xref:ai-connector.adoc[Bonita AI Connectors] family.
+
+== Getting started
+
+Import the `bonita-connector-ai-mistral` module as an extension dependency in your Bonita project. See the xref:ai-connector.adoc[AI connectors overview] for general setup instructions.
+
+== Connection configuration
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*API Key*
+|Yes
+|Mistral API key from https://console.mistral.ai/api-keys[Mistral Console]
+|_Resolved from env var `++AI_API_KEY++` if not set_
+
+|*Base URL*
+|No
+|Custom endpoint URL
+|`++https://api.mistral.ai/v1++`
+
+|*Model Name*
+|No
+|Mistral model to use
+|`pixtral-12b-2409`
+
+|*Temperature*
+|No
+|Controls randomness (0.0 to 1.0)
+|
+
+|*Timeout*
+|No
+|Request timeout in milliseconds
+|
+|===
+
+== Available models
+
+* `mistral-large-latest` -- Most capable, best reasoning and generation
+* `mistral-medium-latest` -- Balanced quality and cost
+* `mistral-small-latest` -- Fast and cost-effective
+* `pixtral-12b-2409` (default) -- Multimodal with vision support
+
+Mistral AI is headquartered in France and offers **EU data residency**, making it an excellent choice for GDPR-sensitive workloads.
+
+WARNING: Image documents are not supported yet for the Mistral connector due to a limitation of the underlying library.
+
+See https://docs.mistral.ai/getting-started/models/models_overview[Mistral Models documentation] for the full list.
+
+== Operations
+
+=== Ask
+
+Send a user prompt (with optional system prompt and documents) to a Mistral model and return the generated response.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*User Prompt*
+|Yes
+|The prompt to send to Mistral
+|
+
+|*System Prompt*
+|No
+|System instructions to guide the model behavior
+|`You are a polite assistant.`
+
+|*Output JSON Schema*
+|No
+|JSON Schema to structure the response as JSON
+|
+
+|*Source Document Reference*
+|No
+|Bonita process document to include as context
+|
+
+|*Source Document References*
+|No
+|List of Bonita process documents to include as context
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|The generated response from the model
+|===
+
+=== Classify
+
+Classify a document into one of the predefined categories.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Categories*
+|Yes
+|Comma-separated list of classification categories
+|
+
+|*Source Document Reference*
+|Yes
+|Bonita process document to classify
+|
+
+|*Source Document References*
+|No
+|List of documents to classify
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|JSON with `category` and `confidence` fields
+|===
+
+.Sample classification result
+[source,json]
+----
+{
+  "category": "BILLING",
+  "confidence": 0.88
+}
+----
+
+=== Extract
+
+Extract structured data from a document using field names or a JSON Schema.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Fields to Extract*
+|No
+|Comma-separated list of field names to extract
+|
+
+|*Output JSON Schema*
+|No
+|JSON Schema defining the extraction structure
+|
+
+|*Source Document Reference*
+|Yes
+|Bonita process document to extract from
+|
+
+|*Source Document References*
+|No
+|List of documents to extract from
+|
+|===
+
+IMPORTANT: You must provide at least one of `fieldsToExtract` or `outputJsonSchema` parameters.
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|JSON with extracted fields
+|===
+
+== Use cases
+
+=== GDPR-compliant text processing
+
+Process personal data documents while keeping all data within the EU. Mistral's European infrastructure ensures data never leaves EU jurisdiction.
+
+*Process flow:*
+
+. An HR document containing employee personal data is uploaded
+. A service task uses the *Extract* connector to parse the document
+. All processing occurs on Mistral's EU servers
+. Extracted data is stored in the Bonita BDM for downstream processing
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "mistral-large-latest",
+  "fieldsToExtract": "employeeName,employeeId,department,position,startDate,salary,contractType",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"employeeName\",\"employeeId\",\"department\",\"position\",\"startDate\",\"contractType\"],\"properties\":{\"employeeName\":{\"type\":\"string\"},\"employeeId\":{\"type\":\"string\"},\"department\":{\"type\":\"string\"},\"position\":{\"type\":\"string\"},\"startDate\":{\"type\":\"string\"},\"salary\":{\"type\":\"number\"},\"contractType\":{\"type\":\"string\"}}}"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "employeeName": "Marie Dupont",
+  "employeeId": "EMP-2026-0042",
+  "department": "Engineering",
+  "position": "Senior Developer",
+  "startDate": "2026-02-01",
+  "salary": 55000,
+  "contractType": "CDI"
+}
+----
+
+=== Classify support tickets by department
+
+Automatically route incoming support tickets to the correct department using Mistral classification.
+
+*Process flow:*
+
+. A support ticket is submitted through a Bonita form or email integration
+. A service task uses the *Classify* connector to determine the department
+. An exclusive gateway routes the ticket based on classification
+. Each department queue receives only relevant tickets
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "mistral-large-latest",
+  "categories": "BILLING,TECHNICAL_SUPPORT,ACCOUNT_MANAGEMENT,FEATURE_REQUEST,SECURITY_INCIDENT,OTHER"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "category": "TECHNICAL_SUPPORT",
+  "confidence": 0.91
+}
+----
+
+Use the result in an exclusive gateway:
+
+* `category == "BILLING"` -> Finance department
+* `category == "TECHNICAL_SUPPORT"` -> IT support team
+* `category == "SECURITY_INCIDENT"` -> Security team (high priority)
+* Default -> General support queue
+
+=== Generate regulatory compliance reports
+
+Use the *Ask* operation to generate structured compliance reports from audit findings.
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "mistral-large-latest",
+  "systemPrompt": "You are a regulatory compliance officer. Generate structured compliance reports from audit data. Be precise and reference specific regulations.",
+  "userPrompt": "Generate a GDPR compliance summary for department ${departmentName} based on the following audit findings: ${auditFindings}",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"department\",\"complianceScore\",\"findings\",\"recommendations\"],\"properties\":{\"department\":{\"type\":\"string\"},\"complianceScore\":{\"type\":\"number\"},\"findings\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"required\":[\"area\",\"status\",\"details\"],\"properties\":{\"area\":{\"type\":\"string\"},\"status\":{\"type\":\"string\"},\"details\":{\"type\":\"string\"}}}},\"recommendations\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}}}"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "department": "Human Resources",
+  "complianceScore": 72,
+  "findings": [
+    {
+      "area": "Data Retention",
+      "status": "non-compliant",
+      "details": "Employee records retained beyond the 5-year maximum without documented justification."
+    },
+    {
+      "area": "Consent Management",
+      "status": "compliant",
+      "details": "All data processing activities have documented legal basis and consent records."
+    }
+  ],
+  "recommendations": [
+    "Implement automated data retention policies with expiration alerts",
+    "Conduct quarterly reviews of retained employee data"
+  ]
+}
+----
+
+== Configuration tips
+
+* Mistral provides **EU data residency** by default -- ideal for organizations subject to GDPR and EU data sovereignty requirements.
+* Use `mistral-small-latest` for simple classification tasks to minimize costs.
+* For production workloads, prefer `mistral-large-latest` for the best quality.
+* Image document processing is not currently supported through the connector library. Use text-based documents or consider another provider for image analysis.
+
+== Source code
+
+https://github.com/bonitasoft/bonita-connector-ai[bonita-connector-ai on GitHub] (module `bonita-connector-ai-mistral`)
