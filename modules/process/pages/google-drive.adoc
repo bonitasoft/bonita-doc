@@ -1,0 +1,466 @@
+= Google Drive connectors
+:page-aliases: ROOT:google-drive.adoc
+:description: Bonita native Google Drive connectors allow to connect Bonita processes to Google Drive for file and folder management using a service account.
+
+{description}
+
+The Bonita Google Drive Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+[WARNING]
+====
+This connector is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-googledrive/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+
+We are eager to collaborate with early adopters to bring this connector to General Availability.
+====
+
+== Overview
+
+The Google Drive connectors enable your Bonita processes to interact with Google Drive using the Google Drive API v3. You can upload, download, list, move, and delete files, as well as create folders and retrieve file metadata — all from within your automation processes.
+
+The available operations are:
+
+* *Upload file* — Upload a file to Google Drive
+* *Download file* — Download a file from Google Drive (supports Google Workspace file export)
+* *Get file* — Retrieve detailed metadata for a file
+* *List files* — List files and folders with filtering and pagination
+* *Create folder* — Create a folder in Google Drive
+* *Move file* — Move or rename a file
+* *Delete file* — Trash or permanently delete a file
+
+The Google Drive Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+== Getting started
+
+To use the Google Drive connectors, add them as an extension dependency to your Bonita project from the Bonita marketplace or import the connector ZIP files directly into your Bonita Studio.
+
+Before configuring a connector, you need to set up a Google Cloud service account with access to Google Drive.
+
+=== Step 1: Create a Google Cloud project
+
+. Go to the https://console.cloud.google.com/[Google Cloud Console]
+. Create a new project or select an existing one
+. Note the project name for future reference
+
+=== Step 2: Enable the Google Drive API
+
+. In the Google Cloud Console, go to *APIs & Services > Library*
+. Search for *Google Drive API*
+. Click *Enable*
+
+=== Step 3: Create a service account
+
+. Go to *APIs & Services > Credentials*
+. Click *Create Credentials > Service account*
+. Enter a name and description for the service account
+. Click *Create and Continue*
+. Optionally assign roles (for shared drives, grant the appropriate Drive permissions)
+. Click *Done*
+
+=== Step 4: Generate a JSON key
+
+. In the *Service Accounts* list, click the service account you just created
+. Go to the *Keys* tab
+. Click *Add Key > Create new key*
+. Select *JSON* and click *Create*
+. The JSON key file will be downloaded — store it securely
+
+IMPORTANT: The JSON key content is what you will provide as the `serviceAccountKeyJson` connector parameter. You can store this key as a process variable or as a Bonita configuration parameter for reuse across connectors.
+
+=== Step 5: Set up Domain-Wide Delegation (optional)
+
+If your service account needs to access files owned by users in a Google Workspace domain, you must configure domain-wide delegation:
+
+. In the Google Cloud Console, go to your service account details
+. Enable *Domain-wide delegation*
+. Note the *Client ID*
+. In your Google Workspace Admin Console (https://admin.google.com), go to *Security > API Controls > Domain-wide Delegation*
+. Click *Add new* and enter:
+  * *Client ID*: the client ID from the previous step
+  * *OAuth scopes*: `https://www.googleapis.com/auth/drive`
+. Click *Authorize*
+
+You can then use the `impersonatedUserEmail` parameter to act on behalf of a specific user.
+
+NOTE: Domain-wide delegation is required if the service account needs to access files in a user's personal Drive. Without it, the service account can only access files explicitly shared with its email address or files in shared drives where it has been granted membership.
+
+== Connection parameters
+
+All Google Drive connectors share the following connection parameters:
+
+[caption=Connection parameters]
+|===
+| Parameter name | Required | Description | Default value
+
+| *serviceAccountKeyJson*
+| false
+| The full JSON content of the service account key file. If not provided, the connector falls back to the `GOOGLE_APPLICATION_CREDENTIALS` environment variable, then to system default credentials.
+|
+
+| *impersonatedUserEmail*
+| false
+| The email address of a Google Workspace user to impersonate via domain-wide delegation. Required when accessing user-owned files.
+|
+
+| *applicationName*
+| false
+| A name that identifies the calling application in Google API reporting.
+| Bonita-GoogleDrive-Connector
+
+| *connectTimeout*
+| false
+| Connection timeout in milliseconds.
+| 30000
+
+| *readTimeout*
+| false
+| Read timeout in milliseconds.
+| 60000
+|===
+
+== Connectors
+
+=== Upload file
+
+Upload a file to Google Drive. The file content must be provided as a Base64-encoded string. The connector supports automatic upload strategy selection.
+
+[caption=Configuration]
+|===
+| Parameter name | Required | Description | Default value
+
+| *fileName*
+| *true*
+| The name of the file to create in Google Drive.
+|
+
+| *fileContentBase64*
+| *true*
+| The file content encoded as a Base64 string.
+|
+
+| *mimeType*
+| false
+| The MIME type of the file (e.g., `application/pdf`, `image/png`).
+| application/octet-stream
+
+| *parentFolderId*
+| false
+| The ID of the parent folder. If not specified, the file is created in the root folder.
+|
+
+| *description*
+| false
+| A description for the file.
+|
+
+| *uploadStrategy*
+| false
+| The upload strategy to use (`AUTO` for automatic selection).
+| AUTO
+|===
+
+.Outputs
+|===
+| Output name | Type | Description
+
+| *fileId* | String | The ID of the uploaded file
+| *fileWebViewLink* | String | A link to view the file in a browser
+| *fileWebContentLink* | String | A direct download link for the file
+| *success* | Boolean | Whether the operation succeeded
+| *errorMessage* | String | Error details if the operation failed
+|===
+
+=== Download file
+
+Download a file from Google Drive. For standard files (PDF, images, etc.), the content is returned as a Base64-encoded string. For Google Workspace files (Docs, Sheets, Slides), you must specify an export MIME type.
+
+[caption=Configuration]
+|===
+| Parameter name | Required | Description | Default value
+
+| *fileId*
+| *true*
+| The ID of the file to download.
+|
+
+| *exportMimeType*
+| false
+a| The MIME type to export Google Workspace files to. Required for native Google formats.
+
+Common export types:
+
+* Google Docs: `application/pdf`, `application/vnd.openxmlformats-officedocument.wordprocessingml.document`
+* Google Sheets: `application/pdf`, `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`
+* Google Slides: `application/pdf`, `application/vnd.openxmlformats-officedocument.presentationml.presentation`
+|
+|===
+
+NOTE: Google Workspace file exports are limited to 10 MB.
+
+.Outputs
+|===
+| Output name | Type | Description
+
+| *fileContentBase64* | String | The file content encoded as a Base64 string
+| *fileName* | String | The name of the downloaded file
+| *mimeType* | String | The MIME type of the file
+| *fileSizeBytes* | Long | The size of the file in bytes
+| *success* | Boolean | Whether the operation succeeded
+| *errorMessage* | String | Error details if the operation failed
+|===
+
+=== Get file
+
+Retrieve detailed metadata for a file on Google Drive.
+
+[caption=Configuration]
+|===
+| Parameter name | Required | Description | Default value
+
+| *fileId*
+| *true*
+| The ID of the file to retrieve metadata for.
+|
+|===
+
+.Outputs
+|===
+| Output name | Type | Description
+
+| *fileId* | String | The file ID
+| *fileName* | String | The file name
+| *mimeType* | String | The MIME type
+| *webViewLink* | String | A link to view the file in a browser
+| *webContentLink* | String | A direct download link
+| *sizeBytes* | Long | The file size in bytes
+| *createdTime* | String | The creation timestamp
+| *modifiedTime* | String | The last modification timestamp
+| *ownerEmail* | String | The email address of the file owner
+| *success* | Boolean | Whether the operation succeeded
+| *errorMessage* | String | Error details if the operation failed
+|===
+
+=== List files
+
+List files and folders from Google Drive with optional filtering and pagination.
+
+[caption=Configuration]
+|===
+| Parameter name | Required | Description | Default value
+
+| *parentFolderId*
+| false
+| Restrict results to files within this folder.
+|
+
+| *searchQuery*
+| false
+| A free-text search query (searches file names and content).
+|
+
+| *mimeTypeFilter*
+| false
+| Filter results by MIME type (e.g., `application/pdf`).
+|
+
+| *maxResults*
+| false
+| Maximum number of files to return.
+| 100
+
+| *orderBy*
+| false
+| Sort order for results (e.g., `modifiedTime desc`, `name asc`).
+| modifiedTime desc
+
+| *includeFiles*
+| false
+| Whether to include files in the results.
+| true
+
+| *includeFolders*
+| false
+| Whether to include folders in the results.
+| true
+|===
+
+.Outputs
+|===
+| Output name | Type | Description
+
+| *files* | List | A list of file metadata maps, each containing: `id`, `name`, `mimeType`, `webViewLink`, `modifiedTime`
+| *totalCount* | Integer | The number of files returned
+| *nextPageToken* | String | A token for retrieving the next page of results (if more results exist)
+| *success* | Boolean | Whether the operation succeeded
+| *errorMessage* | String | Error details if the operation failed
+|===
+
+=== Create folder
+
+Create a new folder in Google Drive.
+
+[caption=Configuration]
+|===
+| Parameter name | Required | Description | Default value
+
+| *folderName*
+| *true*
+| The name of the folder to create.
+|
+
+| *parentFolderId*
+| false
+| The ID of the parent folder. If not specified, the folder is created in the root folder.
+|
+
+| *description*
+| false
+| A description for the folder.
+|
+|===
+
+.Outputs
+|===
+| Output name | Type | Description
+
+| *folderId* | String | The ID of the created folder
+| *folderWebViewLink* | String | A link to view the folder in a browser
+| *success* | Boolean | Whether the operation succeeded
+| *errorMessage* | String | Error details if the operation failed
+|===
+
+=== Move file
+
+Move a file to a different folder, rename it, or both.
+
+[caption=Configuration]
+|===
+| Parameter name | Required | Description | Default value
+
+| *fileId*
+| *true*
+| The ID of the file to move or rename.
+|
+
+| *newParentFolderId*
+| false
+| The ID of the destination folder.
+|
+
+| *newName*
+| false
+| A new name for the file.
+|
+
+| *removeFromCurrentParents*
+| false
+| Whether to remove the file from its current parent folder when moving.
+| true
+|===
+
+IMPORTANT: You must provide at least one of `newParentFolderId` or `newName`.
+
+.Outputs
+|===
+| Output name | Type | Description
+
+| *fileId* | String | The file ID
+| *fileName* | String | The updated file name
+| *newParentFolderId* | String | The ID of the new parent folder
+| *webViewLink* | String | A link to view the file in a browser
+| *success* | Boolean | Whether the operation succeeded
+| *errorMessage* | String | Error details if the operation failed
+|===
+
+=== Delete file
+
+Delete a file from Google Drive. By default, the file is moved to the trash. Set `permanent` to `true` to permanently delete it.
+
+[caption=Configuration]
+|===
+| Parameter name | Required | Description | Default value
+
+| *fileId*
+| *true*
+| The ID of the file to delete.
+|
+
+| *permanent*
+| false
+| If `true`, permanently deletes the file. If `false`, moves it to the trash.
+| false
+|===
+
+NOTE: Deleting a file that has already been deleted (or does not exist) is treated as a successful operation (idempotent behavior).
+
+.Outputs
+|===
+| Output name | Type | Description
+
+| *deletedFileId* | String | The ID of the deleted file
+| *permanent* | Boolean | Whether the deletion was permanent
+| *success* | Boolean | Whether the operation succeeded
+| *errorMessage* | String | Error details if the operation failed
+|===
+
+== Error handling and retry
+
+All Google Drive connectors include built-in retry logic with exponential backoff for transient errors:
+
+* *Retried HTTP status codes*: 429 (rate limit), 500, 502, 503, 504 (server errors), and 403 when caused by rate limiting
+* *Retry strategy*: Exponential backoff starting at 1 second, capped at 64 seconds, with jitter
+* *Maximum retries*: 5 attempts
+
+Every connector returns a `success` boolean output and an `errorMessage` string output. You can use these in your process logic to handle failures gracefully — for example, by routing to an error-handling path via a gateway.
+
+[.troubleshooting-title]
+== Troubleshooting
+
+[.troubleshooting-section]
+--
+[.symptom]
+The connector fails with a 403 "Insufficient permissions" error.
+
+[.cause]#Cause#
+The service account does not have access to the target file or folder. Service accounts have their own separate Drive storage and cannot access user files by default.
+
+[.solution]#Solution#
+Either share the target file or folder with the service account email address (found in the JSON key file as `client_email`), or configure domain-wide delegation and use the `impersonatedUserEmail` parameter.
+--
+
+[.troubleshooting-section]
+--
+[.symptom]
+Google Workspace file download fails with "Export MIME type required".
+
+[.cause]#Cause#
+The file is a native Google format (Google Docs, Sheets, Slides) and cannot be downloaded directly — it must be exported.
+
+[.solution]#Solution#
+Set the `exportMimeType` parameter to the desired output format (e.g., `application/pdf` for PDF export).
+--
+
+[.troubleshooting-section]
+--
+[.symptom]
+The connector fails with "File not found" (404) even though the file exists.
+
+[.cause]#Cause#
+The service account (or the impersonated user) does not have visibility on the file. Files are only visible if they are explicitly shared with the account.
+
+[.solution]#Solution#
+Share the file with the service account email address, or if using domain-wide delegation, ensure the impersonated user has access to the file.
+--
+
+[.troubleshooting-section]
+--
+[.symptom]
+Upload succeeds but the file cannot be found in the expected folder.
+
+[.cause]#Cause#
+The `parentFolderId` parameter was not specified or is incorrect, causing the file to be uploaded to the service account's root Drive folder.
+
+[.solution]#Solution#
+Verify the `parentFolderId` value. You can use the *List files* connector to browse folders and find the correct ID.
+--
