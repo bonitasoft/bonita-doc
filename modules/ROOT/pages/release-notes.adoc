@@ -57,7 +57,7 @@ See xref:process:messaging.adoc[Email Connector documentation] for more informat
 
 === Fixes in Bonita 2025.2-u7 (2026-04-01)
 
-This version restores the dependencies configuration page with selective export that was available in 2024.3 and older versions.
+This version restores the Java dependencies configuration page with selective export that was available in 2024.3 and older versions.
 
 * BPA-316 - Prograde Java policy is too restrictictive for AI connectors
 * BPA-321 - ThreadLocal EntityManager leak after JTA transaction timeout causes stale persistence context reuse
