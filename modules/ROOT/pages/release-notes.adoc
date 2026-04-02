@@ -123,6 +123,9 @@ The property allowing to enable/disable xref:identity:rest-api-authorization.ado
 
 * BPA-206 - LASTUPDATEDATE of rows in the flownode_instance table is not updated
 * BPA-294 - Docker: Slow reverse DNS lookups with ProGrade security manager cause delays on HTTP requests
+* CVE-233 - Path Traversal and Authentication Bypass via semicolon parsing differential
+* CVE-234 - Pre-Authentication RCE via XStream Deserialization
+* CVE-235 - Pre-Authentication SSRF via ObjectInputStream Deserialization
 * CVE-240 - Input Sanitizer reports but leaves unchanged HTML and JS
 * CVE-241 - Reflected XSS / Information disclosure via RestRequestParser error messages
 * Several dependencies updated
