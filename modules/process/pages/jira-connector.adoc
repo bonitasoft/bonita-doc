@@ -1,0 +1,744 @@
+= JIRA / Confluence connectors
+:description: The Bonita JIRA / Confluence connectors let you create, update, search, and transition JIRA issues, add comments, and create Confluence pages directly from your Bonita processes.
+
+{description}
+
+The Bonita JIRA / Confluence Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+[WARNING]
+====
+This connector is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-jira/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+
+We are eager to collaborate with early adopters to bring this connector to General Availability.
+====
+
+== Overview
+
+The JIRA / Confluence connector provides eight operations:
+
+* **Create Issue** -- create a new JIRA issue
+* **Update Issue** -- update fields on an existing issue
+* **Get Issue** -- retrieve full issue details
+* **Transition Issue** -- move an issue through workflow states
+* **Add Comment** -- add a comment to an issue
+* **Search Issues** -- search issues using JQL
+* **Create Confluence Page** -- create a page in Confluence
+* **Get Issue Transitions** -- list available transitions for an issue
+
+Authentication supports **Basic Auth** (email + API token) and **OAuth2**.
+
+== Getting started
+
+Add the connector as an extension dependency to your Bonita project. Import the `.jar` file via *Import from file* in Bonita Studio.
+
+=== Connection configuration (shared by all operations)
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*atlassianDomain*
+|Yes
+|Atlassian domain (e.g., mycompany.atlassian.net)
+|--
+
+|*authMode*
+|No
+|Authentication mode: BASIC or OAUTH2
+|BASIC
+
+|*userEmail*
+|Conditional
+|User email (required for BASIC auth)
+|--
+
+|*apiToken*
+|Conditional
+|Atlassian API token (required for BASIC auth)
+|--
+
+|*oauthClientId*
+|Conditional
+|OAuth2 client ID (required for OAUTH2)
+|--
+
+|*oauthClientSecret*
+|Conditional
+|OAuth2 client secret (required for OAUTH2)
+|--
+
+|*oauthRefreshToken*
+|Conditional
+|OAuth2 refresh token (required for OAUTH2)
+|--
+
+|*connectTimeout*
+|No
+|Connection timeout in milliseconds
+|30000
+
+|*readTimeout*
+|No
+|Read timeout in milliseconds
+|60000
+|===
+
+== Create Issue (`jira-create-issue`)
+
+Create a new JIRA issue.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*projectKey*
+|Yes
+|JIRA project key
+|--
+
+|*issueType*
+|No
+|Issue type (Bug, Task, Story, Epic, Sub-task)
+|Task
+
+|*priority*
+|No
+|Priority (Highest, High, Medium, Low, Lowest)
+|--
+
+|*parentKey*
+|No
+|Parent issue key (for sub-tasks)
+|--
+
+|*summary*
+|Yes
+|Issue summary
+|--
+
+|*description*
+|No
+|Issue description
+|--
+
+|*assigneeAccountId*
+|No
+|Assignee Atlassian account ID
+|--
+
+|*reporterAccountId*
+|No
+|Reporter account ID
+|--
+
+|*labels*
+|No
+|Comma-separated labels
+|--
+
+|*components*
+|No
+|Comma-separated component names
+|--
+
+|*dueDate*
+|No
+|Due date (YYYY-MM-DD)
+|--
+
+|*customFields*
+|No
+|Custom fields as JSON
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*issueId*
+|String
+|Issue ID
+
+|*issueKey*
+|String
+|Issue key (e.g., PROJ-123)
+
+|*issueSelf*
+|String
+|API URL of the issue
+
+|*issueUrl*
+|String
+|Web URL of the issue
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Update Issue (`jira-update-issue`)
+
+Update fields on an existing JIRA issue.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*issueKey*
+|Yes
+|Issue key to update
+|--
+
+|*notifyUsers*
+|No
+|Whether to notify users of the update
+|true
+
+|*summary*
+|No
+|Updated summary
+|--
+
+|*description*
+|No
+|Updated description
+|--
+
+|*priority*
+|No
+|Updated priority
+|--
+
+|*assigneeAccountId*
+|No
+|Updated assignee
+|--
+
+|*labels*
+|No
+|Replacement labels
+|--
+
+|*addLabels*
+|No
+|Labels to add
+|--
+
+|*removeLabels*
+|No
+|Labels to remove
+|--
+
+|*dueDate*
+|No
+|Updated due date
+|--
+
+|*customFields*
+|No
+|Custom fields as JSON
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*issueKey*
+|String
+|Updated issue key
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Get Issue (`jira-get-issue`)
+
+Retrieve full details of a JIRA issue.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*issueKey*
+|Yes
+|Issue key to retrieve
+|--
+
+|*fields*
+|No
+|Fields to return
+|*all
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*issueKey*
+|String
+|Issue key
+
+|*issueId*
+|String
+|Issue ID
+
+|*summary*
+|String
+|Issue summary
+
+|*description*
+|String
+|Issue description
+
+|*statusName*
+|String
+|Current status
+
+|*statusCategory*
+|String
+|Status category
+
+|*priorityName*
+|String
+|Priority name
+
+|*assigneeDisplayName*
+|String
+|Assignee name
+
+|*assigneeAccountId*
+|String
+|Assignee account ID
+
+|*reporterDisplayName*
+|String
+|Reporter name
+
+|*issueTypeName*
+|String
+|Issue type
+
+|*projectKey*
+|String
+|Project key
+
+|*labels*
+|String
+|Labels
+
+|*created*
+|String
+|Creation date
+
+|*updated*
+|String
+|Last update date
+
+|*dueDate*
+|String
+|Due date
+
+|*resolution*
+|String
+|Resolution
+
+|*commentCount*
+|Integer
+|Number of comments
+
+|*issueJson*
+|String
+|Full JSON response
+
+|*issueUrl*
+|String
+|Web URL
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Transition Issue (`jira-transition-issue`)
+
+Move a JIRA issue through workflow states.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*issueKey*
+|Yes
+|Issue key to transition
+|--
+
+|*transitionId*
+|No
+|Transition ID (use this or transitionName)
+|--
+
+|*transitionName*
+|No
+|Transition name (use this or transitionId)
+|--
+
+|*resolution*
+|No
+|Resolution name (for Done transitions)
+|--
+
+|*comment*
+|No
+|Comment to add during transition
+|--
+
+|*transitionFields*
+|No
+|Additional transition fields as JSON
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*issueKey*
+|String
+|Transitioned issue key
+
+|*newStatus*
+|String
+|New status after transition
+
+|*transitionId*
+|String
+|Transition ID used
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Add Comment (`jira-add-comment`)
+
+Add a comment to a JIRA issue.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*issueKey*
+|Yes
+|Issue key
+|--
+
+|*comment*
+|Yes
+|Comment text
+|--
+
+|*visibility*
+|No
+|Visibility restriction (JSON)
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*commentId*
+|String
+|ID of the created comment
+
+|*issueKey*
+|String
+|Issue key
+
+|*created*
+|String
+|Comment creation timestamp
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Search Issues (`jira-search-issues`)
+
+Search for JIRA issues using JQL.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*jqlQuery*
+|Yes
+|JQL search query
+|--
+
+|*fields*
+|No
+|Fields to return
+|key,summary,status,priority,assignee
+
+|*maxResults*
+|No
+|Maximum results per page
+|50
+
+|*startAt*
+|No
+|Pagination start index
+|0
+
+|*fetchAllPages*
+|No
+|Whether to fetch all pages automatically
+|false
+
+|*maxTotalResults*
+|No
+|Maximum total results when fetching all pages
+|500
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*issues*
+|String
+|JSON array of matching issues
+
+|*totalResults*
+|Integer
+|Total matching issues
+
+|*returnedResults*
+|Integer
+|Number of results returned
+
+|*issueKeys*
+|String
+|Comma-separated issue keys
+
+|*hasMorePages*
+|Boolean
+|Whether more pages are available
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Create Confluence Page (`jira-create-confluence-page`)
+
+Create a new page in Confluence.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*spaceId*
+|Yes
+|Confluence space ID
+|--
+
+|*parentPageId*
+|No
+|Parent page ID (for child pages)
+|--
+
+|*pageTitle*
+|Yes
+|Page title
+|--
+
+|*pageContent*
+|Yes
+|Page body content
+|--
+
+|*contentFormat*
+|No
+|Content format: storage, atlas_doc_format, or wiki
+|storage
+
+|*status*
+|No
+|Page status: current or draft
+|current
+
+|*labels*
+|No
+|Comma-separated labels
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*pageId*
+|String
+|ID of the created page
+
+|*pageTitle*
+|String
+|Title of the page
+
+|*pageUrl*
+|String
+|Web URL of the page
+
+|*pageVersion*
+|Integer
+|Page version number
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Get Issue Transitions (`jira-get-issue-transitions`)
+
+List available workflow transitions for an issue.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*issueKey*
+|Yes
+|Issue key
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*transitions*
+|String
+|JSON array of available transitions
+
+|*transitionCount*
+|Integer
+|Number of available transitions
+
+|*transitionNames*
+|String
+|Comma-separated transition names
+
+|*transitionIds*
+|String
+|Comma-separated transition IDs
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Error handling
+
+All operations set `success=false` and populate `errorMessage` on failure. Error messages are truncated to 1000 characters to prevent database column overflow in Bonita.
+
+[caption=HTTP error handling]
+|===
+|HTTP Code |Behavior
+
+|200/201
+|Success -- parse response and populate outputs
+
+|400
+|Bad request -- invalid fields or JQL syntax
+
+|401
+|Unauthorized -- invalid credentials
+
+|403
+|Forbidden -- insufficient permissions
+
+|404
+|Not found -- issue, project, or space does not exist
+
+|429
+|Rate limited -- too many requests
+
+|5xx
+|Server error -- Atlassian service unavailable
+|===
+
+== Source code
+
+The connector source code is available on GitHub: https://github.com/bonitasoft/bonita-connector-jira[bonita-connector-jira]

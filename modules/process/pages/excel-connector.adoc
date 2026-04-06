@@ -1,0 +1,296 @@
+= Microsoft Excel connectors
+:description: The Bonita Microsoft Excel connectors let you read and write data in Excel spreadsheets (.xlsx) directly from your Bonita processes using Bonita documents.
+
+{description}
+
+The Bonita Microsoft Excel Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+[WARNING]
+====
+This connector is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-excel/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+
+We are eager to collaborate with early adopters to bring this connector to General Availability.
+====
+
+== Overview
+
+The Microsoft Excel connector provides four operations:
+
+* **Read Sheet** -- read all data from a worksheet
+* **Write Sheet** -- write data to a worksheet
+* **Read Range** -- read data from a specific cell range
+* **Write Range** -- write data to a specific cell range
+
+This connector works with Bonita documents -- the Excel file is provided as a Bonita Document input. Write operations return a DocumentValue that can be stored back as a document.
+
+== Getting started
+
+Add the connector as an extension dependency to your Bonita project. Import the `.jar` file via *Import from file* in Bonita Studio.
+
+== Read Sheet (`excel-read-sheet`)
+
+Read all data from a worksheet.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*document*
+|Yes
+|Bonita Document reference to the Excel file
+|--
+
+|*sheetName*
+|No
+|Name of the worksheet to read
+|--
+
+|*sheetIndex*
+|No
+|Index of the worksheet (0-based)
+|0
+
+|*evaluateFormulas*
+|No
+|Whether to evaluate formulas and return computed values
+|true
+
+|*includeHeaders*
+|No
+|Whether to include header row in output
+|true
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*data*
+|List
+|List of rows (each row is a list of cell values)
+
+|*rowCount*
+|Integer
+|Number of rows read
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Write Sheet (`excel-write-sheet`)
+
+Write data to a worksheet, replacing existing content.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*document*
+|Yes
+|Bonita Document reference to the Excel file
+|--
+
+|*sheetName*
+|No
+|Name of the target worksheet
+|--
+
+|*sheetIndex*
+|No
+|Index of the target worksheet (0-based)
+|0
+
+|*data*
+|Yes
+|List of rows to write (each row is a list of values)
+|--
+
+|*outputFileName*
+|No
+|Output file name
+|output.xlsx
+
+|*createSheetIfMissing*
+|No
+|Whether to create the sheet if it does not exist
+|true
+
+|*streamingThreshold*
+|No
+|Row count threshold for switching to streaming mode
+|10000
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*documentValue*
+|DocumentValue
+|Bonita DocumentValue with the modified Excel file
+
+|*rowCount*
+|Integer
+|Number of rows written
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Read Range (`excel-read-range`)
+
+Read data from a specific cell range (e.g., A1:D10).
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*document*
+|Yes
+|Bonita Document reference to the Excel file
+|--
+
+|*sheetName*
+|No
+|Name of the worksheet
+|--
+
+|*sheetIndex*
+|No
+|Index of the worksheet (0-based)
+|0
+
+|*range*
+|Yes
+|Cell range in A1 notation (e.g., A1:D10)
+|--
+
+|*evaluateFormulas*
+|No
+|Whether to evaluate formulas
+|true
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*data*
+|List
+|List of rows from the specified range
+
+|*rowCount*
+|Integer
+|Number of rows read
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Write Range (`excel-write-range`)
+
+Write data to a specific cell range.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*document*
+|Yes
+|Bonita Document reference to the Excel file
+|--
+
+|*sheetName*
+|No
+|Name of the target worksheet
+|--
+
+|*sheetIndex*
+|No
+|Index of the target worksheet (0-based)
+|0
+
+|*range*
+|Yes
+|Starting cell in A1 notation (e.g., B3)
+|--
+
+|*data*
+|Yes
+|List of rows to write
+|--
+
+|*outputFileName*
+|No
+|Output file name
+|output.xlsx
+
+|*createSheetIfMissing*
+|No
+|Whether to create the sheet if it does not exist
+|true
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*documentValue*
+|DocumentValue
+|Bonita DocumentValue with the modified Excel file
+
+|*rowCount*
+|Integer
+|Number of rows written
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Error handling
+
+All operations set `success=false` and populate `errorMessage` on failure. Error messages are truncated to 1000 characters to prevent database column overflow in Bonita.
+
+Common errors include invalid file format (not an .xlsx file), sheet not found, invalid range notation, and out-of-memory for very large files.
+
+== Source code
+
+The connector source code is available on GitHub: https://github.com/bonitasoft/bonita-connector-excel[bonita-connector-excel]

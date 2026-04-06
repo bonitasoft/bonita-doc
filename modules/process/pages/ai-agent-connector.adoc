@@ -1,0 +1,430 @@
+= AI Agent Orchestrator connectors
+:description: The Bonita AI Agent Orchestrator connectors let you execute AI agents with tool-use capabilities, manage agent execution lifecycle, and retrieve execution traces directly from your Bonita processes.
+
+{description}
+
+The Bonita AI Agent Orchestrator Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+[WARNING]
+====
+This connector is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-ai-agent/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+
+We are eager to collaborate with early adopters to bring this connector to General Availability.
+====
+
+== Overview
+
+The AI Agent Orchestrator connector provides five operations:
+
+* **Execute** -- run an AI agent with system/user prompts and optional tools
+* **Resume** -- resume a paused agent execution after tool approval
+* **Get Status** -- check the status of an agent execution
+* **Define Tools** -- validate and prepare tool definitions for agent use
+* **Get Trace** -- retrieve the execution trace of an agent run
+
+The connector supports multiple LLM providers: OpenAI, Anthropic, Google, Azure OpenAI, and custom endpoints.
+
+== Getting started
+
+Add the connector as an extension dependency to your Bonita project. Import the `.jar` file via *Import from file* in Bonita Studio.
+
+=== Connection configuration (shared by Execute and Resume)
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*llmProvider*
+|Yes
+|LLM provider: openai, anthropic, google, azure-openai, or custom
+|--
+
+|*llmApiKey*
+|Yes
+|API key for the LLM provider
+|--
+
+|*llmModel*
+|Yes
+|Model name (e.g., gpt-4o, claude-sonnet-4-20250514)
+|--
+
+|*llmBaseUrl*
+|No
+|Custom base URL (for custom providers or Azure)
+|--
+
+|*connectTimeout*
+|No
+|Connection timeout in milliseconds
+|30000
+
+|*readTimeout*
+|No
+|Read timeout in milliseconds
+|120000
+|===
+
+== Execute (`ai-agent-execute`)
+
+Run an AI agent with system and user prompts, optional tools, and execution controls.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*systemPrompt*
+|Yes
+|System prompt defining the agent's role and behavior
+|--
+
+|*userPrompt*
+|Yes
+|User prompt with the task to accomplish
+|--
+
+|*toolsJson*
+|No
+|JSON array of tool definitions for the agent
+|--
+
+|*contextJson*
+|No
+|JSON object with additional context
+|--
+
+|*maxIterations*
+|No
+|Maximum number of agent iterations
+|10
+
+|*maxTokenBudget*
+|No
+|Maximum token budget for the execution
+|100000
+
+|*temperature*
+|No
+|LLM temperature parameter
+|0.1
+
+|*toolApprovalMode*
+|No
+|Tool approval mode: none, always, or dangerous
+|none
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*executionId*
+|String
+|Unique identifier of the execution
+
+|*status*
+|String
+|Execution status (completed, paused, failed)
+
+|*agentResult*
+|String
+|Final result from the agent
+
+|*agentResultJson*
+|String
+|Structured JSON result
+
+|*iterations*
+|Integer
+|Number of iterations performed
+
+|*tokensUsed*
+|Integer
+|Total tokens consumed
+
+|*toolCallCount*
+|Integer
+|Number of tool calls made
+
+|*pendingToolCall*
+|String
+|JSON of pending tool call (when paused for approval)
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Resume (`ai-agent-resume`)
+
+Resume a paused agent execution after reviewing a pending tool call.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*executionId*
+|Yes
+|ID of the paused execution
+|--
+
+|*approvalDecision*
+|Yes
+|Decision: approve, reject, or abort
+|--
+
+|*modifiedToolParams*
+|No
+|Modified parameters for the tool call (JSON)
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*executionId*
+|String
+|Execution identifier
+
+|*status*
+|String
+|Updated execution status
+
+|*agentResult*
+|String
+|Final result from the agent
+
+|*agentResultJson*
+|String
+|Structured JSON result
+
+|*iterations*
+|Integer
+|Total iterations performed
+
+|*tokensUsed*
+|Integer
+|Total tokens consumed
+
+|*toolCallCount*
+|Integer
+|Total tool calls made
+
+|*pendingToolCall*
+|String
+|Next pending tool call (if paused again)
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Get Status (`ai-agent-get-status`)
+
+Check the current status of an agent execution.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*executionId*
+|Yes
+|ID of the execution to check
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*executionId*
+|String
+|Execution identifier
+
+|*status*
+|String
+|Current execution status
+
+|*currentIteration*
+|Integer
+|Current iteration number
+
+|*tokensUsed*
+|Integer
+|Tokens consumed so far
+
+|*toolCallCount*
+|Integer
+|Tool calls made so far
+
+|*elapsedTimeMs*
+|Long
+|Elapsed time in milliseconds
+
+|*agentResult*
+|String
+|Result (if completed)
+
+|*pendingToolCall*
+|String
+|Pending tool call (if paused)
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Define Tools (`ai-agent-define-tools`)
+
+Validate and prepare tool definitions for use with the Execute operation.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*toolDefinitionsJson*
+|Yes
+|JSON array of tool definitions
+|--
+
+|*toolSetName*
+|No
+|Optional name for the tool set
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*toolSetName*
+|String
+|Name of the tool set
+
+|*toolCount*
+|Integer
+|Number of validated tools
+
+|*toolNames*
+|String
+|Comma-separated list of tool names
+
+|*validatedToolsJson*
+|String
+|Validated JSON tool definitions
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Get Trace (`ai-agent-get-trace`)
+
+Retrieve the execution trace of an agent run for debugging and auditing.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*executionId*
+|Yes
+|ID of the execution to trace
+|--
+
+|*includeToolResponses*
+|No
+|Whether to include full tool response bodies
+|false
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*executionId*
+|String
+|Execution identifier
+
+|*entryCount*
+|Integer
+|Number of trace entries
+
+|*traceJson*
+|String
+|JSON representation of the full execution trace
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Error handling
+
+All operations set `success=false` and populate `errorMessage` on failure. Error messages are truncated to 1000 characters to prevent database column overflow in Bonita.
+
+[caption=HTTP error handling]
+|===
+|HTTP Code |Behavior
+
+|200
+|Success -- parse response and populate outputs
+
+|400
+|Bad request -- invalid prompt or tool definitions
+
+|401
+|Unauthorized -- invalid API key
+
+|429
+|Rate limited -- too many requests to the LLM provider
+
+|5xx
+|Server error -- LLM provider unavailable
+|===
+
+== Source code
+
+The connector source code is available on GitHub: https://github.com/bonitasoft/bonita-connector-ai-agent[bonita-connector-ai-agent]

@@ -1,0 +1,512 @@
+= DocuSign eSignature connectors
+:description: The Bonita DocuSign eSignature connectors let you send documents for signature, track envelope status, manage recipients, and download signed documents directly from your Bonita processes.
+
+{description}
+
+The Bonita DocuSign eSignature Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+[WARNING]
+====
+This connector is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-docusign/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+
+We are eager to collaborate with early adopters to bring this connector to General Availability.
+====
+
+== Overview
+
+The DocuSign eSignature connector provides six operations:
+
+* **Send Envelope** -- send a document for signature with configurable recipients
+* **Create from Template** -- create an envelope from a DocuSign template
+* **Get Envelope Status** -- retrieve the status and timeline of an envelope
+* **List Recipients** -- list recipients and their signing status
+* **Download Document** -- download signed documents
+* **Void Envelope** -- void an in-progress envelope
+
+Authentication uses **JWT Grant** with an RSA private key, integration key, and user/account IDs.
+
+== Getting started
+
+Add the connector as an extension dependency to your Bonita project. Import the `.jar` file via *Import from file* in Bonita Studio.
+
+=== Connection configuration (shared by all operations)
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*integrationKey*
+|Yes
+|DocuSign Integration Key (client ID)
+|--
+
+|*rsaPrivateKey*
+|Yes
+|RSA private key for JWT authentication
+|--
+
+|*userId*
+|Yes
+|DocuSign user ID (GUID)
+|--
+
+|*accountId*
+|Yes
+|DocuSign account ID
+|--
+
+|*basePath*
+|No
+|DocuSign REST API base path
+|https://www.docusign.net/restapi
+
+|*oAuthBasePath*
+|No
+|DocuSign OAuth base path
+|https://account.docusign.com
+
+|*connectTimeout*
+|No
+|Connection timeout in milliseconds
+|30000
+
+|*readTimeout*
+|No
+|Read timeout in milliseconds
+|60000
+|===
+
+== Send Envelope (`docusign-send-envelope`)
+
+Send a document for electronic signature.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*documentBase64*
+|Yes
+|Base64-encoded document content
+|--
+
+|*documentName*
+|Yes
+|Document file name
+|--
+
+|*documentId*
+|No
+|Document ID within the envelope
+|1
+
+|*fileExtension*
+|No
+|Document file extension
+|pdf
+
+|*signHereTabs*
+|No
+|JSON defining signature tab positions
+|--
+
+|*signerEmail*
+|Yes
+|Primary signer email address
+|--
+
+|*signerName*
+|Yes
+|Primary signer display name
+|--
+
+|*signerRoutingOrder*
+|No
+|Signer routing order
+|1
+
+|*additionalSigners*
+|No
+|JSON array of additional signers
+|--
+
+|*ccRecipients*
+|No
+|JSON array of CC recipients
+|--
+
+|*emailSubject*
+|Yes
+|Email subject line
+|--
+
+|*emailBody*
+|No
+|Email body text
+|--
+
+|*expirationDays*
+|No
+|Number of days until the envelope expires
+|120
+
+|*reminderEnabled*
+|No
+|Whether to enable reminders
+|true
+
+|*reminderDelayDays*
+|No
+|Days before first reminder
+|3
+
+|*reminderFrequencyDays*
+|No
+|Days between reminders
+|5
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*envelopeId*
+|String
+|Unique identifier of the envelope
+
+|*envelopeStatus*
+|String
+|Current status of the envelope
+
+|*statusDateTime*
+|String
+|Timestamp of the status
+
+|*envelopeUri*
+|String
+|URI of the envelope
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Create from Template (`docusign-create-from-template`)
+
+Create an envelope from an existing DocuSign template.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*templateId*
+|Yes
+|DocuSign template ID
+|--
+
+|*templateRoles*
+|Yes
+|JSON array of template role assignments
+|--
+
+|*templateVariables*
+|No
+|JSON object of template variable values
+|--
+
+|*emailSubject*
+|No
+|Custom email subject line
+|--
+
+|*emailBody*
+|No
+|Custom email body text
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*envelopeId*
+|String
+|Unique identifier of the envelope
+
+|*envelopeStatus*
+|String
+|Current status of the envelope
+
+|*statusDateTime*
+|String
+|Timestamp of the status
+
+|*envelopeUri*
+|String
+|URI of the envelope
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Get Envelope Status (`docusign-get-envelope-status`)
+
+Retrieve the current status and timeline of an envelope.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*envelopeId*
+|Yes
+|ID of the envelope to check
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*envelopeStatus*
+|String
+|Current envelope status
+
+|*statusDateTime*
+|String
+|Timestamp of the current status
+
+|*sentDateTime*
+|String
+|When the envelope was sent
+
+|*completedDateTime*
+|String
+|When the envelope was completed
+
+|*declinedDateTime*
+|String
+|When the envelope was declined
+
+|*voidedDateTime*
+|String
+|When the envelope was voided
+
+|*voidedReason*
+|String
+|Reason for voiding
+
+|*expireDateTime*
+|String
+|When the envelope expires
+
+|*recipientCount*
+|Integer
+|Number of recipients
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== List Recipients (`docusign-list-recipients`)
+
+List all recipients of an envelope and their signing status.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*envelopeId*
+|Yes
+|ID of the envelope
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*recipients*
+|String
+|JSON representation of recipients
+
+|*signerCount*
+|Integer
+|Total number of signers
+
+|*completedSignerCount*
+|Integer
+|Number of signers who have completed
+
+|*allSignersDone*
+|Boolean
+|Whether all signers have completed
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Download Document (`docusign-download-document`)
+
+Download a signed document from an envelope.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*envelopeId*
+|Yes
+|ID of the envelope
+|--
+
+|*documentId*
+|No
+|ID of the document to download (use `combined` for all documents)
+|combined
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*documentContent*
+|String
+|Base64-encoded document content
+
+|*documentName*
+|String
+|Document file name
+
+|*contentType*
+|String
+|MIME type of the document
+
+|*contentLength*
+|Long
+|Document size in bytes
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Void Envelope (`docusign-void-envelope`)
+
+Void an in-progress envelope.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*envelopeId*
+|Yes
+|ID of the envelope to void
+|--
+
+|*voidedReason*
+|Yes
+|Reason for voiding the envelope
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*envelopeId*
+|String
+|ID of the voided envelope
+
+|*envelopeStatus*
+|String
+|Updated status of the envelope
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Error handling
+
+All operations set `success=false` and populate `errorMessage` on failure. Error messages are truncated to 1000 characters to prevent database column overflow in Bonita.
+
+[caption=HTTP error handling]
+|===
+|HTTP Code |Behavior
+
+|200/201
+|Success -- parse response and populate outputs
+
+|400
+|Bad request -- invalid parameters or document
+
+|401
+|Unauthorized -- invalid JWT credentials
+
+|403
+|Forbidden -- user consent not granted
+
+|404
+|Not found -- envelope or document does not exist
+
+|429
+|Rate limited -- too many requests
+
+|5xx
+|Server error -- DocuSign service unavailable
+|===
+
+== Source code
+
+The connector source code is available on GitHub: https://github.com/bonitasoft/bonita-connector-docusign[bonita-connector-docusign]

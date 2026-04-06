@@ -1,0 +1,390 @@
+= Twilio connectors
+:description: The Bonita Twilio connectors let you send SMS messages, make phone calls, verify phone numbers, and look up phone information directly from your Bonita processes.
+
+{description}
+
+The Bonita Twilio Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+[WARNING]
+====
+This connector is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-twilio/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+
+We are eager to collaborate with early adopters to bring this connector to General Availability.
+====
+
+== Overview
+
+The Twilio connector provides six operations:
+
+* **Send SMS** -- send an SMS message
+* **Send Verification** -- send a verification code via SMS or voice
+* **Check Verification** -- verify a code submitted by the user
+* **Get Message Status** -- check the delivery status of a sent message
+* **Make Call** -- initiate an outbound phone call
+* **Lookup Phone** -- look up phone number information
+
+Authentication uses **HTTP Basic Auth** with Account SID and Auth Token.
+
+== Getting started
+
+Add the connector as an extension dependency to your Bonita project. Import the `.jar` file via *Import from file* in Bonita Studio.
+
+=== Connection configuration (shared by all operations)
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*accountSid*
+|Yes
+|Twilio Account SID
+|--
+
+|*authToken*
+|Yes
+|Twilio Auth Token
+|--
+
+|*fromNumber*
+|Conditional
+|Twilio phone number to send from (required for SMS and calls)
+|--
+
+|*connectTimeout*
+|No
+|Connection timeout in milliseconds
+|30000
+
+|*readTimeout*
+|No
+|Read timeout in milliseconds
+|60000
+|===
+
+== Send SMS (`twilio-send-sms`)
+
+Send an SMS message to a phone number.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*toNumber*
+|Yes
+|Recipient phone number in E.164 format
+|--
+
+|*body*
+|Yes
+|Message body text
+|--
+
+|*statusCallback*
+|No
+|URL to receive delivery status webhooks
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*messageSid*
+|String
+|Unique identifier of the sent message
+
+|*messageStatus*
+|String
+|Current status of the message
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Send Verification (`twilio-send-verification`)
+
+Send a verification code to a phone number using Twilio Verify.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*toNumber*
+|Yes
+|Phone number to verify in E.164 format
+|--
+
+|*channel*
+|No
+|Verification channel: `sms` or `call`
+|sms
+
+|*verifyServiceSid*
+|Yes
+|Twilio Verify Service SID
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*verificationSid*
+|String
+|Unique identifier of the verification
+
+|*verificationStatus*
+|String
+|Status of the verification
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Check Verification (`twilio-check-verification`)
+
+Verify a code submitted by a user.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*toNumber*
+|Yes
+|Phone number that was verified
+|--
+
+|*code*
+|Yes
+|Verification code entered by the user
+|--
+
+|*verifyServiceSid*
+|Yes
+|Twilio Verify Service SID
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*verificationStatus*
+|String
+|Status of the verification check
+
+|*isValid*
+|Boolean
+|Whether the code is valid
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Get Message Status (`twilio-get-message-status`)
+
+Check the delivery status of a previously sent message.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*messageSid*
+|Yes
+|SID of the message to check
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*messageStatus*
+|String
+|Current delivery status
+
+|*errorCode*
+|Integer
+|Error code if delivery failed
+
+|*dateSent*
+|String
+|Date and time the message was sent
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Make Call (`twilio-make-call`)
+
+Initiate an outbound phone call.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*toNumber*
+|Yes
+|Phone number to call in E.164 format
+|--
+
+|*twimlUrl*
+|No
+|URL returning TwiML instructions for the call
+|--
+
+|*twimlBody*
+|No
+|Inline TwiML instructions
+|--
+
+|*timeout*
+|No
+|Ring timeout in seconds
+|30
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*callSid*
+|String
+|Unique identifier of the call
+
+|*callStatus*
+|String
+|Current status of the call
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Lookup Phone (`twilio-lookup-phone`)
+
+Look up information about a phone number.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*phoneNumber*
+|Yes
+|Phone number to look up
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*phoneNumber*
+|String
+|Formatted phone number
+
+|*countryCode*
+|String
+|Country code
+
+|*carrierName*
+|String
+|Carrier name
+
+|*lineType*
+|String
+|Line type (mobile, landline, voip)
+
+|*isValid*
+|Boolean
+|Whether the phone number is valid
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Error handling
+
+All operations set `success=false` and populate `errorMessage` on failure. Error messages are truncated to 1000 characters to prevent database column overflow in Bonita.
+
+[caption=HTTP error handling]
+|===
+|HTTP Code |Behavior
+
+|200/201
+|Success -- parse response and populate outputs
+
+|400
+|Bad request -- invalid phone number or parameters
+
+|401
+|Unauthorized -- invalid Account SID or Auth Token
+
+|404
+|Not found -- resource does not exist
+
+|429
+|Rate limited -- too many requests
+
+|5xx
+|Server error -- Twilio service unavailable
+|===
+
+== Source code
+
+The connector source code is available on GitHub: https://github.com/bonitasoft/bonita-connector-twilio[bonita-connector-twilio]

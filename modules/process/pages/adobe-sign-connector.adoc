@@ -1,0 +1,465 @@
+= Adobe Sign connectors
+:description: The Bonita Adobe Sign connectors let you create, track, and manage electronic signature agreements directly from your Bonita processes.
+
+{description}
+
+The Bonita Adobe Sign Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+[WARNING]
+====
+This connector is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-adobe-sign/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+
+We are eager to collaborate with early adopters to bring this connector to General Availability.
+====
+
+== Overview
+
+The Adobe Sign connector provides six operations:
+
+* **Create Agreement** -- upload a document and send it for signature
+* **Create from Template** -- create an agreement from a library template
+* **Get Agreement Status** -- retrieve the current status of an agreement
+* **List Participants** -- list all participants and their signing status
+* **Download Document** -- download the signed document
+* **Cancel Agreement** -- cancel an in-progress agreement
+
+== Getting started
+
+Add the connector as an extension dependency to your Bonita project. Import the `.jar` file via *Import from file* in Bonita Studio.
+
+=== Connection configuration (shared by all operations)
+
+All operations share connection parameters for authenticating with Adobe Sign. Two authentication modes are supported: **Integration Key** (API key) and **OAuth2** (client credentials with refresh token).
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*authMode*
+|Yes
+|Authentication mode: `INTEGRATION_KEY` or `OAUTH2`
+|INTEGRATION_KEY
+
+|*integrationKey*
+|Conditional
+|Adobe Sign Integration Key (required when authMode is INTEGRATION_KEY)
+|--
+
+|*clientId*
+|Conditional
+|OAuth2 client ID (required when authMode is OAUTH2)
+|--
+
+|*clientSecret*
+|Conditional
+|OAuth2 client secret (required when authMode is OAUTH2)
+|--
+
+|*refreshToken*
+|Conditional
+|OAuth2 refresh token (required when authMode is OAUTH2)
+|--
+
+|*region*
+|No
+|Adobe Sign data center region (na1, na2, eu1, eu2, jp1, au1)
+|na1
+
+|*baseUrl*
+|No
+|Custom base URL (overrides region if set)
+|--
+
+|*connectTimeout*
+|No
+|Connection timeout in milliseconds
+|30000
+
+|*readTimeout*
+|No
+|Read timeout in milliseconds
+|60000
+|===
+
+== Create Agreement (`adobesign-create-agreement`)
+
+Upload a document and send it for electronic signature.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*documentBase64*
+|Yes
+|Base64-encoded document content
+|--
+
+|*documentName*
+|Yes
+|Name of the document file
+|--
+
+|*agreementName*
+|Yes
+|Display name for the agreement
+|--
+
+|*signerEmail*
+|Yes
+|Primary signer email address
+|--
+
+|*additionalParticipantSets*
+|No
+|Additional participant sets as JSON
+|--
+
+|*ccEmails*
+|No
+|CC email addresses (comma-separated)
+|--
+
+|*emailSubject*
+|No
+|Custom email subject line
+|--
+
+|*message*
+|No
+|Custom message to include in the email
+|--
+
+|*signatureType*
+|No
+|Signature type: `ESIGN` or `WRITTEN`
+|ESIGN
+
+|*expirationDays*
+|No
+|Number of days until the agreement expires
+|--
+
+|*reminderFrequency*
+|No
+|Reminder frequency (e.g., DAILY_UNTIL_SIGNED)
+|--
+
+|*locale*
+|No
+|Locale for the signing experience
+|en_US
+
+|*signatureFlow*
+|No
+|Signing order (e.g., SENDER_SIGNS_LAST, SEQUENTIAL, PARALLEL)
+|SENDER_SIGNS_LAST
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*agreementId*
+|String
+|Unique identifier of the created agreement
+
+|*agreementStatus*
+|String
+|Current status of the agreement
+
+|*transientDocumentId*
+|String
+|ID of the uploaded transient document
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Create from Template (`adobesign-create-from-template`)
+
+Create an agreement from an existing Adobe Sign library template.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*libraryDocumentId*
+|Yes
+|ID of the library document template
+|--
+
+|*agreementName*
+|Yes
+|Display name for the agreement
+|--
+
+|*signerEmail*
+|Yes
+|Primary signer email address
+|--
+
+|*mergeFieldInfo*
+|No
+|Merge field values as JSON
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*agreementId*
+|String
+|Unique identifier of the created agreement
+
+|*agreementStatus*
+|String
+|Current status of the agreement
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Get Agreement Status (`adobesign-get-agreement-status`)
+
+Retrieve the current status and details of an agreement.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*agreementId*
+|Yes
+|ID of the agreement to check
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*agreementStatus*
+|String
+|Current status of the agreement
+
+|*agreementName*
+|String
+|Name of the agreement
+
+|*createdDate*
+|String
+|Date the agreement was created
+
+|*expirationDate*
+|String
+|Date the agreement expires
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== List Participants (`adobesign-list-participants`)
+
+List all participants of an agreement and their signing status.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*agreementId*
+|Yes
+|ID of the agreement
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*participantSets*
+|String
+|JSON representation of participant sets
+
+|*signerCount*
+|Integer
+|Total number of signers
+
+|*completedSignerCount*
+|Integer
+|Number of signers who have completed signing
+
+|*allSignersDone*
+|Boolean
+|Whether all signers have completed
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Download Document (`adobesign-download-document`)
+
+Download the signed document from a completed agreement.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*agreementId*
+|Yes
+|ID of the agreement to download
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*documentContent*
+|String
+|Base64-encoded document content
+
+|*documentName*
+|String
+|Name of the downloaded document
+
+|*contentType*
+|String
+|MIME type of the document
+
+|*contentLength*
+|Long
+|Size of the document in bytes
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Cancel Agreement (`adobesign-cancel-agreement`)
+
+Cancel an in-progress agreement.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*agreementId*
+|Yes
+|ID of the agreement to cancel
+|--
+
+|*comment*
+|No
+|Cancellation reason
+|--
+
+|*notifyParticipants*
+|No
+|Whether to notify participants of the cancellation
+|true
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*agreementId*
+|String
+|ID of the cancelled agreement
+
+|*agreementStatus*
+|String
+|Updated status of the agreement
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Error handling
+
+All operations set `success=false` and populate `errorMessage` on failure. Error messages are truncated to 1000 characters to prevent database column overflow in Bonita.
+
+[caption=HTTP error handling]
+|===
+|HTTP Code |Behavior
+
+|200/201
+|Success -- parse response and populate outputs
+
+|400
+|Bad request -- invalid parameters or malformed request
+
+|401
+|Unauthorized -- invalid or expired credentials
+
+|403
+|Forbidden -- insufficient permissions
+
+|404
+|Not found -- agreement or document does not exist
+
+|429
+|Rate limited -- too many requests
+
+|5xx
+|Server error -- Adobe Sign service unavailable
+|===
+
+== Source code
+
+The connector source code is available on GitHub: https://github.com/bonitasoft/bonita-connector-adobe-sign[bonita-connector-adobe-sign]

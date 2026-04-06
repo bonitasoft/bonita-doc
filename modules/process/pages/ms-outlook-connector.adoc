@@ -1,0 +1,626 @@
+= Microsoft Outlook connectors
+:description: The Bonita Microsoft Outlook connectors let you send emails, read inbox messages, create calendar events, and manage email templates using Microsoft Graph API directly from your Bonita processes.
+
+{description}
+
+The Bonita Microsoft Outlook Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+[WARNING]
+====
+This connector is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-ms-outlook/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+
+We are eager to collaborate with early adopters to bring this connector to General Availability.
+====
+
+== Overview
+
+The Microsoft Outlook connector provides six operations:
+
+* **Send Email** -- send an email via Microsoft Graph
+* **Send Actionable** -- send an Outlook Actionable Message with embedded card
+* **Read Inbox** -- read messages from a mailbox folder
+* **Get Email** -- retrieve full details of a specific email
+* **Create Event** -- create a calendar event
+* **Send Template** -- send a templated email with variable substitution
+
+Authentication uses **Azure AD app registration** with client credentials (tenant ID, client ID, client secret).
+
+== Getting started
+
+Add the connector as an extension dependency to your Bonita project. Import the `.jar` file via *Import from file* in Bonita Studio.
+
+=== Connection configuration (shared by all operations)
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*tenantId*
+|Yes
+|Azure AD tenant ID
+|--
+
+|*clientId*
+|Yes
+|Azure AD application (client) ID
+|--
+
+|*clientSecret*
+|Yes
+|Azure AD client secret
+|--
+
+|*senderUserId*
+|Yes
+|User ID or email of the sender
+|--
+
+|*basePath*
+|No
+|Microsoft Graph API base URL
+|https://graph.microsoft.com/v1.0
+
+|*connectTimeout*
+|No
+|Connection timeout in milliseconds
+|30000
+
+|*readTimeout*
+|No
+|Read timeout in milliseconds
+|60000
+|===
+
+== Send Email (`outlook-send-email`)
+
+Send an email using Microsoft Graph.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*toRecipients*
+|Yes
+|Recipient email addresses (comma-separated or JSON)
+|--
+
+|*ccRecipients*
+|No
+|CC recipients
+|--
+
+|*bccRecipients*
+|No
+|BCC recipients
+|--
+
+|*replyTo*
+|No
+|Reply-To address
+|--
+
+|*emailSubject*
+|Yes
+|Email subject
+|--
+
+|*emailBody*
+|Yes
+|Email body content
+|--
+
+|*bodyContentType*
+|No
+|Body content type: html or text
+|html
+
+|*importance*
+|No
+|Email importance: low, normal, or high
+|normal
+
+|*attachments*
+|No
+|JSON array of base64-encoded attachments
+|--
+
+|*saveToSentItems*
+|No
+|Whether to save to Sent Items
+|true
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*messageId*
+|String
+|ID of the sent message
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Send Actionable (`outlook-send-actionable`)
+
+Send an Outlook Actionable Message with an embedded adaptive card.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*toRecipients*
+|Yes
+|Recipient email addresses
+|--
+
+|*ccRecipients*
+|No
+|CC recipients
+|--
+
+|*emailSubject*
+|Yes
+|Email subject
+|--
+
+|*emailBodyFallback*
+|Yes
+|Fallback body for clients that do not support actionable messages
+|--
+
+|*cardTitle*
+|Yes
+|Adaptive card title
+|--
+
+|*cardBody*
+|Yes
+|Adaptive card body content
+|--
+
+|*actions*
+|Yes
+|JSON array of card actions
+|--
+
+|*callbackUrl*
+|Yes
+|URL to handle action callbacks
+|--
+
+|*originator*
+|Yes
+|Actionable email originator ID
+|--
+
+|*importance*
+|No
+|Email importance
+|normal
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*messageId*
+|String
+|ID of the sent message
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Read Inbox (`outlook-read-inbox`)
+
+Read messages from a mailbox folder with filtering and pagination.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*folderId*
+|No
+|Folder ID or well-known name
+|inbox
+
+|*filter*
+|No
+|OData filter expression
+|--
+
+|*orderBy*
+|No
+|Sort order
+|receivedDateTime desc
+
+|*top*
+|No
+|Maximum messages to return
+|10
+
+|*skip*
+|No
+|Number of messages to skip
+|0
+
+|*select*
+|No
+|Fields to include
+|id,subject,from,receivedDateTime,bodyPreview,isRead,hasAttachments
+
+|*markAsRead*
+|No
+|Whether to mark fetched messages as read
+|false
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*messages*
+|String
+|JSON array of messages
+
+|*messageCount*
+|Integer
+|Number of messages returned
+
+|*totalCount*
+|Integer
+|Total messages in the folder
+
+|*nextLink*
+|String
+|URL for the next page
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Get Email (`outlook-get-email`)
+
+Retrieve full details of a specific email.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*messageId*
+|Yes
+|ID of the message to retrieve
+|--
+
+|*includeAttachments*
+|No
+|Whether to include attachment data
+|false
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*messageId*
+|String
+|Message ID
+
+|*subject*
+|String
+|Email subject
+
+|*fromEmail*
+|String
+|Sender email address
+
+|*fromName*
+|String
+|Sender display name
+
+|*toRecipients*
+|String
+|To recipients
+
+|*ccRecipients*
+|String
+|CC recipients
+
+|*receivedDateTime*
+|String
+|When the email was received
+
+|*bodyContent*
+|String
+|Email body content
+
+|*bodyContentType*
+|String
+|Body content type
+
+|*isRead*
+|Boolean
+|Whether the email is read
+
+|*hasAttachments*
+|Boolean
+|Whether the email has attachments
+
+|*attachments*
+|String
+|JSON array of attachments
+
+|*importance*
+|String
+|Email importance level
+
+|*conversationId*
+|String
+|Conversation thread ID
+
+|*internetMessageId*
+|String
+|Internet Message-ID header
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Create Event (`outlook-create-event`)
+
+Create a calendar event in Outlook.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*eventSubject*
+|Yes
+|Event subject
+|--
+
+|*eventBody*
+|No
+|Event description body
+|--
+
+|*startDateTime*
+|Yes
+|Start date/time (ISO 8601)
+|--
+
+|*endDateTime*
+|Yes
+|End date/time (ISO 8601)
+|--
+
+|*timeZone*
+|No
+|Time zone
+|Europe/Madrid
+
+|*isAllDay*
+|No
+|Whether it is an all-day event
+|false
+
+|*attendees*
+|No
+|JSON array of attendee emails
+|--
+
+|*location*
+|No
+|Event location
+|--
+
+|*isOnlineMeeting*
+|No
+|Whether to create an online meeting
+|false
+
+|*reminderMinutes*
+|No
+|Reminder time in minutes before the event
+|15
+
+|*recurrence*
+|No
+|Recurrence pattern as JSON
+|--
+
+|*categories*
+|No
+|Event categories
+|--
+
+|*importance*
+|No
+|Event importance: low, normal, or high
+|normal
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*eventId*
+|String
+|ID of the created event
+
+|*iCalUId*
+|String
+|iCalendar unique ID
+
+|*webLink*
+|String
+|Web link to the event
+
+|*onlineMeetingUrl*
+|String
+|Online meeting URL (if created)
+
+|*createdDateTime*
+|String
+|Creation timestamp
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Send Template (`outlook-send-template`)
+
+Send a templated email with variable substitution.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*toRecipients*
+|Yes
+|Recipient email addresses
+|--
+
+|*ccRecipients*
+|No
+|CC recipients
+|--
+
+|*emailSubject*
+|Yes
+|Email subject (supports variables)
+|--
+
+|*templateHtml*
+|Yes
+|HTML template with placeholders
+|--
+
+|*templateVariables*
+|Yes
+|JSON object of variable values
+|--
+
+|*importance*
+|No
+|Email importance
+|normal
+
+|*attachments*
+|No
+|JSON array of attachments
+|--
+
+|*saveToSentItems*
+|No
+|Whether to save to Sent Items
+|true
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*messageId*
+|String
+|ID of the sent message
+
+|*renderedSubject*
+|String
+|Subject after variable substitution
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Error handling
+
+All operations set `success=false` and populate `errorMessage` on failure. Error messages are truncated to 1000 characters to prevent database column overflow in Bonita.
+
+[caption=HTTP error handling]
+|===
+|HTTP Code |Behavior
+
+|200/202
+|Success -- parse response and populate outputs
+
+|400
+|Bad request -- invalid parameters
+
+|401
+|Unauthorized -- invalid Azure AD credentials
+
+|403
+|Forbidden -- insufficient API permissions
+
+|404
+|Not found -- message or folder does not exist
+
+|429
+|Rate limited -- too many requests
+
+|5xx
+|Server error -- Microsoft Graph service unavailable
+|===
+
+== Source code
+
+The connector source code is available on GitHub: https://github.com/bonitasoft/bonita-connector-ms-outlook[bonita-connector-ms-outlook]

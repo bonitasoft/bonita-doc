@@ -1,0 +1,441 @@
+= Workday HCM connectors
+:description: The Bonita Workday HCM connectors let you manage workers, search employees, and interact with Workday business processes directly from your Bonita processes.
+
+{description}
+
+The Bonita Workday HCM Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+[WARNING]
+====
+This connector is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-workday/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+
+We are eager to collaborate with early adopters to bring this connector to General Availability.
+====
+
+== Overview
+
+The Workday HCM connector provides six operations:
+
+* **Get Worker** -- retrieve detailed information about a worker
+* **Search Workers** -- search for workers using queries or filters
+* **Create Worker** -- create a new worker (hire)
+* **Update Worker** -- update worker information
+* **Get Business Process** -- check the status of a Workday business process
+* **Submit Event** -- submit an HR event (e.g., termination, transfer, promotion)
+
+Authentication uses **OAuth2** with client credentials and a refresh token.
+
+== Getting started
+
+Add the connector as an extension dependency to your Bonita project. Import the `.jar` file via *Import from file* in Bonita Studio.
+
+=== Connection configuration (shared by all operations)
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*clientId*
+|Yes
+|Workday OAuth2 client ID
+|--
+
+|*clientSecret*
+|Yes
+|Workday OAuth2 client secret
+|--
+
+|*refreshToken*
+|Yes
+|Workday OAuth2 refresh token
+|--
+
+|*tenantAlias*
+|Yes
+|Workday tenant alias
+|--
+
+|*basePath*
+|No
+|Custom API base path
+|--
+
+|*tokenEndpoint*
+|No
+|Custom OAuth2 token endpoint
+|--
+
+|*connectTimeout*
+|No
+|Connection timeout in milliseconds
+|30000
+
+|*readTimeout*
+|No
+|Read timeout in milliseconds
+|60000
+|===
+
+== Get Worker (`workday-get-worker`)
+
+Retrieve detailed information about a specific worker.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*workerId*
+|Yes
+|Workday worker ID
+|--
+
+|*includePersonalData*
+|No
+|Whether to include personal data
+|true
+
+|*includeEmploymentData*
+|No
+|Whether to include employment data
+|true
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*workerData*
+|String
+|JSON representation of worker data
+
+|*workerDataMap*
+|Map
+|Worker data as a key-value map
+
+|*fullName*
+|String
+|Worker full name
+
+|*employeeId*
+|String
+|Employee ID
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Search Workers (`workday-search-workers`)
+
+Search for workers using text queries, WQL, or organizational filters.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*searchQuery*
+|No
+|Text search query
+|--
+
+|*wqlQuery*
+|No
+|Workday Query Language (WQL) expression
+|--
+
+|*supervisoryOrganization*
+|No
+|Filter by supervisory organization
+|--
+
+|*limit*
+|No
+|Maximum number of results
+|50
+
+|*offset*
+|No
+|Pagination offset
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*workers*
+|String
+|JSON array of matching workers
+
+|*workersList*
+|List
+|List of worker objects
+
+|*totalCount*
+|Integer
+|Total number of matching workers
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Create Worker (`workday-create-worker`)
+
+Create a new worker record (hire) in Workday.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*workerData*
+|Yes
+|JSON object with worker details
+|--
+
+|*hireDate*
+|Yes
+|Hire date (ISO 8601 format)
+|--
+
+|*workerType*
+|Yes
+|Worker type: `Employee` or `Contingent_Worker`
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*workerId*
+|String
+|ID of the created worker
+
+|*employeeId*
+|String
+|Employee ID assigned
+
+|*responseBody*
+|String
+|Full JSON response
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Update Worker (`workday-update-worker`)
+
+Update an existing worker's information.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*workerId*
+|Yes
+|ID of the worker to update
+|--
+
+|*updateData*
+|Yes
+|JSON object with fields to update
+|--
+
+|*effectiveDate*
+|No
+|Effective date of the change
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*workerId*
+|String
+|ID of the updated worker
+
+|*responseBody*
+|String
+|Full JSON response
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Get Business Process (`workday-get-business-process`)
+
+Check the status of a Workday business process.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*processId*
+|Yes
+|ID of the business process
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*processStatus*
+|String
+|Current status of the business process
+
+|*currentStep*
+|String
+|Current step in the process
+
+|*responseBody*
+|String
+|Full JSON response
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Submit Event (`workday-submit-event`)
+
+Submit an HR event such as a compensation change, termination, transfer, or promotion.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*eventType*
+|Yes
+|Type of event (Compensation_Change, Termination, Transfer, Promotion, Job_Change)
+|--
+
+|*workerId*
+|Yes
+|ID of the worker
+|--
+
+|*eventData*
+|Yes
+|JSON object with event-specific data
+|--
+
+|*effectiveDate*
+|Yes
+|Effective date of the event
+|--
+
+|*reason*
+|No
+|Reason for the event
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*processId*
+|String
+|ID of the initiated business process
+
+|*processStatus*
+|String
+|Status of the business process
+
+|*responseBody*
+|String
+|Full JSON response
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Error handling
+
+All operations set `success=false` and populate `errorMessage` on failure. Error messages are truncated to 1000 characters to prevent database column overflow in Bonita.
+
+[caption=HTTP error handling]
+|===
+|HTTP Code |Behavior
+
+|200/201
+|Success -- parse response and populate outputs
+
+|400
+|Bad request -- invalid parameters
+
+|401
+|Unauthorized -- invalid or expired credentials
+
+|403
+|Forbidden -- insufficient permissions
+
+|404
+|Not found -- worker or process not found
+
+|429
+|Rate limited -- too many requests
+
+|5xx
+|Server error -- Workday service unavailable
+|===
+
+== Source code
+
+The connector source code is available on GitHub: https://github.com/bonitasoft/bonita-connector-workday[bonita-connector-workday]

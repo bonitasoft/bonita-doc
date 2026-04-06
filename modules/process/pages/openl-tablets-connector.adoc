@@ -1,0 +1,237 @@
+= OpenL Tablets connectors
+:description: The Bonita OpenL Tablets connectors let you execute business rules, list available services, and discover rule methods from an OpenL Tablets server directly from your Bonita processes.
+
+{description}
+
+The Bonita OpenL Tablets Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+[WARNING]
+====
+This connector is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-openl-tablets/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+
+We are eager to collaborate with early adopters to bring this connector to General Availability.
+====
+
+== Overview
+
+The OpenL Tablets connector provides three operations:
+
+* **Execute Rule** -- execute a specific business rule method on OpenL Tablets
+* **List Services** -- list all deployed services
+* **List Methods** -- list all methods available in a service
+
+Authentication supports **Basic Auth** and **Bearer Token** modes.
+
+== Getting started
+
+Add the connector as an extension dependency to your Bonita project. Import the `.jar` file via *Import from file* in Bonita Studio.
+
+=== Connection configuration (shared by all operations)
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*authMode*
+|No
+|Authentication mode: BASIC or BEARER
+|BASIC
+
+|*baseUrl*
+|Yes
+|OpenL Tablets server base URL
+|--
+
+|*username*
+|Conditional
+|Username (required for BASIC auth)
+|--
+
+|*password*
+|Conditional
+|Password (required for BASIC auth)
+|--
+
+|*bearerToken*
+|Conditional
+|Bearer token (required for BEARER auth)
+|--
+
+|*connectTimeout*
+|No
+|Connection timeout in milliseconds
+|30000
+
+|*readTimeout*
+|No
+|Read timeout in milliseconds
+|60000
+
+|*trustAllCertificates*
+|No
+|Whether to trust all SSL certificates (for development)
+|--
+
+|*customTrustStorePath*
+|No
+|Path to a custom trust store
+|--
+
+|*customTrustStorePassword*
+|No
+|Password for the custom trust store
+|--
+|===
+
+== Execute Rule (`openl-execute-rule`)
+
+Execute a specific business rule method on the OpenL Tablets server.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*serviceName*
+|Yes
+|Name of the deployed service
+|--
+
+|*methodName*
+|Yes
+|Name of the method to execute
+|--
+
+|*httpMethod*
+|No
+|HTTP method to use: POST, GET, or PUT
+|POST
+
+|*requestBody*
+|No
+|JSON request body with rule input data
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*responseBody*
+|String
+|JSON response from the rule execution
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== List Services (`openl-list-services`)
+
+List all deployed services on the OpenL Tablets server.
+
+=== Input parameters
+
+This operation uses only the shared connection parameters.
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*servicesJson*
+|String
+|JSON array of available services
+
+|*serviceCount*
+|Integer
+|Number of services found
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== List Methods (`openl-list-methods`)
+
+List all methods available in a specific service.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*serviceName*
+|Yes
+|Name of the service to inspect
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*methodsJson*
+|String
+|JSON array of available methods
+
+|*methodCount*
+|Integer
+|Number of methods found
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Error handling
+
+All operations set `success=false` and populate `errorMessage` on failure. Error messages are truncated to 1000 characters to prevent database column overflow in Bonita.
+
+[caption=HTTP error handling]
+|===
+|HTTP Code |Behavior
+
+|200
+|Success -- parse response and populate outputs
+
+|400
+|Bad request -- invalid rule input or method name
+
+|401
+|Unauthorized -- invalid credentials
+
+|404
+|Not found -- service or method does not exist
+
+|422
+|Unprocessable -- rule validation errors
+
+|5xx
+|Server error -- OpenL Tablets server unavailable
+|===
+
+== Source code
+
+The connector source code is available on GitHub: https://github.com/bonitasoft/bonita-connector-openl-tablets[bonita-connector-openl-tablets]
