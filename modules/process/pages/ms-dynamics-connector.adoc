@@ -1,4 +1,5 @@
 = Microsoft Dynamics 365 connectors
+:page-aliases: ROOT:ms-dynamics-connector.adoc
 :description: The Bonita Microsoft Dynamics 365 connectors let you create, read, update, query, and delete entities in Dynamics 365 CRM directly from your Bonita processes.
 
 {description}

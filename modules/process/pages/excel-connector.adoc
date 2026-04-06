@@ -1,4 +1,5 @@
 = Microsoft Excel connectors
+:page-aliases: ROOT:excel-connector.adoc
 :description: The Bonita Microsoft Excel connectors let you read and write data in Excel spreadsheets (.xlsx) directly from your Bonita processes using Bonita documents.
 
 {description}

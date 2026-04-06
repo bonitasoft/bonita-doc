@@ -1,4 +1,5 @@
 = Twilio connectors
+:page-aliases: ROOT:twilio-connector.adoc
 :description: The Bonita Twilio connectors let you send SMS messages, make phone calls, verify phone numbers, and look up phone information directly from your Bonita processes.
 
 {description}

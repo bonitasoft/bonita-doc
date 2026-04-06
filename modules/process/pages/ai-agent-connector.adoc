@@ -1,4 +1,5 @@
 = AI Agent Orchestrator connectors
+:page-aliases: ROOT:ai-agent-connector.adoc
 :description: The Bonita AI Agent Orchestrator connectors let you execute AI agents with tool-use capabilities, manage agent execution lifecycle, and retrieve execution traces directly from your Bonita processes.
 
 {description}

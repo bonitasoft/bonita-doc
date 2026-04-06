@@ -1,4 +1,5 @@
 = ServiceNow connectors
+:page-aliases: ROOT:servicenow-connector.adoc
 :description: The Bonita ServiceNow connectors let you create and manage incidents, change requests, and generic records in ServiceNow directly from your Bonita processes.
 
 {description}

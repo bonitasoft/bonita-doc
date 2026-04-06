@@ -1,4 +1,5 @@
 = Email Reader (IMAP) connectors
+:page-aliases: ROOT:email-reader-connector.adoc
 :description: The Bonita Email Reader connectors let you read emails, search messages, download attachments, and manage read status via IMAP directly from your Bonita processes.
 
 {description}

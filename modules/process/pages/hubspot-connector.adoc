@@ -1,4 +1,5 @@
 = HubSpot CRM connectors
+:page-aliases: ROOT:hubspot-connector.adoc
 :description: The Bonita HubSpot CRM connectors let you manage deals and contacts in HubSpot directly from your Bonita processes.
 
 {description}

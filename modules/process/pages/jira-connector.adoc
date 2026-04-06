@@ -1,4 +1,5 @@
 = JIRA / Confluence connectors
+:page-aliases: ROOT:jira-connector.adoc
 :description: The Bonita JIRA / Confluence connectors let you create, update, search, and transition JIRA issues, add comments, and create Confluence pages directly from your Bonita processes.
 
 {description}

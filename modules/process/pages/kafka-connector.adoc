@@ -1,4 +1,5 @@
 = Kafka / RabbitMQ connectors
+:page-aliases: ROOT:kafka-connector.adoc
 :description: The Bonita Kafka / RabbitMQ connectors let you produce and consume messages from Apache Kafka and RabbitMQ brokers directly from your Bonita processes.
 
 {description}

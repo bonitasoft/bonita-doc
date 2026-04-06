@@ -1,4 +1,5 @@
 = OpenL Tablets connectors
+:page-aliases: ROOT:openl-tablets-connector.adoc
 :description: The Bonita OpenL Tablets connectors let you execute business rules, list available services, and discover rule methods from an OpenL Tablets server directly from your Bonita processes.
 
 {description}

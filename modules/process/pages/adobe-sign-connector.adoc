@@ -1,4 +1,5 @@
 = Adobe Sign connectors
+:page-aliases: ROOT:adobe-sign-connector.adoc
 :description: The Bonita Adobe Sign connectors let you create, track, and manage electronic signature agreements directly from your Bonita processes.
 
 {description}

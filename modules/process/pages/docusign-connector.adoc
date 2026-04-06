@@ -1,4 +1,5 @@
 = DocuSign eSignature connectors
+:page-aliases: ROOT:docusign-connector.adoc
 :description: The Bonita DocuSign eSignature connectors let you send documents for signature, track envelope status, manage recipients, and download signed documents directly from your Bonita processes.
 
 {description}

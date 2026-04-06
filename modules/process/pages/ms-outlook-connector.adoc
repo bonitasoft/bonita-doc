@@ -1,4 +1,5 @@
 = Microsoft Outlook connectors
+:page-aliases: ROOT:ms-outlook-connector.adoc
 :description: The Bonita Microsoft Outlook connectors let you send emails, read inbox messages, create calendar events, and manage email templates using Microsoft Graph API directly from your Bonita processes.
 
 {description}

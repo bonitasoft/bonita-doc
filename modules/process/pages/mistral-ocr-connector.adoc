@@ -1,4 +1,5 @@
 = Mistral OCR connectors
+:page-aliases: ROOT:mistral-ocr-connector.adoc
 :description: The Bonita Mistral OCR connectors let you extract text, structured fields, tables, and classify documents using Mistral AI vision models directly from your Bonita processes.
 
 {description}

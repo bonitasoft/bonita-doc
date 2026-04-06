@@ -1,4 +1,5 @@
 = Zendesk connectors
+:page-aliases: ROOT:zendesk-connector.adoc
 :description: The Bonita Zendesk connectors let you create, update, search tickets, add comments, and manage support workflows directly from your Bonita processes.
 
 {description}

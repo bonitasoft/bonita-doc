@@ -1,4 +1,5 @@
 = Workday HCM connectors
+:page-aliases: ROOT:workday-connector.adoc
 :description: The Bonita Workday HCM connectors let you manage workers, search employees, and interact with Workday business processes directly from your Bonita processes.
 
 {description}
