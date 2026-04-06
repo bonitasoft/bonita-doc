@@ -1,0 +1,666 @@
+= ServiceNow connectors
+:page-aliases: ROOT:servicenow-connector.adoc
+:description: The Bonita ServiceNow connectors let you create and manage incidents, change requests, and generic records in ServiceNow directly from your Bonita processes.
+
+{description}
+
+The Bonita ServiceNow Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+[WARNING]
+====
+This connector is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-servicenow/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+
+We are eager to collaborate with early adopters to bring this connector to General Availability.
+====
+
+== Overview
+
+The ServiceNow connector provides eight operations:
+
+* **Create Incident** -- create a new incident record
+* **Update Incident** -- update an existing incident
+* **Get Record** -- retrieve a record from any table
+* **Create Change Request** -- create a change request
+* **Query Table** -- query records from any table with filters
+* **Create Record** -- create a record in any table
+* **Update Record** -- update a record in any table
+* **Add Journal** -- add a work note or comment to a record
+
+Authentication supports **Basic Auth**, **OAuth2**, and **API Key** modes.
+
+== Getting started
+
+Add the connector as an extension dependency to your Bonita project. Import the `.jar` file via *Import from file* in Bonita Studio.
+
+=== Connection configuration (shared by all operations)
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*instanceUrl*
+|Yes
+|ServiceNow instance URL (e.g., https://myinstance.service-now.com)
+|--
+
+|*authMode*
+|No
+|Authentication mode: BASIC, OAUTH2, or API_KEY
+|BASIC
+
+|*username*
+|Conditional
+|Username (required for BASIC auth)
+|--
+
+|*password*
+|Conditional
+|Password (required for BASIC auth)
+|--
+
+|*clientId*
+|Conditional
+|OAuth2 client ID (required for OAUTH2 auth)
+|--
+
+|*clientSecret*
+|Conditional
+|OAuth2 client secret (required for OAUTH2 auth)
+|--
+
+|*apiKey*
+|Conditional
+|API key (required for API_KEY auth)
+|--
+
+|*connectTimeout*
+|No
+|Connection timeout in milliseconds
+|30000
+
+|*readTimeout*
+|No
+|Read timeout in milliseconds
+|60000
+|===
+
+== Create Incident (`servicenow-create-incident`)
+
+Create a new incident in ServiceNow.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*shortDescription*
+|Yes
+|Short description of the incident
+|--
+
+|*description*
+|No
+|Detailed description
+|--
+
+|*urgency*
+|No
+|Urgency level
+|--
+
+|*impact*
+|No
+|Impact level
+|--
+
+|*priority*
+|No
+|Priority level
+|--
+
+|*assignedTo*
+|No
+|User assigned to the incident
+|--
+
+|*category*
+|No
+|Incident category
+|--
+
+|*subcategory*
+|No
+|Incident subcategory
+|--
+
+|*callerId*
+|No
+|Caller (reporter) user ID
+|--
+
+|*additionalFieldsJson*
+|No
+|Additional fields as a JSON object
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*sysId*
+|String
+|Sys ID of the created incident
+
+|*number*
+|String
+|Incident number (e.g., INC0010001)
+
+|*responseJson*
+|String
+|Full JSON response
+
+|*statusCode*
+|Integer
+|HTTP status code
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Update Incident (`servicenow-update-incident`)
+
+Update an existing incident.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*sysId*
+|Yes
+|Sys ID of the incident to update
+|--
+
+|*shortDescription*
+|No
+|Updated short description
+|--
+
+|*description*
+|No
+|Updated description
+|--
+
+|*urgency*
+|No
+|Updated urgency
+|--
+
+|*impact*
+|No
+|Updated impact
+|--
+
+|*priority*
+|No
+|Updated priority
+|--
+
+|*assignedTo*
+|No
+|Updated assignee
+|--
+
+|*state*
+|No
+|Updated state
+|--
+
+|*additionalFieldsJson*
+|No
+|Additional fields as JSON
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*sysId*
+|String
+|Sys ID of the updated incident
+
+|*number*
+|String
+|Incident number
+
+|*responseJson*
+|String
+|Full JSON response
+
+|*statusCode*
+|Integer
+|HTTP status code
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Get Record (`servicenow-get-record`)
+
+Retrieve a single record from any ServiceNow table.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*tableName*
+|Yes
+|ServiceNow table name
+|--
+
+|*sysId*
+|Yes
+|Sys ID of the record
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*sysId*
+|String
+|Sys ID of the record
+
+|*recordJson*
+|String
+|Full JSON record data
+
+|*statusCode*
+|Integer
+|HTTP status code
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Create Change Request (`servicenow-create-change-request`)
+
+Create a new change request.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*shortDescription*
+|Yes
+|Short description of the change
+|--
+
+|*description*
+|No
+|Detailed description
+|--
+
+|*changeType*
+|No
+|Type of change
+|--
+
+|*riskLevel*
+|No
+|Risk level
+|--
+
+|*priority*
+|No
+|Priority level
+|--
+
+|*assignedTo*
+|No
+|Assigned user
+|--
+
+|*category*
+|No
+|Category
+|--
+
+|*startDate*
+|No
+|Planned start date
+|--
+
+|*endDate*
+|No
+|Planned end date
+|--
+
+|*additionalFieldsJson*
+|No
+|Additional fields as JSON
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*sysId*
+|String
+|Sys ID of the change request
+
+|*number*
+|String
+|Change request number
+
+|*responseJson*
+|String
+|Full JSON response
+
+|*statusCode*
+|Integer
+|HTTP status code
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Query Table (`servicenow-query-table`)
+
+Query records from any ServiceNow table with filters and pagination.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*tableName*
+|Yes
+|ServiceNow table name
+|--
+
+|*sysparmQuery*
+|No
+|Encoded query string
+|--
+
+|*sysparmFields*
+|No
+|Comma-separated list of fields to return
+|--
+
+|*sysparmLimit*
+|No
+|Maximum number of records
+|100
+
+|*sysparmOffset*
+|No
+|Pagination offset
+|0
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*recordsJson*
+|String
+|JSON array of records
+
+|*recordCount*
+|Integer
+|Number of records returned
+
+|*totalCount*
+|Integer
+|Total matching records
+
+|*statusCode*
+|Integer
+|HTTP status code
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Create Record (`servicenow-create-record`)
+
+Create a record in any ServiceNow table.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*tableName*
+|Yes
+|Target table name
+|--
+
+|*additionalFieldsJson*
+|Yes
+|Record data as a JSON object
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*sysId*
+|String
+|Sys ID of the created record
+
+|*responseJson*
+|String
+|Full JSON response
+
+|*statusCode*
+|Integer
+|HTTP status code
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Update Record (`servicenow-update-record`)
+
+Update a record in any ServiceNow table.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*tableName*
+|Yes
+|Table name
+|--
+
+|*sysId*
+|Yes
+|Sys ID of the record to update
+|--
+
+|*additionalFieldsJson*
+|Yes
+|Updated fields as a JSON object
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*sysId*
+|String
+|Sys ID of the updated record
+
+|*responseJson*
+|String
+|Full JSON response
+
+|*statusCode*
+|Integer
+|HTTP status code
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Add Journal (`servicenow-add-journal`)
+
+Add a work note or comment to a record.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*tableName*
+|Yes
+|Table name
+|--
+
+|*sysId*
+|Yes
+|Sys ID of the record
+|--
+
+|*journalField*
+|No
+|Journal field name
+|work_notes
+
+|*journalValue*
+|Yes
+|Text content to add
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*sysId*
+|String
+|Sys ID of the updated record
+
+|*responseJson*
+|String
+|Full JSON response
+
+|*statusCode*
+|Integer
+|HTTP status code
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Error handling
+
+All operations set `success=false` and populate `errorMessage` on failure. Error messages are truncated to 1000 characters to prevent database column overflow in Bonita.
+
+[caption=HTTP error handling]
+|===
+|HTTP Code |Behavior
+
+|200/201
+|Success -- parse response and populate outputs
+
+|400
+|Bad request -- invalid parameters or data
+
+|401
+|Unauthorized -- invalid credentials
+
+|403
+|Forbidden -- insufficient access
+
+|404
+|Not found -- record or table does not exist
+
+|429
+|Rate limited -- too many requests
+
+|5xx
+|Server error -- ServiceNow instance unavailable
+|===
+
+== Source code
+
+The connector source code is available on GitHub: https://github.com/bonitasoft/bonita-connector-servicenow[bonita-connector-servicenow]

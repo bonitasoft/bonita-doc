@@ -1,0 +1,416 @@
+= Mistral OCR connectors
+:page-aliases: ROOT:mistral-ocr-connector.adoc
+:description: The Bonita Mistral OCR connectors let you extract text, structured fields, tables, and classify documents using Mistral AI vision models directly from your Bonita processes.
+
+{description}
+
+The Bonita Mistral OCR Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+[WARNING]
+====
+This connector is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-mistral-ocr/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+
+We are eager to collaborate with early adopters to bring this connector to General Availability.
+====
+
+== Overview
+
+The Mistral OCR connector provides five operations:
+
+* **Extract Text** -- extract raw text from documents or images using OCR
+* **Extract Fields** -- extract structured fields from documents using a JSON schema
+* **Classify Document** -- classify a document into predefined categories
+* **Extract Table** -- extract tabular data from documents
+* **Process Batch** -- process multi-page documents with page range support
+
+== Getting started
+
+Add the connector as an extension dependency to your Bonita project. Import the `.jar` file via *Import from file* in Bonita Studio.
+
+=== Connection configuration (shared by all operations)
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*apiKey*
+|Yes
+|Mistral AI API key
+|--
+
+|*baseUrl*
+|No
+|Mistral API base URL
+|https://api.mistral.ai/v1
+
+|*model*
+|No
+|Model to use for processing
+|mistral-ocr-latest (extract-text, process-batch) or pixtral-large-latest (others)
+
+|*connectTimeout*
+|No
+|Connection timeout in milliseconds
+|30000
+
+|*readTimeout*
+|No
+|Read timeout in milliseconds
+|120000
+|===
+
+=== Document input (shared by all operations)
+
+Documents can be provided either as base64-encoded content or via URL.
+
+[caption=Document input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*documentBase64*
+|Conditional
+|Base64-encoded document content (required if imageUrl is not set)
+|--
+
+|*imageUrl*
+|Conditional
+|URL of the document or image (required if documentBase64 is not set)
+|--
+
+|*mimeType*
+|No
+|MIME type of the document
+|application/pdf
+|===
+
+== Extract Text (`mistral-ocr-extract-text`)
+
+Extract raw text from documents or images using OCR.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*includePageSegmentation*
+|No
+|Whether to segment text by page
+|true
+
+|*language*
+|No
+|Expected language of the document
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*extractedText*
+|String
+|Full extracted text content
+
+|*pages*
+|List
+|List of page-level text segments
+
+|*pageCount*
+|Integer
+|Number of pages processed
+
+|*tokensUsed*
+|Integer
+|Number of tokens consumed
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Extract Fields (`mistral-ocr-extract-fields`)
+
+Extract structured fields from a document using a JSON schema definition.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*fieldsSchema*
+|Yes
+|JSON schema defining the fields to extract
+|--
+
+|*extractionPrompt*
+|No
+|Additional prompt to guide extraction
+|--
+
+|*strictMode*
+|No
+|Whether to enforce strict schema validation
+|false
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*extractedFields*
+|String
+|JSON string of extracted fields
+
+|*extractedFieldsMap*
+|Map
+|Extracted fields as a key-value map
+
+|*fieldCount*
+|Integer
+|Number of fields extracted
+
+|*confidence*
+|Double
+|Overall extraction confidence score
+
+|*tokensUsed*
+|Integer
+|Number of tokens consumed
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Classify Document (`mistral-ocr-classify-document`)
+
+Classify a document into one of several predefined categories.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*documentTypes*
+|Yes
+|Comma-separated list of possible document types
+|--
+
+|*includeReasoning*
+|No
+|Whether to include classification reasoning
+|false
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*documentType*
+|String
+|Detected document type
+
+|*confidence*
+|Double
+|Classification confidence score
+
+|*reasoning*
+|String
+|Reasoning for the classification (when includeReasoning is true)
+
+|*allScores*
+|String
+|JSON with scores for all document types
+
+|*tokensUsed*
+|Integer
+|Number of tokens consumed
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Extract Table (`mistral-ocr-extract-table`)
+
+Extract tabular data from a document.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*columnHeaders*
+|No
+|Expected column headers (comma-separated)
+|--
+
+|*tableHint*
+|No
+|Description of the table to extract
+|--
+
+|*pageNumber*
+|No
+|Page number to extract the table from
+|1
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*tableData*
+|String
+|JSON representation of the table
+
+|*tableDataList*
+|List
+|Table data as a list of rows
+
+|*rowCount*
+|Integer
+|Number of rows extracted
+
+|*columnCount*
+|Integer
+|Number of columns detected
+
+|*detectedHeaders*
+|String
+|Detected column headers
+
+|*tokensUsed*
+|Integer
+|Number of tokens consumed
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Process Batch (`mistral-ocr-process-batch`)
+
+Process multi-page documents with optional page range selection.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*imageUrls*
+|No
+|Comma-separated list of image URLs (alternative to documentBase64)
+|--
+
+|*startPage*
+|No
+|First page to process
+|--
+
+|*endPage*
+|No
+|Last page to process
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*fullText*
+|String
+|Combined text from all pages
+
+|*pages*
+|List
+|List of page-level results
+
+|*pageCount*
+|Integer
+|Number of pages processed
+
+|*totalWordCount*
+|Integer
+|Total word count
+
+|*tokensUsed*
+|Integer
+|Number of tokens consumed
+
+|*processingTimeMs*
+|Long
+|Processing time in milliseconds
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Error handling
+
+All operations set `success=false` and populate `errorMessage` on failure. Error messages are truncated to 1000 characters to prevent database column overflow in Bonita.
+
+[caption=HTTP error handling]
+|===
+|HTTP Code |Behavior
+
+|200
+|Success -- parse response and populate outputs
+
+|400
+|Bad request -- invalid document or parameters
+
+|401
+|Unauthorized -- invalid API key
+
+|413
+|Payload too large -- document exceeds size limit
+
+|429
+|Rate limited -- too many requests
+
+|5xx
+|Server error -- Mistral AI service unavailable
+|===
+
+== Source code
+
+The connector source code is available on GitHub: https://github.com/bonitasoft/bonita-connector-mistral-ocr[bonita-connector-mistral-ocr]

@@ -1,0 +1,431 @@
+= Email Reader (IMAP) connectors
+:page-aliases: ROOT:email-reader-connector.adoc
+:description: The Bonita Email Reader connectors let you read emails, search messages, download attachments, and manage read status via IMAP directly from your Bonita processes.
+
+{description}
+
+The Bonita Email Reader (IMAP) Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+[WARNING]
+====
+This connector is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-email-reader/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+
+We are eager to collaborate with early adopters to bring this connector to General Availability.
+====
+
+== Overview
+
+The Email Reader connector provides five operations:
+
+* **Read Inbox** -- list emails from a mailbox folder
+* **Get Message** -- retrieve full details of a specific email
+* **Get Attachments** -- download attachments from an email
+* **Mark as Read** -- mark emails as read
+* **Search Emails** -- search emails by criteria (from, subject, date, read status)
+
+Authentication supports **Password** and **OAuth2** modes.
+
+== Getting started
+
+Add the connector as an extension dependency to your Bonita project. Import the `.jar` file via *Import from file* in Bonita Studio.
+
+=== Connection configuration (shared by all operations)
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*imapHost*
+|Yes
+|IMAP server hostname
+|--
+
+|*imapPort*
+|No
+|IMAP server port
+|993
+
+|*username*
+|Yes
+|Email account username
+|--
+
+|*password*
+|Conditional
+|Email account password (required when authMode is PASSWORD)
+|--
+
+|*authMode*
+|No
+|Authentication mode: `PASSWORD` or `OAUTH2`
+|PASSWORD
+
+|*oauth2AccessToken*
+|Conditional
+|OAuth2 access token (required when authMode is OAUTH2)
+|--
+
+|*useTls*
+|No
+|Whether to use TLS encryption
+|true
+
+|*connectTimeout*
+|No
+|Connection timeout in milliseconds
+|30000
+
+|*readTimeout*
+|No
+|Read timeout in milliseconds
+|60000
+|===
+
+== Read Inbox (`emailreader-read-inbox`)
+
+List emails from a mailbox folder with filtering and pagination.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*folderName*
+|No
+|IMAP folder to read from
+|INBOX
+
+|*onlyUnread*
+|No
+|Whether to return only unread messages
+|true
+
+|*maxMessages*
+|No
+|Maximum number of messages to return
+|50
+
+|*markAsReadAfterFetch*
+|No
+|Whether to mark fetched messages as read
+|false
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*emails*
+|String
+|JSON array of email summaries
+
+|*emailCount*
+|Integer
+|Number of emails returned
+
+|*hasMore*
+|Boolean
+|Whether more emails are available
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Get Message (`emailreader-get-message`)
+
+Retrieve full details of a specific email by message ID or UID.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*folderName*
+|No
+|IMAP folder containing the message
+|INBOX
+
+|*messageId*
+|No
+|Internet Message-ID header value
+|--
+
+|*uid*
+|No
+|IMAP UID of the message
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*messageIdOutput*
+|String
+|Message-ID header value
+
+|*uidOutput*
+|Long
+|IMAP UID
+
+|*from*
+|String
+|Sender email address
+
+|*fromName*
+|String
+|Sender display name
+
+|*to*
+|String
+|Recipient addresses
+
+|*cc*
+|String
+|CC recipient addresses
+
+|*replyTo*
+|String
+|Reply-To address
+
+|*subject*
+|String
+|Email subject
+
+|*receivedDate*
+|String
+|Date the email was received
+
+|*sentDate*
+|String
+|Date the email was sent
+
+|*bodyPlainText*
+|String
+|Plain text body
+
+|*bodyHtml*
+|String
+|HTML body
+
+|*headers*
+|String
+|JSON representation of email headers
+
+|*hasAttachments*
+|Boolean
+|Whether the email has attachments
+
+|*attachments*
+|String
+|JSON array of attachment metadata
+
+|*isRead*
+|Boolean
+|Whether the email has been read
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Get Attachments (`emailreader-get-attachments`)
+
+Download attachments from a specific email.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*folderName*
+|No
+|IMAP folder containing the message
+|INBOX
+
+|*uid*
+|Yes
+|IMAP UID of the message
+|--
+
+|*maxAttachmentSizeMb*
+|No
+|Maximum attachment size in MB
+|25
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*attachments*
+|String
+|JSON array of attachment data (base64-encoded)
+
+|*attachmentCount*
+|Integer
+|Number of attachments retrieved
+
+|*totalSize*
+|Long
+|Total size of all attachments in bytes
+
+|*skippedAttachments*
+|String
+|JSON array of attachments skipped due to size limit
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Mark as Read (`emailreader-mark-read`)
+
+Mark one or more emails as read.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*folderName*
+|No
+|IMAP folder containing the messages
+|INBOX
+
+|*uids*
+|Yes
+|Comma-separated list of IMAP UIDs to mark as read
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*markedCount*
+|Integer
+|Number of messages marked as read
+
+|*failedUids*
+|String
+|UIDs that failed to be marked
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Search Emails (`emailreader-search`)
+
+Search for emails matching specified criteria.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*folderName*
+|No
+|IMAP folder to search in
+|INBOX
+
+|*searchFrom*
+|No
+|Filter by sender address
+|--
+
+|*searchSubject*
+|No
+|Filter by subject text
+|--
+
+|*searchSince*
+|No
+|Filter by date (messages since this date)
+|--
+
+|*searchBefore*
+|No
+|Filter by date (messages before this date)
+|--
+
+|*searchReadStatus*
+|No
+|Filter by read status: `ALL`, `UNREAD`, or `READ`
+|ALL
+
+|*maxResults*
+|No
+|Maximum number of results
+|100
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*emails*
+|String
+|JSON array of matching email summaries
+
+|*resultCount*
+|Integer
+|Number of results returned
+
+|*totalMatches*
+|Integer
+|Total number of matching emails
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Error handling
+
+All operations set `success=false` and populate `errorMessage` on failure. Error messages are truncated to 1000 characters to prevent database column overflow in Bonita.
+
+Common errors include connection failures (incorrect host/port), authentication errors (invalid credentials), and folder not found errors.
+
+== Source code
+
+The connector source code is available on GitHub: https://github.com/bonitasoft/bonita-connector-email-reader[bonita-connector-email-reader]
