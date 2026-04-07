@@ -1,0 +1,454 @@
+= Microsoft Dynamics 365 connectors
+:page-aliases: ROOT:ms-dynamics-connector.adoc
+:description: The Bonita Microsoft Dynamics 365 connectors let you create, read, update, query, and delete entities in Dynamics 365 CRM directly from your Bonita processes.
+
+{description}
+
+The Bonita Microsoft Dynamics 365 Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+[WARNING]
+====
+This connector is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-ms-dynamics/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+
+We are eager to collaborate with early adopters to bring this connector to General Availability.
+====
+
+== Overview
+
+The Microsoft Dynamics 365 connector provides six operations:
+
+* **Create Entity** -- create a new entity record
+* **Update Entity** -- update an existing entity record
+* **Get Entity** -- retrieve a single entity by ID
+* **Query Entities** -- query entities using OData filters or FetchXML
+* **Execute Action** -- execute a Dynamics 365 action or function
+* **Delete Entity** -- delete an entity record
+
+Authentication uses **OAuth2 client credentials** -- an Azure AD app registration with client ID, client secret, and tenant ID is required.
+
+== Getting started
+
+Add the connector as an extension dependency to your Bonita project. Import the `.jar` file via *Import from file* in Bonita Studio.
+
+=== Connection configuration (shared by all operations)
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*tenantId*
+|Yes
+|Azure AD tenant ID
+|--
+
+|*clientId*
+|Yes
+|Azure AD application (client) ID
+|--
+
+|*clientSecret*
+|Yes
+|Azure AD client secret
+|--
+
+|*organizationUrl*
+|Yes
+|Dynamics 365 organization URL (e.g., https://myorg.crm.dynamics.com)
+|--
+
+|*apiVersion*
+|No
+|Dynamics 365 Web API version
+|v9.2
+
+|*connectTimeout*
+|No
+|Connection timeout in milliseconds
+|30000
+
+|*readTimeout*
+|No
+|Read timeout in milliseconds
+|60000
+|===
+
+== Create Entity (`dynamics-create-entity`)
+
+Create a new entity record in Dynamics 365.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*entityType*
+|Yes
+|Entity set name (e.g., accounts, contacts, leads, opportunities)
+|--
+
+|*entityData*
+|Yes
+|JSON object with entity field values
+|--
+
+|*returnRepresentation*
+|No
+|Whether to return the created entity in the response
+|false
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*entityId*
+|String
+|ID of the created entity
+
+|*entityUrl*
+|String
+|OData URL of the created entity
+
+|*responseBody*
+|String
+|JSON response body (when returnRepresentation is true)
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Update Entity (`dynamics-update-entity`)
+
+Update an existing entity record.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*entityType*
+|Yes
+|Entity set name
+|--
+
+|*entityId*
+|Yes
+|ID of the entity to update
+|--
+
+|*entityData*
+|Yes
+|JSON object with fields to update
+|--
+
+|*returnRepresentation*
+|No
+|Whether to return the updated entity
+|false
+
+|*ifMatch*
+|No
+|ETag value for optimistic concurrency
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*entityId*
+|String
+|ID of the updated entity
+
+|*responseBody*
+|String
+|JSON response body
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Get Entity (`dynamics-get-entity`)
+
+Retrieve a single entity record by ID.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*entityType*
+|Yes
+|Entity set name
+|--
+
+|*entityId*
+|Yes
+|ID of the entity to retrieve
+|--
+
+|*selectFields*
+|No
+|Comma-separated list of fields to return
+|--
+
+|*expandRelations*
+|No
+|Related entities to expand
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*entityId*
+|String
+|ID of the retrieved entity
+
+|*responseBody*
+|String
+|JSON response with entity data
+
+|*etag*
+|String
+|ETag value for concurrency control
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Query Entities (`dynamics-query-entities`)
+
+Query entities using OData filters or FetchXML.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*entityType*
+|Yes
+|Entity set name to query
+|--
+
+|*filter*
+|No
+|OData filter expression (e.g., `name eq 'Contoso'`)
+|--
+
+|*selectFields*
+|No
+|Comma-separated list of fields to return
+|--
+
+|*orderBy*
+|No
+|Sort order expression
+|--
+
+|*top*
+|No
+|Maximum number of records to return
+|50
+
+|*includeCount*
+|No
+|Whether to include the total record count
+|false
+
+|*fetchXml*
+|No
+|FetchXML query (overrides OData parameters)
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*responseBody*
+|String
+|JSON array of matching records
+
+|*recordCount*
+|Integer
+|Number of records returned
+
+|*totalCount*
+|Integer
+|Total number of matching records (when includeCount is true)
+
+|*nextLink*
+|String
+|URL for the next page of results
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Execute Action (`dynamics-execute-action`)
+
+Execute a Dynamics 365 action or function.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*actionName*
+|Yes
+|Name of the action to execute
+|--
+
+|*entityType*
+|No
+|Entity set to bind the action to
+|--
+
+|*entityId*
+|No
+|Entity ID to bind the action to
+|--
+
+|*actionParameters*
+|No
+|JSON object with action parameters
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*responseBody*
+|String
+|JSON response from the action
+
+|*httpStatusCode*
+|Integer
+|HTTP status code
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Delete Entity (`dynamics-delete-entity`)
+
+Delete an entity record from Dynamics 365.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*entityType*
+|Yes
+|Entity set name
+|--
+
+|*entityId*
+|Yes
+|ID of the entity to delete
+|--
+
+|*ifMatch*
+|No
+|ETag value for optimistic concurrency
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Error handling
+
+All operations set `success=false` and populate `errorMessage` on failure. Error messages are truncated to 1000 characters to prevent database column overflow in Bonita.
+
+[caption=HTTP error handling]
+|===
+|HTTP Code |Behavior
+
+|200/201/204
+|Success -- parse response and populate outputs
+
+|400
+|Bad request -- invalid entity data or parameters
+
+|401
+|Unauthorized -- invalid or expired credentials
+
+|403
+|Forbidden -- insufficient privileges
+
+|404
+|Not found -- entity does not exist
+
+|409
+|Conflict -- optimistic concurrency violation
+
+|429
+|Rate limited -- too many requests
+
+|5xx
+|Server error -- Dynamics 365 service unavailable
+|===
+
+== Source code
+
+The connector source code is available on GitHub: https://github.com/bonitasoft/bonita-connector-ms-dynamics[bonita-connector-ms-dynamics]
