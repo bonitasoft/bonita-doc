@@ -133,3 +133,83 @@ xref:ROOT:msteams-connector.adoc[[.card-title]#Microsoft Teams &#91;BETA&#93;# [
 --
 xref:ROOT:sharepoint-connector.adoc[[.card-title]#SharePoint &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Connect to Microsoft SharePoint sites and lists]#]
 --
+
+[.card.card-index]
+--
+xref:ROOT:adobe-sign-connector.adoc[[.card-title]#Adobe Sign &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Create and manage electronic signature agreements]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:ai-agent-connector.adoc[[.card-title]#AI Agent Orchestrator &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Execute AI agents with tool-use capabilities]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:docusign-connector.adoc[[.card-title]#DocuSign eSignature &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Send documents for signature and track envelopes]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:email-reader-connector.adoc[[.card-title]#Email Reader (IMAP) &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Read emails and attachments via IMAP]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:excel-connector.adoc[[.card-title]#Microsoft Excel &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Read and write Excel spreadsheets]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:hubspot-connector.adoc[[.card-title]#HubSpot CRM &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Manage deals and contacts in HubSpot]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:jira-connector.adoc[[.card-title]#JIRA / Confluence &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Manage JIRA issues and Confluence pages]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:kafka-connector.adoc[[.card-title]#Kafka / RabbitMQ &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Produce and consume messages from message brokers]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:ms-dynamics-connector.adoc[[.card-title]#Microsoft Dynamics 365 &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Manage entities in Dynamics 365 CRM]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:ms-outlook-connector.adoc[[.card-title]#Microsoft Outlook &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Send emails and manage calendar via Microsoft Graph]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:mistral-ocr-connector.adoc[[.card-title]#Mistral OCR &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Extract text, fields, and tables from documents using AI]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:openl-tablets-connector.adoc[[.card-title]#OpenL Tablets &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Execute business rules from OpenL Tablets]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:servicenow-connector.adoc[[.card-title]#ServiceNow &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Manage incidents, change requests, and records]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:twilio-connector.adoc[[.card-title]#Twilio &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Send SMS, make calls, and verify phone numbers]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:workday-connector.adoc[[.card-title]#Workday HCM &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Manage workers and HR events in Workday]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:zendesk-connector.adoc[[.card-title]#Zendesk &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Manage support tickets and comments]#]
+--

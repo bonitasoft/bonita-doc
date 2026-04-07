@@ -1,0 +1,483 @@
+= Zendesk connectors
+:page-aliases: ROOT:zendesk-connector.adoc
+:description: The Bonita Zendesk connectors let you create, update, search tickets, add comments, and manage support workflows directly from your Bonita processes.
+
+{description}
+
+The Bonita Zendesk Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+[WARNING]
+====
+This connector is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-zendesk/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+
+We are eager to collaborate with early adopters to bring this connector to General Availability.
+====
+
+== Overview
+
+The Zendesk connector provides six operations:
+
+* **Create Ticket** -- create a new support ticket
+* **Update Ticket** -- update ticket properties
+* **Get Ticket** -- retrieve ticket details
+* **Add Comment** -- add a comment to a ticket
+* **Search Tickets** -- search tickets with queries
+* **List Ticket Comments** -- list all comments on a ticket
+
+Authentication supports **API Token** and **OAuth2** modes.
+
+== Getting started
+
+Add the connector as an extension dependency to your Bonita project. Import the `.jar` file via *Import from file* in Bonita Studio.
+
+=== Connection configuration (shared by all operations)
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*subdomain*
+|Yes
+|Zendesk subdomain (e.g., mycompany)
+|--
+
+|*email*
+|Conditional
+|Agent email (required for API_TOKEN auth)
+|--
+
+|*apiToken*
+|Conditional
+|Zendesk API token (required for API_TOKEN auth)
+|--
+
+|*authMode*
+|No
+|Authentication mode: API_TOKEN or OAUTH2
+|API_TOKEN
+
+|*connectTimeout*
+|No
+|Connection timeout in milliseconds
+|30000
+
+|*readTimeout*
+|No
+|Read timeout in milliseconds
+|60000
+|===
+
+== Create Ticket (`zendesk-create-ticket`)
+
+Create a new support ticket.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*subject*
+|Yes
+|Ticket subject
+|--
+
+|*description*
+|No
+|Ticket description
+|--
+
+|*requesterEmail*
+|No
+|Email of the requester
+|--
+
+|*priority*
+|No
+|Priority: low, normal, high, or urgent
+|--
+
+|*type*
+|No
+|Ticket type: problem, incident, question, or task
+|--
+
+|*tags*
+|No
+|Comma-separated tags
+|--
+
+|*customFields*
+|No
+|Custom fields as JSON
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*ticketId*
+|Long
+|ID of the created ticket
+
+|*status*
+|String
+|Ticket status
+
+|*createdAt*
+|String
+|Creation timestamp
+
+|*ticketUrl*
+|String
+|URL to the ticket in Zendesk
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Update Ticket (`zendesk-update-ticket`)
+
+Update properties of an existing ticket.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*ticketId*
+|Yes
+|ID of the ticket to update
+|--
+
+|*subject*
+|No
+|Updated subject
+|--
+
+|*status*
+|No
+|Updated status: new, open, pending, hold, solved, closed
+|--
+
+|*priority*
+|No
+|Updated priority: low, normal, high, urgent
+|--
+
+|*type*
+|No
+|Updated type: problem, incident, question, task
+|--
+
+|*assigneeEmail*
+|No
+|Assignee email
+|--
+
+|*tags*
+|No
+|Updated tags
+|--
+
+|*customFields*
+|No
+|Custom fields as JSON
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*ticketId*
+|Long
+|Ticket ID
+
+|*status*
+|String
+|Updated status
+
+|*updatedAt*
+|String
+|Last update timestamp
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Get Ticket (`zendesk-get-ticket`)
+
+Retrieve details of a specific ticket.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*ticketId*
+|Yes
+|ID of the ticket
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*ticketId*
+|Long
+|Ticket ID
+
+|*subject*
+|String
+|Ticket subject
+
+|*status*
+|String
+|Ticket status
+
+|*priority*
+|String
+|Ticket priority
+
+|*type*
+|String
+|Ticket type
+
+|*createdAt*
+|String
+|Creation timestamp
+
+|*updatedAt*
+|String
+|Last update timestamp
+
+|*allFields*
+|String
+|Full JSON with all ticket fields
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Add Comment (`zendesk-add-comment`)
+
+Add a comment to a ticket.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*ticketId*
+|Yes
+|Ticket ID
+|--
+
+|*comment*
+|Yes
+|Comment text
+|--
+
+|*isPublic*
+|No
+|Whether the comment is public (visible to requester)
+|true
+
+|*authorEmail*
+|No
+|Comment author email
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*ticketId*
+|Long
+|Ticket ID
+
+|*updatedAt*
+|String
+|Last update timestamp
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Search Tickets (`zendesk-search-tickets`)
+
+Search for tickets using Zendesk search syntax.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*query*
+|Yes
+|Search query string
+|--
+
+|*sortBy*
+|No
+|Sort field: created_at, updated_at, priority, status, ticket_type
+|--
+
+|*sortOrder*
+|No
+|Sort order: asc or desc
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*tickets*
+|String
+|JSON array of matching tickets
+
+|*totalCount*
+|Integer
+|Total matching tickets
+
+|*hasMore*
+|Boolean
+|Whether more results are available
+
+|*nextPage*
+|String
+|URL for the next page of results
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== List Ticket Comments (`zendesk-list-ticket-comments`)
+
+List all comments on a ticket.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*ticketId*
+|Yes
+|Ticket ID
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*comments*
+|String
+|JSON array of comments
+
+|*totalCount*
+|Integer
+|Total number of comments
+
+|*hasMore*
+|Boolean
+|Whether more comments are available
+
+|*nextPage*
+|String
+|URL for the next page
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Error handling
+
+All operations set `success=false` and populate `errorMessage` on failure. Error messages are truncated to 1000 characters to prevent database column overflow in Bonita.
+
+[caption=HTTP error handling]
+|===
+|HTTP Code |Behavior
+
+|200/201
+|Success -- parse response and populate outputs
+
+|400
+|Bad request -- invalid parameters
+
+|401
+|Unauthorized -- invalid credentials
+
+|403
+|Forbidden -- insufficient permissions
+
+|404
+|Not found -- ticket does not exist
+
+|422
+|Unprocessable entity -- validation errors
+
+|429
+|Rate limited -- too many requests
+
+|5xx
+|Server error -- Zendesk service unavailable
+|===
+
+== Source code
+
+The connector source code is available on GitHub: https://github.com/bonitasoft/bonita-connector-zendesk[bonita-connector-zendesk]
