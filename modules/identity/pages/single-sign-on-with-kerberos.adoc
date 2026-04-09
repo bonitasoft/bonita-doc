@@ -20,7 +20,7 @@ Kerberos configuration is global to the entire Bonita platform.
 
 [NOTE]
 ====
-Bonita uses http://spnego.sourceforge.net/[Spnego] library that allows to request tickets using the Kerberos protocol.
+Bonita uses https://spnego.sourceforge.net/[Spnego] library that allows to request tickets using the Kerberos protocol.
 ====
 
 == Kerberos single sign-on with Active Directory (AD)
