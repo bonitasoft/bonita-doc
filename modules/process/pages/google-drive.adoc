@@ -75,7 +75,7 @@ If your service account needs to access files owned by users in a Google Workspa
 . In the Google Cloud Console, go to your service account details
 . Enable *Domain-wide delegation*
 . Note the *Client ID*
-. In your Google Workspace Admin Console (https://admin.google.com), go to *Security > API Controls > Domain-wide Delegation*
+. In your Google Workspace Admin Console (+https://admin.google.com+), go to *Security > API Controls > Domain-wide Delegation*
 . Click *Add new* and enter:
   * *Client ID*: the client ID from the previous step
   * *OAuth scopes*: `https://www.googleapis.com/auth/drive`

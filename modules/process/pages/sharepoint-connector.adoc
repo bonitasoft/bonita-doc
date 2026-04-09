@@ -41,7 +41,6 @@ Before using the SharePoint connector, ensure the following:
 * An **Entra ID (Azure AD) app registration** with the required Graph API permissions
 * **Admin consent** granted for the application permissions
 * A **SharePoint site** accessible to the registered application
-* The connector extension imported into your Bonita project (see <<import-connector>>)
 
 == Authentication
 
@@ -571,14 +570,3 @@ The connector implements automatic retry with exponential backoff for transient 
 |Retry with exponential backoff (max 5 attempts).
 |===
 
-[#import-connector]
-== Importing the connector into Bonita Studio
-
-To use the SharePoint connector in your Bonita project:
-
-. Download the connector `.zip` extension from the https://marketplace.bonitasoft.com/[Bonita Marketplace].
-. In Bonita Studio, go to the *Project* menu and select *Extensions*.
-. Click *Import extension* and select the downloaded `.zip` file.
-. The SharePoint connector operations will appear in the connector palette when configuring a task or a process.
-
-For more details on managing extensions, see xref:bonita-overview:managing-extension-studio.adoc[Managing extensions in Bonita Studio].
