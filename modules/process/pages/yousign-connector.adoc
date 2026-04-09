@@ -35,7 +35,6 @@ Before using the Yousign connector, ensure the following:
 * A https://yousign.com/[Yousign] account with API access
 * A **Yousign API key** obtained from your Yousign account settings
 * At least one **signature template** configured in Yousign (for the Create From Template operation)
-* The connector extension imported into your Bonita project (see <<import-connector>>)
 
 TIP: Yousign provides a **sandbox environment** for testing. Use the sandbox API key and base URL (`\https://api-sandbox.yousign.app/v3`) during development to avoid triggering real signature workflows.
 
@@ -519,14 +518,3 @@ Registers a webhook endpoint to receive real-time notifications about signature 
 |The UUID of the registered webhook.
 |===
 
-[#import-connector]
-== Importing the connector into Bonita Studio
-
-To use the Yousign connector in your Bonita project:
-
-. Download the connector `.zip` extension from the https://marketplace.bonitasoft.com/[Bonita Marketplace].
-. In Bonita Studio, go to the *Project* menu and select *Extensions*.
-. Click *Import extension* and select the downloaded `.zip` file.
-. The Yousign connector operations will appear in the connector palette when configuring a task or a process.
-
-For more details on managing extensions, see xref:bonita-overview:managing-extension-studio.adoc[Managing extensions in Bonita Studio].

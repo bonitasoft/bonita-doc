@@ -35,7 +35,6 @@ Before using the AWS S3 connector, ensure the following:
 * An **AWS account** with access to the Amazon S3 service
 * An **S3 bucket** created in the target AWS region
 * **IAM credentials** with appropriate permissions (e.g., `s3:PutObject`, `s3:GetObject`, `s3:DeleteObject`, `s3:ListBucket`) depending on the operations you intend to use
-* The connector extension imported into your Bonita project (see <<import-connector>>)
 
 == Authentication
 
@@ -688,14 +687,3 @@ Upload large files using the S3 multipart upload mechanism via the AWS Transfer 
 |The total number of bytes uploaded.
 |===
 
-[#import-connector]
-== Importing the connector into Bonita Studio
-
-To use the AWS S3 connector in your Bonita project:
-
-. Download the connector `.zip` extension from the https://marketplace.bonitasoft.com/[Bonita Marketplace].
-. In Bonita Studio, go to the *Project* menu and select *Extensions*.
-. Click *Import extension* and select the downloaded `.zip` file.
-. The S3 connector operations will appear in the connector palette when configuring a task or a process.
-
-For more details on managing extensions, see xref:bonita-overview:managing-extension-studio.adoc[Managing extensions in Bonita Studio].
