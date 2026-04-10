@@ -168,4 +168,5 @@ Each queriable log type can be turned off individually with its associated prope
 * BUSINESS_DATA_CREATED
 * BUSINESS_DATA_UPDATED
 * BUSINESS_DATA_DELETED
+* BUSINESS_DATA_CLEANED_UP
 ====
