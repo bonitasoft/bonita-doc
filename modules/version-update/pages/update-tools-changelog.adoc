@@ -10,6 +10,11 @@ All changes in both tools are logged: from the version that was delivered with t
 This is due to the fact that improvements in any version of the tools can affect all supported Bonita versions.
 This changelog must be read before xref:update-overview.adoc[updating to a newer version of Bonita].
 
+== 3.8.1 - April 10, 2026 - Bonita Update Tool changes
+Bonita Update Tool handles updates from all Bonita 7.10 versions up to Bonita 2025.2 (10.4) version.
+
+* [BPA-246] Oracle Update Failure: ORA-00955 on PK_REF_BIZ_DATA_INST during 10.2 → 10.3 Migration
+
 == 3.8.0 - November 4, 2025 - Bonita Update Tool changes
 Bonita Update Tool handles updates from all Bonita 7.10 versions up to Bonita 2025.2 (10.4) version.
 
