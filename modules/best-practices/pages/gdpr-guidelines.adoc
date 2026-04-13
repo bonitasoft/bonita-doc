@@ -68,4 +68,5 @@ Beyond archived process instances, business data stored in the Business Data Mod
 Key points to consider when designing your retention policy:
 
 * Retention rules apply to top-level BDM object types only. xref:data:define-and-deploy-the-bdm.adoc#compos[Composition children] are deleted automatically with their parent; xref:data:define-and-deploy-the-bdm.adoc#compos[aggregation children] must be managed independently.
+* BDM instances created before this feature was enabled are not tracked and will not be cleaned up automatically. See xref:runtime:bdm-data-retention.adoc#legacy-data[Handling legacy data] for the migration procedure.
 * Each cleanup run produces a queriable log entry (`BUSINESS_DATA_CLEANED_UP`), giving you an audit trail of deletions.

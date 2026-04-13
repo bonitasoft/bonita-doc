@@ -55,6 +55,103 @@ Each cleanup run produces one xref:api:queriable-logging.adoc[queriable log] ent
 
 These entries can be queried through the existing `/API/system/log` REST endpoint and are displayed in the *Audit log* tab of the *Data Retention (GDPR)* administration page.
 
+[#legacy-data]
+== Handling legacy data
+
+BDM instances that were created *before* the tracking mechanism was introduced do not have a corresponding row in the Bonita table `data_retention_bdm_tracking`. As a consequence, retention rules configured on their object type cannot identify them as expired, and they are never deleted by the cleanup job.
+
+To bring legacy data under retention control, populate the tracking table manually with one row per legacy instance. The reference dates (`created_at` and `last_modified_at`) must be provided explicitly — use the best approximation available in your existing data (for example, a business creation date column, or a fallback value acceptable to your compliance policy).
+
+[CAUTION]
+====
+*Stop the Bonita platform* before running the backfill, and make a full backup of the database first. Bonita manages IDs for `data_retention_bdm_tracking` through its internal `sequence` table, and caches the next available range in memory; a manual backfill while the platform is running would conflict with the cached range and may create duplicate IDs.
+====
+
+=== How Bonita generates IDs for the tracking table
+
+`data_retention_bdm_tracking.id` is not populated by a database sequence or by Hibernate. Instead, Bonita maintains a single `sequence` table shared by all internal entities:
+
+[cols="1,1,3"]
+|===
+| Column | Type | Description
+
+| `id`
+| `BIGINT`
+| Sequence identifier. `SDataRetentionBdmTracking` uses sequence id *9*.
+
+| `nextid`
+| `BIGINT`
+| Next ID available for that entity type. The engine reserves a range (default: 20) and serves IDs from that range before hitting the database again.
+|===
+
+A correct backfill therefore has two parts:
+
+1. reserve a contiguous range of IDs by updating the `sequence` row for `id = 9`,
+2. use those reserved IDs when inserting the new tracking rows.
+
+=== Step 1 — Identify the legacy instances
+
+For each BDM object type you want to bring under retention, list its persistence IDs and the best-available creation/update dates. They typically come directly from the BDM table itself (for example, the `invoice` table for `com.company.model.Invoice`), possibly combined with data from the original business system.
+
+=== Step 2 — Reserve IDs and insert the tracking rows
+
+Dates are stored as epoch milliseconds. The following PostgreSQL example backfills tracking rows for all existing `Invoice` instances that are not already tracked, using the business date column `invoice_date` as the creation date. It is wrapped in a transaction that first reserves N IDs from sequence *9*, then inserts exactly N rows with IDs in that reserved range.
+
+[source,sql]
+----
+BEGIN;
+
+-- Lock the sequence row and read the next available ID (e.g. 101)
+SELECT nextid FROM sequence WHERE id = 9 FOR UPDATE;
+
+-- Reserve one ID per legacy Invoice that is not yet tracked (e.g. 500 rows => reserve 500 IDs)
+UPDATE sequence
+   SET nextid = nextid + (
+        SELECT COUNT(*) FROM invoice i
+         WHERE NOT EXISTS (
+            SELECT 1 FROM data_retention_bdm_tracking t
+             WHERE t.data_id = i.persistenceid
+               AND t.data_classname = 'com.company.model.Invoice'
+         )
+   )
+ WHERE id = 9;
+
+-- Insert the tracking rows using the reserved IDs (row_number() walks the reserved range)
+INSERT INTO data_retention_bdm_tracking (id, data_id, data_classname, created_at, last_modified_at)
+SELECT
+    (SELECT nextid FROM sequence WHERE id = 9)
+        - COUNT(*) OVER ()              -- number of IDs reserved above
+        + ROW_NUMBER() OVER (ORDER BY i.persistenceid),
+    i.persistenceid,
+    'com.company.model.Invoice',
+    EXTRACT(EPOCH FROM i.invoice_date) * 1000,
+    EXTRACT(EPOCH FROM COALESCE(i.last_update_date, i.invoice_date)) * 1000
+  FROM invoice i
+ WHERE NOT EXISTS (
+    SELECT 1 FROM data_retention_bdm_tracking t
+     WHERE t.data_id = i.persistenceid
+       AND t.data_classname = 'com.company.model.Invoice'
+ );
+
+COMMIT;
+----
+
+Adapt the query to your database engine (syntax for `FOR UPDATE`, epoch conversion function, window functions) and to your actual BDM table and column names. For object types other than `Invoice`, replace both the `'com.company.model.Invoice'` literal and the source table (`invoice`).
+
+=== Step 3 — Verify and restart
+
+After the backfill, the number of tracking rows for the target class should match the number of legacy instances:
+
+[source,sql]
+----
+SELECT COUNT(*) FROM data_retention_bdm_tracking
+ WHERE data_classname = 'com.company.model.Invoice';
+
+SELECT COUNT(*) FROM invoice;
+----
+
+The two counts should be equal if every legacy instance is now tracked. Restart the Bonita platform once the backfill is complete — this ensures the sequence cache reloads from the updated database state. The next scheduled cleanup run will then apply the configured retention rule to the legacy data.
+
 == Related topics
 
 * xref:data:define-and-deploy-the-bdm.adoc#compos[BDM composition and aggregation]
