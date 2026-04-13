@@ -55,3 +55,17 @@ By default, Bonita Runtime retains all archives indefinitely. Given the operatio
 
 Implementing a consistent purge policy not only simplifies data management but also enhances the performance of your runtime environment by optimizing storage utilization and ensuring smooth system operations.
 For subscribers of Bonita Cloud, the management and application of the Purge Tool are handled entirely by the Bonita Cloud team. As a user, you are relieved of this responsibility; rest assured, the Bonita Cloud team diligently manages this process, ensuring optimal performance and compliance without any required action on your part.
+
+== BDM data retention
+
+[NOTE]
+====
+For Subscription editions only. +
+====
+
+Beyond archived process instances, business data stored in the Business Data Model (BDM) is also subject to data protection regulations. Bonita provides a dedicated xref:runtime:bdm-data-retention.adoc[BDM data retention] feature that lets administrators configure retention rules per BDM object type and automatically delete expired records on a scheduled basis.
+
+Key points to consider when designing your retention policy:
+
+* Retention rules apply to top-level BDM object types only. xref:data:define-and-deploy-the-bdm.adoc#compos[Composition children] are deleted automatically with their parent; xref:data:define-and-deploy-the-bdm.adoc#compos[aggregation children] must be managed independently.
+* Each cleanup run produces a queriable log entry (`BUSINESS_DATA_CLEANED_UP`), giving you an audit trail of deletions.

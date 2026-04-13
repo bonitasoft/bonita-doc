@@ -1,0 +1,118 @@
+= BDM data retention
+:description: Configure data retention policies to automatically delete expired business data from the BDM, ensuring GDPR compliance and controlling database growth.
+
+[NOTE]
+====
+For Subscription editions only. +
+Available from version 2026.1. Requires the `DATA_RETENTION` feature in your license.
+====
+
+The BDM data retention feature enables you to configure retention rules on Business Data Model object types so that expired records are deleted automatically on a scheduled basis. This supports GDPR compliance and prevents unbounded growth of the business data database.
+
+== Overview
+
+For each top-level BDM object type, an administrator can configure:
+
+* a *reference date*: either the object's creation date or its last update date,
+* a *retention period* (in days).
+
+When the scheduled cleanup job runs, every BDM instance whose reference date is older than `now - retention period` is deleted from the database, along with:
+
+* its xref:data:define-and-deploy-the-bdm.adoc#compos[composition children] (deleted automatically via Hibernate cascade),
+* its tracking record in the `data_retention_bdm_tracking` table.
+
+Retention rules are configured through the *Data Retention (GDPR)* administration page of the Admin application.
+
+== How BDM instances are tracked
+
+To decide which records have expired, Bonita maintains a dedicated tracking table named `data_retention_bdm_tracking`. Each row represents the lifecycle of a single BDM instance:
+
+[cols="1,1,3"]
+|===
+| Column | Type | Description
+
+| `id`
+| `BIGINT`
+| Primary key (Bonita internal).
+
+| `data_id`
+| `BIGINT`
+| Persistence ID of the tracked BDM instance.
+
+| `data_classname`
+| `VARCHAR(255)`
+| Fully qualified Java class name of the BDM object type (for example `com.company.model.Invoice`).
+
+| `created_at`
+| `BIGINT`
+| Epoch timestamp in milliseconds, set when the tracking record is first created.
+
+| `last_modified_at`
+| `BIGINT`
+| Epoch timestamp in milliseconds, updated every time the BDM instance is modified.
+|===
+
+A unique constraint on `(data_id, data_classname)` guarantees that there is exactly one tracking record per BDM instance.
+
+Tracking records are created and maintained automatically:
+
+* *On creation*: a new row is inserted with both `created_at` and `last_modified_at` set to the current time.
+* *On update*: `last_modified_at` is refreshed with the current time. `created_at` is left unchanged.
+* *On deletion*: the tracking row is removed.
+
+=== Composition and aggregation
+
+The relationship type between BDM objects determines how tracking is applied — see xref:data:define-and-deploy-the-bdm.adoc#compos[Composition and aggregation]:
+
+* *Composition children* are not tracked independently. They are deleted automatically by Hibernate cascade when their parent is deleted by a retention rule, so no dedicated retention configuration is needed or exposed.
+* *Aggregation children* are tracked only when they are created or updated as standalone entities through the BDM API. When Hibernate cascade-persists them along with a parent (via `CascadeType.MERGE`), no tracking record is created. To apply a retention rule to aggregation children, persist them explicitly.
+
+== Scheduling the cleanup
+
+The cleanup job is triggered by a Spring `@Scheduled` task driven by a cron expression. The default schedule runs once a week, every Saturday at 02:00 UTC.
+
+=== Configuration parameter
+
+[cols="1,3"]
+|===
+| Property | Description
+
+| `bonita.runtime.retention.schedule.cron`
+| Spring 6-field cron expression (`second minute hour day-of-month month day-of-week`) defining when the cleanup job runs. The job executes in the JVM default timezone. Default: `0 0 2 * * 6` (every Saturday at 02:00).
+|===
+
+To override the default, declare the property in `bonita-platform-sp-custom.properties` and restart the platform:
+
+[source,properties]
+----
+# Run every day at 03:30
+bonita.runtime.retention.schedule.cron=0 30 3 * * *
+----
+
+In a clustered setup, the cleanup job is coordinated so that only a single node runs it at a given time.
+
+=== Execution audit trail
+
+Each cleanup run produces one queriable log entry per BDM object type that had at least one expired instance deleted. The entry has:
+
+* `action_type`: `BUSINESS_DATA_CLEANED_UP`,
+* `message`: the fully qualified BDM class name,
+* `action_scope`: the number of deleted instances (as a string),
+* `severity`: `INTERNAL`.
+
+These entries can be queried through the existing `/API/system/log` REST endpoint and are displayed in the *Audit log* tab of the *Data Retention (GDPR)* administration page.
+
+If you do not want these entries stored in the database, disable the event in `bonita-tenant-sp-custom.properties`:
+
+[source,properties]
+----
+bonita.tenant.queriable.log.BUSINESS_DATA_CLEANED_UP.INTERNAL=false
+----
+
+See xref:api:queriable-logging.adoc[Queriable logging] for the full list of configurable events.
+
+== Related topics
+
+* xref:data:define-and-deploy-the-bdm.adoc#compos[BDM composition and aggregation]
+* xref:api:queriable-logging.adoc[Queriable logging]
+* xref:best-practices:gdpr-guidelines.adoc[GDPR design guide]
