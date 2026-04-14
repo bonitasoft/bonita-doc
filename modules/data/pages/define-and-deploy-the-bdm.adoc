@@ -145,7 +145,7 @@ When you create a process that uses a business object with a composition or aggr
 * You can use getter and setter methods in process or activity operations to set the composed objects as a single instance or as a `java.util.list` for a list of instances.
 * If your process uses a query from a Groovy expression or uses DAO objects from a client Java application, load the complete composite objects including the child objects.
 
-==== Data retention and tracking behavior
+==== Data retention and tracking behavior (Subscription editions)
 
 Composition and aggregation relationships behave differently with regard to the xref:runtime:bdm-data-retention.adoc[BDM data retention feature]:
 

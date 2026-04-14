@@ -60,7 +60,7 @@ For subscribers of Bonita Cloud, the management and application of the Purge Too
 
 [NOTE]
 ====
-For Subscription editions only. +
+For Performance, Enterprise and Scale editions only. +
 ====
 
 Beyond archived process instances, business data stored in the Business Data Model (BDM) is also subject to data protection regulations. Bonita provides a dedicated xref:runtime:bdm-data-retention.adoc[BDM data retention] feature that lets administrators configure retention rules per BDM object type and automatically delete expired records on a scheduled basis.

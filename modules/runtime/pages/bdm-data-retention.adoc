@@ -3,8 +3,7 @@
 
 [NOTE]
 ====
-For Subscription editions only. +
-Available from version 2026.1. Requires the `DATA_RETENTION` feature in your license.
+For Performance, Enterprise and Scale editions only.
 ====
 
 The BDM data retention feature enables you to configure retention rules on Business Data Model object types so that expired records are deleted automatically on a scheduled basis. This supports GDPR compliance and prevents unbounded growth of the business data database.

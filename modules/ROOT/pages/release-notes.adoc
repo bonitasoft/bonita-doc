@@ -12,6 +12,11 @@ The {bonitaVersion} version is in development.
 
 === BDM data retention (GDPR)
 
+[NOTE]
+====
+For Performance, Enterprise and Scale editions only. +
+====
+
 A new feature lets administrators configure data retention rules per BDM object type to automatically delete expired business data on a scheduled basis. For each top-level object type, you can choose the reference date (creation or last update) and a retention period in days; a scheduled cleanup job then removes every expired instance, cascading to composition children.
 
 Rules are managed through the new *Data Retention (GDPR)* page in the Admin application. Each cleanup run is audited via the new `BUSINESS_DATA_CLEANED_UP` queriable log event, and the schedule is driven by the new `bonita.runtime.retention.schedule.cron` configuration property (default: `0 0 2 * * 6`, every Saturday at 02:00 UTC).
