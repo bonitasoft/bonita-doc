@@ -4,13 +4,13 @@
 
 {description}
 
-The *Administrator Application (New Look)* is a standalone Bonita application that provides a refreshed user interface for administering a Bonita runtime. It is delivered as a custom page and an application descriptor and is distributed through the https://github.com/bonitasoft/bonita-marketplace[Bonita Marketplace].
+The *Administrator Application (New Look)* is a standalone Bonita application that provides a refreshed user interface for administering a Bonita runtime. It is delivered as a custom page and an application descriptor and is distributed through the Bonita Marketplace.
 
 [NOTE]
 ====
 *For Enterprise, Performance and Efficiency editions only.*
 
-The Administrator Application (New Look) is a Subscription (SP) deliverable. Access to it requires a valid Bonita Enterprise subscription and authenticated access to the Bonitasoft customer Artifactory.
+The Administrator Application (New Look) is a Subscription (SP) deliverable. Access to it requires a valid Bonita Enterprise subscription and authenticated access to the Bonita Artifact Repository (BAR).
 ====
 
 This application is not installed by default in the Bonita Tomcat bundle nor in the Bonita Docker image. You need to install it manually in your project.
@@ -29,7 +29,7 @@ This application is not installed by default in the Bonita Tomcat bundle nor in 
 
 If you cannot use the Marketplace, you can install the application manually:
 
-. Download the `bonita-admin-newlook-sp-application-<version>-application.zip` from the https://github.com/bonitasoft/bonita-admin-newlook-sp-application/releases[GitHub Releases] page.
+. Download the `bonita-admin-newlook-sp-application-<version>-application.zip` from the {cscCustomerServices}[Customer Service Center].
 . Unzip the archive. Its contents are organized in name-specific folders.
 . From the Bonita Administrator Application, install the artifacts in this order:
  * in the *Resources* tab: install the custom page (`custompage_adminNewLook.zip`)
@@ -76,7 +76,7 @@ Most updates at runtime should be performed through a change in the project sour
 
 == Customization
 
-The Administrator Application (New Look) is delivered as a generic example. Its sources are available on the https://github.com/bonitasoft/bonita-admin-newlook-sp-application[GitHub repository], so it can be forked and customized. Once customized, the application is no longer officially supported; however, the Bonitasoft Professional Services team can help develop or maintain a customized version on request through the {cscCustomerServices}[Customer Service Center].
+The Administrator Application (New Look) is delivered as a pre-built application. Once customized, the application is no longer officially supported; however, the Bonitasoft Professional Services team can help develop or maintain a customized version on request through the {cscCustomerServices}[Customer Service Center].
 
 == Related applications
 
