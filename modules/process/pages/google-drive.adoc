@@ -78,7 +78,7 @@ If your service account needs to access files owned by users in a Google Workspa
 . In your Google Workspace Admin Console (`+https://admin.google.com+`), go to *Security > API Controls > Domain-wide Delegation*
 . Click *Add new* and enter:
   * *Client ID*: the client ID from the previous step
-  * *OAuth scopes*: `https://www.googleapis.com/auth/drive`
+  * *OAuth scopes*: `+https://www.googleapis.com/auth/drive+`
 . Click *Authorize*
 
 You can then use the `impersonatedUserEmail` parameter to act on behalf of a specific user.
