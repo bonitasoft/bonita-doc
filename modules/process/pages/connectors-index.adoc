@@ -64,7 +64,6 @@ xref:ROOT:google-calendar.adoc[[.card-title]#Google calendar# [.card-body.card-c
 xref:ROOT:ldap.adoc[[.card-title]#LDAP# [.card-body.card-content-overflow]#pass:q[Retrieve external organization information from your processes]#]
 --
 
-
 [.card.card-index]
 --
 xref:ROOT:generate-pdf-from-an-office-document.adoc[[.card-title]#Document converter# [.card-body.card-content-overflow]#pass:q[Generate PDF in your processes]#]
@@ -92,13 +91,22 @@ xref:ROOT:slack-connector.adoc[[.card-title]#Slack# [.card-body.card-content-ove
 
 [.card.card-index]
 --
-xref:ROOT:twitter.adoc[[.card-title]#Twitter# [.card-body.card-content-overflow]#pass:q[Create tweets in your processes]#]
+xref:telegram-connector.adoc[[.card-title]#Telegram# [.card-body.card-content-overflow]#pass:q[Send messages and files via Telegram Bot API]#]
 --
 
+[.card.card-index]
+--
+xref:ROOT:twitter.adoc[[.card-title]#Twitter# [.card-body.card-content-overflow]#pass:q[Create tweets in your processes]#]
+--
 
 [.card.card-index]
 --
 xref:ROOT:web-service-connector-overview.adoc[[.card-title]#Web service# [.card-body.card-content-overflow]#pass:q[Connect your processes to any generic Web service]#]
+--
+
+[.card.card-index]
+--
+xref:whatsapp-connector.adoc[[.card-title]#WhatsApp Business# [.card-body.card-content-overflow]#pass:q[Send messages via WhatsApp Business API]#]
 --
 
 [.card-section]
@@ -108,20 +116,110 @@ These connectors are currently in beta and have not yet been fully validated in 
 
 [.card.card-index]
 --
-xref:ROOT:aws-s3-connector.adoc[[.card-title]#AWS S3 [BETA]# [.card-body.card-content-overflow]#pass:q[Interact with Amazon S3 storage buckets]#]
+xref:ROOT:aws-s3-connector.adoc[[.card-title]#AWS S3 &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Interact with Amazon S3 storage buckets]#]
 --
 
 [.card.card-index]
 --
-xref:ROOT:google-drive.adoc[[.card-title]#Google Drive [BETA]# [.card-body.card-content-overflow]#pass:q[Manage files and folders in Google Drive]#]
+xref:ROOT:google-drive.adoc[[.card-title]#Google Drive &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Manage files and folders in Google Drive]#]
 --
 
 [.card.card-index]
 --
-xref:ROOT:jasperreports-connector.adoc[[.card-title]#JasperReports [BETA]# [.card-body.card-content-overflow]#pass:q[Generate reports from JasperReports Server]#]
+xref:ROOT:jasperreports-connector.adoc[[.card-title]#JasperReports &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Generate reports from JasperReports Server]#]
 --
 
 [.card.card-index]
 --
-xref:ROOT:sharepoint-connector.adoc[[.card-title]#SharePoint [BETA]# [.card-body.card-content-overflow]#pass:q[Connect to Microsoft SharePoint sites and lists]#]
+xref:ROOT:msteams-connector.adoc[[.card-title]#Microsoft Teams &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Send messages and manage teams and channels]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:sharepoint-connector.adoc[[.card-title]#SharePoint &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Connect to Microsoft SharePoint sites and lists]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:adobe-sign-connector.adoc[[.card-title]#Adobe Sign &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Create and manage electronic signature agreements]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:ai-agent-connector.adoc[[.card-title]#AI Agent Orchestrator &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Execute AI agents with tool-use capabilities]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:docusign-connector.adoc[[.card-title]#DocuSign eSignature &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Send documents for signature and track envelopes]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:email-reader-connector.adoc[[.card-title]#Email Reader (IMAP) &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Read emails and attachments via IMAP]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:excel-connector.adoc[[.card-title]#Microsoft Excel &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Read and write Excel spreadsheets]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:hubspot-connector.adoc[[.card-title]#HubSpot CRM &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Manage deals and contacts in HubSpot]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:jira-connector.adoc[[.card-title]#JIRA / Confluence &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Manage JIRA issues and Confluence pages]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:kafka-connector.adoc[[.card-title]#Kafka / RabbitMQ &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Produce and consume messages from message brokers]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:ms-dynamics-connector.adoc[[.card-title]#Microsoft Dynamics 365 &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Manage entities in Dynamics 365 CRM]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:ms-outlook-connector.adoc[[.card-title]#Microsoft Outlook &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Send emails and manage calendar via Microsoft Graph]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:mistral-ocr-connector.adoc[[.card-title]#Mistral OCR &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Extract text, fields, and tables from documents using AI]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:openl-tablets-connector.adoc[[.card-title]#OpenL Tablets &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Execute business rules from OpenL Tablets]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:servicenow-connector.adoc[[.card-title]#ServiceNow &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Manage incidents, change requests, and records]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:twilio-connector.adoc[[.card-title]#Twilio &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Send SMS, make calls, and verify phone numbers]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:workday-connector.adoc[[.card-title]#Workday HCM &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Manage workers and HR events in Workday]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:yousign-connector.adoc[[.card-title]#Yousign &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Create and manage electronic signature requests]#]
+--
+
+[.card.card-index]
+--
+xref:ROOT:zendesk-connector.adoc[[.card-title]#Zendesk &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Manage support tickets and comments]#]
 --

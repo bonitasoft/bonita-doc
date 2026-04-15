@@ -1,0 +1,612 @@
+= HubSpot CRM connectors
+:page-aliases: ROOT:hubspot-connector.adoc
+:description: The Bonita HubSpot CRM connectors let you manage deals and contacts in HubSpot directly from your Bonita processes.
+
+{description}
+
+The Bonita HubSpot CRM Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+[WARNING]
+====
+This connector is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-hubspot/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+
+We are eager to collaborate with early adopters to bring this connector to General Availability.
+====
+
+== Overview
+
+The HubSpot CRM connector provides six operations:
+
+* **Create Deal** -- create a new deal in a pipeline
+* **Update Deal** -- update deal properties
+* **Get Deal** -- retrieve deal details
+* **Create Contact** -- create a new contact
+* **Update Contact** -- update contact properties
+* **Search Contacts** -- search contacts with filters
+
+Authentication supports **Private App Token** and **OAuth2** modes.
+
+== Getting started
+
+Add the connector as an extension dependency to your Bonita project. Import the `.jar` file via *Import from file* in Bonita Studio.
+
+=== Connection configuration (shared by all operations)
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*authMode*
+|No
+|Authentication mode: PRIVATE_APP or OAUTH2
+|PRIVATE_APP
+
+|*privateAppToken*
+|Conditional
+|HubSpot Private App token (required for PRIVATE_APP auth)
+|--
+
+|*clientId*
+|Conditional
+|OAuth2 client ID (required for OAUTH2 auth)
+|--
+
+|*clientSecret*
+|Conditional
+|OAuth2 client secret (required for OAUTH2 auth)
+|--
+
+|*refreshToken*
+|Conditional
+|OAuth2 refresh token (required for OAUTH2 auth)
+|--
+
+|*basePath*
+|No
+|HubSpot API base URL
+|https://api.hubapi.com
+
+|*connectTimeout*
+|No
+|Connection timeout in milliseconds
+|30000
+
+|*readTimeout*
+|No
+|Read timeout in milliseconds
+|60000
+|===
+
+== Create Deal (`hubspot-create-deal`)
+
+Create a new deal in a HubSpot pipeline.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*dealName*
+|Yes
+|Name of the deal
+|--
+
+|*dealStage*
+|Yes
+|Pipeline stage ID
+|--
+
+|*pipelineId*
+|No
+|Pipeline ID
+|default
+
+|*amount*
+|No
+|Deal amount
+|--
+
+|*closeDate*
+|No
+|Expected close date
+|--
+
+|*dealOwnerId*
+|No
+|Deal owner user ID
+|--
+
+|*dealType*
+|No
+|Deal type
+|--
+
+|*description*
+|No
+|Deal description
+|--
+
+|*customProperties*
+|No
+|Custom properties as JSON
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*dealId*
+|String
+|ID of the created deal
+
+|*dealName*
+|String
+|Name of the deal
+
+|*dealStage*
+|String
+|Pipeline stage
+
+|*createdAt*
+|String
+|Creation timestamp
+
+|*updatedAt*
+|String
+|Last update timestamp
+
+|*dealUrl*
+|String
+|URL to the deal in HubSpot
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Update Deal (`hubspot-update-deal`)
+
+Update properties of an existing deal.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*dealId*
+|Yes
+|ID of the deal to update
+|--
+
+|*dealStage*
+|No
+|Updated pipeline stage
+|--
+
+|*amount*
+|No
+|Updated amount
+|--
+
+|*closeDate*
+|No
+|Updated close date
+|--
+
+|*dealOwnerId*
+|No
+|Updated owner
+|--
+
+|*customProperties*
+|No
+|Custom properties as JSON
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*dealId*
+|String
+|ID of the updated deal
+
+|*dealStage*
+|String
+|Updated pipeline stage
+
+|*updatedAt*
+|String
+|Last update timestamp
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Get Deal (`hubspot-get-deal`)
+
+Retrieve details of a specific deal.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*dealId*
+|Yes
+|ID of the deal to retrieve
+|--
+
+|*properties*
+|No
+|Comma-separated list of properties to return
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*dealId*
+|String
+|Deal ID
+
+|*dealName*
+|String
+|Deal name
+
+|*dealStage*
+|String
+|Pipeline stage
+
+|*pipelineId*
+|String
+|Pipeline ID
+
+|*amount*
+|String
+|Deal amount
+
+|*closeDate*
+|String
+|Close date
+
+|*dealOwnerId*
+|String
+|Owner user ID
+
+|*createdAt*
+|String
+|Creation timestamp
+
+|*updatedAt*
+|String
+|Last update timestamp
+
+|*allProperties*
+|String
+|JSON object with all requested properties
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Create Contact (`hubspot-create-contact`)
+
+Create a new contact in HubSpot.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*email*
+|Yes
+|Contact email address
+|--
+
+|*firstName*
+|No
+|First name
+|--
+
+|*lastName*
+|No
+|Last name
+|--
+
+|*phone*
+|No
+|Phone number
+|--
+
+|*company*
+|No
+|Company name
+|--
+
+|*jobTitle*
+|No
+|Job title
+|--
+
+|*lifecycleStage*
+|No
+|Lifecycle stage
+|--
+
+|*contactOwnerId*
+|No
+|Contact owner user ID
+|--
+
+|*customProperties*
+|No
+|Custom properties as JSON
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*contactId*
+|String
+|ID of the created contact
+
+|*email*
+|String
+|Contact email
+
+|*createdAt*
+|String
+|Creation timestamp
+
+|*updatedAt*
+|String
+|Last update timestamp
+
+|*isNew*
+|Boolean
+|Whether the contact was newly created
+
+|*contactUrl*
+|String
+|URL to the contact in HubSpot
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Update Contact (`hubspot-update-contact`)
+
+Update properties of an existing contact.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*contactId*
+|Yes
+|ID of the contact to update
+|--
+
+|*email*
+|No
+|Updated email
+|--
+
+|*firstName*
+|No
+|Updated first name
+|--
+
+|*lastName*
+|No
+|Updated last name
+|--
+
+|*phone*
+|No
+|Updated phone
+|--
+
+|*company*
+|No
+|Updated company
+|--
+
+|*jobTitle*
+|No
+|Updated job title
+|--
+
+|*lifecycleStage*
+|No
+|Updated lifecycle stage
+|--
+
+|*contactOwnerId*
+|No
+|Updated owner
+|--
+
+|*customProperties*
+|No
+|Custom properties as JSON
+|--
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*contactId*
+|String
+|ID of the updated contact
+
+|*updatedAt*
+|String
+|Last update timestamp
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Search Contacts (`hubspot-search-contacts`)
+
+Search for contacts using filters.
+
+=== Input parameters
+
+[caption=Inputs]
+|===
+|Parameter |Required |Description |Default
+
+|*searchFilters*
+|Yes
+|JSON search filter groups
+|--
+
+|*properties*
+|No
+|Properties to return
+|--
+
+|*limit*
+|No
+|Maximum results per page
+|10
+
+|*after*
+|No
+|Pagination cursor
+|--
+
+|*sortBy*
+|No
+|Property to sort by
+|--
+
+|*sortDirection*
+|No
+|Sort direction: ASCENDING or DESCENDING
+|ASCENDING
+|===
+
+=== Output parameters
+
+[caption=Outputs]
+|===
+|Parameter |Type |Description
+
+|*contacts*
+|String
+|JSON array of matching contacts
+
+|*totalResults*
+|Integer
+|Total number of results
+
+|*hasMore*
+|Boolean
+|Whether more results are available
+
+|*nextAfter*
+|String
+|Pagination cursor for next page
+
+|*firstContactId*
+|String
+|ID of the first result
+
+|*firstContactEmail*
+|String
+|Email of the first result
+
+|*success*
+|Boolean
+|Whether the operation succeeded
+
+|*errorMessage*
+|String
+|Error message if the operation failed
+|===
+
+== Error handling
+
+All operations set `success=false` and populate `errorMessage` on failure. Error messages are truncated to 1000 characters to prevent database column overflow in Bonita.
+
+[caption=HTTP error handling]
+|===
+|HTTP Code |Behavior
+
+|200/201
+|Success -- parse response and populate outputs
+
+|400
+|Bad request -- invalid parameters
+
+|401
+|Unauthorized -- invalid token or credentials
+
+|404
+|Not found -- object does not exist
+
+|409
+|Conflict -- duplicate contact email
+
+|429
+|Rate limited -- too many requests
+
+|5xx
+|Server error -- HubSpot service unavailable
+|===
+
+== Source code
+
+The connector source code is available on GitHub: https://github.com/bonitasoft/bonita-connector-hubspot[bonita-connector-hubspot]

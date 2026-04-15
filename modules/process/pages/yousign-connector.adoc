@@ -1,0 +1,532 @@
+= Yousign eSignature connectors
+:page-aliases: ROOT:yousign-connector.adoc
+:description: The Bonita Yousign connectors enable your processes to create, manage, and track electronic signature requests using the Yousign API v3, with operations for creating signature requests from templates, activating them, monitoring status, downloading signed documents and audit trails, and managing webhooks.
+
+{description}
+
+The Bonita Yousign Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+
+[WARNING]
+====
+This connector is currently in **Beta**. It has not yet been fully validated in production environments.
+
+We welcome your feedback — please report testing results or issues using the https://github.com/bonitasoft/bonita-connector-yousign/issues/new?template=beta-feedback.yml[beta feedback form] on GitHub.
+
+We are eager to collaborate with early adopters to bring this connector to General Availability.
+====
+
+== Overview
+
+The Yousign connector provides eight operations to manage electronic signature workflows:
+
+* **Create From Template** -- create a signature request from a Yousign template
+* **Activate** -- activate a signature request (sends invitations to signers)
+* **Get Status** -- retrieve the current status of a signature request
+* **Cancel** -- cancel an active signature request
+* **Download Document** -- download signed documents (single or ZIP)
+* **Download Audit Trail** -- download the audit trail PDF
+* **List** -- list signature requests with filters and pagination
+* **Register Webhook** -- register a webhook for signature events
+
+== Prerequisites
+
+Before using the Yousign connector, ensure the following:
+
+* A https://yousign.com/[Yousign] account with API access
+* A **Yousign API key** obtained from your Yousign account settings
+* At least one **signature template** configured in Yousign (for the Create From Template operation)
+* The connector extension imported into your Bonita project (see <<import-connector>>)
+
+TIP: Yousign provides a **sandbox environment** for testing. Use the sandbox API key and base URL (`\https://api-sandbox.yousign.app/v3`) during development to avoid triggering real signature workflows.
+
+== Authentication
+
+All Yousign connector operations share a common connection configuration using API key authentication.
+
+=== Common connection parameters
+
+[caption=Configuration]
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*apiKey*
+|String (Password)
+|Yes
+|Your Yousign API key. Obtain it from your Yousign account settings.
+|
+
+|*baseUrl*
+|String
+|No
+|The Yousign API base URL. Use the sandbox URL for testing.
+|`\https://api-sandbox.yousign.app/v3`
+
+|*connectTimeout*
+|Integer
+|No
+|Connection timeout in milliseconds.
+|`30000`
+
+|*readTimeout*
+|Integer
+|No
+|Read timeout in milliseconds.
+|`60000`
+|===
+
+== Common outputs
+
+All operations return the following outputs in addition to their specific outputs:
+
+|===
+|Output name |Type |Description
+
+|*success*
+|Boolean
+|`true` if the operation completed successfully, `false` otherwise.
+
+|*errorMessage*
+|String
+|Error details if `success` is `false`. Empty when the operation succeeds.
+|===
+
+== Error handling
+
+The connector handles HTTP errors as follows:
+
+|===
+|HTTP code |Behavior
+
+|400
+|Fail immediately (validation error)
+
+|401
+|Fail immediately (authentication error)
+
+|403
+|Fail immediately (access denied)
+
+|404
+|Fail immediately (resource not found)
+
+|429, 5xx
+|Retry up to 3 times with exponential backoff (1s, 2s, 4s)
+|===
+
+== Operations
+
+[#create-from-template]
+=== Create From Template
+
+Creates a signature request from a pre-configured Yousign template.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*templateId*
+|String
+|Yes
+|The UUID of the Yousign template to use.
+|
+
+|*requestName*
+|String
+|Yes
+|A name for the signature request.
+|
+
+|*signerFirstName*
+|String
+|Yes
+|First name of the signer.
+|
+
+|*signerLastName*
+|String
+|Yes
+|Last name of the signer.
+|
+
+|*signerEmail*
+|String
+|Yes
+|Email address of the signer.
+|
+
+|*signerPhoneNumber*
+|String
+|No
+|Phone number of the signer (international format).
+|
+
+|*signerLabel*
+|String
+|Yes
+|The signer role label as defined in the template (e.g., `Signer`).
+|
+
+|*signerLocale*
+|String
+|No
+|The signer's locale for the signing interface.
+|`fr` (options: `fr`, `en`, `de`, `it`, `es`, `nl`, `pl`)
+
+|*deliveryMode*
+|String
+|No
+|How the signer receives the invitation.
+|`email` (options: `email`, `none`)
+
+|*orderedSigners*
+|Boolean
+|No
+|When `true`, signers must sign in the order they are added.
+|`false`
+
+|*templateTextFieldsJson*
+|String
+|No
+|JSON string with template text field values to pre-fill.
+|
+
+|*additionalSignersJson*
+|String
+|No
+|JSON string with additional signers (for multi-signer templates).
+|
+
+|*externalId*
+|String
+|No
+|An external identifier to associate with the request.
+|
+
+|*expirationDate*
+|String
+|No
+|Expiration date for the signature request.
+|
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*signatureRequestId*
+|String
+|The UUID of the created signature request.
+
+|*status*
+|String
+|The initial status of the signature request (typically `draft`).
+|===
+
+[#activate]
+=== Activate
+
+Activates a draft signature request, which sends invitation emails to the signers.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*signatureRequestId*
+|String
+|Yes
+|The UUID of the signature request to activate.
+|
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*status*
+|String
+|The status after activation (typically `ongoing`).
+
+|*signerLinksJson*
+|String
+|JSON string containing the signing links for each signer.
+|===
+
+[#get-status]
+=== Get Status
+
+Retrieves the current status of a signature request, including individual signer statuses.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*signatureRequestId*
+|String
+|Yes
+|The UUID of the signature request.
+|
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*status*
+|String
+|The current status of the signature request (e.g., `draft`, `ongoing`, `done`, `canceled`, `expired`, `declined`).
+
+|*signerStatusesJson*
+|String
+|JSON string with the status of each individual signer.
+
+|*isTerminal*
+|Boolean
+|`true` if the signature request has reached a terminal state (`done`, `canceled`, `expired`, `declined`).
+
+|*signedDocumentIdsJson*
+|String
+|JSON string with the IDs of signed documents (when status is `done`).
+|===
+
+[#cancel]
+=== Cancel
+
+Cancels an active signature request.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*signatureRequestId*
+|String
+|Yes
+|The UUID of the signature request to cancel.
+|
+
+|*cancellationReason*
+|String
+|No
+|A reason for the cancellation.
+|`Cancelled by Bonita process`
+|===
+
+[#download-document]
+=== Download Document
+
+Downloads the signed document(s) from a completed signature request. If no specific document ID is provided, all documents are downloaded as a ZIP archive.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*signatureRequestId*
+|String
+|Yes
+|The UUID of the signature request.
+|
+
+|*documentId*
+|String
+|No
+|The UUID of a specific document to download. If omitted, all documents are downloaded as a ZIP.
+|
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*documentContent*
+|byte[]
+|The binary content of the downloaded document or ZIP archive.
+
+|*documentName*
+|String
+|The file name of the downloaded document.
+
+|*contentType*
+|String
+|The MIME type of the downloaded content (e.g., `application/pdf`, `application/zip`).
+
+|*fileSizeBytes*
+|Long
+|The size of the downloaded file in bytes.
+|===
+
+[#download-audit-trail]
+=== Download Audit Trail
+
+Downloads the audit trail PDF for a signature request, providing a certified record of the signature process.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*signatureRequestId*
+|String
+|Yes
+|The UUID of the signature request.
+|
+
+|*signerIdsJson*
+|String
+|No
+|JSON string with specific signer IDs to include in the audit trail. If omitted, the full audit trail is downloaded.
+|
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*auditTrailContent*
+|byte[]
+|The binary content of the audit trail PDF.
+
+|*auditTrailName*
+|String
+|The file name of the audit trail document.
+
+|*fileSizeBytes*
+|Long
+|The size of the audit trail file in bytes.
+|===
+
+[#list]
+=== List
+
+Lists signature requests with optional filters and pagination support.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*statusFilter*
+|String
+|No
+|Filter by status.
+|Options: `approval`, `ongoing`, `done`, `deleted`, `expired`, `canceled`, `declined`
+
+|*externalIdFilter*
+|String
+|No
+|Filter by external ID.
+|
+
+|*afterCursor*
+|String
+|No
+|Pagination cursor for fetching the next page of results.
+|
+
+|*pageSize*
+|Integer
+|No
+|Number of results per page.
+|`20`
+
+|*sortOrder*
+|String
+|No
+|Sort order for results.
+|`desc` (options: `desc`, `asc`)
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*signatureRequestsJson*
+|String
+|JSON string containing the list of signature requests.
+
+|*nextCursor*
+|String
+|Cursor for the next page of results. Use this value as `afterCursor` in a subsequent call.
+
+|*hasMore*
+|Boolean
+|`true` if there are more results available beyond the current page.
+|===
+
+[#register-webhook]
+=== Register Webhook
+
+Registers a webhook endpoint to receive real-time notifications about signature events.
+
+==== Inputs
+
+|===
+|Parameter name |Type |Required |Description |Default value
+
+|*webhookEndpointUrl*
+|String
+|Yes
+|The HTTPS URL where Yousign will send event notifications.
+|
+
+|*subscribedEventsJson*
+|String
+|No
+|JSON array of event types to subscribe to.
+|`["signature_request.done","signature_request.canceled","signature_request.declined","signer.done"]`
+
+|*autoRetry*
+|Boolean
+|No
+|When `true`, Yousign will automatically retry failed webhook deliveries.
+|`true`
+
+|*enabled*
+|Boolean
+|No
+|When `true`, the webhook is active immediately after creation.
+|`true`
+
+|*sandbox*
+|Boolean
+|No
+|When `true`, the webhook is registered in the sandbox environment.
+|`true`
+
+|*webhookSecret*
+|String (Password)
+|No
+|A secret used to sign webhook payloads for verification.
+|
+|===
+
+==== Outputs
+
+|===
+|Output name |Type |Description
+
+|*webhookId*
+|String
+|The UUID of the registered webhook.
+|===
+
+[#import-connector]
+== Importing the connector into Bonita Studio
+
+To use the Yousign connector in your Bonita project:
+
+. Download the connector `.zip` extension from the https://marketplace.bonitasoft.com/[Bonita Marketplace].
+. In Bonita Studio, go to the *Project* menu and select *Extensions*.
+. Click *Import extension* and select the downloaded `.zip` file.
+. The Yousign connector operations will appear in the connector palette when configuring a task or a process.
+
+For more details on managing extensions, see xref:bonita-overview:managing-extension-studio.adoc[Managing extensions in Bonita Studio].

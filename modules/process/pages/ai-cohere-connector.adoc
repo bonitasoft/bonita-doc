@@ -1,0 +1,367 @@
+= Cohere AI connectors
+:description: Enterprise-grade AI with RAG capabilities, embeddings and document reranking for auditable AI in Bonita processes.
+
+{description}
+
+The Cohere connector is part of the xref:ai-connector.adoc[Bonita AI Connectors] family.
+
+== Getting started
+
+Import the `bonita-connector-ai-cohere` module as an extension dependency in your Bonita project. See the xref:ai-connector.adoc[AI connectors overview] for general setup instructions.
+
+== Connection configuration
+
+[caption=Connection parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*API Key*
+|Yes
+|Cohere API key from https://dashboard.cohere.com[Cohere Dashboard]
+|_Resolved from env var `++AI_API_KEY++` if not set_
+
+|*Base URL*
+|No
+|Custom endpoint URL for alternate deployments
+|`++https://api.cohere.com/compatibility/v1/++`
+
+|*Model Name*
+|No
+|Cohere model to use
+|`command-r-plus`
+
+|*Temperature*
+|No
+|Controls randomness (0.0 to 1.0)
+|
+
+|*Timeout*
+|No
+|Request timeout in milliseconds
+|
+|===
+
+== Available models
+
+* `command-r-plus` (default) -- Most capable, RAG-optimized with citation support
+* `command-r` -- Faster and cost-effective for standard tasks
+* `command-light` -- Lightweight model for simple classification and extraction
+
+Cohere specializes in enterprise AI with built-in support for retrieval-augmented generation (RAG), grounded answers with automatic citations, and strong multilingual capabilities across 100+ languages.
+
+See https://docs.cohere.com/docs/models[Cohere Models documentation] for the full list.
+
+== Operations
+
+=== Ask
+
+Send a user prompt (with optional system prompt and documents) to a Cohere model and return the generated response.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*User Prompt*
+|Yes
+|The prompt to send to Cohere
+|
+
+|*System Prompt*
+|No
+|System instructions to guide the model behavior
+|`You are a polite assistant.`
+
+|*Output JSON Schema*
+|No
+|JSON Schema to structure the response as JSON
+|
+
+|*Source Document Reference*
+|No
+|Bonita process document to include as context
+|
+
+|*Source Document References*
+|No
+|List of Bonita process documents to include as context
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|The generated response from the model
+|===
+
+=== Classify
+
+Classify a document into one of the predefined categories.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Categories*
+|Yes
+|Comma-separated list of classification categories
+|
+
+|*Source Document Reference*
+|Yes
+|Bonita process document to classify
+|
+
+|*Source Document References*
+|No
+|List of documents to classify
+|
+|===
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|JSON with `category` and `confidence` fields
+|===
+
+.Sample classification result
+[source,json]
+----
+{
+  "category": "COMPLIANCE_REPORT",
+  "confidence": 0.93
+}
+----
+
+=== Extract
+
+Extract structured data from a document using field names or a JSON Schema.
+
+[caption=Input parameters]
+|===
+|Parameter |Required |Description |Default
+
+|*Fields to Extract*
+|No
+|Comma-separated list of field names to extract
+|
+
+|*Output JSON Schema*
+|No
+|JSON Schema defining the extraction structure
+|
+
+|*Source Document Reference*
+|Yes
+|Bonita process document to extract from
+|
+
+|*Source Document References*
+|No
+|List of documents to extract from
+|
+|===
+
+IMPORTANT: You must provide at least one of `fieldsToExtract` or `outputJsonSchema` parameters.
+
+[caption=Output parameters]
+|===
+|Parameter |Type |Description
+
+|*output*
+|String
+|JSON with extracted fields
+|===
+
+== Use cases
+
+=== Compliance question answering with citations
+
+Use the *Ask* operation with Cohere's RAG capabilities to answer compliance questions grounded in actual policy documents. The model provides citations referencing specific sections, making answers auditable and verifiable.
+
+*Process flow:*
+
+. A compliance officer submits a question about internal policies
+. A service task attaches relevant policy documents and uses the *Ask* connector
+. Cohere generates an answer with citations referencing specific document sections
+. The answer and citations are displayed for review with links to source documents
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "command-r-plus",
+  "systemPrompt": "You are a compliance assistant. Answer questions based ONLY on the provided documents. Always cite the specific section or paragraph that supports your answer. If the answer is not in the documents, say so explicitly.",
+  "userPrompt": "Question: ${complianceQuestion}\n\nBased on the attached policy documents, provide a grounded answer with specific citations.",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"answer\",\"citations\",\"confidence\",\"documentsUsed\"],\"properties\":{\"answer\":{\"type\":\"string\"},\"citations\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"required\":[\"text\",\"source\",\"section\"],\"properties\":{\"text\":{\"type\":\"string\"},\"source\":{\"type\":\"string\"},\"section\":{\"type\":\"string\"}}}},\"confidence\":{\"type\":\"string\"},\"documentsUsed\":{\"type\":\"number\"}}}"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "answer": "According to the company's data retention policy, personal data collected for contract execution must be retained for a maximum of 5 years after the end of the contractual relationship. After this period, data must be anonymized or deleted unless a legal obligation requires longer retention.",
+  "citations": [
+    {
+      "text": "Personal data processed for the purpose of contract execution shall be retained for a period not exceeding 5 years following the termination of the contract.",
+      "source": "Data Retention Policy v3.2",
+      "section": "Section 4.1 - Retention Periods by Purpose"
+    },
+    {
+      "text": "Upon expiration of the retention period, data must be irreversibly anonymized or securely deleted within 90 days.",
+      "source": "Data Retention Policy v3.2",
+      "section": "Section 5.3 - Data Disposal Procedures"
+    }
+  ],
+  "confidence": "high",
+  "documentsUsed": 1
+}
+----
+
+=== Enterprise document classification
+
+Use the *Classify* operation with Cohere's zero-shot classification to categorize documents without training data. Cohere's models are particularly effective at understanding document context and intent.
+
+*Process flow:*
+
+. Documents are received through an intake process (email, upload, or API)
+. A service task uses the *Classify* connector to categorize each document
+. Documents are routed to specialized sub-processes based on their category
+. Classification results are logged for quality monitoring
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "command-r",
+  "categories": "FINANCIAL_REPORT,AUDIT_FINDING,RISK_ASSESSMENT,POLICY_UPDATE,REGULATORY_NOTICE,INTERNAL_MEMO,CLIENT_CORRESPONDENCE"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "category": "AUDIT_FINDING",
+  "confidence": 0.96
+}
+----
+
+=== Semantic search in knowledge bases
+
+Use the *Ask* operation to implement semantic search over internal knowledge bases. Cohere's models excel at understanding query intent and finding relevant information across large document collections.
+
+*Process flow:*
+
+. A user searches for information within a human task
+. A service task sends the query along with relevant knowledge base documents
+. Cohere returns ranked results with relevance scores
+. The top results are displayed to the user with context snippets
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "command-r-plus",
+  "systemPrompt": "You are a knowledge base search assistant. Find and rank the most relevant information from the provided documents. Return results ordered by relevance with context snippets.",
+  "userPrompt": "Search query: ${searchQuery}\n\nSearch the attached documents and return the most relevant results with context.",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"results\",\"totalRelevant\"],\"properties\":{\"results\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"required\":[\"title\",\"snippet\",\"relevanceScore\",\"source\"],\"properties\":{\"title\":{\"type\":\"string\"},\"snippet\":{\"type\":\"string\"},\"relevanceScore\":{\"type\":\"number\"},\"source\":{\"type\":\"string\"}}}},\"totalRelevant\":{\"type\":\"number\"}}}"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "results": [
+    {
+      "title": "Employee Onboarding Checklist",
+      "snippet": "New employees must complete IT security training within the first 5 business days. Access to production systems requires manager approval and completion of the security awareness module.",
+      "relevanceScore": 0.95,
+      "source": "HR-PROC-042 - Onboarding Procedure"
+    },
+    {
+      "title": "IT Security Policy - Access Control",
+      "snippet": "All new user accounts must follow the principle of least privilege. Initial access is limited to email, intranet, and department-specific applications.",
+      "relevanceScore": 0.87,
+      "source": "IT-POL-003 - Access Control Policy"
+    }
+  ],
+  "totalRelevant": 2
+}
+----
+
+=== Invoice data extraction with source attribution
+
+Use the *Extract* operation to parse invoices and attribute each extracted field to its source location in the document. This is valuable for audit trails and data quality verification.
+
+*Process flow:*
+
+. An invoice document is uploaded or received through the process
+. A service task uses the *Extract* connector to parse the invoice
+. Extracted data with source attribution is stored in BDM objects
+. A human task displays the extracted data alongside the original document for validation
+
+*Configuration:*
+[source,json]
+----
+{
+  "apiKey": "${AI_API_KEY}",
+  "chatModelName": "command-r-plus",
+  "outputJsonSchema": "{\"type\":\"object\",\"required\":[\"invoiceNumber\",\"issueDate\",\"dueDate\",\"vendor\",\"totalAmount\",\"currency\",\"lineItems\",\"taxAmount\"],\"properties\":{\"invoiceNumber\":{\"type\":\"string\"},\"issueDate\":{\"type\":\"string\"},\"dueDate\":{\"type\":\"string\"},\"vendor\":{\"type\":\"object\",\"required\":[\"name\",\"vatNumber\",\"address\"],\"properties\":{\"name\":{\"type\":\"string\"},\"vatNumber\":{\"type\":\"string\"},\"address\":{\"type\":\"string\"}}},\"totalAmount\":{\"type\":\"number\"},\"currency\":{\"type\":\"string\"},\"lineItems\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"required\":[\"description\",\"quantity\",\"unitPrice\",\"amount\"],\"properties\":{\"description\":{\"type\":\"string\"},\"quantity\":{\"type\":\"number\"},\"unitPrice\":{\"type\":\"number\"},\"amount\":{\"type\":\"number\"}}}},\"taxAmount\":{\"type\":\"number\"}}}"
+}
+----
+
+*Expected output:*
+[source,json]
+----
+{
+  "invoiceNumber": "INV-2026-00312",
+  "issueDate": "2026-03-15",
+  "dueDate": "2026-04-14",
+  "vendor": {
+    "name": "Tech Solutions Europe BV",
+    "vatNumber": "NL123456789B01",
+    "address": "Keizersgracht 123, 1015 CJ Amsterdam, Netherlands"
+  },
+  "totalAmount": 12450.00,
+  "currency": "EUR",
+  "lineItems": [
+    {
+      "description": "Cloud Infrastructure Services - March 2026",
+      "quantity": 1,
+      "unitPrice": 8500.00,
+      "amount": 8500.00
+    },
+    {
+      "description": "Professional Services - Migration Support (15 hours)",
+      "quantity": 15,
+      "unitPrice": 175.00,
+      "amount": 2625.00
+    }
+  ],
+  "taxAmount": 1325.00
+}
+----
+
+== Configuration tips
+
+* Cohere excels at RAG (Retrieval-Augmented Generation) -- use `command-r-plus` when you need grounded answers with citations from provided documents.
+* For high-volume classification, `command-r` provides a good balance between accuracy and cost.
+* Cohere supports 100+ languages natively, making it well suited for multilingual enterprise environments.
+* The OpenAI-compatible endpoint (`++https://api.cohere.com/compatibility/v1/++`) allows easy integration without custom client code.
+* Use `command-light` for simple tasks where speed and cost matter more than depth of reasoning.
+* Set `requestTimeout` to at least 60000 ms for complex RAG queries with multiple documents attached.
+
+== Source code
+
+https://github.com/bonitasoft/bonita-connector-ai[bonita-connector-ai on GitHub] (module `bonita-connector-ai-cohere`)
