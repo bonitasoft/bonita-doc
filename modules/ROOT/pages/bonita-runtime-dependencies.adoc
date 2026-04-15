@@ -1,4 +1,4 @@
-= Bonita Runtime dependencies (10.4.7)
+= Bonita Runtime dependencies (11.0.0.beta-01)
 :page-aliases: ROOT:bonita-web-dependencies.adoc, ROOT:bonita-engine-dependencies.adoc
 :description: List all dependencies used by Bonita Runtime
 
@@ -10,25 +10,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.20.0
+| 2.21.2
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.20
+| 2.21
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.20.0
+| 2.21.2
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.20.0
+| 2.21.2
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -85,7 +85,7 @@
 | 1.7.36
 | http://www.slf4j.org[http://www.slf4j.org]
 |  http://www.opensource.org/licenses/mit-license.php[MIT License]
-|===
+|=== 
 
 == bonita-client
 
@@ -94,25 +94,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.20.0
+| 2.21.2
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.20
+| 2.21
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.20.0
+| 2.21.2
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.20.0
+| 2.21.2
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -217,7 +217,7 @@
 | 1.1.3.1
 | http://www.xmlpull.org[http://www.xmlpull.org]
 |  http://www.xmlpull.org/v1/download/unpacked/LICENSE.txt[Public Domain]
-|===
+|=== 
 
 == bonita-server
 
@@ -250,31 +250,31 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.20.0
+| 2.21.2
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.20
+| 2.21
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.20.0
+| 2.21.2
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.20.0
+| 2.21.2
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-yaml
-| 2.20.0
+| 2.21.2
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -328,7 +328,7 @@
 
 | commons-io
 | commons-io
-| 2.20.0
+| 2.21.0
 | https://commons.apache.org/proper/commons-io/[https://commons.apache.org/proper/commons-io/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
@@ -346,19 +346,19 @@
 
 | io.micrometer
 | micrometer-commons
-| 1.15.5
+| 1.16.4
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-core
-| 1.15.5
+| 1.16.4
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-observation
-| 1.15.5
+| 1.16.4
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -380,6 +380,12 @@
 | https://javaee.github.io/glassfish[https://javaee.github.io/glassfish]
 |  https://opensource.org/licenses/CDDL-1.0[COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0]
 
+| javax.cache
+| cache-api
+| 1.1.0
+| https://github.com/jsr107/jsr107spec[https://github.com/jsr107/jsr107spec]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+
 | javax.persistence
 | javax.persistence-api
 | 2.2
@@ -400,15 +406,9 @@
 
 | net.bytebuddy
 | byte-buddy
-| 1.11.12
+| 1.12.18
 | N/A
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
-
-| net.sf.ehcache
-| ehcache
-| 2.10.10.24.8
-| http://www.terracotta.org[http://www.terracotta.org]
-|  src/assemble/EHCACHE-CORE-LICENSE.txt
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | org.apache.commons
 | commons-collections4
@@ -430,7 +430,7 @@
 
 | org.aspectj
 | aspectjweaver
-| 1.9.24
+| 1.9.25.1
 | https://www.eclipse.org/aspectj/[https://www.eclipse.org/aspectj/]
 |  https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt[Eclipse Public License - v 2.0]
 
@@ -530,17 +530,17 @@
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
-| org.dom4j
-| dom4j
-| 2.1.3
-| http://dom4j.github.io/[http://dom4j.github.io/]
-|  https://github.com/dom4j/dom4j/blob/master/LICENSE[BSD 3-clause New License]
-
 | org.eclipse.jdt
 | ecj
-| 3.43.0
+| 3.45.0
 | https://github.com/eclipse-jdt/eclipse.jdt.core/[https://github.com/eclipse-jdt/eclipse.jdt.core/]
 |  http://www.eclipse.org/legal/epl-2.0[Eclipse Public License Version 2.0]
+
+| org.ehcache
+| ehcache
+| 3.11.1
+| http://ehcache.org[http://ehcache.org]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.glassfish.hk2
 | osgi-resource-locator
@@ -574,9 +574,9 @@
 
 | org.hibernate
 | hibernate-core
-| 5.4.33
-| http://www.hibernate.org/orm/5.4[http://www.hibernate.org/orm/5.4]
-|  http://www.opensource.org/licenses/LGPL-2.1[GNU Library General Public License v2.1 or later]
+| 5.6.15.Final
+| https://hibernate.org/orm/5.6[https://hibernate.org/orm/5.6]
+|  https://www.opensource.org/licenses/LGPL-2.1[GNU Library General Public License v2.1 or later]
 
 | org.hibernate.common
 | hibernate-commons-annotations
@@ -586,19 +586,19 @@
 
 | org.javassist
 | javassist
-| 3.27.0-GA
+| 3.29.2-GA
 | http://www.javassist.org/[http://www.javassist.org/]
 |  http://www.mozilla.org/MPL/MPL-1.1.html[MPL 1.1]
 
 | org.jboss
 | jandex
-| 2.2.3.Final
+| 2.4.2.Final
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.jboss.logging
 | jboss-logging
-| 3.4.1.Final
+| 3.4.3.Final
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
@@ -607,6 +607,12 @@
 | 1.1.1.Final
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
+
+| org.jspecify
+| jspecify
+| 1.0.0
+| https://jspecify.dev/docs/start-here[https://jspecify.dev/docs/start-here]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache License, Version 2.0]
 
 | org.jvnet.staxex
 | stax-ex
@@ -706,7 +712,7 @@
 
 | org.yaml
 | snakeyaml
-| 2.4
+| 2.5
 | https://bitbucket.org/snakeyaml/snakeyaml[https://bitbucket.org/snakeyaml/snakeyaml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -715,7 +721,7 @@
 | 1.1.3.1
 | http://www.xmlpull.org[http://www.xmlpull.org]
 |  http://www.xmlpull.org/v1/download/unpacked/LICENSE.txt[Public Domain]
-|===
+|=== 
 
 == bonita-web-server
 
@@ -730,63 +736,27 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.20.0
+| 2.21.2
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.20
+| 2.21
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.20.0
+| 2.21.2
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.20.0
+| 2.21.2
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| com.fasterxml.jackson.dataformat
-| jackson-dataformat-csv
-| 2.20.0
-| https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| com.fasterxml.jackson.dataformat
-| jackson-dataformat-smile
-| 2.20.0
-| https://github.com/FasterXML/jackson-dataformats-binary[https://github.com/FasterXML/jackson-dataformats-binary]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| com.fasterxml.jackson.dataformat
-| jackson-dataformat-xml
-| 2.20.0
-| https://github.com/FasterXML/jackson-dataformat-xml[https://github.com/FasterXML/jackson-dataformat-xml]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| com.fasterxml.jackson.dataformat
-| jackson-dataformat-yaml
-| 2.20.0
-| https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| com.fasterxml.jackson.module
-| jackson-module-jaxb-annotations
-| 2.20.0
-| https://github.com/FasterXML/jackson-modules-base[https://github.com/FasterXML/jackson-modules-base]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| com.fasterxml.jackson.module
-| jackson-module-jsonSchema
-| 2.20.0
-| https://github.com/FasterXML/jackson-module-jsonSchema[https://github.com/FasterXML/jackson-module-jsonSchema]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.woodstox
 | woodstox-core
@@ -802,19 +772,19 @@
 
 | com.googlecode.owasp-java-html-sanitizer
 | java10-shim
-| 20260102.1
+| 20260313.1
 | https://github.com/OWASP/java-html-sanitizer[https://github.com/OWASP/java-html-sanitizer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | com.googlecode.owasp-java-html-sanitizer
 | java8-shim
-| 20260102.1
+| 20260313.1
 | https://github.com/OWASP/java-html-sanitizer[https://github.com/OWASP/java-html-sanitizer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | com.googlecode.owasp-java-html-sanitizer
 | owasp-java-html-sanitizer
-| 20260102.1
+| 20260313.1
 | https://owasp.org[https://owasp.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -868,7 +838,7 @@
 
 | commons-io
 | commons-io
-| 2.20.0
+| 2.21.0
 | https://commons.apache.org/proper/commons-io/[https://commons.apache.org/proper/commons-io/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
@@ -886,27 +856,21 @@
 
 | io.micrometer
 | micrometer-commons
-| 1.15.5
+| 1.16.4
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-core
-| 1.15.5
+| 1.16.4
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-observation
-| 1.15.5
+| 1.16.4
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| jakarta.activation
-| jakarta.activation-api
-| 1.2.2
-| https://www.eclipse.org[https://www.eclipse.org]
-|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | jakarta.servlet.jsp.jstl
 | jakarta.servlet.jsp.jstl-api
@@ -920,17 +884,17 @@
 | http://www.oracle.com[http://www.oracle.com]
 |  https://opensource.org/licenses/CDDL-1.0[COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0]
 
+| javax.cache
+| cache-api
+| 1.1.0
+| https://github.com/jsr107/jsr107spec[https://github.com/jsr107/jsr107spec]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+
 | javax.servlet
 | javax.servlet-api
 | 4.0.1
 | https://javaee.github.io/servlet-spec/[https://javaee.github.io/servlet-spec/]
 |  https://opensource.org/licenses/CDDL-1.0[COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0]
-
-| javax.validation
-| validation-api
-| 1.1.0.Final
-| http://beanvalidation.org[http://beanvalidation.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | javax.xml.bind
 | jaxb-api
@@ -943,12 +907,6 @@
 | 4.10
 | http://junit.org[http://junit.org]
 |  http://www.opensource.org/licenses/cpl1.0.txt[Common Public License Version 1.0]
-
-| net.sf.ehcache
-| ehcache
-| 2.10.10.24.8
-| http://www.terracotta.org[http://www.terracotta.org]
-|  src/assemble/EHCACHE-CORE-LICENSE.txt
 
 | org.apache.commons
 | commons-collections4
@@ -988,8 +946,8 @@
 
 | org.apache.xbean
 | xbean-classloader
-| 4.27
-| http://geronimo.apache.org/maven/xbean/4.27/xbean-classloader[http://geronimo.apache.org/maven/xbean/4.27/xbean-classloader]
+| 4.30
+| http://geronimo.apache.org/maven/xbean/4.30/xbean-classloader[http://geronimo.apache.org/maven/xbean/4.30/xbean-classloader]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.codehaus.groovy
@@ -1003,6 +961,12 @@
 | 4.2.2
 | http://github.com/FasterXML/stax2-api[http://github.com/FasterXML/stax2-api]
 |  http://www.opensource.org/licenses/bsd-license.php[The BSD 2-Clause License]
+
+| org.ehcache
+| ehcache
+| 3.11.1
+| http://ehcache.org[http://ehcache.org]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.fedorahosted.tennera
 | jgettext
@@ -1046,6 +1010,12 @@
 | http://hdrhistogram.github.io/HdrHistogram/[http://hdrhistogram.github.io/HdrHistogram/]
 |  http://creativecommons.org/publicdomain/zero/1.0/[Public Domain, per Creative Commons CC0]
 
+| org.jspecify
+| jspecify
+| 1.0.0
+| https://jspecify.dev/docs/start-here[https://jspecify.dev/docs/start-here]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache License, Version 2.0]
+
 | org.jvnet.staxex
 | stax-ex
 | 1.8
@@ -1057,24 +1027,6 @@
 | 2.0.3
 | http://latencyutils.github.io/LatencyUtils/[http://latencyutils.github.io/LatencyUtils/]
 |  http://creativecommons.org/publicdomain/zero/1.0/[Public Domain, per Creative Commons CC0]
-
-| org.restlet.jee
-| org.restlet.ext.servlet
-| 2.3.12
-| N/A
-|  http://www.opensource.org/licenses/lgpl-3.0[LGPL 3.0 license]
-
-| org.restlet.jse
-| org.restlet
-| 2.3.12
-| N/A
-|  http://www.opensource.org/licenses/lgpl-3.0[LGPL 3.0 license]
-
-| org.restlet.jse
-| org.restlet.ext.jackson
-| 2.3.12
-| N/A
-|  http://www.opensource.org/licenses/lgpl-3.0[LGPL 3.0 license]
 
 | org.slf4j
 | slf4j-api
@@ -1153,7 +1105,7 @@
 | 1.1.3.1
 | http://www.xmlpull.org[http://www.xmlpull.org]
 |  http://www.xmlpull.org/v1/download/unpacked/LICENSE.txt[Public Domain]
-|===
+|=== 
 
 == platform-setup
 
@@ -1174,25 +1126,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.20.0
+| 2.21.2
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.20
+| 2.21
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.20.0
+| 2.21.2
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.20.0
+| 2.21.2
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1210,13 +1162,13 @@
 
 | commons-cli
 | commons-cli
-| 1.10.0
+| 1.11.0
 | https://commons.apache.org/proper/commons-cli/[https://commons.apache.org/proper/commons-cli/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | commons-io
 | commons-io
-| 2.20.0
+| 2.21.0
 | https://commons.apache.org/proper/commons-io/[https://commons.apache.org/proper/commons-io/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
@@ -1240,13 +1192,13 @@
 
 | org.checkerframework
 | checker-qual
-| 3.49.5
+| 3.52.0
 | https://checkerframework.org/[https://checkerframework.org/]
 |  http://opensource.org/licenses/MIT[The MIT License]
 
 | org.postgresql
 | postgresql
-| 42.7.8
+| 42.7.10
 | https://jdbc.postgresql.org/[https://jdbc.postgresql.org/]
 |  https://jdbc.postgresql.org/about/license.html[BSD-2-Clause]
 
@@ -1333,7 +1285,7 @@
 | 2.7.18
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
-|===
+|=== 
 
 == bonita-common-sp
 
@@ -1342,25 +1294,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.20.0
+| 2.21.2
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.20
+| 2.21
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.20.0
+| 2.21.2
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.20.0
+| 2.21.2
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1417,7 +1369,7 @@
 | 1.7.36
 | http://www.slf4j.org[http://www.slf4j.org]
 |  http://www.opensource.org/licenses/mit-license.php[MIT License]
-|===
+|=== 
 
 == bonita-client-sp
 
@@ -1426,25 +1378,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.20.0
+| 2.21.2
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.20
+| 2.21
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.20.0
+| 2.21.2
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.20.0
+| 2.21.2
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1549,7 +1501,7 @@
 | 1.1.3.1
 | http://www.xmlpull.org[http://www.xmlpull.org]
 |  http://www.xmlpull.org/v1/download/unpacked/LICENSE.txt[Public Domain]
-|===
+|=== 
 
 == bonita-server-sp
 
@@ -1582,31 +1534,31 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.20.0
+| 2.21.2
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.20
+| 2.21
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.20.0
+| 2.21.2
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.20.0
+| 2.21.2
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-yaml
-| 2.20.0
+| 2.21.2
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1732,7 +1684,7 @@
 
 | commons-io
 | commons-io
-| 2.20.0
+| 2.21.0
 | https://commons.apache.org/proper/commons-io/[https://commons.apache.org/proper/commons-io/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
@@ -1744,13 +1696,13 @@
 
 | io.dropwizard.metrics
 | metrics-core
-| 4.2.37
+| 4.2.38
 | N/A
 |  https://www.apache.org/licenses/LICENSE-2.0.html[Apache License 2.0]
 
 | io.dropwizard.metrics
 | metrics-jmx
-| 4.2.37
+| 4.2.38
 | N/A
 |  https://www.apache.org/licenses/LICENSE-2.0.html[Apache License 2.0]
 
@@ -1762,25 +1714,25 @@
 
 | io.micrometer
 | micrometer-commons
-| 1.15.5
+| 1.16.4
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-core
-| 1.15.5
+| 1.16.4
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-observation
-| 1.15.5
+| 1.16.4
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-registry-jmx
-| 1.15.5
+| 1.16.4
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1834,21 +1786,15 @@
 
 | net.bytebuddy
 | byte-buddy
-| 1.11.12
+| 1.12.18
 | N/A
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | net.jcip
 | jcip-annotations
 | 1.0
 | http://jcip.net/[http://jcip.net/]
 |  N/A
-
-| net.sf.ehcache
-| ehcache
-| 2.10.10.24.8
-| http://www.terracotta.org[http://www.terracotta.org]
-|  src/assemble/EHCACHE-CORE-LICENSE.txt
 
 | net.sf.jtidy
 | jtidy
@@ -1900,7 +1846,7 @@
 
 | org.aspectj
 | aspectjweaver
-| 1.9.24
+| 1.9.25.1
 | https://www.eclipse.org/aspectj/[https://www.eclipse.org/aspectj/]
 |  https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt[Eclipse Public License - v 2.0]
 
@@ -2018,17 +1964,17 @@
 | https://groovy-lang.org[https://groovy-lang.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
-| org.dom4j
-| dom4j
-| 2.1.3
-| http://dom4j.github.io/[http://dom4j.github.io/]
-|  https://github.com/dom4j/dom4j/blob/master/LICENSE[BSD 3-clause New License]
-
 | org.eclipse.jdt
 | ecj
-| 3.43.0
+| 3.45.0
 | https://github.com/eclipse-jdt/eclipse.jdt.core/[https://github.com/eclipse-jdt/eclipse.jdt.core/]
 |  http://www.eclipse.org/legal/epl-2.0[Eclipse Public License Version 2.0]
+
+| org.ehcache
+| ehcache
+| 3.11.1
+| http://ehcache.org[http://ehcache.org]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.glassfish.hk2
 | osgi-resource-locator
@@ -2062,15 +2008,15 @@
 
 | org.hibernate
 | hibernate-core
-| 5.4.33
-| http://www.hibernate.org/orm/5.4[http://www.hibernate.org/orm/5.4]
-|  http://www.opensource.org/licenses/LGPL-2.1[GNU Library General Public License v2.1 or later]
+| 5.6.15.Final
+| https://hibernate.org/orm/5.6[https://hibernate.org/orm/5.6]
+|  https://www.opensource.org/licenses/LGPL-2.1[GNU Library General Public License v2.1 or later]
 
 | org.hibernate
 | hibernate-jcache
-| 5.4.33
-| http://www.hibernate.org/orm/5.4[http://www.hibernate.org/orm/5.4]
-|  http://www.opensource.org/licenses/LGPL-2.1[GNU Library General Public License v2.1 or later]
+| 5.6.15.Final
+| https://hibernate.org/orm/5.6[https://hibernate.org/orm/5.6]
+|  https://www.opensource.org/licenses/LGPL-2.1[GNU Library General Public License v2.1 or later]
 
 | org.hibernate.common
 | hibernate-commons-annotations
@@ -2080,19 +2026,19 @@
 
 | org.javassist
 | javassist
-| 3.27.0-GA
+| 3.29.2-GA
 | http://www.javassist.org/[http://www.javassist.org/]
 |  http://www.mozilla.org/MPL/MPL-1.1.html[MPL 1.1]
 
 | org.jboss
 | jandex
-| 2.2.3.Final
+| 2.4.2.Final
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.jboss.logging
 | jboss-logging
-| 3.4.1.Final
+| 3.4.3.Final
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
@@ -2212,7 +2158,7 @@
 
 | org.yaml
 | snakeyaml
-| 2.4
+| 2.5
 | https://bitbucket.org/snakeyaml/snakeyaml[https://bitbucket.org/snakeyaml/snakeyaml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -2221,7 +2167,7 @@
 | 1.1.3.1
 | http://www.xmlpull.org[http://www.xmlpull.org]
 |  http://www.xmlpull.org/v1/download/unpacked/LICENSE.txt[Public Domain]
-|===
+|=== 
 
 == bonita-web-server-sp
 
@@ -2236,63 +2182,27 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.20.0
+| 2.21.2
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.20
+| 2.21
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.20.0
+| 2.21.2
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.20.0
+| 2.21.2
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| com.fasterxml.jackson.dataformat
-| jackson-dataformat-csv
-| 2.20.0
-| https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| com.fasterxml.jackson.dataformat
-| jackson-dataformat-smile
-| 2.20.0
-| https://github.com/FasterXML/jackson-dataformats-binary[https://github.com/FasterXML/jackson-dataformats-binary]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| com.fasterxml.jackson.dataformat
-| jackson-dataformat-xml
-| 2.20.0
-| https://github.com/FasterXML/jackson-dataformat-xml[https://github.com/FasterXML/jackson-dataformat-xml]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| com.fasterxml.jackson.dataformat
-| jackson-dataformat-yaml
-| 2.20.0
-| https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| com.fasterxml.jackson.module
-| jackson-module-jaxb-annotations
-| 2.20.0
-| https://github.com/FasterXML/jackson-modules-base[https://github.com/FasterXML/jackson-modules-base]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| com.fasterxml.jackson.module
-| jackson-module-jsonSchema
-| 2.20.0
-| https://github.com/FasterXML/jackson-module-jsonSchema[https://github.com/FasterXML/jackson-module-jsonSchema]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.woodstox
 | woodstox-core
@@ -2308,19 +2218,19 @@
 
 | com.googlecode.owasp-java-html-sanitizer
 | java10-shim
-| 20260102.1
+| 20260313.1
 | https://github.com/OWASP/java-html-sanitizer[https://github.com/OWASP/java-html-sanitizer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | com.googlecode.owasp-java-html-sanitizer
 | java8-shim
-| 20260102.1
+| 20260313.1
 | https://github.com/OWASP/java-html-sanitizer[https://github.com/OWASP/java-html-sanitizer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | com.googlecode.owasp-java-html-sanitizer
 | owasp-java-html-sanitizer
-| 20260102.1
+| 20260313.1
 | https://owasp.org[https://owasp.org]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -2416,7 +2326,7 @@
 
 | commons-io
 | commons-io
-| 2.20.0
+| 2.21.0
 | https://commons.apache.org/proper/commons-io/[https://commons.apache.org/proper/commons-io/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
@@ -2440,27 +2350,21 @@
 
 | io.micrometer
 | micrometer-commons
-| 1.15.5
+| 1.16.4
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-core
-| 1.15.5
+| 1.16.4
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-observation
-| 1.15.5
+| 1.16.4
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| jakarta.activation
-| jakarta.activation-api
-| 1.2.2
-| https://www.eclipse.org[https://www.eclipse.org]
-|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | jakarta.annotation
 | jakarta.annotation-api
@@ -2473,6 +2377,12 @@
 | 1.2.7
 | https://www.eclipse.org[https://www.eclipse.org]
 |  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
+
+| jakarta.validation
+| jakarta.validation-api
+| 3.1.1
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | javax.activation
 | activation
@@ -2492,6 +2402,12 @@
 | https://javaee.github.io/glassfish[https://javaee.github.io/glassfish]
 |  https://opensource.org/licenses/CDDL-1.0[COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0]
 
+| javax.cache
+| cache-api
+| 1.1.0
+| https://github.com/jsr107/jsr107spec[https://github.com/jsr107/jsr107spec]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+
 | javax.jws
 | javax.jws-api
 | 1.1
@@ -2503,12 +2419,6 @@
 | 4.0.1
 | https://javaee.github.io/servlet-spec/[https://javaee.github.io/servlet-spec/]
 |  https://opensource.org/licenses/CDDL-1.0[COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0]
-
-| javax.validation
-| validation-api
-| 1.1.0.Final
-| http://beanvalidation.org[http://beanvalidation.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | javax.xml.bind
 | jaxb-api
@@ -2533,12 +2443,6 @@
 | 4.10
 | http://junit.org[http://junit.org]
 |  http://www.opensource.org/licenses/cpl1.0.txt[Common Public License Version 1.0]
-
-| net.sf.ehcache
-| ehcache
-| 2.10.10.24.8
-| http://www.terracotta.org[http://www.terracotta.org]
-|  src/assemble/EHCACHE-CORE-LICENSE.txt
 
 | org.apache.commons
 | commons-collections4
@@ -2584,8 +2488,8 @@
 
 | org.apache.xbean
 | xbean-classloader
-| 4.27
-| http://geronimo.apache.org/maven/xbean/4.27/xbean-classloader[http://geronimo.apache.org/maven/xbean/4.27/xbean-classloader]
+| 4.30
+| http://geronimo.apache.org/maven/xbean/4.30/xbean-classloader[http://geronimo.apache.org/maven/xbean/4.30/xbean-classloader]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.bouncycastle
@@ -2623,6 +2527,12 @@
 | 1.1.1
 | https://github.com/codelibs/spnego[https://github.com/codelibs/spnego]
 |  http://www.gnu.org/licenses/lgpl.txt[GNU Lesser General Public License (GPL)]
+
+| org.ehcache
+| ehcache
+| 3.11.1
+| http://ehcache.org[http://ehcache.org]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.fedorahosted.tennera
 | jgettext
@@ -2683,6 +2593,12 @@
 | 3.4.1.Final
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
+
+| org.jspecify
+| jspecify
+| 1.0.0
+| https://jspecify.dev/docs/start-here[https://jspecify.dev/docs/start-here]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache License, Version 2.0]
 
 | org.jvnet.mimepull
 | mimepull
@@ -2798,24 +2714,6 @@
 | http://latencyutils.github.io/LatencyUtils/[http://latencyutils.github.io/LatencyUtils/]
 |  http://creativecommons.org/publicdomain/zero/1.0/[Public Domain, per Creative Commons CC0]
 
-| org.restlet.jee
-| org.restlet.ext.servlet
-| 2.3.12
-| N/A
-|  http://www.opensource.org/licenses/lgpl-3.0[LGPL 3.0 license]
-
-| org.restlet.jse
-| org.restlet
-| 2.3.12
-| N/A
-|  http://www.opensource.org/licenses/lgpl-3.0[LGPL 3.0 license]
-
-| org.restlet.jse
-| org.restlet.ext.jackson
-| 2.3.12
-| N/A
-|  http://www.opensource.org/licenses/lgpl-3.0[LGPL 3.0 license]
-
 | org.slf4j
 | slf4j-api
 | 1.7.36
@@ -2905,7 +2803,7 @@
 | 1.1.3.1
 | http://www.xmlpull.org[http://www.xmlpull.org]
 |  http://www.xmlpull.org/v1/download/unpacked/LICENSE.txt[Public Domain]
-|===
+|=== 
 
 == platform-setup-sp
 
@@ -2926,25 +2824,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.20.0
+| 2.21.2
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.20
+| 2.21
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.20.0
+| 2.21.2
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.20.0
+| 2.21.2
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -2956,7 +2854,7 @@
 
 | com.microsoft.sqlserver
 | mssql-jdbc
-| 12.6.5.jre11
+| 12.10.2.jre11
 | https://github.com/Microsoft/mssql-jdbc[https://github.com/Microsoft/mssql-jdbc]
 |  http://www.opensource.org/licenses/mit-license.php[MIT License]
 
@@ -2968,7 +2866,7 @@
 
 | com.oracle.database.jdbc
 | ojdbc11
-| 23.26.0.0.0
+| 23.26.1.0.0
 | https://www.oracle.com/database/technologies/maven-central-guide.html[https://www.oracle.com/database/technologies/maven-central-guide.html]
 |  https://www.oracle.com/downloads/licenses/oracle-free-license.html[Oracle Free Use Terms and Conditions (FUTC)]
 
@@ -2980,13 +2878,13 @@
 
 | commons-cli
 | commons-cli
-| 1.10.0
+| 1.11.0
 | https://commons.apache.org/proper/commons-cli/[https://commons.apache.org/proper/commons-cli/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | commons-io
 | commons-io
-| 2.20.0
+| 2.21.0
 | https://commons.apache.org/proper/commons-io/[https://commons.apache.org/proper/commons-io/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
@@ -3010,13 +2908,13 @@
 
 | org.checkerframework
 | checker-qual
-| 3.49.5
+| 3.52.0
 | https://checkerframework.org/[https://checkerframework.org/]
 |  http://opensource.org/licenses/MIT[The MIT License]
 
 | org.postgresql
 | postgresql
-| 42.7.8
+| 42.7.10
 | https://jdbc.postgresql.org/[https://jdbc.postgresql.org/]
 |  https://jdbc.postgresql.org/about/license.html[BSD-2-Clause]
 
@@ -3103,4 +3001,4 @@
 | 2.7.18
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
-|===
+|=== 
