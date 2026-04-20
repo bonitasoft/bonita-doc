@@ -1,7 +1,7 @@
 name: bonita
 title: Bonita
 version: 2026.1
-prerelease: -alpha
+prerelease: -beta
 asciidoc:
   attributes:
     bonitaVersion: 2026.1
@@ -30,7 +30,7 @@ asciidoc:
     page-pagination: true # display links to previous/next pages at the bottom of the page
     page-editable: true
     page-out-of-support: false
-    page-next-release: true
+    page-next-release: false
     page-hide-search-bar: false
     page-hide-components: 'bcd'
 nav:
