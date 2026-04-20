@@ -1,8 +1,10 @@
-= Slack connector
+= Slack connectors
 :page-aliases: ROOT:slack-connector.adoc
 :description: The Slack connectors allow you to send messages, direct messages, upload files, create channels, and invite users from your Bonita processes.
 
 {description}
+
+The Bonita Slack Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
 
 == Overview
 
@@ -30,41 +32,66 @@ To use the Slack connectors, you need to create a Slack App and obtain a Bot Tok
 . Click *Install to Workspace* at the top of the page and authorize the app
 . Copy the *Bot User OAuth Token* (starts with `xoxb-`) — this is the value for the `botToken` input
 
+[[slack-scopes]]
 === Required Slack scopes
 
-Depending on which operations you use, the following scopes must be configured on your Slack App:
+Each operation requires specific Bot Token scopes. Add only the scopes you need for the operations you plan to use.
 
+==== Scopes by operation
+
+[caption=Required scopes per operation]
 |===
-| Scope | Required for
+| Operation | Required Scopes | Slack API Methods
 
+| *Send Message*
 | `chat:write`
-| Send Message, Send DM, Update Message
+| `chat.postMessage`
 
-| `chat:write.public`
-| Send Message to public channels the bot has not joined
+| *Send DM* (by user ID)
+| `chat:write`, `im:write`
+| `conversations.open`, `chat.postMessage`
 
+| *Send DM* (by email)
+| `chat:write`, `im:write`, `users:read.email`
+| `users.lookupByEmail`, `conversations.open`, `chat.postMessage`
+
+| *Update Message*
+| `chat:write`
+| `chat.update`
+
+| *Upload File*
 | `files:write`
-| Upload File
+| `files.uploadV2`
 
-| `files:read`
-| Upload File (required by the upload API)
-
+| *Create Channel* (public)
 | `channels:manage`
-| Create Channel (public)
+| `conversations.create`
 
-| `groups:write`
-| Create Channel (private), Invite to Channel (private channels)
+| *Create Channel* (private)
+| `channels:manage`, `groups:write`
+| `conversations.create`
 
-| `im:write`
-| Send DM (open direct message conversations)
+| *Invite to Channel*
+| `channels:write.invites`
+| `conversations.invite`
 
-| `users:read.email`
-| Send DM by email, Invite to Channel by email
+| *Invite to Channel* (by email)
+| `channels:write.invites`, `users:read.email`
+| `users.lookupByEmail`, `conversations.invite`
 |===
+
+*Minimal setup* (send messages only): `chat:write`
+
+*Full setup* (all operations): `chat:write`, `im:write`, `channels:manage`, `channels:write.invites`, `groups:write`, `files:write`, `users:read.email`
 
 [NOTE]
 ====
-After adding or changing scopes, you must *reinstall the app* to your workspace for the changes to take effect.
+After adding or changing scopes, you must *Reinstall to Workspace* for the changes to take effect. The Bot Token value (`xoxb-...`) remains the same after reinstalling.
+====
+
+[TIP]
+====
+Use `recipientEmail` instead of `recipientUserId` for the Send DM operation -- it is much easier for process designers. The connector resolves the user ID automatically via `users.lookupByEmail` (requires `users:read.email` scope).
 ====
 
 == Common connection settings
@@ -517,3 +544,66 @@ The Bot Token is invalid or has been revoked. Verify the token starts with `xoxb
 
 [.troubleshooting-section]
 The email address does not match any user in the workspace, or the `users:read.email` scope is missing. Verify the email is correct and that the scope is configured.
+
+[.troubleshooting-title]
+=== `channel_not_found` error
+
+[.troubleshooting-section]
+The channel does not exist or the bot is not a member. Verify the channel name or ID, and invite the bot to the channel: `/invite @YourBotName`.
+
+[.troubleshooting-title]
+=== Dependencies show "not found" in Bonita Studio
+
+[.troubleshooting-section]
+Run `mvn install` on the connector project before importing the JAR into Studio. Studio resolves connector dependencies from the local Maven repository. If some JARs still show as "not found", they may be engine-provided libraries that are not needed at design time.
+
+== Use case examples
+
+=== Notify a team and create a project channel
+
+A common pattern is to create a dedicated Slack channel for a new project, invite the team, and post an initial message:
+
+. Use *Create Channel* to create `#project-{projectName}`
+. Use *Invite to Channel* with the team members' emails
+. Use *Send Message* to post a welcome message with project details
+. Store the `channelId` output in a process variable for later operations
+
+In the process, chain the connectors using the outputs:
+
+* The `channelId` from *Create Channel* feeds into the *Invite to Channel* and *Send Message* inputs
+* The `messageTs` from *Send Message* can be used later by *Update Message* to edit the status
+
+=== Send a status update and upload a report
+
+. Use *Send Message* to post "Report generation in progress..."
+. Generate the report in a subsequent task (e.g., using JasperReports)
+. Use *Upload File* to upload the report to the same channel
+. Use *Update Message* with the original `messageTs` to change the status to "Report ready"
+
+=== Send a direct notification
+
+To notify a specific user (e.g., a process initiator or an approver):
+
+. Use *Send DM* with `recipientEmail` set to the user's email address
+. The connector resolves the Slack user automatically and opens a DM conversation
+. The user receives the message in their Slack direct messages
+
+[NOTE]
+====
+The bot must have `im:write` and `users:read.email` scopes for email-based DMs.
+====
+
+== Compatibility
+
+[caption=Compatibility matrix]
+|===
+| Bonita version | Java | Slack SDK
+
+| 10.2+ (2024.3+)
+| 17+
+| 1.48.0
+|===
+
+== Source code
+
+The connector source code is available on GitHub: https://github.com/bonitasoft/bonita-connector-slack-all[bonitasoft/bonita-connector-slack-all]
