@@ -120,6 +120,8 @@ The connector handles HTTP errors as follows:
 
 Creates a signature request from a pre-configured Yousign template.
 
+NOTE: Since **1.0.1-beta.1**, this operation matches the Yousign API v3 contract. When `template_id` is used, signer data and read-only text field values live inside a `template_placeholders` object, passed to the connector through the `templateTextFieldsJson` input. The separate `signer*` inputs of 1.0.0-beta.1 are no longer mandatory and are not sent to the API -- they remain in the definition purely as documentation anchors.
+
 ==== Inputs
 
 |===
@@ -137,41 +139,17 @@ Creates a signature request from a pre-configured Yousign template.
 |A name for the signature request.
 |
 
-|*signerFirstName*
-|String
-|Yes
-|First name of the signer.
-|
-
-|*signerLastName*
-|String
-|Yes
-|Last name of the signer.
-|
-
-|*signerEmail*
-|String
-|Yes
-|Email address of the signer.
-|
-
-|*signerPhoneNumber*
+|*templateTextFieldsJson*
 |String
 |No
-|Phone number of the signer (international format).
+|JSON string with the full `template_placeholders` object (signers and read-only text fields). See <<template-placeholders>>.
 |
 
-|*signerLabel*
-|String
-|Yes
-|The signer role label as defined in the template (e.g., `Signer`).
-|
-
-|*signerLocale*
+|*externalId*
 |String
 |No
-|The signer's locale for the signing interface.
-|`fr` (options: `fr`, `en`, `de`, `it`, `es`, `nl`, `pl`)
+|An external identifier to associate with the request.
+|
 
 |*deliveryMode*
 |String
@@ -185,30 +163,103 @@ Creates a signature request from a pre-configured Yousign template.
 |When `true`, signers must sign in the order they are added.
 |`false`
 
-|*templateTextFieldsJson*
-|String
-|No
-|JSON string with template text field values to pre-fill.
-|
-
-|*additionalSignersJson*
-|String
-|No
-|JSON string with additional signers (for multi-signer templates).
-|
-
-|*externalId*
-|String
-|No
-|An external identifier to associate with the request.
-|
-
 |*expirationDate*
 |String
 |No
-|Expiration date for the signature request.
+|Expiration date for the signature request. Must be ISO 8601: a date `YYYY-MM-DD` or a UTC datetime `YYYY-MM-DDTHH:MM:SSZ`.
+|
+
+|*signerFirstName* _(informational, not sent to API)_
+|String
+|No
+|Legacy input kept for backward compatibility. Not used. Set the signer first name inside `templateTextFieldsJson`.
+|
+
+|*signerLastName* _(informational, not sent to API)_
+|String
+|No
+|Legacy input kept for backward compatibility. Not used.
+|
+
+|*signerEmail* _(informational, not sent to API)_
+|String
+|No
+|Legacy input kept for backward compatibility. Not used.
+|
+
+|*signerPhoneNumber* _(informational, not sent to API)_
+|String
+|No
+|Legacy input kept for backward compatibility. Not used.
+|
+
+|*signerLabel* _(informational, not sent to API)_
+|String
+|No
+|Legacy input kept for backward compatibility. Not used. The signer label (matching the template placeholder) belongs inside `templateTextFieldsJson`.
+|
+
+|*signerLocale* _(informational, not sent to API)_
+|String
+|No
+|Legacy input kept for backward compatibility. Not used.
+|`fr` (options: `fr`, `en`, `de`, `it`, `es`, `nl`, `pl`)
+
+|*additionalSignersJson* _(deprecated)_
+|String
+|No
+|Deprecated. Add extra signers inside `templateTextFieldsJson.signers[]` instead.
 |
 |===
+
+[#template-placeholders]
+==== `templateTextFieldsJson` -- expected shape
+
+`templateTextFieldsJson` is passed verbatim as the `template_placeholders` object of the Yousign v3 request body. It must be an object (not an array) with two optional arrays:
+
+* `signers[]` -- one entry per template signer placeholder. Each entry has a `label` (matching the template placeholder) and an `info` object with `first_name`, `last_name`, `email`, and optionally `phone_number` / `locale`.
+* `read_only_text_fields[]` -- one entry per read-only text placeholder, with `label` (matching the template field) and `text`.
+
+Example (single signer + several read-only fields):
+
+[source,json]
+----
+{
+  "signers": [
+    {
+      "label": "policyHolder",
+      "info": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "email": "jane.doe@example.com",
+        "locale": "en"
+      }
+    }
+  ],
+  "read_only_text_fields": [
+    { "label": "claim_id", "text": "SIN-2026-42" },
+    { "label": "amount",   "text": "1800" }
+  ]
+}
+----
+
+In Bonita Studio you typically build this object with a Groovy script, for example:
+
+[source,groovy]
+----
+import groovy.json.JsonOutput
+
+return JsonOutput.toJson([
+    signers: [
+        [ label: "policyHolder",
+          info : [ first_name: "Jane", last_name: "Doe",
+                   email: "jane.doe@example.com", locale: "en" ] ]
+    ],
+    read_only_text_fields: [
+        [ label: "claim_id", text: "SIN-2026-42" ]
+    ]
+])
+----
 
 ==== Outputs
 
@@ -221,8 +272,17 @@ Creates a signature request from a pre-configured Yousign template.
 
 |*status*
 |String
-|The initial status of the signature request (typically `draft`).
+|The initial status of the signature request. `POST /signature_requests` always returns `draft` -- call <<activate>> next to transition it to `ongoing` and trigger signer emails.
 |===
+
+==== Recommended pattern
+
+`Create From Template` creates the signature request as a `draft`. To send the email invitations, chain the `Activate` operation on the same service task (second ON_ENTER connector) or on a downstream task, mapping this operation's `signatureRequestId` output to a process variable and passing it to `Activate`:
+
+[source]
+----
+Start -> ServiceTask { ON_ENTER: create-from-template, ON_ENTER: activate } -> End
+----
 
 [#activate]
 === Activate
