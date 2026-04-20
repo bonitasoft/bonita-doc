@@ -1,3 +1,4 @@
+antora.yml merge=ours
 modules/ROOT/pages/release-notes.adoc merge=ours
 modules/ROOT/pages/index.adoc merge=ours
 modules/ROOT/pages/bonita-ui-designer-dependencies.adoc merge=ours
