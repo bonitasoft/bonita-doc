@@ -10,80 +10,7 @@ The {bonitaVersion} version is in development.
 
 == Notable changes
 
-=== BDM REST API response format standardization
-
-Starting from this version, the response format for BDM queries via REST API has been standardized to follow REST conventions:
-
-* **Scalar queries** (COUNT, AVG, MAX, MIN, SUM): Now return `{"value": n}` instead of `[n]`
-* **Single entity queries**: Now return the object directly `{...}` instead of wrapping it in an array `[{...}]`
-* **List queries**: Unchanged, still return arrays `[{...}, {...}]`
-
-This change affects REST API consumers (JavaScript clients, UI Designer pages, external applications). Server-side Groovy code using DAO methods is not affected.
-
-To maintain backward compatibility, you can disable the new format by setting:
-[source,properties]
-----
-bonita.runtime.business-data.serialization.standard-shape.enabled=false
-----
-
-[NOTE]
-====
-If you are updating from a previous version of Bonita, backward compatibility is maintained for you by disabling automatically this new property. You are free to activate it when you code is compatible by modifying file `bonita-tenant-community-custom.properties`
-====
-
-See xref:data:bdm-query-response-formats.adoc[BDM Query Response Formats] for detailed migration guidance.
-
-
-=== Rest API refactoring
-
-Many Rest APIs have been refactored to better prepare evolutions in the future.
-(Technically, we moved the implementation from unmaintained Restlet to Spring MVC).
-
-This concerns the following endpoints:
-
-* `/API/accessControl/bdm`
-* `/API/bdm/businessDataReference`
-    - ⚠️ this API now returns `HTTP 400` instead of `HTTP 500`:
-        . when `caseId` filter is not provided, or filter `f` completely absent
-        . when pagination parameter `p` is not provided
-        . when pagination parameter `c` is not provided
-* `/API/bdm/businessDataReference/+{caseId}+/+{dataName}+`
-* `/API/bpm/activityReplay/+{activityInstanceId}+`
-* `/API/bpm/activityVariable/+{activityId}+/+{dataName}+`
-    - ⚠️ this API now returns `HTTP 404` when `activityId` or `dataName` is not found (instead of `HTTP 500`)
-* `/API/bpm/archivedActivityVariable/+{activityId}+/+{variableName}+`
-    - ⚠️ this API now returns `HTTP 404` when `activityId` or `variableName` is not found (instead of `HTTP 500`)
-* `/API/bpm/archivedCase/+{archivedCaseId}+/context`
-* `/API/bpm/archivedCaseVariable?f=case_id=12005&p=0&c=10`
-    - ⚠️ this API now returns `HTTP 400` instead of `HTTP 500`:
-        . when `case_id` filter is not provided, or filter `f` completely absent
-        . when pagination parameter `p` is not provided
-        . when pagination parameter `c` is not provided
-* `/API/bpm/archivedCaseVariable/+{caseId}+/+{variableName}+`
-    - ⚠️ this API now returns `HTTP 404` when `caseId` or `variableName` is not found (instead of `HTTP 500`)
-* `/API/bpm/archivedUserTask/+{archivedTaskId}+/context`
-* `/API/bpm/case/+{caseId}+/context`
-* `/API/bpm/diagram/+{processId}+`
-* `/API/bpm/message`
-* `/API/bpm/process/+{processDefinitionId}+/contract`
-* `/API/bpm/process/+{processDefinitionId}+/design`
-* `/API/bpm/process/+{processDefinitionId}+/expression/+{expressionId}+`
-* `/API/bpm/process/+{processDefinitionId}+/instantiation`
-* `/API/bpm/signal`
-* `/API/bpm/timerEventTrigger`
-* `/API/bpm/timerEventTrigger/+{id}+`
-* `/API/bpm/userTask/+{taskId}+/context`
-* `/API/bpm/userTask/+{taskId}+/contract`
-* `/API/bpm/userTask/+{taskId}+/execution`
-* `/API/form/mapping/+{id}+`
-* `/API/platform/license`
-* `/API/system/i18ntranslation`
-* `/API/tenant/bdm`
-
-The behaviour remains unchanged, even if some HTTP headers may be slightly different.
-
 == Support matrix changes
-
 
 == Deprecations and removals
 
@@ -94,35 +21,6 @@ The behaviour remains unchanged, even if some HTTP headers may be slightly diffe
 === Custom component changes
 
 === Configuration changes
-
-==== Ehcache upgraded from 2.x to 3.11
-
-Bonita Runtime internal caching system has been upgraded from Ehcache 2.x to Ehcache 3.11 to benefit from improved performance, better memory management, and continued vendor support.
-
-*Impact on configuration:*
-
-The migration process automatically:
-
-* Removes the deprecated `cache-config.xml` file (cache configuration is now programmatic in Java)
-* Removes 4 obsolete Ehcache 2 properties from configuration files:
-** `inMemoryOnly`, `maxElementsOnDisk`
-** `copyOnRead`, `copyOnWrite`
-* Adds new `offHeapSizeMB=0` property to all cache configurations (defaults to on-heap caching)
-
-*What you need to know:*
-
-* If you customized cache configuration in `bonita-platform-community-custom.properties`, `bonita-tenant-community-custom.properties`, or cluster configuration files, these obsolete properties will be automatically removed during platform update
-* The new Ehcache 3 configuration uses different property names and is managed programmatically - contact Bonitasoft Support if you need to tune cache behavior
-* Most Ehcache 3 properties (like `maxElementsInMemory`, `eternal`, `timeToLiveSeconds`) remain compatible and will be preserved
-* Off-heap caching is disabled by default (`offHeapSizeMB=0`) but can be enabled for performance optimization on large-scale deployments
-
-*Affected configuration files:*
-
-* Community edition: `bonita-platform-community-custom.properties`, `bonita-tenant-community-custom.properties`
-* Subscription edition (cluster): `bonita-platform-sp-cluster-custom.properties`, `bonita-tenant-sp-cluster-custom.properties`
-
-For advanced cache tuning after migration, refer to the xref:runtime:performance-tuning.adoc[Performance tuning] documentation.
-
 
 == Bug fixes
 
