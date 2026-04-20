@@ -69,6 +69,7 @@
     **** xref:servicenow-connector.adoc[ServiceNow]
     **** xref:sharepoint-connector.adoc[SharePoint]
     **** xref:script.adoc[Script]
+    **** xref:slack-connector.adoc[Slack]
     **** xref:telegram-connector.adoc[Telegram]
     **** xref:twilio-connector.adoc[Twilio]
     **** xref:twitter.adoc[Twitter]

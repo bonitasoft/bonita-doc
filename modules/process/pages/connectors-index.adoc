@@ -86,6 +86,11 @@ xref:ROOT:script.adoc[[.card-title]#Script# [.card-body.card-content-overflow]#p
 
 [.card.card-index]
 --
+xref:slack-connector.adoc[[.card-title]#Slack# [.card-body.card-content-overflow]#pass:q[Send messages, DMs, upload files, and manage channels via Slack API]#]
+--
+
+[.card.card-index]
+--
 xref:telegram-connector.adoc[[.card-title]#Telegram# [.card-body.card-content-overflow]#pass:q[Send messages and files via Telegram Bot API]#]
 --
 

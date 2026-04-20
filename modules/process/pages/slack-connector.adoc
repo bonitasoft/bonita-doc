@@ -1,0 +1,602 @@
+= Slack connectors
+:description: Send messages, DMs, upload files, create and manage channels via Slack API from Bonita processes.
+
+{description}
+
+The Bonita Slack Connectors are available for **Bonita 10.2 (2024.3)** version and above.
+
+== Overview
+
+The Slack connector allows Bonita processes to interact with a Slack workspace. It provides six operations:
+
+* *Send Message* -- Post a message to a channel (with optional Block Kit formatting)
+* *Send DM* -- Send a direct message to a user by email or user ID
+* *Update Message* -- Edit an existing message
+* *Upload File* -- Upload a file to a channel
+* *Create Channel* -- Create a public or private channel
+* *Invite to Channel* -- Invite users to a channel
+
+== Getting started
+
+. Download the connector JAR from the https://github.com/bonitasoft/bonita-connector-slack-all/releases[GitHub releases page] or the https://marketplace.bonitasoft.com[Bonita Marketplace]
+. In Bonita Studio, go to *Development > Connector definitions & implementations > Import...*
+. Select the downloaded `.jar` file
+. The connector is now available in the *Slack* category
+
+[IMPORTANT]
+====
+Before importing, run `mvn install` on the connector project (or ensure the JAR is in your local Maven repository). Studio resolves connector dependencies from the local Maven repository.
+====
+
+== Slack App setup
+
+Before using any Slack connector, you need a Slack Bot Token:
+
+. Go to https://api.slack.com/apps[api.slack.com/apps] and click *Create New App* > *From scratch*
+. Give it a name (e.g., "Bonita Integration") and select your workspace
+. In the sidebar, go to *OAuth & Permissions*
+. Under *Bot Token Scopes*, add the scopes required by your operations (see <<slack-scopes>> below)
+. Click *Install to Workspace* and authorize
+. Copy the *Bot User OAuth Token* (`xoxb-...`) -- this is the `botToken` parameter for all connectors
+. *Invite the bot* to each channel it needs to access by typing `/invite @YourBotName` in the channel
+
+[[slack-scopes]]
+== Required Slack scopes
+
+Each operation requires specific OAuth scopes on the Bot Token. Add only the scopes you need.
+
+[caption=Scopes per operation]
+|===
+|Operation |Required Scopes |Slack API Methods Used
+
+|*Send Message*
+|`chat:write`
+|`chat.postMessage`
+
+|*Send DM* (by user ID)
+|`chat:write`, `im:write`
+|`conversations.open`, `chat.postMessage`
+
+|*Send DM* (by email)
+|`chat:write`, `im:write`, `users:read.email`
+|`users.lookupByEmail`, `conversations.open`, `chat.postMessage`
+
+|*Update Message*
+|`chat:write`
+|`chat.update`
+
+|*Upload File*
+|`files:write`
+|`files.uploadV2`
+
+|*Create Channel*
+|`channels:manage`
+|`conversations.create`
+
+|*Invite to Channel*
+|`channels:write.invites`
+|`conversations.invite`
+
+|*Invite to Channel* (by email)
+|`channels:write.invites`, `users:read.email`
+|`users.lookupByEmail`, `conversations.invite`
+|===
+
+*Minimal setup* (send messages only): `chat:write`
+
+*Full setup* (all operations): `chat:write`, `im:write`, `channels:manage`, `channels:write.invites`, `files:write`, `users:read.email`
+
+[TIP]
+====
+After adding or changing scopes, you must *Reinstall to Workspace* for the changes to take effect. The bot token value (`xoxb-...`) remains the same after reinstalling.
+====
+
+== Common outputs
+
+All operations return these outputs:
+
+[caption=Common outputs]
+|===
+|Output |Type |Description
+
+|`success`
+|Boolean
+|`true` if the operation completed without errors
+
+|`errorMessage`
+|String
+|Error details when `success` is `false`; empty string on success
+|===
+
+== Send Message
+
+Posts a message to a Slack channel. Supports plain text, Slack markdown, and Block Kit layouts.
+
+=== Parameters
+
+[caption=Send Message parameters]
+|===
+|Parameter |Type |Required |Default |Description
+
+|`botToken`
+|String
+|Yes
+|
+|Slack Bot Token (`xoxb-...`)
+
+|`channel`
+|String
+|Yes
+|
+|Channel name (e.g., `#general`) or ID (e.g., `C0123456`)
+
+|`text`
+|String
+|Yes*
+|
+|Message text. *Either `text` or `blocks` is required.
+
+|`blocks`
+|String
+|No
+|
+|https://api.slack.com/block-kit[Block Kit] JSON for rich message layouts
+
+|`username`
+|String
+|No
+|
+|Override the bot's display name for this message
+
+|`iconEmoji`
+|String
+|No
+|
+|Override the bot's icon (e.g., `:robot_face:`)
+
+|`threadTs`
+|String
+|No
+|
+|Parent message timestamp to reply in a thread
+
+|`mrkdwn`
+|Boolean
+|No
+|`true`
+|Enable Slack markdown formatting
+
+|`unfurlLinks`
+|Boolean
+|No
+|`false`
+|Unfurl text-based URLs into previews
+
+|`unfurlMedia`
+|Boolean
+|No
+|`true`
+|Unfurl media-based URLs into previews
+
+|`connectTimeout`
+|Integer
+|No
+|`30000`
+|Connection timeout in milliseconds
+
+|`readTimeout`
+|Integer
+|No
+|`60000`
+|Read timeout in milliseconds
+|===
+
+=== Additional outputs
+
+[caption=Send Message outputs]
+|===
+|Output |Type |Description
+
+|`messageTs`
+|String
+|Timestamp of the sent message (use for threading or updating)
+
+|`channelId`
+|String
+|Channel ID where the message was posted
+|===
+
+== Send DM
+
+Sends a direct message to a user. You can identify the recipient by email address (recommended) or Slack user ID.
+
+[NOTE]
+====
+Using `recipientEmail` is recommended -- the connector resolves the user ID automatically. This requires the `users:read.email` scope.
+====
+
+=== Parameters
+
+[caption=Send DM parameters]
+|===
+|Parameter |Type |Required |Default |Description
+
+|`botToken`
+|String
+|Yes
+|
+|Slack Bot Token
+
+|`recipientEmail`
+|String
+|Yes*
+|
+|Recipient's email address in Slack. *Either `recipientEmail` or `recipientUserId` is required.
+
+|`recipientUserId`
+|String
+|Yes*
+|
+|Recipient's Slack user ID (e.g., `U0123456789`)
+
+|`text`
+|String
+|Yes*
+|
+|Message text. *Either `text` or `blocks` is required.
+
+|`blocks`
+|String
+|No
+|
+|Block Kit JSON
+
+|`threadTs`
+|String
+|No
+|
+|Parent message timestamp for threading
+
+|`connectTimeout`
+|Integer
+|No
+|`30000`
+|Connection timeout in milliseconds
+
+|`readTimeout`
+|Integer
+|No
+|`60000`
+|Read timeout in milliseconds
+|===
+
+=== Additional outputs
+
+[caption=Send DM outputs]
+|===
+|Output |Type |Description
+
+|`messageTs`
+|String
+|Timestamp of the sent message
+
+|`dmChannelId`
+|String
+|DM channel ID opened with the recipient
+
+|`resolvedUserId`
+|String
+|User ID of the recipient (useful when using email lookup)
+|===
+
+== Update Message
+
+Updates an existing message. You need the channel and the message timestamp (`messageTs`) from the original send operation.
+
+=== Parameters
+
+[caption=Update Message parameters]
+|===
+|Parameter |Type |Required |Default |Description
+
+|`botToken`
+|String
+|Yes
+|
+|Slack Bot Token
+
+|`channel`
+|String
+|Yes
+|
+|Channel name or ID where the message was posted
+
+|`messageTs`
+|String
+|Yes
+|
+|Timestamp of the message to update (from Send Message output)
+
+|`text`
+|String
+|Yes*
+|
+|New message text. *Either `text` or `blocks` is required.
+
+|`blocks`
+|String
+|No
+|
+|New Block Kit JSON
+
+|`connectTimeout`
+|Integer
+|No
+|`30000`
+|Connection timeout in milliseconds
+
+|`readTimeout`
+|Integer
+|No
+|`60000`
+|Read timeout in milliseconds
+|===
+
+=== Additional outputs
+
+[caption=Update Message outputs]
+|===
+|Output |Type |Description
+
+|`messageTs`
+|String
+|Timestamp of the updated message
+
+|`channelId`
+|String
+|Channel ID
+|===
+
+== Upload File
+
+Uploads a file to a Slack channel. The file content must be provided as a Base64-encoded string.
+
+=== Parameters
+
+[caption=Upload File parameters]
+|===
+|Parameter |Type |Required |Default |Description
+
+|`botToken`
+|String
+|Yes
+|
+|Slack Bot Token
+
+|`channel`
+|String
+|No
+|
+|Channel to share the file in
+
+|`fileContent`
+|String
+|Yes
+|
+|File content as a Base64-encoded string
+
+|`filename`
+|String
+|Yes
+|
+|Filename with extension (e.g., `report.pdf`)
+
+|`title`
+|String
+|No
+|
+|File title displayed in Slack
+
+|`initialComment`
+|String
+|No
+|
+|Message posted alongside the file
+
+|`fileType`
+|String
+|No
+|`auto`
+|MIME type hint (e.g., `pdf`, `png`, `csv`)
+
+|`connectTimeout`
+|Integer
+|No
+|`30000`
+|Connection timeout in milliseconds
+
+|`readTimeout`
+|Integer
+|No
+|`60000`
+|Read timeout in milliseconds
+|===
+
+=== Additional outputs
+
+[caption=Upload File outputs]
+|===
+|Output |Type |Description
+
+|`fileId`
+|String
+|Slack file ID
+
+|`fileUrl`
+|String
+|URL to the uploaded file
+|===
+
+== Create Channel
+
+Creates a new public or private Slack channel.
+
+=== Parameters
+
+[caption=Create Channel parameters]
+|===
+|Parameter |Type |Required |Default |Description
+
+|`botToken`
+|String
+|Yes
+|
+|Slack Bot Token
+
+|`channelName`
+|String
+|Yes
+|
+|Channel name (lowercase, no spaces, max 80 characters)
+
+|`isPrivate`
+|Boolean
+|No
+|`false`
+|Set to `true` to create a private channel
+
+|`teamId`
+|String
+|No
+|
+|Enterprise Grid: target workspace ID
+
+|`connectTimeout`
+|Integer
+|No
+|`30000`
+|Connection timeout in milliseconds
+
+|`readTimeout`
+|Integer
+|No
+|`60000`
+|Read timeout in milliseconds
+|===
+
+=== Additional outputs
+
+[caption=Create Channel outputs]
+|===
+|Output |Type |Description
+
+|`channelId`
+|String
+|ID of the created channel (use for subsequent operations)
+
+|`channelName`
+|String
+|Normalized channel name
+|===
+
+== Invite to Channel
+
+Invites one or more users to a channel. Users can be specified by user ID or email address.
+
+=== Parameters
+
+[caption=Invite to Channel parameters]
+|===
+|Parameter |Type |Required |Default |Description
+
+|`botToken`
+|String
+|Yes
+|
+|Slack Bot Token
+
+|`channelId`
+|String
+|Yes
+|
+|Channel ID to invite users to (e.g., `C0123456`)
+
+|`userIds`
+|List<String>
+|Yes*
+|
+|List of Slack user IDs. *Either `userIds` or `userEmails` is required.
+
+|`userEmails`
+|List<String>
+|Yes*
+|
+|List of email addresses (requires `users:read.email` scope)
+
+|`connectTimeout`
+|Integer
+|No
+|`30000`
+|Connection timeout in milliseconds
+
+|`readTimeout`
+|Integer
+|No
+|`60000`
+|Read timeout in milliseconds
+|===
+
+=== Additional outputs
+
+[caption=Invite to Channel outputs]
+|===
+|Output |Type |Description
+
+|`invitedCount`
+|Integer
+|Number of users successfully invited
+|===
+
+== Error handling
+
+When a connector operation fails, `success` is set to `false` and `errorMessage` contains the Slack API error code and description. Common errors:
+
+[caption=Common Slack API errors]
+|===
+|Error |Cause |Solution
+
+|`missing_scope`
+|Bot token lacks a required OAuth scope
+|Add the missing scope in your Slack App settings and reinstall
+
+|`channel_not_found`
+|Channel does not exist or bot is not a member
+|Verify the channel name/ID and invite the bot: `/invite @YourBot`
+
+|`not_authed`
+|Invalid or expired bot token
+|Check the `botToken` value; regenerate if needed
+
+|`rate_limited`
+|Too many API calls in a short period
+|The connector automatically retries with exponential backoff (up to 3 retries)
+
+|`users_not_found`
+|Email address does not match any user in the workspace
+|Verify the email address is correct and the user exists in the Slack workspace
+|===
+
+== Compatibility
+
+[caption=Compatibility matrix]
+|===
+|Bonita version |Java |Slack SDK
+
+|10.2+ (2024.3+)
+|17+
+|1.48.0
+|===
+
+== Source code
+
+The connector source code is available on GitHub: https://github.com/bonitasoft/bonita-connector-slack-all[bonitasoft/bonita-connector-slack-all]
