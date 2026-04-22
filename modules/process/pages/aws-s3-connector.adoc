@@ -4,7 +4,7 @@
 
 {description}
 
-The Bonita AWS S3 Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+The Bonita AWS S3 Connectors are available for **Bonita 2024.3 Community (10.2)** version and above.
 
 [WARNING]
 ====

@@ -3,7 +3,7 @@
 
 {description}
 
-The Bonita Telegram Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+The Bonita Telegram Connectors are available for **Bonita 2024.3 Community (10.2)** version and above.
 
 [WARNING]
 ====
