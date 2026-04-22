@@ -3,7 +3,7 @@
 
 {description}
 
-The Bonita WhatsApp Business Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+The Bonita WhatsApp Business Connectors are available for **Bonita 2024.3 Community (10.2)** version and above.
 
 [WARNING]
 ====
@@ -424,7 +424,7 @@ Response:
 
 === Getting a WhatsApp Business Token
 
-1. Go to +https://business.facebook.com+[Meta Business Manager]
+1. Go to https://business.facebook.com[Meta Business Manager]
 2. Navigate to *System Users* > Create a system user
 3. Generate a *Permanent Token* with `whatsapp_business_messaging` permission
 4. Store it securely as a Bonita parameter
