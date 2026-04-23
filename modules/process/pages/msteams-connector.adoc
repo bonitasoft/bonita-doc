@@ -4,7 +4,7 @@
 
 {description}
 
-The Bonita Microsoft Teams Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+The Bonita Microsoft Teams Connectors are available for **Bonita 2024.3 Community (10.2)** version and above.
 
 [WARNING]
 ====
@@ -56,7 +56,6 @@ Before using the Microsoft Teams connector, ensure the following:
 * For webhook operations: an **Incoming Webhook** configured in the target Teams channel
 * For Graph API operations: an **Entra ID (Azure AD) app registration** with the required permissions
 * **Admin consent** granted for application permissions
-* The connector extension imported into your Bonita project (see <<import-connector>>)
 
 == Authentication
 
@@ -770,14 +769,3 @@ Upload a file to a Teams channel's SharePoint document library folder. Requires 
 |Web URL to the file in Teams.
 |===
 
-[#import-connector]
-== Importing the connector into Bonita Studio
-
-To use the Microsoft Teams connector in your Bonita project:
-
-. Download the connector `.zip` extension from the https://marketplace.bonitasoft.com/[Bonita Marketplace].
-. In Bonita Studio, go to the *Project* menu and select *Extensions*.
-. Click *Import extension* and select the downloaded `.zip` file.
-. The Microsoft Teams connector operations will appear in the connector palette when configuring a task or a process.
-
-For more details on managing extensions, see xref:bonita-overview:managing-extension-studio.adoc[Managing extensions in Bonita Studio].
