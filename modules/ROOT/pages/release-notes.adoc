@@ -8,13 +8,11 @@ The {bonitaVersion} version is in development.
 
 == New available values
 
-== Notable changes
-
 === BDM data retention (GDPR)
 
 [NOTE]
 ====
-For Performance, Enterprise and Scale editions only. +
+For Teamwork, Efficiency, Performance, Enterprise and Scale editions only. +
 ====
 
 A new feature lets administrators configure data retention rules per BDM object type to automatically delete expired business data on a scheduled basis. For each top-level object type, you can choose the reference date (creation or last update) and a retention period in days; a scheduled cleanup job then removes every expired instance, cascading to composition children.
@@ -24,6 +22,8 @@ Rules are managed through the new *Data Retention (GDPR)* page in the Admin appl
 Legacy BDM instances created before this version are not tracked automatically. A migration procedure is documented to backfill them when you want them subject to retention rules.
 
 See xref:runtime:bdm-data-retention.adoc[BDM data retention] for the complete reference.
+
+== Notable changes
 
 === BDM REST API response format standardization
 
