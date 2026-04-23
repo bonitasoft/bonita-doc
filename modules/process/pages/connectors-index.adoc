@@ -86,22 +86,12 @@ xref:ROOT:script.adoc[[.card-title]#Script# [.card-body.card-content-overflow]#p
 
 [.card.card-index]
 --
-xref:telegram-connector.adoc[[.card-title]#Telegram# [.card-body.card-content-overflow]#pass:q[Send messages and files via Telegram Bot API]#]
---
-
-[.card.card-index]
---
 xref:ROOT:twitter.adoc[[.card-title]#Twitter# [.card-body.card-content-overflow]#pass:q[Create tweets in your processes]#]
 --
 
 [.card.card-index]
 --
 xref:ROOT:web-service-connector-overview.adoc[[.card-title]#Web service# [.card-body.card-content-overflow]#pass:q[Connect your processes to any generic Web service]#]
---
-
-[.card.card-index]
---
-xref:whatsapp-connector.adoc[[.card-title]#WhatsApp Business# [.card-body.card-content-overflow]#pass:q[Send messages via WhatsApp Business API]#]
 --
 
 [.card-section]
@@ -201,12 +191,22 @@ xref:ROOT:servicenow-connector.adoc[[.card-title]#ServiceNow &#91;BETA&#93;# [.c
 
 [.card.card-index]
 --
+xref:telegram-connector.adoc[[.card-title]#Telegram &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Send messages and files via Telegram Bot API]#]
+--
+
+[.card.card-index]
+--
 xref:ROOT:twilio-connector.adoc[[.card-title]#Twilio &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Send SMS, make calls, and verify phone numbers]#]
 --
 
 [.card.card-index]
 --
 xref:ROOT:workday-connector.adoc[[.card-title]#Workday HCM &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Manage workers and HR events in Workday]#]
+--
+
+[.card.card-index]
+--
+xref:whatsapp-connector.adoc[[.card-title]#WhatsApp Business &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Send messages via WhatsApp Business API]#]
 --
 
 [.card.card-index]
