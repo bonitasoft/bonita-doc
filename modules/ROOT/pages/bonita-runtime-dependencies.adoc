@@ -1,4 +1,4 @@
-= Bonita Runtime dependencies (10.2.7)
+= Bonita Runtime dependencies (10.2.8)
 :page-aliases: ROOT:bonita-web-dependencies.adoc, ROOT:bonita-engine-dependencies.adoc
 :description: List all dependencies used by Bonita Runtime
 
@@ -1841,19 +1841,19 @@
 
 | org.bouncycastle
 | bcpkix-jdk18on
-| 1.83
+| 1.84
 | https://www.bouncycastle.org/download/bouncy-castle-java/[https://www.bouncycastle.org/download/bouncy-castle-java/]
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
 | org.bouncycastle
 | bcprov-jdk18on
-| 1.83
+| 1.84
 | https://www.bouncycastle.org/download/bouncy-castle-java/[https://www.bouncycastle.org/download/bouncy-castle-java/]
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
 | org.bouncycastle
 | bcutil-jdk18on
-| 1.83
+| 1.84
 | https://www.bouncycastle.org/download/bouncy-castle-java/[https://www.bouncycastle.org/download/bouncy-castle-java/]
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
@@ -2501,19 +2501,19 @@
 
 | org.bouncycastle
 | bcpkix-jdk18on
-| 1.83
+| 1.84
 | https://www.bouncycastle.org/download/bouncy-castle-java/[https://www.bouncycastle.org/download/bouncy-castle-java/]
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
 | org.bouncycastle
 | bcprov-jdk18on
-| 1.83
+| 1.84
 | https://www.bouncycastle.org/download/bouncy-castle-java/[https://www.bouncycastle.org/download/bouncy-castle-java/]
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
 | org.bouncycastle
 | bcutil-jdk18on
-| 1.83
+| 1.84
 | https://www.bouncycastle.org/download/bouncy-castle-java/[https://www.bouncycastle.org/download/bouncy-castle-java/]
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
