@@ -92,7 +92,7 @@ In a clustered setup, the cleanup job is coordinated so that only a single node 
 
 === Execution audit trail
 
-Each cleanup run produces one queriable log entry per BDM object type that had at least one expired instance deleted. The entry has:
+Each cleanup run produces one xref:api:queriable-logging.adoc[queriable log] entry per BDM object type that had at least one expired instance deleted. The entry has:
 
 * `action_type`: `BUSINESS_DATA_CLEANED_UP`,
 * `message`: the fully qualified BDM class name,
@@ -100,8 +100,6 @@ Each cleanup run produces one queriable log entry per BDM object type that had a
 * `severity`: `INTERNAL`.
 
 These entries can be queried through the existing `/API/system/log` REST endpoint and are displayed in the *Audit log* tab of the *Data Retention (GDPR)* administration page.
-
-See xref:api:queriable-logging.adoc[Queriable logging] for the full list of events.
 
 == Related topics
 
