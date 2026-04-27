@@ -1,4 +1,4 @@
-= Bonita Runtime dependencies (11.0.0.beta-01)
+= Bonita Runtime dependencies (11.0.0)
 :page-aliases: ROOT:bonita-web-dependencies.adoc, ROOT:bonita-engine-dependencies.adoc
 :description: List all dependencies used by Bonita Runtime
 
@@ -346,19 +346,19 @@
 
 | io.micrometer
 | micrometer-commons
-| 1.16.4
+| 1.16.5
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-core
-| 1.16.4
+| 1.16.5
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-observation
-| 1.16.4
+| 1.16.5
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -856,19 +856,19 @@
 
 | io.micrometer
 | micrometer-commons
-| 1.16.4
+| 1.16.5
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-core
-| 1.16.4
+| 1.16.5
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-observation
-| 1.16.4
+| 1.16.5
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1576,7 +1576,7 @@
 
 | com.google.errorprone
 | error_prone_annotations
-| 2.41.0
+| 2.47.0
 | https://errorprone.info/error_prone_annotations[https://errorprone.info/error_prone_annotations]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache 2.0]
 
@@ -1588,7 +1588,7 @@
 
 | com.google.guava
 | guava
-| 33.5.0-jre
+| 33.6.0-jre
 | https://github.com/google/guava/[https://github.com/google/guava/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -1714,25 +1714,25 @@
 
 | io.micrometer
 | micrometer-commons
-| 1.16.4
+| 1.16.5
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-core
-| 1.16.4
+| 1.16.5
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-observation
-| 1.16.4
+| 1.16.5
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-registry-jmx
-| 1.16.4
+| 1.16.5
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1852,19 +1852,19 @@
 
 | org.bouncycastle
 | bcpkix-jdk18on
-| 1.83
+| 1.84
 | https://www.bouncycastle.org/download/bouncy-castle-java/[https://www.bouncycastle.org/download/bouncy-castle-java/]
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
 | org.bouncycastle
 | bcprov-jdk18on
-| 1.83
+| 1.84
 | https://www.bouncycastle.org/download/bouncy-castle-java/[https://www.bouncycastle.org/download/bouncy-castle-java/]
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
 | org.bouncycastle
 | bcutil-jdk18on
-| 1.83
+| 1.84
 | https://www.bouncycastle.org/download/bouncy-castle-java/[https://www.bouncycastle.org/download/bouncy-castle-java/]
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
@@ -2350,19 +2350,19 @@
 
 | io.micrometer
 | micrometer-commons
-| 1.16.4
+| 1.16.5
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-core
-| 1.16.4
+| 1.16.5
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | io.micrometer
 | micrometer-observation
-| 1.16.4
+| 1.16.5
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -2494,19 +2494,19 @@
 
 | org.bouncycastle
 | bcpkix-jdk18on
-| 1.83
+| 1.84
 | https://www.bouncycastle.org/download/bouncy-castle-java/[https://www.bouncycastle.org/download/bouncy-castle-java/]
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
 | org.bouncycastle
 | bcprov-jdk18on
-| 1.83
+| 1.84
 | https://www.bouncycastle.org/download/bouncy-castle-java/[https://www.bouncycastle.org/download/bouncy-castle-java/]
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
 | org.bouncycastle
 | bcutil-jdk18on
-| 1.83
+| 1.84
 | https://www.bouncycastle.org/download/bouncy-castle-java/[https://www.bouncycastle.org/download/bouncy-castle-java/]
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
