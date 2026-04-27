@@ -101,13 +101,6 @@ Each cleanup run produces one queriable log entry per BDM object type that had a
 
 These entries can be queried through the existing `/API/system/log` REST endpoint and are displayed in the *Audit log* tab of the *Data Retention (GDPR)* administration page.
 
-If you do not want these entries stored in the database, disable the event in `bonita-tenant-sp-custom.properties`:
-
-[source,properties]
-----
-bonita.tenant.queriable.log.BUSINESS_DATA_CLEANED_UP.INTERNAL=false
-----
-
 See xref:api:queriable-logging.adoc[Queriable logging] for the full list of configurable events.
 
 == Related topics
