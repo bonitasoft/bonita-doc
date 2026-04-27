@@ -22,6 +22,13 @@ When the scheduled cleanup job runs, every BDM instance whose reference date is 
 
 Retention rules are configured through the *Data Retention (GDPR)* administration page of the Admin application.
 
+[NOTE]
+====
+*Updating from a Bonita version earlier than 2026.1?* +
+The *Data Retention (GDPR)* page is provided with Bonita 2026.1 and is automatically available in the resources of the Admin application after the update. However, it is not added to your existing Admin application's navigation menu automatically — you must add it yourself by xref:runtime:admin-application-overview.adoc#_change_the_navigation_menu[customizing the Admin application]. +
+This step is not needed on a fresh 2026.1 (or later) install, where the page is already part of the default menu.
+====
+
 == How BDM instances are tracked
 
 To decide which records have expired, Bonita maintains a dedicated tracking table named `data_retention_bdm_tracking`. Each row represents the lifecycle of a single BDM instance:
