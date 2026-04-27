@@ -20,7 +20,7 @@ When the scheduled cleanup job runs, every BDM object instance whose reference d
 * its xref:data:define-and-deploy-the-bdm.adoc#compos[composition children] (deleted automatically via Hibernate cascade),
 * its tracking record in the `data_retention_bdm_tracking` table.
 
-Retention rules are configured through the *Data Retention (GDPR)* administration page of the Admin application.
+Retention rules are configured through the *Data Retention (GDPR)* administration page of the Admin application, available by default under the *BDM* menu.
 
 [NOTE]
 ====
