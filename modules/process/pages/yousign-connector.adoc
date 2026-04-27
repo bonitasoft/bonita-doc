@@ -137,41 +137,25 @@ Creates a signature request from a pre-configured Yousign template.
 |A name for the signature request.
 |
 
-|*signerFirstName*
+|*templatePlaceholdersJson*
 |String
 |Yes
-|First name of the signer.
+|JSON object with `signers[]` (mandatory non-empty) and optionally `read_only_text_fields[]`. The connector validates the shape before sending and rejects malformed payloads up-front (instead of letting Yousign return an opaque API error). Example shape:
+[source,json]
+----
+{
+  "signers": [
+    {
+      "label": "policyHolder",
+      "info": { "first_name": "Jane", "last_name": "Doe", "email": "jane.doe@example.com", "locale": "en" }
+    }
+  ],
+  "read_only_text_fields": [
+    { "label": "claim_id", "text": "SIN-2026-42" }
+  ]
+}
+----
 |
-
-|*signerLastName*
-|String
-|Yes
-|Last name of the signer.
-|
-
-|*signerEmail*
-|String
-|Yes
-|Email address of the signer.
-|
-
-|*signerPhoneNumber*
-|String
-|No
-|Phone number of the signer (international format).
-|
-
-|*signerLabel*
-|String
-|Yes
-|The signer role label as defined in the template (e.g., `Signer`).
-|
-
-|*signerLocale*
-|String
-|No
-|The signer's locale for the signing interface.
-|`fr` (options: `fr`, `en`, `de`, `it`, `es`, `nl`, `pl`)
 
 |*deliveryMode*
 |String
@@ -184,18 +168,6 @@ Creates a signature request from a pre-configured Yousign template.
 |No
 |When `true`, signers must sign in the order they are added.
 |`false`
-
-|*templateTextFieldsJson*
-|String
-|No
-|JSON string with template text field values to pre-fill.
-|
-
-|*additionalSignersJson*
-|String
-|No
-|JSON string with additional signers (for multi-signer templates).
-|
 
 |*externalId*
 |String

@@ -211,6 +211,11 @@ xref:ROOT:workday-connector.adoc[[.card-title]#Workday HCM &#91;BETA&#93;# [.car
 
 [.card.card-index]
 --
+xref:ROOT:slack-connector.adoc[[.card-title]#Slack &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Send messages, DMs, files; create and manage channels]#]
+--
+
+[.card.card-index]
+--
 xref:ROOT:yousign-connector.adoc[[.card-title]#Yousign &#91;BETA&#93;# [.card-body.card-content-overflow]#pass:q[Create and manage electronic signature requests]#]
 --
 

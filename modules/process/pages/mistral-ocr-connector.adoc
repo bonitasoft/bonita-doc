@@ -124,7 +124,7 @@ Extract raw text from documents or images using OCR.
 |Integer
 |Number of pages processed
 
-|*tokensUsed*
+|*pagesProcessed*
 |Integer
 |Number of tokens consumed
 
@@ -185,7 +185,7 @@ Extract structured fields from a document using a JSON schema definition.
 |Double
 |Overall extraction confidence score
 
-|*tokensUsed*
+|*pagesProcessed*
 |Integer
 |Number of tokens consumed
 
@@ -241,7 +241,7 @@ Classify a document into one of several predefined categories.
 |String
 |JSON with scores for all document types
 
-|*tokensUsed*
+|*pagesProcessed*
 |Integer
 |Number of tokens consumed
 
@@ -274,10 +274,15 @@ Extract tabular data from a document.
 |Description of the table to extract
 |--
 
-|*pageNumber*
+|*startPage*
 |No
-|Page number to extract the table from
-|1
+|First page to scan for tables, 1-indexed (optional). Removed `pageNumber` from 1.0.1-beta.1 onwards.
+|--
+
+|*endPage*
+|No
+|Last page to scan for tables, 1-indexed inclusive (optional). Use together with `startPage`.
+|--
 |===
 
 === Output parameters
@@ -306,7 +311,7 @@ Extract tabular data from a document.
 |String
 |Detected column headers
 
-|*tokensUsed*
+|*pagesProcessed*
 |Integer
 |Number of tokens consumed
 
@@ -367,7 +372,7 @@ Process multi-page documents with optional page range selection.
 |Integer
 |Total word count
 
-|*tokensUsed*
+|*pagesProcessed*
 |Integer
 |Number of tokens consumed
 
