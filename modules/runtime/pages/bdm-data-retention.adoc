@@ -15,7 +15,7 @@ For each top-level BDM object type, an administrator can configure:
 * a *reference date*: either the object's creation date or its last update date,
 * a *retention period* (in days).
 
-When the scheduled cleanup job runs, every BDM instance whose reference date is older than `now - retention period` is deleted from the database, along with:
+When the scheduled cleanup job runs, every BDM object instance whose reference date is older than `now - retention period` is deleted from the database, along with:
 
 * its xref:data:define-and-deploy-the-bdm.adoc#compos[composition children] (deleted automatically via Hibernate cascade),
 * its tracking record in the `data_retention_bdm_tracking` table.
@@ -24,41 +24,14 @@ Retention rules are configured through the *Data Retention (GDPR)* administratio
 
 [NOTE]
 ====
-*Updating from a Bonita version earlier than 2026.1?* +
+*Updating from a Bonita version earlier than 2026.1 ?* +
 The *Data Retention (GDPR)* page is provided with Bonita 2026.1 and is automatically available in the resources of the Admin application after the update. However, it is not added to your existing Admin application's navigation menu automatically — you must add it yourself by xref:runtime:admin-application-overview.adoc#_change_the_navigation_menu[customizing the Admin application]. +
 This step is not needed on a fresh 2026.1 (or later) install, where the page is already part of the default menu.
 ====
 
-== How BDM instances are tracked
+== How BDM object instances are tracked
 
-To decide which records have expired, Bonita maintains a dedicated tracking table named `data_retention_bdm_tracking`. Each row represents the lifecycle of a single BDM instance:
-
-[cols="1,1,3"]
-|===
-| Column | Type | Description
-
-| `id`
-| `BIGINT`
-| Primary key (Bonita internal).
-
-| `data_id`
-| `BIGINT`
-| Persistence ID of the tracked BDM instance.
-
-| `data_classname`
-| `VARCHAR(255)`
-| Fully qualified Java class name of the BDM object type (for example `com.company.model.Invoice`).
-
-| `created_at`
-| `BIGINT`
-| Epoch timestamp in milliseconds, set when the tracking record is first created.
-
-| `last_modified_at`
-| `BIGINT`
-| Epoch timestamp in milliseconds, updated every time the BDM instance is modified.
-|===
-
-A unique constraint on `(data_id, data_classname)` guarantees that there is exactly one tracking record per BDM instance.
+To decide which records have expired, Bonita maintains a dedicated tracking table (named `data_retention_bdm_tracking`). Each entry in this table represents the lifecycle of a single BDM object instance (there is only one tracking record per BDM object instance).
 
 Tracking records are created and maintained automatically:
 

@@ -19,9 +19,9 @@ A new feature lets administrators configure data retention rules per BDM object 
 
 Rules are managed through the new *Data Retention (GDPR)* page in the Admin application. Each cleanup run is audited via the new `BUSINESS_DATA_CLEANED_UP` queriable log event, and the schedule is driven by the new `bonita.runtime.retention.schedule.cron` configuration property (default: `0 0 2 * * 6`, every Saturday at 02:00 UTC).
 
-Legacy BDM instances created before this version are not tracked automatically. A migration procedure is documented to backfill them when you want them subject to retention rules.
+Legacy BDM object instances created before this version are not tracked automatically. A migration procedure is documented to backfill them when you want them subject to retention rules.
 
-When updating from an earlier version with the Bonita Update Tool, the new *Data Retention (GDPR)* page is provided automatically but must be added to your existing Admin application's menu manually — see xref:runtime:bdm-data-retention.adoc[BDM data retention] for details.
+When updating from an earlier version with the Bonita Update Tool, the new *Data Retention (GDPR)* page is installed automatically but must be added to your existing Admin application's menu manually — see xref:runtime:bdm-data-retention.adoc[BDM data retention] for details.
 
 See xref:runtime:bdm-data-retention.adoc[BDM data retention] for the complete reference.
 
