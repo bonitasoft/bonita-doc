@@ -519,7 +519,7 @@ The notable changes are:
 
 == Bug fixes
 
-=== Fixes in Bonita 2025.1-u8 (2026-04-27)
+=== Fixes in Bonita 2025.1-u8 (2026-04-24)
 
 * BPA-183 - Process instance never completes: row in FLOWNODE_INSTANCE table with stateid 28 and kind multi
 * BPA-297 - BDM REST API returns empty JSON for HibernateProxy entities
