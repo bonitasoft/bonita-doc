@@ -1,14 +1,13 @@
 name: bonita
 title: Bonita
 version: 2026.1
-prerelease: -beta
 asciidoc:
   attributes:
     bonitaVersion: 2026.1
     bonitasoft-registry: 'bonitasoft.jfrog.io'
     bonitasoft-docker-repository: '{bonitasoft-registry}/docker'
     bonitaTechnicalVersion: '11.0.0' # latest public community version
-    bonitaTagOrBranch: 'dev' # for links to the code hosted on GitHub. Use 'dev' for a development version, or the version number (same as bonitaTechnicalVersion) for released versions
+    bonitaTagOrBranch: '11.0.0' # for links to the code hosted on GitHub. Use 'dev' for a development version, or the version number (same as bonitaTechnicalVersion) for released versions
     minimalRequiredJavaVersion: '17'
     javadocVersion: '11.0'
     laDeployerVersion: '1.2.0'
