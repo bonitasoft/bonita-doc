@@ -55,11 +55,11 @@ See xref:process:messaging.adoc[Email Connector documentation] for more informat
 
 == Bug fixes
 
-=== Fixes in Bonita 2025.1-u8 (2026-04-27)
+=== Fixes in Bonita 2025.2-u8 (2026-04-27)
 
 * BPA-183 - Process instance never completes: row in FLOWNODE_INSTANCE table with stateid 28 and kind multi
 * BPA-297 - BDM REST API returns empty JSON for HibernateProxy entities
-* BPA-443 - [Cluster] NPE on HTTP API for every void method (retryTask, logout, ...) — BypassSpringSessionFilter ineffective
+* BPA-443 - [Cluster] NPE on HTTP API for every void method (retryTask, logout, ...)
 * BPA-449 - Studio: .bar built from a process with no declared dependencies contains all project dependencies
 * Several dependencies updated
 
