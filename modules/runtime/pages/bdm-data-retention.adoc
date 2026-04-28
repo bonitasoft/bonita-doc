@@ -15,40 +15,21 @@ For each top-level BDM object type, an administrator can configure:
 * a *reference date*: either the object's creation date or its last update date,
 * a *retention period* (in days).
 
-When the scheduled cleanup job runs, every BDM object instance whose reference date is older than `now - retention period` is deleted from the database, along with:
-
-* its xref:data:define-and-deploy-the-bdm.adoc#compos[composition children] (deleted automatically via Hibernate cascade),
-* its tracking record in the `data_retention_bdm_tracking` table.
+When the scheduled cleanup job runs, every BDM object instance whose reference date is older than `now - retention period` is deleted from the database, along with its xref:data:define-and-deploy-the-bdm.adoc#compos[composition children].
 
 Retention rules are configured through the *Data Retention (GDPR)* administration page of the Admin application, available by default under the *BDM* menu.
 
 [NOTE]
 ====
 *Updating from a Bonita version earlier than 2026.1 ?* +
-The *Data Retention (GDPR)* page is provided with Bonita 2026.1 and is automatically available in the resources of the Admin application after the update. However, it is not added to your existing Admin application's navigation menu automatically — you must add it yourself by xref:runtime:admin-application-overview.adoc#_change_the_navigation_menu[customizing the Admin application]. +
+The *Data Retention (GDPR)* page is provided with Bonita 2026.1 and is automatically available in the resources of the Admin application after the update. However, it is not added to your existing Admin application's navigation menu automatically — you must add it yourself by xref:runtime:admin-application-overview.adoc#change-navigation-menu[customizing the Admin application]. +
 This step is not needed on a fresh 2026.1 (or later) install, where the page is already part of the default menu.
 ====
 
-== How BDM object instances are tracked
-
-To decide which records have expired, Bonita maintains a dedicated tracking table (named `data_retention_bdm_tracking`). Each entry in this table represents the lifecycle of a single BDM object instance (there is only one tracking record per BDM object instance).
-
-Tracking records are created and maintained automatically:
-
-* *On creation*: a new row is inserted with both `created_at` and `last_modified_at` set to the current time.
-* *On update*: `last_modified_at` is refreshed with the current time. `created_at` is left unchanged.
-* *On deletion*: the tracking row is removed.
-
-=== Composition and aggregation
-
-The relationship type between BDM objects determines how tracking is applied — see xref:data:define-and-deploy-the-bdm.adoc#compos[Composition and aggregation]:
-
-* *Composition children* are not tracked independently. They are deleted automatically by Hibernate cascade when their parent is deleted by a retention rule, so no dedicated retention configuration is needed or exposed.
-* *Aggregation children* are tracked only when they are created or updated as standalone entities through the BDM API. When Hibernate cascade-persists them along with a parent (via `CascadeType.MERGE`), no tracking record is created. To apply a retention rule to aggregation children, persist them explicitly.
 
 == Scheduling the cleanup
 
-The cleanup job is triggered by a Spring `@Scheduled` task driven by a cron expression. The default schedule runs once a week, every Saturday at 02:00 UTC.
+A CRON job performs the BDM data retention cleanup. The default schedule runs once a week, every Saturday at 02:00 UTC.
 
 === Configuration parameter
 
@@ -57,16 +38,10 @@ The cleanup job is triggered by a Spring `@Scheduled` task driven by a cron expr
 | Property | Description
 
 | `bonita.runtime.retention.schedule.cron`
-| Spring 6-field cron expression (`second minute hour day-of-month month day-of-week`) defining when the cleanup job runs. The job executes in the JVM default timezone. Default: `0 0 2 * * 6` (every Saturday at 02:00).
+| 6-field cron expression (`second minute hour day-of-month month day-of-week`) defining when the cleanup job runs. The job executes in the JVM default timezone. Default: `0 0 2 * * 6` (every Saturday at 02:00).
 |===
 
-To override the default, declare the property in `bonita-platform-sp-custom.properties` and restart the platform:
-
-[source,properties]
-----
-# Run every day at 03:30
-bonita.runtime.retention.schedule.cron=0 30 3 * * *
-----
+To override the default, declare the property in `bonita-platform-sp-custom.properties` and restart the platform.
 
 In a clustered setup, the cleanup job is coordinated so that only a single node runs it at a given time.
 
@@ -76,8 +51,7 @@ Each cleanup run produces one xref:api:queriable-logging.adoc[queriable log] ent
 
 * `action_type`: `BUSINESS_DATA_CLEANED_UP`,
 * `message`: the fully qualified BDM class name,
-* `action_scope`: the number of deleted instances (as a string),
-* `severity`: `INTERNAL`.
+* `action_scope`: the number of deleted instances (as a string).
 
 These entries can be queried through the existing `/API/system/log` REST endpoint and are displayed in the *Audit log* tab of the *Data Retention (GDPR)* administration page.
 
