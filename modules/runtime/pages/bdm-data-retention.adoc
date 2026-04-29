@@ -1,0 +1,62 @@
+= BDM data retention
+:description: Configure data retention policies to automatically delete expired business data from the BDM, ensuring GDPR compliance and controlling database growth.
+
+[NOTE]
+====
+For Teamwork, Efficiency, Performance, Enterprise and Scale editions only.
+====
+
+The BDM data retention feature enables you to configure retention rules on Business Data Model object types so that expired records are deleted automatically on a scheduled basis. This supports GDPR compliance and prevents unbounded growth of the business data database.
+
+== Overview
+
+For each top-level BDM object type, an administrator can configure:
+
+* a *reference date*: either the object's creation date or its last update date,
+* a *retention period* (in days).
+
+When the scheduled cleanup job runs, every BDM object instance whose reference date is older than `now - retention period` is deleted from the database, along with its xref:data:define-and-deploy-the-bdm.adoc#compos[composition children].
+
+Retention rules are configured through the *Data Retention (GDPR)* administration page of the Admin application, available by default under the *BDM* menu.
+
+[NOTE]
+====
+*Updating from a Bonita version earlier than 2026.1 ?* +
+The *Data Retention (GDPR)* page is provided with Bonita 2026.1 and is automatically available in the resources of the Admin application after the update. However, it is not added to your existing Admin application's navigation menu automatically — you must add it yourself by xref:runtime:admin-application-overview.adoc#change-navigation-menu[customizing the Admin application]. +
+This step is not needed on a fresh 2026.1 (or later) install, where the page is already part of the default menu.
+====
+
+
+== Scheduling the cleanup
+
+A CRON job performs the BDM data retention cleanup. The default schedule runs once a week, every Saturday at 02:00 UTC.
+
+=== Configuration parameter
+
+[cols="1,3"]
+|===
+| Property | Description
+
+| `bonita.runtime.retention.schedule.cron`
+| 6-field cron expression (`second minute hour day-of-month month day-of-week`) defining when the cleanup job runs. The job executes in the JVM default timezone. Default: `0 0 2 * * 6` (every Saturday at 02:00).
+|===
+
+To override the default, declare the property in `bonita-platform-sp-custom.properties` and restart the platform.
+
+In a clustered setup, the cleanup job is coordinated so that only a single node runs it at a given time.
+
+=== Execution audit trail
+
+Each cleanup run produces one xref:api:queriable-logging.adoc[queriable log] entry per BDM object type that had at least one expired instance deleted. The entry has:
+
+* `action_type`: `BUSINESS_DATA_CLEANED_UP`,
+* `message`: the fully qualified BDM class name,
+* `action_scope`: the number of deleted instances (as a string).
+
+These entries can be queried through the existing `/API/system/log` REST endpoint and are displayed in the *Audit log* tab of the *Data Retention (GDPR)* administration page.
+
+== Related topics
+
+* xref:data:define-and-deploy-the-bdm.adoc#compos[BDM composition and aggregation]
+* xref:api:queriable-logging.adoc[Queriable logging]
+* xref:best-practices:gdpr-guidelines.adoc[GDPR design guide]

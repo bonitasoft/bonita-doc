@@ -145,6 +145,13 @@ When you create a process that uses a business object with a composition or aggr
 * You can use getter and setter methods in process or activity operations to set the composed objects as a single instance or as a `java.util.list` for a list of instances.
 * If your process uses a query from a Groovy expression or uses DAO objects from a client Java application, load the complete composite objects including the child objects.
 
+==== Data retention and tracking behavior (Subscription editions)
+
+Composition and aggregation relationships behave differently with regard to the xref:runtime:bdm-data-retention.adoc[BDM data retention feature]:
+
+* *Composition children*: They have no dedicated retention rule and do not appear in the administration page. Their lifecycle is fully bound to their parent — when the parent is deleted by a retention rule, Hibernate cascades the deletion to all composition children automatically. No separate tracking record is maintained for them.
+* *Aggregation children*: They are tracked for retention *only when they are created or updated independently* through the BDM API or a process execution (for example, via a Groovy script, a DAO call, or a dedicated operation). When they are instantiated along with a parent — that is, persisted via a Hibernate cascade triggered by the parent — no tracking record is created, and the aggregated child is therefore not subject to retention rules through that parent's lifecycle. To apply a retention rule to aggregation children, ensure they are created or modified as standalone entities.
+
 [#lazy_eager_loading]
 
 === Loading BDM objects
