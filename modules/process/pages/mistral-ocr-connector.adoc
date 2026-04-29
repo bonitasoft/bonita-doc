@@ -43,7 +43,7 @@ Add the connector as an extension dependency to your Bonita project. Import the 
 |*baseUrl*
 |No
 |Mistral API base URL
-|https://api.mistral.ai/v1
+|`++https://api.mistral.ai/v1++`
 
 |*model*
 |No
