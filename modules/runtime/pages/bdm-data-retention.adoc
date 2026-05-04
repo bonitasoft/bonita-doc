@@ -89,6 +89,8 @@ To bring legacy data under retention control, populate the tracking table manual
 | Next ID available for that entity type. The engine reserves a range (default: 100, configurable via `bonita.platform.sequence.defaultRangeSize`) and serves IDs from that range before hitting the database again.
 |===
 
+The full sequence-id mapping lives in `bonita-community.xml` (engine source); verify the value in your version if you are running an engine other than {bonitaVersion}.
+
 A correct backfill therefore has three parts, performed on two distinct database connections:
 
 1. extract the legacy persistence IDs and reference dates from the *Business Data database*,
@@ -173,8 +175,8 @@ UPDATE sequence
 INSERT INTO data_retention_bdm_tracking (id, data_id, data_classname, created_at, last_modified_at)
 SELECT
     (SELECT nextid FROM sequence WHERE id = 9)
-        - COUNT(*) OVER ()              -- number of IDs reserved above
-        + ROW_NUMBER() OVER (ORDER BY data_id),
+        - COUNT(*) OVER ()              -- first ID of the reserved range
+        + ROW_NUMBER() OVER (ORDER BY data_id) - 1,
     data_id,
     'com.company.model.Invoice',
     created_at,
@@ -183,6 +185,11 @@ SELECT
 
 COMMIT;
 ----
+
+[NOTE]
+====
+This script must be executed through `psql` itself: `\copy` is a `psql` meta-command and is not understood by JDBC-based clients (DBeaver, IntelliJ Database, etc.).
+====
 
 For other database engines, the staging-table load command (`\copy`) is the main thing to replace — the equivalents are:
 
