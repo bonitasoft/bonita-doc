@@ -186,12 +186,9 @@ SELECT
 COMMIT;
 ----
 
-[NOTE]
-====
-This script must be executed through `psql` itself: `\copy` is a `psql` meta-command and is not understood by JDBC-based clients (DBeaver, IntelliJ Database, etc.).
-====
 
-For other database engines, the staging-table load command (`\copy`) is the main thing to replace — the equivalents are:
+This script must be executed through `psql` itself: `\copy` is a `psql` meta-command and is not understood by JDBC-based clients (DBeaver, IntelliJ Database, etc.).
+For other database engines, the staging-table load command (`\copy`) is the main thing to replace. The equivalents are:
 
 [cols="1,3"]
 |===
