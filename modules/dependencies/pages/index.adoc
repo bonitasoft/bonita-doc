@@ -24,4 +24,4 @@ xref:ROOT:bonita-runtime-dependencies.adoc[List of Runtime dependencies]
 
 xref:ROOT:portal-js-dependencies.adoc[List of Portal-js dependencies]
 
-xref:ROOT:react-page-dependencies.adoc[List of React pages dependencies]
+xref:ROOT:svelte-page-dependencies.adoc[List of Svelte pages dependencies]

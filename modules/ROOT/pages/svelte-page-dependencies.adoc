@@ -1,0 +1,19 @@
+= Svelte page dependencies
+:page-aliases: ROOT:react-page-dependencies.adoc
+:description: This page lists the direct dependencies of the Bonita pages that are built using the Svelte framework.
+
+{description}
+
+// TODO: populate from bonita-web-pages-sp (package.json / lockfile of the Svelte process list package introduced in PR #635)
+
+[discrete]
+=== Frontend
+
+|===
+| name | version | license
+
+| svelte
+| _to be filled_
+| MIT
+
+|===

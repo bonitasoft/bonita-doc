@@ -5,6 +5,12 @@
 
 == Notable changes
 
+=== User Application process list migrated to Svelte
+
+The provided process list page of the xref:runtime:user-process-list.adoc[Bonita User Application] has been re-implemented with the Svelte framework, replacing the previous React implementation. Existing customizations that target the page through application descriptors continue to work; teams that have forked the page source must port their changes to the new Svelte codebase.
+
+The full dependency list for Svelte-based provided pages is available at xref:ROOT:svelte-page-dependencies.adoc[List of Svelte pages dependencies].
+
 == Support matrix changes
 
 == Deprecations and removals
