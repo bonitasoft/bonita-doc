@@ -55,6 +55,185 @@ Each cleanup run produces one xref:api:queriable-logging.adoc[queriable log] ent
 
 These entries can be queried through the existing `/API/system/log` REST endpoint and are displayed in the *Audit log* tab of the *Data Retention (GDPR)* administration page.
 
+[#legacy-data]
+== Handling legacy data
+
+BDM instances that were created *before* the tracking mechanism was introduced do not have a corresponding row in the Bonita table `data_retention_bdm_tracking`. As a consequence, retention rules configured on their object type cannot identify them as expired, and they are never deleted by the cleanup job.
+
+To bring legacy data under retention control, populate the tracking table manually with one row per legacy instance. The reference dates (`created_at` and `last_modified_at`) must be provided explicitly — use the best approximation available in your existing data (for example, a business creation date column, or a fallback value acceptable to your compliance policy).
+
+[IMPORTANT]
+====
+*The backfill spans two databases.* The BDM tables (for example `invoice`) live in the *Business Data database*, while the tracking table `data_retention_bdm_tracking` and the `sequence` table live in the *Bonita engine database*. These are normally two distinct databases with their own credentials and JDBC URLs, so the backfill is split into two scripts run on two separate connections. Cross-database joins are not used.
+====
+
+[CAUTION]
+====
+*Stop the Bonita platform* before running the backfill, and make a full backup of both databases first. Bonita manages IDs for `data_retention_bdm_tracking` through its internal `sequence` table, and caches the next available range in memory; a manual backfill while the platform is running would conflict with the cached range and may create duplicate IDs.
+====
+
+=== How Bonita generates IDs for the tracking table
+
+`data_retention_bdm_tracking.id` is not populated by a database sequence or by Hibernate. Instead, Bonita maintains a single `sequence` table shared by all internal entities:
+
+[cols="1,1,3"]
+|===
+| Column | Type | Description
+
+| `id`
+| `BIGINT`
+| Sequence identifier. `SDataRetentionBdmTracking` uses sequence id *9*.
+
+| `nextid`
+| `BIGINT`
+| Next ID available for that entity type. The engine reserves a range (default: 100, configurable via `bonita.platform.sequence.defaultRangeSize`) and serves IDs from that range before hitting the database again.
+|===
+
+The full sequence-id mapping lives in `bonita-community.xml` (engine source); verify the value in your version if you are running an engine other than {bonitaVersion}.
+
+A correct backfill therefore has three parts, performed on two distinct database connections:
+
+1. extract the legacy persistence IDs and reference dates from the *Business Data database*,
+2. transfer that data to the *Bonita engine database* (CSV import, staging table, etc.),
+3. reserve a contiguous range of IDs from the `sequence` row for `id = 9`, then insert one tracking row per legacy instance using the reserved IDs.
+
+=== Step 1 — Export the legacy data from the Business Data database
+
+Connect to the *Business Data database* and, for each BDM object type you want to bring under retention, export its persistence IDs together with the best-available creation/update dates as epoch milliseconds.
+
+The example below targets the `invoice` table backing `com.company.model.Invoice`, using the business column `invoice_date` as the creation date and falling back to it when `last_update_date` is null. The shell command uses `psql` and writes the result as CSV on the client host:
+
+[source,bash]
+----
+# Run on a host that can reach the Business Data database.
+# Replace <host>, <user>, <bdm_database> with your own values.
+psql -h <host> -U <user> -d <bdm_database> -c "\
+\copy ( \
+    SELECT persistenceid                                                       AS data_id, \
+           EXTRACT(EPOCH FROM invoice_date) * 1000                             AS created_at, \
+           EXTRACT(EPOCH FROM COALESCE(last_update_date, invoice_date)) * 1000 AS last_modified_at \
+      FROM invoice \
+) TO 'invoice_legacy.csv' WITH (FORMAT csv, HEADER true)"
+----
+
+The PostgreSQL `\copy` meta-command runs client-side, so the file is written wherever you launch `psql`. Each database engine ships its own bulk-export tool; pick the one that matches your platform:
+
+[cols="1,3"]
+|===
+| Database | Bulk-export approach
+
+| PostgreSQL
+| `psql \copy ... TO '<file>.csv'` (client-side) or server-side `COPY ... TO '<file>'`.
+
+| MySQL
+| `SELECT ... INTO OUTFILE '<file>'` (server-side), or `mysql --batch -e "<query>" > <file>.tsv` (client-side, tab-separated).
+
+| Oracle
+| `sqlcl` with `SET SQLFORMAT csv` + `SPOOL <file>.csv`, or `SQL*Plus` with column formatting + `SPOOL`, or Oracle Data Pump for larger volumes.
+
+| SQL Server
+| `bcp <query> queryout <file>.csv -c -t,` (`bcp` utility), or `sqlcmd -Q "<query>" -s, -W > <file>.csv`.
+|===
+
+Adapt the epoch-conversion syntax and source columns to your database engine and to the actual BDM table. For object types other than `Invoice`, replace the source table accordingly.
+
+=== Step 2 — Reserve IDs and insert the tracking rows on the Bonita engine database
+
+Connect to the *Bonita engine database*. Load the CSV produced in Step 1 into a staging table, then run the insert in a single transaction that reserves N IDs from sequence *9* and inserts exactly N tracking rows with IDs in that reserved range.
+
+We recommend saving the instructions below to a SQL file (for example `backfill_invoice.sql`) and executing it through your database engine's command-line client.
+
+[source,sql]
+----
+-- 1. Load the CSV produced in Step 1 into a staging table.
+CREATE TEMPORARY TABLE legacy_invoice_tracking (
+    data_id          BIGINT NOT NULL,
+    created_at       BIGINT NOT NULL,
+    last_modified_at BIGINT NOT NULL
+);
+\copy legacy_invoice_tracking FROM 'invoice_legacy.csv' WITH (FORMAT csv, HEADER true);
+
+BEGIN;
+
+-- 2. Drop rows that are already tracked, so we only reserve IDs for the new ones.
+DELETE FROM legacy_invoice_tracking l
+ WHERE EXISTS (
+    SELECT 1 FROM data_retention_bdm_tracking t
+     WHERE t.data_id = l.data_id
+       AND t.data_classname = 'com.company.model.Invoice'
+ );
+
+-- 3. Lock the sequence row (serializes concurrent backfill scripts) and reserve one ID per remaining row.
+--    This does NOT coordinate with a running engine — see the CAUTION above; the platform must be stopped.
+SELECT nextid FROM sequence WHERE id = 9 FOR UPDATE;
+
+UPDATE sequence
+   SET nextid = nextid + (SELECT COUNT(*) FROM legacy_invoice_tracking)
+ WHERE id = 9;
+
+-- 4. Insert tracking rows using the reserved IDs (row_number() walks the reserved range).
+INSERT INTO data_retention_bdm_tracking (id, data_id, data_classname, created_at, last_modified_at)
+SELECT
+    (SELECT nextid FROM sequence WHERE id = 9)
+        - COUNT(*) OVER ()              -- first ID of the reserved range
+        + ROW_NUMBER() OVER (ORDER BY data_id) - 1,
+    data_id,
+    'com.company.model.Invoice',
+    created_at,
+    last_modified_at
+  FROM legacy_invoice_tracking;
+
+COMMIT;
+----
+
+
+This script must be executed through `psql` itself: `\copy` is a `psql` meta-command and is not understood by JDBC-based clients (DBeaver, IntelliJ Database, etc.).
+For other database engines, the staging-table load command (`\copy`) is the main thing to replace. The equivalents are:
+
+[cols="1,3"]
+|===
+| Database | Bulk-load approach
+
+| PostgreSQL
+| `psql \copy <table> FROM '<file>.csv'` (client-side) or server-side `COPY <table> FROM '<file>'`.
+
+| MySQL
+| `LOAD DATA LOCAL INFILE '<file>.csv' INTO TABLE <table> FIELDS TERMINATED BY ',' ENCLOSED BY '"' IGNORE 1 LINES`.
+
+| Oracle
+| `SQL*Loader` (`sqlldr` command-line utility) with a control file, or external tables.
+
+| SQL Server
+| `BULK INSERT <table> FROM '<file>.csv' WITH (FORMAT='CSV', FIRSTROW=2)`, or the `bcp` utility.
+|===
+
+The row-locking clause `SELECT ... FOR UPDATE` works on PostgreSQL, MySQL and Oracle. On SQL Server, use the equivalent table-hint syntax `SELECT ... FROM sequence WITH (UPDLOCK, HOLDLOCK) WHERE id = 9`.
+
+Window-function syntax (`ROW_NUMBER() OVER (...)`, `COUNT(*) OVER ()`) is standard SQL and supported by all four engines.
+
+For object types other than `Invoice`, replace the `'com.company.model.Invoice'` literal and use a separate staging table per type.
+
+=== Step 3 — Verify and restart
+
+Run the two count queries on their respective databases and check that they match.
+
+On the *Business Data database*:
+
+[source,sql]
+----
+SELECT COUNT(*) FROM invoice;
+----
+
+On the *Bonita engine database*:
+
+[source,sql]
+----
+SELECT COUNT(*) FROM data_retention_bdm_tracking
+ WHERE data_classname = 'com.company.model.Invoice';
+----
+
+The two counts should be equal if every legacy instance is now tracked. Restart the Bonita platform once the backfill is complete — this ensures the sequence cache reloads from the updated database state. The next scheduled cleanup run will then apply the configured retention rule to the legacy data.
+
 == Related topics
 
 * xref:data:define-and-deploy-the-bdm.adoc#compos[BDM composition and aggregation]
