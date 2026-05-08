@@ -137,9 +137,18 @@ If you are updating from a version lower than 7.3, see special cases <<lower-7-3
 Starting with Bonita 2021.2 (Bonita Runtime 7.13), Bonita Applications replaced Bonita Portal. If you need to use some of the Portal Look&Feel assets in the themes of your applications, make sure you create backups of those files before launching the updating procedure.
 There is no guarantee that the Look & Feel definition is compatible across maintenance versions.
 For example, in 6.2.2, `jquery+` was renamed `jqueryplus` in `BonitaConsole.html`, for compatibility with more application servers.
-If you are using a custom Look & Feel,  xref:2021.1@ROOT:managing-look-feel.adoc[export] it before updating
-Once the update is complete,  xref:2021.1@ROOT:managing-look-feel.adoc[export the default Look & Feel] from the new version,
-modify your custom Look & Feel to be compatible with the new definition, and with the  xref:2021.1@ROOT:creating-a-new-look-feel.adoc[recommendations for form footers]. Then xref:2021.1@ROOT:managing-look-feel.adoc[import] your updated custom Look & Feel into Bonita Portal.
+If you are using a custom Look & Feel, export it before updating
+Once the update is complete, export the default Look & Feel from the new version,
+modify your custom Look & Feel to be compatible with the new definition, and with the recommendations for form footers.
+Then import your updated custom Look & Feel into Bonita Portal.
+
+[NOTE]
+====
+Refer to the documentation of the version 2021.1 documentation to know how to export the Look & Feel, get the recommendations for form footers and import the Look & Feel.
+
+This documentation is available as xref:0@bonita::archives.adoc[a zip archive].
+====
+
 
 === JRE requirements
 Based on your target Bonita version, check whether JRE update is required in your environment before launching the update process:
