@@ -79,9 +79,7 @@ the client and the server
 [IMPORTANT]
 ====
 
-Deprecated, use the programmatic way instead, see
-{javaDocUrl}}/api/{javadocVersion}/org/bonitasoft/engine/util/APITypeManager
-.html[APITypeManager].
+Deprecated, use the programmatic way instead, see {javaDocUrl}/api/{javadocVersion}/org/bonitasoft/engine/util/APITypeManager.html[APITypeManager].
 ====
 
 This is a legacy way to configure the connection to the remote engine.

@@ -106,7 +106,7 @@ xref:ROOT:engine-api-overview.adoc[[.card-title]#Overview# [.card-body.card-cont
 
 [.card.card-index]
 --
-javadocUrl/api/{javadocVersion}/index.html[[.card-title]#Javadoc# [.card-body.card-content-overflow]#pass:q[Complete Javadoc of the Java API]#]
+{javadocUrl}/api/{javadocVersion}/index.html[[.card-title]#Javadoc# [.card-body.card-content-overflow]#pass:q[Complete Javadoc of the Java API]#]
 --
 
 [.card-section]
