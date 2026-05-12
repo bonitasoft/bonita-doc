@@ -40,7 +40,7 @@ Custom actor filters are added to a Bonita project from the xref:bonita-overview
 
 === Engine API
 
-The https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Bonita Engine APIs] enable you to:
+The {javadocUrl}/api/{javadocVersion}/index.html[Bonita Engine APIs] enable you to:
 
 * start and stop the engine
 * design, install, configure and interact with processes
@@ -81,7 +81,7 @@ Custom themes are developed outside the Studio with a dedicated Maven archetype.
 
 *For Subscription editions only*
 
-Included in the https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Engine APIs] are methods to import and export various items.
+Included in the {javadocUrl}/api/{javadocVersion}/index.html[Engine APIs] are methods to import and export various items.
 These methods manipulate files with formats that are versioned. Newer versions of the file format are designed to be backward compatible with earlier versions. The following items have import and export API methods:
 
 * organization (users, groups, roles)
