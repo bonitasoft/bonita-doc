@@ -1,0 +1,82 @@
+= Brute-Force Login Protection
+:description: Bonita includes brute-force login protection that rate-limits failed login attempts per username and temporarily locks out accounts after too many failures.
+
+{description}
+
+[NOTE]
+====
+Available since Bonita 2024.1-u12.
+====
+
+== How it works
+
+Brute-force login protection prevents attackers from guessing user credentials by rate-limiting failed login attempts on a per-username basis.
+
+When a user fails to log in, Bonita tracks the number of consecutive failed attempts for that username within a fixed time window. Once the maximum number of allowed attempts is reached, the account is temporarily locked out for a configurable duration. During the lockout period, all login attempts for that username are rejected, regardless of whether the correct password is provided.
+
+Successful logins reset the failure counter for that username.
+
+== Default configuration
+
+Brute-force login protection is *enabled by default* with the following settings:
+
+* Maximum failed attempts before lockout: *5*
+* Lockout duration: *600 seconds* (10 minutes)
+
+== Configuration properties
+
+The feature is configured using the following properties in `bonita-platform-community-custom.properties` (or environment variables):
+
+[cols="1,1,1a,1"]
+|===
+|Property |Default |Description |Environment variable
+
+|`bonita.runtime.security.bruteforce.enabled`
+|`true`
+|Enables or disables brute-force login protection.
+|`BONITA_RUNTIME_SECURITY_BRUTEFORCE_ENABLED`
+
+|`bonita.runtime.security.bruteforce.max.attempts`
+|`5`
+|Maximum number of consecutive failed login attempts before the account is locked out.
+|`BONITA_RUNTIME_SECURITY_BRUTEFORCE_MAX_ATTEMPTS`
+
+|`bonita.runtime.security.bruteforce.lockout.duration.seconds`
+|`600`
+|Duration in seconds for which the account remains locked after reaching the maximum number of failed attempts.
+|`BONITA_RUNTIME_SECURITY_BRUTEFORCE_LOCKOUT_DURATION_SECONDS`
+|===
+
+== Behavior when locked out
+
+When a user is locked out after too many failed login attempts:
+
+* The *REST API* returns an HTTP `429 Too Many Requests` status code with a `Retry-After` header indicating the number of seconds remaining before the lockout expires.
+* The *Bonita login page* displays the message: _"Too many failed login attempts. Please try again later."_
+
+== Cluster mode
+
+In single-node deployments, failed login attempts are tracked in memory.
+
+In *cluster deployments* (Subscription editions), the lockout state is shared across all nodes, ensuring that an attacker cannot bypass the protection by targeting different nodes.
+
+== How to disable
+
+[WARNING]
+====
+Disabling brute-force login protection is *not recommended* as it leaves user accounts vulnerable to credential guessing attacks.
+====
+
+To disable the feature, set the following property to `false`:
+
+[source,properties]
+----
+bonita.runtime.security.bruteforce.enabled=false
+----
+
+Or use the environment variable:
+
+[source,shell]
+----
+BONITA_RUNTIME_SECURITY_BRUTEFORCE_ENABLED=false
+----
