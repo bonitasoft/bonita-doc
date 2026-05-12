@@ -235,6 +235,7 @@ NOTE: Activating this option means any user authorized by the IdP to access Boni
     "^/bonita/(.*)$" : "/$1"
   }
 ----
+  *** `proxy-url` URL of an HTTP proxy for the OIDC adapter's outbound connections to the identity provider (e.g. `\http://proxy.example.com:3128`). This property is required when the Bonita server cannot reach the OIDC provider directly due to network restrictions. Note that standard JVM proxy properties (`-Dhttp.proxyHost`, `-Dhttps.proxyHost`) set via `CATALINA_OPTS` or `setenv.sh` do not apply here. The OIDC adapter requires proxy configuration through this dedicated property. 
 
 [NOTE]
 ====
