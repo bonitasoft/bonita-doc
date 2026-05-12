@@ -65,10 +65,13 @@ See xref:process:messaging.adoc[Email Connector documentation] for more informat
 
 === Fixes in Bonita 2025.2-u7 (2026-04-01)
 
+* xref:security:brute-force-login-protection.adoc[Brute-force login protection] is now enabled by default. This security feature rate-limits failed login attempts per username and temporarily locks out accounts after too many failures.
+
 * This version restores the Java dependencies configuration page with selective export that was available in 2024.3 and older versions.
 * BPA-316 - Prograde Java policy is too restrictictive for AI connectors
 * BPA-321 - ThreadLocal EntityManager leak after JTA transaction timeout causes stale persistence context reuse
 * BPA-411 - [OIDC][Cluster] single-use refresh token invalidation causes repeated session loss
+* CVE-43 - Brute-force login protection
 * Several dependencies updated
 
 === Fixes in Bonita 2025.2-u5 (2026-02-26)
