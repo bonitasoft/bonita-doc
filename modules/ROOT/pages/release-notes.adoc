@@ -38,6 +38,8 @@ See xref:runtime:bdm-data-retention.adoc[BDM data retention] for the complete re
 
 === Fixes in Bonita 2026.1-u0 (2026-04-28)
 
+* xref:security:brute-force-login-protection.adoc[Brute-force login protection] is now enabled by default. This security feature rate-limits failed login attempts per username and temporarily locks out accounts after too many failures.
+
 * BPA-183 - Process instance never completes: row in FLOWNODE_INSTANCE table with stateid 28 and kind multi
 * BPA-199 - BDM Custom Query with Single Result Type Returns Array Instead of Single Object
 * BPA-203 - Automatic cleanup of TEMPORARY_CONTENT rows does not delete actual object stored in pg_largeobject table
@@ -47,4 +49,5 @@ See xref:runtime:bdm-data-retention.adoc[BDM data retention] for the complete re
 * BPA-411 - [OIDC][Cluster] single-use refresh token invalidation causes repeated session loss
 * BPA-443 - [Cluster] NPE on HTTP API for every void method (retryTask, logout, ...)
 * BPA-449 - Studio: .bar built from a process with no declared dependencies contains all project dependencies
+* CVE-43 - Brute-force login protection
 * Several dependencies updated
