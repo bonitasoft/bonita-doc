@@ -112,13 +112,13 @@ Also, DAO interfaces and implementations are generated, to give access to the qu
     }
 ----
 
-DAO implementation code uses javadocUrl/api/{javadocVersion}/org/bonitasoft/engine/api/CommandAPI.html[Engine Commands]
+DAO implementation code uses {javadocUrl}/api/{javadocVersion}/org/bonitasoft/engine/api/CommandAPI.html[Engine Commands]
 to call from client-side queries that run server-side.
 
 Once generated, those Java classes are *compiled and packaged*:
 
 * in a server JAR that is stored in database and loaded in tenant (and process) classloaders
-* in a client JAR that can be retrieved by calling the javadocUrl/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html#getClientBDMZip--[getClientBDMZip()]
+* in a client JAR that can be retrieved by calling the {javadocUrl}/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html#getClientBDMZip--[getClientBDMZip()]
 method, to be able to call from a client application. Below is a sample code on how it can be done.
 
 [source,java]
@@ -163,15 +163,15 @@ However, the SQL instructions run by the DBA must precisely match the Java class
 
 The `TenantAdministrationAPI` exposes several methods:
 
-* javadocUrl/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html#installBusinessDataModel-byte:A-[installBusinessDataModel()] that installs a new BDM. Fails if one already exists. Call uninstallBusinessDataModel()
+* {javadocUrl}/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html#installBusinessDataModel-byte:A-[installBusinessDataModel()] that installs a new BDM. Fails if one already exists. Call uninstallBusinessDataModel()
 first if a BDM already exists. Deprecated in 2021.2, as updateBusinessDataModel() covers the same use case, and should be used instead.
-* javadocUrl/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html#updateBusinessDataModel--[updateBusinessDataModel()] that updates the BDM. It uninstalls the previous BDM if applicable, and installs the new one.
+* {javadocUrl}/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html#updateBusinessDataModel--[updateBusinessDataModel()] that updates the BDM. It uninstalls the previous BDM if applicable, and installs the new one.
 The call is done in a single database transaction, which allows it to be rolled back if the update fails.
-* javadocUrl/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html#uninstallBusinessDataModel--[uninstallBusinessDataModel()] that removes the JAR file from the Bonita database and unloads it from the tenant classloader
+* {javadocUrl}/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html#uninstallBusinessDataModel--[uninstallBusinessDataModel()] that removes the JAR file from the Bonita database and unloads it from the tenant classloader
 (and from all the process classloaders of the tenant). *Does not* update or remove anything from the database.
-* javadocUrl/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html#cleanAndUninstallBusinessDataModel--[cleanAndUninstallBusinessDataModel()]: same as above plus
+* {javadocUrl}/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html#cleanAndUninstallBusinessDataModel--[cleanAndUninstallBusinessDataModel()]: same as above plus
 *drops all the BDM tables* resulting in a complete data loss. *Not for production*. Use with caution.
-* javadocUrl/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html[other useful methods]
+* {javadocUrl}/api/{javadocVersion}/org/bonitasoft/engine/api/TenantAdministrationAPI.html[other useful methods]
 
 
 == Deploying a new version of the BDM

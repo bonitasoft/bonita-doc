@@ -21,7 +21,7 @@ then it tries to get the configuration set in system properties, finally it fall
 [#configure-client-using-programmatic-configuration]
 === Configure Client using programmatic configuration
 
-You can configure the connection to the engine directly using `org.bonitasoft.engine.util.APITypeManager`, please refer to the javadocUrl/api/{javadocVersion}/org/bonitasoft/engine/util/APITypeManager.html[Javadoc].
+You can configure the connection to the engine directly using `org.bonitasoft.engine.util.APITypeManager`, please refer to the {javadocUrl}/api/{javadocVersion}/org/bonitasoft/engine/util/APITypeManager.html[Javadoc].
 
 Here are some examples of programmatic configuration to an engine
 
