@@ -16,7 +16,7 @@ The following languages are officially supported:
 
 Officially supported language means that:
 
-* Translation is performed by Bonitasoft or trusted partners
+* Translation is performed by Ofelia or trusted partners
 * The following Bonita components are translated: Studio, UI Designer and Bonita Applications
 
 == Language detection mechanism
@@ -60,7 +60,7 @@ This part is a legacy way to add a new language and will be reworked in the futu
 Instructions below assume that the language you want to add is already available in the Community translation project. If translation is not available see <<Translate_Bonita_Runtime,Translate Bonita Runtime>> for instruction about how to collaborate to a new or ongoing translation.
 ====
 
-Instructions below explain how to add a language to the Bonita Runtime. Steps below involve using content created by Bonitasoft community and therefore not officially supported.
+Instructions below explain how to add a language to the Bonita Runtime. Steps below involve using content created by Ofelia community and therefore not officially supported.
 
 
 === Download the language files

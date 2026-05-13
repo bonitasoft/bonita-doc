@@ -80,8 +80,8 @@ Predict and then monitor the following:
 All connection numbers must be defined according to the performance tuning recommendations:
 
 * Monitor connection number managed by client (see xref:ROOT:performance-tuning.adoc[Client Threads])
-* Check connection number managed by Bonitasoft Server (See xref:ROOT:performance-tuning.adoc[Work Service], Connector service, and xref:performance-tuning.adoc[Scheduler Service])
-* Check number of database connections defined in Bonitasoft (see xref:ROOT:performance-tuning.adoc[Database connections] and xref:performance-tuning.adoc[Datasource settings])
+* Check connection number managed by Ofelia Server (See xref:ROOT:performance-tuning.adoc[Work Service], Connector service, and xref:performance-tuning.adoc[Scheduler Service])
+* Check number of database connections defined in Ofelia (see xref:ROOT:performance-tuning.adoc[Database connections] and xref:performance-tuning.adoc[Datasource settings])
 * Check maximum number of simultaneous connections on database
 * Monitor number of simultaneous connections on database
 
