@@ -1,0 +1,3 @@
+* xref:index.adoc[Archives]
+** xref:bonita.adoc[Bonita]
+** xref:central.adoc[Bonita Central]
