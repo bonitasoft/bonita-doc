@@ -34,7 +34,7 @@ REST API Extensions examples show how to:
 * Return an XML content with specific media type and character set
 * Call to external SOAP webservice (requires internet connexion)
 
-Another REST API Extensions example with SQL data source is available on http://community.bonitasoft.com/project/data-source-rest-api-extension[Bonitasoft Community]. This example shows how to execute SQL queries on a external database.
+Another REST API Extensions example with SQL data source is available on https://community.ofelia.com/t/data-source-rest-api-extension/26157[Ofelia Community]. This example shows how to execute SQL queries on a external database.
 
 
 == Create a REST API Extension with Bonita Studio
