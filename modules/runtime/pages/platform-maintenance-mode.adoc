@@ -16,7 +16,7 @@ When the maintenance mode is activated, this has the following consequences:
 Those are the reasons why such maintenance procedures must be planned at a time of low usage and must be communicated carefully to the users. +
 
 The following sections explain how to notify users about incoming maintenance operations and also how to activate/deactivate the maintenance mode using the Bonita Super Administrator application. +
-You can also use the https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Engine API] or the xref:ROOT:rest-api-overview.adoc[Web REST API].
+You can also use the {javadocUrl}/api/{javadocVersion}/index.html[Engine API] or the xref:ROOT:rest-api-overview.adoc[Web REST API].
 
 == Notify users about incoming maintenance
 
