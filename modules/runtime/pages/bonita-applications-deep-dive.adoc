@@ -25,7 +25,7 @@ xref:ROOT:log-in-and-log-out.adoc[[.card-title]#Login mechanism# [.card-body.car
 
 [.card-section]
 == Bonita Applications
-Bonitasoft developers develop Bonita using Bonita. +
+Ofelia developers develop Bonita using Bonita. +
 This is why Bonita comes with four embedded applications, with different status:
 
 * Core applications. They are critical to the good operation of Bonita in a Production environment. They can be customized but they cannot be deleted:
@@ -34,7 +34,7 @@ This is why Bonita comes with four embedded applications, with different status:
 * Generic applications. They are fully functional, can be added from the Marketplace or imported for customization in your Bonita project. It is also possible to deleted them if not useful for your application:
     ** Administrator
     ** User
-* Bonita applications. They are developed by Bonitasoft and delivered as independent applications. You can add them from the Marketplace to include then in your application:
+* Bonita applications. They are developed by Ofelia and delivered as independent applications. You can add them from the Marketplace to include then in your application:
     ** Reporting App
 
 User and Administrator applications are not embedded by default in applications.footnote:liveupdate[When using the deprecated platform mode, these living applications are embedded by default.]

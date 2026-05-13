@@ -13,7 +13,7 @@ This connector will be implemented using:
 
 [NOTE]
 ====
-While we recommend you to follow the step-by-step instructions, a Git repository containing the final solution is available on the Bonitasoft-Community GitHub: https://github.com/Bonitasoft-Community/bonita-connector-starwars[bonita-connector-starwars].
+While we recommend you to follow the step-by-step instructions, a Git repository containing the final solution is available on the Ofelia-Community GitHub: https://github.com/Bonitasoft-Community/bonita-connector-starwars[bonita-connector-starwars].
 ====
 
 == 1 - Generate project and retrieve dependencies
