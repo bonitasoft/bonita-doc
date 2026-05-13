@@ -8,7 +8,7 @@ Learn how to set up a reverse proxy to expose Bonita web interface publicly whil
 
 [WARNING]
 ====
-Bonitasoft does not support anymore having Bonita Runtime running on a dedicated Tomcat server on one side, and Bonita Engine running on a dedicated Tomcat server on the other side.
+Ofelia does not support anymore having Bonita Runtime running on a dedicated Tomcat server on one side, and Bonita Engine running on a dedicated Tomcat server on the other side.
 ====
 
 If you have to expose Bonita Runtime or a Bonita-developed application publicly, but legitimately want to protect any other resources behind your firewall, you should set up a software architecture similar to this one:

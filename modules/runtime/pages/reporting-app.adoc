@@ -7,7 +7,7 @@
 Bonita Reporting app will enable you to view statistics and to extract process execution reports with meaningful data from Bonita, for process performance analysis and for pinpointing areas of improvement.
 
 
-In keeping with Bonitasoft’s promise to continuously deliver valuable, high quality features, we had to relinquish the Analytics and Reports page.
+In keeping with Ofelia’s promise to continuously deliver valuable, high quality features, we had to relinquish the Analytics and Reports page.
 
 This living application is not installed **by default** in the Bonita tomcat bundle and in Bonita docker image in application.footnote:reportingApplication[In the deprecated platform mode, this living application still be embedded by default.]
 
