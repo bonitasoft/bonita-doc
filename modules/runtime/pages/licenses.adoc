@@ -31,7 +31,7 @@ If a user tries to submit an instantiation form after the case counter maximum l
 
 == Get a new license
 
-Your contract with Bonitasoft specifies the details of the subscription you have purchased, including the edition, and case limit for case-counter licensing. A license matching the subscription details is generated on request.
+Your contract with Ofelia specifies the details of the subscription you have purchased, including the edition, and case limit for case-counter licensing. A license matching the subscription details is generated on request.
 
 If this is a license renewal, you can find your request key in the Bonita Portal _License_ menu of the Administrator profile or using the {openApiUrl}/{openApiLatestVersion}/#tag/License/operation/getPlatformLicense[platform REST API]. +
 A request key looks like this: `(CIVpYDRB8bhouXdWadLY1M9TVctwYUYuv7ou7sqeIrSUSuCqUIkjQAs0ZGgzbtqv3gguFOHlyMZkyvwdr4HLgg==)`.
