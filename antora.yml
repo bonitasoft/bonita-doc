@@ -2,11 +2,11 @@ name: bonita
 title: Bonita
 version: 0
 display_version: Archives
-start_page: ROOT:archives.adoc
+start_page: archives:index.adoc
 asciidoc:
   attributes:
     page-editable: true
     page-out-of-support: false
     page-hide-search-bar: true
 nav:
-  - modules/ROOT/taxonomy.adoc
+  - modules/archives/taxonomy.adoc
