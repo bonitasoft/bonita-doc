@@ -134,7 +134,7 @@ Extensions can be developed outside the Studio with your favorite IDE.
 |xref:ROOT:rest-api-extension-archetype.adoc[Dedicated SDK] or in the Studio (when Business Data is manipulated)
 
 |Bonita provided application
-|Bonita Admin application and Bonita User Application are provided by Bonitasoft and can be added or removed from applications depending on their needs.
+|Bonita Admin application and Bonita User Application are provided by Ofelia and can be added or removed from applications depending on their needs.
 | Available in the extensions Marketplace
 
 |===

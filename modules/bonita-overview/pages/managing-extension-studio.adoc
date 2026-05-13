@@ -21,7 +21,7 @@ From the extension view you can add the following extension to your project:
 Such extensions can be added through different channels described in the below chapters.
 
 === From the Bonita Marketplace
-The Bonita Marketplace contains all the extensions provided and supported by Bonitasoft. It is accessible from the extension view.
+The Bonita Marketplace contains all the extensions provided and supported by Ofelia. It is accessible from the extension view.
 
 === From a Maven repository
 If the extensions you are looking for are available in public or private Maven repositories, use their maven coordinates (group ID, artifact ID & Version) to add them to your project.
