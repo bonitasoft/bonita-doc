@@ -1,4 +1,4 @@
-= Database connectors 
+= Database connectors
 :page-aliases: ROOT:database-connectors-index.adoc
 :description: Database connectors allow you to connector your process with external data sources to read or write data. Bonita supports natively several database connector.
 
@@ -10,7 +10,7 @@ Database connectors allow you to connector your process with external data sourc
 
 [.card.card-index]
 --
-xref:ROOT:list-of-database-connectors.adoc[[.card-title]#The provided database connectors# [.card-body.card-content-overflow]#pass:q[See all the different database connectors provided by Bonitasoft]#]
+xref:ROOT:list-of-database-connectors.adoc[[.card-title]#The provided database connectors# [.card-body.card-content-overflow]#pass:q[See all the different database connectors provided by Ofelia]#]
 --
 
 [.card.card-index]
