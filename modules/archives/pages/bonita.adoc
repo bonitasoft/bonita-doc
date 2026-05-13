@@ -1,5 +1,4 @@
 = Download archived documentation of old Bonita versions
-:page-aliases: ROOT:archives.adoc
 :description: This page gives access to the download of Bonita documentation archives, in case you need something very specific to those versions.
 
 This page gives access to the download of Bonita documentation archives, in case you need something very specific to those versions. The format is either HTML (for not-so-old versions) or PDF (for ancient versions).
