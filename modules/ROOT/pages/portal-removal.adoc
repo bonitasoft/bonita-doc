@@ -34,5 +34,5 @@ The changes done for these features implied a removal of some pages that referen
 
 [NOTE]
 ====
-To get the documentation related to the features that have been removed, you can refer to the 2021.1 documentation, which is available as xref:0@bonita::archives.adoc[a zip archive].
+To get the documentation related to the features that have been removed, you can refer to the 2021.1 documentation, which is available as xref:0@bonita:archives:bonita.adoc[a zip archive].
 ====

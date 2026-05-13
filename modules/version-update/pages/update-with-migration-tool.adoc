@@ -146,7 +146,7 @@ Then import your updated custom Look & Feel into Bonita Portal.
 ====
 Refer to the documentation of the version 2021.1 documentation to know how to export the Look & Feel, get the recommendations for form footers and import the Look & Feel.
 
-This documentation is available as xref:0@bonita::archives.adoc[a zip archive].
+This documentation is available as xref:0@bonita:archives:bonita.adoc[a zip archive].
 ====
 
 
