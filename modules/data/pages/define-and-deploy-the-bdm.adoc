@@ -67,7 +67,7 @@ Business object names must be unique, even across packages.
 * Indexes for some attributes (optional)
 * A `persistenceId`, created automatically
 
-Business objects can be combined using <<compos,composition or aggregation>> relationships. They are managed using standard create, read, update, delete actions. A business object can be read directly using the https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[Engine Java API] specifying the Java DAO, or using the {openApiUrl}/{openApiLatestVersion}/#tag/BDM[REST API]. To read a business object in a Groovy expression, use the DAO. A business object can be updated only in a process, using an operation.
+Business objects can be combined using <<compos,composition or aggregation>> relationships. They are managed using standard create, read, update, delete actions. A business object can be read directly using the {javadocUrl}/api/{javadocVersion}/index.html[Engine Java API] specifying the Java DAO, or using the {openApiUrl}/{openApiLatestVersion}/#tag/BDM[REST API]. To read a business object in a Groovy expression, use the DAO. A business object can be updated only in a process, using an operation.
 
 === Multiple
 
@@ -290,7 +290,7 @@ Can be used as dependency of:
 </dependency>
 ----
 Contains client side implementation of the Business Objects DAO.
-Can be used as dependency of a java client application using the xref:api:create-your-first-project-with-the-engine-apis-and-maven.adoc#_bonita_client_apis[bonita-client^] and the https://javadoc.bonitasoft.com/api/{javadocVersion}/org/bonitasoft/engine/api/APIClient.html#getDAO(java.lang.Class)[APIClient#getDAO^] factory method.
+Can be used as dependency of a java client application using the xref:api:create-your-first-project-with-the-engine-apis-and-maven.adoc#_bonita_client_apis[bonita-client^] and the {javadocUrl}/api/{javadocVersion}/org/bonitasoft/engine/api/APIClient.html#getDAO(java.lang.Class)[APIClient#getDAO^] factory method.
 
 The `bdm-model` dependency is automatically added when a REST API Extension is created from the Bonita Studio. It allows to manipulate Business Objects from a REST API Extension. +
 

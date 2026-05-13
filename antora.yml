@@ -11,7 +11,8 @@ asciidoc:
     javadocVersion: '10.0'
     laDeployerVersion: '1.1.2'
     keycloakDocumentationVersion: 21.1.2
-    openApiUrl: 'https://api-documentation.bonitasoft.com'
+    openApiUrl: 'https://api-documentation.ofelia.com'
+    javadocUrl: 'https://javadoc.documentation.ofelia.com'
     cscRootUrl: 'https://csc.bonitacloud.bonitasoft.com'
     cscCustomerServices: '{cscRootUrl}/apps/CustomerServices'
     cscDownloadUrl: '{cscCustomerServices}/downloads'
