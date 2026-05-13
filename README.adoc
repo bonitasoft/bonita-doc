@@ -1,7 +1,6 @@
 = Bonita documentation resources
 
-This repository contains the sources of the https://documentation.bonitasoft.com/bonita[Bonita documentation site]. It uses https://docs.asciidoctor.org/asciidoc/latest/[AsciiDoc] format for
-the documentation content.
+This repository contains the sources of the https://documentation.ofelia.com/bonita[Bonita documentation site]. It uses the https://docs.asciidoctor.org/asciidoc/latest/[AsciiDoc] format for the documentation content.
 
 
 == Content writing guidelines
@@ -14,6 +13,6 @@ recommendations about writing Asciidoc pages the Bonita-way.
 
 For any questions or feedbacks about the *product itself*, please use the following resources:
 
-* http://community.bonitasoft.com/[Community website]
+* http://community.ofelia.com/[Community website]
 * https://bonita.atlassian.net/projects/BBPMC/[Community Bug tracker (Jira)]
 
