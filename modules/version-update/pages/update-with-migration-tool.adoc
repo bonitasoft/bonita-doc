@@ -57,7 +57,7 @@ ____
 
 === Download
 // add links to Bonita web site and Customer Service center => OK
-Download the target Bonita version bundle and the adequate update tool for your Edition from the http://www.bonitasoft.com/downloads[Bonitasoft web site] for Bonita Community edition or from the {cscDownloadUrl}[Customer Service Center] for Bonita Subscription editions. You will also have to download a Tomcat server that matches the target Bonita Runtime version.
+Download the target Bonita version bundle and the adequate update tool for your Edition from the https://www.ofelia.com/downloads[Ofelia web site] for Bonita Community edition or from the {cscDownloadUrl}[Customer Service Center] for Bonita Subscription editions. You will also have to download a Tomcat server that matches the target Bonita Runtime version.
 
 === Licenses
 If you are running a Bonita Subscription edition, you need a valid license for your Bonita target version.
@@ -146,7 +146,7 @@ Then import your updated custom Look & Feel into Bonita Portal.
 ====
 Refer to the documentation of the version 2021.1 documentation to know how to export the Look & Feel, get the recommendations for form footers and import the Look & Feel.
 
-This documentation is available as xref:0@bonita::archives.adoc[a zip archive].
+This documentation is available as xref:0@bonita:archives:bonita.adoc[a zip archive].
 ====
 
 
@@ -233,7 +233,7 @@ image::update_bigsteps.png[Update steps]
 This section explains how to update a platform that uses one of the Bonita bundles.
 
 First, download the target version bundle and Bonita Migration Tool for your edition:
-* from the http://www.bonitasoft.com/downloads[Bonitasoft site] for Bonita Community edition
+* from the https://www.ofelia.com/downloads[Ofelia site] for Bonita Community edition
 * from the {cscDownloadUrl}[Customer Service Center] for Bonita Subscription Pack editions
 
 === Database checks
@@ -672,7 +672,7 @@ Bonita 7.11+ supports SQL Server 2017 version.
 
 === Updating maintenance versions starting with Bonita 7.11
 .Starting with Bonita 7.11, updating between maintenance versions of the same main version does not require the Bonita Update Tool, just follow below steps:
-* Download the new bundle version from Bonitasoft site for Bonita Community edition or from the Customer Service Center for Bonita Subscription editions
+* Download the new bundle version from Ofelia site for Bonita Community edition or from the Customer Service Center for Bonita Subscription editions
 * Shut down your old Bonita Runtime
 * Unzip and configure the new bundle This means copying the configuration files of the old Bonita Runtime, mainly database.properties, server.xml, internal.properties if changes have been made.
 * Start the new bundle

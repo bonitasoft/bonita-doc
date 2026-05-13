@@ -26,7 +26,7 @@ Many tools exist in every operating system for system monitoring. For example:
 
 These tools can be used in conjunction with monitoring systems such as like Nagios or Zabbix.
 
-Bonita also provides a https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[PlatformMonitoringAPI] that you can use to obtain some of this information.
+Bonita also provides a {javadocUrl}/api/{javadocVersion}/index.html[PlatformMonitoringAPI] that you can use to obtain some of this information.
 
 == Network
 
@@ -46,7 +46,7 @@ A large number of deadlocks, or memory heap starvation may indicate a performanc
 Follow the xref:ROOT:performance-tuning.adoc[JVM performance tuning recommendations] and increase provisioning to get the optimum performance.
 
 Many OpenSource and proprietary tools exist for JVM monitoring.
-These parameters can be obtained through monitoring system like Nagios or Zabbix. You can also retrieve them using the https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[PlatformMonitoringAPI].
+These parameters can be obtained through monitoring system like Nagios or Zabbix. You can also retrieve them using the {javadocUrl}/api/{javadocVersion}/index.html[PlatformMonitoringAPI].
 
 == Database
 
@@ -60,7 +60,7 @@ All databases provide information to monitor the following:
 If actual usage reaches the limit of available capacity, this can indicate a performance issue.
 
 These values can be monitored through a monitoring system like Nagios or Zabbix.
-You can also get the number of active transaction using the https://javadoc.bonitasoft.com/api/{javadocVersion}/index.html[MonitoringAPI].
+You can also get the number of active transaction using the {javadocUrl}/api/{javadocVersion}/index.html[MonitoringAPI].
 
 == Bonita Engine connections
 
@@ -80,8 +80,8 @@ Predict and then monitor the following:
 All connection numbers must be defined according to the performance tuning recommendations:
 
 * Monitor connection number managed by client (see xref:ROOT:performance-tuning.adoc[Client Threads])
-* Check connection number managed by Bonitasoft Server (See xref:ROOT:performance-tuning.adoc[Work Service], Connector service, and xref:performance-tuning.adoc[Scheduler Service])
-* Check number of database connections defined in Bonitasoft (see xref:ROOT:performance-tuning.adoc[Database connections] and xref:performance-tuning.adoc[Datasource settings])
+* Check connection number managed by Ofelia Server (See xref:ROOT:performance-tuning.adoc[Work Service], Connector service, and xref:performance-tuning.adoc[Scheduler Service])
+* Check number of database connections defined in Ofelia (see xref:ROOT:performance-tuning.adoc[Database connections] and xref:performance-tuning.adoc[Datasource settings])
 * Check maximum number of simultaneous connections on database
 * Monitor number of simultaneous connections on database
 
