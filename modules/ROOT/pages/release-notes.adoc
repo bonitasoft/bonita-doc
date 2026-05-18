@@ -6,20 +6,20 @@ Bonita 2023.1 release note
 == Bonita project packaged as a self-contained application
 
 With Bonita 2023.1 comes a new recommendation on how to deploy your Bonita applications.
-Each development team using Bonita platform has several options.
+Each development team using the Bonita Platform has several options.
 Here are the options proposed by Bonitasoft:
 
-. Create a dedicated project that is completely independent from the existing Bonita projects (i.e. the generated application will be deployed independently from the existing ones)
-. Integrate it into an existing project, so that a single application will be generated and deployed (backward compatible way of doing things)
+. Create a dedicated project that is completely independent of the existing Bonita projects (i.e. the generated application will be deployed independently of the existing ones)
+. Integrate it into an existing project so that a single application will be generated and deployed (backward compatible way of doing things)
 
-The first choice is already possible today and the second one will only be possible in future Bonita versions.
+The first choice is already possible today, and the second one will only be possible in future Bonita versions.
 
-For those who want to try out deploying a Bonita project as a self-contained application, we have developped an *experimental* packaging tool. The outcome will be an appplication packaged either in Tomcat Bundle or a docker image, you choose.
+For those who want to try out deploying a Bonita project as a self-contained application, we have developed an *experimental* packaging tool. The outcome will be an application packaged either in Tomcat Bundle or a docker image, you choose.
 For everyone that wants to get a glance at the future, the tool is available here https://github.com/bonitasoft/bonita-application-packager[Bonita Application Packager].
 
 [WARNING]
 ====
-The update process of the self-contained application packaged with the *experimental* tool will not be covered with xref:version-update:update-with-update-tool.adoc[Update Tool], hence we advice deployement in non-production environments.
+The update process of the self-contained application packaged with the *experimental* tool will not be covered with xref:version-update:update-with-update-tool.adoc[Update Tool], hence we advice deployment in non-production environments.
 ====
 
 == New product values
@@ -28,7 +28,7 @@ The update process of the self-contained application packaged with the *experime
 
 ==== Technical version change to 8.x.y
 
-Bonita 2023.1 introduces a new multi-runtime architecture. This change comes with a new way to handle multi-tenants use cases and thus the removal of the multi-tenancy as it is currently known.
+Bonita 2023.1 introduces a new multi-runtime architecture. This change comes with a new way to handle multi-tenant use cases and thus the removal of the multi-tenancy as it is currently known.
 Based on the https://semver.org/[semantic versioning management standards], these changes require a technical version change.
 
 ==== User account provisioning with Single Sign-on
@@ -42,8 +42,8 @@ Starting with Bonita 2021.1, creating user accounts on the fly at user authentic
 
 Additional capabilities have been added in 2023.1 for single sign-on with SAML or OIDC:
 
-* possibility to integrate additionnal information from the Identity Provider of the SSO at user account creation (like first name, last name, email, etc...)
-* user groups can be retrieved from the SAML response or OIDC ID token and created automatically in Bonita Runtime database at user account creation
+* possibility to integrate additional information from the Identity Provider of the SSO at user account creation (like first name, last name, email, etc...)
+* user groups can be retrieved from the SAML response or OIDC ID token and created automatically in a Bonita Runtime database at user account creation
 
 More details are available in the dedicated documentation page xref:identity:user-account-provisioning-with-sso.adoc[User Account Provisioning].
 
@@ -57,7 +57,7 @@ First project component that will benefit from Maven multi-module project is the
 
 With the chosen solution, the users will have the possibility to publish and consume the xref:data:define-and-deploy-the-bdm.adoc#generated-java-dependencies[Business Data Model java dependencies] independently. The project will pull the required dependencies from a specified repository - Maven Central or Bonita Artifact Repository - to generate the BDM java sources. Here are details on how to configure access to xref:software-extensibility:bonita-repository-access.adoc[Bonita Artifact Repository(Subscription only)] and xref:setup-dev-environment:configure-maven.adoc[Maven Central].
 
-xref:data:define-and-deploy-the-bdm.adoc#build-and-deploy-bdm-artifacts[Business Data Model content check at build or deploy] will still be developer’s responsibility along with handling data-deletion risks at build or deploy.
+xref:data:define-and-deploy-the-bdm.adoc#build-and-deploy-bdm-artifacts[Business Data Model content check at build or deploy] will still be the developer’s responsibility along with handling data-deletion risks at build or deploy.
 For this Bonita version, reusing the generated artifacts in another Bonita project is not supported with refactoring capabilities. All changes will have to be handled manually by developers.
 
 === Bonita UI Designer
@@ -70,9 +70,9 @@ The following improvements have been made so that digitally accessible applicati
 
 * Table and data-table widget have a new caption property available for adding a title
 
-* The default widgets in the palette that contain a html input tag have now an associated label, which will facilitate the use of computer tools (screen readers for example)
+* The default widgets in the palette that contain an HTML input tag now have an associated label, which will facilitate the use of computer tools (screen readers, for example)
 
-* To be more accessible for speech synthesizers, screen readers or some other tools, the internal html template of checklist and radio buttons widget has been updated.
+* To be more accessible for speech synthesizers, screen readers or some other tools, the internal HTML template of checklist and radio buttons widget has been updated.
 
 [WARNING]
 ====
@@ -95,10 +95,10 @@ You can now use the search (ctrl + f) or search and replace (ctrl + h) keybindin
 ====
 
 
-==== Security fixes for all the application pages developped using UI Designer
+==== Security fixes for all the application pages developed using UI Designer
 
 During the last year we explored all possible options for providing a supported AngularJS version. In the end we decided to handle the need in-house.
-The first step of the long term project we initiated is correcting all critical and high CVEs in the AngularJS version used to run our Bonita application pages developped using UI Designer.
+The first step of the long-term project we initiated is correcting all critical and high CVEs in the AngularJS version used to run our Bonita application pages developed using UI Designer.
 For that, we made a fork of the AngularJS project and adapted the fixes to the version that is used.
 
 Want to hear more? Check xref:version-update:angular-js-uid-fork.adoc[this page].
@@ -120,9 +120,9 @@ An update to the latest version of AngularJS (1.8.3) was done on the following p
 
 === Custom Rest API Extension and BDM dependencies
 
-When updating a Bonita project in Bonita Studio 2023.1 version, BDM dependencies will be directed to use the new the `*-bdm-model` artifact introduced with the Bonita project layout changes. Meaning that `bdm-client` and `bdm-dao` dependencies will automatically be replaced with project's `bdm-model` dependency.
+When updating a Bonita project in a Bonita Studio 2023.1 version, BDM dependencies will be directed to use the new the `*-bdm-model` artifact introduced with the Bonita project layout changes. Meaning that `bdm-client` and `bdm-dao` dependencies will automatically be replaced with project's `bdm-model` dependency.
 
-Additionnally, the dependency containing the client DAO implementation will be removed from the dependencies list. It can affect the code directly referencing the `*DAOImpl` classes. To avoid this situation, change the code to use the DAO interfaces present in the `bdm-model` dependency. The changes can be done before or after updating to the 2023.1 version without breaking the project.
+Additionally, the dependency containing the client DAO implementation will be removed from the dependency list. It can affect the code directly referencing the `*DAOImpl` classes. To avoid this situation, change the code to use the DAO interfaces present in the `bdm-model` dependency. The changes can be done before or after updating to the 2023.1 version without breaking the project.
 
 *Reminder* : in case `*DAOImpl` class was instantiated in the code, `APIClient#getDAO` factory method has to be used instead.
 
@@ -146,9 +146,9 @@ For Subscription editions only.
 Deprecated xref:2022.2@ROOT:multi-tenancy-and-tenant-configuration.adoc[multi-tenancy] has been removed.
 
 To cover the multi-tenancy use cases in the best technical way, Bonitasoft is proposing a new architecture solution.
-For customers running a Bonita multi-tenancy platform, the technical path from multi-tenancy proposed by Bonitasoft is multi-runtime. This choice will require to split the current multi-tenant platform into several runtimes, each one with their own Bonita engine database.
+For customers running a Bonita multi-tenancy platform, the technical path from multi-tenancy proposed by Bonitasoft is multi-runtime. This choice will require splitting the current multi-tenant platform into several runtimes, each one with their own Bonita engine database.
 
-As this path can be challenging for customers using multi-tenancy, Bonitasoft developed a conversion tool, available for download {cscCustomerServices}[Customer Service Center]. We strongly suggest our customers to take the time and use the tool in a pre-production environment before using it on a production environment.
+As this path can be challenging for customers using multi-tenancy, Bonitasoft developed a conversion tool, available for download {cscCustomerServices}[Customer Service Center]. We strongly suggest that our customers take the time and use the tool in a pre-production environment before using it on a production environment.
 
 xref:version-update:mtmr-tool.adoc[Multi-tenancy to multi-runtime conversion tool] can be executed on Bonita Runtimes starting with Bonita 7.11 and up to Bonita 7.15.
 
@@ -156,7 +156,7 @@ xref:version-update:mtmr-tool.adoc[Multi-tenancy to multi-runtime conversion too
 ====
 In case you are using a Bonita non-supported version, perform the update to a Bonita supported version before the conversion to multi-runtime.
 
-Reminder : For commercial and support questions, please refer to your Customer Success referent.
+Reminder: For commercial and support questions, please refer to your Customer Success referent.
 ====
 
 === Deprecated resources removed from HTTP API
