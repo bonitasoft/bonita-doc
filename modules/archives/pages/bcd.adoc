@@ -1,0 +1,12 @@
+= Download archived documentation of old Bonita Continuous Delivery versions
+:description: This page gives access to the download of Bonita Continuous Delivery documentation archives, in case you need something very specific to those versions.
+
+This page gives access to the download of Bonita Continuous Delivery documentation archives, in case you need something very specific to those versions.
+The format is HTML.
+
+== From Bonita Continuous Delivery 3.6
+
+Download the .zip archive, extract it, and then open the index.html file to launch the site. +
+You can navigate those sites with the table of content on the left.
+
+* https://github.com/bonitasoft/bonita-continuous-delivery-doc/releases/download/3.6-20260519_115845/documentation-bcd-3.6.zip[Bonita Continuous Delivery 3.6]
