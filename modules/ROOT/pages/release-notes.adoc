@@ -382,6 +382,17 @@ The timezone can be set via *TZ* environment variable. Check the https://data.ia
 * BPA-411 - [OIDC][Cluster] single-use refresh token invalidation causes repeated session loss
 * BPA-443 - [Cluster] NPE on HTTP API for every void method (retryTask, logout, ...) — BypassSpringSessionFilter ineffective
 
+[[v2023.2-u13-security-fixes]]
+*Security fixes*
+
+* CVE-244: keycloak-saml-adapter-core - Keycloak's Security Assertion Markup Language (SAML) endpoint does not properly validate en (public CVE-2026-2092)
+* CVE-252: Path traversal via resourceFileName in DocumentDownloadServlet and DocumentImageServlet
+* CVE-253: Zip Slip path traversal in IOUtil.extractZipEntries() (public CVE TBD — fill manually)
+* CVE-258: catalina.jar - Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling') vulnerability in Apache  (public CVE-2026-24880)
+* CVE-262: catalina.jar - Configured cipher preference order not preserved vulnerability in Apache Tomcat (public CVE-2026-29129)
+* CVE-263: catalina.jar - CLIENT_CERT authentication does not fail as expected for some scenarios when soft fail is disabled vulner (public CVE-2026-29145)
+* CVE-265: catalina.jar - Improper Encoding or Escaping of Output vulnerability in the JsonAccessLogValve component of Apache Tomca (public CVE-2026-34483)
+
 === Fixes in Bonita 2023.2-u11 (2026-01-07)
 
 * xref:security:java-security-policy.adoc[Java Security Policy] is now enabled by default in Docker image (Subscription editions only). This security feature protects against malicious Groovy script execution, including command execution and access to sensitive files. +
