@@ -546,6 +546,7 @@ The notable changes are:
 * CVE-258: catalina.jar - Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling') vulnerability in Apache  (public CVE-2026-24880)
 * CVE-253: Zip Slip path traversal in IOUtil.extractZipEntries()
 * CVE-252: Path traversal via resourceFileName in DocumentDownloadServlet and DocumentImageServlet
+* CVE-244: keycloak-saml-adapter-core - Keycloak's Security Assertion Markup Language (SAML) endpoint does not properly validate en (public CVE-2026-2092)
 * CVE-43 - Brute-force login protection
 
 === Fixes in Bonita 2025.1-u5 (2026-02-26)
