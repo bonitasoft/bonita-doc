@@ -544,6 +544,8 @@ The notable changes are:
 * CVE-263: catalina.jar - CLIENT_CERT authentication does not fail as expected for some scenarios when soft fail is disabled vulner (public CVE-2026-29145)
 * CVE-262: catalina.jar - Configured cipher preference order not preserved vulnerability in Apache Tomcat (public CVE-2026-29129)
 * CVE-258: catalina.jar - Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling') vulnerability in Apache  (public CVE-2026-24880)
+* CVE-253: Zip Slip path traversal in IOUtil.extractZipEntries()
+* CVE-252: Path traversal via resourceFileName in DocumentDownloadServlet and DocumentImageServlet
 * CVE-43 - Brute-force login protection
 
 === Fixes in Bonita 2025.1-u5 (2026-02-26)
