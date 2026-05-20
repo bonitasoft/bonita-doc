@@ -386,7 +386,7 @@ The timezone can be set via *TZ* environment variable. Check the https://data.ia
 *Security fixes*
 
 * CVE-244: keycloak-saml-adapter-core - Keycloak's Security Assertion Markup Language (SAML) endpoint does not properly validate en (public CVE-2026-2092)
-* CVE-252: Path traversal via resourceFileName in DocumentDownloadServlet and DocumentImageServlet (public CVE TBD — fill manually)
+* CVE-252: Path traversal via resourceFileName in DocumentDownloadServlet and DocumentImageServlet
 * CVE-253: Zip Slip path traversal in IOUtil.extractZipEntries() (public CVE TBD — fill manually)
 * CVE-258: catalina.jar - Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling') vulnerability in Apache  (public CVE-2026-24880)
 * CVE-262: catalina.jar - Configured cipher preference order not preserved vulnerability in Apache Tomcat (public CVE-2026-29129)
