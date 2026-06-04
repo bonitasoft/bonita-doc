@@ -1,6 +1,6 @@
 = Svelte page dependencies
 :page-aliases: ROOT:react-page-dependencies.adoc
-:description: This page lists the direct dependencies of the Bonita pages that are built using the Svelte framework.
+:description: This page lists the production dependencies of the Bonita pages that are built using the Svelte framework.
 
 {description}
 
