@@ -4,16 +4,230 @@
 
 {description}
 
-// TODO: populate from bonita-web-pages-sp (package.json / lockfile of the Svelte process list package introduced in PR #635)
-
 [discrete]
 === Frontend
 
 |===
 | name | version | license
 
+| @esbuild/linux-x64
+| 0.19.12
+| MIT
+
+| @formatjs/ecma402-abstract
+| 2.3.6
+| MIT
+
+| @formatjs/fast-memoize
+| 2.2.7
+| MIT
+
+| @formatjs/icu-messageformat-parser
+| 2.11.4
+| MIT
+
+| @formatjs/icu-skeleton-parser
+| 1.8.16
+| MIT
+
+| @formatjs/intl-localematcher
+| 0.6.2
+| MIT
+
+| @jridgewell/gen-mapping
+| 0.3.13
+| MIT
+
+| @jridgewell/remapping
+| 2.3.5
+| MIT
+
+| @jridgewell/resolve-uri
+| 3.1.2
+| MIT
+
+| @jridgewell/sourcemap-codec
+| 1.5.5
+| MIT
+
+| @jridgewell/trace-mapping
+| 0.3.31
+| MIT
+
+| @sveltejs/acorn-typescript
+| 1.0.9
+| MIT
+
+| @types/estree
+| 1.0.8
+| MIT
+
+| @types/trusted-types
+| 2.0.7
+| MIT
+
+| @typescript-eslint/types
+| 8.59.1
+| MIT
+
+| acorn
+| 8.16.0
+| MIT
+
+| aria-query
+| 5.3.1
+| Apache-2.0
+
+| axobject-query
+| 4.1.0
+| Apache-2.0
+
+| bootstrap
+| 3.4.1
+| MIT
+
+| cli-color
+| 2.0.4
+| ISC
+
+| clsx
+| 2.1.1
+| MIT
+
+| d
+| 1.0.2
+| ISC
+
+| decimal.js
+| 10.6.0
+| MIT
+
+| deepmerge
+| 4.3.1
+| MIT
+
+| devalue
+| 5.7.1
+| MIT
+
+| es5-ext
+| 0.10.64
+| ISC
+
+| es6-iterator
+| 2.0.3
+| MIT
+
+| es6-symbol
+| 3.1.4
+| ISC
+
+| es6-weak-map
+| 2.0.3
+| ISC
+
+| esbuild
+| 0.19.12
+| MIT
+
+| esm-env
+| 1.2.2
+| MIT
+
+| esniff
+| 2.0.1
+| ISC
+
+| esrap
+| 2.2.5
+| MIT
+
+| estree-walker
+| 2.0.2
+| MIT
+
+| event-emitter
+| 0.3.5
+| MIT
+
+| ext
+| 1.7.0
+| ISC
+
+| globalyzer
+| 0.1.0
+| MIT
+
+| globrex
+| 0.1.2
+| MIT
+
+| intl-messageformat
+| 10.7.18
+| BSD-3-Clause
+
+| is-promise
+| 2.2.2
+| MIT
+
+| is-reference
+| 3.0.3
+| MIT
+
+| locate-character
+| 3.0.0
+| MIT
+
+| lru-queue
+| 0.1.0
+| MIT
+
+| magic-string
+| 0.30.21
+| MIT
+
+| memoizee
+| 0.4.17
+| ISC
+
+| mri
+| 1.2.0
+| MIT
+
+| next-tick
+| 1.1.0
+| ISC
+
+| sade
+| 1.8.1
+| MIT
+
 | svelte
-| _to be filled_
+| 5.55.5
+| MIT
+
+| svelte-i18n
+| 4.0.1
+| MIT
+
+| timers-ext
+| 0.1.8
+| ISC
+
+| tiny-glob
+| 0.2.9
+| MIT
+
+| tslib
+| 2.8.1
+| 0BSD
+
+| type
+| 2.7.3
+| ISC
+
+| zimmerframe
+| 1.1.4
 | MIT
 
 |===
