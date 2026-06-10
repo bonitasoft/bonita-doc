@@ -1,6 +1,6 @@
 = AI connectors
 :page-aliases: ROOT:ai-connector.adoc
-:description: Bonitasoft AI connectors let you integrate advanced language models like OpenAI, Anthropic, Google Gemini, Mistral, Azure AI Foundry, Ollama, DeepSeek, Groq, and Cohere into your business processes.
+:description: Bonita AI connectors let you integrate advanced language models like OpenAI, Anthropic, Google Gemini, Mistral, Azure AI Foundry, Ollama, DeepSeek, Groq, and Cohere into your business processes.
 
 {description} These connectors support three powerful use cases:
 
