@@ -55,7 +55,7 @@
 | MIT
 
 | @sveltejs/acorn-typescript
-| 1.0.9
+| 1.0.10
 | MIT
 
 | @types/estree
@@ -107,7 +107,7 @@
 | MIT
 
 | devalue
-| 5.7.1
+| 5.8.1
 | MIT
 
 | es5-ext
@@ -139,7 +139,7 @@
 | ISC
 
 | esrap
-| 2.2.5
+| 2.2.11
 | MIT
 
 | estree-walker
@@ -203,7 +203,7 @@
 | MIT
 
 | svelte
-| 5.55.5
+| 5.56.3
 | MIT
 
 | svelte-i18n
