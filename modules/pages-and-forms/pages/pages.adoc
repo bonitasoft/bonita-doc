@@ -6,7 +6,7 @@
 
 == Provided pages
 
-Bonita Runtime comes with some provided pages to use in applications. They are wrapped pages developed in other technologies than Bonita UI Designer (AngularJS, React). +
+Bonita Runtime comes with some provided pages to use in applications. They are wrapped pages developed in other technologies than Bonita UI Designer (AngularJS, Svelte). +
 Starting with Bonita 2021.1, you can also download Bonita User application and Bonita Administrator applications (from Bonita Studio Welcome page), and get more provided pages, developped with Bonita UI Designer. +
 Such UI Designer pages can be customized in the UI Designer, to better fit the needs of the end-users.
 
