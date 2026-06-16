@@ -23,7 +23,7 @@ Bonita CI/CD suite lets you build a Living Application from source code in a rep
 
 These deployment modes are illustrated in the diagram below to help visualize their architecture and usage.
 
-This section presents the overall concept, please refer to the product documentation or contact Bonitasoft for implementation details and best practices.
+This section presents the overall concept, please refer to the product documentation or contact Ofelia for implementation details and best practices.
 
 == Application Deployment
 The BPM platform is already installed. Only the application artifacts (process definitions, user interfaces, scripts, connectors, etc.) are updated or redeployed. This is an incremental deployment model.
@@ -33,7 +33,7 @@ image::CI-CD-architecture-diagram-application-deployment.png[Bonita Continuous D
 
 == Full Deployment
 In this mode, a Bonita project is build into a single binary (image or Tomcat bundle) packaging the platform and the application code together.
-A new deployment is required for each new version of the project. 
+A new deployment is required for each new version of the project.
 In this scenario all artifacts updates are done at startup.
 
 image::CI-CD-architecture-diagram-full-deployment.png[Bonita Continuous Delivery Capabilities]

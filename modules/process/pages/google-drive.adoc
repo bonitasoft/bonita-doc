@@ -4,7 +4,7 @@
 
 {description}
 
-The Bonita Google Drive Connectors are available for **Bonita 10.2 Community (2024.3)** version and above.
+The Bonita Google Drive Connectors are available for **Bonita 2024.3 Community (10.2)** version and above.
 
 [WARNING]
 ====
@@ -75,10 +75,10 @@ If your service account needs to access files owned by users in a Google Workspa
 . In the Google Cloud Console, go to your service account details
 . Enable *Domain-wide delegation*
 . Note the *Client ID*
-. In your Google Workspace Admin Console (https://admin.google.com), go to *Security > API Controls > Domain-wide Delegation*
+. In your https://admin.google.com[Google Workspace Admin Console], go to *Security > API Controls > Domain-wide Delegation*
 . Click *Add new* and enter:
   * *Client ID*: the client ID from the previous step
-  * *OAuth scopes*: `https://www.googleapis.com/auth/drive`
+  * *OAuth scopes*: `+https://www.googleapis.com/auth/drive+`
 . Click *Authorize*
 
 You can then use the `impersonatedUserEmail` parameter to act on behalf of a specific user.

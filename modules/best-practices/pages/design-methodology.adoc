@@ -165,7 +165,7 @@ Our pages have been developed with different frameworks over time.
 [NOTE]
 ====
 
-Note: While the Bonita Applications are supported by Bonitasoft in their original versions, any customization of yours cannot be supported, as Bonitasoft cannot garantee the content of your custom development. +
+Note: While the Bonita Applications are supported by Ofelia in their original versions, any customization of yours cannot be supported, as Ofelia cannot garantee the content of your custom development. +
 Similarly, the Adaptive Case Management example, which can only be used after it is customized, is not supported.
 However, our team of Professional Services consultants can assist you in the customization phase (Subscription editions only). You can contact them through the Customer Services Center.
 ====

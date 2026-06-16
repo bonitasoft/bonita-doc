@@ -1,19 +1,19 @@
 name: bonita
 title: Bonita
 version: 2026.1
-prerelease: -alpha
 asciidoc:
   attributes:
     bonitaVersion: 2026.1
     bonitasoft-registry: 'bonitasoft.jfrog.io'
     bonitasoft-docker-repository: '{bonitasoft-registry}/docker'
     bonitaTechnicalVersion: '11.0.0' # latest public community version
-    bonitaTagOrBranch: 'dev' # for links to the code hosted on GitHub. Use 'dev' for a development version, or the version number (same as bonitaTechnicalVersion) for released versions
+    bonitaTagOrBranch: '11.0.0' # for links to the code hosted on GitHub. Use 'dev' for a development version, or the version number (same as bonitaTechnicalVersion) for released versions
     minimalRequiredJavaVersion: '17'
     javadocVersion: '11.0'
     laDeployerVersion: '1.2.0'
     keycloakDocumentationVersion: 21.1.2
-    openApiUrl: 'https://api-documentation.bonitasoft.com'
+    openApiUrl: 'https://api-documentation.ofelia.com'
+    javadocUrl: 'https://javadoc.documentation.ofelia.com'
     cscRootUrl: 'https://csc.bonitacloud.bonitasoft.com'
     cscCustomerServices: '{cscRootUrl}/apps/CustomerServices'
     cscDownloadUrl: '{cscCustomerServices}/downloads'
@@ -25,12 +25,12 @@ asciidoc:
     # ref versions of other components
     bcdDocVersion: '4.0'
     testToolkitVersion: '3.1' # version of the test-toolkit doc. 2-digits only
-    openApiLatestVersion: '1.0.6' # latest compatible version of bonita openApi with this Bonita version
+    openApiLatestVersion: '1.0.8' # latest compatible version of bonita openApi with this Bonita version
     # page attributes (global configuration)
     page-pagination: true # display links to previous/next pages at the bottom of the page
     page-editable: true
     page-out-of-support: false
-    page-next-release: true
+    page-next-release: false
     page-hide-search-bar: false
     page-hide-components: 'bcd'
 nav:

@@ -694,7 +694,7 @@ Caused by: org.apache.http.client.HttpResponseException: status code: 404
 The LDAP Synchronizer is using the Engine HTTP API of the product, but it's not active in your configuration.
 
 [.solution]#Possible solution#
-*On-premise solution*: Configure the Bonita Tomcat bundle you have downloaded from the Bonitasoft Customer Service Center to activate
+*On-premise solution*: Configure the Bonita Tomcat bundle you have downloaded from the Ofelia Customer Service Center to activate
 the Engine HTTP API by:
 
 * either add a Java system property `-Dhttp.api=true` to file `setEnv.[sh|bat]` inside tomcat bundle (in folder `setup/tomcat_templates/`)

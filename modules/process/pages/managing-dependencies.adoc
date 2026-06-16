@@ -18,20 +18,55 @@ If you need to review all the dependencies associated with your project—or jus
 
 Once you have added the required dependencies for your project. You need to add them to the process configuration that will use them.
 
-To specify the dependencies for a process, select the process and click *_Configure_* in the toolbar. Navigate to the _Process dependencies_ tab.
+To specify the dependencies for a process, select the process and click *_Configure_* in the toolbar. Navigate to the *Java Dependencies* tab.
 
-If your process already uses some connectors or actor filters. You'll see that connectors and filters dependencies are automatically added to the configuration.
-Now if you need a specific dependency you can select the _Other_ category in the dependency tree and click _Add..._. It opens a dialog with the root dependencies declared at the process level. Select your dependency and click _OK_.
+The Java Dependencies page provides two views:
+
+* *Hierarchical view*: displays the full dependency tree organized by category (Connectors, Actor Filters, Other). Each JAR has a checkbox — checked means included in the BAR, unchecked means excluded.
+* *Flat view*: a flat list of all JARs with a search by name, showing the source category for each entry.
+
+If your process already uses some connectors or actor filters, their dependencies are automatically added to the configuration.
+To add a custom library, select the *Other* category in the dependency tree and click *_Add..._*. It opens a dialog with the Maven dependencies available in your project. Select your dependency and click *_OK_*.
 
 [NOTE]
 ====
-It is at this time that if a root dependency have transitive dependencies, they are automatically added in configuration.
+If a root dependency has transitive dependencies, they are automatically added to the configuration. +
+Connector and actor filter JARs are not shown in the Add dialog — they are managed automatically by the Studio based on what is used in the diagram.
 ====
+
+When building the BAR file, only checked JARs are included in the archive.
 
 == Dependencies conflicts
 
-You can have to deal with dependency conflict when adding dependencies in a process configuration. A warning is displayed on jars that are already presents in the Bonita runtime and that may cause issue at runtime.
-If the dependency version is the same between the Bonita runtime and your dependency you can delete or deselect the corresponding jar from the dependency tree of the _Process dependencies_ tab. If they are not in the same version, you can opt to leave both versions but it is highly recommended to align the conflicting dependency version with the one provided by the Bonita runtime.
+The hierarchical view displays visual indicators next to each JAR name:
+
+[cols="1,2,1",options="header"]
+|===
+|Indicator |Meaning |Behavior
+
+|_(none)_
+|JAR is specific to your process, not present in the Bonita server
+|Checked by default, user-modifiable
+
+|"Exists in the runtime container"
+|JAR is already present in the Bonita server with the *same version*
+|Automatically unchecked and grayed out — cannot be modified
+
+|"Exists in the runtime container with a different version"
+|JAR is present in the Bonita server but in a *different version*
+|Automatically unchecked and grayed out — cannot be modified
+
+|Warning icon
+|JAR is referenced in the configuration but not found in the project's Maven dependencies
+|Checked by default, user-modifiable
+|===
+
+JARs already present in the runtime are automatically excluded from the BAR to avoid duplication or version conflicts. This behavior is enforced and cannot be overridden.
+
+[NOTE]
+====
+To avoid compatibility issues, align your dependency versions with those provided by the Bonita runtime. See the xref:ROOT:bonita-runtime-dependencies.adoc[Bonita runtime dependencies] page for the full list.
+====
 
 == Incompatible dependencies
 
@@ -120,7 +155,15 @@ mvn clean package -Penv-Local
 Limit modifications to your pom.xml to avoid breaking compatibility with Bonita Studio or complicating future migrations.
 ====
 
-== Troubleshooting 
+== Troubleshooting
+
+=== JAR version references after importing a .bos from an older version
+
+When importing a `.bos` file created with a previous Bonita version, JAR references may point to versions that no longer exist in the project. The Studio automatically migrates these references by searching for another version of the same artifact in the project's Maven dependencies.
+
+This migration applies to all environments: the local `.conf` file and configurations embedded in `.proc` files (Qualification, Production, etc.).
+
+If a JAR is no longer in the project's Maven dependencies (for example, because it is now provided by the Bonita runtime), the wizard automatically detects it as a runtime dependency, grays it out, and excludes it from the BAR. No manual action is required.
 
 === Missing dependencies in my configurations after a project migration
 
