@@ -10,16 +10,16 @@ This application is only available to the user with the xref:ROOT:special-users.
 It is the tool needed to:
 
 * Bootstrap a Bonita Runtime in Non-Production and Production environments, for example, xref:first-steps-after-setup.adoc#_create_a_bonita_administrator_profile[creating the administrators]
-* Ability to notify users about a scheduled maintenance by a custom message that will be displayed to logged-in users. This message is also displayed on the maintenance page when the maintenance mode is enabled.
+* Notify users about a scheduled maintenance by a custom message that will be displayed to logged-in users. This message is also displayed on the maintenance page when the maintenance mode is enabled.
 * Activate maintenance mode for operations, among which the update of the Business Data Model (and the related database migration)
-* Apply temporary fixes to some projects elements (resources, applications, organization entities) to recover from errors
+* Apply temporary fixes to some project elements (resources, applications, organization entities) to recover from errors
 
 [CAUTION]
 ====
 
 Most updates at runtime should be performed through a change in the project sources to create a new project version. +
-This new version can then be deployed in a  Bonita self-contained application.
-Previous update methods, like Bonita Continuous Delivery, are now deprecated +
+This new version can then be deployed in a Bonita self-contained application.
+Previous update methods, like Bonita Continuous Delivery, are now deprecated. +
 This methodology guarantees the consistency between the project sources and the deployed version, making all subsequent changes much simpler and error-proof. +
 
 The Super Administrator Application is meant for emergency changes to recover from an urgent issue. +
@@ -41,7 +41,7 @@ By default, in our provided ACME organization, the default user is Walter Bates,
 . Log back in with the Technical User credentials. In Bonita Studio, use the username: `install` and password `install`.
 . In the Application Directory, select _Bonita Super Administrator Application_
 
-You are now logged in Bonita Super Administrator Application.
+You are now logged in to the Bonita Super Administrator Application.
 
 To access its content:
 
