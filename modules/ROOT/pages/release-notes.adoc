@@ -10,13 +10,13 @@
 For Teamwork, Efficiency, Performance, Enterprise and Scale editions only. +
 ====
 
-When a user is away, their pending tasks normally stay invisible to everyone else. Task Delegation lets a designated delegate see and perform those tasks on behalf of the absent user, without reassigning them, and keeps full traceability of who acted.
+When a user is away, their pending assigned tasks normally stay invisible to everyone else. Task Delegation lets a designated delegate see and perform those tasks on behalf of the absent user, without reassigning them, and keeps full traceability of who acted.
 
-This feature is delivered through a new Subscription living application, *Bonita User Application Enterprise*, which replaces the community *Bonita User Application* and adds the delegation pages.
+This feature is delivered through a new *Enterprise edition Bonita User Application*, which replaces the existing Bonita User Application and adds the delegation page.
 
-*On a fresh installation*, the *Bonita User Application Enterprise* is installed automatically. Nothing else to do.
+*On a fresh installation*, the Enterprise edition user application is installed automatically. Nothing else to do.
 
-*When updating from a previous Bonita version*, your existing *Bonita User Application* is kept and the new *Bonita User Application Enterprise* is added alongside it, so the two applications coexist. A manual step is required to finish the setup, depending on your situation:
+*When updating from a previous Bonita version*, your existing user application is kept and the new Enterprise edition user application is added alongside it, so the two applications coexist. A manual step is required to finish the setup, depending on your situation:
 
 . *You did not customize the Bonita User Application* — open Bonita Studio, open *Extensions* from the *Overview*, safely remove the *Bonita User Application*, then import the *Bonita User Application Enterprise* from the Marketplace.
 . *You customized the Bonita User Application and want to keep it as is* — import the two new pages `page-admin-delegation` and `page-user-delegation`, and add them to your application's menu entries. The two pages are available inside the *Bonita User Application Enterprise* archive, which you can download from the xref:software-extensibility:bonita-repository-access.adoc[Bonita Artifact Repository] with:
