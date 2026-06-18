@@ -25,6 +25,7 @@ The full dependency list for Svelte-based provided pages is available at xref:de
 
 == Bug fixes
 
-=== Fixes in Bonita 2026.2-u0 (! DATE TO ADD HERE !)
+=== Fixes in Bonita 2026.2-b1 (2026-06-15)
 
+* BPA-567 - OIDC callback fails with IllegalArgumentException - login never completes
 * Several dependencies updated
