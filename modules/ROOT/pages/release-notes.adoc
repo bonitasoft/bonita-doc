@@ -29,7 +29,7 @@ This feature is delivered through a new *Enterprise edition Bonita User Applicat
 . *You did not customize the Bonita User Application*: in the Extensions view of your project, remove Bonita User Application. Then in the welcome page, in Resources, click on *Import Bonita User Application*.
 . *You customized the Bonita User Application and want to keep it as is*: in the application descriptor of your custom user application, add the user Delegations page (`page-user-delegation`) to your application's menu entries.
 
-The Bonita Administrator Application is updated in place (no new application is created).
+The Bonita Administrator Application is updated in place (no new application was introduced).
 
 *When updating from a previous Bonita version* using the Application editor, edit Bonita Administrator Application menu to add a new Delegations menu entry under BPM targeting the admin Delegations page (`page-admin-delegation`).
 
