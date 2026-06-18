@@ -1,15 +1,14 @@
 = Release notes
 :description: This is the release notes for Bonita {bonitaVersion} versions
 
+[NOTE]
+====
+Version {bonitaVersion} is in development. These release notes are a work in progress and will be completed as the version evolves.
+====
+
 == New available values
 
 == Notable changes
-
-=== User Application process list migrated to Svelte
-
-The provided process list page of the xref:runtime:user-process-list.adoc[Bonita User Application] has been re-implemented with the Svelte framework, replacing the previous React implementation. Existing customizations that target the page through application descriptors continue to work; teams that have forked the page source should port their changes to the new Svelte codebase.
-
-The full dependency list for Svelte-based provided pages is available at xref:dependencies:svelte-page-dependencies.adoc[List of Svelte pages dependencies].
 
 == Support matrix changes
 
@@ -25,6 +24,6 @@ The full dependency list for Svelte-based provided pages is available at xref:de
 
 == Bug fixes
 
-=== Fixes in Bonita 2026.2-u0 (! DATE TO ADD HERE !)
+=== Fixes in Bonita 2027.1-u0 (! DATE TO ADD HERE !)
 
 * Several dependencies updated
