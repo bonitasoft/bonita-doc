@@ -16,6 +16,8 @@ This feature is delivered through a new *Enterprise edition Bonita User Applicat
 
 *On a fresh installation*, the Enterprise edition user application is installed automatically and both admin and user Delegations pages are available. No further action is required.
 
+==== Migration notes
+
 *When updating from a previous Bonita version*, your existing user application is kept and the new Enterprise edition user application is added alongside it, so the two applications coexist. If you use Bonita User application, a manual step is required to finish the setup, depending on your situation:
 
 . *You did not customize the Bonita User Application*: using the Applications page of Bonita Administrator Application, delete the previous Bonita User Application (app token `userAppBonita`) and keep the Enterprise edition (app token `userAppEEBonita`).
