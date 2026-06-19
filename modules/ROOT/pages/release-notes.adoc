@@ -72,7 +72,7 @@ As part of Task Delegation, `ProcessAPI.isInvolvedInProcessInstance(userId, proc
 
 === New REST API resources
 
-Several REST resources were added as part of the development for the Task Delegation feature:
+Several REST resources were added to support the Task Delegation feature:
 
 * {openApiUrl}/{openApiLatestVersion}/#tag/Delegation[delegation/rule]: create, search, update, and delete delegation rules. A regular user manages their own rule; an administrator can manage any user's rule. Subscription editions only.
 * {openApiUrl}/{openApiLatestVersion}/#tag/Delegation[delegation/task]: read-only; searches the tasks the caller can act on through an active delegation. Subscription editions only.
