@@ -15,7 +15,27 @@ As an administrator, you manage the delegation rules of the whole organization f
 The *Delegations* page is only visible to users with the Administrator profile.
 ====
 
-For what a delegation is and the rules that govern it (assigned tasks only, root process, BDM privileges, and one rule per delegator), see xref:user-delegation.adoc#concepts[How delegation works].
+For what a delegation is and how it behaves during the active period, see xref:user-delegation.adoc#concepts[How delegation works]. The same rules govern every delegation, whether you create it here or a user sets up their own:
+
+[NOTE]
+====
+Delegation only covers tasks *assigned* to the delegator, either taken manually or assigned automatically by an actor filter. A task that is only _pending_ for a group is not delegated until someone takes it.
+====
+
+[NOTE]
+====
+Delegation always applies at the *root process* level. If a process uses call activities (sub-processes), select the root process: a delegation set on a sub-process covers nothing, even for tasks that belong to that sub-process. Unfortunately it is not possible to list only the root processes for the end user as some processes may be used both as subprocesses and root processes and there is no way to know.
+====
+
+[NOTE]
+====
+The delegate must have the same business data (BDM) access privileges as the delegator to open the task forms. Delegation does not grant these privileges automatically. If the delegate hits an access error on a form, an administrator can assign the appropriate permissions (e.g. through profiles or groups) so they can open the task forms.
+====
+
+[NOTE]
+====
+A user can have only one delegation at a time. To cover a new absence, edit the existing delegation instead of creating a new one. The delegate and process list are kept, so you usually only update the dates.
+====
 
 == The delegations table
 
