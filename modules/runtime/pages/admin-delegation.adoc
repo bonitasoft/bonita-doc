@@ -1,0 +1,47 @@
+= Delegations administration
+:description: Manage task delegations for the whole organization from the Bonita Administrator Application.
+
+{description}
+
+[NOTE]
+====
+For Teamwork, Efficiency, Performance, Enterprise and Scale editions only.
+====
+
+As an administrator, you manage the delegation rules of the whole organization from the *Delegations* page of the xref:admin-application-overview.adoc[Bonita Administrator Application], under the *BPM* menu. This page lets you create, edit, and delete a delegation on behalf of any user, whereas each user manages only their own delegation from the xref:user-delegation.adoc[Bonita User Application].
+
+[NOTE]
+====
+The *Delegations* page is only visible to users with the Administrator profile.
+====
+
+For what a delegation is and the rules that govern it (assigned tasks only, root process, BDM privileges, and one rule per delegator), see xref:user-delegation.adoc#concepts[How delegation works].
+
+== The delegations table
+
+The page lists existing delegation rules only: users without a delegation are not shown. Each row displays the delegator and delegate (`Employee -> Delegate`), the period with its day count, the number of delegated processes, the xref:user-delegation.adoc#statuses[status], and the available actions.
+
+Filter tabs *All*, *Active*, *Scheduled*, and *Expired*, each with a count badge, narrow the list by status. A search field filters by name, and you can change the number of rows per page. Expired rows are dimmed but remain editable and deletable.
+
+== Create or edit a delegation
+
+Click *+ New delegation* to open the delegation form, then fill in:
+
+. *User*: the user whose tasks will be delegated (the delegator).
+. *Delegate*: the single user who gains access.
+. *Start date* and *End date*: the absence period.
+. *Processes*: the processes to delegate. At least one must be selected.
+
+Click *Save* to create the rule. Click *Edit* on any row to reopen the same form pre-filled. As on the user page, *Save* stays disabled while the form is unchanged; a modified but invalid form stays clickable and reveals the validation messages on click. The same validations apply (delegate different from the user, end date after the start date, end date not in the past, at least one process).
+
+=== Replace an existing rule
+
+A user can have only one delegation at a time. If you create a delegation for a user who already has one, the form warns you and offers to edit the existing rule. If you continue entering data instead, the button becomes *Save and replace*: confirming replaces the previous rule, so the user still has a single delegation.
+
+=== Delegate conflict warning
+
+If the delegate you choose has their own outgoing delegation over an overlapping period, a warning indicates that the delegate may be unavailable. This warning is informative only: you can still save the delegation.
+
+== Delete a delegation
+
+Click *Delete* on a row, then confirm. Deletion is permanent: it removes the delegation rule entirely, and a new rule must be created to delegate again. There is no deactivation flag.

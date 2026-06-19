@@ -14,6 +14,8 @@ When a user is away, their pending assigned tasks normally stay invisible to eve
 
 This feature is delivered through a new *Enterprise edition Bonita User Application*, which replaces the existing Bonita User Application and adds the *user Delegations page*. The *Enterprise edition Bonita Administrator Application* is also updated to add the *admin Delegations page* (under BPM).
 
+For how to set up and use delegation, see xref:runtime:user-delegation.adoc[Delegation] (end users) and xref:runtime:admin-delegation.adoc[Delegations administration] (organization-wide management).
+
 *On a fresh installation*, the Enterprise edition user application is installed automatically and both admin and user Delegations pages are available. No further action is required.
 
 ==== Migration notes

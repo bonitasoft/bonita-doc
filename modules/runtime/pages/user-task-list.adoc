@@ -41,3 +41,7 @@ The task list also contains a _Done tasks_ filter, for the user to check if the 
 
 Since Bonita 7.3.0, creating subtasks is no longer possible. However, if subtasks have been created in a process instance in an old Bonita version, and if the Bonita Platform has been migrated to a later version while the case was open, then the subtasks will still be visible to the users assigned, and users will still be able to complete them.
 ====
+
+== Related topics
+
+xref:user-delegation.adoc[Delegation]:: Set up who covers your tasks while you are away, and act on tasks delegated to you. Available in Subscription editions only.
