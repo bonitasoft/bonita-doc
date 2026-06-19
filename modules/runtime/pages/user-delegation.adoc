@@ -90,8 +90,8 @@ Click *Revoke* to remove your delegation. After confirmation, the delegate immed
 
 == Act on tasks delegated to me
 
-When another user has an active delegation to you, their tasks appear under *Tasks delegated to me*, separately from your own task list. Only tasks from the whitelisted processes and its subprocesses, within an active period, are shown.
+When another user has an active delegation to you, their tasks appear under *Tasks delegated to me*, separately from your own task list. Only tasks from the selected processes and their subprocesses, within an active period, are shown.
 
 For each task you can see the task name, the process, the case ID, who delegated it (and over which period), the due date and the priority. Click *Show form* to open the task form and complete it on the delegator's behalf. The action is recorded as executed by you as the delegator's substitute, preserving traceability.
 
-If no delegation is currently active for you, or if the delegator has no assigned task in the whitelisted processes, the section indicates that there are no delegated tasks available.
+If no delegation is currently active for you, or if the delegator has no assigned task in the selected processes, the section indicates that there are no delegated tasks available.

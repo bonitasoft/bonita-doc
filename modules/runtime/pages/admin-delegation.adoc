@@ -19,7 +19,7 @@ For what a delegation is and the rules that govern it (assigned tasks only, root
 
 == The delegations table
 
-The page lists existing delegation rules only: users without a delegation are not shown. Each row displays the delegator and delegate (`Employee -> Delegate`), the period with its day count, the number of delegated processes, the xref:user-delegation.adoc#statuses[status], and the available actions.
+The page lists existing delegation rules only: users without a delegation are not shown. Each row displays the delegator and delegate (`User -> Delegate`), the period with its day count, the number of delegated processes, the xref:user-delegation.adoc#statuses[status], and the available actions.
 
 Filter tabs *All*, *Active*, *Scheduled*, and *Expired*, each with a count badge, narrow the list by status. A search field filters by name, and you can change the number of rows per page. Expired rows are dimmed but remain editable and deletable.
 

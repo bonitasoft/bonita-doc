@@ -10,9 +10,9 @@
 For Teamwork, Efficiency, Performance, Enterprise and Scale editions only.
 ====
 
-When a user is away, their pending assigned tasks normally stay invisible to everyone else. Task Delegation lets a designated delegate see and perform those tasks on behalf of the absent user, without reassigning them, and keeps full traceability of who acted.
+When a user is away, their assigned tasks normally stay invisible to everyone else. Task Delegation lets a designated delegate see and perform those tasks on behalf of the absent user, without reassigning them, and keeps full traceability of who acted.
 
-This feature is delivered through a new *Enterprise edition Bonita User Application*, which replaces the existing Bonita User Application and adds the *user Delegations page*. The *Enterprise edition Bonita Administrator Application* is also updated to add the *admin Delegations page* (under BPM).
+This feature is delivered through a new *Enterprise edition Bonita User Application* that supersedes the existing Bonita User Application and adds the *user Delegations page*. After an update the two coexist until you remove the previous one (see the migration notes below). The *Enterprise edition Bonita Administrator Application* is also updated to add the *admin Delegations page* (under BPM).
 
 For how to set up and use delegation, see xref:runtime:user-delegation.adoc[Delegations] (end users) and xref:runtime:admin-delegation.adoc[Delegations administration] (organization-wide management).
 
@@ -31,7 +31,6 @@ For how to set up and use delegation, see xref:runtime:user-delegation.adoc[Dele
 *When updating from a previous Bonita version*, your existing user application is kept and the new Enterprise edition user application is added alongside it, so the two applications coexist. If you use Bonita User application, a manual step is required to finish the setup, depending on your situation:
 
 . *You did not customize the Bonita User Application*: using the Applications page of Bonita Administrator Application, delete the previous Bonita User Application (app token `userAppBonita`) and keep the Enterprise edition (app token `userAppEEBonita`).
-
 . *You customized the Bonita User Application*: using the Application editor of Bonita Administrator Application, edit your custom user application to add the user Delegations page (`page-user-delegation`) to your custom user application's menu entries.
 
 *When updating a project from a previous Bonita version in Bonita Studio*, if you were using the Bonita User Application, depending on your situation, you have to do one of the following:
@@ -50,7 +49,7 @@ The Bonita Administrator Application is updated in place (no new application was
 
 [NOTE]
 ====
-This release ships updated versions of the provided xref:identity:rest-api-authorization.adoc#dynamic_authorization[REST API permission rules]. The task endpoints' rules `TaskPermissionRule` and `TaskExecutionPermissionRule` are updated so that an active delegate is granted access to the delegated tasks, and a new `DelegationPermissionRule` secures the delegation endpoints (`delegation/rule` and `delegation/task`), with the matching entries added to `dynamic-permissions-checks.properties`.
+This release ships updated versions of the provided REST API permission rules. The task endpoints' rules `TaskPermissionRule` and `TaskExecutionPermissionRule` are updated so that an active delegate is granted access to the delegated tasks, and a new `DelegationPermissionRule` secures the delegation endpoints (`delegation/rule` and `delegation/task`), with the matching entries added to `dynamic-permissions-checks.properties`.
 
 If you customized any of the provided permission rules, you need to update your custom rules to re-apply your changes on top of the new versions of those rules after upgrading (otherwise the delegation feature will not work). See xref:identity:rest-api-authorization.adoc#dynamic_authorization[Dynamic authorization checking].
 ====
@@ -69,7 +68,7 @@ The full dependency list for Svelte-based provided pages is available at xref:de
 
 === Involvement APIs now include active delegates
 
-As part of Task Delegation, `ProcessAPI.isInvolvedInProcessInstance(userId, processInstanceId)` and `ProcessAPI.isInvolvedInHumanTaskInstance(userId, humanTaskInstanceId)` now also return `true` when the user is an active delegate of the task's assignee in a whitelisted process, in addition to the existing cases (case started, task assigned, pending, or performed). Code that calls these methods outside authorization, for example to display who is involved in a case, will now include active delegates.
+As part of Task Delegation, `ProcessAPI.isInvolvedInProcessInstance(userId, processInstanceId)` and `ProcessAPI.isInvolvedInHumanTaskInstance(userId, humanTaskInstanceId)` now also return `true` when the user is an active delegate of the task's assignee in a process covered by an active delegation, in addition to the existing cases (case started, task assigned, pending, or performed). Code that calls these methods outside authorization, for example to display who is involved in a case, will now include active delegates.
 
 === New REST API resources
 
