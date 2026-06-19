@@ -56,7 +56,7 @@ Click *Save* to create the rule. Click *Edit* on any row to reopen the same form
 
 === Replace an existing rule
 
-A user can have only one delegation at a time. If you create a delegation for a user who already has one, the form warns you and offers to edit the existing rule.
+If you create a delegation for a user who already has one, the form warns you and offers to edit the existing rule.
 
 === Delegate conflict warning
 
