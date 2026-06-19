@@ -72,12 +72,12 @@ As part of Task Delegation, `ProcessAPI.isInvolvedInProcessInstance(userId, proc
 
 === New REST API resources
 
-Several REST resources were added for Task Delegation:
+Several REST resources were added as part of the development for the Task Delegation feature:
 
 * {openApiUrl}/{openApiLatestVersion}/#tag/Delegation[delegation/rule]: create, search, update, and delete delegation rules. A regular user manages their own rule; an administrator can manage any user's rule. Subscription editions only.
 * {openApiUrl}/{openApiLatestVersion}/#tag/Delegation[delegation/task]: read-only; searches the tasks the caller can act on through an active delegation. Subscription editions only.
-* {openApiUrl}/{openApiLatestVersion}/#tag/BPM[GET /API/bpm/processName]: read-only; searches process deployment information grouped by name and display name, returning one entry per distinct name with its deployed versions. Available to any client.
-* {openApiUrl}/{openApiLatestVersion}/#tag/Identity[GET /API/identity/userSummary]: read-only; returns a lightweight, paginated list of users (id, user name, first name, last name, and job title) for user pickers, without the full `identity/user` payload. Available to any client.
+* {openApiUrl}/{openApiLatestVersion}/#tag/BPM[GET /API/bpm/processName]: read-only; searches process deployment information grouped by name and display name, returning one entry per distinct name with its deployed versions. Available in any edition.
+* {openApiUrl}/{openApiLatestVersion}/#tag/Identity[GET /API/identity/userSummary]: read-only; returns a lightweight, paginated list of users (id, user name, first name, last name, and job title) for user pickers, without the full `identity/user` payload. Available in any edition.
 
 == Support matrix changes
 
