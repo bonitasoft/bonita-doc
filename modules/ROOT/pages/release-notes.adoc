@@ -57,7 +57,7 @@ If you customized any of the provided permission rules, you need to update your 
 
 ==== Known limitations
 
-Business data (BDM) access is controlled separately from delegation. If a task form reads or writes business data, the delegate must have the same BDM access rights as the delegator to open the form, and delegation does not grant them automatically. If the delegate gets an access error on a form, an administrator can assign the appropriate permissions (e.g. through profiles or groups) so the delegate can open the task forms. See xref:runtime:user-delegation.adoc[Delegations].
+Business data (BDM) access is controlled separately from delegation. If a task form reads business data, the delegate must have the same BDM access rights as the delegator to open the form, and delegation does not grant them automatically. If the delegate gets an access error on a form, an administrator can assign the appropriate permissions (e.g. through profiles or groups) so the delegate can open the task forms. See xref:runtime:user-delegation.adoc[Delegations].
 
 == Notable changes
 

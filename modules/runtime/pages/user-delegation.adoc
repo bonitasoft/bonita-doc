@@ -68,7 +68,7 @@ In the *My delegation* panel, fill in:
 
 Then click *Schedule* to save the delegation.
 
-The *Schedule* button stays disabled while the form is unchanged. A form that you modified but left invalid stays clickable: clicking it reveals the validation messages instead of saving. The form rejects a delegate identical to you, an end date earlier than or equal to the start date, an end date in the past, and an empty process list.
+The *Schedule* button stays disabled while the form is unchanged. The form rejects a delegate identical to you, an end date earlier than or equal to the start date, an end date in the past, and an empty process list.
 
 [#statuses]
 === Delegation status
@@ -90,7 +90,7 @@ Click *Revoke* to remove your delegation. After confirmation, the delegate immed
 
 == Act on tasks delegated to me
 
-When another user has an active delegation to you, their tasks appear under *Tasks delegated to me*, separately from your own task list. Only tasks from the whitelisted processes, within an active period, are shown.
+When another user has an active delegation to you, their tasks appear under *Tasks delegated to me*, separately from your own task list. Only tasks from the whitelisted processes and its subprocesses, within an active period, are shown.
 
 For each task you can see the task name, the process, the case ID, who delegated it (and over which period), the due date and the priority. Click *Show form* to open the task form and complete it on the delegator's behalf. The action is recorded as executed by you as the delegator's substitute, preserving traceability.
 
