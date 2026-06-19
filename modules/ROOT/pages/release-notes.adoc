@@ -106,7 +106,7 @@ Several REST resources were added to support the Task Delegation feature:
 
 == Bug fixes
 
-=== Fixes in Bonita 2026.2-b1 (2026-06-15)
+=== Fixes in Bonita 2026.2-b3 (2026-06-19)
 
 * BPA-567 - OIDC callback fails with IllegalArgumentException - login never completes
 * Several dependencies updated
