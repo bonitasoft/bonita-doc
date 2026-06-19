@@ -16,6 +16,14 @@ This feature is delivered through a new *Enterprise edition Bonita User Applicat
 
 For how to set up and use delegation, see xref:runtime:user-delegation.adoc[Delegations] (end users) and xref:runtime:admin-delegation.adoc[Delegations administration] (organization-wide management).
 
+==== What this version includes
+
+* Self-service delegation setup: each user picks a delegate, an absence period, and the processes to cover.
+* Organization-wide delegation management for administrators.
+* A date-driven status model: Active, Scheduled, or Expired.
+* A dedicated view of the tasks delegated to you, with execution on behalf of the absent user and full audit traceability.
+* Programmatic management of delegation rules through the new {openApiUrl}/{openApiLatestVersion}/#tag/Delegation[Delegation REST API] (`delegation/rule` and `delegation/task` resources).
+
 *On a fresh installation*, the Enterprise edition user application is installed automatically and both admin and user Delegations pages are available. No further action is required.
 
 ==== Migration notes
@@ -40,6 +48,17 @@ The Bonita Administrator Application is updated in place (no new application was
 . *You did not customize the Bonita Administrator Application*: you have nothing to do.
 . *You customized the Bonita Administrator Application*: in the application descriptor of your custom admin application, add a new Delegations menu entry under BPM targeting the admin Delegations page (`page-admin-delegation`).
 
+[NOTE]
+====
+This release ships updated versions of the provided REST API permission rules. The task endpoints' rules `TaskPermissionRule` and `TaskExecutionPermissionRule` are updated so that an active delegate is granted access to the delegated tasks, and a new `DelegationPermissionRule` secures the delegation endpoints (`delegation/rule` and `delegation/task`), with the matching entries added to `dynamic-permissions-checks.properties`.
+
+If you customized any of the provided permission rules, you need to update your custom rules to re-apply your changes on top of the new versions of those rules after upgrading (otherwise the delegation feature will not work). See xref:identity:rest-api-authorization.adoc#dynamic_authorization[Dynamic authorization checking].
+====
+
+==== Known limitations
+
+Business data (BDM) access is controlled separately from delegation. If a task form reads or writes business data, the delegate must have the same BDM access rights as the delegator to open the form, and delegation does not grant them automatically. If the delegate gets an access error on a form, an administrator can assign the appropriate permissions (e.g. through profiles or groups) so the delegate can open the task forms. See xref:runtime:user-delegation.adoc[Delegations].
+
 == Notable changes
 
 === User Application process list migrated to Svelte
@@ -47,6 +66,17 @@ The Bonita Administrator Application is updated in place (no new application was
 The provided process list page of the xref:runtime:user-process-list.adoc[Bonita User Application] has been re-implemented with the Svelte framework, replacing the previous React implementation. Existing customizations that target the page through application descriptors continue to work; teams that have forked the page source should port their changes to the new Svelte codebase.
 
 The full dependency list for Svelte-based provided pages is available at xref:dependencies:svelte-page-dependencies.adoc[List of Svelte pages dependencies].
+
+=== Involvement APIs now include active delegates
+
+As part of Task Delegation, `ProcessAPI.isInvolvedInProcessInstance(userId, processInstanceId)` and `ProcessAPI.isInvolvedInHumanTaskInstance(userId, humanTaskInstanceId)` now also return `true` when the user is an active delegate of the task's assignee in a whitelisted process, in addition to the existing cases (case started, task assigned, pending, or performed). Code that calls these methods outside authorization, for example to display who is involved in a case, will now include active delegates.
+
+=== New REST API resources
+
+Two read-only REST resources were added to support the delegation pages and are available to any client:
+
+* {openApiUrl}/{openApiLatestVersion}/#tag/BPM[GET /API/bpm/processName]: searches process deployment information grouped by name and display name, returning one entry per distinct name with its deployed versions.
+* {openApiUrl}/{openApiLatestVersion}/#tag/Identity[GET /API/identity/userSummary]: returns a lightweight, paginated list of users (id, user name, first name, last name, and job title) for user pickers, without the full `identity/user` payload.
 
 == Support matrix changes
 
