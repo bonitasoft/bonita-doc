@@ -1,4 +1,4 @@
-= Delegation
+= Delegations
 :description: Set up who covers your tasks while you are away, and act on tasks delegated to you, in the Bonita User Application.
 
 {description}
@@ -12,7 +12,7 @@ When you are away, your assigned tasks normally stay invisible to everyone else,
 
 The tasks stay assigned to you: nothing is reassigned, and every action the delegate takes is recorded as performed on your behalf, so traceability is preserved. When the period ends, any unprocessed task is visible only to you again.
 
-You manage delegation from the *Delegation* page of the xref:user-application-overview.adoc[Bonita User Application], which has two parts:
+You manage delegation from the *Delegations* page of the xref:user-application-overview.adoc[Bonita User Application], a top-level menu entry alongside the Process list, Case list, and Task list. The page has two parts:
 
 * *My delegation*: configure who covers your tasks while you are away (here, you are the _delegator_).
 * *Tasks delegated to me*: see and execute the tasks delegated to you (here, you are the _delegate_).

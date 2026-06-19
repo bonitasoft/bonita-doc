@@ -44,4 +44,4 @@ Since Bonita 7.3.0, creating subtasks is no longer possible. However, if subtask
 
 == Related topics
 
-xref:user-delegation.adoc[Delegation]:: Set up who covers your tasks while you are away, and act on tasks delegated to you. Available in Subscription editions only.
+xref:user-delegation.adoc[Delegations]:: Set up who covers your tasks while you are away, and act on tasks delegated to you. Available in Subscription editions only.

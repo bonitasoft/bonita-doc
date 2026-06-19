@@ -29,7 +29,7 @@ xref:ROOT:user-task-list.adoc[[.card-title]#Task list# [.card-body.card-content-
 
 [.card.card-index]
 --
-xref:user-delegation.adoc[[.card-title]#Delegation# [.card-body.card-content-overflow]#pass:q[Set up who covers your tasks while you are away, and act on tasks delegated to you]#]
+xref:user-delegation.adoc[[.card-title]#Delegations# [.card-body.card-content-overflow]#pass:q[Set up who covers your tasks while you are away, and act on tasks delegated to you]#]
 --
 
 [.card-section]
