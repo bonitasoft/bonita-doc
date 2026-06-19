@@ -28,30 +28,43 @@ For how to set up and use delegation, see xref:runtime:user-delegation.adoc[Dele
 
 ==== Migration notes
 
-*When updating from a previous Bonita version*, your existing user application is kept and the new Enterprise edition user application is added alongside it, so the two applications coexist. If you use Bonita User application, a manual step is required to finish the setup, depending on your situation:
+===== User Application
 
-. *You did not customize the Bonita User Application*: using the Applications page of Bonita Administrator Application, delete the previous Bonita User Application (app token `userAppBonita`) and keep the Enterprise edition (app token `userAppEEBonita`).
-. *You customized the Bonita User Application*: using the Application editor of Bonita Administrator Application, edit your custom user application to add the user Delegations page (`page-user-delegation`) to your custom user application's menu entries.
+*When updating from a previous Bonita version*, your existing user application is kept and the new Enterprise edition user application is added alongside it, so the two applications coexist. If you use Bonita User Application, a manual step is required to finish the setup, depending on your situation:
+
+You did not customize the Bonita User Application::
+Using the Applications page of Bonita Administrator Application, delete the previous Bonita User Application (app token `userAppBonita`) and keep the Enterprise edition (app token `userAppEEBonita`).
+
+You customized the Bonita User Application and want to keep it as is::
+Using the Application editor of Bonita Administrator Application, edit your custom user application to add the user Delegations page (`page-user-delegation`) to your custom user application's menu entries.
 
 *When updating a project from a previous Bonita version in Bonita Studio*, if you were using the Bonita User Application, depending on your situation, you have to do one of the following:
 
-. *You did not customize the Bonita User Application*: in the Extensions view of your project, remove Bonita User Application. Then in the welcome page, in Resources, click on *Import Bonita User Application*.
-. *You customized the Bonita User Application and want to keep it as is*: in the application descriptor of your custom user application, add the user Delegations page (`page-user-delegation`) to your application's menu entries.
+You did not customize the Bonita User Application::
+In the Extensions view of your project, remove Bonita User Application. Then in the welcome page, in Resources, click on *Import Bonita User Application* (this imports the new Enterprise edition).
+
+You customized the Bonita User Application and want to keep it as is::
+In the application descriptor of your custom user application, add the user Delegations page (`page-user-delegation`) to your application's menu entries.
+
+===== Administrator Application
 
 The Bonita Administrator Application is updated in place (no new application was introduced).
 
-*When updating from a previous Bonita version* using the Application editor, edit Bonita Administrator Application menu to add a new Delegations menu entry under BPM targeting the admin Delegations page (`page-admin-delegation`).
+*When updating from a previous Bonita version* using the Application editor, edit the Bonita Administrator Application menu to add a new Delegations menu entry under BPM targeting the admin Delegations page (`page-admin-delegation`).
 
 *When updating a project from a previous Bonita version in Bonita Studio*, if you were using the Bonita Administrator Application, depending on your situation, you have to do one of the following:
 
-. *You did not customize the Bonita Administrator Application*: you have nothing to do.
-. *You customized the Bonita Administrator Application*: in the application descriptor of your custom admin application, add a new Delegations menu entry under BPM targeting the admin Delegations page (`page-admin-delegation`).
+You did not customize the Bonita Administrator Application::
+You have nothing to do.
+
+You customized the Bonita Administrator Application::
+In the application descriptor of your custom admin application, add a new Delegations menu entry under BPM targeting the admin Delegations page (`page-admin-delegation`).
 
 [NOTE]
 ====
 This release ships updated versions of the provided REST API dynamic authorization rules. The task endpoints' rules `TaskPermissionRule` and `TaskExecutionPermissionRule` are updated so that an active delegate is granted access to the delegated tasks, and a new `DelegationPermissionRule` secures the delegation endpoints (`delegation/rule` and `delegation/task`), with the matching entries added to `dynamic-permissions-checks.properties`.
 
-If you customized any of the provided permission rules, you need to update your custom rules to re-apply your changes on top of the new versions of those rules after upgrading (otherwise the delegation feature will not work). See xref:identity:rest-api-authorization.adoc#dynamic_authorization[Dynamic authorization checking].
+If you customized any of the provided authorization rules, you need to update your custom rules to re-apply your changes on top of the new versions of those rules after upgrading (otherwise the delegation feature will not work). See xref:identity:rest-api-authorization.adoc#dynamic_authorization[Dynamic authorization checking].
 ====
 
 ==== Known limitations
