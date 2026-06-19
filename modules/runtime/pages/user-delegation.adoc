@@ -45,7 +45,7 @@ Delegation only covers tasks *assigned* to the delegator, either taken manually 
 
 [NOTE]
 ====
-Delegation always applies at the *root process* level. If a process uses call activities (sub-processes), select the root process: a delegation set on a sub-process covers nothing, even for tasks that belong to that sub-process.
+Delegation always applies at the *root process* level. If a process uses call activities (sub-processes), select the root process: a delegation set on a sub-process covers nothing, even for tasks that belong to that sub-process. Unfortunately it is not possible to list only the root processes for the end user as some processes may be used both as subprocesses and root processes and there is no way to know.
 ====
 
 [NOTE]
