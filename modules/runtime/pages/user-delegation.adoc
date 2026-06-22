@@ -1,0 +1,97 @@
+= Delegations
+:description: Set up who covers your tasks while you are away, and act on tasks delegated to you, in the Bonita User Application.
+
+{description}
+
+[NOTE]
+====
+For Teamwork, Efficiency, Performance, Enterprise and Scale editions only.
+====
+
+When you are away, your assigned tasks normally stay invisible to everyone else, which blocks the processes that depend on them. _Delegation_ lets you designate a person (the _delegate_) to see and execute your tasks on your behalf for a defined period, over a list of processes you choose.
+
+The tasks stay assigned to you: nothing is reassigned, and every action the delegate takes is recorded as performed on your behalf, so traceability is preserved. When the period ends, any unprocessed task is visible only to you again.
+
+You manage delegation from the *Delegations* page of the xref:user-application-overview.adoc[Bonita User Application], a top-level menu entry alongside the Process list, Case list, and Task list. The page has two parts:
+
+* *My delegation*: configure who covers your tasks while you are away (here, you are the _delegator_).
+* *Tasks delegated to me*: see and execute the tasks delegated to you (here, you are the _delegate_).
+
+Administrators manage delegations for the whole organization from a separate page. See xref:admin-delegation.adoc[Delegations administration].
+
+[#concepts]
+== How delegation works
+
+A _delegation rule_ is made of four elements:
+
+[cols="1,3"]
+|===
+| Element | Description
+
+| Delegator | The absent person whose tasks are covered.
+| Delegate | The single person who sees and executes the tasks in their place.
+| Period | A start date and an end date. Both days are inclusive.
+| Processes | The list of processes concerned. At least one process must be selected.
+|===
+
+During the active period, the delegate sees the delegator's tasks for the chosen processes under *Tasks delegated to me* and can execute them on the delegator's behalf. The delegator keeps full visibility of their own tasks: both can see the same tasks, and whoever acts first completes the task.
+
+A few rules govern what delegation can and cannot do. Keep them in mind when setting up a delegation:
+
+[NOTE]
+====
+Delegation only covers tasks *assigned* to the delegator, either taken manually or assigned automatically by an actor filter. A task that is only _pending_ for a group is not delegated until someone takes it.
+====
+
+[NOTE]
+====
+Delegation always applies at the *root process* level. If a process uses call activities (sub-processes), select the root process: a delegation set on a sub-process covers nothing, even for tasks that belong to that sub-process. Unfortunately it is not possible to list only the root processes for the end user as some processes may be used both as subprocesses and root processes and there is no way to know.
+====
+
+[NOTE]
+====
+The delegate must have the same business data (BDM) access privileges as the delegator to open the task forms. Delegation does not grant these privileges automatically. If the delegate hits an access error on a form, an administrator can assign the appropriate permissions (e.g. through profiles or groups) so they can open the task forms.
+====
+
+[NOTE]
+====
+You can have only one delegation at a time. To cover a new absence, edit your existing delegation instead of creating a new one. The delegate and process list are kept, so you usually only update the dates.
+====
+
+== Set up my delegation
+
+In the *My delegation* panel, fill in:
+
+. *Delegate*: the person who will cover your tasks while you are away.
+. *Start date* and *End date*: the absence period. Both days are inclusive.
+. *Processes*: the processes to delegate. Selecting a process name includes all its deployed versions. At least one process must be selected.
+
+Then click *Schedule* to save the delegation.
+
+The *Schedule* button stays disabled while the form is unchanged. The form rejects a delegate identical to you, an end date earlier than or equal to the start date, an end date in the past, and an empty process list.
+
+[#statuses]
+=== Delegation status
+
+The status is computed from the period and updates on its own as time passes:
+
+[cols="1,3"]
+|===
+| Status | Meaning
+
+| *Scheduled* | The start date is in the future. The delegation is saved but not yet live: the delegate has no access.
+| *Active* | Today falls within the period. The delegate has access, and an access reminder banner is shown.
+| *Expired* | The end date is in the past. The delegation produces no access. It is kept and can be reactivated by setting a future end date.
+|===
+
+=== Revoke a delegation
+
+Click *Revoke* to remove your delegation. After confirmation, the delegate immediately loses access to your tasks and the form is cleared. *Revoke* is only available when a delegation exists.
+
+== Act on tasks delegated to me
+
+When another user has an active delegation to you, their tasks appear under *Tasks delegated to me*, separately from your own task list. Only tasks from the selected processes and their subprocesses, within an active period, are shown.
+
+For each task you can see the task name, the process, the case ID, who delegated it (and over which period), the due date and the priority. Click *Show form* to open the task form and complete it on the delegator's behalf. The action is recorded as executed by you as the delegator's substitute, preserving traceability.
+
+If no delegation is currently active for you, or if the delegator has no assigned task in the selected processes, the section indicates that there are no delegated tasks available.

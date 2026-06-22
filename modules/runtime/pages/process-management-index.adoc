@@ -36,3 +36,8 @@ xref:ROOT:cases.adoc[[.card-title]#Case list# [.card-body.card-content-overflow]
 --
 xref:ROOT:admin-application-task-list.adoc[[.card-title]#Task list# [.card-body.card-content-overflow]#pass:q[Track errors at task level to implement the right patches]#]
 --
+
+[.card.card-index]
+--
+xref:admin-delegation.adoc[[.card-title]#Delegations administration# [.card-body.card-content-overflow]#pass:q[Manage task delegations for the whole organization]#]
+--

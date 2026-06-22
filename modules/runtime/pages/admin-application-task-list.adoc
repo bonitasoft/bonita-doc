@@ -53,6 +53,11 @@ This is useful for unblocking a case if the assigned user cannot perform the tas
 
 The task is done and traced in the BPM database as though you have done the task "on behalf" of the selected user.
 
+[NOTE]
+====
+"Do for" is a one-off action on a single task. To let someone cover all of an absent user's assigned tasks over a period, set up a delegation instead. See xref:admin-delegation.adoc[Delegations administration].
+====
+
 == Skip a failed flow node
 
 If a failed flow node does not impact subsequent flow nodes in a process, it can be skipped. +

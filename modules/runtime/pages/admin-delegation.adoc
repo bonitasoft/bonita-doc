@@ -1,0 +1,67 @@
+= Delegations administration
+:description: Manage task delegations for the whole organization from the Bonita Administrator Application.
+
+{description}
+
+[NOTE]
+====
+For Teamwork, Efficiency, Performance, Enterprise and Scale editions only.
+====
+
+As an administrator, you manage the delegation rules of the whole organization from the *Delegations* page of the xref:admin-application-overview.adoc[Bonita Administrator Application], under the *BPM* menu. This page lets you create, edit, and delete a delegation on behalf of any user, whereas each user manages only their own delegation from the xref:user-delegation.adoc[Bonita User Application].
+
+[NOTE]
+====
+The *Delegations* page is only visible to users with the Administrator profile.
+====
+
+For what a delegation is and how it behaves during the active period, see xref:user-delegation.adoc#concepts[How delegation works]. The same rules govern every delegation, whether you create it here or a user sets up their own:
+
+[NOTE]
+====
+Delegation only covers tasks *assigned* to the delegator, either taken manually or assigned automatically by an actor filter. A task that is only _pending_ for a group is not delegated until someone takes it.
+====
+
+[NOTE]
+====
+Delegation always applies at the *root process* level. If a process uses call activities (sub-processes), select the root process: a delegation set on a sub-process covers nothing, even for tasks that belong to that sub-process. Unfortunately it is not possible to list only the root processes for the end user as some processes may be used both as subprocesses and root processes and there is no way to know.
+====
+
+[NOTE]
+====
+The delegate must have the same business data (BDM) access privileges as the delegator to open the task forms. Delegation does not grant these privileges automatically. If the delegate hits an access error on a form, an administrator can assign the appropriate permissions (e.g. through profiles or groups) so they can open the task forms.
+====
+
+[NOTE]
+====
+A user can have only one delegation at a time. To cover a new absence, edit the existing delegation instead of creating a new one. The delegate and process list are kept, so you usually only update the dates.
+====
+
+== The delegations table
+
+The page lists existing delegation rules only: users without a delegation are not shown. Each row displays the delegator and delegate (`User -> Delegate`), the period with its day count, the number of delegated processes, the xref:user-delegation.adoc#statuses[status], and the available actions.
+
+Filter tabs *All*, *Active*, *Scheduled*, and *Expired*, each with a count badge, narrow the list by status. A search field filters by name, and you can change the number of rows per page. Expired rows are dimmed but remain editable and deletable.
+
+== Create or edit a delegation
+
+Click *+ New delegation* to open the delegation form, then fill in:
+
+. *User*: the user whose tasks will be delegated (the delegator).
+. *Delegate*: the single user who gains access.
+. *Start date* and *End date*: the absence period.
+. *Processes*: the processes to delegate. At least one must be selected.
+
+Click *Save* to create the rule. Click *Edit* on any row to reopen the same form pre-filled. As on the user page, *Save* stays disabled while the form is unchanged.
+
+=== Replace an existing rule
+
+If you create a delegation for a user who already has one, the form warns you and offers to edit the existing rule.
+
+=== Delegate conflict warning
+
+If the delegate you choose has their own outgoing delegation over an overlapping period, a warning indicates that the delegate may be unavailable. This warning is informative only: you can still save the delegation.
+
+== Delete a delegation
+
+Click *Delete* on a row, then confirm. Deletion is permanent: it removes the delegation rule entirely, and a new rule must be created to delegate again. There is no deactivation flag.

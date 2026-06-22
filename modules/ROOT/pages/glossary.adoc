@@ -15,7 +15,7 @@ Application descriptor::
 Defines the Living Application: group of pages with a specific theme for a given user profile.
 
 ApplicationLink::
-Tag used to describe an Application made with Bonita UI Builder in the Studio’s Application descriptor.
+Tag used to describe an Application made with Bonita UI Builder in the Studio's Application descriptor.
 
 == B
 
@@ -52,6 +52,15 @@ Connector::
 Automates external services interaction from within processes.
 
 == D
+
+Delegate::
+The person who, during a delegation period, sees and executes the delegator's assigned tasks on their behalf.
+
+Delegation::
+A mechanism that lets a delegate see and execute an absent user's assigned tasks, for a defined period and a chosen list of processes, without reassigning them. Available in Subscription editions only. See xref:runtime:user-delegation.adoc[Delegations].
+
+Delegator::
+The absent user whose assigned tasks are covered by a delegate during a delegation period.
 
 Diagram::
 BPMN diagram that describes your business processes.
