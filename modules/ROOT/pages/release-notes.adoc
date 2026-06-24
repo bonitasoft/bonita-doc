@@ -64,7 +64,7 @@ In the application descriptor of your custom admin application, add a new Delega
 ====
 This release ships updated versions of the provided REST API dynamic authorization rules. The task endpoints' rules `TaskPermissionRule` and `TaskExecutionPermissionRule` are updated so that an active delegate is granted access to the delegated tasks, and a new `DelegationPermissionRule` secures the delegation endpoints (`delegation/rule` and `delegation/task`), with the matching entries added to `dynamic-permissions-checks.properties`.
 
-If you customized the dynamic authorizations configuration and provided your own authorization rules, you need to update your custom rules to re-apply your changes on top of the new versions of those rules after upgrading (otherwise the delegation feature will not work). See xref:identity:rest-api-authorization.adoc#dynamic_authorization[Dynamic authorization checking].
+If you customized the REST API permissions configuration and provided your own version of those authorization rules, you need to update your custom rules to re-apply your changes on top of the new versions of those rules after upgrading (otherwise the delegation feature will not work). See xref:identity:rest-api-authorization.adoc#dynamic_authorization[Dynamic authorization checking].
 ====
 
 ==== Known limitations
