@@ -41,7 +41,7 @@ Using the Application editor of Bonita Administrator Application, edit your cust
 *When updating a project from a previous Bonita version in Bonita Studio*, if you were using the Bonita User Application, depending on your situation, you have to do one of the following:
 
 You did not customize the Bonita User Application::
-In the Extensions view of your project, remove Bonita User Application. Then in the welcome page, in Resources, click on *Import Bonita User Application* (this imports the new Enterprise edition).
+In the Extensions view of your project, remove Bonita User Application. Then open the Marketplace and install *Bonita User Application Enterprise*.
 
 You customized the Bonita User Application and want to keep it as is::
 In the application descriptor of your custom user application, add the user Delegations page (`page-user-delegation`) to your application's menu entries.
