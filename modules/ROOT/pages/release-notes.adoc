@@ -106,6 +106,10 @@ Several REST resources were added to support the Task Delegation feature:
 
 == Bug fixes
 
+=== Fixes in Bonita 2026.2-u0 (2026-06-30)
+
+* BPA-445 - [SAML] authentication: race condition on /favicon.ico overwrites __REDIRECT_URI session attribute, causing 404 after successful SSO login
+
 === Fixes in Bonita 2026.2-b5 (2026-06-19)
 
 * BPA-567 - OIDC callback fails with IllegalArgumentException - login never completes
