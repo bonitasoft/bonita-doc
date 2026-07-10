@@ -1,4 +1,4 @@
-= Bonita Runtime dependencies (11.0.0)
+= Bonita Runtime dependencies (11.0.1)
 :page-aliases: ROOT:bonita-web-dependencies.adoc, ROOT:bonita-engine-dependencies.adoc
 :description: List all dependencies used by Bonita Runtime
 
@@ -1190,15 +1190,9 @@
 | https://commons.apache.org/proper/commons-text[https://commons.apache.org/proper/commons-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
-| org.checkerframework
-| checker-qual
-| 3.52.0
-| https://checkerframework.org/[https://checkerframework.org/]
-|  http://opensource.org/licenses/MIT[The MIT License]
-
 | org.postgresql
 | postgresql
-| 42.7.10
+| 42.7.11
 | https://jdbc.postgresql.org/[https://jdbc.postgresql.org/]
 |  https://jdbc.postgresql.org/about/license.html[BSD-2-Clause]
 
@@ -2906,15 +2900,9 @@
 | https://commons.apache.org/proper/commons-text[https://commons.apache.org/proper/commons-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
-| org.checkerframework
-| checker-qual
-| 3.52.0
-| https://checkerframework.org/[https://checkerframework.org/]
-|  http://opensource.org/licenses/MIT[The MIT License]
-
 | org.postgresql
 | postgresql
-| 42.7.10
+| 42.7.11
 | https://jdbc.postgresql.org/[https://jdbc.postgresql.org/]
 |  https://jdbc.postgresql.org/about/license.html[BSD-2-Clause]
 
