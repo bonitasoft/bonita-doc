@@ -82,6 +82,12 @@ Note that this new API is now also available in the Community edition and provid
 
 == Bug fixes
 
+=== Fixes in Bonita 2024.3-u9 (2026-07-17)
+
+* BPA-445 - [SAML] authentication: race condition on /favicon.ico overwrites __REDIRECT_URI session attribute, causing 404 after successful SSO login
+* BPA-633 - GET bpm/archivedCase returns HTTP 404 for the whole list when a deployed started_by / startedBySubstitute user no longer exists in the organization
+* Several dependencies updated
+
 === Fixes in Bonita 2024.3-u8 (2026-04-24)
 
 * xref:security:brute-force-login-protection.adoc[Brute-force login protection] is now enabled by default. This security feature rate-limits failed login attempts per username and temporarily locks out accounts after too many failures.
