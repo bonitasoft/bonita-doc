@@ -106,8 +106,15 @@ Several REST resources were added to support the Task Delegation feature:
 
 == Bug fixes
 
+=== Fixes in Bonita 2026.2-u1 (2026-07-17)
+
+* BPA-633 - GET bpm/archivedCase returns HTTP 404 for the whole list when a deployed started_by / startedBySubstitute user no longer exists in the organization
+* BPA-680 - [Studio/Windows] Process deploy runs "mvn clean install" that fails to delete the locked BDM jar → BDM build output wiped → BAR build fails "unable to resolve <bdm package>"
+* Several dependencies updated
+
 === Fixes in Bonita 2026.2-u0 (2026-06-30)
 
+* BPA-100 - Groovy evaluate : BDM object field is null whereas the column has a value in the database -> SQL SELECT to retrieve the BO is not executed
 * BPA-445 - [SAML] authentication: race condition on /favicon.ico overwrites __REDIRECT_URI session attribute, causing 404 after successful SSO login
 
 === Fixes in Bonita 2026.2-b5 (2026-06-19)
