@@ -519,6 +519,13 @@ The notable changes are:
 
 == Bug fixes
 
+=== Fixes in Bonita 2025.1-u9 (2026-07-17)
+
+* BPA-445 - [SAML] authentication: race condition on /favicon.ico overwrites __REDIRECT_URI session attribute, causing 404 after successful SSO login
+* BPA-633 - GET bpm/archivedCase returns HTTP 404 for the whole list when a deployed started_by / startedBySubstitute user no longer exists in the organization
+* BPA-680 - [Studio/Windows] Process deploy runs "mvn clean install" that fails to delete the locked BDM jar → BDM build output wiped → BAR build fails "unable to resolve <bdm package>"
+* Several dependencies updated
+
 === Fixes in Bonita 2025.1-u8 (2026-04-24)
 
 * BPA-100 - Groovy evaluate : BDM object field is null whereas the column has a value in the database -> SQL SELECT to retrieve the BO is not executed
