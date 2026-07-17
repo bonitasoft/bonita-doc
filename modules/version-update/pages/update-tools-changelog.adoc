@@ -10,6 +10,33 @@ All changes in both tools are logged: from the version that was delivered with t
 This is due to the fact that improvements in any version of the tools can affect all supported Bonita versions.
 This changelog must be read before xref:update-overview.adoc[updating to a newer version of Bonita].
 
+== 3.10.0 - June 30, 2026 - Bonita Update Tool changes
+Bonita Update Tool handles updates from all Bonita 7.10 versions up to Bonita 2026.2 (11.1) version.
+
+=== Bonita 2026.2 (11.1) update changes
+
+* Create xref:runtime:admin-delegation.adoc[Task Delegation] tables and indexes (for *Subscription editions only*).
+* Add the xref:runtime:admin-delegation.adoc[Task Delegation] rules cache configuration (for *Subscription editions only*).
+
+=== Bug fixes
+
+* [BPA-241] Update to 10.3 fails when recreating PK on queriable_log after tenantId removal.
+
+== 3.9.0 - April 28, 2026 - Bonita Update Tool changes
+Bonita Update Tool handles updates from all Bonita 7.10 versions up to Bonita 2026.1 (11.0) version.
+
+=== Bonita 2026.1 (11.0) update changes
+
+* Ehcache 2.x to Ehcache 3.11 migration:
+** Remove the `cache-config.xml` file (no longer needed).
+** Remove obsolete Ehcache 2 configuration properties.
+** All cache configuration is now handled programmatically in Java code.
+** If you have custom cache configurations, they will be automatically migrated to use Ehcache 3 syntax.
+* Add new xref:data:bdm-query-response-formats.adoc[BDM query response format] property `bonita.runtime.business-data.serialization.standard-shape.enabled` that allows to choose between modern / legacy format. The property is set to `false` to preserve the existing behavior.
+* Add PostgreSQL trigger to cleanup large objects on table `temporary_content` when rows are deleted. This prevents orphan large objects in the database.
+* Create xref:runtime:bdm-data-retention.adoc[BDM Data Retention] tables and indexes (for *Subscription editions only*).
+* Add the xref:runtime:bdm-data-retention.adoc[BDM Data Retention] schedule cron property `bonita.runtime.retention.schedule.cron` (for *Subscription editions only*).
+
 == 3.8.1 - April 10, 2026 - Bonita Update Tool changes
 Bonita Update Tool handles updates from all Bonita 7.10 versions up to Bonita 2025.2 (10.4) version.
 
