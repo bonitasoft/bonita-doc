@@ -10,6 +10,18 @@ All changes in both tools are logged: from the version that was delivered with t
 This is due to the fact that improvements in any version of the tools can affect all supported Bonita versions.
 This changelog must be read before xref:update-overview.adoc[updating to a newer version of Bonita].
 
+== 3.10.0 - June 30, 2026 - Bonita Update Tool changes
+Bonita Update Tool handles updates from all Bonita 7.10 versions up to Bonita 2026.2 (11.1) version.
+
+=== Bonita 2026.2 (11.1) update changes
+
+* Create xref:runtime:admin-delegation.adoc[Task Delegation] tables and indexes (for *Subscription editions only*).
+* Add the xref:runtime:admin-delegation.adoc[Task Delegation] rules cache configuration (for *Subscription editions only*).
+
+=== Bug fixes
+
+* [BPA-241] Update to 10.3 fails when recreating PK on queriable_log after tenantId removal.
+
 == 3.9.0 - April 28, 2026 - Bonita Update Tool changes
 Bonita Update Tool handles updates from all Bonita 7.10 versions up to Bonita 2026.1 (11.0) version.
 
