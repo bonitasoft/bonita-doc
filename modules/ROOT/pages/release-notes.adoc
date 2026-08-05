@@ -63,6 +63,12 @@ See xref:process:messaging.adoc[Email Connector documentation] for more informat
 * BPA-680 - [Studio/Windows] Process deploy runs "mvn clean install" that fails to delete the locked BDM jar → BDM build output wiped → BAR build fails "unable to resolve <bdm package>"
 * Several dependencies updated
 
+[[v2025.2-u9-security-fixes]]
+*Security fixes*
+
+* CVE-375: keycloak-saml-core - A flaw was found in Keycloak. A remote, unauthenticated attacker can send a specially crafted XML i (public CVE-2026-7307)
+* CVE-431: keycloak-saml-adapter-core - A flaw was found in Keycloak. An unauthenticated remote attacker can trigger an application (public CVE-2026-2575)
+
 === Fixes in Bonita 2025.2-u8 (2026-04-27)
 
 * BPA-100 - Groovy evaluate : BDM object field is null whereas the column has a value in the database -> SQL SELECT to retrieve the BO is not executed
