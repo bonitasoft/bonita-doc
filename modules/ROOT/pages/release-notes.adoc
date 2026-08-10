@@ -88,6 +88,12 @@ Note that this new API is now also available in the Community edition and provid
 * BPA-633 - GET bpm/archivedCase returns HTTP 404 for the whole list when a deployed started_by / startedBySubstitute user no longer exists in the organization
 * Several dependencies updated
 
+[[v2024.3-u9-security-fixes]]
+*Security fixes*
+
+* CVE-375: keycloak-saml-core - A remote, unauthenticated attacker can send a specially crafted XML input to the endpoint (public CVE-2026-7307)
+* CVE-431: keycloak-saml-adapter-core - An unauthenticated remote attacker can trigger an application level Denial of Service (public CVE-2026-2575)
+
 === Fixes in Bonita 2024.3-u8 (2026-04-24)
 
 * xref:security:brute-force-login-protection.adoc[Brute-force login protection] is now enabled by default. This security feature rate-limits failed login attempts per username and temporarily locks out accounts after too many failures.
