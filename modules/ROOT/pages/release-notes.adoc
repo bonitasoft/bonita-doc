@@ -526,6 +526,12 @@ The notable changes are:
 * BPA-680 - [Studio/Windows] Process deploy runs "mvn clean install" that fails to delete the locked BDM jar → BDM build output wiped → BAR build fails "unable to resolve <bdm package>"
 * Several dependencies updated
 
+[[v2025.1-u9-security-fixes]]
+*Security fixes*
+
+* CVE-375: keycloak-saml-core - A remote, unauthenticated attacker can send a specially crafted XML input to the endpoint (public CVE-2026-7307)
+* CVE-431: keycloak-saml-adapter-core - An unauthenticated remote attacker can trigger an application level Denial of Service (public CVE-2026-2575)
+
 === Fixes in Bonita 2025.1-u8 (2026-04-24)
 
 * BPA-100 - Groovy evaluate : BDM object field is null whereas the column has a value in the database -> SQL SELECT to retrieve the BO is not executed
