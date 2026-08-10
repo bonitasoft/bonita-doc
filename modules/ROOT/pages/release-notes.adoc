@@ -150,8 +150,8 @@ For advanced cache tuning after migration, refer to the xref:runtime:performance
 [[v2026.1-u1-security-fixes]]
 *Security fixes*
 
-* CVE-375: keycloak-saml-core - A flaw was found in Keycloak. A remote, unauthenticated attacker can send a specially crafted XML i (public CVE-2026-7307)
-* CVE-431: keycloak-saml-adapter-core - A flaw was found in Keycloak. An unauthenticated remote attacker can trigger an application (public CVE-2026-2575)
+* CVE-375: keycloak-saml-core - A remote, unauthenticated attacker can send a specially crafted XML input to the endpoint (public CVE-2026-7307)
+* CVE-431: keycloak-saml-adapter-core - An unauthenticated remote attacker can trigger an application level Denial of Service (public CVE-2026-2575)
 
 === Fixes in Bonita 2026.1-u0 (2026-04-28)
 
