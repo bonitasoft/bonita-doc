@@ -117,6 +117,12 @@ Several REST resources were added to support the Task Delegation feature:
 * BPA-100 - Groovy evaluate : BDM object field is null whereas the column has a value in the database -> SQL SELECT to retrieve the BO is not executed
 * BPA-445 - [SAML] authentication: race condition on /favicon.ico overwrites __REDIRECT_URI session attribute, causing 404 after successful SSO login
 
+[[v2026.2-u0-security-fixes]]
+*Security fixes*
+
+* CVE-375: keycloak-saml-core - A remote, unauthenticated attacker can send a specially crafted XML input to the endpoint (public CVE-2026-7307)
+* CVE-431: keycloak-saml-adapter-core - An unauthenticated remote attacker can trigger an application level Denial of Service (public CVE-2026-2575)
+
 === Fixes in Bonita 2026.2-b5 (2026-06-19)
 
 * BPA-567 - OIDC callback fails with IllegalArgumentException - login never completes
