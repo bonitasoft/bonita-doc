@@ -38,7 +38,7 @@ Another solution is to download and execute manually the installer, https://adop
 The security feature called *SmartScreen* prevents execution of Bonita Studio installer.  When you get the "Windows protect your PC" pop up window, click on "More info" link and click on "Run anyway" button.
 
 === Community edition
-To download the latest version of Bonita Studio Community edition, open the https://www.bonitasoft.com/downloads[download page] and click on the *Download* button. This will start the download of the Bonita Studio installer for your operating system.
+To download the latest version of Bonita Studio Community edition, open the https://www.ofelia.com/downloads[download page] and click on the *Download* button. This will start the download of the Bonita Studio installer for your operating system.
 
 // update package name
 
@@ -92,7 +92,7 @@ When you install or launch Bonita Studio for the first time, you need to install
 
 . From the installer, click *_Copy to clipboard_* to copy the request key generated specifically for your Bonita Studio
 . Go to the {cscLicenseUrl}[Customer Service Center] and request a license using the request key in the clipboard
-. Wait a few seconds to get the file from the license page, or check your email box (after a few minutes) and open the email from `no-reply@bonitasoft.com`
+. Wait a few seconds to get the file from the license page, or check your email box (after a few minutes) and open the email from `no-reply@ofelia.com`
 . Download the license file (.lic)
 . Go back to your Bonita Studio, click *_Install license..._*, and select your .lic file.
 
