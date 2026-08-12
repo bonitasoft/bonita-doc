@@ -82,7 +82,7 @@ xref:ROOT:admin-application-overview.adoc[[.card-title]#Bonita Administrator App
 
 [.card.card-index]
 --
-https://community.bonitasoft.com/c/project/5[[.card-title]#Community projects# [.card-body.card-content-overflow]#pass:q[Browse the Community members' applications to get inspired]#]
+https://community.ofelia.com/c/project/5[[.card-title]#Community projects# [.card-body.card-content-overflow]#pass:q[Browse the Community members' applications to get inspired]#]
 --
 
 [.card.card-index]
