@@ -11,7 +11,7 @@ You will then be able to adapt and extend this example to fit your own needs.
 [NOTE]
 ====
 
-* If you have any problems while working through this tutorial, you can https://community.bonitasoft.com/c/q-a/6[ask for help on the Bonita Community web site] and/or open an issue on the Bonita https://bonita.atlassian.net/projects/BBPMC/issues[Community issue tracker].
+* If you have any problems while working through this tutorial, you can https://community.ofelia.com/c/q-a/6[ask for help on the Bonita Community web site] and/or open an issue on the Bonita https://bonita.atlassian.net/projects/BBPMC/issues[Community issue tracker].
 * This example has also been implemented and packaged to be downloaded from Bonita Studio's Welcome page (see below). +
 This can be useful to compare your creations with the already implemented example, or just to learn by watching how it has been implemented. +
 ====
