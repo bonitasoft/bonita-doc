@@ -248,8 +248,11 @@ This section explains how to update a platform that uses one of the Bonita bundl
 |===
 
 
-NOTE: If you are using MySQL, add ?allowMultiQueries=true to the URL.
-For example, db.url=jdbc:mysql://localhost:3306/bonita-update?allowMultiQueries=true.
+NOTE: If you are using MySQL, add `?allowMultiQueries=true` to the URL.
+For example, `db.url=jdbc:mysql://localhost:3306/bonita-update?allowMultiQueries=true`.
+
+NOTE: If you are using PostgreSQL and the Bonita tables are stored in a schema other than the default one of the database user, add `?currentSchema=<schema>` to the URL, with the same schema as the one configured in the Bonita runtime. The schemas actually used by the tool are logged at startup under "Database Information".
+For example, `db.url=jdbc:postgresql://localhost:5432/bonita-update?currentSchema=bonita`.
 
 === Stop Bonita
 [WARNING]
