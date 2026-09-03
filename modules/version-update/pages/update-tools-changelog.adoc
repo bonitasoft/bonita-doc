@@ -10,6 +10,12 @@ All changes in both tools are logged: from the version that was delivered with t
 This is due to the fact that improvements in any version of the tools can affect all supported Bonita versions.
 This changelog must be read before xref:update-overview.adoc[updating to a newer version of Bonita].
 
+== 3.10.1 - September 3, 2026 - Bonita Update Tool changes
+Bonita Update Tool handles updates from all Bonita 7.10 versions up to Bonita 2026.2 (11.1) version.
+
+* [BPA-557] PostgreSQL: the tool only looked for the Bonita tables in the `public` schema. When the tables are stored in another schema, some update steps were silently skipped and the update ended without error, although it was incomplete. +
+All table, column, constraint and index lookups now follow the `search_path` of the database connection. If the Bonita tables are stored in a custom schema, add `currentSchema=<schema>` to the `db.url` property, as described in the xref:update-with-update-tool.adoc#updating-bonita-bundle-step-by-step-procedure[step-by-step procedure]. The schemas actually used are logged at startup under "Database Information".
+
 == 3.10.0 - June 30, 2026 - Bonita Update Tool changes
 Bonita Update Tool handles updates from all Bonita 7.10 versions up to Bonita 2026.2 (11.1) version.
 
