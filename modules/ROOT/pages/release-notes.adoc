@@ -82,6 +82,48 @@ Note that this new API is now also available in the Community edition and provid
 
 == Bug fixes
 
+=== Fixes in Bonita 2024.3-u10 (TBD)
+
+* Hazelcast, the library used by the Cluster feature, is updated from 5.4.0 to 5.7.0. If you run a cluster, read <<v2024-3-u10-cluster-update,Updating a cluster to 2024.3-u10>> before updating.
+* Security hardening of the Hazelcast member. On a single node, the member Bonita starts for its second-level cache now
+listens on loopback only instead of on every interface.
+Set `bonita.platform.hazelcast.interfaces.list` to an empty value in `bonita-platform-sp-custom.properties` to restore
+the previous behaviour, for a deployment that attaches a Hazelcast client on purpose. In a cluster,
+`bonita.platform.cluster.hazelcast.interfaces.list` now binds the member to one address of the node matching the
+patterns it lists, which it never did before; its default no longer names an interface. If your cluster configuration sets that property, verify its
+value or unset it before updating: a value that matches no interface of the node, harmless until now, stops the node
+from starting. See
+xref:runtime:install-a-bonita-bpm-cluster.adoc#hazelcast-port-hardening[Allow communication between servers] for how to
+restrict the port.
+
+[#v2024-3-u10-cluster-update]
+*Updating a cluster to 2024.3-u10*
+
+These points apply to Subscription editions running the Cluster feature. Installations that do not enable the
+Cluster feature are not affected, and Bonita Community edition does not use Hazelcast.
+
+* *All nodes must be stopped to update.* Hazelcast does not support updating the members of a cluster one at a
+time, so a node running 5.4.0 cannot join a cluster running 5.7.0. Stop every node, update them, then start
+them again.
+* *No configuration change is required.* The update introduces two new cluster properties, both with default
+values, so nothing needs to be added to your configuration. See
+xref:runtime:install-a-bonita-bpm-cluster.adoc#work-recovery[Work recovery when a node leaves the cluster] if
+you want to tune them.
+* *Work recovery is more robust.* The recovery of a departed node's work runs in the background instead of on
+a Hazelcast event thread, gives up on its own before its lock expires, and is tried again at the next departure
+or start for whatever it could not take over. A node that resumes after a tenant pause now resubmits the work
+that arrived while it was paused, which previously waited until the node left the cluster.
+* *Clusters updated from an earlier version log a warning about the configuration schema at every start.*
+Fresh installations do not. The message reports that the Hazelcast schema location is incorrect and that the
+default is used instead. It is harmless: your stored configuration still refers to the schema of the previous
+version, and the update does not rewrite it. To make it stop, update the version in the schema location in
+`platform_engine/hazelcast.xml` with the platform setup tool.
+* *Two diagnostics change.* The `Number of locks` column of the Hazelcast statistics file now counts the locks
+currently held on the node that writes the file, where it previously counted lock objects across the cluster,
+so expect a different magnitude and a value that varies with load. A lock whose lease expires before it is
+released is now reported as an error instead of a warning; if you raise alerts on errors from the cluster
+lock service, you may start seeing them for a condition that was already being reported at a lower level.
+
 === Fixes in Bonita 2024.3-u9 (2026-07-17)
 
 * BPA-445 - [SAML] authentication: race condition on /favicon.ico overwrites __REDIRECT_URI session attribute, causing 404 after successful SSO login
