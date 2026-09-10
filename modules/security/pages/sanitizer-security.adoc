@@ -67,10 +67,31 @@ The default version of this file is located in `setup/platform_conf/initial/plat
 When Sanitizer protection is enabled, this file contains this line:
 `security.sanitizer.enabled true`
 
+If you must disable the Sanitizer protection for the whole platform, edit the configuration file and change the `security.sanitizer.enabled` value to *false*.
+
+== How to configure URL exclusions?
+
+The Sanitizer is a standard Tomcat filter, it is declared by default into the BUNDLE_HOME/webapps/bonita/WEB-INF/web.xml file.
+There is below an example with an URL exclusion, see the `init-param` xml element. The URL excluded in the configuration below is used by a web page of our Bonita Administrator App to update live the groovy scripts of an installed process.
+[source, xml]
+----
+<!-- Sanitize filter to prevent code injection -->
+<filter>
+    <filter-name>SanitizerFilter</filter-name>
+    <filter-class>org.bonitasoft.console.common.server.filter.SanitizerFilter</filter-class>
+    <init-param>
+        <param-name>excludePattern</param-name>
+        <param-value>^/(bonita/)?API/bpm/process/[0-9]+/expression/[0-9]+/?$</param-value>
+    </init-param>
+</filter>
+----
+
+A restart is needed after a change.
+
+== How to configure JSON attribute exclusions?
+
 By default Sanitizer protection is disabled on a few json attributes with this line:
 `security.sanitizer.exclude email,password,password_confirm`
-
-If you must disable the Sanitizer protection for the whole platform, edit the configuration file and change the `security.sanitizer.enabled` value to *false*.
 
 If you want to disable the Sanitizer protection for a specific json attribute, edit the configuration file and append your attribute name to the `security.sanitizer.exclude` comma-separated values.
 
