@@ -113,9 +113,9 @@ excludes the Administrator application URL above together with a custom REST API
 </filter>
 ----
 
-IMPORTANT: `excludePattern` *replaces* the exclusions provided by Bonita, it does not add to them. On a version
-that provides the Administrator application exclusion, you must repeat it in your own value, exactly as the
-example above does — otherwise the *Scripts* page will start truncating Groovy scripts.
+IMPORTANT: `excludePattern` *replaces* the exclusions provided by Bonita, it does not add to them. Any
+pattern provided by your version is lost as soon as you define your own value, so repeat it there, exactly
+as the example above does — otherwise the *Scripts* page will start truncating Groovy scripts.
 
 IMPORTANT: The value of `excludePattern` is used exactly as you write it. The `bonita` it contains is *not*
 replaced with the name of your web application, unlike the patterns provided by Bonita. If you deploy the web
@@ -149,7 +149,7 @@ another user.
 
 == How to configure JSON attribute exclusions?
 
-The Sanitizer protection can also be disabled per JSON attribute, independently of the URL.This mechanism
+The Sanitizer protection can also be disabled per JSON attribute, independently of the URL. This mechanism
 matches on attribute names and applies across the whole REST API.
 
 By default Sanitizer protection is disabled on a few json attributes with this line:
