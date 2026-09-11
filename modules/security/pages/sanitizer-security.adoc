@@ -90,8 +90,9 @@ URL has to be excluded for the page to save scripts unaltered:
 ^/(bonita/)?API/bpm/process/[0-9]+/expression/[0-9]+/?$
 ----
 
-This exclusion is provided by Bonita, is active out of the box, and requires no
-configuration. In earlier versions it is not present: add it yourself, as shown below, if you use that page.
+Depending on your Bonita maintenance version, this exclusion may already be provided out of the box. You do
+not need to find out: if you define an `excludePattern` at all, keep this pattern in it. Repeating a pattern
+that Bonita already provides is harmless, since the value is the same.
 
 === Adding your own exclusion
 
@@ -148,8 +149,16 @@ another user.
 
 == How to configure JSON attribute exclusions?
 
-The Sanitizer protection can also be disabled per JSON attribute, independently of the URL.
-By default Sanitizer protection is disabled on a few json attributes with this line: `security.sanitizer.exclude email,password,password_confirm`
-If you want to disable the Sanitizer protection for a specific json attribute, edit the `setup/platform_conf/initial/platform_portal/security-config.properties` configuration file and append your attribute name to the `security.sanitizer.exclude` comma-separated values.
+The Sanitizer protection can also be disabled per JSON attribute, independently of the URL.This mechanism
+matches on attribute names and applies across the whole REST API.
 
-This mechanism matches on attribute names and applies across the whole REST API.
+By default Sanitizer protection is disabled on a few json attributes with this line:
+`security.sanitizer.exclude email,password,password_confirm`
+
+If you want to disable the Sanitizer protection for a specific json attribute, edit the
+`setup/platform_conf/initial/platform_portal/security-config.properties` configuration file and append your
+attribute name to the `security.sanitizer.exclude` comma-separated values.
+
+In either case, make sure all your concerned UI pages are secured against XSS attacks before disabling the
+Sanitizer protection (e.g. by developing them with Bonita UI Designer and avoiding using the `allow HTML`
+option of the widgets when the content comes from a user input).
