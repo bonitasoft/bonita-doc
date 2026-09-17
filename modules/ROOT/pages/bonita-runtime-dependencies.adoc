@@ -1,4 +1,4 @@
-= Bonita Runtime dependencies (11.1.1)
+= Bonita Runtime dependencies (11.1.2)
 :page-aliases: ROOT:bonita-web-dependencies.adoc, ROOT:bonita-engine-dependencies.adoc
 :description: List all dependencies used by Bonita Runtime
 
@@ -1190,9 +1190,15 @@
 | https://commons.apache.org/proper/commons-text[https://commons.apache.org/proper/commons-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
+| org.checkerframework
+| checker-qual
+| 3.55.1
+| https://checkerframework.org/[https://checkerframework.org/]
+|  https://opensource.org/licenses/MIT[The MIT License]
+
 | org.postgresql
 | postgresql
-| 42.7.11
+| 42.7.13
 | https://jdbc.postgresql.org/[https://jdbc.postgresql.org/]
 |  https://jdbc.postgresql.org/about/license.html[BSD-2-Clause]
 
@@ -1600,14 +1606,14 @@
 
 | com.hazelcast
 | hazelcast
-| 5.4.0
-| http://www.hazelcast.com/[http://www.hazelcast.com/]
+| 5.7.0
+| http://www.hazelcast.com/hazelcast/[http://www.hazelcast.com/hazelcast/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.hazelcast
 | hazelcast-spring
-| 5.4.0
-| http://www.hazelcast.com/[http://www.hazelcast.com/]
+| 5.7.0
+| http://www.hazelcast.com/hazelcast-spring/[http://www.hazelcast.com/hazelcast-spring/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.nimbusds
@@ -1846,19 +1852,19 @@
 
 | org.bouncycastle
 | bcpkix-jdk18on
-| 1.84
+| 1.86
 | https://www.bouncycastle.org/download/bouncy-castle-java/[https://www.bouncycastle.org/download/bouncy-castle-java/]
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
 | org.bouncycastle
 | bcprov-jdk18on
-| 1.84
+| 1.86
 | https://www.bouncycastle.org/download/bouncy-castle-java/[https://www.bouncycastle.org/download/bouncy-castle-java/]
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
 | org.bouncycastle
 | bcutil-jdk18on
-| 1.84
+| 1.86
 | https://www.bouncycastle.org/download/bouncy-castle-java/[https://www.bouncycastle.org/download/bouncy-castle-java/]
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
@@ -2230,8 +2236,8 @@
 
 | com.hazelcast
 | hazelcast
-| 5.4.0
-| http://www.hazelcast.com/[http://www.hazelcast.com/]
+| 5.7.0
+| http://www.hazelcast.com/hazelcast/[http://www.hazelcast.com/hazelcast/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.sun.activation
@@ -2488,19 +2494,19 @@
 
 | org.bouncycastle
 | bcpkix-jdk18on
-| 1.84
+| 1.86
 | https://www.bouncycastle.org/download/bouncy-castle-java/[https://www.bouncycastle.org/download/bouncy-castle-java/]
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
 | org.bouncycastle
 | bcprov-jdk18on
-| 1.84
+| 1.86
 | https://www.bouncycastle.org/download/bouncy-castle-java/[https://www.bouncycastle.org/download/bouncy-castle-java/]
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
 | org.bouncycastle
 | bcutil-jdk18on
-| 1.84
+| 1.86
 | https://www.bouncycastle.org/download/bouncy-castle-java/[https://www.bouncycastle.org/download/bouncy-castle-java/]
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
@@ -2900,9 +2906,15 @@
 | https://commons.apache.org/proper/commons-text[https://commons.apache.org/proper/commons-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
+| org.checkerframework
+| checker-qual
+| 3.55.1
+| https://checkerframework.org/[https://checkerframework.org/]
+|  https://opensource.org/licenses/MIT[The MIT License]
+
 | org.postgresql
 | postgresql
-| 42.7.11
+| 42.7.13
 | https://jdbc.postgresql.org/[https://jdbc.postgresql.org/]
 |  https://jdbc.postgresql.org/about/license.html[BSD-2-Clause]
 
