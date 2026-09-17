@@ -106,6 +106,12 @@ Several REST resources were added to support the Task Delegation feature:
 
 == Bug fixes
 
+=== Fixes in Bonita 2026.2-u2 (2026-09-18)
+
+* BPA-327 - java.lang.NullPointerException on bonita-ldap-synchronizer
+* BPA-686 - Webservice connector dependency not included by Studio in .bar file because already provided by Bonita engine, makes connector input groovy script fail
+* Several dependencies updated
+
 === Fixes in Bonita 2026.2-u1 (2026-07-17)
 
 * BPA-633 - GET bpm/archivedCase returns HTTP 404 for the whole list when a deployed started_by / startedBySubstitute user no longer exists in the organization
