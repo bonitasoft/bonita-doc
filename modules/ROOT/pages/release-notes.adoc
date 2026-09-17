@@ -519,6 +519,12 @@ The notable changes are:
 
 == Bug fixes
 
+=== Fixes in Bonita 2025.1-u10 (2026-09-18)
+
+* BPA-327 - java.lang.NullPointerException on bonita-ldap-synchronizer
+* BPA-686 - Webservice connector dependency not included by Studio in .bar file because already provided by Bonita engine, makes connector input groovy script fail
+* Several dependencies updated
+
 === Fixes in Bonita 2025.1-u9 (2026-07-17)
 
 * BPA-445 - [SAML] authentication: race condition on /favicon.ico overwrites __REDIRECT_URI session attribute, causing 404 after successful SSO login
