@@ -34,6 +34,22 @@ Bonita cluster uses Hazelcast as the distributed cluster dispatcher layer.
 Hazelcast needs the port 5701 (by default) to be opened on all the servers that compose the cluster.
 Ensure that these ports are opened in all the nodes of your cluster.
 
+[#hazelcast-port-hardening]
+IMPORTANT: For security reasons, Port 5701 must be reachable only from the other Bonita Runtime nodes of the same cluster, 
+and from nothing at all in a single-node installation. With Docker Compose, every container of a project shares
+the default network, so a compromised sibling container can reach the port; With Kubernetes, pod-to-pod traffic is
+unrestricted across namespaces unless a NetworkPolicy says otherwise, and leaving 5701 out of the Service does
+not block the pod IP. Restrict the port explicitly: a NetworkPolicy that admits only the Bonita pods, a dedicated
+network that third-party services are not attached to, or a security group or host firewall.
+A cluster member can also be bound to one address with `bonita.platform.cluster.hazelcast.interfaces.list`
+in `bonita-platform-sp-cluster-custom.properties`, for example `10.0.0.5` on a host with several networks. The value is
+a comma separated list of patterns, such as `10.0.0.*`; Hazelcast picks one address of the node matching one of them and
+the member listens on that address only, so several entries are alternatives, not several addresses to listen on. This
+property only takes effect from Bonita 2024.3-u10 (xref:version-update:product-versioning.adoc#technical-id[technical id] 10.2.10).
+Outside cluster mode a single node also starts a Hazelcast member, for its second-level cache; from 2024.3-u10 that
+member listens on loopback only, so nothing has to be done for it. Set `bonita.platform.hazelcast.interfaces.list`
+to an empty value in `bonita-platform-sp-custom.properties` if a Hazelcast client or Management Center must reach it.
+
 [#create_init_bonita_db]
 === Create and initialize the database for Bonita Platform
 
@@ -221,6 +237,63 @@ will continue until completion. Do not remove the node completely, because the l
 . Update the load balancer to remove the node from the cluster.
 
 The node is now removed from the cluster.
+
+[#work-recovery]
+=== Work recovery when a node leaves the cluster
+
+When a node leaves the cluster, whether it was stopped in a planned way or failed, the work it had started
+but not finished is taken over by one of the remaining nodes. Only one node performs that recovery: the
+others detect it is already being handled and carry on with their own work. The recovery runs in the
+background on that node, one departed node at a time, and no longer holds up the handling of other cluster
+events on it.
+
+Work that a recovery could not take over stays in the departed node's queue. It is taken over again the next
+time a node leaves or starts, and in the meantime the periodic recovery (`bonita.tenant.recover.*`) picks up
+what it covers. A node that resumes after a tenant pause resubmits the work that arrived while it was paused.
+
+Two properties limit how long that takes. Their default values suit most installations; they can be changed
+in the file `platform_engine/bonita-platform-sp-cluster-custom.properties`, together with the lease used by
+the lock service:
+
+NOTE: `bonita.platform.cluster.work.recoveryLockTimeoutSeconds` and
+`bonita.platform.cluster.work.recoveryLockLeaseSeconds` are available from Bonita 2024.3-u10
+(xref:version-update:product-versioning.adoc#technical-id[technical id] 10.2.10) onwards.
+`bonita.platform.cluster.lock.leaseTimeSeconds` is also available in earlier versions.
+
+[source,properties]
+----
+# Seconds a node waits for its turn to recover the work of a node that has left.
+bonita.platform.cluster.work.recoveryLockTimeoutSeconds=30
+# Seconds a node may spend handing over the work of a node that has left. The handover stops by
+# itself after 90% of this time; work not handed over by then is taken over again when a node next
+# leaves or starts, or picked up by the periodic recovery.
+bonita.platform.cluster.work.recoveryLockLeaseSeconds=14400
+# Seconds a lock on a process instance or a task is held before the cluster releases it.
+bonita.platform.cluster.lock.leaseTimeSeconds=600
+----
+
+These properties can also be set as Java system properties, using the name above unchanged, or as environment
+variables:
+
+[source,bash]
+----
+BONITA_PLATFORM_CLUSTER_WORK_RECOVERYLOCKTIMEOUTSECONDS=30
+BONITA_PLATFORM_CLUSTER_WORK_RECOVERYLOCKLEASESECONDS=14400
+BONITA_PLATFORM_CLUSTER_LOCK_LEASETIMESECONDS=600
+----
+
+Keep `bonita.platform.cluster.work.recoveryLockLeaseSeconds` high, in hours rather than minutes. The handover
+of a departed node's work stops by itself after 90% of the lease, so that it never outlives its lock, and the
+work not handed over by then waits for the periodic recovery. Too low a value therefore cuts short the handover
+of a large queue. Raise it if the log reports that a handover gave up because it had spent its share of the
+lease, or that a work recovery lock could not be released because its lease had expired. In the second case,
+another node may have started the same handover, and some work may have run twice.
+
+A high value has one cost: if a node hangs while holding the lease, the recovery of that node's work waits that
+long. A node that stops or fails releases the lease by leaving the cluster.
+
+Raising `bonita.platform.cluster.work.recoveryLockTimeoutSeconds` is rarely useful: on every departure all
+remaining nodes but one are expected to give up waiting, and the message reporting it is informational.
 
 === Dismantle a cluster
 
