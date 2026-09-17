@@ -55,6 +55,12 @@ See xref:process:messaging.adoc[Email Connector documentation] for more informat
 
 == Bug fixes
 
+=== Fixes in Bonita 2025.2-u10 (2026-09-18)
+
+* BPA-327 - java.lang.NullPointerException on bonita-ldap-synchronizer
+* BPA-686 - Webservice connector dependency not included by Studio in .bar file because already provided by Bonita engine, makes connector input groovy script fail
+* Several dependencies updated
+
 === Fixes in Bonita 2025.2-u9 (2026-07-17)
 
 * BPA-100 - Groovy evaluate : BDM object field is null whereas the column has a value in the database -> SQL SELECT to retrieve the BO is not executed
