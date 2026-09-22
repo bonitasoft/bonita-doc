@@ -55,7 +55,7 @@ See xref:process:messaging.adoc[Email Connector documentation] for more informat
 
 == Bug fixes
 
-=== Fixes in Bonita 2025.2-u10 (2026-09-18)
+=== Fixes in Bonita 2025.2-u11 (2026-09-23)
 
 * BPA-327 - java.lang.NullPointerException on bonita-ldap-synchronizer
 * BPA-686 - Webservice connector dependency not included by Studio in .bar file because already provided by Bonita engine, makes connector input groovy script fail
