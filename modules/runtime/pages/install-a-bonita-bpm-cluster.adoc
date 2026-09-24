@@ -35,9 +35,9 @@ Hazelcast needs the port 5701 (by default) to be opened on all the servers that 
 Ensure that these ports are opened in all the nodes of your cluster.
 
 [#hazelcast-port-hardening]
-IMPORTANT: For security reasons, Port 5701 must be reachable only from the other Bonita Runtime nodes of the same cluster, 
+IMPORTANT: For security reasons, port 5701 must be reachable only from the other Bonita Runtime nodes of the same cluster,
 and from nothing at all in a single-node installation. With Docker Compose, every container of a project shares
-the default network, so a compromised sibling container can reach the port; With Kubernetes, pod-to-pod traffic is
+the default network, so a compromised sibling container can reach the port; with Kubernetes, pod-to-pod traffic is
 unrestricted across namespaces unless a NetworkPolicy says otherwise, and leaving 5701 out of the Service does
 not block the pod IP. Restrict the port explicitly: a NetworkPolicy that admits only the Bonita pods, a dedicated
 network that third-party services are not attached to, or a security group or host firewall.
@@ -46,9 +46,12 @@ in `bonita-platform-sp-cluster-custom.properties`, for example `10.0.0.5` on a h
 a comma separated list of patterns, such as `10.0.0.*`; Hazelcast picks one address of the node matching one of them and
 the member listens on that address only, so several entries are alternatives, not several addresses to listen on. This
 property only takes effect from Bonita 2024.3-u11 (xref:version-update:product-versioning.adoc#technical-id[technical id] 10.2.11).
-Outside cluster mode a single node also starts a Hazelcast member, for its second-level cache; from 2024.3-u11 that
-member listens on loopback only, so nothing has to be done for it. Set `bonita.platform.hazelcast.interfaces.list`
-to an empty value in `bonita-platform-sp-custom.properties` if a Hazelcast client or Management Center must reach it.
+Outside cluster mode a single node also starts a Hazelcast member, for its second-level cache (the member exists only
+while `bonita.platform.persistence.use_second_level_cache` is `true`, its default); from 2024.3-u11 that member listens
+on loopback only, so nothing has to be done for it. If a Hazelcast client or Management Center must reach it, set
+`bonita.platform.hazelcast.interfaces.list` to an empty value in `bonita-platform-sp-custom.properties`, as
+`bonita.platform.hazelcast.interfaces.list=` with nothing after the equals sign. Uncommenting the line as shipped in
+that file keeps the loopback default.
 
 [#create_init_bonita_db]
 === Create and initialize the database for Bonita Platform

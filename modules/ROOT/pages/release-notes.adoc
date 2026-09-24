@@ -89,11 +89,12 @@ Note that this new API is now also available in the Community edition and provid
 
 ==== Hazelcast 5.7.0
 
-* Hazelcast, the library used by the Cluster feature, is updated from 5.4.0 to 5.7.0. If you run a cluster, read <<v2024-3-u10-cluster-update,Updating a cluster to 2024.3-u11>> before updating.
+* Hazelcast, the library used by the Cluster feature, is updated from 5.4.0 to 5.7.0. If you run a cluster, read <<v2024-3-u11-cluster-update,Updating a cluster to 2024.3-u11>> before updating.
 * Security hardening of the Hazelcast member. On a single node, the member Bonita starts for its second-level cache now
 listens on loopback only instead of on every interface.
-Set `bonita.platform.hazelcast.interfaces.list` to an empty value in `bonita-platform-sp-custom.properties` to restore
-the previous behaviour, for a deployment that attaches a Hazelcast client on purpose. In a cluster,
+To restore the previous behaviour, for a deployment that attaches a Hazelcast client on purpose, set the property to an
+empty value in `bonita-platform-sp-custom.properties`: `bonita.platform.hazelcast.interfaces.list=` with nothing after
+the equals sign. Uncommenting the line as shipped in that file keeps the loopback default. In a cluster,
 `bonita.platform.cluster.hazelcast.interfaces.list` now binds the member to one address of the node matching the
 patterns it lists, which it never did before; its default no longer names an interface. If your cluster configuration sets that property, verify its
 value or unset it before updating: a value that matches no interface of the node, harmless until now, stops the node
@@ -101,14 +102,14 @@ from starting. See
 xref:runtime:install-a-bonita-bpm-cluster.adoc#hazelcast-port-hardening[Allow communication between servers] for how to
 restrict the port.
 
-[#v2024-3-u10-cluster-update]
+[#v2024-3-u11-cluster-update]
 *Updating a cluster to 2024.3-u11*
 
 These points apply to Subscription editions running the Cluster feature. Installations that do not enable the
 Cluster feature are not affected, and Bonita Community edition does not use Hazelcast.
 
-* *All nodes must be stopped to update.* Hazelcast does not support updating the members of a cluster one at a
-time, so a node running 5.4.0 cannot join a cluster running 5.7.0. Stop every node, update them, then start
+* *All nodes must be stopped to update.* The Hazelcast edition bundled with Bonita does not support updating the
+members of a cluster one at a time, so a node running 5.4.0 cannot join a cluster running 5.7.0. Stop every node, update them, then start
 them again.
 * *No configuration change is required.* The update introduces two new cluster properties, both with default
 values, so nothing needs to be added to your configuration. See
