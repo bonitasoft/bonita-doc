@@ -45,9 +45,9 @@ A cluster member can also be bound to one address with `bonita.platform.cluster.
 in `bonita-platform-sp-cluster-custom.properties`, for example `10.0.0.5` on a host with several networks. The value is
 a comma separated list of patterns, such as `10.0.0.*`; Hazelcast picks one address of the node matching one of them and
 the member listens on that address only, so several entries are alternatives, not several addresses to listen on. This
-property only takes effect from Bonita 2025.1-u11 (xref:version-update:product-versioning.adoc#technical-id[technical id] 10.3.11).
+property only takes effect from Bonita 2025.2-u11 (xref:version-update:product-versioning.adoc#technical-id[technical id] 10.4.11).
 Outside cluster mode a single node also starts a Hazelcast member, for its second-level cache (the member exists only
-while `bonita.platform.persistence.use_second_level_cache` is `true`, its default); from 2025.1-u11 that member listens
+while `bonita.platform.persistence.use_second_level_cache` is `true`, its default); from 2025.2-u11 that member listens
 on loopback only, so nothing has to be done for it. If a Hazelcast client or Management Center must reach it, set
 `bonita.platform.hazelcast.interfaces.list` to an empty value in `bonita-platform-sp-custom.properties`, as
 `bonita.platform.hazelcast.interfaces.list=` with nothing after the equals sign. Uncommenting the line as shipped in
@@ -259,8 +259,8 @@ in the file `platform_engine/bonita-platform-sp-cluster-custom.properties`, toge
 the lock service:
 
 NOTE: `bonita.platform.cluster.work.recoveryLockTimeoutSeconds` and
-`bonita.platform.cluster.work.recoveryLockLeaseSeconds` are available from Bonita 2025.1-u11
-(xref:version-update:product-versioning.adoc#technical-id[technical id] 10.3.11) onwards.
+`bonita.platform.cluster.work.recoveryLockLeaseSeconds` are available from Bonita 2025.2-u11
+(xref:version-update:product-versioning.adoc#technical-id[technical id] 10.4.11) onwards.
 `bonita.platform.cluster.lock.leaseTimeSeconds` is also available in earlier versions.
 
 [source,properties]
