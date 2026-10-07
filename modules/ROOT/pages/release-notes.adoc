@@ -104,6 +104,38 @@ so expect a different magnitude and a value that varies with load. A lock whose 
 released is now reported as an error instead of a warning; if you raise alerts on errors from the cluster
 lock service, you may start seeing them for a condition that was already being reported at a lower level.
 
+[[v2025.2-u11-security-fixes]]
+*Security fixes*
+
+* CVE-524: bcprov-jdk18on - In Bouncy Castle for Java before 1.85, RSA PKCS#1 verification skips last two hash bytes in NULL-omitte (public CVE-2026-12860)
+* CVE-525: bcprov-jdk18on - In Bouncy Castle for Java before 1.85, Lazy ASN.1 sequence forcing resets nesting-depth guard. This iss (public CVE-2026-13506)
+* CVE-527: bcprov-jdk18on - In Bouncy Castle for Java before 1.85, Possible OOM from unbounded up-front allocation on a definite-le (public CVE-2026-14682)
+* CVE-536: bcprov-jdk18on - In Bouncy Castle for Java before 1.85, Quadratic-time escaping when stringifying X.500 distinguished na (public CVE-2026-58059)
+* CVE-564: hazelcast - Authorization bypass in IMap Predicates API (public XRAY-1043284)
+* CVE-565: hazelcast - Arbitrary member memory access by low-privileged client (public XRAY-1043285)
+* CVE-578: postgresql - pgjdbc is an open source postgresql JDBC Driver. In releases 42.7.4 through 42.7.11, channelBinding=require (public CVE-2026-54291)
+* CVE-622: agetty - util-linux versions through 2.41.5 and 2.42.2 fail to check mount helper exit status before running post-mount  (public CVE-2026-76642)
+* CVE-623: agetty - The nsenter --join-cgroup option opens the target cgroup.procs file as root and leaves that file descriptor ope (public CVE-2026-78408)
+* CVE-624: agetty - The X-mount.subdir option uses a detached-tree fast path on Linux 6.15 and later and passes the configured subd (public CVE-2026-78409)
+* CVE-625: agetty - A flaw was found in util-linux. Restricted bind mounts take the source path from fstab but do not pin that sour (public CVE-2026-78410)
+* CVE-627: curl - A flaw in the libcurl SASL negotiation for LDAP authentication allows an incomplete handshake sequence to be misi (public CVE-2026-13608)
+* CVE-628: curl - A flaw in libcurl's handling of HTTP/2 Server Push streams, when the parent handle is set to share connections wi (public CVE-2026-18924)
+* CVE-629: curl - A flaw in libcurl makes it wrongly reuse an HTTP connection setup for a given hostname using Negotiate authentica (public CVE-2026-19931)
+* CVE-630: libexpat - In libexpat 2.8.2 and 2.8.3 before 2.8.4, misinterpretation of getentropy's return code leads to insufficient (public CVE-2026-76956)
+* CVE-631: libexpat - libexpat before 2.8.4 lacks handler call depth tracking with custom encoding callbacks. Thus, a use-after-fre (public CVE-2026-76957)
+* CVE-632: curl - When performing transfers via libcurl’s multi interface, pooled TLS connections can outlive their originating eas (public CVE-2026-80229)
+* CVE-633: curl - When `CURLOPT_PINNEDPUBLICKEY` is configured alongside options that disable standard peer verification (`CURLOPT_ (public CVE-2026-80230)
+* CVE-634: curl - A flaw in libcurl makes it wrongly reuse an existing HTTPS connection setup for a given hostname even when using  (public CVE-2026-80231)
+* CVE-635: curl - A `Set-Cookie:` header using tab (horizontal tab, ASCII code 9) instead of space (ascii code 32) immediately befo (public CVE-2026-80255)
+* CVE-636: curl - With the wolfSSL backend, when CA caching is enabled and an `CURLOPT_SSL_CTX_FUNCTION` callback replaces the trus (public CVE-2026-82208)
+* CVE-637: curl - When libpsl support is enabled, libcurl fails to enforce the Public Suffix List boundary check when processing a  (public CVE-2026-82209)
+
+[[v2025.2-u11-ldap-security-fixes]]
+*Security fixes — LDAP Synchronizer*
+
+* CVE-630: libexpat - In libexpat 2.8.2 and 2.8.3 before 2.8.4, misinterpretation of getentropy's return code leads to insufficient (public CVE-2026-76956)
+* CVE-631: libexpat - libexpat before 2.8.4 lacks handler call depth tracking with custom encoding callbacks. Thus, a use-after-fre (public CVE-2026-76957)
+
 === Fixes in Bonita 2025.2-u9 (2026-07-17)
 
 * BPA-100 - Groovy evaluate : BDM object field is null whereas the column has a value in the database -> SQL SELECT to retrieve the BO is not executed
