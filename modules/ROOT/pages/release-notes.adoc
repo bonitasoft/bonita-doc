@@ -90,17 +90,22 @@ Note that this new API is now also available in the Community edition and provid
 ==== Hazelcast 5.7.0
 
 * Hazelcast, the library used by the Cluster feature, is updated from 5.4.0 to 5.7.0. If you run a cluster, read <<v2024-3-u11-cluster-update,Updating a cluster to 2024.3-u11>> before updating.
-* Security hardening of the Hazelcast member. On a single node, the member Bonita starts for its second-level cache now
-listens on loopback only instead of on every interface.
-To restore the previous behaviour, for a deployment that attaches a Hazelcast client on purpose, set the property to an
-empty value in `bonita-platform-sp-custom.properties`: `bonita.platform.hazelcast.interfaces.list=` with nothing after
-the equals sign. Uncommenting the line as shipped in that file keeps the loopback default. In a cluster,
-`bonita.platform.cluster.hazelcast.interfaces.list` now binds the member to one address of the node matching the
-patterns it lists, which it never did before; its default no longer names an interface. If your cluster configuration sets that property, verify its
-value or unset it before updating: a value that matches no interface of the node, harmless until now, stops the node
-from starting. See
-xref:runtime:install-a-bonita-bpm-cluster.adoc#hazelcast-port-hardening[Allow communication between servers] for how to
-restrict the port.
+* Security hardening of the Hazelcast member. Two properties are involved, one per deployment mode.
+** *Single node (Cluster feature not enabled).* The Hazelcast member that Bonita starts for its second-level cache now
+listens on loopback (`127.0.0.1`) only; it used to listen on every interface. This is controlled by a new property,
+`bonita.platform.hazelcast.interfaces.list`, whose default is `127.0.0.1`. Nothing to do, unless a Hazelcast client or
+Management Center connects to that member from another host. In that case, in `bonita-platform-sp-custom.properties`,
+uncomment the line and remove its value so that it reads `bonita.platform.hazelcast.interfaces.list=`: the member then
+listens on every interface as before. Uncommenting the line without removing the value keeps the loopback default.
+** *Cluster.* The default behaviour does not change: members keep listening on every interface, which they need to
+reach each other. The existing property `bonita.platform.cluster.hazelcast.interfaces.list`, in
+`bonita-platform-sp-cluster-custom.properties`, had no effect until now: Bonita set the list without enabling it, so
+Hazelcast ignored it. From this version, a value binds the member to the one address of the node that matches it.
+*Before updating, check whether your cluster configuration sets this property.* A value that matches no address of the
+node was harmless until now and stops the node from starting from this version. Unset it, or set it to an address the
+node has.
+** See xref:runtime:install-a-bonita-bpm-cluster.adoc#hazelcast-port-hardening[Allow communication between servers]
+for how to restrict port 5701.
 
 [#v2024-3-u11-cluster-update]
 *Updating a cluster to 2024.3-u11*
