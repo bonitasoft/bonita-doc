@@ -36,6 +36,7 @@
    **** xref:applications.adoc[Applications]
   *** xref:administrator-application-index.adoc[Bonita Administrator application]
    **** xref:admin-application-overview.adoc[Overview]
+   **** xref:admin-application-newlook.adoc[New Look (SP)]
    **** xref:process-management-index.adoc[Process Management]
     ***** xref:process-manager-application.adoc[Create a process manager application]
     ***** xref:monitoring.adoc[Monitoring]
