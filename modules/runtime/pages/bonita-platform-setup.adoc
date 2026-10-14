@@ -131,18 +131,14 @@ Keep in mind that the folder *`platform_conf/initial`* is not used anymore once 
 [#example-customize-tenant-property]
 === Example: customize a tenant property
 
-Tenant-level configuration files, such as `console-config.properties`, are part of the configuration managed by the _Bonita Setup tool_. To change one of their properties:
+See xref:runtime:configuring-bonita-with-properties.adoc#setup-tool-pull-push[Changing a property in database via the Setup Tool] for the general `pull` / edit / `push` procedure.
 
-. Run `setup.sh pull` (or `setup.bat pull` on Windows) to retrieve the current configuration into `platform_conf/current`.
-. Edit the relevant file, for example `platform_conf/current/tenants/<TENANT_ID>/tenant_portal/console-config.properties` (or `platform_conf/current/tenant_template_portal/console-config.properties` to apply the change to every tenant created from now on). +
-For instance, to customize the xref:data:documents.adoc#document-allowed-extensions[file extensions accepted by generic file upload widgets and forms], set:
-+
+Tenant-level configuration files, such as `console-config.properties`, are changed this way. For example, the property controlling the xref:data:documents.adoc#document-allowed-extensions[file extensions accepted by generic file upload widgets and forms] is found in `platform_conf/current/tenants/<TENANT_ID>/tenant_portal/console-config.properties` (or `platform_conf/current/tenant_template_portal/console-config.properties` to apply the change to every tenant created from now on):
+
 [source,properties]
 ----
 form.attachment.allowed.extensions=pdf,docx,png,tif
 ----
-. Run `setup.sh push` (or `setup.bat push`) to apply the configuration to the database.
-. Restart Bonita Platform for the change to be taken into account.
 
 [#configure_tool]
 
