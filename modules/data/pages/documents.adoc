@@ -145,20 +145,30 @@ For the V6 forms, you also need to change the `form.attachment.max.size` propert
 The maximum document size cannot exceed the capacity of the database column. This value depends on your database. This setting applies to all processes in the tenant.
 This maximum document size will also depend on your web server configuration, it can't be more than the maximum post size of the web server.
 
+[#document-allowed-extensions]
 === Document allowed file extensions setting
 
 By default, Bonita restricts the file types that can be uploaded through generic file upload widgets and forms to the following list of common business formats: `pdf`, `doc`, `docx`, `xls`, `xlsx`, `ppt`, `pptx`, `txt`, `csv`, `json`, `jpg`, `jpeg`, `png`, `gif`, `bmp`.
 
-You can customize this whitelist in your production environment by setting the `form.attachment.allowed.extensions` property in the `console-config.properties` file of your tenant, as a comma-separated list of extensions (without the leading dot):
+In addition to the extension check, Bonita verifies that the actual content of an uploaded file is consistent with its extension and declared content type, so a file cannot bypass the whitelist by being renamed to an allowed extension.
+
+==== Override the default whitelist
+
+To accept other file extensions than the default list (or to restrict it further), set the `form.attachment.allowed.extensions` property in the `console-config.properties` file of your tenant, using the xref:runtime:bonita-platform-setup.adoc[Bonita Setup tool], as a comma-separated list of extensions (without the leading dot):
 
 [source,properties]
 ----
-form.attachment.allowed.extensions=pdf,docx,png
+form.attachment.allowed.extensions=pdf,docx,png,tif
 ----
 
-If the property is left empty or not set, the default whitelist above is used. This setting applies to all processes in the tenant, and modifications are applied after a server restart.
+* If the property is left empty or not set, the default whitelist above is used.
+* This setting applies to all processes and all generic file upload widgets/forms of the tenant: it cannot be customized per process or per widget.
+* The server must be restarted for the change to be taken into account.
 
-In addition to the extension check, Bonita verifies that the actual content of an uploaded file is consistent with its extension and declared content type, so a file cannot bypass the whitelist by being renamed to an allowed extension.
+[NOTE]
+====
+Only widen this whitelist to extensions that your business processes actually need. Extensions added this way are still checked against the declared content-type, but content-level verification (matching the actual file bytes against the extension) is only available for the formats Bonita already recognizes internally; for other extensions, only the name of the uploaded file is checked.
+====
 
 [discrete]
 ==== Document versioning in a process instance
