@@ -154,7 +154,7 @@ In addition to the extension check, Bonita verifies that the actual content of a
 
 ==== Override the default whitelist
 
-To accept other file extensions than the default list (or to restrict it further), set the `form.attachment.allowed.extensions` property in the `console-config.properties` file of your tenant, using the xref:runtime:bonita-platform-setup.adoc[Bonita Setup tool], as a comma-separated list of extensions (without the leading dot):
+To accept other file extensions than the default list (or to restrict it further), set the `form.attachment.allowed.extensions` property in the `console-config.properties` file of your tenant, using the xref:runtime:bonita-platform-setup.adoc#example-customize-tenant-property[Bonita Setup tool], as a comma-separated list of extensions (without the leading dot):
 
 [source,properties]
 ----
