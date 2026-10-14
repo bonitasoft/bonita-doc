@@ -145,6 +145,21 @@ For the V6 forms, you also need to change the `form.attachment.max.size` propert
 The maximum document size cannot exceed the capacity of the database column. This value depends on your database. This setting applies to all processes in the tenant.
 This maximum document size will also depend on your web server configuration, it can't be more than the maximum post size of the web server.
 
+=== Document allowed file extensions setting
+
+By default, Bonita restricts the file types that can be uploaded through generic file upload widgets and forms to the following list of common business formats: `pdf`, `doc`, `docx`, `xls`, `xlsx`, `ppt`, `pptx`, `txt`, `csv`, `json`, `jpg`, `jpeg`, `png`, `gif`, `bmp`.
+
+You can customize this whitelist in your production environment by setting the `form.attachment.allowed.extensions` property in the `console-config.properties` file of your tenant, as a comma-separated list of extensions (without the leading dot):
+
+[source,properties]
+----
+form.attachment.allowed.extensions=pdf,docx,png
+----
+
+If the property is left empty or not set, the default whitelist above is used. This setting applies to all processes in the tenant, and modifications are applied after a server restart.
+
+In addition to the extension check, Bonita verifies that the actual content of an uploaded file is consistent with its extension and declared content type, so a file cannot bypass the whitelist by being renamed to an allowed extension.
+
 [discrete]
 ==== Document versioning in a process instance
 
