@@ -128,6 +128,18 @@ Eg. `setup.sh help configure`
 Keep in mind that the folder *`platform_conf/initial`* is not used anymore once the platform has been initialized for the first time. To update your configuration, only the *`platform_conf/current`* folder is taken into account.
 ====
 
+[#example-customize-tenant-property]
+=== Example: customize a tenant property
+
+See xref:runtime:configuring-bonita-with-properties.adoc#setup-tool-pull-push[Changing a property in database via the Setup Tool] for the general `pull` / edit / `push` procedure.
+
+Tenant-level configuration files, such as `console-config.properties`, are changed this way. For example, the property controlling the xref:data:documents.adoc#document-allowed-extensions[file extensions accepted by generic file upload widgets and forms] is found in `platform_conf/current/tenants/<TENANT_ID>/tenant_portal/console-config.properties` (or `platform_conf/current/tenant_template_portal/console-config.properties` to apply the change to every tenant created from now on):
+
+[source,properties]
+----
+form.attachment.allowed.extensions=pdf,docx,png,tif
+----
+
 [#configure_tool]
 
 == Pre-requisites

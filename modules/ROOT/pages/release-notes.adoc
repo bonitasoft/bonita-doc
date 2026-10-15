@@ -73,6 +73,10 @@ The result of your test is generated in an HTML file including BPMN diagrams, ex
 
 When using the end point portal/fileUpload to upload a file before using it in Bonita REST API or a REST API extension, the size of the file that can be uploaded is now limited to 25MB. This can be changed in the configuration file `console-config.properties` using the setup tool, but be aware that this will affect upload limit for all users.
 
+=== File upload allowed extensions
+
+Generic file upload widgets and forms now restrict uploaded files to a default whitelist of common business file extensions (`pdf`, `doc`, `docx`, `xls`, `xlsx`, `ppt`, `pptx`, `txt`, `csv`, `json`, `jpg`, `jpeg`, `png`, `gif`, `bmp`), and verify that the content of the uploaded file actually matches its extension and declared content type. This whitelist can be customized using the `form.attachment.allowed.extensions` property in the `console-config.properties` file, see xref:data:documents.adoc#document-allowed-extensions[Document allowed file extensions setting] for details. This change affects all users of the tenant.
+
 == Feature deprecations and removals
 
 === Legacy custom connectors and actor filters
