@@ -45,13 +45,13 @@ network that third-party services are not attached to, or a security group or ho
 Two properties control the address the Hazelcast member listens on, one per deployment mode:
 
 * *Cluster.* By default a member listens on every interface, so that its peers can reach it. On a host with several
-networks, `bonita.platform.cluster.hazelcast.interfaces.list` in `bonita-platform-sp-cluster-custom.properties` binds
-the member to one address, for example `10.0.0.5`. The value is a comma separated list of patterns, such as `10.0.0.*`;
+networks, the optional property `bonita.platform.cluster.hazelcast.interfaces.list` in
+`bonita-platform-sp-cluster-custom.properties` binds the member to one address, for example `10.0.0.5`. The value is a comma separated list of patterns, such as `10.0.0.*`;
 Hazelcast picks one address of the node matching one of them and the member listens on that address only, so several
-entries are alternatives, not several addresses to listen on. This property only takes effect from Bonita 2024.3-u11
-(xref:version-update:product-versioning.adoc#technical-id[technical id] 10.2.11); before, Bonita set the list without
-enabling it and Hazelcast ignored it, so a value that matches no address of the node was harmless and now stops the
-node from starting.
+entries are alternatives, not several addresses to listen on. This property is available from Bonita 2024.3-u11
+(xref:version-update:product-versioning.adoc#technical-id[technical id] 10.2.11). Earlier versions read a property of
+that name without applying it: if your configuration already sets it, make sure its value matches an address of the
+node, or the node does not start.
 * *Single node (Cluster feature not enabled).* A single node also starts a Hazelcast member, for its second-level
 cache; the member exists only while `bonita.platform.persistence.use_second_level_cache` is `true`, its default. From
 2024.3-u11 that member listens on loopback (`127.0.0.1`) only, the default of the property
