@@ -1,4 +1,4 @@
-= Bonita Runtime dependencies (11.1.3)
+= Bonita Runtime dependencies (12.0.0.alpha-01)
 :page-aliases: ROOT:bonita-web-dependencies.adoc, ROOT:bonita-engine-dependencies.adoc
 :description: List all dependencies used by Bonita Runtime
 
@@ -10,7 +10,7 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.22.0
+| 2.22.4
 | N/A
 |  N/A
 
@@ -22,69 +22,75 @@
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.22.0
+| 2.22.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.22.0
+| 2.22.4
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.sun.activation
 | jakarta.activation
-| 1.2.2
+| 2.0.1
 | https://www.eclipse.org[https://www.eclipse.org]
 |  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | com.sun.istack
 | istack-commons-runtime
-| 3.0.7
-| http://www.oracle.com/[http://www.oracle.com/]
-|  https://glassfish.java.net/public/CDDL+GPL_1_1.html[GPL2 w/ CPE]
+| 4.1.2
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
-| com.sun.xml.fastinfoset
-| FastInfoset
-| 1.2.15
-| http://www.oracle.com[http://www.oracle.com]
-|  http://www.opensource.org/licenses/apache2.0.php[Apache License, Version 2.0]
+| jakarta.activation
+| jakarta.activation-api
+| 2.1.4
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
-| javax.xml.bind
-| jaxb-api
-| 2.3.1
-| http://www.oracle.com/[http://www.oracle.com/]
-|  https://oss.oracle.com/licenses/CDDL+GPL-1.1[GPL2 w/ CPE]
+| jakarta.xml.bind
+| jakarta.xml.bind-api
+| 4.0.5
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
+
+| org.eclipse.angus
+| angus-activation
+| 2.0.3
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.glassfish.hk2
 | osgi-resource-locator
-| 2.4.0
-| http://www.oracle.com[http://www.oracle.com]
-|  https://glassfish.java.net/nonav/public/CDDL+GPL_1_1.html[CDDL + GPLv2 with classpath exception]
+| 3.0.0
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
+
+| org.glassfish.jaxb
+| jaxb-core
+| 4.0.9
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.glassfish.jaxb
 | jaxb-runtime
-| 2.3.1
-| N/A
-|  http://glassfish.java.net/public/CDDL+GPL_1_1.html[CDDL+GPL License]
+| 4.0.9
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.glassfish.jaxb
 | txw2
-| 2.3.1
-| N/A
-|  http://glassfish.java.net/public/CDDL+GPL_1_1.html[CDDL+GPL License]
-
-| org.jvnet.staxex
-| stax-ex
-| 1.8
-| http://stax-ex.java.net/[http://stax-ex.java.net/]
-|  https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html[Dual license consisting of the CDDL v1.1 and GPL v2]
+| 4.0.9
+| https://eclipse-ee4j.github.io/jaxb-ri/[https://eclipse-ee4j.github.io/jaxb-ri/]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.slf4j
 | slf4j-api
-| 1.7.36
+| 2.0.18
 | http://www.slf4j.org[http://www.slf4j.org]
-|  http://www.opensource.org/licenses/mit-license.php[MIT License]
+|  https://opensource.org/license/mit[MIT]
 |=== 
 
 == bonita-client
@@ -94,7 +100,7 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.22.0
+| 2.22.4
 | N/A
 |  N/A
 
@@ -106,33 +112,27 @@
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.22.0
+| 2.22.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.22.0
+| 2.22.4
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.sun.activation
 | jakarta.activation
-| 1.2.2
+| 2.0.1
 | https://www.eclipse.org[https://www.eclipse.org]
 |  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | com.sun.istack
 | istack-commons-runtime
-| 3.0.7
-| http://www.oracle.com/[http://www.oracle.com/]
-|  https://glassfish.java.net/public/CDDL+GPL_1_1.html[GPL2 w/ CPE]
-
-| com.sun.xml.fastinfoset
-| FastInfoset
-| 1.2.15
-| http://www.oracle.com[http://www.oracle.com]
-|  http://www.opensource.org/licenses/apache2.0.php[Apache License, Version 2.0]
+| 4.1.2
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | com.thoughtworks.xstream
 | xstream
@@ -158,11 +158,17 @@
 | http://x-stream.github.io/mxparser[http://x-stream.github.io/mxparser]
 |  https://raw.githubusercontent.com/x-stream/mxparser/master/LICENSE.txt[Indiana University Extreme! Lab Software License]
 
-| javax.xml.bind
-| jaxb-api
-| 2.3.1
-| http://www.oracle.com/[http://www.oracle.com/]
-|  https://oss.oracle.com/licenses/CDDL+GPL-1.1[GPL2 w/ CPE]
+| jakarta.activation
+| jakarta.activation-api
+| 2.1.4
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
+
+| jakarta.xml.bind
+| jakarta.xml.bind-api
+| 4.0.5
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.apache.httpcomponents
 | httpclient
@@ -182,35 +188,41 @@
 | http://hc.apache.org/httpcomponents-client-ga[http://hc.apache.org/httpcomponents-client-ga]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
+| org.eclipse.angus
+| angus-activation
+| 2.0.3
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
+
 | org.glassfish.hk2
 | osgi-resource-locator
-| 2.4.0
-| http://www.oracle.com[http://www.oracle.com]
-|  https://glassfish.java.net/nonav/public/CDDL+GPL_1_1.html[CDDL + GPLv2 with classpath exception]
+| 3.0.0
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
+
+| org.glassfish.jaxb
+| jaxb-core
+| 4.0.9
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.glassfish.jaxb
 | jaxb-runtime
-| 2.3.1
-| N/A
-|  http://glassfish.java.net/public/CDDL+GPL_1_1.html[CDDL+GPL License]
+| 4.0.9
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.glassfish.jaxb
 | txw2
-| 2.3.1
-| N/A
-|  http://glassfish.java.net/public/CDDL+GPL_1_1.html[CDDL+GPL License]
-
-| org.jvnet.staxex
-| stax-ex
-| 1.8
-| http://stax-ex.java.net/[http://stax-ex.java.net/]
-|  https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html[Dual license consisting of the CDDL v1.1 and GPL v2]
+| 4.0.9
+| https://eclipse-ee4j.github.io/jaxb-ri/[https://eclipse-ee4j.github.io/jaxb-ri/]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.slf4j
 | slf4j-api
-| 1.7.36
+| 2.0.18
 | http://www.slf4j.org[http://www.slf4j.org]
-|  http://www.opensource.org/licenses/mit-license.php[MIT License]
+|  https://opensource.org/license/mit[MIT]
 
 | xmlpull
 | xmlpull
@@ -232,15 +244,15 @@
 
 | ch.qos.logback
 | logback-classic
-| 1.2.13
+| 1.5.38
 | http://www.qos.ch[http://www.qos.ch]
-|  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
+|  https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[LGPL-2.1-only]
 
 | ch.qos.logback
 | logback-core
-| 1.2.13
+| 1.5.38
 | http://www.qos.ch[http://www.qos.ch]
-|  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
+|  https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[LGPL-2.1-only]
 
 | com.fasterxml
 | classmate
@@ -250,7 +262,7 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.22.0
+| 2.22.4
 | N/A
 |  N/A
 
@@ -262,39 +274,39 @@
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.22.0
+| 2.22.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.22.0
+| 2.22.4
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-yaml
-| 2.22.0
+| 2.22.4
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
+| com.github.javaparser
+| javaparser-core
+| 3.28.0
+| https://javaparser.org[https://javaparser.org]
+|  http://www.gnu.org/licenses/lgpl-3.0.html[GNU Lesser General Public License]
+
 | com.sun.activation
 | jakarta.activation
-| 1.2.2
+| 2.0.1
 | https://www.eclipse.org[https://www.eclipse.org]
 |  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | com.sun.istack
 | istack-commons-runtime
-| 3.0.7
-| http://www.oracle.com/[http://www.oracle.com/]
-|  https://glassfish.java.net/public/CDDL+GPL_1_1.html[GPL2 w/ CPE]
-
-| com.sun.xml.fastinfoset
-| FastInfoset
-| 1.2.15
-| http://www.oracle.com[http://www.oracle.com]
-|  http://www.opensource.org/licenses/apache2.0.php[Apache License, Version 2.0]
+| 4.1.2
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | com.thoughtworks.qdox
 | qdox
@@ -318,12 +330,6 @@
 | commons-beanutils
 | 1.11.0
 | https://commons.apache.org/proper/commons-beanutils[https://commons.apache.org/proper/commons-beanutils]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
-
-| commons-fileupload
-| commons-fileupload
-| 1.6.0
-| https://commons.apache.org/proper/commons-fileupload/[https://commons.apache.org/proper/commons-fileupload/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | commons-io
@@ -362,41 +368,41 @@
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
+| jakarta.activation
+| jakarta.activation-api
+| 2.1.4
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
+
+| jakarta.annotation
+| jakarta.annotation-api
+| 2.1.1
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
+
+| jakarta.persistence
+| jakarta.persistence-api
+| 3.0.0
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
+
 | jakarta.transaction
 | jakarta.transaction-api
-| 1.3.3
+| 2.0.1
 | https://projects.eclipse.org/projects/ee4j.jta[https://projects.eclipse.org/projects/ee4j.jta]
 |  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
 
-| javax.activation
-| javax.activation-api
-| 1.2.0
-| http://www.oracle.com[http://www.oracle.com]
-|  https://opensource.org/licenses/CDDL-1.0[COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0]
-
-| javax.annotation
-| javax.annotation-api
-| 1.3.2
-| https://javaee.github.io/glassfish[https://javaee.github.io/glassfish]
-|  https://opensource.org/licenses/CDDL-1.0[COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0]
+| jakarta.xml.bind
+| jakarta.xml.bind-api
+| 4.0.5
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | javax.cache
 | cache-api
 | 1.1.0
 | https://github.com/jsr107/jsr107spec[https://github.com/jsr107/jsr107spec]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
-
-| javax.persistence
-| javax.persistence-api
-| 2.2
-| https://github.com/javaee/jpa-spec[https://github.com/javaee/jpa-spec]
-|  http://www.eclipse.org/legal/epl-v10.html[Eclipse Public License v1.0]
-
-| javax.xml.bind
-| jaxb-api
-| 2.3.1
-| http://www.oracle.com/[http://www.oracle.com/]
-|  https://oss.oracle.com/licenses/CDDL+GPL-1.1[GPL2 w/ CPE]
 
 | jline
 | jline
@@ -410,15 +416,33 @@
 | N/A
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
+| org.abego.treelayout
+| org.abego.treelayout.core
+| 1.0.3
+| http://treelayout.sourceforge.net[http://treelayout.sourceforge.net]
+|  http://www.abego-software.de/legal/apl-v10.html[BSD 3-Clause "New" or "Revised" License (BSD-3-Clause)]
+
 | org.apache.commons
 | commons-collections4
-| 4.5.0
+| 4.6.0
 | https://commons.apache.org/proper/commons-collections/[https://commons.apache.org/proper/commons-collections/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | org.apache.commons
+| commons-fileupload2-core
+| 2.0.0-M5
+| https://commons.apache.org/proper/commons-fileupload/commons-fileupload2-core/[https://commons.apache.org/proper/commons-fileupload/commons-fileupload2-core/]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
+
+| org.apache.commons
+| commons-fileupload2-jakarta-servlet6
+| 2.0.0-M5
+| https://commons.apache.org/proper/commons-fileupload/commons-fileupload2-jakarta-servlet6/[https://commons.apache.org/proper/commons-fileupload/commons-fileupload2-jakarta-servlet6/]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
+
+| org.apache.commons
 | commons-lang3
-| 3.20.0
+| 3.21.0
 | https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
@@ -428,111 +452,129 @@
 | https://commons.apache.org/proper/commons-text[https://commons.apache.org/proper/commons-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
+| org.apache.groovy
+| groovy
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-bom
+| 4.0.32
+| N/A
+|  N/A
+
+| org.apache.groovy
+| groovy-console
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-datetime
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-dateutil
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-docgenerator
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-groovysh
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-jmx
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-json
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-jsr223
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-nio
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-sql
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-swing
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-templates
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-xml
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-yaml
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.ivy
+| ivy
+| 2.5.3
+| https://ant.apache.org/ivy/[https://ant.apache.org/ivy/]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
 | org.aspectj
 | aspectjweaver
 | 1.9.25.1
 | https://www.eclipse.org/aspectj/[https://www.eclipse.org/aspectj/]
 |  https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt[Eclipse Public License - v 2.0]
 
-| org.codehaus.groovy
-| groovy
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+| org.dom4j
+| dom4j
+| 2.1.3
+| http://dom4j.github.io/[http://dom4j.github.io/]
+|  https://github.com/dom4j/dom4j/blob/master/LICENSE[BSD 3-clause New License]
 
-| org.codehaus.groovy
-| groovy-console
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-datetime
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-dateutil
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-docgenerator
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-groovysh
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-jmx
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-json
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-jsr223
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-nio
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-servlet
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-sql
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-swing
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-templates
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-xml
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-yaml
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+| org.eclipse.angus
+| angus-activation
+| 2.0.3
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.eclipse.jdt
 | ecj
-| 3.46.0
+| 3.46.100
 | https://github.com/eclipse-jdt/eclipse.jdt.core/[https://github.com/eclipse-jdt/eclipse.jdt.core/]
 |  http://www.eclipse.org/legal/epl-2.0[Eclipse Public License Version 2.0]
 
@@ -544,27 +586,33 @@
 
 | org.glassfish.hk2
 | osgi-resource-locator
-| 2.4.0
-| http://www.oracle.com[http://www.oracle.com]
-|  https://glassfish.java.net/nonav/public/CDDL+GPL_1_1.html[CDDL + GPLv2 with classpath exception]
+| 3.0.0
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
 
 | org.glassfish.jaxb
 | codemodel
-| 2.3.9
+| 4.0.9
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
+
+| org.glassfish.jaxb
+| jaxb-core
+| 4.0.9
 | https://www.eclipse.org[https://www.eclipse.org]
 |  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.glassfish.jaxb
 | jaxb-runtime
-| 2.3.1
-| N/A
-|  http://glassfish.java.net/public/CDDL+GPL_1_1.html[CDDL+GPL License]
+| 4.0.9
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.glassfish.jaxb
 | txw2
-| 2.3.1
-| N/A
-|  http://glassfish.java.net/public/CDDL+GPL_1_1.html[CDDL+GPL License]
+| 4.0.9
+| https://eclipse-ee4j.github.io/jaxb-ri/[https://eclipse-ee4j.github.io/jaxb-ri/]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.hdrhistogram
 | HdrHistogram
@@ -573,7 +621,7 @@
 |  http://creativecommons.org/publicdomain/zero/1.0/[Public Domain, per Creative Commons CC0]
 
 | org.hibernate
-| hibernate-core
+| hibernate-core-jakarta
 | 5.6.15.Final
 | https://hibernate.org/orm/5.6[https://hibernate.org/orm/5.6]
 |  https://www.opensource.org/licenses/LGPL-2.1[GNU Library General Public License v2.1 or later]
@@ -602,23 +650,11 @@
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
-| org.jboss.spec.javax.transaction
-| jboss-transaction-api_1.2_spec
-| 1.1.1.Final
-| http://www.jboss.org[http://www.jboss.org]
-|  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
-
 | org.jspecify
 | jspecify
 | 1.0.0
 | https://jspecify.dev/docs/start-here[https://jspecify.dev/docs/start-here]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache License, Version 2.0]
-
-| org.jvnet.staxex
-| stax-ex
-| 1.8
-| http://stax-ex.java.net/[http://stax-ex.java.net/]
-|  https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html[Dual license consisting of the CDDL v1.1 and GPL v2]
 
 | org.latencyutils
 | LatencyUtils
@@ -626,87 +662,111 @@
 | http://latencyutils.github.io/LatencyUtils/[http://latencyutils.github.io/LatencyUtils/]
 |  http://creativecommons.org/publicdomain/zero/1.0/[Public Domain, per Creative Commons CC0]
 
+| org.ow2.asm
+| asm
+| 9.9.1
+| http://asm.ow2.org[http://asm.ow2.org]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.ow2.asm
+| asm-analysis
+| 9.9.1
+| http://asm.ow2.org[http://asm.ow2.org]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.ow2.asm
+| asm-tree
+| 9.9.1
+| http://asm.ow2.org[http://asm.ow2.org]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.ow2.asm
+| asm-util
+| 9.9.1
+| http://asm.ow2.org[http://asm.ow2.org]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
 | org.quartz-scheduler
 | quartz
-| 2.3.2
-| http://www.terracotta.org[http://www.terracotta.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+| 2.5.2
+| https://www.quartz-scheduler.org/[https://www.quartz-scheduler.org/]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache License, Version 2.0]
 
 | org.slf4j
 | slf4j-api
-| 1.7.36
+| 2.0.18
 | http://www.slf4j.org[http://www.slf4j.org]
-|  http://www.opensource.org/licenses/mit-license.php[MIT License]
+|  https://opensource.org/license/mit[MIT]
 
 | org.springframework
 | spring-aop
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jdbc
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-tx
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-web
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot
-| 2.7.18
+| 3.5.16
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-autoconfigure
-| 2.7.18
+| 3.5.16
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.session
 | spring-session-core
-| 2.7.4
+| 3.5.7
 | https://spring.io/projects/spring-session[https://spring.io/projects/spring-session]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -736,7 +796,7 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.22.0
+| 2.22.4
 | N/A
 |  N/A
 
@@ -748,19 +808,19 @@
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.22.0
+| 2.22.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.22.0
+| 2.22.4
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.woodstox
 | woodstox-core
-| 7.2.1
+| 7.2.2
 | https://github.com/FasterXML/woodstox[https://github.com/FasterXML/woodstox]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -771,40 +831,22 @@
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.googlecode.owasp-java-html-sanitizer
-| java10-shim
-| 20260313.1
-| https://github.com/OWASP/java-html-sanitizer[https://github.com/OWASP/java-html-sanitizer]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
-
-| com.googlecode.owasp-java-html-sanitizer
-| java8-shim
-| 20260313.1
-| https://github.com/OWASP/java-html-sanitizer[https://github.com/OWASP/java-html-sanitizer]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
-
-| com.googlecode.owasp-java-html-sanitizer
 | owasp-java-html-sanitizer
-| 20260313.1
+| 20261011.1
 | https://owasp.org[https://owasp.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+|  https://opensource.org/licenses/BSD-2-Clause[BSD 2-Clause License]
 
 | com.sun.activation
 | jakarta.activation
-| 1.2.2
+| 2.0.1
 | https://www.eclipse.org[https://www.eclipse.org]
 |  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | com.sun.istack
 | istack-commons-runtime
-| 3.0.7
-| http://www.oracle.com/[http://www.oracle.com/]
-|  https://glassfish.java.net/public/CDDL+GPL_1_1.html[GPL2 w/ CPE]
-
-| com.sun.xml.fastinfoset
-| FastInfoset
-| 1.2.15
-| http://www.oracle.com[http://www.oracle.com]
-|  http://www.opensource.org/licenses/apache2.0.php[Apache License, Version 2.0]
+| 4.1.2
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | com.thoughtworks.xstream
 | xstream
@@ -829,12 +871,6 @@
 | 3.2.2
 | http://commons.apache.org/collections/[http://commons.apache.org/collections/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
-
-| commons-fileupload
-| commons-fileupload
-| 1.6.0
-| https://commons.apache.org/proper/commons-fileupload/[https://commons.apache.org/proper/commons-fileupload/]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | commons-io
 | commons-io
@@ -872,17 +908,23 @@
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
-| jakarta.servlet.jsp.jstl
-| jakarta.servlet.jsp.jstl-api
-| 1.2.7
+| jakarta.activation
+| jakarta.activation-api
+| 2.1.4
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
+
+| jakarta.servlet
+| jakarta.servlet-api
+| 6.0.0
 | https://www.eclipse.org[https://www.eclipse.org]
 |  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
 
-| javax.activation
-| javax.activation-api
-| 1.2.0
-| http://www.oracle.com[http://www.oracle.com]
-|  https://opensource.org/licenses/CDDL-1.0[COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0]
+| jakarta.xml.bind
+| jakarta.xml.bind-api
+| 4.0.5
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | javax.cache
 | cache-api
@@ -890,33 +932,27 @@
 | https://github.com/jsr107/jsr107spec[https://github.com/jsr107/jsr107spec]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
-| javax.servlet
-| javax.servlet-api
-| 4.0.1
-| https://javaee.github.io/servlet-spec/[https://javaee.github.io/servlet-spec/]
-|  https://opensource.org/licenses/CDDL-1.0[COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0]
-
-| javax.xml.bind
-| jaxb-api
-| 2.3.1
-| http://www.oracle.com/[http://www.oracle.com/]
-|  https://oss.oracle.com/licenses/CDDL+GPL-1.1[GPL2 w/ CPE]
-
-| junit
-| junit
-| 4.10
-| http://junit.org[http://junit.org]
-|  http://www.opensource.org/licenses/cpl1.0.txt[Common Public License Version 1.0]
-
 | org.apache.commons
 | commons-collections4
-| 4.5.0
+| 4.6.0
 | https://commons.apache.org/proper/commons-collections/[https://commons.apache.org/proper/commons-collections/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | org.apache.commons
+| commons-fileupload2-core
+| 2.0.0-M5
+| https://commons.apache.org/proper/commons-fileupload/commons-fileupload2-core/[https://commons.apache.org/proper/commons-fileupload/commons-fileupload2-core/]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
+
+| org.apache.commons
+| commons-fileupload2-jakarta-servlet6
+| 2.0.0-M5
+| https://commons.apache.org/proper/commons-fileupload/commons-fileupload2-jakarta-servlet6/[https://commons.apache.org/proper/commons-fileupload/commons-fileupload2-jakarta-servlet6/]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
+
+| org.apache.commons
 | commons-lang3
-| 3.20.0
+| 3.21.0
 | https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
@@ -925,6 +961,18 @@
 | 1.15.0
 | https://commons.apache.org/proper/commons-text[https://commons.apache.org/proper/commons-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
+
+| org.apache.groovy
+| groovy
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-bom
+| 4.0.32
+| N/A
+|  N/A
 
 | org.apache.httpcomponents
 | httpclient
@@ -946,21 +994,21 @@
 
 | org.apache.xbean
 | xbean-classloader
-| 4.30
-| http://geronimo.apache.org/maven/xbean/4.30/xbean-classloader[http://geronimo.apache.org/maven/xbean/4.30/xbean-classloader]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+| 5.0.0
+| http://geronimo.apache.org/maven/xbean/5.0.0/xbean-classloader[http://geronimo.apache.org/maven/xbean/5.0.0/xbean-classloader]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | org.codehaus.woodstox
 | stax2-api
 | 4.3.0
 | http://github.com/FasterXML/stax2-api[http://github.com/FasterXML/stax2-api]
 |  http://www.opensource.org/licenses/bsd-license.php[The BSD 2-Clause License]
+
+| org.eclipse.angus
+| angus-activation
+| 2.0.3
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.ehcache
 | ehcache
@@ -976,33 +1024,27 @@
 
 | org.glassfish.hk2
 | osgi-resource-locator
-| 2.4.0
-| http://www.oracle.com[http://www.oracle.com]
-|  https://glassfish.java.net/nonav/public/CDDL+GPL_1_1.html[CDDL + GPLv2 with classpath exception]
-
-| org.glassfish.jaxb
-| jaxb-runtime
-| 2.3.1
-| N/A
-|  http://glassfish.java.net/public/CDDL+GPL_1_1.html[CDDL+GPL License]
-
-| org.glassfish.jaxb
-| txw2
-| 2.3.1
-| N/A
-|  http://glassfish.java.net/public/CDDL+GPL_1_1.html[CDDL+GPL License]
-
-| org.glassfish.web
-| jakarta.servlet.jsp.jstl
-| 1.2.6
+| 3.0.0
 | https://www.eclipse.org[https://www.eclipse.org]
 |  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
 
-| org.hamcrest
-| hamcrest-core
-| 1.1
-| N/A
-|  http://www.opensource.org/licenses/bsd-license.php[BSD style]
+| org.glassfish.jaxb
+| jaxb-core
+| 4.0.9
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
+
+| org.glassfish.jaxb
+| jaxb-runtime
+| 4.0.9
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
+
+| org.glassfish.jaxb
+| txw2
+| 4.0.9
+| https://eclipse-ee4j.github.io/jaxb-ri/[https://eclipse-ee4j.github.io/jaxb-ri/]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.hdrhistogram
 | HdrHistogram
@@ -1016,12 +1058,6 @@
 | https://jspecify.dev/docs/start-here[https://jspecify.dev/docs/start-here]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache License, Version 2.0]
 
-| org.jvnet.staxex
-| stax-ex
-| 1.8
-| http://stax-ex.java.net/[http://stax-ex.java.net/]
-|  https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html[Dual license consisting of the CDDL v1.1 and GPL v2]
-
 | org.latencyutils
 | LatencyUtils
 | 2.0.3
@@ -1030,73 +1066,73 @@
 
 | org.slf4j
 | slf4j-api
-| 1.7.36
+| 2.0.18
 | http://www.slf4j.org[http://www.slf4j.org]
-|  http://www.opensource.org/licenses/mit-license.php[MIT License]
+|  https://opensource.org/license/mit[MIT]
 
 | org.springframework
 | spring-aop
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-web
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-webmvc
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot
-| 2.7.18
+| 3.5.16
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-autoconfigure
-| 2.7.18
+| 3.5.16
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.tuckey
 | urlrewritefilter
-| 4.0.4
+| 5.1.3
 | http://www.tuckey.org/urlrewrite/[http://www.tuckey.org/urlrewrite/]
 |  http://www.opensource.org/licenses/bsd-license.php[BSD]
 
@@ -1114,19 +1150,19 @@
 
 | ch.qos.logback
 | logback-classic
-| 1.2.13
+| 1.5.38
 | http://www.qos.ch[http://www.qos.ch]
-|  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
+|  https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[LGPL-2.1-only]
 
 | ch.qos.logback
 | logback-core
-| 1.2.13
+| 1.5.38
 | http://www.qos.ch[http://www.qos.ch]
-|  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
+|  https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[LGPL-2.1-only]
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.22.0
+| 2.22.4
 | N/A
 |  N/A
 
@@ -1138,13 +1174,13 @@
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.22.0
+| 2.22.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.22.0
+| 2.22.4
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1156,9 +1192,9 @@
 
 | com.zaxxer
 | HikariCP
-| 4.0.3
+| 6.3.3
 | https://github.com/brettwooldridge/HikariCP[https://github.com/brettwooldridge/HikariCP]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | commons-cli
 | commons-cli
@@ -1172,9 +1208,21 @@
 | https://commons.apache.org/proper/commons-io/[https://commons.apache.org/proper/commons-io/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
+| io.micrometer
+| micrometer-commons
+| 1.15.12
+| https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| io.micrometer
+| micrometer-observation
+| 1.15.12
+| https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
 | jakarta.annotation
 | jakarta.annotation-api
-| 1.3.5
+| 2.1.1
 | https://www.eclipse.org[https://www.eclipse.org]
 |  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
 
@@ -1198,85 +1246,85 @@
 
 | org.slf4j
 | slf4j-api
-| 1.7.36
+| 2.0.18
 | http://www.slf4j.org[http://www.slf4j.org]
-|  http://www.opensource.org/licenses/mit-license.php[MIT License]
+|  https://opensource.org/license/mit[MIT]
 
 | org.springframework
 | spring-aop
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jdbc
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-tx
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot
-| 2.7.18
+| 3.5.16
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-autoconfigure
-| 2.7.18
+| 3.5.16
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-starter
-| 2.7.18
+| 3.5.16
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-starter-jdbc
-| 2.7.18
+| 3.5.16
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-starter-logging
-| 2.7.18
+| 3.5.16
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 |=== 
@@ -1288,7 +1336,7 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.22.0
+| 2.22.4
 | N/A
 |  N/A
 
@@ -1300,69 +1348,75 @@
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.22.0
+| 2.22.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.22.0
+| 2.22.4
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.sun.activation
 | jakarta.activation
-| 1.2.2
+| 2.0.1
 | https://www.eclipse.org[https://www.eclipse.org]
 |  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | com.sun.istack
 | istack-commons-runtime
-| 3.0.7
-| http://www.oracle.com/[http://www.oracle.com/]
-|  https://glassfish.java.net/public/CDDL+GPL_1_1.html[GPL2 w/ CPE]
+| 4.1.2
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
-| com.sun.xml.fastinfoset
-| FastInfoset
-| 1.2.15
-| http://www.oracle.com[http://www.oracle.com]
-|  http://www.opensource.org/licenses/apache2.0.php[Apache License, Version 2.0]
+| jakarta.activation
+| jakarta.activation-api
+| 2.1.4
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
-| javax.xml.bind
-| jaxb-api
-| 2.3.1
-| http://www.oracle.com/[http://www.oracle.com/]
-|  https://oss.oracle.com/licenses/CDDL+GPL-1.1[GPL2 w/ CPE]
+| jakarta.xml.bind
+| jakarta.xml.bind-api
+| 4.0.5
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
+
+| org.eclipse.angus
+| angus-activation
+| 2.0.3
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.glassfish.hk2
 | osgi-resource-locator
-| 2.4.0
-| http://www.oracle.com[http://www.oracle.com]
-|  https://glassfish.java.net/nonav/public/CDDL+GPL_1_1.html[CDDL + GPLv2 with classpath exception]
+| 3.0.0
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
+
+| org.glassfish.jaxb
+| jaxb-core
+| 4.0.9
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.glassfish.jaxb
 | jaxb-runtime
-| 2.3.1
-| N/A
-|  http://glassfish.java.net/public/CDDL+GPL_1_1.html[CDDL+GPL License]
+| 4.0.9
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.glassfish.jaxb
 | txw2
-| 2.3.1
-| N/A
-|  http://glassfish.java.net/public/CDDL+GPL_1_1.html[CDDL+GPL License]
-
-| org.jvnet.staxex
-| stax-ex
-| 1.8
-| http://stax-ex.java.net/[http://stax-ex.java.net/]
-|  https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html[Dual license consisting of the CDDL v1.1 and GPL v2]
+| 4.0.9
+| https://eclipse-ee4j.github.io/jaxb-ri/[https://eclipse-ee4j.github.io/jaxb-ri/]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.slf4j
 | slf4j-api
-| 1.7.36
+| 2.0.18
 | http://www.slf4j.org[http://www.slf4j.org]
-|  http://www.opensource.org/licenses/mit-license.php[MIT License]
+|  https://opensource.org/license/mit[MIT]
 |=== 
 
 == bonita-client-sp
@@ -1372,7 +1426,7 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.22.0
+| 2.22.4
 | N/A
 |  N/A
 
@@ -1384,33 +1438,27 @@
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.22.0
+| 2.22.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.22.0
+| 2.22.4
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.sun.activation
 | jakarta.activation
-| 1.2.2
+| 2.0.1
 | https://www.eclipse.org[https://www.eclipse.org]
 |  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | com.sun.istack
 | istack-commons-runtime
-| 3.0.7
-| http://www.oracle.com/[http://www.oracle.com/]
-|  https://glassfish.java.net/public/CDDL+GPL_1_1.html[GPL2 w/ CPE]
-
-| com.sun.xml.fastinfoset
-| FastInfoset
-| 1.2.15
-| http://www.oracle.com[http://www.oracle.com]
-|  http://www.opensource.org/licenses/apache2.0.php[Apache License, Version 2.0]
+| 4.1.2
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | com.thoughtworks.xstream
 | xstream
@@ -1436,11 +1484,17 @@
 | http://x-stream.github.io/mxparser[http://x-stream.github.io/mxparser]
 |  https://raw.githubusercontent.com/x-stream/mxparser/master/LICENSE.txt[Indiana University Extreme! Lab Software License]
 
-| javax.xml.bind
-| jaxb-api
-| 2.3.1
-| http://www.oracle.com/[http://www.oracle.com/]
-|  https://oss.oracle.com/licenses/CDDL+GPL-1.1[GPL2 w/ CPE]
+| jakarta.activation
+| jakarta.activation-api
+| 2.1.4
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
+
+| jakarta.xml.bind
+| jakarta.xml.bind-api
+| 4.0.5
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.apache.httpcomponents
 | httpclient
@@ -1460,35 +1514,41 @@
 | http://hc.apache.org/httpcomponents-client-ga[http://hc.apache.org/httpcomponents-client-ga]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
+| org.eclipse.angus
+| angus-activation
+| 2.0.3
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
+
 | org.glassfish.hk2
 | osgi-resource-locator
-| 2.4.0
-| http://www.oracle.com[http://www.oracle.com]
-|  https://glassfish.java.net/nonav/public/CDDL+GPL_1_1.html[CDDL + GPLv2 with classpath exception]
+| 3.0.0
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
+
+| org.glassfish.jaxb
+| jaxb-core
+| 4.0.9
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.glassfish.jaxb
 | jaxb-runtime
-| 2.3.1
-| N/A
-|  http://glassfish.java.net/public/CDDL+GPL_1_1.html[CDDL+GPL License]
+| 4.0.9
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.glassfish.jaxb
 | txw2
-| 2.3.1
-| N/A
-|  http://glassfish.java.net/public/CDDL+GPL_1_1.html[CDDL+GPL License]
-
-| org.jvnet.staxex
-| stax-ex
-| 1.8
-| http://stax-ex.java.net/[http://stax-ex.java.net/]
-|  https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html[Dual license consisting of the CDDL v1.1 and GPL v2]
+| 4.0.9
+| https://eclipse-ee4j.github.io/jaxb-ri/[https://eclipse-ee4j.github.io/jaxb-ri/]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.slf4j
 | slf4j-api
-| 1.7.36
+| 2.0.18
 | http://www.slf4j.org[http://www.slf4j.org]
-|  http://www.opensource.org/licenses/mit-license.php[MIT License]
+|  https://opensource.org/license/mit[MIT]
 
 | xmlpull
 | xmlpull
@@ -1510,15 +1570,15 @@
 
 | ch.qos.logback
 | logback-classic
-| 1.2.13
+| 1.5.38
 | http://www.qos.ch[http://www.qos.ch]
-|  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
+|  https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[LGPL-2.1-only]
 
 | ch.qos.logback
 | logback-core
-| 1.2.13
+| 1.5.38
 | http://www.qos.ch[http://www.qos.ch]
-|  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
+|  https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[LGPL-2.1-only]
 
 | com.fasterxml
 | classmate
@@ -1528,7 +1588,7 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.22.0
+| 2.22.4
 | N/A
 |  N/A
 
@@ -1540,19 +1600,19 @@
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.22.0
+| 2.22.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.22.0
+| 2.22.4
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-yaml
-| 2.22.0
+| 2.22.4
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1562,6 +1622,12 @@
 | https://github.com/bohnman/squiggly-filter-jackson[https://github.com/bohnman/squiggly-filter-jackson]
 |  https://raw.githubusercontent.com/bohnman/squiggly-filter-jackson/master/LICENSE.md[BSD License]
 
+| com.github.javaparser
+| javaparser-core
+| 3.28.0
+| https://javaparser.org[https://javaparser.org]
+|  http://www.gnu.org/licenses/lgpl-3.0.html[GNU Lesser General Public License]
+
 | com.github.stephenc.jcip
 | jcip-annotations
 | 1.0-1
@@ -1570,7 +1636,7 @@
 
 | com.google.errorprone
 | error_prone_annotations
-| 2.47.0
+| 2.50.0
 | https://errorprone.info/error_prone_annotations[https://errorprone.info/error_prone_annotations]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache 2.0]
 
@@ -1582,7 +1648,7 @@
 
 | com.google.guava
 | guava
-| 33.6.0-jre
+| 33.7.2-jre
 | https://github.com/google/guava/[https://github.com/google/guava/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -1618,21 +1684,15 @@
 
 | com.sun.activation
 | jakarta.activation
-| 1.2.2
+| 2.0.1
 | https://www.eclipse.org[https://www.eclipse.org]
 |  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | com.sun.istack
 | istack-commons-runtime
-| 3.0.7
-| http://www.oracle.com/[http://www.oracle.com/]
-|  https://glassfish.java.net/public/CDDL+GPL_1_1.html[GPL2 w/ CPE]
-
-| com.sun.xml.fastinfoset
-| FastInfoset
-| 1.2.15
-| http://www.oracle.com[http://www.oracle.com]
-|  http://www.opensource.org/licenses/apache2.0.php[Apache License, Version 2.0]
+| 4.1.2
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | com.thoughtworks.qdox
 | qdox
@@ -1669,12 +1729,6 @@
 | 3.2.2
 | http://commons.apache.org/collections/[http://commons.apache.org/collections/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
-
-| commons-fileupload
-| commons-fileupload
-| 1.6.0
-| https://commons.apache.org/proper/commons-fileupload/[https://commons.apache.org/proper/commons-fileupload/]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | commons-io
 | commons-io
@@ -1730,47 +1784,41 @@
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
+| jakarta.activation
+| jakarta.activation-api
+| 2.1.4
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
+
 | jakarta.annotation
 | jakarta.annotation-api
-| 1.3.5
+| 2.1.1
 | https://www.eclipse.org[https://www.eclipse.org]
 |  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
 
+| jakarta.persistence
+| jakarta.persistence-api
+| 3.0.0
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
+
 | jakarta.transaction
 | jakarta.transaction-api
-| 1.3.3
+| 2.0.1
 | https://projects.eclipse.org/projects/ee4j.jta[https://projects.eclipse.org/projects/ee4j.jta]
 |  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
 
-| javax.activation
-| javax.activation-api
-| 1.2.0
-| http://www.oracle.com[http://www.oracle.com]
-|  https://opensource.org/licenses/CDDL-1.0[COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0]
-
-| javax.annotation
-| javax.annotation-api
-| 1.3.2
-| https://javaee.github.io/glassfish[https://javaee.github.io/glassfish]
-|  https://opensource.org/licenses/CDDL-1.0[COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0]
+| jakarta.xml.bind
+| jakarta.xml.bind-api
+| 4.0.5
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | javax.cache
 | cache-api
 | 1.1.1
 | https://github.com/jsr107/jsr107spec[https://github.com/jsr107/jsr107spec]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
-
-| javax.persistence
-| javax.persistence-api
-| 2.2
-| https://github.com/javaee/jpa-spec[https://github.com/javaee/jpa-spec]
-|  http://www.eclipse.org/legal/epl-v10.html[Eclipse Public License v1.0]
-
-| javax.xml.bind
-| jaxb-api
-| 2.3.1
-| http://www.oracle.com/[http://www.oracle.com/]
-|  https://oss.oracle.com/licenses/CDDL+GPL-1.1[GPL2 w/ CPE]
 
 | jline
 | jline
@@ -1796,6 +1844,12 @@
 | http://jtidy.sourceforge.net[http://jtidy.sourceforge.net]
 |  http://jtidy.svn.sourceforge.net/viewvc/jtidy/trunk/jtidy/LICENSE.txt?revision=95[Java HTML Tidy License]
 
+| org.abego.treelayout
+| org.abego.treelayout.core
+| 1.0.3
+| http://treelayout.sourceforge.net[http://treelayout.sourceforge.net]
+|  http://www.abego-software.de/legal/apl-v10.html[BSD 3-Clause "New" or "Revised" License (BSD-3-Clause)]
+
 | org.antlr
 | antlr4-runtime
 | 4.7.2
@@ -1804,13 +1858,25 @@
 
 | org.apache.commons
 | commons-collections4
-| 4.5.0
+| 4.6.0
 | https://commons.apache.org/proper/commons-collections/[https://commons.apache.org/proper/commons-collections/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | org.apache.commons
+| commons-fileupload2-core
+| 2.0.0-M5
+| https://commons.apache.org/proper/commons-fileupload/commons-fileupload2-core/[https://commons.apache.org/proper/commons-fileupload/commons-fileupload2-core/]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
+
+| org.apache.commons
+| commons-fileupload2-jakarta-servlet6
+| 2.0.0-M5
+| https://commons.apache.org/proper/commons-fileupload/commons-fileupload2-jakarta-servlet6/[https://commons.apache.org/proper/commons-fileupload/commons-fileupload2-jakarta-servlet6/]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
+
+| org.apache.commons
 | commons-lang3
-| 3.20.0
+| 3.21.0
 | https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
@@ -1819,6 +1885,102 @@
 | 1.15.0
 | https://commons.apache.org/proper/commons-text[https://commons.apache.org/proper/commons-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
+
+| org.apache.groovy
+| groovy
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-bom
+| 4.0.32
+| N/A
+|  N/A
+
+| org.apache.groovy
+| groovy-console
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-datetime
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-dateutil
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-docgenerator
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-groovysh
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-jmx
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-json
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-jsr223
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-nio
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-sql
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-swing
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-templates
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-xml
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-yaml
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.apache.httpcomponents
 | httpclient
@@ -1831,6 +1993,12 @@
 | 4.4.16
 | http://hc.apache.org/httpcomponents-core-ga[http://hc.apache.org/httpcomponents-core-ga]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+
+| org.apache.ivy
+| ivy
+| 2.5.3
+| https://ant.apache.org/ivy/[https://ant.apache.org/ivy/]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | org.apereo.cas.client
 | cas-client-core
@@ -1862,105 +2030,21 @@
 | https://www.bouncycastle.org/download/bouncy-castle-java/[https://www.bouncycastle.org/download/bouncy-castle-java/]
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
-| org.codehaus.groovy
-| groovy
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+| org.dom4j
+| dom4j
+| 2.1.3
+| http://dom4j.github.io/[http://dom4j.github.io/]
+|  https://github.com/dom4j/dom4j/blob/master/LICENSE[BSD 3-clause New License]
 
-| org.codehaus.groovy
-| groovy-console
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-datetime
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-dateutil
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-docgenerator
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-groovysh
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-jmx
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-json
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-jsr223
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-nio
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-servlet
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-sql
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-swing
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-templates
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-xml
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| org.codehaus.groovy
-| groovy-yaml
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+| org.eclipse.angus
+| angus-activation
+| 2.0.3
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.eclipse.jdt
 | ecj
-| 3.46.0
+| 3.46.100
 | https://github.com/eclipse-jdt/eclipse.jdt.core/[https://github.com/eclipse-jdt/eclipse.jdt.core/]
 |  http://www.eclipse.org/legal/epl-2.0[Eclipse Public License Version 2.0]
 
@@ -1972,27 +2056,33 @@
 
 | org.glassfish.hk2
 | osgi-resource-locator
-| 2.4.0
-| http://www.oracle.com[http://www.oracle.com]
-|  https://glassfish.java.net/nonav/public/CDDL+GPL_1_1.html[CDDL + GPLv2 with classpath exception]
+| 3.0.0
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
 
 | org.glassfish.jaxb
 | codemodel
-| 2.3.9
+| 4.0.9
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
+
+| org.glassfish.jaxb
+| jaxb-core
+| 4.0.9
 | https://www.eclipse.org[https://www.eclipse.org]
 |  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.glassfish.jaxb
 | jaxb-runtime
-| 2.3.1
-| N/A
-|  http://glassfish.java.net/public/CDDL+GPL_1_1.html[CDDL+GPL License]
+| 4.0.9
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.glassfish.jaxb
 | txw2
-| 2.3.1
-| N/A
-|  http://glassfish.java.net/public/CDDL+GPL_1_1.html[CDDL+GPL License]
+| 4.0.9
+| https://eclipse-ee4j.github.io/jaxb-ri/[https://eclipse-ee4j.github.io/jaxb-ri/]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.hdrhistogram
 | HdrHistogram
@@ -2001,7 +2091,7 @@
 |  http://creativecommons.org/publicdomain/zero/1.0/[Public Domain, per Creative Commons CC0]
 
 | org.hibernate
-| hibernate-core
+| hibernate-core-jakarta
 | 5.6.15.Final
 | https://hibernate.org/orm/5.6[https://hibernate.org/orm/5.6]
 |  https://www.opensource.org/licenses/LGPL-2.1[GNU Library General Public License v2.1 or later]
@@ -2036,23 +2126,11 @@
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
-| org.jboss.spec.javax.transaction
-| jboss-transaction-api_1.2_spec
-| 1.1.1.Final
-| http://www.jboss.org[http://www.jboss.org]
-|  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
-
 | org.jspecify
 | jspecify
-| 1.0.0
+| 1.0.1
 | https://jspecify.dev/docs/start-here[https://jspecify.dev/docs/start-here]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache License, Version 2.0]
-
-| org.jvnet.staxex
-| stax-ex
-| 1.8
-| http://stax-ex.java.net/[http://stax-ex.java.net/]
-|  https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html[Dual license consisting of the CDDL v1.1 and GPL v2]
 
 | org.latencyutils
 | LatencyUtils
@@ -2060,93 +2138,117 @@
 | http://latencyutils.github.io/LatencyUtils/[http://latencyutils.github.io/LatencyUtils/]
 |  http://creativecommons.org/publicdomain/zero/1.0/[Public Domain, per Creative Commons CC0]
 
+| org.ow2.asm
+| asm
+| 9.9.1
+| http://asm.ow2.org[http://asm.ow2.org]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.ow2.asm
+| asm-analysis
+| 9.9.1
+| http://asm.ow2.org[http://asm.ow2.org]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.ow2.asm
+| asm-tree
+| 9.9.1
+| http://asm.ow2.org[http://asm.ow2.org]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.ow2.asm
+| asm-util
+| 9.9.1
+| http://asm.ow2.org[http://asm.ow2.org]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
 | org.quartz-scheduler
 | quartz
-| 2.3.2
-| http://www.terracotta.org[http://www.terracotta.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+| 2.5.2
+| https://www.quartz-scheduler.org/[https://www.quartz-scheduler.org/]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache License, Version 2.0]
 
 | org.slf4j
 | slf4j-api
-| 1.7.36
+| 2.0.18
 | http://www.slf4j.org[http://www.slf4j.org]
-|  http://www.opensource.org/licenses/mit-license.php[MIT License]
+|  https://opensource.org/license/mit[MIT]
 
 | org.springframework
 | spring-aop
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jdbc
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-tx
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-web
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot
-| 2.7.18
+| 3.5.16
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-autoconfigure
-| 2.7.18
+| 3.5.16
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.session
 | spring-session-core
-| 2.7.4
+| 3.5.7
 | https://spring.io/projects/spring-session[https://spring.io/projects/spring-session]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.session
 | spring-session-hazelcast
-| 2.7.4
+| 3.5.7
 | https://spring.io/projects/spring-session[https://spring.io/projects/spring-session]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
@@ -2174,9 +2276,15 @@
 | http://www.antlr.org/[http://www.antlr.org/]
 |  http://www.antlr.org/license.html[BSD License]
 
+| com.fasterxml
+| classmate
+| 1.5.1
+| https://github.com/FasterXML/java-classmate[https://github.com/FasterXML/java-classmate]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
 | com.fasterxml.jackson
 | jackson-bom
-| 2.22.0
+| 2.22.4
 | N/A
 |  N/A
 
@@ -2188,19 +2296,19 @@
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.22.0
+| 2.22.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.22.0
+| 2.22.4
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.woodstox
 | woodstox-core
-| 7.2.1
+| 7.2.2
 | https://github.com/FasterXML/woodstox[https://github.com/FasterXML/woodstox]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -2211,22 +2319,10 @@
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.googlecode.owasp-java-html-sanitizer
-| java10-shim
-| 20260313.1
-| https://github.com/OWASP/java-html-sanitizer[https://github.com/OWASP/java-html-sanitizer]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
-
-| com.googlecode.owasp-java-html-sanitizer
-| java8-shim
-| 20260313.1
-| https://github.com/OWASP/java-html-sanitizer[https://github.com/OWASP/java-html-sanitizer]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
-
-| com.googlecode.owasp-java-html-sanitizer
 | owasp-java-html-sanitizer
-| 20260313.1
+| 20261011.1
 | https://owasp.org[https://owasp.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+|  https://opensource.org/licenses/BSD-2-Clause[BSD 2-Clause License]
 
 | com.hazelcast
 | hazelcast
@@ -2236,51 +2332,39 @@
 
 | com.sun.activation
 | jakarta.activation
-| 1.2.2
+| 2.0.1
 | https://www.eclipse.org[https://www.eclipse.org]
 |  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
-| com.sun.activation
-| javax.activation
-| 1.2.0
-| http://www.oracle.com[http://www.oracle.com]
-|  https://opensource.org/licenses/CDDL-1.0[COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0]
-
 | com.sun.istack
 | istack-commons-runtime
-| 3.0.7
-| http://www.oracle.com/[http://www.oracle.com/]
-|  https://glassfish.java.net/public/CDDL+GPL_1_1.html[GPL2 w/ CPE]
-
-| com.sun.xml.fastinfoset
-| FastInfoset
-| 1.2.15
-| http://www.oracle.com[http://www.oracle.com]
-|  http://www.opensource.org/licenses/apache2.0.php[Apache License, Version 2.0]
+| 4.1.2
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | com.sun.xml.messaging.saaj
 | saaj-impl
-| 1.5.0
-| N/A
-|  https://oss.oracle.com/licenses/CDDL+GPL-1.1[CDDL + GPLv2 with classpath exception]
+| 2.0.1
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | com.sun.xml.stream.buffer
 | streambuffer
-| 1.5.6
-| http://xmlstreambuffer.java.net/[http://xmlstreambuffer.java.net/]
-|  https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html[Dual license consisting of the CDDL v1.1 and GPL v2]
+| 2.1.0
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | com.sun.xml.ws
 | policy
-| 2.7.5
-| http://www.oracle.com/[http://www.oracle.com/]
-|  http://glassfish.java.net/public/CDDL+GPL_1_1.html[Dual License: CDDL 1.0 and GPL V2 with Classpath Exception]
+| 4.0.0
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | com.sun.xml.ws
 | rt
-| 2.3.1
+| 4.0.0
 | N/A
-|  https://oss.oracle.com/licenses/CDDL+GPL-1.1[CDDL + GPLv2 with classpath exception]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | com.thoughtworks.xstream
 | xstream
@@ -2312,12 +2396,6 @@
 | http://commons.apache.org/digester/[http://commons.apache.org/digester/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
-| commons-fileupload
-| commons-fileupload
-| 1.6.0
-| https://commons.apache.org/proper/commons-fileupload/[https://commons.apache.org/proper/commons-fileupload/]
-|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
-
 | commons-io
 | commons-io
 | 2.22.0
@@ -2326,13 +2404,13 @@
 
 | commons-logging
 | commons-logging
-| 1.3.5
+| 1.4.0
 | https://commons.apache.org/proper/commons-logging/[https://commons.apache.org/proper/commons-logging/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | commons-validator
 | commons-validator
-| 1.10.1
+| 1.11.0
 | https://commons.apache.org/proper/commons-validator/[https://commons.apache.org/proper/commons-validator/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
@@ -2360,15 +2438,27 @@
 | https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
+| jakarta.activation
+| jakarta.activation-api
+| 2.1.4
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
+
 | jakarta.annotation
 | jakarta.annotation-api
-| 1.3.5
+| 2.1.1
 | https://www.eclipse.org[https://www.eclipse.org]
 |  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
 
-| jakarta.servlet.jsp.jstl
-| jakarta.servlet.jsp.jstl-api
-| 1.2.7
+| jakarta.mail
+| jakarta.mail-api
+| 2.1.0
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
+
+| jakarta.servlet
+| jakarta.servlet-api
+| 6.0.0
 | https://www.eclipse.org[https://www.eclipse.org]
 |  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
 
@@ -2378,23 +2468,23 @@
 | https://www.eclipse.org[https://www.eclipse.org]
 |  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
-| javax.activation
-| activation
-| 1.1
-| http://java.sun.com/products/javabeans/jaf/index.jsp[http://java.sun.com/products/javabeans/jaf/index.jsp]
-|  https://glassfish.dev.java.net/public/CDDLv1.0.html[Common Development and Distribution License (CDDL) v1.0]
+| jakarta.xml.bind
+| jakarta.xml.bind-api
+| 4.0.5
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
-| javax.activation
-| javax.activation-api
-| 1.2.0
-| http://www.oracle.com[http://www.oracle.com]
-|  https://opensource.org/licenses/CDDL-1.0[COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0]
+| jakarta.xml.soap
+| jakarta.xml.soap-api
+| 3.0.0
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
-| javax.annotation
-| javax.annotation-api
-| 1.3.2
-| https://javaee.github.io/glassfish[https://javaee.github.io/glassfish]
-|  https://opensource.org/licenses/CDDL-1.0[COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0]
+| jakarta.xml.ws
+| jakarta.xml.ws-api
+| 4.0.0
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | javax.cache
 | cache-api
@@ -2402,51 +2492,27 @@
 | https://github.com/jsr107/jsr107spec[https://github.com/jsr107/jsr107spec]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
-| javax.jws
-| javax.jws-api
-| 1.1
-| https://glassfish.java.net[https://glassfish.java.net]
-|  https://opensource.org/licenses/CDDL-1.0[COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0]
-
-| javax.servlet
-| javax.servlet-api
-| 4.0.1
-| https://javaee.github.io/servlet-spec/[https://javaee.github.io/servlet-spec/]
-|  https://opensource.org/licenses/CDDL-1.0[COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0]
-
-| javax.xml.bind
-| jaxb-api
-| 2.4.0-b180830.0359
-| http://www.oracle.com/[http://www.oracle.com/]
-|  https://oss.oracle.com/licenses/CDDL+GPL-1.1[GPL2 w/ CPE]
-
-| javax.xml.soap
-| javax.xml.soap-api
-| 1.4.0
-| https://javaee.github.io/javaee-spec/[https://javaee.github.io/javaee-spec/]
-|  https://opensource.org/licenses/CDDL-1.0[COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0]
-
-| javax.xml.ws
-| jaxws-api
-| 2.3.1
-| https://github.com/javaee/jax-ws-spec[https://github.com/javaee/jax-ws-spec]
-|  https://github.com/javaee/jax-ws-spec/blob/master/LICENSE.md[CDDL + GPLv2 with classpath exception]
-
-| junit
-| junit
-| 4.10
-| http://junit.org[http://junit.org]
-|  http://www.opensource.org/licenses/cpl1.0.txt[Common Public License Version 1.0]
-
 | org.apache.commons
 | commons-collections4
-| 4.5.0
+| 4.6.0
 | https://commons.apache.org/proper/commons-collections/[https://commons.apache.org/proper/commons-collections/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | org.apache.commons
+| commons-fileupload2-core
+| 2.0.0-M5
+| https://commons.apache.org/proper/commons-fileupload/commons-fileupload2-core/[https://commons.apache.org/proper/commons-fileupload/commons-fileupload2-core/]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
+
+| org.apache.commons
+| commons-fileupload2-jakarta-servlet6
+| 2.0.0-M5
+| https://commons.apache.org/proper/commons-fileupload/commons-fileupload2-jakarta-servlet6/[https://commons.apache.org/proper/commons-fileupload/commons-fileupload2-jakarta-servlet6/]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
+
+| org.apache.commons
 | commons-lang3
-| 3.20.0
+| 3.21.0
 | https://commons.apache.org/proper/commons-lang/[https://commons.apache.org/proper/commons-lang/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
@@ -2455,6 +2521,18 @@
 | 1.15.0
 | https://commons.apache.org/proper/commons-text[https://commons.apache.org/proper/commons-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
+
+| org.apache.groovy
+| groovy
+| 4.0.32
+| https://groovy-lang.org[https://groovy-lang.org]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| org.apache.groovy
+| groovy-bom
+| 4.0.32
+| N/A
+|  N/A
 
 | org.apache.httpcomponents
 | httpclient
@@ -2482,9 +2560,9 @@
 
 | org.apache.xbean
 | xbean-classloader
-| 4.30
-| http://geronimo.apache.org/maven/xbean/4.30/xbean-classloader[http://geronimo.apache.org/maven/xbean/4.30/xbean-classloader]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+| 5.0.0
+| http://geronimo.apache.org/maven/xbean/5.0.0/xbean-classloader[http://geronimo.apache.org/maven/xbean/5.0.0/xbean-classloader]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
 | org.bouncycastle
 | bcpkix-jdk18on
@@ -2504,12 +2582,6 @@
 | https://www.bouncycastle.org/download/bouncy-castle-java/[https://www.bouncycastle.org/download/bouncy-castle-java/]
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
-| org.codehaus.groovy
-| groovy
-| 3.0.25
-| https://groovy-lang.org[https://groovy-lang.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
 | org.codehaus.woodstox
 | stax2-api
 | 4.3.0
@@ -2518,9 +2590,27 @@
 
 | org.codelibs
 | spnego
-| 1.1.1
+| 1.2.1
 | https://github.com/codelibs/spnego[https://github.com/codelibs/spnego]
 |  http://www.gnu.org/licenses/lgpl.txt[GNU Lesser General Public License (GPL)]
+
+| org.eclipse.angus
+| angus-activation
+| 2.0.3
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
+
+| org.eclipse.angus
+| angus-mail
+| 1.0.0
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
+
+| org.eclipse.microprofile.openapi
+| microprofile-openapi-api
+| 3.1.1
+| http://microprofile.io/microprofile-openapi-parent/microprofile-openapi-api[http://microprofile.io/microprofile-openapi-parent/microprofile-openapi-api]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | org.ehcache
 | ehcache
@@ -2536,45 +2626,39 @@
 
 | org.glassfish.external
 | management-api
-| 3.0.0-b012
-| http://kenai.com/hg/gmbal~gf_common[http://kenai.com/hg/gmbal~gf_common]
-|  https://glassfish.dev.java.net/public/CDDL+GPL.html[CDDL+GPL]
+| 3.2.3
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.glassfish.gmbal
 | gmbal-api-only
-| 3.1.0-b001
-| http://kenai.com/hg/gmbal~master[http://kenai.com/hg/gmbal~master]
-|  https://glassfish.dev.java.net/public/CDDL+GPL.html[CDDL+GPL]
+| 4.0.3
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.glassfish.hk2
 | osgi-resource-locator
-| 2.4.0
-| http://www.oracle.com[http://www.oracle.com]
-|  https://glassfish.java.net/nonav/public/CDDL+GPL_1_1.html[CDDL + GPLv2 with classpath exception]
-
-| org.glassfish.jaxb
-| jaxb-runtime
-| 2.3.1
-| N/A
-|  http://glassfish.java.net/public/CDDL+GPL_1_1.html[CDDL+GPL License]
-
-| org.glassfish.jaxb
-| txw2
-| 2.3.1
-| N/A
-|  http://glassfish.java.net/public/CDDL+GPL_1_1.html[CDDL+GPL License]
-
-| org.glassfish.web
-| jakarta.servlet.jsp.jstl
-| 1.2.6
+| 3.0.0
 | https://www.eclipse.org[https://www.eclipse.org]
 |  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
 
-| org.hamcrest
-| hamcrest-core
-| 1.1
-| N/A
-|  http://www.opensource.org/licenses/bsd-license.php[BSD style]
+| org.glassfish.jaxb
+| jaxb-core
+| 4.0.9
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
+
+| org.glassfish.jaxb
+| jaxb-runtime
+| 4.0.9
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
+
+| org.glassfish.jaxb
+| txw2
+| 4.0.9
+| https://eclipse-ee4j.github.io/jaxb-ri/[https://eclipse-ee4j.github.io/jaxb-ri/]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.hdrhistogram
 | HdrHistogram
@@ -2582,9 +2666,15 @@
 | http://hdrhistogram.github.io/HdrHistogram/[http://hdrhistogram.github.io/HdrHistogram/]
 |  http://creativecommons.org/publicdomain/zero/1.0/[Public Domain, per Creative Commons CC0]
 
+| org.hibernate.validator
+| hibernate-validator
+| 8.0.5.Final
+| https://hibernate.org/validator[https://hibernate.org/validator]
+|  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
+
 | org.jboss.logging
 | jboss-logging
-| 3.4.1.Final
+| 3.5.3.Final
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
@@ -2596,110 +2686,110 @@
 
 | org.jvnet.mimepull
 | mimepull
-| 1.9.10
-| http://www.oracle.com/[http://www.oracle.com/]
-|  https://glassfish.java.net/public/CDDL+GPL_1_1.html[GPL2 w/ CPE]
+| 1.10.0
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.jvnet.staxex
 | stax-ex
-| 1.8
-| http://stax-ex.java.net/[http://stax-ex.java.net/]
-|  https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html[Dual license consisting of the CDDL v1.1 and GPL v2]
+| 2.1.0
+| https://www.eclipse.org[https://www.eclipse.org]
+|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
 
 | org.keycloak
 | keycloak-adapter-core
-| 21.1.2
+| 24.0.5
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.keycloak
 | keycloak-adapter-spi
-| 21.1.2
+| 24.0.5
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.keycloak
 | keycloak-authz-client
-| 21.1.2
+| 24.0.5
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.keycloak
 | keycloak-common
-| 21.1.2
+| 24.0.5
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.keycloak
 | keycloak-core
-| 21.1.2
+| 24.0.5
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.keycloak
 | keycloak-crypto-default
-| 21.1.2
+| 24.0.5
 | N/A
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.keycloak
+| keycloak-jakarta-servlet-adapter-spi
+| 24.0.5
+| http://www.jboss.org[http://www.jboss.org]
+|  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
+
+| org.keycloak
+| keycloak-jakarta-servlet-filter-adapter
+| 24.0.5
+| http://www.jboss.org[http://www.jboss.org]
+|  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
+
+| org.keycloak
 | keycloak-policy-enforcer
-| 21.1.2
+| 24.0.5
 | N/A
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.keycloak
 | keycloak-saml-adapter-api-public
-| 21.1.2
+| 24.0.5
 | N/A
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.keycloak
-| keycloak-saml-adapter-core
-| 21.1.2
+| keycloak-saml-adapter-core-jakarta
+| 24.0.5
 | N/A
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.keycloak
 | keycloak-saml-core
-| 21.1.2
+| 24.0.5
 | N/A
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.keycloak
 | keycloak-saml-core-public
-| 21.1.2
+| 24.0.5
 | N/A
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.keycloak
-| keycloak-saml-servlet-filter-adapter
-| 21.1.2
+| keycloak-saml-jakarta-servlet-filter-adapter
+| 24.0.5
 | N/A
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.keycloak
 | keycloak-server-spi
-| 21.1.2
+| 24.0.5
 | N/A
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.keycloak
 | keycloak-server-spi-private
-| 21.1.2
+| 24.0.5
 | N/A
-|  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
-
-| org.keycloak
-| keycloak-servlet-adapter-spi
-| 21.1.2
-| http://www.jboss.org[http://www.jboss.org]
-|  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
-
-| org.keycloak
-| keycloak-servlet-filter-adapter
-| 21.1.2
-| http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
 | org.latencyutils
@@ -2710,85 +2800,85 @@
 
 | org.slf4j
 | slf4j-api
-| 1.7.36
+| 2.0.18
 | http://www.slf4j.org[http://www.slf4j.org]
-|  http://www.opensource.org/licenses/mit-license.php[MIT License]
+|  https://opensource.org/license/mit[MIT]
 
 | org.springframework
 | spring-aop
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-web
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-webmvc
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot
-| 2.7.18
+| 3.5.16
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-autoconfigure
-| 2.7.18
+| 3.5.16
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.session
 | spring-session-core
-| 2.7.4
+| 3.5.7
 | https://spring.io/projects/spring-session[https://spring.io/projects/spring-session]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.session
 | spring-session-hazelcast
-| 2.7.4
+| 3.5.7
 | https://spring.io/projects/spring-session[https://spring.io/projects/spring-session]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.tuckey
 | urlrewritefilter
-| 4.0.4
+| 5.1.3
 | http://www.tuckey.org/urlrewrite/[http://www.tuckey.org/urlrewrite/]
 |  http://www.opensource.org/licenses/bsd-license.php[BSD]
 
@@ -2806,19 +2896,19 @@
 
 | ch.qos.logback
 | logback-classic
-| 1.2.13
+| 1.5.38
 | http://www.qos.ch[http://www.qos.ch]
-|  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
+|  https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[LGPL-2.1-only]
 
 | ch.qos.logback
 | logback-core
-| 1.2.13
+| 1.5.38
 | http://www.qos.ch[http://www.qos.ch]
-|  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]
+|  https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[LGPL-2.1-only]
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.22.0
+| 2.22.4
 | N/A
 |  N/A
 
@@ -2830,13 +2920,13 @@
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.22.0
+| 2.22.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.22.0
+| 2.22.4
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -2860,15 +2950,15 @@
 
 | com.oracle.database.jdbc
 | ojdbc11
-| 23.26.2.0.0
+| 23.26.3.0.0
 | https://www.oracle.com/database/technologies/maven-central-guide.html[https://www.oracle.com/database/technologies/maven-central-guide.html]
 |  https://www.oracle.com/downloads/licenses/oracle-free-license.html[Oracle Free Use Terms and Conditions (FUTC)]
 
 | com.zaxxer
 | HikariCP
-| 4.0.3
+| 6.3.3
 | https://github.com/brettwooldridge/HikariCP[https://github.com/brettwooldridge/HikariCP]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+|  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | commons-cli
 | commons-cli
@@ -2882,9 +2972,21 @@
 | https://commons.apache.org/proper/commons-io/[https://commons.apache.org/proper/commons-io/]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[Apache-2.0]
 
+| io.micrometer
+| micrometer-commons
+| 1.15.12
+| https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| io.micrometer
+| micrometer-observation
+| 1.15.12
+| https://github.com/micrometer-metrics/micrometer[https://github.com/micrometer-metrics/micrometer]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
 | jakarta.annotation
 | jakarta.annotation-api
-| 1.3.5
+| 2.1.1
 | https://www.eclipse.org[https://www.eclipse.org]
 |  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
 
@@ -2908,85 +3010,85 @@
 
 | org.slf4j
 | slf4j-api
-| 1.7.36
+| 2.0.18
 | http://www.slf4j.org[http://www.slf4j.org]
-|  http://www.opensource.org/licenses/mit-license.php[MIT License]
+|  https://opensource.org/license/mit[MIT]
 
 | org.springframework
 | spring-aop
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-beans
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-context
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-core
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-expression
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jcl
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-jdbc
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework
 | spring-tx
-| 5.3.39
+| 6.2.19
 | https://github.com/spring-projects/spring-framework[https://github.com/spring-projects/spring-framework]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot
-| 2.7.18
+| 3.5.16
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-autoconfigure
-| 2.7.18
+| 3.5.16
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-starter
-| 2.7.18
+| 3.5.16
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-starter-jdbc
-| 2.7.18
+| 3.5.16
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 | org.springframework.boot
 | spring-boot-starter-logging
-| 2.7.18
+| 3.5.16
 | https://spring.io/projects/spring-boot[https://spring.io/projects/spring-boot]
 |  https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 |=== 
