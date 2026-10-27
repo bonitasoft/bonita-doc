@@ -102,7 +102,7 @@ line without removing the value keeps the loopback default.
 can reach them. A new optional property, `bonita.platform.cluster.hazelcast.interfaces.list` in
 `bonita-platform-sp-cluster-custom.properties`, binds the member to the one address of the node that matches it, for
 example on a host with several networks. Earlier versions read a property of that name without applying it: if your
-configuration already sets it, make sure its value matches an address of the node, or the node does not start.
+configuration already sets it, make sure its value matches an address of the node, or the node does will start.
 ** See xref:runtime:install-a-bonita-bpm-cluster.adoc#hazelcast-port-hardening[Allow communication between servers]
 for how to restrict port 5701.
 
