@@ -96,9 +96,10 @@ listens on loopback (`127.0.0.1`) only; it used to listen on every interface. Th
 `bonita.platform.hazelcast.interfaces.list`, whose default is `127.0.0.1`. Nothing to do, unless a Hazelcast client or
 Management Center connects to that member from another host. In that case, in `bonita-platform-sp-custom.properties`,
 uncomment the line and remove its value so that it reads `bonita.platform.hazelcast.interfaces.list=`: the member then
-listens on every interface as before. Uncommenting the line without removing the value keeps the loopback default.
-** *Cluster.* The default behaviour does not change: members keep listening on every interface, which they need to
-reach each other. The existing property `bonita.platform.cluster.hazelcast.interfaces.list`, in
+follows the network settings of `hazelcast.xml`, which by default listen on every interface, as before. Uncommenting the
+line without removing the value keeps the loopback default.
+** *Cluster.* The default behaviour does not change: members keep listening on every interface, so that their peers
+can reach them. The existing property `bonita.platform.cluster.hazelcast.interfaces.list`, in
 `bonita-platform-sp-cluster-custom.properties`, had no effect until now: Bonita set the list without enabling it, so
 Hazelcast ignored it. From this version, a value binds the member to the one address of the node that matches it.
 *Before updating, check whether your cluster configuration sets this property.* A value that matches no address of the
@@ -116,7 +117,9 @@ Cluster feature are not affected, and Bonita Community edition does not use Haze
 * *All nodes must be stopped to update.* The Hazelcast edition bundled with Bonita does not support updating the
 members of a cluster one at a time, so a node running 5.4.0 cannot join a cluster running 5.7.0. Stop every node, update them, then start
 them again.
-* *No configuration change is required.* The update introduces two new cluster properties, both with default
+* *Check `bonita.platform.cluster.hazelcast.interfaces.list`.* This property now takes effect: a value that matches no
+address of the node stops it from starting. Unset it, or set it to an address the node has.
+* *No new property needs to be set.* The update introduces two new cluster properties, both with default
 values, so nothing needs to be added to your configuration. See
 xref:runtime:install-a-bonita-bpm-cluster.adoc#work-recovery[Work recovery when a node leaves the cluster] if
 you want to tune them.
