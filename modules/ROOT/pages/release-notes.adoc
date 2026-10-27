@@ -92,9 +92,6 @@ Memcache are no longer served. Nothing in Bonita uses them. If your deployment u
 `bonita.platform.hazelcast.client-protocol.enabled=true` in `bonita-platform-sp-custom.properties`, with the same value
 on every node of a cluster, and restrict port 5701 to the hosts that need it. See
 xref:runtime:install-a-bonita-bpm-cluster.adoc#hazelcast-client-protocol[Allow communication between servers].
-* If you run a cluster, stop every node to update. With the property left `false`, a node of this version uses a
-different Hazelcast network configuration than a node of an earlier version, and Hazelcast does not support a cluster
-mixing them.
 
 === Fixes in Bonita 2024.3-u11 (2026-09-23)
 
