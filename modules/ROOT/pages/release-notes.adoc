@@ -82,6 +82,17 @@ Note that this new API is now also available in the Community edition and provid
 
 == Bug fixes
 
+=== Fixes in Bonita 2024.3-u12 (TBD)
+
+==== Hazelcast clients refused by default
+
+* The Hazelcast member embedded in Bonita now accepts other Hazelcast members only, on a single node as in a cluster.
+Hazelcast clients, Management Center included, are refused, and the Hazelcast REST API, health check included, and
+Memcache are no longer served. Nothing in Bonita uses them. If your deployment uses any of them on purpose, set
+`bonita.platform.hazelcast.client-protocol.enabled=true` in `bonita-platform-sp-custom.properties`, with the same value
+on every node of a cluster, and restrict port 5701 to the hosts that need it. See
+xref:runtime:install-a-bonita-bpm-cluster.adoc#hazelcast-client-protocol[Allow communication between servers].
+
 === Fixes in Bonita 2024.3-u11 (2026-09-23)
 
 * BPA-327 - java.lang.NullPointerException on bonita-ldap-synchronizer
