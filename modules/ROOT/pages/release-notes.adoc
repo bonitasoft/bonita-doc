@@ -138,6 +138,11 @@ For advanced cache tuning after migration, refer to the xref:runtime:performance
 
 == Bug fixes
 
+=== Fixes in Bonita 2026.1-u4 (TBD)
+
+* BPA-976 - Severe performance impact of BDM data tracking even when no data retention rules are defined +
+BDM data retention can now be disabled with the new `bonita.runtime.retention.enabled` configuration property (default: `true`). When it is set to `false`, BDM changes are no longer tracked, in all editions, and the cleanup job is not scheduled. Data created or modified while data retention is disabled requires a manual procedure before enabling it again: see xref:runtime:bdm-data-retention.adoc#disable-data-retention[Disabling data retention].
+
 === Fixes in Bonita 2026.1-u3 (2026-09-23)
 
 * BPA-327 - java.lang.NullPointerException on bonita-ldap-synchronizer
