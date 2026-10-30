@@ -10,6 +10,18 @@ Version {bonitaVersion} is in development. These release notes are a work in pro
 
 == Notable changes
 
+[#jakarta-studio-projects]
+=== Bonita Studio projects move to Jakarta EE and Groovy 4
+
+When you clone or import a project from a previous version, Bonita Studio migrates the poms of the project and of its extensions to the Jakarta EE and Groovy 4 runtime:
+
+* REST API extensions declare `jakarta.servlet:jakarta.servlet-api` instead of `javax.servlet:javax.servlet-api`.
+* Groovy dependencies use the `org.apache.groovy` group instead of `org.codehaus.groovy`, and `groovy-servlet` is removed.
+
+The `javax.*` imports of your extension sources are not rewritten. Bonita Studio flags them in REST API extensions with a *Jakarta migration* warning. See xref:version-update:update-studio-project-to-jakarta.adoc[Update a Bonita Studio project to Jakarta EE].
+
+New REST API extensions, connectors and actor filters are generated from the Jakarta versions of the Maven archetypes.
+
 == Support matrix changes
 
 == Deprecations and removals

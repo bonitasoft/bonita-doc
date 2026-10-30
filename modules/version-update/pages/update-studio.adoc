@@ -21,6 +21,11 @@
  .. Import the .BOS in the latest Bonita Studio version, some artifact migrations will require actions/decisions from your part
  .. Repeat for each project that needs to be moved to the new version
 
+[IMPORTANT]
+====
+Projects moved to Bonita 2027.1 or later run on Jakarta EE and Groovy 4. Read xref:update-studio-project-to-jakarta.adoc[Update a Bonita Studio project to Jakarta EE] for the changes you must make to your extensions.
+====
+
 
 == Updating to a new Maintenance version (Enterprise only)
 Maintenance versions are cross-compatible, meaning that it is not required that your Bonita Studio version matches the target Bonita Runtime version.

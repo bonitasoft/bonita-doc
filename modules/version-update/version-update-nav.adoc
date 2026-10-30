@@ -1,6 +1,7 @@
 * xref:bonita-version-update-index.adoc[Bonita update and upgrade]
  ** xref:product-versioning.adoc[Bonita versions]
  ** xref:update-studio.adoc[Update Bonita Studio]
+  *** xref:update-studio-project-to-jakarta.adoc[Update a project to Jakarta EE]
  ** xref:update-overview.adoc[Update Bonita Runtime]
   *** xref:update-with-migration-tool.adoc[Bonita Migration Tool]
   *** xref:update-with-update-tool.adoc[Bonita Update Tool]
