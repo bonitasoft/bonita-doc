@@ -568,8 +568,9 @@ xref:runtime:install-a-bonita-bpm-cluster.adoc#hazelcast-client-protocol[Allow c
 
 * Bonita now writes one JSON event per login, failed login and logout to the `org.bonitasoft.runtime.audit.authentication`
 logger, so that a SIEM can collect who authenticated, when and from where: in `server/logs/authentication-audit.log` in
-the Tomcat bundle, and on the standard output in the Docker image, where the new `AUTHENTICATION_AUDIT_LOG` environment
-variable writes them to a file or switches them off. The audit log is on by default. If you reuse a
+the Tomcat bundle, and on the standard output in the Docker image, where the new `AUTHENTICATION_AUDIT_LOG_STDOUT_ENABLED`
+and `AUTHENTICATION_AUDIT_LOG_FILES_ENABLED` environment variables, like the access logs ones, also write them to a file or
+switch them off. The audit log is on by default. If you reuse a
 `log4j2-appenders.xml` customized for an earlier version, add the audit appenders and logger of the default file to it.
 See xref:security:authentication-audit-log.adoc[Authentication audit log].
 * In the Docker image, the color reset of the console log lines now ends each line instead of starting the next one.

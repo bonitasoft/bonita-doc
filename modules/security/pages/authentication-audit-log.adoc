@@ -131,11 +131,11 @@ Old files are not deleted, as for `bonita.log`: apply the retention required by 
 
 By default, the events are written on the standard output of the container, one JSON event per line with nothing around it, so that a log collector can read them as JSON. They are not repeated with the other logs.
 
-The xref:runtime:bonita-docker-installation.adoc#authentication-audit-log[`AUTHENTICATION_AUDIT_LOG`] environment variable writes them to `/opt/bonita/logs/authentication-audit.log` instead (`file`), or switches the audit log off (`off`). With `file`, xref:runtime:bonita-docker-installation.adoc#authentication-audit-log-append-hostname[`AUTHENTICATION_AUDIT_LOG_APPEND_HOSTNAME`] adds a folder named after the host to the path, so that the nodes of a cluster sharing the logs folder do not write the same file.
+As for the access logs, two environment variables switch the outputs on or off: xref:runtime:bonita-docker-installation.adoc#authentication-audit-log-stdout-enabled[`AUTHENTICATION_AUDIT_LOG_STDOUT_ENABLED`] (default `true`) for the standard output, and xref:runtime:bonita-docker-installation.adoc#authentication-audit-log-files-enabled[`AUTHENTICATION_AUDIT_LOG_FILES_ENABLED`] (default `false`) for `/opt/bonita/logs/authentication-audit.log`. Both can be enabled at the same time, for example to keep the file for retention while a log collector reads the standard output. To write the file only, also set `AUTHENTICATION_AUDIT_LOG_STDOUT_ENABLED=false`. With the file enabled, xref:runtime:bonita-docker-installation.adoc#authentication-audit-log-append-hostname[`AUTHENTICATION_AUDIT_LOG_APPEND_HOSTNAME`] adds a folder named after the host to its path, so that the nodes of a cluster sharing the logs folder do not write the same file.
 
 === Customized logging configuration
 
-A `log4j2-appenders.xml` customized before Bonita 2025.1-u12 does not declare the audit logger and its appenders: the events are then written with the other logs, in the format of the other logs, and `AUTHENTICATION_AUDIT_LOG` has no effect in the Docker image. Add the appenders and the `org.bonitasoft.runtime.audit.authentication` logger of the default file to it, for the Tomcat bundle as for a file mounted on `/opt/bonita/conf/logs` in the Docker image.
+A `log4j2-appenders.xml` customized before Bonita 2025.1-u12 does not declare the audit logger and its appenders: the events are then written with the other logs, in the format of the other logs, and the `AUTHENTICATION_AUDIT_LOG_*` environment variables have no effect in the Docker image. Add the appenders and the `org.bonitasoft.runtime.audit.authentication` logger of the default file to it, for the Tomcat bundle as for a file mounted on `/opt/bonita/conf/logs` in the Docker image.
 
 == Switch the audit log off
 
@@ -148,7 +148,7 @@ Set the level of the `org.bonitasoft.runtime.audit.authentication` logger to `OF
 </Logger>
 ----
 
-Log4j2 reloads the file automatically, without restart. In the Docker image, you can also set `AUTHENTICATION_AUDIT_LOG=off` when creating the container.
+Log4j2 reloads the file automatically, without restart. In the Docker image, you can also set `AUTHENTICATION_AUDIT_LOG_STDOUT_ENABLED=false`, with `AUTHENTICATION_AUDIT_LOG_FILES_ENABLED` not set or `false`, when creating the container.
 
 [#source-ip]
 == Client IP address and User-Agent
