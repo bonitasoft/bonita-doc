@@ -484,6 +484,7 @@ Default value is *false*. +
 The host to connect to is the name / IP address of the bonita server, the port to connect to is 9000. +
 The credentials to connect are the environment variables <<monitoring-username, MONITORING_USERNAME>>, <<monitoring-password, MONITORING_PASSWORD>>.
 
+[#remote-ip-valve-enabled]
 === REMOTE_IP_VALVE_ENABLED
 This optional environment variable allows to activate/deactivate xref:runtime:reverse-proxy-configuration.adoc[reverse proxy redirection]. Default value is *false*.
 
@@ -504,6 +505,17 @@ Default value is *false*.
 
 === ACCESSLOGS_MAX_DAYS
 If `ACCESSLOGS_FILES_ENABLED=true`, this optional environment variable allows to automatically delete access log files after a certain number of days. Default value is *30*.
+
+[#authentication-audit-log]
+=== AUTHENTICATION_AUDIT_LOG
+Since Bonita 2025.1-u12, this optional environment variable sets where the xref:security:authentication-audit-log.adoc[authentication audit log] is written: `stdout` (on the standard output, one JSON event per line), `file` (to `/opt/bonita/logs/authentication-audit.log` *inside* the docker container, only useful when mounting a volume to that directory), or `off`. Any other value stops the container.
+It is applied at the first start of the container, by setting the level and the appender of the `org.bonitasoft.runtime.audit.authentication` logger in `/opt/bonita/conf/logs/log4j2-appenders.xml`, including in a file mounted as described in <<logger_configuration>>.
+Not set by default: `log4j2-appenders.xml` is then used as it is, and the default one writes the events on the standard output.
+
+[#authentication-audit-log-append-hostname]
+=== AUTHENTICATION_AUDIT_LOG_APPEND_HOSTNAME
+If `AUTHENTICATION_AUDIT_LOG=file`, this optional environment variable allows to append a subdirectory with the *hostname* to the path of the authentication audit log file, so that the nodes of a cluster sharing the logs folder do not write the same file.
+Default value is *false*.
 
 === HEAPDUMP_PATH
 This optional environment variable overrides the default path of the heap dump file.
@@ -628,6 +640,8 @@ https://raw.githubusercontent.com/bonitasoft/bonita-distrib/{bonitaTagOrBranch}/
 Log4j2 automatically reloads configuration files when there is a change. However, if the file is invalid, the initial version
 of that file is used instead, and is not reloaded unless one of the other watched file is changed.
 ====
+
+Since Bonita 2025.1-u12, `log4j2-appenders.xml` declares the xref:security:authentication-audit-log.adoc[authentication audit log] logger and its appenders: add them to a file customized for an earlier version.
 
 If no user is specified to create the container (`--user`), the filesystem access rights are downgraded to allow only the `bonita` user (inside the Docker container), meaning that a standard user cannot access the log4j2 configuration folder on the host machine (`~/my-config/log4j/` in this example) anymore. Make sure to access it as a "sudoer" to hot-modify the logger configuration, or specify a dedicated user when creating the container:
 

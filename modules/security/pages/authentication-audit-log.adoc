@@ -1,0 +1,195 @@
+= Authentication Audit Log
+:description: Bonita writes one JSON event per login, failed login and logout to a dedicated audit log, so that a SIEM can collect who authenticated, when and from where.
+
+{description}
+
+[NOTE]
+====
+Available since Bonita 2025.1-u12 (xref:version-update:product-versioning.adoc#technical-id[technical id] 10.3.12).
+====
+
+== What is recorded
+
+Bonita writes an event for each:
+
+* *login*: successful or failed, including the login attempts rejected because the account is locked out by the xref:brute-force-login-protection.adoc[brute-force login protection];
+* *logout*.
+
+All the login paths of the Bonita web application are covered: the login page and the `/loginservice` endpoint, single sign-on (OIDC, SAML, CAS and Kerberos, Subscription editions only), and the platform administrator login. The guest user logins are not recorded.
+
+The events are written at `INFO` level to the `org.bonitasoft.runtime.audit.authentication` logger, which is on by default, in every edition and in single-node and cluster deployments alike.
+
+== Event format
+
+Each event is a JSON object written on a single line. Its field names are modeled on the https://www.elastic.co/docs/reference/ecs[Elastic Common Schema], and fields without a value are left out. Example of a successful login (shown on several lines here):
+
+[source,json]
+----
+{
+  "@timestamp": "2026-10-16T09:14:41.077Z",
+  "schema_version": "1",
+  "event": {"action": "login", "outcome": "success"},
+  "user": {"name": "walter.bates"},
+  "auth": {"method": "standard"},
+  "source": {"ip": "203.0.113.57"},
+  "user_agent": {"original": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) ..."},
+  "http": {"request": {"method": "POST"}},
+  "url": {"path": "/bonita/loginservice"},
+  "session": {"id_hash": "8802dac666a192b6b45ed25f30f9ca0562bad8996af207e18615c4509c450863"},
+  "host": {"name": "bonita-node-1"}
+}
+----
+
+[cols="1,3a"]
+|===
+|Field |Description
+
+|`@timestamp`
+|Time of the event, in UTC, with milliseconds.
+
+|`schema_version`
+|Version of the event format, `1`. It changes whenever the format changes.
+
+|`event.action`
+|`login` or `logout`.
+
+|`event.outcome`
+|`success` or `failure`.
+
+|`event.reason`
+|Only set to `locked_out` on a login rejected by the brute-force login protection.
+
+|`user.name`
+|The logged-in user, or the user name that was attempted on a failed login. A failed single sign-on login for which the identity provider returned no user name has none.
+
+|`auth.method`
+|`standard` (user name and password), `oidc`, `saml`, `cas`, `kerberos`, or `platform` (platform administrator). On a logout, the method of the login.
+
+|`auth.provider`
+|Only for an `oidc` login when several OIDC providers are configured: the provider id, as listed in the `oidc.providers` property (see xref:identity:single-sign-on-with-oidc.adoc#multi-providers[Configure Bonita for multiple OIDC providers]). On a logout, the provider of the login.
+
+|`source.ip`
+|IP address of the client, see <<source-ip>>.
+
+|`user_agent.original`
+|`User-Agent` header of the client.
+
+|`http.request.method`
+|HTTP method of the request.
+
+|`url.path`
+|Path of the request, without query string or path parameters.
+
+|`session.id_hash`
+|SHA-256 hash of the session id, on successful logins and on logouts, to pair a logout with its login without writing the session identifier.
+
+|`host.name`
+|Name of the server that handled the request.
+|===
+
+== Where the events are written
+
+=== Tomcat bundle
+
+The events are written to `<BUNDLE_HOME>/server/logs/authentication-audit.log`, one event per line, and not to `bonita.log`. Like `bonita.log`, the file is rolled over every day and when it reaches 250 MB, as `authentication-audit-<yyyy-MM-dd>-<n>.log.gz`.
+
+The routing is declared in `server/conf/log4j2-appenders.xml`:
+
+[source,xml]
+----
+<RollingRandomAccessFile fileName="${baseDir}/authentication-audit.log"
+                         filePattern="${baseDir}/authentication-audit-%d{yyyy-MM-dd}-%i.log.gz"
+                         name="AuthenticationAudit-File">
+    <!-- The message is already a JSON event: one event per line -->
+    <PatternLayout pattern="%m%n"/>
+    <Policies>
+        <TimeBasedTriggeringPolicy/>
+        <SizeBasedTriggeringPolicy size="250 MB"/>
+    </Policies>
+</RollingRandomAccessFile>
+...
+<Logger name="org.bonitasoft.runtime.audit.authentication" level="INFO" additivity="false">
+    <AppenderRef ref="AuthenticationAudit-File"/>
+</Logger>
+----
+
+To also write the events with the other logs (`bonita.log`, and the console when enabled), remove `additivity="false"`.
+
+Old files are not deleted, as for `bonita.log`: apply the retention required by your audit policy, for example with a `DefaultRolloverStrategy` and a `Delete` action in the `AuthenticationAudit-File` appender:
+
+[source,xml]
+----
+<DefaultRolloverStrategy>
+    <Delete basePath="${baseDir}" maxDepth="1">
+        <IfFileName glob="authentication-audit-*.log.gz"/>
+        <IfLastModified age="P365D"/>
+    </Delete>
+</DefaultRolloverStrategy>
+----
+
+=== Docker image
+
+By default, the events are written on the standard output of the container, one JSON event per line with nothing around it, so that a log collector can read them as JSON. They are not repeated with the other logs.
+
+The xref:runtime:bonita-docker-installation.adoc#authentication-audit-log[`AUTHENTICATION_AUDIT_LOG`] environment variable writes them to `/opt/bonita/logs/authentication-audit.log` instead (`file`), or switches the audit log off (`off`). With `file`, xref:runtime:bonita-docker-installation.adoc#authentication-audit-log-append-hostname[`AUTHENTICATION_AUDIT_LOG_APPEND_HOSTNAME`] adds a folder named after the host to the path, so that the nodes of a cluster sharing the logs folder do not write the same file.
+
+=== Customized logging configuration
+
+A `log4j2-appenders.xml` customized before Bonita 2025.1-u12 does not declare the audit logger and its appenders: the events are then written with the other logs, in the format of the other logs, and `AUTHENTICATION_AUDIT_LOG` has no effect in the Docker image. Add the appenders and the `org.bonitasoft.runtime.audit.authentication` logger of the default file to it, for the Tomcat bundle as for a file mounted on `/opt/bonita/conf/logs` in the Docker image.
+
+== Switch the audit log off
+
+Set the level of the `org.bonitasoft.runtime.audit.authentication` logger to `OFF` in `log4j2-appenders.xml`, for example in the Tomcat bundle:
+
+[source,xml]
+----
+<Logger name="org.bonitasoft.runtime.audit.authentication" level="OFF" additivity="false">
+    <AppenderRef ref="AuthenticationAudit-File"/>
+</Logger>
+----
+
+Log4j2 reloads the file automatically, without restart. In the Docker image, you can also set `AUTHENTICATION_AUDIT_LOG=off` when creating the container.
+
+[#source-ip]
+== Client IP address and User-Agent
+
+`source.ip` is the address of the client as seen by Tomcat, and `user_agent.original` its `User-Agent` header. Bonita does not read the `X-Forwarded-For` header itself: behind a xref:runtime:reverse-proxy-configuration.adoc[reverse proxy] or a load balancer, `source.ip` is the address of the proxy unless Tomcat's https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/valves/RemoteIpValve.html[`RemoteIpValve`] is configured in `server/conf/server.xml`. Set its `internalProxies` attribute to match your proxies only: a client that reaches Bonita without going through them could otherwise choose the IP address written in the audit log. In the Docker image, xref:runtime:bonita-docker-installation.adoc#remote-ip-valve-enabled[`REMOTE_IP_VALVE_ENABLED=true`] enables the valve with Tomcat's default trusted proxies (private and loopback address ranges).
+
+When the Bonita UI Builder backend calls Bonita on behalf of a user, it sends the IP address and the User-Agent of the user's browser in the `X-Bonita-Client-Ip` and `X-Bonita-Client-User-Agent` headers. These headers are ignored unless the following property is set to `true`, in `bonita-platform-community-custom.properties` (or with its environment variable):
+
+[cols="1,1,2a,1"]
+|===
+|Property |Default |Description |Environment variable
+
+|`bonita.runtime.security.audit.trust.client.headers`
+|`false`
+|Uses the `X-Bonita-Client-Ip` header, when it is an IP address, as `source.ip`, and the `X-Bonita-Client-User-Agent` header as `user_agent.original`.
+|`BONITA_RUNTIME_SECURITY_AUDIT_TRUST_CLIENT_HEADERS`
+|===
+
+[WARNING]
+====
+Only set it to `true` when browsers cannot reach Bonita without going through the UI Builder proxy, which removes these headers from their requests: otherwise any client could choose the IP address written in the audit log.
+====
+
+== Personal data and sensitive values
+
+* An event never contains the password, the request body, the query string or the path parameters (such as `jsessionid`).
+* The values coming from the request are truncated, ending with `...`: user name and identity provider to 256 characters, User-Agent to 512, URL path to 1024.
+* The session id is hashed.
+* A failed login records the user name that was typed, which is personal data and may occasionally be a mistyped password: restrict the access to the audit log and set its retention accordingly.
+
+Writing an event never makes an authentication fail: if an event cannot be written, a warning is logged and the event is dropped.
+
+== Events that are not recorded
+
+* Failures at the identity provider with single sign-on: the user never reaches Bonita.
+* Session expiry. An explicit logout after the session has expired is not recorded either.
+* Bearer tokens rejected by the OIDC adapter.
+* Logins that do not go through the Bonita web application, such as calls to the Java `LoginAPI` from code running in the server.
+* Logouts of the sessions opened before Bonita was updated to 2025.1-u12, as their login was not recorded.
+* Login requests without any user name: they are anonymous, not failed logins.
+
+== Custom authentication managers
+
+The logins performed with the user name and password of the request are always recorded with the `standard` method. When a custom `AuthenticationManager` (see xref:identity:user-authentication-overview.adoc[User authentication overview]) returns the credentials to log in with, as the single sign-on managers do, the events report the method returned by its `getAuthMethod()` method (`standard` by default) and the provider returned by its `getAuthProvider(HttpServletRequestAccessor)` method (none by default).
