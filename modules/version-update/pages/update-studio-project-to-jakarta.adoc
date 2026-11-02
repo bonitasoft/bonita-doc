@@ -148,4 +148,4 @@ A Spock version that you set yourself, rather than one written by a Bonita arche
 
 === Usages of groovy-servlet
 
-If your code used classes of `groovy-servlet` (`groovy.servlet.*`), Bonita Studio removed the dependency during the migration. Remove these usages, or embed a Jakarta-compatible version of the library in your extension.
+If your code used classes of `groovy-servlet` (`groovy.servlet.*`), Bonita Studio removed the dependency during the migration. Remove these usages: the Groovy 4 version of `groovy-servlet` only exists for `javax.servlet`, and its Jakarta version requires Groovy 5, which the Bonita 12 runtime does not provide.
