@@ -60,10 +60,10 @@ Each event is a JSON object written on a single line. Its field names are modele
 |Only set to `locked_out` on a login rejected by the brute-force login protection.
 
 |`user.name`
-|The logged-in user, or the user name that was attempted on a failed login. A failed single sign-on login for which the identity provider returned no user name has none.
+|The logged-in user, or the username that was attempted on a failed login. A failed single sign-on login for which the identity provider returned no username has none.
 
 |`auth.method`
-|`standard` (user name and password), `oidc`, `saml`, `cas`, `kerberos`, or `platform` (platform administrator). On a logout, the method of the login.
+|`standard` (username and password), `oidc`, `saml`, `cas`, `kerberos`, or `platform` (platform administrator). On a logout, the method of the login.
 
 |`auth.provider`
 |Only for an `oidc` login when several OIDC providers are configured: the provider id, as listed in the `oidc.providers` property (see xref:identity:single-sign-on-with-oidc.adoc#multi-providers[Configure Bonita for multiple OIDC providers]). On a logout, the provider of the login.
@@ -178,9 +178,9 @@ Only set it to `true` when browsers cannot reach Bonita without going through th
 == Personal data and sensitive values
 
 * An event never contains the password, the request body, the query string or the path parameters (such as `jsessionid`).
-* The values coming from the request are truncated, ending with `...`: user name and identity provider to 256 characters, User-Agent to 512, URL path to 1024.
+* The values coming from the request are truncated, ending with `...`: username and identity provider to 256 characters, User-Agent to 512, URL path to 1024.
 * The session id is hashed.
-* A failed login records the user name that was typed, which is personal data and may occasionally be a mistyped password: restrict the access to the audit log and set its retention accordingly.
+* A failed login records the username that was typed, which is personal data and may occasionally be a mistyped password: restrict the access to the audit log and set its retention accordingly.
 
 Writing an event never makes an authentication fail: if an event cannot be written, a warning is logged and the event is dropped.
 
@@ -191,8 +191,4 @@ Writing an event never makes an authentication fail: if an event cannot be writt
 * Bearer tokens rejected by the OIDC adapter.
 * Logins that do not go through the Bonita web application, such as calls to the Java `LoginAPI` from code running in the server.
 * Logouts of the sessions opened before Bonita was updated to 2025.1-u12, as their login was not recorded.
-* Login requests without any user name: they are anonymous, not failed logins.
-
-== Custom authentication managers
-
-The logins performed with the user name and password of the request are always recorded with the `standard` method. When a custom `AuthenticationManager` (see xref:identity:user-authentication-overview.adoc[User authentication overview]) returns the credentials to log in with, as the single sign-on managers do, the events report the method returned by its `getAuthMethod()` method (`standard` by default) and the provider returned by its `getAuthProvider(HttpServletRequestAccessor)` method (none by default).
+* Login requests without any username: they are anonymous, not failed logins.
