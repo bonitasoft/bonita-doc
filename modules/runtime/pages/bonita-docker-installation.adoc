@@ -513,10 +513,11 @@ Since Bonita 2025.1-u12, this optional environment variable allows to activate/d
 [#authentication-audit-log-files-enabled]
 === AUTHENTICATION_AUDIT_LOG_FILES_ENABLED
 Since Bonita 2025.1-u12, this optional environment variable allows to activate/deactivate writing the xref:security:authentication-audit-log.adoc[authentication audit log] to a specific file. When activated, will write the events to `/opt/bonita/logs/authentication-audit.log` *inside* the docker container.
-In practice, it is only useful when mounting a volume to the aforementioned directory. Default value is *false*.
+In practice, it is only useful when mounting a volume to the aforementioned directory. Old files are not deleted: see xref:security:authentication-audit-log.adoc#retention[how to apply a retention]. Default value is *false*.
 
 Both outputs can be activated at the same time. To write the events to the file only, also set `AUTHENTICATION_AUDIT_LOG_STDOUT_ENABLED=false`, and set both variables to `false` to switch the authentication audit log off. Any value other than `true` or `false` stops the container.
 These variables are applied at the first start of the container, by setting the levels of the `org.bonitasoft.runtime.audit.authentication` logger and of its appenders in `/opt/bonita/conf/logs/log4j2-appenders.xml`, including in a file mounted as described in <<logger_configuration>>. When none of them is set, `log4j2-appenders.xml` is used as it is: the default one writes the events to standard output only.
+With a mounted `/opt/bonita/conf/logs` folder, the values are written into the mounted file and stay there: removing the variables later does not restore the defaults, set them explicitly instead.
 
 [#authentication-audit-log-append-hostname]
 === AUTHENTICATION_AUDIT_LOG_APPEND_HOSTNAME

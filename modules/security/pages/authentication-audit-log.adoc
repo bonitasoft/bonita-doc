@@ -115,6 +115,7 @@ The routing is declared in `server/conf/log4j2-appenders.xml`:
 
 To also write the events with the other logs (`bonita.log`, and the console when enabled), remove `additivity="false"`.
 
+[#retention]
 Old files are not deleted, as for `bonita.log`: apply the retention required by your audit policy, for example with a `DefaultRolloverStrategy` and a `Delete` action in the `AuthenticationAudit-File` appender:
 
 [source,xml]
@@ -132,6 +133,8 @@ Old files are not deleted, as for `bonita.log`: apply the retention required by 
 By default, the events are written on the standard output of the container, one JSON event per line with nothing around it, so that a log collector can read them as JSON. They are not repeated with the other logs.
 
 As for the access logs, two environment variables switch the outputs on or off: xref:runtime:bonita-docker-installation.adoc#authentication-audit-log-stdout-enabled[`AUTHENTICATION_AUDIT_LOG_STDOUT_ENABLED`] (default `true`) for the standard output, and xref:runtime:bonita-docker-installation.adoc#authentication-audit-log-files-enabled[`AUTHENTICATION_AUDIT_LOG_FILES_ENABLED`] (default `false`) for `/opt/bonita/logs/authentication-audit.log`. Both can be enabled at the same time, for example to keep the file for retention while a log collector reads the standard output. To write the file only, also set `AUTHENTICATION_AUDIT_LOG_STDOUT_ENABLED=false`. With the file enabled, xref:runtime:bonita-docker-installation.adoc#authentication-audit-log-append-hostname[`AUTHENTICATION_AUDIT_LOG_APPEND_HOSTNAME`] adds a folder named after the host to its path, so that the nodes of a cluster sharing the logs folder do not write the same file.
+
+Old files are not deleted either: add the `Delete` action of the <<retention,retention example>> to the `AuthenticationAudit-File` appender of a `log4j2-appenders.xml` mounted on `/opt/bonita/conf/logs`. With `AUTHENTICATION_AUDIT_LOG_APPEND_HOSTNAME=true`, the files are one folder deeper: use `maxDepth="2"` and `glob="*/authentication-audit-*.log.gz"`.
 
 === Customized logging configuration
 
