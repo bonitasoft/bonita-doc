@@ -203,27 +203,27 @@ For the extensions below, the upload is rejected when the file content does not 
 
 |`docx`
 |`application/vnd.openxmlformats-officedocument.wordprocessingml.document`
-|zip archive containing a `word/` folder
+|zip archive containing a `word/` folder, or OLE2 compound file signature (password-protected document)
 
 |`xlsx`
 |`application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`
-|zip archive containing an `xl/` folder
+|zip archive containing an `xl/` folder, or OLE2 compound file signature (password-protected document)
 
 |`pptx`
 |`application/vnd.openxmlformats-officedocument.presentationml.presentation`
-|zip archive containing a `ppt/` folder
+|zip archive containing a `ppt/` folder, or OLE2 compound file signature (password-protected document)
 
 |`odt`
 |`application/vnd.oasis.opendocument.text`
-|zip archive containing a `mimetype` entry
+|zip archive whose first entry is `mimetype`
 
 |`ods`
 |`application/vnd.oasis.opendocument.spreadsheet`
-|zip archive containing a `mimetype` entry
+|zip archive whose first entry is `mimetype`
 
 |`odp`
 |`application/vnd.oasis.opendocument.presentation`
-|zip archive containing a `mimetype` entry
+|zip archive whose first entry is `mimetype`
 
 |`zip`
 |`application/zip`, `application/x-zip-compressed`, `application/x-zip`
