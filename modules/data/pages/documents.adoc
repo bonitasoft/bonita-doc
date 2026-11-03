@@ -150,16 +150,16 @@ This maximum document size will also depend on your web server configuration, it
 
 By default, Bonita restricts the file types that can be uploaded through generic file upload widgets and forms to the following list of common business formats: `pdf`, `doc`, `docx`, `xls`, `xlsx`, `ppt`, `pptx`, `txt`, `csv`, `json`, `jpg`, `jpeg`, `png`, `gif`, `bmp`, `xml`, `msg`, `eml`, `tif`, `tiff`, `odt`, `ods`, `odp`, `zip`.
 
-In addition to the extension check, a file renamed to an allowed extension is rejected when its declared content type or, for binary formats, its file signature does not match that extension. Text formats (`txt`, `csv`, `json`, `xml`, `eml`) cannot be verified beyond their declared content type.
+In addition to the extension check, a file renamed to an allowed extension is rejected when it does not match that extension: binary formats are checked against their file signature, and text formats (`txt`, `csv`, `json`, `xml`, `eml`), which cannot be verified otherwise, against their declared content type.
 
 [#document-allowed-content-types]
 ==== Content type and content verification
 
-For the extensions below, the upload is rejected when the `Content-Type` declared by the client for the file is not one of the accepted values (parameters such as `charset` are ignored), or when the file content does not match the expected format:
+For the extensions below, the upload is rejected when the file content does not match the expected format. Text formats, which have no content verification, are also rejected when the `Content-Type` declared by the client is not one of the listed values (parameters such as `charset` are ignored). The other formats accept any declared `Content-Type` except the types that a browser can execute (HTML, XML and XML-based types such as SVG, JavaScript), since their content proves their type:
 
 [cols="1,3,2"]
 |===
-|Extension |Accepted declared `Content-Type` |Content verification
+|Extension |Expected `Content-Type` |Content verification
 
 |`pdf`
 |`application/pdf`
@@ -250,7 +250,7 @@ For the extensions below, the upload is rejected when the `Content-Type` declare
 |none
 |===
 
-Every extension of this table also accepts `application/octet-stream`, or no `Content-Type` at all: this is what clients send when they do not recognize a file type (Java or Groovy HTTP clients, scripts, computers without the matching office software). The content verification still applies, and the file is then stored with the first content type listed for its extension (for example `application/pdf`). This content type is also the one returned in the upload response, which the upload widget passes on to the form contract.
+Every extension of this table also accepts `application/octet-stream`, or no `Content-Type` at all: this is what clients send when they do not recognize a file type (Java or Groovy HTTP clients, scripts, computers without the matching office software). The content verification still applies. Whenever the declared `Content-Type` is not one of the listed values, the file is stored with the first content type listed for its extension: for example `application/pdf` for a PDF file declared as `application/octet-stream`, or `image/jpeg` for a JPEG file declared as `image/x-citrix-jpeg` by a browser in a Citrix session. This content type is also the one returned in the upload response, which the upload widget passes on to the form contract.
 
 For an extension that is not in this table (see <<document-override-whitelist,Override the default whitelist>>), the declared `Content-Type` is stored as is, except the types that a browser can execute (HTML, XML and XML-based types such as SVG, JavaScript), which are stored as `application/octet-stream`.
 
