@@ -6,6 +6,11 @@
 
 == Updating to a new Main version
 
+[IMPORTANT]
+====
+Projects moved to Bonita 2027.1 or later run on Jakarta EE and Groovy 4. Read xref:update-studio-project-to-jakarta.adoc[Update a Bonita Studio project to Jakarta EE and Groovy 4] before you start: it lists the changes you must make to your extensions.
+====
+
 . Read the version xref:ROOT:release-notes.adoc[release notes] to understand the major changes and their possible impact on your projects
 . Download the latest Bonita Studio version:
  * https://www.ofelia.com/downloads[Community edition]
@@ -20,11 +25,6 @@
  .. In your previous studio, export your project as a BOS file
  .. Import the .BOS in the latest Bonita Studio version, some artifact migrations will require actions/decisions from your part
  .. Repeat for each project that needs to be moved to the new version
-
-[IMPORTANT]
-====
-Projects moved to Bonita 2027.1 or later run on Jakarta EE and Groovy 4. Read xref:update-studio-project-to-jakarta.adoc[Update a Bonita Studio project to Jakarta EE] for the changes you must make to your extensions.
-====
 
 
 == Updating to a new Maintenance version (Enterprise only)
