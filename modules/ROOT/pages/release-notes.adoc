@@ -99,6 +99,7 @@ indefinitely. Change it with the new property `bonita.platform.setup.transaction
 ** when Bonita starts: as a JVM system property, for example `-Dbonita.platform.setup.transaction-timeout=90s` in `CATALINA_OPTS`,
 or as the environment variable `BONITA_PLATFORM_SETUP_TRANSACTION_TIMEOUT`, for example with Docker
 (see xref:runtime:configuring-bonita-with-properties.adoc[Bonita Runtime configuration]).
+* The value of `bonita.platform.setup.transaction-timeout` must be at least 1 second: `0` does not disable the timeout.
 
 ==== File upload allowed extensions
 
