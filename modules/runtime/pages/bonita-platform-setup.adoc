@@ -139,7 +139,7 @@ Tenant-level configuration files, such as `console-config.properties`, are chang
 
 [source,properties]
 ----
-form.attachment.allowed.extensions=pdf,docx,png,tif
+form.attachment.allowed.extensions=pdf,docx,png,dwg
 ----
 
 [#configure_tool]

@@ -148,9 +148,9 @@ This maximum document size will also depend on your web server configuration, it
 [#document-allowed-extensions]
 === Document allowed file extensions setting
 
-By default, Bonita restricts the file types that can be uploaded through generic file upload widgets and forms to the following list of common business formats: `pdf`, `doc`, `docx`, `xls`, `xlsx`, `ppt`, `pptx`, `txt`, `csv`, `json`, `jpg`, `jpeg`, `png`, `gif`, `bmp`, `xml`.
+By default, Bonita restricts the file types that can be uploaded through generic file upload widgets and forms to the following list of common business formats: `pdf`, `doc`, `docx`, `xls`, `xlsx`, `ppt`, `pptx`, `txt`, `csv`, `json`, `jpg`, `jpeg`, `png`, `gif`, `bmp`, `xml`, `msg`, `eml`, `tif`, `tiff`, `odt`, `ods`, `odp`, `zip`.
 
-In addition to the extension check, a file renamed to an allowed extension is rejected when its declared content type or, for binary formats, its file signature does not match that extension. Text formats (`txt`, `csv`, `json`, `xml`) cannot be verified beyond their declared content type.
+In addition to the extension check, a file renamed to an allowed extension is rejected when its declared content type or, for binary formats, its file signature does not match that extension. Text formats (`txt`, `csv`, `json`, `xml`, `eml`) cannot be verified beyond their declared content type.
 
 [#document-allowed-content-types]
 ==== Content type and content verification
@@ -166,11 +166,11 @@ For the extensions below, the upload is rejected when the `Content-Type` declare
 |starts with `%PDF`
 
 |`jpg`, `jpeg`
-|`image/jpeg`
+|`image/jpeg`, `image/jpg`, `image/pjpeg`
 |JPEG signature
 
 |`png`
-|`image/png`
+|`image/png`, `image/x-png`
 |PNG signature
 
 |`gif`
@@ -180,6 +180,10 @@ For the extensions below, the upload is rejected when the `Content-Type` declare
 |`bmp`
 |`image/bmp`, `image/x-ms-bmp`
 |BMP signature
+
+|`tif`, `tiff`
+|`image/tiff`
+|TIFF signature (both byte orders)
 
 |`doc`
 |`application/msword`
@@ -191,6 +195,10 @@ For the extensions below, the upload is rejected when the `Content-Type` declare
 
 |`ppt`
 |`application/vnd.ms-powerpoint`
+|OLE2 compound file signature
+
+|`msg`
+|`application/vnd.ms-outlook`
 |OLE2 compound file signature
 
 |`docx`
@@ -205,44 +213,91 @@ For the extensions below, the upload is rejected when the `Content-Type` declare
 |`application/vnd.openxmlformats-officedocument.presentationml.presentation`
 |zip archive containing a `ppt/` folder
 
+|`odt`
+|`application/vnd.oasis.opendocument.text`
+|zip archive containing a `mimetype` entry
+
+|`ods`
+|`application/vnd.oasis.opendocument.spreadsheet`
+|zip archive containing a `mimetype` entry
+
+|`odp`
+|`application/vnd.oasis.opendocument.presentation`
+|zip archive containing a `mimetype` entry
+
+|`zip`
+|`application/zip`, `application/x-zip-compressed`, `application/x-zip`
+|zip signature (the archive content is not inspected)
+
 |`txt`
-|`text/plain`, `application/octet-stream`
+|`text/plain`
 |none
 
 |`csv`
-|`text/csv`, `application/vnd.ms-excel`, `text/plain`, `application/octet-stream`
+|`text/csv`, `application/vnd.ms-excel`, `text/plain`
 |none
 
 |`json`
-|`application/json`, `text/plain`, `application/octet-stream`
+|`application/json`, `text/plain`
 |none
 
 |`xml`
-|`application/xml`, `text/xml`, `text/plain`, `application/octet-stream`
+|`application/xml`, `text/xml`, `text/plain`
+|none
+
+|`eml`
+|`message/rfc822`, `text/plain`
 |none
 |===
 
-Text formats also accept `application/octet-stream`, the generic type that browsers and operating systems send when they do not recognize a file extension.
+Every extension of this table also accepts `application/octet-stream`, or no `Content-Type` at all: this is what clients send when they do not recognize a file type (Java or Groovy HTTP clients, scripts, computers without the matching office software). The content verification still applies, and the file is then stored with the first content type listed for its extension (for example `application/pdf`). This content type is also the one returned in the upload response, which the upload widget passes on to the form contract.
 
-These checks apply to every file upload, not only to generic file upload widgets and forms. In particular, the `.xml` files uploaded by the administration imports (organization, actor mapping, profiles, applications, BDM access control) must be declared with one of the `xml` content types above.
+For an extension that is not in this table (see <<document-override-whitelist,Override the default whitelist>>), the declared `Content-Type` is stored as is, except the types that a browser can execute (HTML, XML and XML-based types such as SVG, JavaScript), which are stored as `application/octet-stream`.
 
+These checks apply to every file upload, not only to generic file upload widgets and forms. In particular, the `.xml` files uploaded by the administration imports (organization, actor mapping, profiles, applications, BDM access control) must be declared with one of the `xml` content types above, or with `application/octet-stream`.
+
+[#document-override-whitelist]
 ==== Override the default whitelist
 
 To accept other file extensions than the default list (or to restrict it further), set the `form.attachment.allowed.extensions` property in the `console-config.properties` file of your tenant, using the xref:runtime:bonita-platform-setup.adoc#example-customize-tenant-property[Bonita Setup tool], as a comma-separated list of extensions (without the leading dot):
 
 [source,properties]
 ----
-form.attachment.allowed.extensions=pdf,docx,png,tif
+form.attachment.allowed.extensions=pdf,docx,png,dwg
 ----
 
+* The value replaces the default whitelist, it does not add to it: list every extension your processes need, including the default ones you want to keep.
+* Use `+*+` to accept any extension, files without extension included. The extensions listed in <<document-allowed-content-types,Content type and content verification>> are still verified.
 * If the property is left empty or not set, the default whitelist above is used.
 * This setting applies to all processes and all generic file upload widgets/forms of the tenant: it cannot be customized per process or per widget.
 * The server must be restarted for the change to be taken into account.
 
 [NOTE]
 ====
-Only widen this whitelist to extensions that your business processes actually need. Content type and content verification are only available for the extensions listed in xref:data:documents.adoc#document-allowed-content-types[Content type and content verification]; for any other extension added this way, only the name of the uploaded file is checked.
+Only widen this whitelist to extensions that your business processes actually need. Content type and content verification are only available for the extensions listed in <<document-allowed-content-types,Content type and content verification>>; for any other extension added this way, or accepted with `+*+`, only the name of the uploaded file is checked. Avoid adding formats that a browser can execute, such as `html`, `htm`, `xhtml`, `svg` or `js`.
 ====
+
+[#document-rejected-upload]
+==== Rejected uploads
+
+A rejected upload gets an HTTP `415 Unsupported Media Type` response, with one of the following messages:
+
+* `Extension not supported.`: the file extension is not allowed.
+* `File content does not match its extension.`: the declared content type or the file content does not match the extension.
+
+`API/formFileUpload`, used by the UI Designer upload widget, returns the message in JSON (other upload endpoints, such as `portal/fileUpload`, return it as plain text). The widget shows *Upload failed* and puts the message in the variable bound to its *Error on upload holder* property:
+
+[source,json]
+----
+{"type":"UnsupportedMediaType","message":"Extension not supported.","statusCode":415}
+----
+
+Each rejected upload is also logged as a warning in the server log, with the file name and, depending on the check that failed, the list of allowed extensions or the declared content type, so that an administrator can tell whether an extension must be added to the `form.attachment.allowed.extensions` property.
+
+[#document-display]
+==== Display of documents in the browser
+
+`API/formsDocumentImage` (also mapped as `portal/formsDocumentImage`), which the File viewer widget uses to preview a document, displays in the browser only raster images (`png`, `jpg`, `jpeg`, `gif`, `bmp`, `webp`, `avif`, `tif`, `tiff`, `ico`) and PDF files. Any other file, including `svg`, `html` and `xml` files, is downloaded instead of being displayed, whatever its file name. `API/documentDownload` always downloads the file.
 
 [discrete]
 ==== Document versioning in a process instance
