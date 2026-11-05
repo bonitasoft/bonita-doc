@@ -1,4 +1,4 @@
-= Bonita Runtime dependencies (10.2.11)
+= Bonita Runtime dependencies (10.2.12)
 :page-aliases: ROOT:bonita-web-dependencies.adoc, ROOT:bonita-engine-dependencies.adoc
 :description: List all dependencies used by Bonita Runtime
 
@@ -10,25 +10,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.17.1
+| 2.22.4
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.17.1
+| 2.22
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -94,25 +94,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.17.1
+| 2.22.4
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.17.1
+| 2.22
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -250,31 +250,31 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.17.1
+| 2.22.4
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.17.1
+| 2.22
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-yaml
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -700,7 +700,7 @@
 
 | org.yaml
 | snakeyaml
-| 2.2
+| 2.5
 | https://bitbucket.org/snakeyaml/snakeyaml[https://bitbucket.org/snakeyaml/snakeyaml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -724,61 +724,61 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.17.1
+| 2.22.4
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.17.1
+| 2.22
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-csv
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-smile
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson-dataformats-binary[https://github.com/FasterXML/jackson-dataformats-binary]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-xml
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson-dataformat-xml[https://github.com/FasterXML/jackson-dataformat-xml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-yaml
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.module
 | jackson-module-jaxb-annotations
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson-modules-base[https://github.com/FasterXML/jackson-modules-base]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.module
 | jackson-module-jsonSchema
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson-module-jsonSchema[https://github.com/FasterXML/jackson-module-jsonSchema]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -790,27 +790,15 @@
 
 | com.googlecode.json-simple
 | json-simple
-| 1.1
+| 1.1.1
 | http://code.google.com/p/json-simple/[http://code.google.com/p/json-simple/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.googlecode.owasp-java-html-sanitizer
-| java10-shim
-| 20260102.1
-| https://github.com/OWASP/java-html-sanitizer[https://github.com/OWASP/java-html-sanitizer]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
-
-| com.googlecode.owasp-java-html-sanitizer
-| java8-shim
-| 20260102.1
-| https://github.com/OWASP/java-html-sanitizer[https://github.com/OWASP/java-html-sanitizer]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
-
-| com.googlecode.owasp-java-html-sanitizer
 | owasp-java-html-sanitizer
-| 20260102.1
+| 20261031.1
 | https://owasp.org[https://owasp.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+|  https://opensource.org/licenses/BSD-2-Clause[BSD 2-Clause License]
 
 | com.sun.activation
 | jakarta.activation
@@ -890,11 +878,11 @@
 | https://www.eclipse.org[https://www.eclipse.org]
 |  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
 
-| jakarta.xml.bind
-| jakarta.xml.bind-api
-| 2.3.3
-| https://www.eclipse.org[https://www.eclipse.org]
-|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
+| javax.activation
+| javax.activation-api
+| 1.2.0
+| http://www.oracle.com[http://www.oracle.com]
+|  https://opensource.org/licenses/CDDL-1.0[COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0]
 
 | javax.servlet
 | javax.servlet-api
@@ -1108,25 +1096,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.17.1
+| 2.22.4
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.17.1
+| 2.22
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1270,25 +1258,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.17.1
+| 2.22.4
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.17.1
+| 2.22
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1354,25 +1342,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.17.1
+| 2.22.4
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.17.1
+| 2.22
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1510,31 +1498,31 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.17.1
+| 2.22.4
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.17.1
+| 2.22
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-yaml
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
@@ -1550,41 +1538,35 @@
 | http://stephenc.github.com/jcip-annotations[http://stephenc.github.com/jcip-annotations]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
-| com.google.code.findbugs
-| jsr305
-| 3.0.2
-| http://findbugs.sourceforge.net/[http://findbugs.sourceforge.net/]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
 | com.google.errorprone
 | error_prone_annotations
-| 2.18.0
-| N/A
+| 2.50.0
+| https://errorprone.info/error_prone_annotations[https://errorprone.info/error_prone_annotations]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache 2.0]
 
 | com.google.guava
 | failureaccess
-| 1.0.1
-| https://github.com/google/guava/[https://github.com/google/guava/]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
-
-| com.google.guava
-| guava
-| 32.1.2-jre
+| 1.0.3
 | https://github.com/google/guava/[https://github.com/google/guava/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | com.google.guava
-| guava-parent
-| 32.1.2-jre
-| N/A
-|  N/A
+| guava
+| 33.7.2-jre
+| https://github.com/google/guava/[https://github.com/google/guava/]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | com.google.guava
 | listenablefuture
 | 9999.0-empty-to-avoid-conflict-with-guava
 | N/A
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
+
+| com.google.j2objc
+| j2objc-annotations
+| 3.1
+| https://github.com/google/j2objc/[https://github.com/google/j2objc/]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
 | com.hazelcast
 | hazelcast
@@ -1851,12 +1833,6 @@
 | https://www.bouncycastle.org/download/bouncy-castle-java/[https://www.bouncycastle.org/download/bouncy-castle-java/]
 |  https://www.bouncycastle.org/licence.html[Bouncy Castle Licence]
 
-| org.checkerframework
-| checker-qual
-| 3.33.0
-| https://checkerframework.org/[https://checkerframework.org/]
-|  http://opensource.org/licenses/MIT[The MIT License]
-
 | org.codehaus.groovy
 | groovy
 | 3.0.19
@@ -2037,6 +2013,12 @@
 | http://www.jboss.org[http://www.jboss.org]
 |  http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]
 
+| org.jspecify
+| jspecify
+| 1.0.1
+| https://jspecify.dev/docs/start-here[https://jspecify.dev/docs/start-here]
+|  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache License, Version 2.0]
+
 | org.jvnet.staxex
 | stax-ex
 | 1.8
@@ -2141,7 +2123,7 @@
 
 | org.yaml
 | snakeyaml
-| 2.2
+| 2.5
 | https://bitbucket.org/snakeyaml/snakeyaml[https://bitbucket.org/snakeyaml/snakeyaml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
 
@@ -2165,93 +2147,81 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.17.1
+| 2.22.4
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.17.1
+| 2.22
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-csv
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-smile
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson-dataformats-binary[https://github.com/FasterXML/jackson-dataformats-binary]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-xml
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson-dataformat-xml[https://github.com/FasterXML/jackson-dataformat-xml]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.dataformat
 | jackson-dataformat-yaml
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson-dataformats-text[https://github.com/FasterXML/jackson-dataformats-text]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.module
 | jackson-module-jaxb-annotations
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson-modules-base[https://github.com/FasterXML/jackson-modules-base]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.module
 | jackson-module-jsonSchema
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson-module-jsonSchema[https://github.com/FasterXML/jackson-module-jsonSchema]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.woodstox
 | woodstox-core
-| 6.6.2
+| 7.2.0
 | https://github.com/FasterXML/woodstox[https://github.com/FasterXML/woodstox]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.googlecode.json-simple
 | json-simple
-| 1.1
+| 1.1.1
 | http://code.google.com/p/json-simple/[http://code.google.com/p/json-simple/]
 |  http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.googlecode.owasp-java-html-sanitizer
-| java10-shim
-| 20260102.1
-| https://github.com/OWASP/java-html-sanitizer[https://github.com/OWASP/java-html-sanitizer]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
-
-| com.googlecode.owasp-java-html-sanitizer
-| java8-shim
-| 20260102.1
-| https://github.com/OWASP/java-html-sanitizer[https://github.com/OWASP/java-html-sanitizer]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
-
-| com.googlecode.owasp-java-html-sanitizer
 | owasp-java-html-sanitizer
-| 20260102.1
+| 20261031.1
 | https://owasp.org[https://owasp.org]
-|  http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]
+|  https://opensource.org/licenses/BSD-2-Clause[BSD 2-Clause License]
 
 | com.hazelcast
 | hazelcast
@@ -2385,12 +2355,6 @@
 | https://www.eclipse.org[https://www.eclipse.org]
 |  https://www.gnu.org/software/classpath/license.html[GPL2 w/ CPE]
 
-| jakarta.xml.bind
-| jakarta.xml.bind-api
-| 2.3.3
-| https://www.eclipse.org[https://www.eclipse.org]
-|  https://www.gnu.org/software/classpath/license.html[GNU General Public License, version 2 with the GNU Classpath Exception]
-
 | javax.activation
 | activation
 | 1.1
@@ -2519,7 +2483,7 @@
 
 | org.codehaus.woodstox
 | stax2-api
-| 4.2.2
+| 4.3.0
 | http://github.com/FasterXML/stax2-api[http://github.com/FasterXML/stax2-api]
 |  http://www.opensource.org/licenses/bsd-license.php[The BSD 2-Clause License]
 
@@ -2801,25 +2765,25 @@
 
 | com.fasterxml.jackson
 | jackson-bom
-| 2.17.1
+| 2.22.4
 | N/A
 |  N/A
 
 | com.fasterxml.jackson.core
 | jackson-annotations
-| 2.17.1
+| 2.22
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-core
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson-core[https://github.com/FasterXML/jackson-core]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
 | com.fasterxml.jackson.core
 | jackson-databind
-| 2.17.1
+| 2.22.4
 | https://github.com/FasterXML/jackson[https://github.com/FasterXML/jackson]
 |  https://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]
 
