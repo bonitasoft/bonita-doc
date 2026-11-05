@@ -80,7 +80,11 @@ When the property is set to `false`:
 
 * tracking rows are no longer created or updated when BDM object instances are created or modified,
 * the cleanup job is not scheduled, so no business data is deleted,
+* retention rules are read-only: existing rules are kept and can still be read, but creating, updating or deleting a rule is rejected (the REST calls return HTTP 403),
+* the *Data Retention (GDPR)* administration page shows a warning banner, marks the schedule as suspended and displays the configuration in read-only mode,
 * a warning is logged at platform startup.
+
+In a cluster, set the property to the same value on all nodes.
 
 [WARNING]
 ====
@@ -92,6 +96,18 @@ Disabling data retention has consequences that remain after you enable it again:
 
 Before enabling data retention again, follow the procedure described in <<legacy-data,Handling legacy data>> to bring the instances created or modified while it is disabled under retention control.
 ====
+
+[#data-retention-state-history]
+=== State history
+
+To identify later the periods during which BDM changes were not tracked, Bonita records the value of the property in a xref:api:queriable-logging.adoc[queriable log] entry at platform startup: at the first startup, then each time the value differs from the last recorded one. The entry has:
+
+* `action_type`: `DATA_RETENTION_STATE_UPDATED`,
+* `action_scope`: `ENABLED` or `DISABLED`.
+
+These entries are also recorded in the Community edition, so that the history is already available after an upgrade to a Subscription edition. They can be queried through the `/API/system/log` REST endpoint, with the `f=action_type=DATA_RETENTION_STATE_UPDATED` filter, and are displayed in the *Feature state* section of the *Audit log* tab of the *Data Retention (GDPR)* administration page.
+
+The current state is returned by the `GET /API/retention/status` REST endpoint, as `{"enabled": true}` or `{"enabled": false}`.
 
 [#legacy-data]
 == Handling legacy data
