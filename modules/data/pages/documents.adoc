@@ -259,7 +259,7 @@ These checks apply to every file upload, not only to generic file upload widgets
 [#document-override-whitelist]
 ==== Override the default whitelist
 
-To accept other file extensions than the default list (or to restrict it further), set the `form.attachment.allowed.extensions` property in the `console-config.properties` file of your tenant, using the xref:runtime:bonita-platform-setup.adoc#example-customize-tenant-property[Bonita Setup tool], as a comma-separated list of extensions (without the leading dot):
+To accept other file extensions than the default list (or to restrict it further), set the `form.attachment.allowed.extensions` property in the `console-config.properties` file, using the xref:runtime:bonita-platform-setup.adoc#example-customize-console-config-property[Bonita Setup tool], as a comma-separated list of extensions (without the leading dot):
 
 [source,properties]
 ----
@@ -269,7 +269,7 @@ form.attachment.allowed.extensions=pdf,docx,png,dwg
 * The value replaces the default whitelist, it does not add to it: list every extension your processes need, including the default ones you want to keep.
 * Use `+*+` to accept any extension, files without extension included. The extensions listed in <<document-allowed-content-types,Content type and content verification>> are still verified.
 * If the property is left empty or not set, the default whitelist above is used.
-* This setting applies to all processes and all generic file upload widgets/forms of the tenant: it cannot be customized per process or per widget.
+* This setting applies to all processes and all generic file upload widgets and forms: it cannot be customized per process or per widget.
 * The server must be restarted for the change to be taken into account.
 
 [NOTE]

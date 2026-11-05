@@ -96,8 +96,8 @@ that do not recognize a file type), except types that a browser can execute.
 (organization, actor mapping, profiles, applications, BDM access control). See
 xref:data:documents.adoc#document-allowed-content-types[Content type and content verification].
 * The whitelist can be customized, or opened to any extension with `+*+`, using the
-`form.attachment.allowed.extensions` property in the `console-config.properties` file. This change affects all users
-of the tenant. See xref:data:documents.adoc#document-allowed-extensions[Document allowed file extensions setting].
+`form.attachment.allowed.extensions` property in the `console-config.properties` file. See
+xref:data:documents.adoc#document-allowed-extensions[Document allowed file extensions setting].
 * Rejected uploads are logged as warnings in the server log. See
 xref:data:documents.adoc#document-rejected-upload[Rejected uploads].
 
