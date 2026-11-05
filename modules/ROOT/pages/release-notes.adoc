@@ -101,12 +101,6 @@ of the tenant. See xref:data:documents.adoc#document-allowed-extensions[Document
 * Rejected uploads are logged as warnings in the server log. See
 xref:data:documents.adoc#document-rejected-upload[Rejected uploads].
 
-==== Display of documents in the browser
-
-* `API/formsDocumentImage`, which the File viewer widget uses to preview documents, now displays only raster images
-and PDF files in the browser. Any other file, such as an `svg`, `html` or `xml` file, is downloaded instead. See
-xref:data:documents.adoc#document-display[Display of documents in the browser].
-
 === Fixes in Bonita 2024.3-u11 (2026-09-23)
 
 * BPA-327 - java.lang.NullPointerException on bonita-ldap-synchronizer
