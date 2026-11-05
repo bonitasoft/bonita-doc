@@ -12,7 +12,7 @@ When you clone or import a project from a previous version, Bonita Studio migrat
 
 Bonita Studio writes the changes it applies, and the actions it leaves to you, in two places:
 
-* `MIGRATION_NOTES.adoc` at the root of the project, opened after the migration (see xref:update-studio.adoc[Updating Bonita Studio]): the changes to the project pom.
+* `MIGRATION_NOTES.adoc` at the root of the project, opened after the migration (see xref:update-studio.adoc[Updating Bonita Studio]): the changes to the project pom and to the poms of the Business Data Model modules.
 * `extensions/<extension>/MIGRATION_NOTES.adoc`, one per migrated extension: the changes to the extension pom, and the actions about the extension poms and sources. This file is not opened for you: open it for each extension.
 
 Look for the lines starting with *Action required*: each of them names a file or a pom section that Bonita Studio did not change.
@@ -156,6 +156,8 @@ If your extension embeds a third-party library compiled against `javax.servlet` 
 
 The BDM classes are generated when the project is built, by its `bdm` Maven modules, and now use `jakarta.persistence`. Code of yours that imports `javax.persistence` directly, for example in a REST API extension, must be updated as described above.
 
+Up to Bonita 2026.2, Bonita Studio declared `javax.persistence:javax.persistence-api` without version in the pom of the `bdm/dao-client` module. The migration removes this declaration, which no longer resolves. If you set a version on it, the dependency is kept and the migration notes ask you to remove it, unless your own code in this module needs it.
+
 [#groovy-dependencies]
 === Groovy dependencies you declared yourself
 
@@ -170,8 +172,6 @@ A Spock version that you set yourself, rather than one written by a Bonita arche
 === Usages of groovy-servlet
 
 If your code used classes of `groovy-servlet` (`groovy.servlet.*`), Bonita Studio removed the dependency during the migration. Remove these usages: the Groovy 4 version of `groovy-servlet` only exists for `javax.servlet`, and its Jakarta version requires Groovy 5, which Bonita 2027.1 does not provide.
-
-The migration notes suggest declaring the Groovy modules removed by the migration explicitly if your code still needs them. This advice does not apply to `groovy-servlet`.
 
 [#unmanaged-dependencies]
 === Dependencies the runtime BOM no longer manages
