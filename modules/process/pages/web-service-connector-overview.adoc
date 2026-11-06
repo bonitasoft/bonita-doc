@@ -184,6 +184,7 @@ countryDAO.findById(country, 0, 100).get(0)
 +
 [source,groovy]
 ----
+import groovy.xml.XmlSlurper
 import groovy.xml.XmlUtil
 
 def reponseBody = new XmlSlurper().parseText(XmlUtil.serialize(responseDocumentBody.getDocumentElement()))
