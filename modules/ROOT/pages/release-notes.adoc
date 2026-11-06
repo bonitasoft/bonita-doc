@@ -521,7 +521,10 @@ The notable changes are:
 
 === Fixes in Bonita 2025.1-u12 (2026-11-06)
 
+* BPA-167 - Human task permanently stuck with orphaned contract data when a concurrent task update (take, priority, due date) overwrites state_executing (SWorkPreconditionException)
+* BPA-210 - Fix "Could not set ObjectFilter: null" message
 * BPA-291 - Configuration and license file lost when parallel setup pull / push are run
+* BPA-902 - Docker: Kerberos SSO fails with HTTP 500 when the ProGrade security manager is enabled
 
 ==== Platform configuration update (Setup tool)
 
@@ -562,6 +565,7 @@ Memcache are no longer served. Nothing in Bonita uses them. If your deployment u
 `bonita.platform.hazelcast.client-protocol.enabled=true` in `bonita-platform-sp-custom.properties`, with the same value
 on every node of a cluster, and restrict port 5701 to the hosts that need it. See
 xref:runtime:install-a-bonita-bpm-cluster.adoc#hazelcast-client-protocol[Allow communication between servers].
+* The Hazelcast member embedded in Bonita no longer tries to send statistics.
 
 ==== Audit log
 
