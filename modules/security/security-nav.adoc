@@ -3,4 +3,5 @@
   ** xref:csrf-security.adoc[CSRF security]
   ** xref:java-security-policy.adoc[Java Security Policy]
   ** xref:brute-force-login-protection.adoc[Brute-Force Login Protection]
+  ** xref:audit-log.adoc[Audit Log]
   ** xref:enable-cors-in-tomcat-bundle.adoc[Enable CORS in Tomcat bundle]

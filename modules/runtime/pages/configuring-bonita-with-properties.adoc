@@ -15,6 +15,7 @@ Bonita runtime can be configured in a variety of ways:
 ** DevOps familiar with Docker are used to set Env Variables via `-e prop=value`
 
 
+[#setup-tool-pull-push]
 == Changing a property in database via the Setup Tool
 
 The xref:runtime:bonita-platform-setup.adoc[Setup Tool] allows you to modify Bonita properties in the database.
