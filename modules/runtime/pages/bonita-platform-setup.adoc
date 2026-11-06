@@ -144,7 +144,7 @@ form.attachment.allowed.extensions=pdf,docx,png,dwg
 
 [NOTE]
 ====
-The `form.attachment.allowed.extensions` property applies since Bonita 2025.1-u12 (10.3.12).
+The `form.attachment.allowed.extensions` property applies since Bonita 2025.2-u12 (10.4.12).
 ====
 
 [#configure_tool]
