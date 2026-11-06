@@ -186,6 +186,7 @@ On a Bonita bundle, you can configure the log level, and you can access the log 
 Each file name includes the date when the file was created. Log files:
 
 * _bonita.date_.log is the Bonita log file.
+* `audit.log` is the xref:security:audit-log.adoc[audit log] (since Bonita 2025.2-u12): one JSON event per login, failed login and logout.
 
 == Integrate Bonita Runtime logs into an external Log Management System
 
