@@ -190,9 +190,7 @@ Only set it to `true` when browsers cannot reach Bonita without going through th
 * An event never contains the password, the request body, the query string or the path parameters (such as `jsessionid`).
 * The values coming from the request are truncated, ending with `...`: username and identity provider to 256 characters, User-Agent to 512, URL path to 1024.
 * The session id is hashed.
-* A failed login records the username that was typed, which is personal data and may occasionally be a mistyped password: restrict the access to the audit log and set its retention accordingly.
-
-Writing an event never makes an authentication fail: if an event cannot be written, a warning is logged and the event is dropped.
+* A failed login records the username that was typed.
 
 == Events that are not recorded
 
