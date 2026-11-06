@@ -1,6 +1,6 @@
-= Using SaleForce with Bonita
+= Using Salesforce with Bonita
 :page-aliases: ROOT:salesforce.adoc
-:description: SaleForce connectors allow you to interact with Saleforce through Bonita.
+:description: Salesforce connectors allow you to interact with Salesforce through Bonita.
 
 {description}
 
