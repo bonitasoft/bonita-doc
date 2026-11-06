@@ -140,9 +140,13 @@ For advanced cache tuning after migration, refer to the xref:runtime:performance
 
 === Fixes in Bonita 2026.1-u4 (2026-11-06)
 
+* BPA-167 - Human task permanently stuck with orphaned contract data when a concurrent task update (take, priority, due date) overwrites state_executing (SWorkPreconditionException)
+* BPA-210 - Fix "Could not set ObjectFilter: null" message
 * BPA-291 - Configuration and license file lost when parallel setup pull / push are run
+* BPA-902 - Docker: Kerberos SSO fails with HTTP 500 when the ProGrade security manager is enabled
 * BPA-976 - Performance impact of BDM data tracking even when no data retention rules are defined +
 BDM data retention can now be disabled with the new `bonita.runtime.retention.enabled` configuration property (default: `true`). When it is set to `false`, BDM changes are no longer tracked, in all editions, and the cleanup job is not scheduled. When it is disabled, retention rules are read-only and the *Data Retention (GDPR)* page shows it, along with the history of the data retention state. Data created or modified while data retention is disabled requires a manual procedure before enabling it again: see xref:runtime:bdm-data-retention.adoc#disable-data-retention[Disabling data retention].
+
 
 ==== Platform configuration update (Setup tool)
 
@@ -183,6 +187,7 @@ Memcache are no longer served. Nothing in Bonita uses them. If your deployment u
 `bonita.platform.hazelcast.client-protocol.enabled=true` in `bonita-platform-sp-custom.properties`, with the same value
 on every node of a cluster, and restrict port 5701 to the hosts that need it. See
 xref:runtime:install-a-bonita-bpm-cluster.adoc#hazelcast-client-protocol[Allow communication between servers].
+* The Hazelcast member embedded in Bonita no longer tries to send statistics.
 
 ==== Audit log
 
