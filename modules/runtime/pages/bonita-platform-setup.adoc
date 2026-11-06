@@ -142,11 +142,6 @@ Configuration files such as `console-config.properties` are changed this way. Fo
 form.attachment.allowed.extensions=pdf,docx,png,dwg
 ----
 
-[NOTE]
-====
-The `form.attachment.allowed.extensions` property applies since Bonita 2027.1 (12.0.x).
-====
-
 [#configure_tool]
 
 == Pre-requisites
