@@ -150,7 +150,7 @@ This maximum document size will also depend on your web server configuration, it
 
 [NOTE]
 ====
-The file extension and content checks described in this section apply since Bonita 2026.1-u4 (11.0.4).
+The file extension and content checks described in this section apply since Bonita 2026.2-u4 (11.1.4).
 ====
 
 By default, Bonita restricts the file types that can be uploaded through generic file upload widgets and forms to the following list of common business formats: `pdf`, `doc`, `docx`, `xls`, `xlsx`, `ppt`, `pptx`, `txt`, `csv`, `json`, `jpg`, `jpeg`, `png`, `gif`, `bmp`, `xml`, `msg`, `eml`, `tif`, `tiff`, `odt`, `ods`, `odp`, `zip`.
