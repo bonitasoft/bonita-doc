@@ -109,11 +109,10 @@ Several REST resources were added to support the Task Delegation feature:
 === Fixes in Bonita 2026.2-u4 (2026-11-05)
 
 * BPA-291 - Configuration and license file lost when parallel setup pull / push are run
-* BPA-976 - Severe performance impact of BDM data tracking even when no data retention rules are defined +
+* BPA-976 - Performance impact of BDM data tracking even when no data retention rules are defined +
 BDM data retention can now be disabled with the new `bonita.runtime.retention.enabled` configuration property (default: `true`). When it is set to `false`, BDM changes are no longer tracked, in all editions, and the cleanup job is not scheduled. When it is disabled, retention rules are read-only and the *Data Retention (GDPR)* page shows it, along with the history of the data retention state. Data created or modified while data retention is disabled requires a manual procedure before enabling it again: see xref:runtime:bdm-data-retention.adoc#disable-data-retention[Disabling data retention].
 
-[#v2026-2-u4-setup-timeout]
-*Platform configuration update (Setup tool)*
+==== Platform configuration update (Setup tool)
 
 * `setup push` now updates the configuration in a single transaction, so a `setup pull` run at the same time no
 longer loses the configuration or the license.
