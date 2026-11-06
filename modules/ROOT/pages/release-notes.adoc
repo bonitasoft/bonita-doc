@@ -523,8 +523,7 @@ The notable changes are:
 
 * BPA-291 - Configuration and license file lost when parallel setup pull / push are run
 
-[#v2025-1-u12-setup-timeout]
-*Platform configuration update (Setup tool)*
+==== Platform configuration update (Setup tool)
 
 * `setup push` now updates the configuration in a single transaction, so a `setup pull` run at the same time no
 longer loses the configuration or the license.
