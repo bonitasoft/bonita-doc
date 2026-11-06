@@ -122,6 +122,7 @@ The URL points on a file without extension (e.g. \https://myhost/doc/sample)
 
 [.solution]#Possible solution#
 Make a custom widget from the File Viewer widget, and adapt the `controller.isPDF` or `controller.isImage`.
+For Bonita documents, only raster images and PDF files can be previewed this way: Bonita downloads any other document instead of displaying it, see xref:data:documents.adoc#document-display[Display of documents in the browser].
 --
 
 [.troubleshooting-section]
