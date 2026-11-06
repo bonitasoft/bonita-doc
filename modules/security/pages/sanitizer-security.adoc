@@ -51,7 +51,7 @@ My page contains "&" and "1 < 3" and ""
 
 == How do I disable it?
 
-You can disable the Sanitizer protection. Either globally for the whole platform, or partially for some specific json attributes.
+You can relax the Sanitizer protection at three levels: globally for the whole platform (below); per URL, to exclude specific endpoints (see <<How to configure URL exclusions?>>); and per JSON attribute, to exclude specific fields across the whole API (see <<How to configure JSON attribute exclusions?>>).
 
 Disabling the Sanitizer protection  for the whole platform is not recommended as it will remove any server-side input validation and can make Applications using Bonita REST API unprotected from malicious attacks (unless content is sanitized front-end side).
 However, it is safe to disable it for some specific json attributes when:
@@ -67,11 +67,142 @@ The default version of this file is located in `setup/platform_conf/initial/plat
 When Sanitizer protection is enabled, this file contains this line:
 `security.sanitizer.enabled true`
 
+If you must disable the Sanitizer protection for the whole platform, edit the configuration file and change the `security.sanitizer.enabled` value to *false*.
+
+== How to configure URL exclusions?
+
+The Sanitizer is a servlet filter, declared by default in the `WEB-INF/web.xml` file of the Bonita web
+application (`BUNDLE_HOME/server/webapps/bonita/WEB-INF/web.xml` in the Tomcat bundle, where `bonita` is the
+name under which the web application is deployed).
+
+It only inspects requests that carry a JSON body, that is `POST`, `PUT` and `PATCH` requests with a
+`Content-Type: application/json` header. Every other request passes through untouched, so a URL exclusion is
+only meaningful for those three methods.
+
+=== The URL used by the Administrator application
+
+The *Scripts* page of the Bonita Administrator application updates the Groovy scripts of an installed process
+live. Groovy code contains characters such as `<` and `>` that the Sanitizer treats as HTML markup, so this
+URL has to be excluded for the page to save scripts unaltered:
+
+[source]
+----
+^/(bonita/)?API/bpm/process/[0-9]+/expression/[0-9]+/?$
+----
+
+Depending on your Bonita maintenance version, this exclusion may already be provided out of the box. You do
+not need to find out: if you define an `excludePattern` at all, keep this pattern in it. Repeating a pattern
+that Bonita already provides is harmless, since the value is the same.
+
+=== Adding your own exclusion
+
+Add an `excludePattern` init parameter to the existing `SanitizerFilter` declaration — edit the declaration
+already present in `web.xml`, do not add a second one. Several URLs are listed inside a single group,
+separated by `|`, with one `^` at the start and one `$` at the end of the whole value. The example below
+excludes the Administrator application URL above together with a custom REST API extension:
+
+[source, xml]
+----
+<!-- Sanitize filter to prevent code injection -->
+<filter>
+    <filter-name>SanitizerFilter</filter-name>
+    <filter-class>org.bonitasoft.console.common.server.filter.SanitizerFilter</filter-class>
+    <init-param>
+        <param-name>excludePattern</param-name>
+        <param-value>^/(bonita/)?(API/bpm/process/[0-9]+/expression/[0-9]+|API/extension/myCustomResource)/?$</param-value>
+    </init-param>
+</filter>
+----
+
+IMPORTANT: `excludePattern` *replaces* the exclusions provided by Bonita, it does not add to them. Any
+pattern provided by your version is lost as soon as you define your own value, so repeat it there, exactly
+as the example above does — otherwise the *Scripts* page will start truncating Groovy scripts.
+
+IMPORTANT: The value of `excludePattern` is used exactly as you write it. The `bonita` it contains is *not*
+replaced with the name of your web application, unlike the patterns provided by Bonita. If you deploy the web
+application under another name, write that name into your own pattern. For a web application deployed as
+`myportal`, the value above becomes:
+
+[source, xml]
+----
+<param-value>^/(myportal/)?(API/bpm/process/[0-9]+/expression/[0-9]+|API/extension/myCustomResource)/?$</param-value>
+----
+
+The pattern is matched against the request path *including* the name of the web application, which is why the
+value starts with `^/(bonita/)?` and not with `^/API/`. The leading `^` and the trailing `$` are what stop a
+pattern from also matching a longer URL, or the same resource reached through a different route.
+
+IMPORTANT: Keep the `|` alternatives *inside* the group, as the example above does, so that the `^` and the
+`$` apply to all of them. `|` has the lowest precedence of all regular expression operators: it splits the
+whole value rather than the part next to it. Written as
+`^/(bonita/)?myFirstUrl$|API/extension/myCustomResource`, the second URL carries no `^` and no `$` of its own
+and is then matched anywhere in any path — so `+/bonita/portal/custom-page/API/extension/myCustomResource+`,
+a different route to the same resource, is excluded as well. The shorter the alternative, the wider the hole:
+an alternative reduced to `API/` would disable the Sanitizer on the whole REST API.
+
+A restart of the Bonita server is needed after a change to `web.xml`.
+
+=== Checking that an exclusion is active
+
+There is currently no message at the default log levels stating which exclusion pattern is in use. To check
+that your pattern behaves as intended, set the log level of `org.bonitasoft.console.common.server.filter` to
+`DEBUG` in `BUNDLE_HOME/server/conf/log4j2-loggers.xml`:
+
+[source, xml]
+----
+<Logger name="org.bonitasoft.console.common.server.filter" level="DEBUG"/>
+----
+
+This file is reloaded automatically, so no restart is needed for the log level alone — unlike a change to
+`web.xml`. Then send a request to the excluded URL. The filter logs its decision for that URL:
+
+[source]
+----
+DEBUG | org.bonitasoft.console.common.server.filter.URLExcludePattern - Exclude pattern match with this url: http://<host>:<port>/bonita/API/bpm/process/1234/expression/5678
+----
+
+Expect *several* lines for a single request, most of them reading `does not match`. Bonita declares a number
+of filters that each hold their own exclusion pattern, they all log through the same class, and the message
+does not say which filter produced it. Lines reading `does not match` are therefore expected and come from
+the other filters. What tells you that your own exclusion is working is the presence of at least one `match`
+line for your URL; if every line for your URL reads `does not match`, your pattern is not matching.
+
+IMPORTANT: The URL to put in your pattern is the one named in the log, which is not always the one you sent.
+Bonita rewrites some requests internally before the Sanitizer sees them — a call sent to `/API/bpm/comment`,
+for instance, is forwarded to `/APIToolkit/bpm/comment`, and it is that rewritten path the Sanitizer checks
+and logs. Send your request once with no exclusion configured, read the URL from the `match` or
+`does not match` line for it, and write your pattern against *that* path.
+
+A pattern that is not a valid regular expression is reported as an error when the web application starts:
+
+[source]
+----
+ERROR | org.bonitasoft.console.common.server.filter.URLExcludePattern - impossible to create pattern from [ <your pattern> ]
+----
+
+IMPORTANT: When that happens the *whole* value is discarded, not only the part that is malformed, and the
+filter then excludes nothing at all. A mistake in one alternative therefore also loses every other URL you
+listed, including any exclusion provided by Bonita that you carried over — and the *Scripts* page starts
+truncating Groovy scripts again. Check the log after every change to the pattern.
+
+A pattern that is valid but matches nothing is not reported at all — it simply has no effect.
+
+NOTE: Excluding a URL disables the XSS protection on the body of every request sent to it. Keep your patterns
+as narrow as possible, and make sure the content received on an excluded URL cannot be rendered as HTML to
+another user.
+
+== How to configure JSON attribute exclusions?
+
+The Sanitizer protection can also be disabled per JSON attribute, independently of the URL. This mechanism
+matches on attribute names and applies across the whole REST API.
+
 By default Sanitizer protection is disabled on a few json attributes with this line:
 `security.sanitizer.exclude email,password,password_confirm`
 
-If you must disable the Sanitizer protection for the whole platform, edit the configuration file and change the `security.sanitizer.enabled` value to *false*.
+If you want to disable the Sanitizer protection for a specific json attribute, edit the
+`setup/platform_conf/initial/platform_portal/security-config.properties` configuration file and append your
+attribute name to the `security.sanitizer.exclude` comma-separated values.
 
-If you want to disable the Sanitizer protection for a specific json attribute, edit the configuration file and append your attribute name to the `security.sanitizer.exclude` comma-separated values.
-
-In either case, make sure all your concerned UI pages are secured against XSS attacks before disabling the Sanitizer protection (e.g. by developing them with Bonita UI Designer and avoiding using the `allow HTML` option of the widgets when the content comes from a user input).
+In either case, make sure all your concerned UI pages are secured against XSS attacks before disabling the
+Sanitizer protection (e.g. by developing them with Bonita UI Designer and avoiding using the `allow HTML`
+option of the widgets when the content comes from a user input).

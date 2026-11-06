@@ -519,6 +519,51 @@ The notable changes are:
 
 == Bug fixes
 
+=== Fixes in Bonita 2025.1-u12 (2026-11-06)
+
+* BPA-291 - Configuration and license file lost when parallel setup pull / push are run
+
+[#v2024-3-u12-setup-timeout]
+*Platform configuration update (Setup tool)*
+
+* `setup push` now updates the configuration in a single transaction, so a `setup pull` run at the same time no
+longer loses the configuration or the license.
+* `setup push` no longer deletes the licenses from the database when the `platform_conf/licenses` folder is missing.
+* Reading or writing the platform configuration now times out after 60 seconds by default, instead of waiting
+indefinitely. Change it with the new property `bonita.platform.setup.transaction-timeout` (for example `90s`):
+** when running the xref:runtime:bonita-platform-setup.adoc#update_platform_conf[Bonita Setup tool]: in
+`setup/internal.properties`, or on the command line, for example `setup.sh push -Dbonita.platform.setup.transaction-timeout=90s`;
+** when Bonita starts: as a JVM system property, for example `-Dbonita.platform.setup.transaction-timeout=90s` in `CATALINA_OPTS`,
+or as the environment variable `BONITA_PLATFORM_SETUP_TRANSACTION_TIMEOUT`, for example with Docker
+(see xref:runtime:configuring-bonita-with-properties.adoc[Bonita Runtime configuration]).
+* The value of `bonita.platform.setup.transaction-timeout` must be at least 1 second: `0` does not disable the timeout.
+
+==== File upload allowed extensions
+
+* Generic file upload widgets and forms now restrict uploaded files to a default whitelist of common business file
+extensions (`pdf`, `doc`, `docx`, `xls`, `xlsx`, `ppt`, `pptx`, `txt`, `csv`, `json`, `jpg`, `jpeg`, `png`, `gif`,
+`bmp`, `xml`, `msg`, `eml`, `tif`, `tiff`, `odt`, `ods`, `odp`, `zip`), and reject files whose declared content type
+or, for binary formats, file signature does not match their extension. Binary files whose content matches their
+extension are accepted whatever their declared content type (for example `application/octet-stream`, sent by clients
+that do not recognize a file type), except types that a browser can execute.
+* The content type check applies to every file upload, including the `.xml` files of the administration imports
+(organization, actor mapping, profiles, applications, BDM access control). See
+xref:data:documents.adoc#document-allowed-content-types[Content type and content verification].
+* The whitelist can be customized, or opened to any extension with `+*+`, using the
+`form.attachment.allowed.extensions` property in the `console-config.properties` file. See
+xref:data:documents.adoc#document-allowed-extensions[Document allowed file extensions setting].
+* Rejected uploads are logged as warnings in the server log. See
+xref:data:documents.adoc#document-rejected-upload[Rejected uploads].
+
+==== Hazelcast clients refused by default
+
+* The Hazelcast member embedded in Bonita now accepts other Hazelcast members only, on a single node as in a cluster.
+Hazelcast clients, Management Center included, are refused, and the Hazelcast REST API, health check included, and
+Memcache are no longer served. Nothing in Bonita uses them. If your deployment uses any of them on purpose, set
+`bonita.platform.hazelcast.client-protocol.enabled=true` in `bonita-platform-sp-custom.properties`, with the same value
+on every node of a cluster, and restrict port 5701 to the hosts that need it. See
+xref:runtime:install-a-bonita-bpm-cluster.adoc#hazelcast-client-protocol[Allow communication between servers].
+
 === Fixes in Bonita 2025.1-u11 (2026-09-23)
 
 * BPA-327 - java.lang.NullPointerException on bonita-ldap-synchronizer
