@@ -3,11 +3,6 @@
 
 {description}
 
-[NOTE]
-====
-Available since Bonita 2027.1 (xref:version-update:product-versioning.adoc#technical-id[technical id] 12.0.x).
-====
-
 == What is recorded
 
 Bonita writes an event for each:
@@ -198,5 +193,4 @@ Only set it to `true` when browsers cannot reach Bonita without going through th
 * Session expiry. An explicit logout after the session has expired is not recorded either.
 * Bearer tokens rejected by the OIDC adapter.
 * Logins that do not go through the Bonita web application, such as calls to the Java `LoginAPI` from code running in the server.
-* Logouts of the sessions opened before Bonita was updated to 2027.1, as their login was not recorded.
 * Login requests without any username: they are anonymous, not failed logins.
