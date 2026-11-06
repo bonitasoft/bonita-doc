@@ -84,6 +84,23 @@ Note that this new API is now also available in the Community edition and provid
 
 === Fixes in Bonita 2024.3-u12 (2026-11-05)
 
+* BPA-291 - Configuration and license file lost when parallel setup pull / push are run
+
+[#v2024-3-u12-setup-timeout]
+*Platform configuration update (Setup tool)*
+
+* `setup push` now updates the configuration in a single transaction, so a `setup pull` run at the same time no
+longer loses the configuration or the license.
+* `setup push` no longer deletes the licenses from the database when the `platform_conf/licenses` folder is missing.
+* Reading or writing the platform configuration now times out after 60 seconds by default, instead of waiting
+indefinitely. Change it with the new property `bonita.platform.setup.transaction-timeout` (for example `90s`):
+** when running the xref:runtime:bonita-platform-setup.adoc#update_platform_conf[Bonita Setup tool]: in
+`setup/internal.properties`, or on the command line, for example `setup.sh push -Dbonita.platform.setup.transaction-timeout=90s`;
+** when Bonita starts: as a JVM system property, for example `-Dbonita.platform.setup.transaction-timeout=90s` in `CATALINA_OPTS`,
+or as the environment variable `BONITA_PLATFORM_SETUP_TRANSACTION_TIMEOUT`, for example with Docker
+(see xref:runtime:configuring-bonita-with-properties.adoc[Bonita Runtime configuration]).
+* The value of `bonita.platform.setup.transaction-timeout` must be at least 1 second: `0` does not disable the timeout.
+
 ==== File upload allowed extensions
 
 * Generic file upload widgets and forms now restrict uploaded files to a default whitelist of common business file
