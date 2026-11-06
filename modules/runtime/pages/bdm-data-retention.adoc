@@ -65,7 +65,7 @@ These entries can be queried through the existing `/API/system/log` REST endpoin
 [#disable-data-retention]
 == Disabling data retention
 
-Starting with Bonita 2026.1-u4, data retention can be disabled entirely with the following property:
+Starting with Bonita 2026.2-u4, data retention can be disabled entirely with the following property:
 
 [cols="2,2,4"]
 |===
