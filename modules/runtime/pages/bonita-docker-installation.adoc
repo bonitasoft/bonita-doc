@@ -508,11 +508,11 @@ If `ACCESSLOGS_FILES_ENABLED=true`, this optional environment variable allows to
 
 [#audit-log-stdout-enabled]
 === AUDIT_LOG_STDOUT_ENABLED
-Since Bonita 2025.1-u12, this optional environment variable allows to activate/deactivate writing the xref:security:audit-log.adoc[audit log] to standard output, one JSON event per line. Default value is *true*.
+Since Bonita 2025.2-u12, this optional environment variable allows to activate/deactivate writing the xref:security:audit-log.adoc[audit log] to standard output, one JSON event per line. Default value is *true*.
 
 [#audit-log-files-enabled]
 === AUDIT_LOG_FILES_ENABLED
-Since Bonita 2025.1-u12, this optional environment variable allows to activate/deactivate writing the xref:security:audit-log.adoc[audit log] to a specific file. When activated, will write the events to `/opt/bonita/logs/audit.log` *inside* the docker container.
+Since Bonita 2025.2-u12, this optional environment variable allows to activate/deactivate writing the xref:security:audit-log.adoc[audit log] to a specific file. When activated, will write the events to `/opt/bonita/logs/audit.log` *inside* the docker container.
 In practice, it is only useful when mounting a volume to the aforementioned directory. Old files are not deleted: see xref:security:audit-log.adoc#retention[how to apply a retention]. Default value is *false*.
 
 Both outputs can be activated at the same time. To write the events to the file only, also set `AUDIT_LOG_STDOUT_ENABLED=false`, and set both variables to `false` to switch the audit log off. Any value other than `true` or `false` stops the container.
@@ -649,7 +649,7 @@ Log4j2 automatically reloads configuration files when there is a change. However
 of that file is used instead, and is not reloaded unless one of the other watched file is changed.
 ====
 
-Since Bonita 2025.1-u12, `log4j2-appenders.xml` declares the xref:security:audit-log.adoc[audit log] logger and its appenders: add them to a file customized for an earlier version.
+Since Bonita 2025.2-u12, `log4j2-appenders.xml` declares the xref:security:audit-log.adoc[audit log] logger and its appenders: add them to a file customized for an earlier version.
 
 If no user is specified to create the container (`--user`), the filesystem access rights are downgraded to allow only the `bonita` user (inside the Docker container), meaning that a standard user cannot access the log4j2 configuration folder on the host machine (`~/my-config/log4j/` in this example) anymore. Make sure to access it as a "sudoer" to hot-modify the logger configuration, or specify a dedicated user when creating the container:
 
