@@ -5,7 +5,7 @@
 
 [NOTE]
 ====
-Available since Bonita 2026.2-u4 (xref:version-update:product-versioning.adoc#technical-id[technical id] 11.1.4).
+Available since Bonita 2027.1 (xref:version-update:product-versioning.adoc#technical-id[technical id] 12.0.x).
 ====
 
 == What is recorded
@@ -141,7 +141,7 @@ Old files are not deleted either: add the `Delete` action of the <<retention,ret
 
 === Customized logging configuration
 
-A `log4j2-appenders.xml` customized before Bonita 2026.2-u4 does not declare the audit logger and its appenders: the events are then written with the other logs, in the format of the other logs, and the `AUDIT_LOG_*` environment variables have no effect in the Docker image. Add the appenders and the `org.bonitasoft.runtime.audit` logger of the default file to it, for the Tomcat bundle as for a file mounted on `/opt/bonita/conf/logs` in the Docker image.
+A `log4j2-appenders.xml` customized before Bonita 2027.1 does not declare the audit logger and its appenders: the events are then written with the other logs, in the format of the other logs, and the `AUDIT_LOG_*` environment variables have no effect in the Docker image. Add the appenders and the `org.bonitasoft.runtime.audit` logger of the default file to it, for the Tomcat bundle as for a file mounted on `/opt/bonita/conf/logs` in the Docker image.
 
 == Switch the audit log off
 
@@ -198,5 +198,5 @@ Only set it to `true` when browsers cannot reach Bonita without going through th
 * Session expiry. An explicit logout after the session has expired is not recorded either.
 * Bearer tokens rejected by the OIDC adapter.
 * Logins that do not go through the Bonita web application, such as calls to the Java `LoginAPI` from code running in the server.
-* Logouts of the sessions opened before Bonita was updated to 2026.2-u4, as their login was not recorded.
+* Logouts of the sessions opened before Bonita was updated to 2027.1, as their login was not recorded.
 * Login requests without any username: they are anonymous, not failed logins.
