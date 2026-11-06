@@ -82,7 +82,7 @@ Note that this new API is now also available in the Community edition and provid
 
 == Bug fixes
 
-=== Fixes in Bonita 2024.3-u12 (TBD)
+=== Fixes in Bonita 2024.3-u12 (2026-11-05)
 
 ==== File upload allowed extensions
 
