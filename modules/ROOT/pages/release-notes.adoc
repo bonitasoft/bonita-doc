@@ -84,7 +84,10 @@ Note that this new API is now also available in the Community edition and provid
 
 === Fixes in Bonita 2024.3-u12 (2026-11-05)
 
+* BPA-167 - Human task permanently stuck with orphaned contract data when a concurrent task update (take, priority, due date) overwrites state_executing (SWorkPreconditionException)
+* BPA-210 - Fix "Could not set ObjectFilter: null" message
 * BPA-291 - Configuration and license file lost when parallel setup pull / push are run
+* BPA-902 - Docker: Kerberos SSO fails with HTTP 500 when the ProGrade security manager is enabled
 
 ==== Platform configuration update (Setup tool)
 
