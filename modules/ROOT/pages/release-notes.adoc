@@ -142,7 +142,7 @@ For advanced cache tuning after migration, refer to the xref:runtime:performance
 
 * BPA-291 - Configuration and license file lost when parallel setup pull / push are run
 
-[#v2025-2-u12-setup-timeout]
+[#v2026-1-u4-setup-timeout]
 *Platform configuration update (Setup tool)*
 
 * `setup push` now updates the configuration in a single transaction, so a `setup pull` run at the same time no
