@@ -82,6 +82,25 @@ Note that this new API is now also available in the Community edition and provid
 
 == Bug fixes
 
+=== Fixes in Bonita 2024.3-u12 (2026-11-05)
+
+==== File upload allowed extensions
+
+* Generic file upload widgets and forms now restrict uploaded files to a default whitelist of common business file
+extensions (`pdf`, `doc`, `docx`, `xls`, `xlsx`, `ppt`, `pptx`, `txt`, `csv`, `json`, `jpg`, `jpeg`, `png`, `gif`,
+`bmp`, `xml`, `msg`, `eml`, `tif`, `tiff`, `odt`, `ods`, `odp`, `zip`), and reject files whose declared content type
+or, for binary formats, file signature does not match their extension. Binary files whose content matches their
+extension are accepted whatever their declared content type (for example `application/octet-stream`, sent by clients
+that do not recognize a file type), except types that a browser can execute.
+* The content type check applies to every file upload, including the `.xml` files of the administration imports
+(organization, actor mapping, profiles, applications, BDM access control). See
+xref:data:documents.adoc#document-allowed-content-types[Content type and content verification].
+* The whitelist can be customized, or opened to any extension with `+*+`, using the
+`form.attachment.allowed.extensions` property in the `console-config.properties` file. See
+xref:data:documents.adoc#document-allowed-extensions[Document allowed file extensions setting].
+* Rejected uploads are logged as warnings in the server log. See
+xref:data:documents.adoc#document-rejected-upload[Rejected uploads].
+
 === Fixes in Bonita 2024.3-u11 (2026-09-23)
 
 * BPA-327 - java.lang.NullPointerException on bonita-ldap-synchronizer
