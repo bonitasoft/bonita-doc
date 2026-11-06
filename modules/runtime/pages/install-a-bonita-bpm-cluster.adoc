@@ -62,7 +62,7 @@ value so that it reads `bonita.platform.hazelcast.interfaces.list=`: the member 
 Uncommenting the line without removing the value keeps the loopback default.
 
 [#hazelcast-client-protocol]
-From Bonita 2026.2-u4 (xref:version-update:product-versioning.adoc#technical-id[technical id] 11.1.4), the Hazelcast
+From Bonita 2027.1 (xref:version-update:product-versioning.adoc#technical-id[technical id] 12.0.x), the Hazelcast
 member accepts other Hazelcast members only, on a single node as in a cluster: Hazelcast clients, Management Center
 included, are refused, and the Hazelcast REST API, health check included, and Memcache are not served, even when
 `hazelcast.xml` enables them. Nothing in Bonita connects to the member as a client. A deployment that attaches a

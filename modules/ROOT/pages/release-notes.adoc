@@ -30,7 +30,7 @@ Version {bonitaVersion} is in development. These release notes are a work in pro
 * BPA-976 - Severe performance impact of BDM data tracking even when no data retention rules are defined +
 BDM data retention can now be disabled with the new `bonita.runtime.retention.enabled` configuration property (default: `true`). When it is set to `false`, BDM changes are no longer tracked, in all editions, and the cleanup job is not scheduled. When it is disabled, retention rules are read-only and the *Data Retention (GDPR)* page shows it, along with the history of the data retention state. Data created or modified while data retention is disabled requires a manual procedure before enabling it again: see xref:runtime:bdm-data-retention.adoc#disable-data-retention[Disabling data retention].
 
-[#v2026-2-u4-setup-timeout]
+[#setup-timeout]
 *Platform configuration update (Setup tool)*
 
 * `setup push` now updates the configuration in a single transaction, so a `setup pull` run at the same time no
@@ -74,7 +74,7 @@ See xref:security:audit-log.adoc[Audit log].
 
 ==== Hazelcast 5.7.0
 
-* Hazelcast, the library used by the Cluster feature, is updated from 5.4.0 to 5.7.0. If you run a cluster, read <<v2026-2-u3-cluster-update,Updating a cluster to 2026.2-u3>> before updating.
+* Hazelcast, the library used by the Cluster feature, is updated from 5.4.0 to 5.7.0. If you run a cluster, read <<v2027-1-u0-cluster-update,Updating a cluster to 2027.1-u0>> before updating.
 * Security hardening of the Hazelcast member. Two properties are involved, one per deployment mode.
 ** *Single node (Cluster feature not enabled).* The Hazelcast member that Bonita starts for its second-level cache now
 listens on loopback (`127.0.0.1`) only; it used to listen on every interface. This is controlled by a new property,
