@@ -26,4 +26,98 @@ Version {bonitaVersion} is in development. These release notes are a work in pro
 
 === Fixes in Bonita 2027.1-u0 (! DATE TO ADD HERE !)
 
-* Several dependencies updated
+* BPA-291 - Configuration and license file lost when parallel setup pull / push are run
+* BPA-976 - Severe performance impact of BDM data tracking even when no data retention rules are defined +
+BDM data retention can now be disabled with the new `bonita.runtime.retention.enabled` configuration property (default: `true`). When it is set to `false`, BDM changes are no longer tracked, in all editions, and the cleanup job is not scheduled. When it is disabled, retention rules are read-only and the *Data Retention (GDPR)* page shows it, along with the history of the data retention state. Data created or modified while data retention is disabled requires a manual procedure before enabling it again: see xref:runtime:bdm-data-retention.adoc#disable-data-retention[Disabling data retention].
+
+[#v2026-2-u4-setup-timeout]
+*Platform configuration update (Setup tool)*
+
+* `setup push` now updates the configuration in a single transaction, so a `setup pull` run at the same time no
+longer loses the configuration or the license.
+* `setup push` no longer deletes the licenses from the database when the `platform_conf/licenses` folder is missing.
+* Reading or writing the platform configuration now times out after 60 seconds by default, instead of waiting
+indefinitely. Change it with the new property `bonita.platform.setup.transaction-timeout` (for example `90s`):
+** when running the xref:runtime:bonita-platform-setup.adoc#update_platform_conf[Bonita Setup tool]: in
+`setup/internal.properties`, or on the command line, for example `setup.sh push -Dbonita.platform.setup.transaction-timeout=90s`;
+** when Bonita starts: as a JVM system property, for example `-Dbonita.platform.setup.transaction-timeout=90s` in `CATALINA_OPTS`,
+or as the environment variable `BONITA_PLATFORM_SETUP_TRANSACTION_TIMEOUT`, for example with Docker
+(see xref:runtime:configuring-bonita-with-properties.adoc[Bonita Runtime configuration]).
+* The value of `bonita.platform.setup.transaction-timeout` must be at least 1 second: `0` does not disable the timeout.
+
+==== File upload allowed extensions
+
+* Generic file upload widgets and forms now restrict uploaded files to a default whitelist of common business file
+extensions (`pdf`, `doc`, `docx`, `xls`, `xlsx`, `ppt`, `pptx`, `txt`, `csv`, `json`, `jpg`, `jpeg`, `png`, `gif`,
+`bmp`, `xml`, `msg`, `eml`, `tif`, `tiff`, `odt`, `ods`, `odp`, `zip`), and reject files whose declared content type
+or, for binary formats, file signature does not match their extension. Binary files whose content matches their
+extension are accepted whatever their declared content type (for example `application/octet-stream`, sent by clients
+that do not recognize a file type), except types that a browser can execute.
+* The content type check applies to every file upload, including the `.xml` files of the administration imports
+(organization, actor mapping, profiles, applications, BDM access control). See
+xref:data:documents.adoc#document-allowed-content-types[Content type and content verification].
+* The whitelist can be customized, or opened to any extension with `+*+`, using the
+`form.attachment.allowed.extensions` property in the `console-config.properties` file. See
+xref:data:documents.adoc#document-allowed-extensions[Document allowed file extensions setting].
+* Rejected uploads are logged as warnings in the server log. See
+xref:data:documents.adoc#document-rejected-upload[Rejected uploads].
+
+==== Audit log
+
+* Bonita now writes one JSON event per login, failed login and logout to an audit log, so that a SIEM can collect who
+authenticated, when and from where: in `server/logs/audit.log` in the Tomcat bundle, and on the standard output in the
+Docker image, where the new `AUDIT_LOG_STDOUT_ENABLED` and `AUDIT_LOG_FILES_ENABLED` environment variables, like the
+access logs ones, also write them to a file or switch them off. The audit log is on by default. If you reuse a
+`log4j2-appenders.xml` customized for an earlier version, add the audit appenders and logger of the default file to it.
+See xref:security:audit-log.adoc[Audit log].
+* In the Docker image, the color reset of the console log lines now ends each line instead of starting the next one.
+
+==== Hazelcast 5.7.0
+
+* Hazelcast, the library used by the Cluster feature, is updated from 5.4.0 to 5.7.0. If you run a cluster, read <<v2026-2-u3-cluster-update,Updating a cluster to 2026.2-u3>> before updating.
+* Security hardening of the Hazelcast member. Two properties are involved, one per deployment mode.
+** *Single node (Cluster feature not enabled).* The Hazelcast member that Bonita starts for its second-level cache now
+listens on loopback (`127.0.0.1`) only; it used to listen on every interface. This is controlled by a new property,
+`bonita.platform.hazelcast.interfaces.list`, whose default is `127.0.0.1`. Nothing to do, unless a Hazelcast client or
+Management Center connects to that member from another host. In that case, in `bonita-platform-sp-custom.properties`,
+uncomment the line and remove its value so that it reads `bonita.platform.hazelcast.interfaces.list=`: the member then
+follows the network settings of `hazelcast.xml`, which by default listen on every interface, as before. Uncommenting the
+line without removing the value keeps the loopback default.
+** *Cluster.* The default behaviour does not change: members keep listening on every interface, so that their peers
+can reach them. A new optional property, `bonita.platform.cluster.hazelcast.interfaces.list` in
+`bonita-platform-sp-cluster-custom.properties`, binds the member to the one address of the node that matches it, for
+example on a host with several networks. Earlier versions read a property of that name without applying it: if your
+configuration already sets it, make sure its value matches an address of the node, or the node does not start.
+** See xref:runtime:install-a-bonita-bpm-cluster.adoc#hazelcast-port-hardening[Allow communication between servers]
+for how to restrict port 5701.
+* The Hazelcast member embedded in Bonita accepts other Hazelcast members only, on a single node as in a cluster.
+Hazelcast clients, Management Center included, are refused, and the Hazelcast REST API, health check included, and
+Memcache are no longer served. Nothing in Bonita uses them. If your deployment uses any of them on purpose, set
+`bonita.platform.hazelcast.client-protocol.enabled=true` in `bonita-platform-sp-custom.properties`, with the same value
+on every node of a cluster, and restrict port 5701 to the hosts that need it. See
+xref:runtime:install-a-bonita-bpm-cluster.adoc#hazelcast-client-protocol[Allow communication between servers].
+
+[#v2027-1-u0-cluster-update]
+*Updating a cluster to 2027.1-u0*
+
+These points apply to Subscription editions running the Cluster feature. Installations that do not enable the
+Cluster feature are not affected, and Bonita Community edition does not use Hazelcast.
+
+* *No configuration change is required.* The update introduces new cluster properties, all with default
+values, so nothing needs to be added to your configuration. See
+xref:runtime:install-a-bonita-bpm-cluster.adoc#work-recovery[Work recovery when a node leaves the cluster] if
+you want to tune them.
+* *Work recovery is more robust.* The recovery of a departed node's work runs in the background instead of on
+a Hazelcast event thread, gives up on its own before its lock expires, and is tried again at the next departure
+or start for whatever it could not take over. A node that resumes after a tenant pause now resubmits the work
+that arrived while it was paused, which previously waited until the node left the cluster.
+* *Clusters updated from an earlier version log a warning about the configuration schema at every start.*
+Fresh installations do not. The message reports that the Hazelcast schema location is incorrect and that the
+default is used instead. It is harmless: your stored configuration still refers to the schema of the previous
+version, and the update does not rewrite it. To make it stop, update the version in the schema location in
+`platform_engine/hazelcast.xml` with the platform setup tool.
+* *Two diagnostics change.* The `Number of locks` column of the Hazelcast statistics file now counts the locks
+currently held on the node that writes the file, where it previously counted lock objects across the cluster,
+so expect a different magnitude and a value that varies with load. A lock whose lease expires before it is
+released is now reported as an error instead of a warning; if you raise alerts on errors from the cluster
+lock service, you may start seeing them for a condition that was already being reported at a lower level.
