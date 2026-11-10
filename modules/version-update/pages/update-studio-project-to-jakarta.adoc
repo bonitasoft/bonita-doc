@@ -12,7 +12,7 @@ When you clone or import a project from a previous version, Bonita Studio migrat
 
 Bonita Studio writes the changes it applies, and the actions it leaves to you, in two places:
 
-* `MIGRATION_NOTES.adoc` at the root of the project, opened after the migration (see xref:update-studio.adoc[Updating Bonita Studio]): the changes to the project pom and to the poms of the Business Data Model modules.
+* `app/MIGRATION_NOTES.adoc`, in the `app` module of the project, opened after the migration (see xref:update-studio.adoc[Updating Bonita Studio]): the changes to the project pom and to the poms of the Business Data Model modules.
 * `extensions/<extension>/MIGRATION_NOTES.adoc`, one per migrated extension: the changes to the extension pom, and the actions about the extension poms and sources. This file is not opened for you: open it for each extension.
 
 Look for the lines starting with *Action required*: each of them describes an action you must take.
