@@ -189,7 +189,7 @@ with the certificate provided by the IdP.
   *** make sure you have the following in the SingleLogoutService node:
    **** validateRequestSignature="true"
    **** validateResponseSignature="true"
- ** The IDP entityID attribute needs to be replaced with the entity ID of the IdP.
+ ** The IDP entityID attribute needs to be replaced with the entity ID of the IdP, exactly as published in the IdP metadata (the `entityID` attribute of its `EntityDescriptor`; for a Keycloak IdP, the realm URL, for example `+https://sso.example.com/realms/bonita+`). Bonita rejects the SAML messages whose issuer is not this value, see <<saml-issuer-check>>.
  ** The PrincipalNameMapping policy indicates how to retrieve, in the SAML response from the IdP, the identifier of the subject that matches the bonita user account username.
 The policy can either be FROM_NAME_ID or FROM_ATTRIBUTE (in that case you need to specify the name of the attribute to use --only one attribute can be specified--). There can only be one mapping (meaning that the same policy is used for all the user accounts).
  ** You may also need to change the requestBinding and/or responseBinding from POST to REDIRECT depending on your IdP configuration.
@@ -289,6 +289,37 @@ This can also be achieved by configuring the load balancer / reverse proxy so th
     X-Forwarded-Host: your.bonita.external.url.host
 ----
 If you need more fine tuning or if you cannot update the reverse proxy configuration, you can consult the official documentation for https://tomcat.apache.org/connectors-doc/common_howto/proxy.html[Tomcat]
+====
+
+[#saml-issuer-check]
+=== IdP issuer check
+
+[NOTE]
+====
+The issuer check described in this section applies since Bonita 2024.3-u13 (10.2.13).
+====
+
+Bonita only accepts the SAML messages issued by the IdP configured in the `IDP` node of *keycloak-saml.xml*:
+
+* In a SAML response sent to the ACS URL (`/bonita/saml`), the `Issuer` of the assertion is mandatory and must be equal to the `entityID` attribute of the `IDP` node. The `Issuer` of the response itself is optional, but when it is present, it must have the same value.
+* In a logout request sent by the IdP, the `Issuer` is mandatory and must be equal to the `entityID` attribute of the `IDP` node.
+
+The values are compared as exact strings. A message from another issuer is rejected with an HTTP 403 response even when its signature is valid, so that another issuer signing with the same key as your IdP (for example another tenant or realm of the same IdP) cannot log users into Bonita. Each rejection is logged as an error naming the received and the configured issuer (see the <<saml-issuer-rejected,troubleshooting section>>).
+
+Bonita also logs a warning when it loads a *keycloak-saml.xml* whose IDP `entityID` is still `idp`, the value of the file provided with Bonita.
+
+If you cannot set the right IDP `entityID` right away, you can turn the check off temporarily by adding the following property to *authenticationManager-config.properties*:
+
+[source,properties]
+----
+saml.issuer.validation = false
+----
+
+Only the value `false` turns the check off; the check is on when the property is absent or has any other value.
+
+[WARNING]
+====
+While the check is off, Bonita accepts the SAML messages of any issuer whose signature is valid, and logs a warning naming the received and the configured issuer for each message that does not come from the configured IdP. Set the IDP `entityID` to the entity ID of your IdP and remove the property as soon as possible.
 ====
 
 == Configure the Identity Provider
@@ -502,6 +533,28 @@ Some IdPs dissociate the Recipient URL from the Assertion Consumer Service (ACS)
 
 [.solution]#Possible solution#
 The workaround for this issue is to make sure to set the Recipient parameter in the IdP configuration with the same value as the ACS of the service provider (`http[s]://<bundle host>:<port>/bonita/saml`), so that the `destination` attribute is present in the SAML response. This issue happens when the Recipient URL is left empty resulting to an empty `destination` attribute in the SAML response.
+--
+
+
+[#saml-issuer-rejected]
+[.troubleshooting-section]
+--
+[.symptom]
+After successfully logging in on the IdP and being redirected to Bonita there is a 403 on the ACS request, since the update to Bonita 2024.3-u13 or later.
+
+[.symptom-description]
+A message like the following appears in the Bonita server log:
+
+[source,log]
+----
+ERROR [org.bonitasoft.console.common.server.auth.impl.saml.BonitaSamlEndpoint] SAML assertion rejected: its Issuer 'https://sso.example.com/realms/bonita' is not the IDP entityID 'idp' configured in keycloak-saml.xml. Check that the IDP entityID is the entity ID published in your identity provider's metadata.
+----
+
+[.cause]#Potential cause#
+The `entityID` attribute of the `IDP` node in *keycloak-saml.xml* is not the entity ID of your IdP (for example, it is still `idp`, the value of the file provided with Bonita). Bonita did not use this value before 2024.3-u13, so a wrong value went unnoticed. See <<saml-issuer-check>>.
+
+[.solution]#Possible solution#
+Set the `entityID` attribute of the `IDP` node to the entity ID published in the metadata of your IdP. Do not copy the issuer received in the log without checking it: if it is not the entity ID of your IdP, the message may come from another issuer and must stay rejected.
 --
 
 
