@@ -82,6 +82,20 @@ Note that this new API is now also available in the Community edition and provid
 
 == Bug fixes
 
+=== Fixes in Bonita 2024.3-u13 (TBD)
+
+==== SAML: identity provider issuer check
+
+* Bonita now only accepts the SAML responses and logout requests whose `Issuer` is the IDP `entityID` configured in
+*keycloak-saml.xml*. Before, a response whose signature matched the IdP certificate was accepted whatever its issuer. 
+See xref:identity:single-sign-on-with-saml.adoc#saml-issuer-check[IdP issuer check].
+* Bonita did not use the IDP `entityID` before, so it may still hold the value `idp` of the file provided with Bonita,
+or another wrong value. SAML logins are then rejected after the update, with an error in the server log. Before
+updating, check that the IDP `entityID` in *keycloak-saml.xml* is the entity ID published in the metadata of your IdP.
+Bonita logs a warning when it is still `idp`.
+* If you cannot fix the IDP `entityID` right away, `saml.issuer.validation = false` in
+`authenticationManager-config.properties` turns the check off temporarily.
+
 === Fixes in Bonita 2024.3-u12 (2026-11-05)
 
 * BPA-167 - Human task permanently stuck with orphaned contract data when a concurrent task update (take, priority, due date) overwrites state_executing (SWorkPreconditionException)
