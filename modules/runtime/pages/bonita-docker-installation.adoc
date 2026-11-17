@@ -615,6 +615,26 @@ Set to *false* to disable the security policy (not recommended):
 -e PRO_GRADE=false
 ----
 
+[#read-only-install]
+=== READ_ONLY_INSTALL_ENABLED
+
+Since Bonita 2027.1, this optional environment variable makes the Bonita files read-only for the user that runs Tomcat, once the container is configured and just before Tomcat starts. The default value is *true*.
+
+Only these folders stay writable: `/opt/bonita/server/temp`, `/opt/bonita/server/work`, `/opt/bonita/server/logs`, `/opt/bonita/logs`, `/opt/bonita/h2_database`, and the mounted volumes. This way, the Tomcat process cannot change the Bonita code, nor a file that runs at the next start. The scripts in `/opt/custom-init.d/` become read-only too, even when this folder is a mounted volume.
+
+* At each start, the write access is given back before the initialization scripts run, so they can still change the Bonita files.
+* To change a file while the container runs, do it as root (`docker exec` runs as root by default), or give the write access back first with `chmod u+w <file>`. The next start makes the file read-only again.
+* The files can only be made read-only when the container starts as root (the default) or with `--user 1000`. With another user, the Bonita files stay writable, and a warning is written in the logs.
+* The container only supports the `bonita` web application: deploy other web applications in their own container.
+* Whatever the value of this variable, Tomcat does not deploy a web application added while it runs, nor a web application that contains a `META-INF/context.xml` file. If an initialization script adds a web application, it must copy it as an unpacked folder, not as a `.war` file (Tomcat cannot unpack a `.war` file in a read-only folder), and copy its context file to `/opt/bonita/server/conf/Catalina/localhost/<web application name>.xml`.
+
+Set to *false* to keep the Bonita files writable (not recommended):
+
+[source,shell]
+----
+-e READ_ONLY_INSTALL_ENABLED=false
+----
+
 [#initialization-scripts]
 == Initialization scripts
 Also called init scripts, which help you perform any critical operations before your services are fully up and running.
@@ -633,6 +653,8 @@ It is ignored during subsequent restarts of the container.
 === `/opt/custom-init.d/` directory
 
 All initialization scripts with the .sh suffix located in this directory are sourced at EVERY container start, including restarts.
+
+With <<read-only-install,READ_ONLY_INSTALL_ENABLED>> set to *true* (the default), the scripts in this directory become read-only once they have run, even on a mounted volume: edit them on the host as root, or give the write access back first with `chmod u+w`.
 
 
 [#logger_configuration]
@@ -658,12 +680,14 @@ of that file is used instead, and is not reloaded unless one of the other watche
 
 Since Bonita 2027.1, `log4j2-appenders.xml` declares the xref:security:audit-log.adoc[audit log] logger and its appenders: add them to a file customized for an earlier version.
 
-If no user is specified to create the container (`--user`), the filesystem access rights are downgraded to allow only the `bonita` user (inside the Docker container), meaning that a standard user cannot access the log4j2 configuration folder on the host machine (`~/my-config/log4j/` in this example) anymore. Make sure to access it as a "sudoer" to hot-modify the logger configuration, or specify a dedicated user when creating the container:
+If no user is specified to create the container (`--user`), the filesystem access rights are downgraded to allow only the `bonita` user (inside the Docker container), meaning that a standard user cannot access the log4j2 configuration folder on the host machine (`~/my-config/log4j/` in this example) anymore. Make sure to access it as a "sudoer" to hot-modify the logger configuration, or start the container with the `bonita` user (uid 1000), after giving this user access to the host folder:
 
 [source,shell]
 ----
-docker run --user <my-dedicated-bonita-user> -v ~/my-config/log4j/:/opt/bonita/conf/logs/ ...
+docker run --user 1000 -v ~/my-config/log4j/:/opt/bonita/conf/logs/ ...
 ----
+
+With another user, the Bonita files cannot be made read-only (see <<read-only-install,READ_ONLY_INSTALL_ENABLED>>).
 
 == Migrating from an earlier version of Bonita
 
