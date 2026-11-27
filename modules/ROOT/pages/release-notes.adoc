@@ -130,6 +130,22 @@ on every node of a cluster, and restrict port 5701 to the hosts that need it. Se
 xref:runtime:install-a-bonita-bpm-cluster.adoc#hazelcast-client-protocol[Allow communication between servers].
 * The Hazelcast member embedded in Bonita no longer tries to send statistics.
 
+[[v2024.3-u12-security-fixes]]
+*Security fixes*
+
+* CVE-68: An end user can upload files with any extension
+* CVE-645: jackson-core - Delayed maxNameLength enforcement for char-backed input (`ReaderBasedJsonParser`) allows memory-exhaustio (public CVE-2026-68498)
+* CVE-651: jackson-core - ReDoS: quadratic backtracking in NumberInput.PATTERN_FLOAT via looksLikeValidNumber() (public CVE-2026-89407)
+* CVE-652: jackson-core - UTF8DataInputJsonParser._reportInvalidToken() missing maxErrorTokenLength limit -> unbounded StringBuilde (public CVE-2026-89425)
+* CVE-653: jackson-databind - jackson-databind retains every unknown raw type ID (public CVE-2026-91776)
+* CVE-654: jackson-databind - jackson-databind quadratic forward-reference completion (public CVE-2026-91777)
+* CVE-664: hazelcast - Predicate API filter bypass (public GHSA-74r8-7r86-phxq)
+* CVE-727: owasp-java-html-sanitizer - Incomplete fix of CVE-2025-66021 — allowed elements inside style/script allowTextIn block by (public GHSA-vqwm-jvq2-mfwc)
+* CVE-755: keycloak-saml-servlet-filter-adapter - A session fixation issue was discovered in the SAML adapters provided by Keycloak (public CVE-2024-7341)
+* CVE-800: hazelcast - Arbitrary file read vulnerability (public GHSA-6hfv-j8jg-ggpx)
+* CVE-801: owasp-java-html-sanitizer - Denial of service via deeply nested CSS functions in style attributes (public GHSA-x6fc-6qh4-g3wr)
+* CVE-802: owasp-java-html-sanitizer - Denial of service via a tag with many repeated allowed attributes (public GHSA-47x2-9gq9-jg3m)
+
 === Fixes in Bonita 2024.3-u11 (2026-09-23)
 
 * BPA-327 - java.lang.NullPointerException on bonita-ldap-synchronizer
