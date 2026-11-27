@@ -170,7 +170,7 @@ See xref:security:audit-log.adoc[Audit log].
 [[v2026.2-u4-security-fixes]]
 *Security fixes*
 
-* CVE-68: An end user can upload files with any extension (public CVE TBD — fill manually)
+* CVE-68: An end user can upload files with any extension
 * CVE-645: jackson-core - Delayed maxNameLength enforcement for char-backed input (`ReaderBasedJsonParser`) allows memory-exhaustio (public CVE-2026-68498)
 * CVE-651: jackson-core - ReDoS: quadratic backtracking in NumberInput.PATTERN_FLOAT via looksLikeValidNumber() (public CVE-2026-89407)
 * CVE-652: jackson-core - UTF8DataInputJsonParser._reportInvalidToken() missing maxErrorTokenLength limit -> unbounded StringBuilde (public CVE-2026-89425)
