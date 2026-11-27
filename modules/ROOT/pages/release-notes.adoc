@@ -82,6 +82,12 @@ Note that this new API is now also available in the Community edition and provid
 
 == Bug fixes
 
+=== Fixes in Bonita 2024.3-u13 (2026-11-27)
+
+* BPA-1056 - TokenValidatorFilter copies each multipart body it checks to a temporary file, and only FileUploadServlet deletes it
+* BPA-1059 - FileUploadServlet leaves a copy of each uploaded file part above 10 KB in the Tomcat temp folder (upload_*.tmp), not deleted before garbage collection
+* BPA-1060 - PageUploadServlet keeps the uploaded page in a servlet field and a failed upload leaves it on disk until the JVM stops
+
 === Fixes in Bonita 2024.3-u12 (2026-11-05)
 
 * BPA-167 - Human task permanently stuck with orphaned contract data when a concurrent task update (take, priority, due date) overwrites state_executing (SWorkPreconditionException)
