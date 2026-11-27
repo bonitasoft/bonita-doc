@@ -106,6 +106,14 @@ Several REST resources were added to support the Task Delegation feature:
 
 == Bug fixes
 
+=== Fixes in Bonita 2026.2-u5 (2026-11-27)
+
+* BPA-687 - NullPointerException in BusinessDataController.getBusinessDataByQuery when a parameterless BDM query is called while DEBUG logging is enabled for org.bonitasoft
+* BPA-867 - Large exception at connector execution generates error
+* BPA-1056 - TokenValidatorFilter copies each multipart body it checks to a temporary file, and only FileUploadServlet deletes it
+* BPA-1059 - FileUploadServlet leaves a copy of each uploaded file part above 10 KB in the Tomcat temp folder (upload_*.tmp), not deleted before garbage collection
+* BPA-1060 - PageUploadServlet keeps the uploaded page in a servlet field and a failed upload leaves it on disk until the JVM stops
+
 === Fixes in Bonita 2026.2-u4 (2026-11-05)
 
 * BPA-167 - Human task permanently stuck with orphaned contract data when a concurrent task update (take, priority, due date) overwrites state_executing (SWorkPreconditionException)
